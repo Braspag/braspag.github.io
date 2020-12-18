@@ -29,9 +29,9 @@ Experimente as nossas APIs sem compromisso!
 
 |Informação|Descrição|
 |----|----|
-|Credenciais de Acesso à API|Acesse o [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/) e crie uma conta de testes. Ao fim do cadastro você receberá um `MerchantId` e um `MerchantKey`, que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API.|
-|Endpoint Transacional|[API Sandbox Braspag](https://apisandbox.braspag.com.br/)|
-|Endpoint para Serviços de Consultas|[API Query Sandbox Braspag](https://apiquerysandbox.braspag.com.br/)|
+|Credenciais de acesso|Acesse o [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/) e crie uma conta de testes. Ao fim do cadastro você receberá um `MerchantId` e um `MerchantKey`, que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API.|
+|Endpoint transacional|https://apisandbox.braspag.com.br/|
+|Endpoint para serviços de consultas|https://apiquerysandbox.braspag.com.br/|
 
 ### Ambiente de Produção
 
@@ -39,13 +39,13 @@ Realizados os testes, disponibilize sua solução em ambiente de Produção.
 
 |Informação|Descrição|
 |---|---|
-|Credenciais de Acesso à API|Envie um email para *comercial@braspag.com.br* para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.|
-|Endpoint Transacional|[API Braspag](https://api.braspag.com.br/)|
-|Endpoint para Serviços de Consultas|[API Query Braspag](https://apiquery.braspag.com.br/)|
+|Credenciais de acesso à API|Envie um email para *comercial@braspag.com.br* para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.|
+|Endpoint transacional|https://api.braspag.com.br/|
+|Endpoint para serviços de consultas|https://apiquery.braspag.com.br/|
 
 ## Suporte Braspag
 
-<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e da ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
+<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e de ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
 
 Acesse nossa ferramenta de atendimento web [Zendesk](http://suporte.braspag.com.br/) e consulte o nosso artigo [Atendimento Braspag](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag) para mais informações sobre nosso serviço de suporte. 
 
@@ -53,13 +53,13 @@ Acesse nossa ferramenta de atendimento web [Zendesk](http://suporte.braspag.com.
 
 A solução API Pagador foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: *ASP, ASP.Net, Java, PHP, Ruby e Python*.
 
-Conheça alguns dos atributos que mais se destacam na plataforma Braspag eCommerce:
+Conheça alguns dos atributos que se destacam na plataforma Braspag eCommerce:
 
 * **Ausência de aplicativos proprietários**: não é necessário instalar aplicativos no ambiente da loja virtual em nenhuma hipótese.
 * **Simplicidade**: o protocolo utilizado é puramente o HTTPS.
 * **Facilidade de testes**: a plataforma Braspag oferece um ambiente Sandbox publicamente acessível, que permite ao desenvolvedor a criação de uma conta de testes sem a necessidade de credenciamento, facilitando e agilizando o início da integração.
 * **Credenciais**: o tratamento das credenciais do cliente (número de afiliação e chave de acesso) trafega no cabeçalho da requisição HTTP da mensagem.
-* **Segurança**: a troca de informações se dá sempre entre o Servidor da Loja e da Braspag, ou seja, sem o browser do comprador.
+* **Segurança**: a troca de informações se dá sempre entre o servidor da loja e o servidor da Braspag, ou seja, sem o browser do comprador.
 * **Integração multiplataforma**: a integração é realizada através de APIs REST, que permitem a utilização de diferentes aplicações.
 
 ## Arquitetura
@@ -656,9 +656,9 @@ Com o processo de autenticação, é possível fazer uma análise de risco consi
 
 Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor (banco), onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
-<aside class="warning">Importante: o 3DS 1.0 não funciona em ambiente mobile.</aside>
-
 No ambiente mobile, indicamos a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) para autenticação.
+
+<aside class="warning">Importante: o 3DS 1.0 não funciona em ambiente mobile.</aside>
 
 Existem duas maneiras de autenticar transações na Braspag:
 
@@ -753,7 +753,7 @@ curl
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
-|`Payment.Authenticate`|Define se o comprador será direcionado ao banco emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor *true*. * Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.|Booleano|---|Não (default *false*)|
+|`Payment.Authenticate`|Define se o comprador será direcionado ao banco emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor *true*. Obs.: Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.|Booleano|---|Não (default *false*)|
 |`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim da autenticação.|Texto|1024|Sim (quando *Authenticate* é *true*)|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
 |`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
@@ -872,8 +872,8 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação.|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos).|Texto|512|Transação Aprovada|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação.|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
 
 #### Autenticação Externa
@@ -968,7 +968,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.ExternalAuthentication.Cavv`|Valor retornado pelo mecanismo de autenticação externa.|Texto | - | Sim |
+|`Payment.ExternalAuthentication.Cavv`|Valor retornado pelo mecanismo de autenticação externa.|Texto | - |Sim|
 |`Payment.ExternalAuthentication.Xid`|Valor retornado pelo mecanismo de autenticação externa.|Texto| - |Sim|
 |`Payment.ExternalAuthentication.Eci`|Valor retornado pelo mecanismo de autenticação externa.|Número|1|Sim|
 
@@ -1153,7 +1153,7 @@ Uma transação com cartão de débito se efetua de forma semelhante à do cart�
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Atualmente somente a **Cielo** suporta esta forma de pagamento via Pagador.|Texto|15|Sim|
-|`Payment.Type`|Tipo do meio de pagamento. No caso, o cartão de débito (*DebitCard*).|Texto|100|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
 |`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento.|Texto |1024|Sim|
