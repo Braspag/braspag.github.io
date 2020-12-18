@@ -162,16 +162,16 @@
   </thead>
   <tbody>
     <tr>
-      <td>Credenciais de Acesso à API</td>
+      <td>Credenciais de acesso</td>
       <td>Acesse o <a href="https://cadastrosandbox.braspag.com.br/">Cadastro do Sandbox</a> e crie uma conta de testes. Ao fim do cadastro você receberá um <code class="language-plaintext highlighter-rouge">MerchantId</code> e um <code class="language-plaintext highlighter-rouge">MerchantKey</code>, que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API.</td>
     </tr>
     <tr>
-      <td>Endpoint Transacional</td>
-      <td><a href="https://apisandbox.braspag.com.br/">API Sandbox Braspag</a></td>
+      <td>Endpoint transacional</td>
+      <td>https://apisandbox.braspag.com.br/</td>
     </tr>
     <tr>
-      <td>Endpoint para Serviços de Consultas</td>
-      <td><a href="https://apiquerysandbox.braspag.com.br/">API Query Sandbox Braspag</a></td>
+      <td>Endpoint para serviços de consultas</td>
+      <td>https://apiquerysandbox.braspag.com.br/</td>
     </tr>
   </tbody>
 </table>
@@ -189,23 +189,23 @@
   </thead>
   <tbody>
     <tr>
-      <td>Credenciais de Acesso à API</td>
+      <td>Credenciais de acesso à API</td>
       <td>Envie um email para <em>comercial@braspag.com.br</em> para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.</td>
     </tr>
     <tr>
-      <td>Endpoint Transacional</td>
-      <td><a href="https://api.braspag.com.br/">API Braspag</a></td>
+      <td>Endpoint transacional</td>
+      <td>https://api.braspag.com.br/</td>
     </tr>
     <tr>
-      <td>Endpoint para Serviços de Consultas</td>
-      <td><a href="https://apiquery.braspag.com.br/">API Query Braspag</a></td>
+      <td>Endpoint para serviços de consultas</td>
+      <td>https://apiquery.braspag.com.br/</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="suporte-braspag">Suporte Braspag</h2>
 
-<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e da ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
+<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e de ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
 
 <p>Acesse nossa ferramenta de atendimento web <a href="http://suporte.braspag.com.br/">Zendesk</a> e consulte o nosso artigo <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">Atendimento Braspag</a> para mais informações sobre nosso serviço de suporte.</p>
 
@@ -213,14 +213,14 @@
 
 <p>A solução API Pagador foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: <em>ASP, ASP.Net, Java, PHP, Ruby e Python</em>.</p>
 
-<p>Conheça alguns dos atributos que mais se destacam na plataforma Braspag eCommerce:</p>
+<p>Conheça alguns dos atributos que se destacam na plataforma Braspag eCommerce:</p>
 
 <ul>
   <li><strong>Ausência de aplicativos proprietários</strong>: não é necessário instalar aplicativos no ambiente da loja virtual em nenhuma hipótese.</li>
   <li><strong>Simplicidade</strong>: o protocolo utilizado é puramente o HTTPS.</li>
   <li><strong>Facilidade de testes</strong>: a plataforma Braspag oferece um ambiente Sandbox publicamente acessível, que permite ao desenvolvedor a criação de uma conta de testes sem a necessidade de credenciamento, facilitando e agilizando o início da integração.</li>
   <li><strong>Credenciais</strong>: o tratamento das credenciais do cliente (número de afiliação e chave de acesso) trafega no cabeçalho da requisição HTTP da mensagem.</li>
-  <li><strong>Segurança</strong>: a troca de informações se dá sempre entre o Servidor da Loja e da Braspag, ou seja, sem o browser do comprador.</li>
+  <li><strong>Segurança</strong>: a troca de informações se dá sempre entre o servidor da loja e o servidor da Braspag, ou seja, sem o browser do comprador.</li>
   <li><strong>Integração multiplataforma</strong>: a integração é realizada através de APIs REST, que permitem a utilização de diferentes aplicações.</li>
 </ul>
 
@@ -1433,9 +1433,9 @@ curl
 
 <p>Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor (banco), onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de <em>chargeback</em> (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.</p>
 
-<aside class="warning">Importante: o 3DS 1.0 não funciona em ambiente mobile.</aside>
-
 <p>No ambiente mobile, indicamos a utilização da versão <a href="https://braspag.github.io//manualp/emv3ds">3DS 2.0</a> para autenticação.</p>
+
+<aside class="warning">Importante: o 3DS 1.0 não funciona em ambiente mobile.</aside>
 
 <p>Existem duas maneiras de autenticar transações na Braspag:</p>
 
@@ -1565,7 +1565,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Define se o comprador será direcionado ao banco emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor <em>true</em>. * Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.</td>
+      <td>Define se o comprador será direcionado ao banco emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor <em>true</em>. Obs.: Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.</td>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (default <em>false</em>)</td>
@@ -1783,14 +1783,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e bancos).</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos).</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
@@ -2147,7 +2147,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do meio de pagamento. No caso, o cartão de débito (<em>DebitCard</em>).</td>
+      <td>Tipo do meio de pagamento.</td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
