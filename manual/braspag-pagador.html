@@ -3247,7 +3247,6 @@ curl
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -3257,7 +3256,6 @@ curl
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
@@ -3265,7 +3263,6 @@ curl
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
@@ -3273,23 +3270,20 @@ curl
       <td>GUID</td>
       <td>36</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Número de identificação do pedido. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (vide <a href="#regras-específicas-por-banco">tabela abaixo</a>).</td>
+      <td>Número de identificação do pedido. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (consulte a <a href="#regras-específicas-por-banco">tabela</a>).</td>
       <td>Texto</td>
-      <td>Consulte <a href="#regras-específicas-por-banco">tabela</a></td>
+      <td>Veja a <a href="#regras-específicas-por-banco">tabela</a></td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Nome do comprador. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (vide <a href="#regras-específicas-por-banco">tabela abaixo</a>).</td>
+      <td>Nome do comprador. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (consulte a <a href="#regras-específicas-por-banco">tabela</a>).</td>
       <td>Texto</td>
-      <td>Consulte <a href="#regras-específicas-por-banco">tabela</a></td>
+      <td>Veja a <a href="#regras-específicas-por-banco">tabela</a></td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
@@ -3297,7 +3291,6 @@ curl
       <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
@@ -3305,31 +3298,27 @@ curl
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Endereço de contato do comprador. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (vide <a href="#regras-específicas-por-banco">tabela abaixo</a>).</td>
+      <td>Endereço de contato do comprador. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (consulte a <a href="#regras-específicas-por-banco">tabela</a>).</td>
       <td>Texto</td>
-      <td>Consulte <a href="#regras-específicas-por-banco">tabela</a></td>
+      <td>Veja a <a href="#regras-específicas-por-banco">tabela</a></td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Número do endereço de contato do comprador. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (vide <a href="#regras-específicas-por-banco">tabela abaixo</a>).</td>
+      <td>Número do endereço de contato do comprador. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (consulte a <a href="#regras-específicas-por-banco">tabela</a>).</td>
       <td>Texto</td>
-      <td>Consulte <a href="#regras-específicas-por-banco">tabela</a></td>
+      <td>Veja a <a href="#regras-específicas-por-banco">tabela</a></td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Complemento do endereço de contato do comprador. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (vide <a href="#regras-específicas-por-banco">tabela abaixo</a>).</td>
+      <td>Complemento do endereço de contato do comprador. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (consulte a <a href="#regras-específicas-por-banco">tabela</a>).</td>
       <td>Texto</td>
-      <td>Consulte <a href="#regras-específicas-por-banco">tabela</a></td>
+      <td>Veja a <a href="#regras-específicas-por-banco">tabela</a></td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
@@ -3337,23 +3326,20 @@ curl
       <td>Texto</td>
       <td>8</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td> </td>
-      <td>Bairro do endereço de contato do comprador. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (vide <a href="#regras-específicas-por-banco">tabela abaixo</a>).</td>
+      <td>Bairro do endereço de contato do comprador. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (consulte a <a href="#regras-específicas-por-banco">tabela</a>).</td>
       <td>Texto</td>
-      <td>Consulte <a href="#regras-específicas-por-banco">tabela</a></td>
+      <td>Veja a <a href="#regras-específicas-por-banco">tabela</a></td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Cidade do endereço de contato do comprador. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (vide <a href="#regras-específicas-por-banco">tabela abaixo</a>).</td>
+      <td>Cidade do endereço de contato do comprador. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (consulte a <a href="#regras-específicas-por-banco">tabela</a>).</td>
       <td>Texto</td>
-      <td>Consulte <a href="#regras-específicas-por-banco">tabela</a></td>
+      <td>Veja a <a href="#regras-específicas-por-banco">tabela</a></td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
@@ -3361,7 +3347,6 @@ curl
       <td>Texto</td>
       <td>2</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
@@ -3369,7 +3354,6 @@ curl
       <td>Texto</td>
       <td>35</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
@@ -3377,7 +3361,6 @@ curl
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -3385,7 +3368,6 @@ curl
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
@@ -3393,15 +3375,13 @@ curl
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
-      <td>Número do boleto (“Nosso Número”). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (vide <a href="#regras-específicas-por-banco">tabela abaixo</a>).</td>
+      <td>Número do boleto (“Nosso Número”). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (consulte a <a href="#regras-específicas-por-banco">tabela</a>).</td>
       <td>Texto</td>
-      <td>Consulte <a href="#regras-específicas-por-banco">tabela</a></td>
+      <td>Veja a <a href="#regras-específicas-por-banco">tabela</a></td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Assignor</code></td>
@@ -3409,15 +3389,13 @@ curl
       <td>Texto</td>
       <td>200</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
-      <td>Texto de demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide <a href="#regras-específicas-por-banco">tabela abaixo</a>).</td>
+      <td>Texto de demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (consulte a <a href="#regras-específicas-por-banco">tabela</a>).</td>
       <td>Texto</td>
-      <td>Consulte <a href="#regras-específicas-por-banco">tabela</a></td>
+      <td>Veja a <a href="#regras-específicas-por-banco">tabela</a></td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExpirationDate</code></td>
@@ -3425,7 +3403,6 @@ curl
       <td>Date</td>
       <td>AAAA-MM-DD</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Identification</code></td>
@@ -3433,15 +3410,13 @@ curl
       <td>Texto</td>
       <td>14</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
-      <td>Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (vide <a href="#regras-específicas-por-banco">tabela abaixo</a>). Para quebra de linhas no texto utilize sempre a notação em HTML <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>.</td>
+      <td>Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o <code class="language-plaintext highlighter-rouge">Provider</code> utilizado (consulte a <a href="#regras-específicas-por-banco">tabela</a>). Para quebra de linhas no texto utilize sempre a notação em HTML <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>.</td>
       <td>Texto</td>
-      <td>Consulte <a href="#regras-específicas-por-banco">tabela</a></td>
+      <td>Veja a <a href="#regras-específicas-por-banco">tabela</a></td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.NullifyDays</code></td>
@@ -3449,7 +3424,6 @@ curl
       <td>Número</td>
       <td>2</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DaysToFine</code></td>
@@ -3457,7 +3431,6 @@ curl
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FineRate</code></td>
@@ -3465,7 +3438,6 @@ curl
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FineAmount</code></td>
@@ -3473,7 +3445,6 @@ curl
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DaysToInterest</code></td>
@@ -3481,7 +3452,6 @@ curl
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InterestRate</code></td>
@@ -3489,7 +3459,6 @@ curl
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code></td>
@@ -3497,7 +3466,6 @@ curl
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
