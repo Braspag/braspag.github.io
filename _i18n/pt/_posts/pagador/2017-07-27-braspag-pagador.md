@@ -1539,7 +1539,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`QrCodeBase64Image`|QR code codificado em base 64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este: `<img src="data:image/png;base64,{código da imagem em base 64}">`.|Texto|Variável|Texto alfanumérico|
+|`QrCodeBase64Image`|QR code codificado em base 64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este: <code><img src="data:image/png;base64,{código da imagem em base 64}"></code>.|Texto|Variável|Texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido, necessário para operações como consulta, captura e cancelamento.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Status da transação. No caso da transação de geração com QR code, o status inicial é "12" (Pendente).|Byte|-|2|
 |`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
@@ -1547,9 +1547,9 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 ### Cancelando/Estornando uma Transação
 
-Para cancelar uma transação que utilizou cartão de crédito, é necessário o envio de mensagem HTTP através do método PUT para o recurso *Payment* conforme o exemplo.
+Para cancelar uma transação que utilizou cartão de crédito, é necessário o envio de mensagem HTTP através do método PUT para o recurso *Payment*, conforme o exemplo.
 
-Cada adquirente tem seus prazos limites para permitir o estorno de uma transação. Neste [artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) você poderá conferir cada um deles.
+Cada adquirente tem seus prazos limites para permitir o estorno de uma transação. [Neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) você poderá conferir cada um deles.
 
 A disponibilidade do serviço de estorno varia de adquirente para adquirente.
 
@@ -1572,10 +1572,10 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API. |Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
-|`PaymentId`|Campo Identificador do Pedido. |GUID |36 |Sim|
-|`Amount`|Valor a ser cancelado/estornado (ser enviado em centavos). Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno|Número |15 |Não|
+|`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não|
+|`PaymentId`|Campo identificador do pedido.|GUID |36 |Sim|
+|`Amount`|Valor, em centavos, a ser cancelado/estornado. Obs.: Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.|Número |15 |Não|
 
 #### Resposta
 
@@ -1619,9 +1619,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
-|`ReasonCode`|Código de retorno da Adquirência. |Texto |32 |Texto alfanumérico
-|`ReasonMessage`|Mensagem de retorno da Adquirência. |Texto |512 |Texto alfanumérico
+|`Status`|Status da transação. |Byte | 2 | Ex. 1 |
+|`ReasonCode`|Código de retorno da adquirência. |Texto |32 |Texto alfanumérico
+|`ReasonMessage`|Mensagem de retorno da adquirência. |Texto |512 |Texto alfanumérico
 
 ### Transação com Velocity Check
 
