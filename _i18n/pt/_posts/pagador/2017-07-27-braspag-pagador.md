@@ -1944,26 +1944,26 @@ curl
 |-----------|---------|----|-------|-------|
 |`PaymentId`|Campo Identificador do Pedido. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
-|`Url`|URL do Boleto gerado |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
+|`Url`|URL do boleto gerado. |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
 |`BoletoNumber`|"NossoNumero" gerado. |Texto|50 |2017091101 |
 |`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
-|`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
-|`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
+|`Address`|Endereço da loja cadastrada no banco. |Texto |256 |Av. Teste, 160 |
+|`Status`|Status da transação. |Byte | 2 | Ex.: 1 |
 
 ### Conciliação de Boletos
 
-Para atualizar o status de um Boleto para Pago, o Pagador deve receber dos bancos os arquivos CNAB com as liquidações referentes. Para habilitar sua loja a receber os arquivos bancários, basta seguir o procedimento descrito [aqui](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-)
+Para atualizar o status de um boleto para *Pago*, o Pagador deve receber dos bancos os arquivos CNAB com as liquidações referentes. Para habilitar sua loja a receber os arquivos bancários, basta seguir o procedimento descrito [neste link](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-).
 
 ### Regras Específicas por Banco
 
 | Propriedade | Bradesco | Banco do Brasil | Itaú Shopline | Santander | Caixa Econômica | Citibank |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | `Provider` | Bradesco2 | BancoDoBrasil2 | ItauShopline | Santander2 | Caixa2 | Citibank2 |
-| `MerchantOrderId` | 27 (obs 1) | 50 | 8 | 50 | 11 (obs 2) | 10 (obs 2) |
+| `MerchantOrderId` | 27 ^1^ | 50 | 8 | 50 | 11 (obs **^2^**) | 10 (obs ^**2**^) |
 | `Payment.BoletoNumber` | 11 (obs 3) | 9 (obs 4) | 8 (obs 5) | 13 (obs 3) | 12 (obs 6) | 11 (obs 7) |
 | `Customer.Name` | 34 | 60 (obs 8) | 30 | 40 | 40 | 50 (obs 9) |
-| `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` | Street: 70<br><br>Number: 10<br><br>Complement: 20<br><br>District: 50 | Totalizar até 60 caracteres (obs 8) | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 50 (obs 9) |
+| `Customer.Address.Street`;<br>`Customer.Address.Number`;<br>`Customer.Address.Complement`;<br>`Customer.Address.District` | Street: 70<br><br>Number: 10<br><br>Complement: 20<br><br>District: 50 | Totalizar até 60 caracteres (obs 8) | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 50 (obs 9) |
 | `Customer.Address.City` | 50 | 18 (obs 8) | 15 | 30 | 15 | 50 (obs 9) |
 | `Payment.Instructions` | 450 | 450 | N/A | 450 | 450 | 450 |
 | `Payment.Demonstrative` | 255 | N/A | N/A | 255 | 255 | 255 |
