@@ -143,7 +143,7 @@
 
 <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a <strong>API do Pagador</strong>, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e resposta.</p>
 
-<p>Todas as operações requerem credenciais de acesso (<em>Merchant ID</em> e <em>Merchant Key</em>) específicos para os respectivos ambientes: Sandbox e Produção. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.</p>
+<p>Todas as operações requerem credenciais de acesso (“Merchant ID” e “Merchant Key”) específicos para os respectivos ambientes: Sandbox e Produção. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.</p>
 
 <h2 id="ambientes">Ambientes</h2>
 
@@ -211,7 +211,7 @@
 
 <h2 id="características-da-solução">Características da Solução</h2>
 
-<p>A solução API Pagador foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: <em>ASP, ASP.Net, Java, PHP, Ruby e Python</em>.</p>
+<p>A solução API Pagador foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: <em>ASP, ASP.Net, Java, PHP, Ruby</em> e <em>Python</em>.</p>
 
 <p>Conheça alguns dos atributos que se destacam na plataforma Braspag eCommerce:</p>
 
@@ -692,7 +692,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do meio de pagamento.</td>
+      <td>Tipo do meio de pagamento. Neste caso, “CreditCard”.</td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
@@ -734,31 +734,31 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
-      <td>Tipo de parcelamento - Loja (<em>ByMerchant</em>) ou Emissor (<em>ByIssuer</em>).</td>
+      <td>Tipo de parcelamento - Loja (“ByMerchant”) ou Emissor (“ByIssuer”).</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Indica se a autorização deve ser com captura automática (<em>true</em>) ou não (<em>false</em>). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.</td>
+      <td>Indica se a autorização deve ser com captura automática (“true”) ou não (“false”). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.</td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Não (Default <em>false</em>)</td>
+      <td>Não (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Indica se a transação deve ser autenticada (<em>true</em>) ou não (<em>false</em>). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.</td>
+      <td>Indica se a transação deve ser autenticada (“true”) ou não (“false”). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.</td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Não (Default <em>false</em>)</td>
+      <td>Não (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>Indica se a transação é do tipo recorrente (<em>true</em>) ou não (<em>false</em>). Este com valor <em>true</em> não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. <em>Authenticate</em> deve ser <em>false</em> quando <em>Recurrent</em> é <em>true</em>. <strong>Somente para transações Cielo.</strong></td>
+      <td>Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. <code class="language-plaintext highlighter-rouge">Authenticate</code> deve ser “false” quando <code class="language-plaintext highlighter-rouge">Recurrent</code> é “true”. <strong>Somente para transações Cielo.</strong></td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Não (Default <em>false</em>)</td>
+      <td>Não (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
@@ -769,10 +769,10 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
-      <td>Indica se a transação será dividida entre várias contas (<em>true</em>) ou não (<em>false</em>).</td>
+      <td>Indica se a transação será dividida entre várias contas (“true”) ou não (“false”).</td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Não (default <em>false</em>)</td>
+      <td>Não (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
@@ -818,77 +818,77 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Signature</code></td>
-      <td>Envio do <em>TerminalID</em> da adquirente <strong>Global Payments</strong>, ex.: 001. Para <strong>Safra</strong> colocar o nome do estabelecimento, cidade e o estado concatenados com ponto-e-vírgula (;), ex.: <em>NomedaLoja;São Paulo;SP</em>.</td>
+      <td>Envio do <em>TerminalID</em> da adquirente <strong>Global Payments</strong>, ex.: “001”. Para <strong>Safra</strong> colocar o nome do estabelecimento, cidade e o estado concatenados com ponto-e-vírgula (;), ex.: “NomedaLoja;São Paulo;SP”.</td>
       <td>Texto</td>
       <td>–</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.EstablishmentCode</code></td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).</td>
+      <td>Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).<br /><strong>Aplicável para Provider Cielo30 ou Rede2.</strong></td>
       <td>Número</td>
       <td>11</td>
       <td>Sim para facilitadores</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode</code></td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).Número</td>
+      <td>Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).<br /><strong>Aplicável para Provider Cielo30 ou Rede2.</strong></td>
+      <td>Número</td>
       <td>15</td>
       <td>Sim para facilitadores</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Mcc</code></td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />MCC do sub-merchant.</td>
+      <td>MCC do sub-merchant.<br /><strong>Aplicável para Provider Cielo30 ou Rede2.</strong></td>
       <td>Número</td>
       <td>4</td>
       <td>Sim para facilitadores</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Address</code></td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Endereço do sub-merchant.</td>
+      <td>Endereço do sub-merchant.<br /><strong>Aplicável para Provider Cielo30 ou Rede2.</strong></td>
       <td>Texto</td>
       <td>22</td>
       <td>Sim para facilitadores</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.City</code></td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Cidade do sub-merchant.</td>
+      <td>Cidade do sub-merchant.<br /><strong>Aplicável para Provider Cielo30 ou Rede2.</strong></td>
       <td>Texto</td>
       <td>13</td>
       <td>Sim para facilitadores</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.State</code></td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Estado do sub-merchant.</td>
+      <td>Estado do sub-merchant.<br /><strong>Aplicável para Provider Cielo30 ou Rede2.</strong></td>
       <td>Texto</td>
       <td>2</td>
       <td>Sim para facilitadores</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PostalCode</code></td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Código postal do sub-merchant.</td>
+      <td>Código postal do sub-merchant.<br /><strong>Aplicável para Provider Cielo30 ou Rede2.</strong></td>
       <td>Número</td>
       <td>9</td>
       <td>Sim para facilitadores</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PhoneNumber</code></td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Número de telefone do sub-merchant.</td>
+      <td>Número de telefone do sub-merchant.<br /><strong>Aplicável para Provider Cielo30 ou Rede2.</strong></td>
       <td>Número</td>
       <td>13</td>
       <td>Sim para facilitadores</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Identity</code></td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />CNPJ ou CPF do sub-merchant.</td>
+      <td>CNPJ ou CPF do sub-merchant.<br /><strong>Aplicável para Provider Cielo30 ou Rede2.</strong></td>
       <td>Número</td>
       <td>14</td>
       <td>Sim para facilitadores</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.CountryCode</code></td>
-      <td><strong>Aplicável para Provider Cielo30 ou Rede2</strong><br />Código do país do sub-merchant com base no ISO 3166.</td>
+      <td>Código do país do sub-merchant com base no ISO 3166.<br /><strong>Aplicável para Provider Cielo30 ou Rede2.</strong></td>
       <td>Número</td>
       <td>3</td>
       <td>Sim para facilitadores</td>
@@ -909,7 +909,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Data de validade impresso no cartão.</td>
+      <td>Data de validade impressa no cartão.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
@@ -933,7 +933,7 @@ curl
       <td>Identifica se o cartão será salvo para gerar o token (<em>CardToken</em>).</td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Não (default <em>false</em>)</td>
+      <td>Não (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Alias</code></td>
@@ -944,14 +944,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
-      <td><strong>Aplicável somente para Provider=Cielo30</strong><br /><em>First</em> se o cartão foi armazenado e é seu primeiro uso.<br /><em>Used</em> se o cartão foi armazenado e já utilizado em outra transação.</td>
+      <td>“First” se o cartão foi armazenado e é seu primeiro uso.<br />“Used” se o cartão foi armazenado e já utilizado em outra transação.<br /><strong>Aplicável somente para Provider=Cielo30.</strong></td>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
-      <td><strong>Aplicável somente para Provider=Cielo30</strong><br />Indica o propósito de armazenamento de cartões, caso o campo <em>Usage</em> seja <em>Used</em>.<br /><em>Recurring</em> - Compra recorrente programada, ex.: assinaturas.<br /><em>Unscheduled</em> - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br /><em>Installments</em> - Parcelamento através da recorrência.</td>
+      <td>Indica o propósito de armazenamento de cartões, caso o campo <code class="language-plaintext highlighter-rouge">Usage</code> seja “Used”.<br />“Recurring” - Compra recorrente programada, ex.: assinaturas.<br />“Unscheduled” - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br />“Installments” - Parcelamento através da recorrência.<br /><strong>Aplicável somente para Provider=Cielo30.</strong></td>
       <td>Texto</td>
       <td>-</td>
       <td>Condicional</td>
@@ -1221,7 +1221,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
-      <td>Electronic Commerce Indicator. Representa o resultado da autenticação.</td>
+      <td><em>Electronic Commerce Indicator</em>. Representa o resultado da autenticação.</td>
       <td>Texto</td>
       <td>2</td>
       <td>Exemplos: 5</td>
@@ -1266,7 +1266,7 @@ curl
 
 <h3 id="capturando-uma-transação">Capturando uma Transação</h3>
 
-<p>Quando uma transação é submetida com o parâmetro <code class="language-plaintext highlighter-rouge">Payment.Capture</code> igual a <em>false</em>, é necessário que seja feita, posteriormente, uma solicitação de captura para confirmar a transação.</p>
+<p>Quando uma transação é submetida com o parâmetro <code class="language-plaintext highlighter-rouge">Payment.Capture</code> igual a “false”, é necessário que seja feita, posteriormente, uma solicitação de captura para confirmar a transação.</p>
 
 <p>Transações que não são capturadas até a <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">data limite</a> são automaticamente desfeitas pelas adquirentes. Clientes podem ter negociações específicas com as adquirentes para que alterem esse prazo limite de captura.</p>
 
@@ -1450,7 +1450,7 @@ curl
 
 <h5 id="requisição-2">Requisição</h5>
 
-<p>O parâmetro <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> deverá ser enviado como <em>true</em>, como no exemplo abaixo:</p>
+<p>O parâmetro <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> deverá ser enviado como “true”, como no exemplo abaixo:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1565,17 +1565,17 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Define se o comprador será direcionado ao banco emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor <em>true</em>. Obs.: Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.</td>
+      <td>Define se o comprador será direcionado ao banco emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor “true”. Obs.: Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.</td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Não (default <em>false</em>)</td>
+      <td>Não (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
       <td>URL para onde o usuário será redirecionado após o fim da autenticação.</td>
       <td>Texto</td>
       <td>1024</td>
-      <td>Sim (quando <em>Authenticate</em> é <em>true</em>)</td>
+      <td>Sim (quando <code class="language-plaintext highlighter-rouge">Authenticate</code> é “true”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
@@ -1811,7 +1811,7 @@ curl
 
 <h5 id="requisição-3">Requisição</h5>
 
-<p>Adicione o nó <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> ao contrato padrão, conforme exemplo. Este fluxo é suportado pelas adquirentes Cielo, Global Payments e Banorte.</p>
+<p>Adicione o nó <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> ao contrato padrão, conforme exemplo. Este fluxo é suportado pelas adquirentes <strong>Cielo</strong>, <strong>Global Payments</strong> e <strong>Banorte</strong>.</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2147,7 +2147,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do meio de pagamento.</td>
+      <td>Tipo do meio de pagamento. Neste caso, “DebitCard”.</td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
@@ -2450,7 +2450,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do meio de pagamento. No caso, o cartão de débito (DebitCard).</td>
+      <td>Tipo do meio de pagamento. Neste caso, “DebitCard”.</td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
@@ -2464,7 +2464,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Número de parcelas. Fixo <em>1</em> para o cartão de débito.</td>
+      <td>Número de parcelas. Fixo “1” para o cartão de débito.</td>
       <td>Número</td>
       <td>2</td>
       <td>Sim</td>
@@ -2499,7 +2499,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
-      <td>Bandeira do cartão. Para este tipo de transação, sempre <em>Elo</em>.</td>
+      <td>Bandeira do cartão. Para este tipo de transação, sempre “Elo”.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
@@ -2737,7 +2737,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do meio de pagamento. Enviar <em>qrcode</em> para pagamento com QR code.</td>
+      <td>Tipo do meio de pagamento. Neste caso, “qrcode”.</td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
@@ -2854,21 +2854,21 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">QrCodeBase64Image</code></td>
-      <td>QR code codificado em base 64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este: &lt;img src=”data:image/png;base64,{código da imagem em base 64}”&gt;.</td>
+      <td>QR code codificado em base 64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este: <em>&lt;img src=”data:image/png;base64,{código da imagem em base 64}”&gt;</em>.</td>
       <td>Texto</td>
       <td>Variável</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo identificador do pedido, necessário para operações como consulta, captura e cancelamento.</td>
+      <td>Campo identificador do pedido. Necessário para operações como consulta, captura e cancelamento.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da transação. No caso da transação de geração com QR code, o status inicial é “12” (Pendente).</td>
+      <td>Status da transação. No caso da transação de geração com QR code, o status inicial é “12” (<em>Pendente</em>).</td>
       <td>Byte</td>
       <td>-</td>
       <td>2</td>
@@ -3037,11 +3037,11 @@ curl
 
 <h3 id="transação-com-velocity-check">Transação com Velocity Check</h3>
 
-<p>O <em>Velocity Check</em> é uma ferramenta de combate a fraudes massivas, que disparam rajadas de transações com dados de pagamento repetidos.  A ferramenta analisa a frequência de elementos de rastreabilidade, tais como Número do Cartão, CPF, CEP de entrega, entre outros, bloqueando transações suspeitas.</p>
+<p>O <em>Velocity Check</em> é uma ferramenta de combate a fraudes massivas, que disparam rajadas de transações com dados de pagamento repetidos. A ferramenta analisa a frequência de elementos de rastreabilidade, tais como Número do Cartão, CPF, CEP de entrega, entre outros, bloqueando transações suspeitas.</p>
 
 <p>A funcionalidade deve ser contratada à parte, e posteriormente habilitada em sua loja via painel. Quando o <em>Velocity</em> está ativo, a resposta da transação traz o nó <code class="language-plaintext highlighter-rouge">Velocity</code>, com os detalhes da análise.</p>
 
-<p>No caso da rejeição pela regra de <em>Velocity</em>, o <code class="language-plaintext highlighter-rouge">ProviderReasonCode</code> será <em>BP 171 - Rejected by fraud risk</em> (velocity, com <em>ReasonCode 16 - AbortedByFraud</em>).</p>
+<p>No caso da rejeição pela regra de Velocity, o <em>ProviderReasonCode</em> será “BP 171 - Rejected by fraud risk” (Velocity, com <em>ReasonCode</em> “16 - AbortedByFraud”).</p>
 
 <h4 id="resposta-8">Resposta</h4>
 
@@ -3093,14 +3093,14 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.Id</code></td>
-      <td>Identificador da análise efetuada</td>
+      <td>Identificador da análise efetuada.</td>
       <td>GUID</td>
       <td>36</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.ResultMessage</code></td>
-      <td><em>Accept</em> ou <em>Reject</em></td>
+      <td>“Accept” ou “Reject”</td>
       <td>Texto</td>
       <td>25</td>
       <td> </td>
@@ -3114,14 +3114,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.RejectReasons.RuleId</code></td>
-      <td>Código da regra que rejeitou</td>
+      <td>Código da regra que rejeitou.</td>
       <td>Número</td>
       <td>10</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.RejectReasons.Message</code></td>
-      <td>Descrição da regra que rejeitou</td>
+      <td>Descrição da regra que rejeitou.</td>
       <td>Texto</td>
       <td>512</td>
       <td> </td>
@@ -3133,7 +3133,7 @@ curl
 
 <h3 id="boleto-registrado">Boleto Registrado</h3>
 
-<p>Com o objetivo de promover maior controle e segurança ao transacional de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários, a Febraban em conjunto com os Bancos lançou a Nova Plataforma de Cobrança.</p>
+<p>Com o objetivo de promover maior controle e segurança ao transacional de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários, a Febraban em conjunto com os bancos lançou a <em>Nova Plataforma de Cobrança</em>.</p>
 
 <p>A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigatoriamente, terão de ser registrados. <a href="https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos">Clique aqui</a> para acessar o comunicado completo.</p>
 
@@ -3141,7 +3141,7 @@ curl
 
 <p><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf">Bradesco</a><br /><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf">Banco do Brasil</a><br /><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf">Itaú</a><br /><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf">Santander</a><br /><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf">Caixa Econômica</a></p>
 
-<h3 id="criando-uma-transação-de-boleto">Criando uma transação de Boleto</h3>
+<h3 id="criando-uma-transação-de-boleto">Criando uma Transação de Boleto</h3>
 
 <p>Para gerar um boleto, inclusive em ambiente de Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.</p>
 
