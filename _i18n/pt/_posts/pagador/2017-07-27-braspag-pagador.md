@@ -1957,28 +1957,30 @@ Para atualizar o status de um boleto para *Pago*, o Pagador deve receber dos ban
 
 ### Regras Específicas por Banco
 
+Segue uma lista de propriedades e suas especificações, relativas a regras distintas de cada banco e seus respectivos *providers*:
+
 | Propriedade | Bradesco | Banco do Brasil | Itaú Shopline | Santander | Caixa Econômica | Citibank |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | `Provider` | Bradesco2 | BancoDoBrasil2 | ItauShopline | Santander2 | Caixa2 | Citibank2 |
-| `MerchantOrderId` | 27 `*1`| 50 | 8 | 50 | 11 (`*2`) | 10 (obs `2`) |
-| `Payment.BoletoNumber` | 11 (obs 3) | 9 (obs 4) | 8 (obs 5) | 13 (obs 3) | 12 (obs 6) | 11 (obs 7) |
-| `Customer.Name` | 34 | 60 (obs 8) | 30 | 40 | 40 | 50 (obs 9) |
-| `Customer.Address.Street`;<br>`Customer.Address.Number`;<br>`Customer.Address.Complement`;<br>`Customer.Address.District` | Street: 70<br><br>Number: 10<br><br>Complement: 20<br><br>District: 50 | Totalizar até 60 caracteres (obs 8) | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 50 (obs 9) |
-| `Customer.Address.City` | 50 | 18 (obs 8) | 15 | 30 | 15 | 50 (obs 9) |
+| `MerchantOrderId` | 27 (`*1`)| 50 | 8 | 50 | 11 (`*2`) | 10 (`*2`) |
+| `Payment.BoletoNumber` | 11 (`*3`) | 9 (`*4`) | 8 (`*5`) | 13 (`*3`) | 12 (`*6`) | 11 (`*7`) |
+| `Customer.Name` | 34 | 60 (`*8`) | 30 | 40 | 40 | 50 (`*9`) |
+| `Customer.Address.Street`;<br>`Customer.Address.Number`;<br>`Customer.Address.Complement`;<br>`Customer.Address.District` | Street: 70<br><br>Number: 10<br><br>Complement: 20<br><br>District: 50 | Totalizar até 60 caracteres (`*8`) | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 50 (`*9`) |
+| `Customer.Address.City` | 50 | 18 (`*8`) | 15 | 30 | 15 | 50 (`*9`) |
 | `Payment.Instructions` | 450 | 450 | N/A | 450 | 450 | 450 |
 | `Payment.Demonstrative` | 255 | N/A | N/A | 255 | 255 | 255 |
 
 |Observações|Detalhes|
 |---|---|
-|**obs 1:**|Apenas letras, números e caracteres como "_" e "$"|
-|**obs 2:**|Caso ultrapasse os 11 dígitos, a API gerará um número incremental a partir da configuração definida |
-|**obs 3:**|O valor deve ser único, ou seja, o banco não permite a repetição de valores previamente utilizados |
-|**obs 4:**|Quando enviado acima de 9 posições, a API considera os últimos 9 dígitos |
-|**obs 5:**|Deverá ser sempre igual ao Número de Pedido (MerchantOrderId) |
-|**obs 6:**|A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador antes de mandar para o banco. Caso o total ultrapasse os 14 dígitos, a API considera últimos 14 dígitos |
-|**obs 7:**|Quando enviado mais que o permitido, a API gera um número aleatório |
-|**obs 8:**|São aceitos como caracteres válidos: números, as letras de A a Z (MAIÚSCULAS); caracteres especiais de conjunção: hífen (-), apóstrofo (‘). Quando utilizados não pode conter espaços entre as letras; Exemplos corretos: D’EL-REI, D’ALCORTIVO, SANT’ANA. Exemplos incorretos: D’EL - REI; até um espaço em branco entre palavras|
-|**obs 9:**|Caracteres especiais e acentuações serão removidos automaticamente |
+|`*1`|Apenas letras, números e caracteres como "\_" e "$".|
+|`*2`|Caso passe dos 11 dígitos, a API gerará um número incremental a partir da configuração definida. |
+|`*3`|O valor deve ser único, ou seja, o banco não permite a repetição de valores previamente utilizados. |
+|`*4`|Quando enviado acima de 9 posições, a API considera os últimos 9 dígitos. |
+|`*5`|Deverá ser sempre igual ao número de pedido (*MerchantOrderId*) |
+|`*6`|A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador, antes de mandar para o banco. Caso o total ultrapasse os 14 dígitos, a API considera os últimos 14 dígitos. |
+|`*7`|Quando enviado mais que o permitido, a API gera um número aleatório. |
+|`*8`|São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen "-" e apóstrofo "’"). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.|
+|`*9`|Caracteres especiais e acentuações são removidos automaticamente. |
 
 ## Recorrência
 
