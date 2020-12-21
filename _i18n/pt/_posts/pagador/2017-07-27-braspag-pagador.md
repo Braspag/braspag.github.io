@@ -1539,7 +1539,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`QrCodeBase64Image`|QR code codificado em base 64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este: <amp;img src="data:image/png;base64,{código da imagem em base 64}">amp;.|Texto|Variável|Texto alfanumérico|
+|`QrCodeBase64Image`|QR code codificado em base 64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este: &lt;img src="data:image/png;base64,{código da imagem em base 64}"&gt;.|Texto|Variável|Texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido, necessário para operações como consulta, captura e cancelamento.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Status da transação. No caso da transação de geração com QR code, o status inicial é "12" (Pendente).|Byte|-|2|
 |`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
