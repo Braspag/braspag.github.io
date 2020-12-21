@@ -1960,7 +1960,7 @@ Para atualizar o status de um boleto para *Pago*, o Pagador deve receber dos ban
 | Propriedade | Bradesco | Banco do Brasil | Itaú Shopline | Santander | Caixa Econômica | Citibank |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | `Provider` | Bradesco2 | BancoDoBrasil2 | ItauShopline | Santander2 | Caixa2 | Citibank2 |
-| `MerchantOrderId` | 27 ^1^ | 50 | 8 | 50 | 11 (obs **^2^**) | 10 (obs ^**2**^) |
+| `MerchantOrderId` | 27 <sup>1</sup> | 50 | 8 | 50 | 11 (obs **<sup>2</sup>**) | 10 (obs <sup>**2**</sup>) |
 | `Payment.BoletoNumber` | 11 (obs 3) | 9 (obs 4) | 8 (obs 5) | 13 (obs 3) | 12 (obs 6) | 11 (obs 7) |
 | `Customer.Name` | 34 | 60 (obs 8) | 30 | 40 | 40 | 50 (obs 9) |
 | `Customer.Address.Street`;<br>`Customer.Address.Number`;<br>`Customer.Address.Complement`;<br>`Customer.Address.District` | Street: 70<br><br>Number: 10<br><br>Complement: 20<br><br>District: 50 | Totalizar até 60 caracteres (obs 8) | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 15 | Street, Number e Complement devem totalizar até 40 caracteres<br><br>District: 50 (obs 9) |
