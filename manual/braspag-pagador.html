@@ -3660,6 +3660,8 @@ curl
 
 <h3 id="regras-específicas-por-banco">Regras Específicas por Banco</h3>
 
+<p>Segue uma lista de propriedades e suas especificações, relativas a regras distintas de cada banco e seus respectivos <em>providers</em>:</p>
+
 <table>
   <thead>
     <tr>
@@ -3684,48 +3686,48 @@ curl
     </tr>
     <tr>
       <td style="text-align: center"><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td style="text-align: center">27 <code class="language-plaintext highlighter-rouge">*1</code></td>
+      <td style="text-align: center">27 (<code class="language-plaintext highlighter-rouge">*1</code>)</td>
       <td style="text-align: center">50</td>
       <td style="text-align: center">8</td>
       <td style="text-align: center">50</td>
       <td style="text-align: center">11 (<code class="language-plaintext highlighter-rouge">*2</code>)</td>
-      <td style="text-align: center">10 (obs <code class="language-plaintext highlighter-rouge">2</code>)</td>
+      <td style="text-align: center">10 (<code class="language-plaintext highlighter-rouge">*2</code>)</td>
     </tr>
     <tr>
       <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
-      <td style="text-align: center">11 (obs 3)</td>
-      <td style="text-align: center">9 (obs 4)</td>
-      <td style="text-align: center">8 (obs 5)</td>
-      <td style="text-align: center">13 (obs 3)</td>
-      <td style="text-align: center">12 (obs 6)</td>
-      <td style="text-align: center">11 (obs 7)</td>
+      <td style="text-align: center">11 (<code class="language-plaintext highlighter-rouge">*3</code>)</td>
+      <td style="text-align: center">9 (<code class="language-plaintext highlighter-rouge">*4</code>)</td>
+      <td style="text-align: center">8 (<code class="language-plaintext highlighter-rouge">*5</code>)</td>
+      <td style="text-align: center">13 (<code class="language-plaintext highlighter-rouge">*3</code>)</td>
+      <td style="text-align: center">12 (<code class="language-plaintext highlighter-rouge">*6</code>)</td>
+      <td style="text-align: center">11 (<code class="language-plaintext highlighter-rouge">*7</code>)</td>
     </tr>
     <tr>
       <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td style="text-align: center">34</td>
-      <td style="text-align: center">60 (obs 8)</td>
+      <td style="text-align: center">60 (<code class="language-plaintext highlighter-rouge">*8</code>)</td>
       <td style="text-align: center">30</td>
       <td style="text-align: center">40</td>
       <td style="text-align: center">40</td>
-      <td style="text-align: center">50 (obs 9)</td>
+      <td style="text-align: center">50 (<code class="language-plaintext highlighter-rouge">*9</code>)</td>
     </tr>
     <tr>
       <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>;<br /><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>;<br /><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>;<br /><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
       <td style="text-align: center">Street: 70<br />Number: 10<br />Complement: 20<br />District: 50</td>
-      <td style="text-align: center">Totalizar até 60 caracteres (obs 8)</td>
+      <td style="text-align: center">Totalizar até 60 caracteres (<code class="language-plaintext highlighter-rouge">*8</code>)</td>
       <td style="text-align: center">Street, Number e Complement devem totalizar até 40 caracteres<br />District: 15</td>
       <td style="text-align: center">Street, Number e Complement devem totalizar até 40 caracteres<br />District: 15</td>
       <td style="text-align: center">Street, Number e Complement devem totalizar até 40 caracteres<br />District: 15</td>
-      <td style="text-align: center">Street, Number e Complement devem totalizar até 40 caracteres<br />District: 50 (obs 9)</td>
+      <td style="text-align: center">Street, Number e Complement devem totalizar até 40 caracteres<br />District: 50 (<code class="language-plaintext highlighter-rouge">*9</code>)</td>
     </tr>
     <tr>
       <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
       <td style="text-align: center">50</td>
-      <td style="text-align: center">18 (obs 8)</td>
+      <td style="text-align: center">18 (<code class="language-plaintext highlighter-rouge">*8</code>)</td>
       <td style="text-align: center">15</td>
       <td style="text-align: center">30</td>
       <td style="text-align: center">15</td>
-      <td style="text-align: center">50 (obs 9)</td>
+      <td style="text-align: center">50 (<code class="language-plaintext highlighter-rouge">*9</code>)</td>
     </tr>
     <tr>
       <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
@@ -3757,40 +3759,40 @@ curl
   </thead>
   <tbody>
     <tr>
-      <td><strong>obs 1:</strong></td>
-      <td>Apenas letras, números e caracteres como “_” e “$”</td>
+      <td><code class="language-plaintext highlighter-rouge">*1</code></td>
+      <td>Apenas letras, números e caracteres como “_” e “$”.</td>
     </tr>
     <tr>
-      <td><strong>obs 2:</strong></td>
-      <td>Caso ultrapasse os 11 dígitos, a API gerará um número incremental a partir da configuração definida</td>
+      <td><code class="language-plaintext highlighter-rouge">*2</code></td>
+      <td>Caso passe dos 11 dígitos, a API gerará um número incremental a partir da configuração definida.</td>
     </tr>
     <tr>
-      <td><strong>obs 3:</strong></td>
-      <td>O valor deve ser único, ou seja, o banco não permite a repetição de valores previamente utilizados</td>
+      <td><code class="language-plaintext highlighter-rouge">*3</code></td>
+      <td>O valor deve ser único, ou seja, o banco não permite a repetição de valores previamente utilizados.</td>
     </tr>
     <tr>
-      <td><strong>obs 4:</strong></td>
-      <td>Quando enviado acima de 9 posições, a API considera os últimos 9 dígitos</td>
+      <td><code class="language-plaintext highlighter-rouge">*4</code></td>
+      <td>Quando enviado acima de 9 posições, a API considera os últimos 9 dígitos.</td>
     </tr>
     <tr>
-      <td><strong>obs 5:</strong></td>
-      <td>Deverá ser sempre igual ao Número de Pedido (MerchantOrderId)</td>
+      <td><code class="language-plaintext highlighter-rouge">*5</code></td>
+      <td>Deverá ser sempre igual ao número de pedido (<em>MerchantOrderId</em>)</td>
     </tr>
     <tr>
-      <td><strong>obs 6:</strong></td>
-      <td>A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador antes de mandar para o banco. Caso o total ultrapasse os 14 dígitos, a API considera últimos 14 dígitos</td>
+      <td><code class="language-plaintext highlighter-rouge">*6</code></td>
+      <td>A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador, antes de mandar para o banco. Caso o total ultrapasse os 14 dígitos, a API considera os últimos 14 dígitos.</td>
     </tr>
     <tr>
-      <td><strong>obs 7:</strong></td>
-      <td>Quando enviado mais que o permitido, a API gera um número aleatório</td>
+      <td><code class="language-plaintext highlighter-rouge">*7</code></td>
+      <td>Quando enviado mais que o permitido, a API gera um número aleatório.</td>
     </tr>
     <tr>
-      <td><strong>obs 8:</strong></td>
-      <td>São aceitos como caracteres válidos: números, as letras de A a Z (MAIÚSCULAS); caracteres especiais de conjunção: hífen (-), apóstrofo (‘). Quando utilizados não pode conter espaços entre as letras; Exemplos corretos: D’EL-REI, D’ALCORTIVO, SANT’ANA. Exemplos incorretos: D’EL - REI; até um espaço em branco entre palavras</td>
+      <td><code class="language-plaintext highlighter-rouge">*8</code></td>
+      <td>São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “’”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.</td>
     </tr>
     <tr>
-      <td><strong>obs 9:</strong></td>
-      <td>Caracteres especiais e acentuações serão removidos automaticamente</td>
+      <td><code class="language-plaintext highlighter-rouge">*9</code></td>
+      <td>Caracteres especiais e acentuações são removidos automaticamente.</td>
     </tr>
   </tbody>
 </table>
