@@ -2854,7 +2854,7 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">QrCodeBase64Image</code></td>
-      <td>QR code codificado em base 64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este: ``.</td>
+      <td>QR code codificado em base 64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este: .</td>
       <td>Texto</td>
       <td>Variável</td>
       <td>Texto alfanumérico</td>
@@ -2892,9 +2892,9 @@ curl
 
 <h3 id="cancelandoestornando-uma-transação">Cancelando/Estornando uma Transação</h3>
 
-<p>Para cancelar uma transação que utilizou cartão de crédito, é necessário o envio de mensagem HTTP através do método PUT para o recurso <em>Payment</em> conforme o exemplo.</p>
+<p>Para cancelar uma transação que utilizou cartão de crédito, é necessário o envio de mensagem HTTP através do método PUT para o recurso <em>Payment</em>, conforme o exemplo.</p>
 
-<p>Cada adquirente tem seus prazos limites para permitir o estorno de uma transação. Neste <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">artigo</a> você poderá conferir cada um deles.</p>
+<p>Cada adquirente tem seus prazos limites para permitir o estorno de uma transação. <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">Neste artigo</a> você poderá conferir cada um deles.</p>
 
 <p>A disponibilidade do serviço de estorno varia de adquirente para adquirente.</p>
 
@@ -2933,28 +2933,28 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Chave Publica para Autenticação Dupla na API.</td>
+      <td>Chave pública para autenticação dupla na API.</td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Campo identificador do pedido.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
-      <td>Valor a ser cancelado/estornado (ser enviado em centavos). Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno</td>
+      <td>Valor, em centavos, a ser cancelado/estornado. Obs.: Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
@@ -3013,21 +3013,21 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
+      <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
       <td>Ex. 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Código de retorno da Adquirência.</td>
+      <td>Código de retorno da adquirência.</td>
       <td>Texto</td>
       <td>32</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Mensagem de retorno da Adquirência.</td>
+      <td>Mensagem de retorno da adquirência.</td>
       <td>Texto</td>
       <td>512</td>
       <td>Texto alfanumérico</td>
