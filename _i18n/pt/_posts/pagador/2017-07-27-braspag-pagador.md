@@ -1311,7 +1311,7 @@ O auxílio emergencial disponibilizado pelo governo pode ser consumido através 
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Atualmente, somente a **"Cielo30** suporta esta forma de pagamento via Pagador|Texto|15|Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Atualmente, somente a **Cielo30** suporta esta forma de pagamento via Pagador.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. No caso, o cartão de débito (DebitCard).|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas. Fixo *1* para o cartão de débito.|Número|2|Sim|
@@ -1454,7 +1454,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 |-----------|---------|----|-------|-----------|
 |`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
 |`Customer.Name`|Nome do comprador.|Texto|255|Não|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. Atualmente somente disponível na "Cielo".|Texto|15|Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Atualmente somente disponível para **Cielo30**.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Enviar *qrcode* para pagamento com QR code.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido (maior que zero), em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -1539,7 +1539,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`QrCodeBase64Image`|QR code codificado em base 64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este: ``<img src="data:image/png;base64,{código da imagem em base 64}">``|Texto|Variável|Texto alfanumérico|
+|`QrCodeBase64Image`|QR code codificado em base 64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este: `<img src="data:image/png;base64,{código da imagem em base 64}">`.|Texto|Variável|Texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido, necessário para operações como consulta, captura e cancelamento.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Status da transação. No caso da transação de geração com QR code, o status inicial é "12" (Pendente).|Byte|-|2|
 |`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
