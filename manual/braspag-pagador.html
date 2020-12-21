@@ -3611,7 +3611,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Url</code></td>
-      <td>URL do Boleto gerado</td>
+      <td>URL do boleto gerado.</td>
       <td>string</td>
       <td>256</td>
       <td>https://…/pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d</td>
@@ -3639,24 +3639,24 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address</code></td>
-      <td>Endereço do Loja cadastrada no banco</td>
+      <td>Endereço da loja cadastrada no banco.</td>
       <td>Texto</td>
       <td>256</td>
       <td>Av. Teste, 160</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
+      <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>Ex.: 1</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="conciliação-de-boletos">Conciliação de Boletos</h3>
 
-<p>Para atualizar o status de um Boleto para Pago, o Pagador deve receber dos bancos os arquivos CNAB com as liquidações referentes. Para habilitar sua loja a receber os arquivos bancários, basta seguir o procedimento descrito <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-">aqui</a></p>
+<p>Para atualizar o status de um boleto para <em>Pago</em>, o Pagador deve receber dos bancos os arquivos CNAB com as liquidações referentes. Para habilitar sua loja a receber os arquivos bancários, basta seguir o procedimento descrito <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-">neste link</a>.</p>
 
 <h3 id="regras-específicas-por-banco">Regras Específicas por Banco</h3>
 
@@ -3684,12 +3684,12 @@ curl
     </tr>
     <tr>
       <td style="text-align: center"><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td style="text-align: center">27 (obs 1)</td>
+      <td style="text-align: center">27 ^1^</td>
       <td style="text-align: center">50</td>
       <td style="text-align: center">8</td>
       <td style="text-align: center">50</td>
-      <td style="text-align: center">11 (obs 2)</td>
-      <td style="text-align: center">10 (obs 2)</td>
+      <td style="text-align: center">11 (obs <strong>^2^</strong>)</td>
+      <td style="text-align: center">10 (obs ^<strong>2</strong>^)</td>
     </tr>
     <tr>
       <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
@@ -3710,7 +3710,7 @@ curl
       <td style="text-align: center">50 (obs 9)</td>
     </tr>
     <tr>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>;<br /><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>;<br /><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>;<br /><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
       <td style="text-align: center">Street: 70<br />Number: 10<br />Complement: 20<br />District: 50</td>
       <td style="text-align: center">Totalizar até 60 caracteres (obs 8)</td>
       <td style="text-align: center">Street, Number e Complement devem totalizar até 40 caracteres<br />District: 15</td>
