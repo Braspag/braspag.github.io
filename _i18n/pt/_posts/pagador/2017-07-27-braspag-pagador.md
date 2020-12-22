@@ -1816,7 +1816,7 @@ curl
 |`Payment.ExpirationDate`|Data de vencimento do boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|Date |AAAA-MM-DD|Não|
 |`Payment.Identification`|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento.|Texto |14 |Não|
 |`Payment.Instructions`|Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#regras-específicas-por-banco)). Para quebra de linhas no texto utilize sempre a notação em HTML `<br>`.|Texto |Veja a [tabela](#regras-específicas-por-banco)|Não|
-|`Payment.NullifyDays`|Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo, contado a partir da data de vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12; após esta data o título é cancelado. *Obs.: Recurso válido somente para boletos registrados do Banco Santander.*|Número |2 |Não|
+|`Payment.NullifyDays`|Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo, contado a partir da data de vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12; após esta data o título é cancelado. Obs.: Recurso válido somente para boletos registrados do Banco Santander.|Número |2 |Não|
 |`Payment.DaysToFine`|Opcional e somente para `Provider` Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex.: 3.|Número |15 |Não|
 |`Payment.FineRate`|Opcional e somente para `Provider` Bradesco2. Valor da multa após o vencimento, em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `FineAmount`. Ex: 10.12345 = 10.12345%.|Número |15 |Não|
 |`Payment.FineAmount`|Opcional e somente para `Provider` Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não utilizar em conjunto com `FineRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não|
@@ -1979,7 +1979,7 @@ Segue uma lista de propriedades e suas especificações, relativas a regras dist
 |`*5`|Deverá ser sempre igual ao número de pedido (`MerchantOrderId`). |
 |`*6`|A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador, antes de mandar para o banco. Caso o total ultrapasse os 14 dígitos, a API considera os últimos 14 dígitos. |
 |`*7`|Quando enviado mais que o permitido, a API gera um número aleatório. |
-|`*8`|São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen "-" e apóstrofo "’"). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.|
+|`*8`|São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen "-" e apóstrofo "‘"). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.|
 |`*9`|Caracteres especiais e acentuações são removidos automaticamente. |
 
 ## Recorrência
@@ -2071,7 +2071,7 @@ curl
 |`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
 |`Payment.RecurrentPayment.Interval`|Intervalo da recorrência. Não utilizar em conjunto com `DailyInterval`.<br><br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não*|
 |`Payment.RecurrentPayment.DailyInterval`|Padrão da recorrência em dias. Não utilizar em conjunto com `Interval`.|Número|2|Não*|
-|`Payment.RecurrentPayment.AuthorizeNow`|Se "true", autoriza no momento da requisição. Se "false", para agendamento futuro.|Booleano |--- |Sim|
+|`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
 |`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
 |`CreditCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
@@ -2183,7 +2183,7 @@ curl
 |`NextRecurrency`|Data de quando acontecerá a próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`Interval`|Intervalo entre as recorrências. |Texto |10 |Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
-|`AuthorizeNow`|Define se a primeira recorrência já deve ser autorizada ou não. |Booleano |--- |"true" ou "false" |
+|`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |Booleano |--- |"true" ou "false" |
 
 ### Autorizar uma Transação Recorrente com Boleto Bancário
 
@@ -2249,15 +2249,15 @@ curl
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.RecurrentPayment.StartDate`|Texto |10 |Não|Data para início da recorrência|
-|`Payment.RecurrentPayment.EndDate`|Texto |10 |Não|Data para termino da recorrência|
-|`Payment.RecurrentPayment.Interval`|Texto |10 |Não|Intervalo da recorrência.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
-|`Payment.RecurrentPayment.AuthorizeNow`|Booleano |--- |Sim|Se true, autoriza no momento da requisição. false para agendamento futuro|
+|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.RecurrentPayment.StartDate`|Data para início da recorrência.|Texto |10 |Não|
+|`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
+|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br>Monthly (Default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não|
+|`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
 
 #### Resposta
 
@@ -2401,18 +2401,18 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`RecurrentPaymentId`|Campo Identificador da próxima recorrência. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`RecurrentPaymentId`|Campo identificador da próxima recorrência. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`NextRecurrency`|Data da próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`StartDate`|Data do inicio da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`StartDate`|Data do início da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`Interval`|Intervalo entre as recorrência. |Texto |10 |<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
-|`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não. |Booleano |--- |true ou false |
+|`Interval`|Intervalo entre as recorrências. |Texto |10 |<br>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
+|`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |Booleano |--- |true ou false |
 
 ### Agendamento de uma recorrência
 
 Diferente da recorrência anterior, este exemplo não autoriza imediatamente, mas agenda uma autorização futura.
 
-Para programar a primeira transação da série de recorrência, passe o parâmetro `Payment.RecurrentPayment.AuthorizeNow` como _"false"_ e adicione o parâmetro `Payment.RecurrentPayment.StartDate`.
+Para programar a primeira transação da série de recorrências, passe o parâmetro `Payment.RecurrentPayment.AuthorizeNow` como "false" e adicione o parâmetro `Payment.RecurrentPayment.StartDate`.
 
 #### Requisição
 
