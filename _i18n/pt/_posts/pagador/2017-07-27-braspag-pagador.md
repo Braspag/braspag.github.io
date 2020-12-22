@@ -322,8 +322,8 @@ curl
 |`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|Texto|50|Não|
 |`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|Texto|50|Não|
 |`Payment.Credentials.Signature`|Envio do *TerminalID* da adquirente **Global Payments**, ex.: "001". Para **Safra** colocar o nome do estabelecimento, cidade e o estado concatenados com ponto-e-vírgula (;), ex.: "NomedaLoja;São Paulo;SP".|Texto|--|Não|
-|`Payment.PaymentFacilitator.EstablishmentCode`|Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).<br><br>**Aplicável para Provider Cielo30 ou Rede2.**|Número|11|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).<br><br>**Aplicável para Provider Cielo30 ou Rede2.**|Número|15|Sim para facilitadores|
+|`Payment.PaymentFacilitator.EstablishmentCode`|Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Número|11|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Número|15|Sim para facilitadores|
 |`Payment.PaymentFacilitator.SubEstablishment.Mcc`|MCC do sub-merchant.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Número|4|Sim para facilitadores|
 |`Payment.PaymentFacilitator.SubEstablishment.Address`|Endereço do sub-merchant.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Texto|22|Sim para facilitadores|
 |`Payment.PaymentFacilitator.SubEstablishment.City`|Cidade do sub-merchant.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Texto|13|Sim para facilitadores|
@@ -553,10 +553,10 @@ curl
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`CapturedDate`|Data em que a transação foi capturada.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`CapturedAmount`|Valor capturado, sem pontuação.|Número|15|100 equivale a R$ 1,00|
-|`ECI`|*Electronic Commerce Indicator*. Representa o resultado da autenticação.|Texto|2|Exemplos: 5|
+|`ECI`|*Electronic Commerce Indicator*. Representa o resultado da autenticação.|Texto|2|Ex.: 5|
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação.|Byte|2|Ex. 1|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
 
@@ -646,7 +646,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Status`|Status da transação. | Byte | 2 | Ex. 1 |
+|`Status`|Status da transação. | Byte | 2 | Ex.: 1 |
 |`ReasonCode`|Código de retorno da adquirente. | Texto | 32 | Texto alfanumérico |
 |`ReasonMessage`|Mensagem de retorno da adquirente. | Texto | 512 | Texto alfanumérico |
 
@@ -871,9 +871,9 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação.|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|Ex.: 57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Ex.: Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação.|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
 
 #### Autenticação Externa
@@ -1241,9 +1241,9 @@ Uma transação com cartão de débito se efetua de forma semelhante à do cart�
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação.|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|Ex.: 57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Ex.: Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação.|Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
 ### Transação com "Coronavoucher"
@@ -1397,13 +1397,13 @@ O auxílio emergencial disponibilizado pelo governo pode ser consumido através 
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação.|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|Ex.: 57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Ex.: Transação Aprovada|
 
 ### Transação com QR Code
 
-Para criar uma transação com QR code é necessário enviar uma requisição utilizando o método `POST` conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status *Pendente* na Braspag, e gerar o QR code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex.: *Pago*, *Não pago* ou *Não autorizado*).
+Para criar uma transação com QR code é necessário enviar uma requisição utilizando o método POST conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status *Pendente* na Braspag, e gerar o QR code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex.: *Pago*, *Não pago* ou *Não autorizado*).
 
 O exemplo abaixo contempla o mínimo de campos necessários a serem enviados para a autorização:
 
@@ -1619,7 +1619,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Status`|Status da transação. |Byte | 2 | Ex. 1 |
+|`Status`|Status da transação. |Byte | 2 | Ex.: 1 |
 |`ReasonCode`|Código de retorno da adquirência. |Texto |32 |Texto alfanumérico
 |`ReasonMessage`|Mensagem de retorno da adquirência. |Texto |512 |Texto alfanumérico
 
@@ -1670,10 +1670,10 @@ No caso da rejeição pela regra de Velocity, o *ProviderReasonCode* será "BP 1
 
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
+|Propriedade|Descrição|Tipo|Tamanho|
+|-----------|---------|----|-------|
 |`VelocityAnalysis.Id`|Identificador da análise efetuada.|GUID|36|
-|`VelocityAnalysis.ResultMessage`|"Accept" ou "Reject"|Texto|25|
+|`VelocityAnalysis.ResultMessage`|"Accept" ou "Reject".|Texto|25|
 |`VelocityAnalysis.Score`|100|Número|10|
 |`VelocityAnalysis.RejectReasons.RuleId`|Código da regra que rejeitou.|Número|10|
 |`VelocityAnalysis.RejectReasons.Message`|Descrição da regra que rejeitou.|Texto|512|
@@ -1948,7 +1948,7 @@ curl
 |`BoletoNumber`|"NossoNumero" gerado. |Texto|50 |2017091101 |
 |`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
-|`Address`|Endereço da loja cadastrada no banco. |Texto |256 |Av. Teste, 160 |
+|`Address`|Endereço da loja cadastrada no banco. |Texto |256 |Ex.: Av. Teste, 160 |
 |`Status`|Status da transação. |Byte | 2 | Ex.: 1 |
 
 ### Conciliação de Boletos
@@ -1976,7 +1976,7 @@ Segue uma lista de propriedades e suas especificações, relativas a regras dist
 |`*2`|Caso passe dos 11 dígitos, a API gerará um número incremental a partir da configuração definida. |
 |`*3`|O valor deve ser único, ou seja, o banco não permite a repetição de valores previamente utilizados. |
 |`*4`|Quando enviado acima de 9 posições, a API considera os últimos 9 dígitos. |
-|`*5`|Deverá ser sempre igual ao número de pedido (*MerchantOrderId*) |
+|`*5`|Deverá ser sempre igual ao número de pedido (`MerchantOrderId`). |
 |`*6`|A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador, antes de mandar para o banco. Caso o total ultrapasse os 14 dígitos, a API considera os últimos 14 dígitos. |
 |`*7`|Quando enviado mais que o permitido, a API gera um número aleatório. |
 |`*8`|São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen "-" e apóstrofo "’"). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.|
@@ -1988,7 +1988,7 @@ Diferente dos pagamentos com cartão de crédito ou boleto tradicionais, os paga
 
 É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Além da integração técnica, é necessário que o estabelecimento comercial do cliente esteja habilitado na adquirente para receber pagamentos recorrentes.
 
-O lojista conta com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas, intervalo entre elas, entre outros.
+O lojista conta com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas e intervalo entre elas, entre outros recursos.
 
 Vendas recorrentes com cartão de crédito não exigem CVV.
 
@@ -2062,21 +2062,21 @@ curl
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`Payment.RecurrentPayment.EndDate`|Texto |10 |Não|Data para termino da recorrência|
-|`Payment.RecurrentPayment.Interval`|Texto |10 |Não*|Intervalo da recorrência.<br /><ul><li>Monthly (Default)</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
-|`Payment.RecurrentPayment.DailyInterval`|Número|2|Não*|Padrão da recorrência em dias.
-|`Payment.RecurrentPayment.AuthorizeNow`|Booleano |--- |Sim|Se true, autoriza no momento da requisição. false para agendamento futuro|
-|`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
-|`CreditCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
-|`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
+|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
+|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br><br>Monthly (default)<br>Bimonthly<br>Quarterly<br>SemiAnnual<br>Annual<br><br>Não utilizar em conjunto com `DailyInterval`.|Texto |10 |Não*|
+|`Payment.RecurrentPayment.DailyInterval`|Padrão da recorrência em dias. Não utilizar em conjunto com `Interval`.|Número|2|Não*|
+|`Payment.RecurrentPayment.AuthorizeNow`|Se "true", autoriza no momento da requisição. Se "false", para agendamento futuro.|Booleano |--- |Sim|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
 
 #### Resposta
 
@@ -2179,21 +2179,21 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`RecurrentPaymentId`|ID que representa a recorrência, utilizada para consultas e alterações futuras |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`NextRecurrency`|Data de quando acontecerá a próxima recorrência |Texto |7 |05/2019 (MM/YYYY) |
-|`EndDate`|Data do fim da recorrência |Texto |7 |05/2019 (MM/YYYY) |
-|`Interval`|Intervalo entre as recorrência. |Texto |10 |<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
-|`AuthorizeNow`|Booleano para saber se a primeira recorrência já vai ser Autorizada ou não. |Booleano |--- |true ou false |
+|`RecurrentPaymentId`|ID que representa a recorrência, utilizada para consultas e alterações futuras. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`NextRecurrency`|Data de quando acontecerá a próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`Interval`|Intervalo entre as recorrências. |Texto |10 |Monthly<br>Bimonthly<br>Quarterly<br>SemiAnnual<br>Annual.|
+|`AuthorizeNow`|Define se a primeira recorrência já deve ser autorizada ou não. |Booleano |--- |"true" ou "false" |
 
-### Autorizar uma transação recorrente com boleto bancário
+### Autorizar uma Transação Recorrente com Boleto Bancário
 
-O pedido de requisição é o mesmo da criação de um boleto tradicional. Adicione o nó `RecurrentPayment` ao nó `Payment` para agendar as recorrência futuras ao autorizar uma transação pela primeira vez na série de recorrências.
+O pedido de requisição de uma transação recorrente com boleto bancário é o mesmo da criação de um boleto tradicional. Adicione o nó `RecurrentPayment` ao nó `Payment` para agendar as recorrências futuras ao autorizar uma transação pela primeira vez na série de recorrências.
 
-A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente mais o que estiver nas configurações do meio de pagamento aqui na Braspag.
+A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente adicionado do valor que estiver configurado no meio de pagamento na Braspag.
 
-Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias = Vencimento do boleto criado automaticamente: 06/01/2021
+Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias. Vencimento do boleto criado automaticamente: 06/01/2021.
 
-Entre em contato com o Suporte para definir em quantos dias você quer que seus boletos gerados via Recorrência vençam.
+Entre em contato com o [time de suporte](https://suporte.braspag.com.br/hc/pt-br/requests/new) para definir em quantos dias você quer que seus boletos gerados via recorrência vençam.
 
 #### Requisição
 
