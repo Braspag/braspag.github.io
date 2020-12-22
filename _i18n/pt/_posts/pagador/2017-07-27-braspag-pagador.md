@@ -2069,7 +2069,7 @@ curl
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
 |`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
-|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br><br>Monthly (default)<br>Bimonthly<br>Quarterly<br>SemiAnnual<br>Annual<br><br>Não utilizar em conjunto com `DailyInterval`.|Texto |10 |Não*|
+|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência. Não utilizar em conjunto com `DailyInterval`.<br><br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não*|
 |`Payment.RecurrentPayment.DailyInterval`|Padrão da recorrência em dias. Não utilizar em conjunto com `Interval`.|Número|2|Não*|
 |`Payment.RecurrentPayment.AuthorizeNow`|Se "true", autoriza no momento da requisição. Se "false", para agendamento futuro.|Booleano |--- |Sim|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
@@ -2182,7 +2182,7 @@ curl
 |`RecurrentPaymentId`|ID que representa a recorrência, utilizada para consultas e alterações futuras. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`NextRecurrency`|Data de quando acontecerá a próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`Interval`|Intervalo entre as recorrências. |Texto |10 |Monthly<br>Bimonthly<br>Quarterly<br>SemiAnnual<br>Annual.|
+|`Interval`|Intervalo entre as recorrências. |Texto |10 |Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
 |`AuthorizeNow`|Define se a primeira recorrência já deve ser autorizada ou não. |Booleano |--- |"true" ou "false" |
 
 ### Autorizar uma Transação Recorrente com Boleto Bancário
