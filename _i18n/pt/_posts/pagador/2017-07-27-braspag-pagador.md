@@ -2480,21 +2480,21 @@ curl
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`Payment.RecurrentPayment.StartDate`|Texto |10 |Não|Data para início da recorrência|
-|`Payment.RecurrentPayment.EndDate`|Texto |10 |Não|Data para termino da recorrência|
-|`Payment.RecurrentPayment.Interval`|Texto |10 |Não|Intervalo da recorrência.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
-|`Payment.RecurrentPayment.AuthorizeNow`|Booleano |--- |Sim|Se true, autoriza no momento da requisição. false para agendamento futuro|
-|`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
-|`CreditCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
-|`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
+|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.RecurrentPayment.StartDate`|Data para início da recorrência.|Texto |10 |Não|
+|`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
+|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br>Monthly (Default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não|
+|`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
 
 #### Resposta
 
@@ -2583,14 +2583,14 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`RecurrentPaymentId`|Campo Identificador da próxima recorrência. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`RecurrentPaymentId`|Campo identificador da próxima recorrência. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`NextRecurrency`|Data da próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`StartDate`|Data do inicio da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`StartDate`|Data do início da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`Interval`|Intervalo entre as recorrência. |Texto |10 |<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
-|`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não. |Booleano |--- |true ou false |
+|`Interval`|Intervalo entre as recorrências. |Texto |10 |<br>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
+|`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |Booleano |--- |true ou false |
 
-### Alterar dados do comprador
+### Alterar Dados do Comprador
 
 Para alterar os dados do comprador em uma recorrência já existente, basta fazer um PUT conforme o exemplo.
 
@@ -2673,31 +2673,31 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
-|`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
-|`Customer.Name`|Nome do Comprador. |Texto |255|Sim|
-|`Customer.Email`|Email do Comprador. |Texto |255|Não|
-|`Customer.Birthdate`|Data de nascimento do Comprador. |Date |10 |Não|
-|`Customer.Identity`|Número do RG, CPF ou CNPJ do Cliente. |Texto |14 |Não|
-|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CFP/CNPJ)|
-|`Customer.Address.Street`|Endereço do Comprador. |Texto |255 |Não|
-|`Customer.Address.Number`|Número do endereço do Comprador. |Texto |15 |Não|
-|`Customer.Address.Complement`|Complemento do endereço do comprador|Texto |50 |Não|
-|`Customer.Address.ZipCode`|CEP do endereço do Comprador. |Texto |9 |Não|
-|`Customer.Address.City`|Cidade do endereço do Comprador. |Texto |50 |Não|
-|`Customer.Address.State`|Estado do endereço do Comprador. |Texto |2 |Não|
-|`Customer.Address.Country`|Pais do endereço do Comprador. |Texto |35 |Não|
-|`Customer.Address.District`|Bairro do Comprador. |Texto |50 |Não|
-|`Customer.DeliveryAddress.Street`|Endereço do Comprador. |Texto |255 |Não|
-|`Customer.DeliveryAddress.Number`|Número do endereço do Comprador. |Texto |15 |Não|
-|`Customer.DeliveryAddress.Complement`|Complemento do endereço do Comprador. |Texto |50 |Não|
-|`Customer.DeliveryAddress.ZipCode`|CEP do endereço do Comprador. |Texto |9 |Não|
-|`Customer.DeliveryAddress.City`|Cidade do endereço do Comprador. |Texto |50 |Não|
-|`Customer.DeliveryAddress.State`|Estado do endereço do Comprador. |Texto |2 |Não|
-|`Customer.DeliveryAddress.Country`|Pais do endereço do Comprador. |Texto |35 |Não|
-|`Customer.DeliveryAddress.District`|Bairro do Comprador. |Texto |50 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`Customer.Name`|Nome do comprador. |Texto |255|Sim|
+|`Customer.Email`|Email do comprador. |Texto |255|Não|
+|`Customer.Birthdate`|Data de nascimento do comprador. |Date |10 |Não|
+|`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente. |Texto |14 |Não|
+|`Customer.IdentityType`|Tipo do documento de identificação do comprador (CFP/CNPJ).|Texto|255|Não|
+|`Customer.Address.Street`|Endereço do comprador. |Texto |255 |Não|
+|`Customer.Address.Number`|Número do endereço do comprador. |Texto |15 |Não|
+|`Customer.Address.Complement`|Complemento do endereço do comprador.|Texto |50 |Não|
+|`Customer.Address.ZipCode`|CEP do endereço do comprador. |Texto |9 |Não|
+|`Customer.Address.City`|Cidade do endereço do comprador. |Texto |50 |Não|
+|`Customer.Address.State`|Estado do endereço do comprador. |Texto |2 |Não|
+|`Customer.Address.Country`|País do endereço do comprador. |Texto |35 |Não|
+|`Customer.Address.District`|Bairro do endereço do comprador. |Texto |50 |Não|
+|`Customer.DeliveryAddress.Street`|Endereço de entrega do comprador. |Texto |255 |Não|
+|`Customer.DeliveryAddress.Number`|Número do endereço de entrega do comprador. |Texto |15 |Não|
+|`Customer.DeliveryAddress.Complement`|Complemento do endereço de entrega do comprador. |Texto |50 |Não|
+|`Customer.DeliveryAddress.ZipCode`|CEP do endereço de entrega do comprador. |Texto |9 |Não|
+|`Customer.DeliveryAddress.City`|Cidade do endereço de entrega do comprador. |Texto |50 |Não|
+|`Customer.DeliveryAddress.State`|Estado do endereço de entrega do comprador. |Texto |2 |Não|
+|`Customer.DeliveryAddress.Country`|País do endereço de entrega do comprador. |Texto |35 |Não|
+|`Customer.DeliveryAddress.District`|Bairro do endereço de entrega do comprador. |Texto |50 |Não|
 
 #### Resposta
 
@@ -2707,9 +2707,9 @@ HTTP Status 200
 
 ```
 
-Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Alterar a data final da recorrência
+### Alterar a Data Final da Recorrência
 
 Para alterar a data final da recorrência já existente, basta fazer um PUT conforme o exemplo.
 
@@ -2739,11 +2739,11 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
-|`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
-|`EndDate`|Data para termino da recorrência|Texto |10 |Sim|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`EndDate`|Data para término da recorrência.|Texto |10 |Sim|
 
 #### Resposta
 
@@ -2753,11 +2753,11 @@ HTTP Status 200
 
 ```
 
-Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Alterar o intervalo da recorrência
+### Alterar o Intervalo da Recorrência
 
-Para alterar o Intervalo de uma recorrência já existente, basta fazer um PUT conforme o exemplo.
+Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT conforme o exemplo:
 
 #### Requisição
 
@@ -2785,11 +2785,11 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
-|`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
-|`Interval`|Intervalo da recorrência. <ul><li>Monthly</li><li>Bimonthly</li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Texto |10 |Sim|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`Interval`|Intervalo da recorrência. <br>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual.|Texto |10 |Sim|
 
 #### Resposta
 
@@ -2799,13 +2799,17 @@ HTTP Status 200
 
 ```
 
-Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Alterar o dia da recorrência
+### Alterar o Dia da Recorrência
 
-Para modificar o dia de vencimento de uma recorrência já existente, basta fazer um PUT conforme o exemplo.
+Ao efetuar a alteração do dia da recorrência, devem levar-se em consideração as seguintes regras utilizadas para execução da atualização na API:
 
-<aside class="notice"><strong>Regra:</strong> Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09</aside>
+1- Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência.<br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 10, a data da próxima recorrência será dia 10/05.
+2- Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, mas este só terá efeito depois que a próxima recorrência for executada com sucesso. <br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 03, a data da próxima recorrência permanecerá dia 25/05. Após sua execução, a recorrência seguinte será agendada para o dia 03/06.
+3- Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência.<br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado para o dia 03, a data da próxima recorrência será 03/09.
+
+Para modificar o dia de vencimento de uma recorrência já existente, basta fazer um PUT conforme o exemplo:
 
 #### Requisição
 
@@ -2833,7 +2837,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
 |`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
@@ -2847,11 +2851,11 @@ HTTP Status 200
 
 ```
 
-Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Alterar o valor da transação da recorrência
+### Alterar o Valor da Transação da Recorrência
 
-Para modificar o valor da transação de uma recorrência já existente, basta fazer um PUT conforme o exemplo.
+Para modificar o valor da transação de uma recorrência já existente, basta fazer um PUT conforme o exemplo:
 
 #### Requsição
 
@@ -2879,13 +2883,13 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
-|`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
-|`Payment.Amount`|Valor do Pedido em centavos: 156 equivale a R$ 1,56|Número|15|Sim|
+|`MerchantId`|Identificador da loja na API.|GUID |36 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não|
+|`RecurrentPaymentId`|Número de identificação da recorrência.|Texto |50 |Sim|
+|`Payment.Amount`|Valor do pedido, em centavos. Ex.: 156 equivale a R$ 1,56.|Número|15|Sim|
 
-<aside class="warning">Essa alteração só afeta a data de pagamento da próxima recorrência.</aside>
+<aside class="warning">Essa alteração só afeta a data de pagamento da recorrência seguinte.</aside>
 
 #### Resposta
 
@@ -2895,13 +2899,13 @@ HTTP Status 200
 
 ```
 
-Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Alterar a data do próximo Pagamento
+### Alterar a Data do Próximo Pagamento
 
 Para alterar somente a data do próximo pagamento, basta fazer um PUT conforme o exemplo.
 
-Esta operação modifica somente a data do próximo pagamento, ou seja, a recorrências futuras permanecerão com as características originais.
+Esta operação modifica somente a data do pagamento seguinte, ou seja, as recorrências futuras permanecerão com as características originais.
 
 #### Requisição
 
@@ -2929,11 +2933,11 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
-|`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
-|`NextPaymentDate`|Data de pagamento da próxima recorrência|Texto |10 |Sim|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`NextPaymentDate`|Data de pagamento da próxima recorrência.|Texto |10 |Sim|
 
 #### Resposta
 
@@ -2943,19 +2947,19 @@ HTTP Status 200
 
 ```
 
-Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Alterar os dados de Pagamento da recorrência
+### Alterar os Dados de Pagamento da Recorrência
 
 Durante o ciclo de vida de uma recorrência, é possível alterar:
 
-* Adquirente (de Rede para Cielo, por exemplo)
-* Cartão (em caso de cartão vencido)
-* Meio de pagamento (de Cartão para Boleto e vice e versa)
+* Adquirente, ex.: de Rede para Cielo;
+* Cartão, em caso de cartão vencido;
+* Meio de pagamento, de cartão para boleto e vice-e-versa.
 
 Para alterar os dados de pagamento, basta fazer um PUT conforme o exemplo.
 
-<aside class="notice"><strong>Atenção:</strong> Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofrer alterações com os mesmos valores que já estavam salvos.</aside>
+<aside class="warning">Atenção: Essa alteração afeta a todos os dados do nó "Payment". Então, para manter os dados anteriores, você deve informar os campos que não deverão sofrer alterações com os mesmos valores que já estavam salvos.</aside>
 
 #### Requisição
 
@@ -3051,11 +3055,11 @@ curl
 HTTP Status 200
 ```
 
-Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ### Desabilitando um Pedido recorrente
 
-Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo.
+Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 
 #### Requisição
 
@@ -3085,7 +3089,7 @@ curl
 HTTP Status 200
 ```
 
-Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ### Reabilitando um Pedido recorrente
 
@@ -3121,7 +3125,7 @@ HTTP Status 200
 
 ```
 
-Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ### Transação com Renova Fácil
 
