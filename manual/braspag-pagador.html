@@ -825,14 +825,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.EstablishmentCode</code></td>
-      <td>Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).<br /><strong>Aplicável para Provider Cielo30 ou Rede2.</strong></td>
+      <td>Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).<br /><strong>Aplicável para <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 ou Rede2.</strong></td>
       <td>Número</td>
       <td>11</td>
       <td>Sim para facilitadores</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode</code></td>
-      <td>Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).<br /><strong>Aplicável para Provider Cielo30 ou Rede2.</strong></td>
+      <td>Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).<br /><strong>Aplicável para <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 ou Rede2.</strong></td>
       <td>Número</td>
       <td>15</td>
       <td>Sim para facilitadores</td>
@@ -1224,7 +1224,7 @@ curl
       <td><em>Electronic Commerce Indicator</em>. Representa o resultado da autenticação.</td>
       <td>Texto</td>
       <td>2</td>
-      <td>Exemplos: 5</td>
+      <td>Ex.: 5</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
@@ -1245,7 +1245,7 @@ curl
       <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>Ex.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
@@ -1408,7 +1408,7 @@ curl
       <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>Ex.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
@@ -1779,21 +1779,21 @@ curl
       <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>Ex.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
       <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>32</td>
-      <td>57</td>
+      <td>Ex.: 57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
       <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>512</td>
-      <td>Transação Aprovada</td>
+      <td>Ex.: Transação Aprovada</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
@@ -2343,21 +2343,21 @@ curl
       <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>Ex.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
       <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>32</td>
-      <td>57</td>
+      <td>Ex.: 57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
       <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>512</td>
-      <td>Transação Aprovada</td>
+      <td>Ex.: Transação Aprovada</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
@@ -2637,28 +2637,28 @@ curl
       <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>Ex.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
       <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>32</td>
-      <td>57</td>
+      <td>Ex.: 57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
       <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
       <td>Texto</td>
       <td>512</td>
-      <td>Transação Aprovada</td>
+      <td>Ex.: Transação Aprovada</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="transação-com-qr-code">Transação com QR Code</h3>
 
-<p>Para criar uma transação com QR code é necessário enviar uma requisição utilizando o método <code class="language-plaintext highlighter-rouge">POST</code> conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status <em>Pendente</em> na Braspag, e gerar o QR code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex.: <em>Pago</em>, <em>Não pago</em> ou <em>Não autorizado</em>).</p>
+<p>Para criar uma transação com QR code é necessário enviar uma requisição utilizando o método POST conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status <em>Pendente</em> na Braspag, e gerar o QR code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex.: <em>Pago</em>, <em>Não pago</em> ou <em>Não autorizado</em>).</p>
 
 <p>O exemplo abaixo contempla o mínimo de campos necessários a serem enviados para a autorização:</p>
 
@@ -3016,7 +3016,7 @@ curl
       <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>Ex.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
@@ -3087,7 +3087,6 @@ curl
       <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
-      <th>Formato</th>
     </tr>
   </thead>
   <tbody>
@@ -3096,35 +3095,30 @@ curl
       <td>Identificador da análise efetuada.</td>
       <td>GUID</td>
       <td>36</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.ResultMessage</code></td>
-      <td>“Accept” ou “Reject”</td>
+      <td>“Accept” ou “Reject”.</td>
       <td>Texto</td>
       <td>25</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.Score</code></td>
       <td>100</td>
       <td>Número</td>
       <td>10</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.RejectReasons.RuleId</code></td>
       <td>Código da regra que rejeitou.</td>
       <td>Número</td>
       <td>10</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.RejectReasons.Message</code></td>
       <td>Descrição da regra que rejeitou.</td>
       <td>Texto</td>
       <td>512</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -3642,7 +3636,7 @@ curl
       <td>Endereço da loja cadastrada no banco.</td>
       <td>Texto</td>
       <td>256</td>
-      <td>Av. Teste, 160</td>
+      <td>Ex.: Av. Teste, 160</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
@@ -3776,7 +3770,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">*5</code></td>
-      <td>Deverá ser sempre igual ao número de pedido (<em>MerchantOrderId</em>)</td>
+      <td>Deverá ser sempre igual ao número de pedido (<code class="language-plaintext highlighter-rouge">MerchantOrderId</code>).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">*6</code></td>
@@ -3803,7 +3797,7 @@ curl
 
 <p>É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Além da integração técnica, é necessário que o estabelecimento comercial do cliente esteja habilitado na adquirente para receber pagamentos recorrentes.</p>
 
-<p>O lojista conta com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas, intervalo entre elas, entre outros.</p>
+<p>O lojista conta com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas e intervalo entre elas, entre outros recursos.</p>
 
 <p>Vendas recorrentes com cartão de crédito não exigem CVV.</p>
 
@@ -3879,103 +3873,103 @@ curl
   <thead>
     <tr>
       <th>Propriedade</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome da provedora do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Nome da provedora de Meio de Pagamento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento.</td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Tipo do Meio de Pagamento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Valor do Pedido (ser enviado em centavos)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas.</td>
       <td>Número</td>
       <td>2</td>
       <td>Sim</td>
-      <td>Número de Parcelas</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
+      <td>Data para término da recorrência.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
-      <td>Data para termino da recorrência</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
+      <td>Intervalo da recorrência.<br />Monthly (default)<br />Bimonthly<br />Quarterly<br />SemiAnnual<br />Annual<br />Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">DailyInterval</code>.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não*</td>
-      <td>Intervalo da recorrência.<br />Monthly (Default)Bimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code></td>
+      <td>Padrão da recorrência em dias. Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">Interval</code>.</td>
       <td>Número</td>
       <td>2</td>
       <td>Não*</td>
-      <td>Padrão da recorrência em dias.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
+      <td>Se “true”, autoriza no momento da requisição. Se “false”, para agendamento futuro.</td>
       <td>Booleano</td>
       <td>—</td>
       <td>Sim</td>
-      <td>Se true, autoriza no momento da requisição. false para agendamento futuro</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Número do cartão do comprador.</td>
       <td>Texto</td>
       <td>16</td>
       <td>Sim</td>
-      <td>Número do Cartão do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Nome do comprador impresso no cartão.</td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
-      <td>Nome do Comprador impresso no cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Data de validade impresso no cartão, no formato MM/AAAA.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
-      <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão.</td>
       <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
-      <td>Código de segurança impresso no verso do cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Bandeira do cartão.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Bandeira do cartão</td>
     </tr>
   </tbody>
 </table>
@@ -4090,51 +4084,51 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>ID que representa a recorrência, utilizada para consultas e alterações futuras</td>
+      <td>ID que representa a recorrência, utilizada para consultas e alterações futuras.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NextRecurrency</code></td>
-      <td>Data de quando acontecerá a próxima recorrência</td>
+      <td>Data de quando acontecerá a próxima recorrência.</td>
       <td>Texto</td>
       <td>7</td>
       <td>05/2019 (MM/YYYY)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">EndDate</code></td>
-      <td>Data do fim da recorrência</td>
+      <td>Data do fim da recorrência.</td>
       <td>Texto</td>
       <td>7</td>
       <td>05/2019 (MM/YYYY)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
-      <td>Intervalo entre as recorrência.</td>
+      <td>Intervalo entre as recorrências.</td>
       <td>Texto</td>
       <td>10</td>
-      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
+      <td>Monthly<br />Bimonthly<br />Quarterly<br />SemiAnnual<br />Annual.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizeNow</code></td>
-      <td>Booleano para saber se a primeira recorrência já vai ser Autorizada ou não.</td>
+      <td>Define se a primeira recorrência já deve ser autorizada ou não.</td>
       <td>Booleano</td>
       <td>—</td>
-      <td>true ou false</td>
+      <td>“true” ou “false”</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="autorizar-uma-transação-recorrente-com-boleto-bancário">Autorizar uma transação recorrente com boleto bancário</h3>
+<h3 id="autorizar-uma-transação-recorrente-com-boleto-bancário">Autorizar uma Transação Recorrente com Boleto Bancário</h3>
 
-<p>O pedido de requisição é o mesmo da criação de um boleto tradicional. Adicione o nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> ao nó <code class="language-plaintext highlighter-rouge">Payment</code> para agendar as recorrência futuras ao autorizar uma transação pela primeira vez na série de recorrências.</p>
+<p>O pedido de requisição de uma transação recorrente com boleto bancário é o mesmo da criação de um boleto tradicional. Adicione o nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> ao nó <code class="language-plaintext highlighter-rouge">Payment</code> para agendar as recorrências futuras ao autorizar uma transação pela primeira vez na série de recorrências.</p>
 
-<p>A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente mais o que estiver nas configurações do meio de pagamento aqui na Braspag.</p>
+<p>A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente adicionado do valor que estiver configurado no meio de pagamento na Braspag.</p>
 
-<p>Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias = Vencimento do boleto criado automaticamente: 06/01/2021</p>
+<p>Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias. Vencimento do boleto criado automaticamente: 06/01/2021.</p>
 
-<p>Entre em contato com o Suporte para definir em quantos dias você quer que seus boletos gerados via Recorrência vençam.</p>
+<p>Entre em contato com o <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">time de suporte</a> para definir em quantos dias você quer que seus boletos gerados via recorrência vençam.</p>
 
 <h4 id="requisição-10">Requisição</h4>
 
