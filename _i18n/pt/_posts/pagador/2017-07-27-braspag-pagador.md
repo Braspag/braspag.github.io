@@ -1694,6 +1694,8 @@ Abaixo seguem os procedimentos de migração/filiação de cada banco:
 
 Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este meio de pagamento.
 
+Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizados em conjunto. A mesma regra se aplica aos parâmetros `Payment.InterestRate` e `Payment.InterestAmount`. Esses parâmetros, apresentados na tabela mais abaixo, estão marcados com um * na coluna de obrigatoriedade.
+
 #### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
@@ -1818,11 +1820,11 @@ curl
 |`Payment.Instructions`|Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#regras-específicas-por-banco)). Para quebra de linhas no texto utilize sempre a notação em HTML `<br>`.|Texto |Veja a [tabela](#regras-específicas-por-banco)|Não|
 |`Payment.NullifyDays`|Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo, contado a partir da data de vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12; após esta data o título é cancelado. Obs.: Recurso válido somente para boletos registrados do Banco Santander.|Número |2 |Não|
 |`Payment.DaysToFine`|Opcional e somente para `Provider` Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex.: 3.|Número |15 |Não|
-|`Payment.FineRate`|Opcional e somente para `Provider` Bradesco2. Valor da multa após o vencimento, em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `FineAmount`. Ex: 10.12345 = 10.12345%.|Número |15 |Não|
-|`Payment.FineAmount`|Opcional e somente para `Provider` Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não utilizar em conjunto com `FineRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não|
+|`Payment.FineRate`|Opcional e somente para `Provider` Bradesco2. Valor da multa após o vencimento, em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `FineAmount`. Ex: 10.12345 = 10.12345%.|Número |15 |Não*|
+|`Payment.FineAmount`|Opcional e somente para `Provider` Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não utilizar em conjunto com `FineRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
 |`Payment.DaysToInterest`|Opcional e somente para `Provider` Bradesco2. Quantidade de dias após o vencimento para início da cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex.: 3.|Número |15 |Não|
-|`Payment.InterestRate`|Opcional e somente para `Provider` Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `InterestAmount`. Ex.: 10.12345.|Número |15 |Não|
-|`Payment.InterestAmount`|Opcional e somente para `Provider` Bradesco2. Valor absoluto de juros diários após o vencimento, em centavos. Não utilizar em conjunto com `InterestRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não|
+|`Payment.InterestRate`|Opcional e somente para `Provider` Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `InterestAmount`. Ex.: 10.12345.|Número |15 |Não*|
+|`Payment.InterestAmount`|Opcional e somente para `Provider` Bradesco2. Valor absoluto de juros diários após o vencimento, em centavos. Não utilizar em conjunto com `InterestRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
 
 #### Resposta
 
@@ -1992,7 +1994,7 @@ O lojista conta com recursos diferenciados para modelar sua cobrança de acordo 
 
 Vendas recorrentes com cartão de crédito não exigem CVV.
 
-### Autorizar uma transação recorrente
+### Autorizar uma Transação Recorrente
 
 Adicione o nó `RecurrentPayment` ao nó `Payment` para agendar as recorrências futuras ao autorizar uma transação pela primeira vez na série de recorrências.
 
@@ -2408,7 +2410,7 @@ curl
 |`Interval`|Intervalo entre as recorrências. |Texto |10 |<br>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
 |`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |Booleano |--- |true ou false |
 
-### Agendamento de uma recorrência
+### Agendamento de uma Recorrência
 
 Diferente da recorrência anterior, este exemplo não autoriza imediatamente, mas agenda uma autorização futura.
 
@@ -2838,10 +2840,10 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
-|`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
-|`RecurrencyDay`|Dia da Recorrência|Número |2 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`RecurrencyDay`|Dia da recorrência.|Número |2 |Sim|
 
 #### Resposta
 
@@ -2903,9 +2905,9 @@ Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pa
 
 ### Alterar a Data do Próximo Pagamento
 
-Para alterar somente a data do próximo pagamento, basta fazer um PUT conforme o exemplo.
+Para alterar somente a data do pagamento seguinte, basta fazer um PUT conforme o exemplo abaixo.
 
-Esta operação modifica somente a data do pagamento seguinte, ou seja, as recorrências futuras permanecerão com as características originais.
+<aside class="warning">Esta operação modifica somente a data do pagamento seguinte, ou seja, as recorrências futuras permanecerão com as características originais.</aside>
 
 #### Requisição
 
@@ -3029,25 +3031,25 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
-|`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
-|`Payment.Provider`|Nome da provedora de Meio de Pagamento|Texto|15|Sim|
-|`Payment.Type`|Tipo do Meio de Pagamento. |Texto |100|Sim|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos)|Número |15 |Sim|
-|`Payment.Installments`|Número de Parcelas|Número |2 |Sim|
-|`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador|Texto |13|Não|
-|`CreditCard.CardNumber`|Número do Cartão do comprador|Texto |16|Sim|
-|`CreditCard.Holder`|Nome do Comprador impresso no cartão|Texto |25|Sim|
-|`CreditCard.ExpirationDate`|Data de validade impresso no cartão|Texto |7 |Sim|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão|Texto |4 |Sim|
-|`CreditCard.Brand`|Bandeira do cartão|Texto|10|Sim|
-|`Payment.Credentials.Code`|afiliação gerada pela adquirente|Texto|100|Sim|
-|`Payment.Credentials.Key`|chave de afiliação/token gerado pela adquirente|Texto|100|Sim|
-|`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|Texto|50|Não|
-|`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado.)|Texto|50|Não|
-|`Payment.Credentials.Signature`|Enviar o TerminalID da adquirete Global Payments Ex.: 001. Para Safra colocar o Nome do Estabelecimento, Cidade e o Estado concatenado com ponto-e-vírgula (;). Ex: NomedaLoja;São Paulo;SP|Texto|--|Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento. |Texto |100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
+|`Payment.Installments`|Número de parcelas.|Número |2 |Sim|
+|`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador.|Texto |13|Não|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto |16|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto |25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impressa no cartão.|Texto |7 |Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto |4 |Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
+|`Payment.Credentials.Code`|Afiliação gerada pela adquirente.|Texto|100|Sim|
+|`Payment.Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|Texto|100|Sim|
+|`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
+|`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
+|`Payment.Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP|Texto|--|Não|
 
 #### Resposta
 
@@ -3057,7 +3059,7 @@ HTTP Status 200
 
 Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Desabilitando um Pedido recorrente
+### Desabilitando um Pedido Recorrente
 
 Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 
@@ -3078,10 +3080,10 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
-|`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
 
 #### Resposta
 
@@ -3091,9 +3093,9 @@ HTTP Status 200
 
 Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Reabilitando um Pedido recorrente
+### Reabilitando um Pedido Recorrente
 
-Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.
+Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 
 #### Requisição
 
@@ -3112,10 +3114,10 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API |GUID |36 |Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API|Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
-|`RecurrentPaymentId`|Numero de identificação da Recorrência. |Texto |50 |Sim|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
 
 #### Resposta
 
@@ -3129,13 +3131,13 @@ Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pa
 
 ### Transação com Renova Fácil
 
-O Renova fácil é um serviço desenvolvido pela CIELO junto com os bancos emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.
+O *Renova Fácil* é um serviço desenvolvido pela CIELO em conjunto com os bancos emissores cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.
 
-Através da identificação de cartões vencidos no momento da transação, é feita a autorização com um novo cartão e é retornado o novo cartão para armazenagem.
+Através da identificação de cartões vencidos no momento da transação, é feita a autorização com um novo cartão, que é então retornado para armazenagem.
 
-Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado na CIELO. Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá um nó a mais conforme exemplo abaixo.
+<aside class="notice">Bancos emissores participantes: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.</aside>
 
-Bancos Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank
+Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado na CIELO. Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá um nó a mais conforme exemplo abaixo:
 
 #### Resposta
 
@@ -3228,19 +3230,19 @@ Bancos Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamerica
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`NewCard.CardNumber`|Novo Número do Cartão do comprador|Texto|16|
-|`NewCard.Holder`|Nome do portador impresso no novo cartão|Texto|25|
-|`NewCard.ExpirationDate`|Data de validade impresso no novo cartão|Texto|7|
-|`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão|Texto|4|
-|`NewCard.Brand`|Bandeira do novo cartão|Texto|10 |
+|`NewCard.CardNumber`|Novo número do cartão do comprador.|Texto|16|
+|`NewCard.Holder`|Nome do portador impresso no novo cartão.|Texto|25|
+|`NewCard.ExpirationDate`|Data de validade impressa no novo cartão.|Texto|7|
+|`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão.|Texto|4|
+|`NewCard.Brand`|Bandeira do novo cartão.|Texto|10 |
 
 ## Transferência Eletrônica
 
-Semelhante ao Pagamento com Cartão de Débito, a Transferência Eletrônica conecta o consumidor ao seu banco para autenticar uma venda à débito. A diferença entre ambos é que as Transferências não são submetidas à adquirente nem dependem de dados de cartão.
+Semelhante ao pagamento com cartão de débito, a transferência eletrônica conecta o consumidor ao seu banco para autenticar uma venda em débito. A diferença entre ambos é que as transferências não são submetidas à adquirente nem dependem de dados de cartão.
 
-### Criando uma transação
+### Criando uma Transação
 
-Para criar uma venda, é necessário fazer um POST para o recurso Payment conforme o exemplo.
+Para criar uma venda, é necessário fazer um POST para o recurso *Payment* conforme o exemplo:
 
 #### Requisição
 
@@ -3335,27 +3337,27 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API. |Texto |40 |Sim|
-|`RequestId`|Identificador do Request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | GUID | 36 |Não|
-|`MerchantOrderId`|Numero de identificação do Pedido. |Texto |50 |Sim|
-|`Customer.Name`|Nome do comprador|Texto|255|Sim|
-|`Customer.Identity`|Número do RG, CPF ou CNPJ do Cliente| Texto |14 |Sim|
-|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ)|Texto|255|Não|
-|`Customer.Email`|Email do comprador|Texto|255|Não|
-|`Customer.Address.Street`|Endereço de contato do comprador|Texto|255|Sim|
-|`Customer.Address.Number`|Número endereço de contato do comprador|Texto|15|Sim|
-|`Customer.Address.Complement`|Complemento do endereço de contato do Comprador|Texto|50|Sim|
-|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador|Texto|9|Sim|
-|`Customer.Address.City`|Cidade do endereço de contato do comprador|Texto|50|Sim|
-|`Customer.Address.State`|Estado do endereço de contato do comprador|Texto|2|Sim|
-|`Customer.Address.Country`|Pais do endereço de contato do comprador|Texto|35|Sim|
-|`Customer.Address.District`|Bairro do endereço de contato do comprador|Texto|35|Sim|
-|`Payment.Type`|Tipo do Meio de Pagamento. |Texto |100 |Sim|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos)|Número |15 |Sim|
-|`Payment.Provider`|Nome da provedora de Meio de Pagamento|Texto |15 |---|
-|`Payment.Beneficiary.Bank`|Banco do pagador (obrigatório somente para transferência eletrônica com Provider PayMeeSemiTransparent). |Texto |100 |Condicional|
-|`Payment.Shopper.Branch`|Agência do pagador (obrigatório somente para transferência eletrônica com Provider PayMeeSemiTransparent). **OBS.: Suprimir esse nó para modalidade de Depósito Identificado** |Texto |100 |Condicional|
-|`Payment.Shopper.Account`|Conta do pagador (obrigatório somente para transferência eletrônica com Provider PayMeeSemiTransparent). **OBS.: Suprimir esse nó para modalidade de Depósito Identificado** |Texto |100 |Condicional|
+|`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantOrderId`|Número de identificação do pedido. |Texto |50 |Sim|
+|`Customer.Name`|Nome do comprador.|Texto|255|Sim|
+|`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.| Texto |14 |Sim|
+|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ).|Texto|255|Não|
+|`Customer.Email`|Email do comprador.|Texto|255|Não|
+|`Customer.Address.Street`|Endereço de contato do comprador.|Texto|255|Sim|
+|`Customer.Address.Number`|Número do endereço de contato do comprador.|Texto|15|Sim|
+|`Customer.Address.Complement`|Complemento do endereço de contato do comprador.|Texto|50|Sim|
+|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador.|Texto|9|Sim|
+|`Customer.Address.City`|Cidade do endereço de contato do comprador.|Texto|50|Sim|
+|`Customer.Address.State`|Estado do endereço de contato do comprador.|Texto|2|Sim|
+|`Customer.Address.Country`|País do endereço de contato do comprador.|Texto|35|Sim|
+|`Customer.Address.District`|Bairro do endereço de contato do comprador.|Texto|35|Sim|
+|`Payment.Type`|Tipo do meio de pagamento. |Texto |100 |Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto |15 |---|
+|`Payment.Beneficiary.Bank`|Banco do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). |Texto |100 |Condicional|
+|`Payment.Shopper.Branch`|Agência do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). Obs.: Suprimir esse nó para modalidade de *Depósito Identificado*. |Texto |100 |Condicional|
+|`Payment.Shopper.Account`|Conta do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). Obs.: Suprimir esse nó para modalidade de *Depósito Identificado*. |Texto |100 |Condicional|
 
 #### Resposta
 
@@ -3437,9 +3439,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Url`|URL para a qual o comprador deverá ser redirecionado para autenticação da Transferência Eletrônica |Texto |256 |Url de Autenticação|
-|`Status`|Status da Transação|Byte|2|Ex. 1|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Url`|URL para onde o usuário será redirecionado para autenticação da transferência eletrônica. |Texto |256 |Url de Autenticação|
+|`Status`|Status da transação.|Byte|2|Ex. 1|
 
 ## E-Wallets
 
