@@ -35,7 +35,11 @@ Apenas um registro deste tipo é permitido por arquivo. O registro header deve e
 
 ## Registro Transação
 
-Cada transação feita pela loja será demonstrada nesse registro, que se repetirá quantas vezes forem necessárias, a partir da linha 2 (logo após o Header). O registro segue o seguinte padrão:
+Cada transação feita pela loja será demonstrada nesse registro, que se repetirá quantas vezes forem necessárias, a partir da linha 2 (logo após o Header).
+
+<aside class="warning">Atenção: o número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo até o final do fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
+
+O registro segue o seguinte padrão:
 
 > [Tipo de Registro];[Pedido];[Afiliação];[Adquirente];[TID];[NSU/DOC];[Código de Autorização] ; [Número do Cartão];[Valor];[Quantidade de Parcelas];[Data da Venda];[Hora da venda] ; [Identificador da filial]
 
