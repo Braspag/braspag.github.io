@@ -168,7 +168,11 @@ As informações são guardadas em três tipos de registros, Header, Transação
 
 <h2 id="registro-transação">Registro Transação</h2>
 
-<p>Cada transação feita pela loja será demonstrada nesse registro, que se repetirá quantas vezes forem necessárias, a partir da linha 2 (logo após o Header). O registro segue o seguinte padrão:</p>
+<p>Cada transação feita pela loja será demonstrada nesse registro, que se repetirá quantas vezes forem necessárias, a partir da linha 2 (logo após o Header).</p>
+
+<aside class="warning">Atenção: o número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo até o final do fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
+
+<p>O registro segue o seguinte padrão:</p>
 
 <blockquote>
   <p>[Tipo de Registro];[Pedido];[Afiliação];[Adquirente];[TID];[NSU/DOC];[Código de Autorização] ; [Número do Cartão];[Valor];[Quantidade de Parcelas];[Data da Venda];[Hora da venda] ; [Identificador da filial]</p>
