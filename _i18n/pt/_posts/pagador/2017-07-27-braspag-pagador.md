@@ -1688,7 +1688,11 @@ A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigat
 
 Abaixo seguem os procedimentos de migração/filiação de cada banco:
 
-[Bradesco](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf)<BR>[Banco do Brasil](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf)<BR>[Itaú](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf)<BR>[Santander](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf)<BR>[Caixa Econômica](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf)
+* [Bradesco](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf)
+* [Banco do Brasil](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf)
+* [Itaú](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf)
+* [Santander](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf)
+* [Caixa Econômica](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf)
 
 ### Criando uma Transação de Boleto
 
@@ -3445,31 +3449,29 @@ curl
 
 ## E-Wallets
 
-### O que são e-Wallets (Carteiras Digitais)
+### O Que São E-Wallets (Carteiras Digitais)
 
-São repositórios de cartões e dados de pagamentos para consumidores do e-commerce e mundo físico. As Carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento, tornando o processo de compra mais conveniente e seguro.
+E-wallets são repositórios de cartões e dados de pagamentos destinados a consumidores do e-commerce e do mundo físico. As carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento, tornando o processo de compra mais conveniente e seguro.
 
-> *Para utilizar carteiras no Pagador, o lojista deverá possuir as carteiras integradas em seu checkout*.
+<aside class="warning">Para utilizar carteiras no Pagador, o lojista deverá possuir as carteiras integradas em seu checkout.</aside>
 
 Para maiores informações, entre em contato com o provedor de sua preferência para contratar o serviço.
 
 ### E-Wallets Disponíveis
 
-O Pagador possui suporte para:
+O Pagador possui suporte para as seguintes carteiras digitais:
 
-|| Carteira                                                           | |
-|-|:------------------------------------------------------------------:|-|
-|| [*Apple Pay*](https://www.apple.com/br/apple-pay/)                 | |
-|| [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)            | |
-|| [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/)        | |
-|| [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout) | |
-|| [*MasterPass*](https://masterpass.com/pt-br/)                      | |
+* [*Apple Pay*](https://www.apple.com/br/apple-pay/)
+* [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)
+* [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/)
+* [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout/)
+* [*MasterPass*](https://masterpass.com/pt-br/)
 
-<aside class="notice"><strong>Atenção:</strong> Quando o nó “Wallet” for enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
-
-<aside class="notice"><strong>Atenção:</strong> Para o cartão de débito, quando for enviado na requisição o nó “Wallet”, será necessário o nó “DebitCard” contendo a “ReturnUrl”.</aside>
+<aside class="warning">Atenção: O nó “CreditCard” passa a ser opcional quando o nó “Wallet” é enviado na requisição; e, para o cartão de débito, é necessário o envio do nó “DebitCard”, contendo a “ReturnUrl”.</aside>
 
 ### Integração
+
+Abaixo, um exemplo de requisição padrão para integração do e-wallet:
 
 #### Requisição Padrão
 
@@ -3499,49 +3501,50 @@ O Pagador possui suporte para:
 
 ```
 
-| Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
-|----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | GUID   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
-| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                        |
-| `RequestId`                | GUID   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
-| `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
-| `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
-| `Customer.Status`          | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                                                |
-| `Payment.Type`             | Texto  | 100     | Sim         | Tipo do Meio de Pagamento.                                                                              |
-| `Payment.Amount`           | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                                              |
-| `Payment.Provider`         | Texto  | 15      | Sim         | Somente providers Cielo (`Cielo` / `Cielo30`)                                                           |
-| `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
-| `Wallet.Type`              | Texto  | --     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
-| `Wallet.Walletkey`         | Texto  | --     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
-| `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | --    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`                          |
-| `Wallet.AdditionalData.capturecode`       | Texto  | --    | Sim  | Código informado pela `MasterPass` ao lojista                                                    |                                                      
-| `Wallet.AdditionalData.Signature`| Texto  | --    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `AndroidPay`                          |
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+| `MerchantId`|GUID|36|Sim|Identificador da loja na Braspag.|
+| `MerchantKey`|Texto|40|Sim|Chave pública para autenticação dupla na Braspag.|
+| `RequestId`|GUID|36|Não|Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
+| `MerchantOrderId`|Texto|50|Sim|Número de identificação do pedido.|
+| `Customer.Name`|Texto|255|Não|Nome do comprador.|
+| `Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja ("new" ou "existing").|
+| `Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento.|
+| `Payment.Amount`|Número|15|Sim|Valor do pedido, em centavos.|
+| `Payment.Provider`|Texto|15|Sim|Somente providers Cielo ("Cielo" e "Cielo30").|
+| `Payment.Installments`|Número|2|Sim|Número de parcelas.|
+| `Wallet.Type`|Texto|--|Sim|Indica qual o tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout"/ "Masterpass".|
+| `Wallet.Walletkey`|Texto|--|Sim|Chave criptográfica que identifica lojas nas wallets. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|
+| `Wallet.AdditionalData.EphemeralPublicKey`|Texto|--|Sim|Token retornado pela wallet. Deve ser enviado em Integrações: `ApplePay`.|
+| `Wallet.AdditionalData.Capturecode`|Texto|--|Sim|Código informado pela `MasterPass` ao lojista.|                   
+| `Wallet.AdditionalData.Signature`|Texto|--|Sim|Token retornado pela wallet. Deve ser enviado em Integrações: `AndroidPay`.|
 
 ##### Walletkey
 
-Formato de `WalletKeys` que devem ser repassados ao Pagador API
+O Walletkey é o identificador utilizado pela Braspag para descriptografar payloads retornados pela wallet.
+Seguem os formatos de `WalletKey` a serem repassados ao Pagador API:
 
-| Carteira       | Exemplo        |.|
-|----------------|----------------|-|
-| *Apple Pay*    | 9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+easdhghrsa/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc   |.|
-| *Samsung Pay*  | eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR--gApzoXH-fdafddfa-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ`   |.|
-| *Google Pay*  | {\"encryptedMessage\":\"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\\u003d\\u003d\",\"ephemeralPublicKey\":\"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\\u003d\",\"tag\":\"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\\u003d\"}  |.|
-| *VisaCheckout* | 1140812334225873901   |.|
-| *Masterpass* | a561da1c18a89cfdafas875f9d43fc46cd9bf3e1   |.|
+| Carteira       | Exemplo        |
+|----------------|----------------|
+| *Apple Pay*    | 9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+easdhghrsa/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc   |
+| *Samsung Pay*  | eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR--gApzoXH-fdafddfa-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ|   |
+| *Google Pay*  | {\"encryptedMessage\":\"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\\u003d\\u003d\",\"ephemeralPublicKey\":\"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\\u003d\",\"tag\":\"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\\u003d\"}  |
+| *VisaCheckout* | 1140812334225873901   |
+| *Masterpass* | a561da1c18a89cfdafas875f9d43fc46cd9bf3e1   |
 
 ##### EphemeralPublicKey
 
-Formato de `EphemeralPublicKey` que devem ser repassados ao Pagador API
+Formato de `EphemeralPublicKey` que deve ser repassados ao Pagador API:
 
 | Carteira       | Exemplo                                                                                                                          |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------|
-| *Apple Pay*    | `MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==`   |
+| *Apple Pay*    | MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==   |
 
-Formato de `Signature` que devem ser repassados ao Pagador API
+Formato de `Signature` que deve ser repassados ao Pagador API:
 
 | Carteira       | Exemplo                                                                                                                          |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------|
-| *Google Pay*  | `MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA\u003d`                                       |
+| *Google Pay*  | MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA\u003d                                       |
 
 #### Respostas
 
@@ -3610,26 +3613,26 @@ Formato de `Signature` que devem ser repassados ao Pagador API
 
 | Propriedade         | Descrição                                                                                                                      | Tipo  | Tamanho | Formato                              |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
-| `ProofOfSale`       | Número da autorização, identico ao NSU.                                                                                        | Texto | 6       | Texto alfanumérico                   |
+| `ProofOfSale`       | Número da autorização, idêntico ao NSU.                                                                                        | Texto | 6       | Texto alfanumérico                   |
 | `Tid`               | Id da transação na adquirente.                                                                                                 | Texto | 20      | Texto alfanumérico                   |
 | `AuthorizationCode` | Código de autorização.                                                                                                         | Texto | 6       | Texto alfanumérico                   |
-| `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
-| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
-| `Status`            | Status da Transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
-| `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
-| `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | --     | Texto alfanumérico                   |
-| `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | --     | Texto alfanumérico                   |
-| `Walletkey`         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | --     | Ver tabela `WalletKey`               |       
-| `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`                                       | Texto | --     | Ver Tabela `EphemeralPublicKey`      |  
-| `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                  | Texto | --     | 3                                    |
-| `AdditionalData.Signature` | Token retornado pela Wallet. Deve ser enviado em Integrações: `AndroidPay`                                               | Texto | --     | Ver Tabela `Signature`      |  
+| `SoftDescriptor`    | Texto que será impresso na fatura bancária do portador. Disponível apenas para VISA/MASTER - não permite caracteres especiais. | Texto | 13      | Texto alfanumérico                   |
+| `PaymentId`         | Campo identificador do pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ECI`               | *Eletronic Commerce Indicator*. Representa o quão segura é uma transação.                                                        | Texto | 2       | Ex.: 7                          |
+| `Status`            | Status da transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
+| `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
+| `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | --     | Texto alfanumérico                   |
+| `Type`              | Indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`.                      | Texto | --     | Texto alfanumérico                   |
+| `Walletkey`         | Chave criptográfica que identifica lojas nas wallets. Consulte a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | --     | Ver [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)               |       
+| `AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em Integrações: `ApplePay`.                                       | Texto | --     | Ver tabela [EphemeralPublicKey](https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey)      |  
+| `AdditionalData.Capturecode`        | Código informado pela `MasterPass` ao lojista.                                                                  | Texto | --     | 3                                    |
+| `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: `AndroidPay`.                                               | Texto | --     | Ver tabela [Signature](https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey)      |  
 
 ### Exemplos
 
 #### Apple Pay
 
-<aside class="notice"><strong>Pré-requisitos:</strong> Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um MerchantIdentifier. Também é necessário o upload de um certificado CSR no formato PEM fornecido pela Braspag. Abaixo segue o passo a passo para disponibilizar a Apple Pay em sua loja.</aside>
+<aside class="notice">Pré-requisitos: Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um MerchantIdentifier. Também é necessário o upload de um certificado CSR no formato PEM fornecido pela Braspag. Abaixo segue o passo a passo para disponibilizar a Apple Pay em sua loja.</aside>
 
 ##### Passo 1. Contratação na Apple
 
