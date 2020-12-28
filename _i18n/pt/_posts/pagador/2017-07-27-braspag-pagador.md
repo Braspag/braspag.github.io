@@ -1083,7 +1083,7 @@ Uma transação com autenticação externa receberá, além do retorno padrão d
 
 ### Transação com Cartão de Débito
 
-Uma transação com cartão de débito se efetua de forma semelhante à do cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.
+Uma transação com cartão de débito se efetua de forma semelhante à com cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.
 
 #### Requisição
 
@@ -3445,7 +3445,7 @@ curl
 |-----------|---------|----|-------|-------|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Url`|URL para onde o usuário será redirecionado para autenticação da transferência eletrônica. |Texto |256 |Url de Autenticação|
-|`Status`|Status da transação.|Byte|2|Ex. 1|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
 
 ## E-Wallets
 
@@ -3501,27 +3501,27 @@ Abaixo, um exemplo de requisição padrão para integração do e-wallet:
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-| `MerchantId`|GUID|36|Sim|Identificador da loja na Braspag.|
-| `MerchantKey`|Texto|40|Sim|Chave pública para autenticação dupla na Braspag.|
-| `RequestId`|GUID|36|Não|Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
-| `MerchantOrderId`|Texto|50|Sim|Número de identificação do pedido.|
-| `Customer.Name`|Texto|255|Não|Nome do comprador.|
-| `Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja ("new" ou "existing").|
-| `Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento.|
-| `Payment.Amount`|Número|15|Sim|Valor do pedido, em centavos.|
-| `Payment.Provider`|Texto|15|Sim|Somente providers Cielo ("Cielo" e "Cielo30").|
-| `Payment.Installments`|Número|2|Sim|Número de parcelas.|
-| `Wallet.Type`|Texto|--|Sim|Indica qual o tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout"/ "Masterpass".|
-| `Wallet.Walletkey`|Texto|--|Sim|Chave criptográfica que identifica lojas nas wallets. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|
-| `Wallet.AdditionalData.EphemeralPublicKey`|Texto|--|Sim|Token retornado pela wallet. Deve ser enviado em Integrações: `ApplePay`.|
-| `Wallet.AdditionalData.Capturecode`|Texto|--|Sim|Código informado pela `MasterPass` ao lojista.|                   
-| `Wallet.AdditionalData.Signature`|Texto|--|Sim|Token retornado pela wallet. Deve ser enviado em Integrações: `AndroidPay`.|
+| `MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
+| `MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
+| `RequestId`|Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não|
+| `MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
+| `Customer.Name`|Nome do comprador.|Texto|255|Não|
+| `Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
+| `Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+| `Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+| `Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo e Cielo30).|Texto|15|Sim|
+| `Payment.Installments`|Número de parcelas.|Número|2|Sim|
+| `Wallet.Type`|Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".|Texto|--|Sim|
+| `Wallet.WalletKey`|Chave criptográfica que identifica lojas nas wallets. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|Texto|--|Sim|
+| `Wallet.AdditionalData.EphemeralPublicKey`|Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".|Texto|--|Sim|
+| `Wallet.AdditionalData.CaptureCode`|Código informado pela **MasterPass** ao lojista.| Texto|--|Sim|                  
+| `Wallet.AdditionalData.Signature`|Token retornado pela wallet. Deve ser enviado em Integrações: "AndroidPay".|Texto|--|Sim|
 
 ##### Walletkey
 
-O Walletkey é o identificador utilizado pela Braspag para descriptografar payloads retornados pela wallet.
+O walletkey é o identificador utilizado pela Braspag para descriptografar payloads retornados pela wallet.
 Seguem os formatos de `WalletKey` a serem repassados ao Pagador API:
 
 | Carteira       | Exemplo        |
@@ -3534,13 +3534,15 @@ Seguem os formatos de `WalletKey` a serem repassados ao Pagador API:
 
 ##### EphemeralPublicKey
 
-Formato de `EphemeralPublicKey` que deve ser repassados ao Pagador API:
+Formato de `EphemeralPublicKey` que deve ser repassado ao Pagador API:
 
 | Carteira       | Exemplo                                                                                                                          |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------|
 | *Apple Pay*    | MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==   |
 
-Formato de `Signature` que deve ser repassados ao Pagador API:
+##### Signature
+
+Formato de `Signature` que deve ser repassado ao Pagador API:
 
 | Carteira       | Exemplo                                                                                                                          |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------|
@@ -3618,77 +3620,80 @@ Formato de `Signature` que deve ser repassados ao Pagador API:
 | `AuthorizationCode` | Código de autorização.                                                                                                         | Texto | 6       | Texto alfanumérico                   |
 | `SoftDescriptor`    | Texto que será impresso na fatura bancária do portador. Disponível apenas para VISA/MASTER - não permite caracteres especiais. | Texto | 13      | Texto alfanumérico                   |
 | `PaymentId`         | Campo identificador do pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ECI`               | *Eletronic Commerce Indicator*. Representa o quão segura é uma transação.                                                        | Texto | 2       | Ex.: 7                          |
-| `Status`            | Status da transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
+| `ECI`               | *Electronic Commerce Indicator*. Representa o quão segura é uma transação.                                                        | Texto | 2       | Ex.: 7                          |
+| `Status`            | Status da transação.                                                                                                           | Byte  | 2       | Ex.: 1                                |
 | `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | --     | Texto alfanumérico                   |
-| `Type`              | Indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`.                      | Texto | --     | Texto alfanumérico                   |
-| `Walletkey`         | Chave criptográfica que identifica lojas nas wallets. Consulte a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | --     | Ver [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)               |       
-| `AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em Integrações: `ApplePay`.                                       | Texto | --     | Ver tabela [EphemeralPublicKey](https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey)      |  
-| `AdditionalData.Capturecode`        | Código informado pela `MasterPass` ao lojista.                                                                  | Texto | --     | 3                                    |
-| `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: `AndroidPay`.                                               | Texto | --     | Ver tabela [Signature](https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey)      |  
+| `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".                      | Texto | --     | Texto alfanumérico                   |
+| `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consulte a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | --     | Ver [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)               |       
+| `AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                                       | Texto | --     | Ver tabela [EphemeralPublicKey](https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey)      |  
+| `AdditionalData.CaptureCode`        | Código informado pela **MasterPass** ao lojista.                                                                  | Texto | --     | 3                                    |
+| `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: "AndroidPay".                                               | Texto | --     | Ver tabela [Signature](https://braspag.github.io//manual/braspag-pagador#signature)      |  
 
 ### Exemplos
 
 #### Apple Pay
 
-<aside class="notice">Pré-requisitos: Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um MerchantIdentifier. Também é necessário o upload de um certificado CSR no formato PEM fornecido pela Braspag. Abaixo segue o passo a passo para disponibilizar a Apple Pay em sua loja.</aside>
+<aside class="warning">Pré-requisitos: Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um "MerchantIdentifier". Também é necessário o upload de um certificado CSR no formato PEM fornecido pela Braspag. Abaixo segue o passo a passo para disponibilizar a Apple Pay em sua loja.</aside>
 
 ##### Passo 1. Contratação na Apple
 
-É necessário que a Apple Pay seja contratada na Apple através do contato comercial abaixo (o contato deve ser feito em inglês):
-
-*Shawn Munyon (smunyon@apple.com)*
+É necessário que a Apple Pay seja contratada na Apple através do seguinte contato comercial: *Shawn Munyon* (smunyon@apple.com). O contato deverá ser feito em inglês.
 
 ##### Passo 2. Obtenção do MerchantIdentifier
 
-Uma vez que a contratação estiver efetivada, receberá acesso ao painel "Apple Developer", e será necessária a criação do `MerchantIdentifier`. Para tanto, realize os passos abaixo:
-1. Faça login em [Apple Developer](https://developer.apple.com/)
-2. Selecione **Certificate, IDs & Profile**
-3. Dentro da área "Identifiers" clique em "Merchant IDs"
-4. Clique no **+** no canto direito, abaixo do "Registering a Merchant ID"
-5. Defina a descrição do MerchantID e o identificador. Exemplo.: "merchant.com.BRASPAG.merchantAccount"
-6. Clique em "continuar" e verifique se as informações inseridas estão corretas
+Uma vez que a contratação esteja efetivada, você receberá acesso ao painel **Apple Developer**, onde será necessária a criação do `MerchantIdentifier`. Para isso, realize os passos abaixo:
+1. Faça login na página [Apple Developer](https://developer.apple.com/).
+2. Selecione **Certificates, Identifiers & Profiles**.
+3. Dentro do item **Identifiers**, no menu, clique em **Merchant IDs**.
+4. Clique no **+** no canto superior direito, abaixo de **Registering a Merchant ID**.
+5. Defina a descrição do MerchantID em **Merchant ID Description** e o identificador (ex.: "merchant.com.BRASPAG.merchantAccount") em **Identifier**.
+6. Clique em **Continue** e verifique se as informações inseridas estão corretas.
 7. Finalize o processo.
 
-<P>O `MerchantIdentifier` deve ser enviado à Braspag por meio do [canal de suporte](https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br) para criação de um **Certificado CSR no formato PEM**.
+O `MerchantIdentifier` deve ser enviado à Braspag por meio do [canal de suporte](https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br) para a criação de um **Certificado CSR no formato PEM**.
 
 ##### Passo 3. Upload do Certificado CSR
 
-Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o certificado de extensão `PEM` e deverá seguir os seguintes passos:
+Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o certificado de extensão "PEM" e deverá seguir os seguintes passos:
 
-1. Faça login em [Apple Developer](https://developer.apple.com/)
-2. Selecione **Certificate, IDs & Profiles**
+1. Faça login na página [Apple Developer](https://developer.apple.com/).
+2. Selecione **Certificates, Identifiers & Profiles**.
 ![Apple Pay]({{ site.baseurl_root }}/images/apple-paymid.jpg)
-3. Realize o upload do certificado
+<img src="{{ site.baseurl_root }}/images/apple-paymid.jpg" align="left" width="48">
+<img src="{{ site.baseurl_root }}/images/apple-paymid.jpg" alt="Apple Pay" width="250"/>
+3. Realize o upload do certificado.
 ![Apple Pay]({{ site.baseurl_root }}/images/apple-pay.jpg)
-4. Finalize o processo
+4. Finalize o processo.
 
-<P>O Certificado PEM contém o código CSR solicitado pela Apple.
+O Certificado "PEM" contém o código CSR solicitado pela Apple.
 
-<P>Formato de um PEM:
+Formato de um "PEM":
 
-<P>-----BEGIN CERTIFICATE REQUEST-----
+> 
+> -----BEGIN CERTIFICATE REQUEST-----
+> 
+> MIHyMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYDVQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFUL1F/ue9/T5SrEyE1wTPQxk5x3ZHEelB7VHObDTW7pjauFrE88J25w7iRCKNP6u2fPmBtM9nY30/xQCgBH9aUwCgYIKoZIzj0EAwIDSQAwRgIhAPyF47xmfy+9czlr0a94eSd/YG27G8akujpkIUd56qWmAiEAqV6aSVISmH9NveOKGJdZ6VvkbELK2uqu2yCpg/lfYc8=
+> 
+> -----END CERTIFICATE REQUEST---
 
-<P>MIHyMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYDVQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFUL1F/ue9/T5SrEyE1wTPQxk5x3ZHEelB7VHObDTW7pjauFrE88J25w7iRCKNP6u2fPmBtM9nY30/xQCgBH9aUwCgYIKoZIzj0EAwIDSQAwRgIhAPyF47xmfy+9czlr0a94eSd/YG27G8akujpkIUd56qWmAiEAqV6aSVISmH9NveOKGJdZ6VvkbELK2uqu2yCpg/lfYc8=
+Após o upload do certificado CSR, vem a etapa da integração, que deverá acontecer em dois passos.
 
-<P>-----END CERTIFICATE REQUEST---
+##### Passo 4. Integração com a Apple Pay
 
-##### Passo 4. Integração com Apple Pay
+O primeiro passo da integração deve ser feito diretamente com a solução da Apple, para disponibilizar o botão "Pagar com Apple Pay" em seu site ou aplicativo. Para isso, a equipe da Apple fará um acompanhamento de perto. [Clique aqui](https://developer.apple.com/apple-pay/) para acessar a documentação técnica da Apple.  
 
-A integração requer dois passos: o primeiro é a integração direta com a solução da Apple, para disponibilizar o botão "Pagar com Apple Pay" em seu site ou aplicativo. Para tanto, a equipe da Apple fará um acompanhamento de perto. [Clique aqui](https://developer.apple.com/apple-pay/) para acessar a documentação técnica da Apple.  
+<aside class="notice">Nesta etapa, não é preciso realizar o processo de criptografia de dados retornados pela Apple. Este trabalho será realizado pela Braspag, através dos procedimentos descritos na próxima etapa.</aside>
 
-<P>Nesta etapa, não é preciso realizar o processo de criptografia de dados retornados pela Apple. Este trabalho será realizado pela Braspag, através dos procedimentos descritos na próxima etapa.  
+##### Passo 5. Integração com o Pagador (Decriptografia e Autorização)
 
-##### Passo 5. Integração com Pagador (decriptografia e autorização)
-
-O segundo passo de integração é efetivar o fluxo de autorização via gateway da Braspag (Pagador). Para tanto, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive WalletKey e EphemeralPublicKey.
+O segundo passo da integração deverá efetivar o fluxo de autorização via gateway da Braspag (Pagador). Para isso, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive `WalletKey` e `EphemeralPublicKey`.
 
 ##### Requisição
 
-Exemplo de Requisição padrão *Apple Pay*
+Exemplo de requisição padrão Apple Pay:
 
-> É necessário que a loja ja possua cadastro e uma integração Apple Pay, caso contrario não será possivel a integração com a API
+<aside class="warning">É necessário que a loja já possua cadastro e integração Apple Pay, caso contrário não será possível a integração com a API.</aside>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3717,21 +3722,21 @@ Exemplo de Requisição padrão *Apple Pay*
 }
 ```
 
-| Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
-|----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | GUID   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
-| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                        |
-| `RequestId`                | GUID   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
-| `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
-| `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
-| `Customer.Status`          | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                                                |
-| `Payment.Type`             | Texto  | 100     | Sim         | Tipo do Meio de Pagamento.                                                                              |
-| `Payment.Amount`           | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                                              |
-| `Payment.Provider`         | Texto  | 15      | Sim         | Somente providers Cielo (`Cielo` / `Cielo30`)                                                           |
-| `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
-| `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
-| `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações       |
-| `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`                         |
+| Propriedade                | Descrição                                                                                               | Tipo   | Tamanho | Obrigatório |
+|----------------------------|---------------------------------------------------------------------------------------------------------|--------|---------|-------------|
+| `MerchantId`               | Identificador da loja na Braspag.                                                                       | GUID   | 36      | Sim         | 
+| `MerchantKey`              | Chave pública para autenticação dupla na Braspag.                                                       | Texto  | 40      | Sim         | 
+| `RequestId`                | Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  | GUID   | 36      | Não         | 
+| `MerchantOrderId`          | Número de identificação do pedido.                                                                      | Texto  | 50      | Sim         | 
+| `Customer.Name`            | Nome do comprador.                                                                                      | Texto  | 255     | Não         |
+| `Customer.Status`          | Status de cadastro do comprador na loja ("NEW" / "EXISTING").                                           | Texto  | 255     | Não         |
+| `Payment.Type`             | Tipo do meio de pagamento.                                                                              | Texto  | 100     | Sim         |
+| `Payment.Amount`           | Valor do pedido, em centavos.                                                                           | Número | 15      | Sim         |
+| `Payment.Provider`         | Nome da provedora do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30)| Texto  | 15      | Sim         |
+| `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |
+| `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".             | Texto  | 255     | Sim         |
+| `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.      | Texto  | 255     | Sim         |
+| `Wallet.AdditionalData.EphemeralPublicKey`| Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                 | Texto  | 255     | Sim         |
 
 ##### Resposta
 
@@ -3800,26 +3805,26 @@ Exemplo de Requisição padrão *Apple Pay*
 
 | Propriedade         | Descrição                                                                                                                      | Tipo  | Tamanho | Formato                              |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
-| `ProofOfSale`       | Número da autorização, identico ao NSU.                                                                                        | Texto | 6       | Texto alfanumérico                   |
-| `Tid`               | Id da transação na adquirente.                                                                                                 | Texto | 20      | Texto alfanumérico                   |
+| `ProofOfSale`       | Número da autorização, idêntico ao NSU.                                                                                        | Texto | 6       | Texto alfanumérico                   |
+| `Tid`               | Identificador da transação na adquirente.                                                                                                 | Texto | 20      | Texto alfanumérico                   |
 | `AuthorizationCode` | Código de autorização.                                                                                                         | Texto | 6       | Texto alfanumérico                   |
-| `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
-| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
-| `Status`            | Status da Transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
-| `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
-| `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
-| `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
-| `Walletkey`         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |       
-| `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`                         | Texto | 255     | Ver Tabela `EphemeralPublicKey`      |
+| `SoftDescriptor`    | Texto que será impresso na fatura bancária do portador. Obs.: Não permite caracteres especiais. Disponível apenas para VISA/MASTER.| Texto | 13      | Texto alfanumérico                   |
+| `PaymentId`         | Campo identificador do pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ECI`               | *Electronic Commerce Indicator*. Representa o quão segura é uma transação.                                                        | Texto | 2       | Ex.: 7                          |
+| `Status`            | Status da transação.                                                                                                           | Byte  | 2       | Ex.: 1                                |
+| `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
+| `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
+| `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".                       | Texto | 255     | Texto alfanumérico                   |
+| `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | 255     | Ver [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey).              |       
+| `AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                         | Texto | 255     | Ver tabela [EphemeralPublicKey](https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey)|
 
 #### Samsung Pay
 
 ##### Requisição
 
-Exemplo de Requisição padrão *Samsung Pay*
+Exemplo de requisição padrão Samsung Pay:
 
-> É necessário que a loja ja possua cadastro e uma integração Samsung Pay, caso contrario não será possivel a integração com a API
+<aside class="warning">É necessário que a loja já possua cadastro e integração Samsung Pay, caso contrário não será possível a integração com a API.</aside>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3846,20 +3851,21 @@ Exemplo de Requisição padrão *Samsung Pay*
 
 ```
 
-| Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
-|----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | GUID   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
-| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                        |
-| `RequestId`                | GUID   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
-| `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
-| `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
-| `Customer.Status`          | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                                                |
-| `Payment.Type`             | Texto  | 100     | Sim         | Tipo do Meio de Pagamento.                                                                              |
-| `Payment.Amount`           | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                                              |
-| `Payment.Provider`         | Texto  | 15      | Sim         | Somente providers Cielo (`Cielo` / `Cielo30`)                                                           |
-| `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
-| `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
-| `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações       |
+| Propriedade                | Descrição                                                                                               | Tipo   | Tamanho | Obrigatório |
+|----------------------------|---------------------------------------------------------------------------------------------------------|--------|---------|-------------|
+| `MerchantId`               | Identificador da loja na Braspag.                                                                        | GUID   | 36      | Sim         |
+| `MerchantKey`              | Chave pública para autenticação dupla na Braspag.                                                        | Texto  | 40      | Sim         |
+| `RequestId`                | Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  | GUID   | 36      | Não         |
+| `MerchantOrderId`          | Número de identificação do pedido.                                                                      | Texto  | 50      | Sim         |
+| `Customer.Name`            | Nome do comprador.                                                                                      | Texto  | 255     | Não         |
+| `Customer.Status`          | Status de cadastro do comprador na loja ("NEW" / "EXISTING").                                                | Texto  | 255     | Não         |
+| `Payment.Type`             | Tipo do meio de pagamento.                                                                              | Texto  | 100     | Sim         |
+| `Payment.Amount`           | Valor do pedido, em centavos.                                                              | Número | 15      | Sim         |
+| `Payment.Provider`         | Nome da provedora do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30).  | Texto  | 15      | Sim         |
+| `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |
+| `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass". | Texto  | 255     | Sim         |
+| `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.
+| Texto  | 255     | Sim         |
 
 ##### Resposta
 
@@ -3925,25 +3931,25 @@ Exemplo de Requisição padrão *Samsung Pay*
 
 | Propriedade         | Descrição                                                                                                                      | Tipo  | Tamanho | Formato                              |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
-| `ProofOfSale`       | Número da autorização, identico ao NSU.                                                                                        | Texto | 6       | Texto alfanumérico                   |
-| `Tid`               | Id da transação na adquirente.                                                                                                 | Texto | 20      | Texto alfanumérico                   |
+| `ProofOfSale`       | Número da autorização, idêntico ao NSU.                                                                                        | Texto | 6       | Texto alfanumérico                   |
+| `Tid`               | Identificador da transação na adquirente.                                                                                                 | Texto | 20      | Texto alfanumérico                   |
 | `AuthorizationCode` | Código de autorização.                                                                                                         | Texto | 6       | Texto alfanumérico                   |
-| `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
-| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
-| `Status`            | Status da Transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
-| `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
-| `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
-| `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
-| `Walletkey`         | Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |
+| `SoftDescriptor`    | Texto que será impresso na fatura bancária do portador. Obs.: Não permite caracteres especiais. Disponível apenas para VISA/MASTER. | Texto | 13      | Texto alfanumérico                   |
+| `PaymentId`         | Campo identificador do pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ECI`               | *Electronic Commerce Indicator*. Representa o quão segura é uma transação.                                                        | Texto | 2       | Ex.: 7                          |
+| `Status`            | Status da transação.                                                                                                           | Byte  | 2       | Ex.: 1                                |
+| `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
+| `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
+| `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass.                      | Texto | 255     | Texto alfanumérico                   |
+| `WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                    | Texto | 255     | Ver a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)              |
 
 #### Android Pay
 
 ##### Requisição
 
-Exemplo de Requisição padrão *Android Pay*
+Exemplo de requisição padrão Android Pay:
 
-> É necessário que a loja ja possua cadastro e uma integração Android Pay, caso contrario não será possivel a integração com a API
+<aside class="warning">É necessário que a loja já possua cadastro e integração Android Pay, caso contrário não será possível a integração com a API.</aside)
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3972,21 +3978,21 @@ Exemplo de Requisição padrão *Android Pay*
 }
 ```
 
-| Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
+| Propriedade                | Descrição                                                                                               | Tipo   | Tamanho | Obrigatório |
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | GUID   | 36      | Sim         | Identificador da loja na Braspag                                                                        |
-| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                        |
-| `RequestId`                | GUID   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
-| `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
-| `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
-| `Customer.Status`          | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                                                |
-| `Payment.Type`             | Texto  | 100     | Sim         | Tipo do Meio de Pagamento.                                                                              |
-| `Payment.Amount`           | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                                              |
-| `Payment.Provider`         | Texto  | 15      | Sim         | Somente providers Cielo (`Cielo` / `Cielo30`)                                                           |
-| `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
-| `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
-| `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações       |
-| `Wallet.AdditionalData.Signature`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `AndroidPay`                                 |
+| `MerchantId`               | Identificador da loja na Braspag.                                                                        | GUID   | 36      | Sim         |
+| `MerchantKey`              | Chave pública para autenticação dupla na Braspag.                                                        | Texto  | 40      | Sim         | 
+| `RequestId`                | Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  | GUID   | 36      | Não         |
+| `MerchantOrderId`          | Número de identificação do pedido.                                                                      | Texto  | 50      | Sim         |
+| `Customer.Name`            | Nome do comprador.                                                                                      |Texto  | 255     | Não         |
+| `Customer.Status`          | Status de cadastro do comprador na loja ("NEW" / "EXISTING").                                           | Texto  | 255     | Não         |      
+| `Payment.Type`             | Tipo do meio de pagamento.                                                                              | Texto  | 100     | Sim         |
+| `Payment.Amount`           | Valor do pedido, em centavos.                                                                           | Número | 15      | Sim         |
+| `Payment.Provider`         | Nome da provedora do meio de pagamento. Obs: Disponível somente para providers **Cielo** (Cielo / Cielo30).| Texto  | 15      | Sim         |
+| `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |       
+| `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".             | Texto  | 255     | Sim         |
+| `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.| Texto  | 255     | Sim         |
+| `Wallet.AdditionalData.Signature`| Token retornado pela wallet. Deve ser enviado em Integrações: "AndroidPay".                                 | Texto  | 255    | Sim  |
 
 ##### Resposta
 
@@ -4055,22 +4061,22 @@ Exemplo de Requisição padrão *Android Pay*
 
 | Propriedade         | Descrição                                                                                                                      | Tipo  | Tamanho | Formato                              |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
-| `ProofOfSale`       | Número da autorização, identico ao NSU.                                                                                        | Texto | 6       | Texto alfanumérico                   |
-| `Tid`               | Id da transação na adquirente.                                                                                                 | Texto | 20      | Texto alfanumérico                   |
+| `ProofOfSale`       | Número da autorização, idêntico ao NSU.                                                                                        | Texto | 6       | Texto alfanumérico                   |
+| `Tid`               | Identificador da transação na adquirente.                                                                                      | Texto | 20      | Texto alfanumérico                   |
 | `AuthorizationCode` | Código de autorização.                                                                                                         | Texto | 6       | Texto alfanumérico                   |
-| `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
-| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
-| `Status`            | Status da Transação.                                                                                                           | Byte  | 2       | Ex. 1                                |
-| `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
-| `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
-| `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
-| `Walletkey`         | Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |       
-| `AdditionalData.Signature` | Token retornado pela Wallet. Deve ser enviado em Integrações: `AndroidPay`                                               | Texto | 255     | Ver Tabela `Signature`      |  
+| `SoftDescriptor`    | Texto que será impresso na fatura bancária do portador. Obs.: Não permite caracteres especiais. Disponível apenas para VISA/MASTER. | Texto | 13      | Texto alfanumérico                   |
+| `PaymentId`         | Campo identificador do pedido.                                                                                                 | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ECI`               | *Electronic Commerce Indicator*. Representa o quão segura é uma transação.                                                        | Texto | 2       | Ex.: 7                          |
+| `Status`            | Status da transação.                                                                                                           | Byte  | 2       | Ex.: 1                                |
+| `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
+| `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
+| `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".                       | Texto | 255     | Texto alfanumérico                   |
+| `WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.| Texto | 255     | Ver a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey).               |       
+| `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: "AndroidPay".                                               | Texto | 255     | Ver tabela [Signature](https://braspag.github.io//manual/braspag-pagador#signature)|  
 
 #### MasterPass
 
-Para utilizar o MasterPass é necessário a contratação do serviço através do contato diretamente com a Mastercard, selecionando a Braspag como service provider
+Para utilizar o MasterPass é necessária a contratação do serviço através do contato diretamente com a Mastercard, selecionando a Braspag como *service provider*.
 
 ##### Requisição
 
@@ -4098,22 +4104,22 @@ Para utilizar o MasterPass é necessário a contratação do serviço através d
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`MerchantId`|GUID|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|GUID|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
-|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
-|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
-|`Payment.Provider`|Texto|15|Sim|Somente providers Cielo (`Cielo` / `Cielo30`)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
-|`Wallet.Type`|Texto|255|Sim|indica qual o tipo de carteira: "Masterpass"|
-|`Wallet.Walletkey`|Texto|255|Sim|Chave criptografica que representa os dados do cartão - Ver tabela WalletKey para mais informações|
-|`Wallet.AdditionalData`|---|---|---|Instancia para dados extras informados pela MasterPass. Obrigatório apenas se TYPE = "MasterPass"|
-|`Wallet.capturecode`|Texto|255|Sim|Código informado pela MasterPass ao lojista|
+|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
+|`RequestId`|Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não|
+|`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
+|`Customer.Name`|Nome do comprador.|Texto|255|Não|
+|`Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. Disponível somente para providers **Cielo** (Cielo / Cielo30).|Texto|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Wallet.Type`|Tipo de carteira: "MasterPass".|Texto|255|Sim|
+|`Wallet.WalletKey`|Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|Texto|255|Sim|
+|`Wallet.AdditionalData`|Instância para dados extras informados pela **MasterPass**. Obs.: Obrigatório apenas para `Wallet.Type` "MasterPass"|---|---|---|
+|`Wallet.CaptureCode`|Código informado pela **MasterPass** ao lojista.|Texto|255|Sim|
 
 ##### Resposta
 
@@ -4168,21 +4174,21 @@ Para utilizar o MasterPass é necessário a contratação do serviço através d
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, idêntico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Identificador da transação na adquirente.|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
-|`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
-|`Status`|Status da Transação.|Byte| 2 | Ex. 1 |
-|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
-|`Type`|indica qual o tipo de carteira: "VisaCheckout" ou "Masterpass"|Texto|255|Sim|
-|`Capturecode`|Código informado pela MasterPass ao lojista|Texto|255|Sim|
+|`SoftDescriptor`|Texto que será impresso na fatura bancária do portador. Obs.: Não permite caracteres especiais. Disponível apenas para VISA/MASTER. |Texto|13|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|*Electronic Commerce Indicator*. Representa o quão segura é uma transação.|Texto|2|Ex.: 7|
+|`Status`|Status da transação.|Byte| 2 | Ex.: 1 |
+|`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da adquirência.|Texto|512|Texto alfanumérico|
+|`Type`|Tipo de carteira: "VisaCheckout" / "MasterPass".|Texto|255|Sim|
+|`CaptureCode`|Código informado pela **MasterPass** ao lojista.|Texto|255|Sim|
 
 #### Visa Checkout
 
-Para utilizar o Visa Checkout é necessário a contratação do serviço através do contato diretamente com a Visa.
+Para utilizar o Visa Checkout é necessária a contratação do serviço através do contato diretamente com a Visa.
 
 ##### Requisição
 
@@ -4211,22 +4217,22 @@ Para utilizar o Visa Checkout é necessário a contratação do serviço atravé
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`MerchantId`|GUID|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`RequestId`|GUID|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
-|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
-|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
-|`Payment.Provider`|Texto|15|Sim|Somente providers Cielo (`Cielo` / `Cielo30`)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
-|`Payment.ReturnUrl`|Texto|1024|---|Obrigatório para cartão de débito|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`Wallet.Type`|Texto|255|Sim|indica qual o tipo de carteira: "VisaCheckout"|
-|`Wallet.Walletkey`|Texto|255|---|Chave criptografica enviada pelo VisaCheckout. Obrigatoria se TYPE =  "Visa Checkout"|
+|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
+|`RequestId`|Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não|
+|`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
+|`Customer.Name`|Nome do comprador.|Texto|255|Não|
+|`Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30).|Texto|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento. Obrigatório para cartão de débito.|Texto|1024|---|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
+|`Wallet.Type`|Tipo de carteira: "VisaCheckout".|Texto|255|Sim|
+|`Wallet.WalletKey`|Chave criptográfica enviada pelo **VisaCheckout**. Obs.: Obrigatório apenas para `Wallet.Type` "Visa Checkout".|Texto|255|---|
 
 ##### Resposta
 
@@ -4276,23 +4282,24 @@ Para utilizar o Visa Checkout é necessário a contratação do serviço atravé
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, idêntico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Identificador da transação na adquirente.|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
-|`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
-|`Status`|Status da Transação.|Byte| 2 | Ex. 1 |
-|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
-|`Type`|indica qual o tipo de carteira: "VisaCheckout" ou "Masterpass"|Texto|255|Sim|
-|`Capturecode`|Código informado pela MasterPass ao lojista|Texto|255|Sim|
+|`SoftDescriptor`|Texto que será impresso na fatura bancária do portador. Obs.: Não permite caracteres especiais. Disponível apenas para VISA/MASTER. |Texto|13|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|*Electronic Commerce Indicator*. Representa o quão segura é uma transação.|Texto|2|Ex.: 7|
+|`Status`|Status da transação.|Byte| 2 | Ex.: 1 |
+|`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da adquirência.|Texto|512|Texto alfanumérico|
+|`Type`|Tipo de carteira: "VisaCheckout" / "Masterpass"|Texto|255|Sim|
+|`CaptureCode`|Código informado pela **MasterPass** ao lojista.|Texto|255|Sim|
 
 ## Voucher
 
-### Criando uma transação com voucher
+### Criando uma Transação com Voucher
 
-Uma transação com um Cartão Voucher se efetua de uma forma semelhante a um Cartão de Débito, porém, sem o processo de autenticação. <BR><BR>Atualmente, suportamos o Provider "Alelo" e "Ticket" nessa modalidade.
+Uma transação com cartão voucher se efetua de forma semelhante à com cartão de débito; porém, sem o processo de autenticação.
+Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
 
 #### Requisição
 
@@ -4347,18 +4354,18 @@ curl
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento.|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso do cartão de débito (DebitCard)|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento|Texto |1024 |Sim|
-|`DebitCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
-|`DebitCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
-|`DebitCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA. <BR> OBS.: Vouchers "Ticket" não possuem data de validade impressa no cartão. <BR> Envie uma data posterior ao dia atual para que a transação seja processada|
-|`DebitCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`DebitCard.Brand`|Texto|10|Sim |Bandeira do cartão|
+|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento.|Texto |1024 |Sim|
+|`DebitCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`DebitCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`DebitCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA. Obs.: Vouchers "Ticket" não possuem data de validade impressa no cartão. Envie uma data posterior ao dia atual para que a transação seja processada.|Texto|7|Sim|
+|`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
 
 #### Resposta
 
@@ -4437,45 +4444,32 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
-|`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
+|`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação. |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
-## Pagamentos com DCC (conversor de moedas da adquirente Global Payments)
+## Pagamentos com DCC (Conversor de Moedas da Adquirente Global Payments)
 
-Exemplo de uma transação com DCC (Dynamic Currency Conversion), conversor de moedas da adquirente Global Payments que permite que o portador de um cartão estrangeiro escolha entre pagar em Reais ou em sua moeda Local, convertendo o valor do pedido no momento da compra com total transparência para o comprador.
+O DCC (Dynamic Currency Conversion) é um conversor de moedas da adquirente Global Payments que permite que o portador de um cartão estrangeiro escolha entre pagar em reais ou em sua moeda local, convertendo o valor do pedido no momento da compra com total transparência para o comprador.
 A solução é indicada para estabelecimentos que recebem pagamentos com cartões emitidos no exterior como hotéis, pousadas, polos comerciais e comércios em pontos turísticos.
 
-<aside class="notice"><strong>Autenticação:</strong> Para utilizar esta funcionalidade, o lojista deverá entrar em contato com a adquirente Global Payments e solicitar a ativação do DCC em seu estabelecimento.</aside>
+<aside class="warning">Atenção: Esta funcionalidade não é compatível com transações com MPI externo. Para utilizar esta funcionalidade com a autenticação padrão, o lojista deverá entrar em contato com a adquirente Global Payments e solicitar a ativação do DCC em seu estabelecimento. </aside>
 
-<aside class="warning">Esta funcionalidade não é compatível com transações com MPI Externo.</aside>
+Quando o estabelecimento possui o produto DCC habilitado, o processo de autorização é realizado em 3 etapas, explicadas a seguir:
 
-#### Processo de autorização com DCC
+#### Passo 1 - Solicitação de Autorização
 
-Quando o estabelecimento possui o produto DCC habilitado, o processo de autorização é realizado em 3 etapas.
+Na primeira etapa, quando é solicitada uma autorização com um cartão internacional, a Global Payments identifica o país do cartão e aplica a conversão de moeda seguindo os cálculos específicos de cada bandeira, retornando as informações de conversão em seguida.
 
-Na primeira etapa, quando é solicitada uma autorização com um cartão internacional, a Global Payments identifica o país do cartão e aplica a conversão de moeda seguindo os cálculos específicos de cada bandeira, em seguida retorna as informações de conversão.
-
-Na segunda etapa, o sistema da loja deverá apresentar ao comprador as opções de pagar em Reais ou com a moeda de seu país (moeda do cartão de crédito), seguindo as melhores práticas solicitadas pela bandeira, onde:
-
-* Texto apresentado em Inglês, conforme exemplo a seguir.
-* O layout do site não precisa ser alterado, desde que as opções de escolha da moeda tenham as mesmas características de fonte, cor e dimensões, como o exemplo que segue.
-
-![DCC Global Payments]({{ site.baseurl_root }}/images/dcc-globalpayments.jpg)
-
-Exemplo disponibilizado pela Global Payments
-
-Na terceira etapa, o sistema da loja envia a confirmação da transação com as informações da moeda escolhida pelo comprador. A resposta da autorização será retornada neste ponto.
-
-**PASSO 1** - Solicitação de autorização da transação:
+Segue um exemplo de solicitação de autorização da transação:
 
 ##### Requisição
 
@@ -4590,31 +4584,37 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
 
 | Propriedade             | Descrição                                                                   | Tipo  | Tamanho | Formato                              |
 |-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
-| `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento                            | Texto | 40      | Texto alfanumérico                   |
-| `ProofOfSale`           | Número do Comprovante de Venda                                              | Texto | 20      | Texto alfanumérico                   |
-| `AuthorizationCode`     | Código de autorização                                                       | Texto | 300     | Texto alfanumérico                   |
-| `PaymentId`             | Campo Identificador do Pedido                                               | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ReceivedDate`          | Data em que a transação foi recebida pela Braspag                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
-| `ReasonCode`            | Código de retorno da Operação                                               | Texto | 32      | Texto alfanumérico                   |
-| `ReasonMessage`         | Mensagem de retorno da Operação                                             | Texto | 512     | Texto alfanumérico                   |
-| `Status`                | Status da Transação                                                         | Byte  | 2       | Ex.                                  |
-| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e bancos)   | Texto | 32      | 57                                   |
-| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos) | Texto | 512     | Transação Aprovada                   |
-| `CurrencyExchangeData.Id` | Id da ação da troca de Moeda | Texto | 50     | 1b05456446c116374005602dcbaf8db8879515a0                   |
+| `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento.                            | Texto | 40      | Texto alfanumérico                   |
+| `ProofOfSale`           | Número do comprovante de venda.                                              | Texto | 20      | Texto alfanumérico                   |
+| `AuthorizationCode`     | Código de autorização.                                                       | Texto | 300     | Texto alfanumérico                   |
+| `PaymentId`             | Campo identificador do pedido.                                               | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ReceivedDate`          | Data em que a transação foi recebida pela Braspag.                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
+| `ReasonCode`            | Código de retorno da operação.                                               | Texto | 32      | Texto alfanumérico                   |
+| `ReasonMessage`         | Mensagem de retorno da operação.                                             | Texto | 512     | Texto alfanumérico                   |
+| `Status`                | Status da transação.                                                         | Byte  | 2       | Ex.                                  |
+| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e banco).   | Texto | 32      | 57                                   |
+| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco). | Texto | 512     | Transação Aprovada                   |
+| `CurrencyExchangeData.Id` | Id da ação da troca de moeda. | Texto | 50     | 1b05456446c116374005602dcbaf8db8879515a0                   |
 | `CurrencyExchangeData.CurrencyExchanges.Currency` | Moeda local do comprador/cartão de crédito. | Numérico | 4     | EUR                   |
 | `CurrencyExchangeData.CurrencyExchanges.ConvertedAmount` | Valor convertido. | Numérico | 12     | 23                   |
 | `CurrencyExchangeData.CurrencyExchanges.ConversionRate` | Taxa de conversão. | Numérico | 9     | 3.218626                   |
 | `CurrencyExchangeData.CurrencyExchanges.ClosingDate` | Data de finalização da transação. | Texto | 19     | AAAA-MM-DD HH:mm:SS                  |
-| `CurrencyExchangeData.CurrencyExchanges.Currency` | Código da moeda Real | Texto | 3     | BRA                   |
-| `CurrencyExchangeData.CurrencyExchanges.ConvertedAmount` | Valor do pedido em Reais. | Numérico | 12     | 100                   |
+| `CurrencyExchangeData.CurrencyExchanges.Currency` | Código da moeda "real". | Texto | 3     | BRA                   |
+| `CurrencyExchangeData.CurrencyExchanges.ConvertedAmount` | Valor do pedido em reais. | Numérico | 12     | 100                   |
 
-**PASSO 2** - Exibição das opções de pagamento (pagar em Reais ou na moeda do cartão):
+#### Etapa 2 - Opções de Pagamento
+
+Na segunda etapa, o sistema da loja apresenta ao comprador as opções de pagar em reais ou com a moeda de seu país (moeda do cartão de crédito), seguindo as melhores práticas solicitadas pela bandeira. O texto é apresentado em inglês e o layout do site não precisa ser alterado, desde que as opções de escolha da moeda tenham as mesmas características de fonte, cor e dimensões.
+
+Segue um exemplo de exibição das opções de pagamento (em reais ou na moeda do cartão), disponibilizado pela Global Payments:
 
 ![DCC Global Payments]({{ site.baseurl_root }}/images/dcc-globalpayments.jpg)
 
-Exemplo disponibilizado pela Global Payments
+#### Etapa 3 - Confirmação da Transação
 
-**PASSO 3** - Confirmação da transação com a moeda escolhida pelo comprador:
+Na terceira etapa, o sistema da loja envia a confirmação da transação com as informações da moeda escolhida pelo comprador. Neste ponto é retornada a resposta da autorização.
+
+Segue um exemplo de confirmação da transação com a moeda escolhida pelo comprador:
 
 ##### Requisição
 
@@ -4745,28 +4745,30 @@ curl
 
 | Propriedade             | Descrição                                                                   | Tipo  | Tamanho | Formato                              |
 |-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
-| `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento                            | Texto | 40      | Texto alfanumérico                   |
-| `ProofOfSale`           | Número do Comprovante de Venda                                              | Texto | 20      | Texto alfanumérico                   |
-| `AuthorizationCode`     | Código de autorização                                                       | Texto | 300     | Texto alfanumérico                   |
-| `PaymentId`             | Campo Identificador do Pedido                                               | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ReceivedDate`          | Data em que a transação foi recebida pela Braspag                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
-| `ReasonCode`            | Código de retorno da Operação                                               | Texto | 32      | Texto alfanumérico                   |
-| `ReasonMessage`         | Mensagem de retorno da Operação                                             | Texto | 512     | Texto alfanumérico                   |
-| `Status`                | Status da Transação                                                         | Byte  | 2       | Ex.                                  |
-| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e bancos)   | Texto | 32      | 57                                   |
-| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos) | Texto | 512     | Transação Aprovada                   |
+| `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento.                            | Texto | 40      | Texto alfanumérico                   |
+| `ProofOfSale`           | Número do comprovante de venda.                                              | Texto | 20      | Texto alfanumérico                   |
+| `AuthorizationCode`     | Código de autorização.                                                       | Texto | 300     | Texto alfanumérico                   |
+| `PaymentId`             | Campo identificador do pedido.                                               | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ReceivedDate`          | Data em que a transação foi recebida pela Braspag.                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
+| `ReasonCode`            | Código de retorno da operação.                                               | Texto | 32      | Texto alfanumérico                   |
+| `ReasonMessage`         | Mensagem de retorno da operação.                                             | Texto | 512     | Texto alfanumérico                   |
+| `Status`                | Status da transação.                                                         | Byte  | 2       | Ex.: 2                                  |
+| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e banco).   | Texto | 32      | 57                                   |
+| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco). | Texto | 512     | Transação Aprovada                   |
 
-# Salvando e reutilizando cartões
+# Salvando e Reutilizando Cartões
 
-Caso você tenha contratado o Cartão Protegido, é possível salvar um cartão no formato de um Token para substituir os dados do cartão numa próxima transação do mesmo comprador. É importante ressaltar que por questões de segurança, o CVV (Código de Segurança) não é tokenizado.
+Ao contratar o *Cartão Protegido*, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token, o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
 
-Além da geração do Card Token, é possível associar um nome, um identificador em formato de texto, ao cartão salvo. Esse identificador será o Alias.
+<aside class="warning">Por questões de segurança, o CVV (Código de Segurança) não é tokenizado.</aside>
 
-## Salvando um cartão durante uma autorização
+Além da geração do card token, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
+
+## Salvando um Cartão Durante uma Autorização
+
+Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "True" na requisição padrão de autorização.
 
 ### Requisição
-
-Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como _true_ na requisição padrão de autorização.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4842,19 +4844,19 @@ curl
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`CreditCard.CardNumber`|Texto|16|Sim|Número do Cartão do comprador|
-|`CreditCard.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
-|`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
-|`CreditCard.SaveCard`|Booleano|10|Não (Default false) |true para salvar o cartão e false para não salvar|
-|`CreditCard.Alias`|Texto|64|Não |Alias (Apelido) do cartão de crédito|
+|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+|`CreditCard.SaveCard`|"true" - para salvar o cartão. "false" - para não salvar o cartão.|Booleano|10|Não (default "false") |
+|`CreditCard.Alias`|Alias (apelido) do cartão de crédito.|Texto|64|Não |
 
 ### Resposta
 
@@ -4954,25 +4956,25 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
-|`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AcquirerTransactionId`|Id da transação no provedor do meio de pagamento.|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
+|`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-## Criando uma transação com Card Token
+## Criando uma Tansação com Card Token
 
-Este é um exemplo de como utilizar o Card Token, previamente salvo, para criar uma transação. Por questão de segurança, um Card Token não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como Recorrente, você poderá submeter transações sem o CVV.
+Este é um exemplo de como utilizar o *card token*, previamente salvo, para criar uma transação. Por questões de segurança, um card token não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como *recorrente*, você poderá submeter transações sem o CVV.
 
 #### Requisição
 
-O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir.
+O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5040,15 +5042,15 @@ curl
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente. |
-|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
+|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.|Texto|4|Não|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
 
 ### Resposta
 
@@ -5143,20 +5145,20 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
 
-## Criando uma transação com Alias
+## Criando uma Transação com Alias
 
-Este é um exemplo de como utilizar o Alias, previamente salvo, para criar uma transação. Por questão de segurança, um Alias não tem guardado o Código de Segurança. Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como Recorrente, você poderá submeter transações sem o CVV.
+Este é um exemplo de como utilizar o Alias, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como *recorrente*, você poderá submeter transações sem o CVV.
 
 #### Requisição
 
@@ -5226,16 +5228,16 @@ curl
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.|
-|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
-|`CreditCard.Alias`|Texto|64|Não |Alias (Apelido) do cartão de crédito|
+|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.|Texto|4|Não|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+|`CreditCard.Alias`|Alias (apelido) do cartão de crédito.|Texto|64|Não |
 
 ### Resposta
 
@@ -5330,22 +5332,22 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Braspag|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|Ex. 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
 
 # Pagamentos com Análise de Fraude
 
 É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização.
 
-|Tipo de Integração|Descrição|Parâmetros necessários|
+|Tipo de Integração|Descrição|Parâmetros Necessários|
 |-|-|-|
 |Análise antes da autorização|Antes da transação ser enviada para a autorização, o AntiFraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização|`FraudAnalysis.Sequence` igual a _AnalyseFirst_|
 |Análise após a autorização|Antes da transação ser enviada para o AntiFraude, a mesma será enviada para a autorização|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_|
