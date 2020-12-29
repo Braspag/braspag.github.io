@@ -5345,7 +5345,7 @@ curl
 
 # Pagamentos com Análise de Fraude
 
-É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização.
+Ao efetuar um pagamento, É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização.
 
 |Tipo de Integração|Descrição|Parâmetros Necessários|
 |-|-|-|
