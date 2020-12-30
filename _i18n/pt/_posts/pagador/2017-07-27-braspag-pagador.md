@@ -1801,27 +1801,27 @@ curl
 |`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
 |`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não|
-|`MerchantOrderId`|Número de identificação do pedido. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#regras-específicas-por-banco)).|Texto|Veja a [tabela](#regras-específicas-por-banco)|Sim|
-|`Customer.Name`|Nome do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#regras-específicas-por-banco)).|Texto|Veja a [tabela](#regras-específicas-por-banco)|Sim|
+|`MerchantOrderId`|Número de identificação do pedido. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Name`|Nome do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
 |`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.|Texto |14 |Sim|
 |`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ).|Texto|255|Sim|
-|`Customer.Address.Street`|Endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#regras-específicas-por-banco)).|Texto|Veja a [tabela](#regras-específicas-por-banco)|Sim|
-|`Customer.Address.Number`|Número do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#regras-específicas-por-banco)).|Texto|Veja a [tabela](#regras-específicas-por-banco)|Sim|
-|`Customer.Address.Complement`|Complemento do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#regras-específicas-por-banco)).|Texto|Veja a [tabela](#regras-específicas-por-banco)|Não|
+|`Customer.Address.Street`|Endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Address.Number`|Número do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Address.Complement`|Complemento do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Customer.Address.ZipCode`|CEP do endereço de contato do comprador.|Texto|8|Sim|
-|`Customer.Address.District`|Bairro do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#regras-específicas-por-banco)).|Texto|Veja a [tabela](#regras-específicas-por-banco)|Sim
-|`Customer.Address.City`|Cidade do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#regras-específicas-por-banco)).|Texto|Veja a [tabela](#regras-específicas-por-banco)|Sim|
+|`Customer.Address.District`|Bairro do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim
+|`Customer.Address.City`|Cidade do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
 |`Customer.Address.State`|Estado do endereço de contato do comprador.|Texto|2|Sim|
 |`Customer.Address.Country`|País do endereço de contato do comprador.|Texto|35|Sim|
-|`Payment.Provider`|Nome da provedora do meio de pagamento do boleto. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#providers-para-boleto-com-registro) para acessar a lista de provedoras.|Texto|15|Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento do boleto. [Clique aqui](#providers-para-consulta-bin-via-verifycard) para acessar a lista de provedoras.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "Boleto".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.BoletoNumber`|Número do boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#regras-específicas-por-banco)).|Texto |Veja a [tabela](#regras-específicas-por-banco)|Não|
+|`Payment.BoletoNumber`|Número do boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Payment.Assignor`|Nome do cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento.|Texto |200|Não|
-|`Payment.Demonstrative`|Texto de demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (consulte a [tabela](#regras-específicas-por-banco)).|Texto |Veja a [tabela](#regras-específicas-por-banco)|Não|
+|`Payment.Demonstrative`|Texto de demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Payment.ExpirationDate`|Data de vencimento do boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|Date |AAAA-MM-DD|Não|
 |`Payment.Identification`|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento.|Texto |14 |Não|
-|`Payment.Instructions`|Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#regras-específicas-por-banco)). Para quebra de linhas no texto utilize sempre a notação em HTML `<br>`.|Texto |Veja a [tabela](#regras-específicas-por-banco)|Não|
+|`Payment.Instructions`|Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)). Para quebra de linhas no texto utilize sempre a notação em HTML `<br>`.|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Payment.NullifyDays`|Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo, contado a partir da data de vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12; após esta data o título é cancelado. Obs.: Recurso válido somente para boletos registrados do Banco Santander.|Número |2 |Não|
 |`Payment.DaysToFine`|Opcional e somente para `Provider` Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex.: 3.|Número |15 |Não|
 |`Payment.FineRate`|Opcional e somente para `Provider` Bradesco2. Valor da multa após o vencimento, em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `FineAmount`. Ex: 10.12345 = 10.12345%.|Número |15 |Não*|
@@ -5345,23 +5345,27 @@ curl
 
 # Pagamentos com Análise de Fraude
 
-Ao efetuar um pagamento, É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização.
+Ao efetuar um pagamento, é possível verificar se a transação possui risco de ser uma fraude ou não durante sua autorização. Essa verificação pode ocorrer em momentos diferentes, de acordo com as regras definidas pelo cliente. Confira abaixo o comportamento da análise de risco de acordo com cada tipo de integração:
 
 |Tipo de Integração|Descrição|Parâmetros Necessários|
 |-|-|-|
-|Análise antes da autorização|Antes da transação ser enviada para a autorização, o AntiFraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização|`FraudAnalysis.Sequence` igual a _AnalyseFirst_|
-|Análise após a autorização|Antes da transação ser enviada para o AntiFraude, a mesma será enviada para a autorização|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_|
-|Análise de risco somente se a transação for autorizada|O AntiFraude será acionado apenas para analisar transações com o staus _autorizada_. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas|`FraudAnalysis.SequenceCriteria` igual a _OnSuccess_|
-|Análise de risco em qualquer hipótese|Independente do status da transação após a autorização, o AntiFraude analisará o risco|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
-|Autorização em qualquer hipótese|Independente do score de fraude da transação, ela sempre será enviada para a autorização|`FraudAnalysis.Sequence` como _AnalyseFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
-|Capturar apenas se uma transação for segura|Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a aceita, a transação será capturada automaticamente|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_, `FraudAnalysis.CaptureOnLowRisk` igual a _true_ e `Payment.Capture` igual a _false_| |
-|Cancelar uma transação comprometida|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a rejeitada, a transação será cancelada ou estornada automaticamente|`FraudAnalysis.Sequence` como _AuthorizeFirst_ e `FraudAnalysis.VoidOnHighRisk` igual a _true_|
+|Análise antes da autorização|A transação é analisada pelo AntiFraude e então enviada para autorização. Dessa forma, evita-se o envio de transações de alto risco para autorização.|`FraudAnalysis.Sequence` igual a "AnalyseFirst"|
+|Análise após a autorização|A transação é enviada para a autorização e então analisada pelo AntiFraude.|`FraudAnalysis.Sequence` igual a "AuthorizeFirst"|
+|Análise das transações autorizadas|O AntiFraude é acionado apenas para analisar transações autorizadas, evitando-se o custo com análises de transações que não receberiam autorização.|`FraudAnalysis.SequenceCriteria` igual a "OnSuccess"|
+|Análise em qualquer hipótese|O AntiFraude é acionado independentemente do status da transação após a autorização.|`FraudAnalysis.Sequence` igual a "AuthorizeFirst" e `FraudAnalysis.SequenceCriteria` igual a "Always"|
+|Autorização em qualquer hipótese|A transação será enviada para autorização independentemente de seu score de fraude.|`FraudAnalysis.Sequence` igual a "AnalyseFirst" e `FraudAnalysis.SequenceCriteria` igual a "Always"|
+|Captura para transações seguras|Após a análise de fraude, a captura será automática para transações autorizadas definidas como de baixo risco. Para a loja que utiliza revisão manual, a transação será capturada automaticamente assim que a Braspag receber notificação do novo status "_Accept_".|`FraudAnalysis.Sequence` igual a "AuthorizeFirst", `FraudAnalysis.CaptureOnLowRisk` igual a "true" e `Payment.Capture` igual a "false"|
+|Cancelamento de transações comprometidas|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Para a loja que utiliza revisão manual, a transação será cancelada ou estornada automaticamente assim que a Braspag receber notificação do novo status "_Reject_".|`FraudAnalysis.Sequence` igual a "AuthorizeFirst" e `FraudAnalysis.VoidOnHighRisk` igual a "true"|
 
-Se não for especificado o contrário durante a autorização, a Braspag processará sua transação pelo fluxo `FraudAnalysis.Sequence` _AuthorizeFirst_, `FraudAnalysis.SequenceCriteria` _OnSuccess_, `FraudAnalysis.VoidOnHighRisk` _false_ e `FraudAnalysis.CaptureOnLowRisk` _false_.
+Caso não seja especificado durante a autorização, a Braspag irá processar sua transação pelo seguinte fluxo:
+- `FraudAnalysis.Sequence` igual a "AuthorizeFirst",
+- `FraudAnalysis.SequenceCriteria` igual a "OnSuccess",
+- `FraudAnalysis.VoidOnHighRisk` igual a "false",
+- `FraudAnalysis.CaptureOnLowRisk` igual a "false". 
 
-## Criando uma transação com Análise de Fraude Cybersource
+## Criando uma Transação com Análise de Fraude Cybersource
 
-Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós "FraudAnalysis", "Cart", "MerchantDefinedFields" e "Travel (somente para venda de passagens aéreas)".
+Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós `FraudAnalysis`, `Cart`, `MerchantDefinedFields` e `Travel` (somente para venda de passagens aéreas).
 
 ### Requisição
 
@@ -5698,105 +5702,105 @@ curl
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|GUID|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave pública para autenticação dupla na Braspag|
-|`RequestId`|GUID|36|Não|Identificador do request definido pela loja|
-|`MerchantOrderId`|Texto|50|Sim|Número do pedido da loja|
-|`Customer.Name`|Texto|120|Sim|Nome completo do comprador|
-|`Customer.Identity`|Texto|16|Sim|Número do documento de identificação do comprador|
-|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador <br/> Possíveis valores: CPF ou CNPJ|
-|`Customer.Email`|Texto|100|Sim|E-mail do comprador|
-|`Customer.Birthdate`|Date|10|Sim|Data de nascimento do comprador <br/> Ex.: 1991-01-10|
-|`Customer.Phone`|Texto|15|Sim|Número do telefone do comprador <br/> Ex.: 5521976781114|
-|`Customer.Address.Street`|Texto|54|Sim|Logradouro do endereço de cobrança|
-|`Customer.Address.Number`|Texto|5|Sim|Número do endereço de cobrança|
-|`Customer.Address.Complement`|Texto|14|Não|Complemento do endereço de cobrança|
-|`Customer.Address.ZipCode`|Texto|9|Sim|Código postal do endereço de cobrança|
-|`Customer.Address.City`|Texto|50|Sim|Cidade do endereço de cobrança|
-|`Customer.Address.State`|Texto|2|Sim|Estado do endereço de cobrança|
-|`Customer.Address.Country`|Texto|2|Sim|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
-|`Customer.Address.District`|Texto|45|Sim|Bairro do endereço de cobrança|
-|`Customer.DeliveryAddress.Street`|Texto|54|Não|Logradouro do endereço de entrega|
-|`Customer.DeliveryAddress.Number`|Texto|5|Não|Número do endereço de entrega|
-|`Customer.DeliveryAddress.Complement`|Texto|14|Não|Complemento do endereço de entrega|
-|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|Código postal do endereço de entrega|
-|`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço de entrega|
-|`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço de entrega|
-|`Customer.DeliveryAddress.Country`|Texto|2|Não|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
-|`Customer.DeliveryAddress.District`|Texto|45|Não|Bairro do endereço de entrega|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora da autorização|
-|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. <br/> Obs.: Somente o tipo _CreditCard_ funciona com análise de fraude|
-|`Payment.Amount`|Número|15|Sim|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|
-|`Payment.ServiceTaxAmount`|Número|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço <br/> Obs.: Esse valor não é adicionado ao valor da autorização|
-|`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito <br/> Possíveis valores: BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
-|`Payment.Country`|Texto|3|Não|País na qual o pagamento será realizado|
-|`Payment.Installments`|Número|2|Sim|Número de parcelas|
-|`Payment.Interest`|Texto|10|Não|Tipo de parcelamento <br/> Possíveis valores: ByMerchant / ByIssuer|
-|`Payment.Capture`|Booleano|---|Não|Indica se a autorização deverá ser com captura automática <br/> Possíveis valores: true / false (default) <br/> Obs.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade <br/> Obs2.: Este campo deverá ser preenchido de acordo com o fluxo da análise de fraude|
-|`Payment.Authenticate`|Booleano|---|Não|Indica se a transação deve ser autenticada <br/> Possíveis valores: true / false (default) <br/> Obs.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
-|`Payment.Recurrent`|Booleano|---|Não|Indica se a transação é do tipo recorrente <br/> Possíveis valores: true / false (default) <br/> Obs.: Este campo igual a _true_ não irá criar uma recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV e servindo de indicação para a adquirente que é a cobrança de uma transação de uma recorrência <br/> Obs2.: Somente para transações Cielo <br/> Obs3.: O campo `Payment.Authenticate` deve ser igual a _false_ quando este for igual a _true_|
-|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador <br/> Obs.: O valor deste campo tem que ser claro e fácil de identificar pelo portador o estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback|
-|`Payment.DoSplit`|Booleano|---|Não|Indica se a transação será dividida entre vários participantes <br/> Possíveis valores: true / false (default) <br/> Para utilizar a funcionalidade de split de pagamentos, é necessário a contratação da solução junto a Braspag|
-|`Payment.ExtraDataCollection.Name`|Texto|50|Não|Identificador do campo extra que será enviado|
-|`Payment.ExtraDataCollection.Value`|Texto|1024|Não|Valor do campo extra que será enviado|
-|`Payment.Credentials.Code`|Texto|100|Sim|Afiliação gerada pela adquirente|
-|`Payment.Credentials.Key`|Texto|100|Sim|Chave de afiliação/token gerado pela adquirente|
-|`Payment.Credentials.Username`|Texto|50|Não|Usuário gerado no credenciamento com a adquirente Getnet <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet|
-|`Payment.Credentials.Password`|Texto|50|Não|Senha gerada no credenciamento com a adquirente Getnet <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet|
-|`Payment.Credentials.Signature`|Texto|3|Não|ID do terminal no credenciamento com a adquirente Global Payments <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Global Payments|
-|`Payment.CreditCard.CardNumber`|Texto|16|Sim|Número do cartão de crédito|
-|`Payment.CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão de crédito|
-|`Payment.CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade do cartão de crédito|
-|`Payment.CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança no verso do cartão de crédito|
-|`Payment.CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão de crédito|
-|`Payment.CreditCard.SaveCard`|Booleano|---|Não|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|
-|`Payment.CreditCard.Alias`|Texto|64|Não|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|
-|`Payment.FraudAnalysis.Sequence`|Texto|14|Sim|Tipo de fluxo da análise de fraude <br/> Possíveis valores: AnalyseFirst / AuthorizeFirst|
-|`Payment.FraudAnalysis.SequenceCriteria`|Texto|9|Sim|Critério do fluxo da análise de fraude <br/> Possíveis valores: OnSuccess / Always|
-|`Payment.FraudAnalysis.Provider`|Texto|10|Sim|Provedor de AntiFraude <br/> Possíveis valores: Cybersource|
-|`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será capturada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Braspag receber a notificação da alteração de status e esta for baixo risco (Accept) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
-|`Payment.FraudAnalysis.VoidOnHighRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será cancelada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de alto risco (Reject) a transação anteriormente autorizada será cancelada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será cancelada após a Braspag receber a notificação da alteração de status e esta for alto risco (Reject) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
-|`Payment.FraudAnalysis.TotalOrderAmount`|Número|15|Sim|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|
-|`Payment.FraudAnalysis.FingerPrintId`|Texto|100|Sim|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas|
-|`Payment.FraudAnalysis.Browser.HostName`|Texto|60|Não|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|
-|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Booleano|---|Sim|Identifica se o browser do comprador aceita cookies <br/> Possíveis valores: true / false (default)|
-|`Payment.FraudAnalysis.Browser.Email`|Texto|100|Não|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|
-|`Payment.FraudAnalysis.Browser.Type`|Texto|40|Não|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP <br/> Ex.: Google Chrome, Mozilla Firefox, Safari, etc|
-|`Payment.FraudAnalysis.Browser.IpAddress`|Texto|45|Sim|Endereço de IP do comprador. Formato IPv4 ou IPv6|
-|`Payment.FraudAnalysis.Cart.IsGift`|Booleano|---|Não|Indica se o pedido realizado pelo comprador é para presente|
-|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Booleano|---|Não|Indica se o pedido realizado pelo comprador pode ser devolvido a loja <br/> Possíveis valores: true / false (default)|
-|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Texto|9|Não|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.GiftCategory]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.tems[n].giftcategory)|
-|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Texto|6|Não|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.HostHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge)|
-|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Texto|6|Não|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Lista de Valores - Cart.Items{n}.NonSensicalHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge)|
-|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Texto|6|Não|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.ObscenitiesHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].obscenitieshedge)|
-|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Texto|6|Não|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.PhoneHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].phonehedge)|
-|`Payment.FraudAnalysis.Cart.Items.Name`|Texto|255|Sim|Nome do Produto|
-|`Payment.FraudAnalysis.Cart.Items.Quantity`|Número|15|Sim|Quantidade do produto|
-|`Payment.FraudAnalysis.Cart.Items.Sku`|Texto|255|Sim|SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto|
-|`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Número|15|Sim|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|
-|`Payment.FraudAnalysis.Cart.Items.Risk`|Texto|6|Não|Nível de risco do produto associado a quantidade de chargebacks <br/> [Lista de Valores - Payment.Fraudanalysis.CartI.tems{n}.Risk]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].risk)|
-|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Texto|6|Não|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.TimeHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].timehedge)|
-|`Payment.FraudAnalysis.Cart.Items.Type`|Texto|19|Não|Categoria do produto <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.Type]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type)|
-|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Texto|6|Não|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Lista de Valores - Payment.Fraudanalysis.Cart.Items{n}.VelocityHedge]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].velocityhedge)|
-|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Número|2|Sim|ID das informações adicionais a serem enviadas <br/> [Tabela de MDDs]({{ site.baseurl_root }}manual/braspag-pagador#tabela-de-mdds)|
-|`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Texto|255|Sim|Valor das informações adicionais a serem enviadas <br/> [Tabela de MDDs]({{ site.baseurl_root }}manual/braspag-pagador#tabela-de-mdds)|
-|`Payment.FraudAnalysis.Shipping.Addressee`|Texto|120|Não|Nome completo do responsável a receber o produto no endereço de entrega|
-|`Payment.FraudAnalysis.Shipping.Method`|Texto|8|Não|Meio de entrega do pedido <br/> [Lista de Valores - Payment.Fraudanalysis.Shipping.Method]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.method)|
-|`Payment.FraudAnalysis.Shipping.Phone`|Texto|15|Não|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|
-|`Payment.FraudAnalysis.Travel.JourneyType`|Texto|32|Não|Tipo de viagem <br/> [Lista de Valores - Payment.FraudAnalysis.Travel.JourneyType]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.journeytype)|
-|`Payment.FraudAnalysis.Travel.DepartureTime`|DateTime|---|Não|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|
-|`Payment.FraudAnalysis.Travel.Passengers.Name`|Texto|120|Não|Nome completo do passageiro|
-|`Payment.FraudAnalysis.Travel.Passengers.Identity`|Texto|32|Não|Número do documento do passageiro|
-|`Payment.FraudAnalysis.Travel.Passengers.Status`|Texto|15|Não|Classificação da empresa aérea <br/> [Lista de Valores - Payment.FraudAnalysis.Travel.Passengers{n}.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status)|
-|`Payment.FraudAnalysis.Travel.Passengers.Rating`|Texto|13|Não|Tipo do passageiro <br/> [Lista de Valores - Payment.FraudAnalysis.Travel.Passengers{n}.PassengerType]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating)|
-|`Payment.FraudAnalysis.Travel.Passengers.Email`|Texto|255|Não|E-mail do passageiro|
-|`Payment.FraudAnalysis.Travel.Passengers.Phone`|Texto|15|Não|Telefone do passageiro <br/> Ex.: 552121114700|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|3|Não|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Não|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
+|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
+|`RequestId`|Identificador do request definido pela loja.|GUID|36|Não|
+|`MerchantOrderId`|Número do pedido da loja.|Texto|50|Sim|
+|`Customer.Name`|Nome completo do comprador.|Texto|120|Sim|
+|`Customer.Identity`|Número do documento de identificação do comprador.|Texto|16|Sim|
+|`Customer.IdentityType`|Tipo de documento de identificação do comprador. <br/> Possíveis valores: "CPF" ou "CNPJ".|Texto|255|Não|
+|`Customer.Email`|E-mail do comprador.|Texto|100|Sim|
+|`Customer.Birthdate`|Data de nascimento do comprador. <br/> Ex.: 1991-01-10.|Date|10|Sim|
+|`Customer.Phone`|Número do telefone do comprador. <br/> Ex.: 5521976781114.|Texto|15|Sim|
+|`Customer.Address.Street`|Logradouro do endereço de cobrança.|Texto|54|Sim|
+|`Customer.Address.Number`|Número do endereço de cobrança.|Texto|5|Sim|
+|`Customer.Address.Complement`|Complemento do endereço de cobrança.|Texto|14|Não|
+|`Customer.Address.ZipCode`|CEP do endereço de cobrança.|Texto|9|Sim|
+|`Customer.Address.City`|Cidade do endereço de cobrança.|Texto|50|Sim|
+|`Customer.Address.State`|Estado do endereço de cobrança.|Texto|2|Sim|
+|`Customer.Address.Country`|País do endereço de cobrança.<br/>Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Texto|2|Sim|
+|`Customer.Address.District`|Bairro do endereço de cobrança.|Texto|45|Sim|
+|`Customer.DeliveryAddress.Street`|Logradouro do endereço de entrega.|Texto|54|Não|
+|`Customer.DeliveryAddress.Number`|Número do endereço de entrega.|Texto|5|Não|
+|`Customer.DeliveryAddress.Complement`|Complemento do endereço de entrega.|Texto|14|Não|
+|`Customer.DeliveryAddress.ZipCode`|CEP do endereço de entrega.|Texto|9|Não|
+|`Customer.DeliveryAddress.City`|Cidade do endereço de entrega.|Texto|50|Não|
+|`Customer.DeliveryAddress.State`|Estado do endereço de entrega.|Texto|2|Não|
+|`Customer.DeliveryAddress.Country`|País do endereço de entrega.<br/>Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Texto|2|Não|
+|`Customer.DeliveryAddress.District`|Bairro do endereço de entrega.|Texto|45|Não|
+|`Payment.Provider`|Nome da provedora da autorização.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.<br/>Obs.: Somente o tipo "CreditCard" funciona com análise de fraude.|Texto|100|Sim|
+|`Payment.Amount`|Valor da transação financeira, em centavos. <br/> Ex.: 150000 = R$ 1.500,00.|Número|15|Sim|
+|`Payment.ServiceTaxAmount`|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. <br/> Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
+|`Payment.Currency`|Moeda na qual o pagamento será feito. <br/> Possíveis valores: "BRL" / "USD" / "MXN" / "COP" / "CLP" / "ARS" / "PEN" / "EUR" / "PYN" / "UYU" / "VEB" / "VEF" / "GBP".|Texto|3|Não|
+|`Payment.Country`|País na qual o pagamento será realizado.|Texto|3|Não|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.Interest`|Tipo de parcelamento. <br/> Possíveis valores: "ByMerchant" (loja) / "ByIssuer" (emissor).|Texto|10|Não|
+|`Payment.Capture`|Indica se a autorização deverá ser com captura automática. <br/> Possíveis valores: "true" / "false" (default). <br/> Obs1.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade. <br/> Obs2.: Este campo deverá ser preenchido de acordo com o fluxo da análise de fraude.|Booleano|---|Não|
+|`Payment.Authenticate`|Indica se a transação deve ser autenticada. <br/> Possíveis valores: "true" / "false" (default). <br/> Obs1.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.<br/> Obs2. O campo `Payment.Recurrent` deve ser igual a "true" quando este for igual a "false".|Booleano|---|Não|
+|`Payment.Recurrent`|Indica se a transação é do tipo recorrente. <br/> Possíveis valores: "true" / "false" (default). <br/> Obs1.: Este campo igual a "true" não irá criar uma recorrência; apenas permitirá a realização de uma transação sem a necessidade de envio do CVV, indicando para a adquirente que é a cobrança de uma transação de uma recorrência. <br/> Obs2.: Somente para transações **Cielo**. <br/> Obs3.: O campo `Payment.Authenticate` deve ser igual a "false" quando este for igual a "true".|Booleano|---|Não|
+|`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador. <br/> Obs.: O valor deste campo deve tornar fácil para o portador a identificação do estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback.|Texto|13|Não|
+|`Payment.DoSplit`|Indica se a transação será dividida entre vários participantes. <br/> Possíveis valores: "true" / "false" (default). <br/> Para utilizar a funcionalidade de split de pagamentos, é necessário a contratação da solução junto à Braspag.|Booleano|---|Não|
+|`Payment.ExtraDataCollection.Name`|Identificador do campo extra que será enviado.|Texto|50|Não|
+|`Payment.ExtraDataCollection.Value`|Valor do campo extra que será enviado.|Texto|1024|Não|
+|`Payment.Credentials.Code`|Afiliação gerada pela adquirente.|Texto|100|Sim|
+|`Payment.Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|Texto|100|Sim|
+|`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente **Getnet**. <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet.|Texto|50|Não|
+|`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente **Getnet**. <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet.|Texto|50|Não|
+|`Payment.Credentials.Signature`|Id do terminal no credenciamento com a adquirente **Global Payments**. <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Global Payments.|Texto|3|Não|
+|`Payment.CreditCard.CardNumber`|Número do cartão de crédito.|Texto|16|Sim|
+|`Payment.CreditCard.Holder`|Nome do portador impresso no cartão de crédito.|Texto|25|Sim|
+|`Payment.CreditCard.ExpirationDate`|Data de validade do cartão de crédito.|Texto|7|Sim|
+|`Payment.CreditCard.SecurityCode`|Código de segurança no verso do cartão de crédito.|Texto|4|Sim|
+|`Payment.CreditCard.Brand`|Bandeira do cartão de crédito.|Texto|10|Sim |
+|`Payment.CreditCard.SaveCard`|Indica se os dados do cartão de crédito serão armazenados no *Cartão Protegido*.|Booleano|---|Não|
+|`Payment.CreditCard.Alias`|Alias (apelido) do cartão de crédito salvo no *Cartão Protegido*.|Texto|64|Não|
+|`Payment.FraudAnalysis.Sequence`|Tipo de fluxo da análise de fraude. <br/> Possíveis valores: "AnalyseFirst" / "AuthorizeFirst".|Texto|14|Sim|
+|`Payment.FraudAnalysis.SequenceCriteria`|Critério do fluxo da análise de fraude. <br/> Possíveis valores: "OnSuccess" / "Always".|Texto|9|Sim|
+|`Payment.FraudAnalysis.Provider`|Provedor de *AntiFraude*. <br/> Possíveis valores: "Cybersource".|Texto|10|Sim|
+|`Payment.FraudAnalysis.CaptureOnLowRisk`|Indica se a transação após a análise de fraude será capturada. <br/> Possíveis valores: "true" / "false" (default) <br/> Obs1.: Quando enviado igual a "true" e o retorno da análise de fraude for de baixo risco ("*Accept*"), a transação anteriormente autorizada será capturada. <br/> Obs2.: Quando enviado igual a "true" e o retorno da análise de fraude for revisão ("*Review*"), a transação ficará autorizada, sendo capturada após a Braspag receber notificação de alteração do status para baixo risco ("*Accept*"). <br/> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (`FraudAnalysis.Sequence`) deve ser obrigatoriamente "AuthorizeFirst".|Booleano|---|Não|
+|`Payment.FraudAnalysis.VoidOnHighRisk`|Indica se a transação após a análise de fraude será cancelada. <br/> Possíveis valores: "true" / "false" (default). <br/> Obs1.: Quando enviado igual a "true" e o retorno da análise de fraude for de alto risco ("*Reject*"), a transação anteriormente autorizada será cancelada. <br/> Obs2.: Quando enviado igual a "true" e o retorno da análise de fraude for revisão ("*Review*"), a transação ficará autorizada, sendo cancelada após a Braspag receber notificação de alteração do status para alto risco ("*Reject*"). <br/> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (`FraudAnalysis.Sequence`) deve ser obrigatoriamente "AuthorizeFirst".|Booleano|---|Não|
+|`Payment.FraudAnalysis.TotalOrderAmount`|Valor total do pedido, em centavos. <br/> Ex.: 123456 = R$ 1.234,56.|Número|15|Sim|
+|`Payment.FraudAnalysis.FingerPrintId`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|Texto|100|Sim|
+|`Payment.FraudAnalysis.Browser.HostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP.|Texto|60|Não|
+|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Identifica se o browser do comprador aceita cookies. <br/> Possíveis valores: "true" / "false" (default).|Booleano|---|Sim|
+|`Payment.FraudAnalysis.Browser.Email`|E-mail registrado no browser do comprador. Pode ser diferente do e-mail de cadastro na loja (`Customer.Email`).|Texto|100|Não|
+|`Payment.FraudAnalysis.Browser.Type`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP. <br/> Ex.: "Google Chrome", "Mozilla Firefox", "Safari", etc.|Texto|40|Não|
+|`Payment.FraudAnalysis.Browser.IpAddress`|Endereço de IP do comprador. Formato IPv4 ou IPv6.|Texto|45|Sim|
+|`Payment.FraudAnalysis.Cart.IsGift`|Indica se o pedido realizado pelo comprador é para presente.|Booleano|---|Não|
+|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido à loja. <br/> Possíveis valores: "true" / "false" (default).|Booleano|---|Não|
+|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Identifica a avaliação dos endereços de cobrança e entrega para diferentes cidades, estados ou países. <br/> [Lista de Valores - GiftCategory](#lista-de-valores-payment.fraudanalysis.cart.items[n].giftcategory). |Texto|9|Não| 
+|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude. <br/> [Lista de Valores - HostHedge](#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude. <br/> [Lista de Valores - NonSensicalHedge](#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude. <br/> [Lista de Valores - ObscenitiesHedge](#lista-de-valores-payment.fraudanalysis.cart.items[n].obscenitieshedge).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Nível de importância das verificações sobre os números de telefone do comprador na análise de fraude. <br/> [Lista de Valores - PhoneHedge](#lista-de-valores-payment.fraudanalysis.cart.items[n].phonehedge).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.Name`|Nome do produto.|Texto|255|Sim|
+|`Payment.FraudAnalysis.Cart.Items.Quantity`|Quantidade do produto.|Número|15|Sim|
+|`Payment.FraudAnalysis.Cart.Items.Sku`|SKU (*Stock Keeping Unit* - Unidade de Controle de Estoque) do produto.|Texto|255|Sim|
+|`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Preço unitário do produto, em centavos. <br/> Ex.: 10950 = R$ 109,50.|Número|15|Sim|
+|`Payment.FraudAnalysis.Cart.Items.Risk`|Nível de risco do produto associado a quantidade de chargebacks. <br/> [Lista de Valores - Risk](#lista-de-valores-payment.fraudanalysis.cart.items[n].risk).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Nível de importância, na análise de fraude, da hora do dia em que o comprador realizou o pedido. <br/> [Lista de Valores - TimeHedge](#lista-de-valores-payment.fraudanalysis.cart.items[n].timehedge).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.Type`|Categoria do produto. <br/> [Lista de Valores - Type](#lista-de-valores-payment.fraudanalysis.cart.items[n].type).|Texto|19|Não|
+|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Nível de importância, na análise de fraude, da frequência de compra do comprador dentro dos 15 minutos anteriores. <br/> [Lista de Valores - VelocityHedge](#lista-de-valores-payment.fraudanalysis.cart.items[n].velocityhedge).|Texto|6|Não|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Id das informações adicionais a serem enviadas. <br/> [Tabela de MDDs](#tabela-de-mdds)|Número|2|Sim|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Valor das informações adicionais a serem enviadas. <br/> [Tabela de MDDs](#tabela-de-mdds)|Texto|255|Sim|
+|`Payment.FraudAnalysis.Shipping.Addressee`|Nome completo do responsável a receber o produto no endereço de entrega.|Texto|120|Não|
+|`Payment.FraudAnalysis.Shipping.Method`|Meio de entrega do pedido. <br/> [Lista de Valores - Method](#lista-de-valores-payment.fraudanalysis.shipping.method).|Texto|8|Não|
+|`Payment.FraudAnalysis.Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega. <br/> Ex.: 552121114700.|Texto|15|Não|
+|`Payment.FraudAnalysis.Travel.JourneyType`|Tipo de viagem. <br/> [Lista de Valores - JourneyType](#lista-de-valores-payment.fraudanalysis.travel.journeytype).|Texto|32|Não|
+|`Payment.FraudAnalysis.Travel.DepartureTime`|Data e hora de partida. <br/> Ex.: 2018-03-31 19:16:38.|DateTime|---|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.Name`|Nome completo do passageiro.|Texto|120|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.Identity`|Número do documento do passageiro.|Texto|32|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.Status`|Classificação da empresa aérea. <br/> [Lista de Valores - Status](#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status).|Texto|15|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.Rating`|Tipo do passageiro. <br/> [Lista de Valores - Rating](#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating)|Texto|13|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.Email`|E-mail do passageiro.|Texto|255|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.Phone`|Telefone do passageiro. <br/> Ex.: 552121114700.|Texto|15|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm).|Texto|3|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Código do aeroporto de chegada.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm).|Texto|3|Não|
 
-> Os campos do nó `FraudAnalysis.Travel` se tornam obrigatórios caso o segmento do seu negócio seja aéreas.
+<aside class="warning">Os campos do nó "FraudAnalysis.Travel" se tornam obrigatórios caso o segmento do seu negócio seja o aéreo.</aside>
 
 ### Resposta
 
@@ -6201,138 +6205,138 @@ curl
 }
 ```
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Descrição|Tipo|
 |:-|:-|:-|
-|`MerchantOrderId`|Texto|Número do pedido da loja|
-|`Customer.Name`|Texto|Nome completo do comprador|
-|`Customer.Identity`|Texto|Número do documento de identificação do comprador|
-|`Customer.IdentityType`|Texto|Tipo de documento de identificação do comprador|
-|`Customer.Email`|Texto|E-mail do comprador|
-|`Customer.Birthdate`|Date|Data de nascimento do comprador|
-|`Customer.Phone`|Texto|Número do telefone do comprador|
-|`Customer.Address.Street`|Texto|Logradouro do endereço de cobrança|
-|`Customer.Address.Number`|Texto|Número do endereço de cobrança|
-|`Customer.Address.Complement`|Texto|Complemento do endereço de cobrança|
-|`Customer.Address.ZipCode`|Texto|Código postal do endereço de cobrança|
-|`Customer.Address.City`|Texto|Cidade do endereço de cobrança|
-|`Customer.Address.State`|Texto|Estado do endereço de cobrança|
-|`Customer.Address.Country`|Texto|País do endereço de cobrança|
-|`Customer.Address.District`|Texto|Bairro do endereço de cobrança|
-|`Customer.DeliveryAddress.Street`|Texto|Logradouro do endereço de entrega|
-|`Customer.DeliveryAddress.Number`|Texto|Número do endereço de entrega|
-|`Customer.DeliveryAddress.Complement`|Texto|Complemento do endereço de entrega|
-|`Customer.DeliveryAddress.ZipCode`|Texto|Código do endereço de entrega|
-|`Customer.DeliveryAddress.City`|Texto|Cidade do endereço de entrega|
-|`Customer.DeliveryAddress.State`|Texto|Estado do endereço de entrega|
-|`Customer.DeliveryAddress.Country`|Texto|País do endereço de entrega|
-|`Customer.DeliveryAddress.District`|Texto|Bairro do endereço de entrega|
-|`Payment.Provider`|Texto|Nome da provedora da autorização|
-|`Payment.Type`|Texto|Tipo do meio de pagamento|
-|`Payment.Amount`|Número|Valor da transação financeira em centavos|
-|`Payment.ServiceTaxAmount`|Número|Montante do valor da autorização que deve ser destinado à taxa de serviço|
-|`Payment.Currency`|Texto|Moeda na qual o pagamento será feito|
-|`Payment.Country`|Texto|País na qual o pagamento será realizado|
-|`Payment.Installments`|Número|Número de parcelas|
-|`Payment.Interest`|Texto|Tipo de parcelamento|
-|`Payment.Capture`|Booleano|Indica se a autorização deverá ser com captura automática|
-|`Payment.Authenticate`|Booleano|Indica se a transação deve ser autenticada|
-|`Payment.Recurrent`|Booleano|Indica se a transação é do tipo recorrente|
-|`Payment.SoftDescriptor`|Texto|Texto que será impresso na fatura do portador|
-|`Payment.DoSplit`|Booleano|Indica se a transação será dividida entre vários participantes|
-|`Payment.ExtraDataCollection.Name`|Texto|Identificador do campo extra que será enviado|
-|`Payment.ExtraDataCollection.Value`|Texto|Valor do campo extra que será enviado|
-|`Payment.Credentials.Code`|Texto|Afiliação gerada pela adquirente|
-|`Payment.Credentials.Key`|Texto|Chave de afiliação/token gerado pela adquirente|
-|`Payment.Credentials.Username`|Texto|Usuário gerado no credenciamento com a adquirente Getnet|
-|`Payment.Credentials.Password`|Texto|Senha gerada no credenciamento com a adquirente Getnet|
-|`Payment.Credentials.Signature`|Texto|ID do terminal no credenciamento com a adquirente Global Payments|
-|`Payment.CreditCard.CardNumber`|Texto|Número do cartão de crédito truncado|
-|`Payment.CreditCard.Holder`|Texto|Nome do portador impresso no cartão de crédito|
-|`Payment.CreditCard.ExpirationDate`|Texto|Data de validade do cartão de crédito|
-|`Payment.CreditCard.SecurityCode`|Texto|Código de segurança no verso do cartão de crédito|
-|`Payment.CreditCard.Brand`|Texto|Bandeira do cartão de crédito|
-|`Payment.CreditCard.SaveCard`|Booleano|Indica se os dados do cartão de crédito foram armazenados no Cartão Protegido|
-|`Payment.CreditCard.Alias`|Texto|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|
-|`Payment.CreditCard.CardToken`|GUID|Identificador do cartão de crédito salvo no Cartão Protegido|
-|`Payment.FraudAnalysis.Sequence`|Texto|Tipo de fluxo da análise de fraude|
-|`Payment.FraudAnalysis.SequenceCriteria`|Texto|Critério do fluxo da análise de fraude|
-|`Payment.FraudAnalysis.Provider`|Texto|Provedor de AntiFraude|
-|`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|Indica se a transação após a análise de fraude será capturada|
-|`Payment.FraudAnalysis.VoidOnHighRisk`|Booleano|Indica se a transação após a análise de fraude será cancelada|
-|`Payment.FraudAnalysis.TotalOrderAmount`|Número|Valor total do pedido em centavos|
-|`Payment.FraudAnalysis.FingerPrintId`|Texto|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador|
-|`Payment.FraudAnalysis.Browser.HostName`|Texto|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|
-|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Booleano|Identifica se o browser do comprador aceita cookies|
-|`Payment.FraudAnalysis.Browser.Email`|Texto|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|
-|`Payment.FraudAnalysis.Browser.Type`|Texto|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|
-|`Payment.FraudAnalysis.Browser.IpAddress`|Texto|Endereço de IP do comprador. Formato IPv4 ou IPv6|
-|`Payment.FraudAnalysis.Cart.IsGift`|Booleano|Indica se o pedido realizado pelo comprador é para presente|
-|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Booleano|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|
-|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Texto|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países|
-|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Texto|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude|
-|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Texto|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude|
-|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Texto|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude|
-|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Texto|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude|
-|`Payment.FraudAnalysis.Cart.Items.Name`|Texto|Nome do Produto|
-|`Payment.FraudAnalysis.Cart.Items.Quantity`|Número|Quantidade do produto|
-|`Payment.FraudAnalysis.Cart.Items.Sku`|Texto|SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto|
-|`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Número|Preço unitário do produto|
-|`Payment.FraudAnalysis.Cart.Items.Risk`|Texto|Nível de risco do produto associado a quantidade de chargebacks|
-|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Texto|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido|
-|`Payment.FraudAnalysis.Cart.Items.Type`|Texto|Categoria do produto|
-|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Texto|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores|
-|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Número|ID das informações adicionais a serem enviadas|
-|`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Texto|Valor das informações adicionais a serem enviadas|
-|`Payment.FraudAnalysis.Shipping.Addressee`|Texto|Nome completo do responsável a receber o produto no endereço de entrega|
-|`Payment.FraudAnalysis.Shipping.Method`|Texto|Meio de entrega do pedido|
-|`Payment.FraudAnalysis.Shipping.Phone`|Número|Número do telefone do responsável a receber o produto no endereço de entrega|
-|`Payment.FraudAnalysis.Travel.JourneyType`|Texto|Tipo de viagem|
-|`Payment.FraudAnalysis.Travel.DepartureTime`|DateTime|Data e hora de partida|
-|`Payment.FraudAnalysis.Travel.Passengers.Name`|Texto|Nome completo do passageiro|
-|`Payment.FraudAnalysis.Travel.Passengers.Identity`|Texto|Número do documento do passageiro|
-|`Payment.FraudAnalysis.Travel.Passengers.Status`|Texto|Classificação da empresa aérea|
-|`Payment.FraudAnalysis.Travel.Passengers.Rating`|Texto|Tipo do passageiro|
-|`Payment.FraudAnalysis.Travel.Passengers.Email`|Texto|E-mail do passageiro|
-|`Payment.FraudAnalysis.Travel.Passengers.Phone`|Número|Telefone do passageiro|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|Código do aeroporto de partida|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|Código do aeroporto de chegada|
-|`Payment.FraudAnalysis.Id`|GUID|Id da transação no AntiFraude Braspag|
-|`Payment.FraudAnalysis.Status`|Número|Status da transação no AntiFraude Braspag <br/> [Lista de Valores - Payment.FraudAnalysis.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status)|
-|`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Número|Código de retorno da Cybersouce <br/> [Lista de Valores - Payment.FraudAnalysis.FraudAnalysisReasonCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode)|
-|`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Texto|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br/> Os códigos são concatenados usando o caracter ^ Ex.: COR-BA^MM-BIN <br/> [Lista de Valores - Payment.FraudAnalysis.ReplyData.AddressInfoCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode)|
-|`Payment.FraudAnalysis.ReplyData.FactorCode`|Texto|Códigos que afetaram a pontuação da análise <br/> Os códigos são concatenados usando o caracter ^. Ex.: B^D^R^Z <br/>[Lista de Valores - ProviderAnalysisResult.AfsReply.FactorCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode)|
-|`Payment.FraudAnalysis.ReplyData.Score`|Número|Score da análise de fraude. Valor entre 0 e 100|
-|`Payment.FraudAnalysis.ReplyData.BinCountry`|Texto|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
-|`Payment.FraudAnalysis.ReplyData.CardIssuer`|Texto|Nome do banco ou entidade emissora do cartão de crédito|
-|`Payment.FraudAnalysis.ReplyData.CardScheme`|Texto|Bandeira do cartão|
-|`Payment.FraudAnalysis.ReplyData.HostSeverity`|Número|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|
-|`Payment.FraudAnalysis.ReplyData.InternetInfoCode`|Texto|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: FREE-EM^RISK-EM <br/> [Lista de Valores - Payment.FraudAnalysis.ReplyData.InternetInfoCode]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode)|
-|`Payment.FraudAnalysis.ReplyData.IpRoutingMethod`|Texto|Método de roteamento do comprador obtido a partir do endereço de IP <br/> [Lista de Valores - Payment.FraudAnalysis.ReplyData.IpRoutingMethod]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod)|
-|`Payment.FraudAnalysis.ReplyData.ScoreModelUsed`|Texto|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|
-|`Payment.FraudAnalysis.ReplyData.CasePriority`|Número|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|
-|`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`|Texto|Id da transação na Cybersource|
-|`Payment.PaymentId`|GUID|Identificador da transação no Pagador Braspag|
-|`Payment.AcquirerTransactionId`|Texto|Identificador da transação na adquirente|
-|`Payment.ProofOfSale`|Texto|Número do comprovante de venda na adquirente (NSU - Número sequencial único da transação)|
-|`Payment.AuthorizationCode`|Texto|Código de autorização na adquirente|
-|`Payment.ReceivedDate`|Datetime|Data em que a transação foi recebida no Pagador Braspag <br/> Ex.: 2018-01-16 16:38:19|
-|`Payment.CapturedDate`|Datetime|Data em que a transação foi capturada na adquirente <br/> Ex.: 2018-01-16 16:38:20|
-|`Payment.CapturedAmount`|Número|Valor capturado da transação <br/> Ex.: 123456 = r$ 1.234,56|
-|`Payment.ECI`|Texto|Eletronic Commerce Indicator. Código gerado em uma transação de crédito com autenticação externa|
-|`Payment.ReasonCode`|Texto|Código de retorno da operação|
-|`Payment.ReasonMessage`|Texto|Mensagem de retorno da operação|
-|`Payment.Status`|Número|Status da transação no Pagador <br/> [Lista de Status da Transação]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-status-transação)|
-|`Payment.ProviderReturnCode`|Texto|Código retornado pela adquirente ou banco|
-|`Payment.ProviderReturnMessage`|Texto|Mensagem retornada pela adquirente ou banco|
+|`MerchantOrderId`|Número do pedido da loja.|Texto|
+|`Customer.Name`|Nome completo do comprador.|Texto|
+|`Customer.Identity`|Número do documento de identificação do comprador.|Texto|
+|`Customer.IdentityType`|Tipo de documento de identificação do comprador.|Texto|
+|`Customer.Email`|E-mail do comprador.|Texto|
+|`Customer.Birthdate`|Data de nascimento do comprador.|Date|
+|`Customer.Phone`|Número do telefone do comprador.|Texto|
+|`Customer.Address.Street`|Logradouro do endereço de cobrança.|Texto|
+|`Customer.Address.Number`|Número do endereço de cobrança.|Texto|
+|`Customer.Address.Complement`|Complemento do endereço de cobrança.|Texto|
+|`Customer.Address.ZipCode`|CEP do endereço de cobrança.|Texto|
+|`Customer.Address.City`|Cidade do endereço de cobrança.|Texto|
+|`Customer.Address.State`|Estado do endereço de cobrança.|Texto|
+|`Customer.Address.Country`|País do endereço de cobrança.|Texto|
+|`Customer.Address.District`|Bairro do endereço de cobrança.|Texto|
+|`Customer.DeliveryAddress.Street`|Logradouro do endereço de entrega.|Texto|
+|`Customer.DeliveryAddress.Number`|Número do endereço de entrega.|Texto|
+|`Customer.DeliveryAddress.Complement`|Complemento do endereço de entrega.|Texto|
+|`Customer.DeliveryAddress.ZipCode`|CEP do endereço de entrega.|Texto|
+|`Customer.DeliveryAddress.City`|Cidade do endereço de entrega.|Texto|
+|`Customer.DeliveryAddress.State`|Estado do endereço de entrega.|Texto|
+|`Customer.DeliveryAddress.Country`|País do endereço de entrega.|Texto|
+|`Customer.DeliveryAddress.District`|Bairro do endereço de entrega.|Texto|
+|`Payment.Provider`|Nome da provedora da autorização.|Texto|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|
+|`Payment.Amount`|Valor da transação financeira, em centavos.|Número|
+|`Payment.ServiceTaxAmount`|Montante do valor da autorização que deve ser destinado à taxa de serviço.|Número|
+|`Payment.Currency`|Moeda na qual o pagamento será feito.|Texto|
+|`Payment.Country`|País na qual o pagamento será realizado.|Texto|
+|`Payment.Installments`|Número de parcelas.|Número|
+|`Payment.Interest`|Tipo de parcelamento.|Texto|
+|`Payment.Capture`|Indica se a autorização deverá ser com captura automática.|Booleano|
+|`Payment.Authenticate`|Indica se a transação deve ser autenticada.|Booleano|
+|`Payment.Recurrent`|Indica se a transação é do tipo recorrente.|Booleano|
+|`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador.|Texto|
+|`Payment.DoSplit`|Indica se a transação será dividida entre vários participantes.|Booleano|
+|`Payment.ExtraDataCollection.Name`|Identificador do campo extra que será enviado.|Texto|
+|`Payment.ExtraDataCollection.Value`|Valor do campo extra que será enviado.|Texto|
+|`Payment.Credentials.Code`|Afiliação gerada pela adquirente.|Texto|
+|`Payment.Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|Texto|
+|`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente Getnet.|Texto|
+|`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente Getnet.|Texto|
+|`Payment.Credentials.Signature`|Id do terminal no credenciamento com a adquirente Global Payments.|Texto|
+|`Payment.CreditCard.CardNumber`|Número do cartão de crédito truncado.|Texto|
+|`Payment.CreditCard.Holder`|Nome do portador impresso no cartão de crédito.|Texto|
+|`Payment.CreditCard.ExpirationDate`|Data de validade do cartão de crédito.|Texto|
+|`Payment.CreditCard.SecurityCode`|Código de segurança no verso do cartão de crédito.|Texto|
+|`Payment.CreditCard.Brand`|Bandeira do cartão de crédito.|Texto|
+|`Payment.CreditCard.SaveCard`|Indica se os dados do cartão de crédito foram armazenados no *Cartão Protegido*.|Booleano|
+|`Payment.CreditCard.Alias`|Alias (apelido) do cartão de crédito salvo no *Cartão Protegido*.|Texto|
+|`Payment.CreditCard.CardToken`|Identificador do cartão de crédito salvo no *Cartão Protegido*.|GUID|
+|`Payment.FraudAnalysis.Sequence`|Tipo de fluxo da análise de fraude.|Texto|
+|`Payment.FraudAnalysis.SequenceCriteria`|Critério do fluxo da análise de fraude.|Texto|
+|`Payment.FraudAnalysis.Provider`|Provedor de *AntiFraude*.|Texto|
+|`Payment.FraudAnalysis.CaptureOnLowRisk`|Indica se a transação após a análise de fraude será capturada.|Booleano|
+|`Payment.FraudAnalysis.VoidOnHighRisk`|Indica se a transação após a análise de fraude será cancelada.|Booleano|
+|`Payment.FraudAnalysis.TotalOrderAmount`|Valor total do pedido, em centavos.|Número|
+|`Payment.FraudAnalysis.FingerPrintId`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.|Texto|
+|`Payment.FraudAnalysis.Browser.HostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP.|Texto|
+|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Identifica se o browser do comprador aceita cookies.|Booleano|
+|`Payment.FraudAnalysis.Browser.Email`|E-mail registrado no browser do comprador. Pode ser diferente do e-mail de cadastro na loja (`Customer.Email`).|Texto|
+|`Payment.FraudAnalysis.Browser.Type`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP.|Texto|
+|`Payment.FraudAnalysis.Browser.IpAddress`|Endereço de IP do comprador. Formato IPv4 ou IPv6.|Texto|
+|`Payment.FraudAnalysis.Cart.IsGift`|Indica se o pedido realizado pelo comprador é para presente.|Booleano|
+|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido à loja.|Booleano|
+|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Identifica a avaliação dos endereços de cobrança e entrega para diferentes cidades, estados ou países.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.Name`|Nome do produto.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.Quantity`|Quantidade do produto.|Número|
+|`Payment.FraudAnalysis.Cart.Items.Sku`|SKU (*Stock Keeping Unit* - Unidade de Controle de Estoque) do produto.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Preço unitário do produto.|Número|
+|`Payment.FraudAnalysis.Cart.Items.Risk`|Nível de risco do produto associado à quantidade de chargebacks.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Nível de importância, na análise de fraude, da hora do dia em que o comprador realizou o pedido.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.Type`|Categoria do produto.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Nível de importância, na análise de fraude, da frequência de compra do comprador dentro dos 15 minutos anteriores.|Texto|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Id das informações adicionais a serem enviadas.|Número|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Valor das informações adicionais a serem enviadas.|Texto|
+|`Payment.FraudAnalysis.Shipping.Addressee`|Nome completo do responsável a receber o produto no endereço de entrega.|Texto|
+|`Payment.FraudAnalysis.Shipping.Method`|Meio de entrega do pedido.|Texto|
+|`Payment.FraudAnalysis.Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega.|Número|
+|`Payment.FraudAnalysis.Travel.JourneyType`|Tipo de viagem.|Texto|
+|`Payment.FraudAnalysis.Travel.DepartureTime`|Data e hora de partida.|DateTime|
+|`Payment.FraudAnalysis.Travel.Passengers.Name`|Nome completo do passageiro.|Texto|
+|`Payment.FraudAnalysis.Travel.Passengers.Identity`|Número do documento do passageiro.|Texto|
+|`Payment.FraudAnalysis.Travel.Passengers.Status`|Classificação da empresa aérea.|Texto|
+|`Payment.FraudAnalysis.Travel.Passengers.Rating`|Tipo do passageiro.|Texto|
+|`Payment.FraudAnalysis.Travel.Passengers.Email`|E-mail do passageiro.|Texto|
+|`Payment.FraudAnalysis.Travel.Passengers.Phone`|Telefone do passageiro.|Número|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.|Texto|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Código do aeroporto de chegada.|Texto|
+|`Payment.FraudAnalysis.Id`|Id da transação no *AntiFraude* Braspag.|GUID|
+|`Payment.FraudAnalysis.Status`|Status da transação no *AntiFraude* Braspag. <br/> [Lista de Valores - Status](#lista-de-valores-payment.fraudanalysis.status).|Número|
+|`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Código de retorno da Cybersouce. <br/> [Lista de Valores - FraudAnalysisReasonCode](#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode).|Número|
+|`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. <br/> Os códigos são concatenados usando o caractere "^". Ex.: COR-BA^MM-BIN. <br/> [Lista de Valores - AddressInfoCode](#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode).|Texto|
+|`Payment.FraudAnalysis.ReplyData.FactorCode`|Códigos que afetaram a pontuação da análise. <br/> Os códigos são concatenados usando o caractere "^". Ex.: B^D^R^Z. <br/>[Lista de Valores - FactorCode](#lista-de-valores-payment.fraudanalysis.replydata.factorcode).|Texto|
+|`Payment.FraudAnalysis.ReplyData.Score`|Score da análise de fraude. Valor entre 0 e 100.|Número|
+|`Payment.FraudAnalysis.ReplyData.BinCountry`|Código do país do BIN do cartão usado na análise.<br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Texto|
+|`Payment.FraudAnalysis.ReplyData.CardIssuer`|Nome do banco ou entidade emissora do cartão de crédito.|Texto|
+|`Payment.FraudAnalysis.ReplyData.CardScheme`|Bandeira do cartão.|Texto|
+|`Payment.FraudAnalysis.ReplyData.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto.|Número|
+|`Payment.FraudAnalysis.ReplyData.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, endereço IP ou endereço de cobrança. <br/> Os códigos são concatenados usando o caractere "^". Ex.: FREE-EM^RISK-EM <br/> [Lista de Valores - InternetInfoCode](#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode).|Texto|
+|`Payment.FraudAnalysis.ReplyData.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP. <br/> [Lista de Valores - IpRoutingMethod](#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod).|Texto|
+|`Payment.FraudAnalysis.ReplyData.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado.|Texto|
+|`Payment.FraudAnalysis.ReplyData.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia entre 1 (maior) e 5 (menor). O valor padrão é 3, e é atribuído caso não se tenha definido a prioridade das regras ou perfis. Este campo será retornado somente se a loja for assinante do *Enhanced Case Management*.|Número|
+|`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`|Id da transação na Cybersource.|Texto|
+|`Payment.PaymentId`|Identificador da transação no Pagador Braspag.|GUID|
+|`Payment.AcquirerTransactionId`|Identificador da transação na adquirente.|Texto|
+|`Payment.ProofOfSale`|Número do comprovante de venda na adquirente (NSU - Número Sequencial Único).|Texto|
+|`Payment.AuthorizationCode`|Código de autorização na adquirente.|Texto|
+|`Payment.ReceivedDate`|Data em que a transação foi recebida no Pagador Braspag. <br/> Ex.: 2018-01-16 16:38:19.|Datetime|
+|`Payment.CapturedDate`|Data em que a transação foi capturada na adquirente. <br/> Ex.: 2018-01-16 16:38:20.|Datetime|
+|`Payment.CapturedAmount`|Valor capturado da transação, em centavos. <br/> Ex.: 123456 = R$ 1.234,56.|Número|
+|`Payment.ECI`|*Electronic Commerce Indicator*. Código gerado em uma transação de crédito com autenticação externa.|Texto|
+|`Payment.ReasonCode`|Código de retorno da operação.|Texto|
+|`Payment.ReasonMessage`|Mensagem de retorno da operação.|Texto|
+|`Payment.Status`|Status da transação no Pagador. <br/> [Lista de Status da Transação](#lista-de-status-transação).|Número|
+|`Payment.ProviderReturnCode`|Código retornado pela adquirente ou banco.|Texto|
+|`Payment.ProviderReturnMessage`|Mensagem retornada pela adquirente ou banco.|Texto|
 
 ## Configuração do Fingerprint
 
-Importante componente da análise de fraude, o Fingerprint é um Javascript que deve ser inserido no seu site para capturar dados importantes como: IP do comprador, versão do browser, sistema operacional etc.
-Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e garantem que sua loja está mais protegida.
+Importante componente da análise de fraude, o *Fingerprint* é um Javascript que deve ser inserido no seu site para capturar dados importantes como: IP do comprador, versão do browser, sistema operacional etc.
+Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e garantem que sua loja esteja mais protegida.
 
-Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
+Esta página descreve como funciona o Fingerprint e como configurá-lo em sua página de checkout e mobiles.
 
-### Integração em checkout
+### Integração em Checkout
 
 Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
