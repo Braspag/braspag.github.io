@@ -7150,66 +7150,60 @@ Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio
 
 ## Lista de Providers
 
-No caso de integração SOAP, você pode encontrar uma lista de *providers*, com seus correspondentes *payment methods* listados [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360026794092-Lista-de-Payment-Method).
-As listas a seguir se referem a *providers* na integração REST:  
+No caso da integração SOAP, consulte a lista de provedores (*providers*) com seus correspondentes meios de pagamento listados [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360026794092-Lista-de-Payment-Method).<br/>
+As listas a seguir se referem a provedores na integração REST:  
 
 ### Providers para Crédito
 
 |Provider|Brand|Descrição|
 |--------|-----|---------|
 |Simulado|---|Provider de Sandbox|
-|Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper, Sorocred|Provider para transações na plataforma de e-commerce Cielo 3.0|
-|Getnet|Visa, Master, Elo, Amex, Hipercard|Provider para transações na plataforma de e-commerce Getnet|
-|Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex, Sorocred|Provider para transações na plataforma de e-commerce da Rede (e-Rede) na versão REST|
-|GlobalPayments|Visa, Master, Elo, Hiper, Hipercard, Cabal, Amex|Provider para transações na plataforma de e-commerce Global Payments|
-|Stone|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Stone|
-|Safra2|Visa, Master, Hipercard, Elo, Amex|Provider para transações na plataforma de e-commerce Safra|
-|FirstData|Visa, Master, Elo, Hipercard, Cabal, Amex|Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data|
-|Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|Provider para transações em pesos argentinos (ARG) na plataforma legado Sub1 First Data|
-|Banorte|Visa, Master, Carnet|Provider para transações em pesos mexicanos (MXN) na plataforma de e-commerce Banorte|
-|Credibanco|Visa, Master, Diners, Amex, Credential|Provider para transações em pesos colombianos (COP) na plataforma de e-commerce Credibanco|
-|Transbank2|Visa, Master, Diners, Amex|Provider para transações em pesos chilenos (CLP) na plataforma de e-commerce Transbank|
-|Banese|Banese|Provider para transações com a bandeira BaneseCard|
-|BrasilCard|BrasilCard|Provider para transações com a bandeira BrasilCard|
-|Credz|Credz|Sistema de cartões em regime de bandeira privativa (Private Label Brand)|
-|DMCard|---|Sistema de cartões em regime de bandeira privativa (Private Label Brand)|
+|Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper, Sorocred|Provider para transações na plataforma de e-commerce Cielo 3.0.|
+|Getnet|Visa, Master, Elo, Amex, Hipercard|Provider para transações na plataforma de e-commerce Getnet.|
+|Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex, Sorocred|Provider para transações na plataforma de e-commerce da Rede (e-Rede) na versão REST.|
+|GlobalPayments|Visa, Master, Elo, Hiper, Hipercard, Cabal, Amex|Provider para transações na plataforma de e-commerce Global Payments.|
+|Stone|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Stone.|
+|Safra2|Visa, Master, Hipercard, Elo, Amex|Provider para transações na plataforma de e-commerce Safra.|
+|FirstData|Visa, Master, Elo, Hipercard, Cabal, Amex|Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data.|
+|Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|Provider para transações em pesos argentinos (ARG) na plataforma legado Sub1 First Data.|
+|Banorte|Visa, Master, Carnet|Provider para transações em pesos mexicanos (MXN) na plataforma de e-commerce Banorte.|
+|Credibanco|Visa, Master, Diners, Amex, Credential|Provider para transações em pesos colombianos (COP) na plataforma de e-commerce Credibanco.|
+|Transbank2|Visa, Master, Diners, Amex|Provider para transações em pesos chilenos (CLP) na plataforma de e-commerce Transbank.|
+|Banese|Banese|Provider para transações com a bandeira BaneseCard.|
+|BrasilCard|BrasilCard|Provider para transações com a bandeira BrasilCard.|
+|Credz|Credz|Sistema de cartões em regime de bandeira privativa (Private Label Brand).|
+|DMCard|---|Sistema de cartões em regime de bandeira privativa (Private Label Brand).|
 
 ### Providers para Débito
 
 |Provider|Brand|Descrição|
 |--------|-----|---------|
-|Cielo|Visa, Master|Provider para transações de débito na plataforma legado Cielo 1.5|
-|Cielo30|Visa, Master|Provider para transações de débito na plataforma de e-commerce Cielo 3.0|
-|Getnet|Visa, Master|Provider para transações de débito na plataforma de e-commerce GetNet|
-|Rede2|Visa, Master|Provider para transações de débito na plataforma de e-commerce Rede|
-|Safra2|Visa, Master|Provider para transações de débito na plataforma de e-commerce Safra|
-|FirstData|Visa, Master|Provider para transações de débito na plataforma de e-commerce First Data|
-|GlobalPayments|Visa, Master|Provider para transações de débito na plataforma de e-commerce Global Payments|
+|Cielo|Visa, Master|Provider para transações de débito na plataforma legado Cielo 1.5.|
+|Cielo30|Visa, Master|Provider para transações de débito na plataforma de e-commerce Cielo 3.0.|
+|Getnet|Visa, Master|Provider para transações de débito na plataforma de e-commerce GetNet.|
+|Rede2|Visa, Master|Provider para transações de débito na plataforma de e-commerce Rede.|
+|Safra2|Visa, Master|Provider para transações de débito na plataforma de e-commerce Safra.|
+|FirstData|Visa, Master|Provider para transações de débito na plataforma de e-commerce First Data.|
+|GlobalPayments|Visa, Master|Provider para transações de débito na plataforma de e-commerce Global Payments.|
 
 ### Providers para Voucher
 
 |Provider|Brand|Descrição|
 |--------|-----|---------|
-|Alelo|Elo|Provider para transações de voucher (vale refeição/alimentação) na plataforma Alelo|
-|Ticket|Ticket|Provider para transações de voucher (vale refeição/alimentação) na plataforma Ticket|
+|Alelo|Elo|Provider para transações de voucher (vale refeição/alimentação) na plataforma Alelo.|
+|Ticket|Ticket|Provider para transações de voucher (vale refeição/alimentação) na plataforma Ticket.|
 
 ### Providers para Zero Auth via VerifyCard
 
-|Provider|
+|Providers|
 |--------|
-|Simulado|
-|Cielo30 (Cielo 3.0)|
-|Rede2 (e-Rede REST)|
-|Getnet|
-|FirstData|
-|GlobalPayments|
+|Simulado, Cielo30 (Cielo 3.0), Rede2 (e-Rede REST), Getnet, FirstData, GlobalPayments|
 
 ### Providers para Consulta BIN via VerifyCard
 
 |Provider|
 |--------|
-|Simulado|
-|Cielo30 (Cielo 3.0)|
+|Simulado, Cielo30 (Cielo 3.0)|
 
 ### Providers para Boleto com Registro
 
@@ -7225,24 +7219,24 @@ As listas a seguir se referem a *providers* na integração REST:
 
 ## Lista de Status da Transação
 
-Status retornados pela API
+Lista de status retornados pela API:
 
 |Código|Status do Pagamento|Meio de pagamento|Descrição|
 |------|-------------------|-----------------|---------|
-|0|NotFinished|Todos|Falha ao processar o pagamento|
-|1|Authorized|Todos|Meio de pagamento apto a ser capturado ou pago(Boleto)|
-|2|PaymentConfirmed|Todos|Pagamento confirmado e finalizado|
-|3|Denied|Cartão de Crédito e Débito (Transferência eletrônica) |
-|10|Voided|Todos|Pagamento cancelado|
-|11|Refunded|Cartão de crédito e Débito|Pagamento Cancelado/Estornado|
-|12|Pending|Cartão de Crédito e Débito  (Transferência eletrônica) |Esperando retorno da instituição financeira|
-|13|Aborted|Todos|Pagamento cancelado por falha no processamento|
-|20|Scheduled|Cartão de crédito|Recorrência agendada|
+|0|NotFinished|Todos|Falha ao processar o pagamento.|
+|1|Authorized|Todos|Meio de pagamento apto a ser capturado ou pago (boleto).|
+|2|PaymentConfirmed|Todos|Pagamento confirmado e finalizado.|
+|3|Denied|Cartões de crédito e débito (transferência eletrônica)|Pagamento negado por autorizador.|
+|10|Voided|Todos|Pagamento cancelado.|
+|11|Refunded|Cartões de crédito e débito|Pagamento cancelado/estornado.|
+|12|Pending|Cartões de crédito e débito (transferência eletrônica). |Esperando retorno da instituição financeira.|
+|13|Aborted|Todos|Pagamento cancelado por falha no processamento.|
+|20|Scheduled|Cartão de crédito|Recorrência agendada.|
 
 ## Lista de Status do AntiFraude
 
 | Código | Descrição  |
-|--------|------------|
+|:-------|:-----------|
 | 0      | Unknown    |
 | 1      | Accept     |
 | 2      | Reject     |
