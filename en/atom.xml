@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>Documentações e tutoriais</title>
+    <title>Braspag Developers - Manuais</title>
     <link href="https://braspag.github.io//en/atom.xml" rel="self"/>
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-04T22:33:00+00:00</updated>
+    <updated>2021-01-04T22:42:22+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
-        <name>João Batista Neto</name>
-        <email>neto.joaobatista@gmail.com</email>
+        <name>Aasita Muralikrishna</name>
+        <email>aasita.muralikrishna@braspag.com.br</email>
     </author>
     
     <entry>
