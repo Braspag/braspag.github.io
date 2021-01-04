@@ -304,7 +304,7 @@ curl
 |`Customer.DeliveryAddress.State`|Estado do endereço de entrega.|Texto|2|Não*|
 |`Customer.DeliveryAddress.Country`|País do endereço de entrega.|Texto|35|Não*|
 |`Customer.DeliveryAddress.District`|Bairro do endereço de entrega.|Texto|50|Não*|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](#lista-de-providers) para acessar a lista de provedoras.|Texto|15|Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-providers) para acessar a lista de provedoras.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "CreditCard".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.ServiceTaxAmount`|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
@@ -558,7 +558,7 @@ curl
 |`ECI`|*Electronic Commerce Indicator*. Representa o resultado da autenticação.|Texto|2|Ex.: 5|
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação. [Clique aqui](#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
+|`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
 
@@ -873,7 +873,7 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação. [Clique aqui](#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
+|`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|Ex.: 57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Ex.: Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação.|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
@@ -1154,7 +1154,7 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](#lista-de-providers) para acessar a lista de provedoras. Obs.: Atualmente somente a **Cielo** suporta esta forma de pagamento via Pagador.|Texto|15|Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-providers) para acessar a lista de provedoras. Obs.: Atualmente somente a **Cielo** suporta esta forma de pagamento via Pagador.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -1243,7 +1243,7 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação. [Clique aqui](#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
+|`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|Ex.: 57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Ex.: Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação.|Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
@@ -1399,7 +1399,7 @@ O auxílio emergencial disponibilizado pelo governo pode ser consumido através 
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação. [Clique aqui](#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
+|`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|Ex.: 57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Ex.: Transação Aprovada|
 
@@ -1543,7 +1543,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 |-----------|---------|----|-------|-------|
 |`QrCodeBase64Image`|QR code codificado em base 64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este:<br><br> &lt;img src="data:image/png;base64,{código da imagem em base 64}"&gt;.|Texto|Variável|Texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido. Necessário para operações como consulta, captura e cancelamento.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Status da transação. No caso da transação de geração com QR code, o status inicial é "12" (*Pendente*). [Clique aqui](#lista-de-status-da-transação) para ver lista de status.|Byte|-|2|
+|`Status`|Status da transação. No caso da transação de geração com QR code, o status inicial é "12" (*Pendente*). [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|-|2|
 |`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da adquirência.|Texto|512|Texto alfanumérico|
 
@@ -1621,7 +1621,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Status`|Status da transação. [Clique aqui](#lista-de-status-da-transação) para ver lista de status.|Byte | 2 | Ex.: 1 |
+|`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte | 2 | Ex.: 1 |
 |`ReasonCode`|Código de retorno da adquirência. |Texto |32 |Texto alfanumérico
 |`ReasonMessage`|Mensagem de retorno da adquirência. |Texto |512 |Texto alfanumérico
 
@@ -1815,7 +1815,7 @@ curl
 |`Customer.Address.City`|Cidade do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
 |`Customer.Address.State`|Estado do endereço de contato do comprador.|Texto|2|Sim|
 |`Customer.Address.Country`|País do endereço de contato do comprador.|Texto|35|Sim|
-|`Payment.Provider`|Nome da provedora do meio de pagamento do boleto. [Clique aqui](#providers-para-consulta-bin-via-verifycard) para acessar a lista de provedoras.|Texto|15|Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento do boleto. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#providers-para-consulta-bin-via-verifycard) para acessar a lista de provedoras.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "Boleto".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.BoletoNumber`|Número do boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
@@ -1957,7 +1957,7 @@ curl
 |`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
 |`Address`|Endereço da loja cadastrada no banco. |Texto |256 |Ex.: Av. Teste, 160 |
-|`Status`|Status da transação. [Clique aqui](#lista-de-status-da-transação) para ver lista de status.|Byte | 2 | Ex.: 1 |
+|`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte | 2 | Ex.: 1 |
 
 ### Conciliação de Boletos
 
@@ -6329,7 +6329,7 @@ curl
 |`Payment.ECI`|*Electronic Commerce Indicator*. Código gerado em uma transação de crédito com autenticação externa.|Texto|
 |`Payment.ReasonCode`|Código de retorno da operação.|Texto|
 |`Payment.ReasonMessage`|Mensagem de retorno da operação.|Texto|
-|`Payment.Status`|Status da transação no Pagador. <br/> [Lista de Status da Transação](#lista-de-status-da-transação).|Número|
+|`Payment.Status`|Status da transação no Pagador. <br/> [Lista de Status da Transação](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação).|Número|
 |`Payment.ProviderReturnCode`|Código retornado pela adquirente ou banco.|Texto|
 |`Payment.ProviderReturnMessage`|Mensagem retornada pela adquirente ou banco.|Texto|
 
