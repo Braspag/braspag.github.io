@@ -3453,7 +3453,7 @@ curl
 
 ### O Que São E-Wallets (Carteiras Digitais)
 
-E-wallets são repositórios de cartões e dados de pagamentos destinados a consumidores do e-commerce e do mundo físico. As carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento, tornando o processo de compra mais conveniente e seguro.
+E-wallets são cofres (repositórios) de cartões e dados de pagamentos destinados a consumidores do e-commerce e do mundo físico. As carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento, tornando o processo de compra mais conveniente e seguro.
 
 <aside class="warning">Para utilizar carteiras no Pagador, o lojista deverá possuir as carteiras integradas em seu checkout.</aside>
 
