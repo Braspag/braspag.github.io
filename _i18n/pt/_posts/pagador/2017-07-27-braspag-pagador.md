@@ -558,7 +558,7 @@ curl
 |`ECI`|*Electronic Commerce Indicator*. Representa o resultado da autenticação.|Texto|2|Ex.: 5|
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e banco).|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).|Texto|512|Transação Aprovada|
 
