@@ -1,14 +1,14 @@
 # Setup
-title:        Documentações e tutoriais
-tagline:      Documentações e tutoriais sobre a integração
+title:        Braspag Developers - Manuais
+tagline:      Documentações de Integração
 permalink:    /:categories/:slug
 baseurl:      ""
 author:
-  name:       João Batista Neto
-  email:      neto.joaobatista@gmail.com
-  url:        https://imasters.com.br/
+  name:       Aasita Muralikrishna
+  email:      aasita.muralikrishna@braspag.com.br
+  url:        https://www.braspag.com.br//
 github:
-  repo:       https://github.com/braspag
+  repo:       https://github.com/Braspag
 plugins:
   - jekyll-multiple-languages-plugin
 exclude:      ["vendor", "Gemfile*", "script"]
