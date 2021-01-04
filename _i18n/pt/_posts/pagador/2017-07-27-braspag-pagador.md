@@ -3951,7 +3951,7 @@ Exemplo de requisição padrão Samsung Pay:
 
 Exemplo de requisição padrão Android Pay:
 
-<aside class="warning">É necessário que a loja já possua cadastro e integração Android Pay, caso contrário não será possível a integração com a API.</aside)
+<aside class="warning">É necessário que a loja já possua cadastro e integração Android Pay, caso contrário não será possível a integração com a API.</aside>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
