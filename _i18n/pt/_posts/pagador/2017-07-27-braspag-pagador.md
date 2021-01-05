@@ -6344,8 +6344,8 @@ Abaixo seguem as descrições de como configurar o fingerprint em sua página de
 
 Ao integrar a tecnologia fingerprint em sua página de checkout, será necessário adicionar duas tags:
 
-- a tag *script* dentro da tag *head* para uma performance correta;
-- a tag *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
+* a tag *script* dentro da tag *head* para uma performance correta;
+* a tag *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
 <aside class="warning">Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
 
