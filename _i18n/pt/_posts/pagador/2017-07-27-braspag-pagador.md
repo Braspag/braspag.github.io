@@ -6353,18 +6353,18 @@ Ao integrar a tecnologia fingerprint em sua página de checkout, é necessária 
 
 <aside class="warning">Atenção: Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
 
-#### Variáveis da URL
+#### Preenchendo a URL
 
 Existem duas variáveis a serem preenchidas na URL do Javascript: o `org_id` e o `session_id`. <br/>O `org_id` é um valor predefinido, já o `session_id` é composto pela concatenação dos parâmetros `ProviderMerchantId` e `FraudAnalysis.FingerPrintId`, conforme exemplificado abaixo:
 
-|Variável|Descrição|
+|Variável|Valores|
 |---|---|
 |`org_id`|para Sandbox = "1snn5n9w" <br/> para Produção = "k8vif92e"|
-|`session_id`|`ProviderMerchantId` = Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag. <br/> `FraudAnalysis.FingerPrintId` = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou então o número do pedido, mas deverá ser único durante 48 horas.|
+|`session_id`|`ProviderMerchantId` (identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag.) <br/> `FraudAnalysis.FingerPrintId` (identificador utilizado para cruzar informações obtidas do dispositivo do comprador.) <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou então o número do pedido, mas deverá ser único durante 48 horas.|
 
-#### Modelo do Javascript
+#### Aplicando o Script
 
-O modelo do Javascript é o seguinte:
+Este é um modelo do Javascript:
 
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
@@ -6384,16 +6384,16 @@ As formas de consultar uma transação ou venda dependem do seu tempo de vida, c
 
 |TEMPO DE VIDA|FORMA DE CONSULTA|
 |---|---|
-|Até 3 meses|Pela API ou pelo Painel Admin Braspag.|
-|De 3 a 12 meses|Pelo Painel Admin Braspag com a opção “Histórico” selecionada.|
+|Até 3 meses|Pela API ou pelo painel Admin Braspag.|
+|De 3 a 12 meses|Pelo painel Admin Braspag com a opção “Histórico” selecionada.|
 |Acima de 12 meses|Por contato direto com seu Executivo Comercial Braspag.|
 
 ## Consultando uma Transação via PaymentID
 
 Para que o nó `Chargeback` esteja contido no retorno, a Braspag deverá passar a receber os chargebacks da sua loja. Você poderá então acatar ou contestar as operações, acompanhando os resultados das contestações no Painel Admin Braspag. Através do Post de Notificação, sua loja poderá ser informada da transação que sofreu o chargeback.
-As operações contidas no Painel Admin Braspag também estão disponíveis na [API Risk Notification](https://braspag.github.io//manual/risknotification).
+As operações contidas no painel Admin Braspag também estão disponíveis na [API Risk Notification](https://braspag.github.io//manual/risknotification).
 
-Para que o nó `FraudAlert` esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no Painel Admin Braspag. Através do Post de Notificação, a sua loja irá ser informada da transação que sofreu o alerta de fraude.
+Para que o nó `FraudAlert` esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no painel Admin Braspag. Através do Post de Notificação, a sua loja irá ser informada da transação que sofreu o alerta de fraude.
 
 Para consultar uma transação de cartão de crédito, é necessário o envio de mensagem HTTP através do método GET para o recurso *Payment*, conforme o exemplo:
 
@@ -6651,7 +6651,7 @@ curl
 |`Customer.DeliveryAddress.Country`|País do endereço de entrega do pedido.|Texto|35|Texto alfanumérico|
 |`Customer.DeliveryAddress.District`|Bairro do endereço de entrega do pedido. |Texto |50|Texto alfanumérico|
 |`Merchant.Id`|Identificador da loja que efetuou essa transação.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Merchant.TradeName`|Nome da loja.|50|Texto alfanumérico|
+|`Merchant.TradeName`|Nome da loja.|Texto|50|Texto alfanumérico|
 |`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15| Consulte os [anexos](#anexos).|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Ex.: CreditCard|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|10000|
@@ -6675,9 +6675,9 @@ curl
 |`Payment.Chargebacks[n].Amount`|Valor do chargeback, em centavos.|Número|15|10000|
 |`Payment.Chargebacks[n].CaseNumber`|Número do caso relacionado ao chargeback.|Texto|16|Texto alfanumérico|
 |`Payment.Chargebacks[n].Date`|Data do chargeback.|Date|10|AAAA-MM-DD|
-|`Payment.Chargebacks[n].ReasonCode`|Código do motivo do chargeback.<br/>[Lista de Valores - ReasonCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage)|Texto|10|Texto alfanumérico|
+|`Payment.Chargebacks[n].ReasonCode`|Código do motivo do chargeback.<br/>[Lista de Valores - ReasonCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage).|Texto|10|Texto alfanumérico|
 |`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback.<br/>[Lista de Valores - ReasonMessage](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage).|Texto|512|Texto alfanumérico|
-|`Payment.Chargebacks[n].Status`|Status do chargeback. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
+|`Payment.Chargebacks[n].Status`|Status do chargeback. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status).|Texto|32|Texto|
 |`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem.|Texto|512|Texto alfanumérico|
 |`Payment.FraudAlert.Date`|Data do alerta de fraude.|Date|10|AAAA-MM-DD|
 |`Payment.FraudAlert.ReasonMessage`|Mensagem de motivo do alerta de fraude.|Texto|512|Texto alfanumérico|
@@ -6697,7 +6697,7 @@ curl
 |`CreditCard.Holder`|Nome do portador impresso no cartão.|Texto|25|---|
 |`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|MM/AAAA|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|---|
-|`CreditCard.SaveCard`|Identifica se o cartão será salvo para gerar o token (*CardToken*).|Booleano|true / false (default)|
+|`CreditCard.SaveCard`|Identifica se o cartão será salvo para gerar o token (*CardToken*).|Booleano|---|true / false (default)|
 
 ## Consultando uma Transação de Boleto via PaymentID
 
@@ -7163,7 +7163,7 @@ As listas a seguir se referem a provedores na integração REST:
 
 |Provider|Brand|Descrição|
 |--------|-----|---------|
-|Simulado|---|Provider de Sandbox. [Clique aqui](https://braspag.github.io//manual/braspag-pagador#cartões-para-teste-(simulado)) para mais detalhes sobre cartões para teste.|
+|Simulado|---|Provider de Sandbox. [Clique aqui](https://braspag.github.io//manual/braspag-pagador#cart%C3%B5es-para-teste-(simulado)) para mais detalhes sobre cartões para teste.|
 |Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper, Sorocred|Provider para transações na plataforma de e-commerce Cielo 3.0.|
 |Getnet|Visa, Master, Elo, Amex, Hipercard|Provider para transações na plataforma de e-commerce Getnet.|
 |Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex, Sorocred|Provider para transações na plataforma de e-commerce da Rede (e-Rede) na versão REST.|
@@ -7254,7 +7254,7 @@ Lista de status retornados pela API:
 
 De acordo com a necessidade do seu negócio, é desenhada uma estratégia de risco considerando o nível de relevância dos campos MDD. Caso não sejam enviados, esses campos ainda serão cobrados durante a validação das transações de testes. Por esse motivo, solicitamos uma análise prévia da documentação e a sinalização dos campos cujo envio não será possível realizar.
 
-<aside class="warning">Caso não possua algum dado, simplesmente ignore o campo correspondente; ou seja, não faça o envio do campo vazio.</aside>
+<aside class="warning">Caso não possua algum dado para ser enviado, simplesmente ignore o campo correspondente; ou seja, não faça o envio do campo vazio.</aside>
 
 **Nível de Relevância dos Campos MDD** <br/><br/>
 1- Relevante <br/>
