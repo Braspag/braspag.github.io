@@ -5775,30 +5775,30 @@ curl
 |`Payment.FraudAnalysis.Browser.IpAddress`|Endereço de IP do comprador. Formato IPv4 ou IPv6.|Texto|45|Sim|
 |`Payment.FraudAnalysis.Cart.IsGift`|Indica se o pedido realizado pelo comprador é para presente.|Booleano|---|Não|
 |`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido à loja. <br/> Possíveis valores: "true" / "false" (default).|Booleano|---|Não|
-|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Identifica a avaliação dos endereços de cobrança e entrega para diferentes cidades, estados ou países. <br/> [Lista de Valores - GiftCategory](#lista-de-valores-payment.fraudanalysis.cart.items[n].giftcategory). |Texto|9|Não| 
-|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude. <br/> [Lista de Valores - HostHedge](#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge).|Texto|6|Não|
-|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude. <br/> [Lista de Valores - NonSensicalHedge](#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge).|Texto|6|Não|
-|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude. <br/> [Lista de Valores - ObscenitiesHedge](#lista-de-valores-payment.fraudanalysis.cart.items[n].obscenitieshedge).|Texto|6|Não|
-|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Nível de importância das verificações sobre os números de telefone do comprador na análise de fraude. <br/> [Lista de Valores - PhoneHedge](#lista-de-valores-payment.fraudanalysis.cart.items[n].phonehedge).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Identifica a avaliação dos endereços de cobrança e entrega para diferentes cidades, estados ou países. <br/> [Lista de Valores - GiftCategory](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].giftcategory). |Texto|9|Não| 
+|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude. <br/> [Lista de Valores - HostHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude. <br/> [Lista de Valores - NonSensicalHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude. <br/> [Lista de Valores - ObscenitiesHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].obscenitieshedge).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Nível de importância das verificações sobre os números de telefone do comprador na análise de fraude. <br/> [Lista de Valores - PhoneHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].phonehedge).|Texto|6|Não|
 |`Payment.FraudAnalysis.Cart.Items.Name`|Nome do produto.|Texto|255|Sim|
 |`Payment.FraudAnalysis.Cart.Items.Quantity`|Quantidade do produto.|Número|15|Sim|
 |`Payment.FraudAnalysis.Cart.Items.Sku`|SKU (*Stock Keeping Unit* - Unidade de Controle de Estoque) do produto.|Texto|255|Sim|
 |`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Preço unitário do produto, em centavos. <br/> Ex.: 10950 = R$ 109,50.|Número|15|Sim|
-|`Payment.FraudAnalysis.Cart.Items.Risk`|Nível de risco do produto associado a quantidade de chargebacks. <br/> [Lista de Valores - Risk](#lista-de-valores-payment.fraudanalysis.cart.items[n].risk).|Texto|6|Não|
-|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Nível de importância, na análise de fraude, da hora do dia em que o comprador realizou o pedido. <br/> [Lista de Valores - TimeHedge](#lista-de-valores-payment.fraudanalysis.cart.items[n].timehedge).|Texto|6|Não|
-|`Payment.FraudAnalysis.Cart.Items.Type`|Categoria do produto. <br/> [Lista de Valores - Type](#lista-de-valores-payment.fraudanalysis.cart.items[n].type).|Texto|19|Não|
-|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Nível de importância, na análise de fraude, da frequência de compra do comprador dentro dos 15 minutos anteriores. <br/> [Lista de Valores - VelocityHedge](#lista-de-valores-payment.fraudanalysis.cart.items[n].velocityhedge).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.Risk`|Nível de risco do produto associado a quantidade de chargebacks. <br/> [Lista de Valores - Risk](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].risk).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Nível de importância, na análise de fraude, da hora do dia em que o comprador realizou o pedido. <br/> [Lista de Valores - TimeHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].timehedge).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.Type`|Categoria do produto. <br/> [Lista de Valores - Type](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type).|Texto|19|Não|
+|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Nível de importância, na análise de fraude, da frequência de compra do comprador dentro dos 15 minutos anteriores. <br/> [Lista de Valores - VelocityHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].velocityhedge).|Texto|6|Não|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Id das informações adicionais a serem enviadas. <br/> [Tabela de MDDs](#tabela-de-mdds)|Número|2|Sim|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Valor das informações adicionais a serem enviadas. <br/> [Tabela de MDDs](#tabela-de-mdds)|Texto|255|Sim|
 |`Payment.FraudAnalysis.Shipping.Addressee`|Nome completo do responsável a receber o produto no endereço de entrega.|Texto|120|Não|
-|`Payment.FraudAnalysis.Shipping.Method`|Meio de entrega do pedido. <br/> [Lista de Valores - Method](#lista-de-valores-payment.fraudanalysis.shipping.method).|Texto|8|Não|
+|`Payment.FraudAnalysis.Shipping.Method`|Meio de entrega do pedido. <br/> [Lista de Valores - Method](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.method).|Texto|8|Não|
 |`Payment.FraudAnalysis.Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega. <br/> Ex.: 552121114700.|Texto|15|Não|
-|`Payment.FraudAnalysis.Travel.JourneyType`|Tipo de viagem. <br/> [Lista de Valores - JourneyType](#lista-de-valores-payment.fraudanalysis.travel.journeytype).|Texto|32|Não|
+|`Payment.FraudAnalysis.Travel.JourneyType`|Tipo de viagem. <br/> [Lista de Valores - JourneyType](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.journeytype).|Texto|32|Não|
 |`Payment.FraudAnalysis.Travel.DepartureTime`|Data e hora de partida. <br/> Ex.: 2018-03-31 19:16:38.|DateTime|---|Não|
 |`Payment.FraudAnalysis.Travel.Passengers.Name`|Nome completo do passageiro.|Texto|120|Não|
 |`Payment.FraudAnalysis.Travel.Passengers.Identity`|Número do documento do passageiro.|Texto|32|Não|
-|`Payment.FraudAnalysis.Travel.Passengers.Status`|Classificação da empresa aérea. <br/> [Lista de Valores - Status](#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status).|Texto|15|Não|
-|`Payment.FraudAnalysis.Travel.Passengers.Rating`|Tipo do passageiro. <br/> [Lista de Valores - Rating](#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating).|Texto|13|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.Status`|Classificação da empresa aérea. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status).|Texto|15|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.Rating`|Tipo do passageiro. <br/> [Lista de Valores - Rating](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating).|Texto|13|Não|
 |`Payment.FraudAnalysis.Travel.Passengers.Email`|E-mail do passageiro.|Texto|255|Não|
 |`Payment.FraudAnalysis.Travel.Passengers.Phone`|Telefone do passageiro. <br/> Ex.: 552121114700.|Texto|15|Não|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm).|Texto|3|Não|
@@ -6305,17 +6305,17 @@ curl
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.|Texto|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Código do aeroporto de chegada.|Texto|
 |`Payment.FraudAnalysis.Id`|Id da transação no *AntiFraude* Braspag.|GUID|
-|`Payment.FraudAnalysis.Status`|Status da transação no *AntiFraude* Braspag. <br/> [Lista de Valores - Status](#lista-de-valores-payment.fraudanalysis.status).|Número|
-|`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Código de retorno da Cybersouce. <br/> [Lista de Valores - FraudAnalysisReasonCode](#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode).|Número|
-|`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. <br/> Os códigos são concatenados usando o caractere "^". Ex.: COR-BA^MM-BIN. <br/> [Lista de Valores - AddressInfoCode](#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode).|Texto|
-|`Payment.FraudAnalysis.ReplyData.FactorCode`|Códigos que afetaram a pontuação da análise. <br/> Os códigos são concatenados usando o caractere "^". Ex.: B^D^R^Z. <br/>[Lista de Valores - FactorCode](#lista-de-valores-payment.fraudanalysis.replydata.factorcode).|Texto|
+|`Payment.FraudAnalysis.Status`|Status da transação no *AntiFraude* Braspag. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status).|Número|
+|`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Código de retorno da Cybersouce. <br/> [Lista de Valores - FraudAnalysisReasonCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode).|Número|
+|`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. <br/> Os códigos são concatenados usando o caractere "^". Ex.: COR-BA^MM-BIN. <br/> [Lista de Valores - AddressInfoCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode).|Texto|
+|`Payment.FraudAnalysis.ReplyData.FactorCode`|Códigos que afetaram a pontuação da análise. <br/> Os códigos são concatenados usando o caractere "^". Ex.: B^D^R^Z. <br/>[Lista de Valores - FactorCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode).|Texto|
 |`Payment.FraudAnalysis.ReplyData.Score`|Score da análise de fraude. Valor entre 0 e 100.|Número|
 |`Payment.FraudAnalysis.ReplyData.BinCountry`|Código do país do BIN do cartão usado na análise.<br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Texto|
 |`Payment.FraudAnalysis.ReplyData.CardIssuer`|Nome do banco ou entidade emissora do cartão de crédito.|Texto|
 |`Payment.FraudAnalysis.ReplyData.CardScheme`|Bandeira do cartão.|Texto|
 |`Payment.FraudAnalysis.ReplyData.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto.|Número|
-|`Payment.FraudAnalysis.ReplyData.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, endereço IP ou endereço de cobrança. <br/> Os códigos são concatenados usando o caractere "^". Ex.: FREE-EM^RISK-EM <br/> [Lista de Valores - InternetInfoCode](#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode).|Texto|
-|`Payment.FraudAnalysis.ReplyData.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP. <br/> [Lista de Valores - IpRoutingMethod](#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod).|Texto|
+|`Payment.FraudAnalysis.ReplyData.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, endereço IP ou endereço de cobrança. <br/> Os códigos são concatenados usando o caractere "^". Ex.: FREE-EM^RISK-EM <br/> [Lista de Valores - InternetInfoCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode).|Texto|
+|`Payment.FraudAnalysis.ReplyData.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP. <br/> [Lista de Valores - IpRoutingMethod](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod).|Texto|
 |`Payment.FraudAnalysis.ReplyData.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado.|Texto|
 |`Payment.FraudAnalysis.ReplyData.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia entre 1 (maior) e 5 (menor). O valor padrão é 3, e é atribuído caso não se tenha definido a prioridade das regras ou perfis. Este campo será retornado somente se a loja for assinante do *Enhanced Case Management*.|Número|
 |`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`|Id da transação na Cybersource.|Texto|
@@ -6671,9 +6671,9 @@ curl
 |`Payment.Chargebacks[n].Amount`|Valor do chargeback, em centavos.|Número|15|10000|
 |`Payment.Chargebacks[n].CaseNumber`|Número do caso relacionado ao chargeback.|Texto|16|Texto alfanumérico|
 |`Payment.Chargebacks[n].Date`|Data do chargeback.|Date|10|AAAA-MM-DD|
-|`Payment.Chargebacks[n].ReasonCode`|Código do motivo do chargeback.<br/>[Lista de Valores - ReasonCode](#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage)|Texto|10|Texto alfanumérico|
-|`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback.<br/>[Lista de Valores - ReasonMessage](#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage).|Texto|512|Texto alfanumérico|
-|`Payment.Chargebacks[n].Status`|Status do chargeback. <br/> [Lista de Valores - Status](#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
+|`Payment.Chargebacks[n].ReasonCode`|Código do motivo do chargeback.<br/>[Lista de Valores - ReasonCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage)|Texto|10|Texto alfanumérico|
+|`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback.<br/>[Lista de Valores - ReasonMessage](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage).|Texto|512|Texto alfanumérico|
+|`Payment.Chargebacks[n].Status`|Status do chargeback. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
 |`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem.|Texto|512|Texto alfanumérico|
 |`Payment.FraudAlert.Date`|Data do alerta de fraude.|Date|10|AAAA-MM-DD|
 |`Payment.FraudAlert.ReasonMessage`|Mensagem de motivo do alerta de fraude.|Texto|512|Texto alfanumérico|
