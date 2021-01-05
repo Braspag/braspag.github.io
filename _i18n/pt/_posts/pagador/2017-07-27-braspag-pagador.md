@@ -3360,7 +3360,7 @@ curl
 |`Customer.Address.District`|Bairro do endereço de contato do comprador.|Texto|35|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. |Texto |100 |Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](##providers-para-transferência-eletrônica-(débito-online) para acessar a lista de provedoras.|Texto |15 |---|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador##providers-para-transferência-eletrônica-(débito-online) para acessar a lista de provedoras.|Texto |15 |---|
 |`Payment.Beneficiary.Bank`|Banco do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). |Texto |100 |Condicional|
 |`Payment.Shopper.Branch`|Agência do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). Obs.: Suprimir esse nó para modalidade de *Depósito Identificado*. |Texto |100 |Condicional|
 |`Payment.Shopper.Account`|Conta do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). Obs.: Suprimir esse nó para modalidade de *Depósito Identificado*. |Texto |100 |Condicional|
@@ -4358,7 +4358,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](#providers-para-voucher) para acessar a lista de provedoras.|Texto|15|Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador#providers-para-voucher) para acessar a lista de provedoras.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -7159,7 +7159,7 @@ As listas a seguir se referem a provedores na integração REST:
 
 |Provider|Brand|Descrição|
 |--------|-----|---------|
-|Simulado|---|Provider de Sandbox. [Clique aqui](#cartões-para-teste-(simulado)) para mais detalhes sobre cartões para teste.|
+|Simulado|---|Provider de Sandbox. [Clique aqui](https://braspag.github.io//manual/braspag-pagador#cartões-para-teste-(simulado)) para mais detalhes sobre cartões para teste.|
 |Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper, Sorocred|Provider para transações na plataforma de e-commerce Cielo 3.0.|
 |Getnet|Visa, Master, Elo, Amex, Hipercard|Provider para transações na plataforma de e-commerce Getnet.|
 |Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex, Sorocred|Provider para transações na plataforma de e-commerce da Rede (e-Rede) na versão REST.|
