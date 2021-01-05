@@ -1551,7 +1551,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 Para cancelar uma transação de cartão de crédito, é necessário o envio de mensagem HTTP através do método PUT para o recurso *Payment*, conforme o exemplo.
 
-Cada adquirente tem seus prazos limites para permitir o estorno de uma transação. [Neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) você poderá conferir cada um deles.
+Cada adquirente tem seus prazos-limites para permitir o estorno de uma transação. [Neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) você poderá conferir cada um deles.
 
 A disponibilidade do serviço de estorno varia de adquirente para adquirente.
 
@@ -1675,8 +1675,8 @@ No caso da rejeição pela regra de Velocity, o *ProviderReasonCode* será "BP 1
 |Propriedade|Descrição|Tipo|Tamanho|
 |-----------|---------|----|-------|
 |`VelocityAnalysis.Id`|Identificador da análise efetuada.|GUID|36|
-|`VelocityAnalysis.ResultMessage`|"Accept" ou "Reject".|Texto|25|
-|`VelocityAnalysis.Score`|100|Número|10|
+|`VelocityAnalysis.ResultMessage`|Resultado da análise feita ("Accept" / "Reject")..|Texto|25|
+|`VelocityAnalysis.Score`|Número de pontos dado à operação. Ex.: 100.|Número|10|
 |`VelocityAnalysis.RejectReasons.RuleId`|Código da regra que rejeitou.|Número|10|
 |`VelocityAnalysis.RejectReasons.Message`|Descrição da regra que rejeitou.|Texto|512|
 
@@ -2413,7 +2413,7 @@ curl
 |`NextRecurrency`|Data da próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`StartDate`|Data do início da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`Interval`|Intervalo entre as recorrências. |Texto |10 |<br>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
+|`Interval`|Intervalo entre as recorrências. |Texto |10 |Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
 |`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |Booleano |--- |true ou false |
 
 ### Agendamento de uma Recorrência
@@ -2595,7 +2595,7 @@ curl
 |`NextRecurrency`|Data da próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`StartDate`|Data do início da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
 |`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`Interval`|Intervalo entre as recorrências. |Texto |10 |<br>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
+|`Interval`|Intervalo entre as recorrências. |Texto |10 |Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
 |`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |Booleano |--- |true ou false |
 
 ### Alterar Dados do Comprador
@@ -2811,13 +2811,13 @@ Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pa
 
 ### Alterar o Dia da Recorrência
 
-Ao efetuar a alteração do dia da recorrência, devem levar-se em consideração as seguintes regras utilizadas para execução da atualização na API:
+Ao efetuar a alteração do dia da recorrência, devem ser levadas em consideração as seguintes regras utilizadas para execução da atualização na API:
 
 1- Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência.<br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 10, a data da próxima recorrência será dia 10/05.
-2- Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, mas este só terá efeito depois que a próxima recorrência for executada com sucesso. <br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 03, a data da próxima recorrência permanecerá dia 25/05. Após sua execução, a recorrência seguinte será agendada para o dia 03/06.
-3- Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência.<br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado para o dia 03, a data da próxima recorrência será 03/09.
+<br/><br/>2- Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, mas este só terá efeito depois que a próxima recorrência for executada com sucesso. <br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 03, a data da próxima recorrência permanecerá dia 25/05. Após sua execução, a recorrência seguinte será agendada para o dia 03/06.
+<br/><br/>3- Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência.<br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado para o dia 03, a data da próxima recorrência será 03/09.
 
-Para modificar o dia de vencimento de uma recorrência já existente, basta fazer um PUT conforme o exemplo:
+<br/>Para modificar o dia de vencimento de uma recorrência já existente, basta fazer um PUT conforme o exemplo:
 
 #### Requisição
 
@@ -2863,7 +2863,9 @@ Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pa
 
 ### Alterar o Valor da Transação da Recorrência
 
-Para modificar o valor da transação de uma recorrência já existente, basta fazer um PUT conforme o exemplo:
+Para modificar o valor da transação de uma recorrência já existente, basta fazer um PUT conforme o exemplo.
+
+<aside class="warning">Essa alteração só afeta a data de pagamento da recorrência seguinte.</aside>
 
 #### Requsição
 
@@ -2896,8 +2898,6 @@ curl
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não|
 |`RecurrentPaymentId`|Número de identificação da recorrência.|Texto |50 |Sim|
 |`Payment.Amount`|Valor do pedido, em centavos. Ex.: 156 equivale a R$ 1,56.|Número|15|Sim|
-
-<aside class="warning">Essa alteração só afeta a data de pagamento da recorrência seguinte.</aside>
 
 #### Resposta
 
@@ -2961,11 +2961,11 @@ Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pa
 
 Durante o ciclo de vida de uma recorrência, é possível alterar:
 
-* Adquirente, ex.: de Rede para Cielo;
-* Cartão, em caso de cartão vencido;
-* Meio de pagamento, de cartão para boleto e vice-e-versa.
+* Adquirente (ex.: de Rede para Cielo);
+* Cartão (em caso de cartão vencido);
+* Meio de pagamento (de cartão para boleto e vice-e-versa).
 
-Para alterar os dados de pagamento, basta fazer um PUT conforme o exemplo.
+<br/>Para alterar os dados de pagamento, basta fazer um PUT conforme o exemplo.
 
 <aside class="warning">Atenção: Essa alteração afeta a todos os dados do nó "Payment". Então, para manter os dados anteriores, você deve informar os campos que não deverão sofrer alterações com os mesmos valores que já estavam salvos.</aside>
 
@@ -3360,7 +3360,7 @@ curl
 |`Customer.Address.District`|Bairro do endereço de contato do comprador.|Texto|35|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. |Texto |100 |Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador##providers-para-transferência-eletrônica-(débito-online) para acessar a lista de provedoras.|Texto |15 |---|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador##providers-para-transferência-eletrônica-(débito-online)) para acessar a lista de provedoras.|Texto |15 |---|
 |`Payment.Beneficiary.Bank`|Banco do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). |Texto |100 |Condicional|
 |`Payment.Shopper.Branch`|Agência do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). Obs.: Suprimir esse nó para modalidade de *Depósito Identificado*. |Texto |100 |Condicional|
 |`Payment.Shopper.Account`|Conta do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). Obs.: Suprimir esse nó para modalidade de *Depósito Identificado*. |Texto |100 |Condicional|
@@ -3449,9 +3449,7 @@ curl
 |`Url`|URL para onde o usuário será redirecionado para autenticação da transferência eletrônica. |Texto |256 |Url de Autenticação|
 |`Status`|Status da transação.|Byte|2|Ex.: 1|
 
-## E-Wallets
-
-### O Que São E-Wallets (Carteiras Digitais)
+## E-Wallets (Carteiras Digitais)
 
 E-wallets são cofres (repositórios) de cartões e dados de pagamentos destinados a consumidores do e-commerce e do mundo físico. As carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento, tornando o processo de compra mais conveniente e seguro.
 
@@ -3471,9 +3469,9 @@ O Pagador possui suporte para as seguintes carteiras digitais:
 
 <aside class="warning">Atenção: O nó “CreditCard” passa a ser opcional quando o nó “Wallet” é enviado na requisição; e, para o cartão de débito, é necessário o envio do nó “DebitCard”, contendo a “ReturnUrl”.</aside>
 
-### Integração
+### Integração da E-Wallet
 
-Abaixo, um exemplo de requisição padrão para integração do e-wallet:
+Abaixo, um exemplo de requisição padrão para integração da e-wallet:
 
 #### Requisição Padrão
 
@@ -3521,10 +3519,10 @@ Abaixo, um exemplo de requisição padrão para integração do e-wallet:
 | `Wallet.AdditionalData.CaptureCode`|Código informado pela **MasterPass** ao lojista.| Texto|--|Sim|                  
 | `Wallet.AdditionalData.Signature`|Token retornado pela wallet. Deve ser enviado em Integrações: "AndroidPay".|Texto|--|Sim|
 
-##### Walletkey
+##### WalletKey
 
-O walletkey é o identificador utilizado pela Braspag para descriptografar payloads retornados pela wallet.
-Seguem os formatos de `WalletKey` a serem repassados ao Pagador API:
+WalletKey é o identificador utilizado pela Braspag para descriptografar payloads retornados pela wallet.
+<br/><br/>Seguem os formatos de `WalletKey` a serem repassados ao Pagador API:
 
 | Carteira       | Exemplo        |
 |----------------|----------------|
@@ -3632,11 +3630,15 @@ Formato de `Signature` que deve ser repassado ao Pagador API:
 | `AdditionalData.CaptureCode`        | Código informado pela **MasterPass** ao lojista.                                                                  | Texto | --     | 3                                    |
 | `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: "AndroidPay".                                               | Texto | --     | Ver tabela [Signature](https://braspag.github.io//manual/braspag-pagador#signature)      |  
 
-### Exemplos
+### Exemplos de Integração
+
+Seguem alguns exemplos de integração com as principais e-wallets disponíveis no mercado:
 
 #### Apple Pay
 
-<aside class="warning">Pré-requisitos: Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um "MerchantIdentifier". Também é necessário o upload de um certificado CSR no formato PEM fornecido pela Braspag. Abaixo segue o passo a passo para disponibilizar a Apple Pay em sua loja.</aside>
+Abaixo seguem os pré-requisitos para utilizar o Apple Pay e também o passo-a-passo para disponibilizá-la em sua loja.
+
+<aside class="warning">Pré-requisitos: Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um "MerchantIdentifier". Também é necessário o upload de um certificado CSR no formato PEM fornecido pela Braspag.</aside>
 
 ##### Passo 1. Contratação na Apple
 
@@ -3662,8 +3664,6 @@ Após enviar o `MerchantIdentifier` para a equipe da Braspag, a loja receberá o
 1. Faça login na página [Apple Developer](https://developer.apple.com/).
 2. Selecione **Certificates, Identifiers & Profiles**.
 ![Apple Pay]({{ site.baseurl_root }}/images/apple-paymid.jpg)
-<img src="{{ site.baseurl_root }}/images/apple-paymid.jpg" align="left" width="48">
-<img src="{{ site.baseurl_root }}/images/apple-paymid.jpg" alt="Apple Pay" width="250"/>
 3. Realize o upload do certificado.
 ![Apple Pay]({{ site.baseurl_root }}/images/apple-pay.jpg)
 4. Finalize o processo.
@@ -3679,13 +3679,13 @@ Formato de um "PEM":
 > 
 > -----END CERTIFICATE REQUEST---
 
-Após o upload do certificado CSR, vem a etapa da integração, que deverá acontecer em dois passos.
+Após o upload do certificado CSR, vem a etapa da integração, que deverá acontecer em dois passos: a de integração com a Apple Pay e a de integração com o Pagador da Braspag.
 
 ##### Passo 4. Integração com a Apple Pay
 
 O primeiro passo da integração deve ser feito diretamente com a solução da Apple, para disponibilizar o botão "Pagar com Apple Pay" em seu site ou aplicativo. Para isso, a equipe da Apple fará um acompanhamento de perto. [Clique aqui](https://developer.apple.com/apple-pay/) para acessar a documentação técnica da Apple.  
 
-<aside class="notice">Nesta etapa, não é preciso realizar o processo de criptografia de dados retornados pela Apple. Este trabalho será realizado pela Braspag, através dos procedimentos descritos na próxima etapa.</aside>
+<aside class="notice">Nesta etapa, não é preciso realizar o processo de criptografia de dados retornados pela Apple. Este trabalho será realizado pela Braspag, através dos procedimentos descritos na próxima etapa (passo 5).</aside>
 
 ##### Passo 5. Integração com o Pagador (Decriptografia e Autorização)
 
@@ -3694,8 +3694,6 @@ O segundo passo da integração deverá efetivar o fluxo de autorização via ga
 ##### Requisição
 
 Exemplo de requisição padrão Apple Pay:
-
-<aside class="warning">É necessário que a loja já possua cadastro e integração Apple Pay, caso contrário não será possível a integração com a API.</aside>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3822,11 +3820,13 @@ Exemplo de requisição padrão Apple Pay:
 
 #### Samsung Pay
 
+Abaixo segue o pré-requisito para utilizar o Samsung Pay e também um exemplo de requisição para disponibilizá-lo em sua loja.
+
+<aside class="warning">É necessário que a loja já possua cadastro e integração Samsung Pay, caso contrário não será possível a integração com a API.</aside>
+
 ##### Requisição
 
 Exemplo de requisição padrão Samsung Pay:
-
-<aside class="warning">É necessário que a loja já possua cadastro e integração Samsung Pay, caso contrário não será possível a integração com a API.</aside>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3947,11 +3947,13 @@ Exemplo de requisição padrão Samsung Pay:
 
 #### Android Pay
 
+Abaixo segue o pré-requisito para utilizar o Android Pay e também um exemplo de requisição para disponibilizá-lo em sua loja.
+
+<aside class="warning">É necessário que a loja já possua cadastro e integração Android Pay, caso contrário não será possível a integração com a API.</aside>
+
 ##### Requisição
 
 Exemplo de requisição padrão Android Pay:
-
-<aside class="warning">É necessário que a loja já possua cadastro e integração Android Pay, caso contrário não será possível a integração com a API.</aside>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4082,6 +4084,8 @@ Para utilizar o MasterPass é necessária a contratação do serviço através d
 
 ##### Requisição
 
+Exemplo de requisição padrão Master-Pass:
+
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 ```json
@@ -4193,6 +4197,8 @@ Para utilizar o MasterPass é necessária a contratação do serviço através d
 Para utilizar o Visa Checkout é necessária a contratação do serviço através do contato diretamente com a Visa.
 
 ##### Requisição
+
+Exemplo de requisição padrão Visa Checkout:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4467,11 +4473,9 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 Quando o estabelecimento possui o produto DCC habilitado, o processo de autorização é realizado em 3 etapas, explicadas a seguir:
 
-#### Passo 1 - Solicitação de Autorização
+#### Etapa 1. Solicitação de Autorização
 
 Na primeira etapa, quando é solicitada uma autorização com um cartão internacional, a Global Payments identifica o país do cartão e aplica a conversão de moeda seguindo os cálculos específicos de cada bandeira, retornando as informações de conversão em seguida.
-
-Segue um exemplo de solicitação de autorização da transação:
 
 ##### Requisição
 
@@ -4586,14 +4590,14 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
 
 | Propriedade             | Descrição                                                                   | Tipo  | Tamanho | Formato                              |
 |-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
-| `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento.                            | Texto | 40      | Texto alfanumérico                   |
-| `ProofOfSale`           | Número do comprovante de venda.                                              | Texto | 20      | Texto alfanumérico                   |
-| `AuthorizationCode`     | Código de autorização.                                                       | Texto | 300     | Texto alfanumérico                   |
-| `PaymentId`             | Campo identificador do pedido.                                               | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ReceivedDate`          | Data em que a transação foi recebida pela Braspag.                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
-| `ReasonCode`            | Código de retorno da operação.                                               | Texto | 32      | Texto alfanumérico                   |
-| `ReasonMessage`         | Mensagem de retorno da operação.                                             | Texto | 512     | Texto alfanumérico                   |
-| `Status`                | Status da transação.                                                         | Byte  | 2       | Ex.                                  |
+| `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento.                           | Texto | 40      | Texto alfanumérico                   |
+| `ProofOfSale`           | Número do comprovante de venda.                                             | Texto | 20      | Texto alfanumérico                   |
+| `AuthorizationCode`     | Código de autorização.                                                      | Texto | 300     | Texto alfanumérico                   |
+| `PaymentId`             | Campo identificador do pedido.                                              | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ReceivedDate`          | Data em que a transação foi recebida pela Braspag.                          | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
+| `ReasonCode`            | Código de retorno da operação.                                              | Texto | 32      | Texto alfanumérico                   |
+| `ReasonMessage`         | Mensagem de retorno da operação.                                            | Texto | 512     | Texto alfanumérico                   |
+| `Status`                | Status da transação.                                                        | Byte  | 2       | Ex.: 12                              |
 | `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e banco).   | Texto | 32      | 57                                   |
 | `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco). | Texto | 512     | Transação Aprovada                   |
 | `CurrencyExchangeData.Id` | Id da ação da troca de moeda. | Texto | 50     | 1b05456446c116374005602dcbaf8db8879515a0                   |
@@ -4604,7 +4608,7 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
 | `CurrencyExchangeData.CurrencyExchanges.Currency` | Código da moeda "real". | Texto | 3     | BRA                   |
 | `CurrencyExchangeData.CurrencyExchanges.ConvertedAmount` | Valor do pedido em reais. | Numérico | 12     | 100                   |
 
-#### Etapa 2 - Opções de Pagamento
+#### Etapa 2. Opções de Pagamento
 
 Na segunda etapa, o sistema da loja apresenta ao comprador as opções de pagar em reais ou com a moeda de seu país (moeda do cartão de crédito), seguindo as melhores práticas solicitadas pela bandeira. O texto é apresentado em inglês e o layout do site não precisa ser alterado, desde que as opções de escolha da moeda tenham as mesmas características de fonte, cor e dimensões.
 
@@ -4612,7 +4616,7 @@ Segue um exemplo de exibição das opções de pagamento (em reais ou na moeda d
 
 ![DCC Global Payments]({{ site.baseurl_root }}/images/dcc-globalpayments.jpg)
 
-#### Etapa 3 - Confirmação da Transação
+#### Etapa 3. Confirmação da Transação
 
 Na terceira etapa, o sistema da loja envia a confirmação da transação com as informações da moeda escolhida pelo comprador. Neste ponto é retornada a resposta da autorização.
 
@@ -4650,11 +4654,11 @@ curl
 
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Id`|Text|50|Sim|Id da ação da troca de Moeda|
-|`Currency`|Numérico|4|Sim|Moeda selecionada pelo comprador|
-|`Amount`|Numérico|12|Sim|Valor convertido|
+|`Id`|Id da ação da troca de moeda.|Text|50|Sim|
+|`Currency`|Moeda selecionada pelo comprador.|Numérico|4|Sim|
+|`Amount`|Valor convertido.|Numérico|12|Sim|
 
 ##### Resposta
 
@@ -4768,7 +4772,7 @@ Além da geração do card token, é possível associar um nome (um identificado
 
 ## Salvando um Cartão Durante uma Autorização
 
-Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "True" na requisição padrão de autorização.
+Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização.
 
 ### Requisição
 
@@ -4974,9 +4978,9 @@ curl
 
 Este é um exemplo de como utilizar o *card token*, previamente salvo, para criar uma transação. Por questões de segurança, um card token não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como *recorrente*, você poderá submeter transações sem o CVV.
 
-#### Requisição
-
 O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir:
+
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5160,7 +5164,7 @@ curl
 
 ## Criando uma Transação com Alias
 
-Este é um exemplo de como utilizar o Alias, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como *recorrente*, você poderá submeter transações sem o CVV.
+Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como *recorrente*, você poderá submeter transações sem o CVV.
 
 #### Requisição
 
@@ -5360,10 +5364,10 @@ Ao efetuar um pagamento, é possível verificar se a transação possui risco de
 |Cancelamento de transações comprometidas|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Para a loja que utiliza revisão manual, a transação será cancelada ou estornada automaticamente assim que a Braspag receber notificação do novo status "_Reject_".|`FraudAnalysis.Sequence` igual a "AuthorizeFirst" e `FraudAnalysis.VoidOnHighRisk` igual a "true"|
 
 Caso não seja especificado durante a autorização, a Braspag irá processar sua transação pelo seguinte fluxo:
-- `FraudAnalysis.Sequence` igual a "AuthorizeFirst",
-- `FraudAnalysis.SequenceCriteria` igual a "OnSuccess",
-- `FraudAnalysis.VoidOnHighRisk` igual a "false",
-- `FraudAnalysis.CaptureOnLowRisk` igual a "false". 
+* `FraudAnalysis.Sequence` igual a "AuthorizeFirst",
+* `FraudAnalysis.SequenceCriteria` igual a "OnSuccess",
+* `FraudAnalysis.VoidOnHighRisk` igual a "false",
+* `FraudAnalysis.CaptureOnLowRisk` igual a "false". 
 
 ## Criando uma Transação com Análise de Fraude Cybersource
 
@@ -5784,12 +5788,12 @@ curl
 |`Payment.FraudAnalysis.Cart.Items.Quantity`|Quantidade do produto.|Número|15|Sim|
 |`Payment.FraudAnalysis.Cart.Items.Sku`|SKU (*Stock Keeping Unit* - Unidade de Controle de Estoque) do produto.|Texto|255|Sim|
 |`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Preço unitário do produto, em centavos. <br/> Ex.: 10950 = R$ 109,50.|Número|15|Sim|
-|`Payment.FraudAnalysis.Cart.Items.Risk`|Nível de risco do produto associado a quantidade de chargebacks. <br/> [Lista de Valores - Risk](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].risk).|Texto|6|Não|
+|`Payment.FraudAnalysis.Cart.Items.Risk`|Nível de risco do produto associado a quantidade de chargebacks.|Texto|6|Não|
 |`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Nível de importância, na análise de fraude, da hora do dia em que o comprador realizou o pedido. <br/> [Lista de Valores - TimeHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].timehedge).|Texto|6|Não|
 |`Payment.FraudAnalysis.Cart.Items.Type`|Categoria do produto. <br/> [Lista de Valores - Type](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type).|Texto|19|Não|
 |`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Nível de importância, na análise de fraude, da frequência de compra do comprador dentro dos 15 minutos anteriores. <br/> [Lista de Valores - VelocityHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].velocityhedge).|Texto|6|Não|
-|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Id das informações adicionais a serem enviadas. <br/> [Tabela de MDDs](#tabela-de-mdds)|Número|2|Sim|
-|`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Valor das informações adicionais a serem enviadas. <br/> [Tabela de MDDs](#tabela-de-mdds)|Texto|255|Sim|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Id das informações adicionais a serem enviadas. <br/> [Tabela de MDDs](#tabela-de-mdds).|Número|2|Sim|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Valor das informações adicionais a serem enviadas. <br/> [Tabela de MDDs](#tabela-de-mdds).|Texto|255|Sim|
 |`Payment.FraudAnalysis.Shipping.Addressee`|Nome completo do responsável a receber o produto no endereço de entrega.|Texto|120|Não|
 |`Payment.FraudAnalysis.Shipping.Method`|Meio de entrega do pedido. <br/> [Lista de Valores - Method](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.method).|Texto|8|Não|
 |`Payment.FraudAnalysis.Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega. <br/> Ex.: 552121114700.|Texto|15|Não|
@@ -6338,33 +6342,33 @@ curl
 Importante componente da análise de fraude, o *fingerprint* é um script (em Javascript) que deve ser inserido no seu site para capturar dados importantes do dispositivo utilizado pelo comprador, como IP da máquina, versão do browser e sistema operacional utilizados.
 Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo fingerprint complementam a análise e garantem que sua loja esteja mais protegida.
 
-Abaixo seguem as descrições de como configurar o fingerprint em sua página de checkout e mobiles. Para maiores detalhes, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360000212987-Detalhamento-da-implanta%C3%A7%C3%A3o-do-DeviceFingerPrint).
+Abaixo seguem as descrições de como integrar e configurar o fingerprint em sua página de checkout e mobiles. Para maiores detalhes, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360000212987-Detalhamento-da-implanta%C3%A7%C3%A3o-do-DeviceFingerPrint).
 
 ### Integração em Checkout
 
-Ao integrar a tecnologia fingerprint em sua página de checkout, será necessário adicionar duas tags:
+Ao integrar a tecnologia fingerprint em sua página de checkout, é necessária a adição de duas tags no código fonte de sua página:
 
 * a tag *script* dentro da tag *head* para uma performance correta;
 * a tag *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
-<aside class="warning">Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
+<aside class="warning">Atenção: Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
 
-#### Variáveis
+#### Variáveis da URL
 
-Existem duas variáveis a serem preenchidas na URL do Javascript. O `org_id` e o `session_id`. O `org_id` é um valor predefinido, de acordo com a tabela abaixo. Já o `session_id` é composto pela concatenação dos parâmetros `ProviderMerchantId` e `FraudAnalysis.FingerPrintId`, conforme exemplificado abaixo:
+Existem duas variáveis a serem preenchidas na URL do Javascript: o `org_id` e o `session_id`. <br/>O `org_id` é um valor predefinido, já o `session_id` é composto pela concatenação dos parâmetros `ProviderMerchantId` e `FraudAnalysis.FingerPrintId`, conforme exemplificado abaixo:
 
 |Variável|Descrição|
 |---|---|
 |`org_id`|para Sandbox = "1snn5n9w" <br/> para Produção = "k8vif92e"|
 |`session_id`|`ProviderMerchantId` = Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag. <br/> `FraudAnalysis.FingerPrintId` = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou então o número do pedido, mas deverá ser único durante 48 horas.|
 
-#### Aplicação
+#### Modelo do Javascript
 
 O modelo do Javascript é o seguinte:
 
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
-As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
+As variáveis, após devidamente preenchidas, fornecem uma URL semelhante ao exemplo abaixo:
 
 ![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfp.png)
 
