@@ -1,12 +1,12 @@
 ---
 layout: manual
-title: Manual de integração Google Pay
-description: Integração técnica Gateway Braspag
+title: Pagamento por E-Wallet Google Pay
+description: Integração Técnica Gateway Braspag
 search: true
 translated: true
 categories: manual
 tags:
-  - E-Wallet
+  - 1. API do Pagador
 language_tabs:
   json: JSON
 ---
