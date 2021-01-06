@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de Integração API Rest
+title: Manual de Integração - API Rest
 description: Integração Técnica Gateway Braspag
 search: true
 translated: true
