@@ -305,15 +305,15 @@
   <tbody>
     <tr>
       <td><strong>AntiFraude</strong></td>
-      <td>Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.</td>
+      <td>Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.<br />Para mais informações, consulte o manual <a href="https://braspag.github.io//manual/antifraude">Antifraude</a>.</td>
     </tr>
     <tr>
       <td><strong>Autenticação</strong></td>
-      <td>Processo que possibilita realizar uma venda que passará por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude.</td>
+      <td>Processo que possibilita realizar uma venda que passará por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude. Para mais informações, consulte o manual <a href="https://braspag.github.io//manualp/emv3ds">Autenticação 3DS 2.0</a>.</td>
     </tr>
     <tr>
       <td><strong>Cartão Protegido</strong></td>
-      <td>Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de <em>token</em>, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como <em>Compra com 1 clique</em> e <em>Retentativa de envio de transação</em>, sempre preservando a integridade e a confidencialidade das informações.</td>
+      <td>Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de <em>token</em>, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como <em>Compra com 1 clique</em> e <em>Retentativa de envio de transação</em>, sempre preservando a integridade e a confidencialidade das informações. Para mais informações, consulte o manual <a href="https://braspag.github.io//manual/cartao-protegido-api-rest">Cartão Protegido</a>.</td>
     </tr>
   </tbody>
 </table>
@@ -336,7 +336,7 @@
 
 <p>Caso a sua loja utilize os serviços de <em>Retentativa</em> ou <em>Loadbalance</em>, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">clique aqui</a> e envie sua requisição.</p>
 
-<p>Os parâmetros contidos dentro dos nós <code class="language-plaintext highlighter-rouge">Address</code> e <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> são de preenchimento <strong>obrigatório</strong> quando a transação é submetida ao <em>AntiFraude</em> ou à análise do <em>Velocity</em>. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.</p>
+<p>Os parâmetros contidos dentro dos nós <code class="language-plaintext highlighter-rouge">Address</code> e <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> são de preenchimento <strong>obrigatório</strong> quando a transação é submetida ao <a href="https://braspag.github.io//manual/antifraude">AntiFraude</a> ou à análise do <a href="https://braspag.github.io//manual/velocity">Velocity</a>. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.</p>
 
 <aside class="warning">Atenção: o número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo até o final do fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
 
@@ -6805,7 +6805,7 @@ HTTP Status 200
 
 <h4 id="apple-pay">Apple Pay</h4>
 
-<p>Abaixo seguem os pré-requisitos para utilizar o Apple Pay e também o passo-a-passo para disponibilizá-la em sua loja.</p>
+<p>Abaixo seguem os pré-requisitos para utilizar o Apple Pay e também o passo-a-passo para disponibilizá-la em sua loja. O processo de integração também está disponível <a href="https://braspag.github.io//manual/apple-pay">neste link</a>.</p>
 
 <aside class="warning">Pré-requisitos: Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um "MerchantIdentifier". Também é necessário o upload de um certificado CSR no formato PEM fornecido pela Braspag.</aside>
 
@@ -9134,9 +9134,9 @@ curl
 
 <h1 id="salvando-e-reutilizando-cartões">Salvando e Reutilizando Cartões</h1>
 
-<p>Ao contratar o <em>Cartão Protegido</em>, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token, o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.</p>
+<p>Ao contratar o <a href="https://braspag.github.io//manual/cartao-protegido-api-rest">Cartão Protegido</a>, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.</p>
 
-<aside class="warning">Por questões de segurança, o CVV (Código de Segurança) não é tokenizado.</aside>
+<aside class="warning">Atenção: Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
 <p>Além da geração do card token, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o <code class="language-plaintext highlighter-rouge">Alias</code>.</p>
 
