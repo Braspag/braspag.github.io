@@ -6,7 +6,7 @@ search: true
 translated: true
 categories: manualp
 tags:
-  - Pagador
+  - 1. API do Pagador
 language_tabs:
   shell: cURL
 ---
