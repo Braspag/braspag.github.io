@@ -143,71 +143,17 @@
 
 <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a <strong>API do Pagador</strong>, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e resposta.</p>
 
-<p>Todas as operações requerem credenciais de acesso (“Merchant ID” e “Merchant Key”) específicos para os respectivos ambientes: Sandbox e Produção. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito na operação.</p>
+<p>Abaixo veja a representação de um fluxo transacional padrão e uma pequena descrição das principais partes envolvidas:</p>
 
-<h2 id="ambientes">Ambientes</h2>
+<p><img src="https://braspag.github.io//images/fluxo-transacional.jpg" alt="Fluxo Transacional" /></p>
 
-<p>Utilize o <strong>Ambiente Sandbox</strong> para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no <strong>Ambiente de Produção</strong>.</p>
-
-<h3 id="ambiente-sandbox">Ambiente Sandbox</h3>
-
-<p>Experimente as nossas APIs sem compromisso!</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Informação</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Credenciais de acesso</td>
-      <td>Acesse o <a href="https://cadastrosandbox.braspag.com.br/">Cadastro do Sandbox</a> e crie uma conta de testes. Ao fim do cadastro você receberá um <code class="language-plaintext highlighter-rouge">MerchantId</code> e um <code class="language-plaintext highlighter-rouge">MerchantKey</code>, que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API.</td>
-    </tr>
-    <tr>
-      <td>Endpoint transacional</td>
-      <td>https://apisandbox.braspag.com.br/</td>
-    </tr>
-    <tr>
-      <td>Endpoint para serviços de consultas</td>
-      <td>https://apiquerysandbox.braspag.com.br/</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="ambiente-de-produção">Ambiente de Produção</h3>
-
-<p>Realizados os testes, disponibilize sua solução em ambiente de Produção.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Informação</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Credenciais de acesso à API</td>
-      <td>Envie um email para <em>comercial@braspag.com.br</em> para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.</td>
-    </tr>
-    <tr>
-      <td>Endpoint transacional</td>
-      <td>https://api.braspag.com.br/</td>
-    </tr>
-    <tr>
-      <td>Endpoint para serviços de consultas</td>
-      <td>https://apiquery.braspag.com.br/</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="suporte-braspag">Suporte Braspag</h2>
-
-<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e de ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
-
-<p>Acesse nossa ferramenta de atendimento web <a href="http://suporte.braspag.com.br/">Zendesk</a> e consulte o nosso artigo <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">Atendimento Braspag</a> para mais informações sobre nosso serviço de suporte.</p>
+<ul>
+  <li><strong>Plataforma de e-commerce:</strong> Provê solução técnica para lojistas construírem toda a infraestrutura e processos necessários para sua operação de e-commerce.</li>
+  <li><strong>Gateway:</strong> Conecta e-commerces com os serviços de pagamento (adquirentes, boletos, emissor), facilitando a gestão dos fornecedores de pagamento pelos lojistas.</li>
+  <li><strong>Adquirente:</strong> Faz a conexão da transação com as bandeiras e liquida a transação para os lojistas.</li>
+  <li><strong>Bandeira:</strong> Faz a comunicação com o emissor do cartão da transação e liquida a transação para os adquirentes.</li>
+  <li><strong>Emissor:</strong> Dá crédito e armazena o dinheiro do comprador. Na transação, aprova ou nega por razões de saldo, validade do cartão ou fraude. Liquida a transação para a bandeira.</li>
+</ul>
 
 <h2 id="características-da-solução">Características da Solução</h2>
 
@@ -224,7 +170,7 @@
   <li><strong>Integração multiplataforma</strong>: a integração é realizada através de APIs REST, que permitem a utilização de diferentes aplicações.</li>
 </ul>
 
-<h2 id="arquitetura">Arquitetura</h2>
+<h2 id="arquitetura-da-integração">Arquitetura da Integração</h2>
 
 <p>O modelo empregado na integração das APIs é simples e se baseia na utilização de duas URLs (endpoints). Uma é específica para operações como autorização, captura e cancelamento de transações. A outra, para operações consultivas, como uma pesquisa de transações. Essas duas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT. Cada tipo de mensagem deve ser enviada para um endereço identificado através do <em>path</em>, que é o endereço do recurso.</p>
 
@@ -250,6 +196,66 @@
     </tr>
   </tbody>
 </table>
+
+<h2 id="ambientes-de-desenvolvimento">Ambientes de Desenvolvimento</h2>
+
+<p>Utilize o ambiente <strong>Sandbox</strong> para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no ambiente de <strong>Produção</strong>.</p>
+
+<h3 id="ambiente-sandbox">Ambiente Sandbox</h3>
+
+<p>Para a fase de testes, crie uma conta em nosso sandbox e experimente as nossas APIs sem compromisso.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Informação</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Credenciais de acesso</td>
+      <td>Após criar uma conta de testes em <a href="https://cadastrosandbox.braspag.com.br/">Cadastro do Sandbox</a>, você receberá um <code class="language-plaintext highlighter-rouge">MerchantId</code> e um <code class="language-plaintext highlighter-rouge">MerchantKey</code>, que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API.</td>
+    </tr>
+    <tr>
+      <td>Endpoint transacional</td>
+      <td>https://apisandbox.braspag.com.br/</td>
+    </tr>
+    <tr>
+      <td>Endpoint para serviços de consultas</td>
+      <td>https://apiquerysandbox.braspag.com.br/</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="ambiente-de-produção">Ambiente de Produção</h3>
+
+<p>Realizados os testes, disponibilize sua solução em ambiente de produção.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Informação</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Credenciais de acesso à API</td>
+      <td>Envie um email para <em>comercial@braspag.com.br</em> para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.</td>
+    </tr>
+    <tr>
+      <td>Endpoint transacional</td>
+      <td>https://api.braspag.com.br/</td>
+    </tr>
+    <tr>
+      <td>Endpoint para serviços de consultas</td>
+      <td>https://apiquery.braspag.com.br/</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Todas as operações requerem credenciais de acesso (“Merchant ID” e “Merchant Key”) específicos para os respectivos ambientes: Sandbox e Produção. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito em cada operação.</p>
 
 <h2 id="termos-transacionais">Termos Transacionais</h2>
 
@@ -303,7 +309,7 @@
     </tr>
     <tr>
       <td><strong>Autenticação</strong></td>
-      <td>Processo que possibilita realizar uma venda que passará por autenticação do banco emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o banco o risco de fraude.</td>
+      <td>Processo que possibilita realizar uma venda que passará por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude.</td>
     </tr>
     <tr>
       <td><strong>Cartão Protegido</strong></td>
@@ -311,6 +317,12 @@
     </tr>
   </tbody>
 </table>
+
+<h2 id="suporte-braspag">Suporte Braspag</h2>
+
+<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e de ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
+
+<p>Acesse nossa ferramenta de atendimento web <a href="http://suporte.braspag.com.br/">Zendesk</a> e consulte o nosso artigo <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">Atendimento Braspag</a> para mais informações sobre nosso serviço de suporte.</p>
 
 <h1 id="meios-de-pagamento">Meios de Pagamento</h1>
 
@@ -1251,14 +1263,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
@@ -1433,7 +1445,7 @@ curl
 
 <p>Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim no processo de validação da compra online.</p>
 
-<p>Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor (banco), onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de <em>chargeback</em> (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.</p>
+<p>Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de <em>chargeback</em> (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.</p>
 
 <p>No ambiente mobile, indicamos a utilização da versão <a href="https://braspag.github.io//manualp/emv3ds">3DS 2.0</a> para autenticação.</p>
 
@@ -1567,7 +1579,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Define se o comprador será direcionado ao banco emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor “true”. Obs.: Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.</td>
+      <td>Define se o comprador será direcionado ao emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor “true”. Obs.: Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.</td>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (default “false”)</td>
@@ -1785,14 +1797,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>32</td>
       <td>Ex.: 57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Ex.: Transação Aprovada</td>
@@ -2349,14 +2361,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>32</td>
       <td>Ex.: 57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Ex.: Transação Aprovada</td>
@@ -2643,14 +2655,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>32</td>
       <td>Ex.: 57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Ex.: Transação Aprovada</td>
@@ -3643,7 +3655,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address</code></td>
-      <td>Endereço da loja cadastrada no banco.</td>
+      <td>Endereço da loja cadastrada no emissor.</td>
       <td>Texto</td>
       <td>256</td>
       <td>Ex.: Av. Teste, 160</td>
@@ -3662,9 +3674,9 @@ curl
 
 <p>Para atualizar o status de um boleto para <em>Pago</em>, o Pagador deve receber dos bancos os arquivos CNAB com as liquidações referentes. Para habilitar sua loja a receber os arquivos bancários, basta seguir o procedimento descrito <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-">neste link</a>.</p>
 
-<h3 id="regras-específicas-por-banco">Regras Específicas por Banco</h3>
+<h3 id="regras-específicas-por-emissor">Regras Específicas por Emissor</h3>
 
-<p>Segue uma lista de propriedades e suas especificações, relativas a regras distintas de cada banco e seus respectivos <em>providers</em>:</p>
+<p>Segue uma lista de propriedades e suas especificações, relativas a regras distintas de cada emissor e seus respectivos <em>providers</em>:</p>
 
 <table>
   <thead>
@@ -3772,7 +3784,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">*3</code></td>
-      <td>O valor deve ser único, ou seja, o banco não permite a repetição de valores previamente utilizados.</td>
+      <td>O valor deve ser único, ou seja, o emissor não permite a repetição de valores previamente utilizados.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">*4</code></td>
@@ -3784,7 +3796,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">*6</code></td>
-      <td>A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador, antes de mandar para o banco. Caso o total ultrapasse os 14 dígitos, a API considera os últimos 14 dígitos.</td>
+      <td>A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador, antes de mandar para o emissor. Caso o total ultrapasse os 14 dígitos, a API considera os últimos 14 dígitos.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">*7</code></td>
@@ -5840,11 +5852,11 @@ HTTP Status 200
 
 <h3 id="transação-com-renova-fácil">Transação com Renova Fácil</h3>
 
-<p>O <em>Renova Fácil</em> é um serviço desenvolvido pela CIELO em conjunto com os bancos emissores cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.</p>
+<p>O <em>Renova Fácil</em> é um serviço desenvolvido pela CIELO em conjunto com os emissores cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.</p>
 
 <p>Através da identificação de cartões vencidos no momento da transação, é feita a autorização com um novo cartão, que é então retornado para armazenagem.</p>
 
-<aside class="notice">Bancos emissores participantes: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.</aside>
+<aside class="notice">Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.</aside>
 
 <p>Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado na CIELO. Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá um nó a mais conforme exemplo abaixo:</p>
 
@@ -5986,7 +5998,7 @@ HTTP Status 200
 
 <h2 id="transferência-eletrônica">Transferência Eletrônica</h2>
 
-<p>Semelhante ao pagamento com cartão de débito, a transferência eletrônica conecta o consumidor ao seu banco para autenticar uma venda em débito. A diferença entre ambos é que as transferências não são submetidas à adquirente nem dependem de dados de cartão.</p>
+<p>Semelhante ao pagamento com cartão de débito, a transferência eletrônica conecta o consumidor ao seu emissor para autenticar uma venda em débito. A diferença entre ambos é que as transferências não são submetidas à adquirente nem dependem de dados de cartão.</p>
 
 <h3 id="criando-uma-transação-1">Criando uma Transação</h3>
 
@@ -8593,14 +8605,14 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
@@ -8806,14 +8818,14 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
@@ -9105,14 +9117,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
@@ -9460,14 +9472,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
@@ -9775,14 +9787,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
@@ -10088,14 +10100,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código retornado pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Código retornado pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e banco).</td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).</td>
       <td>Texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
@@ -12189,12 +12201,12 @@ curl
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ProviderReturnCode</code></td>
-      <td style="text-align: left">Código retornado pela adquirente ou banco.</td>
+      <td style="text-align: left">Código retornado pela adquirente ou emissor.</td>
       <td style="text-align: left">Texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ProviderReturnMessage</code></td>
-      <td style="text-align: left">Mensagem retornada pela adquirente ou banco.</td>
+      <td style="text-align: left">Mensagem retornada pela adquirente ou emissor.</td>
       <td style="text-align: left">Texto</td>
     </tr>
   </tbody>
