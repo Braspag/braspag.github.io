@@ -1,21 +1,23 @@
 ---
 layout: manual
-title: Manual de integração Verify Card
-description: Integração técnica Gateway Braspag
+title: Manual de Integração Verify Card
+description: Integração Técnica Gateway Braspag
 search: true
 translated: true
 categories: manual
 tags:
-  - Pagador
+  - 1. API do Pagador
 language_tabs:
   json: JSON
   shell: cURL
   html: HTML
 ---
 
-# Consultando dados de um cartão via Zero Auth e Consulta BIN
+# Consultando Dados de um Cartão via Zero Auth e Consulta BIN
 
-Para consultar dados de um cartão, é necessário fazer um POST no serviço VerifyCard. O VerifyCard é composto por dois serviços: Zero Auth e Consulta BIN. O Zero Auth é um serviço que indentifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor de R$ 0,00. A Consulta BIN é um serviço disponível para clientes Cielo 3.0 que retorna as características do BIN tais como bandeira e tipo do cartão, a partir do BIN (6 primeiros dígitos do cartão). Os dois serviços podem ser consumidos simultaneamente através do VerifyCard, conforme o exemplo baixo. Também é possível que o processo de autorização seja condicionado automaticamente a um retorno de sucesso do ZeroAuth. Para habilitar este fluxo, por favor, entre em contato com nosso time de suporte.
+ O *VerifyCard* é composto por dois serviços: **Zero Auth** e **Consulta BIN**.<br/>O Zero Auth é um serviço que identifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor de R$ 0,00.<br/>A Consulta BIN é um serviço disponível para clientes Cielo 3.0 que retorna as características do BIN tais como bandeira e tipo do cartão, a partir do BIN (6 primeiros dígitos do cartão).<br/>Os dois serviços podem ser consumidos simultaneamente através do VerifyCard, conforme o exemplo abaixo. Também é possível que o processo de autorização seja condicionado automaticamente a um retorno de sucesso do ZeroAuth. Para habilitar este fluxo, por favor, entre em contato com nosso time de suporte.
+ 
+Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST no serviço *VerifyCard*, de acordo com o modelo a seguir:
 
 ## Requisição
 
@@ -59,17 +61,17 @@ curl
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|`Card.CardNumber`|Texto|16|Sim|Número do Cartão do comprador para Zero Auth e Consulta BIN. Caso seja uma somente requisição de Consulta BIN, enviar somente o BIN (de 6 ou 9 dígitos)|
-|`Card.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
-|`Card.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
-|`Card.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`Card.Brand`|Texto|10|Sim |Bandeira do cartão|
-|`Card.Type`|Texto|CreditCard ou DebitCard|Sim|Tipo do cartão a ser consultado. Este campo é particularmente importante devido aos cartões com funções múltiplas.|
+|`MerchantId`|Identificador da loja na Braspag.|Guid|36|Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
+|`Payment.Provider`|Nome da provedora de meio de pagamento.|Texto|15|Sim|
+|`Card.CardNumber`|Número do cartão do comprador para Zero Auth e Consulta BIN. Caso seja somente requisição de Consulta BIN, enviar somente o BIN (de 6 ou 9 dígitos).|Texto|16|Sim|
+|`Card.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`Card.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`Card.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`Card.Brand`|Bandeira do cartão.|Texto|10|Sim |
+|`Card.Type`|Tipo do cartão a ser consultado. Este campo é particularmente importante devido aos cartões com funções múltiplas.|Texto|CreditCard ou DebitCard|Sim|
 
 ## Resposta
 
@@ -114,14 +116,14 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Status`|Status do Zero Auth|Número|1 |<UL><LI>0-Falha na consulta ao Zero Auth;&nbsp;</LI><LI>1-Consulta Zero Auth com sucesso;&nbsp;</LI><LI>99-Consulta com sucesso, porém o status do cartão é inconclusivo;</LI></UL> |
-|`ProviderReturnCode`|Código da consulta Zero Auth retornado pelo provedor. |Número|2|Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código 82-cartão inválido|
-|`ProviderReturnMessage`|Mensagem da consulta Zero Auth retornado pelo provedor. |Texto|512 |Ex. "Transacao Autorizada"|
-|`BinData.Provider`|Provedor do serviço|Texto|15 |Ex. Cielo30|
-|`BinData.CardType`|Tipo do Cartão retornado da Consulta BIN|Texto|15 |Ex. Crédito, Débito ou Múltiplo|
-|`BinData.ForeignCard`|Indicação se é um cartão emitido fora do Brasil|booleano|- |Ex. true ou false |
-|`BinData.Code`|Código de retorno da Consulta BIN|Número|2 |Ex. Para provedor Cielo30, 00 significa consulta realizada com sucesso.  |
-|`BinData.Message`|Mensagem de retorno da Consulta BIN |Texto|512 |Ex. Para provedor Cielo30, "Analise autorizada" significa consulta realizada com sucesso. |
-|`BinData.CorporateCard`|Indicação se o cartão é corporativo |booleano|- |Ex. true ou false|
-|`BinData.Issuer`|Nome do emissor do cartão |Texto|512 |Ex. "Banco da Praça" (Sujeito à mapeamento do adquirente) |
-|`BinData.IssuerCode`|Código do emissor do cartão |Número|3 |Ex. 000 (Sujeito à mapeamento do adquirente) |
+|`Status`|Status do Zero Auth.|Número|1 |"0" - Falha na consulta ao Zero Auth<br/>"1" - Consulta Zero Auth com sucesso<br/>"99" - Consulta com sucesso, porém o status do cartão é inconclusivo|
+|`ProviderReturnCode`|Código da consulta Zero Auth retornado pelo provedor.|Número|2|Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex.: "82" - cartão inválido (para provedor Cielo30)|
+|`ProviderReturnMessage`|Mensagem da consulta Zero Auth retornado pelo provedor. |Texto|512 |Ex.: "Transacao Autorizada"|
+|`BinData.Provider`|Provedor do serviço.|Texto|15 |Ex.: "Cielo30"|
+|`BinData.CardType`|Tipo do cartão retornado da Consulta BIN.|Texto|15 |Ex.: "Crédito" / "Débito" / "Múltiplo"|
+|`BinData.ForeignCard`|Indica se é um cartão emitido fora do Brasil.|booleano|- |Ex.: "true" / "false" |
+|`BinData.Code`|Código de retorno da Consulta BIN.|Número|2 |Ex.: "00" - consulta realizada com sucesso (para provedor Cielo30)|
+|`BinData.Message`|Mensagem de retorno da Consulta BIN.|Texto|512 |Ex.: "Analise autorizada" - consulta realizada com sucesso (para provedor Cielo30)  |
+|`BinData.CorporateCard`|Indica se o cartão é corporativo.|booleano|--- |Ex.: "true" ou "false"|
+|`BinData.Issuer`|Nome do emissor do cartão.|Texto|512 |Ex.: "Banco da Praça" (sujeito a mapeamento do adquirente)|
+|`BinData.IssuerCode`|Código do emissor do cartão.|Número|3 |Ex.: "000" (sujeito a mapeamento do adquirente)|
