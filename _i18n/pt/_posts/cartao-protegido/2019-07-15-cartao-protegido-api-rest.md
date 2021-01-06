@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de Integração Cartão Protegido
+title: Manual de Integração - Cartão Protegido
 description: Integração Técnica de Tokenização via REST API Braspag
 search: true
 translated: true
