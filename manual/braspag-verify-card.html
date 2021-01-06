@@ -12,7 +12,7 @@
 
     <title>
         
-        Manual de integração Verify Card &middot; Braspag Developers - Manuais
+        Manual de Integração Verify Card &middot; Braspag Developers - Manuais
         
     </title>
 
@@ -129,7 +129,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/braspag-verify-card">Manual de integração Verify Card</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/braspag-verify-card">Manual de Integração Verify Card</a></li>
                                     
                                 
                             
@@ -139,9 +139,11 @@
             </div>
 
             <div class="post">
-  <h1 id="consultando-dados-de-um-cartão-via-zero-auth-e-consulta-bin">Consultando dados de um cartão via Zero Auth e Consulta BIN</h1>
+  <h1 id="consultando-dados-de-um-cartão-via-zero-auth-e-consulta-bin">Consultando Dados de um Cartão via Zero Auth e Consulta BIN</h1>
 
-<p>Para consultar dados de um cartão, é necessário fazer um POST no serviço VerifyCard. O VerifyCard é composto por dois serviços: Zero Auth e Consulta BIN. O Zero Auth é um serviço que indentifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor de R$ 0,00. A Consulta BIN é um serviço disponível para clientes Cielo 3.0 que retorna as características do BIN tais como bandeira e tipo do cartão, a partir do BIN (6 primeiros dígitos do cartão). Os dois serviços podem ser consumidos simultaneamente através do VerifyCard, conforme o exemplo baixo. Também é possível que o processo de autorização seja condicionado automaticamente a um retorno de sucesso do ZeroAuth. Para habilitar este fluxo, por favor, entre em contato com nosso time de suporte.</p>
+<p>O <em>VerifyCard</em> é composto por dois serviços: <strong>Zero Auth</strong> e <strong>Consulta BIN</strong>.<br />O Zero Auth é um serviço que identifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor de R$ 0,00.<br />A Consulta BIN é um serviço disponível para clientes Cielo 3.0 que retorna as características do BIN tais como bandeira e tipo do cartão, a partir do BIN (6 primeiros dígitos do cartão).<br />Os dois serviços podem ser consumidos simultaneamente através do VerifyCard, conforme o exemplo abaixo. Também é possível que o processo de autorização seja condicionado automaticamente a um retorno de sucesso do ZeroAuth. Para habilitar este fluxo, por favor, entre em contato com nosso time de suporte.</p>
+
+<p>Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST no serviço <em>VerifyCard</em>, de acordo com o modelo a seguir:</p>
 
 <h2 id="requisição">Requisição</h2>
 
@@ -187,75 +189,75 @@
   <thead>
     <tr>
       <th>Propriedade</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na Braspag.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificador da loja na Braspag</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na Braspag.</td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
-      <td>Chave Publica para Autenticação Dupla na Braspag</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome da provedora de meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Nome da provedora de Meio de Pagamento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.CardNumber</code></td>
+      <td>Número do cartão do comprador para Zero Auth e Consulta BIN. Caso seja somente requisição de Consulta BIN, enviar somente o BIN (de 6 ou 9 dígitos).</td>
       <td>Texto</td>
       <td>16</td>
       <td>Sim</td>
-      <td>Número do Cartão do comprador para Zero Auth e Consulta BIN. Caso seja uma somente requisição de Consulta BIN, enviar somente o BIN (de 6 ou 9 dígitos)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
+      <td>Nome do comprador impresso no cartão.</td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
-      <td>Nome do Comprador impresso no cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
+      <td>Data de validade impresso no cartão, no formato MM/AAAA.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
-      <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão.</td>
       <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
-      <td>Código de segurança impresso no verso do cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Brand</code></td>
+      <td>Bandeira do cartão.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Bandeira do cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Type</code></td>
+      <td>Tipo do cartão a ser consultado. Este campo é particularmente importante devido aos cartões com funções múltiplas.</td>
       <td>Texto</td>
       <td>CreditCard ou DebitCard</td>
       <td>Sim</td>
-      <td>Tipo do cartão a ser consultado. Este campo é particularmente importante devido aos cartões com funções múltiplas.</td>
     </tr>
   </tbody>
 </table>
@@ -312,80 +314,80 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status do Zero Auth</td>
+      <td>Status do Zero Auth.</td>
       <td>Número</td>
       <td>1</td>
-      <td>0-Falha na consulta ao Zero Auth; 1-Consulta Zero Auth com sucesso; 99-Consulta com sucesso, porém o status do cartão é inconclusivo;</td>
+      <td>“0” - Falha na consulta ao Zero Auth<br />“1” - Consulta Zero Auth com sucesso<br />“99” - Consulta com sucesso, porém o status do cartão é inconclusivo</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
       <td>Código da consulta Zero Auth retornado pelo provedor.</td>
       <td>Número</td>
       <td>2</td>
-      <td>Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código 82-cartão inválido</td>
+      <td>Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex.: “82” - cartão inválido (para provedor Cielo30)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
       <td>Mensagem da consulta Zero Auth retornado pelo provedor.</td>
       <td>Texto</td>
       <td>512</td>
-      <td>Ex. “Transacao Autorizada”</td>
+      <td>Ex.: “Transacao Autorizada”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.Provider</code></td>
-      <td>Provedor do serviço</td>
+      <td>Provedor do serviço.</td>
       <td>Texto</td>
       <td>15</td>
-      <td>Ex. Cielo30</td>
+      <td>Ex.: “Cielo30”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.CardType</code></td>
-      <td>Tipo do Cartão retornado da Consulta BIN</td>
+      <td>Tipo do cartão retornado da Consulta BIN.</td>
       <td>Texto</td>
       <td>15</td>
-      <td>Ex. Crédito, Débito ou Múltiplo</td>
+      <td>Ex.: “Crédito” / “Débito” / “Múltiplo”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.ForeignCard</code></td>
-      <td>Indicação se é um cartão emitido fora do Brasil</td>
+      <td>Indica se é um cartão emitido fora do Brasil.</td>
       <td>booleano</td>
       <td>-</td>
-      <td>Ex. true ou false</td>
+      <td>Ex.: “true” / “false”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.Code</code></td>
-      <td>Código de retorno da Consulta BIN</td>
+      <td>Código de retorno da Consulta BIN.</td>
       <td>Número</td>
       <td>2</td>
-      <td>Ex. Para provedor Cielo30, 00 significa consulta realizada com sucesso.</td>
+      <td>Ex.: “00” - consulta realizada com sucesso (para provedor Cielo30)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.Message</code></td>
-      <td>Mensagem de retorno da Consulta BIN</td>
+      <td>Mensagem de retorno da Consulta BIN.</td>
       <td>Texto</td>
       <td>512</td>
-      <td>Ex. Para provedor Cielo30, “Analise autorizada” significa consulta realizada com sucesso.</td>
+      <td>Ex.: “Analise autorizada” - consulta realizada com sucesso (para provedor Cielo30)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.CorporateCard</code></td>
-      <td>Indicação se o cartão é corporativo</td>
+      <td>Indica se o cartão é corporativo.</td>
       <td>booleano</td>
-      <td>-</td>
-      <td>Ex. true ou false</td>
+      <td>—</td>
+      <td>Ex.: “true” ou “false”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.Issuer</code></td>
-      <td>Nome do emissor do cartão</td>
+      <td>Nome do emissor do cartão.</td>
       <td>Texto</td>
       <td>512</td>
-      <td>Ex. “Banco da Praça” (Sujeito à mapeamento do adquirente)</td>
+      <td>Ex.: “Banco da Praça” (sujeito a mapeamento do adquirente)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.IssuerCode</code></td>
-      <td>Código do emissor do cartão</td>
+      <td>Código do emissor do cartão.</td>
       <td>Número</td>
       <td>3</td>
-      <td>Ex. 000 (Sujeito à mapeamento do adquirente)</td>
+      <td>Ex.: “000” (sujeito a mapeamento do adquirente)</td>
     </tr>
   </tbody>
 </table>
