@@ -1,19 +1,19 @@
 ---
 layout: tutorial
 title:  SDKs Braspag
-description: Lista de Sdks Api Pagador
+description: Lista de SDKs API Pagador
 toc_footers: true
 categories: tutorial
 translated: true
 sort_order: 5
 hub_visible: false
 tags:
-    - Pagador
+    - 1. API do Pagador
 ---
 
-# SDKs Pagador
+# Software Development Kits Pagador
 
-O Pagador oferece uma gama de SDKs disponiveis no Repositório oficial Github:
+O Pagador oferece uma gama de Software Development Kits (SDKs), disponíveis no repositório oficial da Braspag no Github:
 
 |SDK Mobile                                                              |
 |------------------------------------------------------------------------|
