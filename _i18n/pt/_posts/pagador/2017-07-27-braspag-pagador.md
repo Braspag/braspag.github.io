@@ -94,9 +94,9 @@ Alguns recursos importantes que oferecemos para suas transações estão listado
 
 |Termo|Descrição|
 |---|---|
-|**AntiFraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.|
-|**Autenticação**|Processo que possibilita realizar uma venda que passará por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude.|
-|**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de *token*, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como *Compra com 1 clique* e *Retentativa de envio de transação*, sempre preservando a integridade e a confidencialidade das informações.|
+|**AntiFraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.<br/>Para mais informações, consulte o manual [Antifraude](https://braspag.github.io//manual/antifraude).|
+|**Autenticação**|Processo que possibilita realizar uma venda que passará por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude. Para mais informações, consulte o manual [Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).|
+|**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de *token*, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como *Compra com 1 clique* e *Retentativa de envio de transação*, sempre preservando a integridade e a confidencialidade das informações. Para mais informações, consulte o manual [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest).|
 
 ## Suporte Braspag
 
@@ -116,7 +116,7 @@ Ao requisitar a **autorização** de uma transação de crédito, é necessário
 
 Caso a sua loja utilize os serviços de *Retentativa* ou *Loadbalance*, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, [clique aqui](https://suporte.braspag.com.br/hc/pt-br/requests/new) e envie sua requisição.
 
-Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao *AntiFraude* ou à análise do *Velocity*. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.
+Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao [AntiFraude](https://braspag.github.io//manual/antifraude) ou à análise do [Velocity](https://braspag.github.io//manual/velocity). Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.
 
 <aside class="warning">Atenção: o número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo até o final do fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
 
@@ -3646,7 +3646,7 @@ Seguem alguns exemplos de integração com as principais e-wallets disponíveis 
 
 #### Apple Pay
 
-Abaixo seguem os pré-requisitos para utilizar o Apple Pay e também o passo-a-passo para disponibilizá-la em sua loja.
+Abaixo seguem os pré-requisitos para utilizar o Apple Pay e também o passo-a-passo para disponibilizá-la em sua loja. O processo de integração também está disponível [neste link](https://braspag.github.io//manual/apple-pay).
 
 <aside class="warning">Pré-requisitos: Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um "MerchantIdentifier". Também é necessário o upload de um certificado CSR no formato PEM fornecido pela Braspag.</aside>
 
@@ -4774,9 +4774,9 @@ curl
 
 # Salvando e Reutilizando Cartões
 
-Ao contratar o *Cartão Protegido*, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token, o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
+Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
 
-<aside class="warning">Por questões de segurança, o CVV (Código de Segurança) não é tokenizado.</aside>
+<aside class="warning">Atenção: Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
 Além da geração do card token, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
 
