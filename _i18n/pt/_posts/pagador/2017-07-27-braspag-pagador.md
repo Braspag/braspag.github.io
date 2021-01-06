@@ -17,7 +17,7 @@ language_tabs:
 
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a **API do Pagador**, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e resposta.
 
-Abaixo veja a representação de um fluxo transacional padrão e uma pequena descrição das principais partes envolvidas:
+Abaixo veja a representação de um **fluxo transacional** padrão seguida de uma pequena descrição das principais partes envolvidas:
 
 ![Fluxo Transacional]({{ site.baseurl_root }}/images/fluxo-transacional.jpg)
 
