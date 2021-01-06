@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title:  Módulo Magento 2.0 Webjump
-description: Como Integrar sua loja Magento com o módulo de pagamentos Braspag na Webjump
+description: Como Integrar sua Loja Magento com o Módulo de Pagamentos Braspag na Webjump
 toc_footers: true
 categories: tutorial
 translated: true
@@ -10,7 +10,7 @@ tags:
   - 1. API do Pagador
 ---
 
-# Preparação para Instalação
+# Preparação Pré-Instalação
 
 * Faça sempre um backup de sua loja antes de iniciar a instalação do módulo.
 * **Nunca** realize testes em módulos no seu ambiente de produção.
@@ -37,7 +37,7 @@ Para utilizar o módulo, o servidor deve conter os seguintes componentes PHP:
 9. Cadastre o número de série enviado para o e-mail selecionado no campo apropriado.
 10. Acesse as abas de opções da integração que será utilizada em sua loja (`Transacion`, `Post Index` ou `Post Passthrough`) e faça as devidas configurações.
 
-# Importante
+# IMPORTANTE
 
 * Não se esqueça de solicitar a liberação do endereço IP do seu servidor junto à Braspag.
 * Para utilizar o recurso de confirmação automática do pagamento de boleto e cartão de débito (recurso 2.o post), é necessário solicitar a configuração da URL na Braspag. O endereço está disponível em `Sistema` > `Configuração` > `Braspag by Webjump` > `Payment - General Configuration` > `Status Update`.
