@@ -1,18 +1,18 @@
 ---
 layout: manual
-title: Manual de integração Cartão Protegido
-description: Integração técnica Tokenização via REST API Braspag
+title: Manual de Integração Cartão Protegido
+description: Integração Técnica de Tokenização via REST API Braspag
 search: true
 translated: true
 categories: manual
 tags:
-  - Cartão Protegido
+  - 2. Cartão Protegido
 language_tabs:
   json: JSON
   shell: cURL
 ---
 
-# O que é Cartão Protegido?
+# O Que é Cartão Protegido?
 
 O **Cartão Protegido** é uma plataforma que permite o armazenamento seguro de cartões de crédito e débito. Contamos com ambiente totalmente certificado pelo respeitado conselho de padrão de segurança PCI Security Standards Council, que assegura que a Braspag segue plenamente os rígidos requisitos e normas determinadas pelo mesmo.
 
