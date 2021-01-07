@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Autenticação via SDK Android
+title: Integração via SDK Android
 description: Integração Técnica Gateway Braspag
 search: true
 translated: true
