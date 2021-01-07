@@ -1,14 +1,14 @@
 ---
 layout: tutorial
-title:  SDKs Braspag
+title:  SDKs Pagador Braspag
 description: Lista de SDKs API Pagador
 toc_footers: true
 categories: tutorial
 translated: true
-sort_order: 5
+sort_order: 7
 hub_visible: false
 tags:
-    - 1. API do Pagador
+    - 1. Pagador
 ---
 
 # Software Development Kits - Pagador
