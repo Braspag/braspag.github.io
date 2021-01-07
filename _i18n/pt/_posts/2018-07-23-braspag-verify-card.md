@@ -5,8 +5,9 @@ description: Integração Técnica Gateway Braspag
 search: true
 translated: true
 categories: manual
+sort_order: 3
 tags:
-  - 1. API do Pagador
+  - 1. Pagador
 language_tabs:
   json: JSON
   shell: cURL
