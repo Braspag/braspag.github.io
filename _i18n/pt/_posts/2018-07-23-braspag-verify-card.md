@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de Integração Verify Card
+title: Manual de Integração - Verify Card
 description: Integração Técnica Gateway Braspag
 search: true
 translated: true
