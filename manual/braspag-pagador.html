@@ -1282,7 +1282,7 @@ curl
 
 <p>Uma transação com cartão de débito se efetua de forma semelhante à com cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.</p>
 
-<h4 id="requisição-1">Requisição</h4>
+<h5 id="requisição-1">Requisição</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">  
@@ -1429,7 +1429,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="resposta-1">Resposta</h4>
+<h5 id="resposta-1">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1592,7 +1592,7 @@ curl
 <p>É possível processar um cartão de débito sem a necessidade de submeter o comprador ao processo de autenticação. Confira o artigo <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360013285531">Débito sem Senha (Autenticação)</a> para mais detalhes a respeito desse tipo de transação.
 Este é o caso do auxílio emergencial “Coronavoucher”, disponibilizado pelo governo, que pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém <strong>sem autenticação</strong>, conforme o exemplo abaixo.</p>
 
-<h4 id="requisição-2">Requisição</h4>
+<h5 id="requisição-2">Requisição</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">  
@@ -1726,7 +1726,7 @@ Este é o caso do auxílio emergencial “Coronavoucher”, disponibilizado pelo
   </tbody>
 </table>
 
-<h4 id="resposta-2">Resposta</h4>
+<h5 id="resposta-2">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -2904,7 +2904,7 @@ curl
   </tbody>
 </table>
 
-<h3 id="pagamentos-com-dcc-conversor-de-moedas">Pagamentos com DCC (Conversor de Moedas)</h3>
+<h3 id="utilizando-o-dcc-conversor-de-moedas">Utilizando o DCC (Conversor de Moedas)</h3>
 
 <p>O DCC (Dynamic Currency Conversion) é um conversor de moedas da adquirente <strong>Global Payments</strong> que permite que o portador de um cartão estrangeiro escolha entre pagar em reais ou em sua moeda local, convertendo o valor do pedido no momento da compra com total transparência para o comprador.
 A solução é indicada para estabelecimentos que recebem pagamentos com cartões emitidos no exterior como hotéis, pousadas, polos comerciais e comércios em pontos turísticos.</p>
@@ -4720,7 +4720,7 @@ curl
 
 <p>Abaixo, um exemplo de requisição padrão para integração da e-wallet:</p>
 
-<h4 id="requisição-padrão">Requisição Padrão</h4>
+<h4 id="requisição-12">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -5189,7 +5189,7 @@ curl
 
 <p>O segundo passo da integração deverá efetivar o fluxo de autorização via gateway da Braspag (Pagador). Para isso, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive <code class="language-plaintext highlighter-rouge">WalletKey</code> e <code class="language-plaintext highlighter-rouge">EphemeralPublicKey</code>.</p>
 
-<h5 id="requisição-12">Requisição</h5>
+<h5 id="requisição-13">Requisição</h5>
 
 <p>Exemplo de requisição padrão Apple Pay:</p>
 
@@ -5492,7 +5492,7 @@ curl
 
 <aside class="warning">É necessário que a loja já possua cadastro e integração Samsung Pay, caso contrário não será possível a integração com a API.</aside>
 
-<h5 id="requisição-13">Requisição</h5>
+<h5 id="requisição-14">Requisição</h5>
 
 <p>Exemplo de requisição padrão Samsung Pay:</p>
 
@@ -5783,7 +5783,7 @@ curl
 
 <aside class="warning">É necessário que a loja já possua cadastro e integração Android Pay, caso contrário não será possível a integração com a API.</aside>
 
-<h5 id="requisição-14">Requisição</h5>
+<h5 id="requisição-15">Requisição</h5>
 
 <p>Exemplo de requisição padrão Android Pay:</p>
 
@@ -6084,7 +6084,7 @@ curl
 
 <p>Para utilizar o MasterPass é necessária a contratação do serviço através do contato diretamente com a Mastercard, selecionando a Braspag como <em>service provider</em>.</p>
 
-<h5 id="requisição-15">Requisição</h5>
+<h5 id="requisição-16">Requisição</h5>
 
 <p>Exemplo de requisição padrão Master-Pass:</p>
 
@@ -6368,7 +6368,7 @@ curl
 
 <p>Para utilizar o Visa Checkout é necessária a contratação do serviço através do contato diretamente com a Visa.</p>
 
-<h5 id="requisição-16">Requisição</h5>
+<h5 id="requisição-17">Requisição</h5>
 
 <p>Exemplo de requisição padrão Visa Checkout:</p>
 
@@ -6651,7 +6651,7 @@ curl
 <p>Uma transação com cartão voucher se efetua de forma semelhante à com cartão de débito; porém, sem o processo de autenticação.
 Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modalidade.</p>
 
-<h4 id="requisição-17">Requisição</h4>
+<h4 id="requisição-18">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -6968,7 +6968,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>Os parâmetros <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> e <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code>, marcados com um * na coluna de obrigatoriedade, não devem ser utilizados em conjunto.</p>
 
-<h4 id="requisição-18">Requisição</h4>
+<h4 id="requisição-19">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7291,7 +7291,7 @@ curl
 
 <p>Entre em contato com o <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">time de suporte</a> para definir em quantos dias você quer que seus boletos gerados via recorrência vençam.</p>
 
-<h4 id="requisição-19">Requisição</h4>
+<h4 id="requisição-20">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7608,7 +7608,7 @@ curl
 
 <p>Para programar a primeira transação da série de recorrências, passe o parâmetro <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> como “false” e adicione o parâmetro <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code>.</p>
 
-<h4 id="requisição-20">Requisição</h4>
+<h4 id="requisição-21">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7922,7 +7922,7 @@ curl
 
 <p>Para alterar os dados do comprador em uma recorrência já existente, basta fazer um PUT conforme o exemplo.</p>
 
-<h4 id="requisição-21">Requisição</h4>
+<h4 id="requisição-22">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -8199,7 +8199,7 @@ HTTP Status 200
 
 <p>Para alterar a data final da recorrência já existente, basta fazer um PUT conforme o exemplo.</p>
 
-<h4 id="requisição-22">Requisição</h4>
+<h4 id="requisição-23">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -8283,7 +8283,7 @@ HTTP Status 200
 
 <p>Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT conforme o exemplo:</p>
 
-<h4 id="requisição-23">Requisição</h4>
+<h4 id="requisição-24">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -8373,7 +8373,7 @@ HTTP Status 200
 
 <p><br />Para modificar o dia de vencimento de uma recorrência já existente, basta fazer um PUT conforme o exemplo:</p>
 
-<h4 id="requisição-24">Requisição</h4>
+<h4 id="requisição-25">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -8459,7 +8459,7 @@ HTTP Status 200
 
 <aside class="warning">Essa alteração só afeta a data de pagamento da recorrência seguinte.</aside>
 
-<h4 id="requisição-25">Requisição</h4>
+<h4 id="requisição-26">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -8545,7 +8545,7 @@ HTTP Status 200
 
 <aside class="warning">Esta operação modifica somente a data do pagamento seguinte, ou seja, as recorrências futuras permanecerão com as características originais.</aside>
 
-<h4 id="requisição-26">Requisição</h4>
+<h4 id="requisição-27">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -8639,7 +8639,7 @@ HTTP Status 200
 
 <aside class="warning">Atenção: Essa alteração afeta a todos os dados do nó "Payment". Então, para manter os dados anteriores, você deve informar os campos que não deverão sofrer alterações com os mesmos valores que já estavam salvos.</aside>
 
-<h4 id="requisição-27">Requisição</h4>
+<h4 id="requisição-28">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -8863,7 +8863,7 @@ curl
 
 <p>Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:</p>
 
-<h4 id="requisição-28">Requisição</h4>
+<h4 id="requisição-29">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
@@ -8932,7 +8932,7 @@ curl
 
 <p>Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:</p>
 
-<h4 id="requisição-29">Requisição</h4>
+<h4 id="requisição-30">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -9155,7 +9155,7 @@ HTTP Status 200
 
 <p>Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> como “true” na requisição padrão de autorização.</p>
 
-<h3 id="requisição-30">Requisição</h3>
+<h3 id="requisição-31">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -9505,13 +9505,13 @@ curl
   </tbody>
 </table>
 
-<h2 id="criando-uma-tansação-com-card-token">Criando uma Tansação com Card Token</h2>
+<h2 id="criando-uma-transação-com-card-token">Criando uma Transação com Card Token</h2>
 
 <p>Este é um exemplo de como utilizar o <em>card token</em>, previamente salvo, para criar uma transação. Por questões de segurança, um card token não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como <em>recorrente</em>, você poderá submeter transações sem o CVV.</p>
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> será alterado conforme exemplo a seguir:</p>
 
-<h4 id="requisição-31">Requisição</h4>
+<h4 id="requisição-32">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -9817,7 +9817,7 @@ curl
 
 <p>Este é um exemplo de como utilizar o <em>Alias</em>, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como <em>recorrente</em>, você poderá submeter transações sem o CVV.</p>
 
-<h4 id="requisição-32">Requisição</h4>
+<h4 id="requisição-33">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -10185,13 +10185,13 @@ curl
   <li><code class="language-plaintext highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> igual a “false”.</li>
 </ul>
 
-<h2 id="criando-uma-transação-com-análise-de-fraude-cybersource">Criando uma Transação com Análise de Fraude Cybersource</h2>
+<h2 id="implementando-a-análise-cybersource">Implementando a Análise Cybersource</h2>
 
 <p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós <code class="language-plaintext highlighter-rouge">FraudAnalysis</code>, <code class="language-plaintext highlighter-rouge">Cart</code>, <code class="language-plaintext highlighter-rouge">MerchantDefinedFields</code> e <code class="language-plaintext highlighter-rouge">Travel</code> (somente para venda de passagens aéreas).</p>
 
 <p>Durante implantação do Cybersource, informações adicionais podem ser armazenadas através de MDDs (Merchand Defined Data), que são campos numerados de 0 a N utilizados para armazenar informações exclusivas do merchant. Confira <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral">este artigo</a> com detalhes sobre o preenchimento desses campos.</p>
 
-<h3 id="requisição-33">Requisição</h3>
+<h3 id="requisição-34">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -12223,7 +12223,7 @@ curl
   </tbody>
 </table>
 
-<h2 id="configuração-do-fingerprint">Configuração do Fingerprint</h2>
+<h2 id="configurando-o-fingerprint">Configurando o Fingerprint</h2>
 
 <p>Importante componente da análise de fraude, o <em>fingerprint</em> é um script (em Javascript) que deve ser inserido no seu site para capturar dados importantes do dispositivo utilizado pelo comprador, como IP da máquina, versão do browser e sistema operacional utilizados.
 Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo fingerprint complementam a análise e garantem que sua loja esteja mais protegida.</p>
@@ -12282,7 +12282,7 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
 
 <h1 id="consultas">Consultas</h1>
 
-<p>As formas de consultar uma transação ou venda dependem do seu tempo de vida, como especificado na tabela abaixo:</p>
+<p>As formas de consultar uma transação ou venda dependem de quanto tempo tem de vida, como especificado na tabela abaixo:</p>
 
 <table>
   <thead>
@@ -12310,13 +12310,15 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
 <h2 id="consultando-uma-transação-via-paymentid">Consultando uma Transação via PaymentID</h2>
 
 <p>Para que o nó <code class="language-plaintext highlighter-rouge">Chargeback</code> esteja contido no retorno, a Braspag deverá passar a receber os chargebacks da sua loja. Você poderá então acatar ou contestar as operações, acompanhando os resultados das contestações no Painel Admin Braspag. Através do Post de Notificação, sua loja poderá ser informada da transação que sofreu o chargeback.
-As operações contidas no painel Admin Braspag também estão disponíveis na <a href="https://braspag.github.io//manual/risknotification">API Risk Notification</a>.</p>
+As operações contidas no Painel Admin Braspag também estão disponíveis na <a href="https://braspag.github.io//manual/risknotification">API Risk Notification</a>.</p>
 
-<p>Para que o nó <code class="language-plaintext highlighter-rouge">FraudAlert</code> esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no painel Admin Braspag. Através do Post de Notificação, a sua loja irá ser informada da transação que sofreu o alerta de fraude.</p>
+<p>Para que o nó <code class="language-plaintext highlighter-rouge">FraudAlert</code> esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no Painel Admin Braspag. Através do Post de Notificação, a sua loja irá ser informada da transação que sofreu o alerta de fraude.</p>
+
+<h3 id="consultando-uma-transação-de-cartão-de-crédito-via-paymentid">Consultando uma Transação de Cartão de Crédito via PaymentID</h3>
 
 <p>Para consultar uma transação de cartão de crédito, é necessário o envio de mensagem HTTP através do método GET para o recurso <em>Payment</em>, conforme o exemplo:</p>
 
-<h3 id="requisição-34">Requisição</h3>
+<h4 id="requisição-35">Requisição</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -12372,7 +12374,7 @@ As operações contidas no painel Admin Braspag também estão disponíveis na <
   </tbody>
 </table>
 
-<h3 id="resposta-36">Resposta</h3>
+<h4 id="resposta-36">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -13081,11 +13083,11 @@ As operações contidas no painel Admin Braspag também estão disponíveis na <
   </tbody>
 </table>
 
-<h2 id="consultando-uma-transação-de-boleto-via-paymentid">Consultando uma Transação de Boleto via PaymentID</h2>
+<h3 id="consultando-uma-transação-de-boleto-via-paymentid">Consultando uma Transação de Boleto via PaymentID</h3>
 
 <p>Para consultar uma transação de boleto registrado, é necessário o envio de mensagem HTTP do método GET para o recurso <em>Payment</em>, conforme o exemplo:</p>
 
-<h3 id="requisição-35">Requisição</h3>
+<h4 id="requisição-36">Requisição</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -13141,7 +13143,7 @@ As operações contidas no painel Admin Braspag também estão disponíveis na <
   </tbody>
 </table>
 
-<h3 id="resposta-37">Resposta</h3>
+<h4 id="resposta-37">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -13617,7 +13619,7 @@ As operações contidas no painel Admin Braspag também estão disponíveis na <
 
 <p>Para consultar uma venda pelo identificador da loja, é necessário o envio de mensagem HTTP do método GET para o recurso <em>/sales</em>, conforme o exemplo:</p>
 
-<h3 id="requisição-36">Requisição</h3>
+<h3 id="requisição-37">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -13733,7 +13735,7 @@ As operações contidas no painel Admin Braspag também estão disponíveis na <
 
 <p>Para consultar um pedido de recorrência, é necessário o envio de mensagem HTTP do método GET conforme o exemplo:</p>
 
-<h3 id="requisição-37">Requisição</h3>
+<h3 id="requisição-38">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
