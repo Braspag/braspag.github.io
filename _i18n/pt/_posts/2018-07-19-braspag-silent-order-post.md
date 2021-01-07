@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de Integração Silent Order Post
+title: Manual de Integração - Silent Order Post
 description: Integração Técnica Gateway Braspag
 search: true
 translated: true
