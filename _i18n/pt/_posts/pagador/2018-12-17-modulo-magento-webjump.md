@@ -5,9 +5,9 @@ description: Como Integrar sua Loja Magento com o Módulo de Pagamentos Braspag 
 toc_footers: true
 categories: tutorial
 translated: true
-sort_order: 5
+sort_order: 6
 tags:
-  - 1. API do Pagador
+  - 1. Pagador
 ---
 
 # Preparação Pré-Instalação
