@@ -1,12 +1,12 @@
 ---
 layout: manual
-title: 2.2. SDK Android
-description: Integração técnica Gateway Braspag
+title: Autenticação via SDK Android
+description: Integração Técnica Gateway Braspag
 search: true
 translated: true
 categories: manual
 tags:
-  - Autenticação 3DS 2.0
+  - 4. EMV 3DS (3DS 2.0)
 ---
 
 # O que é 3DS 2.0?
