@@ -1,11 +1,11 @@
 ---
 layout: manual
-title: Split de Pagamentos - Cielo E-Commerce
+title: Split de Pagamentos - 3.0 Cielo
 description: Manual de Integração do Split de Pagamentos
 search: true
 toc_footers: false
 categories: manual
-sort_order: 3
+sort_order: 1
 hub_visible: false
 tags:
   - 5. Soluções para Marketplace
