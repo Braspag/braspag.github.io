@@ -1,12 +1,12 @@
 ---
 layout: manual
-title: 3. Autorização com Autenticação
-description: Integração técnica Gateway Braspag
+title: Autorização com Autenticação
+description: Integração Técnica Gateway Braspag
 search: true
 translated: true
 categories: manual
 tags:
-  - Autenticação 3DS 2.0
+  - 4. EMV 3DS (3DS 2.0)
 language_tabs:
   json: JSON
   shell: cURL
@@ -14,12 +14,12 @@ language_tabs:
 
 # Autorização com Autenticação
 
-Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó **ExternalAuthentication** ).
+Após a autenticação do emissor do cartão ser concluída, submete-se a transação ao processo de autorização, enviando os dados de autenticação no modelo de "autenticação externa" (nó `ExternalAuthentication`).
 Este procedimento é válido também para estabelecimentos que realizaram a autenticação fora da Cielo (MPI Externo).
 
-Para maiores detalhes sobre o processo de autenticação 3DS 2.0, acesse:[https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?](https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)
+Para maiores detalhes sobre o processo de autenticação 3DS 2.0, [acesse aqui](https://braspag.github.io//manualp/emv3ds) o manual da solução.
 
-Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Pagador:
+Veja abaixo um exemplo de envio de dados de autenticação da requisição de autorização da API Pagador, utilizando o método POST:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales</span></aside>
 
@@ -96,28 +96,28 @@ curl
 }
 ```
 
-| **Campo** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| Campo | Descrição | Tipo/Tamanho | Obrigatório |
 | --- | --- | --- | --- |
-| Payment.Authenticate | Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão | Booleano (true ou false) | Sim, quando a autenticação foi um sucesso |
-| Payment.ExternalAuthentication.ReturnUrl | URL de Retorno aplicável somente se a versão for &quot;1&quot; | Alfanumérico [1024 posições] | Sim |
-| Payment.ExternalAuthentication.Cavv | Assinatura que é retornada nos cenários de sucesso na autenticação | Texto | Sim, quando a autenticação foi um sucesso |
-| Payment.ExternalAuthentication.Xid | XID retornado no processo de autenticação | Texto | Sim, quando a versão do 3DS for &quot;1&quot; |
-| Payment.ExternalAuthentication.Eci | E-Commerce Indicator retornado no processo de autenticação | Numérico [1 posição] | Sim |
-| Payment.ExternalAuthentication.Version | Versão do 3DS utilizado no processo de autenticação | Alfanumérico [1 posição] | Sim, quando a versão do 3DS for &quot;2&quot; |
-| Payment.ExternalAuthentication.ReferenceID | RequestID retornado no processo de autenticação | GUID [36 posições] | Sim, quando a versão do 3DS for &quot;2&quot; |
+| Payment.Authenticate | Define se o comprador será direcionado ao emissor para autenticação do cartão. | Booleano ("true" / "false") | Sim, caso a autenticação seja validada. |
+| Payment.ExternalAuthentication.ReturnUrl | URL de retorno aplicável somente se a versão for "1". | Alfanumérico / 1024 posições | Sim |
+| Payment.ExternalAuthentication.Cavv | Assinatura retornada nos cenários de sucesso na autenticação. | Texto | Sim, caso a autenticação seja validada. |
+| Payment.ExternalAuthentication.Xid | XID retornado no processo de autenticação. | Texto | Sim, quando a versão do 3DS for "1".|
+| Payment.ExternalAuthentication.Eci | *Electronic Commerce Indicator* retornado no processo de autenticação. | Numérico / 1 posição | Sim |
+| Payment.ExternalAuthentication.Version | Versão do 3DS utilizado no processo de autenticação. | Alfanumérico / 1 posição | Sim, quando a versão do 3DS for "2".|
+| Payment.ExternalAuthentication.ReferenceID | RequestID retornado no processo de autenticação. | GUID / 36 posições | Sim, quando a versão do 3DS for "2". |
 
 ### Response
 
-Vide https://braspag.github.io/manual/braspag-pagador
+Consulte o [Manual do Pagador](https://braspag.github.io/manual/braspag-pagador) para exemplos detalhados de response de autorização com autenticação.
 
 # Tabela de ECI
 
-| **Bandeira** | **ECI** | **Significado da Transação** |
+| Bandeira | ECI | Significado da Transação |
 | --- | --- | --- |
-| Visa | 06 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
-| Visa | 05 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
-| Visa | Diferente de 05 e 06 | Não autenticada – risco de chargeback permanece com o estabelecimento |
-| Mastercard | 01 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
-| Mastercard | 02 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
-| Mastercard | 04 | Não autenticada, transação caracterizada como Data Only – risco de chargeback permanece com o estabelecimento |
-| Mastercard | Diferente de  01, 02 e 04 | Não autenticada – risco de chargeback permanece com o estabelecimento |
+| Visa | 06 | Autenticada pela bandeira – risco de chargeback passa a ser do emissor. |
+| Visa | 05 | Autenticada pelo emissor – risco de chargeback passa a ser do emissor. |
+| Visa | Diferente de 05 e 06 | Não autenticada – risco de chargeback permanece com o estabelecimento. |
+| Mastercard | 01 | Autenticada pela bandeira – risco de chargeback passa a ser do emissor. |
+| Mastercard | 02 | Autenticada pelo emissor – risco de chargeback passa a ser do emissor. |
+| Mastercard | 04 | Não autenticada, transação caracterizada como *Data Only* – risco de chargeback permanece com o estabelecimento. |
+| Mastercard | Diferente de  01, 02 e 04 | Não autenticada – risco de chargeback permanece com o estabelecimento. |
