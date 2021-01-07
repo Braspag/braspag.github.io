@@ -1,14 +1,14 @@
 ---
 layout: manual
-title: Split de Pagamentos - Pagador
-description: Manual integração do Split de Pagamentos
+title: Split de Pagamentos - Braspag E-Commerce
+description: Manual Integração do Split de Pagamentos
 search: true
 toc_footers: false
 categories: manual
 sort_order: 4
 hub_visible: false
 tags:
-  - Soluções para Marketplace
+  - 5. Soluções para Marketplace
 ---
 
 # Split de Pagamentos
