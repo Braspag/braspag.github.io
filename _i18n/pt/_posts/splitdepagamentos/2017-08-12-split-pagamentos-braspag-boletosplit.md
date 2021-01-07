@@ -1,14 +1,14 @@
 ---
 layout: manual
 title: Manual Boleto Braspag
-description: Manual Integracao do Boleto Braspag
+description: Manual de Integração do Boleto Braspag
 search: true
 toc_footers: false
 categories: manual
 sort_order: 7
 hub_visible: false
 tags:
-  - Soluções para Marketplace
+  - 5. Soluções para Marketplace
 ---
 
 # Boleto Braspag
