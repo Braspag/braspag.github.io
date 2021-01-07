@@ -1,17 +1,20 @@
 ---
 layout: manual
-title: Manual de Utilização
-description: Como utilizar o POS-Virtual Braspag
+title: Manual de Utilização do POS
+description: Como Utilizar o POS-Virtual Braspag
 search: true
 categories: manual
 translated: true
 tags:
-  - POS-Virtual
+  - 7. POS Virtual
 ---
+# POS Virtual
+
+O POS Virtual é uma plataforma da Braspag destinada a lojistas que necessitam realizar vendas digitadas (ex.: operação de call center, empresas do segmento de turismo, etc), sem a necessidade do desenvolvimento de uma loja virtual. Você pode executar todo gerenciamento de suas vendas apenas acessando o Painel Administrativo Braspag.
 
 # Criar Grupos
 
-É necessário criar pelo menos um grupo para que as vendas sejam realizadas no POS Virtual. O grupo determina quais são as pemissões que um determinado operador possui.
+É necessário criar pelo menos um grupo para que as vendas sejam realizadas no POS Virtual. O grupo determina quais são as permissões que um determinado operador possui.
 
 Para criar um grupo, acesse Configurações > Grupos, e preencha corretamente os campos identificados abaixo:
 
