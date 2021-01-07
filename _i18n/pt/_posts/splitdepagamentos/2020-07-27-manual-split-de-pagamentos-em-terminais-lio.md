@@ -1,14 +1,14 @@
 ---
 layout: manual
-title: Manual Split de Pagamentos em terminais LIO
-description: Manual integração do Split de Pagamentos em terminais LIO
+title: Split de Pagamentos - Cielo LIO
+description: Manual de Integração do Split de Pagamentos em Terminais LIO
 search: true
 toc_footers: false
 categories: manual
-sort_order: 6
+sort_order: 4
 hub_visible: false
 tags:
-  - Soluções para Marketplace
+  - 5. Soluções para Marketplace
 ---
 
 # Split de Pagamentos - Cielo LIO
