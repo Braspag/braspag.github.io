@@ -577,7 +577,7 @@ curl
 
 Uma transação com cartão de débito se efetua de forma semelhante à com cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.
 
-##### Requisição
+#### Requisição
 
 ```json
 
@@ -655,7 +655,7 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 
-##### Resposta
+#### Resposta
 
 ```json
 
@@ -738,12 +738,12 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).|Texto|512|Ex.: Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação.|Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
-#### Criando uma Transação de Débito sem Autenticação
+### Criando uma Transação de Débito sem Autenticação
 
 É possível processar um cartão de débito sem a necessidade de submeter o comprador ao processo de autenticação. Confira o artigo [Débito sem Senha (Autenticação)](https://suporte.braspag.com.br/hc/pt-br/articles/360013285531) para mais detalhes a respeito desse tipo de transação.
 Este é o caso do auxílio emergencial "Coronavoucher", disponibilizado pelo governo, que pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém **sem autenticação**, conforme o exemplo abaixo. 
 
-##### Requisição
+#### Requisição
 
 ```json
 
@@ -814,7 +814,7 @@ Este é o caso do auxílio emergencial "Coronavoucher", disponibilizado pelo gov
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`DebitCard.Brand`|Bandeira do cartão. Para este tipo de transação, sempre "Elo".|Texto|10|Sim|
 
-##### Resposta
+#### Resposta
 
 ```json
 
