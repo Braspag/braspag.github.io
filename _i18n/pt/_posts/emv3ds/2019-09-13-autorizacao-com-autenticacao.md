@@ -5,6 +5,7 @@ description: Integração Técnica Gateway Braspag
 search: true
 translated: true
 categories: manual
+sort_order: 5
 tags:
   - 4. EMV 3DS (3DS 2.0)
 language_tabs:
