@@ -1,11 +1,11 @@
 ---
 layout: manual
 title: Manual de Arquivos
-description: Integração técnica
+description: Integração Técnica
 search: true
 categories: manual
 tags:
-  - Conciliador
+  - 6. Conciliador
 language_tabs:
   xml: XML
 ---
