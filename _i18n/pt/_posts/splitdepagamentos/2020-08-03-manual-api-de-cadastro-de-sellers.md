@@ -1,14 +1,14 @@
 ---
 layout: manual
-title: Manual API de Cadastro de Sellers
+title: Split de Pagamentos - Cadastro de Sellers
 description: Split de Pagamentos - Onboarding
 search: true
 toc_footers: false
 categories: manual
-sort_order: 5
+sort_order: 3
 hub_visible: false
 tags:
-  - Soluções para Marketplace
+  - 5. Soluções para Marketplace
 ---
 
 # Split de Pagamentos - Onboarding
