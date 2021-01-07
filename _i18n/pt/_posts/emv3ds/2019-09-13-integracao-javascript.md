@@ -1,12 +1,12 @@
 ---
 layout: manual
-title: 2.1. Integração via Javascript
+title: Integração via Javascript
 description: Integração técnica Gateway Braspag
 search: true
 translated: true
 categories: manual
 tags:
-  - Autenticação 3DS 2.0
+  - 4. EMV 3DS (3DS 2.0)
 language_tabs:
   json: JSON
   shell: cURL
@@ -14,7 +14,7 @@ language_tabs:
 
 # O que é 3DS 2.0?
 
-Para maiores detalhes sobre o 3DS 2.0, acesse:[https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?](https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)
+Para maiores detalhes sobre o 3DS 2.0, consulte o [Manual 3DS 2.0](https://braspag.github.io//manualp/emv3ds).
 
 # Passo 1 - Solicitação de Token de Acesso
 
