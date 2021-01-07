@@ -577,7 +577,7 @@ curl
 
 Uma transação com cartão de débito se efetua de forma semelhante à com cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.
 
-#### Requisição
+##### Requisição
 
 ```json
 
@@ -655,7 +655,7 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 
-#### Resposta
+##### Resposta
 
 ```json
 
@@ -743,7 +743,7 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 É possível processar um cartão de débito sem a necessidade de submeter o comprador ao processo de autenticação. Confira o artigo [Débito sem Senha (Autenticação)](https://suporte.braspag.com.br/hc/pt-br/articles/360013285531) para mais detalhes a respeito desse tipo de transação.
 Este é o caso do auxílio emergencial "Coronavoucher", disponibilizado pelo governo, que pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém **sem autenticação**, conforme o exemplo abaixo. 
 
-#### Requisição
+##### Requisição
 
 ```json
 
@@ -814,7 +814,7 @@ Este é o caso do auxílio emergencial "Coronavoucher", disponibilizado pelo gov
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`DebitCard.Brand`|Bandeira do cartão. Para este tipo de transação, sempre "Elo".|Texto|10|Sim|
 
-#### Resposta
+##### Resposta
 
 ```json
 
@@ -1548,7 +1548,7 @@ No caso da rejeição pela regra de Velocity, o *ProviderReasonCode* será "BP 1
 |`VelocityAnalysis.RejectReasons.RuleId`|Código da regra que rejeitou.|Número|10|
 |`VelocityAnalysis.RejectReasons.Message`|Descrição da regra que rejeitou.|Texto|512|
 
-### Pagamentos com DCC (Conversor de Moedas)
+### Utilizando o DCC (Conversor de Moedas)
 
 O DCC (Dynamic Currency Conversion) é um conversor de moedas da adquirente **Global Payments** que permite que o portador de um cartão estrangeiro escolha entre pagar em reais ou em sua moeda local, convertendo o valor do pedido no momento da compra com total transparência para o comprador.
 A solução é indicada para estabelecimentos que recebem pagamentos com cartões emitidos no exterior como hotéis, pousadas, polos comerciais e comércios em pontos turísticos.
@@ -2531,7 +2531,7 @@ O Pagador possui suporte para as seguintes carteiras digitais:
 
 Abaixo, um exemplo de requisição padrão para integração da e-wallet:
 
-#### Requisição Padrão
+#### Requisição
 
 ```json
 {
@@ -4996,7 +4996,7 @@ curl
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).|Texto|512|Transação Aprovada|
 |`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-## Criando uma Tansação com Card Token
+## Criando uma Transação com Card Token
 
 Este é um exemplo de como utilizar o *card token*, previamente salvo, para criar uma transação. Por questões de segurança, um card token não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como *recorrente*, você poderá submeter transações sem o CVV.
 
@@ -5391,7 +5391,7 @@ Caso não seja especificado durante a autorização, a Braspag irá processar su
 * `FraudAnalysis.VoidOnHighRisk` igual a "false",
 * `FraudAnalysis.CaptureOnLowRisk` igual a "false". 
 
-## Criando uma Transação com Análise de Fraude Cybersource
+## Implementando a Análise Cybersource
 
 Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós `FraudAnalysis`, `Cart`, `MerchantDefinedFields` e `Travel` (somente para venda de passagens aéreas).
 
@@ -6359,7 +6359,7 @@ curl
 |`Payment.ProviderReturnCode`|Código retornado pela adquirente ou emissor.|Texto|
 |`Payment.ProviderReturnMessage`|Mensagem retornada pela adquirente ou emissor.|Texto|
 
-## Configuração do Fingerprint
+## Configurando o Fingerprint
 
 Importante componente da análise de fraude, o *fingerprint* é um script (em Javascript) que deve ser inserido no seu site para capturar dados importantes do dispositivo utilizado pelo comprador, como IP da máquina, versão do browser e sistema operacional utilizados.
 Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo fingerprint complementam a análise e garantem que sua loja esteja mais protegida.
@@ -6402,7 +6402,7 @@ As variáveis, após devidamente preenchidas, fornecem uma URL semelhante ao exe
 
 # Consultas
 
-As formas de consultar uma transação ou venda dependem do seu tempo de vida, como especificado na tabela abaixo:
+As formas de consultar uma transação ou venda dependem de quanto tempo tem de vida, como especificado na tabela abaixo:
 
 |TEMPO DE VIDA|FORMA DE CONSULTA|
 |---|---|
@@ -6413,13 +6413,15 @@ As formas de consultar uma transação ou venda dependem do seu tempo de vida, c
 ## Consultando uma Transação via PaymentID
 
 Para que o nó `Chargeback` esteja contido no retorno, a Braspag deverá passar a receber os chargebacks da sua loja. Você poderá então acatar ou contestar as operações, acompanhando os resultados das contestações no Painel Admin Braspag. Através do Post de Notificação, sua loja poderá ser informada da transação que sofreu o chargeback.
-As operações contidas no painel Admin Braspag também estão disponíveis na [API Risk Notification](https://braspag.github.io//manual/risknotification).
+As operações contidas no Painel Admin Braspag também estão disponíveis na [API Risk Notification](https://braspag.github.io//manual/risknotification).
 
-Para que o nó `FraudAlert` esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no painel Admin Braspag. Através do Post de Notificação, a sua loja irá ser informada da transação que sofreu o alerta de fraude.
+Para que o nó `FraudAlert` esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no Painel Admin Braspag. Através do Post de Notificação, a sua loja irá ser informada da transação que sofreu o alerta de fraude.
+
+### Consultando uma Transação de Cartão de Crédito via PaymentID
 
 Para consultar uma transação de cartão de crédito, é necessário o envio de mensagem HTTP através do método GET para o recurso *Payment*, conforme o exemplo:
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -6441,7 +6443,7 @@ curl
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
 |`PaymentId`|Número de identificação do pagamento. |Texto |36 |Sim|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -6721,11 +6723,11 @@ curl
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|---|
 |`CreditCard.SaveCard`|Identifica se o cartão será salvo para gerar o token (*CardToken*).|Booleano|---|true / false (default)|
 
-## Consultando uma Transação de Boleto via PaymentID
+### Consultando uma Transação de Boleto via PaymentID
 
 Para consultar uma transação de boleto registrado, é necessário o envio de mensagem HTTP do método GET para o recurso *Payment*, conforme o exemplo:
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -6747,7 +6749,7 @@ curl
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
 |`PaymentId`|Número de identificação do pagamento. |GUID |36 |Sim|
 
-### Resposta
+#### Resposta
 
 ```json
 {
