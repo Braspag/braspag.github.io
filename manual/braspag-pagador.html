@@ -328,6 +328,8 @@
 
 <p>A API do Pagador trabalha com transações referentes às seguintes formas de pagamento: cartão de crédito, cartão de débito, boleto bancário, transferência eletrônica, e-wallet e voucher.</p>
 
+<p>Para evitar que a duplicidade de pedidos ocorra durante uma transação, o Pagador possui a opção de bloqueio de pedidos duplicados que, quando habilitado, retorna o código de erro “302”, informando que o <code class="language-plaintext highlighter-rouge">MerchantOrderId</code> enviado está duplicado. Para saber mais detalhes sobre essa feature, consulte <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360030183991">este artigo</a>.</p>
+
 <h2 id="cartão-de-crédito-e-débito">Cartão de Crédito e Débito</h2>
 
 <h3 id="criando-uma-transação-de-crédito">Criando uma Transação de Crédito</h3>
@@ -338,11 +340,9 @@
 
 <p>Os parâmetros contidos dentro dos nós <code class="language-plaintext highlighter-rouge">Address</code> e <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> são de preenchimento <strong>obrigatório</strong> quando a transação é submetida ao <a href="https://braspag.github.io//manual/antifraude">AntiFraude</a> ou à análise do <a href="https://braspag.github.io//manual/velocity">Velocity</a>. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.</p>
 
-<aside class="warning">Atenção: o número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo até o final do fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
+<aside class="warning">Atenção: o número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
 
-<p>A duplicidade de pedidos em sua loja pode ser evitada através do bloqueio desses pedidos duplicados. Para entender melhor sobre essa feature do Pagador, consulte <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360030183991">este artigo</a>.</p>
-
-<p>Seguem exemplos de envio de requisição e resposta:</p>
+<p>Seguem exemplos de envio de requisição e resposta para criar uma transação de crédito:</p>
 
 <h4 id="requisição">Requisição</h4>
 
@@ -15862,7 +15862,7 @@ As listas a seguir se referem a provedores na integração REST:</p>
     <tr>
       <td>302</td>
       <td>Sent MerchantOrderId is duplicated</td>
-      <td>—</td>
+      <td>Houve duplicidade do pedido.</td>
     </tr>
     <tr>
       <td>303</td>
