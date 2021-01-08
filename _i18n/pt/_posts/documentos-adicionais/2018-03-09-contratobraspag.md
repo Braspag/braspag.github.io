@@ -1,12 +1,13 @@
 ---
 layout: tutorial
-title: Termos e condições de uso
+title: Termos de Uso Pagador
 description:
 search: true
 toc_footers: true
 categories: tutorial
+sort_order: 4
 tags:
-  - Documentos Adicionais
+  - 8. Documentos Adicionais
 ---
 
 # Contrato de Prestação de Serviços
