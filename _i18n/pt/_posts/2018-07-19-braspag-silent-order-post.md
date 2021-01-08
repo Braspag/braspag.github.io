@@ -23,7 +23,7 @@ Por permitir total personalização na página de checkout da loja, essa soluç�
 # Características
 
 * Captura de dados do pagamento diretamente para os sistemas da Braspag, por meio dos campos definidos no seu checkout, através de um script (javascript).
-* Compatibilidade com todos os meios de pagamentos disponibilizados no Gateway Pagador (Nacional e Internacional).
+* Compatibilidade com todos os meios de pagamento disponibilizados no Gateway Pagador (Nacional e Internacional).
 * Redução do escopo de PCI DSS.
 * Controle total sobre a experiência de checkout, mantendo o *look & feel* de sua marca.
 
@@ -101,10 +101,10 @@ O estabelecimento deverá parametrizar os elementos de formulário com as seguin
 
 |Propriedade|Nome da Classe|
 |-----------|---------|
-|Nome do portador do cartão de crédito/débito|**bp-sop-cardholdername** |
-|Número do cartão de crédito/débito|**bp-sop-cardnumber** |
-|Data de validade do cartão de crédito/débito|**bp-sop-cardexpirationdate** |
-|Código de segurança do cartão de crédito/débito|**bp-sop-cardcvvc**|
+|Nome do portador do cartão de crédito/débito|bp-sop-cardholdername |
+|Número do cartão de crédito/débito|bp-sop-cardnumber |
+|Data de validade do cartão de crédito/débito|bp-sop-cardexpirationdate |
+|Código de segurança do cartão de crédito/débito|bp-sop-cardcvvc|
 
 ### Definindo Parâmetros
 
@@ -113,28 +113,28 @@ O estabelecimento deverá parametrizar os elementos de formulário com as seguin
 |Propriedade|Descrição|
 |-----------|---------|
 |accessToken| Token de acesso obtido via API de autenticação da Braspag.|
-|environment| *sandbox* ou *production*.|
-|language| *pt* ou *en* ou *es*. |
-|enableBinQuery| *true* se quiser habilitar o Consulta BIN (retorna as características do cartão). *false* caso contrário. Obs.: Disponível somente para Cielo 3.0.|
-|enableVerifyCard| *true* se quiser habilitar o ZeroAuth (retorna se o cartão é válido ou não). *false* caso contrário. |
-|enableTokenize| *true* se quiser salvar o cartão diretamente no Cartão Protegido (retorna um *cardToken* ao invés de um *paymentToken*). *false* caso contrário. |
-|cvvRequired| *false* se quiser desligar a obrigatoriedade de envio do CVV. *true* caso contrário. |
+|environment| Tipo de ambiente: "sandbox" / "production".|
+|language| Idioma: "pt" / "en" / "es". |
+|enableBinQuery| "true" se quiser habilitar o Consulta BIN (retorna as características do cartão). "false" caso contrário. Obs.: Disponível somente para Cielo 3.0.|
+|enableVerifyCard| "true" se quiser habilitar o *ZeroAuth* (retorna se o cartão é válido ou não). "false" caso contrário. |
+|enableTokenize| "true" se quiser salvar o cartão diretamente no Cartão Protegido (retorna um *cardToken* ao invés de um *paymentToken*). "false" caso contrário. |
+|cvvRequired| "false" se quiser desligar a obrigatoriedade de envio do CVV. "true" caso contrário. |
 
 **RETORNOS DO SCRIPT**
 
 |Propriedade|Descrição|Condição|
 |-----------|---------|---------|
 |PaymentToken| Token efêmero utilizado para pagamento no formato de um GUID (36). |---|
-|CardToken| Token permanente utilizado para pagamento no formato de um GUID (36). |Quando *enableTokenize* for *true*. |
-|brand| Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard). |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
-|binQueryReturnCode| "00" se a análise do BIN for um sucesso. |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
-|binQueryReturnMessage| Ex.: “Transacao Autorizada” se a análise do BIN for um sucesso. |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
-|CardBin| Ex.: “455187”.|Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
-|CardLast4Digits| Ex.: “0181”.|Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
-|foreignCard| O campo retorna *true* se é um cartão emitido fora do Brasil. *false* caso contrário. |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
-|VerifyCardReturnCode| Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código "00" significa sucesso na validação. |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
-|VerifyCardReturnMessage| Ex.: “Transacao Autorizada”. |Quando *enableBinQuery* for *true*. Disponível somente para Cielo 3.0. |
-|VerifyCardStatus| 0-Cartão Inválido; 1-Cartão Válido; 99-Situação Desconhecida. |Quando *enableVerifyCard* for *true*. |
+|CardToken| Token permanente utilizado para pagamento no formato de um GUID (36). |Quando *enableTokenize* for "true". |
+|brand| Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard). |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|binQueryReturnCode| "00" se a análise do BIN for um sucesso. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|binQueryReturnMessage| Ex.: “Transacao Autorizada” se a análise do BIN for um sucesso. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|CardBin| Ex.: “455187”.|Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|CardLast4Digits| Ex.: “0181”.|Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|foreignCard| O campo retorna "true" se é um cartão emitido fora do Brasil. "false" caso contrário. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|VerifyCardReturnCode| Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código "00" significa sucesso na validação. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|VerifyCardReturnMessage| Ex.: “Transacao Autorizada”. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|VerifyCardStatus| 0-Cartão Inválido; 1-Cartão Válido; 99-Situação Desconhecida. |Quando *enableVerifyCard* for "true". |
 
 ### Implementando Eventos
 
@@ -213,4 +213,4 @@ curl
 
 ### Response
 
-Vide https://braspag.github.io/manual/braspag-pagador
+Consulte o [Manual da API do Pagador](https://braspag.github.io//manual/braspag-pagador) para exemplos de resposta à requisições de autorização. 
