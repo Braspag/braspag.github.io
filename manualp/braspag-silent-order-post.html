@@ -147,7 +147,7 @@
 
 <ul>
   <li>Captura de dados do pagamento diretamente para os sistemas da Braspag, por meio dos campos definidos no seu checkout, através de um script (javascript).</li>
-  <li>Compatibilidade com todos os meios de pagamentos disponibilizados no Gateway Pagador (Nacional e Internacional).</li>
+  <li>Compatibilidade com todos os meios de pagamento disponibilizados no Gateway Pagador (Nacional e Internacional).</li>
   <li>Redução do escopo de PCI DSS.</li>
   <li>Controle total sobre a experiência de checkout, mantendo o <em>look &amp; feel</em> de sua marca.</li>
 </ul>
@@ -298,19 +298,19 @@
   <tbody>
     <tr>
       <td>Nome do portador do cartão de crédito/débito</td>
-      <td><strong>bp-sop-cardholdername</strong></td>
+      <td>bp-sop-cardholdername</td>
     </tr>
     <tr>
       <td>Número do cartão de crédito/débito</td>
-      <td><strong>bp-sop-cardnumber</strong></td>
+      <td>bp-sop-cardnumber</td>
     </tr>
     <tr>
       <td>Data de validade do cartão de crédito/débito</td>
-      <td><strong>bp-sop-cardexpirationdate</strong></td>
+      <td>bp-sop-cardexpirationdate</td>
     </tr>
     <tr>
       <td>Código de segurança do cartão de crédito/débito</td>
-      <td><strong>bp-sop-cardcvvc</strong></td>
+      <td>bp-sop-cardcvvc</td>
     </tr>
   </tbody>
 </table>
@@ -333,27 +333,27 @@
     </tr>
     <tr>
       <td>environment</td>
-      <td><em>sandbox</em> ou <em>production</em>.</td>
+      <td>Tipo de ambiente: “sandbox” / “production”.</td>
     </tr>
     <tr>
       <td>language</td>
-      <td><em>pt</em> ou <em>en</em> ou <em>es</em>.</td>
+      <td>Idioma: “pt” / “en” / “es”.</td>
     </tr>
     <tr>
       <td>enableBinQuery</td>
-      <td><em>true</em> se quiser habilitar o Consulta BIN (retorna as características do cartão). <em>false</em> caso contrário. Obs.: Disponível somente para Cielo 3.0.</td>
+      <td>“true” se quiser habilitar o Consulta BIN (retorna as características do cartão). “false” caso contrário. Obs.: Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>enableVerifyCard</td>
-      <td><em>true</em> se quiser habilitar o ZeroAuth (retorna se o cartão é válido ou não). <em>false</em> caso contrário.</td>
+      <td>“true” se quiser habilitar o <em>ZeroAuth</em> (retorna se o cartão é válido ou não). “false” caso contrário.</td>
     </tr>
     <tr>
       <td>enableTokenize</td>
-      <td><em>true</em> se quiser salvar o cartão diretamente no Cartão Protegido (retorna um <em>cardToken</em> ao invés de um <em>paymentToken</em>). <em>false</em> caso contrário.</td>
+      <td>“true” se quiser salvar o cartão diretamente no Cartão Protegido (retorna um <em>cardToken</em> ao invés de um <em>paymentToken</em>). “false” caso contrário.</td>
     </tr>
     <tr>
       <td>cvvRequired</td>
-      <td><em>false</em> se quiser desligar a obrigatoriedade de envio do CVV. <em>true</em> caso contrário.</td>
+      <td>“false” se quiser desligar a obrigatoriedade de envio do CVV. “true” caso contrário.</td>
     </tr>
   </tbody>
 </table>
@@ -377,52 +377,52 @@
     <tr>
       <td>CardToken</td>
       <td>Token permanente utilizado para pagamento no formato de um GUID (36).</td>
-      <td>Quando <em>enableTokenize</em> for <em>true</em>.</td>
+      <td>Quando <em>enableTokenize</em> for “true”.</td>
     </tr>
     <tr>
       <td>brand</td>
       <td>Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard).</td>
-      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
+      <td>Quando <em>enableBinQuery</em> for “true”. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>binQueryReturnCode</td>
       <td>“00” se a análise do BIN for um sucesso.</td>
-      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
+      <td>Quando <em>enableBinQuery</em> for “true”. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>binQueryReturnMessage</td>
       <td>Ex.: “Transacao Autorizada” se a análise do BIN for um sucesso.</td>
-      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
+      <td>Quando <em>enableBinQuery</em> for “true”. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>CardBin</td>
       <td>Ex.: “455187”.</td>
-      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
+      <td>Quando <em>enableBinQuery</em> for “true”. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>CardLast4Digits</td>
       <td>Ex.: “0181”.</td>
-      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
+      <td>Quando <em>enableBinQuery</em> for “true”. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>foreignCard</td>
-      <td>O campo retorna <em>true</em> se é um cartão emitido fora do Brasil. <em>false</em> caso contrário.</td>
-      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
+      <td>O campo retorna “true” se é um cartão emitido fora do Brasil. “false” caso contrário.</td>
+      <td>Quando <em>enableBinQuery</em> for “true”. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>VerifyCardReturnCode</td>
       <td>Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código “00” significa sucesso na validação.</td>
-      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
+      <td>Quando <em>enableBinQuery</em> for “true”. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>VerifyCardReturnMessage</td>
       <td>Ex.: “Transacao Autorizada”.</td>
-      <td>Quando <em>enableBinQuery</em> for <em>true</em>. Disponível somente para Cielo 3.0.</td>
+      <td>Quando <em>enableBinQuery</em> for “true”. Disponível somente para Cielo 3.0.</td>
     </tr>
     <tr>
       <td>VerifyCardStatus</td>
       <td>0-Cartão Inválido; 1-Cartão Válido; 99-Situação Desconhecida.</td>
-      <td>Quando <em>enableVerifyCard</em> for <em>true</em>.</td>
+      <td>Quando <em>enableVerifyCard</em> for “true”.</td>
     </tr>
   </tbody>
 </table>
@@ -534,7 +534,7 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
 
 <h3 id="response">Response</h3>
 
-<p>Vide https://braspag.github.io/manual/braspag-pagador</p>
+<p>Consulte o <a href="https://braspag.github.io//manual/braspag-pagador">Manual da API do Pagador</a> para exemplos de resposta à requisições de autorização.</p>
 
 </div>
 
