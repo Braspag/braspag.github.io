@@ -5,8 +5,9 @@ description:
 search: true
 toc_footers: true
 categories: tutorial
+sort_order: 3
 tags:
-  - Documentos Adicionais
+  - 8. Documentos Adicionais
 ---
 
 # POLÍTICA DE PRIVACIDADE E PROTEÇÃO DE DADOS
