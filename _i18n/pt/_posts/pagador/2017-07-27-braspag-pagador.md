@@ -4788,13 +4788,13 @@ Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado n
 
 Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
 
-<aside class="warning">Atenção: Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
+<aside class="warning">Atenção: Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10". Para mais detalhes</aside>
 
 Além da geração do card token, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
 
 ## Salvando um Cartão Durante uma Autorização
 
-Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização.
+Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. O número do cartão utilizado pode ser validado através da técnica explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
 
 ### Requisição
 
