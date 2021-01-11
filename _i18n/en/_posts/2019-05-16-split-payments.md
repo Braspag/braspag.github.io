@@ -1,14 +1,14 @@
 ---
 layout: manual
-title: Split Payments
+title: Split Payments - 3.0 Cielo
 description: Split Payments Integration Manual
 search: true
 toc_footers: false
 categories: manual
-sort_order: 3
+sort_order: 1
 hub_visible: false
 tags:
-  - Marketplace Solutions
+  - 5. Marketplace Solutions
 ---
 
 # Split Payments
