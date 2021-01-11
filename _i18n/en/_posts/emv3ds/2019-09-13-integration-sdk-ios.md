@@ -1,12 +1,13 @@
 ---
 layout: manual
-title: 2.3. SDK IOS
-description: Gateway Braspag technical integration
+title: Integration via SDK IOS
+description: Gateway Braspag Technical Integration
 search: true
 translated: true
 categories: manualp
+sort_order: 4
 tags:
-  - 3DS 2.0 Authentication
+  - 4. EMV 3DS (3DS 2.0)
 ---
 
 # What is 3DS 2.0?
