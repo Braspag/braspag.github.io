@@ -1,12 +1,13 @@
 ---
 layout: manual
-title: API Rest Integration Guide
-description: Gateway Braspag technical integration
+title: Integration Guide - API Rest
+description: Gateway Braspag Technical Integration
 search: true
 translated: true
 categories: manual
+sort_order: 1
 tags:
-    - Pagador
+    - 1. Pagador
 language_tabs:
   json: JSON
   shell: cURL
