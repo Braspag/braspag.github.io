@@ -1,12 +1,13 @@
 ---
 layout: manual
-title: Risk Notification - Integration Manual
-description: Technical integration API Risk Notification Braspag
+title: Risk Notification Integration Guide
+description: Technical Integration API Risk Notification Braspag
 search: true
 translated: true
 categories: manual
+sort_order: 2
 tags:
-    - Risk Management
+    - 3. Risk Management
 language_tabs:
   json: JSON
   shell: cURL
