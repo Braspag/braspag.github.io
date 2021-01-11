@@ -1,10 +1,11 @@
 ---
 layout: manual
-title: 3. Authorization with Authentication
-description: Gateway Braspag technical integration
+title: Authorization with Authentication
+description: Gateway Braspag Technical Integration
 search: true
 translated: true
 categories: manualp
+sort_order: 5
 tags:
   - 3DS 2.0 Authentication
 language_tabs:
