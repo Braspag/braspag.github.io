@@ -4788,7 +4788,7 @@ Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado n
 
 Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
 
-<aside class="warning">Atenção: Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10". Para mais detalhes</aside>
+<aside class="warning">Atenção: Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
 Além da geração do card token, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
 
@@ -6391,6 +6391,8 @@ Este é um modelo do Javascript:
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
 As variáveis, após devidamente preenchidas, fornecem uma URL semelhante ao exemplo abaixo:
+
+<img src="https://braspag.github.io/images/braspag/af/urldfp.png" width="50">
 
 ![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfp.png)
 
