@@ -7,10 +7,11 @@ translated: true
 categories: manualp
 sort_order: 5
 tags:
-  - 3DS 2.0 Authentication
+  - 4. EMV 3DS (3DS 2.0)
 language_tabs:
   json: JSON
   shell: cURL
+  
 ---
 
 # Authorization with Authentication
