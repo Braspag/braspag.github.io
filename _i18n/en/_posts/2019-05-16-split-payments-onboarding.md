@@ -1,13 +1,14 @@
 ---
 layout: manual
-title: Split Payments - Onboarding
+title: Split Payments - Sellers Enrollment
 description: Split Payments - Onboarding
 search: true
 toc_footers: false
 categories: manual
-sort_order: 3
+sort_order: 2
 hub_visible: false
 tags:
+  - 5. Marketplace Solutions
 ---
 
 # Split Payments - Onboarding
