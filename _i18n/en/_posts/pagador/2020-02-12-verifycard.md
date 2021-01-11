@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Integration Guide - VerifyCard 
+title: VerifyCard Integration Guide 
 description: VerifyCard Technical Integration
 search: true
 translated: true
