@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-11T18:21:01+00:00</updated>
+    <updated>2021-01-11T18:36:18+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -8904,7 +8904,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     </entry>
     
     <entry>
-        <title>Risk Notification - Integration Manual</title>
+        <title>Risk Notification Integration Guide</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/risknotification"/>
         <updated>2018-02-23T00:00:00+00:00</updated>
