@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-11T18:16:09+00:00</updated>
+    <updated>2021-01-11T18:18:25+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -4089,7 +4089,7 @@ This procedure is also valid for establishments that performed authentication ou
     </entry>
     
     <entry>
-        <title>Cartão Protegido Manual integration</title>
+        <title>Cartão Protegido Integration Guide</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/cartao-protegido-api-rest"/>
         <updated>2019-07-15T00:00:00+00:00</updated>
