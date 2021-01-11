@@ -1696,9 +1696,7 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
 
 Na segunda etapa, o sistema da loja apresenta ao comprador as opções de pagar em reais ou com a moeda de seu país (moeda do cartão de crédito), seguindo as melhores práticas solicitadas pela bandeira. O texto é apresentado em inglês e o layout do site não precisa ser alterado, desde que as opções de escolha da moeda tenham as mesmas características de fonte, cor e dimensões.
 
-Segue um exemplo de exibição das opções de pagamento (em reais ou na moeda do cartão), disponibilizado pela Global Payments:
-
-![DCC Global Payments]({{ site.baseurl_root }}/images/dcc-globalpayments.jpg)
+Na tela da Global Payments são exibidas as opções de pagamento (em reais ou na moeda do cartão), ao lado de um resumo com os dados da compra.
 
 #### Etapa 3. Confirmação da Transação
 
@@ -6391,8 +6389,6 @@ Este é um modelo do Javascript:
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
 As variáveis, após devidamente preenchidas, fornecem uma URL semelhante ao exemplo abaixo:
-
-<img src="https://braspag.github.io/images/braspag/af/urldfp.png" width="50">
 
 ![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfp.png)
 
