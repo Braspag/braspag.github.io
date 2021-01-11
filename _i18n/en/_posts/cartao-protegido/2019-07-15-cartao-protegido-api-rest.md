@@ -1,12 +1,12 @@
 ---
 layout: manual
-title: Cartão Protegido Manual integration
-description: Technical integration Tokenization via REST API Braspag
+title: Cartão Protegido Integration Guide
+description: Technical Integration Tokenization via REST API Braspag
 search: true
 translated: true
 categories: manual
 tags:
-  - Cartão Protegido
+  - 2. Cartão Protegido
 language_tabs:
   json: JSON
   shell: cURL
