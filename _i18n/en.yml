@@ -15,7 +15,7 @@ global:
   need_help_title: Need Help?
   need_help_description: If you did not find the information you need, <a href="http://www.braspag.com.br/fale-conosco/">please contact us</a>
   hub_title: Braspag Developers
-  hub_description: <br>Welcome to the Braspag documentation page.<br> Here you will find integration manuals, documents, articles and tutorials for all of our products.
+  hub_description: <br>Welcome to the Braspag documentation page.<br> Here you will find integration guides, documents, articles and tutorials for all of our products.
 langs:
   en: English
   pt: Português
