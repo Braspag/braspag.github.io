@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-11T21:09:07+00:00</updated>
+    <updated>2021-01-11T21:11:25+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -35339,7 +35339,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
     </entry>
     
     <entry>
-        <title>SDKs Pagador Braspag</title>
+        <title>SDKs Braspag Pagador</title>
         <category term="tutorial" />
         <link href="https://braspag.github.io//en/tutorial/sdks-braspag"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
