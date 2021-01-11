@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-11T18:53:04+00:00</updated>
+    <updated>2021-01-11T18:55:21+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -672,7 +672,7 @@ For more details on implementation, please visit: [Pagador API] (https://braspag
     </entry>
     
     <entry>
-        <title>2.3. SDK IOS</title>
+        <title>Integration via SDK IOS</title>
         <category term="manualp" />
         <link href="https://braspag.github.io//en/manualp/integration-sdk-ios"/>
         <updated>2019-09-13T00:00:00+00:00</updated>
