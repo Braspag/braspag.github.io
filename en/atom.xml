@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-11T20:13:53+00:00</updated>
+    <updated>2021-01-11T21:09:07+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -29763,16 +29763,20 @@ If you do not have the data to send, please kindly do not send the corresponding
     </entry>
     
     <entry>
-        <title>User Manual</title>
+        <title>POS User Manual</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/braspag-pos-virtual"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
         <id>https://braspag.github.io//en/manual/braspag-pos-virtual</id>
-        <content type="html">&lt;h1 id=&quot;creating-a-group&quot;&gt;Creating a group&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;virtual-pos&quot;&gt;Virtual POS&lt;/h1&gt;
 
-&lt;p&gt;It is mandatory to create at least one group before inicitate the sales using virtual POS. The group determinates the operator’s access level.&lt;/p&gt;
+&lt;p&gt;Virtual POS is a Braspag platform for merchants who need to perform sales digitally (e.g.: call center operation, companies in the tourism segmentation etc), without having to develop a virtual store. You can fully manage your sales through the Braspag Administrative Panel.&lt;/p&gt;
 
-&lt;p&gt;To create a group, access Configuration &amp;gt; Groups, and fill the fields correctly:&lt;/p&gt;
+&lt;h1 id=&quot;creating-a-group&quot;&gt;Creating a Group&lt;/h1&gt;
+
+&lt;p&gt;It is mandatory to create at least one group before initiating the sales using virtual POS. The group determines the operator’s access level.&lt;/p&gt;
+
+&lt;p&gt;To create a group, access &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Configuration&lt;/code&gt; &amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Groups&lt;/code&gt;, and fill the fields accordingly:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/criargrupos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -29787,18 +29791,18 @@ If you do not have the data to send, please kindly do not send the corresponding
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Nome&lt;/td&gt;
-      &lt;td&gt;Nome do grupo&lt;/td&gt;
+      &lt;td&gt;Group name.&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Permissões&lt;/td&gt;
-      &lt;td&gt;selecione as permissões que este grupo poderá ter&lt;/td&gt;
+      &lt;td&gt;Select the kinds of permission this group will have.&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;The list of permissions:&lt;/p&gt;
+&lt;p&gt;List of permissions:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -29808,61 +29812,61 @@ If you do not have the data to send, please kindly do not send the corresponding
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Change the next recurrence date&lt;/td&gt;
+      &lt;td&gt;Change the next recurrency date.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Change the recurrence end date&lt;/td&gt;
+      &lt;td&gt;Change the recurrency end date.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Change the day of recurrency&lt;/td&gt;
+      &lt;td&gt;Change the day of recurrency.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Change the interval of recurrency&lt;/td&gt;
+      &lt;td&gt;Change the interval of recurrency.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Change the recurrency payment amount&lt;/td&gt;
+      &lt;td&gt;Change the recurrency payment amount.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Enable or Disable a recurrency&lt;/td&gt;
+      &lt;td&gt;Enable or disable a recurrency.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Void a transaction created by user&lt;/td&gt;
+      &lt;td&gt;Cancel transaction created by user.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Void a transaction created by user using report interface&lt;/td&gt;
+      &lt;td&gt;Cancel transaction created by user using report interface.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Void any transactions&lt;/td&gt;
+      &lt;td&gt;Cancel all transactions.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Capture a transaction created by user&lt;/td&gt;
+      &lt;td&gt;Capture a transaction created by user.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Capture a transaction created by user using report interface&lt;/td&gt;
+      &lt;td&gt;Capture a transaction created by user using report interface.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Create an order&lt;/td&gt;
+      &lt;td&gt;Create an order.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Refund a transaction using report interface&lt;/td&gt;
+      &lt;td&gt;Refund a transaction using report interface.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;View recurrent orders&lt;/td&gt;
+      &lt;td&gt;View recurrency orders.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;View transactions created by user&lt;/td&gt;
+      &lt;td&gt;View transactions created by user.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;View recurrent transactions&lt;/td&gt;
+      &lt;td&gt;View recurrent transactions.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h1 id=&quot;creating-operators&quot;&gt;Creating Operators&lt;/h1&gt;
 
-&lt;p&gt;The “managers” are able to create other users called “operators”, that have permissions to create an order.&lt;/p&gt;
+&lt;p&gt;It is possible to create “operator” users through the “manager” user. An “operator” has permission to make orders.&lt;/p&gt;
 
-&lt;p&gt;Access Configuration &amp;gt; Operators, and fill the all mandatory fields below. When the information is submitted, an e-mail will be sent to the registered address.&lt;/p&gt;
+&lt;p&gt;Access &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Configurações&lt;/code&gt; &amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Operadores&lt;/code&gt;, and fill in the form below. As soon as the information is submitted, an e-mail will be sent to the registered address.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/cadastraroperador.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -29876,50 +29880,50 @@ If you do not have the data to send, please kindly do not send the corresponding
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Username&lt;/td&gt;
-      &lt;td&gt;username to be used to access the POS&lt;/td&gt;
+      &lt;td&gt;Usuário&lt;/td&gt;
+      &lt;td&gt;Username used to access POS.&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Name&lt;/td&gt;
-      &lt;td&gt;Operator’s name&lt;/td&gt;
+      &lt;td&gt;Nome&lt;/td&gt;
+      &lt;td&gt;Operator’s name.&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;E-mail&lt;/td&gt;
-      &lt;td&gt;Operator’s E-mail&lt;/td&gt;
+      &lt;td&gt;Operator’s e-mail address.&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Group&lt;/td&gt;
-      &lt;td&gt;Operator’s group&lt;/td&gt;
+      &lt;td&gt;Grupo&lt;/td&gt;
+      &lt;td&gt;Operator’s group.&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Stores&lt;/td&gt;
-      &lt;td&gt;Stores that operator will perform an order&lt;/td&gt;
+      &lt;td&gt;Stores the operator will perform orders for.&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;perform-an-order&quot;&gt;Perform an order&lt;/h1&gt;
+&lt;h1 id=&quot;placing-an-order&quot;&gt;Placing an Order&lt;/h1&gt;
 
-&lt;p&gt;To create a new order, the operator has to access to the order form: Virtual POS -&amp;gt; Sell Form&lt;/p&gt;
+&lt;p&gt;For placing a new order, the operator has to access the order form: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POS Virtual&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Realizar Venda&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/menucriarpedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;step-by-step&quot;&gt;Step by Step&lt;/h2&gt;
 
-&lt;p&gt;The form has some group of information with mandatory and optional fields.&lt;/p&gt;
+&lt;p&gt;The new order creation form is divided into blocks, composed of mandatory and non-mandatory fields.&lt;/p&gt;
 
-&lt;p&gt;You can configure the form to show just some groups you need to you business.&lt;/p&gt;
+&lt;p&gt;Some blocks may optionally be displayed in your screen. You can configure your form to display the ones you need for your business.&lt;/p&gt;
 
-&lt;p&gt;Below, you will see the details of each possible block of information.&lt;/p&gt;
+&lt;p&gt;Below, you will find details about the available blocks of fields, along with its mandatoriety.&lt;/p&gt;
 
 &lt;h3 id=&quot;order&quot;&gt;Order&lt;/h3&gt;
 
-&lt;p&gt;This group requires the informations about the order.&lt;/p&gt;
+&lt;p&gt;This group requires the information about the order.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/posvirtual/camposdadosdopedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 

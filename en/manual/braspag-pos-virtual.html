@@ -12,7 +12,7 @@
 
     <title>
         
-        User Manual &middot; Braspag Developers - Manuais
+        POS User Manual &middot; Braspag Developers - Manuais
         
     </title>
 
@@ -115,7 +115,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//en/manual/braspag-pos-virtual">User Manual</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//en/manual/braspag-pos-virtual">POS User Manual</a></li>
                                     
                                 
                             
@@ -125,11 +125,15 @@
             </div>
 
             <div class="post">
-  <h1 id="creating-a-group">Creating a group</h1>
+  <h1 id="virtual-pos">Virtual POS</h1>
 
-<p>It is mandatory to create at least one group before inicitate the sales using virtual POS. The group determinates the operator’s access level.</p>
+<p>Virtual POS is a Braspag platform for merchants who need to perform sales digitally (e.g.: call center operation, companies in the tourism segmentation etc), without having to develop a virtual store. You can fully manage your sales through the Braspag Administrative Panel.</p>
 
-<p>To create a group, access Configuration &gt; Groups, and fill the fields correctly:</p>
+<h1 id="creating-a-group">Creating a Group</h1>
+
+<p>It is mandatory to create at least one group before initiating the sales using virtual POS. The group determines the operator’s access level.</p>
+
+<p>To create a group, access <code class="language-plaintext highlighter-rouge">Configuration</code> &gt; <code class="language-plaintext highlighter-rouge">Groups</code>, and fill the fields accordingly:</p>
 
 <p><img src="https://braspag.github.io//images/braspag/posvirtual/criargrupos.png" alt="" /></p>
 
@@ -144,18 +148,18 @@
   <tbody>
     <tr>
       <td>Nome</td>
-      <td>Nome do grupo</td>
+      <td>Group name.</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td>Permissões</td>
-      <td>selecione as permissões que este grupo poderá ter</td>
+      <td>Select the kinds of permission this group will have.</td>
       <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
-<p>The list of permissions:</p>
+<p>List of permissions:</p>
 
 <table>
   <thead>
@@ -165,61 +169,61 @@
   </thead>
   <tbody>
     <tr>
-      <td>Change the next recurrence date</td>
+      <td>Change the next recurrency date.</td>
     </tr>
     <tr>
-      <td>Change the recurrence end date</td>
+      <td>Change the recurrency end date.</td>
     </tr>
     <tr>
-      <td>Change the day of recurrency</td>
+      <td>Change the day of recurrency.</td>
     </tr>
     <tr>
-      <td>Change the interval of recurrency</td>
+      <td>Change the interval of recurrency.</td>
     </tr>
     <tr>
-      <td>Change the recurrency payment amount</td>
+      <td>Change the recurrency payment amount.</td>
     </tr>
     <tr>
-      <td>Enable or Disable a recurrency</td>
+      <td>Enable or disable a recurrency.</td>
     </tr>
     <tr>
-      <td>Void a transaction created by user</td>
+      <td>Cancel transaction created by user.</td>
     </tr>
     <tr>
-      <td>Void a transaction created by user using report interface</td>
+      <td>Cancel transaction created by user using report interface.</td>
     </tr>
     <tr>
-      <td>Void any transactions</td>
+      <td>Cancel all transactions.</td>
     </tr>
     <tr>
-      <td>Capture a transaction created by user</td>
+      <td>Capture a transaction created by user.</td>
     </tr>
     <tr>
-      <td>Capture a transaction created by user using report interface</td>
+      <td>Capture a transaction created by user using report interface.</td>
     </tr>
     <tr>
-      <td>Create an order</td>
+      <td>Create an order.</td>
     </tr>
     <tr>
-      <td>Refund a transaction using report interface</td>
+      <td>Refund a transaction using report interface.</td>
     </tr>
     <tr>
-      <td>View recurrent orders</td>
+      <td>View recurrency orders.</td>
     </tr>
     <tr>
-      <td>View transactions created by user</td>
+      <td>View transactions created by user.</td>
     </tr>
     <tr>
-      <td>View recurrent transactions</td>
+      <td>View recurrent transactions.</td>
     </tr>
   </tbody>
 </table>
 
 <h1 id="creating-operators">Creating Operators</h1>
 
-<p>The “managers” are able to create other users called “operators”, that have permissions to create an order.</p>
+<p>It is possible to create “operator” users through the “manager” user. An “operator” has permission to make orders.</p>
 
-<p>Access Configuration &gt; Operators, and fill the all mandatory fields below. When the information is submitted, an e-mail will be sent to the registered address.</p>
+<p>Access <code class="language-plaintext highlighter-rouge">Configurações</code> &gt; <code class="language-plaintext highlighter-rouge">Operadores</code>, and fill in the form below. As soon as the information is submitted, an e-mail will be sent to the registered address.</p>
 
 <p><img src="https://braspag.github.io//images/braspag/posvirtual/cadastraroperador.png" alt="" /></p>
 
@@ -233,50 +237,50 @@
   </thead>
   <tbody>
     <tr>
-      <td>Username</td>
-      <td>username to be used to access the POS</td>
+      <td>Usuário</td>
+      <td>Username used to access POS.</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td>Name</td>
-      <td>Operator’s name</td>
+      <td>Nome</td>
+      <td>Operator’s name.</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td>E-mail</td>
-      <td>Operator’s E-mail</td>
+      <td>Operator’s e-mail address.</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td>Group</td>
-      <td>Operator’s group</td>
+      <td>Grupo</td>
+      <td>Operator’s group.</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td>Stores</td>
-      <td>Stores that operator will perform an order</td>
+      <td>Stores the operator will perform orders for.</td>
       <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="perform-an-order">Perform an order</h1>
+<h1 id="placing-an-order">Placing an Order</h1>
 
-<p>To create a new order, the operator has to access to the order form: Virtual POS -&gt; Sell Form</p>
+<p>For placing a new order, the operator has to access the order form: <code class="language-plaintext highlighter-rouge">POS Virtual</code> -&gt; <code class="language-plaintext highlighter-rouge">Realizar Venda</code>.</p>
 
 <p><img src="https://braspag.github.io//images/braspag/posvirtual/menucriarpedido.png" alt="" /></p>
 
 <h2 id="step-by-step">Step by Step</h2>
 
-<p>The form has some group of information with mandatory and optional fields.</p>
+<p>The new order creation form is divided into blocks, composed of mandatory and non-mandatory fields.</p>
 
-<p>You can configure the form to show just some groups you need to you business.</p>
+<p>Some blocks may optionally be displayed in your screen. You can configure your form to display the ones you need for your business.</p>
 
-<p>Below, you will see the details of each possible block of information.</p>
+<p>Below, you will find details about the available blocks of fields, along with its mandatoriety.</p>
 
 <h3 id="order">Order</h3>
 
-<p>This group requires the informations about the order.</p>
+<p>This group requires the information about the order.</p>
 
 <p><img src="https://braspag.github.io//images/braspag/posvirtual/camposdadosdopedido.png" alt="" /></p>
 
