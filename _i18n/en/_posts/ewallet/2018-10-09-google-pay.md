@@ -1,19 +1,20 @@
 ---
 layout: manual
-title: Google Pay integration spec
-description: Integração técnica Gateway Braspag
+title: Google Pay E-Wallet
+description: Integração Técnica Gateway Braspag
 search: true
 translated: true
 categories: manual
+sort_order: 4
 tags:
-  - Pagador
+  - 1. Pagador
 language_tabs:
   json: JSON
 ---
 
 # Google Pay
 
-Google Pay is a e-wallet. It allows shoppers to make payments in e-commerce stores and apps using their credit and debit cards stored in their Google Account and Android devices in a safe and easy way.
+Google Pay is an e-wallet. It allows shoppers to make payments in e-commerce stores and apps using their credit and debit cards stored in their Google Account and Android devices in a safe and easy way.
 
 # Requirements
 
