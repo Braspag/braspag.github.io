@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-11T20:02:06+00:00</updated>
+    <updated>2021-01-11T20:04:26+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -7614,7 +7614,7 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
     </entry>
     
     <entry>
-        <title>Split Payments - Onboarding</title>
+        <title>Split Payments - Sellers Enrollment</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/split-payments-onboarding"/>
         <updated>2019-05-16T00:00:00+00:00</updated>
