@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-11T17:41:30+00:00</updated>
+    <updated>2021-01-11T17:45:24+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13,7 +13,7 @@
     </author>
     
     <entry>
-        <title>Integration Guide - VerifyCard</title>
+        <title>VerifyCard Integration Guide</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/verifycard"/>
         <updated>2020-02-12T00:00:00+00:00</updated>
