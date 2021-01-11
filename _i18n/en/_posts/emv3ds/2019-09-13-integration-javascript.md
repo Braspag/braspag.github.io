@@ -1,12 +1,13 @@
 ---
 layout: manual
-title: 2.1. Integration via Javascript
-description: Gateway Braspag technical integration
+title: Integration via Javascript
+description: Gateway Braspag Technical Integration
 search: true
 translated: true
 categories: manualp
+sort_order: 2
 tags:
-  - 3DS 2.0 Authentication
+  - 4. EMV 3DS (3DS 2.0)
 language_tabs:
   json: JSON
   shell: cURL
