@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-11T17:22:35+00:00</updated>
+    <updated>2021-01-11T17:35:50+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -8506,14 +8506,14 @@ The Master must provide Subordinate information in order to use it during the On
     </entry>
     
     <entry>
-        <title>Google Pay integration spec</title>
+        <title>Google Pay E-Wallet</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/google-pay"/>
         <updated>2018-10-09T00:00:00+00:00</updated>
         <id>https://braspag.github.io//en/manual/google-pay</id>
         <content type="html">&lt;h1 id=&quot;google-pay&quot;&gt;Google Pay&lt;/h1&gt;
 
-&lt;p&gt;Google Pay is a e-wallet. It allows shoppers to make payments in e-commerce stores and apps using their credit and debit cards stored in their Google Account and Android devices in a safe and easy way.&lt;/p&gt;
+&lt;p&gt;Google Pay is an e-wallet. It allows shoppers to make payments in e-commerce stores and apps using their credit and debit cards stored in their Google Account and Android devices in a safe and easy way.&lt;/p&gt;
 
 &lt;h1 id=&quot;requirements&quot;&gt;Requirements&lt;/h1&gt;
 
