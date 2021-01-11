@@ -1,12 +1,13 @@
 ---
 layout: manual
-title: VerifyCard Integration Guide
-description: VerifyCard technical integration
+title: Integration Guide - VerifyCard 
+description: VerifyCard Technical Integration
 search: true
 translated: true
 categories: manual
+sort_order: 3
 tags:
-  - Pagador
+  - 1. Pagador
 language_tabs:
   json: JSON
   shell: cURL
