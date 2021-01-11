@@ -1,81 +1,84 @@
 ---
 layout: manual
-title: User Manual
+title: POS User Manual
 description: User Manual POS-Virtual Braspag
 search: true
 categories: manual
 translated: true
 tags:
-  - POS-Virtual
+  - 6. Virtual POS
 ---
+# Virtual POS
 
-# Creating a group
+Virtual POS is a Braspag platform for merchants who need to perform sales digitally (e.g.: call center operation, companies in the tourism segmentation etc), without having to develop a virtual store. You can fully manage your sales through the Braspag Administrative Panel.
 
-It is mandatory to create at least one group before inicitate the sales using virtual POS. The group determinates the operator's access level. 
+# Creating a Group
 
-To create a group, access Configuration > Groups, and fill the fields correctly:
+It is mandatory to create at least one group before initiating the sales using virtual POS. The group determines the operator's access level. 
+
+To create a group, access `Configuration` > `Groups`, and fill the fields accordingly:
 
 ![]({{ site.baseurl_root }}/images/braspag/posvirtual/criargrupos.png)
 
 |Field|Description|Mandatory|
 |-----|-----------|---------|
-|Nome|Nome do grupo|Yes|
-|Permissões|selecione as permissões que este grupo poderá ter|Yes|
+|Nome|Group name.|Yes|
+|Permissões|Select the kinds of permission this group will have.|Yes|
 
-The list of permissions:
+List of permissions:
 
 |Permission|
 |----------|
-|Change the next recurrence date|
-|Change the recurrence end date|
-|Change the day of recurrency|
-|Change the interval of recurrency|
-|Change the recurrency payment amount|
-|Enable or Disable a recurrency|
-|Void a transaction created by user|
-|Void a transaction created by user using report interface|
-|Void any transactions|
-|Capture a transaction created by user|
-|Capture a transaction created by user using report interface|
-|Create an order|
-|Refund a transaction using report interface|
-|View recurrent orders|
-|View transactions created by user|
-|View recurrent transactions|
+|Change the next recurrency date.|
+|Change the recurrency end date.|
+|Change the day of recurrency.|
+|Change the interval of recurrency.|
+|Change the recurrency payment amount.|
+|Enable or disable a recurrency.|
+|Cancel transaction created by user.|
+|Cancel transaction created by user using report interface.|
+|Cancel all transactions.|
+|Capture a transaction created by user.|
+|Capture a transaction created by user using report interface.|
+|Create an order.|
+|Refund a transaction using report interface.|
+|View recurrency orders.|
+|View transactions created by user.|
+|View recurrent transactions.|
 
 # Creating Operators
 
-The "managers" are able to create other users called "operators", that have permissions to create an order.
+It is possible to create "operator" users through the "manager" user. An "operator" has permission to make orders.
 
-Access Configuration > Operators, and fill the all mandatory fields below. When the information is submitted, an e-mail will be sent to the registered address.
+Access `Configurações` > `Operadores`, and fill in the form below. As soon as the information is submitted, an e-mail will be sent to the registered address.
 
 ![]({{ site.baseurl_root }}/images/braspag/posvirtual/cadastraroperador.png)
 
 |Field|Description|Mandatory|
 |-----|-----------|---------|
-|Username|username to be used to access the POS|Yes|
-|Name|Operator's name|Yes|
-|E-mail|Operator's E-mail|Yes|
-|Group|Operator's group|Yes| 
-|Stores|Stores that operator will perform an order|Yes| 
+|Usuário|Username used to access POS.|Yes|
+|Nome|Operator's name.|Yes|
+|E-mail|Operator's e-mail address.|Yes|
+|Grupo|Operator's group.|Yes| 
+|Stores|Stores the operator will perform orders for.|Yes| 
 
-# Perform an order
+# Placing an Order
 
-To create a new order, the operator has to access to the order form: Virtual POS -> Sell Form 
+For placing a new order, the operator has to access the order form: `POS Virtual` -> `Realizar Venda`. 
 
 ![]({{ site.baseurl_root }}/images/braspag/posvirtual/menucriarpedido.png)
 
 ## Step by Step
 
-The form has some group of information with mandatory and optional fields.
+The new order creation form is divided into blocks, composed of mandatory and non-mandatory fields.
 
-You can configure the form to show just some groups you need to you business. 
+Some blocks may optionally be displayed in your screen. You can configure your form to display the ones you need for your business. 
 
-Below, you will see the details of each possible block of information. 
+Below, you will find details about the available blocks of fields, along with its mandatoriety. 
 
 ### Order
 
-This group requires the informations about the order.
+This group requires the information about the order.
 
 ![]({{ site.baseurl_root }}/images/braspag/posvirtual/camposdadosdopedido.png)
 
