@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-11T18:47:32+00:00</updated>
+    <updated>2021-01-11T18:50:51+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -2946,7 +2946,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     </entry>
     
     <entry>
-        <title>2.1. Integration via Javascript</title>
+        <title>Integration via Javascript</title>
         <category term="manualp" />
         <link href="https://braspag.github.io//en/manualp/integration-javascript"/>
         <updated>2019-09-13T00:00:00+00:00</updated>
