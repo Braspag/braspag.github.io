@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-11T18:36:18+00:00</updated>
+    <updated>2021-01-11T18:47:32+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -8718,7 +8718,7 @@ The Master must provide Subordinate information in order to use it during the On
     </entry>
     
     <entry>
-        <title>1. Introduction to 3DS 2.0</title>
+        <title>3DS 2.0 Authentication</title>
         <category term="manualp" />
         <link href="https://braspag.github.io//en/manualp/emv3ds"/>
         <updated>2018-09-09T00:00:00+00:00</updated>
