@@ -1,12 +1,13 @@
 ---
 layout: manual
-title: Silent Order Post Integration Manual
-description: Gateway Braspag technical integration
+title: Integration Guide - Silent Order Post
+description: Gateway Braspag Technical Integration
 search: true
 translated: true
 categories: manual
+sort_order: 2
 tags:
-  - Pagador
+  - 1. Pagador
 language_tabs:
   shell: cURL
 ---
