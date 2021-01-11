@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-11T17:38:46+00:00</updated>
+    <updated>2021-01-11T17:41:30+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -272,7 +272,7 @@
     </entry>
     
     <entry>
-        <title>Integration Guide - Silent Order Post</title>
+        <title>Silent Order Post Integration Guide</title>
         <category term="manual" />
         <link href="https://braspag.github.io//en/manual/silentorderpost"/>
         <updated>2020-02-12T00:00:00+00:00</updated>
