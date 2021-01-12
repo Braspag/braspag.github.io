@@ -16,72 +16,90 @@ language_tabs:
 
 # Introduction to the Pagador API
 
-**The purpose of this documentation is to guide the developer on how to integrate with the Pagador API, Braspag's payment gateway, describing the services available with request and response examples.**
+The purpose of this documentation is to guide the developer on how to integrate with the **Pagador API**, Braspag's payment gateway, describing all available services using request and response examples.
 
-All operations require specific access credentials (Merchant ID and Merchant Key) for their environment:**Sandbox** and **Production**. [To perform](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md) an operation, combine the environment base endpoint with the desired operation endpoint and submit using the HTTP VERB as described on the operation.
+Below is the representation of a standard transactional flow, followed by a short description of the main parties involved:
 
-## Environments
+![Fluxo Transacional]({{ site.baseurl_root }}/images/fluxo-transacional-en.jpg)
+
+**E-commerce platform:** Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.
+**Gateway:** Connects e-commerces with payment services (acquirers, *boleto* bills, issuer), making it easier for the merchants to manage the payment providers.
+**Acquirer:** Connects the transaction with the payment networks (brands) and settles the transaction for the merchants.
+**Payment network (or brand):** Communicates with the issuer of the transaction card and settles the transaction for the acquirers.
+**Issuer:** Gives credit and stores the buyer's money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.
+
+## Characteristics of the Solution
+
+The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. This way, it is possible to integrate using various programming languages, such as: *ASP*, *ASP.Net*, *Java*, *PHP*, *Ruby* and *Python*.
+
+Here are some of the main benefits of using the Braspag eCommerce platform:
+
+* **No proprietary apps**: no applications need to be installed in the online store environment.
+* **Simplicity**: the protocol used is purely HTTPS.
+* **Easy testing**: Braspag platform offers a publicly accessible Sandbox environment that allows the developer to create a test account without the need for accreditation, making it easier and faster to start integrating.
+* **Credentials**: the client credentials (affiliation number and access key) are transmitted in the header of the HTTP request.
+* **Security**: the information is always exchanged between the store server and Braspag, without the customer's browser.
+* **Multiplatform integration**: the integration is performed through REST APIs, which allows the use of different applications.
+
+## Integration Architecture
+
+The model used in the integration of the APIs is simple. It is based in the use of two URLs (endpoints). One is specific for operations such as authorization, capture and cancellation of transactions. The other one is for queries, such as a transaction search. These two URLs receive HTTP messages using the GET, POST or PUT methods. Each type of message must be sent to an address identified as "path", which is the address of the resource.
+
+|HTTP Method| Description|
+|---|---|
+|**GET**|For querying existing resources, like transaction queries.|
+|**POST**|For creating transactions.|
+|**PUT**|For updating existing resources,like capturing or canceling a previously authorized transaction.|
+
+## Test and Production Environments
+
+Use our **Sandbox** environment to test our products and services before bringing your solution into the **Production** environment.
 
 ### Sandbox Environment
 
-Try our APIs for free!
+Create an account in our sandbox and try our APIs during your testing phase, with no commitment.
 
 |Information|Description|
 |----|----|
-|API Access Credentials|Visit [Sandbox Signup](https://cadastrosandbox.braspag.com.br/) and create a test account.<BR>At the end of registration you will receive a `MerchantId` and a `MerchantKey`<BR> which will be used to authenticate all requests made to the API|
-|Transactional Endpoint|https://apisandbox.braspag.com.br/|
-|Endpoint for Query Services|https://apiquerysandbox.braspag.com.br/|
+|Access credentials|After creating a test account in [Sandbox Signup](https://cadastrosandbox.braspag.com.br/), you will receive a `MerchantId` and a `MerchantKey` which must be used to authenticate all requests made to the API endpoints.|
+|Transactional endpoint|https://apisandbox.braspag.com.br/|
+|Endpoint for query services|https://apiquerysandbox.braspag.com.br/|
 
 ### Production Environment
 
-I am ready to Go Live!
+Once you are done running your tests and ready for go-live, you can implement your solution in the production environment.
 
 |Information|Description|
 |---|---|
-|API Access Credentials|Send an email to comercial@braspag.com.br for more information about Braspag and how we can help your business!|
-|Transactional Endpoint|https://api.braspag.com.br/|
-|Endpoint for Query Services|https://apiquery.braspag.com.br/|
+|Access Credentials|Send us an email (*comercial@braspag.com.br*) for more information about Braspag and how we can help you with your business.|
+|Transactional endpoint|https://api.braspag.com.br/|
+|Endpoint for query services|https://apiquery.braspag.com.br/|
 
-## Braspag's Support
+## Transactional Terms
+
+In order for you to better enjoy the features available in our API, it is important to first understand some of the concepts involved in the process of a credit card transaction:
+
+|Step|Description|
+|---|---|
+|**Authorization**| Operation that makes the process of credit card sale possible. The authorization (also called pre-authorization) only earmarks the customer's fund, but the amount is not yet released from their account.
+|**Capture**| When making a pre-authorization, you must confirm it for the charge to take place. The time limit for capturing a pre-authorized transaction varies from acquirer to acquirer, which may for example, be up to 5 days after the pre-authorization date.
+|**Automatic Capture**| This is when a transaction is authorized and captured at the same time, exempting the merchant to sending a later confirmation.
+|**Cancellation**| Cancellation is required when for some reason you no longer want to make a sale. In the case of an Authorized Transaction only, the cancellation will release the limit of the card that has been sensitized. Once the transaction is already Captured, the cancellation will undo the sale but must be executed until 11:59:59 pm of the authorization/capture date.
+|**Refund**| The reversal applies when a transaction created the day before or before is already captured. In this case, the transaction will be submitted in the process of refund by the acquirer.
+
+<aside class="warning">An authorized transaction only generates credit to the merchant if it is captured.</aside>
+
+* **Authentication**: The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.
+* **Cartão Protegido**: It is a platform that allows secure storage of sensitive credit card data. This data is transformed into encrypted code called a "token" which can be stored in a database. With the platform, the store will be able to offer features such as "1-Click Purchase" and "Transaction Shipping Retention", while preserving the integrity and confidentiality of the information.
+* **Antifraude**: It is a fraud prevention platform that provides a detailed risk analysis of online purchases. This process is fully transparent to the cardholder. According to the pre-established criteria, the request may be automatically accepted, rejected or referred for manual review.
+
+All operations require specific access credentials (Merchant ID and Merchant Key) for their environment:**Sandbox** and **Production**. [To perform](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md) an operation, combine the environment base endpoint with the desired operation endpoint and submit using the HTTP VERB as described on the operation.
+
+## Braspag Support Staff
 
 <aside class="notice">Braspag offers high availability support, in working days from 9 am to 7 pm, 24x7 emergency telephone and through a web-based tool. Our support team speaks Portuguese, English and Spanish.</aside>
 
 * Web Support: [Zendesk](https://suporte.braspag.com.br/hc/en-us)
-
-## About the API
-
-The Pagador API solution was developed with REST technology, which is industry standard and independent of the technology used by our customers. This way, it is possible to integrate using various programming languages, such as: ASP, ASP. Net, Java, PHP, Ruby, Python, among others.
-
-Most outstanding attributes in the Braspag's eCommerce platform:
-
-* **No proprietary apps**: No apps need to be installed in the online store environment.
-* **Simplicity**: The protocol used is purely HTTPS.
-* **Testing Facility**: Braspag platform offers a publicly accessible Sandbox environment that allows the developer to create a test account without the need for accreditation, making it easier and faster to start integrating.
-* **Credentials**: The handling of client credentials (affiliation number and access key) traffic in the header of the HTTP request.
-* **Security**: Information is always exchanged between the Store Server and Braspag, ie, without the shopper's browser.
-* **Multiplatform**: Integration is performed through Web Service REST.
-
-## Architecture
-
-Integration is made through services as Web Services. The model employed is quite simple: There are two endpoints, one specific for authorizing, capturing and canceling transactions, and another for operations such as transaction query. These two URLs will receive HTTP messages via POST, GET, or PUT methods. Each type of message must be sent to an address identified through "path".
-
-* **POST**- The HTTP POST method is used in the creation of a transaction.
-* **PUT**- The HTTP PUT method is used for update existing resources. For example, capturing or canceling a previously authorized transaction.
-* **GET**- The HTTP GET method is used for querying existing resources. For example, transaction query.
-
-In order for you to enjoy all the features available in our API, it is important that you first understand the concepts involved in processing a credit card transaction.
-
-* **Authorization**: Authorization (or pre-authorization) is an operation that makes it possible to process a sale with a credit card. Pre-authorization only senses the customer's limit, but does not yet charge the invoice for the consumer. Thus, a second operation called 'capture' is required.
-* **Capture**: When making a pre-authorization, you must confirm it for the charge to take place. The time limit for capturing a pre-authorized transaction varies from acquirer to acquirer, which may for example, be up to 5 days after the pre-authorization date.
-* **Automatic Capture**: This is when a transaction is authorized and captured at the same time, exempting the merchant to sending a later confirmation.
-
-<aside class="warning">An authorized transaction only generates credit to the merchant if it is captured.</aside>
-
-* **Cancellation**: Cancellation is required when for some reason you no longer want to make a sale. In the case of an Authorized Transaction only, the cancellation will release the limit of the card that has been sensitized. Once the transaction is already Captured, the cancellation will undo the sale but must be executed until 11:59:59 pm of the authorization/capture date.
-* **Refund**: The reversal applies when a transaction created the day before or before is already captured. In this case, the transaction will be submitted in the process of refund by the acquirer.
-* **Authentication**: The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.
-* **Cartão Protegido**: It is a platform that allows secure storage of sensitive credit card data. This data is transformed into encrypted code called a "token" which can be stored in a database. With the platform, the store will be able to offer features such as "1-Click Purchase" and "Transaction Shipping Retention", while preserving the integrity and confidentiality of the information.
-* **Antifraude**: It is a fraud prevention platform that provides a detailed risk analysis of online purchases. This process is fully transparent to the cardholder. According to the pre-established criteria, the request may be automatically accepted, rejected or referred for manual review.
 
 # Payments
 
