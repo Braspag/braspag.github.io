@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-12T21:35:08+00:00</updated>
+    <updated>2021-01-12T22:06:52+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13022,15 +13022,17 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/fluxo-transacional-en.png&quot; alt=&quot;Fluxo Transacional&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;E-commerce platform:&lt;/strong&gt; Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.
-&lt;strong&gt;Gateway:&lt;/strong&gt; Connects e-commerces with payment services (acquirers, &lt;em&gt;boleto&lt;/em&gt; bills, issuer), making it easier for the merchants to manage the payment providers.
-&lt;strong&gt;Acquirer:&lt;/strong&gt; Connects the transaction with the payment networks (brands) and settles the transaction for the merchants.
-&lt;strong&gt;Payment network (or brand):&lt;/strong&gt; Communicates with the issuer of the transaction card and settles the transaction for the acquirers.
-&lt;strong&gt;Issuer:&lt;/strong&gt; Gives credit and stores the buyer’s money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;E-commerce platform:&lt;/strong&gt; Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Gateway:&lt;/strong&gt; Connects e-commerces with payment services (acquirer, &lt;em&gt;boleto&lt;/em&gt; bill, issuer), making it easier for the merchants to manage payment providers.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Acquirer:&lt;/strong&gt; Connects the transaction with the payment networks (brands) and settles the transaction for the merchants.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Payment network (or brand):&lt;/strong&gt; Communicates with the issuer of the transaction card and settles the transaction for the acquirers.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Issuer:&lt;/strong&gt; Gives credit and stores the buyer’s money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h2 id=&quot;characteristics-of-the-solution&quot;&gt;Characteristics of the Solution&lt;/h2&gt;
+&lt;h2 id=&quot;features-of-the-solution&quot;&gt;Features of the Solution&lt;/h2&gt;
 
-&lt;p&gt;The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. This way, it is possible to integrate using various programming languages, such as: &lt;em&gt;ASP&lt;/em&gt;, &lt;em&gt;ASP.Net&lt;/em&gt;, &lt;em&gt;Java&lt;/em&gt;, &lt;em&gt;PHP&lt;/em&gt;, &lt;em&gt;Ruby&lt;/em&gt; and &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: &lt;em&gt;ASP&lt;/em&gt;, &lt;em&gt;ASP.Net&lt;/em&gt;, &lt;em&gt;Java&lt;/em&gt;, &lt;em&gt;PHP&lt;/em&gt;, &lt;em&gt;Ruby&lt;/em&gt; and &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Here are some of the main benefits of using the Braspag eCommerce platform:&lt;/p&gt;
 
@@ -13065,7 +13067,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;PUT&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;For updating existing resources,like capturing or canceling a previously authorized transaction.&lt;/td&gt;
+      &lt;td&gt;For updating existing resources, like capturing or canceling a previously authorized transaction.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13076,7 +13078,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;h3 id=&quot;sandbox-environment&quot;&gt;Sandbox Environment&lt;/h3&gt;
 
-&lt;p&gt;Create an account in our sandbox and try our APIs during your testing phase, with no commitment.&lt;/p&gt;
+&lt;p&gt;Create an account in our sandbox and try out our APIs during your testing phase, with no commitment.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -13088,7 +13090,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Access credentials&lt;/td&gt;
-      &lt;td&gt;After creating a test account in &lt;a href=&quot;https://cadastrosandbox.braspag.com.br/&quot;&gt;Sandbox Signup&lt;/a&gt;, you will receive a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; which must be used to authenticate all requests made to the API endpoints.&lt;/td&gt;
+      &lt;td&gt;After creating a test account in &lt;a href=&quot;https://cadastrosandbox.braspag.com.br/&quot;&gt;Sandbox Registration&lt;/a&gt;, you will receive a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; which must be used to authenticate all requests made to the API endpoints.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Transactional endpoint&lt;/td&gt;
@@ -13103,7 +13105,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;h3 id=&quot;production-environment&quot;&gt;Production Environment&lt;/h3&gt;
 
-&lt;p&gt;Once you are done running your tests and ready for go-live, you can implement your solution in the production environment.&lt;/p&gt;
+&lt;p&gt;Once you are done running your tests and ready for &lt;em&gt;go-live&lt;/em&gt;, you can implement your solution in the production environment.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -13142,7 +13144,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Authorization&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Operation that makes the process of credit card sale possible. The authorization (also called pre-authorization) only earmarks the customer’s fund, but the amount is not yet released from their account.&lt;/td&gt;
+      &lt;td&gt;Makes the process of a credit card sale possible. The authorization (also called pre-authorization) only earmarks the customer’s fund, not yet releasing it from their account.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Capture&lt;/strong&gt;&lt;/td&gt;
@@ -13163,7 +13165,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;An authorized transaction only generates credit to the merchant if it is captured.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;Reminder: An authorized transaction only generates credit to the merchant after being captured.&lt;/aside&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Authentication&lt;/strong&gt;: The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.&lt;/li&gt;

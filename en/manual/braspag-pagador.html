@@ -147,15 +147,17 @@
 
 <p><img src="https://braspag.github.io/images/fluxo-transacional-en.png" alt="Fluxo Transacional" /></p>
 
-<p><strong>E-commerce platform:</strong> Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.
-<strong>Gateway:</strong> Connects e-commerces with payment services (acquirers, <em>boleto</em> bills, issuer), making it easier for the merchants to manage the payment providers.
-<strong>Acquirer:</strong> Connects the transaction with the payment networks (brands) and settles the transaction for the merchants.
-<strong>Payment network (or brand):</strong> Communicates with the issuer of the transaction card and settles the transaction for the acquirers.
-<strong>Issuer:</strong> Gives credit and stores the buyer’s money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.</p>
+<ul>
+  <li><strong>E-commerce platform:</strong> Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.</li>
+  <li><strong>Gateway:</strong> Connects e-commerces with payment services (acquirer, <em>boleto</em> bill, issuer), making it easier for the merchants to manage payment providers.</li>
+  <li><strong>Acquirer:</strong> Connects the transaction with the payment networks (brands) and settles the transaction for the merchants.</li>
+  <li><strong>Payment network (or brand):</strong> Communicates with the issuer of the transaction card and settles the transaction for the acquirers.</li>
+  <li><strong>Issuer:</strong> Gives credit and stores the buyer’s money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.</li>
+</ul>
 
-<h2 id="characteristics-of-the-solution">Characteristics of the Solution</h2>
+<h2 id="features-of-the-solution">Features of the Solution</h2>
 
-<p>The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. This way, it is possible to integrate using various programming languages, such as: <em>ASP</em>, <em>ASP.Net</em>, <em>Java</em>, <em>PHP</em>, <em>Ruby</em> and <em>Python</em>.</p>
+<p>The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: <em>ASP</em>, <em>ASP.Net</em>, <em>Java</em>, <em>PHP</em>, <em>Ruby</em> and <em>Python</em>.</p>
 
 <p>Here are some of the main benefits of using the Braspag eCommerce platform:</p>
 
@@ -190,7 +192,7 @@
     </tr>
     <tr>
       <td><strong>PUT</strong></td>
-      <td>For updating existing resources,like capturing or canceling a previously authorized transaction.</td>
+      <td>For updating existing resources, like capturing or canceling a previously authorized transaction.</td>
     </tr>
   </tbody>
 </table>
@@ -201,7 +203,7 @@
 
 <h3 id="sandbox-environment">Sandbox Environment</h3>
 
-<p>Create an account in our sandbox and try our APIs during your testing phase, with no commitment.</p>
+<p>Create an account in our sandbox and try out our APIs during your testing phase, with no commitment.</p>
 
 <table>
   <thead>
@@ -213,7 +215,7 @@
   <tbody>
     <tr>
       <td>Access credentials</td>
-      <td>After creating a test account in <a href="https://cadastrosandbox.braspag.com.br/">Sandbox Signup</a>, you will receive a <code class="language-plaintext highlighter-rouge">MerchantId</code> and a <code class="language-plaintext highlighter-rouge">MerchantKey</code> which must be used to authenticate all requests made to the API endpoints.</td>
+      <td>After creating a test account in <a href="https://cadastrosandbox.braspag.com.br/">Sandbox Registration</a>, you will receive a <code class="language-plaintext highlighter-rouge">MerchantId</code> and a <code class="language-plaintext highlighter-rouge">MerchantKey</code> which must be used to authenticate all requests made to the API endpoints.</td>
     </tr>
     <tr>
       <td>Transactional endpoint</td>
@@ -228,7 +230,7 @@
 
 <h3 id="production-environment">Production Environment</h3>
 
-<p>Once you are done running your tests and ready for go-live, you can implement your solution in the production environment.</p>
+<p>Once you are done running your tests and ready for <em>go-live</em>, you can implement your solution in the production environment.</p>
 
 <table>
   <thead>
@@ -267,7 +269,7 @@
   <tbody>
     <tr>
       <td><strong>Authorization</strong></td>
-      <td>Operation that makes the process of credit card sale possible. The authorization (also called pre-authorization) only earmarks the customer’s fund, but the amount is not yet released from their account.</td>
+      <td>Makes the process of a credit card sale possible. The authorization (also called pre-authorization) only earmarks the customer’s fund, not yet releasing it from their account.</td>
     </tr>
     <tr>
       <td><strong>Capture</strong></td>
@@ -288,7 +290,7 @@
   </tbody>
 </table>
 
-<aside class="warning">An authorized transaction only generates credit to the merchant if it is captured.</aside>
+<aside class="warning">Reminder: An authorized transaction only generates credit to the merchant after being captured.</aside>
 
 <ul>
   <li><strong>Authentication</strong>: The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.</li>
