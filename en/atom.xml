@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-12T20:56:13+00:00</updated>
+    <updated>2021-01-12T21:21:32+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13020,7 +13020,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;p&gt;Below is the representation of a standard transactional flow, followed by a short description of the main parties involved:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/fluxo-transacional-en.jpg&quot; alt=&quot;Fluxo Transacional&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/fluxo-transacional-en.png&quot; alt=&quot;Fluxo Transacional&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;E-commerce platform:&lt;/strong&gt; Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.
 &lt;strong&gt;Gateway:&lt;/strong&gt; Connects e-commerces with payment services (acquirers, &lt;em&gt;boleto&lt;/em&gt; bills, issuer), making it easier for the merchants to manage the payment providers.
@@ -25183,7 +25183,7 @@ There are two variables to fill in the Javascript URL. The &lt;code class=&quot;
 
 &lt;p&gt;The Javascript template is as follows:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/exemploscriptdfp.png&quot; alt=&quot;Exemple Code&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/af/exemploscriptdfp.png&quot; alt=&quot;Example Code&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The variables, when properly filled in, would provide a URL similar to the example below:&lt;/p&gt;
 
