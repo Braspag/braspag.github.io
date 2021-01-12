@@ -20,10 +20,10 @@ O objetivo desta documentação é orientar o desenvolvedor sobre como integrar 
 
 Abaixo veja a representação de um **fluxo transacional** padrão seguida de uma pequena descrição das principais partes envolvidas:
 
-![Fluxo Transacional]({{ site.baseurl_root }}/images/fluxo-transacional.jpg)
+![Fluxo Transacional]({{ site.baseurl_root }}/images/fluxo-transacional-pt.png)
 
 * **Plataforma de e-commerce:** Provê solução técnica para lojistas construírem toda a infraestrutura e processos necessários para sua operação de e-commerce.
-* **Gateway:** Conecta e-commerces com os serviços de pagamento (adquirentes, boletos, emissor), facilitando a gestão dos fornecedores de pagamento pelos lojistas.
+* **Gateway:** Conecta e-commerces com os serviços de pagamento (adquirente, boleto, emissor), facilitando a gestão dos fornecedores de pagamento pelos lojistas.
 * **Adquirente:** Faz a conexão da transação com as bandeiras e liquida a transação para os lojistas.
 * **Bandeira:** Faz a comunicação com o emissor do cartão da transação e liquida a transação para os adquirentes.
 * **Emissor:** Dá crédito e armazena o dinheiro do comprador. Na transação, aprova ou nega por razões de saldo, validade do cartão ou fraude. Liquida a transação para a bandeira.
@@ -37,7 +37,7 @@ Conheça alguns dos atributos que se destacam na plataforma Braspag eCommerce:
 * **Ausência de aplicativos proprietários**: não é necessário instalar aplicativos no ambiente da loja virtual em nenhuma hipótese.
 * **Simplicidade**: o protocolo utilizado é puramente o HTTPS.
 * **Facilidade de testes**: a plataforma Braspag oferece um ambiente Sandbox publicamente acessível, que permite ao desenvolvedor a criação de uma conta de testes sem a necessidade de credenciamento, facilitando e agilizando o início da integração.
-* **Credenciais**: o tratamento das credenciais do cliente (número de afiliação e chave de acesso) trafega no cabeçalho da requisição HTTP da mensagem.
+* **Credenciais**: as credenciais do cliente (número de afiliação e chave de acesso) trafegam no cabeçalho da requisição HTTP.
 * **Segurança**: a troca de informações se dá sempre entre o servidor da loja e o servidor da Braspag, ou seja, sem o browser do comprador.
 * **Integração multiplataforma**: a integração é realizada através de APIs REST, que permitem a utilização de diferentes aplicações.
 
@@ -51,7 +51,7 @@ O modelo empregado na integração das APIs é simples e se baseia na utilizaç�
 |**POST**|Para criação de uma transação.|
 |**PUT**|Para atualização de um recurso já existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|
 
-## Ambientes de Desenvolvimento
+## Ambientes de Teste e Produção
 
 Utilize o ambiente **Sandbox** para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no ambiente de **Produção**.
 
@@ -83,7 +83,7 @@ Para que possa aproveitar melhor todos os recursos disponíveis em nossa API, é
 
 |Etapa|Descrição|
 |---|---|
-|**Autorização**|Operação que viabiliza o processamento de uma venda com um cartão de crédito. A autorização (também chamada pré-autorização) irá sensibilizar o limite do cliente, mas ainda não irá gerar cobrança na fatura para o consumidor.|
+|**Autorização**|Operação que viabiliza o processamento de uma venda com um cartão de crédito. A autorização (também chamada pré-autorização) irá sensibilizar o limite do cliente, mas ainda não irá gerar cobrança em sua fatura.|
 |**Captura**|Confirmação necessária para que a cobrança seja efetivada. O tempo limite para capturar uma transação pré-autorizada varia entre adquirentes, mas pode ser de até 5 dias após a data da pré-autorização.|
 |**Captura Automática**|Opção que permite que a transação possa ser **autorizada** e **capturada** num mesmo momento, isentando o lojista de enviar a confirmação.|
 |**Cancelamento**|Recurso necessário quando, por algum motivo, não se quer mais efetivar uma venda. No caso de uma transação apenas **autorizada**, o cancelamento irá liberar o limite do cartão que foi sensibilizado. Se a transação já tiver sido **capturada**, o cancelamento irá desfazer a venda, mas somente quando executado até às 23:59:59 da data da autorização/captura.|
