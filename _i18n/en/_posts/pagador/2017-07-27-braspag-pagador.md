@@ -22,15 +22,15 @@ Below is the representation of a standard transactional flow, followed by a shor
 
 ![Fluxo Transacional](https://braspag.github.io/images/fluxo-transacional-en.png)
 
-**E-commerce platform:** Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.
-**Gateway:** Connects e-commerces with payment services (acquirers, *boleto* bills, issuer), making it easier for the merchants to manage the payment providers.
-**Acquirer:** Connects the transaction with the payment networks (brands) and settles the transaction for the merchants.
-**Payment network (or brand):** Communicates with the issuer of the transaction card and settles the transaction for the acquirers.
-**Issuer:** Gives credit and stores the buyer's money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.
+* **E-commerce platform:** Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.
+* **Gateway:** Connects e-commerces with payment services (acquirer, *boleto* bill, issuer), making it easier for the merchants to manage payment providers.
+* **Acquirer:** Connects the transaction with the payment networks (brands) and settles the transaction for the merchants.
+* **Payment network (or brand):** Communicates with the issuer of the transaction card and settles the transaction for the acquirers.
+* **Issuer:** Gives credit and stores the buyer's money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.
 
-## Characteristics of the Solution
+## Features of the Solution
 
-The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. This way, it is possible to integrate using various programming languages, such as: *ASP*, *ASP.Net*, *Java*, *PHP*, *Ruby* and *Python*.
+The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: *ASP*, *ASP.Net*, *Java*, *PHP*, *Ruby* and *Python*.
 
 Here are some of the main benefits of using the Braspag eCommerce platform:
 
@@ -49,7 +49,7 @@ The model used in the integration of the APIs is simple. It is based in the use 
 |---|---|
 |**GET**|For querying existing resources, like transaction queries.|
 |**POST**|For creating transactions.|
-|**PUT**|For updating existing resources,like capturing or canceling a previously authorized transaction.|
+|**PUT**|For updating existing resources, like capturing or canceling a previously authorized transaction.|
 
 ## Test and Production Environments
 
@@ -57,17 +57,17 @@ Use our **Sandbox** environment to test our products and services before bringin
 
 ### Sandbox Environment
 
-Create an account in our sandbox and try our APIs during your testing phase, with no commitment.
+Create an account in our sandbox and try out our APIs during your testing phase, with no commitment.
 
 |Information|Description|
 |----|----|
-|Access credentials|After creating a test account in [Sandbox Signup](https://cadastrosandbox.braspag.com.br/), you will receive a `MerchantId` and a `MerchantKey` which must be used to authenticate all requests made to the API endpoints.|
+|Access credentials|After creating a test account in [Sandbox Registration](https://cadastrosandbox.braspag.com.br/), you will receive a `MerchantId` and a `MerchantKey` which must be used to authenticate all requests made to the API endpoints.|
 |Transactional endpoint|https://apisandbox.braspag.com.br/|
 |Endpoint for query services|https://apiquerysandbox.braspag.com.br/|
 
 ### Production Environment
 
-Once you are done running your tests and ready for go-live, you can implement your solution in the production environment.
+Once you are done running your tests and ready for *go-live*, you can implement your solution in the production environment.
 
 |Information|Description|
 |---|---|
@@ -81,13 +81,13 @@ In order for you to better enjoy the features available in our API, it is import
 
 |Step|Description|
 |---|---|
-|**Authorization**| Operation that makes the process of credit card sale possible. The authorization (also called pre-authorization) only earmarks the customer's fund, but the amount is not yet released from their account.
+|**Authorization**| Makes the process of a credit card sale possible. The authorization (also called pre-authorization) only earmarks the customer's fund, not yet releasing it from their account.|
 |**Capture**| When making a pre-authorization, you must confirm it for the charge to take place. The time limit for capturing a pre-authorized transaction varies from acquirer to acquirer, which may for example, be up to 5 days after the pre-authorization date.
 |**Automatic Capture**| This is when a transaction is authorized and captured at the same time, exempting the merchant to sending a later confirmation.
 |**Cancellation**| Cancellation is required when for some reason you no longer want to make a sale. In the case of an Authorized Transaction only, the cancellation will release the limit of the card that has been sensitized. Once the transaction is already Captured, the cancellation will undo the sale but must be executed until 11:59:59 pm of the authorization/capture date.
 |**Refund**| The reversal applies when a transaction created the day before or before is already captured. In this case, the transaction will be submitted in the process of refund by the acquirer.
 
-<aside class="warning">An authorized transaction only generates credit to the merchant if it is captured.</aside>
+<aside class="warning">Reminder: An authorized transaction only generates credit to the merchant after being captured.</aside>
 
 * **Authentication**: The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.
 * **Cartão Protegido**: It is a platform that allows secure storage of sensitive credit card data. This data is transformed into encrypted code called a "token" which can be stored in a database. With the platform, the store will be able to offer features such as "1-Click Purchase" and "Transaction Shipping Retention", while preserving the integrity and confidentiality of the information.
