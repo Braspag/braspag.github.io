@@ -20,7 +20,7 @@ The purpose of this documentation is to guide the developer on how to integrate 
 
 Below is the representation of a standard transactional flow, followed by a short description of the main parties involved:
 
-![Fluxo Transacional]({{ site.baseurl_root }}/images/fluxo-transacional-en.jpg)
+![Fluxo Transacional](https://braspag.github.io/images/fluxo-transacional-en.png)
 
 **E-commerce platform:** Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.
 **Gateway:** Connects e-commerces with payment services (acquirers, *boleto* bills, issuer), making it easier for the merchants to manage the payment providers.
@@ -6315,7 +6315,7 @@ There are two variables to fill in the Javascript URL. The `org_id` and the` ses
 
 The Javascript template is as follows:
 
-![Exemple Code]({{site.baseurl_root}}/images/braspag/af/exemploscriptdfp.png)
+![Example Code](https://braspag.github.io/images/braspag/af/exemploscriptdfp.png)
 
 The variables, when properly filled in, would provide a URL similar to the example below:
 
