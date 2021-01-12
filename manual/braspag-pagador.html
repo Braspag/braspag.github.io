@@ -145,11 +145,11 @@
 
 <p>Abaixo veja a representação de um <strong>fluxo transacional</strong> padrão seguida de uma pequena descrição das principais partes envolvidas:</p>
 
-<p><img src="https://braspag.github.io//images/fluxo-transacional.jpg" alt="Fluxo Transacional" /></p>
+<p><img src="https://braspag.github.io//images/fluxo-transacional-pt.png" alt="Fluxo Transacional" /></p>
 
 <ul>
   <li><strong>Plataforma de e-commerce:</strong> Provê solução técnica para lojistas construírem toda a infraestrutura e processos necessários para sua operação de e-commerce.</li>
-  <li><strong>Gateway:</strong> Conecta e-commerces com os serviços de pagamento (adquirentes, boletos, emissor), facilitando a gestão dos fornecedores de pagamento pelos lojistas.</li>
+  <li><strong>Gateway:</strong> Conecta e-commerces com os serviços de pagamento (adquirente, boleto, emissor), facilitando a gestão dos fornecedores de pagamento pelos lojistas.</li>
   <li><strong>Adquirente:</strong> Faz a conexão da transação com as bandeiras e liquida a transação para os lojistas.</li>
   <li><strong>Bandeira:</strong> Faz a comunicação com o emissor do cartão da transação e liquida a transação para os adquirentes.</li>
   <li><strong>Emissor:</strong> Dá crédito e armazena o dinheiro do comprador. Na transação, aprova ou nega por razões de saldo, validade do cartão ou fraude. Liquida a transação para a bandeira.</li>
@@ -165,7 +165,7 @@
   <li><strong>Ausência de aplicativos proprietários</strong>: não é necessário instalar aplicativos no ambiente da loja virtual em nenhuma hipótese.</li>
   <li><strong>Simplicidade</strong>: o protocolo utilizado é puramente o HTTPS.</li>
   <li><strong>Facilidade de testes</strong>: a plataforma Braspag oferece um ambiente Sandbox publicamente acessível, que permite ao desenvolvedor a criação de uma conta de testes sem a necessidade de credenciamento, facilitando e agilizando o início da integração.</li>
-  <li><strong>Credenciais</strong>: o tratamento das credenciais do cliente (número de afiliação e chave de acesso) trafega no cabeçalho da requisição HTTP da mensagem.</li>
+  <li><strong>Credenciais</strong>: as credenciais do cliente (número de afiliação e chave de acesso) trafegam no cabeçalho da requisição HTTP.</li>
   <li><strong>Segurança</strong>: a troca de informações se dá sempre entre o servidor da loja e o servidor da Braspag, ou seja, sem o browser do comprador.</li>
   <li><strong>Integração multiplataforma</strong>: a integração é realizada através de APIs REST, que permitem a utilização de diferentes aplicações.</li>
 </ul>
@@ -197,7 +197,7 @@
   </tbody>
 </table>
 
-<h2 id="ambientes-de-desenvolvimento">Ambientes de Desenvolvimento</h2>
+<h2 id="ambientes-de-teste-e-produção">Ambientes de Teste e Produção</h2>
 
 <p>Utilize o ambiente <strong>Sandbox</strong> para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no ambiente de <strong>Produção</strong>.</p>
 
@@ -271,7 +271,7 @@
   <tbody>
     <tr>
       <td><strong>Autorização</strong></td>
-      <td>Operação que viabiliza o processamento de uma venda com um cartão de crédito. A autorização (também chamada pré-autorização) irá sensibilizar o limite do cliente, mas ainda não irá gerar cobrança na fatura para o consumidor.</td>
+      <td>Operação que viabiliza o processamento de uma venda com um cartão de crédito. A autorização (também chamada pré-autorização) irá sensibilizar o limite do cliente, mas ainda não irá gerar cobrança em sua fatura.</td>
     </tr>
     <tr>
       <td><strong>Captura</strong></td>
