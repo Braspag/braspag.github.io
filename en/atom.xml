@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-12T14:37:19+00:00</updated>
+    <updated>2021-01-12T20:56:13+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13016,15 +13016,67 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
         <id>https://braspag.github.io//en/manual/braspag-pagador</id>
         <content type="html">&lt;h1 id=&quot;introduction-to-the-pagador-api&quot;&gt;Introduction to the Pagador API&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;The purpose of this documentation is to guide the developer on how to integrate with the Pagador API, Braspag’s payment gateway, describing the services available with request and response examples.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The purpose of this documentation is to guide the developer on how to integrate with the &lt;strong&gt;Pagador API&lt;/strong&gt;, Braspag’s payment gateway, describing all available services using request and response examples.&lt;/p&gt;
 
-&lt;p&gt;All operations require specific access credentials (Merchant ID and Merchant Key) for their environment:&lt;strong&gt;Sandbox&lt;/strong&gt; and &lt;strong&gt;Production&lt;/strong&gt;. &lt;a href=&quot;https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md&quot;&gt;To perform&lt;/a&gt; an operation, combine the environment base endpoint with the desired operation endpoint and submit using the HTTP VERB as described on the operation.&lt;/p&gt;
+&lt;p&gt;Below is the representation of a standard transactional flow, followed by a short description of the main parties involved:&lt;/p&gt;
 
-&lt;h2 id=&quot;environments&quot;&gt;Environments&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/fluxo-transacional-en.jpg&quot; alt=&quot;Fluxo Transacional&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;E-commerce platform:&lt;/strong&gt; Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.
+&lt;strong&gt;Gateway:&lt;/strong&gt; Connects e-commerces with payment services (acquirers, &lt;em&gt;boleto&lt;/em&gt; bills, issuer), making it easier for the merchants to manage the payment providers.
+&lt;strong&gt;Acquirer:&lt;/strong&gt; Connects the transaction with the payment networks (brands) and settles the transaction for the merchants.
+&lt;strong&gt;Payment network (or brand):&lt;/strong&gt; Communicates with the issuer of the transaction card and settles the transaction for the acquirers.
+&lt;strong&gt;Issuer:&lt;/strong&gt; Gives credit and stores the buyer’s money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.&lt;/p&gt;
+
+&lt;h2 id=&quot;characteristics-of-the-solution&quot;&gt;Characteristics of the Solution&lt;/h2&gt;
+
+&lt;p&gt;The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. This way, it is possible to integrate using various programming languages, such as: &lt;em&gt;ASP&lt;/em&gt;, &lt;em&gt;ASP.Net&lt;/em&gt;, &lt;em&gt;Java&lt;/em&gt;, &lt;em&gt;PHP&lt;/em&gt;, &lt;em&gt;Ruby&lt;/em&gt; and &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here are some of the main benefits of using the Braspag eCommerce platform:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;No proprietary apps&lt;/strong&gt;: no applications need to be installed in the online store environment.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Simplicity&lt;/strong&gt;: the protocol used is purely HTTPS.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Easy testing&lt;/strong&gt;: Braspag platform offers a publicly accessible Sandbox environment that allows the developer to create a test account without the need for accreditation, making it easier and faster to start integrating.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Credentials&lt;/strong&gt;: the client credentials (affiliation number and access key) are transmitted in the header of the HTTP request.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt;: the information is always exchanged between the store server and Braspag, without the customer’s browser.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Multiplatform integration&lt;/strong&gt;: the integration is performed through REST APIs, which allows the use of different applications.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;integration-architecture&quot;&gt;Integration Architecture&lt;/h2&gt;
+
+&lt;p&gt;The model used in the integration of the APIs is simple. It is based in the use of two URLs (endpoints). One is specific for operations such as authorization, capture and cancellation of transactions. The other one is for queries, such as a transaction search. These two URLs receive HTTP messages using the GET, POST or PUT methods. Each type of message must be sent to an address identified as “path”, which is the address of the resource.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;HTTP Method&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;For querying existing resources, like transaction queries.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;POST&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;For creating transactions.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;PUT&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;For updating existing resources,like capturing or canceling a previously authorized transaction.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;test-and-production-environments&quot;&gt;Test and Production Environments&lt;/h2&gt;
+
+&lt;p&gt;Use our &lt;strong&gt;Sandbox&lt;/strong&gt; environment to test our products and services before bringing your solution into the &lt;strong&gt;Production&lt;/strong&gt; environment.&lt;/p&gt;
 
 &lt;h3 id=&quot;sandbox-environment&quot;&gt;Sandbox Environment&lt;/h3&gt;
 
-&lt;p&gt;Try our APIs for free!&lt;/p&gt;
+&lt;p&gt;Create an account in our sandbox and try our APIs during your testing phase, with no commitment.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -13035,15 +13087,15 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;API Access Credentials&lt;/td&gt;
-      &lt;td&gt;Visit &lt;a href=&quot;https://cadastrosandbox.braspag.com.br/&quot;&gt;Sandbox Signup&lt;/a&gt; and create a test account.&lt;br /&gt;At the end of registration you will receive a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;br /&gt; which will be used to authenticate all requests made to the API&lt;/td&gt;
+      &lt;td&gt;Access credentials&lt;/td&gt;
+      &lt;td&gt;After creating a test account in &lt;a href=&quot;https://cadastrosandbox.braspag.com.br/&quot;&gt;Sandbox Signup&lt;/a&gt;, you will receive a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; which must be used to authenticate all requests made to the API endpoints.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Transactional Endpoint&lt;/td&gt;
+      &lt;td&gt;Transactional endpoint&lt;/td&gt;
       &lt;td&gt;https://apisandbox.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Endpoint for Query Services&lt;/td&gt;
+      &lt;td&gt;Endpoint for query services&lt;/td&gt;
       &lt;td&gt;https://apiquerysandbox.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -13051,7 +13103,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;h3 id=&quot;production-environment&quot;&gt;Production Environment&lt;/h3&gt;
 
-&lt;p&gt;I am ready to Go Live!&lt;/p&gt;
+&lt;p&gt;Once you are done running your tests and ready for go-live, you can implement your solution in the production environment.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -13062,69 +13114,71 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;API Access Credentials&lt;/td&gt;
-      &lt;td&gt;Send an email to comercial@braspag.com.br for more information about Braspag and how we can help your business!&lt;/td&gt;
+      &lt;td&gt;Access Credentials&lt;/td&gt;
+      &lt;td&gt;Send us an email (&lt;em&gt;comercial@braspag.com.br&lt;/em&gt;) for more information about Braspag and how we can help you with your business.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Transactional Endpoint&lt;/td&gt;
+      &lt;td&gt;Transactional endpoint&lt;/td&gt;
       &lt;td&gt;https://api.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Endpoint for Query Services&lt;/td&gt;
+      &lt;td&gt;Endpoint for query services&lt;/td&gt;
       &lt;td&gt;https://apiquery.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;braspags-support&quot;&gt;Braspag’s Support&lt;/h2&gt;
+&lt;h2 id=&quot;transactional-terms&quot;&gt;Transactional Terms&lt;/h2&gt;
+
+&lt;p&gt;In order for you to better enjoy the features available in our API, it is important to first understand some of the concepts involved in the process of a credit card transaction:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Step&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Authorization&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Operation that makes the process of credit card sale possible. The authorization (also called pre-authorization) only earmarks the customer’s fund, but the amount is not yet released from their account.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Capture&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;When making a pre-authorization, you must confirm it for the charge to take place. The time limit for capturing a pre-authorized transaction varies from acquirer to acquirer, which may for example, be up to 5 days after the pre-authorization date.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Automatic Capture&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;This is when a transaction is authorized and captured at the same time, exempting the merchant to sending a later confirmation.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Cancellation&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Cancellation is required when for some reason you no longer want to make a sale. In the case of an Authorized Transaction only, the cancellation will release the limit of the card that has been sensitized. Once the transaction is already Captured, the cancellation will undo the sale but must be executed until 11:59:59 pm of the authorization/capture date.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Refund&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;The reversal applies when a transaction created the day before or before is already captured. In this case, the transaction will be submitted in the process of refund by the acquirer.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;An authorized transaction only generates credit to the merchant if it is captured.&lt;/aside&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Authentication&lt;/strong&gt;: The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cartão Protegido&lt;/strong&gt;: It is a platform that allows secure storage of sensitive credit card data. This data is transformed into encrypted code called a “token” which can be stored in a database. With the platform, the store will be able to offer features such as “1-Click Purchase” and “Transaction Shipping Retention”, while preserving the integrity and confidentiality of the information.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Antifraude&lt;/strong&gt;: It is a fraud prevention platform that provides a detailed risk analysis of online purchases. This process is fully transparent to the cardholder. According to the pre-established criteria, the request may be automatically accepted, rejected or referred for manual review.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All operations require specific access credentials (Merchant ID and Merchant Key) for their environment:&lt;strong&gt;Sandbox&lt;/strong&gt; and &lt;strong&gt;Production&lt;/strong&gt;. &lt;a href=&quot;https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md&quot;&gt;To perform&lt;/a&gt; an operation, combine the environment base endpoint with the desired operation endpoint and submit using the HTTP VERB as described on the operation.&lt;/p&gt;
+
+&lt;h2 id=&quot;braspag-support-staff&quot;&gt;Braspag Support Staff&lt;/h2&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Braspag offers high availability support, in working days from 9 am to 7 pm, 24x7 emergency telephone and through a web-based tool. Our support team speaks Portuguese, English and Spanish.&lt;/aside&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Web Support: &lt;a href=&quot;https://suporte.braspag.com.br/hc/en-us&quot;&gt;Zendesk&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;about-the-api&quot;&gt;About the API&lt;/h2&gt;
-
-&lt;p&gt;The Pagador API solution was developed with REST technology, which is industry standard and independent of the technology used by our customers. This way, it is possible to integrate using various programming languages, such as: ASP, ASP. Net, Java, PHP, Ruby, Python, among others.&lt;/p&gt;
-
-&lt;p&gt;Most outstanding attributes in the Braspag’s eCommerce platform:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;No proprietary apps&lt;/strong&gt;: No apps need to be installed in the online store environment.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Simplicity&lt;/strong&gt;: The protocol used is purely HTTPS.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Testing Facility&lt;/strong&gt;: Braspag platform offers a publicly accessible Sandbox environment that allows the developer to create a test account without the need for accreditation, making it easier and faster to start integrating.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Credentials&lt;/strong&gt;: The handling of client credentials (affiliation number and access key) traffic in the header of the HTTP request.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt;: Information is always exchanged between the Store Server and Braspag, ie, without the shopper’s browser.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Multiplatform&lt;/strong&gt;: Integration is performed through Web Service REST.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;architecture&quot;&gt;Architecture&lt;/h2&gt;
-
-&lt;p&gt;Integration is made through services as Web Services. The model employed is quite simple: There are two endpoints, one specific for authorizing, capturing and canceling transactions, and another for operations such as transaction query. These two URLs will receive HTTP messages via POST, GET, or PUT methods. Each type of message must be sent to an address identified through “path”.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;POST&lt;/strong&gt;- The HTTP POST method is used in the creation of a transaction.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;PUT&lt;/strong&gt;- The HTTP PUT method is used for update existing resources. For example, capturing or canceling a previously authorized transaction.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;GET&lt;/strong&gt;- The HTTP GET method is used for querying existing resources. For example, transaction query.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In order for you to enjoy all the features available in our API, it is important that you first understand the concepts involved in processing a credit card transaction.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Authorization&lt;/strong&gt;: Authorization (or pre-authorization) is an operation that makes it possible to process a sale with a credit card. Pre-authorization only senses the customer’s limit, but does not yet charge the invoice for the consumer. Thus, a second operation called ‘capture’ is required.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Capture&lt;/strong&gt;: When making a pre-authorization, you must confirm it for the charge to take place. The time limit for capturing a pre-authorized transaction varies from acquirer to acquirer, which may for example, be up to 5 days after the pre-authorization date.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Automatic Capture&lt;/strong&gt;: This is when a transaction is authorized and captured at the same time, exempting the merchant to sending a later confirmation.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;aside class=&quot;warning&quot;&gt;An authorized transaction only generates credit to the merchant if it is captured.&lt;/aside&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Cancellation&lt;/strong&gt;: Cancellation is required when for some reason you no longer want to make a sale. In the case of an Authorized Transaction only, the cancellation will release the limit of the card that has been sensitized. Once the transaction is already Captured, the cancellation will undo the sale but must be executed until 11:59:59 pm of the authorization/capture date.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Refund&lt;/strong&gt;: The reversal applies when a transaction created the day before or before is already captured. In this case, the transaction will be submitted in the process of refund by the acquirer.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Authentication&lt;/strong&gt;: The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Cartão Protegido&lt;/strong&gt;: It is a platform that allows secure storage of sensitive credit card data. This data is transformed into encrypted code called a “token” which can be stored in a database. With the platform, the store will be able to offer features such as “1-Click Purchase” and “Transaction Shipping Retention”, while preserving the integrity and confidentiality of the information.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Antifraude&lt;/strong&gt;: It is a fraud prevention platform that provides a detailed risk analysis of online purchases. This process is fully transparent to the cardholder. According to the pre-established criteria, the request may be automatically accepted, rejected or referred for manual review.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;payments&quot;&gt;Payments&lt;/h1&gt;
