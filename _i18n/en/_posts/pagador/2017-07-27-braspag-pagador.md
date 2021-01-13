@@ -107,19 +107,21 @@ Access our web support tool [Zendesk](https://suporte.braspag.com.br/hc/en-us).
 
 # Payments Methods
 
-The Pagador API works with transactions made in the following payment methods: credit card, debit card, bank slip, electronic transfer, e-wallet and voucher.
+The Pagador API works with transactions made in the following payment methods: credit card, debit card, *boleto* bill, electronic transfer, e-wallet and voucher.
 
-To prevent duplicate orders from occurring during a transaction, the Payer has the option to block duplicate orders which, when enabled, returns the error code “302”, informing that the MerchantOrderId sent is duplicated. For more details on this feature, see this article.
+To prevent duplicate orders from occurring during a transaction, Pagador has the option of blocking duplicate orders which, when enabled, returns the "302" error code, informing that the `MerchantOrderId` sent is duplicated.
 
-## Credit/Debit card
+## Credit and Debit Cards
 
-### Creating a Transaction
+### Creating a Credit Transaction
 
-To authorize a credit transaction, you must follow the agreement below. Your affiliation data is submitted in the `Payment.Credentials` node, and must be submitted whenever a new authorization request is submitted for approval.
+When requesting authorization for a credit transaction, it is necessary to follow the contract below. The details related to your affiliation are sent within the `Payment.Credentials` node, and must be sent whenever a new authorization request is submitted for approval.
 
-If your store uses Retry or Loadbalance services, affiliations must be registered by the customer support team. To request an affiliation registration, click [here](http://suporte.braspag.com.br/).
+If your store uses *Retry* or *Loadbalance* services, affiliations must be registered by the customer support team. To request the registration of affiliations, [click here](https://suporte.braspag.com.br/hc/en-us/requests/new) and send your request.
 
-<aside class="notice">The parameters contained in the `Address` and `DeliveryAddress` nodes are required when the transaction is submitted to the Velocity or Antifraud Analysis. In the parameter table below, they are marked with an * in the required column.</aside>
+<aside class="notice">Important: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).</aside>
+
+The parameters contained within the `Address` and `DeliveryAddress` nodes are **mandatory** when the transaction is submitted to *Anti-Fraud* or to the *Velocity* analysis. These parameters are marked with an * in the mandatory column of the table below.
 
 #### Request
 
@@ -283,60 +285,70 @@ curl
 
 |Property|Type|Size|Mandatory|Description|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|GUID|36|Yes|Store identifier at Braspag|
-|`MerchantKey`|Text|40|Yes|Public Key for Dual Authentication at Braspag|
-|`RequestId`|GUID|36|No|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|
-|`MerchantOrderId`|Text|50|Yes|Order ID Number|
-|`Customer.Name`|Text|255|Yes|Shopper Name|
-|`Customer.Identity`|Text|14|No|Customer ID number|
-|`Customer.IdentityType`|Text|255|No|Shopper Identification Document Type (CPF or CNPJ)|
-|`Customer.Name`|Text|255|Yes|Shopper's email address|
-|`Customer.Birthdate`|Date|10|No|Shoppers's date of birth in YYYY-MM-DD format|
-|`Customer.Address.ZipCode`|Text|9|No*|Shopper Contact Address|
-|`Customer.Address.Number`|Text|15|No*|Shopper's contact address number|
-|`Customer.Address.Complement`|Text|50|No*|Shopper's contact address complement|
-|`Customer.Address.ZipCode`|Text|9|No*|Shopper's contact address Zip Code|
-|`Customer.Address.City`|Text|50|No*|Shopper's city contact address|
-|`Customer.Address.State`|Text|2|No*|Shopper's State contact address|
-|`Customer.Address.Country`|Text|35|No*|Shopper's country contact address|
-|`Customer.Address.District`|Text|50|No*|Shopper's Neighborhood|
-|`Customer.DeliveryAddress.Street`|Text|255|No*|Shopper's delivery address street|
-|`Customer.DeliveryAddress.Number`|Text|15|No*|Order's delivery address number|
-|`Customer.DeliveryAddress.Complement`|Text|50|No*|Order's delivery address compplement|
-|`Customer.DeliveryAddress.ZipCode`|Text|9|No*|Order's delivery address ZIP Code|
-|`Customer.DeliveryAddress.City`|Text|50|No*|Order's city delivery address|
-|`Customer.DeliveryAddress.State`|Text|2|No*|Order's state delivery address|
-|`Customer.DeliveryAddress.Country`|Text|35|No*|Order's country delivery address|
-|`Customer.Address.District`|Text|50|No*|Order's neighborhood|
-|`Payment.Provider`|Text|15|Yes|Name of Payment Method's Provider|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (cents)|
-|`Payment.ServiceTaxAmount`|Number|15|No|Applicable for airlines only. Value of the amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value|
-|`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL/USD/MXN/COP/CLP/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP)|
-|`Payment.Country`|Text|3|No|Country in which payment will be made|
-|`Payment.Installments`|Number|2|Yes|Number of installments|
-|`Payment.Interest`|Text|10|No|Installment Type - Store (ByMerchant) or Issuer (ByIssuer)|
-|`Payment.Capture`|Boolean|---|No (Default false)|Boolean that indicates whether the authorization should be with automatic capture (true) or not (false). You should check with the acquirer for the availability of this feature|
-|`Payment.Authenticate`|Boolean|---|No (Default false)|Boolean indicating whether the transaction should be authenticated (true) or not (false). You should check with the acquirer for the availability of this feature|
-|`Payment.Recurrent`|Boolean|---|No (Default false)|Boolean that indicates whether the transaction is a recurring type (true) or not (false). This value of true will not give rise to a new Recurrence, it will only allow the execution of a transaction without the need to send CVV. For Cielo transactions only. Authenticate must be false when Recurrent is true|
-|`Payment.SoftDescriptor`|Text|13|No|Text to be printed on bearer invoice|
-|`Payment.DoSplit`|Boolean|---|No (Default false)|Boolean indicating whether the transaction will be split between multiple accounts (true) or not (false)|
-|`Payment.ExtraDataCollection.Name`|Text|50|No|Name of the field to save the Extra Data|
-|`Payment.ExtraDataCollection.Value`|Text|1024|No|Value of the field to save the Extra Data|
-|`Payment.Credentials.Code`|Text|100|Yes|Affiliation generated|
-|`Payment.Credentials.Key`|Text|100|Yes|Affiliation key/token generated by acquirer|
-|`Payment.Credentials.Username`|Text|50|No|User generated on credential process with Getnet acquirer (field must be submitted if transaction is directed to Getnet)|
-|`Payment.Credentials.Password`|Text|50|No|Password generated on credential process with Getnet acquirer (field must be submitted if transaction is directed to Getnet)|
-|`Payment.Credentials.Signature`|Text|3|No|Submit TerminalID from Global Payments (applicable to merchants affiliated with this acquirer). E.g.: 001|
-|`CreditCard.CardNumber`|Text|16|Yes|Shopper's card number|
-|`CreditCard.Holder`|Text|25|Yes|Name of cardholder printed on card|
-|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on card|
-|`CreditCard.SecurityCode`|Text|4|Yes|Security code printed on back of card|
-|`CreditCard.Brand`|Text|10|Yes|Card brand|
-|`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean identifying if the card will be saved to generate the token (CardToken)|
-|`CreditCard.Alias`|Text|64|No|Name given by merchant to card saved as CardToken|
-|`CreditCard.CardOnFile.Usage`|Text|-|No|**Applicable only on Provider=Cielo30**<br><br>**First** if the card has been stored and is your first use.<br>**Used** if the card has been stored and it has been used previously in another transaction|
-|`CreditCard.CardOnFile.Reason`|Text|-|Condicional|**Applicable only on Provider=Cielo30**<br><br>Indicates the purpose of card storage, if the field "Usage" is "Used".<BR>**Recurring** - Scheduled recurring purchase (e.g.: subscription services)<br>**Unscheduled** - Unscheduled recurring purchase (e.g.: serices apps)<br>**Installments** - Installments trough recurrency|
+|`MerchantId`|GUID|36|Yes|Store identifier at Braspag.|
+|`MerchantKey`|Text|40|Yes|Public key for dual authentication at Braspag.|
+|`RequestId`|GUID|36|No|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|
+|`MerchantOrderId`|Text|50|Yes|Order ID number.|
+|`Customer.Name`|Text|255|Yes|Customer's name.|
+|`Customer.Identity`|Text|14|No|Customer's ID number.|
+|`Customer.IdentityType`|Text|255|No|Customer's identification document type (CPF or CNPJ).|
+|`Customer.Name`|Text|255|Yes|Customer's email address.|
+|`Customer.Birthdate`|Date|10|No|Customer's date of birth in the YYYY-MM-DD format.|
+|`Customer.Address.ZipCode`|Text|9|No*|Customer's contact address.|
+|`Customer.Address.Number`|Text|15|No*|Customer's contact address number.|
+|`Customer.Address.Complement`|Text|50|No*|Customer's contact address additional information.|
+|`Customer.Address.ZipCode`|Text|9|No*|Customer's contact address zip code.|
+|`Customer.Address.City`|Text|50|No*|Customer's contact address city.|
+|`Customer.Address.State`|Text|2|No*|Customer's contact address state.|
+|`Customer.Address.Country`|Text|35|No*|Customer's contact address country.|
+|`Customer.Address.District`|Text|50|No*|Customer's neighborhood.|
+|`Customer.DeliveryAddress.Street`|Text|255|No*|Delivery address street.|
+|`Customer.DeliveryAddress.Number`|Text|15|No*|Delivery address number.|
+|`Customer.DeliveryAddress.Complement`|Text|50|No*|Delivery address additional information.|
+|`Customer.DeliveryAddress.ZipCode`|Text|9|No*|Delivery address zip code.|
+|`Customer.DeliveryAddress.City`|Text|50|No*|Delivery address city.|
+|`Customer.DeliveryAddress.State`|Text|2|No*|Delivery address state.|
+|`Customer.DeliveryAddress.Country`|Text|35|No*|Delivery address country.|
+|`Customer.Address.District`|Text|50|No*|Delivery address neighborhood.|
+|`Payment.Provider`|Text|15|Yes|Name of payment method's provider.|
+|`Payment.Type`|Text|100|Yes|Payment method type.|
+|`Payment.Amount`|Number|15|Yes|Order payment amount in cents.|
+|`Payment.ServiceTaxAmount`|Number|15|No|Applicable for airlines only. Value of the amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value.|
+|`Payment.Currency`|Text|3|No|Currency in which the payment will be made (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP).|
+|`Payment.Country`|Text|3|No|Country in which the payment will be made.|
+|`Payment.Installments`|Number|2|Yes|Number of installments.|
+|`Payment.Interest`|Text|10|No|Installment type - Store ("ByMerchant") or Issuer ("ByIssuer").|
+|`Payment.Capture`|Boolean|---|No (default "false")|Indicates whether the authorization should use automatic capture ("true") or not ("false"). Please check with the acquirer about the availability of this feature.|
+|`Payment.Authenticate`|Boolean|---|No (default "false")|Indicates whether the transaction should be authenticated ("true") or not ("false"). Please check with the acquirer about the availability of this feature.|
+|`Payment.Recurrent`|Boolean|---|No (default "false")|Indicates whether the transaction is of recurring type ("true") or not ("false"). The "true" value will not set a new recurrence, it will only allow the execution of a transaction without the need to send CVV. `Authenticate` must be "false" when `Recurrent` is "true".**For Cielo transactions only.** |
+|`Payment.SoftDescriptor`|Text|13|No|Text to be printed on bearer invoice.|
+|`Payment.DoSplit`|Boolean|---|No (default "false")|Indicates whether the transaction will be split between multiple accounts ("true") or not ("false").|
+|`Payment.ExtraDataCollection.Name`|Text|50|No|Name of the extra data field.|
+|`Payment.ExtraDataCollection.Value`|Text|1024|No|Value of the extra data field.|
+|`Payment.Credentials.Code`|Text|100|Yes|Affiliation generated by acquirer.|
+|`Payment.Credentials.Key`|Text|100|Yes|Affiliation key/token generated by acquirer.|
+|`Payment.Credentials.Username`|Text|50|No|User generated on credential process with the **Getnet** acquirer (field must be submitted if transaction is directed to Getnet).|
+|`Payment.Credentials.Password`|Text|50|No|Password generated on credential process with the **Getnet** acquirer (field must be submitted if transaction is directed to Getnet).|
+|`Payment.Credentials.Signature`|Text|3|No|Submission of the *TerminalID* for Global Payments (applicable to merchants affiliated with this acquirer). E.g.: "001". For **Safra**, send establishment name, city and state concatenated with a semicolon (;), e.g.: “EstablishmentName;SaoPaulo;SP”.|
+|`Payment.PaymentFacilitator.EstablishmentCode`|Facilitator establishment code. “Facilitator ID” (Facilitator register with card network).<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|11|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Sub-merchant's establishment code. “Sub-Merchant ID” (Sub-accredited register with facilitator).<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|Sub-merchant's MCC.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.Address`|Sub-merchant's address.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.City`|Sub-merchant's city.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.State`|Sub-merchant's state.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Sub-merchant's postal code.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Sub-merchant's telephone number.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.Identity`|Sub-merchant's CNPJ or CPF.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Sub-merchant's country code based on ISO 3166.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`CreditCard.CardNumber`|Text|16|Yes|Customer's card number.|
+|`CreditCard.Holder`|Text|25|Yes|Name of cardholder printed on the card.|
+|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on the card.|
+|`CreditCard.SecurityCode`|Text|4|Yes|Security code printed on the back of the card.|
+|`CreditCard.Brand`|Text|10|Yes|Card brand.|
+|`CreditCard.SaveCard`|Boolean|---|No (default "false")|Indicates whether the card will be saved to generate the token (*CardToken*).|
+|`CreditCard.Alias`|Text|64|No|Name given by merchant to card saved as *CardToken*.|
+|`CreditCard.CardOnFile.Usage`|Text|-|No|"First" if the card has been stored and it is your first use.<br>"Used" if the card has been stored and it has been used previously in another transaction.<br><br>**Applicable for `Provider` Cielo30 only.**|
+|`CreditCard.CardOnFile.Reason`|Text|-|Conditional|<br><br>Indicates the purpose of the card storage, in case the `Usage` field is "Used".<br><br>"Recurring" - Scheduled recurring purchase (e.g.: subscription services).<br>"Unscheduled" - Unscheduled recurring purchase (e.g.: services apps).<br>"Installments" - Installment through recurrence. <br><br> **Applicable for `Provider` Cielo30 only.**|
 
 #### Response
 
@@ -1973,7 +1985,7 @@ Recurring credit card sales do not require CVV.
 
 ### Authorize a recurring transaction
 
-Add the `RecurrentPayment` node to the `Payment` node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.
+Add the `RecurrentPayment` node to the `Payment` node to schedule future recurrencies when authorizing a transaction for the first time in the recurrence series.
 
 #### Request
 
@@ -2414,7 +2426,7 @@ curl
 |`Payment.Amount`|Number|15|Yes|Total amount (in cents)|
 |`Payment.RecurrentPayment.StartDate`|Text|10|No|Recurrent start date|
 |`Payment.RecurrentPayment.EndDate`|Text|10|No|Recurrent end date|
-|`Payment.RecurrentPayment.Interval`|Text|10|No|Recurrency interval.<br/><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
+|`Payment.RecurrentPayment.Interval`|Text|10|No|Recurrence interval.<br/><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
 |`Payment.RecurrentPayment.AuthorizeNow`|Boolean|--- |Yes|If `true`, authorize at the same moment of the request. `false` to just make a schedulement|
 
 #### Response
@@ -2563,7 +2575,7 @@ curl
 |`NextRecurrency`|Date of the next recurrence.|Text|7|05/2019 (MM/YYYY)|
 |`StartDate`|Start date of recurrence.|Text |7|05/2019 (MM/YYYY)|
 |`EndDate`|End date of recurrence.|Text |7|05/2019 (MM/YYYY)|
-|`Interval`|Recurrency interval. |Texto |10 |<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
+|`Interval`|Recurrence interval. |Texto |10 |<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul> |
 |`AuthorizeNow`|If `true`, authorize at the same moment of the request. `false` to just make a schedulement|Boolean|--- |true ou false |
 
 ### Change Shopper Data
