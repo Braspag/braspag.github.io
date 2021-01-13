@@ -327,19 +327,21 @@
 
 <h1 id="payments-methods">Payments Methods</h1>
 
-<p>The Pagador API works with transactions made in the following payment methods: credit card, debit card, bank slip, electronic transfer, e-wallet and voucher.</p>
+<p>The Pagador API works with transactions made in the following payment methods: credit card, debit card, <em>boleto</em> bill, electronic transfer, e-wallet and voucher.</p>
 
-<p>To prevent duplicate orders from occurring during a transaction, the Payer has the option to block duplicate orders which, when enabled, returns the error code “302”, informing that the MerchantOrderId sent is duplicated. For more details on this feature, see this article.</p>
+<p>To prevent duplicate orders from occurring during a transaction, Pagador has the option of blocking duplicate orders which, when enabled, returns the “302” error code, informing that the <code class="language-plaintext highlighter-rouge">MerchantOrderId</code> sent is duplicated.</p>
 
-<h2 id="creditdebit-card">Credit/Debit card</h2>
+<h2 id="credit-and-debit-cards">Credit and Debit Cards</h2>
 
-<h3 id="creating-a-transaction">Creating a Transaction</h3>
+<h3 id="creating-a-credit-transaction">Creating a Credit Transaction</h3>
 
-<p>To authorize a credit transaction, you must follow the agreement below. Your affiliation data is submitted in the <code class="language-plaintext highlighter-rouge">Payment.Credentials</code> node, and must be submitted whenever a new authorization request is submitted for approval.</p>
+<p>When requesting authorization for a credit transaction, it is necessary to follow the contract below. The details related to your affiliation are sent within the <code class="language-plaintext highlighter-rouge">Payment.Credentials</code> node, and must be sent whenever a new authorization request is submitted for approval.</p>
 
-<p>If your store uses Retry or Loadbalance services, affiliations must be registered by the customer support team. To request an affiliation registration, click <a href="http://suporte.braspag.com.br/">here</a>.</p>
+<p>If your store uses <em>Retry</em> or <em>Loadbalance</em> services, affiliations must be registered by the customer support team. To request the registration of affiliations, <a href="https://suporte.braspag.com.br/hc/en-us/requests/new">click here</a> and send your request.</p>
 
-<aside class="notice">The parameters contained in the `Address` and `DeliveryAddress` nodes are required when the transaction is submitted to the Velocity or Antifraud Analysis. In the parameter table below, they are marked with an * in the required column.</aside>
+<aside class="notice">Important: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).</aside>
+
+<p>The parameters contained within the <code class="language-plaintext highlighter-rouge">Address</code> and <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> nodes are <strong>mandatory</strong> when the transaction is submitted to <em>Anti-Fraud</em> or to the <em>Velocity</em> analysis. These parameters are marked with an * in the mandatory column of the table below.</p>
 
 <h4 id="request">Request</h4>
 
@@ -515,378 +517,448 @@ curl
       <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
-      <td>Store identifier at Braspag</td>
+      <td>Store identifier at Braspag.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
-      <td>Public Key for Dual Authentication at Braspag</td>
+      <td>Public key for dual authentication at Braspag.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>GUID</td>
       <td>36</td>
       <td>No</td>
-      <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Order ID Number</td>
+      <td>Order ID number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>Shopper Name</td>
+      <td>Customer’s name.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Text</td>
       <td>14</td>
       <td>No</td>
-      <td>Customer ID number</td>
+      <td>Customer’s ID number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Shopper Identification Document Type (CPF or CNPJ)</td>
+      <td>Customer’s identification document type (CPF or CNPJ).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>Shopper’s email address</td>
+      <td>Customer’s email address.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
       <td>Date</td>
       <td>10</td>
       <td>No</td>
-      <td>Shoppers’s date of birth in YYYY-MM-DD format</td>
+      <td>Customer’s date of birth in the YYYY-MM-DD format.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
       <td>Text</td>
       <td>9</td>
       <td>No*</td>
-      <td>Shopper Contact Address</td>
+      <td>Customer’s contact address.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
       <td>Text</td>
       <td>15</td>
       <td>No*</td>
-      <td>Shopper’s contact address number</td>
+      <td>Customer’s contact address number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
       <td>Text</td>
       <td>50</td>
       <td>No*</td>
-      <td>Shopper’s contact address complement</td>
+      <td>Customer’s contact address additional information.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
       <td>Text</td>
       <td>9</td>
       <td>No*</td>
-      <td>Shopper’s contact address Zip Code</td>
+      <td>Customer’s contact address zip code.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
       <td>Text</td>
       <td>50</td>
       <td>No*</td>
-      <td>Shopper’s city contact address</td>
+      <td>Customer’s contact address city.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
       <td>Text</td>
       <td>2</td>
       <td>No*</td>
-      <td>Shopper’s State contact address</td>
+      <td>Customer’s contact address state.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
       <td>Text</td>
       <td>35</td>
       <td>No*</td>
-      <td>Shopper’s country contact address</td>
+      <td>Customer’s contact address country.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
       <td>Text</td>
       <td>50</td>
       <td>No*</td>
-      <td>Shopper’s Neighborhood</td>
+      <td>Customer’s neighborhood.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
       <td>Text</td>
       <td>255</td>
       <td>No*</td>
-      <td>Shopper’s delivery address street</td>
+      <td>Delivery address street.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
       <td>Text</td>
       <td>15</td>
       <td>No*</td>
-      <td>Order’s delivery address number</td>
+      <td>Delivery address number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
       <td>Text</td>
       <td>50</td>
       <td>No*</td>
-      <td>Order’s delivery address compplement</td>
+      <td>Delivery address additional information.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
       <td>Text</td>
       <td>9</td>
       <td>No*</td>
-      <td>Order’s delivery address ZIP Code</td>
+      <td>Delivery address zip code.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
       <td>Text</td>
       <td>50</td>
       <td>No*</td>
-      <td>Order’s city delivery address</td>
+      <td>Delivery address city.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
       <td>Text</td>
       <td>2</td>
       <td>No*</td>
-      <td>Order’s state delivery address</td>
+      <td>Delivery address state.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
       <td>Text</td>
       <td>35</td>
       <td>No*</td>
-      <td>Order’s country delivery address</td>
+      <td>Delivery address country.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
       <td>Text</td>
       <td>50</td>
       <td>No*</td>
-      <td>Order’s neighborhood</td>
+      <td>Delivery address neighborhood.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Name of Payment Method’s Provider</td>
+      <td>Name of payment method’s provider.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Payment Method Type</td>
+      <td>Payment method type.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Order Amount (cents)</td>
+      <td>Order payment amount in cents.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
-      <td>Applicable for airlines only. Value of the amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value</td>
+      <td>Applicable for airlines only. Value of the amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
       <td>Text</td>
       <td>3</td>
       <td>No</td>
-      <td>Currency in which payment will be made (BRL/USD/MXN/COP/CLP/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP)</td>
+      <td>Currency in which the payment will be made (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
       <td>Text</td>
       <td>3</td>
       <td>No</td>
-      <td>Country in which payment will be made</td>
+      <td>Country in which the payment will be made.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of installments</td>
+      <td>Number of installments.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
       <td>Text</td>
       <td>10</td>
       <td>No</td>
-      <td>Installment Type - Store (ByMerchant) or Issuer (ByIssuer)</td>
+      <td>Installment type - Store (“ByMerchant”) or Issuer (“ByIssuer”).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
       <td>Boolean</td>
       <td>—</td>
-      <td>No (Default false)</td>
-      <td>Boolean that indicates whether the authorization should be with automatic capture (true) or not (false). You should check with the acquirer for the availability of this feature</td>
+      <td>No (default “false”)</td>
+      <td>Indicates whether the authorization should use automatic capture (“true”) or not (“false”). Please check with the acquirer about the availability of this feature.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td>Boolean</td>
       <td>—</td>
-      <td>No (Default false)</td>
-      <td>Boolean indicating whether the transaction should be authenticated (true) or not (false). You should check with the acquirer for the availability of this feature</td>
+      <td>No (default “false”)</td>
+      <td>Indicates whether the transaction should be authenticated (“true”) or not (“false”). Please check with the acquirer about the availability of this feature.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
       <td>Boolean</td>
       <td>—</td>
-      <td>No (Default false)</td>
-      <td>Boolean that indicates whether the transaction is a recurring type (true) or not (false). This value of true will not give rise to a new Recurrence, it will only allow the execution of a transaction without the need to send CVV. For Cielo transactions only. Authenticate must be false when Recurrent is true</td>
+      <td>No (default “false”)</td>
+      <td>Indicates whether the transaction is of recurring type (“true”) or not (“false”). The “true” value will not set a new recurrence, it will only allow the execution of a transaction without the need to send CVV. <code class="language-plaintext highlighter-rouge">Authenticate</code> must be “false” when <code class="language-plaintext highlighter-rouge">Recurrent</code> is “true”.<strong>For Cielo transactions only.</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
       <td>Text</td>
       <td>13</td>
       <td>No</td>
-      <td>Text to be printed on bearer invoice</td>
+      <td>Text to be printed on bearer invoice.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
       <td>Boolean</td>
       <td>—</td>
-      <td>No (Default false)</td>
-      <td>Boolean indicating whether the transaction will be split between multiple accounts (true) or not (false)</td>
+      <td>No (default “false”)</td>
+      <td>Indicates whether the transaction will be split between multiple accounts (“true”) or not (“false”).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
-      <td>Name of the field to save the Extra Data</td>
+      <td>Name of the extra data field.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
       <td>Text</td>
       <td>1024</td>
       <td>No</td>
-      <td>Value of the field to save the Extra Data</td>
+      <td>Value of the extra data field.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Code</code></td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Affiliation generated</td>
+      <td>Affiliation generated by acquirer.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Key</code></td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Affiliation key/token generated by acquirer</td>
+      <td>Affiliation key/token generated by acquirer.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Username</code></td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
-      <td>User generated on credential process with Getnet acquirer (field must be submitted if transaction is directed to Getnet)</td>
+      <td>User generated on credential process with the <strong>Getnet</strong> acquirer (field must be submitted if transaction is directed to Getnet).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Password</code></td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
-      <td>Password generated on credential process with Getnet acquirer (field must be submitted if transaction is directed to Getnet)</td>
+      <td>Password generated on credential process with the <strong>Getnet</strong> acquirer (field must be submitted if transaction is directed to Getnet).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Signature</code></td>
       <td>Text</td>
       <td>3</td>
       <td>No</td>
-      <td>Submit TerminalID from Global Payments (applicable to merchants affiliated with this acquirer). E.g.: 001</td>
+      <td>Submission of the <em>TerminalID</em> for Global Payments (applicable to merchants affiliated with this acquirer). E.g.: “001”. For <strong>Safra</strong>, send establishment name, city and state concatenated with a semicolon (;), e.g.: “EstablishmentName;SaoPaulo;SP”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.EstablishmentCode</code></td>
+      <td>Facilitator establishment code. “Facilitator ID” (Facilitator register with card network).<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Number</td>
+      <td>11</td>
+      <td>Yes for facilitators</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode</code></td>
+      <td>Sub-merchant’s establishment code. “Sub-Merchant ID” (Sub-accredited register with facilitator).<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes for facilitators</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Mcc</code></td>
+      <td>Sub-merchant’s MCC.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes for facilitators</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Address</code></td>
+      <td>Sub-merchant’s address.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Yes for facilitators</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.City</code></td>
+      <td>Sub-merchant’s city.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Yes for facilitators</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.State</code></td>
+      <td>Sub-merchant’s state.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Yes for facilitators</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PostalCode</code></td>
+      <td>Sub-merchant’s postal code.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes for facilitators</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PhoneNumber</code></td>
+      <td>Sub-merchant’s telephone number.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes for facilitators</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Identity</code></td>
+      <td>Sub-merchant’s CNPJ or CPF.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes for facilitators</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.CountryCode</code></td>
+      <td>Sub-merchant’s country code based on ISO 3166.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
       <td>Text</td>
       <td>16</td>
       <td>Yes</td>
-      <td>Shopper’s card number</td>
+      <td>Customer’s card number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
-      <td>Name of cardholder printed on card</td>
+      <td>Name of cardholder printed on the card.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
-      <td>Expiration date printed on card</td>
+      <td>Expiration date printed on the card.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
       <td>Text</td>
       <td>4</td>
       <td>Yes</td>
-      <td>Security code printed on back of card</td>
+      <td>Security code printed on the back of the card.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
-      <td>Card brand</td>
+      <td>Card brand.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
       <td>Boolean</td>
       <td>—</td>
-      <td>No (Default false)</td>
-      <td>Boolean identifying if the card will be saved to generate the token (CardToken)</td>
+      <td>No (default “false”)</td>
+      <td>Indicates whether the card will be saved to generate the token (<em>CardToken</em>).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Alias</code></td>
       <td>Text</td>
       <td>64</td>
       <td>No</td>
-      <td>Name given by merchant to card saved as CardToken</td>
+      <td>Name given by merchant to card saved as <em>CardToken</em>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
       <td>Text</td>
       <td>-</td>
       <td>No</td>
-      <td><strong>Applicable only on Provider=Cielo30</strong><br /><strong>First</strong> if the card has been stored and is your first use.<br /><strong>Used</strong> if the card has been stored and it has been used previously in another transaction</td>
+      <td>“First” if the card has been stored and it is your first use.<br />“Used” if the card has been stored and it has been used previously in another transaction.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 only.</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
       <td>Text</td>
       <td>-</td>
-      <td>Condicional</td>
-      <td><strong>Applicable only on Provider=Cielo30</strong><br />Indicates the purpose of card storage, if the field “Usage” is “Used”.<br /><strong>Recurring</strong> - Scheduled recurring purchase (e.g.: subscription services)<br /><strong>Unscheduled</strong> - Unscheduled recurring purchase (e.g.: serices apps)<br /><strong>Installments</strong> - Installments trough recurrency</td>
+      <td>Conditional</td>
+      <td><br />Indicates the purpose of the card storage, in case the <code class="language-plaintext highlighter-rouge">Usage</code> field is “Used”.<br />“Recurring” - Scheduled recurring purchase (e.g.: subscription services).<br />“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).<br />“Installments” - Installment through recurrence. <br /> <strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 only.</strong></td>
     </tr>
   </tbody>
 </table>
@@ -3762,7 +3834,7 @@ curl
 
 <h3 id="authorize-a-recurring-transaction">Authorize a recurring transaction</h3>
 
-<p>Add the <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> node to the <code class="language-plaintext highlighter-rouge">Payment</code> node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.</p>
+<p>Add the <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> node to the <code class="language-plaintext highlighter-rouge">Payment</code> node to schedule future recurrencies when authorizing a transaction for the first time in the recurrence series.</p>
 
 <h4 id="request-8">Request</h4>
 
@@ -4497,7 +4569,7 @@ curl
       <td>Text</td>
       <td>10</td>
       <td>No</td>
-      <td>Recurrency interval.<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
+      <td>Recurrence interval.<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
@@ -4688,7 +4760,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
-      <td>Recurrency interval.</td>
+      <td>Recurrence interval.</td>
       <td>Texto</td>
       <td>10</td>
       <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
@@ -5984,7 +6056,7 @@ HTTP Status 200
 
 <p>Similar to Debit Card Payment, Eletronic Transfer connects the consumer to their bank to authenticate a debit sale. The difference between them is that Transfers are not submitted to the processor or depend on card data.</p>
 
-<h3 id="creating-a-transaction-1">Creating a Transaction</h3>
+<h3 id="creating-a-transaction">Creating a Transaction</h3>
 
 <p>To create a sale, you must POST the Payment feature as shown.</p>
 
