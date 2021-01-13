@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-13T15:35:47+00:00</updated>
+    <updated>2021-01-13T19:49:15+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13076,6 +13076,8 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;p&gt;Use our &lt;strong&gt;Sandbox&lt;/strong&gt; environment to test our products and services before bringing your solution into the &lt;strong&gt;Production&lt;/strong&gt; environment.&lt;/p&gt;
 
+&lt;p&gt;All operations require specific access credentials (“Merchant ID” and “Merchant Key”) in both environments. In order to perform an operation, relate the environment base endpoint with the desired operation endpoint and submit the request using the correct HTTP VERB (GET, POST, PUT) exactly as described in each operation.&lt;/p&gt;
+
 &lt;h3 id=&quot;sandbox-environment&quot;&gt;Sandbox Environment&lt;/h3&gt;
 
 &lt;p&gt;Create an account in our sandbox and try out our APIs during your testing phase, with no commitment.&lt;/p&gt;
@@ -13156,7 +13158,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Cancellation&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Cancels the sale on the same day of its authorization / capture. In case of an &lt;strong&gt;authorized&lt;/strong&gt; transaction, the cancellation will release the limit of the card that has been earmarked. If the transaction has already been &lt;strong&gt;captured&lt;/strong&gt;, the cancellation will undo the sale, but only if executed on the same day.&lt;/td&gt;
+      &lt;td&gt;Cancels the sale on the same day of its authorization/capture. In case of an &lt;strong&gt;authorized&lt;/strong&gt; transaction, the cancellation will release the limit of the card that has been earmarked. If the transaction has already been &lt;strong&gt;captured&lt;/strong&gt;, the cancellation will undo the sale, but only if executed on the same day.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Refund&lt;/strong&gt;&lt;/td&gt;
@@ -13167,7 +13169,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;aside class=&quot;warning&quot;&gt;Reminder: An authorized transaction only generates credit to the merchant after being captured.&lt;/aside&gt;
 
-&lt;p&gt;Some of the important features we offer for your transactions are listed below:&lt;/p&gt;
+&lt;p&gt;Some of the important features that we offer for your transactions are listed below:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -13178,31 +13180,31 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Authentication&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Antifraude&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;A feature which consists in a fraud prevention platform, that provides a detailed risk analysis of online purchases. The process is fully transparent to the cardholder. According to a pre-established criteria, the request can be automatically accepted, rejected or redirected for manual review. For further information, refer to the &lt;a href=&quot;https://braspag.github.io//en/manual/antifraude&quot;&gt;Antifraud&lt;/a&gt; integration guide.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Autenticação&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;A process which allows the transaction to pass through the card issuing bank authentication process, bringing more security to the sale as it transfers the risk of fraud to the issuer. For further information, refer to the &lt;a href=&quot;https://braspag.github.io//en/manualp/emv3ds&quot;&gt;3DS 2.0 Authentication&lt;/a&gt; documentation.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Cartão Protegido&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;It is a platform that allows secure storage of sensitive credit card data. This data is transformed into encrypted code called a “token” which can be stored in a database. With the platform, the store will be able to offer features such as “1-Click Purchase” and “Transaction Shipping Retention”, while preserving the integrity and confidentiality of the information.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Antifraude&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;It is a fraud prevention platform that provides a detailed risk analysis of online purchases. This process is fully transparent to the cardholder. According to the pre-established criteria, the request may be automatically accepted, rejected or referred for manual review.&lt;/td&gt;
+      &lt;td&gt;A platform that offers secure storage of sensitive credit card data. This data is transformed into an encrypted code called “token”, which can be stored in a database. With this platform, the store is able to offer features such as “&lt;em&gt;1-Click Purchase&lt;/em&gt;” and “&lt;em&gt;Transaction Submission Retry&lt;/em&gt;”, while preserving the integrity and confidentiality of the information. For further information, refer to the &lt;a href=&quot;https://braspag.github.io//en/manual/cartao-protegido-api-rest&quot;&gt;Cartão Protegido&lt;/a&gt; integration guide.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;All operations require specific access credentials (Merchant ID and Merchant Key) for their environment:&lt;strong&gt;Sandbox&lt;/strong&gt; and &lt;strong&gt;Production&lt;/strong&gt;. &lt;a href=&quot;https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md&quot;&gt;To perform&lt;/a&gt; an operation, combine the environment base endpoint with the desired operation endpoint and submit using the HTTP VERB as described on the operation.&lt;/p&gt;
+&lt;h2 id=&quot;braspag-support-service&quot;&gt;Braspag Support Service&lt;/h2&gt;
 
-&lt;h2 id=&quot;braspag-support-staff&quot;&gt;Braspag Support Staff&lt;/h2&gt;
+&lt;aside class=&quot;notice&quot;&gt;Braspag offers high availability support. You can contact us from 9AM to 7PM weekdays, through our 24 hour emergency call service or through our web-based tool. Our support team speaks Portuguese, English and Spanish.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Braspag offers high availability support, in working days from 9 am to 7 pm, 24x7 emergency telephone and through a web-based tool. Our support team speaks Portuguese, English and Spanish.&lt;/aside&gt;
+&lt;p&gt;Access our web support tool &lt;a href=&quot;https://suporte.braspag.com.br/hc/en-us&quot;&gt;Zendesk&lt;/a&gt;.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Web Support: &lt;a href=&quot;https://suporte.braspag.com.br/hc/en-us&quot;&gt;Zendesk&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h1 id=&quot;payments-methods&quot;&gt;Payments Methods&lt;/h1&gt;
 
-&lt;h1 id=&quot;payments&quot;&gt;Payments&lt;/h1&gt;
+&lt;p&gt;The Pagador API works with transactions made in the following payment methods: credit card, debit card, bank slip, electronic transfer, e-wallet and voucher.&lt;/p&gt;
+
+&lt;p&gt;To prevent duplicate orders from occurring during a transaction, the Payer has the option to block duplicate orders which, when enabled, returns the error code “302”, informing that the MerchantOrderId sent is duplicated. For more details on this feature, see this article.&lt;/p&gt;
 
 &lt;h2 id=&quot;creditdebit-card&quot;&gt;Credit/Debit card&lt;/h2&gt;
 
