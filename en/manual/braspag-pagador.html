@@ -273,30 +273,49 @@
     </tr>
     <tr>
       <td><strong>Capture</strong></td>
-      <td>When making a pre-authorization, you must confirm it for the charge to take place. The time limit for capturing a pre-authorized transaction varies from acquirer to acquirer, which may for example, be up to 5 days after the pre-authorization date.</td>
+      <td>Moves the transaction out of the pending state, so that the charging can take effect. The time limit for capturing a pre-authorized transaction varies between acquirers, reaching up to 5 days after the pre-authorization date.</td>
     </tr>
     <tr>
       <td><strong>Automatic Capture</strong></td>
-      <td>This is when a transaction is authorized and captured at the same time, exempting the merchant to sending a later confirmation.</td>
+      <td><strong>Authorizes</strong> and <strong>captures</strong> the transaction at the same time, exempting the merchant from sending a confirmation.</td>
     </tr>
     <tr>
       <td><strong>Cancellation</strong></td>
-      <td>Cancellation is required when for some reason you no longer want to make a sale. In the case of an Authorized Transaction only, the cancellation will release the limit of the card that has been sensitized. Once the transaction is already Captured, the cancellation will undo the sale but must be executed until 11:59:59 pm of the authorization/capture date.</td>
+      <td>Cancels the sale on the same day of its authorization / capture. In case of an <strong>authorized</strong> transaction, the cancellation will release the limit of the card that has been earmarked. If the transaction has already been <strong>captured</strong>, the cancellation will undo the sale, but only if executed on the same day.</td>
     </tr>
     <tr>
       <td><strong>Refund</strong></td>
-      <td>The reversal applies when a transaction created the day before or before is already captured. In this case, the transaction will be submitted in the process of refund by the acquirer.</td>
+      <td>Cancels de sale on the day after its capture. The transaction will be submitted to the chargeback process by the acquirer.</td>
     </tr>
   </tbody>
 </table>
 
 <aside class="warning">Reminder: An authorized transaction only generates credit to the merchant after being captured.</aside>
 
-<ul>
-  <li><strong>Authentication</strong>: The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.</li>
-  <li><strong>Cartão Protegido</strong>: It is a platform that allows secure storage of sensitive credit card data. This data is transformed into encrypted code called a “token” which can be stored in a database. With the platform, the store will be able to offer features such as “1-Click Purchase” and “Transaction Shipping Retention”, while preserving the integrity and confidentiality of the information.</li>
-  <li><strong>Antifraude</strong>: It is a fraud prevention platform that provides a detailed risk analysis of online purchases. This process is fully transparent to the cardholder. According to the pre-established criteria, the request may be automatically accepted, rejected or referred for manual review.</li>
-</ul>
+<p>Some of the important features we offer for your transactions are listed below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Authentication</strong></td>
+      <td>The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.</td>
+    </tr>
+    <tr>
+      <td><strong>Cartão Protegido</strong></td>
+      <td>It is a platform that allows secure storage of sensitive credit card data. This data is transformed into encrypted code called a “token” which can be stored in a database. With the platform, the store will be able to offer features such as “1-Click Purchase” and “Transaction Shipping Retention”, while preserving the integrity and confidentiality of the information.</td>
+    </tr>
+    <tr>
+      <td><strong>Antifraude</strong></td>
+      <td>It is a fraud prevention platform that provides a detailed risk analysis of online purchases. This process is fully transparent to the cardholder. According to the pre-established criteria, the request may be automatically accepted, rejected or referred for manual review.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>All operations require specific access credentials (Merchant ID and Merchant Key) for their environment:<strong>Sandbox</strong> and <strong>Production</strong>. <a href="https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md">To perform</a> an operation, combine the environment base endpoint with the desired operation endpoint and submit using the HTTP VERB as described on the operation.</p>
 

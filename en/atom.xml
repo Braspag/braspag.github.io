@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-13T13:21:26+00:00</updated>
+    <updated>2021-01-13T15:35:47+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13148,30 +13148,49 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Capture&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;When making a pre-authorization, you must confirm it for the charge to take place. The time limit for capturing a pre-authorized transaction varies from acquirer to acquirer, which may for example, be up to 5 days after the pre-authorization date.&lt;/td&gt;
+      &lt;td&gt;Moves the transaction out of the pending state, so that the charging can take effect. The time limit for capturing a pre-authorized transaction varies between acquirers, reaching up to 5 days after the pre-authorization date.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Automatic Capture&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;This is when a transaction is authorized and captured at the same time, exempting the merchant to sending a later confirmation.&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Authorizes&lt;/strong&gt; and &lt;strong&gt;captures&lt;/strong&gt; the transaction at the same time, exempting the merchant from sending a confirmation.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Cancellation&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Cancellation is required when for some reason you no longer want to make a sale. In the case of an Authorized Transaction only, the cancellation will release the limit of the card that has been sensitized. Once the transaction is already Captured, the cancellation will undo the sale but must be executed until 11:59:59 pm of the authorization/capture date.&lt;/td&gt;
+      &lt;td&gt;Cancels the sale on the same day of its authorization / capture. In case of an &lt;strong&gt;authorized&lt;/strong&gt; transaction, the cancellation will release the limit of the card that has been earmarked. If the transaction has already been &lt;strong&gt;captured&lt;/strong&gt;, the cancellation will undo the sale, but only if executed on the same day.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Refund&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;The reversal applies when a transaction created the day before or before is already captured. In this case, the transaction will be submitted in the process of refund by the acquirer.&lt;/td&gt;
+      &lt;td&gt;Cancels de sale on the day after its capture. The transaction will be submitted to the chargeback process by the acquirer.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;Reminder: An authorized transaction only generates credit to the merchant after being captured.&lt;/aside&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Authentication&lt;/strong&gt;: The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Cartão Protegido&lt;/strong&gt;: It is a platform that allows secure storage of sensitive credit card data. This data is transformed into encrypted code called a “token” which can be stored in a database. With the platform, the store will be able to offer features such as “1-Click Purchase” and “Transaction Shipping Retention”, while preserving the integrity and confidentiality of the information.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Antifraude&lt;/strong&gt;: It is a fraud prevention platform that provides a detailed risk analysis of online purchases. This process is fully transparent to the cardholder. According to the pre-established criteria, the request may be automatically accepted, rejected or referred for manual review.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Some of the important features we offer for your transactions are listed below:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Term&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Authentication&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Cartão Protegido&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;It is a platform that allows secure storage of sensitive credit card data. This data is transformed into encrypted code called a “token” which can be stored in a database. With the platform, the store will be able to offer features such as “1-Click Purchase” and “Transaction Shipping Retention”, while preserving the integrity and confidentiality of the information.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Antifraude&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;It is a fraud prevention platform that provides a detailed risk analysis of online purchases. This process is fully transparent to the cardholder. According to the pre-established criteria, the request may be automatically accepted, rejected or referred for manual review.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;p&gt;All operations require specific access credentials (Merchant ID and Merchant Key) for their environment:&lt;strong&gt;Sandbox&lt;/strong&gt; and &lt;strong&gt;Production&lt;/strong&gt;. &lt;a href=&quot;https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md&quot;&gt;To perform&lt;/a&gt; an operation, combine the environment base endpoint with the desired operation endpoint and submit using the HTTP VERB as described on the operation.&lt;/p&gt;
 
