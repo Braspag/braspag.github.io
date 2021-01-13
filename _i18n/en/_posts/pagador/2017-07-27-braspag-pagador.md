@@ -55,6 +55,8 @@ The model used in the integration of the APIs is simple. It is based in the use 
 
 Use our **Sandbox** environment to test our products and services before bringing your solution into the **Production** environment.
 
+All operations require specific access credentials ("Merchant ID" and "Merchant Key") in both environments. In order to perform an operation, relate the environment base endpoint with the desired operation endpoint and submit the request using the correct HTTP VERB (GET, POST, PUT) exactly as described in each operation.
+
 ### Sandbox Environment
 
 Create an account in our sandbox and try out our APIs during your testing phase, with no commitment.
@@ -84,28 +86,30 @@ In order for you to better enjoy the features available in our API, it is import
 |**Authorization**| Makes the process of a credit card sale possible. The authorization (also called pre-authorization) only earmarks the customer's fund, not yet releasing it from their account.|
 |**Capture**| Moves the transaction out of the pending state, so that the charging can take effect. The time limit for capturing a pre-authorized transaction varies between acquirers, reaching up to 5 days after the pre-authorization date.
 |**Automatic Capture**| **Authorizes** and **captures** the transaction at the same time, exempting the merchant from sending a confirmation.
-|**Cancellation**| Cancels the sale on the same day of its authorization / capture. In case of an **authorized** transaction, the cancellation will release the limit of the card that has been earmarked. If the transaction has already been **captured**, the cancellation will undo the sale, but only if executed on the same day.
+|**Cancellation**| Cancels the sale on the same day of its authorization/capture. In case of an **authorized** transaction, the cancellation will release the limit of the card that has been earmarked. If the transaction has already been **captured**, the cancellation will undo the sale, but only if executed on the same day.
 |**Refund**| Cancels de sale on the day after its capture. The transaction will be submitted to the chargeback process by the acquirer.
 
 <aside class="warning">Reminder: An authorized transaction only generates credit to the merchant after being captured.</aside>
 
-Some of the important features we offer for your transactions are listed below:
+Some of the important features that we offer for your transactions are listed below:
 
 |Term|Description|
 |---|---|
-|**Authentication**| The authentication process makes it possible to make a sale which will go through the card issuing bank authentication process, thus bringing more security to the sale and transferring to the bank the risk of fraud.
-|**Cartão Protegido**| It is a platform that allows secure storage of sensitive credit card data. This data is transformed into encrypted code called a "token" which can be stored in a database. With the platform, the store will be able to offer features such as "1-Click Purchase" and "Transaction Shipping Retention", while preserving the integrity and confidentiality of the information.
-|**Antifraude**| It is a fraud prevention platform that provides a detailed risk analysis of online purchases. This process is fully transparent to the cardholder. According to the pre-established criteria, the request may be automatically accepted, rejected or referred for manual review.
+|**Antifraude**| A feature which consists in a fraud prevention platform, that provides a detailed risk analysis of online purchases. The process is fully transparent to the cardholder. According to a pre-established criteria, the request can be automatically accepted, rejected or redirected for manual review. For further information, refer to the [Antifraud](https://braspag.github.io//en/manual/antifraude) integration guide.
+|**Autenticação**| A process which allows the transaction to pass through the card issuing bank authentication process, bringing more security to the sale as it transfers the risk of fraud to the issuer. For further information, refer to the [3DS 2.0 Authentication](https://braspag.github.io//en/manualp/emv3ds) documentation. 
+|**Cartão Protegido**| A platform that offers secure storage of sensitive credit card data. This data is transformed into an encrypted code called "token", which can be stored in a database. With this platform, the store is able to offer features such as "*1-Click Purchase*" and "*Transaction Submission Retry*", while preserving the integrity and confidentiality of the information. For further information, refer to the [Cartão Protegido](https://braspag.github.io//en/manual/cartao-protegido-api-rest) integration guide.
 
-All operations require specific access credentials (Merchant ID and Merchant Key) for their environment:**Sandbox** and **Production**. [To perform](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md) an operation, combine the environment base endpoint with the desired operation endpoint and submit using the HTTP VERB as described on the operation.
+## Braspag Support Service
 
-## Braspag Support Staff
+<aside class="notice">Braspag offers high availability support. You can contact us from 9AM to 7PM weekdays, through our 24 hour emergency call service or through our web-based tool. Our support team speaks Portuguese, English and Spanish.</aside>
 
-<aside class="notice">Braspag offers high availability support, in working days from 9 am to 7 pm, 24x7 emergency telephone and through a web-based tool. Our support team speaks Portuguese, English and Spanish.</aside>
+Access our web support tool [Zendesk](https://suporte.braspag.com.br/hc/en-us).
 
-* Web Support: [Zendesk](https://suporte.braspag.com.br/hc/en-us)
+# Payments Methods
 
-# Payments
+The Pagador API works with transactions made in the following payment methods: credit card, debit card, bank slip, electronic transfer, e-wallet and voucher.
+
+To prevent duplicate orders from occurring during a transaction, the Payer has the option to block duplicate orders which, when enabled, returns the error code “302”, informing that the MerchantOrderId sent is duplicated. For more details on this feature, see this article.
 
 ## Credit/Debit card
 
