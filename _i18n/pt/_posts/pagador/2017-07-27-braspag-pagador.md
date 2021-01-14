@@ -741,7 +741,7 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 ### Criando uma Transação de Débito sem Autenticação
 
 É possível processar um cartão de débito sem a necessidade de submeter o comprador ao processo de autenticação. Confira o artigo [Débito sem Senha (Autenticação)](https://suporte.braspag.com.br/hc/pt-br/articles/360013285531) para mais detalhes a respeito desse tipo de transação.
-Este é o caso do auxílio emergencial "Coronavoucher", disponibilizado pelo governo, que pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém **sem autenticação**, conforme o exemplo abaixo. 
+Este é o caso do auxílio emergencial "Coronavoucher", disponibilizado pelo governo, que pode ser consumido através do cartão de débito virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém **sem autenticação**, conforme o exemplo abaixo. 
 
 #### Requisição
 
@@ -804,7 +804,7 @@ Este é o caso do auxílio emergencial "Coronavoucher", disponibilizado pelo gov
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Atualmente, somente a **Cielo30** suporta esta forma de pagamento via Pagador.|Texto|15|Sim|
+|`Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Disponível apenas para **Cielo30**.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas. Fixo "1" para o cartão de débito.|Número|2|Sim|
@@ -992,7 +992,7 @@ Através do Pagador, quando uma transação é submetida ao processo de autentic
 
 No ambiente mobile, indicamos a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) para autenticação.
 
-<aside class="warning">Importante: o 3DS 1.0 não funciona em ambiente mobile.</aside>
+<aside class="warning">Importante: O 3DS 1.0 não funciona em ambiente mobile.</aside>
 
 Existem duas maneiras de autenticar transações na Braspag:
 
