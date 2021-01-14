@@ -989,7 +989,7 @@ There are two ways to authenticate transactions with Braspag:
 
 * **Standard** - when the merchant does not have a direct connection to an authenticator (MPI)
 * **External** - when the merchant has their own authenticator (MPI)
- 
+
 #### Standard Authentication
 
 In a standard authentication, the merchant who does not have a direct connection to an authenticator (MPI) has the payment method redirect the customer to the authentication environment. 
