@@ -988,7 +988,7 @@ In the mobile environment, we recommend using the [3DS 2.0](https://braspag.gith
 There are two ways to authenticate transactions with Braspag:
 
 * **Standard** - when the merchant does not have a direct connection to an authenticator (MPI)
-* **External** - when the merchant has its own authenticator (MPI)
+* **External** - when the merchant has their own authenticator (MPI)
  
 #### Standard Authentication
 
