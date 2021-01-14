@@ -330,16 +330,16 @@ curl
 |`Payment.Credentials.Username`|User generated on credential process with the **Getnet** acquirer (field must be submitted if transaction is directed to Getnet).|Text|50|No|
 |`Payment.Credentials.Password`|Password generated on credential process with the **Getnet** acquirer (field must be submitted if transaction is directed to Getnet).|Text|50|No|
 |`Payment.Credentials.Signature`|Submission of the *TerminalID* for Global Payments (applicable to merchants affiliated with this acquirer). E.g.: "001". For **Safra**, send establishment name, city and state concatenated with a semicolon (;), e.g.: “EstablishmentName;SaoPaulo;SP”.|Text|3|No|
-|`Payment.PaymentFacilitator.EstablishmentCode`|Facilitator establishment code. “Facilitator ID” (Facilitator register with card network).<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|11|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Sub-merchant's establishment code. “Sub-Merchant ID” (Sub-accredited register with facilitator).<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|Sub-merchant's MCC.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.Address`|Sub-merchant's address.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.City`|Sub-merchant's city.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.State`|Sub-merchant's state.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Sub-merchant's postal code.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Sub-merchant's telephone number.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.Identity`|Sub-merchant's CNPJ or CPF.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Sub-merchant's country code based on ISO 3166.<br><br>**Applicable for `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.EstablishmentCode`|Facilitator establishment code. “Facilitator ID” (Facilitator register with card network).<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|11|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Sub-merchant's establishment code. “Sub-Merchant ID” (Sub-accredited register with facilitator).<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|Sub-merchant's MCC.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.Address`|Sub-merchant's address.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.City`|Sub-merchant's city.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.State`|Sub-merchant's state.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Sub-merchant's postal code.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Sub-merchant's telephone number.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.Identity`|Sub-merchant's CNPJ or CPF.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Sub-merchant's country code based on ISO 3166.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
 |`CreditCard.CardNumber`|Customer's card number.|Text|16|Yes|
 |`CreditCard.Holder`|Name of cardholder printed on the card.|Text|25|Yes|
 |`CreditCard.ExpirationDate`|Expiration date printed on the card.|Text|7|Yes|
@@ -347,8 +347,8 @@ curl
 |`CreditCard.Brand`|Card brand.|Text|10|Yes|
 |`CreditCard.SaveCard`|Indicates whether the card will be saved to generate the token (*CardToken*).|Boolean|---|No (default "false")|
 |`CreditCard.Alias`|Name given by merchant to card saved as *CardToken*.|Text|64|No|
-|`CreditCard.CardOnFile.Usage`|"First" if the card has been stored and it is your first use.<br>"Used" if the card has been stored and it has been used previously in another transaction.<br><br>**Applicable for `Provider` Cielo30 only.**|Text|-|No|
-|`CreditCard.CardOnFile.Reason`|Indicates the purpose of the card storage, in case the `Usage` field is "Used".<br><br>"Recurring" - Scheduled recurring purchase (e.g.: subscription services).<br>"Unscheduled" - Unscheduled recurring purchase (e.g.: services apps).<br>"Installments" - Installment through recurrence. <br><br> **Applicable for `Provider` Cielo30 only.**|Text|-|Conditional|
+|`CreditCard.CardOnFile.Usage`|"First" if the card has been stored and it is your first use.<br>"Used" if the card has been stored and it has been used previously in another transaction.<br><br>**Applicable to `Provider` Cielo30 only.**|Text|-|No|
+|`CreditCard.CardOnFile.Reason`|Indicates the purpose of the card storage, in case the `Usage` field is "Used".<br><br>"Recurring" - Scheduled recurring purchase (e.g.: subscription services).<br>"Unscheduled" - Unscheduled recurring purchase (e.g.: services apps).<br>"Installments" - Installment through recurrence. <br><br> **Applicable to `Provider` Cielo30 only.**|Text|-|Conditional|
 
 #### Response
 
@@ -795,7 +795,7 @@ It is possible to process a debit card without having to submit your customer to
 
 |Property|Description|Type|Size|Mandatory|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Payment method provider's name. Note: Applicable for **"Cielo30"** only.|Text|15|Yes|
+|`Payment.Provider`|Payment method provider's name. Note: Applicable to **"Cielo30"** only.|Text|15|Yes|
 |`Payment.Type`|Payment method type. In this case, "DebitCard".|Text|100|Yes|
 |`Payment.Amount`|Order amount in cents.|Number|15|Yes|
 |`Payment.Installments`|Number of installments. For this type, always use "1".|Number|2|Yes|
@@ -913,8 +913,8 @@ curl
 |`MerchantKey`|Public key for dual authentication in the API.|Text 40|Yes|
 |`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No|
 |`PaymentId`|Order identifier field.|GUID|36|Yes|
-|`Amount`|Amount to be captured in cents. The support for partial capture must be verified with the acquirer.|Number|15|No|
-|`ServiceTaxAmount`|Applicable to airlines. Value of the amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value.|Number|15|No|
+|`Amount`|Amount to be captured, in cents. The support for partial capture must be verified with the acquirer.|Number|15|No|
+|`ServiceTaxAmount`|Applicable to airlines. Amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value.|Number|15|No|
 
 #### Response
 
@@ -975,17 +975,28 @@ curl
 |`ReasonCode`|Acquirer return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Acquirer return message.|Text 512|Alphanumeric|
 
-### Transaction with Authentication
+### Authenticating a Transaction 
 
-When a transaction is sucessfully authenticated the liabity shifts to the issuer, i.e. the merchant will not be liable in the event of any dispute and chargeback.
+With the authentication process, a risk analysis can be carried out taking more of user's and buyer's data into consideration, which helps the validation process of an online purchase.
 
-There are two ways to authenticate transactions with Braspag: **Standard** when the merchant does not have a direct connection to an authenticator (MPI), and expects the payment method to redirect the customer to the authentication environment. **External** when the merchant has its own authenticator (MPI) and does not expect the payment method to redirect its consumer to the authentication environment.
+Through Pagador, when a transaction is submitted to the authentication process, the bearer will be redirected to the issuer's environment to confirm their information. If correctly validated, the risk of chargeback (dispute of a purchase made by credit or debit card) shifts to the issuer, which means the merchant is not held accountable for it.
 
+In the mobile environment, we recommend using the [3DS 2.0](https://braspag.github.io//en/manualp/emv3ds) version for authentication.
+
+<aside class="warning"> Important: The 3DS 1.0 version is not compatible in the mobile environment.</aside>
+
+There are two ways to authenticate transactions with Braspag:
+
+* **Standard** - when the merchant does not have a direct connection to an authenticator (MPI)
+* **External** - when the merchant has its own authenticator (MPI)
+ 
 #### Standard Authentication
+
+In a standard authentication, the merchant who does not have a direct connection to an authenticator (MPI) has the payment method redirect the customer to the authentication environment. 
 
 #### Request
 
-The `Payment.Authenticate` parameter should be sent as *true* as shown below
+The `Payment.Authenticate` parameter should be sent as "true", as shown below:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1192,9 +1203,11 @@ A transaction with default authentication will receive, in addition to the defau
 
 #### External Authentication
 
+In an external authentication, the merchant who has their own authenticator does not need the payment method to redirect their customer to the authentication environment.
+
 #### Request
 
-Add the `Payment.ExternalAuthentication` node to the default contract as shown. This flow is supported by acquirers Cielo, Global Payments and Banorte.
+Add the `Payment.ExternalAuthentication` node to the default contract, as shown. This flow is supported by the **Cielo**, **Global Payments** and **Banorte** acquirers.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5707,7 +5720,7 @@ curl
 |`Payment.Provider`|Text|15|Yes|Name of authorization provider|
 |`Payment.Type`|Text|100|Yes|Type of payment method. <br/> Note: Only _CreditCard_ type works with Fraud Analysis|
 |`Payment.Amount`|Number|15|Yes|Financial transaction amount in cents  <br/> Ex: 150000 = $ 1,500.00|
-|`Payment.ServiceTaxAmount`|Number|15|No|Applicable for airlines only. Amount of authorization amount to be allocated to service fee  <br/> Note: This amount is not added to authorization value|
+|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines only. Amount of authorization amount to be allocated to service fee  <br/> Note: This amount is not added to authorization value|
 |`Payment.Currency`|Text|3|No|Currency in which payment will be made <br/> possible values: BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP|
 |`Payment.Country`|Text|3|No|Country in which payment will be made|
 |`Payment.Installments`|Number|2|Yes|Number of installments|
