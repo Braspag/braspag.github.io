@@ -505,327 +505,327 @@ curl
   <thead>
     <tr>
       <th>Property</th>
+      <th>Description</th>
       <th>Type</th>
       <th>Size</th>
       <th>Mandatory</th>
-      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier at Braspag.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
-      <td>Store identifier at Braspag.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public key for dual authentication at Braspag.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
-      <td>Public key for dual authentication at Braspag.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
       <td>No</td>
-      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Order ID number.</td>
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Order ID number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Customer’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>Customer’s name.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>Customer’s ID number.</td>
       <td>Text</td>
       <td>14</td>
       <td>No</td>
-      <td>Customer’s ID number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Customer’s identification document type (CPF or CNPJ).</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Customer’s identification document type (CPF or CNPJ).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Customer’s email address.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>Customer’s email address.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
+      <td>Customer’s date of birth in the YYYY-MM-DD format.</td>
       <td>Date</td>
       <td>10</td>
       <td>No</td>
-      <td>Customer’s date of birth in the YYYY-MM-DD format.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>Customer’s contact address.</td>
       <td>Text</td>
       <td>9</td>
       <td>No*</td>
-      <td>Customer’s contact address.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Customer’s contact address number.</td>
       <td>Text</td>
       <td>15</td>
       <td>No*</td>
-      <td>Customer’s contact address number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>Customer’s contact address additional information.</td>
       <td>Text</td>
       <td>50</td>
       <td>No*</td>
-      <td>Customer’s contact address additional information.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>Customer’s contact address zip code.</td>
       <td>Text</td>
       <td>9</td>
       <td>No*</td>
-      <td>Customer’s contact address zip code.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
+      <td>Customer’s contact address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>No*</td>
-      <td>Customer’s contact address city.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
+      <td>Customer’s contact address state.</td>
       <td>Text</td>
       <td>2</td>
       <td>No*</td>
-      <td>Customer’s contact address state.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
+      <td>Customer’s contact address country.</td>
       <td>Text</td>
       <td>35</td>
       <td>No*</td>
-      <td>Customer’s contact address country.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
+      <td>Customer’s neighborhood.</td>
       <td>Text</td>
       <td>50</td>
       <td>No*</td>
-      <td>Customer’s neighborhood.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td>Delivery address street.</td>
       <td>Text</td>
       <td>255</td>
       <td>No*</td>
-      <td>Delivery address street.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td>Delivery address number.</td>
       <td>Text</td>
       <td>15</td>
       <td>No*</td>
-      <td>Delivery address number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td>Delivery address additional information.</td>
       <td>Text</td>
       <td>50</td>
       <td>No*</td>
-      <td>Delivery address additional information.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td>Delivery address zip code.</td>
       <td>Text</td>
       <td>9</td>
       <td>No*</td>
-      <td>Delivery address zip code.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td>Delivery address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>No*</td>
-      <td>Delivery address city.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td>Delivery address state.</td>
       <td>Text</td>
       <td>2</td>
       <td>No*</td>
-      <td>Delivery address state.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td>Delivery address country.</td>
       <td>Text</td>
       <td>35</td>
       <td>No*</td>
-      <td>Delivery address country.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
+      <td>Delivery address neighborhood.</td>
       <td>Text</td>
       <td>50</td>
       <td>No*</td>
-      <td>Delivery address neighborhood.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Name of payment method’s provider.</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Name of payment method’s provider.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method type.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Payment method type.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order payment amount in cents.</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Order payment amount in cents.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
+      <td>Applicable for airlines only. Value of the amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value.</td>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
-      <td>Applicable for airlines only. Value of the amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
+      <td>Currency in which the payment will be made (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP).</td>
       <td>Text</td>
       <td>3</td>
       <td>No</td>
-      <td>Currency in which the payment will be made (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
+      <td>Country in which the payment will be made.</td>
       <td>Text</td>
       <td>3</td>
       <td>No</td>
-      <td>Country in which the payment will be made.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Number of installments.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of installments.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
+      <td>Installment type - Store (“ByMerchant”) or Issuer (“ByIssuer”).</td>
       <td>Text</td>
       <td>10</td>
       <td>No</td>
-      <td>Installment type - Store (“ByMerchant”) or Issuer (“ByIssuer”).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Indicates whether the authorization should use automatic capture (“true”) or not (“false”). Please check with the acquirer about the availability of this feature.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No (default “false”)</td>
-      <td>Indicates whether the authorization should use automatic capture (“true”) or not (“false”). Please check with the acquirer about the availability of this feature.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Indicates whether the transaction should be authenticated (“true”) or not (“false”). Please check with the acquirer about the availability of this feature.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No (default “false”)</td>
-      <td>Indicates whether the transaction should be authenticated (“true”) or not (“false”). Please check with the acquirer about the availability of this feature.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
+      <td>Indicates whether the transaction is of recurring type (“true”) or not (“false”). The “true” value will not set a new recurrence, it will only allow the execution of a transaction without the need to send CVV. <code class="language-plaintext highlighter-rouge">Authenticate</code> must be “false” when <code class="language-plaintext highlighter-rouge">Recurrent</code> is “true”.<strong>For Cielo transactions only.</strong></td>
       <td>Boolean</td>
       <td>—</td>
       <td>No (default “false”)</td>
-      <td>Indicates whether the transaction is of recurring type (“true”) or not (“false”). The “true” value will not set a new recurrence, it will only allow the execution of a transaction without the need to send CVV. <code class="language-plaintext highlighter-rouge">Authenticate</code> must be “false” when <code class="language-plaintext highlighter-rouge">Recurrent</code> is “true”.<strong>For Cielo transactions only.</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>Text to be printed on bearer invoice.</td>
       <td>Text</td>
       <td>13</td>
       <td>No</td>
-      <td>Text to be printed on bearer invoice.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
       <td>Boolean</td>
       <td>—</td>
-      <td>No (default “false”)</td>
       <td>Indicates whether the transaction will be split between multiple accounts (“true”) or not (“false”).</td>
+      <td>No (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
+      <td>Name of the extra data field.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
-      <td>Name of the extra data field.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
+      <td>Value of the extra data field.</td>
       <td>Text</td>
       <td>1024</td>
       <td>No</td>
-      <td>Value of the extra data field.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Code</code></td>
+      <td>Affiliation generated by acquirer.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Affiliation generated by acquirer.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Key</code></td>
+      <td>Affiliation key/token generated by acquirer.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Affiliation key/token generated by acquirer.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Username</code></td>
+      <td>User generated on credential process with the <strong>Getnet</strong> acquirer (field must be submitted if transaction is directed to Getnet).</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
-      <td>User generated on credential process with the <strong>Getnet</strong> acquirer (field must be submitted if transaction is directed to Getnet).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Password</code></td>
+      <td>Password generated on credential process with the <strong>Getnet</strong> acquirer (field must be submitted if transaction is directed to Getnet).</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
-      <td>Password generated on credential process with the <strong>Getnet</strong> acquirer (field must be submitted if transaction is directed to Getnet).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Signature</code></td>
+      <td>Submission of the <em>TerminalID</em> for Global Payments (applicable to merchants affiliated with this acquirer). E.g.: “001”. For <strong>Safra</strong>, send establishment name, city and state concatenated with a semicolon (;), e.g.: “EstablishmentName;SaoPaulo;SP”.</td>
       <td>Text</td>
       <td>3</td>
       <td>No</td>
-      <td>Submission of the <em>TerminalID</em> for Global Payments (applicable to merchants affiliated with this acquirer). E.g.: “001”. For <strong>Safra</strong>, send establishment name, city and state concatenated with a semicolon (;), e.g.: “EstablishmentName;SaoPaulo;SP”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.EstablishmentCode</code></td>
@@ -899,66 +899,66 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Customer’s card number.</td>
       <td>Text</td>
       <td>16</td>
       <td>Yes</td>
-      <td>Customer’s card number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Name of cardholder printed on the card.</td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
-      <td>Name of cardholder printed on the card.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Expiration date printed on the card.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
-      <td>Expiration date printed on the card.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Security code printed on the back of the card.</td>
       <td>Text</td>
       <td>4</td>
       <td>Yes</td>
-      <td>Security code printed on the back of the card.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
-      <td>Card brand.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Indicates whether the card will be saved to generate the token (<em>CardToken</em>).</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No (default “false”)</td>
-      <td>Indicates whether the card will be saved to generate the token (<em>CardToken</em>).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Alias</code></td>
+      <td>Name given by merchant to card saved as <em>CardToken</em>.</td>
       <td>Text</td>
       <td>64</td>
       <td>No</td>
-      <td>Name given by merchant to card saved as <em>CardToken</em>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
+      <td>“First” if the card has been stored and it is your first use.<br />“Used” if the card has been stored and it has been used previously in another transaction.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 only.</strong></td>
       <td>Text</td>
       <td>-</td>
       <td>No</td>
-      <td>“First” if the card has been stored and it is your first use.<br />“Used” if the card has been stored and it has been used previously in another transaction.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 only.</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
+      <td>Indicates the purpose of the card storage, in case the <code class="language-plaintext highlighter-rouge">Usage</code> field is “Used”.<br />“Recurring” - Scheduled recurring purchase (e.g.: subscription services).<br />“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).<br />“Installments” - Installment through recurrence. <br /> <strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 only.</strong></td>
       <td>Text</td>
       <td>-</td>
       <td>Conditional</td>
-      <td><br />Indicates the purpose of the card storage, in case the <code class="language-plaintext highlighter-rouge">Usage</code> field is “Used”.<br />“Recurring” - Scheduled recurring purchase (e.g.: subscription services).<br />“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).<br />“Installments” - Installment through recurrence. <br /> <strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 only.</strong></td>
     </tr>
   </tbody>
 </table>
@@ -1173,70 +1173,372 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td>Transaction Id at Payment Provider</td>
+      <td>Transaction ID at payment provider.</td>
       <td>Text</td>
       <td>40</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Proof of Sale Reference</td>
+      <td>Proof of sale reference.</td>
       <td>Text</td>
       <td>20</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization code from the acquirer</td>
+      <td>Authorization code from the acquirer.</td>
       <td>Text</td>
       <td>300</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field</td>
+      <td>Order identifier field.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date that the transaction was received by Brapag</td>
+      <td>Date the transaction was received by Brapag.</td>
       <td>Text</td>
       <td>19</td>
       <td>YYYY-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CapturedDate</code></td>
-      <td>Date the transaction was captured</td>
+      <td>Date the transaction was captured.</td>
       <td>Text</td>
       <td>19</td>
       <td>YYYY-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CapturedAmount</code></td>
-      <td>Captured amount (in cents)</td>
+      <td>Captured amount in cents.</td>
       <td>Number</td>
       <td>15</td>
-      <td>100 equivalent of R$ 1,00</td>
+      <td>100 equivalent to R$ 1,00</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
-      <td>Electronic Commerce Indicator. Represents authentication result</td>
+      <td>Electronic Commerce Indicator. Represents the authentication result.</td>
       <td>Text</td>
       <td>2</td>
-      <td>Examples: 5</td>
+      <td>E.g.: 5</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Return Code from Operation</td>
+      <td>Return code from operation.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Return Message from Operation</td>
+      <td>Return message from operation.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Transaction status.</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>E.g.: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
+      <td>Code returned by the payment provider (acquirer and issuer).</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
+      <td>Message returned by the payment provider (acquirer and issuer).</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Transaction Approved</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="creating-a-debit-transaction">Creating a Debit Transaction</h3>
+
+<p>A debit card transaction is similar to a credit card transaction. Although, submitting it to the authentication process is mandatory.</p>
+
+<h4 id="request-1">Request</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="err">,</span><span class="w">
+     </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Message"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DebitCard"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cardholder Name"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+   <span class="o">[</span>...]
+   <span class="o">}</span>,
+     <span class="s2">"Payment"</span>:<span class="o">{</span>
+        <span class="s2">"Provider"</span>:<span class="s2">"Simulado"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
+        <span class="s2">"Amount"</span>:10000,
+        <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+        <span class="s2">"Installments"</span>:1,
+        <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
+        <span class="s2">"Capture"</span>:true,
+        <span class="s2">"Authenticate"</span>: <span class="nb">true</span>,
+        <span class="s2">"Recurrent"</span>:false,
+        <span class="s2">"SoftDescriptor"</span>:<span class="s2">"Message"</span>,
+        <span class="s2">"DebitCard"</span>:<span class="o">{</span>
+         <span class="s2">"CardNumber"</span>:<span class="s2">"455187******0181"</span>,
+         <span class="s2">"Holder"</span>: <span class="s2">"Cardholder Name"</span>,
+         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
+         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
+         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+        <span class="o">}</span>,
+        <span class="o">[</span>...]
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Payment method provider’s name.</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method type. In this case, “DebitCard”.</td>
+      <td>Text</td>
+      <td>100</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order amount in cents.</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Number of installments.</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td>URL to which the user will be redirected at the end of the payment.</td>
+      <td>Text</td>
+      <td>1024</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeditCard.CardNumber</code></td>
+      <td>Customer’s card number.</td>
+      <td>Text</td>
+      <td>16</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeditCard.Holder</code></td>
+      <td>Name of the cardholder printed on the card.</td>
+      <td>Text</td>
+      <td>25</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td>Expiration date printed on the card, in the MM/YYYY format.</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
+      <td>Security code printed on the back of the card.</td>
+      <td>Text</td>
+      <td>4</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
+      <td>Card brand.</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-1">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+ </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+    </span><span class="nl">"DebitCard"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cardholder Name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"AuthenticationUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10069930690009D366FA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21423fa4-6bcf-448a-97e0-e683fa2581ba"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11 15:19:58"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.braspag.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Waiting"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+ <span class="o">[</span>...]
+  <span class="s2">"Payment"</span>:<span class="o">{</span>
+    <span class="s2">"DebitCard"</span>:<span class="o">{</span>
+      <span class="s2">"CardNumber"</span>: <span class="s2">"455187******0181"</span>,
+      <span class="s2">"Holder"</span>: <span class="s2">"Cardholder Name"</span>,
+      <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
+      <span class="s2">"SaveCard"</span>:<span class="s2">"false"</span>,
+      <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
+    <span class="o">}</span>,
+    <span class="s2">"AuthenticationUrl"</span>: <span class="s2">"https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f"</span>,
+    <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"10069930690009D366FA"</span>,
+    <span class="s2">"PaymentId"</span>: <span class="s2">"21423fa4-6bcf-448a-97e0-e683fa2581ba"</span>,
+    <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
+    <span class="s2">"Amount"</span>:10000,
+    <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-05-11 15:19:58"</span>,
+    <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
+    <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+    <span class="s2">"Provider"</span>: <span class="s2">"Cielo"</span>,
+    <span class="s2">"ReturnUrl"</span>: <span class="s2">"http://www.braspag.com.br"</span>,
+    <span class="s2">"ReasonCode"</span>: 9,
+    <span class="s2">"ReasonMessage"</span>: <span class="s2">"Waiting"</span>,
+    <span class="s2">"Status"</span>: 0,
+    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"0"</span>,
+    <span class="o">[</span>...]
+  <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
+      <td>Transaction ID of the payment method provider.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
+      <td>Proof of sale reference.</td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td>Authorization code from the acquirer.</td>
+      <td>Text</td>
+      <td>300</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Order identifier field.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
+      <td>Date the transaction was received by Brapag.</td>
+      <td>Text</td>
+      <td>19</td>
+      <td>YYYY-MM-DD HH:mm:SS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
+      <td>Operation return code.</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
+      <td>Operation return message.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
@@ -1250,14 +1552,308 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Code returned by the payment provider (acquirer and banks)</td>
+      <td>Code returned by the payment provider (acquirer and issuer).</td>
       <td>Text</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Message returned by the payment provider (acquirer and banks)</td>
+      <td>Message returned by the payment provider (acquirer and issuer).</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Transaction Approved</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
+      <td>URL to which the holder will be redirected for authentication.</td>
+      <td>Text</td>
+      <td>56</td>
+      <td>https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="creating-a-debit-transaction-with-no-authentication">Creating a Debit Transaction with no Authentication</h3>
+
+<p>It is possible to process a debit card without having to submit your customer to the authentication process. That is the case with the “Coronavoucher” emergency aid, provided by the government, which can be consumed through the <em>Caixa Econômica Federal</em> virtual debit card. In such case, the request must follow the Debit Card pattern, only with <strong>no authentication</strong>, according to the example below.</p>
+
+<h4 id="requisição">Requisição</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">  
+   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="err">,</span><span class="w">
+     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DebitCard"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"5067220000000001"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Elo"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>  
+   <span class="o">[</span>...]
+   <span class="o">}</span>,
+     <span class="s2">"Payment"</span>: <span class="o">{</span>
+        <span class="s2">"Provider"</span>: <span class="s2">"Cielo30"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
+        <span class="s2">"Amount"</span>: 10000,
+        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+        <span class="s2">"Installments"</span>: 1,
+        <span class="s2">"Capture"</span>: <span class="nb">true</span>,
+        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+        <span class="s2">"DebitCard"</span>:<span class="o">{</span>
+         <span class="s2">"CardNumber"</span>:<span class="s2">"5067220000000001"</span>,
+         <span class="s2">"Holder"</span>:<span class="s2">"Nome do Portador"</span>,
+         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
+         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
+         <span class="s2">"Brand"</span>:<span class="s2">"Elo"</span>
+        <span class="o">}</span>,
+        <span class="o">[</span>...]
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Payment method provider’s name. Note: Applicable for <strong>“Cielo30”</strong> only.</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method type. In this case, “DebitCard”.</td>
+      <td>Text</td>
+      <td>100</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order amount in cents.</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Number of installments. For this type, always use “1”.</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeditCard.CardNumber</code></td>
+      <td>Customer’s card number.</td>
+      <td>Text</td>
+      <td>16</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeditCard.Holder</code></td>
+      <td>Name of cardholder printed on the card.</td>
+      <td>Text</td>
+      <td>25</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td>Expiration date printed on the card, in the MM/YYYY format.</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
+      <td>Security code printed on the back of the card.</td>
+      <td>Text</td>
+      <td>4</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
+      <td>Card brand. For this type, always use “Elo”.</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+ </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"DebitCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"506722******0001"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Elo"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10069930690009D366FA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21423fa4-6bcf-448a-97e0-e683fa2581ba"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11 15:19:58"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+ <span class="o">[</span>...]
+  <span class="s2">"Payment"</span>: <span class="o">{</span>
+    <span class="s2">"DebitCard"</span>: <span class="o">{</span>
+      <span class="s2">"CardNumber"</span>: <span class="s2">"506722******0001"</span>,
+      <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
+      <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
+      <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+      <span class="s2">"Brand"</span>: <span class="s2">"Elo"</span>
+    <span class="o">}</span>,
+    <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"10069930690009D366FA"</span>,
+    <span class="s2">"PaymentId"</span>: <span class="s2">"21423fa4-6bcf-448a-97e0-e683fa2581ba"</span>,
+    <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
+    <span class="s2">"Amount"</span>: 10000,
+    <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-05-11 15:19:58"</span>,
+    <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+    <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+    <span class="s2">"Provider"</span>: <span class="s2">"Cielo30"</span>,
+    <span class="s2">"ReasonCode"</span>: 0,
+    <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+    <span class="s2">"Status"</span>: 2,
+    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"6"</span>,
+    <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
+    <span class="o">[</span>...]
+  <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
+      <td>Transaction ID of the payment method provider.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
+      <td>Proof of sale reference.</td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td>Authorization code from the acquirer.</td>
+      <td>Text</td>
+      <td>300</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Order identifier field.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
+      <td>Date the transaction was received by Brapag.</td>
+      <td>Text</td>
+      <td>19</td>
+      <td>YYYY-MM-DD HH:mm:SS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
+      <td>Operation return code.</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
+      <td>Operation return message.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Transaction status.</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>E.g.: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
+      <td>Code returned by the payment provider (acquirer and issuer).</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
+      <td>Message returned by the payment provider (acquirer and issuer).</td>
       <td>Text</td>
       <td>512</td>
       <td>Transaction Approved</td>
@@ -1267,11 +1863,11 @@ curl
 
 <h3 id="capturing-a-transaction">Capturing a Transaction</h3>
 
-<p>A transaction submitted with the <code class="language-plaintext highlighter-rouge">Payment.Capture</code> parameter equal to <em>false</em> needs a capture request to commit the transaction later.</p>
+<p>When a transaction is submitted with the <code class="language-plaintext highlighter-rouge">Payment.Capture</code> parameter as “false”, there is the need of a later request for capturing the transaction, in order for it to be confirmed.</p>
 
-<p>Authorizations that are not captured until the <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">deadline</a> are automatically released by the Acquires. Merchants may have specific negotiations with the Acquires to change this capture deadline.</p>
+<p>Authorizations that are not captured by the deadline are automatically released by the acquirers. Merchants may have specific negotiations with the acquirers to change this capturing deadline.</p>
 
-<h4 id="request-1">Request</h4>
+<h4 id="request-2">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
@@ -1306,28 +1902,28 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Dual Authentication in the API.</td>
+      <td>Public key for dual authentication in the API.</td>
       <td>Text 40</td>
       <td>Yes</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field.</td>
+      <td>Order identifier field.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
-      <td>Amount to be captured (in cents). Verify that the acquirer used supports partial capture</td>
+      <td>Amount to be captured in cents. The support for partial capture must be verified with the acquirer.</td>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
@@ -1342,7 +1938,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1406,21 +2002,21 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status.</td>
+      <td>Transaction status.</td>
       <td>Byte</td>
       <td>2</td>
       <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Return code from the acquirer.</td>
+      <td>Acquirer return code.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Return message from the acquirer.</td>
+      <td>Acquirer return message.</td>
       <td>Text 512</td>
       <td>Alphanumeric</td>
       <td> </td>
@@ -1436,7 +2032,7 @@ curl
 
 <h4 id="standard-authentication">Standard Authentication</h4>
 
-<h4 id="request-2">Request</h4>
+<h4 id="request-3">Request</h4>
 
 <p>The <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> parameter should be sent as <em>true</em> as shown below</p>
 
@@ -1584,7 +2180,7 @@ curl
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
-      <td>Expiration date printed on card in MM/YYYY format</td>
+      <td>Expiration date printed on the card, in the MM/YYYY format</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
@@ -1603,7 +2199,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="response-2">Response</h5>
+<h5 id="response-3">Response</h5>
 
 <p>A transaction with default authentication will receive, in addition to the default return from the authorization transaction, the <code class="language-plaintext highlighter-rouge">Payment.AuthenticationUrl</code> parameter.</p>
 
@@ -1750,7 +2346,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Return Code from Operation</td>
+      <td>Operation return code.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
@@ -1795,7 +2391,7 @@ curl
 
 <h4 id="external-authentication">External Authentication</h4>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-4">Request</h4>
 
 <p>Add the <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> node to the default contract as shown. This flow is supported by acquirers Cielo, Global Payments and Banorte.</p>
 
@@ -1914,7 +2510,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="response-3">Response</h5>
+<h5 id="response-4">Response</h5>
 
 <p>A transaction with external authentication will receive, in addition to the standard return of the authorization transaction, the <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> node with the same information sent in the request.</p>
 
@@ -2042,602 +2638,6 @@ curl
       <td>Number</td>
       <td>1</td>
       <td>ECI value submitted in authorization request</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="debit-card-transaction">Debit Card Transaction</h3>
-
-<p>A transaction with a Debit Card is similar to a Credit Card, but you must submit it to the authentication process.</p>
-
-<h4 id="request-4">Request</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="p">{</span><span class="w">
-   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-   </span><span class="p">}</span><span class="err">,</span><span class="w">
-     </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Message"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DebitCard"</span><span class="p">:{</span><span class="w">
-         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cardholder Name"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-   <span class="o">[</span>...]
-   <span class="o">}</span>,
-     <span class="s2">"Payment"</span>:<span class="o">{</span>
-        <span class="s2">"Provider"</span>:<span class="s2">"Simulado"</span>,
-        <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
-        <span class="s2">"Amount"</span>:10000,
-        <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
-        <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
-        <span class="s2">"Installments"</span>:1,
-        <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
-        <span class="s2">"Capture"</span>:true,
-        <span class="s2">"Authenticate"</span>: <span class="nb">true</span>,
-        <span class="s2">"Recurrent"</span>:false,
-        <span class="s2">"SoftDescriptor"</span>:<span class="s2">"Message"</span>,
-        <span class="s2">"DebitCard"</span>:<span class="o">{</span>
-         <span class="s2">"CardNumber"</span>:<span class="s2">"455187******0181"</span>,
-         <span class="s2">"Holder"</span>: <span class="s2">"Cardholder Name"</span>,
-         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
-         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
-        <span class="o">}</span>,
-        <span class="o">[</span>...]
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Mandatory</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Payment method provider’s name</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Yes</td>
-      <td>Payment Method Type. In the case “DebitCard”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Order Amount (in cents)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number</td>
-      <td>2</td>
-      <td>Yes</td>
-      <td>Number of Installments</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
-      <td>Text</td>
-      <td>1024</td>
-      <td>Yes</td>
-      <td>URL to which the user will be redirected at the end of the payment</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DeditCard.CardNumber</code></td>
-      <td>Text</td>
-      <td>16</td>
-      <td>Yes</td>
-      <td>Shopper’s card number</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DeditCard.Holder</code></td>
-      <td>Text</td>
-      <td>25</td>
-      <td>Yes</td>
-      <td>Name of cardholder printed on card</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
-      <td>Text</td>
-      <td>7</td>
-      <td>Yes</td>
-      <td>Expiration date printed on card in MM/YYYY format</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
-      <td>Text</td>
-      <td>4</td>
-      <td>Yes</td>
-      <td>Security code printed on back of card</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
-      <td>Text</td>
-      <td>10</td>
-      <td>Yes</td>
-      <td>Card Brand</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="response-4">Response</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="p">{</span><span class="w">
- </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-    </span><span class="nl">"DebitCard"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cardholder Name"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"AuthenticationUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10069930690009D366FA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21423fa4-6bcf-448a-97e0-e683fa2581ba"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11 15:19:58"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.braspag.com.br"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Waiting"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
- <span class="o">[</span>...]
-  <span class="s2">"Payment"</span>:<span class="o">{</span>
-    <span class="s2">"DebitCard"</span>:<span class="o">{</span>
-      <span class="s2">"CardNumber"</span>: <span class="s2">"455187******0181"</span>,
-      <span class="s2">"Holder"</span>: <span class="s2">"Cardholder Name"</span>,
-      <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
-      <span class="s2">"SaveCard"</span>:<span class="s2">"false"</span>,
-      <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
-    <span class="o">}</span>,
-    <span class="s2">"AuthenticationUrl"</span>: <span class="s2">"https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f"</span>,
-    <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"10069930690009D366FA"</span>,
-    <span class="s2">"PaymentId"</span>: <span class="s2">"21423fa4-6bcf-448a-97e0-e683fa2581ba"</span>,
-    <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
-    <span class="s2">"Amount"</span>:10000,
-    <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-05-11 15:19:58"</span>,
-    <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
-    <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
-    <span class="s2">"Provider"</span>: <span class="s2">"Cielo"</span>,
-    <span class="s2">"ReturnUrl"</span>: <span class="s2">"http://www.braspag.com.br"</span>,
-    <span class="s2">"ReasonCode"</span>: 9,
-    <span class="s2">"ReasonMessage"</span>: <span class="s2">"Waiting"</span>,
-    <span class="s2">"Status"</span>: 0,
-    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"0"</span>,
-    <span class="o">[</span>...]
-  <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td>Transaction Id of the Payment Method Provider</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Proof of Sale Reference</td>
-      <td>Text</td>
-      <td>20</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization code from the acquirer</td>
-      <td>Text</td>
-      <td>300</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date that the transaction was received by Brapag</td>
-      <td>Text</td>
-      <td>19</td>
-      <td>YYYY-MM-DD HH:mm:SS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Return Code from Operation</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Return Message from Operation</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status</td>
-      <td>Byte</td>
-      <td>2</td>
-      <td>E.g.: 1</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Code returned by the payment provider (acquirer and banks)</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>57</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Message returned by the payment provider (acquirer and banks)</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Transaction Approved</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
-      <td>URL to which the holder will be redirected for authentication</td>
-      <td>Text</td>
-      <td>56</td>
-      <td>https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="coronavoucher-transaction">“Coronavoucher” Transaction</h3>
-
-<p>The emergency aid provided by the government can be consumed through the Caixa Econômica Federal Virtual Debit Card. The request must contains Debit Card information, however, it will be <strong>without authentication</strong>, according to the example below.</p>
-
-<h4 id="requisição">Requisição</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="p">{</span><span class="w">  
-   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-   </span><span class="p">}</span><span class="err">,</span><span class="w">
-     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DebitCard"</span><span class="p">:{</span><span class="w">
-         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"5067220000000001"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Elo"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>  
-   <span class="o">[</span>...]
-   <span class="o">}</span>,
-     <span class="s2">"Payment"</span>: <span class="o">{</span>
-        <span class="s2">"Provider"</span>: <span class="s2">"Cielo30"</span>,
-        <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
-        <span class="s2">"Amount"</span>: 10000,
-        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
-        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
-        <span class="s2">"Installments"</span>: 1,
-        <span class="s2">"Capture"</span>: <span class="nb">true</span>,
-        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
-        <span class="s2">"DebitCard"</span>:<span class="o">{</span>
-         <span class="s2">"CardNumber"</span>:<span class="s2">"5067220000000001"</span>,
-         <span class="s2">"Holder"</span>:<span class="s2">"Nome do Portador"</span>,
-         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
-         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Elo"</span>
-        <span class="o">}</span>,
-        <span class="o">[</span>...]
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Mandatory</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Payment method provider’s name. For this type of transaction must be <strong>“Cielo30”</strong>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Yes</td>
-      <td>Payment Method Type. In the case “DebitCard”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Order Amount (in cents)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number</td>
-      <td>2</td>
-      <td>Yes</td>
-      <td>Number of Installments. For this type, use always “1”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DeditCard.CardNumber</code></td>
-      <td>Text</td>
-      <td>16</td>
-      <td>Yes</td>
-      <td>Shopper’s card number</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DeditCard.Holder</code></td>
-      <td>Text</td>
-      <td>25</td>
-      <td>Yes</td>
-      <td>Name of cardholder printed on card</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
-      <td>Text</td>
-      <td>7</td>
-      <td>Yes</td>
-      <td>Expiration date printed on card in MM/YYYY format</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
-      <td>Text</td>
-      <td>4</td>
-      <td>Yes</td>
-      <td>Security code printed on back of card</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
-      <td>Text</td>
-      <td>10</td>
-      <td>Yes</td>
-      <td>Card Brand. For this type, use always “Elo”</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="resposta">Resposta</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="p">{</span><span class="w">
- </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"DebitCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"506722******0001"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Elo"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10069930690009D366FA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21423fa4-6bcf-448a-97e0-e683fa2581ba"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11 15:19:58"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
- <span class="o">[</span>...]
-  <span class="s2">"Payment"</span>: <span class="o">{</span>
-    <span class="s2">"DebitCard"</span>: <span class="o">{</span>
-      <span class="s2">"CardNumber"</span>: <span class="s2">"506722******0001"</span>,
-      <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
-      <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
-      <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
-      <span class="s2">"Brand"</span>: <span class="s2">"Elo"</span>
-    <span class="o">}</span>,
-    <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"10069930690009D366FA"</span>,
-    <span class="s2">"PaymentId"</span>: <span class="s2">"21423fa4-6bcf-448a-97e0-e683fa2581ba"</span>,
-    <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
-    <span class="s2">"Amount"</span>: 10000,
-    <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-05-11 15:19:58"</span>,
-    <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
-    <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
-    <span class="s2">"Provider"</span>: <span class="s2">"Cielo30"</span>,
-    <span class="s2">"ReasonCode"</span>: 0,
-    <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
-    <span class="s2">"Status"</span>: 2,
-    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"6"</span>,
-    <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
-    <span class="o">[</span>...]
-  <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td>Transaction Id of the Payment Method Provider</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Proof of Sale Reference</td>
-      <td>Text</td>
-      <td>20</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization code from the acquirer</td>
-      <td>Text</td>
-      <td>300</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date that the transaction was received by Brapag</td>
-      <td>Text</td>
-      <td>19</td>
-      <td>YYYY-MM-DD HH:mm:SS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Return Code from Operation</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Return Message from Operation</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status</td>
-      <td>Byte</td>
-      <td>2</td>
-      <td>E.g.: 1</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Code returned by the payment provider (acquirer and banks)</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>57</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Message returned by the payment provider (acquirer and banks)</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Transaction Approved</td>
     </tr>
   </tbody>
 </table>
@@ -3977,7 +3977,7 @@ curl
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
-      <td>Expiration date printed on card in MM/YYYY format</td>
+      <td>Expiration date printed on the card, in the MM/YYYY format</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
@@ -4298,7 +4298,7 @@ curl
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
-      <td>Expiration date printed on card in MM/YYYY format</td>
+      <td>Expiration date printed on the card, in the MM/YYYY format</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
@@ -5682,7 +5682,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Expiration date printed on card</td>
+      <td>Expiration date printed on the card</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
@@ -6030,7 +6030,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NewCard.ExpirationDate</code></td>
-      <td>Expiration date printed on new card</td>
+      <td>Expiration date printed on the new card</td>
       <td>Text</td>
       <td>7</td>
       <td> </td>
@@ -8561,7 +8561,7 @@ HTTP Status 200
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
-      <td>Expiration date printed on card in MM/YYYY format</td>
+      <td>Expiration date printed on the card, in the MM/YYYY format</td>
       <td> </td>
     </tr>
     <tr>
@@ -8704,14 +8704,14 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Return Code from Operation</td>
+      <td>Operation return code.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Return Message from Operation</td>
+      <td>Operation return message.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
@@ -8934,14 +8934,14 @@ The solution is suitable for establishments that receive payments with cards iss
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Return Code from Operation</td>
+      <td>Operation return code.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Return Message from Operation</td>
+      <td>Operation return message.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
@@ -9227,14 +9227,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Return Code from Operation</td>
+      <td>Operation return code.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Return Message from Operation</td>
+      <td>Operation return message.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
@@ -9405,7 +9405,7 @@ curl
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
-      <td>Expiration date printed on card in MM/YYYY format</td>
+      <td>Expiration date printed on the card, in the MM/YYYY format</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
@@ -9580,21 +9580,21 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Return Code from Operation</td>
+      <td>Operation return code.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Return Message from Operation</td>
+      <td>Operation return message.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status</td>
+      <td>Transaction status.</td>
       <td>Byte</td>
       <td>2</td>
       <td>E.g.: 1</td>
@@ -9895,14 +9895,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Return Code from Operation</td>
+      <td>Operation return code.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Return Message from Operation</td>
+      <td>Operation return message.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
@@ -10208,14 +10208,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Return Code from Operation</td>
+      <td>Operation return code.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Return Message from Operation</td>
+      <td>Operation return message.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
@@ -12318,12 +12318,12 @@ curl
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ReasonCode</code></td>
       <td style="text-align: left">Text</td>
-      <td style="text-align: left">Return Code of Operation</td>
+      <td style="text-align: left">Operation return code.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ReasonMessage</code></td>
       <td style="text-align: left">Text</td>
-      <td style="text-align: left">Return Message from Operation</td>
+      <td style="text-align: left">Operation return message.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
@@ -13288,7 +13288,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Expiration Date Printed on Card</td>
+      <td>Expiration Date Printed on the Card</td>
       <td>Text</td>
       <td>7</td>
       <td> </td>
