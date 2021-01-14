@@ -55,6 +55,8 @@ O modelo empregado na integração das APIs é simples e se baseia na utilizaç�
 
 Utilize o ambiente **Sandbox** para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no ambiente de **Produção**.
 
+Todas as operações requerem credenciais de acesso ("Merchant ID" e "Merchant Key") específicos para os respectivos ambientes: Sandbox e Produção. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito em cada operação.
+
 ### Ambiente Sandbox
 
 Para a fase de testes, crie uma conta em nosso sandbox e experimente as nossas APIs sem compromisso.
@@ -75,8 +77,6 @@ Realizados os testes, disponibilize sua solução em ambiente de produção.
 |Endpoint transacional|https://api.braspag.com.br/|
 |Endpoint para serviços de consultas|https://apiquery.braspag.com.br/|
 
-Todas as operações requerem credenciais de acesso ("Merchant ID" e "Merchant Key") específicos para os respectivos ambientes: Sandbox e Produção. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito em cada operação.
-
 ## Termos Transacionais
 
 Para que possa aproveitar melhor todos os recursos disponíveis em nossa API, é importante você antes conhecer os seguintes conceitos envolvidos no processamento de uma transação de cartão de crédito:
@@ -86,8 +86,8 @@ Para que possa aproveitar melhor todos os recursos disponíveis em nossa API, é
 |**Autorização**|Operação que viabiliza o processamento de uma venda com um cartão de crédito. A autorização (também chamada pré-autorização) irá sensibilizar o limite do cliente, mas ainda não irá gerar cobrança em sua fatura.|
 |**Captura**|Confirmação necessária para que a cobrança seja efetivada. O tempo limite para capturar uma transação pré-autorizada varia entre adquirentes, mas pode ser de até 5 dias após a data da pré-autorização.|
 |**Captura Automática**|Opção que permite que a transação possa ser **autorizada** e **capturada** num mesmo momento, isentando o lojista de enviar a confirmação.|
-|**Cancelamento**|Recurso necessário quando, por algum motivo, não se quer mais efetivar uma venda. No caso de uma transação apenas **autorizada**, o cancelamento irá liberar o limite do cartão que foi sensibilizado. Se a transação já tiver sido **capturada**, o cancelamento irá desfazer a venda, mas somente quando executado até às 23:59:59 da data da autorização/captura.|
-|**Estorno**|Recurso de cancelamento de compra aplicável quando uma transação criada no dia anterior ou antes já estiver capturada. Neste caso, a transação será submetida ao processo de estorno pela adquirente.|
+|**Cancelamento**|Recurso de cancelamento de compra aplicável no dia em que a transação foi autorizada/capturada. No caso de uma transação apenas **autorizada**, o cancelamento irá liberar o limite do cartão que foi sensibilizado. Se a transação já tiver sido **capturada**, o cancelamento irá desfazer a venda, mas somente quando executado até às 23:59:59 da data da autorização/captura.|
+|**Estorno**|Recurso de cancelamento de compra aplicável no dia seguite ao da captura da transação. Neste caso, a transação será submetida ao processo de estorno pela adquirente.|
 
 <aside class="warning">Lembre-se: Uma transação autorizada somente gera o crédito para o lojista depois de capturada.</aside>
 <br><br>
@@ -95,13 +95,13 @@ Alguns recursos importantes que oferecemos para suas transações estão listado
 
 |Termo|Descrição|
 |---|---|
-|**AntiFraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.<br/>Para mais informações, consulte o manual [Antifraude](https://braspag.github.io//manual/antifraude).|
+|**AntiFraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual. Para mais informações, consulte o manual [Antifraude](https://braspag.github.io//manual/antifraude).|
 |**Autenticação**|Processo que possibilita realizar uma venda que passará por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude. Para mais informações, consulte o manual [Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).|
-|**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de *token*, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como *Compra com 1 clique* e *Retentativa de envio de transação*, sempre preservando a integridade e a confidencialidade das informações. Para mais informações, consulte o manual [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest).|
+|**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de *token*, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como "*Compra com 1 clique*" e "*Retentativa de envio de transação*", sempre preservando a integridade e a confidencialidade das informações. Para mais informações, consulte o manual [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest).|
 
 ## Suporte Braspag
 
-<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e de ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
+<aside class="notice">A Braspag oferece suporte de alta disponibilidade. Atendemos de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e de ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
 
 Acesse nossa ferramenta de atendimento web [Zendesk](http://suporte.braspag.com.br/) e consulte o nosso artigo [Atendimento Braspag](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag) para mais informações sobre nosso serviço de suporte. 
 
@@ -111,7 +111,7 @@ A API do Pagador trabalha com transações referentes às seguintes formas de pa
 
 Para evitar que a duplicidade de pedidos ocorra durante uma transação, o Pagador possui a opção de bloqueio de pedidos duplicados que, quando habilitado, retorna o código de erro "302", informando que o `MerchantOrderId` enviado está duplicado. Para saber mais detalhes sobre essa feature, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360030183991).
 
-## Cartão de Crédito e Débito
+## Cartões de Crédito e Débito
 
 ### Criando uma Transação de Crédito
 
@@ -119,9 +119,9 @@ Ao requisitar a **autorização** de uma transação de crédito, é necessário
 
 Caso a sua loja utilize os serviços de *Retentativa* ou *Loadbalance*, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, [clique aqui](https://suporte.braspag.com.br/hc/pt-br/requests/new) e envie sua requisição.
 
-Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao [AntiFraude](https://braspag.github.io//manual/antifraude) ou à análise do [Velocity](https://braspag.github.io//manual/velocity). Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.
+<aside class="warning">Importante: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
 
-<aside class="warning">Atenção: o número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
+Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao [AntiFraude](https://braspag.github.io//manual/antifraude) ou à análise do [Velocity](https://braspag.github.io//manual/velocity). Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.
 
 Seguem exemplos de envio de requisição e resposta para criar uma transação de crédito:
 
