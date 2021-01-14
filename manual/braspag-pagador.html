@@ -1590,7 +1590,7 @@ curl
 <h3 id="criando-uma-transação-de-débito-sem-autenticação">Criando uma Transação de Débito sem Autenticação</h3>
 
 <p>É possível processar um cartão de débito sem a necessidade de submeter o comprador ao processo de autenticação. Confira o artigo <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360013285531">Débito sem Senha (Autenticação)</a> para mais detalhes a respeito desse tipo de transação.
-Este é o caso do auxílio emergencial “Coronavoucher”, disponibilizado pelo governo, que pode ser consumido através do Cartão de Débito Virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém <strong>sem autenticação</strong>, conforme o exemplo abaixo.</p>
+Este é o caso do auxílio emergencial “Coronavoucher”, disponibilizado pelo governo, que pode ser consumido através do cartão de débito virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém <strong>sem autenticação</strong>, conforme o exemplo abaixo.</p>
 
 <h4 id="requisição-2">Requisição</h4>
 
@@ -1662,7 +1662,7 @@ Este é o caso do auxílio emergencial “Coronavoucher”, disponibilizado pelo
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. Obs.: Atualmente, somente a <strong>Cielo30</strong> suporta esta forma de pagamento via Pagador.</td>
+      <td>Nome da provedora do meio de pagamento. Obs.: Disponível apenas para <strong>Cielo30</strong>.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -2046,7 +2046,7 @@ curl
 
 <p>No ambiente mobile, indicamos a utilização da versão <a href="https://braspag.github.io//manualp/emv3ds">3DS 2.0</a> para autenticação.</p>
 
-<aside class="warning">Importante: o 3DS 1.0 não funciona em ambiente mobile.</aside>
+<aside class="warning">Importante: O 3DS 1.0 não funciona em ambiente mobile.</aside>
 
 <p>Existem duas maneiras de autenticar transações na Braspag:</p>
 

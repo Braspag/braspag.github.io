@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-14T19:13:25+00:00</updated>
+    <updated>2021-01-14T21:54:40+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13704,70 +13704,70 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.EstablishmentCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Facilitator establishment code. “Facilitator ID” (Facilitator register with card network).&lt;br /&gt;&lt;strong&gt;Applicable for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Facilitator establishment code. “Facilitator ID” (Facilitator register with card network).&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;11&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s establishment code. “Sub-Merchant ID” (Sub-accredited register with facilitator).&lt;br /&gt;&lt;strong&gt;Applicable for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s establishment code. “Sub-Merchant ID” (Sub-accredited register with facilitator).&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.Mcc&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s MCC.&lt;br /&gt;&lt;strong&gt;Applicable for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s MCC.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.Address&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s address.&lt;br /&gt;&lt;strong&gt;Applicable for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s address.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.City&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s city.&lt;br /&gt;&lt;strong&gt;Applicable for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s city.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.State&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s state.&lt;br /&gt;&lt;strong&gt;Applicable for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s state.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.PostalCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s postal code.&lt;br /&gt;&lt;strong&gt;Applicable for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s postal code.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.PhoneNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s telephone number.&lt;br /&gt;&lt;strong&gt;Applicable for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s telephone number.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.Identity&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s CNPJ or CPF.&lt;br /&gt;&lt;strong&gt;Applicable for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s CNPJ or CPF.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.CountryCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s country code based on ISO 3166.&lt;br /&gt;&lt;strong&gt;Applicable for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s country code based on ISO 3166.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
@@ -13823,14 +13823,14 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;“First” if the card has been stored and it is your first use.&lt;br /&gt;“Used” if the card has been stored and it has been used previously in another transaction.&lt;br /&gt;&lt;strong&gt;Applicable for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 only.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;“First” if the card has been stored and it is your first use.&lt;br /&gt;“Used” if the card has been stored and it has been used previously in another transaction.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 only.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Indicates the purpose of the card storage, in case the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Usage&lt;/code&gt; field is “Used”.&lt;br /&gt;“Recurring” - Scheduled recurring purchase (e.g.: subscription services).&lt;br /&gt;“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).&lt;br /&gt;“Installments” - Installment through recurrence. &lt;br /&gt; &lt;strong&gt;Applicable for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 only.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Indicates the purpose of the card storage, in case the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Usage&lt;/code&gt; field is “Used”.&lt;br /&gt;“Recurring” - Scheduled recurring purchase (e.g.: subscription services).&lt;br /&gt;“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).&lt;br /&gt;“Installments” - Installment through recurrence. &lt;br /&gt; &lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 only.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Conditional&lt;/td&gt;
@@ -14523,7 +14523,7 @@ curl
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Payment method provider’s name. Note: Applicable for &lt;strong&gt;“Cielo30”&lt;/strong&gt; only.&lt;/td&gt;
+      &lt;td&gt;Payment method provider’s name. Note: Applicable to &lt;strong&gt;“Cielo30”&lt;/strong&gt; only.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -14798,14 +14798,14 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Amount&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Amount to be captured in cents. The support for partial capture must be verified with the acquirer.&lt;/td&gt;
+      &lt;td&gt;Amount to be captured, in cents. The support for partial capture must be verified with the acquirer.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServiceTaxAmount&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Applicable to airlines. Value of the amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value.&lt;/td&gt;
+      &lt;td&gt;Applicable to airlines. Amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -14899,17 +14899,30 @@ curl
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;transaction-with-authentication&quot;&gt;Transaction with Authentication&lt;/h3&gt;
+&lt;h3 id=&quot;authenticating-a-transaction&quot;&gt;Authenticating a Transaction&lt;/h3&gt;
 
-&lt;p&gt;When a transaction is sucessfully authenticated the liabity shifts to the issuer, i.e. the merchant will not be liable in the event of any dispute and chargeback.&lt;/p&gt;
+&lt;p&gt;With the authentication process, a risk analysis can be carried out taking more of user’s and buyer’s data into consideration, which helps the validation process of an online purchase.&lt;/p&gt;
 
-&lt;p&gt;There are two ways to authenticate transactions with Braspag: &lt;strong&gt;Standard&lt;/strong&gt; when the merchant does not have a direct connection to an authenticator (MPI), and expects the payment method to redirect the customer to the authentication environment. &lt;strong&gt;External&lt;/strong&gt; when the merchant has its own authenticator (MPI) and does not expect the payment method to redirect its consumer to the authentication environment.&lt;/p&gt;
+&lt;p&gt;Through Pagador, when a transaction is submitted to the authentication process, the bearer will be redirected to the issuer’s environment to confirm their information. If correctly validated, the risk of chargeback (dispute of a purchase made by credit or debit card) shifts to the issuer, which means the merchant is not held accountable for it.&lt;/p&gt;
+
+&lt;p&gt;In the mobile environment, we recommend using the &lt;a href=&quot;https://braspag.github.io//en/manualp/emv3ds&quot;&gt;3DS 2.0&lt;/a&gt; version for authentication.&lt;/p&gt;
+
+&lt;aside class=&quot;warning&quot;&gt; Important: The 3DS 1.0 version is not compatible in the mobile environment.&lt;/aside&gt;
+
+&lt;p&gt;There are two ways to authenticate transactions with Braspag:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Standard&lt;/strong&gt; - when the merchant does not have a direct connection to an authenticator (MPI)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;External&lt;/strong&gt; - when the merchant has their own authenticator (MPI)&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h4 id=&quot;standard-authentication&quot;&gt;Standard Authentication&lt;/h4&gt;
 
-&lt;h4 id=&quot;request-3&quot;&gt;Request&lt;/h4&gt;
+&lt;p&gt;In a standard authentication, the merchant who does not have a direct connection to an authenticator (MPI) has the payment method redirect the customer to the authentication environment.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Authenticate&lt;/code&gt; parameter should be sent as &lt;em&gt;true&lt;/em&gt; as shown below&lt;/p&gt;
+&lt;h5 id=&quot;request-3&quot;&gt;Request&lt;/h5&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Authenticate&lt;/code&gt; parameter should be sent as “true”, as shown below:&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -15266,9 +15279,11 @@ curl
 
 &lt;h4 id=&quot;external-authentication&quot;&gt;External Authentication&lt;/h4&gt;
 
-&lt;h4 id=&quot;request-4&quot;&gt;Request&lt;/h4&gt;
+&lt;p&gt;In an external authentication, the merchant who has their own authenticator does not need the payment method to redirect their customer to the authentication environment.&lt;/p&gt;
 
-&lt;p&gt;Add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ExternalAuthentication&lt;/code&gt; node to the default contract as shown. This flow is supported by acquirers Cielo, Global Payments and Banorte.&lt;/p&gt;
+&lt;h5 id=&quot;request-4&quot;&gt;Request&lt;/h5&gt;
+
+&lt;p&gt;Add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ExternalAuthentication&lt;/code&gt; node to the default contract, as shown. This flow is supported by the &lt;strong&gt;Cielo&lt;/strong&gt;, &lt;strong&gt;Global Payments&lt;/strong&gt; and &lt;strong&gt;Banorte&lt;/strong&gt; acquirers.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -23736,7 +23751,7 @@ curl
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Applicable for airlines only. Amount of authorization amount to be allocated to service fee  &lt;br /&gt; Note: This amount is not added to authorization value&lt;/td&gt;
+      &lt;td&gt;Applicable to airlines only. Amount of authorization amount to be allocated to service fee  &lt;br /&gt; Note: This amount is not added to authorization value&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Currency&lt;/code&gt;&lt;/td&gt;

@@ -829,70 +829,70 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.EstablishmentCode</code></td>
-      <td>Facilitator establishment code. “Facilitator ID” (Facilitator register with card network).<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Facilitator establishment code. “Facilitator ID” (Facilitator register with card network).<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
       <td>Number</td>
       <td>11</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode</code></td>
-      <td>Sub-merchant’s establishment code. “Sub-Merchant ID” (Sub-accredited register with facilitator).<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s establishment code. “Sub-Merchant ID” (Sub-accredited register with facilitator).<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
       <td>Number</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Mcc</code></td>
-      <td>Sub-merchant’s MCC.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s MCC.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
       <td>Number</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Address</code></td>
-      <td>Sub-merchant’s address.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s address.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.City</code></td>
-      <td>Sub-merchant’s city.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s city.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.State</code></td>
-      <td>Sub-merchant’s state.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s state.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PostalCode</code></td>
-      <td>Sub-merchant’s postal code.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s postal code.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
       <td>Number</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PhoneNumber</code></td>
-      <td>Sub-merchant’s telephone number.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s telephone number.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
       <td>Number</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Identity</code></td>
-      <td>Sub-merchant’s CNPJ or CPF.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s CNPJ or CPF.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
       <td>Number</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.CountryCode</code></td>
-      <td>Sub-merchant’s country code based on ISO 3166.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s country code based on ISO 3166.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
       <td>Number</td>
       <td>15</td>
       <td>Yes for facilitators</td>
@@ -948,14 +948,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
-      <td>“First” if the card has been stored and it is your first use.<br />“Used” if the card has been stored and it has been used previously in another transaction.<br /><strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 only.</strong></td>
+      <td>“First” if the card has been stored and it is your first use.<br />“Used” if the card has been stored and it has been used previously in another transaction.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 only.</strong></td>
       <td>Text</td>
       <td>-</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
-      <td>Indicates the purpose of the card storage, in case the <code class="language-plaintext highlighter-rouge">Usage</code> field is “Used”.<br />“Recurring” - Scheduled recurring purchase (e.g.: subscription services).<br />“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).<br />“Installments” - Installment through recurrence. <br /> <strong>Applicable for <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 only.</strong></td>
+      <td>Indicates the purpose of the card storage, in case the <code class="language-plaintext highlighter-rouge">Usage</code> field is “Used”.<br />“Recurring” - Scheduled recurring purchase (e.g.: subscription services).<br />“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).<br />“Installments” - Installment through recurrence. <br /> <strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 only.</strong></td>
       <td>Text</td>
       <td>-</td>
       <td>Conditional</td>
@@ -1648,7 +1648,7 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Payment method provider’s name. Note: Applicable for <strong>“Cielo30”</strong> only.</td>
+      <td>Payment method provider’s name. Note: Applicable to <strong>“Cielo30”</strong> only.</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
@@ -1923,14 +1923,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
-      <td>Amount to be captured in cents. The support for partial capture must be verified with the acquirer.</td>
+      <td>Amount to be captured, in cents. The support for partial capture must be verified with the acquirer.</td>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ServiceTaxAmount</code></td>
-      <td>Applicable to airlines. Value of the amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value.</td>
+      <td>Applicable to airlines. Amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value.</td>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
@@ -2024,17 +2024,30 @@ curl
   </tbody>
 </table>
 
-<h3 id="transaction-with-authentication">Transaction with Authentication</h3>
+<h3 id="authenticating-a-transaction">Authenticating a Transaction</h3>
 
-<p>When a transaction is sucessfully authenticated the liabity shifts to the issuer, i.e. the merchant will not be liable in the event of any dispute and chargeback.</p>
+<p>With the authentication process, a risk analysis can be carried out taking more of user’s and buyer’s data into consideration, which helps the validation process of an online purchase.</p>
 
-<p>There are two ways to authenticate transactions with Braspag: <strong>Standard</strong> when the merchant does not have a direct connection to an authenticator (MPI), and expects the payment method to redirect the customer to the authentication environment. <strong>External</strong> when the merchant has its own authenticator (MPI) and does not expect the payment method to redirect its consumer to the authentication environment.</p>
+<p>Through Pagador, when a transaction is submitted to the authentication process, the bearer will be redirected to the issuer’s environment to confirm their information. If correctly validated, the risk of chargeback (dispute of a purchase made by credit or debit card) shifts to the issuer, which means the merchant is not held accountable for it.</p>
+
+<p>In the mobile environment, we recommend using the <a href="https://braspag.github.io//en/manualp/emv3ds">3DS 2.0</a> version for authentication.</p>
+
+<aside class="warning"> Important: The 3DS 1.0 version is not compatible in the mobile environment.</aside>
+
+<p>There are two ways to authenticate transactions with Braspag:</p>
+
+<ul>
+  <li><strong>Standard</strong> - when the merchant does not have a direct connection to an authenticator (MPI)</li>
+  <li><strong>External</strong> - when the merchant has their own authenticator (MPI)</li>
+</ul>
 
 <h4 id="standard-authentication">Standard Authentication</h4>
 
-<h4 id="request-3">Request</h4>
+<p>In a standard authentication, the merchant who does not have a direct connection to an authenticator (MPI) has the payment method redirect the customer to the authentication environment.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> parameter should be sent as <em>true</em> as shown below</p>
+<h5 id="request-3">Request</h5>
+
+<p>The <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> parameter should be sent as “true”, as shown below:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2391,9 +2404,11 @@ curl
 
 <h4 id="external-authentication">External Authentication</h4>
 
-<h4 id="request-4">Request</h4>
+<p>In an external authentication, the merchant who has their own authenticator does not need the payment method to redirect their customer to the authentication environment.</p>
 
-<p>Add the <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> node to the default contract as shown. This flow is supported by acquirers Cielo, Global Payments and Banorte.</p>
+<h5 id="request-4">Request</h5>
+
+<p>Add the <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> node to the default contract, as shown. This flow is supported by the <strong>Cielo</strong>, <strong>Global Payments</strong> and <strong>Banorte</strong> acquirers.</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -10861,7 +10876,7 @@ curl
       <td>Number</td>
       <td>15</td>
       <td>No</td>
-      <td>Applicable for airlines only. Amount of authorization amount to be allocated to service fee  <br /> Note: This amount is not added to authorization value</td>
+      <td>Applicable to airlines only. Amount of authorization amount to be allocated to service fee  <br /> Note: This amount is not added to authorization value</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
