@@ -346,7 +346,7 @@ curl
 |`Payment.PaymentFacilitator.SubEstablishment.Identity`|CNPJ ou CPF do sub-merchant.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Número|14|Sim para facilitadores|
 |`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Código do país do sub-merchant com base no ISO 3166.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Número|3|Sim para facilitadores|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
-|`CreditCard.Holder`|Nome do portador impresso no cartão.|Texto|25|Sim|
+|`CreditCard.Holder`|Nome do portador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
 |`CreditCard.ExpirationDate`|Data de validade impressa no cartão.|Texto|7|Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
@@ -1090,7 +1090,7 @@ curl
 |`Payment.Authenticate`|Define se o comprador será direcionado ao emissor para autenticação do cartão. Para transações autenticadas, neste campo, deve-se enviar o valor "true". Obs.: Deve ser verificada junto à adquirente a disponibilidade desta funcionalidade.|Booleano|---|Não (default "false")|
 |`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim da autenticação.|Texto|1024|Sim (quando `Authenticate` é "true")|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
-|`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
 |`CreditCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
@@ -3613,7 +3613,7 @@ curl
 |`Payment.RecurrentPayment.DailyInterval`|Padrão da recorrência em dias. Não utilizar em conjunto com `Interval`.|Número|2|Não*|
 |`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
-|`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
 |`CreditCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
@@ -4033,7 +4033,7 @@ curl
 |`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br>Monthly (Default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não|
 |`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
-|`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
 |`CreditCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
@@ -4583,7 +4583,7 @@ curl
 |`Payment.Installments`|Número de parcelas.|Número |2 |Sim|
 |`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador.|Texto |13|Não|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto |16|Sim|
-|`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto |25|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto |25|Sim|
 |`CreditCard.ExpirationDate`|Data de validade impressa no cartão.|Texto |7 |Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto |4 |Sim|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
@@ -4877,7 +4877,7 @@ curl
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
-|`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
 |`CreditCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
@@ -5779,7 +5779,7 @@ curl
 |`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente **Getnet**. <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet.|Texto|50|Não|
 |`Payment.Credentials.Signature`|Id do terminal no credenciamento com a adquirente **Global Payments**. <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Global Payments.|Texto|3|Não|
 |`Payment.CreditCard.CardNumber`|Número do cartão de crédito.|Texto|16|Sim|
-|`Payment.CreditCard.Holder`|Nome do portador impresso no cartão de crédito.|Texto|25|Sim|
+|`Payment.CreditCard.Holder`|Nome do portador impresso no cartão de crédito. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
 |`Payment.CreditCard.ExpirationDate`|Data de validade do cartão de crédito.|Texto|7|Sim|
 |`Payment.CreditCard.SecurityCode`|Código de segurança no verso do cartão de crédito.|Texto|4|Sim|
 |`Payment.CreditCard.Brand`|Bandeira do cartão de crédito.|Texto|10|Sim |
@@ -6716,7 +6716,7 @@ curl
 |`Payment.Provider`|Provider utilizado.|Texto|32|Simulado|
 |`Payment.ProviderDescription`|Nome do adquirente que processou a transação.|Texto|512|Simulado|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|---|
-|`CreditCard.Holder`|Nome do portador impresso no cartão.|Texto|25|---|
+|`CreditCard.Holder`|Nome do portador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|---|
 |`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|MM/AAAA|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|---|
 |`CreditCard.SaveCard`|Identifica se o cartão será salvo para gerar o token (*CardToken*).|Booleano|---|true / false (default)|
