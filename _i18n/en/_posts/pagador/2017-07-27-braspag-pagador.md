@@ -994,7 +994,7 @@ There are two ways to authenticate transactions with Braspag:
 
 In a standard authentication, the merchant who does not have a direct connection to an authenticator (MPI) has the payment method redirect the customer to the authentication environment. 
 
-#### Request
+##### Request
 
 The `Payment.Authenticate` parameter should be sent as "true", as shown below:
 
@@ -1205,7 +1205,7 @@ A transaction with default authentication will receive, in addition to the defau
 
 In an external authentication, the merchant who has their own authenticator does not need the payment method to redirect their customer to the authentication environment.
 
-#### Request
+##### Request
 
 Add the `Payment.ExternalAuthentication` node to the default contract, as shown. This flow is supported by the **Cielo**, **Global Payments** and **Banorte** acquirers.
 
