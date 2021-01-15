@@ -1203,7 +1203,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date the transaction was received by Brapag.</td>
+      <td>Date the transaction was received by Braspag.</td>
       <td>Text</td>
       <td>19</td>
       <td>YYYY-MM-DD HH:mm:SS</td>
@@ -1528,7 +1528,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date the transaction was received by Brapag.</td>
+      <td>Date the transaction was received by Braspag.</td>
       <td>Text</td>
       <td>19</td>
       <td>YYYY-MM-DD HH:mm:SS</td>
@@ -1824,7 +1824,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date the transaction was received by Brapag.</td>
+      <td>Date the transaction was received by Braspag.</td>
       <td>Text</td>
       <td>19</td>
       <td>YYYY-MM-DD HH:mm:SS</td>
@@ -2129,96 +2129,96 @@ curl
   <thead>
     <tr>
       <th>Property</th>
+      <th>Description</th>
       <th>Type</th>
       <th>Size</th>
       <th>Mandatory</th>
-      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Name of the payment provider.</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Name of Payment Provider</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method type.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Payment Method Type</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order amount in cents.</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Order Amount (in cents)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Number of installments.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of Installments</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Defines whether the customer will be directed to the issuer for card authentication. For authenticated transactions, the value must be “true”. Please check with the acquirer about the availability of this feature.</td>
       <td>Boolean</td>
       <td>—</td>
-      <td>No (Default false)</td>
-      <td>Defines whether the shopper will be directed to the issuing Bank for card authentication. For authenticated transactions, in this field, you must send the value “True”. You should check with the acquirer for the availability of this feature</td>
+      <td>No (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td>URL to which the user will be redirected after authentication ends.</td>
       <td>Text</td>
       <td>1024</td>
-      <td>Yes (when Autenticate is true)</td>
-      <td>URL to which the user will be redirected after authentication ends</td>
+      <td>Yes (when <code class="language-plaintext highlighter-rouge">Autenticate</code> is “true”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Customer’s card number.</td>
       <td>Text</td>
       <td>16</td>
       <td>Yes</td>
-      <td>Shopper’s card number</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Name of cardholder printed on the card.</td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
-      <td>Name of cardholder printed on card</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Expiration date printed on the card, in the MM/YYYY format.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
-      <td>Expiration date printed on the card, in the MM/YYYY format</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Security code printed on the back of the card.</td>
       <td>Text</td>
       <td>4</td>
       <td>Yes</td>
-      <td>Security code printed on back of card</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
-      <td>Card brand</td>
     </tr>
   </tbody>
 </table>
 
 <h5 id="response-4">Response</h5>
 
-<p>A transaction with default authentication will receive, in addition to the default return from the authorization transaction, the <code class="language-plaintext highlighter-rouge">Payment.AuthenticationUrl</code> parameter.</p>
+<p>With the default authentication, a transaction will receive the <code class="language-plaintext highlighter-rouge">Payment.AuthenticationUrl</code> parameter in addition to the default return from the authorization transaction.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -2328,35 +2328,35 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td>Transaction Id of the Payment Method Provider</td>
+      <td>Transaction ID of the payment method provider.</td>
       <td>Text</td>
       <td>40</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Proof of Sale Reference</td>
+      <td>Proof of sale reference.</td>
       <td>Text</td>
       <td>20</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization code from the acquirer</td>
+      <td>Authorization code from the acquirer.</td>
       <td>Text</td>
       <td>300</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field</td>
+      <td>Order identifier field.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date that the transaction was received by Brapag</td>
+      <td>Date the transaction was received by Braspag.</td>
       <td>Text</td>
       <td>19</td>
       <td>YYYY-MM-DD HH:mm:SS</td>
@@ -2370,35 +2370,35 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Return Message from Operation</td>
+      <td>Operation return message.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status</td>
+      <td>Transaction status.</td>
       <td>Byte</td>
       <td>2</td>
       <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Code returned by the payment provider (acquirer and banks)</td>
+      <td>Code returned by the payment provider (acquirer and issuer).</td>
       <td>Text</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Message returned by the payment provider (acquirer and banks)</td>
+      <td>Message returned by the payment provider (acquirer and issuer).</td>
       <td>Text</td>
       <td>512</td>
       <td>Transaction Approved</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
-      <td>URL to which the holder will be redirected for authentication</td>
+      <td>URL to which the holder will be redirected for authentication.</td>
       <td>Texto</td>
       <td>256</td>
       <td>https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08</td>
@@ -2410,9 +2410,9 @@ curl
 
 <p>In an external authentication, the merchant who has their own authenticator does not need the payment method to redirect their customer to the authentication environment.</p>
 
-<h5 id="request-5">Request</h5>
-
 <p>Add the <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> node to the default contract, as shown. This flow is supported by the <strong>Cielo</strong>, <strong>Global Payments</strong> and <strong>Banorte</strong> acquirers.</p>
+
+<h5 id="request-5">Request</h5>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2498,40 +2498,40 @@ curl
   <thead>
     <tr>
       <th>Property</th>
+      <th>Description</th>
       <th>Type</th>
       <th>Size</th>
       <th>Mandatory</th>
-      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Cavv</code></td>
-      <td>Text 28</td>
-      <td>Yes</td>
-      <td>Cavv value is returned by external authentication mechanism</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Xid</code></td>
+      <td>Cavv value returned by external authentication mechanism.</td>
       <td>Text</td>
       <td>28</td>
       <td>Yes</td>
-      <td>The Xid value is returned by the external authentication mechanism</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Xid</code></td>
+      <td>Xid value returned by the external authentication mechanism.</td>
+      <td>Text</td>
+      <td>28</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Eci</code></td>
+      <td>Eci value returned by the external authentication mechanism.</td>
       <td>Number</td>
       <td>1</td>
       <td>Yes</td>
-      <td>The Eci value is returned by the external authentication mechanism</td>
     </tr>
   </tbody>
 </table>
 
 <h5 id="response-5">Response</h5>
 
-<p>A transaction with external authentication will receive, in addition to the standard return of the authorization transaction, the <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> node with the same information sent in the request.</p>
+<p>With the external authentication, a transaction will receive the <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> node in addition to the standard return from the authorization transaction. The node will contain the same information sent in the request.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -2661,14 +2661,754 @@ curl
   </tbody>
 </table>
 
-<h3 id="qr-code-transaction">QR Code Transaction</h3>
+<h3 id="cancelingrefunding-a-transaction">Canceling/Refunding a Transaction</h3>
+
+<p>The availability of the refunding service varies depending on the acquirer. Each acquirer has its own deadlines to allow the refund of a transaction. In this <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">article</a> you can check each of them.</p>
+
+<p>To cancel a credit card transaction, you must send an HTTP message through the PUT method to the <em>Payment</em> resource, as in the example:</p>
+
+<h4 id="request-6">Request</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl
+<span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/void?amount=xxx"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--verbose</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier in the API.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public key for dual authentication in the API.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Order identifier field.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>Amount to be canceled/refunded, in cents. Check if your acquirer supports the canceling or refunding operations.</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-6">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="o">{</span>
+    <span class="s2">"Status"</span>: 10,
+    <span class="s2">"ReasonCode"</span>: 0,
+    <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"9"</span>,
+    <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
+    <span class="s2">"Links"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+            <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Transaction status.</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>E.g.: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>Acquirer’s return code.</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
+      <td>Acquirer’s return message.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="analyzing-with-velocity-check">Analyzing with Velocity Check</h3>
+
+<p><em>Velocity Check</em> is a fraud-fighting tool that prevents massive bursts of transactions with repeated payment data. It analyzes the frequency of traceability elements such as Card Number, Social Security Number, Zip Code, among others, and blocks suspicious transactions.</p>
+
+<p>The functionality must be contracted separately and then enabled in your store via dashboard. When Velocity is active, the transaction response brings in the <code class="language-plaintext highlighter-rouge">Velocity</code> node, with details of the analysis.</p>
+
+<p>In case of a Velocity rule rejection, <em>ProviderReasonCode</em> will be “BP 171 - Rejected by fraud risk” (Velocity, with “ReasonCode 16 - AbortedByFraud”).</p>
+
+<h4 id="response-7">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+    </span><span class="nl">"VelocityAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ResultMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blocked by the CardNumber rule. Name: Maximum 3 Card Hits in 1 day. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="o">{</span>
+    <span class="o">[</span>...]
+    <span class="s2">"VelocityAnalysis"</span>: <span class="o">{</span>
+        <span class="s2">"Id"</span>: <span class="s2">"2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span>,
+        <span class="s2">"ResultMessage"</span>: <span class="s2">"Reject"</span>,
+        <span class="s2">"Score"</span>: 100,
+        <span class="s2">"RejectReasons"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"RuleId"</span>: 49,
+            <span class="s2">"Message"</span>: <span class="s2">"Blocked by the CardNumber rule. Name: Maximum 3 Card Hits in 1 day. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"</span>
+        <span class="o">}]</span>
+    <span class="o">[</span>...]
+  <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.Id</code></td>
+      <td>Identification of the analysis performed.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.ResultMessage</code></td>
+      <td>Analysis result (“Accept” / “Reject”).</td>
+      <td>Text</td>
+      <td>25</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.Score</code></td>
+      <td>Number of points given to the operation. E.g.: 100.</td>
+      <td>Number</td>
+      <td>10</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.RejectReasons.RuleId</code></td>
+      <td>Rejection rule code.</td>
+      <td>Number</td>
+      <td>10</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.RejectReasons.Message</code></td>
+      <td>Description of the rejection rule.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="using-dcc-currency-converter">Using DCC (Currency Converter)</h3>
+
+<p>The Dynamic Currency Conversion (DCC) is a currency converter from the <strong>Global Payments</strong> acquirer that allows a foreign cardholder to choose between paying in reais or in their local currency, converting the order amount at the time of purchase with full transparency for the customer.
+The solution is suitable for establishments such as hotels, inns, shopping centers and tourist shops, that receive payments with cards issued abroad.</p>
+
+<aside class="notice">To use this feature using the standard authentication functionality, the merchant must contact the Global Payments acquirer and request a DCC activation at their store.</aside>
+
+<aside class="warning">This feature is not compatible with external MPI transactions.</aside>
+
+<p>When the establishment has DCC product enabled, the authorization process is performed in the 3 steps described below:</p>
+
+<h4 id="step-1---authorization-request">STEP 1 - Authorization Request</h4>
+
+<p>In the first step, when applying for an authorization with an international card, Global Payments identifies the card’s country and applies the currency conversion following the brand-specific calculations, and then returns the conversion information.</p>
+
+<h5 id="request-7">Request</h5>
+
+<p>There is no difference between a standard authorization request and a DCC authorization request.</p>
+
+<h5 id="response-8">Response</h5>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="err">,</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123412******1234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shopper Test"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.braspag.com.br/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fa0c3119-c730-433a-123a-a3b6dfaaad67"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-23 10:46:25"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GlobalPayments"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Authorized Transaction"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CurrencyExchangeData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fab6f3a752d700af1d50fdd19987b95df497652b"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CurrencyExchanges"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+                    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ConvertedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ConversionRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.218626</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ClosingDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-09T00:00:00"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ConvertedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="o">[</span>...]
+    <span class="o">}</span>,
+    <span class="s2">"Payment"</span>:<span class="o">{</span>
+        <span class="s2">"ServiceTaxAmount"</span>:0,
+        <span class="s2">"Installments"</span>:1,
+        <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
+        <span class="s2">"Capture"</span>:true,
+        <span class="s2">"Authenticate"</span>:false,
+        <span class="s2">"Recurrent"</span>:false,
+        <span class="s2">"CreditCard"</span>:<span class="o">{</span>
+            <span class="s2">"CardNumber"</span>: <span class="s2">"123412******1234"</span>,
+            <span class="s2">"Holder"</span>: <span class="s2">"Shopper Test"</span>,
+            <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2022"</span>,
+            <span class="s2">"SaveCard"</span>:<span class="s2">"false"</span>,
+            <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
+        <span class="o">}</span>,
+        <span class="s2">"ReturnUrl"</span>: <span class="s2">"http://www.braspag.com.br/"</span>,
+        <span class="s2">"PaymentId"</span>: <span class="s2">"fa0c3119-c730-433a-123a-a3b6dfaaad67"</span>,
+        <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
+        <span class="s2">"Amount"</span>: 100,
+        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2018-08-23 10:46:25"</span>,
+        <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+        <span class="s2">"Provider"</span>: <span class="s2">"GlobalPayments"</span>,
+        <span class="s2">"ReasonCode"</span>: 0,
+        <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+        <span class="s2">"Status"</span>: 12,
+        <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"0"</span>,
+        <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Authorized Transaction"</span>,
+        <span class="s2">"CurrencyExchangeData"</span>: <span class="o">{</span>
+            <span class="s2">"Id"</span>: <span class="s2">"fab6f3a752d700af1d50fdd19987b95df497652b"</span>,
+            <span class="s2">"CurrencyExchanges"</span>: <span class="o">[{</span>
+                    <span class="s2">"Currency"</span>: <span class="s2">"EUR"</span>,
+                    <span class="s2">"ConvertedAmount"</span>: 31,
+                    <span class="s2">"ConversionRate"</span>: 3.218626,
+                    <span class="s2">"ClosingDate"</span>: <span class="s2">"2017-03-09T00:00:00"</span>
+                <span class="o">}</span>,
+                <span class="o">{</span>
+                    <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
+                    <span class="s2">"ConvertedAmount"</span>: 100
+                <span class="o">}</span>
+            <span class="o">]</span>
+        <span class="o">}</span>
+        <span class="o">[</span>...]
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
+      <td>Transaction ID of the payment method provider.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
+      <td>Proof of sale number.</td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td>Authorization code.</td>
+      <td>Text</td>
+      <td>300</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Order identifier field.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
+      <td>Date the transaction was received by Braspag.</td>
+      <td>Text</td>
+      <td>19</td>
+      <td>YYYY-MM-DD HH:mm:SS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
+      <td>Operation return code.</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
+      <td>Operation return message.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Transaction status.</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>E.g.: 12</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
+      <td>Code returned by the payment provider (acquirer and issuer).</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
+      <td>Message returned by the payment provider (acquirer and issuer).</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Transaction Approved</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.Id</code></td>
+      <td>ID of the currency exchange action.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>1b05456446c116374005602dcbaf8db8879515a0</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.CurrencyExchanges.Currency</code></td>
+      <td>Customer’s local currency/credit card.</td>
+      <td>Numeric</td>
+      <td>4</td>
+      <td>EUR</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.CurrencyExchanges.ConvertedAmount</code></td>
+      <td>Converted value.</td>
+      <td>Numeric</td>
+      <td>12</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.CurrencyExchanges.ConversionRate</code></td>
+      <td>Conversion rate.</td>
+      <td>Numeric</td>
+      <td>9</td>
+      <td>3.218626</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.CurrencyExchanges.ClosingDate</code></td>
+      <td>Transaction end date.</td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.CurrencyExchanges.Currency</code></td>
+      <td>Real currency code.</td>
+      <td>Text</td>
+      <td>3</td>
+      <td>BRA</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.CurrencyExchanges.ConvertedAmount</code></td>
+      <td>Order value in reais.</td>
+      <td>Numeric</td>
+      <td>12</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="step-2---payment-options">STEP 2 - Payment Options</h4>
+
+<p>In the second step, the store system should present the customer with the options of paying in reais or in their country’s currency (credit card currency), following the best practices requested by the brand. The text is presented in English and the website layout does not need to be changed, as long as the currency selection options follow the same font, color and dimension characteristics.</p>
+
+<p>In Global Payments, the payment options (in reais or in the card currency) are displayed on the screen, right beside a summary of the purchase.</p>
+
+<h4 id="step-3---transaction-confirmation">STEP 3 - Transaction Confirmation</h4>
+
+<p>In the third step, the store system sends the transaction confirmation with the currency information chosen by the customer. At this point, the authorization response is returned.</p>
+
+<h5 id="request-8">Request</h5>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1b05456446c116374005602dcbaf8db8879515a0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl
+<span class="nt">--request</span> POST <span class="s2">" https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/confirm"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+  <span class="s2">"Id"</span>: <span class="s2">"1b05456446c116374005602dcbaf8db8879515a0"</span>,
+  <span class="s2">"Currency"</span>: <span class="s2">"EUR"</span>,
+  <span class="s2">"Amount"</span>: 23
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
+      <td>ID of the currency exchange action.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Currency</code></td>
+      <td>Customer’s selected currency.</td>
+      <td>Numeric</td>
+      <td>4</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>Converted value.</td>
+      <td>Numeric</td>
+      <td>12</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="response-9">Response</h5>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123412******1234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestDcc"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20170510053219433"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0510053219433"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"936403"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Message"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fa0c3119-c730-433a-123a-a3b6dfaaad67"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-10 17:32:19"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-10 17:32:19"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GlobalPayments"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+   <span class="o">[</span>...]
+   <span class="s2">"Payment"</span>:<span class="o">{</span>
+        <span class="s2">"ServiceTaxAmount"</span>: 0,
+        <span class="s2">"Installments"</span>:1,
+        <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
+        <span class="s2">"Capture"</span>: <span class="nb">false</span>,
+        <span class="s2">"Authenticate"</span>:false,
+        <span class="s2">"Recurrent"</span>:false,
+        <span class="s2">"CreditCard"</span>:<span class="o">{</span>
+            <span class="s2">"CardNumber"</span>: <span class="s2">"123412******1234"</span>,
+            <span class="s2">"Holder"</span>: <span class="s2">"TestDcc"</span>,
+            <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2022"</span>,
+            <span class="s2">"SecurityCode"</span>: <span class="s2">"***"</span>,
+            <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
+        <span class="o">}</span>,
+        <span class="s2">"ProofOfSale"</span>: <span class="s2">"20170510053219433"</span>,
+        <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"0510053219433"</span>,
+        <span class="s2">"AuthorizationCode"</span>: <span class="s2">"936403"</span>,
+        <span class="s2">"SoftDescriptor"</span>:<span class="s2">"Message"</span>,
+        <span class="s2">"PaymentId"</span>: <span class="s2">"fa0c3119-c730-433a-123a-a3b6dfaaad67"</span>,
+        <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
+        <span class="s2">"Amount"</span>: 23,
+        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-05-10 17:32:19"</span>,
+        <span class="s2">"CapturedAmount"</span>: 23,
+        <span class="s2">"CapturedDate"</span>: <span class="s2">"2017-05-10 17:32:19"</span>,
+        <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+        <span class="s2">"Provider"</span>: <span class="s2">"GlobalPayments"</span>,
+        <span class="s2">"ReasonCode"</span>: 0,
+        <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+        <span class="s2">"Status"</span>: 2,
+        <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"6"</span>,
+        <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
+        <span class="o">[</span>...]
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
+      <td>Transaction ID of the payment method provider.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
+      <td>Proof of sale number.</td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td>Authorization code.</td>
+      <td>Text</td>
+      <td>300</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Order identifier field.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
+      <td>Date the transaction was received by Braspag.</td>
+      <td>Text</td>
+      <td>19</td>
+      <td>YYYY-MM-DD HH:mm:SS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
+      <td>Operation return code.</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
+      <td>Operation return message.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Transaction status.</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>E.g.: 12</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
+      <td>Code returned by the payment provider (acquirer and issuer).</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
+      <td>Message returned by the payment provider (acquirer and issuer).</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Transaction Approved</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="qr-code-transaction">QR Code Transaction</h2>
 
 <p>To create a QR code transaction you must submit a request using the <code class="language-plaintext highlighter-rouge">POST</code> method as shown below. This request will create the transaction, which will have the status “Pending” in Braspag and generate the QR Code to make the payment. Using one of the supported applications, the shopper makes the payment and the transaction changes status (ex. “Pago”, “Não pago” or “Não autorizado).
 The example below covers the minimum required fields to be submitted for authorization.</p>
 
 <aside class="notice">Attention: It is not possible to perform a transaction with value (`Amount`) 0.</aside>
 
-<h4 id="request-6">Request</h4>
+<h3 id="request-9">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2780,7 +3520,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h5 id="response-6">Response</h5>
+<h3 id="response-10">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -2904,245 +3644,6 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h3 id="cancelingrefunding-a-transaction">Canceling/Refunding a Transaction</h3>
-
-<p>To cancel a credit card transaction, you must PUT the Payment feature as shown.</p>
-
-<aside class="warning">Availability of Refund service varies from acquirer to acquirer.</aside>
-
-<p>Each acquirer has its deadlines to allow the refund of a transaction. In this <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">article</a> you can check each one.</p>
-
-<h4 id="request-7">Request</h4>
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-curl
-<span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/void?amount=xxx"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--verbose</span>
-
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in the API.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Dual Authentication in the API.</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
-      <td>Amount to be canceled/refunded (in cents). Check if your acquirer support cancel or refund operations</td>
-      <td>Number</td>
-      <td>15</td>
-      <td>No</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="response-7">Response</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="o">{</span>
-    <span class="s2">"Status"</span>: 10,
-    <span class="s2">"ReasonCode"</span>: 0,
-    <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
-    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"9"</span>,
-    <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
-    <span class="s2">"Links"</span>: <span class="o">[</span>
-        <span class="o">{</span>
-            <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
-            <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-            <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span>
-        <span class="o">}</span>
-    <span class="o">]</span>
-<span class="o">}</span>
-
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status.</td>
-      <td>Byte</td>
-      <td>2</td>
-      <td>E.g.: 1</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Return code from the acquirer.</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Return message from Acquiring.</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Alphanumeric</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="transaction-with-velocity-check">Transaction with Velocity Check</h3>
-
-<p>Velocity Check is a fraud-fighting tool that prevent massive bursts of transactions with repeated payment data.  It analyzes the frequency of traceability elements such as Card Number, Social Security Number, Zip Code, and others, and blocks suspicious transactions.</p>
-
-<p>The functionality must be contracted separately, and then enabled in your store via dashboard. When Velocity is active, the transaction response will bring up a specific node called “Velocity”, with the details of the analysis.</p>
-
-<p>In case of rejection by Velocity rule, ProviderReasonCode will be BP 171 - Rejected by fraud risk (velocity, with ReasonCode 16 - AbortedByFraud).</p>
-
-<h4 id="response-8">Response</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-    </span><span class="nl">"VelocityAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ResultMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blocked by the CardNumber rule. Name: Maximum 3 Card Hits in 1 day. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"</span><span class="w">
-        </span><span class="p">}]</span><span class="w">
-    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="o">{</span>
-    <span class="o">[</span>...]
-    <span class="s2">"VelocityAnalysis"</span>: <span class="o">{</span>
-        <span class="s2">"Id"</span>: <span class="s2">"2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span>,
-        <span class="s2">"ResultMessage"</span>: <span class="s2">"Reject"</span>,
-        <span class="s2">"Score"</span>: 100,
-        <span class="s2">"RejectReasons"</span>: <span class="o">[</span>
-        <span class="o">{</span>
-            <span class="s2">"RuleId"</span>: 49,
-            <span class="s2">"Message"</span>: <span class="s2">"Blocked by the CardNumber rule. Name: Maximum 3 Card Hits in 1 day. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"</span>
-        <span class="o">}]</span>
-    <span class="o">[</span>...]
-  <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.Id</code></td>
-      <td>Identification of the analysis performed</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.ResultMessage</code></td>
-      <td>Accept or Reject</td>
-      <td>Text</td>
-      <td>25</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.Score</code></td>
-      <td>100</td>
-      <td>Number</td>
-      <td>10</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.RejectReasons.RuleId</code></td>
-      <td>Rejected Rule Code</td>
-      <td>Number</td>
-      <td>10</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.RejectReasons.Message</code></td>
-      <td>Description of the rule that cause rejection</td>
-      <td>Text</td>
-      <td>512</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h2 id="boleto">Boleto</h2>
 
 <h3 id="registered-boleto">Registered Boleto</h3>
@@ -3159,7 +3660,7 @@ curl
 
 <p>To generate boletos, you must provide shopper’s data such as ID number (CPF or CNPJ) and address. Below is an example of how to create a boleto as payment method.</p>
 
-<h4 id="request-8">Request</h4>
+<h4 id="request-10">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3516,7 +4017,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-9">Response</h4>
+<h4 id="response-11">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -3855,7 +4356,7 @@ curl
 
 <p>Add the <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> node to the <code class="language-plaintext highlighter-rouge">Payment</code> node to schedule future recurrencies when authorizing a transaction for the first time in the recurrence series.</p>
 
-<h4 id="request-9">Request</h4>
+<h4 id="request-11">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4015,7 +4516,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-10">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -4167,7 +4668,7 @@ curl
 
 <p>To schedule the first transaction in the recurrence series, pass the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> parameter to <em>“false”</em> and add the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code> parameter.</p>
 
-<h4 id="request-10">Request</h4>
+<h4 id="request-12">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4336,7 +4837,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -4485,7 +4986,7 @@ curl
 
 <p>Contact Support to determine how many days you want your boletos generated via Recurrence to expire.</p>
 
-<h4 id="request-11">Request</h4>
+<h4 id="request-13">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4600,7 +5101,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-14">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -4798,7 +5299,7 @@ curl
 
 <p>To change shopper data on an existing recurrence, simply PUT as per the example.</p>
 
-<h4 id="request-12">Request</h4>
+<h4 id="request-14">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -5062,7 +5563,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-13">Response</h4>
+<h4 id="response-15">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -5075,7 +5576,7 @@ HTTP Status 200
 
 <p>To change the end date of the existing recurrence, just make a PUT as shown.</p>
 
-<h4 id="request-13">Request</h4>
+<h4 id="request-15">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -5146,7 +5647,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-14">Response</h4>
+<h4 id="response-16">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -5159,7 +5660,7 @@ HTTP Status 200
 
 <p>To change the range of an existing recurrence, just make a PUT as per the example.</p>
 
-<h4 id="request-14">Request</h4>
+<h4 id="request-16">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -5230,7 +5731,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-15">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -5245,7 +5746,7 @@ HTTP Status 200
 
 <aside class="notice">Rule: If the new day entered is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is May 5, and the next recurrence is May 25. When I upgrade to the 10, the next recurrence date will be May 10. If the new day entered is before the current day, we will update the recurrence day, but this will take effect only after the next recurrence has been successfully executed. E.g.: Today is 5th, and the next recurrence is May 25. When I upgrade to day 3, the date of the next recurrence will remain on May 25, and after it runs, the next will be scheduled for June 3. If the new day entered is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is 5th, and the next recurrence is September 25. When I upgrade to day 3, the next recurrence date will be September 3</aside>
 
-<h4 id="request-15">Request</h4>
+<h4 id="request-17">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -5316,7 +5817,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-18">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -5329,7 +5830,7 @@ HTTP Status 200
 
 <p>To modify the transaction value of an existing recurrence, simply make a PUT as per the example.</p>
 
-<h4 id="request-16">Request</h4>
+<h4 id="request-18">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -5402,7 +5903,7 @@ curl
 
 <aside class="warning">This change only affects the payment date of the next recurrence.</aside>
 
-<h4 id="response-17">Response</h4>
+<h4 id="response-19">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -5417,7 +5918,7 @@ HTTP Status 200
 
 <p>This operation only modifies the date of the next payment, i.e. future recurrences will remain with the original characteristics.</p>
 
-<h4 id="request-17">Request</h4>
+<h4 id="request-19">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -5488,7 +5989,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-18">Response</h4>
+<h4 id="response-20">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -5511,7 +6012,7 @@ HTTP Status 200
 
 <aside class="notice">Attention: This change affects all Payment node data. So to keep the previous data you must enter the fields that will not change with the same values that were already saved.</aside>
 
-<h4 id="request-18">Request</h4>
+<h4 id="request-20">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -5782,7 +6283,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -5793,7 +6294,7 @@ curl
 
 <p>To disable a recurring request, simply make a PUT as per the example.</p>
 
-<h4 id="request-19">Request</h4>
+<h4 id="request-21">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -5849,7 +6350,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-22">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -5860,7 +6361,7 @@ curl
 
 <p>To reactivate a recurring request, simply make a PUT as per the example.</p>
 
-<h4 id="request-20">Request</h4>
+<h4 id="request-22">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -5916,7 +6417,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-23">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -5935,7 +6436,7 @@ HTTP Status 200
 
 <p>Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank</p>
 
-<h4 id="response-22">Response</h4>
+<h4 id="response-24">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -6079,7 +6580,7 @@ HTTP Status 200
 
 <p>To create a sale, you must POST the Payment feature as shown.</p>
 
-<h4 id="request-21">Request</h4>
+<h4 id="request-23">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -6335,7 +6836,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="response-23">Response</h4>
+<h4 id="response-25">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051109"</span><span class="p">,</span><span class="w">
@@ -6968,7 +7469,7 @@ HTTP Status 200
 
 <p>The second integration step is to effect the authorization flow via Braspag’s gateway (Pagador). To do so, you must provide data received in the stream with Apple Pay, including WalletKey and EphemeralPublicKey.</p>
 
-<h4 id="request-22">Request</h4>
+<h4 id="request-24">Request</h4>
 
 <p>Default Request Example <em>Apple Pay</em></p>
 
@@ -7107,7 +7608,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="response-24">Response</h5>
+<h5 id="response-26">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -7271,7 +7772,7 @@ HTTP Status 200
 
 <h4 id="samsung-pay">Samsung Pay</h4>
 
-<h4 id="request-23">Request</h4>
+<h4 id="request-25">Request</h4>
 
 <p>Default Request Example <em>Samsung Pay</em></p>
 
@@ -7401,7 +7902,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="response-25">Response</h5>
+<h5 id="response-27">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -7555,7 +8056,7 @@ HTTP Status 200
 
 <h4 id="google-pay">Google Pay</h4>
 
-<h4 id="request-24">Request</h4>
+<h4 id="request-26">Request</h4>
 
 <p>Default Request Example <em>Google Pay</em></p>
 
@@ -7694,7 +8195,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="response-26">Response</h5>
+<h5 id="response-28">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -7862,7 +8363,7 @@ HTTP Status 200
   <p>To use MasterPass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.</p>
 </blockquote>
 
-<h4 id="request-25">Request</h4>
+<h4 id="request-27">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -8014,7 +8515,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="response-27">Response</h5>
+<h5 id="response-29">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -8161,7 +8662,7 @@ HTTP Status 200
   <p>To use <em>Visa Checkout</em> you need to contract the service by contacting Visa directly.</p>
 </blockquote>
 
-<h4 id="request-26">Request</h4>
+<h4 id="request-28">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -8314,7 +8815,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h5 id="response-28">Response</h5>
+<h5 id="response-30">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -8456,7 +8957,7 @@ HTTP Status 200
 
 <p>A transaction with an <em>Alelo</em> Card is similar to a Debit Card, but without the authentication process. <br />Currently, only the “Alelo” Provider supports processing of this mode.</p>
 
-<h4 id="request-27">Request</h4>
+<h4 id="request-29">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -8602,7 +9103,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="response-29">Response</h4>
+<h4 id="response-31">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -8716,7 +9217,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date that the transaction was received by Brapag</td>
+      <td>Date that the transaction was received by Braspag</td>
       <td>Text</td>
       <td>19</td>
       <td>YYYY-MM-DDHH:mm:SS</td>
@@ -8762,522 +9263,6 @@ HTTP Status 200
       <td>Text</td>
       <td>56</td>
       <td>https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="payments-with-purchaser-global-payments-dcc">Payments with Purchaser Global Payments (DCC)</h2>
-
-<p>Example of a transaction with Dynamic Currency Conversion (DCC), a currency converter from acquirer Global Payments that allows a foreign cardholder to choose to pay in Reais or in their Local currency, converting the order amount at the time of purchase in full transparency for the shopper.
-The solution is suitable for establishments that receive payments with cards issued abroad such as hotels, inns, shopping centers and tourist shops.</p>
-
-<aside class="notice">Authentication: To use this feature, the merchant must contact the acquirer Global Payments and request DCC activation at their merchant.</aside>
-
-<aside class="warning">This feature is not compatible with External MPI transactions.</aside>
-
-<h4 id="authorization-process-with-dcc">Authorization Process with DCC</h4>
-
-<p>When the establishment has DCC product enabled, the authorization process is performed in 3 steps.</p>
-
-<p>In the first step, when applying for an authorization with an international card, Global Payments identifies the card’s country and applies currency conversion following the flag-specific calculations, then returns the conversion information.</p>
-
-<p>In the second step, the store system should present to the shopper the options to pay in Reais or with the currency of his country (credit card currency), following the best practices requested by the flag, where:</p>
-
-<ul>
-  <li>Text presented in English, as shown below.</li>
-  <li>The site layout does not need to be changed as long as the currency selection options have the same font, color and dimension characteristics as the following example.</li>
-</ul>
-
-<p><img src="https://braspag.github.io//images/dcc-globalpayments.jpg" alt="DCC Global Payments" /></p>
-
-<p>Example provided by Global Payments</p>
-
-<p>In the third step, the store system sends the transaction confirmation with the currency information chosen by the shopper. The authorization response will be returned at this point.</p>
-
-<p><strong>STEP 1</strong>- Transaction Authorization Request:</p>
-
-<h4 id="request-28">Request</h4>
-
-<p>There is no difference between a standard authorization request and a DCC authorization request.</p>
-
-<h5 id="response-30">Response</h5>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="err">,</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123412******1234"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shopper Test"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.braspag.com.br/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fa0c3119-c730-433a-123a-a3b6dfaaad67"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-23 10:46:25"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GlobalPayments"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Authorized Transaction"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CurrencyExchangeData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fab6f3a752d700af1d50fdd19987b95df497652b"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"CurrencyExchanges"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ConvertedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ConversionRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.218626</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ClosingDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-09T00:00:00"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ConvertedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-    <span class="o">[</span>...]
-    <span class="o">}</span>,
-    <span class="s2">"Payment"</span>:<span class="o">{</span>
-        <span class="s2">"ServiceTaxAmount"</span>:0,
-        <span class="s2">"Installments"</span>:1,
-        <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
-        <span class="s2">"Capture"</span>:true,
-        <span class="s2">"Authenticate"</span>:false,
-        <span class="s2">"Recurrent"</span>:false,
-        <span class="s2">"CreditCard"</span>:<span class="o">{</span>
-            <span class="s2">"CardNumber"</span>: <span class="s2">"123412******1234"</span>,
-            <span class="s2">"Holder"</span>: <span class="s2">"Shopper Test"</span>,
-            <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2022"</span>,
-            <span class="s2">"SaveCard"</span>:<span class="s2">"false"</span>,
-            <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
-        <span class="o">}</span>,
-        <span class="s2">"ReturnUrl"</span>: <span class="s2">"http://www.braspag.com.br/"</span>,
-        <span class="s2">"PaymentId"</span>: <span class="s2">"fa0c3119-c730-433a-123a-a3b6dfaaad67"</span>,
-        <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
-        <span class="s2">"Amount"</span>: 100,
-        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2018-08-23 10:46:25"</span>,
-        <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
-        <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
-        <span class="s2">"Provider"</span>: <span class="s2">"GlobalPayments"</span>,
-        <span class="s2">"ReasonCode"</span>: 0,
-        <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
-        <span class="s2">"Status"</span>: 12,
-        <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"0"</span>,
-        <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Authorized Transaction"</span>,
-        <span class="s2">"CurrencyExchangeData"</span>: <span class="o">{</span>
-            <span class="s2">"Id"</span>: <span class="s2">"fab6f3a752d700af1d50fdd19987b95df497652b"</span>,
-            <span class="s2">"CurrencyExchanges"</span>: <span class="o">[{</span>
-                    <span class="s2">"Currency"</span>: <span class="s2">"EUR"</span>,
-                    <span class="s2">"ConvertedAmount"</span>: 31,
-                    <span class="s2">"ConversionRate"</span>: 3.218626,
-                    <span class="s2">"ClosingDate"</span>: <span class="s2">"2017-03-09T00:00:00"</span>
-                <span class="o">}</span>,
-                <span class="o">{</span>
-                    <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
-                    <span class="s2">"ConvertedAmount"</span>: 100
-                <span class="o">}</span>
-            <span class="o">]</span>
-        <span class="o">}</span>
-        <span class="o">[</span>...]
-<span class="o">}</span>
-
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td>Transaction Id of the Payment Method Provider</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Proof of Sale Number</td>
-      <td>Text</td>
-      <td>20</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization Code</td>
-      <td>Text</td>
-      <td>300</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier Field</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date the transaction was received by Brapag</td>
-      <td>Text</td>
-      <td>19</td>
-      <td>YYYY-MM-DD HH:mm:SS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Operation return code.</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Operation return message.</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status</td>
-      <td>Byte</td>
-      <td>2</td>
-      <td>E.g.: 12</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Code returned by the payment provider (acquirer and banks)</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>57</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Message returned by the payment provider (acquirer and banks)</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Transaction Approved</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.Id</code></td>
-      <td>Currency Exchange Action Id</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>1b05456446c116374005602dcbaf8db8879515a0</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.CurrencyExchanges.Currency</code></td>
-      <td>Shopper’s local currency/credit card.</td>
-      <td>Numeric</td>
-      <td>4</td>
-      <td>EUR</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.CurrencyExchanges.ConvertedAmount</code></td>
-      <td>Converted value.</td>
-      <td>Numeric</td>
-      <td>12</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.CurrencyExchanges.ConversionRate</code></td>
-      <td>Conversion rate.</td>
-      <td>Numeric</td>
-      <td>9</td>
-      <td>3.218626</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.CurrencyExchanges.ClosingDate</code></td>
-      <td>Transaction end date.</td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>AAAA-MM-DD HH:mm:SS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.CurrencyExchanges.Currency</code></td>
-      <td>Real currency code</td>
-      <td>Text</td>
-      <td>3</td>
-      <td>BRA</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CurrencyExchangeData.CurrencyExchanges.ConvertedAmount</code></td>
-      <td>Order value in Reais.</td>
-      <td>Numeric</td>
-      <td>12</td>
-      <td>100</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>STEP 2</strong>- Display Payment Options (Pay in Reais or Card Currency):</p>
-
-<p><img src="https://braspag.github.io//images/dcc-globalpayments.jpg" alt="DCC Global Payments" /></p>
-
-<p>Example provided by Global Payments</p>
-
-<p><strong>STEP 3</strong>- Confirmation of the transaction with the buyer’s chosen currency:</p>
-
-<h4 id="request-29">Request</h4>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="p">{</span><span class="w">
-  </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1b05456446c116374005602dcbaf8db8879515a0"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-curl
-<span class="nt">--request</span> POST <span class="s2">" https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/confirm"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-  <span class="s2">"Id"</span>: <span class="s2">"1b05456446c116374005602dcbaf8db8879515a0"</span>,
-  <span class="s2">"Currency"</span>: <span class="s2">"EUR"</span>,
-  <span class="s2">"Amount"</span>: 23
-<span class="o">}</span>
-<span class="nt">--verbose</span>
-
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Mandatory</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-      <td>Currency Exchange Action Id</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Currency</code></td>
-      <td>Numeric</td>
-      <td>4</td>
-      <td>Yes</td>
-      <td>Shopper’s Selected Currency</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
-      <td>Numeric</td>
-      <td>12</td>
-      <td>Yes</td>
-      <td>Converted Value</td>
-    </tr>
-  </tbody>
-</table>
-
-<h5 id="response-31">Response</h5>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="p">{</span><span class="w">
-   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123412******1234"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestDcc"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"***"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20170510053219433"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0510053219433"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"936403"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Message"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fa0c3119-c730-433a-123a-a3b6dfaaad67"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-10 17:32:19"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-10 17:32:19"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GlobalPayments"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-   <span class="o">[</span>...]
-   <span class="s2">"Payment"</span>:<span class="o">{</span>
-        <span class="s2">"ServiceTaxAmount"</span>: 0,
-        <span class="s2">"Installments"</span>:1,
-        <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
-        <span class="s2">"Capture"</span>: <span class="nb">false</span>,
-        <span class="s2">"Authenticate"</span>:false,
-        <span class="s2">"Recurrent"</span>:false,
-        <span class="s2">"CreditCard"</span>:<span class="o">{</span>
-            <span class="s2">"CardNumber"</span>: <span class="s2">"123412******1234"</span>,
-            <span class="s2">"Holder"</span>: <span class="s2">"TestDcc"</span>,
-            <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2022"</span>,
-            <span class="s2">"SecurityCode"</span>: <span class="s2">"***"</span>,
-            <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
-        <span class="o">}</span>,
-        <span class="s2">"ProofOfSale"</span>: <span class="s2">"20170510053219433"</span>,
-        <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"0510053219433"</span>,
-        <span class="s2">"AuthorizationCode"</span>: <span class="s2">"936403"</span>,
-        <span class="s2">"SoftDescriptor"</span>:<span class="s2">"Message"</span>,
-        <span class="s2">"PaymentId"</span>: <span class="s2">"fa0c3119-c730-433a-123a-a3b6dfaaad67"</span>,
-        <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
-        <span class="s2">"Amount"</span>: 23,
-        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-05-10 17:32:19"</span>,
-        <span class="s2">"CapturedAmount"</span>: 23,
-        <span class="s2">"CapturedDate"</span>: <span class="s2">"2017-05-10 17:32:19"</span>,
-        <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
-        <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
-        <span class="s2">"Provider"</span>: <span class="s2">"GlobalPayments"</span>,
-        <span class="s2">"ReasonCode"</span>: 0,
-        <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
-        <span class="s2">"Status"</span>: 2,
-        <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"6"</span>,
-        <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
-        <span class="o">[</span>...]
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td>Transaction Id of the Payment Method Provider</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Proof of Sale Number</td>
-      <td>Text</td>
-      <td>20</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization Code</td>
-      <td>Text</td>
-      <td>300</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier Field</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date the transaction was received by Brapag</td>
-      <td>Text</td>
-      <td>19</td>
-      <td>YYYY-MM-DD HH:mm:SS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Operation return code.</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Operation return message.</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status</td>
-      <td>Byte</td>
-      <td>2</td>
-      <td>E.g.: 12</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Code returned by the payment provider (acquirer and banks)</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>57</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Message returned by the payment provider (acquirer and banks)</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Transaction Approved</td>
     </tr>
   </tbody>
 </table>
@@ -9592,7 +9577,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date that the transaction was received by Brapag</td>
+      <td>Date that the transaction was received by Braspag</td>
       <td>Text</td>
       <td>19</td>
       <td>YYYY-MM-DD HH:mm:SS</td>
@@ -9907,7 +9892,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date that the transaction was received by Brapag</td>
+      <td>Date that the transaction was received by Braspag</td>
       <td>Text</td>
       <td>19</td>
       <td>YYYY-MM-DD HH:mm:SS</td>
@@ -10220,7 +10205,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date that the transaction was received by Brapag</td>
+      <td>Date that the transaction was received by Braspag</td>
       <td>Text</td>
       <td>19</td>
       <td>YYYY-MM-DD HH:mm:SS</td>
@@ -12317,7 +12302,7 @@ curl
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
       <td style="text-align: left">Datetime</td>
-      <td style="text-align: left">Date the transaction was received at the Brapag Payer <br /> E.g.: 2018-01-16 16: 38: 19</td>
+      <td style="text-align: left">Date the transaction was received at the Braspag Payer <br /> E.g.: 2018-01-16 16: 38: 19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CapturedDate</code></td>
