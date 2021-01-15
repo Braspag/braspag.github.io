@@ -97,13 +97,13 @@ Some of the important features that we offer for your transactions are listed be
 |---|---|
 |**Antifraude**| A feature which consists in a fraud prevention platform, that provides a detailed risk analysis of online purchases. The process is fully transparent to the cardholder. According to a pre-established criteria, the request can be automatically accepted, rejected or redirected for manual review. For further information, refer to the [Antifraud](https://braspag.github.io//en/manual/antifraude) integration guide.
 |**Autenticação**| A process which allows the transaction to pass through the card issuing bank authentication process, bringing more security to the sale as it transfers the risk of fraud to the issuer. For further information, refer to the [3DS 2.0 Authentication](https://braspag.github.io//en/manualp/emv3ds) documentation. 
-|**Cartão Protegido**| A platform that offers secure storage of sensitive credit card data. This data is transformed into an encrypted code called "token", which can be stored in a database. With this platform, the store is able to offer features such as "*1-Click Purchase*" and "*Transaction Submission Retry*", while preserving the integrity and confidentiality of the information. For further information, refer to the [Cartão Protegido](https://braspag.github.io//en/manual/cartao-protegido-api-rest) integration guide.
+|**Cartão Protegido**| A platform that offers secure storage of sensitive credit card data. This data is transformed into an encrypted code called "token", which can be stored in a database. With this platform, the store is able to offer features such as "*1-Click Purchase*" and "*Transaction Submission Retry*", while preserving the integrity and confidentiality of that data. For further information, refer to the [Cartão Protegido](https://braspag.github.io//en/manual/cartao-protegido-api-rest) integration guide.
 
 ## Braspag Support Service
 
 <aside class="notice">Braspag offers high availability support. You can contact us from 9AM to 7PM weekdays, through our 24 hour emergency call service or through our web-based tool. Our support team speaks Portuguese, English and Spanish.</aside>
 
-Access our web support tool [Zendesk](https://suporte.braspag.com.br/hc/en-us).
+You can access our web support tool here: [Zendesk](https://suporte.braspag.com.br/hc/en-us).
 
 # Payment Methods
 
@@ -119,9 +119,11 @@ When requesting authorization for a credit transaction, it is necessary to follo
 
 If your store uses *Retry* or *Loadbalance* services, affiliations must be registered by the customer support team. To request the registration of affiliations, [click here](https://suporte.braspag.com.br/hc/en-us/requests/new) and send your request.
 
-<aside class="notice">Important: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).</aside>
+<aside class="warning">Important: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).</aside>
 
 The parameters contained within the `Address` and `DeliveryAddress` nodes are **mandatory** when the transaction is submitted to *Anti-Fraud* or to the *Velocity* analysis. These parameters are marked with an * in the mandatory column of the table below.
+
+Here are request and answer examples of how to create a credit transaction:
 
 #### Request
 
@@ -320,9 +322,9 @@ curl
 |`Payment.Interest`|Installment type - Store ("ByMerchant") or Issuer ("ByIssuer").|Text|10|No|
 |`Payment.Capture`|Indicates whether the authorization should use automatic capture ("true") or not ("false"). Please check with the acquirer about the availability of this feature.|Boolean|---|No (default "false")|
 |`Payment.Authenticate`|Indicates whether the transaction should be authenticated ("true") or not ("false"). Please check with the acquirer about the availability of this feature.|Boolean|---|No (default "false")|
-|`Payment.Recurrent`|Indicates whether the transaction is of recurring type ("true") or not ("false"). The "true" value will not set a new recurrence, it will only allow the execution of a transaction without the need to send CVV. `Authenticate` must be "false" when `Recurrent` is "true".**For Cielo transactions only.** |Boolean|---|No (default "false")|
+|`Payment.Recurrent`|Indicates whether the transaction is of recurring type ("true") or not ("false"). The "true" value will not set a new recurrence, it will only allow the execution of a transaction without the need to send CVV. `Authenticate` must be "false" when `Recurrent` is "true". **For Cielo transactions only.** |Boolean|---|No (default "false")|
 |`Payment.SoftDescriptor`|Text to be printed on bearer invoice.|Text|13|No|
-|`Payment.DoSplit`|Boolean|---|Indicates whether the transaction will be split between multiple accounts ("true") or not ("false").|No (default "false")|
+|`Payment.DoSplit`|Indicates whether the transaction will be split between multiple accounts ("true") or not ("false").|Boolean|---|No (default "false")|
 |`Payment.ExtraDataCollection.Name`|Name of the extra data field.|Text|50|No|
 |`Payment.ExtraDataCollection.Value`|Value of the extra data field.|Text|1024|No|
 |`Payment.Credentials.Code`|Affiliation generated by acquirer.|Text|100|Yes|
@@ -567,9 +569,11 @@ curl
 
 ### Creating a Debit Transaction
 
-A debit card transaction is similar to a credit card transaction. Although, submitting it to the authentication process is mandatory.
+A debit card transaction creation is similar to that of a credit card, except for the fact that it is mandatory to submit it to the authentication process.
 
 #### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 
@@ -725,7 +729,7 @@ A debit card transaction is similar to a credit card transaction. Although, subm
 |`ReceivedDate`|Date the transaction was received by Brapag.|Text|19|YYYY-MM-DD HH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
-|`Status`|Transaction Status|Byte|2|E.g.: 1|
+|`Status`|Transaction Status.|Byte|2|E.g.: 1|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer and issuer).|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer and issuer).|Text|512|Transaction Approved|
 |`AuthenticationUrl`|URL to which the holder will be redirected for authentication.|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
@@ -734,7 +738,9 @@ A debit card transaction is similar to a credit card transaction. Although, subm
 
 It is possible to process a debit card without having to submit your customer to the authentication process. That is the case with the "Coronavoucher" emergency aid, provided by the government, which can be consumed through the *Caixa Econômica Federal* virtual debit card. In such case, the request must follow the Debit Card pattern, only with **no authentication**, according to the example below.
 
-#### Requisição
+#### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 
@@ -795,7 +801,7 @@ It is possible to process a debit card without having to submit your customer to
 
 |Property|Description|Type|Size|Mandatory|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Payment method provider's name. Note: Applicable to **"Cielo30"** only.|Text|15|Yes|
+|`Payment.Provider`|Payment method provider's name. **Applicable to "Cielo30" only.**|Text|15|Yes|
 |`Payment.Type`|Payment method type. In this case, "DebitCard".|Text|100|Yes|
 |`Payment.Amount`|Order amount in cents.|Number|15|Yes|
 |`Payment.Installments`|Number of installments. For this type, always use "1".|Number|2|Yes|
@@ -805,7 +811,7 @@ It is possible to process a debit card without having to submit your customer to
 |`DebitCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
 |`DebitCard.Brand`|Card brand. For this type, always use "Elo".|Text|10|Yes|
 
-#### Resposta
+#### Response
 
 ```json
 
@@ -889,7 +895,7 @@ It is possible to process a debit card without having to submit your customer to
 
 When a transaction is submitted with the `Payment.Capture` parameter as "false", there is the need of a later request for capturing the transaction, in order for it to be confirmed.
 
-Authorizations that are not captured by the deadline are automatically released by the acquirers. Merchants may have specific negotiations with the acquirers to change this capturing deadline.
+Authorizations that are not captured by deadline are automatically released by the acquirers. Merchants may have specific negotiations with the acquirers to change this capturing deadline.
 
 #### Request
 
@@ -973,26 +979,26 @@ curl
 |-----------|---------|----|-------|-------|
 |`Status`|Transaction status.|Byte|2|E.g.: 1|
 |`ReasonCode`|Acquirer return code.|Text|32|Alphanumeric|
-|`ReasonMessage`|Acquirer return message.|Text 512|Alphanumeric|
+|`ReasonMessage`|Acquirer return message.|Text|512|Alphanumeric|
 
 ### Authenticating a Transaction 
 
 With the authentication process, a risk analysis can be carried out taking more of user's and buyer's data into consideration, which helps the validation process of an online purchase.
 
-Through Pagador, when a transaction is submitted to the authentication process, the bearer will be redirected to the issuer's environment to confirm their information. If correctly validated, the risk of chargeback (dispute of a purchase made by credit or debit card) shifts to the issuer, which means the merchant is not held accountable for it.
+Through Pagador, when a transaction is submitted to the authentication process, the bearer is redirected to the issuer's environment to confirm their information. If correctly validated, the risk of chargeback (dispute of a purchase made by credit or debit card) shifts to the issuer, which means the merchant is not held accountable for it.
 
 In the mobile environment, we recommend using the [3DS 2.0](https://braspag.github.io//en/manualp/emv3ds) version for authentication.
 
 <aside class="warning"> Important: The 3DS 1.0 version is not compatible in the mobile environment.</aside>
 
-There are two ways to authenticate transactions with Braspag:
+There are two ways of authenticating transactions with Braspag:
 
 * **Standard** - when the merchant does not have a direct connection to an authenticator (MPI)
 * **External** - when the merchant has their own authenticator (MPI)
 
 #### Standard Authentication
 
-In a standard authentication, the merchant who does not have a direct connection to an authenticator (MPI) has the payment method redirect the customer to the authentication environment. The `Payment.Authenticate` parameter should be sent as "true", as shown below:
+In a standard authentication, as the merchant does not have a direct connection to an authenticator (MPI), the payment method redirects the customer to the authentication environment. The `Payment.Authenticate` parameter should be sent as "true", as shown below:
 
 ##### Request
 
