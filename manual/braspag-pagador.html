@@ -2061,11 +2061,9 @@ curl
 
 <h4 id="autenticação-padrão">Autenticação Padrão</h4>
 
-<p>Na autenticação padrão, o lojista que não possui uma conexão direta com um autenticador (MPI) conta com que o meio de pagamento redirecione o cliente para o ambiente de autenticação.</p>
+<p>Na autenticação padrão, o lojista que não possui uma conexão direta com um autenticador (MPI) conta com que o meio de pagamento redirecione o cliente para o ambiente de autenticação. O parâmetro <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> deverá ser enviado como “true”, como no exemplo abaixo:</p>
 
 <h5 id="requisição-4">Requisição</h5>
-
-<p>O parâmetro <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> deverá ser enviado como “true”, como no exemplo abaixo:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2422,11 +2420,9 @@ curl
 
 <h4 id="autenticação-externa">Autenticação Externa</h4>
 
-<p>Na autenticação externa, o lojista que possui um autenticador próprio (MPI) não precisa que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação.</p>
+<p>Na autenticação externa, o lojista que possui um autenticador próprio (MPI) não precisa que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação. Adicione o nó <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> ao contrato padrão, conforme exemplo. Este fluxo é suportado pelas adquirentes <strong>Cielo</strong>, <strong>Global Payments</strong> e <strong>Banorte</strong>.</p>
 
 <h5 id="requisição-5">Requisição</h5>
-
-<p>Adicione o nó <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code> ao contrato padrão, conforme exemplo. Este fluxo é suportado pelas adquirentes <strong>Cielo</strong>, <strong>Global Payments</strong> e <strong>Banorte</strong>.</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2521,21 +2517,21 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Cavv</code></td>
-      <td>Valor retornado pelo mecanismo de autenticação externa.</td>
+      <td>Valor Cavv retornado pelo mecanismo de autenticação externa.</td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Xid</code></td>
-      <td>Valor retornado pelo mecanismo de autenticação externa.</td>
+      <td>Valor Xid retornado pelo mecanismo de autenticação externa.</td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Eci</code></td>
-      <td>Valor retornado pelo mecanismo de autenticação externa.</td>
+      <td>Valor Eci retornado pelo mecanismo de autenticação externa.</td>
       <td>Número</td>
       <td>1</td>
       <td>Sim</td>
@@ -2677,11 +2673,9 @@ curl
 
 <h3 id="cancelandoestornando-uma-transação">Cancelando/Estornando uma Transação</h3>
 
-<p>Para cancelar uma transação de cartão de crédito, é necessário o envio de mensagem HTTP através do método PUT para o recurso <em>Payment</em>, conforme o exemplo.</p>
+<p>A disponibilidade do serviço de estorno varia de adquirente para adquirente. Cada adquirente tem seus prazos-limites para permitir o estorno de uma transação. <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">Neste artigo</a> você poderá conferir cada um deles.</p>
 
-<p>Cada adquirente tem seus prazos-limites para permitir o estorno de uma transação. <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno">Neste artigo</a> você poderá conferir cada um deles.</p>
-
-<p>A disponibilidade do serviço de estorno varia de adquirente para adquirente.</p>
+<p>Para cancelar uma transação de cartão de crédito, é necessário o envio de mensagem HTTP através do método PUT para o recurso <em>Payment</em>, conforme o exemplo:</p>
 
 <h4 id="requisição-6">Requisição</h4>
 
@@ -2883,7 +2877,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VelocityAnalysis.ResultMessage</code></td>
-      <td>Resultado da análise feita (“Accept” / “Reject”)..</td>
+      <td>Resultado da análise feita (“Accept” / “Reject”).</td>
       <td>Texto</td>
       <td>25</td>
     </tr>
@@ -2913,11 +2907,13 @@ curl
 <p>O DCC (Dynamic Currency Conversion) é um conversor de moedas da adquirente <strong>Global Payments</strong> que permite que o portador de um cartão estrangeiro escolha entre pagar em reais ou em sua moeda local, convertendo o valor do pedido no momento da compra com total transparência para o comprador.
 A solução é indicada para estabelecimentos que recebem pagamentos com cartões emitidos no exterior como hotéis, pousadas, polos comerciais e comércios em pontos turísticos.</p>
 
-<aside class="warning">Atenção: Esta funcionalidade não é compatível com transações com MPI externo. Para utilizar esta funcionalidade com a autenticação padrão, o lojista deverá entrar em contato com a adquirente Global Payments e solicitar a ativação do DCC em seu estabelecimento. </aside>
+<aside class="notice">Para utilizar esta funcionalidade com a autenticação padrão, o lojista deverá entrar em contato com a adquirente Global Payments e solicitar a ativação do DCC em seu estabelecimento.</aside>
+
+<aside class="warning">Esta funcionalidade não é compatível com transações com MPI externo.</aside>
 
 <p>Quando o estabelecimento possui o produto DCC habilitado, o processo de autorização é realizado em 3 etapas, explicadas a seguir:</p>
 
-<h4 id="etapa-1-solicitação-de-autorização">Etapa 1. Solicitação de Autorização</h4>
+<h4 id="etapa-1---autorização">ETAPA 1 - Autorização</h4>
 
 <p>Na primeira etapa, quando é solicitada uma autorização com um cartão internacional, a Global Payments identifica o país do cartão e aplica a conversão de moeda seguindo os cálculos específicos de cada bandeira, retornando as informações de conversão em seguida.</p>
 
@@ -3163,13 +3159,13 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
   </tbody>
 </table>
 
-<h4 id="etapa-2-opções-de-pagamento">Etapa 2. Opções de Pagamento</h4>
+<h4 id="etapa-2---opções-de-pagamento">ETAPA 2 - Opções de Pagamento</h4>
 
 <p>Na segunda etapa, o sistema da loja apresenta ao comprador as opções de pagar em reais ou com a moeda de seu país (moeda do cartão de crédito), seguindo as melhores práticas solicitadas pela bandeira. O texto é apresentado em inglês e o layout do site não precisa ser alterado, desde que as opções de escolha da moeda tenham as mesmas características de fonte, cor e dimensões.</p>
 
 <p>Na tela da Global Payments são exibidas as opções de pagamento (em reais ou na moeda do cartão), ao lado de um resumo com os dados da compra.</p>
 
-<h4 id="etapa-3-confirmação-da-transação">Etapa 3. Confirmação da Transação</h4>
+<h4 id="etapa-3---confirmação">ETAPA 3 - Confirmação</h4>
 
 <p>Na terceira etapa, o sistema da loja envia a confirmação da transação com as informações da moeda escolhida pelo comprador. Neste ponto é retornada a resposta da autorização.</p>
 
@@ -12981,7 +12977,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Brapag.</td>
+      <td>Data em que a transação foi recebida pela Braspag.</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
