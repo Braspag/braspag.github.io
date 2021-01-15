@@ -280,7 +280,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 
 <h1 id="autorização-para-transações-data-only">Autorização para Transações Data Only</h1>
 
-<p>Após ter sido realizada a etapa de autenticação no modelo data only (enviando-se o campo <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> como “true”) submete-se a transação ao processo de autorização, enviando-se os dados de autenticação no modelo de “autenticação externa” (nó <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>).</p>
+<p>Após ter sido realizada a etapa de autenticação no modelo <em>Data Only</em> (enviando-se o campo <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> como “true”) submete-se a transação ao processo de autorização, enviando-se os dados de autenticação no modelo de “autenticação externa” (nó <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>).</p>
 
 <p>Veja abaixo um exemplo de envio de dados de autenticação da requisição de autorização da API Pagador, utilizando o método POST:</p>
 
@@ -375,13 +375,13 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.ReferenceId</code></td>
-      <td><em>RequestID</em> retornado no processo de autenticação.</td>
+      <td>RequestID retornado no processo de autenticação.</td>
       <td>GUID [36 posições]</td>
       <td>Sim.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.DataOnly</code></td>
-      <td>Define se é uma transação Data Only.</td>
+      <td>Define se é uma transação <em>Data Only</em>.</td>
       <td>Booleano (“true” / “false”)</td>
       <td>Sim. No caso de transação <em>Data Only</em>, é obrigatório enviar como “true”.</td>
     </tr>
