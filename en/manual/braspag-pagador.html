@@ -325,9 +325,9 @@
 
 <p>Access our web support tool <a href="https://suporte.braspag.com.br/hc/en-us">Zendesk</a>.</p>
 
-<h1 id="payments-methods">Payments Methods</h1>
+<h1 id="payment-methods">Payment Methods</h1>
 
-<p>The Pagador API works with transactions made in the following payment methods: credit card, debit card, <em>boleto</em> bill, electronic transfer, e-wallet and voucher.</p>
+<p>The Pagador API works with transactions made with the following payment methods: credit card, debit card, <em>boleto</em> bill, electronic transfer, e-wallet and voucher.</p>
 
 <p>To prevent duplicate orders from occurring during a transaction, Pagador has the option of blocking duplicate orders which, when enabled, returns the “302” error code, informing that the <code class="language-plaintext highlighter-rouge">MerchantOrderId</code> sent is duplicated.</p>
 
@@ -2043,11 +2043,9 @@ curl
 
 <h4 id="standard-authentication">Standard Authentication</h4>
 
-<p>In a standard authentication, the merchant who does not have a direct connection to an authenticator (MPI) has the payment method redirect the customer to the authentication environment.</p>
+<p>In a standard authentication, the merchant who does not have a direct connection to an authenticator (MPI) has the payment method redirect the customer to the authentication environment. The <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> parameter should be sent as “true”, as shown below:</p>
 
 <h5 id="request-3">Request</h5>
-
-<p>The <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> parameter should be sent as “true”, as shown below:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 

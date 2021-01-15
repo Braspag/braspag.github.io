@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-15T14:57:03+00:00</updated>
+    <updated>2021-01-15T15:42:44+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13200,9 +13200,9 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;p&gt;Access our web support tool &lt;a href=&quot;https://suporte.braspag.com.br/hc/en-us&quot;&gt;Zendesk&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h1 id=&quot;payments-methods&quot;&gt;Payments Methods&lt;/h1&gt;
+&lt;h1 id=&quot;payment-methods&quot;&gt;Payment Methods&lt;/h1&gt;
 
-&lt;p&gt;The Pagador API works with transactions made in the following payment methods: credit card, debit card, &lt;em&gt;boleto&lt;/em&gt; bill, electronic transfer, e-wallet and voucher.&lt;/p&gt;
+&lt;p&gt;The Pagador API works with transactions made with the following payment methods: credit card, debit card, &lt;em&gt;boleto&lt;/em&gt; bill, electronic transfer, e-wallet and voucher.&lt;/p&gt;
 
 &lt;p&gt;To prevent duplicate orders from occurring during a transaction, Pagador has the option of blocking duplicate orders which, when enabled, returns the “302” error code, informing that the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt; sent is duplicated.&lt;/p&gt;
 
@@ -14918,11 +14918,9 @@ curl
 
 &lt;h4 id=&quot;standard-authentication&quot;&gt;Standard Authentication&lt;/h4&gt;
 
-&lt;p&gt;In a standard authentication, the merchant who does not have a direct connection to an authenticator (MPI) has the payment method redirect the customer to the authentication environment.&lt;/p&gt;
+&lt;p&gt;In a standard authentication, the merchant who does not have a direct connection to an authenticator (MPI) has the payment method redirect the customer to the authentication environment. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Authenticate&lt;/code&gt; parameter should be sent as “true”, as shown below:&lt;/p&gt;
 
 &lt;h5 id=&quot;request-3&quot;&gt;Request&lt;/h5&gt;
-
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Authenticate&lt;/code&gt; parameter should be sent as “true”, as shown below:&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
