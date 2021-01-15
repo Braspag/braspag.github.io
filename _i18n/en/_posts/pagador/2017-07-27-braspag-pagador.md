@@ -1552,7 +1552,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 
 When the establishment has DCC product enabled, the authorization process is performed in the 3 steps described below:
 
-#### STEP 1 - Authorization Request
+#### STEP 1 - Authorization
 
 In the first step, when applying for an authorization with an international card, Global Payments identifies the card's country and applies the currency conversion following the brand-specific calculations, and then returns the conversion information.
 
@@ -1693,9 +1693,9 @@ In the second step, the store system should present the customer with the option
 
 In Global Payments, the payment options (in reais or in the card currency) are displayed on the screen, right beside a summary of the purchase.
 
-#### STEP 3 - Transaction Confirmation
+#### STEP 3 - Confirmation
 
-In the third step, the store system sends the transaction confirmation with the currency information chosen by the customer. At this point, the authorization response is returned.
+In the third step, the store system sends the transaction confirmation with the information of the currency chosen by the customer. At this point, the authorization response is returned.
 
 ##### Request
 
