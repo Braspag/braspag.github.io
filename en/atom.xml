@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-15T20:29:45+00:00</updated>
+    <updated>2021-01-15T20:43:31+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -15784,7 +15784,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 
 &lt;p&gt;When the establishment has DCC product enabled, the authorization process is performed in the 3 steps described below:&lt;/p&gt;
 
-&lt;h4 id=&quot;step-1---authorization-request&quot;&gt;STEP 1 - Authorization Request&lt;/h4&gt;
+&lt;h4 id=&quot;step-1---authorization&quot;&gt;STEP 1 - Authorization&lt;/h4&gt;
 
 &lt;p&gt;In the first step, when applying for an authorization with an international card, Global Payments identifies the card’s country and applies the currency conversion following the brand-specific calculations, and then returns the conversion information.&lt;/p&gt;
 
@@ -16036,9 +16036,9 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 
 &lt;p&gt;In Global Payments, the payment options (in reais or in the card currency) are displayed on the screen, right beside a summary of the purchase.&lt;/p&gt;
 
-&lt;h4 id=&quot;step-3---transaction-confirmation&quot;&gt;STEP 3 - Transaction Confirmation&lt;/h4&gt;
+&lt;h4 id=&quot;step-3---confirmation&quot;&gt;STEP 3 - Confirmation&lt;/h4&gt;
 
-&lt;p&gt;In the third step, the store system sends the transaction confirmation with the currency information chosen by the customer. At this point, the authorization response is returned.&lt;/p&gt;
+&lt;p&gt;In the third step, the store system sends the transaction confirmation with the information of the currency chosen by the customer. At this point, the authorization response is returned.&lt;/p&gt;
 
 &lt;h5 id=&quot;request-8&quot;&gt;Request&lt;/h5&gt;
 
