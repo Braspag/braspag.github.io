@@ -1005,11 +1005,9 @@ Existem duas maneiras de autenticar transações na Braspag:
 
 #### Autenticação Padrão
 
-Na autenticação padrão, o lojista que não possui uma conexão direta com um autenticador (MPI) conta com que o meio de pagamento redirecione o cliente para o ambiente de autenticação.
+Na autenticação padrão, o lojista que não possui uma conexão direta com um autenticador (MPI) conta com que o meio de pagamento redirecione o cliente para o ambiente de autenticação. O parâmetro `Payment.Authenticate` deverá ser enviado como "true", como no exemplo abaixo:
 
 ##### Requisição
-
-O parâmetro `Payment.Authenticate` deverá ser enviado como "true", como no exemplo abaixo:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1216,11 +1214,9 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
 
 #### Autenticação Externa
 
-Na autenticação externa, o lojista que possui um autenticador próprio (MPI) não precisa que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação.
+Na autenticação externa, o lojista que possui um autenticador próprio (MPI) não precisa que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação. Adicione o nó `Payment.ExternalAuthentication` ao contrato padrão, conforme exemplo. Este fluxo é suportado pelas adquirentes **Cielo**, **Global Payments** e **Banorte**.
 
 ##### Requisição
-
-Adicione o nó `Payment.ExternalAuthentication` ao contrato padrão, conforme exemplo. Este fluxo é suportado pelas adquirentes **Cielo**, **Global Payments** e **Banorte**.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1306,9 +1302,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.ExternalAuthentication.Cavv`|Valor retornado pelo mecanismo de autenticação externa.|Texto | - |Sim|
-|`Payment.ExternalAuthentication.Xid`|Valor retornado pelo mecanismo de autenticação externa.|Texto| - |Sim|
-|`Payment.ExternalAuthentication.Eci`|Valor retornado pelo mecanismo de autenticação externa.|Número|1|Sim|
+|`Payment.ExternalAuthentication.Cavv`|Valor Cavv retornado pelo mecanismo de autenticação externa.|Texto | - |Sim|
+|`Payment.ExternalAuthentication.Xid`|Valor Xid retornado pelo mecanismo de autenticação externa.|Texto| - |Sim|
+|`Payment.ExternalAuthentication.Eci`|Valor Eci retornado pelo mecanismo de autenticação externa.|Número|1|Sim|
 
 ##### Resposta
 
@@ -1421,11 +1417,9 @@ Uma transação com autenticação externa receberá, além do retorno padrão d
 
 ### Cancelando/Estornando uma Transação
 
-Para cancelar uma transação de cartão de crédito, é necessário o envio de mensagem HTTP através do método PUT para o recurso *Payment*, conforme o exemplo.
+A disponibilidade do serviço de estorno varia de adquirente para adquirente. Cada adquirente tem seus prazos-limites para permitir o estorno de uma transação. [Neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) você poderá conferir cada um deles.
 
-Cada adquirente tem seus prazos-limites para permitir o estorno de uma transação. [Neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) você poderá conferir cada um deles.
-
-A disponibilidade do serviço de estorno varia de adquirente para adquirente.
+Para cancelar uma transação de cartão de crédito, é necessário o envio de mensagem HTTP através do método PUT para o recurso *Payment*, conforme o exemplo:
 
 #### Requisição
 
@@ -1547,7 +1541,7 @@ No caso da rejeição pela regra de Velocity, o *ProviderReasonCode* será "BP 1
 |Propriedade|Descrição|Tipo|Tamanho|
 |-----------|---------|----|-------|
 |`VelocityAnalysis.Id`|Identificador da análise efetuada.|GUID|36|
-|`VelocityAnalysis.ResultMessage`|Resultado da análise feita ("Accept" / "Reject")..|Texto|25|
+|`VelocityAnalysis.ResultMessage`|Resultado da análise feita ("Accept" / "Reject").|Texto|25|
 |`VelocityAnalysis.Score`|Número de pontos dado à operação. Ex.: 100.|Número|10|
 |`VelocityAnalysis.RejectReasons.RuleId`|Código da regra que rejeitou.|Número|10|
 |`VelocityAnalysis.RejectReasons.Message`|Descrição da regra que rejeitou.|Texto|512|
@@ -1557,11 +1551,13 @@ No caso da rejeição pela regra de Velocity, o *ProviderReasonCode* será "BP 1
 O DCC (Dynamic Currency Conversion) é um conversor de moedas da adquirente **Global Payments** que permite que o portador de um cartão estrangeiro escolha entre pagar em reais ou em sua moeda local, convertendo o valor do pedido no momento da compra com total transparência para o comprador.
 A solução é indicada para estabelecimentos que recebem pagamentos com cartões emitidos no exterior como hotéis, pousadas, polos comerciais e comércios em pontos turísticos.
 
-<aside class="warning">Atenção: Esta funcionalidade não é compatível com transações com MPI externo. Para utilizar esta funcionalidade com a autenticação padrão, o lojista deverá entrar em contato com a adquirente Global Payments e solicitar a ativação do DCC em seu estabelecimento. </aside>
+<aside class="notice">Para utilizar esta funcionalidade com a autenticação padrão, o lojista deverá entrar em contato com a adquirente Global Payments e solicitar a ativação do DCC em seu estabelecimento.</aside>
+
+<aside class="warning">Esta funcionalidade não é compatível com transações com MPI externo.</aside>
 
 Quando o estabelecimento possui o produto DCC habilitado, o processo de autorização é realizado em 3 etapas, explicadas a seguir:
 
-#### Etapa 1. Solicitação de Autorização
+#### ETAPA 1 - Autorização
 
 Na primeira etapa, quando é solicitada uma autorização com um cartão internacional, a Global Payments identifica o país do cartão e aplica a conversão de moeda seguindo os cálculos específicos de cada bandeira, retornando as informações de conversão em seguida.
 
@@ -1696,13 +1692,13 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
 | `CurrencyExchangeData.CurrencyExchanges.Currency` | Código da moeda "real". | Texto | 3     | BRA                   |
 | `CurrencyExchangeData.CurrencyExchanges.ConvertedAmount` | Valor do pedido em reais. | Numérico | 12     | 100                   |
 
-#### Etapa 2. Opções de Pagamento
+#### ETAPA 2 - Opções de Pagamento
 
 Na segunda etapa, o sistema da loja apresenta ao comprador as opções de pagar em reais ou com a moeda de seu país (moeda do cartão de crédito), seguindo as melhores práticas solicitadas pela bandeira. O texto é apresentado em inglês e o layout do site não precisa ser alterado, desde que as opções de escolha da moeda tenham as mesmas características de fonte, cor e dimensões.
 
 Na tela da Global Payments são exibidas as opções de pagamento (em reais ou na moeda do cartão), ao lado de um resumo com os dados da compra.
 
-#### Etapa 3. Confirmação da Transação
+#### ETAPA 3 - Confirmação
 
 Na terceira etapa, o sistema da loja envia a confirmação da transação com as informações da moeda escolhida pelo comprador. Neste ponto é retornada a resposta da autorização.
 
@@ -6711,7 +6707,7 @@ curl
 |`Payment.FraudAlert.ReasonMessage`|Mensagem de motivo do alerta de fraude.|Texto|512|Texto alfanumérico|
 |`Payment.FraudAlert.IncomingChargeback`|Flag que identifica se a transação possui um chargeback ocorrido antes do alerta de fraude.|Booleano|5|Texto|
 |`Payment.PaymentId`|Campo identificador do pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Brapag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.ReasonCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
 |`Payment.ReasonMessage`|Mensagem de retorno da adquirência.|Texto|512|Texto alfanumérico|
 |`Payment.CapturedAmount`|Valor capturado.|Número|15|10000|
