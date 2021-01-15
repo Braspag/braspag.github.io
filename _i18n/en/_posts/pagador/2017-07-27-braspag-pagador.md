@@ -105,9 +105,9 @@ Some of the important features that we offer for your transactions are listed be
 
 Access our web support tool [Zendesk](https://suporte.braspag.com.br/hc/en-us).
 
-# Payments Methods
+# Payment Methods
 
-The Pagador API works with transactions made in the following payment methods: credit card, debit card, *boleto* bill, electronic transfer, e-wallet and voucher.
+The Pagador API works with transactions made with the following payment methods: credit card, debit card, *boleto* bill, electronic transfer, e-wallet and voucher.
 
 To prevent duplicate orders from occurring during a transaction, Pagador has the option of blocking duplicate orders which, when enabled, returns the "302" error code, informing that the `MerchantOrderId` sent is duplicated.
 
@@ -992,11 +992,9 @@ There are two ways to authenticate transactions with Braspag:
 
 #### Standard Authentication
 
-In a standard authentication, the merchant who does not have a direct connection to an authenticator (MPI) has the payment method redirect the customer to the authentication environment. 
+In a standard authentication, the merchant who does not have a direct connection to an authenticator (MPI) has the payment method redirect the customer to the authentication environment. The `Payment.Authenticate` parameter should be sent as "true", as shown below:
 
 ##### Request
-
-The `Payment.Authenticate` parameter should be sent as "true", as shown below:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
