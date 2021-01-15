@@ -113,7 +113,7 @@ Consulte o [Manual do Pagador](https://braspag.github.io/manual/braspag-pagador)
 
 # Autorização para Transações Data Only
 
-Após ter sido realizada a etapa de autenticação no modelo data only (enviando-se o campo `bpmpi_auth_notifyonly` como "true") submete-se a transação ao processo de autorização, enviando-se os dados de autenticação no modelo de "autenticação externa" (nó `ExternalAuthentication`).
+Após ter sido realizada a etapa de autenticação no modelo *Data Only* (enviando-se o campo `bpmpi_auth_notifyonly` como "true") submete-se a transação ao processo de autorização, enviando-se os dados de autenticação no modelo de "autenticação externa" (nó `ExternalAuthentication`).
 
 Veja abaixo um exemplo de envio de dados de autenticação da requisição de autorização da API Pagador, utilizando o método POST:
 
@@ -190,8 +190,8 @@ curl
 | --- | --- | --- | --- |
 |`Payment.Authenticate`| Define se o comprador será direcionado ao emissor para autenticação do cartão.| Booleano ("true" / "false") | Sim. No caso de transação *Data Only*, é obrigatório enviar como "false". |
 |`Payment.ExternalAuthentication.Eci`| *E-Commerce Indicator* retornado no processo de autenticação. | Numérico [1 posição] | Sim. |
-|`Payment.ExternalAuthentication.ReferenceId`| *RequestID* retornado no processo de autenticação. | GUID [36 posições] | Sim. |
-|`Payment.ExternalAuthentication.DataOnly`| Define se é uma transação Data Only. |Booleano ("true" / "false")| Sim. No caso de transação *Data Only*, é obrigatório enviar como "true".|
+|`Payment.ExternalAuthentication.ReferenceId`| RequestID retornado no processo de autenticação. | GUID [36 posições] | Sim. |
+|`Payment.ExternalAuthentication.DataOnly`| Define se é uma transação *Data Only*. |Booleano ("true" / "false")| Sim. No caso de transação *Data Only*, é obrigatório enviar como "true".|
 
 ### Response
 
