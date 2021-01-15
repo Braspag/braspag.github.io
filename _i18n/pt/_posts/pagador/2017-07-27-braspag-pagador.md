@@ -579,6 +579,8 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 
 #### Requisição
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
 ```json
 
 {  
@@ -744,6 +746,8 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 Este é o caso do auxílio emergencial "Coronavoucher", disponibilizado pelo governo, que pode ser consumido através do cartão de débito virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém **sem autenticação**, conforme o exemplo abaixo. 
 
 #### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 
@@ -3796,7 +3800,7 @@ curl
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.RecurrentPayment.StartDate`|Data para início da recorrência.|Texto |10 |Não|
 |`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
-|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br>Monthly (Default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não|
+|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não|
 |`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
 
 #### Resposta
@@ -4030,7 +4034,7 @@ curl
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
 |`Payment.RecurrentPayment.StartDate`|Data para início da recorrência.|Texto |10 |Não|
 |`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
-|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br>Monthly (Default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não|
+|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não|
 |`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
 |`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
