@@ -557,7 +557,7 @@ curl
 |`ProofOfSale`|Proof of sale reference.|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer.|Text|300|Alphanumeric text|
 |`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date the transaction was received by Brapag.|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReceivedDate`|Date the transaction was received by Braspag.|Text|19|YYYY-MM-DD HH:mm:SS|
 |`CapturedDate`|Date the transaction was captured. |Text|19|YYYY-MM-DD HH:mm:SS|
 |`CapturedAmount`|Captured amount in cents.|Number|15|100 equivalent to R$ 1,00|
 |`ECI`|Electronic Commerce Indicator. Represents the authentication result.|Text|2|E.g.: 5|
@@ -726,7 +726,7 @@ A debit card transaction creation is similar to that of a credit card, except fo
 |`ProofOfSale`|Proof of sale reference.|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer.|Text|300|Alphanumeric text|
 |`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date the transaction was received by Brapag.|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReceivedDate`|Date the transaction was received by Braspag.|Text|19|YYYY-MM-DD HH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction Status.|Byte|2|E.g.: 1|
@@ -884,7 +884,7 @@ It is possible to process a debit card without having to submit your customer to
 |`ProofOfSale`|Proof of sale reference.|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer.|Text|300|Alphanumeric text|
 |`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date the transaction was received by Brapag.|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReceivedDate`|Date the transaction was received by Braspag.|Text|19|YYYY-MM-DD HH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction status.|Byte|2|E.g.: 1|
@@ -1076,23 +1076,23 @@ curl
 
 ```
 
-|Property|Type|Size|Mandatory|Description|
+|Property|Description|Type|Size|Mandatory|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Text|15|Yes|Name of Payment Provider|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|
-|`Payment.Authenticate`|Boolean|---|No (Default false)|Defines whether the shopper will be directed to the issuing Bank for card authentication. For authenticated transactions, in this field, you must send the value "True". You should check with the acquirer for the availability of this feature|
-|`Payment.ReturnUrl`|Text|1024|Yes (when Autenticate is true)|URL to which the user will be redirected after authentication ends|
-|`CreditCard.CardNumber`|Text|16|Yes|Shopper's card number|
-|`CreditCard.Holder`|Text|25|Yes|Name of cardholder printed on card|
-|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on the card, in the MM/YYYY format|
-|`CreditCard.SecurityCode`|Text|4|Yes|Security code printed on back of card|
-|`CreditCard.Brand`|Text|10|Yes|Card brand|
+|`Payment.Provider`|Name of the payment provider.|Text|15|Yes|
+|`Payment.Type`|Payment method type.|Text|100|Yes|
+|`Payment.Amount`|Order amount in cents.|Number|15|Yes|
+|`Payment.Installments`|Number of installments.|Number|2|Yes|
+|`Payment.Authenticate`|Defines whether the customer will be directed to the issuer for card authentication. For authenticated transactions, the value must be "true". Please check with the acquirer about the availability of this feature.|Boolean|---|No (default "false")|
+|`Payment.ReturnUrl`|URL to which the user will be redirected after authentication ends.|Text|1024|Yes (when `Autenticate` is "true")|
+|`CreditCard.CardNumber`|Customer's card number.|Text|16|Yes|
+|`CreditCard.Holder`|Name of cardholder printed on the card.|Text|25|Yes|
+|`CreditCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format.|Text|7|Yes|
+|`CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
+|`CreditCard.Brand`|Card brand.|Text|10|Yes|
 
 ##### Response
 
-A transaction with default authentication will receive, in addition to the default return from the authorization transaction, the `Payment.AuthenticationUrl` parameter.
+With the default authentication, a transaction will receive the `Payment.AuthenticationUrl` parameter in addition to the default return from the authorization transaction.
 
 ```json
 
@@ -1193,25 +1193,25 @@ A transaction with default authentication will receive, in addition to the defau
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
-|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
-|`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
-|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`AcquirerTransactionId`|Transaction ID of the payment method provider.|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of sale reference.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code from the acquirer.|Text|300|Alphanumeric text|
+|`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Date the transaction was received by Braspag.|Text|19|YYYY-MM-DD HH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
-|`ReasonMessage`|Return Message from Operation|Text|512|Alphanumeric|
-|`Status`|Transaction Status|Byte|2|E.g.: 1|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
-|`AuthenticationUrl`|URL to which the holder will be redirected for authentication|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
+|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
+|`Status`|Transaction status.|Byte|2|E.g.: 1|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer and issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and issuer).|Text|512|Transaction Approved|
+|`AuthenticationUrl`|URL to which the holder will be redirected for authentication.|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
 
 #### External Authentication
 
 In an external authentication, the merchant who has their own authenticator does not need the payment method to redirect their customer to the authentication environment.
 
-##### Request
-
 Add the `Payment.ExternalAuthentication` node to the default contract, as shown. This flow is supported by the **Cielo**, **Global Payments** and **Banorte** acquirers.
+
+##### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1295,15 +1295,15 @@ curl
 
 ```
 
-|Property|Type|Size|Mandatory|Description|
+|Property|Description|Type|Size|Mandatory|
 |-----------|----|-------|-----------|---------|
-|`Payment.ExternalAuthentication.Cavv`|Text 28|Yes| Cavv value is returned by external authentication mechanism|
-|`Payment.ExternalAuthentication.Xid`|Text|28|Yes|The Xid value is returned by the external authentication mechanism|
-|`Payment.ExternalAuthentication.Eci`|Number|1|Yes|The Eci value is returned by the external authentication mechanism|
+|`Payment.ExternalAuthentication.Cavv`|Cavv value returned by external authentication mechanism.|Text|28|Yes|
+|`Payment.ExternalAuthentication.Xid`|Xid value returned by the external authentication mechanism.|Text|28|Yes|
+|`Payment.ExternalAuthentication.Eci`|Eci value returned by the external authentication mechanism.|Number|1|Yes|
 
 ##### Response
 
-A transaction with external authentication will receive, in addition to the standard return of the authorization transaction, the `Payment.ExternalAuthentication` node with the same information sent in the request.
+With the external authentication, a transaction will receive the `Payment.ExternalAuthentication` node in addition to the standard return from the authorization transaction. The node will contain the same information sent in the request.
 
 ```json
 
@@ -1410,14 +1410,441 @@ A transaction with external authentication will receive, in addition to the stan
 |`Payment.ExternalAuthentication.Xid`|Text|28|Xid value submitted in authorization request|
 |`Payment.ExternalAuthentication.Eci`|Number|1|ECI value submitted in authorization request|
 
-### QR Code Transaction
+### Canceling/Refunding a Transaction
+
+The availability of the refunding service varies depending on the acquirer. Each acquirer has its own deadlines to allow the refund of a transaction. In this [article](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) you can check each of them.
+
+To cancel a credit card transaction, you must send an HTTP message through the PUT method to the *Payment* resource, as in the example:
+
+#### Request
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
+
+```shell
+
+curl
+--request PUT "https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/void?amount=xxx"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+
+```
+
+|Property|Description|Type|Size|Required|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Store identifier in the API.|GUID|36|Yes|
+|`MerchantKey`|Public key for dual authentication in the API.|Text|40|Sim|
+|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No|
+|`PaymentId`|Order identifier field.|GUID|36|Yes|
+|`Amount`|Amount to be canceled/refunded, in cents. Check if your acquirer supports the canceling or refunding operations.|Number|15|No|
+
+#### Response
+
+```json
+
+{
+    "Status": 10,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "9",
+    "ProviderReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
+        }
+    ]
+}
+
+```
+
+```shell
+
+{
+    "Status": 10,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "9",
+    "ProviderReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
+        }
+    ]
+}
+
+```
+
+|Property|Description|Type|Size|Format|
+|-----------|---------|----|-------|-------|
+|`Status`|Transaction status.|Byte|2|E.g.: 1|
+|`ReturnCode`|Acquirer's return code.|Text|32|Alphanumeric|
+|`ReasonMessage`|Acquirer's return message.|Text|512|Alphanumeric|
+
+### Analyzing with Velocity Check
+
+*Velocity Check* is a fraud-fighting tool that prevents massive bursts of transactions with repeated payment data. It analyzes the frequency of traceability elements such as Card Number, Social Security Number, Zip Code, among others, and blocks suspicious transactions.
+
+The functionality must be contracted separately and then enabled in your store via dashboard. When Velocity is active, the transaction response brings in the `Velocity` node, with details of the analysis.
+
+In case of a Velocity rule rejection, *ProviderReasonCode* will be "BP 171 - Rejected by fraud risk" (Velocity, with "ReasonCode 16 - AbortedByFraud").
+
+#### Response
+
+```json
+{
+    [...]
+    "VelocityAnalysis": {
+        "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
+        "ResultMessage": "Reject",
+        "Score": 100,
+        "RejectReasons": [
+        {
+            "RuleId": 49,
+            "Message": "Blocked by the CardNumber rule. Name: Maximum 3 Card Hits in 1 day. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"
+        }]
+    [...]
+  }
+}
+
+```
+
+```shell
+
+{
+    [...]
+    "VelocityAnalysis": {
+        "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
+        "ResultMessage": "Reject",
+        "Score": 100,
+        "RejectReasons": [
+        {
+            "RuleId": 49,
+            "Message": "Blocked by the CardNumber rule. Name: Maximum 3 Card Hits in 1 day. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"
+        }]
+    [...]
+  }
+}
+
+```
+
+|Property|Description|Type|Size|Format|
+|-----------|---------|----|-------|-------|
+|`VelocityAnalysis.Id`|Identification of the analysis performed.|GUID|36|
+|`VelocityAnalysis.ResultMessage`|Analysis result ("Accept" / "Reject").|Text|25|
+|`VelocityAnalysis.Score`|Number of points given to the operation. E.g.: 100.|Number|10|
+|`VelocityAnalysis.RejectReasons.RuleId`|Rejection rule code.|Number|10|
+|`VelocityAnalysis.RejectReasons.Message`|Description of the rejection rule.|Text|512|
+
+### Using DCC (Currency Converter)
+
+The Dynamic Currency Conversion (DCC) is a currency converter from the **Global Payments** acquirer that allows a foreign cardholder to choose between paying in reais or in their local currency, converting the order amount at the time of purchase with full transparency for the customer.
+The solution is suitable for establishments such as hotels, inns, shopping centers and tourist shops, that receive payments with cards issued abroad.
+
+<aside class="notice">To use this feature using the standard authentication functionality, the merchant must contact the Global Payments acquirer and request a DCC activation at their store.</aside>
+
+<aside class="warning">This feature is not compatible with external MPI transactions.</aside>
+
+When the establishment has DCC product enabled, the authorization process is performed in the 3 steps described below:
+
+#### STEP 1 - Authorization Request
+
+In the first step, when applying for an authorization with an international card, Global Payments identifies the card's country and applies the currency conversion following the brand-specific calculations, and then returns the conversion information.
+
+##### Request
+
+There is no difference between a standard authorization request and a DCC authorization request.
+
+##### Response
+
+```json
+
+{
+    [...]
+    },
+    "Payment":{
+        "ServiceTaxAmount": 0,
+        "Installments":1,
+        "Interest":"ByMerchant",
+        "Capture":true,
+        "Authenticate":false,
+        "Recurrent":false,
+        "CreditCard":{
+            "CardNumber": "123412******1234",
+            "Holder": "Shopper Test",
+            "ExpirationDate": "12/2022",
+            "SaveCard":"false",
+            "Brand":"Visa",
+        },
+        "ReturnUrl": "http://www.braspag.com.br/",
+        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
+        "Type":"CreditCard",
+        "Amount": 100,
+        "ReceivedDate": "2018-08-23 10:46:25",
+        "Currency":"BRL",
+        "Country":"BRA",
+        "Provider": "GlobalPayments",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 12,
+        "ProviderReturnCode": "0",
+        "ProviderReturnMessage": "Authorized Transaction",
+        "CurrencyExchangeData": {
+            "Id": "fab6f3a752d700af1d50fdd19987b95df497652b",
+            "CurrencyExchanges": [{
+                    "Currency": "EUR",
+                    "ConvertedAmount": 31,
+                    "ConversionRate": 3.218626,
+                    "ClosingDate": "2017-03-09T00:00:00"
+                },
+                {
+                    "Currency":"BRL",
+                    "ConvertedAmount": 100
+                }
+            ]
+        },
+        [...]
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    [...]
+    },
+    "Payment":{
+        "ServiceTaxAmount":0,
+        "Installments":1,
+        "Interest":"ByMerchant",
+        "Capture":true,
+        "Authenticate":false,
+        "Recurrent":false,
+        "CreditCard":{
+            "CardNumber": "123412******1234",
+            "Holder": "Shopper Test",
+            "ExpirationDate": "12/2022",
+            "SaveCard":"false",
+            "Brand":"Visa",
+        },
+        "ReturnUrl": "http://www.braspag.com.br/",
+        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
+        "Type":"CreditCard",
+        "Amount": 100,
+        "ReceivedDate": "2018-08-23 10:46:25",
+        "Currency":"BRL",
+        "Country":"BRA",
+        "Provider": "GlobalPayments",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 12,
+        "ProviderReturnCode": "0",
+        "ProviderReturnMessage": "Authorized Transaction",
+        "CurrencyExchangeData": {
+            "Id": "fab6f3a752d700af1d50fdd19987b95df497652b",
+            "CurrencyExchanges": [{
+                    "Currency": "EUR",
+                    "ConvertedAmount": 31,
+                    "ConversionRate": 3.218626,
+                    "ClosingDate": "2017-03-09T00:00:00"
+                },
+                {
+                    "Currency":"BRL",
+                    "ConvertedAmount": 100
+                }
+            ]
+        }
+        [...]
+}
+
+```
+
+|Property|Description|Type|Size|Format|
+|-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
+|`AcquirerTransactionId`|Transaction ID of the payment method provider.|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of sale number.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code.|Text|300|Alphanumeric|
+|`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Date the transaction was received by Braspag.|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
+|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
+|`Status`|Transaction status.|Byte|2|E.g.: 12|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer and issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and issuer).|Text|512|Transaction Approved|
+|`CurrencyExchangeData.Id`|ID of the currency exchange action.|Text|50|1b05456446c116374005602dcbaf8db8879515a0|
+|`CurrencyExchangeData.CurrencyExchanges.Currency`|Customer's local currency/credit card.|Numeric|4|EUR|
+|`CurrencyExchangeData.CurrencyExchanges.ConvertedAmount`|Converted value.|Numeric|12|23|
+|`CurrencyExchangeData.CurrencyExchanges.ConversionRate`|Conversion rate.|Numeric|9|3.218626|
+|`CurrencyExchangeData.CurrencyExchanges.ClosingDate`|Transaction end date.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`CurrencyExchangeData.CurrencyExchanges.Currency`|Real currency code.|Text|3|BRA|
+|`CurrencyExchangeData.CurrencyExchanges.ConvertedAmount`|Order value in reais.|Numeric|12|100|
+
+#### STEP 2 - Payment Options
+
+In the second step, the store system should present the customer with the options of paying in reais or in their country's currency (credit card currency), following the best practices requested by the brand. The text is presented in English and the website layout does not need to be changed, as long as the currency selection options follow the same font, color and dimension characteristics.
+
+In Global Payments, the payment options (in reais or in the card currency) are displayed on the screen, right beside a summary of the purchase.
+
+#### STEP 3 - Transaction Confirmation
+
+In the third step, the store system sends the transaction confirmation with the currency information chosen by the customer. At this point, the authorization response is returned.
+
+##### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
+
+```json
+
+{
+  "Id": "1b05456446c116374005602dcbaf8db8879515a0",
+  "Currency": "EUR",
+  "Amount": 23
+}
+
+```
+
+```shell
+
+curl
+--request POST " https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/confirm"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  "Id": "1b05456446c116374005602dcbaf8db8879515a0",
+  "Currency": "EUR",
+  "Amount": 23
+}
+--verbose
+
+```
+
+|Property|Description|Type|Size|Mandatory|
+|-----------|----|-------|-----------|---------|
+|`Id`|ID of the currency exchange action.|Text|50|Yes|
+|`Currency`|Customer's selected currency.|Numeric|4|Yes|
+|`Amount`|Converted value.|Numeric|12|Yes|
+
+##### Response
+
+```json
+
+{
+   [...]
+   "Payment":{
+        "ServiceTaxAmount": 0,
+        "Installments":1,
+        "Interest":"ByMerchant",
+        "Capture": false,
+        "Authenticate":false,
+        "Recurrent":false,
+        "CreditCard":{
+            "CardNumber": "123412******1234",
+            "Holder": "TestDcc",
+            "ExpirationDate": "12/2022",
+            "SecurityCode": "***",
+            "Brand":"Visa",
+        },
+        "ProofOfSale": "20170510053219433",
+        "AcquirerTransactionId": "0510053219433",
+        "AuthorizationCode": "936403",
+        "SoftDescriptor":"Message",
+        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
+        "Type":"CreditCard",
+        "Amount": 23,
+        "ReceivedDate": "2017-05-10 17:32:19",
+        "CapturedAmount": 23,
+        "CapturedDate": "2017-05-10 17:32:19",
+        "Currency":"BRL",
+        "Country":"BRA",
+        "Provider": "GlobalPayments",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        [...]
+    }
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+   [...]
+   "Payment":{
+        "ServiceTaxAmount": 0,
+        "Installments":1,
+        "Interest":"ByMerchant",
+        "Capture": false,
+        "Authenticate":false,
+        "Recurrent":false,
+        "CreditCard":{
+            "CardNumber": "123412******1234",
+            "Holder": "TestDcc",
+            "ExpirationDate": "12/2022",
+            "SecurityCode": "***",
+            "Brand":"Visa",
+        },
+        "ProofOfSale": "20170510053219433",
+        "AcquirerTransactionId": "0510053219433",
+        "AuthorizationCode": "936403",
+        "SoftDescriptor":"Message",
+        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
+        "Type":"CreditCard",
+        "Amount": 23,
+        "ReceivedDate": "2017-05-10 17:32:19",
+        "CapturedAmount": 23,
+        "CapturedDate": "2017-05-10 17:32:19",
+        "Currency":"BRL",
+        "Country":"BRA",
+        "Provider": "GlobalPayments",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        [...]
+    }
+}
+
+```
+
+|Property|Description|Type|Size|Format|
+|-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
+|`AcquirerTransactionId`|Transaction ID of the payment method provider.|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of sale number.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code.|Text|300|Alphanumeric|
+|`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Date the transaction was received by Braspag.|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
+|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
+|`Status`|Transaction status.|Byte|2|E.g.: 12|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer and issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and issuer).|Text|512|Transaction Approved|
+
+## QR Code Transaction
 
 To create a QR code transaction you must submit a request using the `POST` method as shown below. This request will create the transaction, which will have the status "Pending" in Braspag and generate the QR Code to make the payment. Using one of the supported applications, the shopper makes the payment and the transaction changes status (ex. "Pago", "Não pago" or "Não autorizado).
 The example below covers the minimum required fields to be submitted for authorization.
 
 <aside class="notice">Attention: It is not possible to perform a transaction with value (`Amount`) 0.</aside>
 
-#### Request
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1470,7 +1897,7 @@ The example below covers the minimum required fields to be submitted for authori
 |`Payment.Installments`|Number of installments.|Number|2|Yes|
 |`Payment.Capture`|Submit **true** for a transaction with auto capture.|Boolean|-|No|
 
-##### Response
+### Response
 
 ```json
 
@@ -1554,139 +1981,6 @@ The example below covers the minimum required fields to be submitted for authori
 |`Status`|Transaction Status. For transactions with QR Code, the initial status is "12" (Pending).|Byte|-|2|
 |`ReturnCode`|Return code from the acquirer.|Text|32|Alphanumeric|
 |`ReturnMessage`|Return message from the acquirer|Text|512|Alphanumeric|
-
-### Canceling/Refunding a Transaction
-
-To cancel a credit card transaction, you must PUT the Payment feature as shown.
-
-<aside class="warning">Availability of Refund service varies from acquirer to acquirer.</aside>
-
-Each acquirer has its deadlines to allow the refund of a transaction. In this [article](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) you can check each one.
-
-#### Request
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
-
-```shell
-
-curl
---request PUT "https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/void?amount=xxx"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-
-```
-
-|Property|Description|Type|Size|Required|
-|-----------|---------|----|-------|-----------|
-|`MerchantId`|Store identifier in the API.|GUID|36|Yes|
-|`MerchantKey`|Public Key for Dual Authentication in the API.|Text|40|Sim|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
-|`PaymentId`|Order Identifier field.|GUID|36|Yes|
-|`Amount`|Amount to be canceled/refunded (in cents). Check if your acquirer support cancel or refund operations|Number|15|No|
-
-#### Response
-
-```json
-
-{
-    "Status": 10,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "9",
-    "ProviderReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
-        }
-    ]
-}
-
-```
-
-```shell
-
-{
-    "Status": 10,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "9",
-    "ProviderReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
-        }
-    ]
-}
-
-```
-
-|Property|Description|Type|Size|Format|
-|-----------|---------|----|-------|-------|
-|`Status`|Transaction Status.|Byte|2|E.g.: 1|
-|`ReturnCode`|Return code from the acquirer.|Text|32|Alphanumeric|
-|`ReasonMessage`|Return message from Acquiring.|Text|512|Alphanumeric
-
-### Transaction with Velocity Check
-
-Velocity Check is a fraud-fighting tool that prevent massive bursts of transactions with repeated payment data.  It analyzes the frequency of traceability elements such as Card Number, Social Security Number, Zip Code, and others, and blocks suspicious transactions.
-
-The functionality must be contracted separately, and then enabled in your store via dashboard. When Velocity is active, the transaction response will bring up a specific node called "Velocity", with the details of the analysis.
-
-In case of rejection by Velocity rule, ProviderReasonCode will be BP 171 - Rejected by fraud risk (velocity, with ReasonCode 16 - AbortedByFraud).
-
-#### Response
-
-```json
-{
-    [...]
-    "VelocityAnalysis": {
-        "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
-        "ResultMessage": "Reject",
-        "Score": 100,
-        "RejectReasons": [
-        {
-            "RuleId": 49,
-            "Message": "Blocked by the CardNumber rule. Name: Maximum 3 Card Hits in 1 day. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"
-        }]
-    [...]
-  }
-}
-
-```
-
-```shell
-
-{
-    [...]
-    "VelocityAnalysis": {
-        "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
-        "ResultMessage": "Reject",
-        "Score": 100,
-        "RejectReasons": [
-        {
-            "RuleId": 49,
-            "Message": "Blocked by the CardNumber rule. Name: Maximum 3 Card Hits in 1 day. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"
-        }]
-    [...]
-  }
-}
-
-```
-
-|Property|Description|Type|Size|Format|
-|-----------|---------|----|-------|-------|
-|`VelocityAnalysis.Id`|Identification of the analysis performed|GUID|36|
-|`VelocityAnalysis.ResultMessage`|Accept or Reject|Text|25|
-|`VelocityAnalysis.Score`|100|Number|10|
-|`VelocityAnalysis.RejectReasons.RuleId`|Rejected Rule Code|Number|10|
-|`VelocityAnalysis.RejectReasons.Message`|Description of the rule that cause rejection|Text|512|
 
 ## Boleto
 
@@ -4438,320 +4732,13 @@ curl
 |`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric|
 |`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DDHH:mm:SS|
+|`ReceivedDate`|Date that the transaction was received by Braspag|Text|19|YYYY-MM-DDHH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction Status|Byte|2|E.g.: 1|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
 |`AuthenticationUrl`|URL to which the holder will be redirected for authentication|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
-
-## Payments with Purchaser Global Payments (DCC)
-
-Example of a transaction with Dynamic Currency Conversion (DCC), a currency converter from acquirer Global Payments that allows a foreign cardholder to choose to pay in Reais or in their Local currency, converting the order amount at the time of purchase in full transparency for the shopper.
-The solution is suitable for establishments that receive payments with cards issued abroad such as hotels, inns, shopping centers and tourist shops.
-
-<aside class="notice"><strong>Authentication:</strong> To use this feature, the merchant must contact the acquirer Global Payments and request DCC activation at their merchant.</aside>
-
-<aside class="warning">This feature is not compatible with External MPI transactions.</aside>
-
-#### Authorization Process with DCC
-
-When the establishment has DCC product enabled, the authorization process is performed in 3 steps.
-
-In the first step, when applying for an authorization with an international card, Global Payments identifies the card's country and applies currency conversion following the flag-specific calculations, then returns the conversion information.
-
-In the second step, the store system should present to the shopper the options to pay in Reais or with the currency of his country (credit card currency), following the best practices requested by the flag, where:
-
-* Text presented in English, as shown below.
-* The site layout does not need to be changed as long as the currency selection options have the same font, color and dimension characteristics as the following example.
-
-![DCC Global Payments]({{site.baseurl_root}}/images/dcc-globalpayments.jpg)
-
-Example provided by Global Payments
-
-In the third step, the store system sends the transaction confirmation with the currency information chosen by the shopper. The authorization response will be returned at this point.
-
-**STEP 1**- Transaction Authorization Request:
-
-#### Request
-
-There is no difference between a standard authorization request and a DCC authorization request.
-
-##### Response
-
-```json
-
-{
-    [...]
-    },
-    "Payment":{
-        "ServiceTaxAmount": 0,
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate":false,
-        "Recurrent":false,
-        "CreditCard":{
-            "CardNumber": "123412******1234",
-            "Holder": "Shopper Test",
-            "ExpirationDate": "12/2022",
-            "SaveCard":"false",
-            "Brand":"Visa",
-        },
-        "ReturnUrl": "http://www.braspag.com.br/",
-        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
-        "Type":"CreditCard",
-        "Amount": 100,
-        "ReceivedDate": "2018-08-23 10:46:25",
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Provider": "GlobalPayments",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 12,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "Authorized Transaction",
-        "CurrencyExchangeData": {
-            "Id": "fab6f3a752d700af1d50fdd19987b95df497652b",
-            "CurrencyExchanges": [{
-                    "Currency": "EUR",
-                    "ConvertedAmount": 31,
-                    "ConversionRate": 3.218626,
-                    "ClosingDate": "2017-03-09T00:00:00"
-                },
-                {
-                    "Currency":"BRL",
-                    "ConvertedAmount": 100
-                }
-            ]
-        },
-        [...]
-}
-
-```
-
-```shell
-
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    [...]
-    },
-    "Payment":{
-        "ServiceTaxAmount":0,
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate":false,
-        "Recurrent":false,
-        "CreditCard":{
-            "CardNumber": "123412******1234",
-            "Holder": "Shopper Test",
-            "ExpirationDate": "12/2022",
-            "SaveCard":"false",
-            "Brand":"Visa",
-        },
-        "ReturnUrl": "http://www.braspag.com.br/",
-        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
-        "Type":"CreditCard",
-        "Amount": 100,
-        "ReceivedDate": "2018-08-23 10:46:25",
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Provider": "GlobalPayments",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 12,
-        "ProviderReturnCode": "0",
-        "ProviderReturnMessage": "Authorized Transaction",
-        "CurrencyExchangeData": {
-            "Id": "fab6f3a752d700af1d50fdd19987b95df497652b",
-            "CurrencyExchanges": [{
-                    "Currency": "EUR",
-                    "ConvertedAmount": 31,
-                    "ConversionRate": 3.218626,
-                    "ClosingDate": "2017-03-09T00:00:00"
-                },
-                {
-                    "Currency":"BRL",
-                    "ConvertedAmount": 100
-                }
-            ]
-        }
-        [...]
-}
-
-```
-
-|Property|Description|Type|Size|Format|
-|-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
-|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
-|`ProofOfSale`|Proof of Sale Number|Text|20|Alphanumeric|
-|`AuthorizationCode`|Authorization Code|Text|300|Alphanumeric|
-|`PaymentId`|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
-|`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
-|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
-|`Status`|Transaction Status|Byte|2|E.g.: 12|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
-|`CurrencyExchangeData.Id`|Currency Exchange Action Id|Text|50|1b05456446c116374005602dcbaf8db8879515a0|
-|`CurrencyExchangeData.CurrencyExchanges.Currency`|Shopper's local currency/credit card.|Numeric|4|EUR|
-|`CurrencyExchangeData.CurrencyExchanges.ConvertedAmount`|Converted value.|Numeric|12|23|
-|`CurrencyExchangeData.CurrencyExchanges.ConversionRate`|Conversion rate.|Numeric|9|3.218626|
-|`CurrencyExchangeData.CurrencyExchanges.ClosingDate`|Transaction end date.|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`CurrencyExchangeData.CurrencyExchanges.Currency`|Real currency code|Text|3|BRA|
-|`CurrencyExchangeData.CurrencyExchanges.ConvertedAmount`|Order value in Reais.|Numeric|12|100|
-
-**STEP 2**- Display Payment Options (Pay in Reais or Card Currency):
-
-![DCC Global Payments]({{site.baseurl_root}}/images/dcc-globalpayments.jpg)
-
-Example provided by Global Payments
-
-**STEP 3**- Confirmation of the transaction with the buyer's chosen currency:
-
-#### Request
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
-
-```json
-
-{
-  "Id": "1b05456446c116374005602dcbaf8db8879515a0",
-  "Currency": "EUR",
-  "Amount": 23
-}
-
-```
-
-```shell
-
-curl
---request POST " https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/confirm"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-  "Id": "1b05456446c116374005602dcbaf8db8879515a0",
-  "Currency": "EUR",
-  "Amount": 23
-}
---verbose
-
-```
-
-|Property|Type|Size|Mandatory|Description|
-|-----------|----|-------|-----------|---------|
-|`Id`|Text|50|Yes|Currency Exchange Action Id|
-|`Currency`|Numeric|4|Yes|Shopper's Selected Currency|
-|`Amount`|Numeric|12|Yes|Converted Value|
-
-##### Response
-
-```json
-
-{
-   [...]
-   "Payment":{
-        "ServiceTaxAmount": 0,
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture": false,
-        "Authenticate":false,
-        "Recurrent":false,
-        "CreditCard":{
-            "CardNumber": "123412******1234",
-            "Holder": "TestDcc",
-            "ExpirationDate": "12/2022",
-            "SecurityCode": "***",
-            "Brand":"Visa",
-        },
-        "ProofOfSale": "20170510053219433",
-        "AcquirerTransactionId": "0510053219433",
-        "AuthorizationCode": "936403",
-        "SoftDescriptor":"Message",
-        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
-        "Type":"CreditCard",
-        "Amount": 23,
-        "ReceivedDate": "2017-05-10 17:32:19",
-        "CapturedAmount": 23,
-        "CapturedDate": "2017-05-10 17:32:19",
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Provider": "GlobalPayments",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 2,
-        "ProviderReturnCode": "6",
-        "ProviderReturnMessage": "Operation Successful",
-        [...]
-    }
-}
-
-```
-
-```shell
-
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-   [...]
-   "Payment":{
-        "ServiceTaxAmount": 0,
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture": false,
-        "Authenticate":false,
-        "Recurrent":false,
-        "CreditCard":{
-            "CardNumber": "123412******1234",
-            "Holder": "TestDcc",
-            "ExpirationDate": "12/2022",
-            "SecurityCode": "***",
-            "Brand":"Visa",
-        },
-        "ProofOfSale": "20170510053219433",
-        "AcquirerTransactionId": "0510053219433",
-        "AuthorizationCode": "936403",
-        "SoftDescriptor":"Message",
-        "PaymentId": "fa0c3119-c730-433a-123a-a3b6dfaaad67",
-        "Type":"CreditCard",
-        "Amount": 23,
-        "ReceivedDate": "2017-05-10 17:32:19",
-        "CapturedAmount": 23,
-        "CapturedDate": "2017-05-10 17:32:19",
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Provider": "GlobalPayments",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 2,
-        "ProviderReturnCode": "6",
-        "ProviderReturnMessage": "Operation Successful",
-        [...]
-    }
-}
-
-```
-
-|Property|Description|Type|Size|Format|
-|-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
-|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
-|`ProofOfSale`|Proof of Sale Number|Text|20|Alphanumeric|
-|`AuthorizationCode`|Authorization Code|Text|300|Alphanumeric|
-|`PaymentId`|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
-|`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
-|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
-|`Status`|Transaction Status|Byte|2|E.g.: 12|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
 
 # Saving and reusing cards
 
@@ -4955,7 +4942,7 @@ curl
 |`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
 |`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReceivedDate`|Date that the transaction was received by Braspag|Text|19|YYYY-MM-DD HH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction status.|Byte|2|E.g.: 1|
@@ -5144,7 +5131,7 @@ curl
 |`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
 |`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReceivedDate`|Date that the transaction was received by Braspag|Text|19|YYYY-MM-DD HH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction Status|Byte|2|E.g.: 1|
@@ -5331,7 +5318,7 @@ curl
 |`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
 |`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Brapag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReceivedDate`|Date that the transaction was received by Braspag|Text|19|YYYY-MM-DD HH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction Status|Byte|2|E.g.: 1|
@@ -6310,7 +6297,7 @@ curl
 |`Payment.AcquirerTransactionId`|Text|Transaction identifier on acquirer|
 |`Payment.ProofOfSale`|Text|Voucher number at the acquirer (NSU - Unique Transaction Sequence Number)|
 |`Payment.AuthorizationCode`|Text|Authorization Code on Purchaser|
-|`Payment.ReceivedDate`|Datetime|Date the transaction was received at the Brapag Payer <br/> E.g.: 2018-01-16 16: 38: 19|
+|`Payment.ReceivedDate`|Datetime|Date the transaction was received at the Braspag Payer <br/> E.g.: 2018-01-16 16: 38: 19|
 |`Payment.CapturedDate`|Datetime|Date the transaction was captured on the acquirer  <br/> E.g.: 2018-01-16 16: 38: 20|
 |`Payment.CapturedAmount`|Number|Amount captured from transaction  <br/> E.g.: 123456 = $ 1,234.56|
 |`Payment.ECI`|Text|Electronic Commerce Indicator. Code generated in a credit transaction with external authentication|
