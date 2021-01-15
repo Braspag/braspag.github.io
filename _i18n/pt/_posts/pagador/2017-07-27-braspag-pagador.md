@@ -1692,7 +1692,7 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
 | `CurrencyExchangeData.CurrencyExchanges.Currency` | Código da moeda "real". | Texto | 3     | BRA                   |
 | `CurrencyExchangeData.CurrencyExchanges.ConvertedAmount` | Valor do pedido em reais. | Numérico | 12     | 100                   |
 
-#### ETAPA 2 - Opções de Pagamento
+#### ETAPA 2 - Opção de Pagamento
 
 Na segunda etapa, o sistema da loja apresenta ao comprador as opções de pagar em reais ou com a moeda de seu país (moeda do cartão de crédito), seguindo as melhores práticas solicitadas pela bandeira. O texto é apresentado em inglês e o layout do site não precisa ser alterado, desde que as opções de escolha da moeda tenham as mesmas características de fonte, cor e dimensões.
 
