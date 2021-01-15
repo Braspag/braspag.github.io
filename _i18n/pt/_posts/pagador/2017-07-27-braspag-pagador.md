@@ -3534,7 +3534,7 @@ O lojista conta com recursos diferenciados para modelar sua cobrança de acordo 
 
 <aside class="notice">Vendas recorrentes com cartão de crédito não exigem CVV.</aside>
 
-<aside class="warning">A recorrência não está disponível para transações de e-wallets devido à necessidade de utilização de chaves temporárias para realizar operações de crédito.<aside>
+<aside class="warning">A recorrência não está disponível para transações de e-wallets devido à necessidade de utilização de chaves temporárias para realizar operações de crédito.</aside>
 
 ## Autorização de Recorrência
 
