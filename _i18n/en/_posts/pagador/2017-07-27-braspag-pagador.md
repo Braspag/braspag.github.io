@@ -25,7 +25,7 @@ Below is the representation of a standard transactional flow, followed by a shor
 * **E-commerce platform:** Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.
 * **Gateway:** Connects e-commerces with payment services (acquirer, *boleto* bill, issuer), making it easier for the merchants to manage payment providers.
 * **Acquirer:** Connects the transaction with the payment networks (brands) and settles the transaction for the merchants.
-* **Payment network (or brand):** Communicates with the issuer of the transaction card and settles the transaction for the acquirers.
+* **Card network (or brand):** Communicates with the issuer of the transaction card and settles the transaction for the acquirers.
 * **Issuer:** Gives credit and stores the buyer's money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.
 
 ## Features of the Solution
