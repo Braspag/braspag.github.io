@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-15T20:58:03+00:00</updated>
+    <updated>2021-01-17T16:07:33+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13026,7 +13026,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;li&gt;&lt;strong&gt;E-commerce platform:&lt;/strong&gt; Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Gateway:&lt;/strong&gt; Connects e-commerces with payment services (acquirer, &lt;em&gt;boleto&lt;/em&gt; bill, issuer), making it easier for the merchants to manage payment providers.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Acquirer:&lt;/strong&gt; Connects the transaction with the payment networks (brands) and settles the transaction for the merchants.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Payment network (or brand):&lt;/strong&gt; Communicates with the issuer of the transaction card and settles the transaction for the acquirers.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Card network (or brand):&lt;/strong&gt; Communicates with the issuer of the transaction card and settles the transaction for the acquirers.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Issuer:&lt;/strong&gt; Gives credit and stores the buyer’s money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.&lt;/li&gt;
 &lt;/ul&gt;
 
