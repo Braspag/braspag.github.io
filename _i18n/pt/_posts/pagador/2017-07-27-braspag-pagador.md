@@ -1988,7 +1988,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 |`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da adquirência.|Texto|512|Texto alfanumérico|
 
-## Boletos
+## Boleto
 
 ### Boleto Registrado
 
@@ -2505,7 +2505,7 @@ curl
 |`Url`|URL para onde o usuário será redirecionado para autenticação da transferência eletrônica. |Texto |256 |Url de Autenticação|
 |`Status`|Status da transação.|Byte|2|Ex.: 1|
 
-## E-Wallets (Carteiras Digitais)
+## E-Wallet (Carteira Digital)
 
 E-wallets são cofres (repositórios) de cartões e dados de pagamentos destinados a consumidores do e-commerce e do mundo físico. As carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento, tornando o processo de compra mais conveniente e seguro.
 
