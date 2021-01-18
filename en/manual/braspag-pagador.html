@@ -558,13 +558,13 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Customer’s identification document type (CPF or CNPJ).</td>
+      <td>Customer’s ID document type (CPF or CNPJ).</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td>Customer’s email address.</td>
       <td>Text</td>
       <td>255</td>
@@ -691,7 +691,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Name of payment method’s provider.</td>
+      <td>Name of payment method provider.</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
@@ -705,7 +705,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Order payment amount in cents.</td>
+      <td>Order amount in cents.</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
@@ -747,14 +747,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Indicates whether the authorization should use automatic capture (“true”) or not (“false”). Please check with the acquirer about the availability of this feature.</td>
+      <td>Indicates whether the authorization should use automatic capture (“true”) or not (“false”). Please check with acquirer about the availability of this feature.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Indicates whether the transaction should be authenticated (“true”) or not (“false”). Please check with the acquirer about the availability of this feature.</td>
+      <td>Indicates whether the transaction should be authenticated (“true”) or not (“false”). Please check with acquirer about the availability of this feature.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No (default “false”)</td>
@@ -768,7 +768,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Text to be printed on bearer invoice.</td>
+      <td>Text to be printed on bearer’s invoice.</td>
       <td>Text</td>
       <td>13</td>
       <td>No</td>
@@ -810,7 +810,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Username</code></td>
-      <td>User generated on credential process with the <strong>Getnet</strong> acquirer (field must be submitted if transaction is directed to Getnet).</td>
+      <td>Username generated on credential process with the <strong>Getnet</strong> acquirer (field must be submitted if transaction is directed to Getnet).</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
@@ -3403,10 +3403,8 @@ curl
 
 <h2 id="qr-code-transaction">QR Code Transaction</h2>
 
-<p>To create a QR code transaction you must submit a request using the <code class="language-plaintext highlighter-rouge">POST</code> method as shown below. This request will create the transaction, which will have the status “Pending” in Braspag and generate the QR Code to make the payment. Using one of the supported applications, the shopper makes the payment and the transaction changes status (ex. “Pago”, “Não pago” or “Não autorizado).
-The example below covers the minimum required fields to be submitted for authorization.</p>
-
-<aside class="notice">Attention: It is not possible to perform a transaction with value (`Amount`) 0.</aside>
+<p>To create a QR code transaction you must submit a request using the POST method as shown below. This request will create the transaction, which will receive the <em>Pending</em> status in Braspag, and generate the QR code for the payment. The customer makes the payment through one of the supported applications and the transaction changes status (e.g.: to <em>Pago</em> when paid, <em>Não pago</em> when not paid, or <em>Não autorizado</em> for unauthorized transactions).
+The example below covers the minimum required fields to be submitted for authorization:</p>
 
 <h3 id="request-9">Request</h3>
 
@@ -3457,49 +3455,43 @@ The example below covers the minimum required fields to be submitted for authori
       <th>Type</th>
       <th>Size</th>
       <th>Required</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Order ID.</td>
+      <td>Order ID number.</td>
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Shopper’s name.</td>
+      <td>Customer’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Payment method provider’s name</td>
-      <td>Currently only available in “Cielo”</td>
+      <td>Name of payment method provider. Currently only available for “Cielo”.</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Payment method type. Send <strong>qrcode</strong> for payment with QR Code.</td>
+      <td>Payment method type. In this case, “qrcode”.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Order amount (to be shipped in cents).</td>
+      <td>Order amount (greater than 0) in cents.</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
@@ -3507,15 +3499,13 @@ The example below covers the minimum required fields to be submitted for authori
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Submit <strong>true</strong> for a transaction with auto capture.</td>
+      <td>Submit “true” for a transaction with auto capture.</td>
       <td>Boolean</td>
       <td>-</td>
       <td>No</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -3803,7 +3793,7 @@ curl
       <td>Text</td>
       <td>see table below</td>
       <td>Yes</td>
-      <td>Shopper’s Name. The rule varies according to the Provider used (see table below)</td>
+      <td>Customer’s name. The rule varies according to the Provider used (see table below)</td>
       <td> </td>
     </tr>
     <tr>
@@ -5415,21 +5405,21 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Shopper’s name.</td>
+      <td>Customer’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Shopper’s Email.</td>
+      <td>Customer’s email.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>Shopper’s date of birth.</td>
+      <td>Customer’s date of birth.</td>
       <td>Date</td>
       <td>10</td>
       <td>No</td>
@@ -5446,116 +5436,116 @@ curl
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Shopper Identification Document Type (CPF or CNPJ)</td>
+      <td>Customer Identification Document Type (CPF or CNPJ)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Shopper’s Address.</td>
+      <td>Customer’s contact address.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Shopper’s address number.</td>
+      <td>Customer’s contact address number.</td>
       <td>Text</td>
       <td>15</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Shopper’s address supplement</td>
+      <td>Customer’s contact address additional information.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Shopper’s Zip code.</td>
+      <td>Customer’s contact address zip code.</td>
       <td>Text</td>
       <td>9</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Shopper’s city.</td>
+      <td>Customer’s contact address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Shopper’s State.</td>
+      <td>Customer’s contact address state.</td>
       <td>Text</td>
       <td>2</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Shopper’s country.</td>
+      <td>Customer’s contact address country.</td>
       <td>Text</td>
       <td>35</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Shopper’s neighborhood.</td>
+      <td>Customer’s contact address neighborhood.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
-      <td>Shopper’s Address.</td>
+      <td>Delivery address street.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Shopper’s address number.</td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td>Delivery address number.</td>
       <td>Text</td>
       <td>15</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
-      <td>Shopper’s address complement.</td>
+      <td>Delivery address additional information.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Shopper’s Zip code.</td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td>Delivery address zip code.</td>
       <td>Text</td>
       <td>9</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Shopper’s city.</td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td>Delivery address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Shopper’s State.</td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td>Delivery address state.</td>
       <td>Text</td>
       <td>2</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Shopper’s country.</td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td>Delivery address country.</td>
       <td>Text</td>
       <td>35</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
-      <td>Shopper’s neighborhood.</td>
+      <td>Delivery address neighborhood.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
@@ -6702,91 +6692,91 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Order ID Number.</td>
+      <td>Order ID number.</td>
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Shopper’s Name</td>
+      <td>Customer’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Customer ID, CPF or CNPJ number</td>
+      <td>Customer’s ID, CPF or CNPJ number</td>
       <td>Text</td>
       <td>14</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Shopper’s ID (CPF or CNPJ) type</td>
+      <td>Customer’s identification document type (CPF or CNPJ).</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Shopper’s Email</td>
+      <td>Customer’s email address.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Shopper’s Contact Address</td>
+      <td>Customer’s contact address.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Shopper’s contact address number</td>
+      <td>Customer’s contact address number.</td>
       <td>Text</td>
       <td>15</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Shopper’s address supplement</td>
+      <td>Customer’s address additional information.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Shopper’s contact address Zip Code</td>
+      <td>Customer’s contact address zip code.</td>
       <td>Text</td>
       <td>8</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Shopper’s City Address</td>
+      <td>Customer’s contact address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Shopper’s Contact State</td>
+      <td>Customer’s contact address state.</td>
       <td>Text</td>
       <td>2</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Shopper’s contact address country</td>
+      <td>Customer’s contact address country.</td>
       <td>Text</td>
       <td>35</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Shopper’s contact address neighborhood</td>
+      <td>Customer’s contact address neighborhood.</td>
       <td>Text</td>
       <td>35</td>
       <td>Yes</td>
@@ -6800,14 +6790,14 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Order Amount (in cents)</td>
+      <td>Order amount in cents.</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Name of the Payment Provider</td>
+      <td>Payment method provider’s name.</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
@@ -7070,20 +7060,20 @@ HTTP Status 200
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Order ID Number</td>
+      <td>Order ID number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>Shopper Name</td>
+      <td>Customer’s name.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
       <td>Text 255</td>
       <td>No</td>
-      <td>Shopper Registration Status (NEW/EXISTING)</td>
+      <td>Customer’s registration status (NEW/EXISTING).</td>
       <td> </td>
     </tr>
     <tr>
@@ -7540,7 +7530,7 @@ HTTP Status 200
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Order ID Number</td>
+      <td>Order ID number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
@@ -7841,7 +7831,7 @@ HTTP Status 200
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Order ID Number</td>
+      <td>Order ID number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
@@ -8127,7 +8117,7 @@ HTTP Status 200
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Order ID Number</td>
+      <td>Order ID number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
@@ -8429,7 +8419,7 @@ HTTP Status 200
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Order ID.</td>
+      <td>Order ID number.</td>
       <td> </td>
     </tr>
     <tr>
@@ -8729,7 +8719,7 @@ HTTP Status 200
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Order ID.</td>
+      <td>Order ID number.</td>
       <td> </td>
     </tr>
     <tr>
@@ -10683,7 +10673,7 @@ curl
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Store Order Number</td>
+      <td>Order ID number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
@@ -11742,7 +11732,7 @@ curl
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td style="text-align: left">Text</td>
-      <td style="text-align: left">Store Order Number</td>
+      <td style="text-align: left">Order ID number.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
@@ -12716,7 +12706,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Order ID</td>
+      <td>Order ID number.</td>
       <td>Text</td>
       <td>50</td>
       <td>Alphanumeric</td>
@@ -12725,7 +12715,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Shopper’s Name</td>
+      <td>Customer’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>Alphanumeric</td>
@@ -13528,14 +13518,14 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Order ID</td>
+      <td>Order ID number.</td>
       <td>Text</td>
       <td>50</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Shopper’s Name</td>
+      <td>Customer’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>Alphanumeric</td>
@@ -13920,7 +13910,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Store Order Identifier field.</td>
+      <td>Order ID number.</td>
       <td>Text</td>
       <td>36</td>
       <td>Yes</td>
