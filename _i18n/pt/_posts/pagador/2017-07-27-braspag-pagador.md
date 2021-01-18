@@ -335,16 +335,16 @@ curl
 |`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|Texto|50|Não|
 |`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|Texto|50|Não|
 |`Payment.Credentials.Signature`|Envio do *TerminalID* da adquirente **Global Payments**, ex.: "001". Para **Safra** colocar o nome do estabelecimento, cidade e o estado concatenados com ponto-e-vírgula (;), ex.: "NomedaLoja;São Paulo;SP".|Texto|--|Não|
-|`Payment.PaymentFacilitator.EstablishmentCode`|Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Número|11|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Número|15|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|MCC do sub-merchant.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Número|4|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.Address`|Endereço do sub-merchant.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Texto|22|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.City`|Cidade do sub-merchant.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Texto|13|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.State`|Estado do sub-merchant.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Texto|2|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Código postal do sub-merchant.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Número|9|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Número de telefone do sub-merchant.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Número|13|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.Identity`|CNPJ ou CPF do sub-merchant.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Número|14|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Código do país do sub-merchant com base no ISO 3166.<br><br>**Aplicável para `Provider` Cielo30 ou Rede2.**|Número|3|Sim para facilitadores|
+|`Payment.PaymentFacilitator.EstablishmentCode`|Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).<br><br>**Aplicável para Cielo30 ou Rede2.**|Número|11|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).<br><br>**Aplicável para Cielo30 ou Rede2.**|Número|15|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|MCC do sub-merchant.<br><br>**Aplicável para Cielo30 ou Rede2.**|Número|4|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.Address`|Endereço do sub-merchant.<br><br>**Aplicável para Cielo30 ou Rede2.**|Texto|22|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.City`|Cidade do sub-merchant.<br><br>**Aplicável para Cielo30 ou Rede2.**|Texto|13|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.State`|Estado do sub-merchant.<br><br>**Aplicável para Cielo30 ou Rede2.**|Texto|2|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Código postal do sub-merchant.<br><br>**Aplicável para Cielo30 ou Rede2.**|Número|9|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Número de telefone do sub-merchant.<br><br>**Aplicável para Cielo30 ou Rede2.**|Número|13|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.Identity`|CNPJ ou CPF do sub-merchant.<br><br>**Aplicável para Cielo30 ou Rede2.**|Número|14|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Código do país do sub-merchant com base no ISO 3166.<br><br>**Aplicável para Cielo30 ou Rede2.**|Número|3|Sim para facilitadores|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
 |`CreditCard.Holder`|Nome do portador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
 |`CreditCard.ExpirationDate`|Data de validade impressa no cartão.|Texto|7|Sim|
@@ -352,8 +352,8 @@ curl
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 |`CreditCard.SaveCard`|Identifica se o cartão será salvo para gerar o token (*CardToken*).|Booleano|---|Não (default "false")|
 |`CreditCard.Alias`|Nome atribuído pelo lojista ao cartão salvo como *CardToken*.|Texto|64|Não|
-|`CreditCard.CardOnFile.Usage`|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e já utilizado em outra transação.<br><br>**Aplicável somente para `Provider` Cielo30.**|Texto|-|Não|
-|`CreditCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` seja "Used".<br>"Recurring" - Compra recorrente programada, ex.: assinaturas.<br>"Unscheduled" - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br>"Installments" - Parcelamento através da recorrência.<br><br>**Aplicável somente para `Provider` Cielo30.**|Texto|-|Condicional|
+|`CreditCard.CardOnFile.Usage`|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e já utilizado em outra transação.<br><br>**Aplicável somente para Cielo30.**|Texto|-|Não|
+|`CreditCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` seja "Used".<br>"Recurring" - Compra recorrente programada, ex.: assinaturas.<br>"Unscheduled" - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br>"Installments" - Parcelamento através da recorrência.<br><br>**Aplicável somente para Cielo30.**|Texto|-|Condicional|
 
 #### Resposta
 
@@ -2111,34 +2111,34 @@ curl
 |`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
 |`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não|
-|`MerchantOrderId`|Número de identificação do pedido. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
-|`Customer.Name`|Nome do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`MerchantOrderId`|Número de identificação do pedido. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Name`|Nome do comprador. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
 |`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.|Texto |14 |Sim|
 |`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ).|Texto|255|Sim|
-|`Customer.Address.Street`|Endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
-|`Customer.Address.Number`|Número do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
-|`Customer.Address.Complement`|Complemento do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Não|
+|`Customer.Address.Street`|Endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Address.Number`|Número do endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Address.Complement`|Complemento do endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Customer.Address.ZipCode`|CEP do endereço de contato do comprador.|Texto|8|Sim|
-|`Customer.Address.District`|Bairro do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim
-|`Customer.Address.City`|Cidade do endereço de contato do comprador. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Address.District`|Bairro do endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim
+|`Customer.Address.City`|Cidade do endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
 |`Customer.Address.State`|Estado do endereço de contato do comprador.|Texto|2|Sim|
 |`Customer.Address.Country`|País do endereço de contato do comprador.|Texto|35|Sim|
 |`Payment.Provider`|Nome da provedora do meio de pagamento do boleto. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#providers-para-consulta-bin-via-verifycard) para acessar a lista de provedoras.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "Boleto".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.BoletoNumber`|Número do boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
+|`Payment.BoletoNumber`|Número do boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Payment.Assignor`|Nome do cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento.|Texto |200|Não|
 |`Payment.Demonstrative`|Texto de demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Payment.ExpirationDate`|Data de vencimento do boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|Date |AAAA-MM-DD|Não|
 |`Payment.Identification`|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento.|Texto |14 |Não|
-|`Payment.Instructions`|Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o `Provider` utilizado (consulte a [tabela](#conciliação-de-boletos)). Para quebra de linhas no texto utilize sempre a notação em HTML `<br>`.|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
+|`Payment.Instructions`|Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)). Para quebra de linhas no texto utilize sempre a notação em HTML `<br>`.|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Payment.NullifyDays`|Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo, contado a partir da data de vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12; após esta data o título é cancelado. Obs.: Recurso válido somente para boletos registrados do Banco Santander.|Número |2 |Não|
-|`Payment.DaysToFine`|Opcional e somente para `Provider` Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex.: 3.|Número |15 |Não|
-|`Payment.FineRate`|Opcional e somente para `Provider` Bradesco2. Valor da multa após o vencimento, em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `FineAmount`. Ex: 10.12345 = 10.12345%.|Número |15 |Não*|
-|`Payment.FineAmount`|Opcional e somente para `Provider` Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não utilizar em conjunto com `FineRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
-|`Payment.DaysToInterest`|Opcional e somente para `Provider` Bradesco2. Quantidade de dias após o vencimento para início da cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex.: 3.|Número |15 |Não|
-|`Payment.InterestRate`|Opcional e somente para `Provider` Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `InterestAmount`. Ex.: 10.12345.|Número |15 |Não*|
-|`Payment.InterestAmount`|Opcional e somente para `Provider` Bradesco2. Valor absoluto de juros diários após o vencimento, em centavos. Não utilizar em conjunto com `InterestRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
+|`Payment.DaysToFine`|Opcional e somente para a provedora Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex.: 3.|Número |15 |Não|
+|`Payment.FineRate`|Opcional e somente para a provedora Bradesco2. Valor da multa após o vencimento, em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `FineAmount`. Ex: 10.12345 = 10.12345%.|Número |15 |Não*|
+|`Payment.FineAmount`|Opcional e somente para a provedora Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não utilizar em conjunto com `FineRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
+|`Payment.DaysToInterest`|Opcional e somente para a provedora Bradesco2. Quantidade de dias após o vencimento para início da cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex.: 3.|Número |15 |Não|
+|`Payment.InterestRate`|Opcional e somente para a provedora Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `InterestAmount`. Ex.: 10.12345.|Número |15 |Não*|
+|`Payment.InterestAmount`|Opcional e somente para a provedora Bradesco2. Valor absoluto de juros diários após o vencimento, em centavos. Não utilizar em conjunto com `InterestRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
 
 #### Resposta
 
