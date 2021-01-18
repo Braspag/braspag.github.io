@@ -28,16 +28,16 @@ Below is the representation of a standard transactional flow, followed by a shor
 * **Card network (or brand):** Communicates with the issuer of the transaction card and settles the transaction for the acquirers.
 * **Issuer:** Gives credit and stores the buyer's money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.
 
-## Features of the Solution
+## Attributes of the Solution
 
 The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: *ASP*, *ASP.Net*, *Java*, *PHP*, *Ruby* and *Python*.
 
-Here are some of the main benefits of using the Braspag eCommerce platform:
+Here are some of the main benefits of using Braspag's e-commerce platform:
 
 * **No proprietary apps**: no applications need to be installed in the online store environment.
 * **Simplicity**: the protocol used is purely HTTPS.
-* **Easy testing**: Braspag platform offers a publicly accessible Sandbox environment that allows the developer to create a test account without the need for accreditation, making it easier and faster to start integrating.
-* **Credentials**: the client credentials (affiliation number and access key) are transmitted in the header of the HTTP request.
+* **Easy testing**: Braspag's platform offers a publicly accessible Sandbox environment that allows the developer to create a test account without the need for accreditation, making it easier and faster to start integrating.
+* **Credentials**: the client's credentials (affiliation number and access key) are transmitted in the header of the HTTP request.
 * **Security**: the information is always exchanged between the store server and Braspag, without the customer's browser.
 * **Multiplatform integration**: the integration is performed through REST APIs, which allows the use of different applications.
 
@@ -73,7 +73,7 @@ Once you are done running your tests and ready for *go-live*, you can implement 
 
 |Information|Description|
 |---|---|
-|Access Credentials|Send us an email (*comercial@braspag.com.br*) for more information about Braspag and how we can help you with your business.|
+|Access Credentials|Send us an email (*comercial@braspag.com.br*) for more information about Braspag and about how we can help you with your business.|
 |Transactional endpoint|https://api.braspag.com.br/|
 |Endpoint for query services|https://apiquery.braspag.com.br/|
 
