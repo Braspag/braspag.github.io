@@ -3598,7 +3598,7 @@ The example below covers the minimum required fields to be submitted for authori
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">QrCodeBase64Image</code></td>
-      <td>Base 64 QR Code coded. For example, the QR Code image could be displayed on the page using an HTML code like this:</td>
+      <td>Base64 encoded QR code. The QR code image can be displayed on the page through an HTML code as follows:<br /> &lt;img src=”data:image/png;base64,{código da imagem em base 64}”&gt;.</td>
       <td>Text</td>
       <td>Variable</td>
       <td>Alphanumeric text</td>
@@ -3612,21 +3612,21 @@ The example below covers the minimum required fields to be submitted for authori
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status. For transactions with QR Code, the initial status is “12” (Pending).</td>
+      <td>Transaction status. For transactions with QR Code, the initial status is “12” (<em>Pending</em>).</td>
       <td>Byte</td>
       <td>-</td>
       <td>2</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Return code from the acquirer.</td>
+      <td>Acquirer’s return code.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Return message from the acquirer</td>
+      <td>Acquirer’s return message.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
@@ -3638,17 +3638,25 @@ The example below covers the minimum required fields to be submitted for authori
 
 <h3 id="registered-boleto">Registered Boleto</h3>
 
-<p>In order to promote greater control and security to the transactional boleto in e-commerce and ensure more reliability and convenience to users, Febraban together with the Banks launched the New Charging Platform.</p>
+<p>In order to promote greater control and security to the boleto transactional in e-commerce and ensure more reliability and convenience to users, FEBRABAN - The Brazilian Federation of Banks, together with the banking network, launched the <strong>New Payment Slip-Registered Collections Platform</strong>.</p>
 
-<p>From July 21, 2018, all boletos issued in e-commerce must be registered. <a href="https://portal.febraban.org.br/pagina/3150/1094/en/servicos-novo-platform-boletos">Click here</a> to access the full announcement.</p>
+<p>Since July 21, 2018, all boletos issued in e-commerce must be registered. <a href="https://portal.febraban.org.br/pagina/3150/1094/en/servicos-novo-platform-boletos">Click here</a> to access the full announcement (available in Portuguese).</p>
 
-<p>Follow below the migration/membership procedures for each bank:</p>
+<p>Here is a list of the migration/membership procedures for each bank:</p>
 
-<p><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf">Bradesco</a><br /><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf">Banco do Brasil</a><br /><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf">Itaú</a><br /><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf">Santander</a><br /><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf">Caixa Econômica</a></p>
+<ul>
+  <li><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf">Bradesco</a></li>
+  <li><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf">Banco do Brasil</a></li>
+  <li><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf">Itaú</a></li>
+  <li><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf">Santander</a></li>
+  <li><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf">Caixa Econômica</a></li>
+</ul>
 
 <h3 id="creating-a-boleto-transaction">Creating a Boleto Transaction</h3>
 
-<p>To generate boletos, you must provide shopper’s data such as ID number (CPF or CNPJ) and address. Below is an example of how to create a boleto as payment method.</p>
+<p>To generate boletos, customer’s data such as ID number (CPF or CNPJ) and address must be provided. Below is an example of how to create a boleto as the payment method.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">Payment.FineRate</code> and <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code> parameters must not be used together. The same rule applies to the <code class="language-plaintext highlighter-rouge">Payment.InterestRate</code> and <code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code> parameters.</p>
 
 <h4 id="request-10">Request</h4>
 
@@ -3748,181 +3756,159 @@ curl
   <thead>
     <tr>
       <th>Property</th>
+      <th>Description</th>
       <th>Type</th>
       <th>Size</th>
       <th>Mandatory</th>
-      <th>Description</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier at Braspag.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
-      <td>Store identifier at Braspag</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
-      <td>Public Key for Dual Authentication at Braspag</td>
-      <td> </td>
+      <td>Public key for dual authentication at Braspag.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>GUID</td>
       <td>36</td>
       <td>No</td>
-      <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
-      <td> </td>
+      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Text</td>
-      <td>see table below</td>
+      <td>see table in the annex</td>
       <td>Yes</td>
-      <td>Order ID number. The rule varies according to the Provider used (see table below)</td>
-      <td> </td>
+      <td>Order ID number. Rule varies according to the provider used (see table in the annex).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Text</td>
-      <td>see table below</td>
+      <td>see table in the annex</td>
       <td>Yes</td>
-      <td>Customer’s name. The rule varies according to the Provider used (see table below)</td>
-      <td> </td>
+      <td>Customer’s name. The rule varies according to the Provider used (see table in the annex).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Text</td>
       <td>14</td>
       <td>No</td>
-      <td>Customer ID like RG, CPF or CNPJ number</td>
-      <td> </td>
+      <td>Customer ID like RG, CPF or CNPJ number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Shopper’s Identification Document Type (CPF or CNPJ)</td>
-      <td> </td>
+      <td>Customer’s ID document Type (CPF or CNPJ).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
       <td>Text</td>
-      <td>see table below</td>
+      <td>see table in the annex</td>
       <td>Yes</td>
-      <td>Shopper’s contact address. The rule varies according to the Provider used (see table below)</td>
-      <td> </td>
+      <td>Customer’s contact address. The rule varies according to the provider used (see table in the annex).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
       <td>Text</td>
-      <td>see table below</td>
+      <td>see table in the annex</td>
       <td>Yes</td>
-      <td>Shopper’s contact address number. The rule varies according to the Provider used (see table below)</td>
-      <td> </td>
+      <td>Customer’s contact address number. The rule varies according to the provider used (see table in the annex).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
       <td>Text</td>
-      <td>see table below</td>
+      <td>see table in the annex</td>
       <td>No</td>
-      <td>Shopper’s contact address complement. The rule varies according to the Provider used (see table below)</td>
-      <td> </td>
+      <td>Customer’s contact address complement. The rule varies according to the provider used (see table in the annex).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
       <td>Text</td>
       <td>8</td>
       <td>No</td>
-      <td>Shopper’s contact address Zip Code</td>
-      <td> </td>
+      <td>Customer’s contact address zip code.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
       <td>Text</td>
-      <td>see table below</td>
+      <td>see table in the annex</td>
       <td>Yes</td>
-      <td>Shopper’s contact address. The rule varies according to the Provider used (see table below)</td>
-      <td> </td>
+      <td>Customer’s contact address. The rule varies according to the provider used (see table in the annex).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
       <td>Text</td>
-      <td>see table below</td>
+      <td>see table in the annex</td>
       <td>Yes</td>
-      <td>Shopper’s contact address. The rule varies according to the Provider used (see table below)</td>
-      <td> </td>
+      <td>Customer’s contact address. The rule varies according to the provider used (see table in the annex).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
       <td>Text</td>
       <td>2</td>
       <td>No</td>
-      <td>Shopper’s State contact address</td>
-      <td> </td>
+      <td>Customer’s contact address state.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
       <td>Text</td>
       <td>35</td>
       <td>No</td>
-      <td>Shopper’s country contact address</td>
-      <td> </td>
+      <td>Customer’s contact address country.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Payment method provider’s name</td>
-      <td><a href="https://braspag.github.io/manual/braspag-payment#providers-para-boleto-with-registration">Click here</a> to access the list of providers.</td>
+      <td>Name of payment method provider. See table in the annex to access the list of providers.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Payment Method Type</td>
-      <td>In this case “Boleto”</td>
+      <td>Payment method type. In this case, “Boleto”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Order Amount (in cents)</td>
-      <td> </td>
+      <td>Order amount in cents.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
       <td>Text</td>
-      <td>see table below</td>
+      <td>see table in the annex</td>
       <td>No</td>
-      <td>Boleto Number (“ Nosso Número “). If completed, overrides the value set on the payment method. The rule varies according to the Provider used (see table below)</td>
-      <td> </td>
+      <td>Boleto number (“Nosso Número”). If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Assignor</code></td>
       <td>Text</td>
       <td>200</td>
       <td>No</td>
-      <td>Name of the Assignor. If filled, overrides the value set on the payment method.</td>
-      <td> </td>
+      <td>Name of the assignor. If filled, overrides the value set on the payment method.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
       <td>Text</td>
       <td>see table below</td>
       <td>No</td>
-      <td>Statement Text. If filled, overrides the value set on the payment method. The rule varies according to the Provider used (see table below)</td>
-      <td> </td>
+      <td>Statement text. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExpirationDate</code></td>
@@ -3930,23 +3916,20 @@ curl
       <td>YYYY-MM-DD</td>
       <td>No</td>
       <td>Boleto’s expiration date. If you are not previously registered with the payment method, this field is required. If sent on request, overrides the value set on the payment method.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Identification</code></td>
       <td>Text</td>
       <td>14</td>
       <td>No</td>
-      <td>Assignor’s CNPJ. If filled, overrides the value set on the payment method</td>
-      <td> </td>
+      <td>Assignor’s CNPJ. If filled, overrides the value set on the payment method.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
       <td>Text</td>
-      <td>see table below</td>
+      <td>see table in the annex</td>
       <td>No</td>
-      <td>Boleto’s Instructions. If completed, overrides the value set on the payment method. The rule varies according to the Provider used (see table below). To break lines in this text always use HTML notation <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code></td>
-      <td> </td>
+      <td>Boleto’s instructions. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex). To break lines in this text always use the <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>HTML tag.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.NullifyDays</code></td>
@@ -3954,55 +3937,48 @@ curl
       <td>2</td>
       <td>No</td>
       <td>Deadline for automatic nullification of the boleto. The automatic boleto cancellation will take place after the number of days set in this field from the due date. For example, a boleto due on Dec 15th which has on its registration deadline of 5 days may be paid until Dec 20th, after this date the title is canceled. *Feature valid only for registered boletos of Banco Santander.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DaysToFine</code></td>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
-      <td>Optional and only for Bradesco2 provider. Number of days after the due date to charge a fine amount, as integers. E.g.: 3</td>
-      <td> </td>
+      <td>Optional and only for Bradesco2 provider. Number of days after the due date to charge a fine amount, as integers. E.g.: 3.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FineRate</code></td>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
-      <td>Optional and only for Bradesco2 provider. Amount of fine after due date, as a percentage, based on the amount of the boleto (%). Allowed decimal with up to 5 decimal places. Do not submit if using FineAmount. E.g.: 1012345 = 10.12345%</td>
-      <td> </td>
+      <td>Optional and only for Bradesco2 provider. Amount of fine after due date, as a percentage, based on the amount of the boleto (%). Allowed decimal with up to 5 decimal places. Do not submit if using FineAmount. E.g.: 1012345 = 10.12345%.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FineAmount</code></td>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
-      <td>Optional and only for Bradesco2 provider. Amount of fine after due date in absolute value in cents. Do not send if using FineRate.  E.g.: 1000 = R$ 10.00</td>
-      <td> </td>
+      <td>Optional and only for Bradesco2 provider. Amount of fine after due date in absolute value in cents. Do not send if using FineRate.  E.g.: 1000 = R$ 10.00.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DaysToInterest</code></td>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
-      <td>Optional and only for Bradesco2 provider.Number of days after due date to start charging interest per day on the amount of the boleto, in integers. E.g.: 3</td>
-      <td> </td>
+      <td>Optional and only for Bradesco2 provider.Number of days after due date to start charging interest per day on the amount of the boleto, in integers. E.g.: 3.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InterestRate</code></td>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
-      <td>Optional and only for Bradesco2 provider. Monthly interest amount after due date in percentage, based on the amount of the boleto (%). Interest is charged pro rata per day (Monthly divided by 30). Allowed decimal with up to 5 decimal places. Do not submit if using InterestAmount. E.g.: 10.12345</td>
-      <td> </td>
+      <td>Optional and only for Bradesco2 provider. Monthly interest amount after due date in percentage, based on the amount of the boleto (%). Interest is charged pro rata per day (Monthly divided by 30). Allowed decimal with up to 5 decimal places. Do not submit if using InterestAmount. E.g.: 10.12345.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code></td>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
-      <td>Optional and only for Bradesco2 provider. Absolute value for daily interest after due date in cents. Do not submit if using InterestRate. E.g.: 1000 = R$ 10.00</td>
-      <td> </td>
+      <td>Optional and only for Bradesco2 provider. Absolute value for daily interest after due date in cents. Do not submit if using InterestRate. E.g.: 1000 = R$ 10.00.</td>
     </tr>
   </tbody>
 </table>
