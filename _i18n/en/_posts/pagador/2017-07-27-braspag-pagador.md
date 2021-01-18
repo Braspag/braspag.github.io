@@ -2101,36 +2101,36 @@ curl
 |Property|Description|Type|Size|Mandatory|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Store identifier at Braspag.|GUID|36|Yes|
-|`MerchantKey`|Text|40|Yes|Public key for dual authentication at Braspag.|
-|`RequestId`|GUID|36|No|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|
-|`MerchantOrderId`|Text|see table in the annex|Yes|Order ID number. Rule varies according to the provider used (see table in the annex).|
-|`Customer.Name`|Text|see table in the annex|Yes|Customer's name. The rule varies according to the Provider used (see table in the annex).|
-|`Customer.Identity`|Text|14|No|Customer ID like RG, CPF or CNPJ number.|
-|`Customer.IdentityType`|Text|255|No|Customer's ID document Type (CPF or CNPJ).|
-|`Customer.Address.Street`|Text|see table in the annex|Yes|Customer's contact address. The rule varies according to the provider used (see table in the annex).|
-|`Customer.Address.Number`|Text|see table in the annex|Yes|Customer's contact address number. The rule varies according to the provider used (see table in the annex).|
-|`Customer.Address.Complement`|Text|see table in the annex|No|Customer's contact address complement. The rule varies according to the provider used (see table in the annex).|
-|`Customer.Address.ZipCode`|Text|8|No|Customer's contact address zip code.|
-|`Customer.Address.Street`|Text|see table in the annex|Yes|Customer's contact address. The rule varies according to the provider used (see table in the annex).|
-|`Customer.Address.Street`|Text|see table in the annex|Yes|Customer's contact address. The rule varies according to the provider used (see table in the annex).|
-|`Customer.Address.State`|Text|2|No|Customer's contact address state.|
-|`Customer.Address.Country`|Text|35|No|Customer's contact address country.|
-|`Payment.Provider`|Text|15|Yes|Name of payment method provider. See table in the annex to access the list of providers.|
-|`Payment.Type`|Text|100|Yes|Payment method type. In this case, "Boleto".|
-|`Payment.Amount`|Number|15|Yes|Order amount in cents.|
-|`Payment.BoletoNumber`|Text|see table in the annex|No|Boleto number ("Nosso Número"). If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).|
-|`Payment.Assignor`|Text|200|No|Name of the assignor. If filled, overrides the value set on the payment method.|
-|`Payment.Demonstrative`|Text|see table below|No|Statement text. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).|
-|`Payment.ExpirationDate`|Date|YYYY-MM-DD|No|Boleto's expiration date. If you are not previously registered with the payment method, this field is required. If sent on request, overrides the value set on the payment method.|
-|`Payment.Identification`|Text|14|No|Assignor's CNPJ. If filled, overrides the value set on the payment method.|
-|`Payment.Instructions`|Text|see table in the annex|No|Boleto's instructions. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex). To break lines in this text always use the `<br>`HTML tag.|
-|`Payment.NullifyDays`|Number|2|No|Deadline for automatic nullification of the boleto. The automatic boleto cancellation will take place after the number of days set in this field from the due date. For example, a boleto due on Dec 15th which has on its registration deadline of 5 days may be paid until Dec 20th, after this date the title is canceled. *Feature valid only for registered boletos of Banco Santander.|
-|`Payment.DaysToFine`|Number|15|No|Optional and only for Bradesco2 provider. Number of days after the due date to charge a fine amount, as integers. E.g.: 3.|
-|`Payment.FineRate`|Number|15|No|Optional and only for Bradesco2 provider. Amount of fine after due date, as a percentage, based on the amount of the boleto (%). Allowed decimal with up to 5 decimal places. Do not submit if using FineAmount. E.g.: 1012345 = 10.12345%.|
-|`Payment.FineAmount`|Number|15|No|Optional and only for Bradesco2 provider. Amount of fine after due date in absolute value in cents. Do not send if using FineRate.  E.g.: 1000 = R$ 10.00.|
-|`Payment.DaysToInterest`|Number|15|No|Optional and only for Bradesco2 provider.Number of days after due date to start charging interest per day on the amount of the boleto, in integers. E.g.: 3.|
-|`Payment.InterestRate`|Number|15|No|Optional and only for Bradesco2 provider. Monthly interest amount after due date in percentage, based on the amount of the boleto (%). Interest is charged pro rata per day (Monthly divided by 30). Allowed decimal with up to 5 decimal places. Do not submit if using InterestAmount. E.g.: 10.12345.|
-|`Payment.InterestAmount`|Number|15|No|Optional and only for Bradesco2 provider. Absolute value for daily interest after due date in cents. Do not submit if using InterestRate. E.g.: 1000 = R$ 10.00.|
+|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes|
+|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No|
+|`MerchantOrderId`|Order ID number. Rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
+|`Customer.Name`|Customer's name. The rule varies according to the Provider used (see table in the annex).|Text|see table in the annex|Yes|
+|`Customer.Identity`|Customer ID like RG, CPF or CNPJ number.|Text|14|No|
+|`Customer.IdentityType`|Customer's ID document Type (CPF or CNPJ).|Text|255|No|
+|`Customer.Address.Street`|Customer's contact address. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
+|`Customer.Address.Number`|Customer's contact address number. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
+|`Customer.Address.Complement`|Customer's contact address complement. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|No|
+|`Customer.Address.ZipCode`|Customer's contact address zip code.|Text|8|No|
+|`Customer.Address.Street`|Customer's contact address. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
+|`Customer.Address.Street`|Customer's contact address. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
+|`Customer.Address.State`|Customer's contact address state.|Text|2|No|
+|`Customer.Address.Country`|Customer's contact address country.|Text|35|No|
+|`Payment.Provider`|Name of payment method provider. See table in the annex to access the list of providers.|Text|15|Yes|
+|`Payment.Type`|Payment method type. In this case, "Boleto".|Text|100|Yes|
+|`Payment.Amount`|Order amount in cents.|Number|15|Yes|
+|`Payment.BoletoNumber`|Boleto number ("Nosso Número"). If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|No|
+|`Payment.Assignor`|Name of the assignor. If filled, overrides the value set on the payment method.|Text|200|No|
+|`Payment.Demonstrative`|Statement text. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).|Text|see table below|No|
+|`Payment.ExpirationDate`|Boleto's expiration date. If you are not previously registered with the payment method, this field is required. If sent on request, overrides the value set on the payment method.|Date|YYYY-MM-DD|No|
+|`Payment.Identification`|Assignor's CNPJ. If filled, overrides the value set on the payment method.|Text|14|No|
+|`Payment.Instructions`|Boleto's instructions. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex). To break lines in this text always use the `<br>` HTML tag.|Text|see table in the annex|No|
+|`Payment.NullifyDays`|Deadline for automatic annulment of the boleto. After the number of days set in this field from the due date, the boleto will be automatically canceled. E.g.: a boleto due on Dec 15th which has 5 "nullify days" can be paid until Dec 20th; after this date the title is canceled. Note: Feature valid only for Banco Santander registered boletos.|Number|2|No|
+|`Payment.DaysToFine`|Optional and only applicable for Bradesco2 provider. Number of days (an integer) after the due date to charge a fine amount. E.g.: 3.|Number|15|No|
+|`Payment.FineRate`|Optional and only applicable for Bradesco2 provider. Amount of fine (in percentage) after due date, based on the boleto total amount (%). Permits decimal with up to 5 decimal places. Do not submit if using `FineAmount`. E.g.: 1012345 = 10.12345%.|Number|15|No|
+|`Payment.FineAmount`|Optional and only applicable for Bradesco2 provider. Amount of fine (in cents) after due date in absolute value. Do not send if using `FineRate`. E.g.: 1000 = R$ 10.00.|Number|15|No|
+|`Payment.DaysToInterest`|Optional and only applicable for Bradesco2 provider. Number of days (an integer) after due date to start charging daily interest based on the boleto total amount. E.g.: 3.|Number|15|No|
+|`Payment.InterestRate`|Optional and only applicable for Bradesco2 provider. Monthly interest amount (in percentage) after due date , based on the boleto total amount (%). Interest is charged pro rata per day (monthly divided by 30). Permits decimal with up to 5 decimal places. Do not submit if using `InterestAmount`. E.g.: 10.12345.|Number|15|No|
+|`Payment.InterestAmount`|Optional and only applicable for Bradesco2 provider. Absolute value (in cents) for daily interest after due date. Do not submit if using `InterestRate`. E.g.: 1000 = R$ 10.00.|Number|15|No|
 
 #### Response
 
