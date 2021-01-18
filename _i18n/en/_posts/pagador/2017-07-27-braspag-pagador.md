@@ -1974,27 +1974,33 @@ The example below covers the minimum required fields to be submitted for authori
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`QrCodeBase64Image`|Base 64 QR Code coded. For example, the QR Code image could be displayed on the page using an HTML code like this: <img src="data:image/png;base64,{image code in base 64}">|Text|Variable|Alphanumeric text|
+|`QrCodeBase64Image`|Base64 encoded QR code. The QR code image can be displayed on the page through an HTML code as follows:<br><br> &lt;img src="data:image/png;base64,{código da imagem em base 64}"&gt;.|Text|Variable|Alphanumeric text|
 |`PaymentId`|Order identifier field, required for operations such as query, capture and cancellation.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Transaction Status. For transactions with QR Code, the initial status is "12" (Pending).|Byte|-|2|
-|`ReturnCode`|Return code from the acquirer.|Text|32|Alphanumeric|
-|`ReturnMessage`|Return message from the acquirer|Text|512|Alphanumeric|
+|`Status`|Transaction status. For transactions with QR Code, the initial status is "12" (*Pending*).|Byte|-|2|
+|`ReturnCode`|Acquirer's return code.|Text|32|Alphanumeric|
+|`ReturnMessage`|Acquirer's return message.|Text|512|Alphanumeric|
 
 ## Boleto
 
 ### Registered Boleto
 
-In order to promote greater control and security to the transactional boleto in e-commerce and ensure more reliability and convenience to users, Febraban together with the Banks launched the New Charging Platform.
+In order to promote greater control and security to the boleto transactional in e-commerce and ensure more reliability and convenience to users, FEBRABAN - The Brazilian Federation of Banks, together with the banking network, launched the **New Payment Slip-Registered Collections Platform**.
 
-From July 21, 2018, all boletos issued in e-commerce must be registered. [Click here](https://portal.febraban.org.br/pagina/3150/1094/en/servicos-novo-platform-boletos) to access the full announcement.
+Since July 21, 2018, all boletos issued in e-commerce must be registered. [Click here](https://portal.febraban.org.br/pagina/3150/1094/en/servicos-novo-platform-boletos) to access the full announcement (available in Portuguese).
 
-Follow below the migration/membership procedures for each bank:
+Here is a list of the migration/membership procedures for each bank:
 
-[Bradesco](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf)<BR>[Banco do Brasil](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf)<BR>[Itaú](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf)<BR>[Santander](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf)<BR>[Caixa Econômica](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf)
+* [Bradesco](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf)
+* [Banco do Brasil](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf)
+* [Itaú](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf)
+* [Santander](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf)
+* [Caixa Econômica](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf)
 
 ### Creating a Boleto Transaction
 
-To generate boletos, you must provide shopper's data such as ID number (CPF or CNPJ) and address. Below is an example of how to create a boleto as payment method.
+To generate boletos, customer's data such as ID number (CPF or CNPJ) and address must be provided. Below is an example of how to create a boleto as the payment method.
+
+The `Payment.FineRate` and `Payment.FineAmount` parameters must not be used together. The same rule applies to the `Payment.InterestRate` and `Payment.InterestAmount` parameters.
 
 #### Request
 
@@ -2092,39 +2098,39 @@ curl
 
 ```
 
-|Property|Type|Size|Mandatory|Description|
+|Property|Description|Type|Size|Mandatory|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|GUID|36|Yes|Store identifier at Braspag|
-|`MerchantKey`|Text|40|Yes|Public Key for Dual Authentication at Braspag|
-|`RequestId`|GUID|36|No|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|
-|`MerchantOrderId`|Text|see table below|Yes|Order ID number. The rule varies according to the Provider used (see table below)|
-|`Customer.Name`|Text|see table below|Yes|Customer's name. The rule varies according to the Provider used (see table below)|
-|`Customer.Identity`|Text|14|No|Customer ID like RG, CPF or CNPJ number|
-|`Customer.IdentityType`|Text|255|No|Shopper's Identification Document Type (CPF or CNPJ)|
-|`Customer.Address.Street`|Text|see table below|Yes|Shopper's contact address. The rule varies according to the Provider used (see table below)|
-|`Customer.Address.Number`|Text|see table below|Yes|Shopper's contact address number. The rule varies according to the Provider used (see table below)|
-|`Customer.Address.Complement`|Text|see table below|No|Shopper's contact address complement. The rule varies according to the Provider used (see table below)|
-|`Customer.Address.ZipCode`|Text|8|No|Shopper's contact address Zip Code|
-|`Customer.Address.Street`|Text|see table below|Yes|Shopper's contact address. The rule varies according to the Provider used (see table below)|
-|`Customer.Address.Street`|Text|see table below|Yes|Shopper's contact address. The rule varies according to the Provider used (see table below)|
-|`Customer.Address.State`|Text|2|No|Shopper's State contact address|
-|`Customer.Address.Country`|Text|35|No|Shopper's country contact address|
-|`Payment.Provider`|Text|15|Yes|Payment method provider's name|[Click here](https://braspag.github.io/manual/braspag-payment#providers-para-boleto-with-registration) to access the list of providers.|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|In this case "Boleto"|
-|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
-|`Payment.BoletoNumber`|Text|see table below|No|Boleto Number (" Nosso Número "). If completed, overrides the value set on the payment method. The rule varies according to the Provider used (see table below)|
-|`Payment.Assignor`|Text|200|No|Name of the Assignor. If filled, overrides the value set on the payment method.
-|`Payment.Demonstrative`|Text|see table below|No|Statement Text. If filled, overrides the value set on the payment method. The rule varies according to the Provider used (see table below)|
+|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes|
+|`MerchantKey`|Text|40|Yes|Public key for dual authentication at Braspag.|
+|`RequestId`|GUID|36|No|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|
+|`MerchantOrderId`|Text|see table in the annex|Yes|Order ID number. Rule varies according to the provider used (see table in the annex).|
+|`Customer.Name`|Text|see table in the annex|Yes|Customer's name. The rule varies according to the Provider used (see table in the annex).|
+|`Customer.Identity`|Text|14|No|Customer ID like RG, CPF or CNPJ number.|
+|`Customer.IdentityType`|Text|255|No|Customer's ID document Type (CPF or CNPJ).|
+|`Customer.Address.Street`|Text|see table in the annex|Yes|Customer's contact address. The rule varies according to the provider used (see table in the annex).|
+|`Customer.Address.Number`|Text|see table in the annex|Yes|Customer's contact address number. The rule varies according to the provider used (see table in the annex).|
+|`Customer.Address.Complement`|Text|see table in the annex|No|Customer's contact address complement. The rule varies according to the provider used (see table in the annex).|
+|`Customer.Address.ZipCode`|Text|8|No|Customer's contact address zip code.|
+|`Customer.Address.Street`|Text|see table in the annex|Yes|Customer's contact address. The rule varies according to the provider used (see table in the annex).|
+|`Customer.Address.Street`|Text|see table in the annex|Yes|Customer's contact address. The rule varies according to the provider used (see table in the annex).|
+|`Customer.Address.State`|Text|2|No|Customer's contact address state.|
+|`Customer.Address.Country`|Text|35|No|Customer's contact address country.|
+|`Payment.Provider`|Text|15|Yes|Name of payment method provider. See table in the annex to access the list of providers.|
+|`Payment.Type`|Text|100|Yes|Payment method type. In this case, "Boleto".|
+|`Payment.Amount`|Number|15|Yes|Order amount in cents.|
+|`Payment.BoletoNumber`|Text|see table in the annex|No|Boleto number ("Nosso Número"). If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).|
+|`Payment.Assignor`|Text|200|No|Name of the assignor. If filled, overrides the value set on the payment method.|
+|`Payment.Demonstrative`|Text|see table below|No|Statement text. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).|
 |`Payment.ExpirationDate`|Date|YYYY-MM-DD|No|Boleto's expiration date. If you are not previously registered with the payment method, this field is required. If sent on request, overrides the value set on the payment method.|
-|`Payment.Identification`|Text|14|No|Assignor's CNPJ. If filled, overrides the value set on the payment method|
-|`Payment.Instructions`|Text|see table below|No|Boleto's Instructions. If completed, overrides the value set on the payment method. The rule varies according to the Provider used (see table below). To break lines in this text always use HTML notation `<br>`|
+|`Payment.Identification`|Text|14|No|Assignor's CNPJ. If filled, overrides the value set on the payment method.|
+|`Payment.Instructions`|Text|see table in the annex|No|Boleto's instructions. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex). To break lines in this text always use the `<br>`HTML tag.|
 |`Payment.NullifyDays`|Number|2|No|Deadline for automatic nullification of the boleto. The automatic boleto cancellation will take place after the number of days set in this field from the due date. For example, a boleto due on Dec 15th which has on its registration deadline of 5 days may be paid until Dec 20th, after this date the title is canceled. *Feature valid only for registered boletos of Banco Santander.|
-|`Payment.DaysToFine`|Number|15|No|Optional and only for Bradesco2 provider. Number of days after the due date to charge a fine amount, as integers. E.g.: 3|
-|`Payment.FineRate`|Number|15|No|Optional and only for Bradesco2 provider. Amount of fine after due date, as a percentage, based on the amount of the boleto (%). Allowed decimal with up to 5 decimal places. Do not submit if using FineAmount. E.g.: 1012345 = 10.12345%|
-|`Payment.FineAmount`|Number|15|No|Optional and only for Bradesco2 provider. Amount of fine after due date in absolute value in cents. Do not send if using FineRate.  E.g.: 1000 = R$ 10.00|
-|`Payment.DaysToInterest`|Number|15|No|Optional and only for Bradesco2 provider.Number of days after due date to start charging interest per day on the amount of the boleto, in integers. E.g.: 3|
-|`Payment.InterestRate`|Number|15|No|Optional and only for Bradesco2 provider. Monthly interest amount after due date in percentage, based on the amount of the boleto (%). Interest is charged pro rata per day (Monthly divided by 30). Allowed decimal with up to 5 decimal places. Do not submit if using InterestAmount. E.g.: 10.12345|
-|`Payment.InterestAmount`|Number|15|No|Optional and only for Bradesco2 provider. Absolute value for daily interest after due date in cents. Do not submit if using InterestRate. E.g.: 1000 = R$ 10.00|
+|`Payment.DaysToFine`|Number|15|No|Optional and only for Bradesco2 provider. Number of days after the due date to charge a fine amount, as integers. E.g.: 3.|
+|`Payment.FineRate`|Number|15|No|Optional and only for Bradesco2 provider. Amount of fine after due date, as a percentage, based on the amount of the boleto (%). Allowed decimal with up to 5 decimal places. Do not submit if using FineAmount. E.g.: 1012345 = 10.12345%.|
+|`Payment.FineAmount`|Number|15|No|Optional and only for Bradesco2 provider. Amount of fine after due date in absolute value in cents. Do not send if using FineRate.  E.g.: 1000 = R$ 10.00.|
+|`Payment.DaysToInterest`|Number|15|No|Optional and only for Bradesco2 provider.Number of days after due date to start charging interest per day on the amount of the boleto, in integers. E.g.: 3.|
+|`Payment.InterestRate`|Number|15|No|Optional and only for Bradesco2 provider. Monthly interest amount after due date in percentage, based on the amount of the boleto (%). Interest is charged pro rata per day (Monthly divided by 30). Allowed decimal with up to 5 decimal places. Do not submit if using InterestAmount. E.g.: 10.12345.|
+|`Payment.InterestAmount`|Number|15|No|Optional and only for Bradesco2 provider. Absolute value for daily interest after due date in cents. Do not submit if using InterestRate. E.g.: 1000 = R$ 10.00.|
 
 #### Response
 
