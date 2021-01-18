@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-17T16:07:33+00:00</updated>
+    <updated>2021-01-18T01:50:42+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13030,17 +13030,17 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;li&gt;&lt;strong&gt;Issuer:&lt;/strong&gt; Gives credit and stores the buyer’s money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;features-of-the-solution&quot;&gt;Features of the Solution&lt;/h2&gt;
+&lt;h2 id=&quot;attributes-of-the-solution&quot;&gt;Attributes of the Solution&lt;/h2&gt;
 
 &lt;p&gt;The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: &lt;em&gt;ASP&lt;/em&gt;, &lt;em&gt;ASP.Net&lt;/em&gt;, &lt;em&gt;Java&lt;/em&gt;, &lt;em&gt;PHP&lt;/em&gt;, &lt;em&gt;Ruby&lt;/em&gt; and &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Here are some of the main benefits of using the Braspag eCommerce platform:&lt;/p&gt;
+&lt;p&gt;Here are some of the main benefits of using Braspag’s e-commerce platform:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;No proprietary apps&lt;/strong&gt;: no applications need to be installed in the online store environment.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Simplicity&lt;/strong&gt;: the protocol used is purely HTTPS.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Easy testing&lt;/strong&gt;: Braspag platform offers a publicly accessible Sandbox environment that allows the developer to create a test account without the need for accreditation, making it easier and faster to start integrating.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Credentials&lt;/strong&gt;: the client credentials (affiliation number and access key) are transmitted in the header of the HTTP request.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Easy testing&lt;/strong&gt;: Braspag’s platform offers a publicly accessible Sandbox environment that allows the developer to create a test account without the need for accreditation, making it easier and faster to start integrating.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Credentials&lt;/strong&gt;: the client’s credentials (affiliation number and access key) are transmitted in the header of the HTTP request.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt;: the information is always exchanged between the store server and Braspag, without the customer’s browser.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Multiplatform integration&lt;/strong&gt;: the integration is performed through REST APIs, which allows the use of different applications.&lt;/li&gt;
 &lt;/ul&gt;
@@ -13119,7 +13119,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Access Credentials&lt;/td&gt;
-      &lt;td&gt;Send us an email (&lt;em&gt;comercial@braspag.com.br&lt;/em&gt;) for more information about Braspag and how we can help you with your business.&lt;/td&gt;
+      &lt;td&gt;Send us an email (&lt;em&gt;comercial@braspag.com.br&lt;/em&gt;) for more information about Braspag and about how we can help you with your business.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Transactional endpoint&lt;/td&gt;
