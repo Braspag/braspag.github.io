@@ -1984,11 +1984,11 @@ The example below covers the minimum required fields to be submitted for authori
 
 ### Registered Boleto
 
-FEBRABAN - The Brazilian Federation of Banks, together with the banking network, launched the **New Payment Slip-Registered Collections Platform**. This new system was created in order to promote greater control and security to the boleto transactional in e-commerce, and to ensure more reliability and convenience to users.
+FEBRABAN, the Brazilian Federation of Banks, together with the banking network, launched the **New Payment Slip-Registered Collections Platform**. This new system was created in order to promote greater control and security to the boleto transactional in e-commerce, and to ensure more reliability and convenience to users.
 
 Since July 21, 2018, all boletos issued in e-commerce must be registered. [Click here](https://portal.febraban.org.br/pagina/3150/1094/en-us/new-payment-platform) to access the full announcement (available only in Portuguese).
 
-Here is a list of the migration/membership procedures for each bank (material available only in Portuguese):
+Here is a list of the migration/membership procedures (in Portuguese) for each bank:
 
 * [Bradesco](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf)
 * [Banco do Brasil](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf)
@@ -2000,7 +2000,7 @@ Here is a list of the migration/membership procedures for each bank (material av
 
 To generate boletos, customer's data such as ID number (CPF or CNPJ) and address must be provided. Below is an example of how to create a boleto as the payment method.
 
-The `Payment.FineRate` and `Payment.FineAmount` parameters must not be used together. The same rule applies to the `Payment.InterestRate` and `Payment.InterestAmount` parameters.
+The `Payment.FineRate` and `Payment.FineAmount` parameters must not be used together. The same rule applies to the `Payment.InterestRate` and `Payment.InterestAmount` parameters. They are all marked with an "\*" in the "MANDATORY" column,
 
 #### Request
 
@@ -2126,11 +2126,11 @@ curl
 |`Payment.Instructions`|Boleto's instructions. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex). To break lines in this text always use the `<br>` HTML tag.|Text|see table in the annex|No|
 |`Payment.NullifyDays`|Deadline for automatic annulment of the boleto. After the number of days set in this field from the due date, the boleto will be automatically canceled. E.g.: a boleto due on Dec 15th which has 5 "nullify days" can be paid until Dec 20th; after this date the title is canceled. Note: Feature valid only for Banco Santander registered boletos.|Number|2|No|
 |`Payment.DaysToFine`|Optional and only applicable for Bradesco2 provider. Number of days (an integer) after the due date to charge a fine amount. E.g.: 3.|Number|15|No|
-|`Payment.FineRate`|Optional and only applicable for Bradesco2 provider. Amount of fine (in percentage) after due date, based on the boleto total amount (%). Permits decimal with up to 5 decimal places. Do not submit if using `FineAmount`. E.g.: 1012345 = 10.12345%.|Number|15|No|
-|`Payment.FineAmount`|Optional and only applicable for Bradesco2 provider. Amount of fine (in cents) after due date in absolute value. Do not send if using `FineRate`. E.g.: 1000 = R$ 10.00.|Number|15|No|
+|`Payment.FineRate`|Optional and only applicable for Bradesco2 provider. Amount of fine (in percentage) after due date, based on the boleto total amount (%). Permits decimal with up to 5 decimal places. Do not submit if using `FineAmount`. E.g.: 1012345 = 10.12345%.|Number|15|No*|
+|`Payment.FineAmount`|Optional and only applicable for Bradesco2 provider. Amount of fine (in cents) after due date in absolute value. Do not submit if using `FineRate`. E.g.: 1000 = R$ 10.00.|Number|15|No*|
 |`Payment.DaysToInterest`|Optional and only applicable for Bradesco2 provider. Number of days (an integer) after due date to start charging daily interest based on the boleto total amount. E.g.: 3.|Number|15|No|
-|`Payment.InterestRate`|Optional and only applicable for Bradesco2 provider. Monthly interest amount (in percentage) after due date , based on the boleto total amount (%). Interest is charged pro rata per day (monthly divided by 30). Permits decimal with up to 5 decimal places. Do not submit if using `InterestAmount`. E.g.: 10.12345.|Number|15|No|
-|`Payment.InterestAmount`|Optional and only applicable for Bradesco2 provider. Absolute value (in cents) for daily interest after due date. Do not submit if using `InterestRate`. E.g.: 1000 = R$ 10.00.|Number|15|No|
+|`Payment.InterestRate`|Optional and only applicable for Bradesco2 provider. Monthly interest amount (in percentage) after due date , based on the boleto total amount (%). Interest is charged pro rata per day (monthly divided by 30). Permits decimal with up to 5 decimal places. Do not submit if using `InterestAmount`. E.g.: 10.12345.|Number|15|No*|
+|`Payment.InterestAmount`|Optional and only applicable for Bradesco2 provider. Absolute value (in cents) for daily interest after due date. Do not submit if using `InterestRate`. E.g.: 1000 = R$ 10.00.|Number|15|No*|
 
 #### Response
 
@@ -3518,7 +3518,7 @@ The merchant counts with features that can be used to shape their charging syste
 
 Add the `RecurrentPayment` node to the `Payment` node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.
 
-The `Payment.RecurrentPayment.Interval` and `Payment.RecurrentPayment.DailyInterval` parameters, marked with a "\*" in the "MANDATORY" column, must not be used together. 
+The `Payment.RecurrentPayment.Interval` and `Payment.RecurrentPayment.DailyInterval` parameters, marked with an "\*" in the "MANDATORY" column, must not be used together. 
 
 #### Request
 
@@ -3591,8 +3591,8 @@ curl
 |`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
 |`Payment.RecurrentPayment.EndDate`|Text|10|No|Recurring End Date|
-|`Payment.RecurrentPayment.Interval`|Text|10|No*|Recurrence Interval. Must not be used together with `DailyInterval`.<br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|
-|`Payment.RecurrentPayment.DailyInterval`|Number|2|No*|Recurrence interval in days|
+|`Payment.RecurrentPayment.Interval`|Text|10|No*|Recurrence interval. Must not be used together with `DailyInterval`.<br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|
+|`Payment.RecurrentPayment.DailyInterval`|Number|2|No*|Pattern of recurrence in days. Must not be used together with `Interval`.|
 |`Payment.RecurrentPayment.AuthorizeNow`|Boolean|---|Yes|If true, authorizes at moment of request. False for future scheduling|
 |`CreditCard.CardNumber`|Text|16|Yes|Shopper's card number|
 |`CreditCard.Holder`|Text|25|Yes|Name of cardholder printed on card|
