@@ -2273,7 +2273,7 @@ Para atualizar o status de um boleto para *Pago*, o Pagador deve receber dos ban
 
 ### Regras Específicas por Emissor
 
-Segue uma lista de propriedades e suas especificações, relativas a regras distintas de cada emissor e seus respectivos *providers*:
+Segue uma lista de propriedades e suas especificações de tamanho, relativas a regras distintas de cada emissor e seus respectivos *providers*:
 
 | Propriedade | Bradesco | Banco do Brasil | Itaú Shopline | Santander | Caixa Econômica | Citibank |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
