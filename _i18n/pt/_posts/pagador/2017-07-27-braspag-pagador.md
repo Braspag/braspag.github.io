@@ -2258,7 +2258,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`PaymentId`|Campo Identificador do Pedido. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`PaymentId`|Campo identificador do pedido. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
 |`Url`|URL do boleto gerado. |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
 |`BoletoNumber`|"NossoNumero" gerado. |Texto|50 |2017091101 |
