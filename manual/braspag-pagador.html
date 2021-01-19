@@ -699,7 +699,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-providers">Clique aqui</a> para acessar a lista de provedoras.</td>
+      <td>Nome do provedor do meio de pagamento. <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-providers">Clique aqui</a> para acessar a lista de provedores.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -1360,7 +1360,7 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-providers">Clique aqui</a> para acessar a lista de provedoras. Obs.: Atualmente somente a <strong>Cielo</strong> suporta esta forma de pagamento via Pagador.</td>
+      <td>Nome do provedor do meio de pagamento. <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-providers">Clique aqui</a> para acessar a lista de provedores. Obs.: Atualmente somente a <strong>Cielo</strong> suporta esta forma de pagamento via Pagador.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -1665,7 +1665,7 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. Obs.: Disponível apenas para <strong>Cielo30</strong>.</td>
+      <td>Nome do provedor do meio de pagamento. Obs.: Disponível apenas para <strong>Cielo30</strong>.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -2149,7 +2149,7 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento.</td>
+      <td>Nome do provedor do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -3480,7 +3480,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. Obs.: Atualmente somente disponível para <strong>Cielo30</strong>.</td>
+      <td>Nome do provedor do meio de pagamento. Obs.: Atualmente somente disponível para <strong>Cielo30</strong>.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -3792,14 +3792,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Número de identificação do pedido. A regra varia de acordo com a provedora utilizada (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
+      <td>Número de identificação do pedido. A regra varia de acordo com o provedor utilizado (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
       <td>Texto</td>
       <td>Veja a <a href="#conciliação-de-boletos">tabela</a></td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Nome do comprador. A regra varia de acordo com a provedora utilizada (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
+      <td>Nome do comprador. A regra varia de acordo com o provedor utilizado (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
       <td>Texto</td>
       <td>Veja a <a href="#conciliação-de-boletos">tabela</a></td>
       <td>Sim</td>
@@ -3820,21 +3820,21 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
+      <td>Endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
       <td>Texto</td>
       <td>Veja a <a href="#conciliação-de-boletos">tabela</a></td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Número do endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
+      <td>Número do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
       <td>Texto</td>
       <td>Veja a <a href="#conciliação-de-boletos">tabela</a></td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Complemento do endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
+      <td>Complemento do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
       <td>Texto</td>
       <td>Veja a <a href="#conciliação-de-boletos">tabela</a></td>
       <td>Não</td>
@@ -3848,14 +3848,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Bairro do endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
+      <td>Bairro do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
       <td>Texto</td>
       <td>Veja a <a href="#conciliação-de-boletos">tabela</a></td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Cidade do endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
+      <td>Cidade do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
       <td>Texto</td>
       <td>Veja a <a href="#conciliação-de-boletos">tabela</a></td>
       <td>Sim</td>
@@ -3876,7 +3876,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento do boleto. <a href="https://braspag.github.io/manual/braspag-pagador#providers-para-consulta-bin-via-verifycard">Clique aqui</a> para acessar a lista de provedoras.</td>
+      <td>Nome do provedor do meio de pagamento do boleto. <a href="https://braspag.github.io/manual/braspag-pagador#providers-para-consulta-bin-via-verifycard">Clique aqui</a> para acessar a lista de provedores.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -3897,7 +3897,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
-      <td>Número do boleto (“Nosso Número”). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com a provedora utilizada (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
+      <td>Número do boleto (“Nosso Número”). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
       <td>Texto</td>
       <td>Veja a <a href="#conciliação-de-boletos">tabela</a></td>
       <td>Não</td>
@@ -3911,7 +3911,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
-      <td>Texto de demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
+      <td>Texto de demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a <a href="#conciliação-de-boletos">tabela</a>).</td>
       <td>Texto</td>
       <td>Veja a <a href="#conciliação-de-boletos">tabela</a></td>
       <td>Não</td>
@@ -3932,7 +3932,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
-      <td>Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com a provedora utilizada (consulte a <a href="#conciliação-de-boletos">tabela</a>). Para quebra de linhas no texto utilize sempre a notação em HTML <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>.</td>
+      <td>Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a <a href="#conciliação-de-boletos">tabela</a>). Para quebra de linhas no texto utilize sempre a notação em HTML <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>.</td>
       <td>Texto</td>
       <td>Veja a <a href="#conciliação-de-boletos">tabela</a></td>
       <td>Não</td>
@@ -3946,42 +3946,42 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DaysToFine</code></td>
-      <td>Opcional e somente para a provedora Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex.: 3.</td>
+      <td>Opcional e somente para o provedor Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex.: 3.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FineRate</code></td>
-      <td>Opcional e somente para a provedora Bradesco2. Valor da multa após o vencimento, em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">FineAmount</code>. Ex: 10.12345 = 10.12345%.</td>
+      <td>Opcional e somente para o provedor Bradesco2. Valor da multa após o vencimento, em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">FineAmount</code>. Ex: 10.12345 = 10.12345%.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FineAmount</code></td>
-      <td>Opcional e somente para a provedora Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">FineRate</code>. Ex.: 1000 = R$ 10,00.</td>
+      <td>Opcional e somente para o provedor Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">FineRate</code>. Ex.: 1000 = R$ 10,00.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DaysToInterest</code></td>
-      <td>Opcional e somente para a provedora Bradesco2. Quantidade de dias após o vencimento para início da cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex.: 3.</td>
+      <td>Opcional e somente para o provedor Bradesco2. Quantidade de dias após o vencimento para início da cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex.: 3.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InterestRate</code></td>
-      <td>Opcional e somente para a provedora Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">InterestAmount</code>. Ex.: 10.12345.</td>
+      <td>Opcional e somente para o provedor Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">InterestAmount</code>. Ex.: 10.12345.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code></td>
-      <td>Opcional e somente para a provedora Bradesco2. Valor absoluto de juros diários após o vencimento, em centavos. Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">InterestRate</code>. Ex.: 1000 = R$ 10,00.</td>
+      <td>Opcional e somente para o provedor Bradesco2. Valor absoluto de juros diários após o vencimento, em centavos. Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">InterestRate</code>. Ex.: 1000 = R$ 10,00.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não*</td>
@@ -4551,7 +4551,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. <a href="https://braspag.github.io//manual/braspag-pagador##providers-para-transferência-eletrônica-(débito-online)">Clique aqui</a> para acessar a lista de provedoras.</td>
+      <td>Nome do provedor do meio de pagamento. <a href="https://braspag.github.io//manual/braspag-pagador##providers-para-transferência-eletrônica-(débito-online)">Clique aqui</a> para acessar a lista de provedores.</td>
       <td>Texto</td>
       <td>15</td>
       <td>—</td>
@@ -4813,7 +4813,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. Obs.: Disponível somente para providers <strong>Cielo</strong> (Cielo e Cielo30).</td>
+      <td>Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers <strong>Cielo</strong> (Cielo e Cielo30).</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -5285,7 +5285,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. Obs.: Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30)</td>
+      <td>Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30)</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -5586,7 +5586,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. Obs.: Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30).</td>
+      <td>Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30).</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -5879,7 +5879,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. Obs: Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30).</td>
+      <td>Nome do provedor do meio de pagamento. Obs: Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30).</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -6177,7 +6177,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30).</td>
+      <td>Nome do provedor do meio de pagamento. Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30).</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -6462,7 +6462,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. Obs.: Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30).</td>
+      <td>Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30).</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -6712,7 +6712,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento. <a href="https://braspag.github.io//manual/braspag-pagador#providers-para-voucher">Clique aqui</a> para acessar a lista de provedoras.</td>
+      <td>Nome do provedor do meio de pagamento. <a href="https://braspag.github.io//manual/braspag-pagador#providers-para-voucher">Clique aqui</a> para acessar a lista de provedores.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -7042,7 +7042,7 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento.</td>
+      <td>Nome do provedor do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -7355,7 +7355,7 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento.</td>
+      <td>Nome do provedor do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -7684,7 +7684,7 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento.</td>
+      <td>Nome do provedor do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -8743,7 +8743,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento.</td>
+      <td>Nome do provedor do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -9241,7 +9241,7 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento.</td>
+      <td>Nome do provedor do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -9589,7 +9589,7 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento.</td>
+      <td>Nome do provedor do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -9895,7 +9895,7 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento.</td>
+      <td>Nome do provedor do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -10718,7 +10718,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora da autorização.</td>
+      <td>Nome do provedor da autorização.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -11731,7 +11731,7 @@ curl
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td style="text-align: left">Nome da provedora da autorização.</td>
+      <td style="text-align: left">Nome do provedor da autorização.</td>
       <td style="text-align: left">Texto</td>
     </tr>
     <tr>
@@ -12759,7 +12759,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento.</td>
+      <td>Nome do provedor do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Consulte os <a href="#anexos">anexos</a>.</td>
@@ -13032,7 +13032,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Provider utilizado.</td>
+      <td>Provedor utilizado.</td>
       <td>Texto</td>
       <td>32</td>
       <td>Simulado</td>
@@ -13436,7 +13436,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora do meio de pagamento.</td>
+      <td>Nome do provedor do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Consulta os provedores disponíveis nos anexos</td>
