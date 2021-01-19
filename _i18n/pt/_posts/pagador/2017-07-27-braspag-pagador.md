@@ -315,7 +315,7 @@ curl
 |`Customer.DeliveryAddress.State`|Estado do endereço de entrega.|Texto|2|Não*|
 |`Customer.DeliveryAddress.Country`|País do endereço de entrega.|Texto|35|Não*|
 |`Customer.DeliveryAddress.District`|Bairro do endereço de entrega.|Texto|50|Não*|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-providers) para acessar a lista de provedoras.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-providers) para acessar a lista de provedores.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "CreditCard".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.ServiceTaxAmount`|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
@@ -646,7 +646,7 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-providers) para acessar a lista de provedoras. Obs.: Atualmente somente a **Cielo** suporta esta forma de pagamento via Pagador.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-providers) para acessar a lista de provedores. Obs.: Atualmente somente a **Cielo** suporta esta forma de pagamento via Pagador.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -808,7 +808,7 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Disponível apenas para **Cielo30**.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento. Obs.: Disponível apenas para **Cielo30**.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas. Fixo "1" para o cartão de débito.|Número|2|Sim|
@@ -1085,7 +1085,7 @@ curl
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -1897,7 +1897,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 |-----------|---------|----|-------|-----------|
 |`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
 |`Customer.Name`|Nome do comprador.|Texto|255|Não|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Atualmente somente disponível para **Cielo30**.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento. Obs.: Atualmente somente disponível para **Cielo30**.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "qrcode".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido (maior que zero), em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -2111,34 +2111,34 @@ curl
 |`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
 |`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não|
-|`MerchantOrderId`|Número de identificação do pedido. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
-|`Customer.Name`|Nome do comprador. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`MerchantOrderId`|Número de identificação do pedido. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Name`|Nome do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
 |`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.|Texto |14 |Sim|
 |`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ).|Texto|255|Sim|
-|`Customer.Address.Street`|Endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
-|`Customer.Address.Number`|Número do endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
-|`Customer.Address.Complement`|Complemento do endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Não|
+|`Customer.Address.Street`|Endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Address.Number`|Número do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Address.Complement`|Complemento do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Customer.Address.ZipCode`|CEP do endereço de contato do comprador.|Texto|8|Sim|
-|`Customer.Address.District`|Bairro do endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim
-|`Customer.Address.City`|Cidade do endereço de contato do comprador. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Address.District`|Bairro do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim
+|`Customer.Address.City`|Cidade do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
 |`Customer.Address.State`|Estado do endereço de contato do comprador.|Texto|2|Sim|
 |`Customer.Address.Country`|País do endereço de contato do comprador.|Texto|35|Sim|
-|`Payment.Provider`|Nome da provedora do meio de pagamento do boleto. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#providers-para-consulta-bin-via-verifycard) para acessar a lista de provedoras.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento do boleto. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#providers-para-consulta-bin-via-verifycard) para acessar a lista de provedores.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "Boleto".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.BoletoNumber`|Número do boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
+|`Payment.BoletoNumber`|Número do boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Payment.Assignor`|Nome do cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento.|Texto |200|Não|
-|`Payment.Demonstrative`|Texto de demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
+|`Payment.Demonstrative`|Texto de demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Payment.ExpirationDate`|Data de vencimento do boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|Date |AAAA-MM-DD|Não|
 |`Payment.Identification`|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento.|Texto |14 |Não|
-|`Payment.Instructions`|Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com a provedora utilizada (consulte a [tabela](#conciliação-de-boletos)). Para quebra de linhas no texto utilize sempre a notação em HTML `<br>`.|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
+|`Payment.Instructions`|Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)). Para quebra de linhas no texto utilize sempre a notação em HTML `<br>`.|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Payment.NullifyDays`|Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo, contado a partir da data de vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12; após esta data o título é cancelado. Obs.: Recurso válido somente para boletos registrados do Banco Santander.|Número |2 |Não|
-|`Payment.DaysToFine`|Opcional e somente para a provedora Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex.: 3.|Número |15 |Não|
-|`Payment.FineRate`|Opcional e somente para a provedora Bradesco2. Valor da multa após o vencimento, em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `FineAmount`. Ex: 10.12345 = 10.12345%.|Número |15 |Não*|
-|`Payment.FineAmount`|Opcional e somente para a provedora Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não utilizar em conjunto com `FineRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
-|`Payment.DaysToInterest`|Opcional e somente para a provedora Bradesco2. Quantidade de dias após o vencimento para início da cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex.: 3.|Número |15 |Não|
-|`Payment.InterestRate`|Opcional e somente para a provedora Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `InterestAmount`. Ex.: 10.12345.|Número |15 |Não*|
-|`Payment.InterestAmount`|Opcional e somente para a provedora Bradesco2. Valor absoluto de juros diários após o vencimento, em centavos. Não utilizar em conjunto com `InterestRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
+|`Payment.DaysToFine`|Opcional e somente para o provedor Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex.: 3.|Número |15 |Não|
+|`Payment.FineRate`|Opcional e somente para o provedor Bradesco2. Valor da multa após o vencimento, em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `FineAmount`. Ex: 10.12345 = 10.12345%.|Número |15 |Não*|
+|`Payment.FineAmount`|Opcional e somente para o provedor Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não utilizar em conjunto com `FineRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
+|`Payment.DaysToInterest`|Opcional e somente para o provedor Bradesco2. Quantidade de dias após o vencimento para início da cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex.: 3.|Número |15 |Não|
+|`Payment.InterestRate`|Opcional e somente para o provedor Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `InterestAmount`. Ex.: 10.12345.|Número |15 |Não*|
+|`Payment.InterestAmount`|Opcional e somente para o provedor Bradesco2. Valor absoluto de juros diários após o vencimento, em centavos. Não utilizar em conjunto com `InterestRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
 
 #### Resposta
 
@@ -2416,7 +2416,7 @@ curl
 |`Customer.Address.District`|Bairro do endereço de contato do comprador.|Texto|35|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. |Texto |100 |Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador##providers-para-transferência-eletrônica-(débito-online)) para acessar a lista de provedoras.|Texto |15 |---|
+|`Payment.Provider`|Nome do provedor do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador##providers-para-transferência-eletrônica-(débito-online)) para acessar a lista de provedores.|Texto |15 |---|
 |`Payment.Beneficiary.Bank`|Banco do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). |Texto |100 |Condicional|
 |`Payment.Shopper.Branch`|Agência do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). Obs.: Suprimir esse nó para modalidade de *Depósito Identificado*. |Texto |100 |Condicional|
 |`Payment.Shopper.Account`|Conta do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). Obs.: Suprimir esse nó para modalidade de *Depósito Identificado*. |Texto |100 |Condicional|
@@ -2567,7 +2567,7 @@ Abaixo, um exemplo de requisição padrão para integração da e-wallet:
 | `Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
 | `Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 | `Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-| `Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo e Cielo30).|Texto|15|Sim|
+| `Payment.Provider`|Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo e Cielo30).|Texto|15|Sim|
 | `Payment.Installments`|Número de parcelas.|Número|2|Sim|
 | `Wallet.Type`|Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".|Texto|--|Sim|
 | `Wallet.WalletKey`|Chave criptográfica que identifica lojas nas wallets. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|Texto|--|Sim|
@@ -2788,7 +2788,7 @@ Exemplo de requisição padrão Apple Pay:
 | `Customer.Status`          | Status de cadastro do comprador na loja ("NEW" / "EXISTING").                                           | Texto  | 255     | Não         |
 | `Payment.Type`             | Tipo do meio de pagamento.                                                                              | Texto  | 100     | Sim         |
 | `Payment.Amount`           | Valor do pedido, em centavos.                                                                           | Número | 15      | Sim         |
-| `Payment.Provider`         | Nome da provedora do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30)| Texto  | 15      | Sim         |
+| `Payment.Provider`         | Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30)| Texto  | 15      | Sim         |
 | `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |
 | `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".             | Texto  | 255     | Sim         |
 | `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.      | Texto  | 255     | Sim         |
@@ -2919,7 +2919,7 @@ Exemplo de requisição padrão Samsung Pay:
 | `Customer.Status`          | Status de cadastro do comprador na loja ("NEW" / "EXISTING").                                                | Texto  | 255     | Não         |
 | `Payment.Type`             | Tipo do meio de pagamento.                                                                              | Texto  | 100     | Sim         |
 | `Payment.Amount`           | Valor do pedido, em centavos.                                                              | Número | 15      | Sim         |
-| `Payment.Provider`         | Nome da provedora do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30).  | Texto  | 15      | Sim         |
+| `Payment.Provider`         | Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30).  | Texto  | 15      | Sim         |
 | `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |
 | `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass". | Texto  | 255     | Sim         |
 | `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.
@@ -3048,7 +3048,7 @@ Exemplo de requisição padrão Android Pay:
 | `Customer.Status`          | Status de cadastro do comprador na loja ("NEW" / "EXISTING").                                           | Texto  | 255     | Não         |      
 | `Payment.Type`             | Tipo do meio de pagamento.                                                                              | Texto  | 100     | Sim         |
 | `Payment.Amount`           | Valor do pedido, em centavos.                                                                           | Número | 15      | Sim         |
-| `Payment.Provider`         | Nome da provedora do meio de pagamento. Obs: Disponível somente para providers **Cielo** (Cielo / Cielo30).| Texto  | 15      | Sim         |
+| `Payment.Provider`         | Nome do provedor do meio de pagamento. Obs: Disponível somente para providers **Cielo** (Cielo / Cielo30).| Texto  | 15      | Sim         |
 | `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |       
 | `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".             | Texto  | 255     | Sim         |
 | `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.| Texto  | 255     | Sim         |
@@ -3176,7 +3176,7 @@ Exemplo de requisição padrão Master-Pass:
 |`Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. Disponível somente para providers **Cielo** (Cielo / Cielo30).|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento. Disponível somente para providers **Cielo** (Cielo / Cielo30).|Texto|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
 |`Wallet.Type`|Tipo de carteira: "MasterPass".|Texto|255|Sim|
 |`Wallet.WalletKey`|Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|Texto|255|Sim|
@@ -3291,7 +3291,7 @@ Exemplo de requisição padrão Visa Checkout:
 |`Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30).|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30).|Texto|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
 |`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento. Obrigatório para cartão de débito.|Texto|1024|---|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
@@ -3420,7 +3420,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador#providers-para-voucher) para acessar a lista de provedoras.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador#providers-para-voucher) para acessar a lista de provedores.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -3606,7 +3606,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -3793,7 +3793,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.RecurrentPayment.StartDate`|Data para início da recorrência.|Texto |10 |Não|
@@ -4026,7 +4026,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -4579,7 +4579,7 @@ curl
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
-|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. |Texto |100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
 |`Payment.Installments`|Número de parcelas.|Número |2 |Sim|
@@ -4874,7 +4874,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -5072,7 +5072,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -5258,7 +5258,7 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -5760,7 +5760,7 @@ curl
 |`Customer.DeliveryAddress.State`|Estado do endereço de entrega.|Texto|2|Não|
 |`Customer.DeliveryAddress.Country`|País do endereço de entrega.<br/>Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Texto|2|Não|
 |`Customer.DeliveryAddress.District`|Bairro do endereço de entrega.|Texto|45|Não|
-|`Payment.Provider`|Nome da provedora da autorização.|Texto|15|Sim|
+|`Payment.Provider`|Nome do provedor da autorização.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.<br/>Obs.: Somente o tipo "CreditCard" funciona com análise de fraude.|Texto|100|Sim|
 |`Payment.Amount`|Valor da transação financeira, em centavos. <br/> Ex.: 150000 = R$ 1.500,00.|Número|15|Sim|
 |`Payment.ServiceTaxAmount`|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. <br/> Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
@@ -6260,7 +6260,7 @@ curl
 |`Customer.DeliveryAddress.State`|Estado do endereço de entrega.|Texto|
 |`Customer.DeliveryAddress.Country`|País do endereço de entrega.|Texto|
 |`Customer.DeliveryAddress.District`|Bairro do endereço de entrega.|Texto|
-|`Payment.Provider`|Nome da provedora da autorização.|Texto|
+|`Payment.Provider`|Nome do provedor da autorização.|Texto|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|
 |`Payment.Amount`|Valor da transação financeira, em centavos.|Número|
 |`Payment.ServiceTaxAmount`|Montante do valor da autorização que deve ser destinado à taxa de serviço.|Número|
@@ -6676,7 +6676,7 @@ curl
 |`Customer.DeliveryAddress.District`|Bairro do endereço de entrega do pedido. |Texto |50|Texto alfanumérico|
 |`Merchant.Id`|Identificador da loja que efetuou essa transação.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Merchant.TradeName`|Nome da loja.|Texto|50|Texto alfanumérico|
-|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15| Consulte os [anexos](#anexos).|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15| Consulte os [anexos](#anexos).|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Ex.: CreditCard|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|10000|
 |`Payment.ServiceTaxAmount`|Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|10000|
@@ -6715,7 +6715,7 @@ curl
 |`Payment.VoidedAmount`|Valor cancelado/estornado, em centavos.|Número|15|10000|
 |`Payment.VoidedDate`|Data do cancelamento/estorno.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.Status`|Status da transação.|Byte|2| Ex.: 1|
-|`Payment.Provider`|Provider utilizado.|Texto|32|Simulado|
+|`Payment.Provider`|Provedor utilizado.|Texto|32|Simulado|
 |`Payment.ProviderDescription`|Nome do adquirente que processou a transação.|Texto|512|Simulado|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|---|
 |`CreditCard.Holder`|Nome do portador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|---|
@@ -6902,7 +6902,7 @@ curl
 |`Customer.DeliveryAddress.State`|Estado do endereço de entrega do pedido.|Texto|2|Texto alfanumérico|
 |`Customer.DeliveryAddress.Country`|País do endereço de entrega do pedido.|Texto|35|Texto alfanumérico|
 |`Customer.DeliveryAddress.District`|Bairro do comprador.|Texto |50 |Texto alfanumérico|
-|`Payment.Provider`|Nome da provedora do meio de pagamento.|Texto|15| Consulta os provedores disponíveis nos anexos|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15| Consulta os provedores disponíveis nos anexos|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Ex.: Boleto|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|10000|
 |`Payment.CapturedAmount`|Valor pago do boleto, em centavos.|Número|15|10000|
