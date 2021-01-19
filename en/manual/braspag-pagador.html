@@ -3638,11 +3638,11 @@ The example below covers the minimum required fields to be submitted for authori
 
 <h3 id="registered-boleto">Registered Boleto</h3>
 
-<p>FEBRABAN - The Brazilian Federation of Banks, together with the banking network, launched the <strong>New Payment Slip-Registered Collections Platform</strong>. This new system was created in order to promote greater control and security to the boleto transactional in e-commerce, and to ensure more reliability and convenience to users.</p>
+<p>FEBRABAN, the Brazilian Federation of Banks, together with the banking network, launched the <strong>New Payment Slip-Registered Collections Platform</strong>. This new system was created in order to promote greater control and security to the boleto transactional in e-commerce, and to ensure more reliability and convenience to users.</p>
 
 <p>Since July 21, 2018, all boletos issued in e-commerce must be registered. <a href="https://portal.febraban.org.br/pagina/3150/1094/en-us/new-payment-platform">Click here</a> to access the full announcement (available only in Portuguese).</p>
 
-<p>Here is a list of the migration/membership procedures for each bank (material available only in Portuguese):</p>
+<p>Here is a list of the migration/membership procedures (in Portuguese) for each bank:</p>
 
 <ul>
   <li><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf">Bradesco</a></li>
@@ -3656,7 +3656,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>To generate boletos, customer’s data such as ID number (CPF or CNPJ) and address must be provided. Below is an example of how to create a boleto as the payment method.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">Payment.FineRate</code> and <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code> parameters must not be used together. The same rule applies to the <code class="language-plaintext highlighter-rouge">Payment.InterestRate</code> and <code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code> parameters.</p>
+<p>The <code class="language-plaintext highlighter-rouge">Payment.FineRate</code> and <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code> parameters must not be used together. The same rule applies to the <code class="language-plaintext highlighter-rouge">Payment.InterestRate</code> and <code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code> parameters. They are all marked with an “*” in the “MANDATORY” column,</p>
 
 <h4 id="request-10">Request</h4>
 
@@ -3950,14 +3950,14 @@ curl
       <td>Optional and only applicable for Bradesco2 provider. Amount of fine (in percentage) after due date, based on the boleto total amount (%). Permits decimal with up to 5 decimal places. Do not submit if using <code class="language-plaintext highlighter-rouge">FineAmount</code>. E.g.: 1012345 = 10.12345%.</td>
       <td>Number</td>
       <td>15</td>
-      <td>No</td>
+      <td>No*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FineAmount</code></td>
-      <td>Optional and only applicable for Bradesco2 provider. Amount of fine (in cents) after due date in absolute value. Do not send if using <code class="language-plaintext highlighter-rouge">FineRate</code>. E.g.: 1000 = R$ 10.00.</td>
+      <td>Optional and only applicable for Bradesco2 provider. Amount of fine (in cents) after due date in absolute value. Do not submit if using <code class="language-plaintext highlighter-rouge">FineRate</code>. E.g.: 1000 = R$ 10.00.</td>
       <td>Number</td>
       <td>15</td>
-      <td>No</td>
+      <td>No*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DaysToInterest</code></td>
@@ -3971,14 +3971,14 @@ curl
       <td>Optional and only applicable for Bradesco2 provider. Monthly interest amount (in percentage) after due date , based on the boleto total amount (%). Interest is charged pro rata per day (monthly divided by 30). Permits decimal with up to 5 decimal places. Do not submit if using <code class="language-plaintext highlighter-rouge">InterestAmount</code>. E.g.: 10.12345.</td>
       <td>Number</td>
       <td>15</td>
-      <td>No</td>
+      <td>No*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code></td>
       <td>Optional and only applicable for Bradesco2 provider. Absolute value (in cents) for daily interest after due date. Do not submit if using <code class="language-plaintext highlighter-rouge">InterestRate</code>. E.g.: 1000 = R$ 10.00.</td>
       <td>Number</td>
       <td>15</td>
-      <td>No</td>
+      <td>No*</td>
     </tr>
   </tbody>
 </table>
@@ -7022,7 +7022,7 @@ curl
 
 <p>Add the <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> node to the <code class="language-plaintext highlighter-rouge">Payment</code> node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> and <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code> parameters, marked with a “*” in the “MANDATORY” column, must not be used together.</p>
+<p>The <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> and <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code> parameters, marked with an “*” in the “MANDATORY” column, must not be used together.</p>
 
 <h4 id="request-18">Request</h4>
 
@@ -7137,14 +7137,14 @@ curl
       <td>Text</td>
       <td>10</td>
       <td>No*</td>
-      <td>Recurrence Interval. Must not be used together with <code class="language-plaintext highlighter-rouge">DailyInterval</code>.<br />Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual</td>
+      <td>Recurrence interval. Must not be used together with <code class="language-plaintext highlighter-rouge">DailyInterval</code>.<br />Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code></td>
       <td>Number</td>
       <td>2</td>
       <td>No*</td>
-      <td>Recurrence interval in days</td>
+      <td>Pattern of recurrence in days. Must not be used together with <code class="language-plaintext highlighter-rouge">Interval</code>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
