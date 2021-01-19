@@ -3638,11 +3638,11 @@ The example below covers the minimum required fields to be submitted for authori
 
 <h3 id="registered-boleto">Registered Boleto</h3>
 
-<p>In order to promote greater control and security to the boleto transactional in e-commerce and ensure more reliability and convenience to users, FEBRABAN - The Brazilian Federation of Banks, together with the banking network, launched the <strong>New Payment Slip-Registered Collections Platform</strong>.</p>
+<p>FEBRABAN - The Brazilian Federation of Banks, together with the banking network, launched the <strong>New Payment Slip-Registered Collections Platform</strong>. This new system was created in order to promote greater control and security to the boleto transactional in e-commerce, and to ensure more reliability and convenience to users.</p>
 
-<p>Since July 21, 2018, all boletos issued in e-commerce must be registered. <a href="https://portal.febraban.org.br/pagina/3150/1094/en/servicos-novo-platform-boletos">Click here</a> to access the full announcement (available in Portuguese).</p>
+<p>Since July 21, 2018, all boletos issued in e-commerce must be registered. <a href="https://portal.febraban.org.br/pagina/3150/1094/en-us/new-payment-platform">Click here</a> to access the full announcement (available only in Portuguese).</p>
 
-<p>Here is a list of the migration/membership procedures for each bank:</p>
+<p>Here is a list of the migration/membership procedures for each bank (material available only in Portuguese):</p>
 
 <ul>
   <li><a href="https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf">Bradesco</a></li>
@@ -3793,7 +3793,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Customer’s name. The rule varies according to the Provider used (see table in the annex).</td>
+      <td>Customer’s name. The rule varies according to the provider used (see table in the annex).</td>
       <td>Text</td>
       <td>see table in the annex</td>
       <td>Yes</td>
@@ -3841,15 +3841,15 @@ curl
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Customer’s contact address. The rule varies according to the provider used (see table in the annex).</td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
+      <td>Customer’s contact address district. The rule varies according to the provider used (see table in the annex).</td>
       <td>Text</td>
       <td>see table in the annex</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Customer’s contact address. The rule varies according to the provider used (see table in the annex).</td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
+      <td>Customer’s contact address city. The rule varies according to the provider used (see table in the annex).</td>
       <td>Text</td>
       <td>see table in the annex</td>
       <td>Yes</td>
@@ -3907,7 +3907,7 @@ curl
       <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
       <td>Statement text. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).</td>
       <td>Text</td>
-      <td>see table below</td>
+      <td>see table in the annex</td>
       <td>No</td>
     </tr>
     <tr>
@@ -4110,7 +4110,7 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field.</td>
+      <td>Order identifier field.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -4124,7 +4124,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Url</code></td>
-      <td>URL do Boleto gerado</td>
+      <td>Boleto URL generated.</td>
       <td>string</td>
       <td>256</td>
       <td>https://…/pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d</td>
@@ -4138,7 +4138,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BarCodeNumber</code></td>
-      <td>Numeric representation of the barcode.</td>
+      <td>Numerical representation of the barcode.</td>
       <td>Text</td>
       <td>44</td>
       <td>00091628800000157000494250100000001200656560</td>
@@ -4152,14 +4152,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address</code></td>
-      <td>Store Address registered in the bank</td>
+      <td>Store address registered in the issuer.</td>
       <td>Text</td>
       <td>256</td>
-      <td>Av. Teste, 160</td>
+      <td>E.g.: Av. Teste, 160</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status.</td>
+      <td>Transaction status. See status list in the annex.</td>
       <td>Byte</td>
       <td>2</td>
       <td>E.g.: 1</td>
@@ -4169,7 +4169,7 @@ curl
 
 <h3 id="boleto-conciliation">Boleto Conciliation</h3>
 
-<p>In order to update the status of a Boleto to Pago, the Pagador must receive CNAB files with the related settlements from the banks. To enable your store to receive bank files, simply follow the procedure bellow <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-">here</a></p>
+<p>In order to update the status of a Boleto to Pago, the Pagador must receive CNAB files with the related settlements from the banks. To enable your store to receive bank files, simply follow the procedure below <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-">here</a>.</p>
 
 <h3 id="bank-specific-rules">Bank Specific Rules</h3>
 
