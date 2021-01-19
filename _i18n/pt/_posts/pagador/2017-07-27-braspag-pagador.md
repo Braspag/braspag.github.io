@@ -3538,7 +3538,7 @@ O lojista conta com recursos diferenciados para modelar sua cobrança de acordo 
 
 Adicione o nó `RecurrentPayment` ao nó `Payment` para agendar as recorrências futuras ao autorizar uma transação pela primeira vez na série de recorrências.
 
-Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.DailyInterval`, marcados com um * na coluna de obrigatoriedade, não devem ser utilizados em conjunto.
+Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.DailyInterval`, marcados com um "\*" na coluna "OBRIGATÓRIO", não devem ser utilizados em conjunto.
 
 #### Requisição
 
