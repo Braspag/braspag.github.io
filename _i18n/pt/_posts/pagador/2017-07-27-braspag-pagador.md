@@ -4138,7 +4138,7 @@ curl
 
 ### Alterando Dados do Comprador
 
-Para alterar os dados do comprador em uma recorrência já existente, basta fazer um PUT conforme o exemplo.
+Para alterar os dados do comprador em uma recorrência já existente, basta fazer uma chamada com o verbo HTTP PUT, conforme o exemplo:
 
 #### Requisição
 
