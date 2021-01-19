@@ -2871,7 +2871,7 @@ Exemplo de requisição padrão Apple Pay:
 | `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 | `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".                       | Texto | 255     | Texto alfanumérico                   |
-| `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | 255     | Ver [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey).              |       
+| `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | 255     | Ver [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)              |       
 | `AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                         | Texto | 255     | Ver tabela [EphemeralPublicKey](https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey)|
 
 #### Samsung Pay
@@ -7542,7 +7542,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 |208|Cart item sku length exceeded |Dado enviado excede o tamanho do campo.|
 |209|Shipping addressee sku length exceeded |Dado enviado excede o tamanho do campo.|
 |210|Shipping data cannot be null|Campo obrigatório não enviado.|
-|211|WalletKey is invalid|Dados da Visa Checkout invalidos.|
+|211|WalletKey is invalid|Dados da Visa Checkout inválidos.|
 |212|Merchant Wallet Configuration not found|Visa Checkout não vinculado a conta do lojista.|
 |213|Credit Card Number is invalid|Cartão de crédito enviado é invalido.|
 |214|Credit Card Holder Must Have Only Letters|Portador do cartão não deve conter caracteres especiais.|
