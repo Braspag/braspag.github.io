@@ -1984,11 +1984,11 @@ The example below covers the minimum required fields to be submitted for authori
 
 ### Registered Boleto
 
-In order to promote greater control and security to the boleto transactional in e-commerce and ensure more reliability and convenience to users, FEBRABAN - The Brazilian Federation of Banks, together with the banking network, launched the **New Payment Slip-Registered Collections Platform**.
+FEBRABAN - The Brazilian Federation of Banks, together with the banking network, launched the **New Payment Slip-Registered Collections Platform**. This new system was created in order to promote greater control and security to the boleto transactional in e-commerce, and to ensure more reliability and convenience to users.
 
-Since July 21, 2018, all boletos issued in e-commerce must be registered. [Click here](https://portal.febraban.org.br/pagina/3150/1094/en/servicos-novo-platform-boletos) to access the full announcement (available in Portuguese).
+Since July 21, 2018, all boletos issued in e-commerce must be registered. [Click here](https://portal.febraban.org.br/pagina/3150/1094/en-us/new-payment-platform) to access the full announcement (available only in Portuguese).
 
-Here is a list of the migration/membership procedures for each bank:
+Here is a list of the migration/membership procedures for each bank (material available only in Portuguese):
 
 * [Bradesco](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf)
 * [Banco do Brasil](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf)
@@ -2104,15 +2104,15 @@ curl
 |`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes|
 |`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No|
 |`MerchantOrderId`|Order ID number. Rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
-|`Customer.Name`|Customer's name. The rule varies according to the Provider used (see table in the annex).|Text|see table in the annex|Yes|
+|`Customer.Name`|Customer's name. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
 |`Customer.Identity`|Customer ID like RG, CPF or CNPJ number.|Text|14|No|
 |`Customer.IdentityType`|Customer's ID document Type (CPF or CNPJ).|Text|255|No|
 |`Customer.Address.Street`|Customer's contact address. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
 |`Customer.Address.Number`|Customer's contact address number. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
 |`Customer.Address.Complement`|Customer's contact address complement. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|No|
 |`Customer.Address.ZipCode`|Customer's contact address zip code.|Text|8|No|
-|`Customer.Address.Street`|Customer's contact address. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
-|`Customer.Address.Street`|Customer's contact address. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
+|`Customer.Address.District`|Customer's contact address district. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
+|`Customer.Address.City`|Customer's contact address city. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
 |`Customer.Address.State`|Customer's contact address state.|Text|2|No|
 |`Customer.Address.Country`|Customer's contact address country.|Text|35|No|
 |`Payment.Provider`|Name of payment method provider. See table in the annex to access the list of providers.|Text|15|Yes|
@@ -2120,7 +2120,7 @@ curl
 |`Payment.Amount`|Order amount in cents.|Number|15|Yes|
 |`Payment.BoletoNumber`|Boleto number ("Nosso Número"). If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|No|
 |`Payment.Assignor`|Name of the assignor. If filled, overrides the value set on the payment method.|Text|200|No|
-|`Payment.Demonstrative`|Statement text. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).|Text|see table below|No|
+|`Payment.Demonstrative`|Statement text. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|No|
 |`Payment.ExpirationDate`|Boleto's expiration date. If you are not previously registered with the payment method, this field is required. If sent on request, overrides the value set on the payment method.|Date|YYYY-MM-DD|No|
 |`Payment.Identification`|Assignor's CNPJ. If filled, overrides the value set on the payment method.|Text|14|No|
 |`Payment.Instructions`|Boleto's instructions. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex). To break lines in this text always use the `<br>` HTML tag.|Text|see table in the annex|No|
@@ -2250,18 +2250,18 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`PaymentId`|Order Identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ExpirationDate`|Expiration date.|Text|10|2014-12-25|
-|`Url`|URL do Boleto gerado|string|256|https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d|
+|`Url`|Boleto URL generated.|string|256|https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d|
 |`BoletoNumber`|"NossoNumero" generated.|Text|50|2017091101|
-|`BarCodeNumber`|Numeric representation of the barcode.|Text|44|00091628800000157000494250100000001200656560|
+|`BarCodeNumber`|Numerical representation of the barcode.|Text|44|00091628800000157000494250100000001200656560|
 |`DigitableLine`|Digitable line.|Texto|256|00090.49420 50100.000004 12006.565605 1 62880000015700|
-|`Address`|Store Address registered in the bank|Text|256|Av. Teste, 160|
-|`Status`|Transaction Status.|Byte|2|E.g.: 1|
+|`Address`|Store address registered in the issuer.|Text|256|E.g.: Av. Teste, 160|
+|`Status`|Transaction status. See status list in the annex.|Byte|2|E.g.: 1|
 
 ### Boleto Conciliation
 
-In order to update the status of a Boleto to Pago, the Pagador must receive CNAB files with the related settlements from the banks. To enable your store to receive bank files, simply follow the procedure bellow [here](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-)
+In order to update the status of a Boleto to Pago, the Pagador must receive CNAB files with the related settlements from the banks. To enable your store to receive bank files, simply follow the procedure below [here](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-).
 
 ### Bank Specific Rules
 
