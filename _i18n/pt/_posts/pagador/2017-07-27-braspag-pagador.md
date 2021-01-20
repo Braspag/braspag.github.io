@@ -2572,9 +2572,9 @@ Abaixo, um exemplo de requisição padrão para integração da e-wallet:
 | `Payment.Installments`|Número de parcelas.|Número|2|Sim|
 | `Wallet.Type`|Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".|Texto|--|Sim|
 | `Wallet.WalletKey`|Chave criptográfica que identifica lojas nas wallets. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|Texto|--|Sim|
-| `Wallet.AdditionalData.EphemeralPublicKey`|Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".|Texto|--|Sim|
+| `Wallet.AdditionalData.EphemeralPublicKey`|Token retornado pela wallet. Deve ser enviado em integrações **ApplePay**.|Texto|--|Sim|
 | `Wallet.AdditionalData.CaptureCode`|Código informado pela **MasterPass** ao lojista.| Texto|--|Sim|                  
-| `Wallet.AdditionalData.Signature`|Token retornado pela wallet. Deve ser enviado em Integrações: "AndroidPay".|Texto|--|Sim|
+| `Wallet.AdditionalData.Signature`|Token retornado pela wallet. Deve ser enviado em integrações **AndroidPay**.|Texto|--|Sim|
 
 ##### WalletKey
 
