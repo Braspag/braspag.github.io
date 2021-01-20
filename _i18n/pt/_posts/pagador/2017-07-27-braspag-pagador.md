@@ -47,7 +47,7 @@ O modelo empregado na integração das APIs é simples e se baseia na utilizaç�
 * URL transacional - específica para operações como autorização, captura e cancelamento de transações;
 * URL de consulta - para operações consultivas, como uma pesquisa de transações.
 
-<br><br>Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada (ex.: https://api.braspag.com.br/*v2/sales/*) e, então, envie a requisição à URL utilizando o método HTTP específico de cada operação.
+<br/><br/>Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada (ex.: https://api.braspag.com.br/*v2/sales/*) e, então, envie a requisição para a URL utilizando o método HTTP adequado à operação.
 
 |Método HTTP|Descrição|
 |---|---|
@@ -56,7 +56,7 @@ O modelo empregado na integração das APIs é simples e se baseia na utilizaç�
 |**PUT**|Atualiza um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|
 
 Todas as operações requerem credenciais de acesso (**"Merchant ID"** e **"Merchant Key"**), a serem enviadas no cabeçalho, ou *header*, da requisição.<br>
-<br>O envio irá retornar um código de [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), indicando se a requisição foi realizada com sucesso ou não.
+<br>Cada envio de requisição irá retornar um código de [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), indicando se ela foi realizada com sucesso ou não.
 
 ## Ambientes de Teste e Produção
 
