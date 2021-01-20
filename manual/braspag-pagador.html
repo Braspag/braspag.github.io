@@ -175,9 +175,10 @@
 <p>O modelo empregado na integração das APIs é simples e se baseia na utilização de duas URLs:</p>
 <ul>
   <li>URL transacional - específica para operações como autorização, captura e cancelamento de transações;</li>
-  <li>URL de consulta - para operações consultivas, como uma pesquisa de transações.
-Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada (ex.: https://api.braspag.com.br/<em>v2/sales/</em>) e, então, envie a requisição à URL utilizando o método HTTP específico de cada operação.</li>
+  <li>URL de consulta - para operações consultivas, como uma pesquisa de transações.</li>
 </ul>
+
+<p><br /><br />Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada (ex.: https://api.braspag.com.br/<em>v2/sales/</em>) e, então, envie a requisição para a URL utilizando o método HTTP adequado à operação.</p>
 
 <table>
   <thead>
@@ -202,7 +203,7 @@ Para executar uma operação, combine a base da URL do ambiente com o endpoint d
   </tbody>
 </table>
 
-<p>Todas as operações requerem credenciais de acesso (<strong>“Merchant ID”</strong> e <strong>“Merchant Key”</strong>), a serem enviadas no cabeçalho, ou <em>header</em>, da requisição.<br />O envio irá retornar um código de <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">Status HTTP</a>, indicando se a requisição foi realizada com sucesso ou não.</p>
+<p>Todas as operações requerem credenciais de acesso (<strong>“Merchant ID”</strong> e <strong>“Merchant Key”</strong>), a serem enviadas no cabeçalho, ou <em>header</em>, da requisição.<br />Cada envio de requisição irá retornar um código de <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">Status HTTP</a>, indicando se ela foi realizada com sucesso ou não.</p>
 
 <h2 id="ambientes-de-teste-e-produção">Ambientes de Teste e Produção</h2>
 
