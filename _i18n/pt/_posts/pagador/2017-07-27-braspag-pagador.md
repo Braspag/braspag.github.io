@@ -2743,11 +2743,11 @@ O primeiro passo da integração deve ser feito diretamente com a solução da A
 
 <aside class="notice">Nesta etapa, não é preciso realizar o processo de criptografia de dados retornados pela Apple. Este trabalho será realizado pela Braspag, através dos procedimentos descritos na próxima etapa (passo 5).</aside>
 
-##### Passo 5. Integração com o Pagador (Decriptografia e Autorização)
+##### Passo 5. Integração com o Pagador
 
-O segundo passo da integração deverá efetivar o fluxo de autorização via gateway da Braspag (Pagador). Para isso, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive `WalletKey` e `EphemeralPublicKey`.
+O segundo passo da integração deverá efetivar o fluxo de decriptografia e autorização via gateway da Braspag (Pagador). Para isso, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive `WalletKey` e `EphemeralPublicKey`.
 
-##### Requisição
+###### Requisição
 
 Exemplo de requisição padrão Apple Pay:
 
@@ -2794,7 +2794,7 @@ Exemplo de requisição padrão Apple Pay:
 | `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.      | Texto  | 255     | Sim         |
 | `Wallet.AdditionalData.EphemeralPublicKey`| Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                 | Texto  | 255     | Sim         |
 
-##### Resposta
+###### Resposta
 
 ```json
 {
@@ -5002,7 +5002,7 @@ Este é um exemplo de como utilizar o *card token*, previamente salvo, para cria
 
 O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir:
 
-#### Requisição
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5188,7 +5188,7 @@ curl
 
 Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como *recorrente*, você poderá submeter transações sem o CVV.
 
-#### Requisição
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
