@@ -5182,11 +5182,11 @@ curl
 
 <aside class="notice">Nesta etapa, não é preciso realizar o processo de criptografia de dados retornados pela Apple. Este trabalho será realizado pela Braspag, através dos procedimentos descritos na próxima etapa (passo 5).</aside>
 
-<h5 id="passo-5-integração-com-o-pagador-decriptografia-e-autorização">Passo 5. Integração com o Pagador (Decriptografia e Autorização)</h5>
+<h5 id="passo-5-integração-com-o-pagador">Passo 5. Integração com o Pagador</h5>
 
-<p>O segundo passo da integração deverá efetivar o fluxo de autorização via gateway da Braspag (Pagador). Para isso, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive <code class="language-plaintext highlighter-rouge">WalletKey</code> e <code class="language-plaintext highlighter-rouge">EphemeralPublicKey</code>.</p>
+<p>O segundo passo da integração deverá efetivar o fluxo de decriptografia e autorização via gateway da Braspag (Pagador). Para isso, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive <code class="language-plaintext highlighter-rouge">WalletKey</code> e <code class="language-plaintext highlighter-rouge">EphemeralPublicKey</code>.</p>
 
-<h5 id="requisição-13">Requisição</h5>
+<h6 id="requisição-13">Requisição</h6>
 
 <p>Exemplo de requisição padrão Apple Pay:</p>
 
@@ -5321,7 +5321,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="resposta-13">Resposta</h5>
+<h6 id="resposta-13">Resposta</h6>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -9510,7 +9510,7 @@ curl
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> será alterado conforme exemplo a seguir:</p>
 
-<h4 id="requisição-32">Requisição</h4>
+<h3 id="requisição-32">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -9816,7 +9816,7 @@ curl
 
 <p>Este é um exemplo de como utilizar o <em>Alias</em>, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como <em>recorrente</em>, você poderá submeter transações sem o CVV.</p>
 
-<h4 id="requisição-33">Requisição</h4>
+<h3 id="requisição-33">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
