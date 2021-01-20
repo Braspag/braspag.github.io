@@ -191,44 +191,44 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 --header "Authorization: Bearer {{access_token}}"
 
 {
-	"MerchantOrderId":  "31029785000159",
-	"Customer":  {
-		"Name":"Gabriela Isis Malu Aparício",
-		"Identity":  "60191661040",
-		"IdentityType":  "CPF",
-		"Address":  {
-			"Street":  "Rua Brasil",
-			"Number":  "123",
-			"Complement":  "AP 123",
-			"ZipCode":  "12345987",
-			"City":  "Rio de Janeiro",
-			"State":  "RJ",
-			"Country":  "BRA",
-			"District":  "Centro"
-		}
-	},
-	"Payment":  {
-		"Type":  "Boleto",
-		"Provider":  "Braspag",
-		"Bank":  "BancoDoBrasil",
-		"Amount":  10000,
-		"ExpirationDate":  "2021-02-15",
-		"Identification":"60191661040",
-		"Instructions":  "Intruções para o cliente final.",
-		"SplitPayments":  [
-			{
-				"SubordinateMerchantId":  "768d0acf-9502-4411-9ec0-c5413c671771",
-				"Amount":  1000,
-				"fares":{
-					"mdr":  5.0,
-					"fee":  100
-				}
-			}
-		],
-		"SplitTransaction":  {
-			"MasterRateDiscountType":  "Commission"
-		}
-	}
+    "MerchantOrderId":  "31029785000159",
+    "Customer":  {
+        "Name":"Gabriela Isis Malu Aparício",
+        "Identity":  "60191661040",
+        "IdentityType":  "CPF",
+        "Address":  {
+            "Street":  "Rua Brasil",
+            "Number":  "123",
+            "Complement":  "AP 123",
+            "ZipCode":  "12345987",
+            "City":  "Rio de Janeiro",
+            "State":  "RJ",
+            "Country":  "BRA",
+            "District":  "Centro"
+        }
+    },
+    "Payment":  {
+        "Type":  "Boleto",
+        "Provider":  "Braspag",
+        "Bank":  "BancoDoBrasil",
+        "Amount":  10000,
+        "ExpirationDate":  "2021-02-15",
+        "Identification":"60191661040",
+        "Instructions":  "Intruções para o cliente final.",
+        "SplitPayments":  [
+            {
+                "SubordinateMerchantId":  "768d0acf-9502-4411-9ec0-c5413c671771",
+                "Amount":  1000,
+                "fares":{
+                    "mdr":  5.0,
+                    "fee":  100
+                }
+            }
+        ],
+        "SplitTransaction":  {
+            "MasterRateDiscountType":  "Commission"
+        }
+    }
 }
 ```
 
@@ -261,6 +261,7 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 |SplitTransaction.MasterRateDiscountType|Tipo de desconto da taxa Braspag. Valores disponíveis: Commision (Será descontado da comissão recebida pelo Master), Sale (Será descontado somente do valor da venda do Master)|Texto||Não |
 
 **Response**
+
 ```json
 {
     "MerchantOrderId": "31029785000159",
