@@ -2104,27 +2104,27 @@ curl
 |`MerchantId`|Store identifier at Braspag.|GUID|36|Yes|
 |`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes|
 |`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No|
-|`MerchantOrderId`|Order ID number. Rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
-|`Customer.Name`|Customer's name. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
+|`MerchantOrderId`|Order ID number. Rule varies according to the provider used (see table annexed).|Text|see table annexed|Yes|
+|`Customer.Name`|Customer's name. The rule varies according to the provider used (see table annexed).|Text|see table annexed|Yes|
 |`Customer.Identity`|Customer ID like RG, CPF or CNPJ number.|Text|14|No|
 |`Customer.IdentityType`|Customer's ID document Type (CPF or CNPJ).|Text|255|No|
-|`Customer.Address.Street`|Customer's contact address. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
-|`Customer.Address.Number`|Customer's contact address number. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
-|`Customer.Address.Complement`|Customer's contact address complement. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|No|
+|`Customer.Address.Street`|Customer's contact address. The rule varies according to the provider used (see table annexed).|Text|see table annexed|Yes|
+|`Customer.Address.Number`|Customer's contact address number. The rule varies according to the provider used (see table annexed).|Text|see table annexed|Yes|
+|`Customer.Address.Complement`|Customer's contact address complement. The rule varies according to the provider used (see table annexed).|Text|see table annexed|No|
 |`Customer.Address.ZipCode`|Customer's contact address zip code.|Text|8|No|
-|`Customer.Address.District`|Customer's contact address district. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
-|`Customer.Address.City`|Customer's contact address city. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|Yes|
+|`Customer.Address.District`|Customer's contact address district. The rule varies according to the provider used (see table annexed).|Text|see table annexed|Yes|
+|`Customer.Address.City`|Customer's contact address city. The rule varies according to the provider used (see table annexed).|Text|see table annexed|Yes|
 |`Customer.Address.State`|Customer's contact address state.|Text|2|No|
 |`Customer.Address.Country`|Customer's contact address country.|Text|35|No|
-|`Payment.Provider`|Name of payment method provider. See table in the annex to access the list of providers.|Text|15|Yes|
+|`Payment.Provider`|Name of payment method provider. See table annexed to access the list of providers.|Text|15|Yes|
 |`Payment.Type`|Payment method type. In this case, "Boleto".|Text|100|Yes|
 |`Payment.Amount`|Order amount in cents.|Number|15|Yes|
-|`Payment.BoletoNumber`|Boleto number ("Nosso Número"). If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|No|
+|`Payment.BoletoNumber`|Boleto number ("Nosso Número"). If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table annexed).|Text|see table annexed|No|
 |`Payment.Assignor`|Name of the assignor. If filled, overrides the value set on the payment method.|Text|200|No|
-|`Payment.Demonstrative`|Statement text. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex).|Text|see table in the annex|No|
+|`Payment.Demonstrative`|Statement text. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table annexed).|Text|see table annexed|No|
 |`Payment.ExpirationDate`|Boleto's expiration date. If you are not previously registered with the payment method, this field is required. If sent on request, overrides the value set on the payment method.|Date|YYYY-MM-DD|No|
 |`Payment.Identification`|Assignor's CNPJ. If filled, overrides the value set on the payment method.|Text|14|No|
-|`Payment.Instructions`|Boleto's instructions. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table in the annex). To break lines in this text always use the `<br>` HTML tag.|Text|see table in the annex|No|
+|`Payment.Instructions`|Boleto's instructions. If filled, overrides the value set on the payment method. The rule varies according to the provider used (see table annexed). To break lines in this text always use the `<br>` HTML tag.|Text|see table annexed|No|
 |`Payment.NullifyDays`|Deadline for automatic annulment of the boleto. After the number of days set in this field from the due date, the boleto will be automatically canceled. E.g.: a boleto due on Dec 15th which has 5 "nullify days" can be paid until Dec 20th; after this date the title is canceled. Note: Feature valid only for Banco Santander registered boletos.|Number|2|No|
 |`Payment.DaysToFine`|Optional and only applicable for Bradesco2 provider. Number of days (an integer) after the due date to charge a fine amount. E.g.: 3.|Number|15|No|
 |`Payment.FineRate`|Optional and only applicable for Bradesco2 provider. Amount of fine (in percentage) after due date, based on the boleto total amount (%). Permits decimal with up to 5 decimal places. Do not submit if using `FineAmount`. E.g.: 1012345 = 10.12345%.|Number|15|No*|
@@ -2258,7 +2258,7 @@ curl
 |`BarCodeNumber`|Numerical representation of the barcode.|Text|44|00091628800000157000494250100000001200656560|
 |`DigitableLine`|Digitable line.|Texto|256|00090.49420 50100.000004 12006.565605 1 62880000015700|
 |`Address`|Store address registered in the issuer.|Text|256|E.g.: Av. Teste, 160|
-|`Status`|Transaction status. See status list in the annex.|Byte|2|E.g.: 1|
+|`Status`|Transaction status. See status list annexed.|Byte|2|E.g.: 1|
 
 ### Boleto Conciliation
 
@@ -2564,11 +2564,11 @@ Here is an example of a standard request for the e-wallet integration:
 |`Payment.Amount`|Number|15|Yes|Order amount in cents.|
 |`Payment.Provider`|Text|15|Yes|Cielo providers only ("Cielo" / "Cielo30").|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
-|`Wallet.Type`|Texto |--|Sim|Wallet type: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".|
-|`Wallet.WalletKey`|Texto|--|Sim|Cryptographic key that identifies stores in wallets. Refer to the WalletKey table in the annex for more information.|
-|`Wallet.AdditionalData.EphemeralPublicKey`|Texto|--|Sim|Token returned by wallet. Must be submitted in **ApplePay** integrations.|
-|`Wallet.AdditionalData.CaptureCode`|Texto|--|Sim|Code informed by **MasterPass** to the merchant.|
-|`Wallet.AdditionalData.Signature`|Texto|--|Yes|Token returned by wallet. Must be submitted in **AndroidPay** integrations.|
+|`Wallet.Type`|Text|--|Yes|Wallet type: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".|
+|`Wallet.WalletKey`|Text|--|Yes|Cryptographic key that identifies stores in wallets. Refer to the WalletKey table in the ANNEXES for more information.|
+|`Wallet.AdditionalData.EphemeralPublicKey`|Text|--|Yes|Token returned by wallet. Must be submitted in **ApplePay** integrations.|
+|`Wallet.AdditionalData.CaptureCode`|Text|--|Yes|Code informed by **MasterPass** to the merchant.|
+|`Wallet.AdditionalData.Signature`|Text|--|Yes|Token returned by wallet. Must be submitted in **AndroidPay** integrations.|
 
 ##### WalletKey
 
@@ -2586,15 +2586,15 @@ Here is a list of the `WalletKey` formats to be passed to the Pagador API:
 
 ##### EphemeralPublicKey
 
-`WalletKeys` format to pass to the Pagador API
+This is the `EphemeralPublicKey` format to be passed to the Pagador API:
 
 |Wallet|Example|
 |----------------|----------------------------------------------------------------------------------------------------------------------------------|
 |*Apple Pay*|`MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==`|
 
-##### Signatures
+##### Signature
 
-`Signature` format to pass to Payer API
+This is the `Signature` format to be passed to the Pagador API:
 
 |Wallet|Example|
 |----------------|----------------------------------------------------------------------------------------------------------------------------------|
@@ -2668,19 +2668,19 @@ Here is a list of the `WalletKey` formats to be passed to the Pagador API:
 |Property|Description|Type|Size|Format|
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
 |`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric
-|`TID`|Transaction Id on the acquirer.|Text|20|Alphanumeric
-|`AuthorizationCode`|Authorization Code|Text|6|Alphanumeric
-|`SoftDescriptor`|Text to be printed on bearer bank statement - Available for VISA/MASTER only - does not allow special characters|Text 13|Alphanumeric|
-|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is|Text 2|Examples: 7|
-|`Status`|Transaction Status.|Byte|2|E.g.: 1|
+|`TID`|Transaction ID in the acquirer.|Text|20|Alphanumeric
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric
+|`SoftDescriptor`|Text to be printed on the bearer bank statement. Available for VISA/MASTER only - no special characters allowed.|Text|13|Alphanumeric|
+|`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|*Electronic Commerce Indicator*. Represents how secure a transaction is.|Text 2|E.g.: 7|
+|`Status`|Transaction status.|Byte|2|E.g.: 1|
 |`ReturnCode`|Return code from the acquirer.|Text|32|Alphanumeric|
-|`ReturnMessage`|Return message from Acquirer.|Texto|--|Alphanumeric|
-|`Type`|indicates which wallet type: `ApplePay`/`SamsungPay`/`AndroidPay`/`VisaCheckout`/`Masterpass`|Text|--|Alphanumeric|
-|`WalletKey`|Cryptographic key that identifies stores in Wallets - See WalletKey table for more information|Text|--|See table `WalletKey`|
-|`AdditionalData.EphemeralPublicKey`|Token returned by Wallet. Must be submitted in Integrations: `ApplePay`|Text|--|View Table `EphemeralPublicKey`|
-|`AdditionalData.CaptureCode`|Code informed by `MasterPass` to the merchant|Text|--|3|
-|`AdditionalData.Signature`|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`|Text|--|See Table `Signature`|
+|`ReturnMessage`|Return message from the acquirer.|Text|--|Alphanumeric|
+|`Type`|Wallet type: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".|Text|--|Alphanumeric|
+|`WalletKey`|Cryptographic key that identifies stores in wallets. Check the WalletKey table in the ANNEXES for more information.|Text|--|See "WalletKey" table annexed|
+|`AdditionalData.EphemeralPublicKey`|Token returned by wallet. Must be submitted in **ApplePay** integrations.|Text|--|See "EphemeralPublicKey" table annexed|
+|`AdditionalData.CaptureCode`|Code informed by **MasterPass** to the merchant.|Text|--|3|
+|`AdditionalData.Signature`|Token returned by wallet. Must be submitted in **AndroidPay** integrations.|Text|--|See "Signature" table annexed|
 
 ### Examples
 
