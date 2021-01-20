@@ -173,13 +173,11 @@
 <h2 id="arquitetura-da-integração">Arquitetura da Integração</h2>
 
 <p>O modelo empregado na integração das APIs é simples e se baseia na utilização de duas URLs:</p>
-
 <ul>
   <li>URL transacional - específica para operações como autorização, captura e cancelamento de transações;</li>
-  <li>URL de consulta - para operações consultivas, como uma pesquisa de transações.</li>
+  <li>URL de consulta - para operações consultivas, como uma pesquisa de transações. 
+Essas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT, descritos abaixo:</li>
 </ul>
-
-<p>Essas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT.</p>
 
 <table>
   <thead>
@@ -204,7 +202,7 @@
   </tbody>
 </table>
 
-<p>Todas as operações requerem credenciais de acesso (<strong>“Merchant ID”</strong> e <strong>“Merchant Key”</strong>) a serem enviados no cabeçalho (header) da requisição.<br />Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito em cada operação. O envio irá retornar um código com o <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">Status HTTP</a> da operação, indicando se a requisição foi completada com sucesso ou não.</p>
+<p>Todas as operações requerem credenciais de acesso (<strong>“Merchant ID”</strong> e <strong>“Merchant Key”</strong>) a serem enviadas no cabeçalho, ou <em>header</em>, da requisição.<br />Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada, como neste exemplo: https://api.braspag.com.br/<em>v2/sales/</em>. Então, envie a requisição à URL utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito em cada operação. O envio irá retornar um código de <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">Status HTTP</a>, indicando se a requisição foi realizada com sucesso ou não.</p>
 
 <h2 id="ambientes-de-teste-e-produção">Ambientes de Teste e Produção</h2>
 
@@ -250,7 +248,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>Credenciais de acesso à API</td>
+      <td>Credenciais de acesso</td>
       <td>Envie um email para <em>comercial@braspag.com.br</em> para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.</td>
     </tr>
     <tr>
