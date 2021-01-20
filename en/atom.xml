@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-20T16:21:28+00:00</updated>
+    <updated>2021-01-20T16:32:05+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13443,7 +13443,7 @@ curl
       &lt;td&gt;Customer’s email address.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Birthdate&lt;/code&gt;&lt;/td&gt;
@@ -13453,10 +13453,17 @@ curl
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Address.ZipCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Customer’s contact address.&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.IpAddress&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Customer’s IP address. IPv4 and IPv6 support.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;45&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Address.Street&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Customer’s address street.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;No*&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -13558,7 +13565,7 @@ curl
       &lt;td&gt;No*&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Address.District&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.DeliveryAddress.District&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Delivery address neighborhood.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
@@ -17560,66 +17567,35 @@ curl
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;e-wallets&quot;&gt;E-Wallets&lt;/h2&gt;
+&lt;h2 id=&quot;e-wallet-digital-wallet&quot;&gt;E-Wallet (Digital Wallet)&lt;/h2&gt;
 
-&lt;h3 id=&quot;what-are-e-wallets-digital-wallets&quot;&gt;What are e-Wallets (Digital Wallets)&lt;/h3&gt;
+&lt;p&gt;E-wallets are electronic safes (repositories) of cards and payment data for the physical and e-commerce customers. Digital wallets allow a customer to register their payment details, making the purchase process more convenient and secure.&lt;/p&gt;
 
-&lt;p&gt;They are card and payment data repositories for e-commerce consumers and the physical world. Digital Wallets allow a consumer to register their payment data, making the purchase process more convenient and secure.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;To use wallets at the Pagador, the merchant must have the wallets integrated in his checkout&lt;/em&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;aside class=&quot;warning&quot;&gt;The merchant needs the wallets to be integrated in their checkout in order to use them in Pagador.&lt;/aside&gt;
 
 &lt;p&gt;For more information, contact the provider of your choice to contract the service.&lt;/p&gt;
 
 &lt;h3 id=&quot;available-e-wallets&quot;&gt;Available E-Wallets&lt;/h3&gt;
 
-&lt;p&gt;Pagador currently supports:&lt;/p&gt;
+&lt;p&gt;Pagador currently supports the following digital wallets:&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Wallet&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://www.apple.com/br/apple-pay/&quot;&gt;&lt;em&gt;Apple Pay&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://www.samsung.com.br/samsungpay/&quot;&gt;&lt;em&gt;Samsung Pay&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://pay.google.com/intl/pt-BR_br/about/&quot;&gt;&lt;em&gt;Google Pay&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://vaidevisa.visa.com.br/site/visa-checkout&quot;&gt;&lt;em&gt;VisaCheckout&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://masterpass.com/&quot;&gt;&lt;em&gt;MasterPass&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.apple.com/br/apple-pay/&quot;&gt;&lt;em&gt;Apple Pay&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.samsung.com.br/samsungpay/&quot;&gt;&lt;em&gt;Samsung Pay&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pay.google.com/intl/pt-BR_br/about/&quot;&gt;&lt;em&gt;Google Pay&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://vaidevisa.visa.com.br/site/visa-checkout&quot;&gt;&lt;em&gt;VisaCheckout&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://masterpass.com/&quot;&gt;&lt;em&gt;MasterPass&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Attention: When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Attention: For the debit card, when the request is sent the “Wallet” node, the “DebitCard” node containing the “ReturnUrl” will be required.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;When the “Wallet” node is sent in the request, the “DebitCard” node containing the “ReturnUrl” will be required for debit cards.&lt;/aside&gt;
 
-&lt;h3 id=&quot;integration&quot;&gt;Integration&lt;/h3&gt;
+&lt;h3 id=&quot;e-wallet-integration&quot;&gt;E-Wallet Integration&lt;/h3&gt;
 
-&lt;h4 id=&quot;standard-request&quot;&gt;Standard Request&lt;/h4&gt;
+&lt;p&gt;Here is an example of a standard request for the e-wallet integration:&lt;/p&gt;
+
+&lt;h4 id=&quot;request-12&quot;&gt;Request&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111708&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -17662,21 +17638,21 @@ curl
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Store identifier at Braspag&lt;/td&gt;
+      &lt;td&gt;Store identifier at Braspag.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;40&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Public Key for Dual Authentication at Braspag&lt;/td&gt;
+      &lt;td&gt;Public key for dual authentication at Braspag.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Request identifier, used when the merchant uses different servers for each GET/POST/PUT&lt;/td&gt;
+      &lt;td&gt;Request identifier, used when the merchant uses different servers for each GET/POST/PUT.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
@@ -17696,7 +17672,7 @@ curl
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Status&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text 255&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Customer’s registration status (NEW/EXISTING).&lt;/td&gt;
+      &lt;td&gt;Customer’s registration status (“NEW” / “EXISTING”).&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -17704,77 +17680,79 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Payment Method Type&lt;/td&gt;
+      &lt;td&gt;Payment method type.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Order Amount (in cents)&lt;/td&gt;
+      &lt;td&gt;Order amount in cents.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Payment.Provider&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Cielo providers only (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cielo&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; Cielo30&lt;/code&gt;)&lt;/td&gt;
+      &lt;td&gt;Cielo providers only (“Cielo” / “Cielo30”).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Number of Installments&lt;/td&gt;
+      &lt;td&gt;Number of Installments.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “AndroidPay” / “VisaCheckout” / “Masterpass”.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.Walletkey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.WalletKey&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Cryptographic key that identifies stores in Wallets - See WalletKey table for more information&lt;/td&gt;
+      &lt;td&gt;Cryptographic key that identifies stores in wallets. Refer to the WalletKey table in the annex for more information.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.AdditionalData.EphemeralPublicKey&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Token returned by Wallet. Must be submitted in Integrations: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Token returned by wallet. Must be submitted in &lt;strong&gt;ApplePay&lt;/strong&gt; integrations.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.AdditionalData.capturecode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.AdditionalData.CaptureCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Code informed by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MasterPass&lt;/code&gt; to the merchant&lt;/td&gt;
+      &lt;td&gt;Code informed by &lt;strong&gt;MasterPass&lt;/strong&gt; to the merchant.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.AdditionalData.EphemeralPublicKey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.AdditionalData.Signature&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Token returned by Wallet. Must be submitted in Integrations: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Token returned by wallet. Must be submitted in &lt;strong&gt;AndroidPay&lt;/strong&gt; integrations.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h5 id=&quot;walletkey&quot;&gt;Walletkey&lt;/h5&gt;
+&lt;h5 id=&quot;walletkey&quot;&gt;WalletKey&lt;/h5&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WalletKeys&lt;/code&gt; format to pass to the Pagador API&lt;/p&gt;
+&lt;p&gt;WalletKey is the identifier used by Braspag to decrypt the payloads returned by an e-wallet.&lt;/p&gt;
+
+&lt;p&gt;Here is a list of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt; formats to be passed to the Pagador API:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;Wallet&lt;/th&gt;
       &lt;th&gt;Example&lt;/th&gt;
-      &lt;th&gt;.&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -17824,6 +17802,8 @@ curl
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;h5 id=&quot;signatures&quot;&gt;Signatures&lt;/h5&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Signature&lt;/code&gt; format to pass to Payer API&lt;/p&gt;
 
@@ -17988,7 +17968,7 @@ curl
       &lt;td&gt;Alphanumeric&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Walletkey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Cryptographic key that identifies stores in Wallets - See WalletKey table for more information&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
@@ -18078,11 +18058,11 @@ curl
 
 &lt;p&gt;At this stage, you do not need to perform the process of encrypting data returned by Apple. This work will be performed by Braspag through the procedures described in the next step.&lt;/p&gt;
 
-&lt;h5 id=&quot;step-5-pagador-integration-decryption-and-authorization&quot;&gt;Step 5. Pagador integration (decryption and authorization)&lt;/h5&gt;
+&lt;h5 id=&quot;step-5-pagador-integration&quot;&gt;Step 5. Pagador Integration&lt;/h5&gt;
 
-&lt;p&gt;The second integration step is to effect the authorization flow via Braspag’s gateway (Pagador). To do so, you must provide data received in the stream with Apple Pay, including WalletKey and EphemeralPublicKey.&lt;/p&gt;
+&lt;p&gt;The second integration step is to effect the decryption and authorization flow via Braspag’s gateway (Pagador). To do so, you must provide data received in the stream with Apple Pay, including WalletKey and EphemeralPublicKey.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-12&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-13&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;Default Request Example &lt;em&gt;Apple Pay&lt;/em&gt;&lt;/p&gt;
 
@@ -18166,7 +18146,7 @@ curl
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Status&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text 255&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Shopper Registration Status (NEW/EXISTING)&lt;/td&gt;
+      &lt;td&gt;Shopper Registration Status (“NEW” / “EXISTING”).&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -18205,7 +18185,7 @@ curl
       &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.Walletkey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.WalletKey&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -18367,7 +18347,7 @@ curl
       &lt;td&gt;Alphanumeric&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Walletkey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Cryptographic key that identifies stores in Wallets - Check WalletKey table for more information&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
@@ -18385,7 +18365,7 @@ curl
 
 &lt;h4 id=&quot;samsung-pay&quot;&gt;Samsung Pay&lt;/h4&gt;
 
-&lt;h4 id=&quot;request-13&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-14&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;Default Request Example &lt;em&gt;Samsung Pay&lt;/em&gt;&lt;/p&gt;
 
@@ -18468,7 +18448,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Shopper Registration Status (NEW/EXISTING)&lt;/td&gt;
+      &lt;td&gt;Shopper Registration Status (“NEW” / “EXISTING”).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
@@ -18506,7 +18486,7 @@ curl
       &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay/&lt;/code&gt;AndroidPay&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;VisaCheckout&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;Masterpass`&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.Walletkey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.WalletKey&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -18658,7 +18638,7 @@ curl
       &lt;td&gt;Alphanumeric&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Walletkey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Cryptographic Key Representing Card Data - Check WalletKey Table for More Information&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
@@ -18669,7 +18649,7 @@ curl
 
 &lt;h4 id=&quot;google-pay&quot;&gt;Google Pay&lt;/h4&gt;
 
-&lt;h4 id=&quot;request-14&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-15&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;Default Request Example &lt;em&gt;Google Pay&lt;/em&gt;&lt;/p&gt;
 
@@ -18754,7 +18734,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Shopper Registration Status (NEW/EXISTING)&lt;/td&gt;
+      &lt;td&gt;Shopper Registration Status (“NEW” / “EXISTING”).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
@@ -18792,7 +18772,7 @@ curl
       &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.Walletkey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.WalletKey&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -18954,7 +18934,7 @@ curl
       &lt;td&gt;Alphanumeric&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Walletkey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Cryptographic Key Representing Card Data - Check WalletKey Table for More Information&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
@@ -18976,7 +18956,7 @@ curl
   &lt;p&gt;To use MasterPass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&quot;request-15&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-16&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -19058,7 +19038,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Shopper Registration Status (NEW/EXISTING)&lt;/td&gt;
+      &lt;td&gt;Shopper Registration Status (“NEW” / “EXISTING”).&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -19102,7 +19082,7 @@ curl
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.Walletkey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.WalletKey&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -19275,7 +19255,7 @@ curl
   &lt;p&gt;To use &lt;em&gt;Visa Checkout&lt;/em&gt; you need to contract the service by contacting Visa directly.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&quot;request-16&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-17&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -19358,7 +19338,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Shopper Registration Status (NEW/EXISTING)&lt;/td&gt;
+      &lt;td&gt;Shopper Registration Status (“NEW” / “EXISTING”).&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -19418,7 +19398,7 @@ curl
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.Walletkey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.WalletKey&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
@@ -19570,7 +19550,7 @@ curl
 
 &lt;p&gt;A transaction with an &lt;em&gt;Alelo&lt;/em&gt; Card is similar to a Debit Card, but without the authentication process. &lt;br /&gt;Currently, only the “Alelo” Provider supports processing of this mode.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-17&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-18&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -19899,7 +19879,7 @@ curl
 
 &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.RecurrentPayment.Interval&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.RecurrentPayment.DailyInterval&lt;/code&gt; parameters, marked with an “*” in the “MANDATORY” column, must not be used together.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-18&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-19&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -20222,7 +20202,7 @@ curl
 
 &lt;p&gt;Contact Support to determine how many days you want your boletos generated via Recurrence to expire.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-19&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-20&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -20539,7 +20519,7 @@ curl
 
 &lt;p&gt;To schedule the first transaction in the recurrence series, pass the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.RecurrentPayment.AuthorizeNow&lt;/code&gt; parameter to &lt;em&gt;“false”&lt;/em&gt; and add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.RecurrentPayment.StartDate&lt;/code&gt; parameter.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-20&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-21&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -20853,7 +20833,7 @@ curl
 
 &lt;p&gt;To change customer data in an existing recurrence, simply make a PUT call as demonstrated in the example:&lt;/p&gt;
 
-&lt;h4 id=&quot;request-21&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-22&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Customer&lt;/span&gt;&lt;/aside&gt;
 
@@ -21130,7 +21110,7 @@ HTTP Status 200
 
 &lt;p&gt;To change the end date of the existing recurrence, just make a PUT as shown.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-22&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-23&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate&lt;/span&gt;&lt;/aside&gt;
 
@@ -21214,7 +21194,7 @@ HTTP Status 200
 
 &lt;p&gt;To change the range of an existing recurrence, just make a PUT as per the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-23&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-24&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Interval&lt;/span&gt;&lt;/aside&gt;
 
@@ -21300,7 +21280,7 @@ HTTP Status 200
 
 &lt;aside class=&quot;notice&quot;&gt;Rule: If the new day entered is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is May 5, and the next recurrence is May 25. When I upgrade to the 10, the next recurrence date will be May 10. If the new day entered is before the current day, we will update the recurrence day, but this will take effect only after the next recurrence has been successfully executed. E.g.: Today is 5th, and the next recurrence is May 25. When I upgrade to day 3, the date of the next recurrence will remain on May 25, and after it runs, the next will be scheduled for June 3. If the new day entered is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is 5th, and the next recurrence is September 25. When I upgrade to day 3, the next recurrence date will be September 3&lt;/aside&gt;
 
-&lt;h4 id=&quot;request-24&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-25&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay&lt;/span&gt;&lt;/aside&gt;
 
@@ -21384,7 +21364,7 @@ HTTP Status 200
 
 &lt;p&gt;To modify the transaction value of an existing recurrence, simply make a PUT as per the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-25&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-26&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Amount&lt;/span&gt;&lt;/aside&gt;
 
@@ -21472,7 +21452,7 @@ HTTP Status 200
 
 &lt;p&gt;This operation only modifies the date of the next payment, i.e. future recurrences will remain with the original characteristics.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-26&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-27&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate&lt;/span&gt;&lt;/aside&gt;
 
@@ -21566,7 +21546,7 @@ HTTP Status 200
 
 &lt;aside class=&quot;notice&quot;&gt;Attention: This change affects all Payment node data. So to keep the previous data you must enter the fields that will not change with the same values that were already saved.&lt;/aside&gt;
 
-&lt;h4 id=&quot;request-27&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-28&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Payment&lt;/span&gt;&lt;/aside&gt;
 
@@ -21850,7 +21830,7 @@ curl
 
 &lt;p&gt;To deactivate a recurring request, simply make a PUT as per the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-28&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-29&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Payment&lt;/span&gt;&lt;/aside&gt;
 
@@ -21919,7 +21899,7 @@ curl
 
 &lt;p&gt;To reactivate a recurring request, simply make a PUT as per the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-29&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-30&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate&lt;/span&gt;&lt;/aside&gt;
 
@@ -22138,7 +22118,7 @@ HTTP Status 200
 
 &lt;h2 id=&quot;saving-a-card-during-an-authorization&quot;&gt;Saving a card during an authorization&lt;/h2&gt;
 
-&lt;h4 id=&quot;request-30&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-31&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;To save a credit card used in a transaction, simply send the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.SaveCard&lt;/code&gt; parameter as &lt;em&gt;true&lt;/em&gt; in the standard authorization request.&lt;/p&gt;
 
@@ -22494,7 +22474,7 @@ curl
 
 &lt;p&gt;This is an example of how to use the previously saved Card Token to create a transaction. For security reasons, a Card Token has not kept the Security Code (CVV). Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-31&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-32&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard&lt;/code&gt; node within the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment&lt;/code&gt; node will change as shown below.&lt;/p&gt;
 
@@ -22802,7 +22782,7 @@ curl
 
 &lt;p&gt;This is an example of how to use the previously saved Alias to create a transaction. For security reasons, an Alias has not kept the Security Code. Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-32&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-33&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -23176,7 +23156,7 @@ curl
 
 &lt;p&gt;For CyberSource fraud analysis to be performed during a credit card transaction, you must supplement the authorization agreement with the “FraudAnalysis”, “Cart”, “MerchantDefinedFields” and “Travel (only for airline tickets)” nodes.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-33&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-34&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -25303,7 +25283,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 &lt;p&gt;To query a credit card transaction, you must do a GET to the Payment feature as shown.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-34&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-35&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -26195,7 +26175,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 &lt;p&gt;To query a credit card transaction, you must do a GET to the Payment feature as shown.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-35&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-36&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -26735,7 +26715,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 &lt;p&gt;To query a sale by store identifier, you must GET the resource/sales as shown.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-36&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-37&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales?merchantOrderId = {merchantOrderId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -26851,7 +26831,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 &lt;p&gt;To query a Recurrence request, you need to get a GET as per the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-37&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-38&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}&lt;/span&gt;&lt;/aside&gt;
 

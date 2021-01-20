@@ -568,7 +568,7 @@ curl
       <td>Customer’s email address.</td>
       <td>Text</td>
       <td>255</td>
-      <td>Yes</td>
+      <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
@@ -578,10 +578,17 @@ curl
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Customer’s contact address.</td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IpAddress</code></td>
+      <td>Customer’s IP address. IPv4 and IPv6 support.</td>
       <td>Text</td>
-      <td>9</td>
+      <td>45</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
+      <td>Customer’s address street.</td>
+      <td>Text</td>
+      <td>255</td>
       <td>No*</td>
     </tr>
     <tr>
@@ -683,7 +690,7 @@ curl
       <td>No*</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
       <td>Delivery address neighborhood.</td>
       <td>Text</td>
       <td>50</td>
@@ -4685,66 +4692,35 @@ curl
   </tbody>
 </table>
 
-<h2 id="e-wallets">E-Wallets</h2>
+<h2 id="e-wallet-digital-wallet">E-Wallet (Digital Wallet)</h2>
 
-<h3 id="what-are-e-wallets-digital-wallets">What are e-Wallets (Digital Wallets)</h3>
+<p>E-wallets are electronic safes (repositories) of cards and payment data for the physical and e-commerce customers. Digital wallets allow a customer to register their payment details, making the purchase process more convenient and secure.</p>
 
-<p>They are card and payment data repositories for e-commerce consumers and the physical world. Digital Wallets allow a consumer to register their payment data, making the purchase process more convenient and secure.</p>
-
-<blockquote>
-  <p><em>To use wallets at the Pagador, the merchant must have the wallets integrated in his checkout</em>.</p>
-</blockquote>
+<aside class="warning">The merchant needs the wallets to be integrated in their checkout in order to use them in Pagador.</aside>
 
 <p>For more information, contact the provider of your choice to contract the service.</p>
 
 <h3 id="available-e-wallets">Available E-Wallets</h3>
 
-<p>Pagador currently supports:</p>
+<p>Pagador currently supports the following digital wallets:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th style="text-align: center">Wallet</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td> </td>
-      <td style="text-align: center"><a href="https://www.apple.com/br/apple-pay/"><em>Apple Pay</em></a></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td style="text-align: center"><a href="https://www.samsung.com.br/samsungpay/"><em>Samsung Pay</em></a></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td style="text-align: center"><a href="https://pay.google.com/intl/pt-BR_br/about/"><em>Google Pay</em></a></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td style="text-align: center"><a href="https://vaidevisa.visa.com.br/site/visa-checkout"><em>VisaCheckout</em></a></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td style="text-align: center"><a href="https://masterpass.com/"><em>MasterPass</em></a></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<ul>
+  <li><a href="https://www.apple.com/br/apple-pay/"><em>Apple Pay</em></a></li>
+  <li><a href="https://www.samsung.com.br/samsungpay/"><em>Samsung Pay</em></a></li>
+  <li><a href="https://pay.google.com/intl/pt-BR_br/about/"><em>Google Pay</em></a></li>
+  <li><a href="https://vaidevisa.visa.com.br/site/visa-checkout"><em>VisaCheckout</em></a></li>
+  <li><a href="https://masterpass.com/"><em>MasterPass</em></a></li>
+</ul>
 
-<aside class="notice">Attention: When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
+<aside class="warning">When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
 
-<aside class="notice">Attention: For the debit card, when the request is sent the “Wallet” node, the “DebitCard” node containing the “ReturnUrl” will be required.</aside>
+<aside class="warning">When the “Wallet” node is sent in the request, the “DebitCard” node containing the “ReturnUrl” will be required for debit cards.</aside>
 
-<h3 id="integration">Integration</h3>
+<h3 id="e-wallet-integration">E-Wallet Integration</h3>
 
-<h4 id="standard-request">Standard Request</h4>
+<p>Here is an example of a standard request for the e-wallet integration:</p>
+
+<h4 id="request-12">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -4787,21 +4763,21 @@ curl
       <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
-      <td>Store identifier at Braspag</td>
+      <td>Store identifier at Braspag.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
-      <td>Public Key for Dual Authentication at Braspag</td>
+      <td>Public key for dual authentication at Braspag.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>GUID</td>
       <td>36</td>
       <td>No</td>
-      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -4821,7 +4797,7 @@ curl
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
       <td>Text 255</td>
       <td>No</td>
-      <td>Customer’s registration status (NEW/EXISTING).</td>
+      <td>Customer’s registration status (“NEW” / “EXISTING”).</td>
       <td> </td>
     </tr>
     <tr>
@@ -4829,77 +4805,79 @@ curl
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Payment Method Type</td>
+      <td>Payment method type.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Order Amount (in cents)</td>
+      <td>Order amount in cents.</td>
     </tr>
     <tr>
-      <td>Payment.Provider</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Cielo providers only (<code class="language-plaintext highlighter-rouge">Cielo</code>/<code class="language-plaintext highlighter-rouge"> Cielo30</code>)</td>
+      <td>Cielo providers only (“Cielo” / “Cielo30”).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of Installments</td>
+      <td>Number of Installments.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
       <td>Texto</td>
       <td>–</td>
       <td>Sim</td>
-      <td>Indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">AndroidPay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
+      <td>Wallet type: “ApplePay” / “SamsungPay” / “AndroidPay” / “VisaCheckout” / “Masterpass”.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.Walletkey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
       <td>Texto</td>
       <td>–</td>
       <td>Sim</td>
-      <td>Cryptographic key that identifies stores in Wallets - See WalletKey table for more information</td>
+      <td>Cryptographic key that identifies stores in wallets. Refer to the WalletKey table in the annex for more information.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.EphemeralPublicKey</code></td>
       <td>Texto</td>
       <td>–</td>
       <td>Sim</td>
-      <td>Token returned by Wallet. Must be submitted in Integrations: <code class="language-plaintext highlighter-rouge">ApplePay</code></td>
+      <td>Token returned by wallet. Must be submitted in <strong>ApplePay</strong> integrations.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.capturecode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.CaptureCode</code></td>
       <td>Texto</td>
       <td>–</td>
       <td>Sim</td>
-      <td>Code informed by <code class="language-plaintext highlighter-rouge">MasterPass</code> to the merchant</td>
+      <td>Code informed by <strong>MasterPass</strong> to the merchant.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.EphemeralPublicKey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.Signature</code></td>
       <td>Texto</td>
       <td>–</td>
       <td>Yes</td>
-      <td>Token returned by Wallet. Must be submitted in Integrations: <code class="language-plaintext highlighter-rouge">AndroidPay</code></td>
+      <td>Token returned by wallet. Must be submitted in <strong>AndroidPay</strong> integrations.</td>
     </tr>
   </tbody>
 </table>
 
-<h5 id="walletkey">Walletkey</h5>
+<h5 id="walletkey">WalletKey</h5>
 
-<p><code class="language-plaintext highlighter-rouge">WalletKeys</code> format to pass to the Pagador API</p>
+<p>WalletKey is the identifier used by Braspag to decrypt the payloads returned by an e-wallet.</p>
+
+<p>Here is a list of the <code class="language-plaintext highlighter-rouge">WalletKey</code> formats to be passed to the Pagador API:</p>
 
 <table>
   <thead>
     <tr>
       <th>Wallet</th>
       <th>Example</th>
-      <th>.</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -4949,6 +4927,8 @@ curl
     </tr>
   </tbody>
 </table>
+
+<h5 id="signatures">Signatures</h5>
 
 <p><code class="language-plaintext highlighter-rouge">Signature</code> format to pass to Payer API</p>
 
@@ -5113,7 +5093,7 @@ curl
       <td>Alphanumeric</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Walletkey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WalletKey</code></td>
       <td>Cryptographic key that identifies stores in Wallets - See WalletKey table for more information</td>
       <td>Text</td>
       <td>–</td>
@@ -5203,11 +5183,11 @@ curl
 
 <p>At this stage, you do not need to perform the process of encrypting data returned by Apple. This work will be performed by Braspag through the procedures described in the next step.</p>
 
-<h5 id="step-5-pagador-integration-decryption-and-authorization">Step 5. Pagador integration (decryption and authorization)</h5>
+<h5 id="step-5-pagador-integration">Step 5. Pagador Integration</h5>
 
-<p>The second integration step is to effect the authorization flow via Braspag’s gateway (Pagador). To do so, you must provide data received in the stream with Apple Pay, including WalletKey and EphemeralPublicKey.</p>
+<p>The second integration step is to effect the decryption and authorization flow via Braspag’s gateway (Pagador). To do so, you must provide data received in the stream with Apple Pay, including WalletKey and EphemeralPublicKey.</p>
 
-<h4 id="request-12">Request</h4>
+<h4 id="request-13">Request</h4>
 
 <p>Default Request Example <em>Apple Pay</em></p>
 
@@ -5291,7 +5271,7 @@ curl
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
       <td>Text 255</td>
       <td>No</td>
-      <td>Shopper Registration Status (NEW/EXISTING)</td>
+      <td>Shopper Registration Status (“NEW” / “EXISTING”).</td>
       <td> </td>
     </tr>
     <tr>
@@ -5330,7 +5310,7 @@ curl
       <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">AndroidPay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.Walletkey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
@@ -5492,7 +5472,7 @@ curl
       <td>Alphanumeric</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Walletkey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WalletKey</code></td>
       <td>Cryptographic key that identifies stores in Wallets - Check WalletKey table for more information</td>
       <td>Text</td>
       <td>255</td>
@@ -5510,7 +5490,7 @@ curl
 
 <h4 id="samsung-pay">Samsung Pay</h4>
 
-<h4 id="request-13">Request</h4>
+<h4 id="request-14">Request</h4>
 
 <p>Default Request Example <em>Samsung Pay</em></p>
 
@@ -5593,7 +5573,7 @@ curl
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Shopper Registration Status (NEW/EXISTING)</td>
+      <td>Shopper Registration Status (“NEW” / “EXISTING”).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -5631,7 +5611,7 @@ curl
       <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay/</code>AndroidPay<code class="language-plaintext highlighter-rouge">/</code>VisaCheckout<code class="language-plaintext highlighter-rouge">/</code>Masterpass`</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.Walletkey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
@@ -5783,7 +5763,7 @@ curl
       <td>Alphanumeric</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Walletkey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WalletKey</code></td>
       <td>Cryptographic Key Representing Card Data - Check WalletKey Table for More Information</td>
       <td>Text</td>
       <td>255</td>
@@ -5794,7 +5774,7 @@ curl
 
 <h4 id="google-pay">Google Pay</h4>
 
-<h4 id="request-14">Request</h4>
+<h4 id="request-15">Request</h4>
 
 <p>Default Request Example <em>Google Pay</em></p>
 
@@ -5879,7 +5859,7 @@ curl
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Shopper Registration Status (NEW/EXISTING)</td>
+      <td>Shopper Registration Status (“NEW” / “EXISTING”).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -5917,7 +5897,7 @@ curl
       <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge"> SamsungPay</code>/<code class="language-plaintext highlighter-rouge">AndroidPay</code>/<code class="language-plaintext highlighter-rouge"> VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.Walletkey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
@@ -6079,7 +6059,7 @@ curl
       <td>Alphanumeric</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Walletkey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WalletKey</code></td>
       <td>Cryptographic Key Representing Card Data - Check WalletKey Table for More Information</td>
       <td>Text</td>
       <td>255</td>
@@ -6101,7 +6081,7 @@ curl
   <p>To use MasterPass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.</p>
 </blockquote>
 
-<h4 id="request-15">Request</h4>
+<h4 id="request-16">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -6183,7 +6163,7 @@ curl
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Shopper Registration Status (NEW/EXISTING)</td>
+      <td>Shopper Registration Status (“NEW” / “EXISTING”).</td>
       <td> </td>
     </tr>
     <tr>
@@ -6227,7 +6207,7 @@ curl
       <td> </td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.Walletkey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
@@ -6400,7 +6380,7 @@ curl
   <p>To use <em>Visa Checkout</em> you need to contract the service by contacting Visa directly.</p>
 </blockquote>
 
-<h4 id="request-16">Request</h4>
+<h4 id="request-17">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -6483,7 +6463,7 @@ curl
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Shopper Registration Status (NEW/EXISTING)</td>
+      <td>Shopper Registration Status (“NEW” / “EXISTING”).</td>
       <td> </td>
     </tr>
     <tr>
@@ -6543,7 +6523,7 @@ curl
       <td> </td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.Walletkey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
       <td>Text</td>
       <td>255</td>
       <td>—</td>
@@ -6695,7 +6675,7 @@ curl
 
 <p>A transaction with an <em>Alelo</em> Card is similar to a Debit Card, but without the authentication process. <br />Currently, only the “Alelo” Provider supports processing of this mode.</p>
 
-<h4 id="request-17">Request</h4>
+<h4 id="request-18">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7024,7 +7004,7 @@ curl
 
 <p>The <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> and <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code> parameters, marked with an “*” in the “MANDATORY” column, must not be used together.</p>
 
-<h4 id="request-18">Request</h4>
+<h4 id="request-19">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7347,7 +7327,7 @@ curl
 
 <p>Contact Support to determine how many days you want your boletos generated via Recurrence to expire.</p>
 
-<h4 id="request-19">Request</h4>
+<h4 id="request-20">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7664,7 +7644,7 @@ curl
 
 <p>To schedule the first transaction in the recurrence series, pass the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> parameter to <em>“false”</em> and add the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code> parameter.</p>
 
-<h4 id="request-20">Request</h4>
+<h4 id="request-21">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7978,7 +7958,7 @@ curl
 
 <p>To change customer data in an existing recurrence, simply make a PUT call as demonstrated in the example:</p>
 
-<h4 id="request-21">Request</h4>
+<h4 id="request-22">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -8255,7 +8235,7 @@ HTTP Status 200
 
 <p>To change the end date of the existing recurrence, just make a PUT as shown.</p>
 
-<h4 id="request-22">Request</h4>
+<h4 id="request-23">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -8339,7 +8319,7 @@ HTTP Status 200
 
 <p>To change the range of an existing recurrence, just make a PUT as per the example.</p>
 
-<h4 id="request-23">Request</h4>
+<h4 id="request-24">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -8425,7 +8405,7 @@ HTTP Status 200
 
 <aside class="notice">Rule: If the new day entered is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is May 5, and the next recurrence is May 25. When I upgrade to the 10, the next recurrence date will be May 10. If the new day entered is before the current day, we will update the recurrence day, but this will take effect only after the next recurrence has been successfully executed. E.g.: Today is 5th, and the next recurrence is May 25. When I upgrade to day 3, the date of the next recurrence will remain on May 25, and after it runs, the next will be scheduled for June 3. If the new day entered is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is 5th, and the next recurrence is September 25. When I upgrade to day 3, the next recurrence date will be September 3</aside>
 
-<h4 id="request-24">Request</h4>
+<h4 id="request-25">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -8509,7 +8489,7 @@ HTTP Status 200
 
 <p>To modify the transaction value of an existing recurrence, simply make a PUT as per the example.</p>
 
-<h4 id="request-25">Request</h4>
+<h4 id="request-26">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -8597,7 +8577,7 @@ HTTP Status 200
 
 <p>This operation only modifies the date of the next payment, i.e. future recurrences will remain with the original characteristics.</p>
 
-<h4 id="request-26">Request</h4>
+<h4 id="request-27">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -8691,7 +8671,7 @@ HTTP Status 200
 
 <aside class="notice">Attention: This change affects all Payment node data. So to keep the previous data you must enter the fields that will not change with the same values that were already saved.</aside>
 
-<h4 id="request-27">Request</h4>
+<h4 id="request-28">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -8975,7 +8955,7 @@ curl
 
 <p>To deactivate a recurring request, simply make a PUT as per the example.</p>
 
-<h4 id="request-28">Request</h4>
+<h4 id="request-29">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -9044,7 +9024,7 @@ curl
 
 <p>To reactivate a recurring request, simply make a PUT as per the example.</p>
 
-<h4 id="request-29">Request</h4>
+<h4 id="request-30">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -9263,7 +9243,7 @@ HTTP Status 200
 
 <h2 id="saving-a-card-during-an-authorization">Saving a card during an authorization</h2>
 
-<h4 id="request-30">Request</h4>
+<h4 id="request-31">Request</h4>
 
 <p>To save a credit card used in a transaction, simply send the <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> parameter as <em>true</em> in the standard authorization request.</p>
 
@@ -9619,7 +9599,7 @@ curl
 
 <p>This is an example of how to use the previously saved Card Token to create a transaction. For security reasons, a Card Token has not kept the Security Code (CVV). Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.</p>
 
-<h4 id="request-31">Request</h4>
+<h4 id="request-32">Request</h4>
 
 <p>The <code class="language-plaintext highlighter-rouge">CreditCard</code> node within the <code class="language-plaintext highlighter-rouge">Payment</code> node will change as shown below.</p>
 
@@ -9927,7 +9907,7 @@ curl
 
 <p>This is an example of how to use the previously saved Alias to create a transaction. For security reasons, an Alias has not kept the Security Code. Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.</p>
 
-<h4 id="request-32">Request</h4>
+<h4 id="request-33">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -10301,7 +10281,7 @@ curl
 
 <p>For CyberSource fraud analysis to be performed during a credit card transaction, you must supplement the authorization agreement with the “FraudAnalysis”, “Cart”, “MerchantDefinedFields” and “Travel (only for airline tickets)” nodes.</p>
 
-<h4 id="request-33">Request</h4>
+<h4 id="request-34">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -12428,7 +12408,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a credit card transaction, you must do a GET to the Payment feature as shown.</p>
 
-<h4 id="request-34">Request</h4>
+<h4 id="request-35">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -13320,7 +13300,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a credit card transaction, you must do a GET to the Payment feature as shown.</p>
 
-<h4 id="request-35">Request</h4>
+<h4 id="request-36">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -13860,7 +13840,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a sale by store identifier, you must GET the resource/sales as shown.</p>
 
-<h4 id="request-36">Request</h4>
+<h4 id="request-37">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId = {merchantOrderId}</span></aside>
 
@@ -13976,7 +13956,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a Recurrence request, you need to get a GET as per the example.</p>
 
-<h4 id="request-37">Request</h4>
+<h4 id="request-38">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
