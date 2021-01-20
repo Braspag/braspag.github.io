@@ -2523,8 +2523,8 @@ O Pagador possui suporte para as seguintes carteiras digitais:
 * [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout/)
 * [*MasterPass*](https://masterpass.com/pt-br/)
 
-<aside class="warning">Atenção: Quando o nó “Wallet” é enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
-<aside class="warning">Atenção: Quando o nó "Wallet" é enviado na requisição, para o cartão de débito é necessário o envio do nó “DebitCard” contendo a “ReturnUrl”.</aside>
+<aside class="warning">Quando o nó “Wallet” é enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
+<aside class="warning">Quando o nó "Wallet" é enviado na requisição, para o cartão de débito é necessário o envio do nó “DebitCard” contendo a “ReturnUrl”.</aside>
 
 ### Integração da E-Wallet
 
