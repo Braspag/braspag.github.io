@@ -44,11 +44,10 @@ Conheça alguns dos atributos que se destacam na plataforma Braspag eCommerce:
 ## Arquitetura da Integração
 
 O modelo empregado na integração das APIs é simples e se baseia na utilização de duas URLs:
-
 * URL transacional - específica para operações como autorização, captura e cancelamento de transações;
 * URL de consulta - para operações consultivas, como uma pesquisa de transações. 
 
-Essas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT. 
+<br>Essas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT, descritos abaixo: 
 
 |Método HTTP|Descrição|
 |---|---|
@@ -56,7 +55,8 @@ Essas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT.
 |**POST**|Cria um novo recurso, ex.: criação de uma transação.|
 |**PUT**|Atualização um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|
 
-Todas as operações requerem credenciais de acesso (**"Merchant ID"** e **"Merchant Key"**) a serem enviados no cabeçalho (header) da requisição.<br>Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito em cada operação. O envio irá retornar um código com o [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) da operação, indicando se a requisição foi completada com sucesso ou não.
+Todas as operações requerem credenciais de acesso (**"Merchant ID"** e **"Merchant Key"**) a serem enviadas no cabeçalho, ou *header*, da requisição.<br>Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada, como neste exemplo: https://api.braspag.com.br/*v2/sales/*. Então, envie a requisição à URL utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito em cada operação. 
+<br>O envio irá retornar um código de [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), indicando se a requisição foi realizada com sucesso ou não.
 
 ## Ambientes de Teste e Produção
 
@@ -78,7 +78,7 @@ Realizados os testes, disponibilize sua solução em ambiente de produção.
 
 |Informação|Descrição|
 |---|---|
-|Credenciais de acesso à API|Envie um email para *comercial@braspag.com.br* para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.|
+|Credenciais de acesso|Envie um email para *comercial@braspag.com.br* para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.|
 |Base da URL transacional|https://api.braspag.com.br/|
 |Base da URL para consultas|https://apiquery.braspag.com.br/|
 
