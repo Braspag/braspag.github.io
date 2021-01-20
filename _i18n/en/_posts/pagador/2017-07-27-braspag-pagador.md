@@ -294,9 +294,10 @@ curl
 |`Customer.Name`|Customer's name.|Text|255|Yes|
 |`Customer.Identity`|Customer's ID number.|Text|14|No|
 |`Customer.IdentityType`|Customer's ID document type (CPF or CNPJ).|Text|255|No|
-|`Customer.Email`|Customer's email address.|Text|255|Yes|
+|`Customer.Email`|Customer's email address.|Text|255|No|
 |`Customer.Birthdate`|Customer's date of birth in the YYYY-MM-DD format.|Date|10|No|
-|`Customer.Address.ZipCode`|Customer's contact address.|Text|9|No*|
+|`Customer.IpAddress`|Customer's IP address. IPv4 and IPv6 support.|Text|45|No|
+|`Customer.Address.Street`|Customer's address street.|Text|255|No*|
 |`Customer.Address.Number`|Customer's contact address number.|Text|15|No*|
 |`Customer.Address.Complement`|Customer's contact address additional information.|Text|50|No*|
 |`Customer.Address.ZipCode`|Customer's contact address zip code.|Text|9|No*|
@@ -311,7 +312,7 @@ curl
 |`Customer.DeliveryAddress.City`|Delivery address city.|Text|50|No*|
 |`Customer.DeliveryAddress.State`|Delivery address state.|Text|2|No*|
 |`Customer.DeliveryAddress.Country`|Delivery address country.|Text|35|No*|
-|`Customer.Address.District`|Delivery address neighborhood.|Text|50|No*|
+|`Customer.DeliveryAddress.District`|Delivery address neighborhood.|Text|50|No*|
 |`Payment.Provider`|Name of payment method provider.|Text|15|Yes|
 |`Payment.Type`|Payment method type.|Text|100|Yes|
 |`Payment.Amount`|Order amount in cents.|Number|15|Yes|
@@ -2497,35 +2498,33 @@ curl
 |`Url`|URL to which the buyer will be redirected for electronic transfer authentication.|Text|256|Authentication URL|
 |`Status`|Transaction status.|Byte|2|E.g.: 1|
 
-## E-Wallets
+## E-Wallet (Digital Wallet)
 
-### What are e-Wallets (Digital Wallets)
+E-wallets are electronic safes (repositories) of cards and payment data for the physical and e-commerce customers. Digital wallets allow a customer to register their payment details, making the purchase process more convenient and secure.
 
-They are card and payment data repositories for e-commerce consumers and the physical world. Digital Wallets allow a consumer to register their payment data, making the purchase process more convenient and secure.
-
-> *To use wallets at the Pagador, the merchant must have the wallets integrated in his checkout*.
+<aside class="warning">The merchant needs the wallets to be integrated in their checkout in order to use them in Pagador.</aside>
 
 For more information, contact the provider of your choice to contract the service.
 
 ### Available E-Wallets
 
-Pagador currently supports:
+Pagador currently supports the following digital wallets:
 
-||Wallet                                                          ||
-|-|:------------------------------------------------------------------:|-|
-||[*Apple Pay*](https://www.apple.com/br/apple-pay/)                ||
-||[*Samsung Pay*](https://www.samsung.com.br/samsungpay/)           ||
-||[*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/)       ||
-||[*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout)||
-||[*MasterPass*](https://masterpass.com/)||
+* [*Apple Pay*](https://www.apple.com/br/apple-pay/)
+* [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)
+* [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/)
+* [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout)
+* [*MasterPass*](https://masterpass.com/)
 
-<aside class="notice"><strong>Attention:</strong> When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
+<aside class="warning">When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
 
-<aside class="notice"><strong>Attention:</strong> For the debit card, when the request is sent the “Wallet” node, the “DebitCard” node containing the “ReturnUrl” will be required.</aside>
+<aside class="warning">When the “Wallet” node is sent in the request, the “DebitCard” node containing the “ReturnUrl” will be required for debit cards.</aside>
 
-### Integration
+### E-Wallet Integration
 
-#### Standard Request
+Here is an example of a standard request for the e-wallet integration:
+
+#### Request
 
 ```json
 {
@@ -2555,28 +2554,30 @@ Pagador currently supports:
 
 |Property|Type|Size|Mandatory|Description|
 |----------------------------|--------|---------|-------------|--------------------------------------------------------|
-|`MerchantId`|GUID|36|Yes|Store identifier at Braspag|
-|`MerchantKey`|Text|40|Yes|Public Key for Dual Authentication at Braspag|
-|`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT|
+|`MerchantId`|GUID|36|Yes|Store identifier at Braspag.|
+|`MerchantKey`|Text|40|Yes|Public key for dual authentication at Braspag.|
+|`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
 |`Customer.Name`|Text|255|Yes|Customer's name.|
-|`Customer.Status`|Text 255|No|Customer's registration status (NEW/EXISTING).|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
-|Payment.Provider|Text|15|Yes|Cielo providers only (`Cielo`/` Cielo30`)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|
-|`Wallet.Type`|Texto |--|Sim|Indicates which wallet type: `ApplePay`/`SamsungPay`/`AndroidPay`/`VisaCheckout`/`Masterpass`|
-|`Wallet.Walletkey`|Texto|--|Sim|Cryptographic key that identifies stores in Wallets - See WalletKey table for more information|
-|`Wallet.AdditionalData.EphemeralPublicKey`|Texto|--|Sim|Token returned by Wallet. Must be submitted in Integrations: `ApplePay`|
-|`Wallet.AdditionalData.capturecode`|Texto|--|Sim|Code informed by `MasterPass` to the merchant|
-|`Wallet.AdditionalData.EphemeralPublicKey`|Texto|--|Yes|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`|
+|`Customer.Status`|Text 255|No|Customer's registration status ("NEW" / "EXISTING").|
+|`Payment.Type`|Text|100|Yes|Payment method type.|
+|`Payment.Amount`|Number|15|Yes|Order amount in cents.|
+|`Payment.Provider`|Text|15|Yes|Cielo providers only ("Cielo" / "Cielo30").|
+|`Payment.Installments`|Number|2|Yes|Number of Installments.|
+|`Wallet.Type`|Texto |--|Sim|Wallet type: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".|
+|`Wallet.WalletKey`|Texto|--|Sim|Cryptographic key that identifies stores in wallets. Refer to the WalletKey table in the annex for more information.|
+|`Wallet.AdditionalData.EphemeralPublicKey`|Texto|--|Sim|Token returned by wallet. Must be submitted in **ApplePay** integrations.|
+|`Wallet.AdditionalData.CaptureCode`|Texto|--|Sim|Code informed by **MasterPass** to the merchant.|
+|`Wallet.AdditionalData.Signature`|Texto|--|Yes|Token returned by wallet. Must be submitted in **AndroidPay** integrations.|
 
-##### Walletkey
+##### WalletKey
 
-`WalletKeys` format to pass to the Pagador API
+WalletKey is the identifier used by Braspag to decrypt the payloads returned by an e-wallet.
 
-|Wallet|Example|.|
-|----------------|----------------|-|
+Here is a list of the `WalletKey` formats to be passed to the Pagador API:
+
+|Wallet|Example|
+|----------------|----------------|
 |*Apple Pay*|9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+easdhghrsa/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc|.|
 |*Samsung Pay*|eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR--gApzoXH-fdafddfa-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ|.|
 |*Android Pay*|{\"encryptedMessage\":\"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\\u003d\\u003d\",\"ephemeralPublicKey\":\"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\\u003d\",\"tag\":\"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\\u003d\"}|.|
@@ -2590,6 +2591,8 @@ Pagador currently supports:
 |Wallet|Example|
 |----------------|----------------------------------------------------------------------------------------------------------------------------------|
 |*Apple Pay*|`MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==`|
+
+##### Signatures
 
 `Signature` format to pass to Payer API
 
@@ -2674,7 +2677,7 @@ Pagador currently supports:
 |`ReturnCode`|Return code from the acquirer.|Text|32|Alphanumeric|
 |`ReturnMessage`|Return message from Acquirer.|Texto|--|Alphanumeric|
 |`Type`|indicates which wallet type: `ApplePay`/`SamsungPay`/`AndroidPay`/`VisaCheckout`/`Masterpass`|Text|--|Alphanumeric|
-|`Walletkey`|Cryptographic key that identifies stores in Wallets - See WalletKey table for more information|Text|--|See table `WalletKey`|
+|`WalletKey`|Cryptographic key that identifies stores in Wallets - See WalletKey table for more information|Text|--|See table `WalletKey`|
 |`AdditionalData.EphemeralPublicKey`|Token returned by Wallet. Must be submitted in Integrations: `ApplePay`|Text|--|View Table `EphemeralPublicKey`|
 |`AdditionalData.CaptureCode`|Code informed by `MasterPass` to the merchant|Text|--|3|
 |`AdditionalData.Signature`|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`|Text|--|See Table `Signature`|
@@ -2732,9 +2735,9 @@ Integration requires two steps: The first is direct integration with the Apple s
 
 <P>At this stage, you do not need to perform the process of encrypting data returned by Apple. This work will be performed by Braspag through the procedures described in the next step.
 
-##### Step 5. Pagador integration (decryption and authorization)
+##### Step 5. Pagador Integration
 
-The second integration step is to effect the authorization flow via Braspag's gateway (Pagador). To do so, you must provide data received in the stream with Apple Pay, including WalletKey and EphemeralPublicKey.
+The second integration step is to effect the decryption and authorization flow via Braspag's gateway (Pagador). To do so, you must provide data received in the stream with Apple Pay, including WalletKey and EphemeralPublicKey.
 
 #### Request
 
@@ -2776,13 +2779,13 @@ Default Request Example *Apple Pay*
 |`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT|
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
 |`Customer.Name`|Text|255|Yes|Shopper Name|
-|`Customer.Status`|Text 255|No|Shopper Registration Status (NEW/EXISTING)|
+|`Customer.Status`|Text 255|No|Shopper Registration Status ("NEW" / "EXISTING").|
 |`Payment.Type`|Text|100|Yes|Payment Method Type|
 |`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Provider`|Text|15|Yes|Cielo providers only (`Cielo`/` Cielo30`)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
 |`Wallet.Type`|Text|255|Yes|indicates which wallet type: `ApplePay`/`SamsungPay`/`AndroidPay`/`VisaCheckout`/`Masterpass`|
-|`Wallet.Walletkey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
+|`Wallet.WalletKey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
 |`Wallet.AdditionalData.EphemeralPublicKey`|Text|255|Yes|Token returned by Wallet. Must be submitted in Integrations: `ApplePay`|
 
 ##### Response
@@ -2862,7 +2865,7 @@ Default Request Example *Apple Pay*
 |`ReturnCode`|Return code from the acquirer|Text|32|Alphanumeric|
 |`ReturnMessage`|Return message from Acquirer|Text|512|Alphanumeric|
 |`Type`|indicates which wallet type: `ApplePay`/`SamsungPay`/`AndroidPay`/`VisaCheckout`/`Masterpass`|Text|255|Alphanumeric|
-|`Walletkey`|Cryptographic key that identifies stores in Wallets - Check WalletKey table for more information|Text|255|See table `WalletKey`|
+|`WalletKey`|Cryptographic key that identifies stores in Wallets - Check WalletKey table for more information|Text|255|See table `WalletKey`|
 |`AdditionalData.EphemeralPublicKey`|Token returned by Wallet. Must be submitted in Integrations: `ApplePay`|Text|255|Check Table `EphemeralPublicKey`|
 
 #### Samsung Pay
@@ -2905,13 +2908,13 @@ Default Request Example *Samsung Pay*
 |`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
 |`Customer.Name`|Text|255|Yes|Shopper Name|
-|`Customer.Status`|Text|255|No|Shopper Registration Status (NEW/EXISTING)|
+|`Customer.Status`|Text|255|No|Shopper Registration Status ("NEW" / "EXISTING").|
 |`Payment.Type`|Text|100|Yes|Payment Method Type|
 |`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Provider`|Text|15|Yes|Cielo providers only (`Cielo`/`Cielo30`)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
 |`Wallet.Type`|Text|255|Yes|indicates which wallet type: `ApplePay`/`SamsungPay/`AndroidPay`/`VisaCheckout`/`Masterpass`|
-|`Wallet.Walletkey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
+|`Wallet.WalletKey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
 
 ##### Response
 
@@ -2987,7 +2990,7 @@ Default Request Example *Samsung Pay*
 |`ReturnCode`|Return code from the acquirer|Text|32|Alphanumeric|
 |`ReturnMessage`|Return message from Acquirer|Text|512|Alphanumeric|
 |`Type`|indicates which wallet type: `ApplePay`/` SamsungPay`/`AndroidPay`/` VisaCheckout`/`Masterpass`|Text|255|Alphanumeric|
-|`Walletkey`|Cryptographic Key Representing Card Data - Check WalletKey Table for More Information|Text|255|Check table `WalletKey`|
+|`WalletKey`|Cryptographic Key Representing Card Data - Check WalletKey Table for More Information|Text|255|Check table `WalletKey`|
 
 #### Google Pay
 
@@ -3031,13 +3034,13 @@ Default Request Example *Google Pay*
 |`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT|
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
 |`Customer.Name`|Text|255|Yes|Shopper Name|
-|`Customer.Status`|Text|255|No|Shopper Registration Status (NEW/EXISTING)|
+|`Customer.Status`|Text|255|No|Shopper Registration Status ("NEW" / "EXISTING").|
 |`Payment.Type`|Text|100|Yes|Payment Method Type|
 |`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Provider`|Text|15|Yes|Cielo providers only (`Cielo`/` Cielo30`)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
 |`Wallet.Type`|Text|255|Yes|indicates which wallet type: `ApplePay`/` SamsungPay`/`AndroidPay`/` VisaCheckout`/`Masterpass`|
-|`Wallet.Walletkey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
+|`Wallet.WalletKey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
 |`Wallet.AdditionalData.Signature`|Text|255|Yes|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`|
 
 ##### Response
@@ -3117,7 +3120,7 @@ Default Request Example *Google Pay*
 |`ReturnCode`|Return code from the acquirer|Text|32|Alphanumeric|
 |`ReturnMessage`|Return message from Acquirer|Text|512|Alphanumeric|
 |`Type`|Indicates which wallet type: `ApplePay`/`SamsungPay`/`AndroidPay`/`VisaCheckout`/`Masterpass`|Text|255|Alphanumeric|
-|`Walletkey`|Cryptographic Key Representing Card Data - Check WalletKey Table for More Information|Text|255|Check table `WalletKey`|
+|`WalletKey`|Cryptographic Key Representing Card Data - Check WalletKey Table for More Information|Text|255|Check table `WalletKey`|
 |`AdditionalData.Signature`|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`|Text|255|Check Table `Signature`|
 
 #### MasterPass
@@ -3157,13 +3160,13 @@ Default Request Example *Google Pay*
 |`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
 |`Customer.Name`|Text|255|No|Shopper's Name.|
-|`Customer.Status`|Text|255|No|Shopper Registration Status (NEW/EXISTING)|
+|`Customer.Status`|Text|255|No|Shopper Registration Status ("NEW" / "EXISTING").|
 |`Payment.Type`|Text|100|Yes|Payment Method Type||
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be shipped in cents).|
 |`Payment.Provider`|Text|15|Yes|Only Cielo as provider (` Cielo`/`Cielo30`)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`Wallet.Type`|Text|255|Yes|indicates which type of wallet:" Masterpass "|
-|`Wallet.Walletkey`|Text|255|Yes|Cryptographic key representing card data - See WalletKey table for more information|
+|`Wallet.WalletKey`|Text|255|Yes|Cryptographic key representing card data - See WalletKey table for more information|
 |`Wallet.AdditionalData`|---|---|---|Instance for extra data entered by MasterPass. Required only if TYPE = "MasterPass"|
 |`Wallet.capturecode`|Text|255|Yes|Code entered by MasterPass to retailer|
 
@@ -3270,7 +3273,7 @@ Default Request Example *Google Pay*
 |`RequestId`|GUID|36|No|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
 |`Customer.Name`|Text|255|No|Shopper's Name.|
-|`Customer.Status`|Text|255|No|Shopper Registration Status (NEW/EXISTING)|
+|`Customer.Status`|Text|255|No|Shopper Registration Status ("NEW" / "EXISTING").|
 |`Payment.Type`|Text|100|Yes|Payment Method Type||
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be shipped in cents).|
 |`Payment.Provider`|Text|15|Yes|Only Cielo as provider (`Cielo`/`Cielo30`)|
@@ -3278,7 +3281,7 @@ Default Request Example *Google Pay*
 |`Payment.ReturnUrl`|Text|1024|---|Required for debit card|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Appendix.|
 |`Wallet.Type`|Text|255|Yes|indicates which type of wallet:" VisaCheckout "|
-|`Wallet.Walletkey`|Text|255|---|Cryptographic key sent by VisaCheckout. Required if TYPE = "Visa Checkout"|
+|`Wallet.WalletKey`|Text|255|---|Cryptographic key sent by VisaCheckout. Required if TYPE = "Visa Checkout"|
 
 ##### Response
 
