@@ -23,7 +23,7 @@ A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigat
 
 Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.
 
-### Criando uma transação  
+### Criando uma transação utilizando a integração via Pagador
 
 **Request**
 
@@ -165,6 +165,164 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
                 "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/d605c399-96b2-4bb9-ae75-33824ec01be9"
             }
         ]
+    }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`PaymentId`|Campo Identificador do Pedido. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
+|`Url`|URL do Boleto gerado |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
+|`BoletoNumber`|"NossoNumero" gerado. |Texto|50 |2017091101 |
+|`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
+|`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
+|`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
+|`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
+
+
+### Criando uma transação utilizando a integração via Cielo 3.0
+
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+--header "Content-Type: application/json"
+--header "Authorization: Bearer {{access_token}}"
+
+{
+	"MerchantOrderId":  "31029785000159",
+	"Customer":  {
+		"Name":"Gabriela Isis Malu Aparício",
+		"Identity":  "60191661040",
+		"IdentityType":  "CPF",
+		"Address":  {
+			"Street":  "Rua Brasil",
+			"Number":  "123",
+			"Complement":  "AP 123",
+			"ZipCode":  "12345987",
+			"City":  "Rio de Janeiro",
+			"State":  "RJ",
+			"Country":  "BRA",
+			"District":  "Centro"
+		}
+	},
+	"Payment":  {
+		"Type":  "Boleto",
+		"Provider":  "Braspag",
+		"Bank":  "BancoDoBrasil",
+		"Amount":  10000,
+		"ExpirationDate":  "2021-02-15",
+		"Identification":"60191661040",
+		"Instructions":  "Intruções para o cliente final.",
+		"SplitPayments":  [
+			{
+				"SubordinateMerchantId":  "768d0acf-9502-4411-9ec0-c5413c671771",
+				"Amount":  1000,
+				"fares":{
+					"mdr":  5.0,
+					"fee":  100
+				}
+			}
+		],
+		"SplitTransaction":  {
+			"MasterRateDiscountType":  "Commission"
+		}
+	}
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|Payment.Assignor|Nome do Cedente.|Texto|200|Não|
+|Payment.BoletoNumber|Número do Boleto enviado pelo lojista. Usado para contar boletos emitidos (“NossoNumero”).|Texto|Banco do Brasil: 9|Não|
+|Payment.Demonstrative|Texto de Demonstrativo.|Texto|255|Não|
+|Payment.ExpirationDate|Data de expiração do Boleto. Ex. 2020-12-31|Date|10|Não|
+|Payment.Identification|Documento de identificação do Cedente.|Texto|14|Não|
+|Payment.Instructions|Instruções do Boleto.|Texto|255|Não|
+|Customer.Address.City|Cidade do endereço do Comprador.|Texto|Banco do Brasil: 18|Sim|
+|Customer.Address.Country|Pais do endereço do Comprador.|Texto|35|Sim|
+|Customer.Address.District|Bairro do Comprador.|Texto|50|Sim|
+|Customer.Address.Number|Número do endereço do Comprador.|Texto|15|Sim|
+|Customer.Address.State|Estado do endereço do Comprador.|Texto|2|Sim|
+|Customer.Address.Street|Endereço do Comprador.|Texto|255|Sim|
+|Customer.Address.ZipCode|CEP do endereço do Comprador.|Texto|9|Sim|
+|Customer.Name|Nome do Comprador.|Texto|Banco do Brasil: 60|Sim|
+|MerchantOrderId|Numero de identificação do Pedido.|Texto|Banco do Brasil: 50|Sim|
+|Payment.Amount|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
+|Payment.Provider|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|Texto|15|Sim|
+|Payment.Type|Tipo do Meio de Pagamento.|Texto|100|Sim|
+|Customer.Identity|Número do RG, CPF ou CNPJ do cliente.|Texto|14|Sim|
+|Customer.IdentityType|Tipo de documento de identificação do comprador (CPF ou CNPJ).|Texto|255|Sim|
+|SplitPayments.[].SubordinateMerchantId|MerchantId do subordinado/Master participante da venda|GUID|36|Não|
+|SplitPayments.[].Amount|Valor referente a venda do partcipante|Número||Não|
+|SplitPayments.[].Fares.Mdr|Porcentagem cobrado pelo Master sobre a venda do participante|Decimal||Não|
+|SplitPayments.[].Fares.Fares|Valor fixo em centavos cobrado pelo Master sobre a venda do participante|Número||Não|
+|SplitTransaction.MasterRateDiscountType|Tipo de desconto da taxa Braspag. Valores disponíveis: Commision (Será descontado da comissão recebida pelo Master), Sale (Será descontado somente do valor da venda do Master)|Texto||Não |
+
+**Response**
+```json
+{
+    "MerchantOrderId": "31029785000159",
+    "Customer": {
+        "Name": "Gabriela Aparicio",
+        "Identity": "60191661040",
+        "IdentityType": "CPF",
+        "Address": {
+            "Street": "Rua Brasil",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA",
+            "District": "Centro"
+        }
+    },
+    "Payment": {
+        "Instructions": "Intruções para o cliente final.",
+        "ExpirationDate": "2021-02-15",
+        "Url": "https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/bc99c4c5-010a-48be-a0e4-b2143c764a52",
+        "BoletoNumber": "0000002172",
+        "BarCodeNumber": "",
+        "DigitableLine": "",
+        "Address": "N/A, 1",
+        "Identification": "60191661040",
+        "ProviderReturnCode": "0",
+        "ProviderReturnMessage": "Transação criada com sucesso",
+        "Bank": 4,
+        "Amount": 10000,
+        "ReceivedDate": "2021-01-20 15:15:33",
+        "Provider": "Braspag",
+        "Status": 1,
+        "IsSplitted": false,
+        "ReturnMessage": "Transação criada com sucesso",
+        "ReturnCode": "0",
+        "PaymentId": "bc99c4c5-010a-48be-a0e4-b2143c764a52",
+        "Type": "Boleto",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/bc99c4c5-010a-48be-a0e4-b2143c764a52"
+            }
+        ],
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "768d0acf-9502-4411-9ec0-c5413c671771",
+                "Amount": 10000,
+                "Fares": {
+                    "Mdr": 5.0,
+                    "Fee": 100
+                }
+            }
+        ],
+        "SplitTransaction": {
+            "MasterRateDiscountType": "Commission"
+        }
     }
 }
 ```
