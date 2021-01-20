@@ -175,9 +175,10 @@
 <p>O modelo empregado na integração das APIs é simples e se baseia na utilização de duas URLs:</p>
 <ul>
   <li>URL transacional - específica para operações como autorização, captura e cancelamento de transações;</li>
-  <li>URL de consulta - para operações consultivas, como uma pesquisa de transações. 
-Essas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT, descritos abaixo:</li>
+  <li>URL de consulta - para operações consultivas, como uma pesquisa de transações.</li>
 </ul>
+
+<p>Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada (ex.: https://api.braspag.com.br/<em>v2/sales/</em>) e, então, envie a requisição à URL utilizando o método HTTP específico de cada operação.</p>
 
 <table>
   <thead>
@@ -197,12 +198,12 @@ Essas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT, des
     </tr>
     <tr>
       <td><strong>PUT</strong></td>
-      <td>Atualização um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.</td>
+      <td>Atualiza um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Todas as operações requerem credenciais de acesso (<strong>“Merchant ID”</strong> e <strong>“Merchant Key”</strong>) a serem enviadas no cabeçalho, ou <em>header</em>, da requisição.<br />Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada, como neste exemplo: https://api.braspag.com.br/<em>v2/sales/</em>. Então, envie a requisição à URL utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito em cada operação. O envio irá retornar um código de <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">Status HTTP</a>, indicando se a requisição foi realizada com sucesso ou não.</p>
+<p>Todas as operações requerem credenciais de acesso (<strong>“Merchant ID”</strong> e <strong>“Merchant Key”</strong>), a serem enviadas no cabeçalho, ou <em>header</em>, da requisição.<br />O envio irá retornar um código de <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">Status HTTP</a>, indicando se a requisição foi realizada com sucesso ou não.</p>
 
 <h2 id="ambientes-de-teste-e-produção">Ambientes de Teste e Produção</h2>
 
