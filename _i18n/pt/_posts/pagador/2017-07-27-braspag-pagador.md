@@ -45,17 +45,17 @@ Conheça alguns dos atributos que se destacam na plataforma Braspag eCommerce:
 
 O modelo empregado na integração das APIs é simples e se baseia na utilização de duas URLs:
 * URL transacional - específica para operações como autorização, captura e cancelamento de transações;
-* URL de consulta - para operações consultivas, como uma pesquisa de transações. 
+* URL de consulta - para operações consultivas, como uma pesquisa de transações.
 
-<br>Essas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT, descritos abaixo: 
+Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada (ex.: https://api.braspag.com.br/*v2/sales/*) e, então, envie a requisição à URL utilizando o método HTTP específico de cada operação.
 
 |Método HTTP|Descrição|
 |---|---|
 |**GET**|Retorna recursos já existentes, ex.: consulta de transações.|
 |**POST**|Cria um novo recurso, ex.: criação de uma transação.|
-|**PUT**|Atualização um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|
+|**PUT**|Atualiza um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|
 
-Todas as operações requerem credenciais de acesso (**"Merchant ID"** e **"Merchant Key"**) a serem enviadas no cabeçalho, ou *header*, da requisição.<br>Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada, como neste exemplo: https://api.braspag.com.br/*v2/sales/*. Então, envie a requisição à URL utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito em cada operação. 
+Todas as operações requerem credenciais de acesso (**"Merchant ID"** e **"Merchant Key"**), a serem enviadas no cabeçalho, ou *header*, da requisição.<br>
 <br>O envio irá retornar um código de [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), indicando se a requisição foi realizada com sucesso ou não.
 
 ## Ambientes de Teste e Produção
