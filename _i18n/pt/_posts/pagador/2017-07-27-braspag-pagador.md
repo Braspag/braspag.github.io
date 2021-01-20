@@ -43,19 +43,24 @@ Conheça alguns dos atributos que se destacam na plataforma Braspag eCommerce:
 
 ## Arquitetura da Integração
 
-O modelo empregado na integração das APIs é simples e se baseia na utilização de duas URLs (endpoints). Uma é específica para operações como autorização, captura e cancelamento de transações. A outra, para operações consultivas, como uma pesquisa de transações. Essas duas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT. Cada tipo de mensagem deve ser enviada para um endereço identificado através do *path*, que é o endereço do recurso.
+O modelo empregado na integração das APIs é simples e se baseia na utilização de duas URLs:
+
+* URL transacional - específica para operações como autorização, captura e cancelamento de transações;
+* URL de consulta - para operações consultivas, como uma pesquisa de transações. 
+
+Essas URLs recebem as mensagens HTTP através dos métodos GET, POST ou PUT. 
 
 |Método HTTP|Descrição|
 |---|---|
-|**GET**|Para consultas de recursos já existentes, ex.: consulta de transações.|
-|**POST**|Para criação de uma transação.|
-|**PUT**|Para atualização de um recurso já existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|
+|**GET**|Retorna recursos já existentes, ex.: consulta de transações.|
+|**POST**|Cria um novo recurso, ex.: criação de uma transação.|
+|**PUT**|Atualização um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|
+
+Todas as operações requerem credenciais de acesso (**"Merchant ID"** e **"Merchant Key"**) a serem enviados no cabeçalho (header) da requisição.<br>Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito em cada operação. O envio irá retornar um código com o [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) da operação, indicando se a requisição foi completada com sucesso ou não.
 
 ## Ambientes de Teste e Produção
 
 Utilize o ambiente **Sandbox** para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no ambiente de **Produção**.
-
-Todas as operações requerem credenciais de acesso ("Merchant ID" e "Merchant Key") específicos para os respectivos ambientes: Sandbox e Produção. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie a requisição utilizando o VERBO HTTP (ex.: GET, POST, PUT) conforme descrito em cada operação.
 
 ### Ambiente Sandbox
 
@@ -64,8 +69,8 @@ Para a fase de testes, crie uma conta em nosso sandbox e experimente as nossas A
 |Informação|Descrição|
 |----|----|
 |Credenciais de acesso|Após criar uma conta de testes em [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/), você receberá um `MerchantId` e um `MerchantKey`, que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API.|
-|Endpoint transacional|https://apisandbox.braspag.com.br/|
-|Endpoint para serviços de consultas|https://apiquerysandbox.braspag.com.br/|
+|Base da URL transacional|https://apisandbox.braspag.com.br/|
+|Base da URL para consultas|https://apiquerysandbox.braspag.com.br/|
 
 ### Ambiente de Produção
 
@@ -74,8 +79,8 @@ Realizados os testes, disponibilize sua solução em ambiente de produção.
 |Informação|Descrição|
 |---|---|
 |Credenciais de acesso à API|Envie um email para *comercial@braspag.com.br* para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.|
-|Endpoint transacional|https://api.braspag.com.br/|
-|Endpoint para serviços de consultas|https://apiquery.braspag.com.br/|
+|Base da URL transacional|https://api.braspag.com.br/|
+|Base da URL para consultas|https://apiquery.braspag.com.br/|
 
 ## Termos Transacionais
 
