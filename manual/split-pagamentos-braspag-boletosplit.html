@@ -117,7 +117,7 @@
 
 <p>Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.</p>
 
-<h3 id="criando-uma-transação">Criando uma transação</h3>
+<h3 id="criando-uma-transação-utilizando-a-integração-via-pagador">Criando uma transação utilizando a integração via Pagador</h3>
 
 <p><strong>Request</strong></p>
 
@@ -454,6 +454,382 @@
                 </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/d605c399-96b2-4bb9-ae75-33824ec01be9"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Campo Identificador do Pedido.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ExpirationDate</code></td>
+      <td>Data de expiração.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>2014-12-25</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Url</code></td>
+      <td>URL do Boleto gerado</td>
+      <td>string</td>
+      <td>256</td>
+      <td>https://…/pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BoletoNumber</code></td>
+      <td>“NossoNumero” gerado.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>2017091101</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BarCodeNumber</code></td>
+      <td>Representação numérica do código de barras.</td>
+      <td>Texto</td>
+      <td>44</td>
+      <td>00091628800000157000494250100000001200656560</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DigitableLine</code></td>
+      <td>Linha digitável.</td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>00090.49420 50100.000004 12006.565605 1 62880000015700</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address</code></td>
+      <td>Endereço do Loja cadastrada no banco</td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Av. Teste, 160</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status da Transação.</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>Ex. 1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="criando-uma-transação-utilizando-a-integração-via-cielo-30">Criando uma transação utilizando a integração via Cielo 3.0</h3>
+
+<p><strong>Request</strong></p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer "</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w">  </span><span class="s2">"31029785000159"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Gabriela Isis Malu Aparício"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w">  </span><span class="s2">"60191661040"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w">  </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Rua Brasil"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w">  </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w">  </span><span class="s2">"AP 123"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w">  </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w">  </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w">  </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Centro"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Braspag"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Bank"</span><span class="p">:</span><span class="w">  </span><span class="s2">"BancoDoBrasil"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w">  </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2021-02-15"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identification"</span><span class="p">:</span><span class="s2">"60191661040"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Instructions"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Intruções para o cliente final."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SplitPayments"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w">  </span><span class="s2">"768d0acf-9502-4411-9ec0-c5413c671771"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w">  </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fares"</span><span class="p">:{</span><span class="w">
+                    </span><span class="nl">"mdr"</span><span class="p">:</span><span class="w">  </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"fee"</span><span class="p">:</span><span class="w">  </span><span class="mi">100</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"SplitTransaction"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MasterRateDiscountType"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Commission"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment.Assignor</td>
+      <td>Nome do Cedente.</td>
+      <td>Texto</td>
+      <td>200</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Payment.BoletoNumber</td>
+      <td>Número do Boleto enviado pelo lojista. Usado para contar boletos emitidos (“NossoNumero”).</td>
+      <td>Texto</td>
+      <td>Banco do Brasil: 9</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Payment.Demonstrative</td>
+      <td>Texto de Demonstrativo.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Payment.ExpirationDate</td>
+      <td>Data de expiração do Boleto. Ex. 2020-12-31</td>
+      <td>Date</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Payment.Identification</td>
+      <td>Documento de identificação do Cedente.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Payment.Instructions</td>
+      <td>Instruções do Boleto.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.City</td>
+      <td>Cidade do endereço do Comprador.</td>
+      <td>Texto</td>
+      <td>Banco do Brasil: 18</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Country</td>
+      <td>Pais do endereço do Comprador.</td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.District</td>
+      <td>Bairro do Comprador.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Number</td>
+      <td>Número do endereço do Comprador.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.State</td>
+      <td>Estado do endereço do Comprador.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Street</td>
+      <td>Endereço do Comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.ZipCode</td>
+      <td>CEP do endereço do Comprador.</td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Customer.Name</td>
+      <td>Nome do Comprador.</td>
+      <td>Texto</td>
+      <td>Banco do Brasil: 60</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>MerchantOrderId</td>
+      <td>Numero de identificação do Pedido.</td>
+      <td>Texto</td>
+      <td>Banco do Brasil: 50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Payment.Amount</td>
+      <td>Valor do Pedido (ser enviado em centavos).</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Payment.Provider</td>
+      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Payment.Type</td>
+      <td>Tipo do Meio de Pagamento.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Customer.Identity</td>
+      <td>Número do RG, CPF ou CNPJ do cliente.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Customer.IdentityType</td>
+      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ).</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>SplitPayments.[].SubordinateMerchantId</td>
+      <td>MerchantId do subordinado/Master participante da venda</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>SplitPayments.[].Amount</td>
+      <td>Valor referente a venda do partcipante</td>
+      <td>Número</td>
+      <td> </td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>SplitPayments.[].Fares.Mdr</td>
+      <td>Porcentagem cobrado pelo Master sobre a venda do participante</td>
+      <td>Decimal</td>
+      <td> </td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>SplitPayments.[].Fares.Fares</td>
+      <td>Valor fixo em centavos cobrado pelo Master sobre a venda do participante</td>
+      <td>Número</td>
+      <td> </td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>SplitTransaction.MasterRateDiscountType</td>
+      <td>Tipo de desconto da taxa Braspag. Valores disponíveis: Commision (Será descontado da comissão recebida pelo Master), Sale (Será descontado somente do valor da venda do Master)</td>
+      <td>Texto</td>
+      <td> </td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Response</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31029785000159"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gabriela Aparicio"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60191661040"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Brasil"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AP 123"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intruções para o cliente final."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-15"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/bc99c4c5-010a-48be-a0e4-b2143c764a52"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BoletoNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000002172"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BarCodeNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DigitableLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N/A, 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60191661040"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transação criada com sucesso"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Bank"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-20 15:15:33"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Braspag"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transação criada com sucesso"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bc99c4c5-010a-48be-a0e4-b2143c764a52"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/bc99c4c5-010a-48be-a0e4-b2143c764a52"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"768d0acf-9502-4411-9ec0-c5413c671771"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"SplitTransaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"MasterRateDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Commission"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
