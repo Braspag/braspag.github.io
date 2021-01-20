@@ -180,7 +180,6 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 |`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
 |`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
 
-
 ### Criando uma transação utilizando a integração via Cielo 3.0
 
 **Request**
