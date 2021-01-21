@@ -43,19 +43,27 @@ Here are some of the main benefits of using Braspag's e-commerce platform:
 
 ## Integration Architecture
 
-The model used in the integration of the APIs is simple. It is based in the use of two URLs (endpoints). One is specific for operations such as authorization, capture and cancellation of transactions. The other one is for queries, such as a transaction search. These two URLs receive HTTP messages using the GET, POST or PUT methods. Each type of message must be sent to an address identified as "path", which is the address of the resource.
+The model used in the integration of the APIs is simple. It is based in the use of two URLs:
+* URL for transactions - specific for operations such as authorization, capture and cancellation of transactions.
+* URL for queries - specific for consultation operations, such as a transaction search.
+
+<br/>To perform an operation, combine the environment base URL with the desired operation endpoint (as in https://api.braspag.com.br/*v2/sales/*) and then submit a request to this URL using the correct HTTP method.
 
 |HTTP Method| Description|
 |---|---|
-|**GET**|For querying existing resources, like transaction queries.|
-|**POST**|For creating transactions.|
-|**PUT**|For updating existing resources, like capturing or canceling a previously authorized transaction.|
+|**GET**|Retrieves existing resources, e.g.: a transaction query.|
+|**POST**|Creates new resources, e.g.: creating a transaction.|
+|**PUT**|Updates existing resources, e.g.: capturing or canceling a previously authorized transaction.|
+
+All operations require the access credentials **"Merchant ID"** and **"Merchant Key"** to be sent through the request header.<br>
+Each request operation will return an [HTTP Status](https://braspag.github.io//en/manual/braspag-pagador#list-of-http-status-code) code, indicating whether it was successfully completed or not.
 
 ## Test and Production Environments
 
 Use our **Sandbox** environment to test our products and services before bringing your solution into the **Production** environment.
 
-All operations require specific access credentials ("Merchant ID" and "Merchant Key") in both environments. In order to perform an operation, relate the environment base endpoint with the desired operation endpoint and submit the request using the correct HTTP VERB (GET, POST, PUT) exactly as described in each operation.
+<aside class="notice">Access credentials must be used to authenticate all requests made to the API endpoints.</aside>
+<aside class="warning">For safety reasons, these credentials must not be unduly shared or exposed.</aside> 
 
 ### Sandbox Environment
 
@@ -63,9 +71,9 @@ Create an account in our sandbox and try out our APIs during your testing phase,
 
 |Information|Description|
 |----|----|
-|Access credentials|After creating a test account in [Sandbox Registration](https://cadastrosandbox.braspag.com.br/), you will receive a `MerchantId` and a `MerchantKey` which must be used to authenticate all requests made to the API endpoints.|
-|Transactional endpoint|https://apisandbox.braspag.com.br/|
-|Endpoint for query services|https://apiquerysandbox.braspag.com.br/|
+|Access credentials|`MerchantId` and `MerchantKey` received after your test account creation in [Sandbox Registration](https://cadastrosandbox.braspag.com.br/)|
+|Base URL for transactions|https://apisandbox.braspag.com.br/|
+|Base URL for query services|https://apiquerysandbox.braspag.com.br/|
 
 ### Production Environment
 
@@ -73,9 +81,9 @@ Once you are done running your tests and ready for *go-live*, you can implement 
 
 |Information|Description|
 |---|---|
-|Access Credentials|Send us an email (*comercial@braspag.com.br*) for more information about Braspag and about how we can help you with your business.|
-|Transactional endpoint|https://api.braspag.com.br/|
-|Endpoint for query services|https://apiquery.braspag.com.br/|
+|Access credentials|`MerchantId` and `MerchantKey` provided by Braspag. Send us an email (*comercial@braspag.com.br*) for more information.|
+|Base URL for transactions|https://api.braspag.com.br/|
+|Base URL for query services|https://apiquery.braspag.com.br/|
 
 ## Transactional Terms
 
