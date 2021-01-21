@@ -55,7 +55,7 @@ O modelo empregado na integração das APIs é simples e se baseia na utilizaç�
 |**POST**|Cria um novo recurso, ex.: criação de uma transação.|
 |**PUT**|Atualiza um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|
 
-Todas as operações requerem credenciais de acesso (**"Merchant ID"** e **"Merchant Key"**), a serem enviadas no cabeçalho, ou *header*, da requisição.<br>
+Todas as operações requerem credenciais de acesso (**"Merchant ID"** e **"Merchant Key"**), a serem enviadas no cabeçalho (*header*) da requisição.<br>
 <br>Cada envio de requisição irá retornar um código de [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), indicando se ela foi realizada com sucesso ou não.
 
 ## Ambientes de Teste e Produção
