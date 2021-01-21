@@ -55,7 +55,7 @@ O modelo empregado na integração das APIs é simples e se baseia na utilizaç�
 |**POST**|Cria um novo recurso, ex.: criação de uma transação.|
 |**PUT**|Atualiza um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|
 
-Todas as operações requerem as credenciais de acesso **"Merchant ID"** e **"Merchant Key"**, que devem ser enviadas no cabeçalho (*header*) da requisição.<br>
+Todas a operações requerem as credenciais de acesso **"Merchant ID"** e **"Merchant Key"**, que devem ser enviadas no cabeçalho (*header*) da requisição.<br>
 <br>Cada envio de requisição irá retornar um código de [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), indicando se ela foi realizada com sucesso ou não.
 
 ## Ambientes de Teste e Produção
@@ -68,9 +68,11 @@ Para a fase de testes, crie uma conta em nosso sandbox e experimente as nossas A
 
 |Informação|Descrição|
 |----|----|
-|Credenciais de acesso|Após criar uma conta de testes em [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/), você receberá um `MerchantId` e um `MerchantKey`, que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API.|
+|Credenciais de acesso|`MerchantId` e `MerchantKey` recebidos após criação da conta de testes em [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/).|
 |Base da URL transacional|https://apisandbox.braspag.com.br/|
 |Base da URL para consultas|https://apiquerysandbox.braspag.com.br/|
+
+<aside class="warning">As credenciais de acesso são utilizadas para autenticar todas as requisições feitas para os endpoints da API, não devendo ser indevidamente compartilhadas ou expostas por questões de segurança.</aside>
 
 ### Ambiente de Produção
 
@@ -78,7 +80,7 @@ Realizados os testes, disponibilize sua solução em ambiente de produção.
 
 |Informação|Descrição|
 |---|---|
-|Credenciais de acesso|Envie um email para *comercial@braspag.com.br* para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.|
+|Credenciais de acesso|`MerchantId` e `MerchantKey` fornecidos pela Braspag. Envie um email para *comercial@braspag.com.br* para mais informações.|
 |Base da URL transacional|https://api.braspag.com.br/|
 |Base da URL para consultas|https://apiquery.braspag.com.br/|
 
