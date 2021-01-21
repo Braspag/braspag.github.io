@@ -249,9 +249,9 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 |Customer.Address.ZipCode|CEP do endereço do Comprador.|Texto|9|Sim|
 |Customer.Name|Nome do Comprador.|Texto|Banco do Brasil: 60|Sim|
 |MerchantOrderId|Numero de identificação do Pedido.|Texto|Banco do Brasil: 50|Sim|
-|Payment.Amount|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|Payment.Provider|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|Texto|15|Sim|
-|Payment.Type|Tipo do Meio de Pagamento.|Texto|100|Sim|
+|Payment.Amount|Valor do Pedido (deve ser enviado em centavos)|Número|15|Sim|
+|Payment.Provider|Define comportamento do meio de pagamento. (Valor: Braspag)|Texto|15|Sim|
+|Payment.Type|Tipo do Meio de Pagamento. (Valor: Boleto)|Texto|100|Sim|
 |Customer.Identity|Número do RG, CPF ou CNPJ do cliente.|Texto|14|Sim|
 |Customer.IdentityType|Tipo de documento de identificação do comprador (CPF ou CNPJ).|Texto|255|Sim|
 |SplitPayments.[].SubordinateMerchantId|MerchantId do subordinado/Master participante da venda|GUID|36|Não|
