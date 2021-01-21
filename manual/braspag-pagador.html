@@ -203,7 +203,7 @@
   </tbody>
 </table>
 
-<p>Todas as operações requerem as credenciais de acesso <strong>“Merchant ID”</strong> e <strong>“Merchant Key”</strong>, que devem ser enviadas no cabeçalho (<em>header</em>) da requisição.<br />Cada envio de requisição irá retornar um código de <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">Status HTTP</a>, indicando se ela foi realizada com sucesso ou não.</p>
+<p>Todas a operações requerem as credenciais de acesso <strong>“Merchant ID”</strong> e <strong>“Merchant Key”</strong>, que devem ser enviadas no cabeçalho (<em>header</em>) da requisição.<br />Cada envio de requisição irá retornar um código de <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">Status HTTP</a>, indicando se ela foi realizada com sucesso ou não.</p>
 
 <h2 id="ambientes-de-teste-e-produção">Ambientes de Teste e Produção</h2>
 
@@ -223,7 +223,7 @@
   <tbody>
     <tr>
       <td>Credenciais de acesso</td>
-      <td>Após criar uma conta de testes em <a href="https://cadastrosandbox.braspag.com.br/">Cadastro do Sandbox</a>, você receberá um <code class="language-plaintext highlighter-rouge">MerchantId</code> e um <code class="language-plaintext highlighter-rouge">MerchantKey</code>, que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API.</td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code> e <code class="language-plaintext highlighter-rouge">MerchantKey</code> recebidos após criação da conta de testes em <a href="https://cadastrosandbox.braspag.com.br/">Cadastro do Sandbox</a>.</td>
     </tr>
     <tr>
       <td>Base da URL transacional</td>
@@ -235,6 +235,8 @@
     </tr>
   </tbody>
 </table>
+
+<aside class="warning">As credenciais de acesso são utilizadas para autenticar todas as requisições feitas para os endpoints da API, não devendo ser indevidamente compartilhadas ou expostas por questões de segurança.</aside>
 
 <h3 id="ambiente-de-produção">Ambiente de Produção</h3>
 
@@ -250,7 +252,7 @@
   <tbody>
     <tr>
       <td>Credenciais de acesso</td>
-      <td>Envie um email para <em>comercial@braspag.com.br</em> para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio.</td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code> e <code class="language-plaintext highlighter-rouge">MerchantKey</code> fornecidos pela Braspag. Envie um email para <em>comercial@braspag.com.br</em> para mais informações.</td>
     </tr>
     <tr>
       <td>Base da URL transacional</td>
