@@ -62,6 +62,9 @@ Todas a operações requerem as credenciais de acesso **"Merchant ID"** e **"Mer
 
 Utilize o ambiente **Sandbox** para realizar testes dos nossos produtos e serviços antes de disponibilizar sua solução no ambiente de **Produção**.
 
+<aside class="notice">Credenciais de acesso são utilizadas para autenticar todas as requisições feitas para os endpoints da API.</aside>
+<aside class="warning">Por segurança, essas credenciais não devem ser indevidamente compartilhadas ou expostas.</aside>
+
 ### Ambiente Sandbox
 
 Para a fase de testes, crie uma conta em nosso sandbox e experimente as nossas APIs sem compromisso.
@@ -71,8 +74,6 @@ Para a fase de testes, crie uma conta em nosso sandbox e experimente as nossas A
 |Credenciais de acesso|`MerchantId` e `MerchantKey` recebidos após criação da conta de testes em [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/).|
 |Base da URL transacional|https://apisandbox.braspag.com.br/|
 |Base da URL para consultas|https://apiquerysandbox.braspag.com.br/|
-
-<aside class="warning">As credenciais de acesso são utilizadas para autenticar todas as requisições feitas para os endpoints da API, não devendo ser indevidamente compartilhadas ou expostas por questões de segurança.</aside>
 
 ### Ambiente de Produção
 
