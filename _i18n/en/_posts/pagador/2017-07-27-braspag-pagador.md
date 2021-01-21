@@ -71,7 +71,7 @@ Create an account in our sandbox and try out our APIs during your testing phase,
 
 |Information|Description|
 |----|----|
-|Access credentials|`MerchantId` and `MerchantKey` received after your test account creation in [Sandbox Registration](https://cadastrosandbox.braspag.com.br/)|
+|Access credentials|`MerchantId` and `MerchantKey` received after your test account creation in [Sandbox Registration](https://cadastrosandbox.braspag.com.br/).|
 |Base URL for transactions|https://apisandbox.braspag.com.br/|
 |Base URL for query services|https://apiquerysandbox.braspag.com.br/|
 
