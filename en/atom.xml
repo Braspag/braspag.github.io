@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-21T22:54:54+00:00</updated>
+    <updated>2021-01-21T23:04:31+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13047,7 +13047,13 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;h2 id=&quot;integration-architecture&quot;&gt;Integration Architecture&lt;/h2&gt;
 
-&lt;p&gt;The model used in the integration of the APIs is simple. It is based in the use of two URLs (endpoints). One is specific for operations such as authorization, capture and cancellation of transactions. The other one is for queries, such as a transaction search. These two URLs receive HTTP messages using the GET, POST or PUT methods. Each type of message must be sent to an address identified as “path”, which is the address of the resource.&lt;/p&gt;
+&lt;p&gt;The model used in the integration of the APIs is simple. It is based in the use of two URLs:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;URL for transactions - specific for operations such as authorization, capture and cancellation of transactions.&lt;/li&gt;
+  &lt;li&gt;URL for queries - specific for consultation operations, such as a transaction search.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;To perform an operation, combine the environment base URL with the desired operation endpoint (as in https://api.braspag.com.br/&lt;em&gt;v2/sales/&lt;/em&gt;) and then submit a request to this URL using the correct HTTP method.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -13059,24 +13065,28 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;For querying existing resources, like transaction queries.&lt;/td&gt;
+      &lt;td&gt;Retrieves existing resources, e.g.: a transaction query.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;POST&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;For creating transactions.&lt;/td&gt;
+      &lt;td&gt;Creates new resources, e.g.: creating a transaction.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;PUT&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;For updating existing resources, like capturing or canceling a previously authorized transaction.&lt;/td&gt;
+      &lt;td&gt;Updates existing resources, e.g.: capturing or canceling a previously authorized transaction.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;p&gt;All operations require the access credentials &lt;strong&gt;“Merchant ID”&lt;/strong&gt; and &lt;strong&gt;“Merchant Key”&lt;/strong&gt; to be sent through the request header.&lt;br /&gt;
+Each request operation will return an &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#list-of-http-status-code&quot;&gt;HTTP Status&lt;/a&gt; code, indicating whether it was successfully completed or not.&lt;/p&gt;
 
 &lt;h2 id=&quot;test-and-production-environments&quot;&gt;Test and Production Environments&lt;/h2&gt;
 
 &lt;p&gt;Use our &lt;strong&gt;Sandbox&lt;/strong&gt; environment to test our products and services before bringing your solution into the &lt;strong&gt;Production&lt;/strong&gt; environment.&lt;/p&gt;
 
-&lt;p&gt;All operations require specific access credentials (“Merchant ID” and “Merchant Key”) in both environments. In order to perform an operation, relate the environment base endpoint with the desired operation endpoint and submit the request using the correct HTTP VERB (GET, POST, PUT) exactly as described in each operation.&lt;/p&gt;
+&lt;aside class=&quot;notice&quot;&gt;Access credentials must be used to authenticate all requests made to the API endpoints.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;For safety reasons, these credentials must not be unduly shared or exposed.&lt;/aside&gt;
 
 &lt;h3 id=&quot;sandbox-environment&quot;&gt;Sandbox Environment&lt;/h3&gt;
 
@@ -13092,14 +13102,14 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Access credentials&lt;/td&gt;
-      &lt;td&gt;After creating a test account in &lt;a href=&quot;https://cadastrosandbox.braspag.com.br/&quot;&gt;Sandbox Registration&lt;/a&gt;, you will receive a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; which must be used to authenticate all requests made to the API endpoints.&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; received after your test account creation in &lt;a href=&quot;https://cadastrosandbox.braspag.com.br/&quot;&gt;Sandbox Registration&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Transactional endpoint&lt;/td&gt;
+      &lt;td&gt;Base URL for transactions&lt;/td&gt;
       &lt;td&gt;https://apisandbox.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Endpoint for query services&lt;/td&gt;
+      &lt;td&gt;Base URL for query services&lt;/td&gt;
       &lt;td&gt;https://apiquerysandbox.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -13118,15 +13128,15 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Access Credentials&lt;/td&gt;
-      &lt;td&gt;Send us an email (&lt;em&gt;comercial@braspag.com.br&lt;/em&gt;) for more information about Braspag and about how we can help you with your business.&lt;/td&gt;
+      &lt;td&gt;Access credentials&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; provided by Braspag. Send us an email (&lt;em&gt;comercial@braspag.com.br&lt;/em&gt;) for more information.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Transactional endpoint&lt;/td&gt;
+      &lt;td&gt;Base URL for transactions&lt;/td&gt;
       &lt;td&gt;https://api.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Endpoint for query services&lt;/td&gt;
+      &lt;td&gt;Base URL for query services&lt;/td&gt;
       &lt;td&gt;https://apiquery.braspag.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
