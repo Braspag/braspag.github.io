@@ -2682,21 +2682,24 @@ This is the `Signature` format to be passed to the Pagador API:
 |`AdditionalData.CaptureCode`|Code informed by **MasterPass** to the merchant.|Text|--|3|
 |`AdditionalData.Signature`|Token returned by wallet. Must be submitted in **AndroidPay** integrations.|Text|--|See "Signature" table annexed|
 
-### Examples
+### Examples of Integration
+
+Here are a few examples of integration with the main e-wallets available in the market:
 
 #### Apple Pay
 
-<aside class="notice"><strong>Prerequisites:</strong> To use Apple Pay, the store must be registered with Apple and have a MerchantIdentifier. It is also necessary to upload a CSR certificate in PEM format provided by Braspag. Below is the step by step to make Apple Pay available in your store.</aside>
+Here are the prerequisites for using Apple Pay, followed by a step by step of how to make it available in your store. The integration process can also be found through [this link]().
 
-##### Step 1. Apple contracting
+<aside class="warning">Before using Apple Pay, the store must be registered with Apple and have a "MerchantIdentifier".</aside>
+<aside class="warning">Before using Apple Pay, it is necessary to upload a CSR certificate in PEM format provided by Braspag.</aside>
 
-Apple Pay must be hired from Apple through the business contact below:
+##### Step 1. Hiring Apple Pay 
 
-* Shawn Munyon (smunyon@apple.com) *
+Apple Pay must be hired from Apple through the following business contact: *Shawn Munyon* (smunyon@apple.com).
 
 ##### Step 2. Obtaining the MerchantIdentifier
 
-Once hiring is effective, you will be given access to the "Apple Developer" panel, and you will need to create `MerchantIdentifier`. To do so, perform the steps below:
+Once hiring is effective, you will be given access to the "Apple Developer" panel, and you will need to create your `MerchantIdentifier`. To do so, perform the steps below:
 1. Log in to [Apple Developer](https://developer.apple.com/)
 2. Select **Certificate, IDs & Profile**
 3. Within the "Identifiers" area click "Merchant IDs"
