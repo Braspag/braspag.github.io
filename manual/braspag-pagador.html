@@ -5132,13 +5132,14 @@ curl
 
 <h4 id="apple-pay">Apple Pay</h4>
 
-<p>Abaixo seguem os pré-requisitos para utilizar o Apple Pay e também o passo-a-passo para disponibilizá-la em sua loja. O processo de integração também está disponível <a href="https://braspag.github.io//manual/apple-pay">neste link</a>.</p>
+<p>Abaixo seguem os pré-requisitos para utilizar o Apple Pay, seguidos do passo-a-passo para disponibilizá-lo em sua loja. O processo de integração também está disponível <a href="https://braspag.github.io//manual/apple-pay">neste link</a>.</p>
 
-<aside class="warning">Pré-requisitos: Para utilização da Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um "MerchantIdentifier". Também é necessário o upload de um certificado CSR no formato PEM fornecido pela Braspag.</aside>
+<aside class="warning">Para utilização do Apple Pay é necessário que a loja já esteja cadastrada junto à Apple e possua um "MerchantIdentifier".</aside>
+<aside class="warning">Para utilização do Apple Pay é necessário o upload de um certificado CSR no formato PEM fornecido pela Braspag.</aside>
 
 <h5 id="passo-1-contratação-na-apple">Passo 1. Contratação na Apple</h5>
 
-<p>É necessário que a Apple Pay seja contratada na Apple através do seguinte contato comercial: <em>Shawn Munyon</em> (smunyon@apple.com). O contato deverá ser feito em inglês.</p>
+<p>É necessário que o Apple Pay seja contratado na Apple através do seguinte contato comercial: <em>Shawn Munyon</em> (smunyon@apple.com). O contato deverá ser feito em inglês.</p>
 
 <h5 id="passo-2-obtenção-do-merchantidentifier">Passo 2. Obtenção do MerchantIdentifier</h5>
 
@@ -5181,9 +5182,9 @@ curl
   <p>—–END CERTIFICATE REQUEST—</p>
 </blockquote>
 
-<p>Após o upload do certificado CSR, vem a etapa da integração, que deverá acontecer em dois passos: a de integração com a Apple Pay e a de integração com o Pagador da Braspag.</p>
+<p>Após o upload do certificado CSR, vem a etapa da integração, que deverá acontecer em dois passos: a de integração com o Apple Pay e a de integração com o Pagador da Braspag.</p>
 
-<h5 id="passo-4-integração-com-a-apple-pay">Passo 4. Integração com a Apple Pay</h5>
+<h5 id="passo-4-integração-com-o-apple-pay">Passo 4. Integração com o Apple Pay</h5>
 
 <p>O primeiro passo da integração deve ser feito diretamente com a solução da Apple, para disponibilizar o botão “Pagar com Apple Pay” em seu site ou aplicativo. Para isso, a equipe da Apple fará um acompanhamento de perto. <a href="https://developer.apple.com/apple-pay/">Clique aqui</a> para acessar a documentação técnica da Apple.</p>
 
@@ -5191,7 +5192,7 @@ curl
 
 <h5 id="passo-5-integração-com-o-pagador">Passo 5. Integração com o Pagador</h5>
 
-<p>O segundo passo da integração deverá efetivar o fluxo de decriptografia e autorização via gateway da Braspag (Pagador). Para isso, é necessário fornecer os dados recebidos no fluxo com a Apple Pay, inclusive <code class="language-plaintext highlighter-rouge">WalletKey</code> e <code class="language-plaintext highlighter-rouge">EphemeralPublicKey</code>.</p>
+<p>O segundo passo da integração deverá efetivar o fluxo de decriptografia e autorização via gateway da Braspag (Pagador). Para isso, é necessário fornecer os dados recebidos no fluxo com o Apple Pay, inclusive <code class="language-plaintext highlighter-rouge">WalletKey</code> e <code class="language-plaintext highlighter-rouge">EphemeralPublicKey</code>.</p>
 
 <h6 id="requisição-13">Requisição</h6>
 
