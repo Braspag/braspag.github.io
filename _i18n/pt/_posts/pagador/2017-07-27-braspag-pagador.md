@@ -2576,7 +2576,7 @@ Abaixo, um exemplo de requisição padrão para integração da e-wallet:
 | `Payment.Provider`|Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo e Cielo30).|Texto|15|Sim|
 | `Payment.Installments`|Número de parcelas.|Número|2|Sim|
 | `Wallet.Type`|Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".|Texto|--|Sim|
-| `Wallet.WalletKey`|Chave criptográfica que identifica lojas nas wallets. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|Texto|--|Sim|
+| `Wallet.WalletKey`|Chave criptográfica que identifica lojas nas wallets. Consultar a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|Texto|--|Sim|
 | `Wallet.AdditionalData.EphemeralPublicKey`|Token retornado pela wallet. Deve ser enviado em integrações **ApplePay**.|Texto|--|Sim|
 | `Wallet.AdditionalData.CaptureCode`|Código informado pela **MasterPass** ao lojista.| Texto|--|Sim|                  
 | `Wallet.AdditionalData.Signature`|Token retornado pela wallet. Deve ser enviado em integrações **AndroidPay**.|Texto|--|Sim|
@@ -2687,7 +2687,7 @@ Formato de `Signature` que deve ser repassado ao Pagador API:
 | `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | --     | Texto alfanumérico                   |
 | `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".                      | Texto | --     | Texto alfanumérico                   |
-| `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consulte a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | --     | Ver tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)               |       
+| `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consulte a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | --     | Ver tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)               |       
 | `AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                                       | Texto | --     | Ver tabela [EphemeralPublicKey](https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey)      |  
 | `AdditionalData.CaptureCode`        | Código informado pela **MasterPass** ao lojista.                                                                  | Texto | --     | 3                                    |
 | `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: "AndroidPay".                                               | Texto | --     | Ver tabela [Signature](https://braspag.github.io//manual/braspag-pagador#signature)      |  
@@ -2797,7 +2797,7 @@ Exemplo de requisição padrão Apple Pay:
 | `Payment.Provider`         | Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30)| Texto  | 15      | Sim         |
 | `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |
 | `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".             | Texto  | 255     | Sim         |
-| `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.      | Texto  | 255     | Sim         |
+| `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.      | Texto  | 255     | Sim         |
 | `Wallet.AdditionalData.EphemeralPublicKey`| Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                 | Texto  | 255     | Sim         |
 
 ###### Resposta
@@ -2877,7 +2877,7 @@ Exemplo de requisição padrão Apple Pay:
 | `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 | `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".                       | Texto | 255     | Texto alfanumérico                   |
-| `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | 255     | Ver [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)              |       
+| `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consultar a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | 255     | Ver tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)              |       
 | `AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                         | Texto | 255     | Ver tabela [EphemeralPublicKey](https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey)|
 
 #### Samsung Pay
