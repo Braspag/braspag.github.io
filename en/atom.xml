@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-21T23:04:31+00:00</updated>
+    <updated>2021-01-21T23:14:24+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13102,7 +13102,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Access credentials&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; received after your test account creation in &lt;a href=&quot;https://cadastrosandbox.braspag.com.br/&quot;&gt;Sandbox Registration&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; received after your test account creation in &lt;a href=&quot;https://cadastrosandbox.braspag.com.br/&quot;&gt;Sandbox Registration&lt;/a&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Base URL for transactions&lt;/td&gt;
