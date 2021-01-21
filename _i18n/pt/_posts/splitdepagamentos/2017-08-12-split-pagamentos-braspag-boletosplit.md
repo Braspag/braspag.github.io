@@ -232,7 +232,7 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
 |Payment.Assignor|Nome do Cedente.|Texto|200|Não|
 |Payment.BoletoNumber|Número do Boleto enviado pelo lojista. Usado para contar boletos emitidos (“NossoNumero”).|Texto|Banco do Brasil: 9|Não|
