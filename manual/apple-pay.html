@@ -137,82 +137,107 @@
             <div class="post">
   <h1 id="apple-pay-">Apple Pay ™</h1>
 
-<p>Apple Pay é uma carteira virtual. Ela permite que os compradores realizem pagamentos em lojas virtuais e apps utilizando, de forma prática e segura, seus cartões de crédito e débito armazenados em suas contas e dispositivos Apple.</p>
+<p>O Apple Pay é uma carteira virtual. Ele permite que os compradores realizem pagamentos em lojas virtuais e apps utilizando seus cartões de crédito e débito armazenados em suas contas e dispositivos Apple de forma prática e segura.</p>
 
 <h1 id="pré-requisitos">Pré-Requisitos</h1>
 
-<p>Para utilização da Apple Pay é necessário que a loja já esteja cadastrada no programa AppleID.</p>
+<p>Para utilização do Apple Pay, é necessário que a loja já esteja cadastrada no programa AppleID.</p>
 
-<p>1- Realize o cadastro, acessesando <a href="https://developer.apple.com/programs/enroll/">esta URL</a> e seguindo todos os passos requeridos pela Apple.
-2- Siga os passos dessa documentação para completar a integração junto à Apple.
-3- Contrate o Pagador API REST como gateway de pagamento.
-4- Contrate a Cielo 3.0 como adquirência.
-5- Integre com o <a href="https://braspag.github.io/manual/braspag-pagador">Pagador API REST</a>.</p>
+<ol>
+  <li>Realize o cadastro, acessando <a href="https://developer.apple.com/programs/enroll/">esta URL</a> e seguindo todos os passos requeridos pela Apple.</li>
+  <li>Siga os passos dessa documentação para completar a integração junto à Apple.</li>
+  <li>Contrate o Pagador API REST como gateway de pagamento.</li>
+  <li>Contrate a Cielo 3.0 como adquirência.</li>
+  <li>Integre com o <a href="https://braspag.github.io/manual/braspag-pagador">Pagador API REST</a>.</li>
+</ol>
 
-<h1 id="etapa-1-configuração-do-merchant-identifier">Etapa 1. Configuração do Merchant Identifier</h1>
+<h1 id="etapa-1---configuração-do-merchant-identifier">ETAPA 1 - Configuração do Merchant Identifier</h1>
 
-<h2 id="passo-1-criar-o-merchant-identifier">Passo 1. Criar o Merchant Identifier</h2>
+<p>Nesta etapa inicial, você deverá criar um Merchant Identifier para sua loja. Após criado, o Merchant identifier deverá ser enviado à Braspag em solicitação a um certificado “.CSR”. O certificado “.CSR” criado pela Braspag deverá ser utilizado na criação de um novo certificado junto à Apple, o “.CER”, que irá servir no seguimento à segunda etapa do processo.</p>
 
-<p>O primeiro passo é a criação do Merchant Identifier através do <a href="https://developer.apple.com/account/resources">Portal de Desenvolvedores da Apple</a>.</p>
+<h2 id="passo-1---criar-o-merchant-identifier">Passo 1 - Criar o Merchant Identifier</h2>
 
-<p>1- Na seção <strong>“Certificates, Identifiers &amp; Profiles”</strong>, selecione <strong>“Identifiers”</strong> no menu lateral, e então clique no botão (+) no canto superior esquerdo.</p>
+<p>A criação do Merchant Identifier deve ser feita através do <a href="https://developer.apple.com/account/resources">Portal de Desenvolvedores da Apple</a>, da seguinte maneira:</p>
+
+<ol>
+  <li>Na seção <strong>“Certificates, Identifiers &amp; Profiles”</strong>, selecione <strong>“Identifiers”</strong> no menu lateral, e então clique no botão (+) no canto superior esquerdo.</li>
+</ol>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/applepay01.png" alt="Step1.1" /></p>
 
-<p>2- Selecione <strong>“Merchant IDs”</strong>, e então clique em <strong>“Continue”</strong>.</p>
+<ol>
+  <li>Selecione <strong>“Merchant IDs”</strong>, e então clique em <strong>“Continue”</strong>.</li>
+</ol>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/applepay02.png" alt="Step1.2" /></p>
 
-<p>3- Coloque um valor nos campos <strong>“Description”</strong> e <strong>“Identifier”</strong> seguindo suas especificações, e clique em <strong>“Continue”</strong>.</p>
+<ol>
+  <li>Coloque um valor nos campos <strong>“Description”</strong> e <strong>“Identifier”</strong>, seguindo suas especificações, e clique em <strong>“Continue”</strong>.</li>
+</ol>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/applepay03.png" alt="Step1.3" /></p>
 
-<p>4- Clique em <strong>“Register”</strong>.</p>
+<ol>
+  <li>Clique em <strong>“Register”</strong>.</li>
+</ol>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/applepay04.png" alt="Step1.4" /></p>
 
-<h2 id="passo-2-solicitar-o-certificado-csr">Passo 2. Solicitar o certificado “.CSR”</h2>
+<h2 id="passo-2---solicitar-o-certificado-csr">Passo 2 - Solicitar o Certificado “.CSR”</h2>
 
-<p>O próximo passo é solicitar à Braspag a geração do certificado no formato “.CSR”. Para tanto, entre em contato com o <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">Time de Atendimento</a> da Braspag.</p>
+<p>O próximo passo é solicitar à Braspag a geração do certificado no formato “.CSR”.<br />Para tanto, entre em contato com o nosso <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">Time de Atendimento</a> e informe:</p>
 
-<p>Na solicitação, informar:</p>
+<ol>
+  <li>O <strong>Merchant Identifier</strong> criado no passo 1;</li>
+  <li>O <strong>Merchant ID</strong> de sua loja na Braspag em Produção.</li>
+</ol>
 
-<p>1- O <strong>Merchant Identifier</strong> criado no Passo 1;
-2- O <strong>Merchant ID</strong> de sua loja na Braspag em Produção.</p>
+<p>Nossa equipe irá retornar com o arquivo “.CSR” em até 48 horas úteis.</p>
 
-<p>Nossa equipe de atendimento retornará com o arquivo “.CSR” em até 48 horas úteis.</p>
+<h2 id="passo-3---criar-o-certificado-cer">Passo 3 - Criar o Certificado “.CER”</h2>
 
-<h2 id="passo-3-criar-o-certificado-cer">Passo 3. Criar o certificado “.CER”</h2>
+<p>Para criar um certificado de processamento de pagamento (“.CER”), que será utilizado em sua loja virtual ou aplicativo, é necessário acessar o <a href="https://developer.apple.com/account/resources">Portal de Desenvolvedores da Apple</a> e seguir os passos abaixo:</p>
 
-<p>Com o objetivo de criar um certificado de processamento de pagamento (“.CER”) a ser utilizado em sua loja virtual ou aplicativo, é necessário seguir os passos abaixo no <a href="https://developer.apple.com/account/resources">Portal de Desenvolvedores da Apple</a>:</p>
-
-<p>1- No menu <strong>“Certificates, Identifier &amp; Profiles”</strong>, selecione <strong>“Identifiers”</strong>, no menu lateral.</p>
-
-<p>2- Utilizando o filtro localizado à direita superior (<strong>“App IDs”</strong>), encontre o item <strong>“Merchant IDs”</strong>.</p>
+<ol>
+  <li>No menu <strong>“Certificates, Identifier &amp; Profiles”</strong>, selecione <strong>“Identifiers”</strong>, no menu lateral.</li>
+  <li>Utilizando o filtro localizado à direita superior (<strong>“App IDs”</strong>), encontre o item <strong>“Merchant IDs”</strong>:</li>
+</ol>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/applepay05.png" alt="Step2.1" /></p>
 
-<p>3- À direita, selecione o identifier criado anteriormente.</p>
+<ol>
+  <li>À direita, selecione o identifier criado anteriormente:</li>
+</ol>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/applepay06.png" alt="Step2.2" /></p>
 
-<p>4- Próxima a <strong>“Apple Pay Payment Processing Certificate”</strong>, clique em <strong>“Create Certificate”</strong>.</p>
+<ol>
+  <li>No bloco <strong>“Apple Pay Payment Processing Certificate”</strong>, clique em <strong>“Create Certificate”</strong> logo abaixo do texto explicativo:</li>
+</ol>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/applepay07.png" alt="Step2.3" /></p>
 
-<p>5- Escolha a opção “No” em <strong>“Edit or Configure Merchant ID”</strong>.</p>
+<ol>
+  <li>Escolha a opção “No” em <strong>“Edit or Configure Merchant ID”</strong>:</li>
+</ol>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/applepay08.png" alt="Step2.4" /></p>
 
-<p>6- Na caixa de diálogo, escolha o certificado “.CSR” enviado pela Braspag.</p>
+<ol>
+  <li>Na caixa de diálogo, escolha o certificado “.CSR” enviado pela Braspag:</li>
+</ol>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/applepay09.png" alt="Step2.5" /></p>
 
-<p>7- Clique em <strong>“Continue”</strong>.</p>
+<ol>
+  <li>Clique em <strong>“Continue”</strong>:</li>
+</ol>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/applepay10.png" alt="Step2.6" /></p>
 
-<p>8- Clique em <strong>“Download”</strong> para baixar o arquivo “.CER”.</p>
+<ol>
+  <li>Clique em <strong>“Download”</strong> para baixar o arquivo “.CER”:</li>
+</ol>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/applepay11.png" alt="Step2.7" /></p>
 
