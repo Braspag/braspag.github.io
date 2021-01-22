@@ -297,9 +297,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não|
+|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não (envio no *header*)|
 |`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
 |`Customer.Name`|Nome do comprador.|Texto|255|Sim|
 |`Customer.Identity`|Número do CPF ou CNPJ do cliente.|Texto |14 |Não|
@@ -930,9 +930,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. | GUID | 36 | Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API. | Texto | 40 | Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. | GUID | 36 | Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API. | Texto | 40 | Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`PaymentId`|Campo identificador do pedido. | GUID | 36 | Sim|
 |`Amount`|Valor a ser capturado, em centavos. Verificar se a adquirente utilizada suporta uma captura parcial. | Número | 15 | Não|
 |`ServiceTaxAmount`|Aplicável para companhias aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização. | Número | 15 | Não|
@@ -1447,9 +1447,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não (envio no *header*)|
 |`PaymentId`|Campo identificador do pedido.|GUID |36 |Sim|
 |`Amount`|Valor, em centavos, a ser cancelado/estornado. Obs.: Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.|Número |15 |Não|
 
@@ -2116,9 +2116,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não|
+|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não (envio no *header*)|
 |`MerchantOrderId`|Número de identificação do pedido. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
 |`Customer.Name`|Nome do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
 |`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.|Texto |14 |Sim|
@@ -2406,9 +2406,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`MerchantOrderId`|Número de identificação do pedido. |Texto |50 |Sim|
 |`Customer.Name`|Nome do comprador.|Texto|255|Sim|
 |`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.| Texto |14 |Sim|
@@ -2568,9 +2568,9 @@ Abaixo, um exemplo de requisição padrão para integração da e-wallet:
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-| `MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
-| `MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
-| `RequestId`|Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não|
+| `MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
+| `MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
+| `RequestId`|Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não (envio no *header*)|
 | `MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
 | `Customer.Name`|Nome do comprador.|Texto|255|Não|
 | `Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
@@ -2790,9 +2790,9 @@ Exemplo de requisição padrão Apple Pay:
 
 | Propriedade                | Descrição                                                                                               | Tipo   | Tamanho | Obrigatório |
 |----------------------------|---------------------------------------------------------------------------------------------------------|--------|---------|-------------|
-| `MerchantId`               | Identificador da loja na Braspag.                                                                       | GUID   | 36      | Sim         | 
-| `MerchantKey`              | Chave pública para autenticação dupla na Braspag.                                                       | Texto  | 40      | Sim         | 
-| `RequestId`                | Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  | GUID   | 36      | Não         | 
+| `MerchantId`               | Identificador da loja na Braspag.                                                                       | GUID   | 36      | Sim (envio no *header*)| 
+| `MerchantKey`              | Chave pública para autenticação dupla na Braspag.                                                       | Texto  | 40      | Sim (envio no *header*)| 
+| `RequestId`                | Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  | GUID   | 36      | Não (envio no *header*)| 
 | `MerchantOrderId`          | Número de identificação do pedido.                                                                      | Texto  | 50      | Sim         | 
 | `Customer.Name`            | Nome do comprador.                                                                                      | Texto  | 255     | Não         |
 | `Customer.Status`          | Status de cadastro do comprador na loja ("NEW" / "EXISTING").                                           | Texto  | 255     | Não         |
@@ -2921,9 +2921,9 @@ Exemplo de requisição padrão Samsung Pay:
 
 | Propriedade                | Descrição                                                                                               | Tipo   | Tamanho | Obrigatório |
 |----------------------------|---------------------------------------------------------------------------------------------------------|--------|---------|-------------|
-| `MerchantId`               | Identificador da loja na Braspag.                                                                        | GUID   | 36      | Sim         |
-| `MerchantKey`              | Chave pública para autenticação dupla na Braspag.                                                        | Texto  | 40      | Sim         |
-| `RequestId`                | Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  | GUID   | 36      | Não         |
+| `MerchantId`               | Identificador da loja na Braspag.                                                                        | GUID   | 36      | Sim (envio no *header*)|
+| `MerchantKey`              | Chave pública para autenticação dupla na Braspag.                                                        | Texto  | 40      | Sim (envio no *header*)|
+| `RequestId`                | Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  | GUID   | 36      | Não (envio no *header*)|
 | `MerchantOrderId`          | Número de identificação do pedido.                                                                      | Texto  | 50      | Sim         |
 | `Customer.Name`            | Nome do comprador.                                                                                      | Texto  | 255     | Não         |
 | `Customer.Status`          | Status de cadastro do comprador na loja ("NEW" / "EXISTING").                                                | Texto  | 255     | Não         |
@@ -3050,9 +3050,9 @@ Exemplo de requisição padrão Android Pay:
 
 | Propriedade                | Descrição                                                                                               | Tipo   | Tamanho | Obrigatório |
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-| `MerchantId`               | Identificador da loja na Braspag.                                                                        | GUID   | 36      | Sim         |
-| `MerchantKey`              | Chave pública para autenticação dupla na Braspag.                                                        | Texto  | 40      | Sim         | 
-| `RequestId`                | Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  | GUID   | 36      | Não         |
+| `MerchantId`               | Identificador da loja na Braspag.                                                                        | GUID   | 36      | Sim (envio no *header*)|
+| `MerchantKey`              | Chave pública para autenticação dupla na Braspag.                                                        | Texto  | 40      | Sim (envio no *header*)| 
+| `RequestId`                | Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  | GUID   | 36      | Não (envio no *header*)|
 | `MerchantOrderId`          | Número de identificação do pedido.                                                                      | Texto  | 50      | Sim         |
 | `Customer.Name`            | Nome do comprador.                                                                                      |Texto  | 255     | Não         |
 | `Customer.Status`          | Status de cadastro do comprador na loja ("NEW" / "EXISTING").                                           | Texto  | 255     | Não         |      
@@ -3178,9 +3178,9 @@ Exemplo de requisição padrão Master-Pass:
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
-|`RequestId`|Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não|
+|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
+|`RequestId`|Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não (envio no *header*)|
 |`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
 |`Customer.Name`|Nome do comprador.|Texto|255|Não|
 |`Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
@@ -3293,9 +3293,9 @@ Exemplo de requisição padrão Visa Checkout:
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
-|`RequestId`|Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não|
+|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
+|`RequestId`|Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não (envio no *header*)|
 |`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
 |`Customer.Name`|Nome do comprador.|Texto|255|Não|
 |`Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
@@ -4148,7 +4148,7 @@ curl
 
 ### Alterando Dados do Comprador
 
-Para alterar os dados do comprador de uma recorrência existente, basta fazer uma chamada PUT para o endpoint especificado.<br>A resposta irá retornar o código do [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), informando se a operação foi realizada com sucesso ou não.
+Para alterar os dados do comprador de uma recorrência existente, basta fazer uma chamada PUT para o endpoint especificado.<br>Em **resposta**, a API irá retornar o código do [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), informando se a operação foi realizada com sucesso ou não.
 
 #### Requisição
 
@@ -4229,9 +4229,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
 |`Customer.Name`|Nome do comprador. |Texto |255|Sim|
 |`Customer.Email`|Email do comprador. |Texto |255|Não|
@@ -4295,9 +4295,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
 |`EndDate`|Data para término da recorrência.|Texto |10 |Sim|
 
@@ -4341,9 +4341,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
 |`Interval`|Intervalo da recorrência. <br>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual.|Texto |10 |Sim|
 
@@ -4393,9 +4393,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
 |`RecurrencyDay`|Dia da recorrência.|Número |2 |Sim|
 
@@ -4441,9 +4441,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API.|GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API.|GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Número de identificação da recorrência.|Texto |50 |Sim|
 |`Payment.Amount`|Valor do pedido, em centavos. Ex.: 156 equivale a R$ 1,56.|Número|15|Sim|
 
@@ -4489,9 +4489,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
 |`NextPaymentDate`|Data de pagamento da próxima recorrência.|Texto |10 |Sim|
 
@@ -4585,9 +4585,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
 |`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. |Texto |100|Sim|
@@ -4636,9 +4636,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
 
 #### Resposta
@@ -4672,9 +4672,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
 
 #### Resposta
@@ -5744,9 +5744,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim|
-|`RequestId`|Identificador do request definido pela loja.|GUID|36|Não|
+|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja.|GUID|36|Não (envio no *header*)|
 |`MerchantOrderId`|Número do pedido da loja.|Texto|50|Sim|
 |`Customer.Name`|Nome completo do comprador.|Texto|120|Sim|
 |`Customer.Identity`|Número do documento de identificação do comprador.|Texto|16|Sim|
@@ -6448,9 +6448,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`PaymentId`|Número de identificação do pagamento. |Texto |36 |Sim|
 
 #### Resposta
@@ -6754,9 +6754,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`PaymentId`|Número de identificação do pagamento. |GUID |36 |Sim|
 
 #### Resposta
@@ -6961,9 +6961,9 @@ curls
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`MerchantOrderId`|Campo identificador do pedido na loja. |Texto |36 |Sim|
 
 ### Resposta
@@ -7028,9 +7028,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim|
-|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Campo identificador da recorrência. |Texto |36 |Sim|
 
 ### Resposta
