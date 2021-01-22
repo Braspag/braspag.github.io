@@ -4148,7 +4148,7 @@ curl
 
 ### Alterando Dados do Comprador
 
-Para alterar os dados do comprador em uma recorrência já existente, basta fazer uma chamada com o verbo HTTP PUT, conforme o exemplo:
+Para alterar os dados do comprador de uma recorrência existente, basta fazer uma chamada PUT para o endpoint especificado.<br>A resposta irá retornar o código do [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), informando se a operação foi realizada com sucesso ou não.
 
 #### Requisição
 
