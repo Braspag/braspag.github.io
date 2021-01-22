@@ -2540,7 +2540,7 @@ Abaixo, um exemplo de requisição padrão para integração da e-wallet:
 
 #### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {
@@ -2612,11 +2612,11 @@ curl
 | `Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 | `Payment.Provider`|Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo e Cielo30).|Texto|15|Sim|
 | `Payment.Installments`|Número de parcelas.|Número|2|Sim|
-| `Wallet.Type`|Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".|Texto|--|Sim|
+| `Wallet.Type`|Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".|Texto|--|Sim|
 | `Wallet.WalletKey`|Chave criptográfica que identifica lojas nas wallets. Consultar a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|Texto|--|Sim|
 | `Wallet.AdditionalData.EphemeralPublicKey`|Token retornado pela wallet. Deve ser enviado em integrações **ApplePay**.|Texto|--|Sim|
 | `Wallet.AdditionalData.CaptureCode`|Código informado pela **MasterPass** ao lojista.| Texto|--|Sim|                  
-| `Wallet.AdditionalData.Signature`|Token retornado pela wallet. Deve ser enviado em integrações **AndroidPay**.|Texto|--|Sim|
+| `Wallet.AdditionalData.Signature`|Token retornado pela wallet. Deve ser enviado em integrações **GooglePay**.|Texto|--|Sim|
 
 ##### WalletKey
 
@@ -2789,11 +2789,11 @@ Formato de `Signature` que deve ser repassado ao Pagador API:
 | `Status`            | Status da transação.                                                                                                           | Byte  | 2       | Ex.: 1                                |
 | `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | --     | Texto alfanumérico                   |
-| `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".                      | Texto | --     | Texto alfanumérico                   |
+| `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".                      | Texto | --     | Texto alfanumérico                   |
 | `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consulte a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | --     | Ver tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)               |       
 | `AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                                       | Texto | --     | Ver tabela [EphemeralPublicKey](https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey)      |  
 | `AdditionalData.CaptureCode`        | Código informado pela **MasterPass** ao lojista.                                                                  | Texto | --     | 3                                    |
-| `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: "AndroidPay".                                               | Texto | --     | Ver tabela [Signature](https://braspag.github.io//manual/braspag-pagador#signature)      |  
+| `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: "GooglePay".                                               | Texto | --     | Ver tabela [Signature](https://braspag.github.io//manual/braspag-pagador#signature)      |  
 
 ### Exemplos de Integração
 
@@ -2861,7 +2861,7 @@ O segundo passo da integração deverá efetivar o fluxo de decriptografia e aut
 
 Exemplo de requisição padrão Apple Pay:
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {
@@ -2933,7 +2933,7 @@ curl
 | `Payment.Amount`           | Valor do pedido, em centavos.                                                                           | Número | 15      | Sim         |
 | `Payment.Provider`         | Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30)| Texto  | 15      | Sim         |
 | `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |
-| `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".             | Texto  | 255     | Sim         |
+| `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".             | Texto  | 255     | Sim         |
 | `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.      | Texto  | 255     | Sim         |
 | `Wallet.AdditionalData.EphemeralPublicKey`| Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                 | Texto  | 255     | Sim         |
 
@@ -3080,7 +3080,7 @@ curl
 | `Status`            | Status da transação.                                                                                                           | Byte  | 2       | Ex.: 1                                |
 | `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
-| `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".                       | Texto | 255     | Texto alfanumérico                   |
+| `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".                       | Texto | 255     | Texto alfanumérico                   |
 | `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consultar a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | 255     | Ver tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)              |       
 | `AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                         | Texto | 255     | Ver tabela [EphemeralPublicKey](https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey)|
 
@@ -3094,7 +3094,7 @@ Abaixo segue o pré-requisito para utilizar o Samsung Pay e também um exemplo d
 
 Exemplo de requisição padrão Samsung Pay:
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {
@@ -3162,7 +3162,7 @@ curl
 | `Payment.Amount`           | Valor do pedido, em centavos.                                                              | Número | 15      | Sim         |
 | `Payment.Provider`         | Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30).  | Texto  | 15      | Sim         |
 | `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |
-| `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass". | Texto  | 255     | Sim         |
+| `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass". | Texto  | 255     | Sim         |
 | `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.
 | Texto  | 255     | Sim         |
 
@@ -3302,20 +3302,20 @@ curl
 | `Status`            | Status da transação.                                                                                                           | Byte  | 2       | Ex.: 1                                |
 | `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
-| `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass.                      | Texto | 255     | Texto alfanumérico                   |
+| `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass.                      | Texto | 255     | Texto alfanumérico                   |
 | `WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                    | Texto | 255     | Ver a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)              |
 
-#### Android Pay
+#### Google Pay
 
-Abaixo segue o pré-requisito para utilizar o Android Pay e também um exemplo de requisição para disponibilizá-lo em sua loja.
+Abaixo segue o pré-requisito para utilizar o Google Pay e também um exemplo de requisição para disponibilizá-lo em sua loja.
 
-<aside class="warning">É necessário que a loja já possua cadastro e integração Android Pay, caso contrário não será possível a integração com a API.</aside>
+<aside class="warning">É necessário que a loja já possua cadastro e integração Google Pay, caso contrário não será possível a integração com a API.</aside>
 
 ##### Requisição
 
-Exemplo de requisição padrão Android Pay:
+Exemplo de requisição padrão Google Pay:
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {
@@ -3332,7 +3332,7 @@ Exemplo de requisição padrão Android Pay:
      "Installments":1,
      "Currency":"BRL",
      "Wallet":{
-       "Type":"AndroidPay",
+       "Type":"GooglePay",
        "WalletKey":"IDENTIFICADOR DA LOJA NA WALLET",
        "AdditionalData":{
            "Signature":"MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA\u003d"
@@ -3365,7 +3365,7 @@ curl
      "Installments":1,
      "Currency":"BRL",
      "Wallet":{
-       "Type":"AndroidPay",
+       "Type":"GooglePay",
        "WalletKey":"IDENTIFICADOR DA LOJA NA WALLET",
        "AdditionalData":{
            "Signature":"MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA\u003d"
@@ -3387,9 +3387,9 @@ curl
 | `Payment.Amount`           | Valor do pedido, em centavos.                                                                           | Número | 15      | Sim         |
 | `Payment.Provider`         | Nome do provedor do meio de pagamento. Obs: Disponível somente para providers **Cielo** (Cielo / Cielo30).| Texto  | 15      | Sim         |
 | `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |       
-| `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".             | Texto  | 255     | Sim         |
+| `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".             | Texto  | 255     | Sim         |
 | `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.| Texto  | 255     | Sim         |
-| `Wallet.AdditionalData.Signature`| Token retornado pela wallet. Deve ser enviado em Integrações: "AndroidPay".                                 | Texto  | 255    | Sim  |
+| `Wallet.AdditionalData.Signature`| Token retornado pela wallet. Deve ser enviado em Integrações: "GooglePay".                                 | Texto  | 255    | Sim  |
 
 ##### Resposta
 
@@ -3417,7 +3417,7 @@ curl
         "ProofOfSale": "817883",
         "AuthorizationCode": "027795",
         "Wallet": {
-            "Type": "AndroidPay",
+            "Type": "GooglePay",
             "WalletKey": "IDENTIFICADOR DA LOJA NA WALLET",
             "Eci": 0,
             "AdditionalData": {
@@ -3483,7 +3483,7 @@ curl
         "ProofOfSale": "817883",
         "AuthorizationCode": "027795",
         "Wallet": {
-            "Type": "AndroidPay",
+            "Type": "GooglePay",
             "WalletKey": "IDENTIFICADOR DA LOJA NA WALLET",
             "Eci": 0,
             "AdditionalData": {
@@ -3533,9 +3533,9 @@ curl
 | `Status`            | Status da transação.                                                                                                           | Byte  | 2       | Ex.: 1                                |
 | `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
-| `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".                       | Texto | 255     | Texto alfanumérico                   |
+| `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".                       | Texto | 255     | Texto alfanumérico                   |
 | `WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.| Texto | 255     | Ver a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey).               |       
-| `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: "AndroidPay".                                               | Texto | 255     | Ver tabela [Signature](https://braspag.github.io//manual/braspag-pagador#signature)|  
+| `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: "GooglePay".                                               | Texto | 255     | Ver tabela [Signature](https://braspag.github.io//manual/braspag-pagador#signature)|  
 
 #### MasterPass
 
@@ -3545,7 +3545,7 @@ Para utilizar o MasterPass é necessária a contratação do serviço através d
 
 Exemplo de requisição padrão Master-Pass:
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {  
@@ -3741,7 +3741,7 @@ Para utilizar o Visa Checkout é necessária a contratação do serviço atravé
 
 Exemplo de requisição padrão Visa Checkout:
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {  
