@@ -4716,8 +4716,8 @@ curl
   <li><a href="https://www.apple.com/br/apple-pay/"><em>Apple Pay</em></a></li>
   <li><a href="https://www.samsung.com.br/samsungpay/"><em>Samsung Pay</em></a></li>
   <li><a href="https://pay.google.com/intl/pt-BR_br/about/"><em>Google Pay</em></a></li>
-  <li><a href="https://vaidevisa.visa.com.br/site/visa-checkout/"><em>VisaCheckout</em></a></li>
-  <li><a href="https://masterpass.com/pt-br/"><em>MasterPass</em></a></li>
+  <li><a href="https://vaidevisa.visa.com.br/site/visa-checkout/"><em>Visa Checkout</em></a></li>
+  <li><a href="https://masterpass.com/pt-br/"><em>Masterpass</em></a></li>
 </ul>
 
 <aside class="warning">Quando o nó “Wallet” é enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
@@ -4891,7 +4891,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.CaptureCode</code></td>
-      <td>Código informado pela <strong>MasterPass</strong> ao lojista.</td>
+      <td>Código informado pela <strong>Masterpass</strong> ao lojista.</td>
       <td>Texto</td>
       <td>–</td>
       <td>Sim</td>
@@ -5212,7 +5212,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AdditionalData.CaptureCode</code></td>
-      <td>Código informado pela <strong>MasterPass</strong> ao lojista.</td>
+      <td>Código informado pela <strong>Masterpass</strong> ao lojista.</td>
       <td>Texto</td>
       <td>–</td>
       <td>3</td>
@@ -5233,7 +5233,7 @@ curl
 
 <h4 id="apple-pay">Apple Pay</h4>
 
-<p>O processo completo de integração ao Apple Pay está disponível <a href="https://braspag.github.io//manual/apple-pay">neste link</a>.</p>
+<p>Confira <a href="https://braspag.github.io//manual/apple-pay">neste link</a> o processo completo de integração ao Apple Pay.</p>
 
 <h4 id="samsung-pay">Samsung Pay</h4>
 
@@ -5389,7 +5389,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
-      <td>Chave criptográfica que representa os dados do cartão. Consultar a <a href="https://braspag.github.io//manual/braspag-pagador#walletkey">tabela WalletKey</a> para mais informações.</td>
+      <td>Chave criptográfica que representa os dados do cartão. Consultar a tabela <a href="https://braspag.github.io//manual/braspag-pagador#walletkey">WalletKey</a> para mais informações.</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -5613,18 +5613,18 @@ curl
       <td>Chave criptográfica que representa os dados do cartão. Consultar a <a href="https://braspag.github.io//manual/braspag-pagador#walletkey">tabela WalletKey</a> para mais informações.</td>
       <td>Texto</td>
       <td>255</td>
-      <td>Ver a <a href="https://braspag.github.io//manual/braspag-pagador#walletkey">tabela WalletKey</a></td>
+      <td>Ver a tabela <a href="https://braspag.github.io//manual/braspag-pagador#walletkey">WalletKey</a></td>
     </tr>
   </tbody>
 </table>
 
 <h4 id="google-pay">Google Pay</h4>
 
-<p>O processo completo de integração ao Google Pay está disponível <a href="https://braspag.github.io//manual/google-pay">neste link</a>.</p>
+<p>Confira <a href="https://braspag.github.io//manual/google-pay">neste link</a> o processo completo de integração ao Google Pay.</p>
 
-<h4 id="masterpass">MasterPass</h4>
+<h4 id="masterpass">Masterpass</h4>
 
-<p>Para utilizar o MasterPass é necessária a contratação do serviço através do contato diretamente com a Mastercard, selecionando a Braspag como <em>service provider</em>.</p>
+<p>Para utilizar o Masterpass é necessária a contratação do serviço através do contato diretamente com a Mastercard, selecionando a Braspag como <em>service provider</em>.</p>
 
 <h5 id="requisição-14">Requisição</h5>
 
@@ -5635,14 +5635,14 @@ curl
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador MasterPass"</span><span class="w">     
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador Masterpass"</span><span class="w">     
    </span><span class="p">},</span><span class="w">
    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">  
      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Wallet"</span><span class="p">:{</span><span class="w">
-         </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"MasterPass"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Masterpass"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="s2">"a561da1c18a89cfdafas875f9d43fc46cd9bf3e1"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"AdditionalData"</span><span class="p">:{</span><span class="w">
                </span><span class="nl">"CaptureCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"103"</span><span class="w">
@@ -5664,14 +5664,14 @@ curl
 <span class="o">{</span>  
    <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014111708"</span>,
    <span class="s2">"Customer"</span>:<span class="o">{</span>  
-      <span class="s2">"Name"</span>:<span class="s2">"Comprador MasterPass"</span>     
+      <span class="s2">"Name"</span>:<span class="s2">"Comprador Masterpass"</span>     
    <span class="o">}</span>,
    <span class="s2">"Payment"</span>:<span class="o">{</span>  
      <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
      <span class="s2">"Amount"</span>:15700,
      <span class="s2">"Installments"</span>:1,
      <span class="s2">"Wallet"</span>:<span class="o">{</span>
-         <span class="s2">"Type"</span>:<span class="s2">"MasterPass"</span>,
+         <span class="s2">"Type"</span>:<span class="s2">"Masterpass"</span>,
          <span class="s2">"WalletKey"</span>:<span class="s2">"a561da1c18a89cfdafas875f9d43fc46cd9bf3e1"</span>,
          <span class="s2">"AdditionalData"</span>:<span class="o">{</span>
                <span class="s2">"CaptureCode"</span>: <span class="s2">"103"</span>
@@ -5765,28 +5765,28 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
-      <td>Tipo de carteira: “MasterPass”.</td>
+      <td>Tipo de carteira: “Masterpass”.</td>
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
-      <td>Chave criptográfica que representa os dados do cartão. Consultar a <a href="https://braspag.github.io//manual/braspag-pagador#walletkey">tabela WalletKey</a> para mais informações.</td>
+      <td>Chave criptográfica que representa os dados do cartão. Consultar a tabela <a href="https://braspag.github.io//manual/braspag-pagador#walletkey">WalletKey</a> para mais informações.</td>
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData</code></td>
-      <td>Instância para dados extras informados pela <strong>MasterPass</strong>. Obs.: Obrigatório apenas para <code class="language-plaintext highlighter-rouge">Wallet.Type</code> “MasterPass”</td>
+      <td>Instância para dados extras informados pela <strong>Masterpass</strong>. Obs.: Obrigatório apenas para <code class="language-plaintext highlighter-rouge">Wallet.Type</code> “Masterpass”</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.CaptureCode</code></td>
-      <td>Código informado pela <strong>MasterPass</strong> ao lojista.</td>
+      <td>Código informado pela <strong>Masterpass</strong> ao lojista.</td>
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
@@ -5971,14 +5971,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>Tipo de carteira: “VisaCheckout” / “MasterPass”.</td>
+      <td>Tipo de carteira: “VisaCheckout” / “Masterpass”.</td>
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CaptureCode</code></td>
-      <td>Código informado pela <strong>MasterPass</strong> ao lojista.</td>
+      <td>Código informado pela <strong>Masterpass</strong> ao lojista.</td>
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
@@ -6334,7 +6334,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CaptureCode</code></td>
-      <td>Código informado pela <strong>MasterPass</strong> ao lojista.</td>
+      <td>Código informado pela <strong>Masterpass</strong> ao lojista.</td>
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
