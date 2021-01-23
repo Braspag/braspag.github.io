@@ -137,42 +137,38 @@
             <div class="post">
   <h1 id="google-pay-">Google Pay ™</h1>
 
-<p>Google Pay é uma carteira virtual. Ele permite que os compradores realizem pagamentos em lojas virtuais e apps utilizando de forma prática e segura, seus cartões de crédito e débito armazenados em suas contas “Google Account” e dispositivos Android.</p>
+<p>O Google Pay é uma carteira virtual. Ele permite que os compradores realizem pagamentos em lojas virtuais e apps utilizando, de forma prática e segura, seus cartões de crédito e débito armazenados em suas contas “Google Account” e dispositivos Android.</p>
 
-<h1 id="requisitos">Requisitos</h1>
+<h1 id="pré-requisitos">Pré-Requisitos</h1>
+
+<p>Para utilização do Google Pay, é necessário que a loja já possua cadastro e integração Google Pay. Além disso, você deve:</p>
 
 <ol>
-  <li>Concordar com os termos de serviço do Google Pay</li>
-  <li>Integrar com o Google Pay em seu site ou app (<a href="https://developers.google.com/pay/api/android/overview">https://developers.google.com/pay/api/android/overview</a>)</li>
-  <li>Contratar o Pagador API REST como gateway de pagamento</li>
-  <li>Contratar o Cielo 3.0 como adquirência</li>
-  <li>Integrar com o Pagador API REST (<a href="https://braspag.github.io/manual/braspag-pagador">https://braspag.github.io/manual/braspag-pagador</a>)</li>
+  <li>Concordar com os termos de serviço do Google Pay.</li>
+  <li>Integrar com o <a href="https://developers.google.com/pay/api/android/overview">Google Pay</a> em seu site ou app.</li>
+  <li>Contratar o Pagador API REST como gateway de pagamento.</li>
+  <li>Contratar o Cielo 3.0 como adquirência.</li>
+  <li>Integrar com o <a href="https://braspag.github.io/manual/braspag-pagador">Pagador API REST</a>.</li>
 </ol>
 
-<h1 id="etapa-1-integrando-google-pay-em-seu-aplicativo-android">Etapa 1: Integrando Google Pay em seu aplicativo Android</h1>
+<h1 id="etapa-1-integração-com-google-pay">ETAPA 1: Integração com Google Pay</h1>
+
+<p>Nesta etapa inicial, você deverá configurar seu projeto e implementar o Google Pay em seu aplicativo Android.</p>
 
 <h2 id="passo-1---configuração-do-projeto">Passo 1 - Configuração do Projeto</h2>
 
-<p><a href="https://developers.google.com/pay/api/android/guides/setup">https://developers.google.com/pay/api/android/guides/setup</a></p>
-
-<p>Nestes passos, os seguintes pontos devem ser atendidos:</p>
-
-<ul>
-  <li>Configuração do Projeto</li>
-  <li>Modificação do arquivo <em>Manifest</em></li>
-</ul>
+<p>Para configurar seu projeto, siga as instruções descritas no <a href="https://developers.google.com/pay/api/android/guides/setup">Guia de Configuração</a> do Google Pay.<br />
+Neste passo, você deverá importar a biblioteca do Google Play Services ou então escolher as APIs que deseja compilar. E então, para ativar o Google Pay no seu aplicativo Android, o arquivo “<em>AndroidManifest.xml</em>” do seu projeto deverá ser editado de acordo com as instruções dadas na página.</p>
 
 <h2 id="passo-2---implementação-do-google-pay">Passo 2 - Implementação do Google Pay</h2>
 
-<p>Para integrar o Google Pay sem seu aplicativo, siga todos os passos indicados na documentação do Google Pay:</p>
-
-<p><a href="https://developers.google.com/pay/api/android/guides/tutorial">https://developers.google.com/pay/api/android/guides/tutorial</a></p>
-
-<p>Para a correta integração do Google Pay via Braspag, é necessário se atentar aos pontos abaixo:</p>
+<p>Para integrar o Google Pay em seu aplicativo, siga todos os passos indicados no <a href="https://developers.google.com/pay/api/android/guides/tutorial">Tutorial de Implementação</a> do Google Pay.
+<br /><br />
+Para a correta integração do Google Pay via Braspag, é necessário se atentar aos pontos abaixo:</p>
 
 <h3 id="definição-do-gateway">Definição do Gateway</h3>
 
-<p>No passo “<em>Step 2: Choose a payment tokenization method</em>”, siga o modelo indicado como “GATEWAY” e preencha o valor para parâmetro “type” como “ <strong>PAYMENT_GATEWAY</strong>”  e o parâmetro “ <strong>gateway</strong>” como “ <strong>cielo</strong>”, conforme o exemplo ao lado:</p>
+<p>No passo “<em>Step 2: Choose a payment tokenization method</em>”, siga o modelo indicado como “GATEWAY” e preencha o valor para o parâmetro <code class="language-plaintext highlighter-rouge">type</code> como “<strong>PAYMENT_GATEWAY</strong>”  e o parâmetro <code class="language-plaintext highlighter-rouge">gateway</code> como “<strong>cielo</strong>”, conforme o exemplo dado:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">private</span><span class="w"> </span><span class="err">static</span><span class="w"> </span><span class="err">JSONObject</span><span class="w"> </span><span class="err">getTokenizationSpecification()</span><span class="w"> </span><span class="p">{</span><span class="w">
   </span><span class="err">JSONObject</span><span class="w"> </span><span class="err">tokenizationSpecification</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">JSONObject();</span><span class="w">
@@ -186,33 +182,29 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>No parâmetro “ <strong>gatewayMerchantId</strong>”, preencha o identificador de sua loja gerado pelo gateway. O identificador da loja tem o formato XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (i.e. GUID(36)).</p>
+<p>No parâmetro <code class="language-plaintext highlighter-rouge">gatewayMerchantId</code>, preencha o identificador de sua loja gerado pelo gateway. O identificador da loja tem o formato “XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX” (isto é, Tipo <em>GUID</em> / Tamanho <em>36</em>).</p>
 
-<h3 id="definição-das-bandeiras-aceitas">Definição das Bandeiras aceitas</h3>
+<h3 id="definição-das-bandeiras">Definição das Bandeiras</h3>
 
-<p>No passo “<em>Step 3: Define supported payment card networks</em>”, seguir com as bandeiras: “VISA”, “MASTERCARD”, “AMEX”, “DISCOVER” E “JCB”</p>
+<p>No passo “<em>Step 3: Define supported payment card networks</em>”, seguir com as bandeiras aceitas: “VISA”, “MASTERCARD”, “AMEX”, “DISCOVER” E “JCB”.</p>
 
-<h3 id="definição-do-ambiente">Definição do ambiente</h3>
+<h3 id="definição-do-ambiente">Definição do Ambiente</h3>
 
 <p>No passo “<em>Step 5: Create a PaymentsClient instance</em>”, utilize o valor “WalletConstants.ENVIRONMENT_TEST” para utilizar o ambiente de teste.</p>
 
-<h3 id="definição-dos-dados-de-compra">Definição dos dados de compra</h3>
+<h3 id="definição-dos-dados-de-compra">Definição dos Dados de Compra</h3>
 
-<p>No passo “<em>Step 7: Create a PaymentDataRequest object</em>”, utilize o valor “BRL” para parâmetro “ <strong>currencyCode</strong>”. O campo “ <strong>merchantName</strong>” é o nome que o comprador visualizará durante o pagamento com Google Pay, desta forma, recomenda-se colocar um nome amigável e reconhecido.</p>
+<p>No passo “<em>Step 7: Create a PaymentDataRequest object</em>”, utilize o valor “BRL” para o parâmetro <code class="language-plaintext highlighter-rouge">currencyCode</code>. O campo <code class="language-plaintext highlighter-rouge">merchantName</code> é o nome que o comprador visualizará durante o pagamento com Google Pay e recomenda-se, desta forma, colocar-se um nome amigável e reconhecido.</p>
 
-<h3 id="recuperação-dos-dados-pagamento">Recuperação dos dados pagamento</h3>
+<h3 id="recuperação-dos-dados-de-pagamento">Recuperação dos Dados de Pagamento</h3>
 
-<p>No passo “<em>Step 9: Handle the response object</em>”, está descrito o evento “Activity.RESULT_OK”, onde é retornado um objeto com todos os dados referente ao dados de pagamento, inclusive o token de pagamento.</p>
+<p>No passo “<em>Step 9: Handle the response object</em>”, está descrito o evento “Activity.RESULT_OK”, onde é retornado um objeto com todos os dados referentes ao dados de pagamento, inclusive o token de pagamento.</p>
 
-<p>A partir do <em>PaymentData,</em> obtém-se o objeto <em>PaymentMethodToken</em>, através da chamada do método <strong>getPaymentMethodToken()</strong>.</p>
+<p>A partir do <em>PaymentData,</em> obtém-se o objeto <em>PaymentMethodToken</em>, através da chamada do método <code class="language-plaintext highlighter-rouge">getPaymentMethodToken()</code>. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData">Clique aqui</a> para mais informações.</p>
 
-<p>(vide mais informações em: <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData">https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData</a>)</p>
+<p>Na sequência, deve-se obter a <em>string</em> que contém tokens de pagamento a partir do método <code class="language-plaintext highlighter-rouge">GetToken()</code> do objeto <em>PaymentMethodToken</em>. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken">Clique aqui</a> para mais informações.</p>
 
-<p>Na sequência, deve-se obter a <em>string</em> que contém tokens de pagamento a partir do método <strong>GetToken()</strong> do objeto <em>PaymentMethodToken</em>.</p>
-
-<p>(vide mais informações em: <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken">https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken</a>)</p>
-
-<p>O token obtido no passo anterior, possui uma estrutura descrita abaixo:</p>
+<p>O token obtido no passo anterior possui uma estrutura como a mostrada a seguir. <a href="https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography">Clique aqui</a> para mais informações.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"protocolVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ECv1"</span><span class="p">,</span><span class="w">
@@ -226,32 +218,30 @@
 <table>
   <thead>
     <tr>
-      <th><strong>Parâmetro</strong></th>
-      <th><strong>Type</strong></th>
-      <th><strong>Descrição</strong></th>
+      <th>Parâmetro</th>
+      <th>Type</th>
+      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>signedMessage</td>
+      <td><code class="language-plaintext highlighter-rouge">signedMessage</code></td>
       <td>string</td>
-      <td>Mensagem asssinada.</td>
+      <td>Mensagem assinada.</td>
     </tr>
     <tr>
-      <td>signature</td>
+      <td><code class="language-plaintext highlighter-rouge">signature</code></td>
       <td>string</td>
       <td>Assinatura da mensagem.</td>
     </tr>
   </tbody>
 </table>
 
-<p>(vide mais informações em: <a href="https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography">https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography</a>)</p>
+<p>Guarde os dados <code class="language-plaintext highlighter-rouge">signedMessage</code> e <code class="language-plaintext highlighter-rouge">signature</code>, que serão requisitados na autorização via Pagador da Braspag na Etapa 2, descrita a seguir.</p>
 
-<p>Guarde os dados “<em>signedMessage</em>” e “<em>signature</em>”, que serão requisitados na autorização via Pagador da Braspag na próxima etapa (Etapa 2: Autorização com token do Google Pay)</p>
+<h1 id="etapa-2-autorização-com-token">Etapa 2: Autorização com Token</h1>
 
-<h1 id="etapa-2-autorização-com-o-token-do-google-pay">Etapa 2: Autorização com o token do Google Pay</h1>
-
-<p>A autorização com o token do Google Pay acontece da mesma forma que uma autorização padrão de um cartão de crédito, porém, ao invés de fornecer os dados do cartão abertos, deverá fornecer o token recebido pelo Google Pay, confore o exemplo abaixo:</p>
+<p>A autorização com o token do Google Pay acontece da mesma forma que a autorização padrão de um cartão de crédito. Porém, ao invés de se fornecer os dados do cartão abertamente, deverá ser fornecido o token recebido pelo Google Pay, conforme o exemplo abaixo:</p>
 
 <h2 id="request">Request</h2>
 
@@ -279,21 +269,21 @@
 <table>
   <thead>
     <tr>
-      <th><strong>Parâmetros do Header</strong></th>
-      <th><strong>Type</strong></th>
-      <th><strong>Descrição</strong></th>
+      <th>Parâmetros do Header</th>
+      <th>Descrição</th>
+      <th>Tipo e tamanho</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>MerchantID</td>
-      <td>GUID(36)</td>
-      <td>ID do estabelecimento na Cielo 3.0. Para ambiente Sandbox, utilize 63D6ACCB-2734-4236-AB5D-843A9DAC44C7</td>
+      <td>MerchantId</td>
+      <td>ID do estabelecimento na Cielo 3.0. Para ambiente Sandbox, utilize 63D6ACCB-2734-4236-AB5D-843A9DAC44C7.</td>
+      <td>GUID (36)</td>
     </tr>
     <tr>
       <td>MerchantKey</td>
-      <td>String(24)</td>
-      <td>Chave da API para Cielo 3.0. Para ambiente Sandbox, utilize ZCVHDJWKTGOZXADDYJFURIDIKHEMRYQAQDYEJMQK</td>
+      <td>Chave da API para Cielo 3.0. Para ambiente Sandbox, utilize ZCVHDJWKTGOZXADDYJFURIDIKHEMRYQAQDYEJMQK.</td>
+      <td>String (24)</td>
     </tr>
   </tbody>
 </table>
@@ -301,75 +291,75 @@
 <table>
   <thead>
     <tr>
-      <th><strong>Parâmetro</strong></th>
-      <th><strong>Type</strong></th>
-      <th><strong>Descrição</strong></th>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo e tamanho</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>MerchantOrderId</td>
+      <td>Número de identificação do pedido.</td>
       <td>String (50)</td>
-      <td>Número de identificação do Pedido</td>
     </tr>
     <tr>
       <td>Customer</td>
-      <td>Nó com dados do comprador</td>
-      <td>Vide <a href="https://braspag.github.io/manual/braspag-pagador?json#criando-uma-transa%C3%A7%C3%A3o-com-dados-do-comprador">https://braspag.github.io/manual/braspag-pagador?json#criando-uma-transa%C3%A7%C3%A3o-com-dados-do-comprador</a></td>
+      <td>Nó com dados do comprador.</td>
+      <td>Consulte o <a href="https://braspag.github.io/manual/braspag-pagador?json#requisi%C3%A7%C3%A3o">Manual do Pagador</a>.</td>
     </tr>
     <tr>
       <td>Payment.Type</td>
+      <td>Tipo do meio de pagamento. Possibilidades: “CreditCard” / “DebitCard”.</td>
       <td>String (100)</td>
-      <td>Tipo do Meio de Pagamento. Possibilidades: “CreditCard” ou “DebitCard”</td>
     </tr>
     <tr>
       <td>Payment.Amount</td>
+      <td>Valor do pedido, em centavos.</td>
       <td>Número (15)</td>
-      <td>Valor do Pedido (ser enviado em centavos)</td>
     </tr>
     <tr>
       <td>Payment.Provider</td>
+      <td>Nome do provedor de meio de pagamento. Para transações Google Pay, utilize “Cielo30”.</td>
       <td>String (15)</td>
-      <td>Nome da provedora de Meio de Pagamento. Para transações Google Pay, utilize “Cielo30”</td>
     </tr>
     <tr>
       <td>Payment.Installments</td>
+      <td>Número de parcelas.</td>
       <td>Número (2)</td>
-      <td>Número de Parcelas</td>
     </tr>
     <tr>
       <td>Payment.Wallet.Type</td>
+      <td>Nome do provedor de meio de pagamento. Para transações Google Pay, utilize “AndroidPay”.</td>
       <td>String (15)</td>
-      <td>Nome da provedora de Meio de Pagamento. Para transações Google Pay, utilize “AndroidPay”</td>
     </tr>
     <tr>
       <td>Payment.Wallet.WalletKey</td>
+      <td>Preencher com o valor do parâmetro <code class="language-plaintext highlighter-rouge">signedMessage</code> retornado pelo Google Pay.</td>
       <td>String</td>
-      <td>Preencher com o valor do parâmetro “signedMessage” retornado pelo Google Pay</td>
     </tr>
     <tr>
       <td>Payment.Wallet.AdditionalData.Signature</td>
+      <td>Preencher com o valor do parâmetro <code class="language-plaintext highlighter-rouge">signature</code> retornado pelo Google Pay.</td>
       <td>String</td>
-      <td>Preencher com o valor do parâmetro “signature” retornado pelo Google Pay</td>
     </tr>
   </tbody>
 </table>
 
-<p>Para mais informações, acesse <a href="https://braspag.github.io/manual/braspag-pagador">https://braspag.github.io/manual/braspag-pagador</a></p>
+<p>Para mais informações, consulte o <a href="https://braspag.github.io/manual/braspag-pagador">Manual do Pagador</a>.</p>
 
 <h2 id="response">Response</h2>
 
-<p>Vide <a href="https://braspag.github.io/manual/braspag-pagador?json#resposta">https://braspag.github.io/manual/braspag-pagador?json#resposta</a></p>
+<p>A resposta de autorização da wallet terá os mesmos campos apresentados em nossa documentação do <a href="https://braspag.github.io/manual/braspag-pagador?json#resposta">Pagador</a>, porém com a adição do nó <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> repetindo os mesmos campos utilizados na autorização, como descrito acima.</p>
 
-<h1 id="etapa-3-solicitação-de-dados-de-produção">Etapa 3: Solicitação de dados de produção</h1>
+<h1 id="etapa-3-solicitação-de-dados-de-produção">Etapa 3: Solicitação de Dados de Produção</h1>
 
 <h2 id="passo-1---branding-guideline">Passo 1 - Branding Guideline</h2>
 
-<p>Verifique se todas as diretrizes de branding foram seguidas conforme o link: <a href="https://developers.google.com/pay/api/android/guides/brand-guidelines">https://developers.google.com/pay/api/android/guides/brand-guidelines</a></p>
+<p>Verifique se todas as diretrizes de branding foram seguidas conforme descrito no <a href="https://developers.google.com/pay/api/android/guides/brand-guidelines">Guia Diretrizes de Marca</a>.</p>
 
-<h2 id="passo-2---checklist-e-solicitação-de-credenciais-de-produção">Passo 2 - Checklist e solicitação de credenciais de produção</h2>
+<h2 id="passo-2---checklist-e-solicitação-de-credenciais">Passo 2 - Checklist e Solicitação de Credenciais</h2>
 
-<p>Verifique se todos os itens do checklist foram atendidos. Quando estiver tudo validado, solicite os dados de acesso produtivos. O checklist está disponível em: <a href="https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist">https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist</a></p>
+<p>Verifique se todos os itens do <a href="https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist">checklist de integração</a> foram atendidos. Após tudo validado, solicite os dados de acesso produtivos.</p>
 
 </div>
 
