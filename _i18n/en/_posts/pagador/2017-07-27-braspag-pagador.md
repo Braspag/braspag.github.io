@@ -2521,8 +2521,8 @@ Pagador currently supports the following digital wallets:
 * [*Apple Pay*](https://www.apple.com/br/apple-pay/)
 * [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)
 * [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/)
-* [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout)
-* [*MasterPass*](https://masterpass.com/)
+* [*Visa Checkout*](https://vaidevisa.visa.com.br/site/visa-checkout)
+* [*Masterpass*](https://masterpass.com/)
 
 <aside class="warning">When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
 
@@ -2575,7 +2575,7 @@ Here is an example of a standard request for the e-wallet integration:
 |`Wallet.Type`|Text|--|Yes|Wallet type: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".|
 |`Wallet.WalletKey`|Text|--|Yes|Cryptographic key that identifies stores in wallets. Refer to the WalletKey table in the ANNEXES for more information.|
 |`Wallet.AdditionalData.EphemeralPublicKey`|Text|--|Yes|Token returned by wallet. Must be submitted in **ApplePay** integrations.|
-|`Wallet.AdditionalData.CaptureCode`|Text|--|Yes|Code informed by **MasterPass** to the merchant.|
+|`Wallet.AdditionalData.CaptureCode`|Text|--|Yes|Code informed by **Masterpass** to the merchant.|
 |`Wallet.AdditionalData.Signature`|Text|--|Yes|Token returned by wallet. Must be submitted in **AndroidPay** integrations.|
 
 ##### WalletKey
@@ -2687,7 +2687,7 @@ This is the `Signature` format to be passed to the Pagador API:
 |`Type`|Wallet type: "ApplePay" / "SamsungPay" / "AndroidPay" / "VisaCheckout" / "Masterpass".|Text|--|Alphanumeric|
 |`WalletKey`|Cryptographic key that identifies stores in wallets. Check the WalletKey table in the ANNEXES for more information.|Text|--|See "WalletKey" table annexed|
 |`AdditionalData.EphemeralPublicKey`|Token returned by wallet. Must be submitted in **ApplePay** integrations.|Text|--|See "EphemeralPublicKey" table annexed|
-|`AdditionalData.CaptureCode`|Code informed by **MasterPass** to the merchant.|Text|--|3|
+|`AdditionalData.CaptureCode`|Code informed by **Masterpass** to the merchant.|Text|--|3|
 |`AdditionalData.Signature`|Token returned by wallet. Must be submitted in **AndroidPay** integrations.|Text|--|See "Signature" table annexed|
 
 ### Examples of Integration
@@ -2924,7 +2924,7 @@ Default Request Example *Samsung Pay*
 |`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
 |`Payment.Provider`|Text|15|Yes|Cielo providers only (`Cielo`/`Cielo30`)|
 |`Payment.Installments`|Number|2|Yes|Number of Installments|
-|`Wallet.Type`|Text|255|Yes|indicates which wallet type: `ApplePay`/`SamsungPay/`AndroidPay`/`VisaCheckout`/`Masterpass`|
+|`Wallet.Type`|Text|255|Yes|indicates which wallet type: `ApplePay`/`SamsungPay`/`AndroidPay`/`VisaCheckout`/`Masterpass`|
 |`Wallet.WalletKey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
 
 ##### Response
@@ -3134,9 +3134,9 @@ Default Request Example *Google Pay*
 |`WalletKey`|Cryptographic Key Representing Card Data - Check WalletKey Table for More Information|Text|255|Check table `WalletKey`|
 |`AdditionalData.Signature`|Token returned by Wallet. Must be submitted in Integrations: `AndroidPay`|Text|255|Check Table `Signature`|
 
-#### MasterPass
+#### Masterpass
 
-> To use MasterPass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.
+> To use Masterpass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.
 
 #### Request
 
@@ -3146,14 +3146,14 @@ Default Request Example *Google Pay*
 {
    "MerchantOrderId": "2014111708",
    "Customer":{
-      "Name": "MasterPass Shopper"
+      "Name": "Masterpass Shopper"
    },
    "Payment":{
      "Type":"CreditCard",
      "Amount": 15700,
      "Installments":1,
      "Wallet":{
-         "Type": "MasterPass",
+         "Type": "Masterpass",
          "WalletKey": "a561da1c18a89cfdafas875f9d43fc46cd9bf3e1",
          "AdditionalData":{
                "CaptureCode": "103"
@@ -3178,8 +3178,8 @@ Default Request Example *Google Pay*
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`Wallet.Type`|Text|255|Yes|indicates which type of wallet:" Masterpass "|
 |`Wallet.WalletKey`|Text|255|Yes|Cryptographic key representing card data - See WalletKey table for more information|
-|`Wallet.AdditionalData`|---|---|---|Instance for extra data entered by MasterPass. Required only if TYPE = "MasterPass"|
-|`Wallet.capturecode`|Text|255|Yes|Code entered by MasterPass to retailer|
+|`Wallet.AdditionalData`|---|---|---|Instance for extra data entered by Masterpass. Required only if TYPE = "Masterpass"|
+|`Wallet.capturecode`|Text|255|Yes|Code entered by Masterpass to retailer|
 
 ##### Response
 
@@ -3244,7 +3244,7 @@ Default Request Example *Google Pay*
 |`ReturnCode`|Return Code from Acquiring.|Text|32|Alphanumeric|
 |`ReturnMessage`|Return message from Acquiring.|Text|512|Alphanumeric|
 |`Type`|indicates which wallet type: "VisaCheckout" or "Masterpass"|Text|255|Yes|
-|`Capturecode`|Code entered by MasterPass to shopkeeper|Text|255|Yes|
+|`Capturecode`|Code entered by Masterpass to shopkeeper|Text|255|Yes|
 
 #### Visa Checkout
 
@@ -3352,7 +3352,7 @@ Default Request Example *Google Pay*
 |`ReturnCode`|Return Code from Acquiring.|Text|32|Alphanumeric|
 |`ReturnMessage`|Return message from Acquiring.|Text|512|Alphanumeric|
 |`Type`|indicates which wallet type:" VisaCheckout "or" Masterpass "|Text|255|Yes|
-|`Capturecode`|Code entered by MasterPass to shopkeeper|Text|255|Yes|
+|`Capturecode`|Code entered by Masterpass to shopkeeper|Text|255|Yes|
 
 ## Voucher
 
