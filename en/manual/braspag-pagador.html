@@ -4718,8 +4718,8 @@ curl
   <li><a href="https://www.apple.com/br/apple-pay/"><em>Apple Pay</em></a></li>
   <li><a href="https://www.samsung.com.br/samsungpay/"><em>Samsung Pay</em></a></li>
   <li><a href="https://pay.google.com/intl/pt-BR_br/about/"><em>Google Pay</em></a></li>
-  <li><a href="https://vaidevisa.visa.com.br/site/visa-checkout"><em>VisaCheckout</em></a></li>
-  <li><a href="https://masterpass.com/"><em>MasterPass</em></a></li>
+  <li><a href="https://vaidevisa.visa.com.br/site/visa-checkout"><em>Visa Checkout</em></a></li>
+  <li><a href="https://masterpass.com/"><em>Masterpass</em></a></li>
 </ul>
 
 <aside class="warning">When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
@@ -4864,7 +4864,7 @@ curl
       <td>Text</td>
       <td>–</td>
       <td>Yes</td>
-      <td>Code informed by <strong>MasterPass</strong> to the merchant.</td>
+      <td>Code informed by <strong>Masterpass</strong> to the merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.Signature</code></td>
@@ -5118,7 +5118,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AdditionalData.CaptureCode</code></td>
-      <td>Code informed by <strong>MasterPass</strong> to the merchant.</td>
+      <td>Code informed by <strong>Masterpass</strong> to the merchant.</td>
       <td>Text</td>
       <td>–</td>
       <td>3</td>
@@ -5619,7 +5619,7 @@ curl
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay/</code>AndroidPay<code class="language-plaintext highlighter-rouge">/</code>VisaCheckout<code class="language-plaintext highlighter-rouge">/</code>Masterpass`</td>
+      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">AndroidPay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
@@ -6086,10 +6086,10 @@ curl
   </tbody>
 </table>
 
-<h4 id="masterpass">MasterPass</h4>
+<h4 id="masterpass">Masterpass</h4>
 
 <blockquote>
-  <p>To use MasterPass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.</p>
+  <p>To use Masterpass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.</p>
 </blockquote>
 
 <h4 id="request-16">Request</h4>
@@ -6099,14 +6099,14 @@ curl
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MasterPass Shopper"</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masterpass Shopper"</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Wallet"</span><span class="p">:{</span><span class="w">
-         </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MasterPass"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masterpass"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a561da1c18a89cfdafas875f9d43fc46cd9bf3e1"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"AdditionalData"</span><span class="p">:{</span><span class="w">
                </span><span class="nl">"CaptureCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"103"</span><span class="w">
@@ -6230,7 +6230,7 @@ curl
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td>Instance for extra data entered by MasterPass. Required only if TYPE = “MasterPass”</td>
+      <td>Instance for extra data entered by Masterpass. Required only if TYPE = “Masterpass”</td>
       <td> </td>
     </tr>
     <tr>
@@ -6238,7 +6238,7 @@ curl
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>Code entered by MasterPass to retailer</td>
+      <td>Code entered by Masterpass to retailer</td>
       <td> </td>
     </tr>
   </tbody>
@@ -6377,7 +6377,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Capturecode</code></td>
-      <td>Code entered by MasterPass to shopkeeper</td>
+      <td>Code entered by Masterpass to shopkeeper</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
@@ -6672,7 +6672,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Capturecode</code></td>
-      <td>Code entered by MasterPass to shopkeeper</td>
+      <td>Code entered by Masterpass to shopkeeper</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>

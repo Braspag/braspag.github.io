@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-23T01:38:39+00:00</updated>
+    <updated>2021-01-23T01:51:22+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -17593,8 +17593,8 @@ curl
   &lt;li&gt;&lt;a href=&quot;https://www.apple.com/br/apple-pay/&quot;&gt;&lt;em&gt;Apple Pay&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.samsung.com.br/samsungpay/&quot;&gt;&lt;em&gt;Samsung Pay&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://pay.google.com/intl/pt-BR_br/about/&quot;&gt;&lt;em&gt;Google Pay&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://vaidevisa.visa.com.br/site/visa-checkout&quot;&gt;&lt;em&gt;VisaCheckout&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://masterpass.com/&quot;&gt;&lt;em&gt;MasterPass&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://vaidevisa.visa.com.br/site/visa-checkout&quot;&gt;&lt;em&gt;Visa Checkout&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://masterpass.com/&quot;&gt;&lt;em&gt;Masterpass&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.&lt;/aside&gt;
@@ -17739,7 +17739,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Code informed by &lt;strong&gt;MasterPass&lt;/strong&gt; to the merchant.&lt;/td&gt;
+      &lt;td&gt;Code informed by &lt;strong&gt;Masterpass&lt;/strong&gt; to the merchant.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.AdditionalData.Signature&lt;/code&gt;&lt;/td&gt;
@@ -17993,7 +17993,7 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AdditionalData.CaptureCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Code informed by &lt;strong&gt;MasterPass&lt;/strong&gt; to the merchant.&lt;/td&gt;
+      &lt;td&gt;Code informed by &lt;strong&gt;Masterpass&lt;/strong&gt; to the merchant.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
@@ -18494,7 +18494,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay/&lt;/code&gt;AndroidPay&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;VisaCheckout&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;Masterpass`&lt;/td&gt;
+      &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.WalletKey&lt;/code&gt;&lt;/td&gt;
@@ -18961,10 +18961,10 @@ curl
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;masterpass&quot;&gt;MasterPass&lt;/h4&gt;
+&lt;h4 id=&quot;masterpass&quot;&gt;Masterpass&lt;/h4&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;To use MasterPass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.&lt;/p&gt;
+  &lt;p&gt;To use Masterpass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h4 id=&quot;request-16&quot;&gt;Request&lt;/h4&gt;
@@ -18974,14 +18974,14 @@ curl
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111708&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MasterPass Shopper&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Masterpass Shopper&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Wallet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MasterPass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Masterpass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;WalletKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a561da1c18a89cfdafas875f9d43fc46cd9bf3e1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;AdditionalData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CaptureCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;103&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -19105,7 +19105,7 @@ curl
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Instance for extra data entered by MasterPass. Required only if TYPE = “MasterPass”&lt;/td&gt;
+      &lt;td&gt;Instance for extra data entered by Masterpass. Required only if TYPE = “Masterpass”&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -19113,7 +19113,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Code entered by MasterPass to retailer&lt;/td&gt;
+      &lt;td&gt;Code entered by Masterpass to retailer&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -19252,7 +19252,7 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Capturecode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Code entered by MasterPass to shopkeeper&lt;/td&gt;
+      &lt;td&gt;Code entered by Masterpass to shopkeeper&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -19547,7 +19547,7 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Capturecode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Code entered by MasterPass to shopkeeper&lt;/td&gt;
+      &lt;td&gt;Code entered by Masterpass to shopkeeper&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
