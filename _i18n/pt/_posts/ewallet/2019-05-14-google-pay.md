@@ -21,7 +21,7 @@ O Google Pay é uma carteira virtual. Ele permite que os compradores realizem pa
 Para utilização do Google Pay, é necessário que a loja já possua cadastro e integração Google Pay. Além disso, você deve:
 
 1. Concordar com os termos de serviço do Google Pay.
-2. Integrar com o [Google Pay](https://developers.google.com/pay/api/android/overview) em seu site ou app.
+2. Seguir os passos dessa documentação para completar a integração junto à [Google Pay](https://developers.google.com/pay/api/android/overview).
 3. Contratar o Pagador API REST como gateway de pagamento.
 4. Contratar o Cielo 3.0 como adquirência.
 5. Integrar com o [Pagador API REST](https://braspag.github.io/manual/braspag-pagador).
