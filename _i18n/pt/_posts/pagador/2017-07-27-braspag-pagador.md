@@ -2528,8 +2528,8 @@ O Pagador possui suporte para as seguintes carteiras digitais:
 * [*Apple Pay*](https://www.apple.com/br/apple-pay/)
 * [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)
 * [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/)
-* [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout/)
-* [*MasterPass*](https://masterpass.com/pt-br/)
+* [*Visa Checkout*](https://vaidevisa.visa.com.br/site/visa-checkout/)
+* [*Masterpass*](https://masterpass.com/pt-br/)
 
 <aside class="warning">Quando o nó “Wallet” é enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
 <aside class="warning">Quando o nó "Wallet" é enviado na requisição, para o cartão de débito é necessário o envio do nó “DebitCard” contendo a “ReturnUrl”.</aside>
@@ -2615,7 +2615,7 @@ curl
 | `Wallet.Type`|Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".|Texto|--|Sim|
 | `Wallet.WalletKey`|Chave criptográfica que identifica lojas nas wallets. Consultar a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|Texto|--|Sim|
 | `Wallet.AdditionalData.EphemeralPublicKey`|Token retornado pela wallet. Deve ser enviado em integrações **ApplePay**.|Texto|--|Sim|
-| `Wallet.AdditionalData.CaptureCode`|Código informado pela **MasterPass** ao lojista.| Texto|--|Sim|                  
+| `Wallet.AdditionalData.CaptureCode`|Código informado pela **Masterpass** ao lojista.| Texto|--|Sim|                  
 | `Wallet.AdditionalData.Signature`|Token retornado pela wallet. Deve ser enviado em integrações **GooglePay**.|Texto|--|Sim|
 
 ##### WalletKey
@@ -2792,7 +2792,7 @@ Formato de `Signature` que deve ser repassado ao Pagador API:
 | `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".                      | Texto | --     | Texto alfanumérico                   |
 | `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consulte a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                              | Texto | --     | Ver tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)               |       
 | `AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                                       | Texto | --     | Ver tabela [EphemeralPublicKey](https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey)      |  
-| `AdditionalData.CaptureCode`        | Código informado pela **MasterPass** ao lojista.                                                                  | Texto | --     | 3                                    |
+| `AdditionalData.CaptureCode`        | Código informado pela **Masterpass** ao lojista.                                                                  | Texto | --     | 3                                    |
 | `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: "GooglePay".                                               | Texto | --     | Ver tabela [Signature](https://braspag.github.io//manual/braspag-pagador#signature)      |  
 
 ### Exemplos de Integração
@@ -2801,7 +2801,7 @@ Seguem alguns exemplos de integração com as principais e-wallets disponíveis 
 
 #### Apple Pay
 
-O processo completo de integração ao Apple Pay está disponível [neste link](https://braspag.github.io//manual/apple-pay).
+Confira [neste link](https://braspag.github.io//manual/apple-pay) o processo completo de integração ao Apple Pay.
 
 #### Samsung Pay
 
@@ -2882,7 +2882,7 @@ curl
 | `Payment.Provider`         | Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30).  | Texto  | 15      | Sim         |
 | `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |
 | `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass". | Texto  | 255     | Sim         |
-| `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.
+| `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.
 | Texto  | 255     | Sim         |
 
 ##### Resposta
@@ -3022,15 +3022,15 @@ curl
 | `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 | `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass.                      | Texto | 255     | Texto alfanumérico                   |
-| `WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                    | Texto | 255     | Ver a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)              |
+| `WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                    | Texto | 255     | Ver a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)              |
 
 #### Google Pay
 
-O processo completo de integração ao Google Pay está disponível [neste link](https://braspag.github.io//manual/google-pay).
+Confira [neste link](https://braspag.github.io//manual/google-pay) o processo completo de integração ao Google Pay.
 
-#### MasterPass
+#### Masterpass
 
-Para utilizar o MasterPass é necessária a contratação do serviço através do contato diretamente com a Mastercard, selecionando a Braspag como *service provider*.
+Para utilizar o Masterpass é necessária a contratação do serviço através do contato diretamente com a Mastercard, selecionando a Braspag como *service provider*.
 
 ##### Requisição
 
@@ -3042,14 +3042,14 @@ Exemplo de requisição padrão Master-Pass:
 {  
    "MerchantOrderId":"2014111708",
    "Customer":{  
-      "Name":"Comprador MasterPass"     
+      "Name":"Comprador Masterpass"     
    },
    "Payment":{  
      "Type":"CreditCard",
      "Amount":15700,
      "Installments":1,
      "Wallet":{
-         "Type":"MasterPass",
+         "Type":"Masterpass",
          "WalletKey":"a561da1c18a89cfdafas875f9d43fc46cd9bf3e1",
          "AdditionalData":{
                "CaptureCode": "103"
@@ -3072,14 +3072,14 @@ curl
 {  
    "MerchantOrderId":"2014111708",
    "Customer":{  
-      "Name":"Comprador MasterPass"     
+      "Name":"Comprador Masterpass"     
    },
    "Payment":{  
      "Type":"CreditCard",
      "Amount":15700,
      "Installments":1,
      "Wallet":{
-         "Type":"MasterPass",
+         "Type":"Masterpass",
          "WalletKey":"a561da1c18a89cfdafas875f9d43fc46cd9bf3e1",
          "AdditionalData":{
                "CaptureCode": "103"
@@ -3102,10 +3102,10 @@ curl
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Provider`|Nome do provedor do meio de pagamento. Disponível somente para providers **Cielo** (Cielo / Cielo30).|Texto|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
-|`Wallet.Type`|Tipo de carteira: "MasterPass".|Texto|255|Sim|
-|`Wallet.WalletKey`|Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|Texto|255|Sim|
-|`Wallet.AdditionalData`|Instância para dados extras informados pela **MasterPass**. Obs.: Obrigatório apenas para `Wallet.Type` "MasterPass"|---|---|---|
-|`Wallet.CaptureCode`|Código informado pela **MasterPass** ao lojista.|Texto|255|Sim|
+|`Wallet.Type`|Tipo de carteira: "Masterpass".|Texto|255|Sim|
+|`Wallet.WalletKey`|Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.|Texto|255|Sim|
+|`Wallet.AdditionalData`|Instância para dados extras informados pela **Masterpass**. Obs.: Obrigatório apenas para `Wallet.Type` "Masterpass"|---|---|---|
+|`Wallet.CaptureCode`|Código informado pela **Masterpass** ao lojista.|Texto|255|Sim|
 
 ##### Resposta
 
@@ -3221,8 +3221,8 @@ curl
 |`Status`|Status da transação.|Byte| 2 | Ex.: 1 |
 |`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da adquirência.|Texto|512|Texto alfanumérico|
-|`Type`|Tipo de carteira: "VisaCheckout" / "MasterPass".|Texto|255|Sim|
-|`CaptureCode`|Código informado pela **MasterPass** ao lojista.|Texto|255|Sim|
+|`Type`|Tipo de carteira: "VisaCheckout" / "Masterpass".|Texto|255|Sim|
+|`CaptureCode`|Código informado pela **Masterpass** ao lojista.|Texto|255|Sim|
 
 #### Visa Checkout
 
@@ -3410,7 +3410,7 @@ curl
 |`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da adquirência.|Texto|512|Texto alfanumérico|
 |`Type`|Tipo de carteira: "VisaCheckout" / "Masterpass"|Texto|255|Sim|
-|`CaptureCode`|Código informado pela **MasterPass** ao lojista.|Texto|255|Sim|
+|`CaptureCode`|Código informado pela **Masterpass** ao lojista.|Texto|255|Sim|
 
 ## Voucher
 
