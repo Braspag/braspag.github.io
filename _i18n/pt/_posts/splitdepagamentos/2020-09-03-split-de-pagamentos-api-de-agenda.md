@@ -36,10 +36,11 @@ O endpoint de conciliação de vendas permite consultar os dados relativo as tra
 
 ### Consulta por PaymentId
 
-**Request**
+#### Request
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/v2/{{PaymentId}}</span></aside>
 
-**Response**
+#### Response
+
 ```json
 {
 
@@ -260,13 +261,11 @@ O endpoint de conciliação de vendas permite consultar os dados relativo as tra
 
 ### Consulta por data de agendamento
 
-**Exemplo 1** - Efetuando a consulta de todos os cancelamentos agendados no período entre 26/08/2020 e 28/08/2020 que não foram revertidos..
-
-**Request:**
+#### Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/v2/transactions?initialScheduledAt=2020-09-03&finalScheduledAt=2020-09-04&Reversed=False</span></aside>
 
-**Response:**
+#### Response
 
 ```json
 {
@@ -451,13 +450,13 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 
 ### Exemplos de consultas no endpoint de conciliação de cancelamentos 
 
-**Exemplo 1** - Efetuando a consulta de todos os cancelamentos agendados no período entre 01/01/2020 e 02/01/2020 que não foram revertidos.
+**Exemplo** - Efetuando a consulta de todos os cancelamentos agendados no período entre 01/01/2020 e 02/01/2020 que não foram revertidos.
 
-**Request:**
+#### Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/voids?InitialScheduledAt=2020-01-01&FinalScheduledAt=2020-01-02&Reversed=False</span></aside>
 
-**Response:**
+#### Response
 
 ```json
 { 
@@ -529,270 +528,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 }
 ```
 
-**Exemplo 2** - Efetuando a consulta de todas as reversões de cancelamento agendadas no período entre 01/01/2020 e 02/01/2020.
 
-**Request:**
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/voids?InitialScheduledAt=2020-01-01&FinalScheduledAt=2020-01-02&Reversed=True</span></aside>
-
-**Response:**
-
-```json
-{ 
-   "PageCount":1,
-   "PageIndex":1,
-   "PageSize":25,
-   "Items":[ 
-      { 
-         "Id":"5198f7a7-2345-443e-9743-221fd383c564",
-         "Amount":1000,
-         "Status":"Successful",
-         "CreatedAt":"2019-11-13",
-         "EventDate":"2019-11-13",
-         "Reversed":true,
-         "ScheduledAt":"2020-01-02",
-         "TransactionFares":{ 
-            "DiscountedAmount":40,
-            "AppliedMdr":3.70
-         },
-         "MasterRateDiscountTypeId":"1",
-         "MasterRateDiscountType":"Commission",
-         "Merchant":{ 
-            "Id":"eba3b4ee-4266-4898-84c7-c4b2b8213169",
-            "Type":"Master",
-            "FancyName":"Operacoes Split",
-            "CorporateName":"Operacoes Split"
-         },
-         "MasterSummary":{ 
-            "TotalGrossAmount":1000,
-            "TotalNetAmount":960
-         },
-         "Splits":[ 
-            { 
-               "Id":"c6e1296f-9517-4ebe-e6e8-08d767a1e99a",
-               "NetAmount":960,
-               "GrossAmount":1000,
-               "Fares":{ 
-                  "Mdr":3.70,
-                  "Fee":0,
-                  "DiscountedMdrAmount":40
-               },
-               "Merchant":{ 
-                  "Id":"eba3b4ee-4266-4898-84c7-c4b2b8213169",
-                  "Type":"Master",
-                  "FancyName":"Operacoes Split",
-                  "CorporateName":"Operacoes Split"
-               },
-               "Schedules":[ 
-                  { 
-                     "Id":"1df7f2af-6550-4051-b102-dabba9c2080a",
-                     "ForecastedDate":"2020-08-13",
-                     "InstallmentNumber":9,
-                     "InstallmentAmount":96,
-                     "EventId":6,
-                     "Event":"RefundDebit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"c6e19c85-4974-4ed1-ae9c-2caac7435968",
-                     "ForecastedDate":"2020-07-13",
-                     "InstallmentNumber":8,
-                     "InstallmentAmount":96,
-                     "EventId":6,
-                     "Event":"RefundDebit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"a66eb419-9c70-4962-a216-dfe888c61298",
-                     "ForecastedDate":"2020-06-15",
-                     "InstallmentNumber":7,
-                     "InstallmentAmount":96,
-                     "EventId":6,
-                     "Event":"RefundDebit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"e8afd028-50d7-4d5e-967b-3fad7b46576c",
-                     "ForecastedDate":"2020-05-13",
-                     "InstallmentNumber":6,
-                     "InstallmentAmount":96,
-                     "EventId":6,
-                     "Event":"RefundDebit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"48d7a48e-400b-4595-bcdb-45d28aa8e5ac",
-                     "ForecastedDate":"2020-04-13",
-                     "InstallmentNumber":5,
-                     "InstallmentAmount":96,
-                     "EventId":6,
-                     "Event":"RefundDebit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"3dd26db5-c590-4580-a908-3e4fe72f35a3",
-                     "ForecastedDate":"2020-03-13",
-                     "InstallmentNumber":4,
-                     "InstallmentAmount":96,
-                     "EventId":6,
-                     "Event":"RefundDebit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"c9cf5742-1a69-474d-8366-96d8b0d8c7f8",
-                     "ForecastedDate":"2020-02-13",
-                     "InstallmentNumber":3,
-                     "InstallmentAmount":96,
-                     "EventId":6,
-                     "Event":"RefundDebit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"7b6bf1db-f1c1-49f8-b12f-dce5e3384f63",
-                     "ForecastedDate":"2020-01-13",
-                     "InstallmentNumber":2,
-                     "InstallmentAmount":96,
-                     "EventId":6,
-                     "Event":"RefundDebit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"f7c54a66-ff16-47dc-85b8-fc78b5509b1b",
-                     "ForecastedDate":"2019-12-13",
-                     "InstallmentNumber":1,
-                     "InstallmentAmount":96,
-                     "EventId":6,
-                     "Event":"RefundDebit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"f2ca0afe-8185-4999-aa7e-e89b55da71eb",
-                     "ForecastedDate":"2020-09-14",
-                     "InstallmentNumber":10,
-                     "InstallmentAmount":96,
-                     "EventId":6,
-                     "Event":"RefundDebit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"ff636b79-94e3-4a0d-82b7-51349d65b098",
-                     "ForecastedDate":"2019-12-13",
-                     "InstallmentNumber":1,
-                     "InstallmentAmount":96,
-                     "EventId":24,
-                     "Event":"RefundReversalCredit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"722a7f1f-7ba3-4646-af2f-8b4c5be09eb5",
-                     "ForecastedDate":"2020-01-13",
-                     "InstallmentNumber":2,
-                     "InstallmentAmount":96,
-                     "EventId":24,
-                     "Event":"RefundReversalCredit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"f0bbb658-3dbd-400e-809a-6e2c9345a34b",
-                     "ForecastedDate":"2020-02-13",
-                     "InstallmentNumber":3,
-                     "InstallmentAmount":96,
-                     "EventId":24,
-                     "Event":"RefundReversalCredit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"cba824fb-3e3b-4933-832a-b2ae983fe709",
-                     "ForecastedDate":"2020-03-13",
-                     "InstallmentNumber":4,
-                     "InstallmentAmount":96,
-                     "EventId":24,
-                     "Event":"RefundReversalCredit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"59e58b37-aca1-4a0e-8f04-a4cb6af0d5e8",
-                     "ForecastedDate":"2020-04-13",
-                     "InstallmentNumber":5,
-                     "InstallmentAmount":96,
-                     "EventId":24,
-                     "Event":"RefundReversalCredit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"4ae4eaf4-810e-4551-bcc4-f488a3edcf15",
-                     "ForecastedDate":"2020-05-13",
-                     "InstallmentNumber":6,
-                     "InstallmentAmount":96,
-                     "EventId":24,
-                     "Event":"RefundReversalCredit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"1ec4fbdf-1114-4103-beed-866737a1e405",
-                     "ForecastedDate":"2020-06-15",
-                     "InstallmentNumber":7,
-                     "InstallmentAmount":96,
-                     "EventId":24,
-                     "Event":"RefundReversalCredit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"952b52b4-fff8-4006-bfa3-e92a021da006",
-                     "ForecastedDate":"2020-07-13",
-                     "InstallmentNumber":8,
-                     "InstallmentAmount":96,
-                     "EventId":24,
-                     "Event":"RefundReversalCredit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"7df2bfe9-8936-4c7e-bb95-9661f1d79627",
-                     "ForecastedDate":"2020-08-13",
-                     "InstallmentNumber":9,
-                     "InstallmentAmount":96,
-                     "EventId":24,
-                     "Event":"RefundReversalCredit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  },
-                  { 
-                     "Id":"d35c3735-086d-472b-a900-cff3ad0d5ee8",
-                     "ForecastedDate":"2020-09-14",
-                     "InstallmentNumber":10,
-                     "InstallmentAmount":96,
-                     "EventId":24,
-                     "Event":"RefundReversalCredit",
-                     "EventStatusId":1,
-                     "EventStatus":"Scheduled"
-                  }
-               ]
-            }
-         ]
-      }
-   ]
-}
-```
-
-### Propriedades contidas no response de uma consulta de cancelamento
 
 | Propriedade| Descrição | Tipo |
 |--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
