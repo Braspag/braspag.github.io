@@ -459,9 +459,9 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 
 ### Exemplos de consultas no endpoint de conciliação de cancelamentos 
 
-**Exemplo** - Efetuando a consulta de todos os cancelamentos agendados no período entre 01/01/2020 e 02/01/2020 que não foram revertidos.
-
 #### Request
+
+**Exemplo** - Efetuando a consulta de todos os cancelamentos agendados no período entre 01/01/2020 e 02/01/2020 que não foram revertidos.
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{apiSplitSchedule}/voids?InitialScheduledAt=2020-01-01&FinalScheduledAt=2020-01-02&Reversed=False</span></aside>
 
