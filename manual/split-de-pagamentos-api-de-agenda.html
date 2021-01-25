@@ -110,8 +110,11 @@
 <h2 id="introdução">Introdução</h2>
 
 <p>Para facilitar sua conciliação, disponibilizamos endpoints para que sejam obtidos os dados relevantes para o seu negócio.
-Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendamento, ou seja, todos os lançamentos relativos já foram registrados na agenda financeira dos participantes.
-Os endpoints de conciliação para transações, cancelamentos e chargebacks suportam os seguintes parâmetros:</p>
+Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendamento, ou seja, todos os lançamentos relativos já foram registrados na agenda financeira dos participantes.</p>
+
+<h2 id="parâmetros">Parâmetros</h2>
+
+<p>Os endpoints de conciliação para transações, cancelamentos e chargebacks suportam os seguintes parâmetros:</p>
 
 <table>
   <thead>
@@ -832,6 +835,360 @@ Os endpoints de conciliação para transações, cancelamentos e chargebacks sup
       <td><code class="language-plaintext highlighter-rouge">Splits[].Schedules[].EventStatus</code></td>
       <td>Status do evento por extenso.</td>
       <td>String</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabelas-de-status">Tabelas de Status</h2>
+
+<h3 id="eventos-de-agenda">Eventos de agenda</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Descrição</th>
+      <th>Positivo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Credit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Debit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>FeeCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>FeeDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>RefundCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>RefundDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>ChargebackCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>ChargebackDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>UndoChargebackCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>UndoChargebackDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>AntiFraudFeeDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>AntiFraudFeeWithReviewDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>AdjustmentCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>AdjustmentDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>ChargebackReversalCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>ChargebackReversalDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>AnticipationCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>AnticipationCommissionCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>AnticipatedInstallmentsCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>AnticipationCommissionDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>AnticipatedInstallmentsDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>RefundReversalCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>RefundReversalDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>ReversalFeeCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>ReversalFeeDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>BankSlipFeeCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>BankSlipFeeDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>BalanceCompensationCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>BalanceCompensationDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>ReversalAntiFraudFeeCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>ReversalAntiFraudFeeDebit</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>ReversalBankSlipFeeCredit</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>ReversalBankSlipFeeDebit</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="status-de-agenda">Status de agenda</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Scheduled</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Pending</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Settled</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Error</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>WaitingForAdjustmentDebit</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Anticipated</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="status-de-transação">Status de transação</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Não finalizado</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Autorizado</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Pago</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Negado</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Cancelado</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Cancelado</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Pendente</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Abortado</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Agendado</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="bandeiras">Bandeiras</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Master</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Amex</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Diners</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Hipercard</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>BancoDoBrasil</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="produtos">Produtos</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>CreditCard</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>DebitCard</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>BankSlip</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tipos-de-desconto-masterratediscounttype">Tipos de desconto (MasterRateDiscountType)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Commission</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Sale</td>
     </tr>
   </tbody>
 </table>
