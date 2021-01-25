@@ -17,6 +17,8 @@ tags:
 
 Para facilitar sua conciliação, disponibilizamos endpoints para que sejam obtidos os dados relevantes para o seu negócio.
 Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendamento, ou seja, todos os lançamentos relativos já foram registrados na agenda financeira dos participantes.
+
+## Parâmetros
 Os endpoints de conciliação para transações, cancelamentos e chargebacks suportam os seguintes parâmetros:
 
 | Filtro                       | Descrição                                                                                               | Tipo    |
@@ -554,3 +556,94 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 | `Splits[].Schedules[].Event` | Evento por extenso. | String  |
 | `Splits[].Schedules[].EventStatusId` | Identificador de status do evento. | Int |
 | `Splits[].Schedules[].EventStatus` | Status do evento por extenso. | String |
+
+## Tabelas de Status
+
+### Eventos de agenda
+|ID|Descrição|Positivo|
+|---|----|----|
+|1|Credit|Sim|
+|2|Debit|Não|
+|3|FeeCredit|Sim|
+|4|FeeDebit|Não|
+|5|RefundCredit|Sim|
+|6|RefundDebit|Não|
+|7|ChargebackCredit|Sim|
+|8|ChargebackDebit|Não|
+|9|UndoChargebackCredit|Sim|
+|10|UndoChargebackDebit|Não|
+|12|AntiFraudFeeDebit|Não|
+|14|AntiFraudFeeWithReviewDebit|Não|
+|15|AdjustmentCredit|Sim|
+|16|AdjustmentDebit|Não|
+|17|ChargebackReversalCredit|Sim|
+|18|ChargebackReversalDebit|Não|
+|19|AnticipationCredit|Sim|
+|20|AnticipationCommissionCredit|Sim|
+|21|AnticipatedInstallmentsCredit|Sim|
+|22|AnticipationCommissionDebit|Não|
+|23|AnticipatedInstallmentsDebit|Não|
+|24|RefundReversalCredit|Sim|
+|25|RefundReversalDebit|Não|
+|28|ReversalFeeCredit|Sim|
+|29|ReversalFeeDebit|Não|
+|30|BankSlipFeeCredit|Sim|
+|31|BankSlipFeeDebit|Não|
+|32|BalanceCompensationCredit|Sim|
+|33|BalanceCompensationDebit|Não|
+|36|ReversalAntiFraudFeeCredit|Sim|
+|37|ReversalAntiFraudFeeDebit|Não|
+|38|ReversalBankSlipFeeCredit|Sim|
+|39|ReversalBankSlipFeeDebit|Não|
+
+### Status de agenda
+
+|Id|Description|
+|---|---|
+|1|Scheduled|
+|2|Pending|
+|3|Settled|
+|4|Error|
+|5|WaitingForAdjustmentDebit|
+|6|Anticipated|
+
+### Status de transação
+
+|Id|Description|
+|--|--|
+|0|Não finalizado|
+|1|Autorizado|
+|2|Pago|
+|3|Negado|
+|10|Cancelado|
+|11|Cancelado|
+|12|Pendente|
+|13|Abortado|
+|20|Agendado|
+
+### Bandeiras
+
+|Id|Description|
+|---|---|
+|1|Visa|
+|2|Master|
+|3|Amex|
+|4|Elo|
+|7|Diners|
+|9|Hipercard|
+|19|BancoDoBrasil|
+
+### Produtos
+
+|Id|Description|
+|---|---|
+|1|CreditCard|
+|2|DebitCard|
+|3|BankSlip|
+
+### Tipos de desconto (MasterRateDiscountType)
+
+|Id|Description|
+|---|---|
+|1|Commission|
+|2|Sale|
