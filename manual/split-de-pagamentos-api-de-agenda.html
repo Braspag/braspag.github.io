@@ -112,6 +112,18 @@
 <p>Para facilitar sua conciliação, disponibilizamos endpoints para que sejam obtidos os dados relevantes para o seu negócio.
 Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendamento, ou seja, todos os lançamentos relativos já foram registrados na agenda financeira dos participantes.</p>
 
+<h2 id="ambientes">Ambientes</h2>
+
+<p><strong>Sandbox</strong></p>
+<ul>
+  <li><strong>apiSplitSchedule</strong>: https://splitsandbox.braspag.com.br/schedule-api</li>
+</ul>
+
+<p><strong>Produção</strong></p>
+<ul>
+  <li><strong>apiSplitSchedule</strong>: https://split.braspag.com.br/schedule-api</li>
+</ul>
+
 <h2 id="parâmetros">Parâmetros</h2>
 
 <p>Os endpoints de conciliação para transações, cancelamentos e chargebacks suportam os seguintes parâmetros:</p>
@@ -161,7 +173,7 @@ Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendam
 
 <h4 id="request">Request</h4>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{apiSplitSchedule}/v2/{PaymentId}</span></aside>
 
 <h4 id="response">Response</h4>
 
@@ -583,7 +595,7 @@ Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendam
 
 <h4 id="request-1">Request</h4>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/transactions?initialScheduledAt=2020-09-03&amp;finalScheduledAt=2020-09-04&amp;Reversed=False</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{apiSplitSchedule}/v2/transactions?initialScheduledAt=2020-09-03&amp;finalScheduledAt=2020-09-04&amp;Reversed=False</span></aside>
 
 <h4 id="response-1">Response</h4>
 
@@ -982,7 +994,7 @@ Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendam
 
 <h4 id="request-2">Request</h4>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/voids?InitialScheduledAt=2020-01-01&amp;FinalScheduledAt=2020-01-02&amp;Reversed=False</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{apiSplitSchedule}/voids?InitialScheduledAt=2020-01-01&amp;FinalScheduledAt=2020-01-02&amp;Reversed=False</span></aside>
 
 <h4 id="response-2">Response</h4>
 
