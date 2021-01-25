@@ -19,6 +19,7 @@ Para facilitar sua conciliação, disponibilizamos endpoints para que sejam obti
 Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendamento, ou seja, todos os lançamentos relativos já foram registrados na agenda financeira dos participantes.
 
 ## Parâmetros
+
 Os endpoints de conciliação para transações, cancelamentos e chargebacks suportam os seguintes parâmetros:
 
 | Filtro                       | Descrição                                                                                               | Tipo    |
@@ -560,6 +561,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 ## Tabelas de Status
 
 ### Eventos de agenda
+
 |ID|Descrição|Positivo|
 |---|----|----|
 |1|Credit|Sim|
