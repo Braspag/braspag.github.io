@@ -157,15 +157,435 @@ Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendam
 
 <p>O endpoint de conciliação de vendas permite consultar os dados relativo as transações conciliadas que ocorreram em determinado range de data.</p>
 
-<h3 id="exemplos-de-consultas-no-endpoint-de-conciliação-de-vendas">Exemplos de consultas no endpoint de conciliação de Vendas</h3>
+<h3 id="consulta-por-paymentid">Consulta por PaymentId</h3>
 
-<p><strong>Exemplo 1</strong> - Efetuando a consulta de todos os cancelamentos agendados no período entre 26/08/2020 e 28/08/2020 que não foram revertidos..</p>
+<h4 id="request">Request</h4>
 
-<p><strong>Request:</strong></p>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/</span></aside>
+
+<h4 id="response">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+
+</span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w">  </span><span class="s2">"e575da46-8b85-43fb-b28b-f48bfc61860b"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Amount"</span><span class="p">:</span><span class="w">  </span><span class="mi">20000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Installments"</span><span class="p">:</span><span class="w">  </span><span class="mi">2</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"ChannelId"</span><span class="p">:</span><span class="w">  </span><span class="mi">2</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Channel"</span><span class="p">:</span><span class="w">  </span><span class="s2">"PointOfSale"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"ScheduledAt"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2020-01-24"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Reversed"</span><span class="p">:</span><span class="w">  </span><span class="kc">false</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"TransactionFares"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Fee"</span><span class="p">:</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Schedules"</span><span class="p">:</span><span class="w">  </span><span class="p">[],</span><span class="w">
+
+</span><span class="nl">"DiscountedAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">620</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"AppliedMdr"</span><span class="p">:</span><span class="w">  </span><span class="mf">3.10</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Brand"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"ProductId"</span><span class="p">:</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Product"</span><span class="p">:</span><span class="w">  </span><span class="s2">"CreditCard"</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"TransactionDetails"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"CaptureDate"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0001-01-01"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w">  </span><span class="s2">"1043557"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w">  </span><span class="s2">"78654328"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"AuthorizationDate"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2019-11-25"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"StatusId"</span><span class="p">:</span><span class="w">  </span><span class="mi">12</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Status"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Pendente"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"TerminalLogicNumber"</span><span class="p">:</span><span class="w">  </span><span class="s2">"22222222"</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"MasterRateDiscountTypeId"</span><span class="p">:</span><span class="w">  </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"MasterRateDiscountType"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Commission"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Merchant"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"247d032d-f917-4a52-8e7a-d850945f065e"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Type"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Operacoes Split"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Operacoes Split"</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"MasterSummary"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"TotalGrossAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">20000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"TotalNetAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">19380</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"Splits"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"PayoutBlocked"</span><span class="p">:</span><span class="w">  </span><span class="kc">false</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"853473be-cd93-46c8-a81f-cd3a5222d0ab"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"NetAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">19380</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"GrossAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">20000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Fares"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w">  </span><span class="mf">3.10</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Fee"</span><span class="p">:</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"DiscountedMdrAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">620</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"Merchant"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"247d032d-f917-4a52-8e7a-d850945f065e"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Type"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Operacoes Split"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Operacoes Split"</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"Schedules"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"51faaf33-ac9e-4eed-b5fc-87260ac8ae75"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2020-02-14"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">9690</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventId"</span><span class="p">:</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Event"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="w">  </span><span class="mi">2</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Pending"</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"22bc889d-fc21-40b3-8a8a-09d71a2a036f"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2020-03-16"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w">  </span><span class="mi">2</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">9690</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventId"</span><span class="p">:</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Event"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="w">  </span><span class="mi">6</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Anticipated"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">]</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">]</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PaymentId</td>
+      <td>Identificador único da transação</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Amount</td>
+      <td>Valor bruto da transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Installments</td>
+      <td>Quantidade de parcelas da transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>ChannelId</td>
+      <td>Identificador do canal onde a transação ocorreu</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>hannel</td>
+      <td>Descrição do cancal onde a transação ocorreu</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>ScheduledAt</td>
+      <td>Data de agendamento da transação</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>Reversed</td>
+      <td>Indica se a operação consultada foi revertida. (Transação, Cancelamento, Chargeback)</td>
+      <td>Booleano</td>
+    </tr>
+    <tr>
+      <td>TransactionFares.Fee</td>
+      <td>Tarifa fixa aplicada pela Braspag</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>TransactionFares.DiscountedAmount</td>
+      <td>Valor ganho pela Braspag em relação a transação. Em um cancelamento, esse valor também é cancelado.</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>TransactionFares.AppliedMdr</td>
+      <td>Mdr aplicado pela Braspag</td>
+      <td>Decimal</td>
+    </tr>
+    <tr>
+      <td>PaymentArrangement.BrandId</td>
+      <td>Id da Bandeira</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>PaymentArrangement.Brand</td>
+      <td>Descrição da Bandeira</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>PaymentArrangement.ProductId</td>
+      <td>Id do Produto</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>PaymentArrangement.Product</td>
+      <td>Descrição do Produto</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>TransactionDetails.CaptureDate</td>
+      <td>Data de captura da transação</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>TransactionDetails.Nsu</td>
+      <td>Identificador NSU</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>TransactionDetails.AuthorizationCode</td>
+      <td>Código de autorização</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>TransactionDetails.AuthorizationDate</td>
+      <td>Data de autorização</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>TransactionDetails.StatusId</td>
+      <td>Id do status</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>TransactionDetails.Status</td>
+      <td>Descrição do Status</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>TransactionDetails.TerminalLogicNumber</td>
+      <td>Número lógico do terminal em que a transação ocorreu</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>MasterRateDiscountTypeId</td>
+      <td>Tipo de desconto aplicado pela Braspag</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>MasterRateDiscountType</td>
+      <td>Descrição do desconto aplicado pela Braspag</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Merchant.Id</td>
+      <td>MerchantId do Master da transação</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Merchant.Type</td>
+      <td>Tipo do Merchant</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Merchant.FancyName</td>
+      <td>Nome Fantasia do Master</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Merchant.CorporateName</td>
+      <td>Razão social do Master</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>MasterSummary.TotalGrossAmount</td>
+      <td>Valor Bruto ganho pelo Master na transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>MasterSummary.TotalNetAmount</td>
+      <td>Valor Líquido ganho pelo Master na transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].PayoutBlocked</td>
+      <td>Identificador se a agenda está bloqueada para liquidação</td>
+      <td>Booleano</td>
+    </tr>
+    <tr>
+      <td>Splits.[].NetAmount</td>
+      <td>Valo líquido da venda referente ao participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].GrossAmount</td>
+      <td>Valor bruto da venda referente ao participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Fares.Mdr</td>
+      <td>MDR aplicado sobre a venda do participante</td>
+      <td>Decimal</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Fares.Fee</td>
+      <td>Tarifa aplicada sobre a venda do participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Fares.DiscountedAmount</td>
+      <td>Valor discontado sobre a venda do participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Merchant.Id</td>
+      <td>Identificador único (MerchantId) do participante da transação</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Merchant.Type</td>
+      <td>Tipo do Merchant</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Merchant.FancyName</td>
+      <td>Nome Fantasia do Participante</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Merchant.CorporateName</td>
+      <td>Razão social do participante</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].Id</td>
+      <td>Identificador único da agenda</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].ForecastedDate</td>
+      <td>Data prevista para a liquidação da agenda</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].InstallmentNumber</td>
+      <td>Número da parcela a qual a agenda se refere</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].InstallmentAmount</td>
+      <td>Valor líquido da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].EventId</td>
+      <td>Identificador do Evento da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].Event</td>
+      <td>Descrição do evento da agenda</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].EventStatusId</td>
+      <td>Identificador do status da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].EventStatus</td>
+      <td>Descrição do status da agenda</td>
+      <td>Texto</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="consulta-por-data-de-agendamento">Consulta por data de agendamento</h3>
+
+<h4 id="request-1">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/transactions?initialScheduledAt=2020-09-03&amp;finalScheduledAt=2020-09-04&amp;Reversed=False</span></aside>
 
-<p><strong>Response:</strong></p>
+<h4 id="response-1">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -558,13 +978,13 @@ Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendam
 
 <h3 id="exemplos-de-consultas-no-endpoint-de-conciliação-de-cancelamentos">Exemplos de consultas no endpoint de conciliação de cancelamentos</h3>
 
-<p><strong>Exemplo 1</strong> - Efetuando a consulta de todos os cancelamentos agendados no período entre 01/01/2020 e 02/01/2020 que não foram revertidos.</p>
+<p><strong>Exemplo</strong> - Efetuando a consulta de todos os cancelamentos agendados no período entre 01/01/2020 e 02/01/2020 que não foram revertidos.</p>
 
-<p><strong>Request:</strong></p>
+<h4 id="request-2">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/voids?InitialScheduledAt=2020-01-01&amp;FinalScheduledAt=2020-01-02&amp;Reversed=False</span></aside>
 
-<p><strong>Response:</strong></p>
+<h4 id="response-2">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
    </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -634,270 +1054,6 @@ Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendam
    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<p><strong>Exemplo 2</strong> - Efetuando a consulta de todas as reversões de cancelamento agendadas no período entre 01/01/2020 e 02/01/2020.</p>
-
-<p><strong>Request:</strong></p>
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/voids?InitialScheduledAt=2020-01-01&amp;FinalScheduledAt=2020-01-02&amp;Reversed=True</span></aside>
-
-<p><strong>Response:</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
-   </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"PageSize"</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"Items"</span><span class="p">:[</span><span class="w"> 
-      </span><span class="p">{</span><span class="w"> 
-         </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"5198f7a7-2345-443e-9743-221fd383c564"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Status"</span><span class="p">:</span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"CreatedAt"</span><span class="p">:</span><span class="s2">"2019-11-13"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"EventDate"</span><span class="p">:</span><span class="s2">"2019-11-13"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Reversed"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ScheduledAt"</span><span class="p">:</span><span class="s2">"2020-01-02"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"TransactionFares"</span><span class="p">:{</span><span class="w"> 
-            </span><span class="nl">"DiscountedAmount"</span><span class="p">:</span><span class="mi">40</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"AppliedMdr"</span><span class="p">:</span><span class="mf">3.70</span><span class="w">
-         </span><span class="p">},</span><span class="w">
-         </span><span class="nl">"MasterRateDiscountTypeId"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"MasterRateDiscountType"</span><span class="p">:</span><span class="s2">"Commission"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Merchant"</span><span class="p">:{</span><span class="w"> 
-            </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"eba3b4ee-4266-4898-84c7-c4b2b8213169"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Operacoes Split"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Operacoes Split"</span><span class="w">
-         </span><span class="p">},</span><span class="w">
-         </span><span class="nl">"MasterSummary"</span><span class="p">:{</span><span class="w"> 
-            </span><span class="nl">"TotalGrossAmount"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"TotalNetAmount"</span><span class="p">:</span><span class="mi">960</span><span class="w">
-         </span><span class="p">},</span><span class="w">
-         </span><span class="nl">"Splits"</span><span class="p">:[</span><span class="w"> 
-            </span><span class="p">{</span><span class="w"> 
-               </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"c6e1296f-9517-4ebe-e6e8-08d767a1e99a"</span><span class="p">,</span><span class="w">
-               </span><span class="nl">"NetAmount"</span><span class="p">:</span><span class="mi">960</span><span class="p">,</span><span class="w">
-               </span><span class="nl">"GrossAmount"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="w">
-               </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w"> 
-                  </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mf">3.70</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"Fee"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"DiscountedMdrAmount"</span><span class="p">:</span><span class="mi">40</span><span class="w">
-               </span><span class="p">},</span><span class="w">
-               </span><span class="nl">"Merchant"</span><span class="p">:{</span><span class="w"> 
-                  </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"eba3b4ee-4266-4898-84c7-c4b2b8213169"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Operacoes Split"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Operacoes Split"</span><span class="w">
-               </span><span class="p">},</span><span class="w">
-               </span><span class="nl">"Schedules"</span><span class="p">:[</span><span class="w"> 
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"1df7f2af-6550-4051-b102-dabba9c2080a"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-08-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundDebit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"c6e19c85-4974-4ed1-ae9c-2caac7435968"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-07-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundDebit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"a66eb419-9c70-4962-a216-dfe888c61298"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-06-15"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundDebit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"e8afd028-50d7-4d5e-967b-3fad7b46576c"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-05-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundDebit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"48d7a48e-400b-4595-bcdb-45d28aa8e5ac"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-04-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundDebit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"3dd26db5-c590-4580-a908-3e4fe72f35a3"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-03-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundDebit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"c9cf5742-1a69-474d-8366-96d8b0d8c7f8"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-02-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundDebit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"7b6bf1db-f1c1-49f8-b12f-dce5e3384f63"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-01-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundDebit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"f7c54a66-ff16-47dc-85b8-fc78b5509b1b"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2019-12-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundDebit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"f2ca0afe-8185-4999-aa7e-e89b55da71eb"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-09-14"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundDebit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"ff636b79-94e3-4a0d-82b7-51349d65b098"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2019-12-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundReversalCredit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"722a7f1f-7ba3-4646-af2f-8b4c5be09eb5"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-01-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundReversalCredit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"f0bbb658-3dbd-400e-809a-6e2c9345a34b"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-02-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundReversalCredit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"cba824fb-3e3b-4933-832a-b2ae983fe709"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-03-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundReversalCredit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"59e58b37-aca1-4a0e-8f04-a4cb6af0d5e8"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-04-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundReversalCredit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"4ae4eaf4-810e-4551-bcc4-f488a3edcf15"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-05-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundReversalCredit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"1ec4fbdf-1114-4103-beed-866737a1e405"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-06-15"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundReversalCredit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"952b52b4-fff8-4006-bfa3-e92a021da006"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-07-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundReversalCredit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"7df2bfe9-8936-4c7e-bb95-9661f1d79627"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-08-13"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundReversalCredit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w"> 
-                     </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"d35c3735-086d-472b-a900-cff3ad0d5ee8"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="s2">"2020-09-14"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="mi">96</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventId"</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"Event"</span><span class="p">:</span><span class="s2">"RefundReversalCredit"</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                     </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="s2">"Scheduled"</span><span class="w">
-                  </span><span class="p">}</span><span class="w">
-               </span><span class="p">]</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-         </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-   </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h3 id="propriedades-contidas-no-response-de-uma-consulta-de-cancelamento">Propriedades contidas no response de uma consulta de cancelamento</h3>
 
 <table>
   <thead>
