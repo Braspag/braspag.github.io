@@ -37,6 +37,7 @@ O endpoint de conciliação de vendas permite consultar os dados relativo as tra
 ### Consulta por PaymentId
 
 #### Request
+
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/v2/{{PaymentId}}</span></aside>
 
 #### Response
@@ -527,8 +528,6 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
    ]
 }
 ```
-
-
 
 | Propriedade| Descrição | Tipo |
 |--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
