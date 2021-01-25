@@ -578,6 +578,419 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 | `Splits[].Schedules[].EventStatusId` | Identificador de status do evento. | Int |
 | `Splits[].Schedules[].EventStatus` | Status do evento por extenso. | String |
 
+## Conciliação de chargebacks
+
+### Consulta por ChargebackId
+
+#### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{apiSplitSchedule}/chargebacks/9d9d7a20-6977-40b3-a60b-323b87554384</span></aside>
+
+#### Response
+
+```json
+{
+
+"Id":  "9d9d7a20-6977-40b3-a60b-323b87554384",
+
+"PaymentId":  "d6042a8a-8d29-47ab-93d9-f6bca2c57d26",
+
+"EventDate":  "2020-02-07",
+
+"Amount":  25000,
+
+"Reversed":  false,
+
+"DateOfSplit":  "2020-02-07",
+
+"ScheduledAt":  "2020-02-07",
+
+"TransactionFares":  {
+
+"DiscountedAmount":  625,
+
+"AppliedMdr":  2.50
+
+},
+
+"MasterRateDiscountTypeId":  "1",
+
+"MasterRateDiscountType":  "Commission",
+
+"Merchant":  {
+
+"Id":  "247d032d-f917-4a52-8e7a-d850945f065e",
+
+"Type":  "Master",
+
+"FancyName":  "Operacoes Split",
+
+"CorporateName":  "Operacoes Split"
+
+},
+
+"MasterSummary":  {
+
+"Commission":  {
+
+"SplitId":  "40a17d52-3879-44af-99c4-84c0894b59cb",
+
+"NetAmount":  1375,
+
+"GrossAmount":  2000,
+
+"Schedules":  [
+
+{
+
+"Id":  "8784e4ff-ade1-49d5-96e1-1a69380d9e52",
+
+"ForecastedDate":  "2020-03-09",
+
+"InstallmentNumber":  1,
+
+"InstallmentAmount":  1375,
+
+"EventId":  8,
+
+"Event":  "ChargebackDebit",
+
+"EventStatusId":  6,
+
+"EventStatus":  "Anticipated"
+
+}
+
+]
+
+},
+
+"TotalGrossAmount":  2000,
+
+"TotalNetAmount":  1375
+
+},
+
+"Splits":  [
+
+{
+
+"Id":  "d6f87c4e-7bda-45d9-b44d-7156521597be",
+
+"NetAmount":  23000,
+
+"GrossAmount":  25000,
+
+"Fares":  {
+
+"Mdr":  8.00,
+
+"Fee":  0,
+
+"DiscountedMdrAmount":  2000
+
+},
+
+"Merchant":  {
+
+"Id":  "d436ad59-6be9-4146-a757-35b97659bedc",
+
+"Type":  "Subordinate",
+
+"FancyName":  "Operacoes Split Subordinado02",
+
+"CorporateName":  "Operacoes Split Subordinado02"
+
+},
+
+"Schedules":  [
+
+{
+
+"Id":  "0e049b57-710c-4223-8081-846b68fb235a",
+
+"ForecastedDate":  "2020-03-09",
+
+"InstallmentNumber":  1,
+
+"InstallmentAmount":  23000,
+
+"EventId":  8,
+
+"Event":  "ChargebackDebit",
+
+"EventStatusId":  2,
+
+"EventStatus":  "Pending"
+
+}
+
+]
+
+}
+
+]
+
+}
+```
+
+|PROPRIEDADE|DESCRIÇÃO|TIPO|
+|---|---|---|
+|DateOfSplit|Data em que o chargeback foi dividido entre os participantes|Data|
+|EventDate|Data do chargeback|Data|
+|Id|Id do Chargeback|GUID|
+|PaymentId|Identificador único da transação|GUID|
+|Amount|Valor bruto da transação|Inteiro|
+|Reversed|Indica se a operação consultada foi revertida. (Transação, Cancelamento, Chargeback)|Booleano|
+|TransactionFares.DiscountedAmount|Valor ganho pela Braspag em relação a transação. Em um cancelamento, esse valor também é cancelado.|Inteiro|
+|TransactionFares.AppliedMdr|Mdr aplicado pela Braspag|Decimal|
+|MasterRateDiscountTypeId|Tipo de desconto aplicado pela Braspag|Inteiro|
+|MasterRateDiscountType|Descrição do desconto aplicado pela Braspag|Texto|
+|Merchant.Id|MerchantId do Master da transação|GUID|
+|Merchant.Type|Tipo do Merchant|Texto|
+|Merchant.FancyName|Nome Fantasia do Master|Texto|
+|Merchant.CorporateName|Razão social do Master|Texto|
+|MasterSummary.Commission.Schedules.[].Id|Identificador único da agenda|GUID|
+|MasterSummary.Commission.Schedules.[].ForecastedDate|Data prevista para a liquidação da agenda|Data|
+|MasterSummary.Commission.Schedules.[].InstallmentNumber|Número da parcela a qual a agenda se refere|Inteiro|
+|MasterSummary.Commission.Schedules.[].InstallmentAmount|Valor líquido da agenda|Inteiro|
+|MasterSummary.Commission.Schedules.[].EventId|Identificador do Evento da agenda|Inteiro|
+|MasterSummary.Commission.Schedules.[].Event|Descrição do evento da agenda|Texto|
+|MasterSummary.Commission.Schedules.[].StatusId|Identificador do status da agenda|Inteiro|
+|MasterSummary.Commission.Schedules.[].Status|Descrição do status da agenda|Texto|
+|MasterSummary.TotalGrossAmount|Valor Bruto ganho pelo Master na transação|Inteiro|
+|MasterSummary.TotalNetAmount|Valor Líquido ganho pelo Master na transação|Inteiro|
+|Splits.[].NetAmount|Valo líquido da venda referente ao participante|Inteiro|
+|Splits.[].GrossAmount|Valor bruto da venda referente ao participante|Inteiro|
+|Splits.[].Fares.Mdr|MDR aplicado sobre a venda do participante|Decimal|
+|Splits.[].Fares.Fee|Tarifa aplicada sobre a venda do participante|Inteiro|
+|Splits.[].Fares.DiscountedAmount|Valor discontado sobre a venda do participante|Inteiro|
+|Splits.[].Merchant.Id|Identificador único (MerchantId) do participante da transação|GUID|
+|Splits.[].Merchant.Type|Tipo do Merchant|Texto|
+|Splits.[].Merchant.FancyName|Nome Fantasia do Participante|Texto|
+|Splits.[].Merchant.CorporateName|Razão social do participante|Texto|
+|Splits.[].Schedules.[].Id|Identificador único da agenda|GUID|
+|Splits.[].Schedules.[].ForecastedDate|Data prevista para a liquidação da agenda|Data|
+|Splits.[].Schedules.[].InstallmentNumber|Número da parcela a qual a agenda se refere|Inteiro|
+|Splits.[].Schedules.[].InstallmentAmount|Valor líquido da agenda|Inteiro|
+|Splits.[].Schedules.[].EventId|Identificador do Evento da agenda|Inteiro|
+|Splits.[].Schedules.[].Event|Descrição do evento da agenda|Texto|
+|Splits.[].Schedules.[].EventStatusId|Identificador do status da agenda|Inteiro|
+|Splits.[].Schedules.[].EventStatus|Descrição do status da agenda|Texto|
+
+### Consulta por data de agendamento
+
+#### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{apiSplitSchedule}/chargebacks?InitialScheduledAt=2020-01-01&FinalScheduledAt=2020-12-30&Reversed=false&PageSize=1</span></aside>
+
+#### Response
+
+```json
+{
+
+"PageCount":  20,
+
+"PageIndex":  1,
+
+"PageSize":  1,
+
+"Items":  [
+
+{
+
+"Id":  "9d9d7a20-6977-40b3-a60b-323b87554384",
+
+"PaymentId":  "d6042a8a-8d29-47ab-93d9-f6bca2c57d26",
+
+"EventDate":  "2020-02-07",
+
+"Amount":  25000,
+
+"Reversed":  false,
+
+"DateOfSplit":  "2020-02-07",
+
+"TransactionFares":  {
+
+"DiscountedAmount":  625,
+
+"AppliedMdr":  2.50
+
+},
+
+"MasterRateDiscountTypeId":  "1",
+
+"MasterRateDiscountType":  "Commission",
+
+"Merchant":  {
+
+"Id":  "247d032d-f917-4a52-8e7a-d850945f065e",
+
+"Type":  "Master",
+
+"FancyName":  "Operacoes Split",
+
+"CorporateName":  "Operacoes Split"
+
+},
+
+"MasterSummary":  {
+
+"Commission":  {
+
+"SplitId":  "40a17d52-3879-44af-99c4-84c0894b59cb",
+
+"NetAmount":  1375,
+
+"GrossAmount":  2000,
+
+"Schedules":  [
+
+{
+
+"Id":  "8784e4ff-ade1-49d5-96e1-1a69380d9e52",
+
+"ForecastedDate":  "2020-03-09",
+
+"InstallmentNumber":  1,
+
+"InstallmentAmount":  1375,
+
+"EventId":  8,
+
+"Event":  "ChargebackDebit",
+
+"EventStatusId":  6,
+
+"EventStatus":  "Anticipated"
+
+}
+
+]
+
+},
+
+"TotalGrossAmount":  2000,
+
+"TotalNetAmount":  1375
+
+},
+
+"Splits":  [
+
+{
+
+"Id":  "d6f87c4e-7bda-45d9-b44d-7156521597be",
+
+"NetAmount":  23000,
+
+"GrossAmount":  25000,
+
+"Fares":  {
+
+"Mdr":  8.00,
+
+"Fee":  0,
+
+"DiscountedMdrAmount":  2000
+
+},
+
+"Merchant":  {
+
+"Id":  "d436ad59-6be9-4146-a757-35b97659bedc",
+
+"Type":  "Subordinate",
+
+"FancyName":  "Operacoes Split Subordinado02",
+
+"CorporateName":  "Operacoes Split Subordinado02"
+
+},
+
+"Schedules":  [
+
+{
+
+"Id":  "0e049b57-710c-4223-8081-846b68fb235a",
+
+"ForecastedDate":  "2020-03-09",
+
+"InstallmentNumber":  1,
+
+"InstallmentAmount":  23000,
+
+"EventId":  8,
+
+"Event":  "ChargebackDebit",
+
+"EventStatusId":  2,
+
+"EventStatus":  "Pending"
+
+}
+
+]
+
+}
+
+]
+
+}
+
+]
+
+}
+```
+
+|PROPRIEDADE|DESCRIÇÃO|TIPO|
+|---|---|---|
+|PageCount|Total de páginas retornadas na consulta|Inteiro|
+|PageIndex|Página atual da consulta|Inteiro|
+|PageSize|Quantidade de itens retornados por página|Inteiro|
+|Items.[].DateOfSplit|Data em que o chargeback foi dividido entre os participantes|Data|
+|Items.[].EventDate|Data do chargeback|Data|
+|Items.[].Id|Id do Chargeback|GUID|
+|Items.[].PaymentId|Identificador único da transação|GUID|
+|Items.[].Amount|Valor bruto da transação|Inteiro|
+|Items.[].Reversed|Indica se a operação consultada foi revertida. (Transação, Cancelamento, Chargeback)|Booleano|
+|Items.[].TransactionFares.DiscountedAmount|Valor ganho pela Braspag em relação a transação. Em um cancelamento, esse valor também é cancelado.|Inteiro|
+|Items.[].TransactionFares.AppliedMdr|Mdr aplicado pela Braspag|Decimal|
+|Items.[].MasterRateDiscountTypeId|Tipo de desconto aplicado pela Braspag|Inteiro|
+|Items.[].MasterRateDiscountType|Descrição do desconto aplicado pela Braspag|Texto|
+|Items.[].Merchant.Id|MerchantId do Master da transação|GUID|
+|Items.[].Merchant.Type|Tipo do Merchant|Texto|
+|Items.[].Merchant.FancyName|Nome Fantasia do Master|Texto|
+|Items.[].Merchant.CorporateName|Razão social do Master|Texto|
+|Items.[].MasterSummary.Commission.Schedules.[].Id|Identificador único da agenda|GUID|
+|Items.[].MasterSummary.Commission.Schedules.[].ForecastedDate|Data prevista para a liquidação da agenda|Data|
+|Items.[].MasterSummary.Commission.Schedules.[].InstallmentNumber|Número da parcela a qual a agenda se refere|Inteiro|
+|Items.[].MasterSummary.Commission.Schedules.[].InstallmentAmount|Valor líquido da agenda|Inteiro|
+|Items.[].MasterSummary.Commission.Schedules.[].EventId|Identificador do Evento da agenda|Inteiro|
+|Items.[].MasterSummary.Commission.Schedules.[].Event|Descrição do evento da agenda|Texto|
+|Items.[].MasterSummary.Commission.Schedules.[].StatusId|Identificador do status da agenda|Inteiro|
+|Items.[].MasterSummary.Commission.Schedules.[].Status|Descrição do status da agenda|Texto|
+|Items.[].MasterSummary.TotalGrossAmount|Valor Bruto ganho pelo Master na transação|Inteiro|
+|Items.[].MasterSummary.TotalNetAmount|Valor Líquido ganho pelo Master na transação|Inteiro|
+|Items.[].Splits.[].NetAmount|Valo líquido da venda referente ao participante|Inteiro|
+|Items.[].Splits.[].GrossAmount|Valor bruto da venda referente ao participante|Inteiro|
+|Items.[].Splits.[].Fares.Mdr|MDR aplicado sobre a venda do participante|Decimal|
+|Items.[].Splits.[].Fares.Fee|Tarifa aplicada sobre a venda do participante|Inteiro|
+|Items.[].Splits.[].Fares.DiscountedAmount|Valor discontado sobre a venda do participante|Inteiro|
+|Items.[].Splits.[].Merchant.Id|Identificador único (MerchantId) do participante da transação|GUID|
+|Items.[].Splits.[].Merchant.Type|Tipo do Merchant|Texto|
+|Items.[].Splits.[].Merchant.FancyName|Nome Fantasia do Participante|Texto|
+|Items.[].Splits.[].Merchant.CorporateName|Razão social do participante|Texto|
+|Items.[].Splits.[].Schedules.[].Id|Identificador único da agenda|GUID|
+|Items.[].Splits.[].Schedules.[].ForecastedDate|Data prevista para a liquidação da agenda|Data|
+|Items.[].Splits.[].Schedules.[].InstallmentNumber|Número da parcela a qual a agenda se refere|Inteiro|
+|Items.[].Splits.[].Schedules.[].InstallmentAmount|Valor líquido da agenda|Inteiro|
+|Items.[].Splits.[].Schedules.[].EventId|Identificador do Evento da agenda|Inteiro|
+|Items.[].Splits.[].Schedules.[].Event|Descrição do evento da agenda|Texto|
+|Items.[].Splits.[].Schedules.[].EventStatusId|Identificador do status da agenda|Inteiro|
+|Items.[].Splits.[].Schedules.[].EventStatus|Descrição do status da agenda|Texto|
+
 ## Tabelas de Status
 
 ### Eventos de agenda
