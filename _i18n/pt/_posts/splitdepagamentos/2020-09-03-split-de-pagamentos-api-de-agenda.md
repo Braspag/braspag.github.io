@@ -18,6 +18,15 @@ tags:
 Para facilitar sua conciliação, disponibilizamos endpoints para que sejam obtidos os dados relevantes para o seu negócio.
 Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendamento, ou seja, todos os lançamentos relativos já foram registrados na agenda financeira dos participantes.
 
+## Ambientes
+
+**Sandbox**
+- **apiSplitSchedule**: https://splitsandbox.braspag.com.br/schedule-api
+
+**Produção**
+- **apiSplitSchedule**: https://split.braspag.com.br/schedule-api
+
+
 ## Parâmetros
 
 Os endpoints de conciliação para transações, cancelamentos e chargebacks suportam os seguintes parâmetros:
@@ -38,7 +47,7 @@ O endpoint de conciliação de vendas permite consultar os dados relativo as tra
 
 #### Request
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/v2/{{PaymentId}}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{apiSplitSchedule}/v2/{PaymentId}</span></aside>
 
 #### Response
 
@@ -264,7 +273,7 @@ O endpoint de conciliação de vendas permite consultar os dados relativo as tra
 
 #### Request
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/v2/transactions?initialScheduledAt=2020-09-03&finalScheduledAt=2020-09-04&Reversed=False</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{apiSplitSchedule}/v2/transactions?initialScheduledAt=2020-09-03&finalScheduledAt=2020-09-04&Reversed=False</span></aside>
 
 #### Response
 
@@ -455,7 +464,7 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
 
 #### Request
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/voids?InitialScheduledAt=2020-01-01&FinalScheduledAt=2020-01-02&Reversed=False</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{apiSplitSchedule}/voids?InitialScheduledAt=2020-01-01&FinalScheduledAt=2020-01-02&Reversed=False</span></aside>
 
 #### Response
 
@@ -528,6 +537,8 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
    ]
 }
 ```
+
+
 
 | Propriedade| Descrição | Tipo |
 |--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
