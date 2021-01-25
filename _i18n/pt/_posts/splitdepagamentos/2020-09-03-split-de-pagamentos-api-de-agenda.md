@@ -166,6 +166,59 @@ O endpoint de conciliação de vendas permite consultar os dados relativo as tra
 }
 ```
 
+|PROPRIEDADE|DESCRIÇÃO|TIPO|
+|--------|---------------------------------|------|
+|PageCount|Total de páginas retornadas na consulta|Inteiro|
+|PageIndex|Página atual da consulta|Inteiro|
+|PageSize|Quantidade de itens retornados por página|Inteiro|
+|Items.[].PaymentId|Identificador único da transação|GUID|
+|Items.[].Amount|Valor bruto da transação|Inteiro|
+|Items.[].Installments|Quantidade de parcelas da transação|Inteiro|
+|Items.[].ChannelId|Identificador do canal onde a transação ocorreu|Inteiro|
+|Items.[]Channel|Descrição do cancal onde a transação ocorreu|Texto|
+|Items.[].ScheduledAt|Data de agendamento da transação|Data|
+|Items.[].Reversed|Indica se a operação consultada foi revertida. (Transação, Cancelamento, Chargeback)|Booleano|
+|Items.[].TransactionFares.Fee|Tarifa fixa aplicada pela Braspag|Inteiro|
+|Items.[].TransactionFares.DiscountedAmount|Valor ganho pela Braspag em relação a transação. Em um cancelamento, esse valor também é cancelado.|Inteiro|
+|Items.[].TransactionFares.AppliedMdr|Mdr aplicado pela Braspag|Decimal|
+|Items.[].PaymentArrangement.BrandId|Id da Bandeira|Inteiro|
+|Items.[].PaymentArrangement.Brand|Descrição da Bandeira|Texto|
+|Items.[].PaymentArrangement.ProductId|Id do Produto|Inteiro|
+|Items.[].PaymentArrangement.Product|Descrição do Produto|Texto|
+|Items.[].TransactionDetails.CaptureDate|Data de captura da transação|Data|
+|Items.[].TransactionDetails.Nsu|Identificador NSU|Inteiro|
+|Items.[].TransactionDetails.AuthorizationCode|Código de autorização|Texto|
+|Items.[].TransactionDetails.AuthorizationDate|Data de autorização|Data|
+|Items.[].TransactionDetails.StatusId|Id do status|Inteiro|
+|Items.[].TransactionDetails.Status|Descrição do Status|Texto|
+|Items.[].TransactionDetails.TerminalLogicNumber|Número lógico do terminal em que a transação ocorreu|Texto|
+|Items.[].MasterRateDiscountTypeId|Tipo de desconto aplicado pela Braspag|Inteiro|
+|Items.[].MasterRateDiscountType|Descrição do desconto aplicado pela Braspag|Texto|
+|Items.[].Merchant.Id|MerchantId do Master da transação|GUID|
+|Items.[].Merchant.Type|Tipo do Merchant|Texto|
+|Items.[].Merchant.FancyName|Nome Fantasia do Master|Texto|
+|Items.[].Merchant.CorporateName|Razão social do Master|Texto|
+|Items.[].MasterSummary.TotalGrossAmount|Valor Bruto ganho pelo Master na transação|Inteiro|
+|Items.[].MasterSummary.TotalNetAmount|Valor Líquido ganho pelo Master na transação|Inteiro|
+|Items.[].Splits.[].PayoutBlocked|Identificador se a agenda está bloqueada para liquidação|Booleano|
+|Items.[].Splits.[].NetAmount|Valo líquido da venda referente ao participante|Inteiro|
+|Items.[].Splits.[].GrossAmount|Valor bruto da venda referente ao participante|Inteiro|
+|Items.[].Splits.[].Fares.Mdr|MDR aplicado sobre a venda do participante|Decimal|
+|Items.[].Splits.[].Fares.Fee|Tarifa aplicada sobre a venda do participante|Inteiro|
+|Items.[].Splits.[].Fares.DiscountedAmount|Valor discontado sobre a venda do participante|Inteiro|
+|Items.[].Splits.[].Merchant.Id|Identificador único (MerchantId) do participante da transação|GUID|
+|Items.[].Splits.[].Merchant.Type|Tipo do Merchant|Texto|
+|Items.[].Splits.[].Merchant.FancyName|Nome Fantasia do Participante|Texto|
+|Items.[].Splits.[].Merchant.CorporateName|Razão social do participante|Texto|
+|Items.[].Splits.[].Schedules.[].Id|Identificador único da agenda|GUID|
+|Items.[].Splits.[].Schedules.[].ForecastedDate|Data prevista para a liquidação da agenda|Data|
+|Items.[].Splits.[].Schedules.[].InstallmentNumber|Número da parcela a qual a agenda se refere|Inteiro|
+|Items.[].Splits.[].Schedules.[].InstallmentAmount|Valor líquido da agenda|Inteiro|
+|Items.[].Splits.[].Schedules.[].EventId|Identificador do Evento da agenda|Inteiro|
+|Items.[].Splits.[].Schedules.[].Event|Descrição do evento da agenda|Texto|
+|Items.[].Splits.[].Schedules.[].EventStatusId|Identificador do status da agenda|Inteiro|
+|Items.[].Splits.[].Schedules.[].EventStatus|Descrição do status da agenda|Texto|
+
 ## Conciliação de Cancelamentos
 
 O endpoint de conciliação de cancelamentos permite consultar dados relativos ao cancelamento de uma transação e também da reversão de um cancelamento.
