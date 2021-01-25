@@ -34,7 +34,231 @@ Os endpoints de conciliação para transações, cancelamentos e chargebacks sup
 
 O endpoint de conciliação de vendas permite consultar os dados relativo as transações conciliadas que ocorreram em determinado range de data. 
 
-### Exemplos de consultas no endpoint de conciliação de Vendas
+### Consulta por PaymentId
+
+**Request**
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplitSchedule}}/v2/{{PaymentId}}</span></aside>
+
+**Response**
+```json
+{
+
+"PaymentId":  "e575da46-8b85-43fb-b28b-f48bfc61860b",
+
+"Amount":  20000,
+
+"Installments":  2,
+
+"ChannelId":  2,
+
+"Channel":  "PointOfSale",
+
+"ScheduledAt":  "2020-01-24",
+
+"Reversed":  false,
+
+"TransactionFares":  {
+
+"Fee":  0,
+
+"Schedules":  [],
+
+"DiscountedAmount":  620,
+
+"AppliedMdr":  3.10
+
+},
+
+"PaymentArrangement":  {
+
+"BrandId":  1,
+
+"Brand":  "Visa",
+
+"ProductId":  1,
+
+"Product":  "CreditCard"
+
+},
+
+"TransactionDetails":  {
+
+"CaptureDate":  "0001-01-01",
+
+"Nsu":  "1043557",
+
+"AuthorizationCode":  "78654328",
+
+"AuthorizationDate":  "2019-11-25",
+
+"StatusId":  12,
+
+"Status":  "Pendente",
+
+"TerminalLogicNumber":  "22222222"
+
+},
+
+"MasterRateDiscountTypeId":  "1",
+
+"MasterRateDiscountType":  "Commission",
+
+"Merchant":  {
+
+"Id":  "247d032d-f917-4a52-8e7a-d850945f065e",
+
+"Type":  "Master",
+
+"FancyName":  "Operacoes Split",
+
+"CorporateName":  "Operacoes Split"
+
+},
+
+"MasterSummary":  {
+
+"TotalGrossAmount":  20000,
+
+"TotalNetAmount":  19380
+
+},
+
+"Splits":  [
+
+{
+
+"PayoutBlocked":  false,
+
+"Id":  "853473be-cd93-46c8-a81f-cd3a5222d0ab",
+
+"NetAmount":  19380,
+
+"GrossAmount":  20000,
+
+"Fares":  {
+
+"Mdr":  3.10,
+
+"Fee":  0,
+
+"DiscountedMdrAmount":  620
+
+},
+
+"Merchant":  {
+
+"Id":  "247d032d-f917-4a52-8e7a-d850945f065e",
+
+"Type":  "Master",
+
+"FancyName":  "Operacoes Split",
+
+"CorporateName":  "Operacoes Split"
+
+},
+
+"Schedules":  [
+
+{
+
+"Id":  "51faaf33-ac9e-4eed-b5fc-87260ac8ae75",
+
+"ForecastedDate":  "2020-02-14",
+
+"InstallmentNumber":  1,
+
+"InstallmentAmount":  9690,
+
+"EventId":  1,
+
+"Event":  "Credit",
+
+"EventStatusId":  2,
+
+"EventStatus":  "Pending"
+
+},
+
+{
+
+"Id":  "22bc889d-fc21-40b3-8a8a-09d71a2a036f",
+
+"ForecastedDate":  "2020-03-16",
+
+"InstallmentNumber":  2,
+
+"InstallmentAmount":  9690,
+
+"EventId":  1,
+
+"Event":  "Credit",
+
+"EventStatusId":  6,
+
+"EventStatus":  "Anticipated"
+
+}
+
+]
+
+}
+
+]
+
+}
+```
+
+|PROPRIEDADE|DESCRIÇÃO|TIPO|
+|--------|---------------------------------|------|
+|PaymentId|Identificador único da transação|GUID|
+|Amount|Valor bruto da transação|Inteiro|
+|Installments|Quantidade de parcelas da transação|Inteiro|
+|ChannelId|Identificador do canal onde a transação ocorreu|Inteiro|
+|hannel|Descrição do cancal onde a transação ocorreu|Texto|
+|ScheduledAt|Data de agendamento da transação|Data|
+|Reversed|Indica se a operação consultada foi revertida. (Transação, Cancelamento, Chargeback)|Booleano|
+|TransactionFares.Fee|Tarifa fixa aplicada pela Braspag|Inteiro|
+|TransactionFares.DiscountedAmount|Valor ganho pela Braspag em relação a transação. Em um cancelamento, esse valor também é cancelado.|Inteiro|
+|TransactionFares.AppliedMdr|Mdr aplicado pela Braspag|Decimal|
+|PaymentArrangement.BrandId|Id da Bandeira|Inteiro|
+|PaymentArrangement.Brand|Descrição da Bandeira|Texto|
+|PaymentArrangement.ProductId|Id do Produto|Inteiro|
+|PaymentArrangement.Product|Descrição do Produto|Texto|
+|TransactionDetails.CaptureDate|Data de captura da transação|Data|
+|TransactionDetails.Nsu|Identificador NSU|Inteiro|
+|TransactionDetails.AuthorizationCode|Código de autorização|Texto|
+|TransactionDetails.AuthorizationDate|Data de autorização|Data|
+|TransactionDetails.StatusId|Id do status|Inteiro|
+|TransactionDetails.Status|Descrição do Status|Texto|
+|TransactionDetails.TerminalLogicNumber|Número lógico do terminal em que a transação ocorreu|Texto|
+|MasterRateDiscountTypeId|Tipo de desconto aplicado pela Braspag|Inteiro|
+|MasterRateDiscountType|Descrição do desconto aplicado pela Braspag|Texto|
+|Merchant.Id|MerchantId do Master da transação|GUID|
+|Merchant.Type|Tipo do Merchant|Texto|
+|Merchant.FancyName|Nome Fantasia do Master|Texto|
+|Merchant.CorporateName|Razão social do Master|Texto|
+|MasterSummary.TotalGrossAmount|Valor Bruto ganho pelo Master na transação|Inteiro|
+|MasterSummary.TotalNetAmount|Valor Líquido ganho pelo Master na transação|Inteiro|
+|Splits.[].PayoutBlocked|Identificador se a agenda está bloqueada para liquidação|Booleano|
+|Splits.[].NetAmount|Valo líquido da venda referente ao participante|Inteiro|
+|Splits.[].GrossAmount|Valor bruto da venda referente ao participante|Inteiro|
+|Splits.[].Fares.Mdr|MDR aplicado sobre a venda do participante|Decimal|
+|Splits.[].Fares.Fee|Tarifa aplicada sobre a venda do participante|Inteiro|
+|Splits.[].Fares.DiscountedAmount|Valor discontado sobre a venda do participante|Inteiro|
+|Splits.[].Merchant.Id|Identificador único (MerchantId) do participante da transação|GUID|
+|Splits.[].Merchant.Type|Tipo do Merchant|Texto|
+|Splits.[].Merchant.FancyName|Nome Fantasia do Participante|Texto|
+|Splits.[].Merchant.CorporateName|Razão social do participante|Texto|
+|Splits.[].Schedules.[].Id|Identificador único da agenda|GUID|
+|Splits.[].Schedules.[].ForecastedDate|Data prevista para a liquidação da agenda|Data|
+|Splits.[].Schedules.[].InstallmentNumber|Número da parcela a qual a agenda se refere|Inteiro|
+|Splits.[].Schedules.[].InstallmentAmount|Valor líquido da agenda|Inteiro|
+|Splits.[].Schedules.[].EventId|Identificador do Evento da agenda|Inteiro|
+|Splits.[].Schedules.[].Event|Descrição do evento da agenda|Texto|
+|Splits.[].Schedules.[].EventStatusId|Identificador do status da agenda|Inteiro|
+|Splits.[].Schedules.[].EventStatus|Descrição do status da agenda|Texto|
+
+### Consulta por data de agendamento
 
 **Exemplo 1** - Efetuando a consulta de todos os cancelamentos agendados no período entre 26/08/2020 e 28/08/2020 que não foram revertidos..
 
