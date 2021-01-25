@@ -1269,6 +1269,775 @@ Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendam
   </tbody>
 </table>
 
+<h2 id="conciliação-de-chargebacks">Conciliação de chargebacks</h2>
+
+<h3 id="consulta-por-chargebackid">Consulta por ChargebackId</h3>
+
+<h4 id="request-3">Request</h4>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{apiSplitSchedule}/chargebacks/9d9d7a20-6977-40b3-a60b-323b87554384</span></aside>
+
+<h4 id="response-3">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"9d9d7a20-6977-40b3-a60b-323b87554384"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w">  </span><span class="s2">"d6042a8a-8d29-47ab-93d9-f6bca2c57d26"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventDate"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2020-02-07"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Amount"</span><span class="p">:</span><span class="w">  </span><span class="mi">25000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Reversed"</span><span class="p">:</span><span class="w">  </span><span class="kc">false</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"DateOfSplit"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2020-02-07"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"ScheduledAt"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2020-02-07"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"TransactionFares"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"DiscountedAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">625</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"AppliedMdr"</span><span class="p">:</span><span class="w">  </span><span class="mf">2.50</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"MasterRateDiscountTypeId"</span><span class="p">:</span><span class="w">  </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"MasterRateDiscountType"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Commission"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Merchant"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"247d032d-f917-4a52-8e7a-d850945f065e"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Type"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Operacoes Split"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Operacoes Split"</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"MasterSummary"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Commission"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"SplitId"</span><span class="p">:</span><span class="w">  </span><span class="s2">"40a17d52-3879-44af-99c4-84c0894b59cb"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"NetAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">1375</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"GrossAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Schedules"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"8784e4ff-ade1-49d5-96e1-1a69380d9e52"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2020-03-09"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">1375</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventId"</span><span class="p">:</span><span class="w">  </span><span class="mi">8</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Event"</span><span class="p">:</span><span class="w">  </span><span class="s2">"ChargebackDebit"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="w">  </span><span class="mi">6</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Anticipated"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">]</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"TotalGrossAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"TotalNetAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">1375</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"Splits"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"d6f87c4e-7bda-45d9-b44d-7156521597be"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"NetAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">23000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"GrossAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">25000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Fares"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w">  </span><span class="mf">8.00</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Fee"</span><span class="p">:</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"DiscountedMdrAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">2000</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"Merchant"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"d436ad59-6be9-4146-a757-35b97659bedc"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Type"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Subordinate"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Operacoes Split Subordinado02"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Operacoes Split Subordinado02"</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"Schedules"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0e049b57-710c-4223-8081-846b68fb235a"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2020-03-09"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">23000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventId"</span><span class="p">:</span><span class="w">  </span><span class="mi">8</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Event"</span><span class="p">:</span><span class="w">  </span><span class="s2">"ChargebackDebit"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="w">  </span><span class="mi">2</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Pending"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">]</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">]</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DateOfSplit</td>
+      <td>Data em que o chargeback foi dividido entre os participantes</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>EventDate</td>
+      <td>Data do chargeback</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>Id</td>
+      <td>Id do Chargeback</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>PaymentId</td>
+      <td>Identificador único da transação</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Amount</td>
+      <td>Valor bruto da transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Reversed</td>
+      <td>Indica se a operação consultada foi revertida. (Transação, Cancelamento, Chargeback)</td>
+      <td>Booleano</td>
+    </tr>
+    <tr>
+      <td>TransactionFares.DiscountedAmount</td>
+      <td>Valor ganho pela Braspag em relação a transação. Em um cancelamento, esse valor também é cancelado.</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>TransactionFares.AppliedMdr</td>
+      <td>Mdr aplicado pela Braspag</td>
+      <td>Decimal</td>
+    </tr>
+    <tr>
+      <td>MasterRateDiscountTypeId</td>
+      <td>Tipo de desconto aplicado pela Braspag</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>MasterRateDiscountType</td>
+      <td>Descrição do desconto aplicado pela Braspag</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Merchant.Id</td>
+      <td>MerchantId do Master da transação</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Merchant.Type</td>
+      <td>Tipo do Merchant</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Merchant.FancyName</td>
+      <td>Nome Fantasia do Master</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Merchant.CorporateName</td>
+      <td>Razão social do Master</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>MasterSummary.Commission.Schedules.[].Id</td>
+      <td>Identificador único da agenda</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>MasterSummary.Commission.Schedules.[].ForecastedDate</td>
+      <td>Data prevista para a liquidação da agenda</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>MasterSummary.Commission.Schedules.[].InstallmentNumber</td>
+      <td>Número da parcela a qual a agenda se refere</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>MasterSummary.Commission.Schedules.[].InstallmentAmount</td>
+      <td>Valor líquido da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>MasterSummary.Commission.Schedules.[].EventId</td>
+      <td>Identificador do Evento da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>MasterSummary.Commission.Schedules.[].Event</td>
+      <td>Descrição do evento da agenda</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>MasterSummary.Commission.Schedules.[].StatusId</td>
+      <td>Identificador do status da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>MasterSummary.Commission.Schedules.[].Status</td>
+      <td>Descrição do status da agenda</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>MasterSummary.TotalGrossAmount</td>
+      <td>Valor Bruto ganho pelo Master na transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>MasterSummary.TotalNetAmount</td>
+      <td>Valor Líquido ganho pelo Master na transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].NetAmount</td>
+      <td>Valo líquido da venda referente ao participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].GrossAmount</td>
+      <td>Valor bruto da venda referente ao participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Fares.Mdr</td>
+      <td>MDR aplicado sobre a venda do participante</td>
+      <td>Decimal</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Fares.Fee</td>
+      <td>Tarifa aplicada sobre a venda do participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Fares.DiscountedAmount</td>
+      <td>Valor discontado sobre a venda do participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Merchant.Id</td>
+      <td>Identificador único (MerchantId) do participante da transação</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Merchant.Type</td>
+      <td>Tipo do Merchant</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Merchant.FancyName</td>
+      <td>Nome Fantasia do Participante</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Merchant.CorporateName</td>
+      <td>Razão social do participante</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].Id</td>
+      <td>Identificador único da agenda</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].ForecastedDate</td>
+      <td>Data prevista para a liquidação da agenda</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].InstallmentNumber</td>
+      <td>Número da parcela a qual a agenda se refere</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].InstallmentAmount</td>
+      <td>Valor líquido da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].EventId</td>
+      <td>Identificador do Evento da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].Event</td>
+      <td>Descrição do evento da agenda</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].EventStatusId</td>
+      <td>Identificador do status da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Splits.[].Schedules.[].EventStatus</td>
+      <td>Descrição do status da agenda</td>
+      <td>Texto</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="consulta-por-data-de-agendamento-1">Consulta por data de agendamento</h3>
+
+<h4 id="request-4">Request</h4>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{apiSplitSchedule}/chargebacks?InitialScheduledAt=2020-01-01&amp;FinalScheduledAt=2020-12-30&amp;Reversed=false&amp;PageSize=1</span></aside>
+
+<h4 id="response-4">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+
+</span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w">  </span><span class="mi">20</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"PageSize"</span><span class="p">:</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Items"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"9d9d7a20-6977-40b3-a60b-323b87554384"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w">  </span><span class="s2">"d6042a8a-8d29-47ab-93d9-f6bca2c57d26"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventDate"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2020-02-07"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Amount"</span><span class="p">:</span><span class="w">  </span><span class="mi">25000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Reversed"</span><span class="p">:</span><span class="w">  </span><span class="kc">false</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"DateOfSplit"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2020-02-07"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"TransactionFares"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"DiscountedAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">625</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"AppliedMdr"</span><span class="p">:</span><span class="w">  </span><span class="mf">2.50</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"MasterRateDiscountTypeId"</span><span class="p">:</span><span class="w">  </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"MasterRateDiscountType"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Commission"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Merchant"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"247d032d-f917-4a52-8e7a-d850945f065e"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Type"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Operacoes Split"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Operacoes Split"</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"MasterSummary"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Commission"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"SplitId"</span><span class="p">:</span><span class="w">  </span><span class="s2">"40a17d52-3879-44af-99c4-84c0894b59cb"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"NetAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">1375</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"GrossAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Schedules"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"8784e4ff-ade1-49d5-96e1-1a69380d9e52"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2020-03-09"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">1375</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventId"</span><span class="p">:</span><span class="w">  </span><span class="mi">8</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Event"</span><span class="p">:</span><span class="w">  </span><span class="s2">"ChargebackDebit"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="w">  </span><span class="mi">6</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Anticipated"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">]</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"TotalGrossAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"TotalNetAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">1375</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"Splits"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"d6f87c4e-7bda-45d9-b44d-7156521597be"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"NetAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">23000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"GrossAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">25000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Fares"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w">  </span><span class="mf">8.00</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Fee"</span><span class="p">:</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"DiscountedMdrAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">2000</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"Merchant"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"d436ad59-6be9-4146-a757-35b97659bedc"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Type"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Subordinate"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Operacoes Split Subordinado02"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Operacoes Split Subordinado02"</span><span class="w">
+
+</span><span class="p">},</span><span class="w">
+
+</span><span class="nl">"Schedules"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"Id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0e049b57-710c-4223-8081-846b68fb235a"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2020-03-09"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w">  </span><span class="mi">23000</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventId"</span><span class="p">:</span><span class="w">  </span><span class="mi">8</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"Event"</span><span class="p">:</span><span class="w">  </span><span class="s2">"ChargebackDebit"</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventStatusId"</span><span class="p">:</span><span class="w">  </span><span class="mi">2</span><span class="p">,</span><span class="w">
+
+</span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Pending"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">]</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">]</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">]</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PageCount</td>
+      <td>Total de páginas retornadas na consulta</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>PageIndex</td>
+      <td>Página atual da consulta</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>PageSize</td>
+      <td>Quantidade de itens retornados por página</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].DateOfSplit</td>
+      <td>Data em que o chargeback foi dividido entre os participantes</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>Items.[].EventDate</td>
+      <td>Data do chargeback</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>Items.[].Id</td>
+      <td>Id do Chargeback</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Items.[].PaymentId</td>
+      <td>Identificador único da transação</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Items.[].Amount</td>
+      <td>Valor bruto da transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Reversed</td>
+      <td>Indica se a operação consultada foi revertida. (Transação, Cancelamento, Chargeback)</td>
+      <td>Booleano</td>
+    </tr>
+    <tr>
+      <td>Items.[].TransactionFares.DiscountedAmount</td>
+      <td>Valor ganho pela Braspag em relação a transação. Em um cancelamento, esse valor também é cancelado.</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].TransactionFares.AppliedMdr</td>
+      <td>Mdr aplicado pela Braspag</td>
+      <td>Decimal</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterRateDiscountTypeId</td>
+      <td>Tipo de desconto aplicado pela Braspag</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterRateDiscountType</td>
+      <td>Descrição do desconto aplicado pela Braspag</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Merchant.Id</td>
+      <td>MerchantId do Master da transação</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Items.[].Merchant.Type</td>
+      <td>Tipo do Merchant</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Merchant.FancyName</td>
+      <td>Nome Fantasia do Master</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Merchant.CorporateName</td>
+      <td>Razão social do Master</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterSummary.Commission.Schedules.[].Id</td>
+      <td>Identificador único da agenda</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterSummary.Commission.Schedules.[].ForecastedDate</td>
+      <td>Data prevista para a liquidação da agenda</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterSummary.Commission.Schedules.[].InstallmentNumber</td>
+      <td>Número da parcela a qual a agenda se refere</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterSummary.Commission.Schedules.[].InstallmentAmount</td>
+      <td>Valor líquido da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterSummary.Commission.Schedules.[].EventId</td>
+      <td>Identificador do Evento da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterSummary.Commission.Schedules.[].Event</td>
+      <td>Descrição do evento da agenda</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterSummary.Commission.Schedules.[].StatusId</td>
+      <td>Identificador do status da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterSummary.Commission.Schedules.[].Status</td>
+      <td>Descrição do status da agenda</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterSummary.TotalGrossAmount</td>
+      <td>Valor Bruto ganho pelo Master na transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterSummary.TotalNetAmount</td>
+      <td>Valor Líquido ganho pelo Master na transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].NetAmount</td>
+      <td>Valo líquido da venda referente ao participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].GrossAmount</td>
+      <td>Valor bruto da venda referente ao participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Fares.Mdr</td>
+      <td>MDR aplicado sobre a venda do participante</td>
+      <td>Decimal</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Fares.Fee</td>
+      <td>Tarifa aplicada sobre a venda do participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Fares.DiscountedAmount</td>
+      <td>Valor discontado sobre a venda do participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Merchant.Id</td>
+      <td>Identificador único (MerchantId) do participante da transação</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Merchant.Type</td>
+      <td>Tipo do Merchant</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Merchant.FancyName</td>
+      <td>Nome Fantasia do Participante</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Merchant.CorporateName</td>
+      <td>Razão social do participante</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].Id</td>
+      <td>Identificador único da agenda</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].ForecastedDate</td>
+      <td>Data prevista para a liquidação da agenda</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].InstallmentNumber</td>
+      <td>Número da parcela a qual a agenda se refere</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].InstallmentAmount</td>
+      <td>Valor líquido da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].EventId</td>
+      <td>Identificador do Evento da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].Event</td>
+      <td>Descrição do evento da agenda</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].EventStatusId</td>
+      <td>Identificador do status da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].EventStatus</td>
+      <td>Descrição do status da agenda</td>
+      <td>Texto</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="tabelas-de-status">Tabelas de Status</h2>
 
 <h3 id="eventos-de-agenda">Eventos de agenda</h3>
