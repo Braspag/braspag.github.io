@@ -288,6 +288,268 @@ Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendam
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PageCount</td>
+      <td>Total de páginas retornadas na consulta</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>PageIndex</td>
+      <td>Página atual da consulta</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>PageSize</td>
+      <td>Quantidade de itens retornados por página</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].PaymentId</td>
+      <td>Identificador único da transação</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Items.[].Amount</td>
+      <td>Valor bruto da transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Installments</td>
+      <td>Quantidade de parcelas da transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].ChannelId</td>
+      <td>Identificador do canal onde a transação ocorreu</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[]Channel</td>
+      <td>Descrição do cancal onde a transação ocorreu</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].ScheduledAt</td>
+      <td>Data de agendamento da transação</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>Items.[].Reversed</td>
+      <td>Indica se a operação consultada foi revertida. (Transação, Cancelamento, Chargeback)</td>
+      <td>Booleano</td>
+    </tr>
+    <tr>
+      <td>Items.[].TransactionFares.Fee</td>
+      <td>Tarifa fixa aplicada pela Braspag</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].TransactionFares.DiscountedAmount</td>
+      <td>Valor ganho pela Braspag em relação a transação. Em um cancelamento, esse valor também é cancelado.</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].TransactionFares.AppliedMdr</td>
+      <td>Mdr aplicado pela Braspag</td>
+      <td>Decimal</td>
+    </tr>
+    <tr>
+      <td>Items.[].PaymentArrangement.BrandId</td>
+      <td>Id da Bandeira</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].PaymentArrangement.Brand</td>
+      <td>Descrição da Bandeira</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].PaymentArrangement.ProductId</td>
+      <td>Id do Produto</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].PaymentArrangement.Product</td>
+      <td>Descrição do Produto</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].TransactionDetails.CaptureDate</td>
+      <td>Data de captura da transação</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>Items.[].TransactionDetails.Nsu</td>
+      <td>Identificador NSU</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].TransactionDetails.AuthorizationCode</td>
+      <td>Código de autorização</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].TransactionDetails.AuthorizationDate</td>
+      <td>Data de autorização</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>Items.[].TransactionDetails.StatusId</td>
+      <td>Id do status</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].TransactionDetails.Status</td>
+      <td>Descrição do Status</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].TransactionDetails.TerminalLogicNumber</td>
+      <td>Número lógico do terminal em que a transação ocorreu</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterRateDiscountTypeId</td>
+      <td>Tipo de desconto aplicado pela Braspag</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterRateDiscountType</td>
+      <td>Descrição do desconto aplicado pela Braspag</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Merchant.Id</td>
+      <td>MerchantId do Master da transação</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Items.[].Merchant.Type</td>
+      <td>Tipo do Merchant</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Merchant.FancyName</td>
+      <td>Nome Fantasia do Master</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Merchant.CorporateName</td>
+      <td>Razão social do Master</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterSummary.TotalGrossAmount</td>
+      <td>Valor Bruto ganho pelo Master na transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].MasterSummary.TotalNetAmount</td>
+      <td>Valor Líquido ganho pelo Master na transação</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].PayoutBlocked</td>
+      <td>Identificador se a agenda está bloqueada para liquidação</td>
+      <td>Booleano</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].NetAmount</td>
+      <td>Valo líquido da venda referente ao participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].GrossAmount</td>
+      <td>Valor bruto da venda referente ao participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Fares.Mdr</td>
+      <td>MDR aplicado sobre a venda do participante</td>
+      <td>Decimal</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Fares.Fee</td>
+      <td>Tarifa aplicada sobre a venda do participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Fares.DiscountedAmount</td>
+      <td>Valor discontado sobre a venda do participante</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Merchant.Id</td>
+      <td>Identificador único (MerchantId) do participante da transação</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Merchant.Type</td>
+      <td>Tipo do Merchant</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Merchant.FancyName</td>
+      <td>Nome Fantasia do Participante</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Merchant.CorporateName</td>
+      <td>Razão social do participante</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].Id</td>
+      <td>Identificador único da agenda</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].ForecastedDate</td>
+      <td>Data prevista para a liquidação da agenda</td>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].InstallmentNumber</td>
+      <td>Número da parcela a qual a agenda se refere</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].InstallmentAmount</td>
+      <td>Valor líquido da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].EventId</td>
+      <td>Identificador do Evento da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].Event</td>
+      <td>Descrição do evento da agenda</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].EventStatusId</td>
+      <td>Identificador do status da agenda</td>
+      <td>Inteiro</td>
+    </tr>
+    <tr>
+      <td>Items.[].Splits.[].Schedules.[].EventStatus</td>
+      <td>Descrição do status da agenda</td>
+      <td>Texto</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="conciliação-de-cancelamentos">Conciliação de Cancelamentos</h2>
 
 <p>O endpoint de conciliação de cancelamentos permite consultar dados relativos ao cancelamento de uma transação e também da reversão de um cancelamento.</p>
