@@ -26,7 +26,6 @@ Todos os eventos exibidos nesses endpoints já passaram pelo processo de agendam
 **Produção**
 - **apiSplitSchedule**: https://split.braspag.com.br/schedule-api
 
-
 ## Parâmetros
 
 Os endpoints de conciliação para transações, cancelamentos e chargebacks suportam os seguintes parâmetros:
@@ -537,9 +536,6 @@ A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um can
    ]
 }
 ```
-
-
-
 | Propriedade| Descrição | Tipo |
 |--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
 | `Id` | Identificador do cancelamento. | Guid |
