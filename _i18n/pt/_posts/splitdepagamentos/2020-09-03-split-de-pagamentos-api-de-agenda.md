@@ -457,7 +457,7 @@ O endpoint de conciliação de cancelamentos permite consultar dados relativos a
 
 A reversão de um cancelamento ocorre em cenários onde o lojista efetuou um cancelamento por engano e deseja anular o mesmo.
 
-### Exemplos de consultas no endpoint de conciliação de cancelamentos 
+### Consulta por data de agendamento
 
 #### Request
 
