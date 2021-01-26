@@ -5149,7 +5149,7 @@ curl
 
 <aside class="warning">The store must already have Samsung registration and integration before integrating with the Pagador API.</aside>
 
-<h4 id="request-13">Request</h4>
+<h5 id="request-13">Request</h5>
 
 <p>Example of a standard Samsung Pay request:</p>
 
@@ -5181,10 +5181,10 @@ curl
   <thead>
     <tr>
       <th>Property</th>
+      <th>Description</th>
       <th>Type</th>
       <th>Size</th>
       <th>Mandatory</th>
-      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -5246,7 +5246,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Cielo providers only (<code class="language-plaintext highlighter-rouge">Cielo</code>/<code class="language-plaintext highlighter-rouge">Cielo30</code>).</td>
+      <td>Cielo providers only (“Cielo” / “Cielo30”).</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
@@ -5260,14 +5260,14 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
-      <td>Wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code>.</td>
+      <td>Wallet type: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
-      <td>Cryptographic key representing the card data. Refer to the WalletKey table in the ANNEXES for more information.</td>
+      <td>Cryptographic key that identifies stores in wallets. Check the WalletKey table in the ANNEXES for more information.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
@@ -5370,7 +5370,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Text to be printed on the bearer bank statement. Note: Does not allow special characters. Available for VISA/MASTER only.</td>
+      <td>Text to be printed on the bearer’s bank statement. Note: Does not allow special characters. Available for VISA/MASTER only.</td>
       <td>Text</td>
       <td>13</td>
       <td>Alphanumeric</td>
@@ -5405,24 +5405,24 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Return message from acquirer</td>
+      <td>Return message from acquirer.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>Wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge"> SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge"> VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
+      <td>Wallet type: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.</td>
       <td>Text</td>
       <td>255</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">WalletKey</code></td>
-      <td>Cryptographic Key Representing Card Data. Refer to the WalletKey table in the ANNEXES for more information.</td>
+      <td>Cryptographic key that identifies stores in wallets. Check the WalletKey table in the ANNEXES for more information.</td>
       <td>Text</td>
       <td>255</td>
-      <td>See WalletKey table</td>
+      <td>See “WalletKey” table</td>
     </tr>
   </tbody>
 </table>
@@ -5433,9 +5433,9 @@ curl
 
 <h4 id="masterpass">Masterpass</h4>
 
-<p>The Masterpass service must be hired through contacting Mastercard directly, selecting Braspag as your service provider.</p>
+<p>The Masterpass service must be hired through contacting Mastercard directly and selecting Braspag as your service provider.</p>
 
-<h4 id="request-14">Request</h4>
+<h5 id="request-14">Request</h5>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5464,125 +5464,110 @@ curl
   <thead>
     <tr>
       <th>Property</th>
+      <th>Description</th>
       <th>Type</th>
       <th>Size</th>
       <th>Mandatory</th>
-      <th>Description</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier at Braspag.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes (header field)</td>
-      <td>Store identifier at Braspag</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public key for dual authentication at Braspag.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes (header field)</td>
-      <td>Public Key for Dual Authentication at Braspag</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
       <td>No (header field)</td>
-      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Order ID number.</td>
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Order ID number.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Customer’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Shopper’s Name.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Customer’s registration status (“NEW” / “EXISTING”).</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Shopper Registration Status (“NEW” / “EXISTING”).</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method type.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Payment Method Type</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order amount in cents.</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Order Amount (to be shipped in cents).</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Only Cielo as provider (“Cielo” / “Cielo30”).</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Only Cielo as provider (<code class="language-plaintext highlighter-rouge"> Cielo</code>/<code class="language-plaintext highlighter-rouge">Cielo30</code>)</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Number of installments.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of Installments.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
+      <td>Wallet type: “Masterpass”.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>indicates which type of wallet:” Masterpass “</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
+      <td>Cryptographic key representing the card data. Refer to the WalletKey table in the ANNEXES for more information.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>Cryptographic key representing card data - See WalletKey table for more information</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData</code></td>
+      <td>Instance for extra data entered by Masterpass. Note: Required only for <code class="language-plaintext highlighter-rouge">Wallet.Type</code> “Masterpass”.</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td>Instance for extra data entered by Masterpass. Required only if TYPE = “Masterpass”</td>
-      <td> </td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.capturecode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.CaptureCode</code></td>
+      <td>Code passed to merchant by Masterpass.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>Code entered by Masterpass to retailer</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -5656,8 +5641,8 @@ curl
       <td>Alphanumeric</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">TID</code></td>
-      <td>Id of the transaction on the acquirer.</td>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Transaction ID in the acquirer.</td>
       <td>Text</td>
       <td>20</td>
       <td>Alphanumeric</td>
@@ -5671,56 +5656,56 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Text to be printed on shopper’s invoice - Available for VISA/MASTER only - does not allow special characters</td>
+      <td>Text to be printed on bearer’s invoice. Note: Does not allow special characters. Available for VISA/MASTER only.</td>
       <td>Text</td>
       <td>13</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field.</td>
+      <td>Order identifier field.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
-      <td>Electronic Commerce Indicator. Represents how secure a transaction is.</td>
+      <td><em>Electronic Commerce Indicator</em>. Represents how secure a transaction is.</td>
       <td>Text</td>
       <td>2</td>
-      <td>Examples: 7</td>
+      <td>E.g.: 7</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status.</td>
+      <td>Transaction status.</td>
       <td>Byte</td>
       <td>2</td>
       <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Return Code from Acquiring.</td>
+      <td>Return code from acquiring.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Return message from Acquiring.</td>
+      <td>Return message from acquiring.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>indicates which wallet type: “VisaCheckout” or “Masterpass”</td>
+      <td>Wallet type: “VisaCheckout” / “Masterpass”.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Capturecode</code></td>
-      <td>Code entered by Masterpass to shopkeeper</td>
+      <td>Code passed to merchant by Masterpass.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
@@ -5730,11 +5715,9 @@ curl
 
 <h4 id="visa-checkout">Visa Checkout</h4>
 
-<blockquote>
-  <p>To use <em>Visa Checkout</em> you need to contract the service by contacting Visa directly.</p>
-</blockquote>
+<p>The Visa Checkout service must be hired through contacting Visa directly.</p>
 
-<h4 id="request-15">Request</h4>
+<h5 id="request-15">Request</h5>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -5764,125 +5747,110 @@ curl
   <thead>
     <tr>
       <th>Property</th>
+      <th>Description</th>
       <th>Type</th>
       <th>Size</th>
       <th>Mandatory</th>
-      <th>Description</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier at Braspag.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes (header field)</td>
-      <td>Store identifier at Braspag</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public key for dual authentication at Braspag.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes (header field)</td>
-      <td>Public Key for Dual Authentication at Braspag</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
       <td>No (header field)</td>
-      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Order ID number.</td>
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Order ID number.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Customer’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Shopper’s Name.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Customer’s registration status (“NEW” / “EXISTING”).</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Shopper Registration Status (“NEW” / “EXISTING”).</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method type.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Payment Method Type</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order amount in cents.</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Order Amount (to be shipped in cents).</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Only Cielo as provider (“Cielo” / “Cielo30”).</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Only Cielo as provider (<code class="language-plaintext highlighter-rouge">Cielo</code>/<code class="language-plaintext highlighter-rouge">Cielo30</code>)</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Number of installments.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of Installments.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td>Required for debit card.</td>
       <td>Text</td>
       <td>1024</td>
       <td>—</td>
-      <td>Required for debit card</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Security code printed on the back of the card. See ANNEXES.</td>
       <td>Text</td>
       <td>4</td>
       <td>No</td>
-      <td>Security code printed on back of card - See Appendix.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
+      <td>Wallet type: “VisaCheckout”.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>indicates which type of wallet:” VisaCheckout “</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
+      <td>Cryptographic key sent by VisaCheckout. Required for <code class="language-plaintext highlighter-rouge">Type</code> “VisaCheckout”.</td>
       <td>Text</td>
       <td>255</td>
       <td>—</td>
-      <td>Cryptographic key sent by VisaCheckout. Required if TYPE = “VisaCheckout”</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -5951,8 +5919,8 @@ curl
       <td>Alphanumeric</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">TID</code></td>
-      <td>Id of the transaction on the acquirer.</td>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Transaction ID in the acquirer.</td>
       <td>Text</td>
       <td>20</td>
       <td>Alphanumeric</td>
@@ -5966,56 +5934,56 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Text to be printed on shopper’s invoice - Available for VISA/MASTER only - does not allow special characters</td>
+      <td>Text to be printed on customer’s invoice. Note: Does not allow special characters. Available for VISA/MASTER only.</td>
       <td>Text</td>
       <td>13</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field.</td>
+      <td>Order identifier field.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
-      <td>Electronic Commerce Indicator. Represents how secure a transaction is.</td>
+      <td><em>Electronic Commerce Indicator</em>. Represents how secure a transaction is.</td>
       <td>Text</td>
       <td>2</td>
       <td>Examples: 7</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status.</td>
+      <td>Transaction status.</td>
       <td>Byte</td>
       <td>2</td>
       <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Return Code from Acquiring.</td>
+      <td>Return code from acquirer.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Return message from Acquiring.</td>
+      <td>Return message from acquirer.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>indicates which wallet type:” VisaCheckout “or” Masterpass “</td>
+      <td>Wallet type: “VisaCheckout” or “Masterpass”.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Capturecode</code></td>
-      <td>Code entered by Masterpass to shopkeeper</td>
+      <td><code class="language-plaintext highlighter-rouge">CaptureCode</code></td>
+      <td>Code passed to merchant by Masterpass.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
