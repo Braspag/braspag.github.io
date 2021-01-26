@@ -3052,9 +3052,9 @@ The Visa Checkout service must be hired through contacting Visa directly.
 
 ## Voucher
 
-### Creating a Alelo Voucher Transaction
+### Creating a Voucher Transaction
 
-A transaction with an *Alelo* Card is similar to a Debit Card, but without the authentication process. <BR><BR>Currently, only the "Alelo" Provider supports processing of this mode.
+A transaction with a voucher card is similar to a debit card transaction; only without the authentication process. Currently, only the *Alelo* and *Ticket* providers are supported in this modality.
 
 #### Request
 
@@ -3109,18 +3109,18 @@ curl
 }
 ```
 
-|Property|Type|Size|Mandatory|Description|
+|Property|Description|Type|Size|Mandatory|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Text|15|Yes|Name of payment method provider.|Currently only "Cielo" supports this form of payment via Pagador|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|In the case of a debit card (DebitCard)|
-|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|
-|`Payment.ReturnUrl`|Text|1024|Yes|URL to which the user will be redirected after the end of the payment|
-|`DeditCard.CardNumber`|Text|16|Yes|Shopper's card number|
-|`DeditCard.Holder`|Text|25|Yes|Name of cardholder printed on card|
-|`DebitCard.ExpirationDate`|Text|7|Yes|Expiration date printed on the card, in the MM/YYYY format|
-|`DebitCard.SecurityCode`|Text|4|Yes|Security code printed on back of card|
-|`DebitCard.Brand`|Text|10|Yes|Card Brand|
+|`Payment.Provider`|Name of the payment method provider. Currently only "Cielo" supports this form of payment via Pagador.|Text|15|Yes|
+|`Payment.Type`|Payment method type. In this case, "DebitCard".|Text|100|Yes|
+|`Payment.Amount`|Order amount in cents.|Number|15|Yes|
+|`Payment.Installments`|Number of installments.|Number|2|Yes|
+|`Payment.ReturnUrl`|URL to which the user will be redirected after the end of the payment.|Text|1024|Yes|
+|`DeditCard.CardNumber`|Customer's card number.|Text|16|Yes|
+|`DeditCard.Holder`|Name of the cardholder printed on the card.|Text|25|Yes|
+|`DebitCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format.|Text|7|Yes|
+|`DebitCard.SecurityCode`|Security code printed on back of card.|Text|4|Yes|
+|`DebitCard.Brand`|Card brand.|Text|10|Yes|
 
 #### Response
 
@@ -3199,17 +3199,17 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
-|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
-|`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric|
-|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Braspag|Text|19|YYYY-MM-DDHH:mm:SS|
+|`AcquirerTransactionId`|Transaction ID of the payment method provider.|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of sale reference.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code from the acquirer.|Text|300|Alphanumeric|
+|`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Date that the transaction was received by Braspag.|Text|19|YYYY-MM-DDHH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
-|`Status`|Transaction Status|Byte|2|E.g.: 1|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
-|`AuthenticationUrl`|URL to which the holder will be redirected for authentication|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
+|`Status`|Transaction status.|Byte|2|E.g.: 1|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer and issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and issuer).|Text|512|Transaction Approved|
+|`AuthenticationUrl`|URL to which the holder will be redirected for authentication.|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
 # Recurrence
 
