@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-26T18:32:42+00:00</updated>
+    <updated>2021-01-26T18:51:35+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -256,7 +256,7 @@
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;The authorization response returned by the wallet will have the same fields shown in our [Pagador] documentation (https://braspag.github.io//en/manual/braspag-pagador#response), but with the addition of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Wallet&lt;/code&gt; node repeating the same fields used in the authorization, as described above.&lt;/p&gt;
+&lt;p&gt;The authorization response returned by the wallet will have the same fields shown in our &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#response&quot;&gt;Pagador&lt;/a&gt; documentation, but with the addition of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Wallet&lt;/code&gt; node repeating the same fields used in the authorization, as described above.&lt;/p&gt;
 </content>
     </entry>
     
