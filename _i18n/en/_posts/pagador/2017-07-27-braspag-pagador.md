@@ -2706,7 +2706,7 @@ Below is one prerequisite for using Samsung Pay, followed by an example of a req
 
 <aside class="warning">The store must already have Samsung registration and integration before integrating with the Pagador API.</aside>
 
-#### Request
+##### Request
 
 Example of a standard Samsung Pay request:
 
@@ -2735,7 +2735,7 @@ Example of a standard Samsung Pay request:
 
 ```
 
-|Property|Type|Size|Mandatory|Description|
+|Property|Description|Type|Size|Mandatory|
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
 |`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (header field)|
 |`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (header field)|
@@ -2745,10 +2745,10 @@ Example of a standard Samsung Pay request:
 |`Customer.Status`|Customer's registration status ("NEW" / "EXISTING").|Text|255|No|
 |`Payment.Type`|Payment method type.|Text|100|Yes|
 |`Payment.Amount`|Order amount in cents.|Number|15|Yes|
-|`Payment.Provider`|Cielo providers only (`Cielo`/`Cielo30`).|Text|15|Yes|
+|`Payment.Provider`|Cielo providers only ("Cielo" / "Cielo30").|Text|15|Yes|
 |`Payment.Installments`|Number of installments.|Number|2|Yes|
-|`Wallet.Type`|Wallet type: `ApplePay`/`SamsungPay`/`GooglePay`/`VisaCheckout`/`Masterpass`.|Text|255|Yes|
-|`Wallet.WalletKey`|Cryptographic key representing the card data. Refer to the WalletKey table in the ANNEXES for more information.|Text|255|Yes|
+|`Wallet.Type`|Wallet type: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".|Text|255|Yes|
+|`Wallet.WalletKey`|Cryptographic key that identifies stores in wallets. Check the WalletKey table in the ANNEXES for more information.|Text|255|Yes|
 
 ##### Response
 
@@ -2817,14 +2817,14 @@ Example of a standard Samsung Pay request:
 |`ProofOfSale`|Authorization number, identical to the NSU.|Text|6|Alphanumeric|
 |`Tid`|Transaction ID on the acquirer.|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric|
-|`SoftDescriptor`|Text to be printed on the bearer bank statement. Note: Does not allow special characters. Available for VISA/MASTER only.|Text|13|Alphanumeric|
+|`SoftDescriptor`|Text to be printed on the bearer's bank statement. Note: Does not allow special characters. Available for VISA/MASTER only.|Text|13|Alphanumeric|
 |`PaymentId`|Order identifier field.|GUID |36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|*Electronic Commerce Indicator*. Represents how secure a transaction is.|Text|2|Examples: 7|
 |`Status`|Transaction status.|Byte|2|E.g.: 1|
 |`ReturnCode`|Return code from the acquirer.|Text|32|Alphanumeric|
-|`ReturnMessage`|Return message from acquirer|Text|512|Alphanumeric|
-|`Type`|Wallet type: `ApplePay`/` SamsungPay`/`GooglePay`/` VisaCheckout`/`Masterpass`|Text|255|Alphanumeric|
-|`WalletKey`|Cryptographic Key Representing Card Data. Refer to the WalletKey table in the ANNEXES for more information.|Text|255|See WalletKey table|
+|`ReturnMessage`|Return message from acquirer.|Text|512|Alphanumeric|
+|`Type`|Wallet type: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".|Text|255|Alphanumeric|
+|`WalletKey`|Cryptographic key that identifies stores in wallets. Check the WalletKey table in the ANNEXES for more information.|Text|255|See "WalletKey" table|
 
 #### Google Pay
 
@@ -2832,9 +2832,9 @@ Refer to [this link](https://braspag.github.io//en/manual/google-pay) for a thor
 
 #### Masterpass
 
-The Masterpass service must be hired through contacting Mastercard directly, selecting Braspag as your service provider.
+The Masterpass service must be hired through contacting Mastercard directly and selecting Braspag as your service provider.
 
-#### Request
+##### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2860,22 +2860,22 @@ The Masterpass service must be hired through contacting Mastercard directly, sel
 
 ```
 
-|Property|Type|Size|Mandatory|Description|
+|Property|Description|Type|Size|Mandatory|
 |---|---|---|---|---|
-|`MerchantId`|GUID|36|Yes (header field)|Store identifier at Braspag|
-|`MerchantKey`|Text|40|Yes (header field)|Public Key for Dual Authentication at Braspag|
-|`RequestId`|GUID|36|No (header field)|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|
-|`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|255|No|Shopper's Name.|
-|`Customer.Status`|Text|255|No|Shopper Registration Status ("NEW" / "EXISTING").|
-|`Payment.Type`|Text|100|Yes|Payment Method Type||
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be shipped in cents).|
-|`Payment.Provider`|Text|15|Yes|Only Cielo as provider (` Cielo`/`Cielo30`)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments.|
-|`Wallet.Type`|Text|255|Yes|indicates which type of wallet:" Masterpass "|
-|`Wallet.WalletKey`|Text|255|Yes|Cryptographic key representing card data - See WalletKey table for more information|
-|`Wallet.AdditionalData`|---|---|---|Instance for extra data entered by Masterpass. Required only if TYPE = "Masterpass"|
-|`Wallet.capturecode`|Text|255|Yes|Code entered by Masterpass to retailer|
+|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (header field)|
+|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (header field)|
+|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (header field)|
+|`MerchantOrderId`|Order ID number.|Text|50|Yes|
+|`Customer.Name`|Customer's name.|Text|255|No|
+|`Customer.Status`|Customer's registration status ("NEW" / "EXISTING").|Text|255|No|
+|`Payment.Type`|Payment method type.|Text|100|Yes|
+|`Payment.Amount`|Order amount in cents.|Number|15|Yes|
+|`Payment.Provider`|Only Cielo as provider ("Cielo" / "Cielo30").|Text|15|Yes|
+|`Payment.Installments`|Number of installments.|Number|2|Yes|
+|`Wallet.Type`|Wallet type: "Masterpass".|Text|255|Yes|
+|`Wallet.WalletKey`|Cryptographic key representing the card data. Refer to the WalletKey table in the ANNEXES for more information.|Text|255|Yes|
+|`Wallet.AdditionalData`|Instance for extra data entered by Masterpass. Note: Required only for `Wallet.Type` "Masterpass".|---|---|---|
+|`Wallet.CaptureCode`|Code passed to merchant by Masterpass.|Text|255|Yes|
 
 ##### Response
 
@@ -2931,22 +2931,22 @@ The Masterpass service must be hired through contacting Mastercard directly, sel
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric|
-|`TID`|Id of the transaction on the acquirer.|Text|20|Alphanumeric|
+|`Tid`|Transaction ID in the acquirer.|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric|
-|`SoftDescriptor`|Text to be printed on shopper's invoice - Available for VISA/MASTER only - does not allow special characters|Text|13|Alphanumeric|
-|`PaymentId`|Order Identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
-|`Status`|Transaction Status.|Byte|2|E.g.: 1|
-|`ReturnCode`|Return Code from Acquiring.|Text|32|Alphanumeric|
-|`ReturnMessage`|Return message from Acquiring.|Text|512|Alphanumeric|
-|`Type`|indicates which wallet type: "VisaCheckout" or "Masterpass"|Text|255|Yes|
-|`Capturecode`|Code entered by Masterpass to shopkeeper|Text|255|Yes|
+|`SoftDescriptor`|Text to be printed on bearer's invoice. Note: Does not allow special characters. Available for VISA/MASTER only.|Text|13|Alphanumeric|
+|`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|*Electronic Commerce Indicator*. Represents how secure a transaction is.|Text|2|E.g.: 7|
+|`Status`|Transaction status.|Byte|2|E.g.: 1|
+|`ReturnCode`|Return code from acquiring.|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message from acquiring.|Text|512|Alphanumeric|
+|`Type`|Wallet type: "VisaCheckout" / "Masterpass".|Text|255|Yes|
+|`Capturecode`|Code passed to merchant by Masterpass.|Text|255|Yes|
 
 #### Visa Checkout
 
-> To use *Visa Checkout* you need to contract the service by contacting Visa directly.
+The Visa Checkout service must be hired through contacting Visa directly.
 
-#### Request
+##### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -2973,22 +2973,22 @@ The Masterpass service must be hired through contacting Mastercard directly, sel
 
 ```
 
-|Property|Type|Size|Mandatory|Description|
+|Property|Description|Type|Size|Mandatory|
 |---|---|---|---|---|
-|`MerchantId`|GUID|36|Yes (header field)|Store identifier at Braspag|
-|`MerchantKey`|Text|40|Yes (header field)|Public Key for Dual Authentication at Braspag|
-|`RequestId`|GUID|36|No (header field)|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|
-|`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|255|No|Shopper's Name.|
-|`Customer.Status`|Text|255|No|Shopper Registration Status ("NEW" / "EXISTING").|
-|`Payment.Type`|Text|100|Yes|Payment Method Type||
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be shipped in cents).|
-|`Payment.Provider`|Text|15|Yes|Only Cielo as provider (`Cielo`/`Cielo30`)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments.|
-|`Payment.ReturnUrl`|Text|1024|---|Required for debit card|
-|`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Appendix.|
-|`Wallet.Type`|Text|255|Yes|indicates which type of wallet:" VisaCheckout "|
-|`Wallet.WalletKey`|Text|255|---|Cryptographic key sent by VisaCheckout. Required if TYPE = "VisaCheckout"|
+|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (header field)|
+|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (header field)|
+|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (header field)|
+|`MerchantOrderId`|Order ID number.|Text|50|Yes|
+|`Customer.Name`|Customer's name.|Text|255|No|
+|`Customer.Status`|Customer's registration status ("NEW" / "EXISTING").|Text|255|No|
+|`Payment.Type`|Payment method type.|Text|100|Yes|
+|`Payment.Amount`|Order amount in cents.|Number|15|Yes|
+|`Payment.Provider`|Only Cielo as provider ("Cielo" / "Cielo30").|Text|15|Yes|
+|`Payment.Installments`|Number of installments.|Number|2|Yes|
+|`Payment.ReturnUrl`|Required for debit card.|Text|1024|---|
+|`CreditCard.SecurityCode`|Security code printed on the back of the card. See ANNEXES.|Text|4|No|
+|`Wallet.Type`|Wallet type: "VisaCheckout".|Text|255|Yes|
+|`Wallet.WalletKey`|Cryptographic key sent by VisaCheckout. Required for `Type` "VisaCheckout".|Text|255|---|
 
 ##### Response
 
@@ -3039,16 +3039,16 @@ The Masterpass service must be hired through contacting Mastercard directly, sel
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric|
-|`TID`|Id of the transaction on the acquirer.|Text|20|Alphanumeric|
+|`Tid`|Transaction ID in the acquirer.|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric|
-|`SoftDescriptor`|Text to be printed on shopper's invoice - Available for VISA/MASTER only - does not allow special characters|Text|13|Alphanumeric text|
-|`PaymentId`|Order Identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
-|`Status`|Transaction Status.|Byte|2|E.g.: 1|
-|`ReturnCode`|Return Code from Acquiring.|Text|32|Alphanumeric|
-|`ReturnMessage`|Return message from Acquiring.|Text|512|Alphanumeric|
-|`Type`|indicates which wallet type:" VisaCheckout "or" Masterpass "|Text|255|Yes|
-|`Capturecode`|Code entered by Masterpass to shopkeeper|Text|255|Yes|
+|`SoftDescriptor`|Text to be printed on customer's invoice. Note: Does not allow special characters. Available for VISA/MASTER only.|Text|13|Alphanumeric text|
+|`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|*Electronic Commerce Indicator*. Represents how secure a transaction is.|Text|2|Examples: 7|
+|`Status`|Transaction status.|Byte|2|E.g.: 1|
+|`ReturnCode`|Return code from acquirer.|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message from acquirer.|Text|512|Alphanumeric|
+|`Type`|Wallet type: "VisaCheckout" or "Masterpass".|Text|255|Yes|
+|`CaptureCode`|Code passed to merchant by Masterpass.|Text|255|Yes|
 
 ## Voucher
 
