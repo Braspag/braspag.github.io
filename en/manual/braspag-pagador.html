@@ -5993,9 +5993,9 @@ curl
 
 <h2 id="voucher">Voucher</h2>
 
-<h3 id="creating-a-alelo-voucher-transaction">Creating a Alelo Voucher Transaction</h3>
+<h3 id="creating-a-voucher-transaction">Creating a Voucher Transaction</h3>
 
-<p>A transaction with an <em>Alelo</em> Card is similar to a Debit Card, but without the authentication process. <br />Currently, only the “Alelo” Provider supports processing of this mode.</p>
+<p>A transaction with a voucher card is similar to a debit card transaction; only without the authentication process. Currently, only the <em>Alelo</em> and <em>Ticket</em> providers are supported in this modality.</p>
 
 <h4 id="request-16">Request</h4>
 
@@ -6052,93 +6052,82 @@ curl
   <thead>
     <tr>
       <th>Property</th>
+      <th>Description</th>
       <th>Type</th>
       <th>Size</th>
       <th>Mandatory</th>
-      <th>Description</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Name of the payment method provider. Currently only “Cielo” supports this form of payment via Pagador.</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Name of payment method provider.</td>
-      <td>Currently only “Cielo” supports this form of payment via Pagador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method type. In this case, “DebitCard”.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Payment Method Type</td>
-      <td>In the case of a debit card (DebitCard)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order amount in cents.</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Order Amount (in cents)</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Number of installments.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of Installments</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td>URL to which the user will be redirected after the end of the payment.</td>
       <td>Text</td>
       <td>1024</td>
       <td>Yes</td>
-      <td>URL to which the user will be redirected after the end of the payment</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DeditCard.CardNumber</code></td>
+      <td>Customer’s card number.</td>
       <td>Text</td>
       <td>16</td>
       <td>Yes</td>
-      <td>Shopper’s card number</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DeditCard.Holder</code></td>
+      <td>Name of the cardholder printed on the card.</td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
-      <td>Name of cardholder printed on card</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td>Expiration date printed on the card, in the MM/YYYY format.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
-      <td>Expiration date printed on the card, in the MM/YYYY format</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
+      <td>Security code printed on back of card.</td>
       <td>Text</td>
       <td>4</td>
       <td>Yes</td>
-      <td>Security code printed on back of card</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
+      <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
-      <td>Card Brand</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -6229,35 +6218,35 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td>Transaction Id of the Payment Method Provider</td>
+      <td>Transaction ID of the payment method provider.</td>
       <td>Text</td>
       <td>40</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Proof of Sale Reference</td>
+      <td>Proof of sale reference.</td>
       <td>Text</td>
       <td>20</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization code from the acquirer</td>
+      <td>Authorization code from the acquirer.</td>
       <td>Text</td>
       <td>300</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field</td>
+      <td>Order identifier field.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Date that the transaction was received by Braspag</td>
+      <td>Date that the transaction was received by Braspag.</td>
       <td>Text</td>
       <td>19</td>
       <td>YYYY-MM-DDHH:mm:SS</td>
@@ -6278,28 +6267,28 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status</td>
+      <td>Transaction status.</td>
       <td>Byte</td>
       <td>2</td>
       <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Code returned by the payment provider (acquirer and banks)</td>
+      <td>Code returned by the payment provider (acquirer and issuer).</td>
       <td>Text</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Message returned by the payment provider (acquirer and banks)</td>
+      <td>Message returned by the payment provider (acquirer and issuer).</td>
       <td>Text</td>
       <td>512</td>
       <td>Transaction Approved</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
-      <td>URL to which the holder will be redirected for authentication</td>
+      <td>URL to which the holder will be redirected for authentication.</td>
       <td>Text</td>
       <td>56</td>
       <td>https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f</td>
