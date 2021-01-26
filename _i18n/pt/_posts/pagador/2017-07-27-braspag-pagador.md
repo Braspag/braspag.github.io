@@ -2519,7 +2519,7 @@ E-wallets são cofres (repositórios) de cartões e dados de pagamento destinado
 
 <aside class="warning">Para utilizar carteiras no Pagador, o lojista deverá possuir as carteiras integradas em seu checkout.</aside>
 
-Para maiores informações, entre em contato com o provedor de sua preferência para contratar o serviço.
+Entre em contato com o provedor de sua preferência para maiores informações sobre como contratar o serviço.
 
 ### E-Wallets Disponíveis
 
