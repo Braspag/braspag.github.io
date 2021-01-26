@@ -145,7 +145,7 @@
 
 <ol>
   <li>Enroll your store through <a href="https://developer.apple.com/programs/enroll/">this URL</a>, following all steps required by Apple.</li>
-  <li>Follow the procedure set on this document, in order to complete your integration with Apple.</li>
+  <li>Follow the procedure set out in this document, in order to complete your integration with Apple.</li>
   <li>Hire Pagador API REST as the payment gateway.</li>
   <li>Hire Cielo 3.0 as the acquirer.</li>
   <li>Integrate with <a href="https://braspag.github.io//en/manual/braspag-pagador">Pagador API REST</a>.</li>
@@ -153,18 +153,18 @@
 
 <h1 id="part-1---configuring-the-merchant-identifier">PART 1 - Configuring the Merchant Identifier</h1>
 
-<p>To begin with, you must create a <strong>merchant identifier</strong> for your store. After that, the merchant identifier must be sent to Braspag in request for a “.CSR certificate. The “.CSR” certificate created by Braspag must be used to create the new “.CER” certificate, in Apple. This “.CER” certificate will be used to proceed to the second step of the process.</p>
+<p>To begin with, you must create a <strong>merchant identifier</strong> for your store. After that, the merchant identifier must be sent to Braspag in request for a “<strong>.CSR</strong>” certificate. The “.CSR” certificate created by Braspag must be used to create the new “<strong>.CER</strong>” certificate, in Apple. This “.CER” certificate will be used to proceed to the second step of the process.</p>
 
 <h2 id="step-1---creating-a-merchant-identifier">Step 1 - Creating a Merchant Identifier</h2>
 
-<p>The merchant identifier must be created through the <a href="https://developer.apple.com/account/resources">Apple Developer Website</a> as follows:</p>
+<p>The merchant identifier must be created through the <a href="https://developer.apple.com/account/resources">Apple Developer</a> website as follows:</p>
 
 <ol>
-  <li>In the <strong>“Certificates, Identifiers &amp; Profiles”</strong> section, select <strong>“Identifiers”</strong> on the side menu, and click the (+) button on the top right corner:
+  <li>In the <strong>“Certificates, Identifiers &amp; Profiles”</strong> section, select <strong>“Identifiers”</strong> on the side menu, and click the <strong>”(+)”</strong> button on the top right corner:
 <img src="https://braspag.github.io//images/braspag/pagador/applepay01.png" alt="Step1.1" /></li>
   <li>Select <strong>“Merchant IDs”</strong>, then click <strong>“Continue”</strong>:
 <img src="https://braspag.github.io//images/braspag/pagador/applepay02.png" alt="Step1.2" /></li>
-  <li>Insert values in the <strong>“Description”</strong> and <strong>“Identifier”</strong> fields, in accordance with the specifications, and click <strong>“Continue”</strong>:
+  <li>Insert values in the <strong>“Description”</strong> and <strong>“Identifier”</strong> fields, in accordance with each specification, and click <strong>“Continue”</strong>:
 <img src="https://braspag.github.io//images/braspag/pagador/applepay03.png" alt="Step1.3" /></li>
   <li>Click <strong>“Register”</strong>:
 <img src="https://braspag.github.io//images/braspag/pagador/applepay04.png" alt="Step1.4" /></li>
@@ -172,18 +172,18 @@
 
 <h2 id="step-2---applying-for-a-csr-certificate">Step 2 - Applying for a “.CSR” Certificate</h2>
 
-<p>To send Braspag a request for a certificate in the “.CSR” format, contact our <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">Support Team</a>, and inform the following:</p>
+<p>To send Braspag a request for a certificate in the “.CSR” format, contact our <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">Support Team</a> informing the following:</p>
 
 <ol>
   <li>The <strong>Merchant Identifier</strong> created in step 1;</li>
-  <li>Your store in production <strong>Merchant ID</strong> at Braspag.</li>
+  <li>Your store “in production” <strong>Merchant ID</strong> at Braspag.</li>
 </ol>
 
 <p>Our team will get back to you with the “.CSR” file in up to 48 working hours.</p>
 
 <h2 id="step-3---creating-a-cer-certificate">Step 3 - Creating a “.CER” Certificate</h2>
 
-<p>To create a payment processing certificate (“.CER”), to be used in your virtual store or app, you must enter the <a href="https://developer.apple.com/account/resources">Apple Developer Website</a> and follow the procedure below:</p>
+<p>To create a payment processing certificate (“.CER”) to be used in your virtual store or app, you must enter the <a href="https://developer.apple.com/account/resources">Apple Developer</a>  website and follow the procedure below:</p>
 
 <ol>
   <li>In the <strong>“Certificates, Identifier &amp; Profiles”</strong> section, select <strong>“Identifiers”</strong> on the side menu.</li>
@@ -193,7 +193,7 @@
 <img src="https://braspag.github.io//images/braspag/pagador/applepay06.png" alt="Step2.2" /></li>
   <li>In the <strong>“Apple Pay Payment Processing Certificate”</strong> block, click the <strong>“Create Certificate”</strong> button right after the text short description:
 <img src="https://braspag.github.io//images/braspag/pagador/applepay07.png" alt="Step2.3" /></li>
-  <li>Choose the “No” option in <strong>“Edit or Configure Merchant ID”</strong>:
+  <li>Choose “No” in <strong>“Edit or Configure Merchant ID”</strong>:
 <img src="https://braspag.github.io//images/braspag/pagador/applepay08.png" alt="Step2.4" /></li>
   <li>In the dialog box, choose the “.CSR” certificate sent by Braspag:
 <img src="https://braspag.github.io//images/braspag/pagador/applepay09.png" alt="Step2.5" /></li>
@@ -207,9 +207,9 @@
 
 <h1 id="part-2-integrating-with-apple-pay">PART 2. Integrating with Apple Pay</h1>
 
-<p>Most of the process of enabling the “Pay with Apple Pay” button in your app or site will be performed during your wallet integration. For that reason, recomendamos que siga as orientações disponíveis no site de <a href="https://developer.apple.com/documentation">Documentação da Apple</a> para a implementação, que é totalmente self-service.</p>
+<p>Most of the process when enabling the “Pay with Apple Pay” button in your app or site is performed during your wallet integration. For that reason, we recommend you to follow the instructions available in the <a href="https://developer.apple.com/documentation">Apple Developer Documentation</a> website for their self-service implementation.</p>
 
-<p>Ao final do processo realizado na API da Apple, você receberá um JSON contendo dois campos importantes que deverão ser utilizados no próximo passo. São os campos <code class="language-plaintext highlighter-rouge">paymentData.data</code> e <code class="language-plaintext highlighter-rouge">ephemeralPublicKey.header.EphemeralPublicKey</code>.</p>
+<p>At the end of the process performed in the Apple API, you will receive a JSON containing two important fields that will be used in the next step: the <code class="language-plaintext highlighter-rouge">paymentData.data</code> and the <code class="language-plaintext highlighter-rouge">ephemeralPublicKey.header.EphemeralPublicKey</code> fields.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"applePayData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -235,18 +235,15 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="observações">Observações</h2>
+<h2 id="important-note">Important Note</h2>
 
-<ol>
-  <li>Durante a implementação da Apple, haverá uma referência ao certificado <strong>“.CER”</strong>, gerado durante a ETAPA 1, para criptografar os dados durante a comunicação com a Apple.</li>
-  <li>No fluxo de integração não se deve realizar a implementação do processo de descriptografia dos dados retornados pela Apple pois, para clientes Braspag, este trabalho será realizado por nossa solução de gateway, o Pagador.</li>
-</ol>
+<aside class="warning">During the Apple Pay implementation, there will be a reference to the ". CER" certificate, generated in PART 1, to encrypt the data while communicating with Apple. The decryption process of the data returned by Apple must not be implemented at this point as, for Braspag customers, this task will be carried out by our gateway solution, Pagador.</aside>
 
-<h1 id="etapa-3-integração-com-o-pagador-descriptografia-e-autorização">Etapa 3. Integração com o Pagador (descriptografia e autorização)</h1>
+<h1 id="part-3-integrating-with-pagador-decryption-and-authorization">PART 3. Integrating with Pagador (decryption and authorization)</h1>
 
-<p>A autorização com o token do Apple Pay acontece da mesma forma que a autorização padrão de um cartão de crédito. Porém, ao invés de se fornecer os dados do cartão abertamente, deverá ser fornecido o token recebido pelo Apple Pay, conforme o exemplo abaixo:</p>
+<p>Authorization with the Apple Pay token happens in the same way as standard credit card authorization. However, instead of transmitting the card data openly, you must provide the token received from Apple Pay, as shown in the example below:</p>
 
-<h3 id="requisição">Requisição</h3>
+<h3 id="request">Request</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -273,20 +270,20 @@
 <table>
   <thead>
     <tr>
-      <th>Parâmetros do Header</th>
-      <th>Descrição</th>
-      <th>Tipo e Tamanho</th>
+      <th>Header Parameters</th>
+      <th>Description</th>
+      <th>Type and Size</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>MerchantId</td>
-      <td>ID do estabelecimento no Pagador.</td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store ID in Pagador.</td>
       <td>GUID (36)</td>
     </tr>
     <tr>
-      <td>MerchantKey</td>
-      <td>Chave da API para o Pagador.</td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>API key in Pagador.</td>
       <td>String (24)</td>
     </tr>
   </tbody>
@@ -295,61 +292,61 @@
 <table>
   <thead>
     <tr>
-      <th>Parâmetro</th>
-      <th>Descrição</th>
-      <th>Tipo e Tamanho</th>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Type and Size</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>MerchantOrderId</td>
-      <td>Número de identificação do pedido.</td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Order ID number.</td>
       <td>String (50)</td>
     </tr>
     <tr>
-      <td>Customer</td>
-      <td>Nó com dados do comprador.</td>
-      <td>Consulte o <a href="https://braspag.github.io/manual/braspag-pagador?json#requisi%C3%A7%C3%A3o">Manual do Pagador</a>.</td>
+      <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
+      <td>Node with customer’s data.</td>
+      <td>Refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador#request">Pagador Guide</a>.</td>
     </tr>
     <tr>
-      <td>Payment.Type</td>
-      <td>Tipo do meio de pagamento. Possibilidades: “CreditCard” / “DebitCard”.</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method type. Possibilities: “CreditCard” / “DebitCard”.</td>
       <td>String (100)</td>
     </tr>
     <tr>
-      <td>Payment.Amount</td>
-      <td>Valor do pedido, em centavos.</td>
-      <td>Número (15)</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order amount in cents.</td>
+      <td>Number (15)</td>
     </tr>
     <tr>
-      <td>Payment.Provider</td>
-      <td>Nome do provedor do meio de pagamento. Para transações Apple Pay, utilize “Cielo30”.</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Name of payment method provider. For Apple Pay transactions, use “Cielo30”.</td>
       <td>String (15)</td>
     </tr>
     <tr>
-      <td>Payment.Installments</td>
-      <td>Número de parcelas.</td>
-      <td>Número (2)</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Number of installments.</td>
+      <td>Number (2)</td>
     </tr>
     <tr>
-      <td>Payment.Wallet.Type</td>
-      <td>Nome do provedor do meio de pagamento. Para transações Apple Pay, utilize “ApplePay”.</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Wallet.Type</code></td>
+      <td>Name of payment method provider. For Apple Pay transactions, use “ApplePay”.</td>
       <td>String (15)</td>
     </tr>
     <tr>
-      <td>Payment.Wallet.WalletKey</td>
-      <td>Preencher com o valor do parâmetro <code class="language-plaintext highlighter-rouge">paymentData.data</code> retornado pelo Apple Pay.</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Wallet.WalletKey</code></td>
+      <td>Fill with the <code class="language-plaintext highlighter-rouge">paymentData.data</code> parameter value returned by Apple Pay.</td>
       <td>String</td>
     </tr>
     <tr>
-      <td>Payment.Wallet.AdditionalData.EphemeralPublicKey</td>
-      <td>Preencher com o valor do parâmetro <code class="language-plaintext highlighter-rouge">ephemeralPublicKey.header.EphemeralPublicKey</code> retornado pelo Apple Pay.</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Wallet.AdditionalData.EphemeralPublicKey</code></td>
+      <td>Fill with the <code class="language-plaintext highlighter-rouge">ephemeralPublicKey.header.EphemeralPublicKey</code> parameter value returned by Apple Pay.</td>
       <td>String</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="resposta">Resposta</h3>
+<h3 id="response">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -376,7 +373,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>A resposta de autorização da wallet terá os mesmos campos apresentados em nossa documentação do <a href="https://braspag.github.io//manual/braspag-pagador#resposta">Pagador</a>, porém com a adição do nó <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> repetindo os mesmos campos utilizados na autorização, como descrito acima.</p>
+<p>The authorization response returned by the wallet will have the same fields shown in our [Pagador] documentation (https://braspag.github.io//en/manual/braspag-pagador#response), but with the addition of the <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> node repeating the same fields used in the authorization, as described above.</p>
 
 </div>
 
