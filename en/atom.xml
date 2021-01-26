@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-26T18:51:35+00:00</updated>
+    <updated>2021-01-26T18:52:50+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -17831,7 +17831,7 @@ curl
 
 &lt;aside class=&quot;warning&quot;&gt;The merchant needs the wallets to be integrated in their checkout in order to use them in Pagador.&lt;/aside&gt;
 
-&lt;p&gt;For more information, contact the provider of your choice to contract the service.&lt;/p&gt;
+&lt;p&gt;Contact the provider of your choice for further information on how to contract the service.&lt;/p&gt;
 
 &lt;h3 id=&quot;available-e-wallets&quot;&gt;Available E-Wallets&lt;/h3&gt;
 
@@ -17854,6 +17854,8 @@ curl
 &lt;p&gt;Here is an example of a standard request for the e-wallet integration:&lt;/p&gt;
 
 &lt;h4 id=&quot;request-12&quot;&gt;Request&lt;/h4&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111708&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -17884,117 +17886,117 @@ curl
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
       &lt;th&gt;Mandatory&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Store identifier at Braspag. (header field)&lt;/td&gt;
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Store identifier at Braspag. (header field)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Public key for dual authentication at Braspag. (header field)&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;40&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Public key for dual authentication at Braspag. (header field)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Request identifier, used when the merchant uses different servers for each GET/POST/PUT. (header field)&lt;/td&gt;
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Request identifier, used when the merchant uses different servers for each GET/POST/PUT. (header field)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Order ID number.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Order ID number.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Customer’s name.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Customer’s name.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text 255&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
       &lt;td&gt;Customer’s registration status (“NEW” / “EXISTING”).&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Payment method type.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Payment method type.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Order amount in cents.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Order amount in cents.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Cielo providers only (“Cielo” / “Cielo30”).&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Cielo providers only (“Cielo” / “Cielo30”).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Number of installments.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Number of Installments.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “AndroidPay” / “VisaCheckout” / “Masterpass”.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.WalletKey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Cryptographic key that identifies stores in wallets. Refer to the WalletKey table in the ANNEXES for more information.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Cryptographic key that identifies stores in wallets. Refer to the WalletKey table in the ANNEXES for more information.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.AdditionalData.EphemeralPublicKey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Token returned by wallet. Must be submitted in &lt;strong&gt;ApplePay&lt;/strong&gt; integrations.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Token returned by wallet. Must be submitted in &lt;strong&gt;ApplePay&lt;/strong&gt; integrations.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.AdditionalData.CaptureCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Code informed by &lt;strong&gt;Masterpass&lt;/strong&gt; to the merchant.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Code informed by &lt;strong&gt;Masterpass&lt;/strong&gt; to the merchant.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.AdditionalData.Signature&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Token returned by wallet. Must be submitted in &lt;strong&gt;GooglePay&lt;/strong&gt; integrations.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Token returned by wallet. Must be submitted in &lt;strong&gt;AndroidPay&lt;/strong&gt; integrations.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -18025,12 +18027,12 @@ curl
       &lt;td&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;em&gt;Android Pay&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Google Pay&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;{&quot;encryptedMessage&quot;:&quot;0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\u003d\u003d&quot;,&quot;ephemeralPublicKey&quot;:&quot;BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\u003d&quot;,&quot;tag&quot;:&quot;yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\u003d&quot;}&lt;/td&gt;
       &lt;td&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;em&gt;VisaCheckout&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Visa Checkout&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;1140812334225873901&lt;/td&gt;
       &lt;td&gt;.&lt;/td&gt;
     &lt;/tr&gt;
@@ -18074,7 +18076,7 @@ curl
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;em&gt;Android Pay&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Google Pay&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA=&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -18163,7 +18165,7 @@ curl
       &lt;td&gt;Alphanumeric&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TID&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tid&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Transaction ID in the acquirer.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;20&lt;/td&gt;
@@ -18193,9 +18195,9 @@ curl
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ECI&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Electronic Commerce Indicator&lt;/em&gt;. Represents how secure a transaction is.&lt;/td&gt;
-      &lt;td&gt;Text 2&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;E.g.: 7&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
@@ -18220,7 +18222,7 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “AndroidPay” / “VisaCheckout” / “Masterpass”.&lt;/td&gt;
+      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
@@ -18248,7 +18250,7 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AdditionalData.Signature&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Token returned by wallet. Must be submitted in &lt;strong&gt;AndroidPay&lt;/strong&gt; integrations.&lt;/td&gt;
+      &lt;td&gt;Token returned by wallet. Must be submitted in &lt;strong&gt;GooglePay&lt;/strong&gt; integrations.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;See “Signature” table annexed&lt;/td&gt;
@@ -18262,7 +18264,7 @@ curl
 
 &lt;h4 id=&quot;apple-pay&quot;&gt;Apple Pay&lt;/h4&gt;
 
-&lt;p&gt;Here are the prerequisites for using Apple Pay, followed by a step by step of how to make it available in your store. The integration process can also be found through &lt;a href=&quot;&quot;&gt;this link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here are the prerequisites for using Apple Pay, followed by a step by step of how to make it available in your store.&lt;/p&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;Before using Apple Pay, the store must be registered with Apple and have a &quot;MerchantIdentifier&quot;.&lt;/aside&gt;
 &lt;aside class=&quot;warning&quot;&gt;Before using Apple Pay, it is necessary to upload a CSR certificate in PEM format provided by Braspag.&lt;/aside&gt;
@@ -18441,7 +18443,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GooglePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.WalletKey&lt;/code&gt;&lt;/td&gt;
@@ -18600,7 +18602,7 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GooglePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
@@ -18742,7 +18744,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GooglePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.WalletKey&lt;/code&gt;&lt;/td&gt;
@@ -18891,7 +18893,7 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GooglePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
@@ -18932,7 +18934,7 @@ curl
      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Currency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Wallet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AndroidPay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GooglePay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;WalletKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;encryptedMessage&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;u003d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;u003d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ephemeralPublicKey&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;u003d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;u003d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;AdditionalData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Signature&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA=&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -19028,7 +19030,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GooglePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.WalletKey&lt;/code&gt;&lt;/td&gt;
@@ -19042,7 +19044,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Token returned by Wallet. Must be submitted in Integrations: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Token returned by Wallet. Must be submitted in Integrations: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GooglePay&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -19072,7 +19074,7 @@ curl
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;817883&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;027795&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Wallet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AndroidPay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GooglePay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;WalletKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;encryptedMessage&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;u003d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;u003d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ephemeralPublicKey&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;u003d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;u003d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Eci&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;AdditionalData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -19187,7 +19189,7 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Indicates which wallet type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GooglePay&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
@@ -19201,7 +19203,7 @@ curl
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AdditionalData.Signature&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Token returned by Wallet. Must be submitted in Integrations: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Token returned by Wallet. Must be submitted in Integrations: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GooglePay&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Check Table &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Signature&lt;/code&gt;&lt;/td&gt;
@@ -19661,7 +19663,7 @@ curl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Cryptographic key sent by VisaCheckout. Required if TYPE = “Visa Checkout”&lt;/td&gt;
+      &lt;td&gt;Cryptographic key sent by VisaCheckout. Required if TYPE = “VisaCheckout”&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;

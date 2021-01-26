@@ -4708,7 +4708,7 @@ curl
 
 <aside class="warning">The merchant needs the wallets to be integrated in their checkout in order to use them in Pagador.</aside>
 
-<p>For more information, contact the provider of your choice to contract the service.</p>
+<p>Contact the provider of your choice for further information on how to contract the service.</p>
 
 <h3 id="available-e-wallets">Available E-Wallets</h3>
 
@@ -4731,6 +4731,8 @@ curl
 <p>Here is an example of a standard request for the e-wallet integration:</p>
 
 <h4 id="request-12">Request</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -4761,117 +4763,117 @@ curl
   <thead>
     <tr>
       <th>Property</th>
+      <th>Description</th>
       <th>Type</th>
       <th>Size</th>
       <th>Mandatory</th>
-      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier at Braspag. (header field)</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
-      <td>Store identifier at Braspag. (header field)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public key for dual authentication at Braspag. (header field)</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
-      <td>Public key for dual authentication at Braspag. (header field)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT. (header field)</td>
       <td>GUID</td>
       <td>36</td>
       <td>No</td>
-      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT. (header field)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Order ID number.</td>
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Order ID number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Customer’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>Customer’s name.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Text 255</td>
-      <td>No</td>
       <td>Customer’s registration status (“NEW” / “EXISTING”).</td>
-      <td> </td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method type.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Payment method type.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order amount in cents.</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Order amount in cents.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Cielo providers only (“Cielo” / “Cielo30”).</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Cielo providers only (“Cielo” / “Cielo30”).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Number of installments.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of Installments.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
+      <td>Wallet type: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.</td>
       <td>Text</td>
       <td>–</td>
       <td>Yes</td>
-      <td>Wallet type: “ApplePay” / “SamsungPay” / “AndroidPay” / “VisaCheckout” / “Masterpass”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
+      <td>Cryptographic key that identifies stores in wallets. Refer to the WalletKey table in the ANNEXES for more information.</td>
       <td>Text</td>
       <td>–</td>
       <td>Yes</td>
-      <td>Cryptographic key that identifies stores in wallets. Refer to the WalletKey table in the ANNEXES for more information.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.EphemeralPublicKey</code></td>
+      <td>Token returned by wallet. Must be submitted in <strong>ApplePay</strong> integrations.</td>
       <td>Text</td>
       <td>–</td>
       <td>Yes</td>
-      <td>Token returned by wallet. Must be submitted in <strong>ApplePay</strong> integrations.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.CaptureCode</code></td>
+      <td>Code informed by <strong>Masterpass</strong> to the merchant.</td>
       <td>Text</td>
       <td>–</td>
       <td>Yes</td>
-      <td>Code informed by <strong>Masterpass</strong> to the merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.Signature</code></td>
+      <td>Token returned by wallet. Must be submitted in <strong>GooglePay</strong> integrations.</td>
       <td>Text</td>
       <td>–</td>
       <td>Yes</td>
-      <td>Token returned by wallet. Must be submitted in <strong>AndroidPay</strong> integrations.</td>
     </tr>
   </tbody>
 </table>
@@ -4902,12 +4904,12 @@ curl
       <td>.</td>
     </tr>
     <tr>
-      <td><em>Android Pay</em></td>
+      <td><em>Google Pay</em></td>
       <td>{"encryptedMessage":"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\u003d\u003d","ephemeralPublicKey":"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\u003d","tag":"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\u003d"}</td>
       <td>.</td>
     </tr>
     <tr>
-      <td><em>VisaCheckout</em></td>
+      <td><em>Visa Checkout</em></td>
       <td>1140812334225873901</td>
       <td>.</td>
     </tr>
@@ -4951,7 +4953,7 @@ curl
   </thead>
   <tbody>
     <tr>
-      <td><em>Android Pay</em></td>
+      <td><em>Google Pay</em></td>
       <td><code class="language-plaintext highlighter-rouge">MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA=</code></td>
     </tr>
   </tbody>
@@ -5040,7 +5042,7 @@ curl
       <td>Alphanumeric</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">TID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
       <td>Transaction ID in the acquirer.</td>
       <td>Text</td>
       <td>20</td>
@@ -5070,9 +5072,9 @@ curl
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
       <td><em>Electronic Commerce Indicator</em>. Represents how secure a transaction is.</td>
-      <td>Text 2</td>
+      <td>Text</td>
+      <td>2</td>
       <td>E.g.: 7</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
@@ -5097,7 +5099,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>Wallet type: “ApplePay” / “SamsungPay” / “AndroidPay” / “VisaCheckout” / “Masterpass”.</td>
+      <td>Wallet type: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.</td>
       <td>Text</td>
       <td>–</td>
       <td>Alphanumeric</td>
@@ -5125,7 +5127,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AdditionalData.Signature</code></td>
-      <td>Token returned by wallet. Must be submitted in <strong>AndroidPay</strong> integrations.</td>
+      <td>Token returned by wallet. Must be submitted in <strong>GooglePay</strong> integrations.</td>
       <td>Text</td>
       <td>–</td>
       <td>See “Signature” table annexed</td>
@@ -5139,7 +5141,7 @@ curl
 
 <h4 id="apple-pay">Apple Pay</h4>
 
-<p>Here are the prerequisites for using Apple Pay, followed by a step by step of how to make it available in your store. The integration process can also be found through <a href="">this link</a>.</p>
+<p>Here are the prerequisites for using Apple Pay, followed by a step by step of how to make it available in your store.</p>
 
 <aside class="warning">Before using Apple Pay, the store must be registered with Apple and have a "MerchantIdentifier".</aside>
 <aside class="warning">Before using Apple Pay, it is necessary to upload a CSR certificate in PEM format provided by Braspag.</aside>
@@ -5318,7 +5320,7 @@ curl
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">AndroidPay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
+      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
@@ -5477,7 +5479,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">AndroidPay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
+      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Alphanumeric</td>
@@ -5619,7 +5621,7 @@ curl
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">AndroidPay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
+      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
@@ -5768,7 +5770,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge"> SamsungPay</code>/<code class="language-plaintext highlighter-rouge">AndroidPay</code>/<code class="language-plaintext highlighter-rouge"> VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
+      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge"> SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge"> VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Alphanumeric</td>
@@ -5809,7 +5811,7 @@ curl
      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Wallet"</span><span class="p">:{</span><span class="w">
-       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AndroidPay"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GooglePay"</span><span class="p">,</span><span class="w">
        </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="s2">"{</span><span class="se">\"</span><span class="s2">encryptedMessage</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ephemeralPublicKey</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">tag</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
        </span><span class="nl">"AdditionalData"</span><span class="p">:{</span><span class="w">
            </span><span class="nl">"Signature"</span><span class="p">:</span><span class="s2">"MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA="</span><span class="w">
@@ -5905,7 +5907,7 @@ curl
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge"> SamsungPay</code>/<code class="language-plaintext highlighter-rouge">AndroidPay</code>/<code class="language-plaintext highlighter-rouge"> VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
+      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge"> SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge"> VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
@@ -5919,7 +5921,7 @@ curl
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>Token returned by Wallet. Must be submitted in Integrations: <code class="language-plaintext highlighter-rouge">AndroidPay</code></td>
+      <td>Token returned by Wallet. Must be submitted in Integrations: <code class="language-plaintext highlighter-rouge">GooglePay</code></td>
     </tr>
   </tbody>
 </table>
@@ -5949,7 +5951,7 @@ curl
         </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"817883"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"027795"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AndroidPay"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GooglePay"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">encryptedMessage</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ephemeralPublicKey</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">tag</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -6064,7 +6066,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>Indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">AndroidPay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
+      <td>Indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Alphanumeric</td>
@@ -6078,7 +6080,7 @@ curl
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AdditionalData.Signature</code></td>
-      <td>Token returned by Wallet. Must be submitted in Integrations: <code class="language-plaintext highlighter-rouge">AndroidPay</code></td>
+      <td>Token returned by Wallet. Must be submitted in Integrations: <code class="language-plaintext highlighter-rouge">GooglePay</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Check Table <code class="language-plaintext highlighter-rouge">Signature</code></td>
@@ -6538,7 +6540,7 @@ curl
       <td>Text</td>
       <td>255</td>
       <td>—</td>
-      <td>Cryptographic key sent by VisaCheckout. Required if TYPE = “Visa Checkout”</td>
+      <td>Cryptographic key sent by VisaCheckout. Required if TYPE = “VisaCheckout”</td>
       <td> </td>
     </tr>
   </tbody>
