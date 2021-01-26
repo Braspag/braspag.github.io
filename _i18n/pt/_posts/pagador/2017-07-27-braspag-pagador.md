@@ -2882,8 +2882,7 @@ curl
 | `Payment.Provider`         | Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30).  | Texto  | 15      | Sim         |
 | `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |
 | `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass". | Texto  | 255     | Sim         |
-| `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.
-| Texto  | 255     | Sim         |
+| `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.| Texto  | 255     | Sim         |
 
 ##### Resposta
 
