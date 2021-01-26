@@ -3021,7 +3021,7 @@ curl
 | `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 | `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass.                      | Texto | 255     | Texto alfanumérico                   |
-| `WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a [tabela WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                    | Texto | 255     | Ver a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)              |
+| `WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey) para mais informações.                    | Texto | 255     | Ver a tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)              |
 
 #### Google Pay
 
