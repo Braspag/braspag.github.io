@@ -2698,198 +2698,19 @@ Here are a few examples of integration with the main e-wallets available in the 
 
 #### Apple Pay
 
-Here are the prerequisites for using Apple Pay, followed by a step by step of how to make it available in your store.
-
-<aside class="warning">Before using Apple Pay, the store must be registered with Apple and have a "MerchantIdentifier".</aside>
-<aside class="warning">Before using Apple Pay, it is necessary to upload a CSR certificate in PEM format provided by Braspag.</aside>
-
-##### Step 1. Hiring Apple Pay 
-
-Apple Pay must be hired from Apple through the following business contact: *Shawn Munyon* (smunyon@apple.com).
-
-##### Step 2. Obtaining the MerchantIdentifier
-
-Once hiring is effective, you will be given access to the "Apple Developer" panel, and you will need to create your `MerchantIdentifier`. To do so, perform the steps below:
-1. Log in to [Apple Developer](https://developer.apple.com/)
-2. Select **Certificate, IDs & Profile**
-3. Within the "Identifiers" area click "Merchant IDs"
-4. Click on the **+** in the right corner below the "Registering a Merchant ID"
-5. Define the MerchantID description and identifier. Example: "merchant.com.BRASPAG.merchantAccount"
-6. Click "continue" and verify that the information you entered is correct
-7. Finish the process.
-
-<P>The `MerchantIdentifier` must be sent to Braspag via the [support channel](https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br) to create a **PEM CSR Certificate**.
-
-##### Step 3. CSR Certificate Upload
-
-After submitting the `MerchantIdentifier` to the Braspag team, the store will receive the `PEM` extension certificate and should follow these steps:
-
-1. Log in to [Apple Developer](https://developer.apple.com/)
-2. Select **Certificate, IDs & Profiles**
-![Apple Pay]({{site.baseurl_root}}/images/apple-paymid.jpg)
-3. Upload the certificate
-![[Apple Pay]({{site.baseurl_roo }}/images/apple-pay.jpg)
-
-4. End the process
-
-<P>The PEM Certificate contains the CSR code requested by Apple.
-
-<P>PEM Format:
-
-<P>----- BEGIN CERTIFICATE REQUEST -----
-
-<P>MIHyMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYDVQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFUL1F/ue9/T5SrEyE1wTPQxk5x3ZHEelB7VHObDTW7pjauFrE88J25w7iRCKNP6u2fPmBtM9nY30/xQCgBH9aUwCgYIKoZIzj0EAwIDSQAwRgIhAPyF47xmfy+9czlr0a94eSd/YG27G8akujpkIUd56qWmAiEAqV6aSVISmH9NveOKGJdZ6VvkbELK2uqu2yCpg/lfYc8=
-
-<P>----- END CERTIFICATE REQUEST ---
-
-##### Step 4. Apple Pay Integration
-
-Integration requires two steps: The first is direct integration with the Apple solution to make the "Pay with Apple Pay" button available on your website or application. To this end, the Apple team will follow closely. [Click here](https://developer.apple.com/apple-pay/) to access Apple technical documentation.
-
-<P>At this stage, you do not need to perform the process of encrypting data returned by Apple. This work will be performed by Braspag through the procedures described in the next step.
-
-##### Step 5. Pagador Integration
-
-The second integration step is to effect the decryption and authorization flow via Braspag's gateway (Pagador). To do so, you must provide data received in the stream with Apple Pay, including WalletKey and EphemeralPublicKey.
-
-#### Request
-
-Default Request Example *Apple Pay*
-
-> It is necessary that the store already has registration and an Apple Pay integration, otherwise it will not be possible to integrate with the API
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{
-  "MerchantOrderId": "6242-642-723",
-  "Customer":{
-    "Name": "Example Standard Wallet",
-    "Identity": "11225468954",
-    "IdentityType": "CPF"
-  },
-  "Payment":{
-    "Type":"CreditCard",
-    "Amount": 1100,
-    "Provider": "Cielo",
-    "Installments":1,
-    "Currency":"BRL",
-    "Wallet": {
-      "Type": "ApplePay",
-      "WalletKey": "9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+sRXTDtqLOJQAprs0MNTkPzF95nXGKCCnPV2mfR7z8FHcP7AGqO7aTLBGJLgxFOnRKaFnYlY2E9uTPBbB5JjZywlLIWsPKur5G4m1/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc",
-      "AdditionalData": {
-        "EphemeralPublicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ=="
-      }
-    }
-  }
-}
-```
-
-|Property|Type|Size|Mandatory|Description|
-|----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-|`MerchantId`|GUID|36|Yes (header field)|Store identifier at Braspag|
-|`MerchantKey`|Text|40|Yes (header field)|Public Key for Dual Authentication at Braspag|
-|`RequestId`|GUID|36|No (header field)|Request identifier, used when the merchant uses different servers for each GET/POST/PUT|
-|`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|255|Yes|Shopper Name|
-|`Customer.Status`|Text 255|No|Shopper Registration Status ("NEW" / "EXISTING").|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
-|`Payment.Provider`|Text|15|Yes|Cielo providers only (`Cielo`/` Cielo30`)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|
-|`Wallet.Type`|Text|255|Yes|indicates which wallet type: `ApplePay`/`SamsungPay`/`GooglePay`/`VisaCheckout`/`Masterpass`|
-|`Wallet.WalletKey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
-|`Wallet.AdditionalData.EphemeralPublicKey`|Text|255|Yes|Token returned by Wallet. Must be submitted in Integrations: `ApplePay`|
-
-##### Response
-
-```json
-{
-    "MerchantOrderId": "2014111703",
-    "Customer":{
-        "Name": "[Guest]"
-    },
-    "Payment":{
-        "ServiceTaxAmount": 0,
-        "Installments":1,
-        "Interest": 0,
-        "Capture": false,
-        "Authenticate":false,
-        "Recurrent":false,
-        "CreditCard":{
-            "CardNumber": "453211* *** **1521",
-            "Holder": "BJORN IRONSIDE",
-            "ExpirationDate": "08/2020",
-            "SaveCard":"false",
-            "Brand":"Visa",
-        },
-        "Tid": "0319040817883",
-        "ProofOfSale": "817883",
-        "AuthorizationCode": "027795",
-        "Wallet": {
-            "Type": "ApplePay",
-            "WalletKey": "9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+sRXTDtqLOJQAprs0MNTkPzF95nXGKCCnPV2mfR7z8FHcP7AGqO7aTLBGJLgxFOnRKaFnYlY2E9uTPBbB5JjZywlLIWsPKur5G4m1/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc",
-            "Eci": 0,
-            "AdditionalData": {
-                "EphemeralPublicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ=="
-            },
-        },
-        "SoftDescriptor": "123456789ABCD",
-        "Amount": 100,
-        "ReceivedDate": "2018-03-19 16:08:16",
-        "Status": 1,
-        "IsSplitted": false,
-        "ReturnMessage": "Operation Successful",
-        "ReturnCode": "4",
-        "PaymentId": "e57b09eb-475b-44b6-ac71-01b9b82f2491",
-        "Type":"CreditCard",
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"
-            }
-        ]
-    }
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric|
-|`TID`|Transaction Id on the acquirer.|Text|20|Alphanumeric|
-|`AuthorizationCode`|Authorization Code|Text|6|Alphanumeric|
-|`SoftDescriptor`|Text to be printed on bearer bank statement - Available for VISA/MASTER only - does not allow special characters|Text|13|Alphanumeric|
-|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
-|`Status`|Transaction Status|Byte|2|E.g.: 1|
-|`ReturnCode`|Return code from the acquirer|Text|32|Alphanumeric|
-|`ReturnMessage`|Return message from Acquirer|Text|512|Alphanumeric|
-|`Type`|indicates which wallet type: `ApplePay`/`SamsungPay`/`GooglePay`/`VisaCheckout`/`Masterpass`|Text|255|Alphanumeric|
-|`WalletKey`|Cryptographic key that identifies stores in Wallets - Check WalletKey table for more information|Text|255|See table `WalletKey`|
-|`AdditionalData.EphemeralPublicKey`|Token returned by Wallet. Must be submitted in Integrations: `ApplePay`|Text|255|Check Table `EphemeralPublicKey`|
+Refer to [this link](https://braspag.github.io//en/manual/apple-pay) for a thorough description of the integration process with Apple Pay.
 
 #### Samsung Pay
 
+Below is one prerequisite for using Samsung Pay, followed by an example of a request to make it available in your store.
+
+<aside class="warning">The store must already have Samsung registration and integration before integrating with the Pagador API.</aside>
+
 #### Request
 
-Default Request Example *Samsung Pay*
+Example of a standard Samsung Pay request:
 
-> It is necessary that the store already has registration and a Samsung Pay integration, otherwise it will not be possible to integrate with the API
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {
@@ -2916,18 +2737,18 @@ Default Request Example *Samsung Pay*
 
 |Property|Type|Size|Mandatory|Description|
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-|`MerchantId`|GUID|36|Yes (header field)|Store identifier at Braspag|
-|`MerchantKey`|Text|40|Yes (header field)|Public Key for Dual Authentication at Braspag|
-|`RequestId`|GUID|36|No (header field)|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|
-|`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|255|Yes|Shopper Name|
-|`Customer.Status`|Text|255|No|Shopper Registration Status ("NEW" / "EXISTING").|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
-|`Payment.Provider`|Text|15|Yes|Cielo providers only (`Cielo`/`Cielo30`)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|
-|`Wallet.Type`|Text|255|Yes|indicates which wallet type: `ApplePay`/`SamsungPay`/`GooglePay`/`VisaCheckout`/`Masterpass`|
-|`Wallet.WalletKey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
+|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (header field)|
+|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (header field)|
+|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (header field)|
+|`MerchantOrderId`|Order ID number.|Text|50|Yes|
+|`Customer.Name`|Customer's name.|Text|255|Yes|
+|`Customer.Status`|Customer's registration status ("NEW" / "EXISTING").|Text|255|No|
+|`Payment.Type`|Payment method type.|Text|100|Yes|
+|`Payment.Amount`|Order amount in cents.|Number|15|Yes|
+|`Payment.Provider`|Cielo providers only (`Cielo`/`Cielo30`).|Text|15|Yes|
+|`Payment.Installments`|Number of installments.|Number|2|Yes|
+|`Wallet.Type`|Wallet type: `ApplePay`/`SamsungPay`/`GooglePay`/`VisaCheckout`/`Masterpass`.|Text|255|Yes|
+|`Wallet.WalletKey`|Cryptographic key representing the card data. Refer to the WalletKey table in the ANNEXES for more information.|Text|255|Yes|
 
 ##### Response
 
@@ -2993,156 +2814,29 @@ Default Request Example *Samsung Pay*
 
 |Property|Description|Type|Size|Format|
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric|
-|`TID`|Transaction Id on the acquirer|Text|20|Alphanumeric|
-|`AuthorizationCode`|Authorization Code|Text|6|Alphanumeric|
-|`SoftDescriptor`|Text to be printed on bearer bank statement - Available for VISA/MASTER only - does not allow special characters|Text|13|Alphanumeric|
-|`PaymentId`|Order Identifier field|GUID |36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is|Text|2|Examples: 7|
-|`Status`|Transaction Status|Byte|2|E.g.: 1|
-|`ReturnCode`|Return code from the acquirer|Text|32|Alphanumeric|
-|`ReturnMessage`|Return message from Acquirer|Text|512|Alphanumeric|
-|`Type`|indicates which wallet type: `ApplePay`/` SamsungPay`/`GooglePay`/` VisaCheckout`/`Masterpass`|Text|255|Alphanumeric|
-|`WalletKey`|Cryptographic Key Representing Card Data - Check WalletKey Table for More Information|Text|255|Check table `WalletKey`|
+|`ProofOfSale`|Authorization number, identical to the NSU.|Text|6|Alphanumeric|
+|`Tid`|Transaction ID on the acquirer.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric|
+|`SoftDescriptor`|Text to be printed on the bearer bank statement. Note: Does not allow special characters. Available for VISA/MASTER only.|Text|13|Alphanumeric|
+|`PaymentId`|Order identifier field.|GUID |36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|*Electronic Commerce Indicator*. Represents how secure a transaction is.|Text|2|Examples: 7|
+|`Status`|Transaction status.|Byte|2|E.g.: 1|
+|`ReturnCode`|Return code from the acquirer.|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message from acquirer|Text|512|Alphanumeric|
+|`Type`|Wallet type: `ApplePay`/` SamsungPay`/`GooglePay`/` VisaCheckout`/`Masterpass`|Text|255|Alphanumeric|
+|`WalletKey`|Cryptographic Key Representing Card Data. Refer to the WalletKey table in the ANNEXES for more information.|Text|255|See WalletKey table|
 
 #### Google Pay
 
-#### Request
-
-Default Request Example *Google Pay*
-
-> The store must already have registration and an Google Pay integration, otherwise it will not be possible to integrate with the API>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{
-  "MerchantOrderId":"6242-642-723",
-  "Customer":{
-    "Name": "Example Standard Wallet",
-    "Identity": "11225468954",
-    "IdentityType": "CPF"
-  },
-  "Payment":{
-     "Type":"CreditCard",
-     "Amount": 1,
-     "Provider": "Cielo",
-     "Installments":1,
-     "Currency":"BRL",
-     "Wallet":{
-       "Type": "GooglePay",
-       "WalletKey":"{\"encryptedMessage\":\"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\\u003d\\u003d\",\"ephemeralPublicKey\":\"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\\u003d\",\"tag\":\"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\\u003d\"}",
-       "AdditionalData":{
-           "Signature":"MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA="
-       }
-    }
-  }
-}
-```
-
-|Property|Type|Size|Mandatory|Description|
-|----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-|`MerchantId`|GUID|36|Yes (header field)|Store identifier at Braspag|
-|`MerchantKey`|Text|40|Yes (header field)|Public Key for Dual Authentication at Braspag|
-|`RequestId`|GUID|36|No (header field)|Request identifier, used when the merchant uses different servers for each GET/POST/PUT|
-|`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|255|Yes|Shopper Name|
-|`Customer.Status`|Text|255|No|Shopper Registration Status ("NEW" / "EXISTING").|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
-|`Payment.Provider`|Text|15|Yes|Cielo providers only (`Cielo`/` Cielo30`)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|
-|`Wallet.Type`|Text|255|Yes|indicates which wallet type: `ApplePay`/` SamsungPay`/`GooglePay`/` VisaCheckout`/`Masterpass`|
-|`Wallet.WalletKey`|Text|255|Yes|Cryptographic Key Representing Card Data - Check WalletKey Table for more information|
-|`Wallet.AdditionalData.Signature`|Text|255|Yes|Token returned by Wallet. Must be submitted in Integrations: `GooglePay`|
-
-##### Response
-
-```json
-{
-    "MerchantOrderId": "2014111703",
-    "Customer":{
-        "Name": "[Guest]"
-    },
-    "Payment":{
-        "ServiceTaxAmount": 0,
-        "Installments":1,
-        "Interest": 0,
-        "Capture": false,
-        "Authenticate":false,
-        "Recurrent":false,
-        "CreditCard":{
-            "CardNumber": "453211* *** **1521",
-            "Holder": "BJORN IRONSIDE",
-            "ExpirationDate": "08/2020",
-            "SaveCard":"false",
-            "Brand":"Visa",
-        },
-        "Tid": "0319040817883",
-        "ProofOfSale": "817883",
-        "AuthorizationCode": "027795",
-        "Wallet": {
-            "Type": "GooglePay",
-            "WalletKey": "{\"encryptedMessage\":\"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\\u003d\\u003d\",\"ephemeralPublicKey\":\"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\\u003d\",\"tag\":\"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\\u003d\"}",
-            "Eci": 0,
-            "AdditionalData": {
-                "Signature":"MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA="
-            }
-        },
-        "SoftDescriptor": "123456789ABCD",
-        "Amount": 100,
-        "ReceivedDate": "2018-03-19 16:08:16",
-        "Status": 1,
-        "IsSplitted": false,
-        "ReturnMessage": "Operation Successful",
-        "ReturnCode": "4",
-        "PaymentId": "e57b09eb-475b-44b6-ac71-01b9b82f2491",
-        "Type":"CreditCard",
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"
-            }
-        ]
-    }
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
-|`ProofOfSale`|Authorization number, identical to NSU|Text|6|Alphanumeric|
-|`TID`|Transaction Id on the acquirer|Text|20|Alphanumeric|
-|`AuthorizationCode`|Authorization Code|Text|6|Alphanumeric|
-|`SoftDescriptor`|Text to be printed on bearer bank statement - Available for VISA/MASTER only - does not allow special characters|Text|13|Alphanumeric|
-|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Electronic Commerce Indicator. Represents how secure a transaction is|Text|2|Examples: 7|
-|`Status`|Transaction Status|Byte|2|E.g.: 1|
-|`ReturnCode`|Return code from the acquirer|Text|32|Alphanumeric|
-|`ReturnMessage`|Return message from Acquirer|Text|512|Alphanumeric|
-|`Type`|Indicates which wallet type: `ApplePay`/`SamsungPay`/`GooglePay`/`VisaCheckout`/`Masterpass`|Text|255|Alphanumeric|
-|`WalletKey`|Cryptographic Key Representing Card Data - Check WalletKey Table for More Information|Text|255|Check table `WalletKey`|
-|`AdditionalData.Signature`|Token returned by Wallet. Must be submitted in Integrations: `GooglePay`|Text|255|Check Table `Signature`|
+Refer to [this link](https://braspag.github.io//en/manual/google-pay) for a thorough description of the integration process with Google Pay.
 
 #### Masterpass
 
-> To use Masterpass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.
+The Masterpass service must be hired through contacting Mastercard directly, selecting Braspag as your service provider.
 
 #### Request
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {
