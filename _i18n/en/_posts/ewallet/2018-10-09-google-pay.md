@@ -1,11 +1,11 @@
 ---
 layout: manual
 title: Google Pay E-Wallet
-description: Integração Técnica Gateway Braspag
+description: Braspag Gateway Technical Integration
 search: true
 translated: true
 categories: manual
-sort_order: 4
+sort_order: 5
 tags:
   - 1. Pagador
 language_tabs:
