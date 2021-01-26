@@ -5,12 +5,263 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-26T12:52:07+00:00</updated>
+    <updated>2021-01-26T13:12:07+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
         <email>aasita.muralikrishna@braspag.com.br</email>
     </author>
+    
+    <entry>
+        <title>E-Wallet Apple Pay</title>
+        <category term="manual" />
+        <link href="https://braspag.github.io//en/manual/apple-pay"/>
+        <updated>2020-08-31T00:00:00+00:00</updated>
+        <id>https://braspag.github.io//en/manual/apple-pay</id>
+        <content type="html">&lt;h1 id=&quot;apple-pay-&quot;&gt;Apple Pay ™&lt;/h1&gt;
+
+&lt;p&gt;O Apple Pay é uma carteira virtual. Ele permite que o comprador realize pagamentos em lojas virtuais e apps utilizando, de forma prática e segura, seus cartões de crédito e débito armazenados em suas contas e dispositivos Apple.&lt;/p&gt;
+
+&lt;h1 id=&quot;pré-requisitos&quot;&gt;Pré-Requisitos&lt;/h1&gt;
+
+&lt;p&gt;Para utilização do Apple Pay, é necessário que a loja já esteja cadastrada no programa AppleID. Além disso, você deve:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Realizar o cadastro, acessando &lt;a href=&quot;https://developer.apple.com/programs/enroll/&quot;&gt;esta URL&lt;/a&gt; e seguindo todos os passos requeridos pela Apple.&lt;/li&gt;
+  &lt;li&gt;Seguir os passos dessa documentação para completar a integração junto à Apple.&lt;/li&gt;
+  &lt;li&gt;Contratar o Pagador API REST como gateway de pagamento.&lt;/li&gt;
+  &lt;li&gt;Contratar a Cielo 3.0 como adquirência.&lt;/li&gt;
+  &lt;li&gt;Integrar com o &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador&quot;&gt;Pagador API REST&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;etapa-1---configuração-do-merchant-identifier&quot;&gt;ETAPA 1 - Configuração do Merchant Identifier&lt;/h1&gt;
+
+&lt;p&gt;Nesta etapa inicial, você deverá criar um Merchant Identifier para sua loja. Após criado, o Merchant identifier deverá ser enviado à Braspag em solicitação a um certificado “.CSR”. O certificado “.CSR” criado pela Braspag deverá ser utilizado na criação de um novo certificado junto à Apple, o “.CER”, que irá servir no seguimento à segunda etapa do processo.&lt;/p&gt;
+
+&lt;h2 id=&quot;passo-1---criar-o-merchant-identifier&quot;&gt;Passo 1 - Criar o Merchant Identifier&lt;/h2&gt;
+
+&lt;p&gt;A criação do Merchant Identifier deve ser feita através do &lt;a href=&quot;https://developer.apple.com/account/resources&quot;&gt;Portal de Desenvolvedores da Apple&lt;/a&gt;, da seguinte maneira:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Na seção &lt;strong&gt;“Certificates, Identifiers &amp;amp; Profiles”&lt;/strong&gt;, selecione &lt;strong&gt;“Identifiers”&lt;/strong&gt; no menu lateral, e então clique no botão (+) no canto superior esquerdo:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay01.png&quot; alt=&quot;Step1.1&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Selecione &lt;strong&gt;“Merchant IDs”&lt;/strong&gt;, e então clique em &lt;strong&gt;“Continue”&lt;/strong&gt;:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay02.png&quot; alt=&quot;Step1.2&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Coloque um valor nos campos &lt;strong&gt;“Description”&lt;/strong&gt; e &lt;strong&gt;“Identifier”&lt;/strong&gt;, seguindo suas especificações, e clique em &lt;strong&gt;“Continue”&lt;/strong&gt;:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay03.png&quot; alt=&quot;Step1.3&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Clique em &lt;strong&gt;“Register”&lt;/strong&gt;:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay04.png&quot; alt=&quot;Step1.4&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;passo-2---solicitar-o-certificado-csr&quot;&gt;Passo 2 - Solicitar o Certificado “.CSR”&lt;/h2&gt;
+
+&lt;p&gt;Para solicitar à Braspag a geração do certificado no formato “.CSR”, entre em contato com o nosso &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br/requests/new&quot;&gt;Time de Atendimento&lt;/a&gt; e informe:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O &lt;strong&gt;Merchant Identifier&lt;/strong&gt; criado no passo 1;&lt;/li&gt;
+  &lt;li&gt;O &lt;strong&gt;Merchant ID&lt;/strong&gt; de sua loja na Braspag em Produção.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Nossa equipe irá retornar com o arquivo “.CSR” em até 48 horas úteis.&lt;/p&gt;
+
+&lt;h2 id=&quot;passo-3---criar-o-certificado-cer&quot;&gt;Passo 3 - Criar o Certificado “.CER”&lt;/h2&gt;
+
+&lt;p&gt;Para criar um certificado de processamento de pagamento (“.CER”), que será utilizado em sua loja virtual ou aplicativo, é necessário acessar o &lt;a href=&quot;https://developer.apple.com/account/resources&quot;&gt;Portal de Desenvolvedores da Apple&lt;/a&gt; e seguir os passos abaixo:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;No menu &lt;strong&gt;“Certificates, Identifier &amp;amp; Profiles”&lt;/strong&gt;, selecione &lt;strong&gt;“Identifiers”&lt;/strong&gt;, no menu lateral.&lt;/li&gt;
+  &lt;li&gt;Utilizando o filtro localizado à direita superior (&lt;strong&gt;“App IDs”&lt;/strong&gt;), encontre o item &lt;strong&gt;“Merchant IDs”&lt;/strong&gt;:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay05.png&quot; alt=&quot;Step2.1&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;À direita, selecione o identifier criado anteriormente:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay06.png&quot; alt=&quot;Step2.2&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;No bloco &lt;strong&gt;“Apple Pay Payment Processing Certificate”&lt;/strong&gt;, clique em &lt;strong&gt;“Create Certificate”&lt;/strong&gt; logo abaixo do texto explicativo:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay07.png&quot; alt=&quot;Step2.3&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Escolha a opção “No” em &lt;strong&gt;“Edit or Configure Merchant ID”&lt;/strong&gt;:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay08.png&quot; alt=&quot;Step2.4&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Na caixa de diálogo, escolha o certificado “.CSR” enviado pela Braspag:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay09.png&quot; alt=&quot;Step2.5&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Clique em &lt;strong&gt;“Continue”&lt;/strong&gt;:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay10.png&quot; alt=&quot;Step2.6&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Clique em &lt;strong&gt;“Download”&lt;/strong&gt; para baixar o arquivo “.CER”:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay11.png&quot; alt=&quot;Step2.7&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Para mais detalhes, acesse a &lt;a href=&quot;https://help.apple.com/developer-account/#/devb2e62b839&quot;&gt;Developer Account Help&lt;/a&gt; da Apple.&lt;/p&gt;
+
+&lt;h1 id=&quot;etapa-2-integração-com-apple-pay&quot;&gt;Etapa 2. Integração com Apple Pay&lt;/h1&gt;
+
+&lt;p&gt;Boa parte do processo para disponibilização do botão “Pagar com Apple Pay” no seu app ou site será realizado na sua integração junto à wallet. Por isso, recomendamos que siga as orientações disponíveis no site de &lt;a href=&quot;https://developer.apple.com/documentation&quot;&gt;Documentação da Apple&lt;/a&gt; para a implementação, que é totalmente self-service.&lt;/p&gt;
+
+&lt;p&gt;Ao final do processo realizado na API da Apple, você receberá um JSON contendo dois campos importantes que deverão ser utilizados no próximo passo. São os campos &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;paymentData.data&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ephemeralPublicKey.header.EphemeralPublicKey&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;applePayData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;paymentData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EC_v1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;as01vRj+n9crY2vome7zc+u7Tz0+qg2La/8IUHpJIjFN6ThhUqLnSrskQHTrEbcYPiMksFK0+ddo9sZu70uJQJH1I+44N6PrVhilNDem97vOXq2VYDXiVJ27F/Q9wGQDgZBeGcZ6Pml9SIelHqUauBcQoOatrlnWPUL8kbdpT8WqgzXyaCh7oeTz=z6++rp/ofjvSjnGtOqAUsnrzvw4uzkcyKUSsfROdJ6B/Xzgu/T9fMIr5UxXD2DPF1SNh3ydEJABKz4HFjDW7ObvbQeua4GYxJdpQLpI3NgUbJy91E/LOyb/+PcCtO+0=a41tBrfnTTF9qsPuCIw8HWIEEKSRofn27NTofxev/i+nHEfqEtqNrN/epIvhzceD/gDiGetfiLKMzf94ARmpWUAMC==&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;signature&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;(…)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;header&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ephemeralPublicKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MFkwEwZJKoZIzj0CAQYIKo12zj0DAQcDQgAEo+ReGClSmQ4hDJD1yh9nci3V4l7kPm2AQtKZMMvuNS0iK5sn/1A9l3kw1B1xCqOycZmnPSng7p5hpTvrei1BCA==&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;publicKeyHash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;KXN06+BtJu6yEfF9zDhr7f4M/2HwVybnx0FGfC520gB=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;transactionId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;71c5b61c3791546e94d2b4893a6c69aaac2ab86b5c113c83a7d89057906a9b5f&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;paymentMethod&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;displayName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MasterCard 1212&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;network&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MasterCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;credit&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;transactionIdentifier&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;81C5B61C3791646E94D2B4893A6C69BBBC2AB86B5C363C83A7D89057906A9BAC&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;x_document&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;24562608994&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;x_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;João da Silva&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;observações&quot;&gt;Observações&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Durante a implementação da Apple, haverá uma referência ao certificado &lt;strong&gt;“.CER”&lt;/strong&gt;, gerado durante a ETAPA 1, para criptografar os dados durante a comunicação com a Apple.&lt;/li&gt;
+  &lt;li&gt;No fluxo de integração não se deve realizar a implementação do processo de descriptografia dos dados retornados pela Apple pois, para clientes Braspag, este trabalho será realizado por nossa solução de gateway, o Pagador.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;etapa-3-integração-com-o-pagador-descriptografia-e-autorização&quot;&gt;Etapa 3. Integração com o Pagador (descriptografia e autorização)&lt;/h1&gt;
+
+&lt;p&gt;A autorização com o token do Apple Pay acontece da mesma forma que a autorização padrão de um cartão de crédito. Porém, ao invés de se fornecer os dados do cartão abertamente, deverá ser fornecido o token recebido pelo Apple Pay, conforme o exemplo abaixo:&lt;/p&gt;
+
+&lt;h3 id=&quot;requisição&quot;&gt;Requisição&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051002&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(…)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Currency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Wallet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ApplePay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;WalletKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;['paymentData.data']&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;AdditionalData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;EphemeralPublicKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;['ephemeralPublicKey.header.EphemeralPublicKey']&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parâmetros do Header&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Tipo e Tamanho&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantId&lt;/td&gt;
+      &lt;td&gt;ID do estabelecimento no Pagador.&lt;/td&gt;
+      &lt;td&gt;GUID (36)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantKey&lt;/td&gt;
+      &lt;td&gt;Chave da API para o Pagador.&lt;/td&gt;
+      &lt;td&gt;String (24)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parâmetro&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Tipo e Tamanho&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantOrderId&lt;/td&gt;
+      &lt;td&gt;Número de identificação do pedido.&lt;/td&gt;
+      &lt;td&gt;String (50)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Customer&lt;/td&gt;
+      &lt;td&gt;Nó com dados do comprador.&lt;/td&gt;
+      &lt;td&gt;Consulte o &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador?json#requisi%C3%A7%C3%A3o&quot;&gt;Manual do Pagador&lt;/a&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Type&lt;/td&gt;
+      &lt;td&gt;Tipo do meio de pagamento. Possibilidades: “CreditCard” / “DebitCard”.&lt;/td&gt;
+      &lt;td&gt;String (100)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Amount&lt;/td&gt;
+      &lt;td&gt;Valor do pedido, em centavos.&lt;/td&gt;
+      &lt;td&gt;Número (15)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Provider&lt;/td&gt;
+      &lt;td&gt;Nome do provedor do meio de pagamento. Para transações Apple Pay, utilize “Cielo30”.&lt;/td&gt;
+      &lt;td&gt;String (15)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Installments&lt;/td&gt;
+      &lt;td&gt;Número de parcelas.&lt;/td&gt;
+      &lt;td&gt;Número (2)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Wallet.Type&lt;/td&gt;
+      &lt;td&gt;Nome do provedor do meio de pagamento. Para transações Apple Pay, utilize “ApplePay”.&lt;/td&gt;
+      &lt;td&gt;String (15)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Wallet.WalletKey&lt;/td&gt;
+      &lt;td&gt;Preencher com o valor do parâmetro &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;paymentData.data&lt;/code&gt; retornado pelo Apple Pay.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Wallet.AdditionalData.EphemeralPublicKey&lt;/td&gt;
+      &lt;td&gt;Preencher com o valor do parâmetro &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ephemeralPublicKey.header.EphemeralPublicKey&lt;/code&gt; retornado pelo Apple Pay.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;resposta&quot;&gt;Resposta&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051002&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(…)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(…)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(…)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(…)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Wallet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ApplePay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;WalletKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;as01vRj+n9crY2vome7zc+u7Tz0+qg2La/8IUHpJIjFN6ThhUqLnSrskQHTrEbcYPiMksFK0+ddo9sZu70uJQJH1I+44N6PrVhilNDem97vOXq2VYDXiVJ27F/Q9wGQDgZBeGcZ6Pml9SIelHqUauBcQoOatrlnWPUL8kbdpT8WqgzXyaCh7oeTz=z6++rp/ofjvSjnGtOqAUsnrzvw4uzkcyKUSsfROdJ6B/Xzgu/T9fMIr5UxXD2DPF1SNh3ydEJABKz4HFjDW7ObvbQeua4GYxJdpQLpI3NgUbJy91E/LOyb/+PcCtO+0=a41tBrfnTTF9qsPuCIw8HWIEEKSRofn27NTofxev/i+nHEfqEtqNrN/epIvhzceD/gDiGetfiLKMzf94ARmpWUAMC==&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;AdditionalData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;EphemeralPublicKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MFkwEwZJKoZIzj0CAQYIKo12zj0DAQcDQgAEo+ReGClSmQ4hDJD1yh9nci3V4l7kPm2AQtKZMMvuNS0iK5sn/1A9l3kw1B1xCqOycZmnPSng7p5hpTvrei1BCA==&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(…)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Links&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(…)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A resposta de autorização da wallet terá os mesmos campos apresentados em nossa documentação do &lt;a href=&quot;https://braspag.github.io//manual/braspag-pagador#resposta&quot;&gt;Pagador&lt;/a&gt;, porém com a adição do nó &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Wallet&lt;/code&gt; repetindo os mesmos campos utilizados na autorização, como descrito acima.&lt;/p&gt;
+</content>
+    </entry>
     
     <entry>
         <title>VerifyCard Integration Guide</title>
