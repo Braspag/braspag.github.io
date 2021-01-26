@@ -5141,377 +5141,19 @@ curl
 
 <h4 id="apple-pay">Apple Pay</h4>
 
-<p>Here are the prerequisites for using Apple Pay, followed by a step by step of how to make it available in your store.</p>
-
-<aside class="warning">Before using Apple Pay, the store must be registered with Apple and have a "MerchantIdentifier".</aside>
-<aside class="warning">Before using Apple Pay, it is necessary to upload a CSR certificate in PEM format provided by Braspag.</aside>
-
-<h5 id="step-1-hiring-apple-pay">Step 1. Hiring Apple Pay</h5>
-
-<p>Apple Pay must be hired from Apple through the following business contact: <em>Shawn Munyon</em> (smunyon@apple.com).</p>
-
-<h5 id="step-2-obtaining-the-merchantidentifier">Step 2. Obtaining the MerchantIdentifier</h5>
-
-<p>Once hiring is effective, you will be given access to the “Apple Developer” panel, and you will need to create your <code class="language-plaintext highlighter-rouge">MerchantIdentifier</code>. To do so, perform the steps below:</p>
-<ol>
-  <li>Log in to <a href="https://developer.apple.com/">Apple Developer</a></li>
-  <li>Select <strong>Certificate, IDs &amp; Profile</strong></li>
-  <li>Within the “Identifiers” area click “Merchant IDs”</li>
-  <li>Click on the <strong>+</strong> in the right corner below the “Registering a Merchant ID”</li>
-  <li>Define the MerchantID description and identifier. Example: “merchant.com.BRASPAG.merchantAccount”</li>
-  <li>Click “continue” and verify that the information you entered is correct</li>
-  <li>Finish the process.</li>
-</ol>
-
-<p>The <code class="language-plaintext highlighter-rouge">MerchantIdentifier</code> must be sent to Braspag via the <a href="https://suporte.braspag.com.br/hc/pt-br/restricted?return_to=https%3A%2F%2Fsuporte.braspag.com.br%2Fhc%2Fpt-br">support channel</a> to create a <strong>PEM CSR Certificate</strong>.</p>
-
-<h5 id="step-3-csr-certificate-upload">Step 3. CSR Certificate Upload</h5>
-
-<p>After submitting the <code class="language-plaintext highlighter-rouge">MerchantIdentifier</code> to the Braspag team, the store will receive the <code class="language-plaintext highlighter-rouge">PEM</code> extension certificate and should follow these steps:</p>
-
-<ol>
-  <li>Log in to <a href="https://developer.apple.com/">Apple Developer</a></li>
-  <li>Select <strong>Certificate, IDs &amp; Profiles</strong>
-<img src="https://braspag.github.io//images/apple-paymid.jpg" alt="Apple Pay" /></li>
-  <li>
-    <p>Upload the certificate
-![<a href="/images/apple-pay.jpg">Apple Pay</a></p>
-  </li>
-  <li>End the process</li>
-</ol>
-
-<p>The PEM Certificate contains the CSR code requested by Apple.</p>
-
-<p>PEM Format:</p>
-
-<p>—– BEGIN CERTIFICATE REQUEST —–</p>
-
-<p>MIHyMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYDVQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFUL1F/ue9/T5SrEyE1wTPQxk5x3ZHEelB7VHObDTW7pjauFrE88J25w7iRCKNP6u2fPmBtM9nY30/xQCgBH9aUwCgYIKoZIzj0EAwIDSQAwRgIhAPyF47xmfy+9czlr0a94eSd/YG27G8akujpkIUd56qWmAiEAqV6aSVISmH9NveOKGJdZ6VvkbELK2uqu2yCpg/lfYc8=</p>
-
-<p>—– END CERTIFICATE REQUEST —</p>
-
-<h5 id="step-4-apple-pay-integration">Step 4. Apple Pay Integration</h5>
-
-<p>Integration requires two steps: The first is direct integration with the Apple solution to make the “Pay with Apple Pay” button available on your website or application. To this end, the Apple team will follow closely. <a href="https://developer.apple.com/apple-pay/">Click here</a> to access Apple technical documentation.</p>
-
-<p>At this stage, you do not need to perform the process of encrypting data returned by Apple. This work will be performed by Braspag through the procedures described in the next step.</p>
-
-<h5 id="step-5-pagador-integration">Step 5. Pagador Integration</h5>
-
-<p>The second integration step is to effect the decryption and authorization flow via Braspag’s gateway (Pagador). To do so, you must provide data received in the stream with Apple Pay, including WalletKey and EphemeralPublicKey.</p>
-
-<h4 id="request-13">Request</h4>
-
-<p>Default Request Example <em>Apple Pay</em></p>
-
-<blockquote>
-  <p>It is necessary that the store already has registration and an Apple Pay integration, otherwise it will not be possible to integrate with the API</p>
-</blockquote>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Standard Wallet"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11225468954"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-    </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1100</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ApplePay"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+sRXTDtqLOJQAprs0MNTkPzF95nXGKCCnPV2mfR7z8FHcP7AGqO7aTLBGJLgxFOnRKaFnYlY2E9uTPBbB5JjZywlLIWsPKur5G4m1/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"EphemeralPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ=="</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Mandatory</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Yes (header field)</td>
-      <td>Store identifier at Braspag</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes (header field)</td>
-      <td>Public Key for Dual Authentication at Braspag</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>No (header field)</td>
-      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-      <td>Order ID number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-      <td>Shopper Name</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Text 255</td>
-      <td>No</td>
-      <td>Shopper Registration Status (“NEW” / “EXISTING”).</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Yes</td>
-      <td>Payment Method Type</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Order Amount (in cents)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Cielo providers only (<code class="language-plaintext highlighter-rouge">Cielo</code>/<code class="language-plaintext highlighter-rouge"> Cielo30</code>)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number</td>
-      <td>2</td>
-      <td>Yes</td>
-      <td>Number of Installments</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-      <td>Cryptographic Key Representing Card Data - Check WalletKey Table for more information</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.EphemeralPublicKey</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-      <td>Token returned by Wallet. Must be submitted in Integrations: <code class="language-plaintext highlighter-rouge">ApplePay</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h5 id="response-13">Response</h5>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Guest]"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453211* *** **1521"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BJORN IRONSIDE"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08/2020"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0319040817883"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"817883"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"027795"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ApplePay"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+sRXTDtqLOJQAprs0MNTkPzF95nXGKCCnPV2mfR7z8FHcP7AGqO7aTLBGJLgxFOnRKaFnYlY2E9uTPBbB5JjZywlLIWsPKur5G4m1/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"EphemeralPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ=="</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-19 16:08:16"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e57b09eb-475b-44b6-ac71-01b9b82f2491"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Authorization number, identical to NSU.</td>
-      <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">TID</code></td>
-      <td>Transaction Id on the acquirer.</td>
-      <td>Text</td>
-      <td>20</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization Code</td>
-      <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Text to be printed on bearer bank statement - Available for VISA/MASTER only - does not allow special characters</td>
-      <td>Text</td>
-      <td>13</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
-      <td>Electronic Commerce Indicator. Represents how secure a transaction is.</td>
-      <td>Text</td>
-      <td>2</td>
-      <td>Examples: 7</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status</td>
-      <td>Byte</td>
-      <td>2</td>
-      <td>E.g.: 1</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Return code from the acquirer</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Return message from Acquirer</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">WalletKey</code></td>
-      <td>Cryptographic key that identifies stores in Wallets - Check WalletKey table for more information</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>See table <code class="language-plaintext highlighter-rouge">WalletKey</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AdditionalData.EphemeralPublicKey</code></td>
-      <td>Token returned by Wallet. Must be submitted in Integrations: <code class="language-plaintext highlighter-rouge">ApplePay</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Check Table <code class="language-plaintext highlighter-rouge">EphemeralPublicKey</code></td>
-    </tr>
-  </tbody>
-</table>
+<p>Refer to <a href="https://braspag.github.io//en/manual/apple-pay">this link</a> for a thorough description of the integration process with Apple Pay.</p>
 
 <h4 id="samsung-pay">Samsung Pay</h4>
 
-<h4 id="request-14">Request</h4>
+<p>Below is one prerequisite for using Samsung Pay, followed by an example of a request to make it available in your store.</p>
 
-<p>Default Request Example <em>Samsung Pay</em></p>
+<aside class="warning">The store must already have Samsung registration and integration before integrating with the Pagador API.</aside>
 
-<blockquote>
-  <p>It is necessary that the store already has registration and a Samsung Pay integration, otherwise it will not be possible to integrate with the API</p>
-</blockquote>
+<h4 id="request-13">Request</h4>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<p>Example of a standard Samsung Pay request:</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
@@ -5548,92 +5190,92 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier at Braspag.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes (header field)</td>
-      <td>Store identifier at Braspag</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public key for dual authentication at Braspag.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes (header field)</td>
-      <td>Public Key for Dual Authentication at Braspag</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
       <td>No (header field)</td>
-      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Order ID number.</td>
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
-      <td>Order ID number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Customer’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>Shopper Name</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Customer’s registration status (“NEW” / “EXISTING”).</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Shopper Registration Status (“NEW” / “EXISTING”).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method type.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
-      <td>Payment Method Type</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order amount in cents.</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Order Amount (in cents)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Cielo providers only (<code class="language-plaintext highlighter-rouge">Cielo</code>/<code class="language-plaintext highlighter-rouge">Cielo30</code>).</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Cielo providers only (<code class="language-plaintext highlighter-rouge">Cielo</code>/<code class="language-plaintext highlighter-rouge">Cielo30</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Number of installments.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Number of Installments</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
+      <td>Wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code>.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
+      <td>Cryptographic key representing the card data. Refer to the WalletKey table in the ANNEXES for more information.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
-      <td>Cryptographic Key Representing Card Data - Check WalletKey Table for more information</td>
     </tr>
   </tbody>
 </table>
 
-<h5 id="response-14">Response</h5>
+<h5 id="response-13">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -5707,396 +5349,95 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Authorization number, identical to NSU.</td>
+      <td>Authorization number, identical to the NSU.</td>
       <td>Text</td>
       <td>6</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">TID</code></td>
-      <td>Transaction Id on the acquirer</td>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Transaction ID on the acquirer.</td>
       <td>Text</td>
       <td>20</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization Code</td>
+      <td>Authorization code.</td>
       <td>Text</td>
       <td>6</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Text to be printed on bearer bank statement - Available for VISA/MASTER only - does not allow special characters</td>
+      <td>Text to be printed on the bearer bank statement. Note: Does not allow special characters. Available for VISA/MASTER only.</td>
       <td>Text</td>
       <td>13</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field</td>
+      <td>Order identifier field.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
-      <td>Electronic Commerce Indicator. Represents how secure a transaction is</td>
+      <td><em>Electronic Commerce Indicator</em>. Represents how secure a transaction is.</td>
       <td>Text</td>
       <td>2</td>
       <td>Examples: 7</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status</td>
+      <td>Transaction status.</td>
       <td>Byte</td>
       <td>2</td>
       <td>E.g.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Return code from the acquirer</td>
+      <td>Return code from the acquirer.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Return message from Acquirer</td>
+      <td>Return message from acquirer</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge"> SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge"> VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
+      <td>Wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge"> SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge"> VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">WalletKey</code></td>
-      <td>Cryptographic Key Representing Card Data - Check WalletKey Table for More Information</td>
+      <td>Cryptographic Key Representing Card Data. Refer to the WalletKey table in the ANNEXES for more information.</td>
       <td>Text</td>
       <td>255</td>
-      <td>Check table <code class="language-plaintext highlighter-rouge">WalletKey</code></td>
+      <td>See WalletKey table</td>
     </tr>
   </tbody>
 </table>
 
 <h4 id="google-pay">Google Pay</h4>
 
-<h4 id="request-15">Request</h4>
-
-<p>Default Request Example <em>Google Pay</em></p>
-
-<blockquote>
-  <p>The store must already have registration and an Google Pay integration, otherwise it will not be possible to integrate with the API&gt;</p>
-</blockquote>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Standard Wallet"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11225468954"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-     </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Wallet"</span><span class="p">:{</span><span class="w">
-       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GooglePay"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="s2">"{</span><span class="se">\"</span><span class="s2">encryptedMessage</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ephemeralPublicKey</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">tag</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"AdditionalData"</span><span class="p">:{</span><span class="w">
-           </span><span class="nl">"Signature"</span><span class="p">:</span><span class="s2">"MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA="</span><span class="w">
-       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Mandatory</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Yes (header field)</td>
-      <td>Store identifier at Braspag</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes (header field)</td>
-      <td>Public Key for Dual Authentication at Braspag</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>No (header field)</td>
-      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-      <td>Order ID number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-      <td>Shopper Name</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Shopper Registration Status (“NEW” / “EXISTING”).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Yes</td>
-      <td>Payment Method Type</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Order Amount (in cents)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Cielo providers only (<code class="language-plaintext highlighter-rouge">Cielo</code>/<code class="language-plaintext highlighter-rouge"> Cielo30</code>)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number</td>
-      <td>2</td>
-      <td>Yes</td>
-      <td>Number of Installments</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-      <td>indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge"> SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge"> VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-      <td>Cryptographic Key Representing Card Data - Check WalletKey Table for more information</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.Signature</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-      <td>Token returned by Wallet. Must be submitted in Integrations: <code class="language-plaintext highlighter-rouge">GooglePay</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h5 id="response-15">Response</h5>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Guest]"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453211* *** **1521"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BJORN IRONSIDE"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08/2020"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0319040817883"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"817883"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"027795"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GooglePay"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">encryptedMessage</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ephemeralPublicKey</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">tag</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8</span><span class="se">\\</span><span class="s2">u003d</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Signature"</span><span class="p">:</span><span class="s2">"MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA="</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-19 16:08:16"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e57b09eb-475b-44b6-ac71-01b9b82f2491"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Authorization number, identical to NSU</td>
-      <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">TID</code></td>
-      <td>Transaction Id on the acquirer</td>
-      <td>Text</td>
-      <td>20</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization Code</td>
-      <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Text to be printed on bearer bank statement - Available for VISA/MASTER only - does not allow special characters</td>
-      <td>Text</td>
-      <td>13</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier field</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
-      <td>Electronic Commerce Indicator. Represents how secure a transaction is</td>
-      <td>Text</td>
-      <td>2</td>
-      <td>Examples: 7</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status</td>
-      <td>Byte</td>
-      <td>2</td>
-      <td>E.g.: 1</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Return code from the acquirer</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Return message from Acquirer</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>Indicates which wallet type: <code class="language-plaintext highlighter-rouge">ApplePay</code>/<code class="language-plaintext highlighter-rouge">SamsungPay</code>/<code class="language-plaintext highlighter-rouge">GooglePay</code>/<code class="language-plaintext highlighter-rouge">VisaCheckout</code>/<code class="language-plaintext highlighter-rouge">Masterpass</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">WalletKey</code></td>
-      <td>Cryptographic Key Representing Card Data - Check WalletKey Table for More Information</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Check table <code class="language-plaintext highlighter-rouge">WalletKey</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AdditionalData.Signature</code></td>
-      <td>Token returned by Wallet. Must be submitted in Integrations: <code class="language-plaintext highlighter-rouge">GooglePay</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Check Table <code class="language-plaintext highlighter-rouge">Signature</code></td>
-    </tr>
-  </tbody>
-</table>
+<p>Refer to <a href="https://braspag.github.io//en/manual/google-pay">this link</a> for a thorough description of the integration process with Google Pay.</p>
 
 <h4 id="masterpass">Masterpass</h4>
 
-<blockquote>
-  <p>To use Masterpass it is necessary to contract the service by contacting Mastercard directly, selecting Braspag as service provider.</p>
-</blockquote>
+<p>The Masterpass service must be hired through contacting Mastercard directly, selecting Braspag as your service provider.</p>
 
-<h4 id="request-16">Request</h4>
+<h4 id="request-14">Request</h4>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -6246,7 +5587,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="response-16">Response</h5>
+<h5 id="response-14">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -6393,7 +5734,7 @@ curl
   <p>To use <em>Visa Checkout</em> you need to contract the service by contacting Visa directly.</p>
 </blockquote>
 
-<h4 id="request-17">Request</h4>
+<h4 id="request-15">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -6546,7 +5887,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="response-17">Response</h5>
+<h5 id="response-15">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -6688,7 +6029,7 @@ curl
 
 <p>A transaction with an <em>Alelo</em> Card is similar to a Debit Card, but without the authentication process. <br />Currently, only the “Alelo” Provider supports processing of this mode.</p>
 
-<h4 id="request-18">Request</h4>
+<h4 id="request-16">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -6834,7 +6175,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-18">Response</h4>
+<h4 id="response-16">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -7017,7 +6358,7 @@ curl
 
 <p>The <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> and <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code> parameters, marked with an “*” in the “MANDATORY” column, must not be used together.</p>
 
-<h4 id="request-19">Request</h4>
+<h4 id="request-17">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7184,7 +6525,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -7340,7 +6681,7 @@ curl
 
 <p>Contact Support to determine how many days you want your boletos generated via Recurrence to expire.</p>
 
-<h4 id="request-20">Request</h4>
+<h4 id="request-18">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7455,7 +6796,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-18">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -7657,7 +6998,7 @@ curl
 
 <p>To schedule the first transaction in the recurrence series, pass the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> parameter to <em>“false”</em> and add the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code> parameter.</p>
 
-<h4 id="request-21">Request</h4>
+<h4 id="request-19">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7826,7 +7167,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-19">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -7971,7 +7312,7 @@ curl
 
 <p>To change customer data in an existing recurrence, simply make a PUT call as demonstrated in the example:</p>
 
-<h4 id="request-22">Request</h4>
+<h4 id="request-20">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -8235,7 +7576,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-22">Response</h4>
+<h4 id="response-20">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -8248,7 +7589,7 @@ HTTP Status 200
 
 <p>To change the end date of the existing recurrence, just make a PUT as shown.</p>
 
-<h4 id="request-23">Request</h4>
+<h4 id="request-21">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -8319,7 +7660,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-23">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -8332,7 +7673,7 @@ HTTP Status 200
 
 <p>To change the range of an existing recurrence, just make a PUT as per the example.</p>
 
-<h4 id="request-24">Request</h4>
+<h4 id="request-22">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -8403,7 +7744,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-24">Response</h4>
+<h4 id="response-22">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -8418,7 +7759,7 @@ HTTP Status 200
 
 <aside class="notice">Rule: If the new day entered is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is May 5, and the next recurrence is May 25. When I upgrade to the 10, the next recurrence date will be May 10. If the new day entered is before the current day, we will update the recurrence day, but this will take effect only after the next recurrence has been successfully executed. E.g.: Today is 5th, and the next recurrence is May 25. When I upgrade to day 3, the date of the next recurrence will remain on May 25, and after it runs, the next will be scheduled for June 3. If the new day entered is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is 5th, and the next recurrence is September 25. When I upgrade to day 3, the next recurrence date will be September 3</aside>
 
-<h4 id="request-25">Request</h4>
+<h4 id="request-23">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -8489,7 +7830,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-25">Response</h4>
+<h4 id="response-23">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -8502,7 +7843,7 @@ HTTP Status 200
 
 <p>To modify the transaction value of an existing recurrence, simply make a PUT as per the example.</p>
 
-<h4 id="request-26">Request</h4>
+<h4 id="request-24">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -8575,7 +7916,7 @@ curl
 
 <aside class="warning">This change only affects the payment date of the next recurrence.</aside>
 
-<h4 id="response-26">Response</h4>
+<h4 id="response-24">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -8590,7 +7931,7 @@ HTTP Status 200
 
 <p>This operation only modifies the date of the next payment, i.e. future recurrences will remain with the original characteristics.</p>
 
-<h4 id="request-27">Request</h4>
+<h4 id="request-25">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -8661,7 +8002,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-27">Response</h4>
+<h4 id="response-25">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -8684,7 +8025,7 @@ HTTP Status 200
 
 <aside class="notice">Attention: This change affects all Payment node data. So to keep the previous data you must enter the fields that will not change with the same values that were already saved.</aside>
 
-<h4 id="request-28">Request</h4>
+<h4 id="request-26">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -8955,7 +8296,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-28">Response</h4>
+<h4 id="response-26">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -8968,7 +8309,7 @@ curl
 
 <p>To deactivate a recurring request, simply make a PUT as per the example.</p>
 
-<h4 id="request-29">Request</h4>
+<h4 id="request-27">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -9024,7 +8365,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-29">Response</h4>
+<h4 id="response-27">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9037,7 +8378,7 @@ curl
 
 <p>To reactivate a recurring request, simply make a PUT as per the example.</p>
 
-<h4 id="request-30">Request</h4>
+<h4 id="request-28">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -9093,7 +8434,7 @@ curl
   </tbody>
 </table>
 
-<h4 id="response-30">Response</h4>
+<h4 id="response-28">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -9112,7 +8453,7 @@ HTTP Status 200
 
 <p>Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank</p>
 
-<h3 id="response-31">Response</h3>
+<h3 id="response-29">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -9256,7 +8597,7 @@ HTTP Status 200
 
 <h2 id="saving-a-card-during-an-authorization">Saving a card during an authorization</h2>
 
-<h4 id="request-31">Request</h4>
+<h4 id="request-29">Request</h4>
 
 <p>To save a credit card used in a transaction, simply send the <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> parameter as <em>true</em> in the standard authorization request.</p>
 
@@ -9423,7 +8764,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="response-32">Response</h5>
+<h5 id="response-30">Response</h5>
 
 <p>The <code class="language-plaintext highlighter-rouge">CreditCard.CardToken</code> parameter will return the token to be saved for future transactions with the same card.</p>
 
@@ -9612,7 +8953,7 @@ curl
 
 <p>This is an example of how to use the previously saved Card Token to create a transaction. For security reasons, a Card Token has not kept the Security Code (CVV). Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.</p>
 
-<h4 id="request-32">Request</h4>
+<h4 id="request-30">Request</h4>
 
 <p>The <code class="language-plaintext highlighter-rouge">CreditCard</code> node within the <code class="language-plaintext highlighter-rouge">Payment</code> node will change as shown below.</p>
 
@@ -9743,7 +9084,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="response-33">Response</h5>
+<h5 id="response-31">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -9920,7 +9261,7 @@ curl
 
 <p>This is an example of how to use the previously saved Alias to create a transaction. For security reasons, an Alias has not kept the Security Code. Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.</p>
 
-<h4 id="request-33">Request</h4>
+<h4 id="request-31">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -10056,7 +9397,7 @@ curl
   </tbody>
 </table>
 
-<h5 id="response-34">Response</h5>
+<h5 id="response-32">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -10294,7 +9635,7 @@ curl
 
 <p>For CyberSource fraud analysis to be performed during a credit card transaction, you must supplement the authorization agreement with the “FraudAnalysis”, “Cart”, “MerchantDefinedFields” and “Travel (only for airline tickets)” nodes.</p>
 
-<h4 id="request-34">Request</h4>
+<h4 id="request-32">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -11310,7 +10651,7 @@ curl
   <p>The fields of the <code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel</code> node become mandatory if your business segment is an airline company.</p>
 </blockquote>
 
-<h5 id="response-35">Response</h5>
+<h5 id="response-33">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -12421,7 +11762,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a credit card transaction, you must do a GET to the Payment feature as shown.</p>
 
-<h4 id="request-35">Request</h4>
+<h4 id="request-33">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -12477,7 +11818,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   </tbody>
 </table>
 
-<h5 id="response-36">Response</h5>
+<h5 id="response-34">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -13313,7 +12654,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a credit card transaction, you must do a GET to the Payment feature as shown.</p>
 
-<h4 id="request-36">Request</h4>
+<h4 id="request-34">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -13369,7 +12710,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   </tbody>
 </table>
 
-<h5 id="response-37">Response</h5>
+<h5 id="response-35">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -13853,7 +13194,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a sale by store identifier, you must GET the resource/sales as shown.</p>
 
-<h4 id="request-37">Request</h4>
+<h4 id="request-35">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId = {merchantOrderId}</span></aside>
 
@@ -13909,7 +13250,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   </tbody>
 </table>
 
-<h5 id="response-38">Response</h5>
+<h5 id="response-36">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -13969,7 +13310,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a Recurrence request, you need to get a GET as per the example.</p>
 
-<h4 id="request-38">Request</h4>
+<h4 id="request-36">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -14025,7 +13366,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   </tbody>
 </table>
 
-<h5 id="response-39">Response</h5>
+<h5 id="response-37">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
