@@ -1945,7 +1945,7 @@ curl
       <td>Campo identificador do pedido.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
@@ -2737,14 +2737,14 @@ curl
       <td>Campo identificador do pedido.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
       <td>Valor, em centavos, a ser cancelado/estornado. Obs.: Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.</td>
       <td>Número</td>
       <td>15</td>
-      <td>Não</td>
+      <td>Não (envio no <em>endpoint</em>)</td>
     </tr>
   </tbody>
 </table>
@@ -7727,7 +7727,7 @@ curl
       <td>Número de identificação da recorrência.</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
@@ -7951,7 +7951,7 @@ curl
       <td>Número de identificação da recorrência.</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">EndDate</code></td>
@@ -7981,7 +7981,7 @@ HTTP Status 200
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="mi">6</span><span class="w">
+</span><span class="s2">"SemiAnnual"</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -7993,7 +7993,7 @@ curl
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
-6
+<span class="s2">"SemiAnnual"</span>
 <span class="nt">--verbose</span>
 
 </code></pre></div></div>
@@ -8035,7 +8035,7 @@ curl
       <td>Número de identificação da recorrência.</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
@@ -8125,7 +8125,7 @@ curl
       <td>Número de identificação da recorrência.</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrencyDay</code></td>
@@ -8211,7 +8211,7 @@ curl
       <td>Número de identificação da recorrência.</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
@@ -8297,7 +8297,7 @@ curl
       <td>Número de identificação da recorrência.</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NextPaymentDate</code></td>
@@ -8433,7 +8433,7 @@ curl
       <td>Número de identificação da recorrência.</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
@@ -8607,7 +8607,7 @@ curl
       <td>Número de identificação da recorrência.</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
   </tbody>
 </table>
@@ -8676,7 +8676,7 @@ curl
       <td>Número de identificação da recorrência.</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
   </tbody>
 </table>
@@ -12062,7 +12062,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
       <td>Número de identificação do pagamento.</td>
       <td>Texto</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
   </tbody>
 </table>
@@ -12831,7 +12831,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
       <td>Número de identificação do pagamento.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
   </tbody>
 </table>
@@ -13363,7 +13363,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
       <td>Campo identificador do pedido na loja.</td>
       <td>Texto</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
   </tbody>
 </table>
@@ -13479,7 +13479,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
       <td>Campo identificador da recorrência.</td>
       <td>Texto</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
     </tr>
   </tbody>
 </table>
@@ -13697,15 +13697,11 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <h1 id="post-de-notificação">Post de Notificação</h1>
 
-<p>Para receber a notificação de alteração de status, deve-se ter configurado o campo “URL Status Pagamento” durante o cadastro de sua loja na Braspag. Assim, você irá receber os parâmetros conforme demonstrado no exemplo:</p>
-
-<blockquote>
-  <p>Resposta esperada da loja: <code class="language-plaintext highlighter-rouge">HTTP Status Code 200 OK</code></p>
-</blockquote>
-
-<p>Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio do Post de Notificação.</p>
+<p>Caso tenha configurado o campo “URL Status Pagamento” durante o cadastro de sua loja na Braspag, você irá receber notificações de alteração de status da transação. Os parâmetros serão enviados à URL cadastrada conforme demonstrado no exemplo abaixo.</p>
 
 <aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
+
+<h2 id="notificação-enviada">Notificação Enviada</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
@@ -13727,7 +13723,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Identificador que representa o pedido recorrente (aplicável somente para <code class="language-plaintext highlighter-rouge">ChangeType</code> igual a 2 ou 4).</td>
+      <td>Identificador que representa o pedido recorrente (aplicável somente para <code class="language-plaintext highlighter-rouge">ChangeType</code> “2” ou “4”).</td>
       <td>GUID</td>
       <td>36</td>
       <td>Não</td>
@@ -13758,39 +13754,45 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
   </thead>
   <tbody>
     <tr>
-      <td>1</td>
+      <td>“1”</td>
       <td>Mudança de status do pagamento.</td>
     </tr>
     <tr>
-      <td>2</td>
+      <td>“2”</td>
       <td>Recorrência criada.</td>
     </tr>
     <tr>
-      <td>3</td>
+      <td>“3”</td>
       <td>Mudança de status do <em>AntiFraude</em>.</td>
     </tr>
     <tr>
-      <td>4</td>
+      <td>“4”</td>
       <td>Mudança de status do pagamento recorrente (Ex.: desativação automática).</td>
     </tr>
     <tr>
-      <td>5</td>
+      <td>“5”</td>
       <td>Estorno negado (aplicável para <strong>Rede</strong>).</td>
     </tr>
     <tr>
-      <td>6</td>
+      <td>“6”</td>
       <td>Boleto registrado pago a menor.</td>
     </tr>
     <tr>
-      <td>7</td>
+      <td>“7”</td>
       <td>Notificação de chargeback. <br /> Para mais detalhes, consulte o manual de <a href="https://braspag.github.io//manual/risknotification">Risk Notification</a>.</td>
     </tr>
     <tr>
-      <td>8</td>
+      <td>“8”</td>
       <td>Alerta de fraude.</td>
     </tr>
   </tbody>
 </table>
+
+<h2 id="resposta-esperada">Resposta Esperada</h2>
+
+<p>É esperado o retorno da loja com a seguinte resposta: <code class="language-plaintext highlighter-rouge">HTTP Status Code 200 OK</code>.</p>
+
+<p>Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio do Post de Notificação.</p>
 
 <h1 id="anexos">ANEXOS</h1>
 
