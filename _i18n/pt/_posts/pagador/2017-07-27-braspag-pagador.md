@@ -933,7 +933,7 @@ curl
 |`MerchantId`|Identificador da loja na API. | GUID | 36 | Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API. | Texto | 40 | Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`PaymentId`|Campo identificador do pedido. | GUID | 36 | Sim|
+|`PaymentId`|Campo identificador do pedido. | GUID | 36 | Sim (envio no *endpoint*)|
 |`Amount`|Valor a ser capturado, em centavos. Verificar se a adquirente utilizada suporta uma captura parcial. | Número | 15 | Não|
 |`ServiceTaxAmount`|Aplicável para companhias aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização. | Número | 15 | Não|
 
@@ -1450,8 +1450,8 @@ curl
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não (envio no *header*)|
-|`PaymentId`|Campo identificador do pedido.|GUID |36 |Sim|
-|`Amount`|Valor, em centavos, a ser cancelado/estornado. Obs.: Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.|Número |15 |Não|
+|`PaymentId`|Campo identificador do pedido.|GUID |36 |Sim (envio no *endpoint*)|
+|`Amount`|Valor, em centavos, a ser cancelado/estornado. Obs.: Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.|Número |15 |Não (envio no *endpoint*)|
 
 #### Resposta
 
@@ -4275,7 +4275,7 @@ curl
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
 |`Customer.Name`|Nome do comprador. |Texto |255|Sim|
 |`Customer.Email`|Email do comprador. |Texto |255|Não|
 |`Customer.Birthdate`|Data de nascimento do comprador. |Date |10 |Não|
@@ -4341,7 +4341,7 @@ curl
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
 |`EndDate`|Data para término da recorrência.|Texto |10 |Sim|
 
 #### Resposta
@@ -4364,7 +4364,7 @@ Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT c
 
 ```json
 
-6
+"SemiAnnual"
 
 ```
 
@@ -4377,7 +4377,7 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-6
+"SemiAnnual"
 --verbose
 
 ```
@@ -4387,7 +4387,7 @@ curl
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
 |`Interval`|Intervalo da recorrência. <br>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual.|Texto |10 |Sim|
 
 #### Resposta
@@ -4439,7 +4439,7 @@ curl
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
 |`RecurrencyDay`|Dia da recorrência.|Número |2 |Sim|
 
 #### Resposta
@@ -4487,7 +4487,7 @@ curl
 |`MerchantId`|Identificador da loja na API.|GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência.|Texto |50 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência.|Texto |50 |Sim (envio no *endpoint*)|
 |`Payment.Amount`|Valor do pedido, em centavos. Ex.: 156 equivale a R$ 1,56.|Número|15|Sim|
 
 #### Resposta
@@ -4535,7 +4535,7 @@ curl
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
 |`NextPaymentDate`|Data de pagamento da próxima recorrência.|Texto |10 |Sim|
 
 #### Resposta
@@ -4631,7 +4631,7 @@ curl
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
 |`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. |Texto |100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
@@ -4682,7 +4682,7 @@ curl
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
 
 #### Resposta
 
@@ -4718,7 +4718,7 @@ curl
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
 
 #### Resposta
 
@@ -6494,7 +6494,7 @@ curl
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`PaymentId`|Número de identificação do pagamento. |Texto |36 |Sim|
+|`PaymentId`|Número de identificação do pagamento. |Texto |36 |Sim (envio no *endpoint*)|
 
 #### Resposta
 
@@ -6800,7 +6800,7 @@ curl
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`PaymentId`|Número de identificação do pagamento. |GUID |36 |Sim|
+|`PaymentId`|Número de identificação do pagamento. |GUID |36 |Sim (envio no *endpoint*)|
 
 #### Resposta
 
@@ -7007,7 +7007,7 @@ curls
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`MerchantOrderId`|Campo identificador do pedido na loja. |Texto |36 |Sim|
+|`MerchantOrderId`|Campo identificador do pedido na loja. |Texto |36 |Sim (envio no *endpoint*)|
 
 ### Resposta
 
@@ -7074,7 +7074,7 @@ curl
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Campo identificador da recorrência. |Texto |36 |Sim|
+|`RecurrentPaymentId`|Campo identificador da recorrência. |Texto |36 |Sim (envio no *endpoint*)|
 
 ### Resposta
 
@@ -7196,13 +7196,11 @@ curl
 
 # Post de Notificação
 
-Para receber a notificação de alteração de status, deve-se ter configurado o campo "URL Status Pagamento" durante o cadastro de sua loja na Braspag. Assim, você irá receber os parâmetros conforme demonstrado no exemplo:
-
-> Resposta esperada da loja: `HTTP Status Code 200 OK`
-
-Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio do Post de Notificação.
+Caso tenha configurado o campo "URL Status Pagamento" durante o cadastro de sua loja na Braspag, você irá receber notificações de alteração de status da transação. Os parâmetros serão enviados à URL cadastrada conforme demonstrado no exemplo abaixo. 
 
 <aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
+
+## Notificação Enviada
 
 ```json
 {
@@ -7214,20 +7212,26 @@ Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`RecurrentPaymentId`|Identificador que representa o pedido recorrente (aplicável somente para `ChangeType` igual a 2 ou 4).|GUID|36|Não|
+|`RecurrentPaymentId`|Identificador que representa o pedido recorrente (aplicável somente para `ChangeType` "2" ou "4").|GUID|36|Não|
 |`PaymentId`|Identificador que representa a transação.|GUID|36|Sim|
 |`ChangeType`|Especifica o tipo de notificação. Obs.: Consulte a tabela abaixo. | Número | 1 |Sim|
 
 |ChangeType|Descrição|
 |----------|---------|
-|1|Mudança de status do pagamento.|
-|2|Recorrência criada.|
-|3|Mudança de status do *AntiFraude*.|
-|4|Mudança de status do pagamento recorrente (Ex.: desativação automática).|
-|5|Estorno negado (aplicável para **Rede**).|
-|6|Boleto registrado pago a menor.|
-|7|Notificação de chargeback. <br/> Para mais detalhes, consulte o manual de [Risk Notification](https://braspag.github.io//manual/risknotification).|
-|8|Alerta de fraude.|
+|"1"|Mudança de status do pagamento.|
+|"2"|Recorrência criada.|
+|"3"|Mudança de status do *AntiFraude*.|
+|"4"|Mudança de status do pagamento recorrente (Ex.: desativação automática).|
+|"5"|Estorno negado (aplicável para **Rede**).|
+|"6"|Boleto registrado pago a menor.|
+|"7"|Notificação de chargeback. <br/> Para mais detalhes, consulte o manual de [Risk Notification](https://braspag.github.io//manual/risknotification).|
+|"8"|Alerta de fraude.|
+
+## Resposta Esperada
+
+É esperado o retorno da loja com a seguinte resposta: `HTTP Status Code 200 OK`.
+
+Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio do Post de Notificação.
 
 # ANEXOS
 
