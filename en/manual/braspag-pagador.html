@@ -57,8 +57,6 @@
                     
                     <li><a data-language-name='shell'>cURL</a></li>
                     
-                    <li><a data-language-name='html'>HTML</a></li>
-                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -495,11 +493,11 @@ curl
          <span class="o">}</span>
       <span class="o">}</span>,
       <span class="s2">"Credentials"</span>:<span class="o">{</span>
-         <span class="s2">"code"</span>:<span class="s2">"9999999"</span>,
-         <span class="s2">"key"</span>:<span class="s2">"D8888888"</span>,
-         <span class="s2">"password"</span>:<span class="s2">"LOJA9999999"</span>,
-         <span class="s2">"username"</span>:<span class="s2">"#Braspag2018@NOMEDALOJA#"</span>,
-         <span class="s2">"signature"</span>:<span class="s2">"001"</span>
+         <span class="s2">"Code"</span>:<span class="s2">"9999999"</span>,
+         <span class="s2">"Key"</span>:<span class="s2">"D8888888"</span>,
+         <span class="s2">"Password"</span>:<span class="s2">"LOJA9999999"</span>,
+         <span class="s2">"Username"</span>:<span class="s2">"#Braspag2018@NOMEDALOJA#"</span>,
+         <span class="s2">"Signature"</span>:<span class="s2">"001"</span>
       <span class="o">}</span>,
       <span class="s2">"ExtraDataCollection"</span>:[
          <span class="o">{</span>
@@ -1033,10 +1031,10 @@ curl
          </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"Credentials"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"D8888888"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"password"</span><span class="p">:</span><span class="s2">"LOJA9999999"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"username"</span><span class="p">:</span><span class="s2">"#Braspag2018@NOMEDALOJA#"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Code"</span><span class="p">:</span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Key"</span><span class="p">:</span><span class="s2">"D8888888"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Password"</span><span class="p">:</span><span class="s2">"LOJA9999999"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Username"</span><span class="p">:</span><span class="s2">"#Braspag2018@NOMEDALOJA#"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20170510053219433"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0510053219433"</span><span class="p">,</span><span class="w">
@@ -16454,8 +16452,6 @@ If you do not have the data to send, please kindly do not send the corresponding
         
         langs += "<a data-language-name='shell'>cURL</a>";
         
-        langs += "<a data-language-name='html'>HTML</a>";
-        
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
         </script>
@@ -16463,7 +16459,7 @@ If you do not have the data to send, please kindly do not send the corresponding
         <script src="https://braspag.github.io//en/assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "json",  "shell",  "html", ]);
+                setupLanguages([  "json",  "shell", ]);
             });
         </script>
         

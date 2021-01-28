@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-01-28T13:19:47+00:00</updated>
+    <updated>2021-01-28T20:10:55+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13618,11 +13618,11 @@ curl
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
       &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
       &lt;span class=&quot;s2&quot;&gt;&quot;Credentials&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-         &lt;span class=&quot;s2&quot;&gt;&quot;code&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;9999999&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;key&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;D8888888&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;password&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;LOJA9999999&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;username&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;#Braspag2018@NOMEDALOJA#&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;signature&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;001&quot;&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;Code&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;9999999&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Key&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;D8888888&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Password&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;LOJA9999999&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Username&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;#Braspag2018@NOMEDALOJA#&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Signature&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;001&quot;&lt;/span&gt;
       &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
       &lt;span class=&quot;s2&quot;&gt;&quot;ExtraDataCollection&quot;&lt;/span&gt;:[
          &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -14156,10 +14156,10 @@ curl
          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Credentials&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;9999999&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;key&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;D8888888&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;LOJA9999999&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#Braspag2018@NOMEDALOJA#&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;9999999&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Key&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;D8888888&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;LOJA9999999&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Username&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#Braspag2018@NOMEDALOJA#&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;20170510053219433&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;AcquirerTransactionId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0510053219433&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
