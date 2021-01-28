@@ -47,7 +47,12 @@ O modelo empregado na integração das APIs é simples e se baseia na utilizaç�
 * URL transacional - específica para operações como autorização, captura e cancelamento de transações;
 * URL de consulta - para operações consultivas, como uma pesquisa de transações.
 
-<br/>Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada (ex.: https://api.braspag.com.br/*v2/sales/*) e, então, envie a requisição para a URL utilizando o método HTTP adequado à operação.
+<br/>Para executar uma operação:
+1. Combine a base da URL do ambiente com o endpoint da operação desejada.
+*Exemplo:* https://api.braspag.com.br/*v2/sales/*
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+2. Envie a requisição para a URL utilizando o método HTTP adequado à operação.
 
 |Método HTTP|Descrição|
 |---|---|
@@ -368,7 +373,7 @@ curl
 ```json
 
 {
-"MerchantOrderId": "2017051002",
+    "MerchantOrderId": "2017051002",
     "Customer": {
         "Name": "Nome do Comprador",
         "Identity": "12345678909",
@@ -592,7 +597,34 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 ```json
 
 {  
-   [...]
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
      "Payment": {
         "Provider":"Simulado",
@@ -625,7 +657,34 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-   [...]
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
      "Payment": {
         "Provider": "Simulado",
@@ -670,14 +729,40 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 ```json
 
 {
- [...]
-  "Payment": {
-    "DebitCard": {
-      "CardNumber": "455187******0181",
-      "Holder": "Nome do Portador",
-      "ExpirationDate": "12/2021",
-      "SaveCard": false,
-      "Brand": "Visa"
+    "MerchantOrderId": "2017051002",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+    },
+    "Payment": {
+      "DebitCard": {
+        "CardNumber": "455187******0181",
+        "Holder": "Nome do Portador",
+        "ExpirationDate": "12/2021",
+        "SaveCard": false,
+        "Brand": "Visa"
     },
     "AuthenticationUrl": "https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f",
     "AcquirerTransactionId": "10069930690009D366FA",
