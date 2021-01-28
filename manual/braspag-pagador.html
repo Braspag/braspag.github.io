@@ -178,7 +178,16 @@
   <li>URL de consulta - para operações consultivas, como uma pesquisa de transações.</li>
 </ul>
 
-<p><br />Para executar uma operação, combine a base da URL do ambiente com o endpoint da operação desejada (ex.: https://api.braspag.com.br/<em>v2/sales/</em>) e, então, envie a requisição para a URL utilizando o método HTTP adequado à operação.</p>
+<p><br />Para executar uma operação:</p>
+
+<ol>
+  <li>
+    <p>Combine a <strong>base</strong> da URL do ambiente com o <strong><em>endpoint</em></strong> da operação desejada.Ex.: https://api.braspag.com.br/<strong><em>v2/sales/</em></strong></p>
+  </li>
+  <li>
+    <p>Envie a requisição para a URL utilizando o método HTTP adequado à operação.</p>
+  </li>
+</ol>
 
 <table>
   <thead>
@@ -986,7 +995,7 @@ curl
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
-</span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
@@ -1297,8 +1306,35 @@ curl
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">  
-   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-   </span><span class="p">}</span><span class="err">,</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"comprador@braspag.com.br"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IpAddress"</span><span class="p">:</span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"DeliveryAddress"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
      </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
@@ -1329,7 +1365,34 @@ curl
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>  
-   <span class="o">[</span>...]
+   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2017051001"</span>,
+   <span class="s2">"Customer"</span>:<span class="o">{</span>  
+      <span class="s2">"Name"</span>:<span class="s2">"Nome do Comprador"</span>,
+      <span class="s2">"Identity"</span>:<span class="s2">"12345678909"</span>,
+      <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>,
+      <span class="s2">"Email"</span>:<span class="s2">"comprador@braspag.com.br"</span>,
+      <span class="s2">"Birthdate"</span>:<span class="s2">"1991-01-02"</span>,
+      <span class="s2">"IpAddress"</span>:<span class="s2">"127.0.0.1"</span>,
+      <span class="s2">"Address"</span>:<span class="o">{</span>  
+         <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
+         <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
+         <span class="s2">"Complement"</span>:<span class="s2">"27 andar"</span>,
+         <span class="s2">"ZipCode"</span>:<span class="s2">"12345987"</span>,
+         <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
+         <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
+         <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+         <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
+      <span class="o">}</span>,
+      <span class="s2">"DeliveryAddress"</span>:<span class="o">{</span>  
+         <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
+         <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
+         <span class="s2">"Complement"</span>:<span class="s2">"27 andar"</span>,
+         <span class="s2">"ZipCode"</span>:<span class="s2">"12345987"</span>,
+         <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
+         <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
+         <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+         <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
+      <span class="o">}</span>
    <span class="o">}</span>,
      <span class="s2">"Payment"</span>: <span class="o">{</span>
         <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
@@ -1444,14 +1507,40 @@ curl
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
- </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"DebitCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador@braspag.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"DebitCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"AuthenticationUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10069930690009D366FA"</span><span class="p">,</span><span class="w">
