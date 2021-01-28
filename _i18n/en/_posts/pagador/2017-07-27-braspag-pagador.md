@@ -11,7 +11,7 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
-  html: HTML
+
 ---
 
 # Introduction to the Pagador API
@@ -275,11 +275,11 @@ curl
          }
       },
       "Credentials":{
-         "code":"9999999",
-         "key":"D8888888",
-         "password":"LOJA9999999",
-         "username":"#Braspag2018@NOMEDALOJA#",
-         "signature":"001"
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
       },
       "ExtraDataCollection":[
          {
@@ -413,10 +413,10 @@ curl
          }
         },
         "Credentials":{
-            "code":"9999999",
-            "key":"D8888888",
-            "password":"LOJA9999999",
-            "username":"#Braspag2018@NOMEDALOJA#",
+            "Code":"9999999",
+            "Key":"D8888888",
+            "Password":"LOJA9999999",
+            "Username":"#Braspag2018@NOMEDALOJA#"
         },
         "ProofOfSale": "20170510053219433",
         "AcquirerTransactionId": "0510053219433",
