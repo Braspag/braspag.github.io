@@ -11,7 +11,6 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
-
 ---
 
 # Introduction to the Pagador API
