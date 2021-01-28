@@ -48,9 +48,9 @@ O modelo empregado na integração das APIs é simples e se baseia na utilizaç�
 * URL de consulta - para operações consultivas, como uma pesquisa de transações.
 
 <br/>Para executar uma operação:
+
 1. Combine a base da URL do ambiente com o endpoint da operação desejada.
-*Exemplo:* https://api.braspag.com.br/*v2/sales/*
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+<br>Ex.:* https://api.braspag.com.br/*v2/sales/*
 
 2. Envie a requisição para a URL utilizando o método HTTP adequado à operação.
 
