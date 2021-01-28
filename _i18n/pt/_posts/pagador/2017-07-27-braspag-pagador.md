@@ -50,10 +50,10 @@ O modelo empregado na integração das APIs é simples e se baseia na utilizaç�
 <br/>Para executar uma operação:
 
 1. Combine a **base** da URL do ambiente com o **_endpoint_** da operação desejada.
-<br/>Ex.: https://api.braspag.com.br/**_v2/sales/_**
+<br/>Ex.: https://api.braspag.com.br/**_v2/sales/_**.
 
 2. Envie a requisição para a URL utilizando o método HTTP adequado à operação.
-
+<br/>
 |Método HTTP|Descrição|
 |---|---|
 |**GET**|Retorna recursos já existentes, ex.: consulta de transações.|
