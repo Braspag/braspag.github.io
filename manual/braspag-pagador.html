@@ -183,35 +183,18 @@
 <ol>
   <li>
     <p>Combine a <strong>base</strong> da URL do ambiente com o <strong><em>endpoint</em></strong> da operação desejada.
-<br />Ex.: https://api.braspag.com.br/<strong><em>v2/sales/</em></strong></p>
+<br />Ex.: https://api.braspag.com.br/<strong><em>v2/sales/</em></strong>.</p>
   </li>
   <li>
-    <p>Envie a requisição para a URL utilizando o método HTTP adequado à operação.</p>
+    <p>Envie a requisição para a URL utilizando o método HTTP adequado à operação.
+<br />
+|Método HTTP|Descrição|
+|—|—|
+|<strong>GET</strong>|Retorna recursos já existentes, ex.: consulta de transações.|
+|<strong>POST</strong>|Cria um novo recurso, ex.: criação de uma transação.|
+|<strong>PUT</strong>|Atualiza um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|</p>
   </li>
 </ol>
-
-<table>
-  <thead>
-    <tr>
-      <th>Método HTTP</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>GET</strong></td>
-      <td>Retorna recursos já existentes, ex.: consulta de transações.</td>
-    </tr>
-    <tr>
-      <td><strong>POST</strong></td>
-      <td>Cria um novo recurso, ex.: criação de uma transação.</td>
-    </tr>
-    <tr>
-      <td><strong>PUT</strong></td>
-      <td>Atualiza um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.</td>
-    </tr>
-  </tbody>
-</table>
 
 <p>Todas a operações requerem as credenciais de acesso <strong>“Merchant ID”</strong> e <strong>“Merchant Key”</strong>, que devem ser enviadas no cabeçalho (<em>header</em>) da requisição.<br />Cada envio de requisição irá retornar um código de <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">Status HTTP</a>, indicando se ela foi realizada com sucesso ou não.</p>
 
