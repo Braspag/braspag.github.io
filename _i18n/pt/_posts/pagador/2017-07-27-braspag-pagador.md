@@ -3584,7 +3584,6 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {  
    "MerchantOrderId":"2017051001",
    "Customer":{  
