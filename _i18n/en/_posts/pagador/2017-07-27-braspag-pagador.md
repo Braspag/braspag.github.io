@@ -211,8 +211,6 @@ Here are request and answer examples of how to create a credit transaction:
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -290,7 +288,6 @@ curl
    }
 }
 --verbose
-
 ```
 
 |Property|Description|Type|Size|Mandatory|
@@ -585,66 +582,116 @@ A debit card transaction creation is similar to that of a credit card, except fo
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
-{
-   [...]
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment":{
-        "Provider":"Simulado",
-        "Type": "DebitCard",
-        "Amount":10000,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate": true,
-        "Recurrent":false,
-        "SoftDescriptor":"Message",
-        "DebitCard":{
-         "CardNumber":"455187******0181",
-         "Holder": "Cardholder Name",
+   "Payment": {
+      "Provider":"Simulado",
+      "Type":"DebitCard",
+      "Amount": 10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments": 1,
+      "Interest":"ByMerchant",
+      "Capture": true,
+      "Authenticate": true,
+      "Recurrent": false,
+      "SoftDescriptor":"Mensagem",
+      "DebitCard":{
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa"
-        },
-        [...]
-    }
+      },
+      [...]
+   }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-   [...]
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment":{
-        "Provider":"Simulado",
-        "Type": "DebitCard",
-        "Amount":10000,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate": true,
-        "Recurrent":false,
-        "SoftDescriptor":"Message",
-        "DebitCard":{
-         "CardNumber":"455187******0181",
-         "Holder": "Cardholder Name",
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "DebitCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": true,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "DebitCard":{
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa"
-        },
-        [...]
-    }
+      },
+      [...]
+   }
 }
-
 ```
 
 |Property|Description|Type|Size|Mandatory|
@@ -695,7 +742,6 @@ A debit card transaction creation is similar to that of a credit card, except fo
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -726,7 +772,6 @@ A debit card transaction creation is similar to that of a credit card, except fo
     [...]
   }
 }
-
 ```
 
 |Property|Description|Type|Size|Format|
@@ -752,60 +797,113 @@ It is possible to process a debit card without having to submit your customer to
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {  
-   [...]
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment": {
-        "Provider": "Cielo30",
-        "Type": "DebitCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Installments": 1,
-        "Capture": true,
-        "Authenticate": false,
-        "DebitCard":{
-         "CardNumber":"5067220000000001",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "Brand":"Elo"
+      "Payment": {
+         "Provider": "Cielo30",
+         "Type": "DebitCard",
+         "Amount": 10000,
+         "Currency": "BRL",
+         "Country": "BRA",
+         "Installments": 1,
+         "Capture": true,
+         "Authenticate": false,
+         "DebitCard":{
+            "CardNumber":"5067220000000001",
+            "Holder":"Nome do Portador",
+            "ExpirationDate":"12/2021",
+            "SecurityCode":"123",
+            "Brand":"Elo"
         },
         [...]
     }
 }
-
 ```
 
 ```shell
-
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-   [...]
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment": {
-        "Provider": "Cielo30",
-        "Type": "DebitCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Installments": 1,
-        "Capture": true,
-        "Authenticate": false,
-        "DebitCard":{
+   "Payment": {
+      "Provider": "Cielo30",
+      "Type": "DebitCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Capture": true,
+      "Authenticate": false,
+      "DebitCard":{
          "CardNumber":"5067220000000001",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Elo"
-        },
-        [...]
-    }
+      },
+      [...]
+   }
 }
-
 ```
 
 |Property|Description|Type|Size|Mandatory|
@@ -823,7 +921,6 @@ It is possible to process a debit card without having to submit your customer to
 #### Response
 
 ```json
-
 {
  [...]
   "Payment": {
@@ -850,11 +947,9 @@ It is possible to process a debit card without having to submit your customer to
     [...]
   }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -884,7 +979,6 @@ It is possible to process a debit card without having to submit your customer to
     [...]
   }
 }
-
 ```
 
 |Property|Description|Type|Size|Format|
@@ -911,15 +1005,12 @@ An authorization that is not captured by the deadline is automatically released 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
 ```shell
-
-curl
 --request PUT "https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/capture?amount=xxx&serviceTaxAmount=xxx"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --verbose
-
 ```
 
 |Property|Description|Type|Size|Required|
@@ -934,7 +1025,6 @@ curl
 #### Response
 
 ```json
-
 {
     "Status": 2,
     "ReasonCode": 0,
@@ -954,11 +1044,9 @@ curl
         }
     ]
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1014,75 +1102,124 @@ In a standard authentication, as the merchant does not have a direct connection 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
-{
-   [...]
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment":{
-        "Provider":"Simulado",
-        "Type":"CreditCard",
-        "Amount":10000,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate": true,
-        "Recurrent":false,
-        "SoftDescriptor":"Message",
-        "CreditCard":{
-            "CardNumber":"455187******0181",
-            "Holder": "Cardholder Name",
-            "ExpirationDate":"12/2021",
-            "SecurityCode":"123",
-            "Brand":"Visa",
-            "SaveCard":"false",
-            "Alias":""
-        },
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": true,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "CardNumber": "4551870000000181",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2021",
+         "SecurityCode": "123",
+         "Brand": "Visa",
+         "SaveCard": "false",
+         "Alias": ""
+      },
         [...]
-    }
+   }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-   [...]
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment":{
-        "Provider":"Simulado",
-        "Type":"CreditCard",
-        "Amount":10000,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate": true,
-        "Recurrent":false,
-        "SoftDescriptor":"Message",
-        "CreditCard":{
-            "CardNumber":"455187******0181",
-            "Holder": "Cardholder Name",
-            "ExpirationDate":"12/2021",
-            "SecurityCode":"123",
-            "Brand":"Visa",
-            "SaveCard":"false",
-            "Alias":""
-        },
-        [...]
-    }
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": true,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "CardNumber": "4551870000000181",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2021",
+         "SecurityCode": "123",
+         "Brand": "Visa",
+         "SaveCard": "false",
+         "Alias": ""
+      },
+      [...]
+   }
 }
 --verbose
-
 ```
 
 |Property|Description|Type|Size|Mandatory|
@@ -1104,7 +1241,6 @@ curl
 With the default authentication, a transaction will receive the `Payment.AuthenticationUrl` parameter in addition to the default return from the authorization transaction.
 
 ```json
-
 {
    [...]
    },
@@ -1147,11 +1283,9 @@ With the default authentication, a transaction will receive the `Payment.Authent
    [...]
   }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1197,7 +1331,6 @@ With the default authentication, a transaction will receive the `Payment.Authent
    [...]
   }
 }
-
 ```
 
 |Property|Description|Type|Size|Format|
@@ -1225,83 +1358,134 @@ Add the `Payment.ExternalAuthentication` node to the default contract, as shown.
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
-{
-  [...]
- "Payment":{
-        "Provider":"Simulado",
-        "Type":"CreditCard",
-        "Amount":10000,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate": true,
-        "Recurrent":false,
-        "SoftDescriptor":"Message",
-        "CreditCard":{
-            "CardNumber":"455187******0181",
-            "Holder": "Cardholder Name",
-            "ExpirationDate":"12/2021",
-            "SecurityCode":"123",
-            "Brand":"Visa",
-            "SaveCard":"false",
-            "Alias":""
-        },
-        "ExternalAuthentication":{
-        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
-        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
-        "Eci":"5"
-        },
-     [...]
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": true,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "CardNumber": "4551870000000181",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2021",
+         "SecurityCode": "123",
+         "Brand": "Visa",
+         "SaveCard": "false",
+         "Alias": ""
+      },
+      "ExternalAuthentication":{
+      "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+      "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+      "Eci":"5"
+      },
+      [...]
    }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-  [...]
- "Payment":{
-        "Provider":"Simulado",
-        "Type":"CreditCard",
-        "Amount":10000,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate": true,
-        "Recurrent":false,
-        "SoftDescriptor":"Message",
-        "CreditCard":{
-            "CardNumber":"455187******0181",
-            "Holder": "Cardholder Name",
-            "ExpirationDate":"12/2021",
-            "SecurityCode":"123",
-            "Brand":"Visa",
-            "SaveCard":"false",
-            "Alias":""
-        },
-        "ExternalAuthentication":{
-        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
-        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
-        "Eci":"5"
-        },
-     [...]
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": true,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "CardNumber": "4551870000000181",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2021",
+         "SecurityCode": "123",
+         "Brand": "Visa",
+         "SaveCard": "false",
+         "Alias": ""
+      },
+      "ExternalAuthentication":{
+      "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+      "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+      "Eci":"5"
+      },
+      [...]
    }
 }
 --verbose
-
 ```
 
 |Property|Description|Type|Size|Mandatory|
@@ -1315,7 +1499,6 @@ curl
 With the external authentication, a transaction will receive the `Payment.ExternalAuthentication` node in addition to the standard return from the authorization transaction. The node will contain the same information sent in the request.
 
 ```json
-
 {
   [...]
   },
@@ -1359,11 +1542,9 @@ With the external authentication, a transaction will receive the `Payment.Extern
      [...]
   }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1410,7 +1591,6 @@ With the external authentication, a transaction will receive the `Payment.Extern
      [...]
   }
 }
-
 ```
 
 |Property|Type|Size|Description|
@@ -1430,15 +1610,12 @@ To cancel a credit card transaction, you must send an HTTP message through the P
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
 ```shell
-
-curl
 --request PUT "https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/void?amount=xxx"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --verbose
-
 ```
 
 |Property|Description|Type|Size|Required|
@@ -1452,7 +1629,6 @@ curl
 #### Response
 
 ```json
-
 {
     "Status": 10,
     "ReasonCode": 0,
@@ -1467,11 +1643,9 @@ curl
         }
     ]
 }
-
 ```
 
 ```shell
-
 {
     "Status": 10,
     "ReasonCode": 0,
@@ -1486,7 +1660,6 @@ curl
         }
     ]
 }
-
 ```
 
 |Property|Description|Type|Size|Format|
@@ -1520,11 +1693,9 @@ In case of a Velocity rule rejection, *ProviderReasonCode* will be "BP 171 - Rej
     [...]
   }
 }
-
 ```
 
 ```shell
-
 {
     [...]
     "VelocityAnalysis": {
@@ -1539,7 +1710,6 @@ In case of a Velocity rule rejection, *ProviderReasonCode* will be "BP 171 - Rej
     [...]
   }
 }
-
 ```
 
 |Property|Description|Type|Size|Format|
@@ -1572,7 +1742,6 @@ There is no difference between a standard authorization request and a DCC author
 ##### Response
 
 ```json
-
 {
     [...]
     },
@@ -1619,11 +1788,9 @@ There is no difference between a standard authorization request and a DCC author
         },
         [...]
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1673,7 +1840,6 @@ There is no difference between a standard authorization request and a DCC author
         }
         [...]
 }
-
 ```
 
 |Property|Description|Type|Size|Format|
@@ -1711,18 +1877,14 @@ In the third step, the store system sends the transaction confirmation with the 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
 
 ```json
-
 {
   "Id": "1b05456446c116374005602dcbaf8db8879515a0",
   "Currency": "EUR",
   "Amount": 23
 }
-
 ```
 
 ```shell
-
-curl
 --request POST " https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/confirm"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -1735,7 +1897,6 @@ curl
   "Amount": 23
 }
 --verbose
-
 ```
 
 |Property|Description|Type|Size|Mandatory|
@@ -1747,7 +1908,6 @@ curl
 ##### Response
 
 ```json
-
 {
    [...]
    "Payment":{
@@ -1785,11 +1945,9 @@ curl
         [...]
     }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1830,7 +1988,6 @@ curl
         [...]
     }
 }
-
 ```
 
 |Property|Description|Type|Size|Format|
@@ -1856,7 +2013,6 @@ The example below covers the minimum required fields to be submitted for authori
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {
  "MerchantOrderId": "20191123",
  "Customer":{
@@ -1870,11 +2026,9 @@ The example below covers the minimum required fields to be submitted for authori
    "Capture": false
    }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1891,7 +2045,6 @@ The example below covers the minimum required fields to be submitted for authori
    "Capture": false
    }
 }
-
 ```
 
 |Property|Description|Type|Size|Required|
@@ -1907,7 +2060,6 @@ The example below covers the minimum required fields to be submitted for authori
 ### Response
 
 ```json
-
 {
  "MerchantOrderId": "20191023",
  "Customer":{
@@ -1939,11 +2091,9 @@ The example below covers the minimum required fields to be submitted for authori
   ]
  }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1978,7 +2128,6 @@ The example below covers the minimum required fields to be submitted for authori
   ]
  }
 }
-
 ```
 
 |Property|Description|Type|Size|Format|
@@ -2016,7 +2165,6 @@ The `Payment.FineRate` and `Payment.FineAmount` parameters must not be used toge
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {
     "MerchantOrderId":"2017091101",
     "Customer":
@@ -2054,12 +2202,9 @@ The `Payment.FineRate` and `Payment.FineAmount` parameters must not be used toge
      "InterestAmount": 500
     }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -2104,7 +2249,6 @@ curl
     }
 }
 --verbose
-
 ```
 
 |Property|Description|Type|Size|Mandatory|
@@ -2144,7 +2288,6 @@ curl
 #### Response
 
 ```json
-
 {
   "MerchantOrderId": "2017091101",
   "Customer":{
@@ -2195,11 +2338,9 @@ curl
     ]
   }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -2254,7 +2395,6 @@ curl
     ]
   }
 }
-
 ```
 
 |Property|Description|Type|Size|Format|
@@ -2351,7 +2491,6 @@ To create a sale, you must send an HTTP message through the POST method to the *
 ```
 
 ```shell
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -2559,7 +2698,6 @@ Here is an example of a standard request for the e-wallet integration:
     }
   }
 }
-
 ```
 
 |Property|Description|Type|Size|Mandatory|
@@ -2857,7 +2995,6 @@ The Masterpass service must be hired through contacting Mastercard directly and 
      }
    }
 }
-
 ```
 
 |Property|Description|Type|Size|Mandatory|
@@ -2970,7 +3107,6 @@ The Visa Checkout service must be hired through contacting Visa directly.
       }
    }
 }
-
 ```
 
 |Property|Description|Type|Size|Mandatory|
@@ -3061,51 +3197,104 @@ A transaction with a voucher card is similar to a debit card transaction; only w
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
-{
-   [...]
-    "Payment":{
-        "Provider": "Alelo",
-        "Type": "DebitCard",
-        "Amount": 10,
-        "Installments":1,
-        "DebitCard":{
-            "CardNumber": "************4901",
-            "Holder": "TestBraspag",
-            "ExpirationDate": "02/2019",
-            "SecurityCode": "***",
-            "Brand": "Elo"
-        },
-        [...]
-    }
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider": "Alelo",
+      "Type": "DebitCard",
+      "Amount": 10,
+      "Installments": 1,
+      "DebitCard": {
+         "CardNumber": "****4903",
+         "Holder": "TesteBraspag",
+         "ExpirationDate": "02/2019",
+         "SecurityCode": "***",
+         "Brand": "Elo"
+      },
+      [...]
+   }
 }
-
 ```
 
 ```shell
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-   [...]
-    "Payment":{
-        "Provider": "Alelo",
-        "Type": "DebitCard",
-        "Amount": 10,
-        "Installments":1,
-        "DebitCard":{
-            "CardNumber": "************4901",
-            "Holder": "TestBraspag",
-            "ExpirationDate": "02/2019",
-            "SecurityCode": "***",
-            "Brand": "Elo"
-        },
-        [...]
-    }
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider": "Alelo",
+      "Type": "DebitCard",
+      "Amount": 10,
+      "Installments": 1,
+      "DebitCard": {
+         "CardNumber": "****4903",
+         "Holder": "TesteBraspag",
+         "ExpirationDate": "02/2019",
+         "SecurityCode": "***",
+         "Brand": "Elo"
+      },
+      [...]
+   }
 }
 ```
 
@@ -3235,7 +3424,6 @@ The `Payment.RecurrentPayment.Interval` and `Payment.RecurrentPayment.DailyInter
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {
     [...]
     "Payment":{
