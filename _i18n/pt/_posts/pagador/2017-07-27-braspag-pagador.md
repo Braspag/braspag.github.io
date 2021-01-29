@@ -3638,22 +3638,50 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-   [...]
-    "Payment": {
-        "Provider": "Alelo",
-        "Type": "DebitCard",
-        "Amount": 10,
-        "Installments": 1,
-        "DebitCard": {
-            "CardNumber": "****4903",
-            "Holder": "TesteBraspag",
-            "ExpirationDate": "02/2019",
-            "SecurityCode": "***",
-            "Brand": "Elo"
-        },
-        [...]
-    }
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider": "Alelo",
+      "Type": "DebitCard",
+      "Amount": 10,
+      "Installments": 1,
+      "DebitCard": {
+         "CardNumber": "****4903",
+         "Holder": "TesteBraspag",
+         "ExpirationDate": "02/2019",
+         "SecurityCode": "***",
+         "Brand": "Elo"
+      },
+      [...]
+   }
 }
 ```
 
