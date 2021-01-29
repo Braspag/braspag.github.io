@@ -11,6 +11,7 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
+  
 ---
 
 # Introduction to the Pagador API
@@ -294,9 +295,9 @@ curl
 
 |Property|Description|Type|Size|Mandatory|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (header field)|
-|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (header field)|
-|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (header field)|
+|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (through header)|
+|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (through header)|
+|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Customer's name.|Text|255|Yes|
 |`Customer.Identity`|Customer's ID number.|Text|14|No|
@@ -923,10 +924,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Store identifier in the API.|GUID|36|Yes (header field)|
-|`MerchantKey`|Public key for dual authentication in the API.|Text 40|Yes (header field)|
-|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (header field)|
-|`PaymentId`|Order identifier field.|GUID|36|Yes|
+|`MerchantId`|Store identifier in the API.|GUID|36|Yes (through header)|
+|`MerchantKey`|Public key for dual authentication in the API.|Text 40|Yes (through header)|
+|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
+|`PaymentId`|Order identifier field.|GUID|36|Yes (through endpoint)|
 |`Amount`|Amount to be captured, in cents. The support for partial capture must be verified with the acquirer.|Number|15|No|
 |`ServiceTaxAmount`|Applicable to airlines. Amount of the authorization to be allocated to the service charge. Note: This value is not added to the authorization value.|Number|15|No|
 
@@ -1442,11 +1443,11 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Store identifier in the API.|GUID|36|Yes (header field)|
-|`MerchantKey`|Public key for dual authentication in the API.|Text|40|Sim (header field)|
-|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (header field)|
-|`PaymentId`|Order identifier field.|GUID|36|Yes|
-|`Amount`|Amount to be canceled/refunded, in cents. Check if your acquirer supports the canceling or refunding operations.|Number|15|No|
+|`MerchantId`|Store identifier in the API.|GUID|36|Yes (through header)|
+|`MerchantKey`|Public key for dual authentication in the API.|Text|40|Sim (through header)|
+|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
+|`PaymentId`|Order identifier field.|GUID|36|Yes (through endpoint)|
+|`Amount`|Amount to be canceled/refunded, in cents. Check if your acquirer supports the canceling or refunding operations.|Number|15|No (through endpoint)|
 
 #### Response
 
@@ -2108,9 +2109,9 @@ curl
 
 |Property|Description|Type|Size|Mandatory|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (header field)|
-|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (header field)|
-|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (header field)|
+|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (through header)|
+|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (through header)|
+|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
 |`MerchantOrderId`|Order ID number. Rule varies according to the provider used (see table annexed).|Text|see table annexed|Yes|
 |`Customer.Name`|Customer's name. The rule varies according to the provider used (see table annexed).|Text|see table annexed|Yes|
 |`Customer.Identity`|Customer ID like RG, CPF or CNPJ number.|Text|14|No|
@@ -2398,9 +2399,9 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Store identifier in the API.|GUID|36|Yes (header field)|
-|`MerchantKey`|Public key for dual authentication in the API.|Text|40|Sim (header field)|
-|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (header field)|
+|`MerchantId`|Store identifier in the API.|GUID|36|Yes (through header)|
+|`MerchantKey`|Public key for dual authentication in the API.|Text|40|Sim (through header)|
+|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Customer's name.|Text|255|Yes|
 |`Customer.Identity`|Customer's ID, CPF or CNPJ number.|Text|14|Yes|
@@ -2563,9 +2564,9 @@ Here is an example of a standard request for the e-wallet integration:
 
 |Property|Description|Type|Size|Mandatory|
 |----------------------------|--------|---------|-------------|--------------------------------------------------------|
-|`MerchantId`|Store identifier at Braspag. (header field)|GUID|36|Yes|
-|`MerchantKey`|Public key for dual authentication at Braspag. (header field)|Text|40|Yes|
-|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT. (header field)|GUID|36|No|
+|`MerchantId`|Store identifier at Braspag. (through header)|GUID|36|Yes|
+|`MerchantKey`|Public key for dual authentication at Braspag. (through header)|Text|40|Yes|
+|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT. (through header)|GUID|36|No|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Customer's name.|Text|255|Yes|
 |`Customer.Status`|Customer's registration status ("NEW" / "EXISTING").|Text|255|No|
@@ -2736,9 +2737,9 @@ Example of a standard Samsung Pay request:
 
 |Property|Description|Type|Size|Mandatory|
 |----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
-|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (header field)|
-|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (header field)|
-|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (header field)|
+|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (through header)|
+|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (through header)|
+|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Customer's name.|Text|255|Yes|
 |`Customer.Status`|Customer's registration status ("NEW" / "EXISTING").|Text|255|No|
@@ -2861,9 +2862,9 @@ The Masterpass service must be hired through contacting Mastercard directly and 
 
 |Property|Description|Type|Size|Mandatory|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (header field)|
-|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (header field)|
-|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (header field)|
+|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (through header)|
+|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (through header)|
+|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Customer's name.|Text|255|No|
 |`Customer.Status`|Customer's registration status ("NEW" / "EXISTING").|Text|255|No|
@@ -2974,9 +2975,9 @@ The Visa Checkout service must be hired through contacting Visa directly.
 
 |Property|Description|Type|Size|Mandatory|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (header field)|
-|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (header field)|
-|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (header field)|
+|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (through header)|
+|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (through header)|
+|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Customer's name.|Text|255|No|
 |`Customer.Status`|Customer's registration status ("NEW" / "EXISTING").|Text|255|No|
@@ -3908,10 +3909,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes (header field)|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (header field)|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (header field)|
-|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes (through endpoint)|
 |`Customer.Name`|Customer's name.|Text|255|Yes|
 |`Customer.Email`|Customer's email.|Text|255|No|
 |`Customer.Birthdate`|Customer's date of birth.|Date|10|No|
@@ -3974,10 +3975,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes (header field)|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (header field)|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (header field)|
-|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes (through endpoint)|
 |`EndDate`|Date to end recurrence|Text|10|Yes|
 
 #### Response
@@ -4000,7 +4001,7 @@ To change the range of an existing recurrence, just make a PUT as per the exampl
 
 ```json
 
-6
+"SemiAnnual"
 
 ```
 
@@ -4013,17 +4014,17 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-6
+"SemiAnnual"
 --verbose
 
 ```
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes (header field)|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (header field)|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (header field)|
-|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes (through endpoint)|
 |`Interval`|Recurrence Interval. <ul><li>Monthly</li><li>Bimonthly</li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Text|2|Yes|
 
 #### Response
@@ -4068,10 +4069,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes (header field)|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (header field)|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (header field)|
-|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes (through endpoint)|
 |`RecurrencyDay`|Recurrence Day|Number|2|Yes|
 
 #### Response
@@ -4114,10 +4115,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes (header field)|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (header field)|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (header field)|
-|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes (through endpoint)|
 |`Payment.Amount`|Order value in cents: 156 is R$ 1.56|Number|15|Yes|
 
 <aside class="warning">This change only affects the payment date of the next recurrence.</aside>
@@ -4164,10 +4165,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes (header field)|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (header field)|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (header field)|
-|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes (through endpoint)|
 |`NextPaymentDate`|Date of next recurrence payment|Text|10|Yes|
 
 #### Response
@@ -4260,10 +4261,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes (header field)|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (header field)|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (header field)|
-|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes (through endpoint)|
 |`Payment.Provider`|Name of the Payment Method Provider|Text|15|Yes|
 |`Payment.Type`|Payment method type.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (in cents)|Number|15|Yes|
@@ -4311,10 +4312,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes (header field)|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (header field)|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (header field)|
-|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes (through endpoint)|
 
 #### Response
 
@@ -4347,10 +4348,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
-|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`RecurrentPaymentId`|Recurrence ID number.|Text|50|Yes (through endpoint)|
 
 #### Response
 
@@ -6118,10 +6119,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
-|`PaymentId`|Payment identification number.|Text|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`PaymentId`|Payment identification number.|Text|36|Yes (through endpoint)|
 
 ##### Response
 
@@ -6429,10 +6430,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
-|`PaymentId`|Payment identification number.|GUID|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`PaymentId`|Payment identification number.|GUID|36|Yes (through endpoint)|
 
 ##### Response
 
@@ -6632,7 +6633,6 @@ To query a sale by store identifier, you must GET the resource/sales as shown.
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId = {merchantOrderId}</span></aside>
 
 ```shell
-curls
 --request GET "https://apiquerysandbox.braspag.com.brv2/sales?merchantOrderId={merchantOrderId}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -6644,10 +6644,10 @@ curls
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
-|`MerchantOrderId`|Order ID number.|Text|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`MerchantOrderId`|Order ID number.|Text|36|Yes (through endpoint)|
 
 ##### Response
 
@@ -6711,10 +6711,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No|
-|`RecurrentPaymentId`|Recurrence Identifier field.|Text|36|Yes|
+|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
+|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
+|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`RecurrentPaymentId`|Recurrence Identifier field.|Text|36|Yes (through endpoint)|
 
 ##### Response
 
