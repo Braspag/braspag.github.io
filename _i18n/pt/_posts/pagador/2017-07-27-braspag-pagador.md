@@ -910,26 +910,53 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-   [...]
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment": {
-        "Provider": "Cielo30",
-        "Type": "DebitCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Installments": 1,
-        "Capture": true,
-        "Authenticate": false,
-        "DebitCard":{
+   "Payment": {
+      "Provider": "Cielo30",
+      "Type": "DebitCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Capture": true,
+      "Authenticate": false,
+      "DebitCard":{
          "CardNumber":"5067220000000001",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Elo"
-        },
-        [...]
-    }
+      },
+      [...]
+   }
 }
 ```
 
@@ -3391,12 +3418,9 @@ Exemplo de requisição padrão Visa Checkout:
       }
    }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -3422,7 +3446,6 @@ curl
       }
    }
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -3562,28 +3585,54 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
 
 ```json
 
-{
-   [...]
-    "Payment": {
-        "Provider": "Alelo",
-        "Type": "DebitCard",
-        "Amount": 10,
-        "Installments": 1,
-        "DebitCard": {
-            "CardNumber": "****4903",
-            "Holder": "TesteBraspag",
-            "ExpirationDate": "02/2019",
-            "SecurityCode": "***",
-            "Brand": "Elo"
-        },
-        [...]
-    }
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider": "Alelo",
+      "Type": "DebitCard",
+      "Amount": 10,
+      "Installments": 1,
+      "DebitCard": {
+         "CardNumber": "****4903",
+         "Holder": "TesteBraspag",
+         "ExpirationDate": "02/2019",
+         "SecurityCode": "***",
+         "Brand": "Elo"
+      },
+      [...]
+   }
 }
-
 ```
 
 ```shell
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -3736,63 +3785,114 @@ Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.D
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
-{
-    [...]
-    "Payment": {
-        "Provider":"Simulado",
-        "Type":"CreditCard",
-        "Amount": 10000,
-        "Installments": 1,
-        "CreditCard": {
-            "CardNumber":"4551870000000181",
-            "Holder":"Nome do Portador",
-            "ExpirationDate":"12/2021",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-        },
-        "RecurrentPayment": {
-            "AuthorizeNow":"true",
-            "EndDate":"2019-12-31",
-            "Interval":"Monthly"
-        }
-    }
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount": 10000,
+      "Installments": 1,
+      "CreditCard": {
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "RecurrentPayment": {
+         "AuthorizeNow":"true",
+         "EndDate":"2019-12-31",
+         "Interval":"Monthly"
+      }
+   }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-    [...]
-    "Payment": {
-        "Provider":"Simulado",
-        "Type":"CreditCard",
-        "Amount": 10000,
-        "Installments": 1,
-        "CreditCard": {
-            "CardNumber":"4551870000000181",
-            "Holder":"Nome do Portador",
-            "ExpirationDate":"12/2021",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-        },
-        "RecurrentPayment": {
-            "AuthorizeNow":"true",
-            "EndDate":"2019-12-31",
-            "Interval":"Monthly"
-        }
-    }
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount": 10000,
+      "Installments": 1,
+      "CreditCard": {
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "RecurrentPayment": {
+         "AuthorizeNow":"true",
+         "EndDate":"2019-12-31",
+         "Interval":"Monthly"
+      }
+   }
 }
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -3814,7 +3914,6 @@ curl
 #### Resposta
 
 ```json
-
 {
   [...]
   "Payment": {
@@ -3857,11 +3956,9 @@ curl
     }
   }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -3907,7 +4004,6 @@ curl
     }
   }
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -3933,53 +4029,76 @@ Entre em contato com o [time de suporte](https://suporte.braspag.com.br/hc/pt-br
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
-{
-    [...]
-        "Payment": {
-        "Provider": "Simulado",
-        "Type": "Boleto",
-        "Amount": 1000,
-     
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "RecurrentPayment": {
-            "AuthorizeNow": "true",
-            "StartDate": "2020-01-01",
-            "EndDate": "2020-12-31",
-            "Interval": "Monthly"
-        }
-    }
+{  
+   "MerchantOrderId":"2017091101",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "Boleto",
+      "Amount": 1000,
+      "Instructions": "Aceitar somente até a data de vencimento.",
+      "RecurrentPayment": {
+         "AuthorizeNow": true,
+         "StartDate": "2020-01-01",
+         "EndDate": "2020-12-31",
+         "Interval": "Monthly"
+      }
+   }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-    [...]
-"Payment": {
-        "Provider": "Simulado",
-        "Type": "Boleto",
-        "Amount": 1000,
-     
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "RecurrentPayment": {
-            "AuthorizeNow": "true",
-            "StartDate": "2020-01-01",
-            "EndDate": "2020-12-31",
-            "Interval": "Monthly"
-        }
-    }
+{  
+   "MerchantOrderId":"2017091101",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider":"Simulado",
+      "Type":"Boleto",
+      "Amount":1000,
+      "Instructions":"Aceitar somente até a data de vencimento.",
+      "RecurrentPayment":{
+         "AuthorizeNow":true,
+         "StartDate":"2020-01-01",
+         "EndDate":"2020-12-31",
+         "Interval":"Monthly"
+      }
+   }
 }
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -3995,73 +4114,69 @@ curl
 #### Resposta
 
 ```json
-
 {
-    "MerchantOrderId": "teste001",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12345678909",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455914",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2020-08-15",
-        "Url": "https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/58e4bde3-1abc-4aef-a58a-741f4c53940d",
-        "BoletoNumber": "100031-0",
-        "BarCodeNumber": "00096834800000129001234270000010003105678900",
-        "DigitableLine": "00091.23423 40000.010004 31056.789008 6 83480000012900",
-        "Address": "N/A, 1",
-        "IsRecurring": false,
-        "PaymentId": "58e4bde3-1abc-4aef-a58a-741f4c53940d",
-        "Type": "Boleto",
-        "Amount": 1000,
-        "ReceivedDate": "2020-01-01 00:00:01",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Simulado",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 1,
-        "RecurrentPayment": {
-            "RecurrentPaymentId": "a08a622b-71f2-4553-9345-5f3c4fbbacb0",
-            "ReasonCode": 0,
-            "ReasonMessage": "Successful",
-            "NextRecurrency": "2020-02-01",
-            "StartDate": "2020-01-01",
-            "EndDate": "2020-12-31",
-            "Interval": "Monthly",
-            "Link": {
-                "Method": "GET",
-                "Rel": "recurrentPayment",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/a08a622b-71f2-4553-9345-5f3c4fbbacb0"
-            },
-            "AuthorizeNow": true
-        },
-        "Links": [
+   "MerchantOrderId": "teste001",
+   "Customer": {
+      "Name": "Nome do Comprador",
+      "Identity": "12345678909",
+      "IdentityType": "CPF",
+      "Address": {
+         "Street": "Alameda Xingu",
+         "Number": "512",
+         "Complement": "27 andar",
+         "ZipCode": "06455914",
+         "City": "São Paulo",
+         "State": "SP",
+         "Country": "BRA",
+         "District": "Alphaville"
+      }
+   },
+   "Payment": {
+      "Instructions": "Aceitar somente até a data de vencimento.",
+      "ExpirationDate": "2020-08-15",
+      "Url": "https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/58e4bde3-1abc-4aef-a58a-741f4c53940d",
+      "BoletoNumber": "100031-0",
+      "BarCodeNumber": "00096834800000129001234270000010003105678900",
+      "DigitableLine": "00091.23423 40000.010004 31056.789008 6 83480000012900",
+      "Address": "N/A, 1",
+      "IsRecurring": false,
+      "PaymentId": "58e4bde3-1abc-4aef-a58a-741f4c53940d",
+      "Type": "Boleto",
+      "Amount": 1000,
+      "ReceivedDate": "2020-01-01 00:00:01",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Provider": "Simulado",
+      "ReasonCode": 0,
+      "ReasonMessage": "Successful",
+      "Status": 1,
+      "RecurrentPayment": {
+         "RecurrentPaymentId": "a08a622b-71f2-4553-9345-5f3c4fbbacb0",
+         "ReasonCode": 0,
+         "ReasonMessage": "Successful",
+         "NextRecurrency": "2020-02-01",
+         "StartDate": "2020-01-01",
+         "EndDate": "2020-12-31",
+         "Interval": "Monthly",
+         "Link": {
+            "Method": "GET",
+            "Rel": "recurrentPayment",
+            "Href": "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/a08a622b-71f2-4553-9345-5f3c4fbbacb0"
+         },
+         "AuthorizeNow": true,
+         },
+         "Links": [
             {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/58e4bde3-1abc-4aef-a58a-741f4c53940d"
+               "Method": "GET",
+               "Rel": "self",
+               "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/58e4bde3-1abc-4aef-a58a-741f4c53940d"
             }
-        ]
-    }
+         ]
+   }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4069,67 +4184,66 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-    "MerchantOrderId": "teste001",
-    "Customer": {
-        "Name": "Nome do Comprador",
-        "Identity": "12345678909",
-        "IdentityType": "CPF",
-        "Address": {
-            "Street": "Alameda Xingu",
-            "Number": "512",
-            "Complement": "27 andar",
-            "ZipCode": "06455914",
-            "City": "São Paulo",
-            "State": "SP",
-            "Country": "BRA",
-            "District": "Alphaville"
-        }
-    },
-    "Payment": {
-        "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2020-08-15",
-        "Url": "https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/58e4bde3-1abc-4aef-a58a-741f4c53940d",
-        "BoletoNumber": "100031-0",
-        "BarCodeNumber": "00096834800000129001234270000010003105678900",
-        "DigitableLine": "00091.23423 40000.010004 31056.789008 6 83480000012900",
-        "Address": "N/A, 1",
-        "IsRecurring": false,
-        "PaymentId": "58e4bde3-1abc-4aef-a58a-741f4c53940d",
-        "Type": "Boleto",
-        "Amount": 1000,
-        "ReceivedDate": "2020-01-01 00:00:01",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Simulado",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 1,
-        "RecurrentPayment": {
-            "RecurrentPaymentId": "a08a622b-71f2-4553-9345-5f3c4fbbacb0",
-            "ReasonCode": 0,
-            "ReasonMessage": "Successful",
-            "NextRecurrency": "2020-02-01",
-            "StartDate": "2020-01-01",
-            "EndDate": "2020-12-31",
-            "Interval": "Monthly",
-            "Link": {
-                "Method": "GET",
-                "Rel": "recurrentPayment",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/a08a622b-71f2-4553-9345-5f3c4fbbacb0"
-            },
-            "AuthorizeNow": true
-        },
-        "Links": [
+   "MerchantOrderId": "teste001",
+   "Customer": {
+      "Name": "Nome do Comprador",
+      "Identity": "12345678909",
+      "IdentityType": "CPF",
+      "Address": {
+         "Street": "Alameda Xingu",
+         "Number": "512",
+         "Complement": "27 andar",
+         "ZipCode": "06455914",
+         "City": "São Paulo",
+         "State": "SP",
+         "Country": "BRA",
+         "District": "Alphaville"
+      }
+   },
+   "Payment": {
+      "Instructions": "Aceitar somente até a data de vencimento.",
+      "ExpirationDate": "2020-08-15",
+      "Url": "https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/58e4bde3-1abc-4aef-a58a-741f4c53940d",
+      "BoletoNumber": "100031-0",
+      "BarCodeNumber": "00096834800000129001234270000010003105678900",
+      "DigitableLine": "00091.23423 40000.010004 31056.789008 6 83480000012900",
+      "Address": "N/A, 1",
+      "IsRecurring": false,
+      "PaymentId": "58e4bde3-1abc-4aef-a58a-741f4c53940d",
+      "Type": "Boleto",
+      "Amount": 1000,
+      "ReceivedDate": "2020-01-01 00:00:01",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Provider": "Simulado",
+      "ReasonCode": 0,
+      "ReasonMessage": "Successful",
+      "Status": 1,
+      "RecurrentPayment": {
+         "RecurrentPaymentId": "a08a622b-71f2-4553-9345-5f3c4fbbacb0",
+         "ReasonCode": 0,
+         "ReasonMessage": "Successful",
+         "NextRecurrency": "2020-02-01",
+         "StartDate": "2020-01-01",
+         "EndDate": "2020-12-31",
+         "Interval": "Monthly",
+         "Link": {
+            "Method": "GET",
+            "Rel": "recurrentPayment",
+            "Href": "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/a08a622b-71f2-4553-9345-5f3c4fbbacb0"
+         },
+         "AuthorizeNow": true,
+         },
+         "Links": [
             {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/58e4bde3-1abc-4aef-a58a-741f4c53940d"
+               "Method": "GET",
+               "Rel": "self",
+               "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/58e4bde3-1abc-4aef-a58a-741f4c53940d"
             }
-        ]
-    }
+         ]
+   }
 }
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -4154,65 +4268,90 @@ Para programar a primeira transação da série de recorrências, passe o parâm
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
-{
-   [...]
+{  
+   "MerchantOrderId":"2017091101",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
    "Payment":{
-     "Provider":"Simulado",
-     "Type":"CreditCard",
-     "Amount":10000,
-     "Installments":1,
-     "CreditCard":{
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Installments":1,
+      "CreditCard":{
          "CardNumber":"4551870000000181",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa"
-     },
-     "RecurrentPayment":{
-       "AuthorizeNow":"false",
-       "StartDate":"2017-12-31",
-       "EndDate":"2019-12-31",
-       "Interval":"Monthly"
-     }
+      },
+      "RecurrentPayment":{
+         "AuthorizeNow":false,
+         "StartDate":"2017-12-31",
+         "EndDate":"2019-12-31",
+         "Interval":"Monthly"
+      }
    }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-   [...]
+{  
+   "MerchantOrderId":"2017091101",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
    "Payment":{
-     "Provider":"Simulado",
-     "Type":"CreditCard",
-     "Amount":10000,
-     "Installments":1,
-     "CreditCard":{
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Installments":1,
+      "CreditCard":{
          "CardNumber":"4551870000000181",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa"
-     },
-     "RecurrentPayment":{
-       "AuthorizeNow":"false",
-       "StartDate":"2017-12-31",
-       "EndDate":"2019-12-31",
-       "Interval":"Monthly"
-     }
+      },
+      "RecurrentPayment":{
+         "AuthorizeNow":false,
+         "StartDate":"2017-12-31",
+         "EndDate":"2019-12-31",
+         "Interval":"Monthly"
+      }
    }
 }
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -4336,14 +4475,13 @@ Para alterar os dados do comprador de uma recorrência existente, basta fazer um
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
 ```json
-
 {  
-  "Name":"Outro nome do Comprador",
-  "Email":"outrocomprador@braspag.com.br",
-  "Birthdate":"1999-12-12",
-  "Identity":"0987654321",
-  "IdentityType":"CPF",
-  "Address":{
+   "Name":"Outro nome do Comprador",
+   "Email":"outrocomprador@braspag.com.br",
+   "Birthdate":"1999-12-12",
+   "Identity":"0987654321",
+   "IdentityType":"CPF",
+   "Address":{
       "Street":"Avenida Brigadeiro Faria Lima",
       "Number":"1500",
       "Complement":"AP 201",
@@ -4363,14 +4501,11 @@ Para alterar os dados do comprador de uma recorrência existente, basta fazer um
       "Country":"BRA",
       "District":"Alphaville"
       }
-    }
+   }
 }
-
 ```
 
 ```shell
-
-curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Customer"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4378,13 +4513,13 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {   
-    "Name":"Outro nome do Comprador",
-    "Email":"outrocomprador@braspag.com.br",
-    "Birthdate":"1999-12-12",
-    "Identity":"0987654321",
-    "IdentityType":"CPF",
-    "Address":{  
-    "Street":"Avenida Brigadeiro Faria Lima",
+   "Name":"Outro nome do Comprador",
+   "Email":"outrocomprador@braspag.com.br",
+   "Birthdate":"1999-12-12",
+   "Identity":"0987654321",
+   "IdentityType":"CPF",
+   "Address":{  
+   "Street":"Avenida Brigadeiro Faria Lima",
       "Number":"1500",
       "Complement":"AP 201",
       "ZipCode":"05426200",
@@ -4394,7 +4529,7 @@ curl
       "District":"Alphaville"
    },
    "DeliveryAddress":{  
-    "Street":"Avenida Brigadeiro Faria Lima",
+      "Street":"Avenida Brigadeiro Faria Lima",
       "Number":"1500",
       "Complement":"AP 201",
       "ZipCode":"05426200",
@@ -4402,10 +4537,9 @@ curl
       "State":"SP",
       "Country":"BRA",
       "District":"Alphaville"
-      }
+   }
 }
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -4414,34 +4548,32 @@ curl
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
-|`Customer.Name`|Nome do comprador. |Texto |255|Sim|
-|`Customer.Email`|Email do comprador. |Texto |255|Não|
-|`Customer.Birthdate`|Data de nascimento do comprador. |Date |10 |Não|
-|`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente. |Texto |14 |Não|
-|`Customer.IdentityType`|Tipo do documento de identificação do comprador (CFP/CNPJ).|Texto|255|Não|
-|`Customer.Address.Street`|Endereço do comprador. |Texto |255 |Não|
-|`Customer.Address.Number`|Número do endereço do comprador. |Texto |15 |Não|
-|`Customer.Address.Complement`|Complemento do endereço do comprador.|Texto |50 |Não|
-|`Customer.Address.ZipCode`|CEP do endereço do comprador. |Texto |9 |Não|
-|`Customer.Address.City`|Cidade do endereço do comprador. |Texto |50 |Não|
-|`Customer.Address.State`|Estado do endereço do comprador. |Texto |2 |Não|
-|`Customer.Address.Country`|País do endereço do comprador. |Texto |35 |Não|
-|`Customer.Address.District`|Bairro do endereço do comprador. |Texto |50 |Não|
-|`Customer.DeliveryAddress.Street`|Endereço de entrega do comprador. |Texto |255 |Não|
-|`Customer.DeliveryAddress.Number`|Número do endereço de entrega do comprador. |Texto |15 |Não|
-|`Customer.DeliveryAddress.Complement`|Complemento do endereço de entrega do comprador. |Texto |50 |Não|
-|`Customer.DeliveryAddress.ZipCode`|CEP do endereço de entrega do comprador. |Texto |9 |Não|
-|`Customer.DeliveryAddress.City`|Cidade do endereço de entrega do comprador. |Texto |50 |Não|
-|`Customer.DeliveryAddress.State`|Estado do endereço de entrega do comprador. |Texto |2 |Não|
-|`Customer.DeliveryAddress.Country`|País do endereço de entrega do comprador. |Texto |35 |Não|
-|`Customer.DeliveryAddress.District`|Bairro do endereço de entrega do comprador. |Texto |50 |Não|
+|`Name`|Nome do comprador. |Texto |255|Sim|
+|`Email`|Email do comprador. |Texto |255|Não|
+|`Birthdate`|Data de nascimento do comprador. |Date |10 |Não|
+|`Identity`|Número do RG, CPF ou CNPJ do cliente. |Texto |14 |Não|
+|`IdentityType`|Tipo do documento de identificação do comprador (CFP/CNPJ).|Texto|255|Não|
+|`Address.Street`|Endereço do comprador. |Texto |255 |Não|
+|`Address.Number`|Número do endereço do comprador. |Texto |15 |Não|
+|`Address.Complement`|Complemento do endereço do comprador.|Texto |50 |Não|
+|`Address.ZipCode`|CEP do endereço do comprador. |Texto |9 |Não|
+|`Address.City`|Cidade do endereço do comprador. |Texto |50 |Não|
+|`Address.State`|Estado do endereço do comprador. |Texto |2 |Não|
+|`Address.Country`|País do endereço do comprador. |Texto |35 |Não|
+|`Address.District`|Bairro do endereço do comprador. |Texto |50 |Não|
+|`DeliveryAddress.Street`|Endereço de entrega do comprador. |Texto |255 |Não|
+|`DeliveryAddress.Number`|Número do endereço de entrega do comprador. |Texto |15 |Não|
+|`DeliveryAddress.Complement`|Complemento do endereço de entrega do comprador. |Texto |50 |Não|
+|`DeliveryAddress.ZipCode`|CEP do endereço de entrega do comprador. |Texto |9 |Não|
+|`DeliveryAddress.City`|Cidade do endereço de entrega do comprador. |Texto |50 |Não|
+|`DeliveryAddress.State`|Estado do endereço de entrega do comprador. |Texto |2 |Não|
+|`DeliveryAddress.Country`|País do endereço de entrega do comprador. |Texto |35 |Não|
+|`DeliveryAddress.District`|Bairro do endereço de entrega do comprador. |Texto |50 |Não|
 
 #### Resposta
 
 ```shell
-
 HTTP Status 200
-
 ```
 
 Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -4455,14 +4587,10 @@ Para alterar a data final da recorrência já existente, basta fazer um PUT conf
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
 ```json
-
 "2021-01-09"
-
 ```
 
 ```shell
-
-curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4471,7 +4599,6 @@ curl
 --data-binary
 "2021-01-09"
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -4485,9 +4612,7 @@ curl
 #### Resposta
 
 ```shell
-
 HTTP Status 200
-
 ```
 
 Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -4501,14 +4626,10 @@ Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT c
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
 ```json
-
 "SemiAnnual"
-
 ```
 
 ```shell
-
-curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Interval"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4517,7 +4638,6 @@ curl
 --data-binary
 "SemiAnnual"
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -4531,9 +4651,7 @@ curl
 #### Resposta
 
 ```shell
-
 HTTP Status 200
-
 ```
 
 Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -4553,14 +4671,10 @@ Ao efetuar a alteração do dia da recorrência, devem ser levadas em considera�
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
 ```json
-
 16
-
 ```
 
 ```shell
-
-curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4569,7 +4683,6 @@ curl
 --data-binary
 16
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -4583,9 +4696,7 @@ curl
 #### Resposta
 
 ```shell
-
 HTTP Status 200
-
 ```
 
 Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -4601,14 +4712,10 @@ Para modificar o valor da transação de uma recorrência já existente, basta f
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
 ```json
-
 156
-
 ```
 
 ```shell
-
-curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Amount"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4617,7 +4724,6 @@ curl
 --data-binary
 156
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -4626,14 +4732,12 @@ curl
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Número de identificação da recorrência.|Texto |50 |Sim (envio no *endpoint*)|
-|`Payment.Amount`|Valor do pedido, em centavos. Ex.: 156 equivale a R$ 1,56.|Número|15|Sim|
+|`Amount`|Valor do pedido, em centavos. Ex.: 156 equivale a R$ 1,56.|Número|15|Sim|
 
 #### Resposta
 
 ```shell
-
 HTTP Status 200
-
 ```
 
 Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -4649,14 +4753,10 @@ Para alterar somente a data do pagamento seguinte, basta fazer um PUT conforme o
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
 ```json
-
 "2017-06-15"
-
 ```
 
 ```shell
-
-curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4665,7 +4765,6 @@ curl
 --data-binary
 "2016-06-15"
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -4679,9 +4778,7 @@ curl
 #### Resposta
 
 ```shell
-
 HTTP Status 200
-
 ```
 
 Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -4703,7 +4800,6 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
 ```json
-
 {  
    "Type":"CreditCard",
    "Amount":"20000",
@@ -4717,21 +4813,18 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
       "Holder":"Nome do Portador",
       "CardNumber":"4111111111111111",
       "ExpirationDate":"05/2019"
-      },
+   },
    "Credentials": {
-      "code": "9999999",
-      "key": "D8888888",
-      "password": "LOJA9999999",
-      "username": "#Braspag2018@NOMEDALOJA#",
-      "signature": "001"
-      }
+      "Code": "9999999",
+      "Key": "D8888888",
+      "Password": "LOJA9999999",
+      "Username": "#Braspag2018@NOMEDALOJA#",
+      "Signature": "001"
+   }
 }
-
 ```
 
 ```shell
-
-curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Payment"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4751,17 +4844,16 @@ curl
       "Holder":"Nome do Portador",
       "CardNumber":"4111111111111111",
       "ExpirationDate":"05/2019"
-      },
+   },
    "Credentials": {
-      "code": "9999999",
-      "key": "D8888888",
-      "password": "LOJA9999999",
-      "username": "#Braspag2018@NOMEDALOJA#",
-      "signature": "001"
-      }
+      "Code": "9999999",
+      "Key": "D8888888",
+      "Password": "LOJA9999999",
+      "Username": "#Braspag2018@NOMEDALOJA#",
+      "Signature": "001"
+   }
 }
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -4770,21 +4862,21 @@ curl
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
-|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
-|`Payment.Type`|Tipo do meio de pagamento. |Texto |100|Sim|
-|`Payment.Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
-|`Payment.Installments`|Número de parcelas.|Número |2 |Sim|
-|`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador.|Texto |13|Não|
+|`Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
+|`Type`|Tipo do meio de pagamento. |Texto |100|Sim|
+|`Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
+|`Installments`|Número de parcelas.|Número |2 |Sim|
+|`SoftDescriptor`|Texto que será impresso na fatura do portador.|Texto |13|Não|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto |16|Sim|
 |`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto |25|Sim|
 |`CreditCard.ExpirationDate`|Data de validade impressa no cartão.|Texto |7 |Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto |4 |Sim|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-|`Payment.Credentials.Code`|Afiliação gerada pela adquirente.|Texto|100|Sim|
-|`Payment.Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|Texto|100|Sim|
-|`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
-|`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
-|`Payment.Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP|Texto|--|Não|
+|`Credentials.Code`|Afiliação gerada pela adquirente.|Texto|100|Sim|
+|`Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|Texto|100|Sim|
+|`Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
+|`Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
+|`Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP|Texto|--|Não|
 
 #### Resposta
 
@@ -4805,7 +4897,6 @@ Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
 ```shell
-curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4841,7 +4932,6 @@ Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
 ```shell
-curl
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4861,9 +4951,7 @@ curl
 #### Resposta
 
 ```shell
-
 HTTP Status 200
-
 ```
 
 Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -4882,89 +4970,86 @@ Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado n
 
 ```json
 {
-  [...]
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": true,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "CardNumber": "455187******0183",
-      "Holder": "Nome do Portador",
-      "ExpirationDate": "12/2016",
-      "SaveCard": false,
-      "Brand": "Visa"
-    },
-    "AcquirerTransactionId": "0512105630844",
-    "NewCard": {
-      "CardNumber": "4551870000512353",
-      "Holder": "Nome do Portador",
-      "ExpirationDate": "05/2020",
-      "SaveCard": false,
-      "Brand": "Visa"
-    },
-    "PaymentId": "ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84",
-    "Type": "CreditCard",
-    "Amount": 10000,
-    "ReceivedDate": "2017-05-12 10:56:30",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "Provider": "Simulado",
-    "ReasonCode": 15,
-    "ReasonMessage": "CardExpired",
-    "Status": 3,
-    "ProviderReturnCode": "57",
-    "ProviderReturnMessage": "Card Expired",
-    [...]
-  }
+   [...]
+   "Payment": {
+      "ServiceTaxAmount": 0,
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "CreditCard": {
+         "CardNumber": "455187******0183",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2016",
+         "SaveCard": false,
+         "Brand": "Visa"
+      },
+      "AcquirerTransactionId": "0512105630844",
+      "NewCard": {
+         "CardNumber": "4551870000512353",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "05/2020",
+         "SaveCard": false,
+         "Brand": "Visa"
+      },
+      "PaymentId": "ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "ReceivedDate": "2017-05-12 10:56:30",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Provider": "Simulado",
+      "ReasonCode": 15,
+      "ReasonMessage": "CardExpired",
+      "Status": 3,
+      "ProviderReturnCode": "57",
+      "ProviderReturnMessage": "Card Expired",
+      [...]
+   }
 }
-
 ```
 
 ```shell
-
 {
-  [...]
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": true,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "CardNumber": "455187******0183",
-      "Holder": "Nome do Portador",
-      "ExpirationDate": "12/2016",
-      "SaveCard": false,
-      "Brand": "Visa"
-    },
-    "AcquirerTransactionId": "0512105630844",
-    "NewCard": {
-      "CardNumber": "4551870000512353",
-      "Holder": "Nome do Portador",
-      "ExpirationDate": "05/2020",
-      "SaveCard": false,
-      "Brand": "Visa"
-    },
-    "PaymentId": "ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84",
-    "Type": "CreditCard",
-    "Amount": 10000,
-    "ReceivedDate": "2017-05-12 10:56:30",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "Provider": "Simulado",
-    "ReasonCode": 15,
-    "ReasonMessage": "CardExpired",
-    "Status": 3,
-    "ProviderReturnCode": "57",
-    "ProviderReturnMessage": "Card Expired",
-    [...]
-  }
+   [...]
+   "Payment": {
+      "ServiceTaxAmount": 0,
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "CreditCard": {
+         "CardNumber": "455187******0183",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2016",
+         "SaveCard": false,
+         "Brand": "Visa"
+      },
+      "AcquirerTransactionId": "0512105630844",
+      "NewCard": {
+         "CardNumber": "4551870000512353",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "05/2020",
+         "SaveCard": false,
+         "Brand": "Visa"
+      },
+      "PaymentId": "ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "ReceivedDate": "2017-05-12 10:56:30",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Provider": "Simulado",
+      "ReasonCode": 15,
+      "ReasonMessage": "CardExpired",
+      "Status": 3,
+      "ProviderReturnCode": "57",
+      "ProviderReturnMessage": "Card Expired",
+      [...]
+   }
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -4992,40 +5077,75 @@ Para salvar um cartão de crédito utilizado em uma transação, basta enviar o 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {  
-   [...]
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment": {
-        "Provider": "Simulado",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "SoftDescriptor": "Mensagem",
-        "CreditCard": {
-            "CardNumber": "4551870000000181",
-            "Holder": "Nome do Portador",
-            "ExpirationDate": "12/2021",
-            "SecurityCode": "123",
-            "Brand": "Visa",
-            "SaveCard": true,
-            "Alias": ""
-        },
-        [...]
-    }
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":true,
+         "Alias":"",
+       },
+      "Credentials":{  
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -5033,34 +5153,72 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-   [...]
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment": {
-        "Provider": "Simulado",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "SoftDescriptor": "Mensagem",
-        "CreditCard": {
-            "CardNumber": "4551870000000181",
-            "Holder": "Nome do Portador",
-            "ExpirationDate": "12/2021",
-            "SecurityCode": "123",
-            "Brand": "Visa",
-            "SaveCard": true,
-            "Alias": ""
-        },
-        [...]
-    }
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":true,
+         "Alias":"",
+       },
+      "Credentials":{  
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -5082,7 +5240,6 @@ curl
 O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transações futuras com o mesmo cartão.
 
 ```json
-
 {
   [...]
   },
@@ -5120,12 +5277,9 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
     [...]
   }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -5170,7 +5324,6 @@ curl
   }
 }
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -5198,36 +5351,71 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {  
-   [...]
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment": {
-        "Provider": "Simulado",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "SoftDescriptor": "Mensagem",
-        "CreditCard": {
-            "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-            },
-        [...]
-    }
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "Credentials":{  
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -5235,30 +5423,68 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-   [...]
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment": {
-        "Provider": "Simulado",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "SoftDescriptor": "Mensagem",
-        "CreditCard": {
-            "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-            },
-        [...]
-    }
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "Credentials":{  
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -5274,7 +5500,6 @@ curl
 ### Resposta
 
 ```json
-
 {  
    [...]
    },
@@ -5313,11 +5538,9 @@ curl
    [...]
   }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -5359,7 +5582,6 @@ curl
    [...]
   }
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -5384,36 +5606,71 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
 {  
-   [...]
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment": {
-        "Provider": "Simulado",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "SoftDescriptor": "Mensagem",
-        "CreditCard": {
-            "Alias":"Cliente1",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-            },
-        [...]
-    }
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "Alias":"Cliente1",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "Credentials":{  
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -5421,30 +5678,68 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-   [...]
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment": {
-        "Provider": "Simulado",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "SoftDescriptor": "Mensagem",
-        "CreditCard": {
-            "Alias":"Cliente1",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-            },
-        [...]
-    }
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "Alias":"Cliente1",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "Credentials":{  
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -5461,7 +5756,6 @@ curl
 ### Resposta
 
 ```json
-
 {  
    [...]
    },
@@ -5500,11 +5794,9 @@ curl
    [...]
   }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -5546,7 +5838,6 @@ curl
    [...]
   }
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -5642,14 +5933,14 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
-         "SaveCard":"false"
+         "SaveCard":false
       },
       "Credentials":{  
-         "code":"9999999",
-         "key":"D8888888",
-         "password":"LOJA9999999",
-         "username":"#Braspag2018@NOMEDALOJA#",
-         "signature":"001"
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
       },
       "ExtraDataCollection":[  
          {  
@@ -5750,12 +6041,9 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
       }
    }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -5811,7 +6099,7 @@ curl
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
-         "SaveCard":"false"
+         "SaveCard":false
       },
       "Credentials":{  
          "code":"9999999",
@@ -5920,7 +6208,6 @@ curl
    }
 }
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -6075,7 +6362,7 @@ curl
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
-         "SaveCard":"false"
+         "SaveCard":false
       },
       "Credentials":{  
          "code":"9999999",
@@ -6277,7 +6564,7 @@ curl
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa",
-         "SaveCard":"false"
+         "SaveCard":false
       },
       "Credentials":{  
          "code":"9999999",
@@ -6617,7 +6904,6 @@ Para consultar uma transação de cartão de crédito, é necessário o envio de
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
 ```shell
-curl
 --request GET "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -6923,7 +7209,6 @@ Para consultar uma transação de boleto registrado, é necessário o envio de m
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
 ```shell
-curl
 --request GET "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -7130,7 +7415,6 @@ Para consultar uma venda pelo identificador da loja, é necessário o envio de m
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId={merchantOrderId}</span></aside>
 
 ```shell
-curls
 --request GET "https://apiquerysandbox.braspag.com.brv2/sales?merchantOrderId={merchantOrderId}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -7197,7 +7481,6 @@ Para consultar um pedido de recorrência, é necessário o envio de mensagem HTT
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
 ```shell
-curl
 --request GET "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
