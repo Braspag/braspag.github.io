@@ -7665,7 +7665,7 @@ As listas a seguir se referem a provedores na integração REST:
 
 |Provider|Brand|Descrição|
 |--------|-----|---------|
-|Simulado|---|Provider de Sandbox. [Clique aqui](https://braspag.github.io//manual/braspag-pagador#cart%C3%B5es-para-teste-(simulado)) para mais detalhes sobre cartões para teste.|
+|Simulado|---|Provider de Sandbox. [Clique aqui](https://braspag.github.io//manual/braspag-pagador#cartões-para-teste-(simulado)) para mais detalhes sobre cartões para teste.|
 |Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper, Sorocred|Provider para transações na plataforma de e-commerce Cielo 3.0.|
 |Getnet|Visa, Master, Elo, Amex, Hipercard|Provider para transações na plataforma de e-commerce Getnet.|
 |Rede2|Visa, Master, Hipercard, Hiper, Diners, Elo, Amex, Sorocred|Provider para transações na plataforma de e-commerce da Rede (e-Rede) na versão REST.|
