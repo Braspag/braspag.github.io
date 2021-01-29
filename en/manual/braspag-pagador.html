@@ -527,21 +527,21 @@ curl
       <td>Store identifier at Braspag.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public key for dual authentication at Braspag.</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -1919,13 +1919,13 @@ curl
       <td>Store identifier in the API.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public key for dual authentication in the API.</td>
       <td>Text 40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
       <td> </td>
     </tr>
     <tr>
@@ -1933,14 +1933,14 @@ curl
       <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
       <td>Order identifier field.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
@@ -2713,35 +2713,35 @@ curl
       <td>Store identifier in the API.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public key for dual authentication in the API.</td>
       <td>Text</td>
       <td>40</td>
-      <td>Sim (header field)</td>
+      <td>Sim (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
       <td>Order identifier field.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
       <td>Amount to be canceled/refunded, in cents. Check if your acquirer supports the canceling or refunding operations.</td>
       <td>Number</td>
       <td>15</td>
-      <td>No</td>
+      <td>No (through endpoint)</td>
     </tr>
   </tbody>
 </table>
@@ -3783,21 +3783,21 @@ curl
       <td>Store identifier at Braspag.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public key for dual authentication at Braspag.</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -4437,21 +4437,21 @@ curl
       <td>Store identifier in the API.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public key for dual authentication in the API.</td>
       <td>Text</td>
       <td>40</td>
-      <td>Sim (header field)</td>
+      <td>Sim (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -4770,21 +4770,21 @@ curl
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier at Braspag. (header field)</td>
+      <td>Store identifier at Braspag. (through header)</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public key for dual authentication at Braspag. (header field)</td>
+      <td>Public key for dual authentication at Braspag. (through header)</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT. (header field)</td>
+      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT. (through header)</td>
       <td>GUID</td>
       <td>36</td>
       <td>No</td>
@@ -5191,21 +5191,21 @@ curl
       <td>Store identifier at Braspag.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public key for dual authentication at Braspag.</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -5474,21 +5474,21 @@ curl
       <td>Store identifier at Braspag.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public key for dual authentication at Braspag.</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -5757,21 +5757,21 @@ curl
       <td>Store identifier at Braspag.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public key for dual authentication at Braspag.</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -7358,28 +7358,28 @@ curl
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
       <td>Recurrence ID number.</td>
       <td>Text</td>
       <td>50</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
@@ -7582,28 +7582,28 @@ curl
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
       <td>Recurrence ID number.</td>
       <td>Text</td>
       <td>50</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">EndDate</code></td>
@@ -7633,7 +7633,7 @@ HTTP Status 200
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="mi">6</span><span class="w">
+</span><span class="s2">"SemiAnnual"</span><span class="w">
 
 </span></code></pre></div></div>
 
@@ -7645,7 +7645,7 @@ curl
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
-6
+<span class="s2">"SemiAnnual"</span>
 <span class="nt">--verbose</span>
 
 </code></pre></div></div>
@@ -7666,28 +7666,28 @@ curl
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
       <td>Recurrence ID number.</td>
       <td>Text</td>
       <td>50</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
@@ -7752,28 +7752,28 @@ curl
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
       <td>Recurrence ID number.</td>
       <td>Text</td>
       <td>50</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrencyDay</code></td>
@@ -7836,28 +7836,28 @@ curl
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
       <td>Recurrence ID number.</td>
       <td>Text</td>
       <td>50</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
@@ -7924,28 +7924,28 @@ curl
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
       <td>Recurrence ID number.</td>
       <td>Text</td>
       <td>50</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NextPaymentDate</code></td>
@@ -8063,7 +8063,7 @@ curl
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -8073,7 +8073,7 @@ curl
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -8083,7 +8083,7 @@ curl
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -8093,7 +8093,7 @@ curl
       <td>Recurrence ID number.</td>
       <td>Text</td>
       <td>50</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -8294,28 +8294,28 @@ curl
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes (header field)</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No (header field)</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
       <td>Recurrence ID number.</td>
       <td>Text</td>
       <td>50</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
   </tbody>
 </table>
@@ -8363,28 +8363,28 @@ curl
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
       <td>Recurrence ID number.</td>
       <td>Text</td>
       <td>50</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
   </tbody>
 </table>
@@ -11747,28 +11747,28 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
       <td>Payment identification number.</td>
       <td>Text</td>
       <td>36</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
   </tbody>
 </table>
@@ -12639,28 +12639,28 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
       <td>Payment identification number.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
   </tbody>
 </table>
@@ -13153,8 +13153,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId = {merchantOrderId}</span></aside>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curls
-<span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.brv2/sales?merchantOrderId={merchantOrderId}"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.brv2/sales?merchantOrderId={merchantOrderId}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -13179,28 +13178,28 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Order ID number.</td>
       <td>Text</td>
       <td>36</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
   </tbody>
 </table>
@@ -13295,28 +13294,28 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
       <td>API Store Identifier</td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Dual Authentication in API</td>
       <td>Text</td>
       <td>40</td>
-      <td>Yes</td>
+      <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>GUID</td>
       <td>36</td>
-      <td>No</td>
+      <td>No (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
       <td>Recurrence Identifier field.</td>
       <td>Text</td>
       <td>36</td>
-      <td>Yes</td>
+      <td>Yes (through endpoint)</td>
     </tr>
   </tbody>
 </table>
