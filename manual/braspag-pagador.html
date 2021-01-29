@@ -6563,22 +6563,50 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
-<span class="o">{</span>
-   <span class="o">[</span>...]
-    <span class="s2">"Payment"</span>: <span class="o">{</span>
-        <span class="s2">"Provider"</span>: <span class="s2">"Alelo"</span>,
-        <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
-        <span class="s2">"Amount"</span>: 10,
-        <span class="s2">"Installments"</span>: 1,
-        <span class="s2">"DebitCard"</span>: <span class="o">{</span>
-            <span class="s2">"CardNumber"</span>: <span class="s2">"****4903"</span>,
-            <span class="s2">"Holder"</span>: <span class="s2">"TesteBraspag"</span>,
-            <span class="s2">"ExpirationDate"</span>: <span class="s2">"02/2019"</span>,
-            <span class="s2">"SecurityCode"</span>: <span class="s2">"***"</span>,
-            <span class="s2">"Brand"</span>: <span class="s2">"Elo"</span>
-        <span class="o">}</span>,
-        <span class="o">[</span>...]
-    <span class="o">}</span>
+<span class="o">{</span>  
+   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2017051001"</span>,
+   <span class="s2">"Customer"</span>:<span class="o">{</span>  
+      <span class="s2">"Name"</span>:<span class="s2">"Nome do Comprador"</span>,
+      <span class="s2">"Identity"</span>:<span class="s2">"12345678909"</span>,
+      <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>,
+      <span class="s2">"Email"</span>:<span class="s2">"comprador@braspag.com.br"</span>,
+      <span class="s2">"Birthdate"</span>:<span class="s2">"1991-01-02"</span>,
+      <span class="s2">"IpAddress"</span>:<span class="s2">"127.0.0.1"</span>,
+      <span class="s2">"Address"</span>:<span class="o">{</span>  
+         <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
+         <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
+         <span class="s2">"Complement"</span>:<span class="s2">"27 andar"</span>,
+         <span class="s2">"ZipCode"</span>:<span class="s2">"12345987"</span>,
+         <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
+         <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
+         <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+         <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
+      <span class="o">}</span>,
+      <span class="s2">"DeliveryAddress"</span>:<span class="o">{</span>  
+         <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
+         <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
+         <span class="s2">"Complement"</span>:<span class="s2">"27 andar"</span>,
+         <span class="s2">"ZipCode"</span>:<span class="s2">"12345987"</span>,
+         <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
+         <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
+         <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+         <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
+      <span class="o">}</span>
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>: <span class="o">{</span>
+      <span class="s2">"Provider"</span>: <span class="s2">"Alelo"</span>,
+      <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
+      <span class="s2">"Amount"</span>: 10,
+      <span class="s2">"Installments"</span>: 1,
+      <span class="s2">"DebitCard"</span>: <span class="o">{</span>
+         <span class="s2">"CardNumber"</span>: <span class="s2">"****4903"</span>,
+         <span class="s2">"Holder"</span>: <span class="s2">"TesteBraspag"</span>,
+         <span class="s2">"ExpirationDate"</span>: <span class="s2">"02/2019"</span>,
+         <span class="s2">"SecurityCode"</span>: <span class="s2">"***"</span>,
+         <span class="s2">"Brand"</span>: <span class="s2">"Elo"</span>
+      <span class="o">}</span>,
+      <span class="o">[</span>...]
+   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
