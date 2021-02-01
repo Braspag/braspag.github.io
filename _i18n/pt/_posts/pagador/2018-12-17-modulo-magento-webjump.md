@@ -12,17 +12,54 @@ tags:
 
 # Instalação
 
-## Requisitos Técnicos Mínimos de Infraestrutura
+## Pré-Requisitos Técnicos
 
-## Versões do Magento Suportadas
+Para saber quais requisitos técnicos de infraestrutura são necessários para instalação do módulo Magento, consulte o [Guia de Instalação](https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html) na documentação oficial da Magento.
 
-## Versões do Magento Recomendadas
+<aside class="notice">A versão do Magento recomendada é a 2.4.0, mas são suportadas as versões a partir da 2.3.0.</aside>
 
 ## Instalação do Módulo Base
 
 ### Instalação do Módulo via Composer
 
+1. Acessar o servidor via SSH.
+2. Localizar a raiz do projeto e executar os seguintes comandos:
+
+```
+composer require webjump/magento2-module-braspagpagador
+composer update
+bin/magento module:enable Webjump_BraspagPagador
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+```
+
 ## Instalação do Módulo para a Integração com a Unirgy Marketplace
+
+Esta instalação só é necessária caso o módulo **Marketplace Unirgy** seja adquirido. 
+
+### Instalação do Módulo via Composer
+
+1. Acessar o servidor via SSH.
+2. Localizar a raiz do projeto. No arquivo *composer.json*, adicionar as seguintes informações:
+```
+"repositories": {
+    "webjump/magento2-module-braspag-unirgy": {
+        "type": "vcs",
+        "url": "https://github.com/webjump/magento2-module-braspag-unirgy.git"
+    }
+},
+"require": {
+    "webjump/magento2-module-braspag-unirgy": "1.0.0",
+    ...
+},
+```
+3. Ainda na raiz do projeto, executar os seguintes comandos:
+```
+composer update
+bin/magento module:enable Braspag_Unirgy
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+```
 
 # Configurações Gerais
 
