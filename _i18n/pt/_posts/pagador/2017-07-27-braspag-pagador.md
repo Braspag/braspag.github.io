@@ -6,6 +6,7 @@ search: true
 translated: true
 categories: manual
 sort_order: 1
+hub_visible: false
 tags:
     - 1. Pagador
 language_tabs:
