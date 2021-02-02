@@ -4,18 +4,6 @@
     <body>
         {% if page.language_tabs %}
             <div class="content-container no-dark-box">
-        {% else %}
-            <div class="content-container">
-            <div class="language-tabs">
-                <a class='hide-btn' id="hide-button" title="{% t global.toggle_right %}"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                <ul class="language-buttons">
-                    {% for lang in page.language_tabs %}
-                    <li><a data-language-name='{{ lang[0] }}'>{{ lang[1] }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="dark-box"></div>
-            <div class="overlay"></div>
         {% endif %}
             <div id="submenu">
                 <div class="submenu-container">
@@ -157,7 +145,7 @@
             }
         });
 
-        $('.content-container(.no-dark-box) div.highlighter-rouge').each(function (index) {
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
             let height = $(this).outerHeight();
 
             $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
