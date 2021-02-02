@@ -28,7 +28,7 @@
 
   function bind() {
     content = $('.content-container .post');
-    darkBox = $('.dark-box');
+    darkBox = $('.no-dark-box');
     searchResults = $('.search-results');
 
     $('#input-search').on('keyup', search);
