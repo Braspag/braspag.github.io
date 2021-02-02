@@ -119,48 +119,396 @@
             </div>
 
             <div class="post">
-    <h1 id="preparação-pré-instalação">Preparação Pré-Instalação</h1>
+    <h1 id="instalação">Instalação</h1>
 
-<ul>
-  <li>Faça sempre um backup de sua loja antes de iniciar a instalação do módulo.</li>
-  <li><strong>Nunca</strong> realize testes em módulos no seu ambiente de produção.</li>
-  <li>Sempre faça os testes em um ambiente de testes isolado.</li>
-  <li>Quando subir o módulo na loja em produção, sempre faça um backup completo dos arquivos e banco de dados.</li>
-</ul>
+<h2 id="pré-requisitos-técnicos">Pré-Requisitos Técnicos</h2>
 
-<h1 id="requisitos-técnicos">Requisitos Técnicos</h1>
+<p>Para saber quais os requisitos técnicos de infraestrutura para instalação do módulo Magento, consulte o <a href="https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html">Guia de Instalação</a> na documentação oficial do Magento.</p>
 
-<p>Para utilizar o módulo, o servidor deve conter os seguintes componentes PHP:</p>
-<ul>
-  <li>Extensão Ioncube Loader 8.3 ou superior (http://www.ioncube.com/loaders.php)</li>
-  <li>PHP SOAP</li>
-  <li>PHP cURL</li>
-</ul>
+<aside class="notice">A versão do Magento recomendada é a 2.4.0, mas são suportadas as versões a partir da 2.3.0.</aside>
 
-<h1 id="instalação-do-módulo">Instalação do Módulo</h1>
+<h2 id="instalação-do-módulo-base">Instalação do Módulo Base</h2>
+
+<h3 id="instalação-via-composer">Instalação via Composer</h3>
 
 <ol>
-  <li>Desabilite a compilação, caso esteja ativa em <code class="language-plaintext highlighter-rouge">Sistema</code> &gt; <code class="language-plaintext highlighter-rouge">Ferramentas</code> &gt; <code class="language-plaintext highlighter-rouge">Compilação</code>.</li>
-  <li>Desabilite o cache do Magento.</li>
-  <li>Faça o logout do backend.</li>
-  <li>Copie os arquivos do módulo em sua loja.</li>
-  <li>Faça o login no backend.</li>
-  <li>Vá em <code class="language-plaintext highlighter-rouge">Sistema</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>.</li>
-  <li>Clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Payment General Configuration</code>.</li>
-  <li>Acesse o link <em>“click here to request”</em> no campo <code class="language-plaintext highlighter-rouge">Serial key</code> e siga as instruções na página para solicitar o número de série.</li>
-  <li>Cadastre o número de série enviado para o e-mail selecionado no campo apropriado.</li>
-  <li>Acesse as abas de opções da integração que será utilizada em sua loja (<code class="language-plaintext highlighter-rouge">Transacion</code>, <code class="language-plaintext highlighter-rouge">Post Index</code> ou <code class="language-plaintext highlighter-rouge">Post Passthrough</code>) e faça as devidas configurações.</li>
+  <li>Acessar o servidor via SSH.</li>
+  <li>Localizar a raiz do projeto e executar os seguintes comandos:</li>
 </ol>
 
-<h1 id="importante">IMPORTANTE</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require webjump/magento2-module-braspagpagador
+composer update
+bin/magento module:enable Webjump_BraspagPagador
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+</code></pre></div></div>
 
-<ul>
-  <li>Não se esqueça de solicitar a liberação do endereço IP do seu servidor junto à Braspag.</li>
-  <li>Para utilizar o recurso de confirmação automática do pagamento de boleto e cartão de débito (recurso 2.o post), é necessário solicitar a configuração da URL na Braspag. O endereço está disponível em <code class="language-plaintext highlighter-rouge">Sistema</code> &gt; <code class="language-plaintext highlighter-rouge">Configuração</code> &gt; <code class="language-plaintext highlighter-rouge">Braspag by Webjump</code> &gt; <code class="language-plaintext highlighter-rouge">Payment - General Configuration</code> &gt; <code class="language-plaintext highlighter-rouge">Status Update</code>.</li>
-  <li>Será necessário gerar um novo número de série sempre que alterar URL, informações da loja (<code class="language-plaintext highlighter-rouge">Sistema</code> &gt; <code class="language-plaintext highlighter-rouge">Configuração</code> &gt; <code class="language-plaintext highlighter-rouge">Geral</code> &gt; <code class="language-plaintext highlighter-rouge">Informações sobre a Loja</code>) ou atualizar o módulo.</li>
-  <li>Caso seu acesso às configurações seja negado ou em caso de erro 404, faça o logout e depois acesse novamente o backend.</li>
-</ul>
+<h2 id="instalação-para-integração-com-a-unirgy-marketplace">Instalação para Integração com a Unirgy Marketplace</h2>
 
+<p>A instalação descrita nos próximos passos só é necessária caso o módulo <strong>Marketplace Unirgy</strong> seja adquirido.</p>
+
+<h3 id="instalação-via-composer-1">Instalação via Composer</h3>
+
+<ol>
+  <li>Acessar o servidor via SSH.</li>
+  <li>Localizar a raiz do projeto. No arquivo <em>composer.json</em>, adicionar as seguintes informações:</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"repositories": {
+    "webjump/magento2-module-braspag-unirgy": {
+        "type": "vcs",
+        "url": "https://github.com/webjump/magento2-module-braspag-unirgy.git"
+    }
+},
+"require": {
+    "webjump/magento2-module-braspag-unirgy": "1.0.0",
+    ...
+},
+</code></pre></div></div>
+
+<ol>
+  <li>Ainda na raiz do projeto, executar os seguintes comandos:</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer update
+bin/magento module:enable Braspag_Unirgy
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+</code></pre></div></div>
+
+<h1 id="configurações">Configurações</h1>
+
+<h2 id="configurações-gerais---acesso">Configurações Gerais - Acesso</h2>
+
+<p>Seguem instruções de acesso para as configurações gerais do módulo Braspag.</p>
+
+<ol>
+  <li>Fazer login no admin do Magento;</li>
+  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code>.</li>
+</ol>
+
+<h2 id="configurações-globais">Configurações Globais</h2>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Global Settings” do plugin Braspag:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-global-settings.png" alt="Global Settings" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Merchant ID</strong></td>
+      <td>ID da loja, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Merchant Key</strong></td>
+      <td>Chave da loja, disponibilizada pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Merchant Name</strong></td>
+      <td>Nome da loja, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Establishment Code</strong></td>
+      <td>Código de estabelecimento da loja, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>MCC</strong></td>
+      <td><em>Merchant Category Code</em> da loja, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Test Mode Active</strong></td>
+      <td>Ativa ou desativa o modo de testes no plugin. Quando ativado, as transações serão efetuadas no ambiente Sandbox.</td>
+    </tr>
+    <tr>
+      <td><strong>Return URL</strong></td>
+      <td>URL de retorno após a finalização da autenticação do método de pagamento Débito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="autenticação-oauth">Autenticação OAuth</h2>
+
+<p>Seguem instruções para configuração da autenticação <strong>OAuth</strong>. Essa autenticação é utilizada para a criação do token em requisições na Braspag.</p>
+
+<ol>
+  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">OAuth2 - Config</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “OAuth Config”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-oauth.png" alt="OAuth2 - Config" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Client ID</strong></td>
+      <td>ID do cliente, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Client Secret</strong></td>
+      <td>Chave secreta do cliente, disponibilizada pela Braspag.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="antifraude">Antifraude</h2>
+
+<p>Seguem as instruções de acesso para ativação do <strong>Anti Fraud</strong>:</p>
+
+<ol>
+  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Anti Fraud</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “General”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-antifraud-general.png" alt="Antifraude" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enabled</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o Antifraude.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Além da ativação do antifraude, nesta aba são também configurados o Fingerprint, as opções de sequência e captura do antifraude e os MDDs (Merchant Defined Data).</p>
+
+<h3 id="fingerprint">FingerPrint</h3>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “FingerPrint”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-fingerprint.png" alt="Fingerprint" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Org ID</strong></td>
+      <td>Fingerprint Org ID, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Merchant ID</strong></td>
+      <td>Fingerprint Merchant ID, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Use Order ID to Fingerprint</strong></td>
+      <td>Ativa ou desativa a utilização do ID do pedido na composição do fingerprint.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="options">Options</h3>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Options”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-antifraud-options.png" alt="Options" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Sequence</strong></td>
+      <td>Sequência do processamento do antifraude.<br />“Analyse First” - é efetuada a análise de fraude e depois a autorização. / “Authorize First” - é efetuada a autorização e depois a análise de fraude.</td>
+    </tr>
+    <tr>
+      <td><strong>Sequence Criteria</strong></td>
+      <td>Critério da sequência do processamento.<br />“On Success” - realiza a análise apenas quando a transação é efetuada com sucesso. / “Always” - a análise sempre será efetuada.</td>
+    </tr>
+    <tr>
+      <td><strong>Capture On Low Risk</strong></td>
+      <td>Ativa ou desativa a captura em caso de baixo risco na transação.</td>
+    </tr>
+    <tr>
+      <td><strong>Void On High Risk</strong></td>
+      <td>Ativa ou desativa o estorno automático em caso de alto risco na transação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="mdds">MDDs</h3>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “MDD’s”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-antifraud-mdds.png" alt="MDD's" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Customer fetch self Shipping Method</strong></td>
+      <td>Método de entrega do cliente.</td>
+    </tr>
+    <tr>
+      <td><strong>Store Code From Customer Fetch Self</strong></td>
+      <td>Código da loja do cliente.</td>
+    </tr>
+    <tr>
+      <td><strong>Vertical Segment</strong></td>
+      <td>Segmento da loja.</td>
+    </tr>
+    <tr>
+      <td><strong>Store Identity (CNPJ)</strong></td>
+      <td>CNPJ da loja.</td>
+    </tr>
+    <tr>
+      <td><strong>Category Attribute Code</strong></td>
+      <td>Código do atributo da categoria.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="autenticação-3ds-20">Autenticação 3DS 2.0</h2>
+
+<p>Seguem instruções para configuração da autenticação <strong>OAuth</strong> para a <strong>Autenticação 3DS 2.0</strong>. Essa autenticação é utilizada para a criação do token em requisições na Braspag.</p>
+
+<ol>
+  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Authentication 3DS 2.0 - Config</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Authentication 3DS 2.0 Config”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-authentication.png" alt="Authentication 3DS 2.0 Config" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Client ID</strong></td>
+      <td>ID do cliente, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Client Secret</strong></td>
+      <td>Chave secreta do cliente, disponibilizada pela Braspag.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="post-de-notificação">Post de Notificação</h2>
+
+<h2 id="split-de-pagamentos">Split de Pagamentos</h2>
+
+<h3 id="marketplace-vendor">Marketplace Vendor</h3>
+
+<h3 id="marketplace-credentials">Marketplace Credentials</h3>
+
+<h3 id="marketplace-general-config">Marketplace General Config</h3>
+
+<h1 id="clientes">Clientes</h1>
+
+<h2 id="configurações-1">Configurações</h2>
+
+<h3 id="address">Address</h3>
+
+<h1 id="boleto">Boleto</h1>
+
+<h2 id="acesso-às-configurações-gerais">Acesso às Configurações Gerais</h2>
+
+<h2 id="configurações-gerais">Configurações Gerais</h2>
+
+<h2 id="payment-split">Payment Split</h2>
+
+<h2 id="visão-do-método-de-pagamento-após-a-configuração-na-loja">Visão do Método de Pagamento após a Configuração na Loja</h2>
+
+<h1 id="cartão-de-crédito">Cartão de Crédito</h1>
+
+<h2 id="acesso-às-configurações-gerais-1">Acesso às Configurações Gerais</h2>
+
+<h2 id="configurações-gerais-1">Configurações Gerais</h2>
+
+<h2 id="types">Types</h2>
+
+<h2 id="installments">Installments</h2>
+
+<h2 id="silent-order-post">Silent Order Post</h2>
+
+<h2 id="autenticação-3ds-20-1">Autenticação 3DS 2.0</h2>
+
+<h2 id="payment-split-1">Payment Split</h2>
+
+<h2 id="avs">AVS</h2>
+
+<h2 id="checkout-card-view">Checkout Card View</h2>
+
+<h2 id="visão-do-método-de-pagamento-após-a-configuração-na-loja-1">Visão do Método de Pagamento após a Configuração na Loja</h2>
+
+<h1 id="cartão-de-crédito---cartão-salvo-just-click">Cartão de Crédito - Cartão Salvo (Just Click)</h1>
+
+<h2 id="acesso-às-configurações-gerais-2">Acesso às Configurações Gerais</h2>
+
+<h2 id="configurações-gerais-2">Configurações Gerais</h2>
+
+<h2 id="installments-1">Installments</h2>
+
+<h2 id="visão-do-método-de-pagamento-após-a-configuração-na-loja-2">Visão do Método de Pagamento após a Configuração na Loja</h2>
+
+<h1 id="cartão-de-débito">Cartão de Débito</h1>
+
+<h2 id="acesso-às-configurações-gerais-3">Acesso às Configurações Gerais</h2>
+
+<h2 id="configurações-gerais-3">Configurações Gerais</h2>
+
+<h2 id="types-1">Types</h2>
+
+<h2 id="autenticação-3ds-20-2">Autenticação 3DS 2.0</h2>
+
+<h2 id="payment-split-2">Payment Split</h2>
+
+<h2 id="checkout-card-view-1">Checkout Card View</h2>
+
+<h2 id="visão-do-método-de-pagamento-após-a-configuração-na-loja-3">Visão do Método de Pagamento após a Configuração na Loja</h2>
+
+<h1 id="split-de-pagamentos-magento">Split de Pagamentos (Magento)</h1>
+
+<h2 id="acesso-às-transações">Acesso às Transações</h2>
+
+<h2 id="trava-do-split">Trava do Split</h2>
+
+<h2 id="envio-manual-do-split-pós-transacional">Envio Manual do Split Pós-Transacional</h2>
+
+<h1 id="split-de-pagamentos-magento--unirgy">Split de Pagamentos (Magento + Unirgy)</h1>
+
+<h2 id="vínculo-do-seller-unirgy-ao-subordinado-braspag">Vínculo do Seller (Unirgy) ao Subordinado (Braspag)</h2>
+
+<h2 id="cadastro-de-taxas-e-descontos-de-comissão-do-seller-unirgy">Cadastro de Taxas e Descontos de Comissão do Seller (Unirgy)</h2>
 
 </div>
 
