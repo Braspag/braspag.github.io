@@ -14,13 +14,13 @@ tags:
 
 ## Pré-Requisitos Técnicos
 
-Para saber quais requisitos técnicos de infraestrutura são necessários para instalação do módulo Magento, consulte o [Guia de Instalação](https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html) na documentação oficial da Magento.
+Para saber quais os requisitos técnicos de infraestrutura para instalação do módulo Magento, consulte o [Guia de Instalação](https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html) na documentação oficial do Magento.
 
 <aside class="notice">A versão do Magento recomendada é a 2.4.0, mas são suportadas as versões a partir da 2.3.0.</aside>
 
 ## Instalação do Módulo Base
 
-### Instalação do Módulo via Composer
+### Instalação via Composer
 
 1. Acessar o servidor via SSH.
 2. Localizar a raiz do projeto e executar os seguintes comandos:
@@ -33,11 +33,11 @@ bin/magento setup:upgrade
 bin/magento setup:di:compile
 ```
 
-## Instalação do Módulo para a Integração com a Unirgy Marketplace
+## Instalação para Integração com a Unirgy Marketplace
 
-Esta instalação só é necessária caso o módulo **Marketplace Unirgy** seja adquirido. 
+A instalação descrita nos próximos passos só é necessária caso o módulo **Marketplace Unirgy** seja adquirido. 
 
-### Instalação do Módulo via Composer
+### Instalação via Composer
 
 1. Acessar o servidor via SSH.
 2. Localizar a raiz do projeto. No arquivo *composer.json*, adicionar as seguintes informações:
@@ -61,17 +61,55 @@ bin/magento setup:upgrade
 bin/magento setup:di:compile
 ```
 
-# Configurações Gerais
+# Configurações
 
-## Acesso às Configurações Gerais
+## Configurações Gerais - Acesso 
+
+Seguem instruções de acesso para as configurações gerais do módulo Braspag. 
+
+1. Fazer login no admin do Magento;
+2. No menu, acessar `Lojas` > `Configurações`;
+3. Acessar a aba `Vendas` > `Métodos de Pagamento`;
+4. Na lista de Métodos de Pagamento, clicar em `Braspag`.
 
 ## Configurações Globais
 
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Global Settings" do plugin Braspag:
+![Global Settings]({{ site.baseurl_root }}/images/braspag/pagador/magento-global-settings.png)
+
+|Campo|Descrição|
+|---|---|
+|**Merchant ID**|ID da loja, disponibilizado pela Braspag.|
+|**Merchant Key**|Chave da loja, disponibilizada pela Braspag.|
+|**Merchant Name**|Nome da loja, disponibilizado pela Braspag.|
+|**Establishment Code**|Código de estabelecimento da loja, disponibilizado pela Braspag.|
+|**MCC**|*Merchant Category Code* da loja, disponibilizado pela Braspag.|
+|**Test Mode Active**|Ativa ou desativa o modo de testes no plugin. Quando ativado, as transações serão efetuadas no ambiente Sandbox.|
+|**Return URL**|URL de retorno após a finalização da autenticação do método de pagamento Débito.|
+
 ## Autenticação OAuth
+
+Seguem instruções para configuração da autenticação OAuth. Essa autenticação é utilizada para a criação do token em requisições na Braspag.
+
+1. No menu, acessar `Lojas` > `Configurações`;
+2. Acessar a aba `Vendas` > `Métodos de Pagamento`;
+3. Na lista de Métodos de Pagamento, clicar em `Braspag` > `OAuth2 - Config`.
+
+![OAuth2 - Config]({{ site.baseurl_root }}/images/braspag/pagador/magento-oauth.png)
+
+|Campo|Descrição|
+|---|---|
+|**Client ID**| ID do cliente, disponibilizado pela Braspag.|
+|**Client Secret**|Chave secreta do cliente, disponibilizada pela Braspag.|
 
 ## Antifraude
 
 ### Configurações Gerais
+
+Seguem configurações gerais do Antifraude:
+
+1. No menu, acessar `Lojas` > `Configurações`;
+2. Acessar a aba `Braspag` > `Anti Fraud`.
 
 ### FingerPrint
 
