@@ -7782,7 +7782,7 @@ Lista de status retornados pela API:
 
 ## Tabela de MDDs
 
-De acordo com a necessidade do seu negócio, é desenhada uma estratégia de risco considerando o nível de relevância dos campos MDD. Caso não sejam enviados, esses campos ainda serão cobrados durante a validação das transações de testes. Por esse motivo, solicitamos uma análise prévia da documentação e a sinalização dos campos cujo envio não será possível realizar.
+De acordo com a necessidade do seu negócio, é desenhada uma estratégia de risco considerando o nível de relevância dos campos MDD (Merchant Defined Data). Caso não sejam enviados, esses campos ainda serão cobrados durante a validação das transações de testes. Por esse motivo, solicitamos que seja feita uma análise prévia da documentação e que seja feita sinalização, por parte da loja, dos campos cujo envio não será possível realizar.
 
 <aside class="warning">Caso não possua algum dado para ser enviado, simplesmente ignore o campo correspondente; ou seja, não faça o envio do campo vazio.</aside>
 
