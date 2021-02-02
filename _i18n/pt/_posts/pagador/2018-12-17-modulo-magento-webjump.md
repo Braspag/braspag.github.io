@@ -89,35 +89,87 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 ## Autenticação OAuth
 
-Seguem instruções para configuração da autenticação OAuth. Essa autenticação é utilizada para a criação do token em requisições na Braspag.
+Seguem instruções para configuração da autenticação **OAuth**. Essa autenticação é utilizada para a criação do token em requisições na Braspag.
 
 1. No menu, acessar `Lojas` > `Configurações`;
 2. Acessar a aba `Vendas` > `Métodos de Pagamento`;
 3. Na lista de Métodos de Pagamento, clicar em `Braspag` > `OAuth2 - Config`.
 
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "OAuth Config":
 ![OAuth2 - Config]({{ site.baseurl_root }}/images/braspag/pagador/magento-oauth.png)
 
 |Campo|Descrição|
 |---|---|
-|**Client ID**| ID do cliente, disponibilizado pela Braspag.|
+|**Client ID**|ID do cliente, disponibilizado pela Braspag.|
 |**Client Secret**|Chave secreta do cliente, disponibilizada pela Braspag.|
 
 ## Antifraude
 
-### Configurações Gerais
-
-Seguem configurações gerais do Antifraude:
+Seguem as instruções de acesso para ativação do **Anti Fraud**:
 
 1. No menu, acessar `Lojas` > `Configurações`;
 2. Acessar a aba `Braspag` > `Anti Fraud`.
 
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "General":
+![Antifraude]({{ site.baseurl_root }}/images/braspag/pagador/magento-antifraud-general.png)
+
+|Campo|Descrição|
+|---|---|
+|**Enabled**|Ativa ("Yes") ou desativa ("No") o Antifraude.|
+
+ Além da ativação do antifraude, nesta aba são também configurados o Fingerprint, as opções de sequência e captura do antifraude e os MDDs (Merchant Defined Data).
+ 
 ### FingerPrint
+
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "FingerPrint":
+![Fingerprint]({{ site.baseurl_root }}/images/braspag/pagador/magento-fingerprint.png)
+
+|Campo|Descrição|
+|---|---|
+|**Org ID**|Fingerprint Org ID, disponibilizado pela Braspag.|
+|**Merchant ID**|Fingerprint Merchant ID, disponibilizado pela Braspag.|
+|**Use Order ID to Fingerprint**|Ativa ou desativa a utilização do ID do pedido na composição do fingerprint.|
 
 ### Options
 
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Options":
+![Options]({{ site.baseurl_root }}/images/braspag/pagador/magento-antifraud-options.png)
+
+|Campo|Descrição|
+|---|---|
+|**Sequence**|Sequência do processamento do antifraude.<br>"Analyse First" - é efetuada a análise de fraude e depois a autorização. / "Authorize First" - é efetuada a autorização e depois a análise de fraude.|
+|**Sequence Criteria**|Critério da sequência do processamento.<br>"On Success" - realiza a análise apenas quando a transação é efetuada com sucesso. / "Always" - a análise sempre será efetuada.|
+|**Capture On Low Risk**|Ativa ou desativa a captura em caso de baixo risco na transação.|
+|**Void On High Risk**|Ativa ou desativa o estorno automático em caso de alto risco na transação.|
+
 ### MDDs
 
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "MDD's":
+![MDD's]({{ site.baseurl_root }}/images/braspag/pagador/magento-antifraud-mdds.png)
+
+|Campo|Descrição|
+|---|---|
+|**Customer fetch self Shipping Method**| Método de entrega do cliente.|
+|**Store Code From Customer Fetch Self**|Código da loja do cliente.|
+|**Vertical Segment**|Segmento da loja.|
+|**Store Identity (CNPJ)**|CNPJ da loja.|
+|**Category Attribute Code**|Código do atributo da categoria.|
+
 ## Autenticação 3DS 2.0
+
+Seguem instruções para configuração da autenticação **OAuth** para a **Autenticação 3DS 2.0**. Essa autenticação é utilizada para a criação do token em requisições na Braspag.
+
+1. No menu, acessar `Lojas` > `Configurações`;
+2. Acessar a aba `Vendas` > `Métodos de Pagamento`;
+3. Na lista de Métodos de Pagamento, clicar em `Braspag` > `Authentication 3DS 2.0 - Config`.
+
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Authentication 3DS 2.0 Config":
+![Authentication 3DS 2.0 Config]({{ site.baseurl_root }}/images/braspag/pagador/magento-authentication.png)
+
+|Campo|Descrição|
+|---|---|
+|**Client ID**|ID do cliente, disponibilizado pela Braspag.|
+|**Client Secret**|Chave secreta do cliente, disponibilizada pela Braspag.|
 
 ## Post de Notificação
 
