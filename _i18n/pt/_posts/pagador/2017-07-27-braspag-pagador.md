@@ -4964,6 +4964,11 @@ Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
+```json
+
+
+```
+
 ```shell
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate"
 --header "Content-Type: application/json"
@@ -5003,6 +5008,11 @@ Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 #### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
+
+```json
+
+
+```
 
 ```shell
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate"
