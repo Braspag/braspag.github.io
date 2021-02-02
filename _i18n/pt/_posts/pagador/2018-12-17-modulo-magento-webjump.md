@@ -41,6 +41,7 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
 
 1. Acessar o servidor via SSH.
 2. Localizar a raiz do projeto. No arquivo *composer.json*, adicionar as seguintes informações:
+
 ```
 "repositories": {
     "webjump/magento2-module-braspag-unirgy": {
@@ -53,7 +54,9 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
     ...
 },
 ```
+
 3. Ainda na raiz do projeto, executar os seguintes comandos:
+
 ```
 composer update
 bin/magento module:enable Braspag_Unirgy
@@ -117,8 +120,8 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |---|---|
 |**Enabled**|Ativa ("Yes") ou desativa ("No") o Antifraude.|
 
- Além da ativação do antifraude, nesta aba são também configurados o Fingerprint, as opções de sequência e captura do antifraude e os MDDs (Merchant Defined Data).
- 
+Além da ativação do antifraude, nesta aba são também configurados o Fingerprint, as opções de sequência e captura do antifraude e os MDDs (Merchant Defined Data).
+
 ### FingerPrint
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "FingerPrint":
