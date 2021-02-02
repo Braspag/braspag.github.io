@@ -16602,7 +16602,7 @@ If you do not have the data to send, please kindly do not send the corresponding
             }
         });
 
-        $('.content-container(.no-dark-box) div.highlighter-rouge').each(function (index) {
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
             let height = $(this).outerHeight();
 
             $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');

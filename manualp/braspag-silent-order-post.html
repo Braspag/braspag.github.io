@@ -638,7 +638,7 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
             }
         });
 
-        $('.content-container(.no-dark-box) div.highlighter-rouge').each(function (index) {
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
             let height = $(this).outerHeight();
 
             $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
