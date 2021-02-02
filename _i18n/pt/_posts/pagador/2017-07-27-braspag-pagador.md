@@ -4605,6 +4605,11 @@ Para alterar os dados do comprador de uma recorrência existente, basta fazer um
 
 #### Resposta
 
+```json
+
+
+```
+
 ```shell
 HTTP Status 200
 ```
@@ -4644,6 +4649,11 @@ Para alterar a data final da recorrência já existente, basta fazer um PUT conf
 
 #### Resposta
 
+```json
+
+
+```
+
 ```shell
 HTTP Status 200
 ```
@@ -4682,6 +4692,11 @@ Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT c
 |`Interval`|Intervalo da recorrência. <br>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual.|Texto |10 |Sim|
 
 #### Resposta
+
+```json
+
+
+```
 
 ```shell
 HTTP Status 200
@@ -4728,6 +4743,11 @@ Ao efetuar a alteração do dia da recorrência, devem ser levadas em considera�
 
 #### Resposta
 
+```json
+
+
+```
+
 ```shell
 HTTP Status 200
 ```
@@ -4769,6 +4789,11 @@ Para modificar o valor da transação de uma recorrência já existente, basta f
 
 #### Resposta
 
+```json
+
+
+```
+
 ```shell
 HTTP Status 200
 ```
@@ -4809,6 +4834,11 @@ Para alterar somente a data do pagamento seguinte, basta fazer um PUT conforme o
 |`NextPaymentDate`|Data de pagamento da próxima recorrência.|Texto |10 |Sim|
 
 #### Resposta
+
+```json
+
+
+```
 
 ```shell
 HTTP Status 200
@@ -4913,6 +4943,11 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 
 #### Resposta
 
+```json
+
+
+```
+
 ```shell
 HTTP Status 200
 ```
@@ -4948,6 +4983,11 @@ Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 
 #### Resposta
 
+```json
+
+
+```
+
 ```shell
 HTTP Status 200
 ```
@@ -4982,6 +5022,11 @@ Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
 
 #### Resposta
+
+```json
+
+
+```
 
 ```shell
 HTTP Status 200
@@ -6936,6 +6981,11 @@ Para consultar uma transação de cartão de crédito, é necessário o envio de
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
+```json
+
+
+```
+
 ```shell
 --request GET "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
 --header "Content-Type: application/json"
@@ -7241,6 +7291,11 @@ Para consultar uma transação de boleto registrado, é necessário o envio de m
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
+```json
+
+
+```
+
 ```shell
 --request GET "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
 --header "Content-Type: application/json"
@@ -7447,6 +7502,11 @@ Para consultar uma venda pelo identificador da loja, é necessário o envio de m
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId={merchantOrderId}</span></aside>
 
+```json
+
+
+```
+
 ```shell
 --request GET "https://apiquerysandbox.braspag.com.brv2/sales?merchantOrderId={merchantOrderId}"
 --header "Content-Type: application/json"
@@ -7512,6 +7572,11 @@ Para consultar um pedido de recorrência, é necessário o envio de mensagem HTT
 ### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
+
+```json
+
+
+```
 
 ```shell
 --request GET "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}"
