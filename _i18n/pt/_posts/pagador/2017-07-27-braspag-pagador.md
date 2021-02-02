@@ -1059,6 +1059,9 @@ Transações que não são capturadas até a [data limite](https://suporte.brasp
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
+```json
+```
+
 ```shell
 --request PUT "https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/capture?amount=xxx&serviceTaxAmount=xxx"
 --header "Content-Type: application/json"
