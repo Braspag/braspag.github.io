@@ -8,17 +8,20 @@ translated: true
 sort_order: 6
 tags:
   - 1. Pagador
+
 ---
+
+# Integração do Módulo Magento 2.0
 
 # Instalação
 
 ## Pré-Requisitos Técnicos
 
-Para saber quais os requisitos técnicos de infraestrutura para instalação do módulo Magento, consulte o [Guia de Instalação](https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html) na documentação oficial do Magento.
+Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Magento, consulte o [Guia de Instalação](https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html) na documentação oficial do Magento.
 
 <aside class="notice">A versão do Magento recomendada é a 2.4.0, mas são suportadas as versões a partir da 2.3.0.</aside>
 
-## Instalação do Módulo Base
+## Instalando o Módulo Base
 
 ### Instalação via Composer
 
