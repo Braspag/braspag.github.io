@@ -6,12 +6,12 @@ search: true
 toc_footers: false
 categories: manual
 sort_order: 1
-hub_visible: false
+hub_visible: true
 tags:
   - 5. Soluções para Marketplace
 language_tabs:
-  json
-  shell
+  json: JSON
+  shell: cURL
   
 ---
 
