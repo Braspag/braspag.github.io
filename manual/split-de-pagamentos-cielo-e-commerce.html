@@ -53,7 +53,9 @@
                 <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
                 <ul class="language-buttons">
                     
-                    <li><a data-language-name=''></a></li>
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
                     
                 </ul>
             </div>
@@ -5794,7 +5796,9 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
         });
 
         
-        langs += "<a data-language-name=''></a>";
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+        langs += "<a data-language-name='shell'>cURL</a>";
         
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
@@ -5803,7 +5807,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
         <script src="https://braspag.github.io//assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "", ]);
+                setupLanguages([  "json",  "shell", ]);
             });
         </script>
         
