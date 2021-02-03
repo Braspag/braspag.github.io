@@ -9,6 +9,10 @@ sort_order: 1
 hub_visible: false
 tags:
   - 5. Soluções para Marketplace
+language_tabs:
+  json: JSON
+  shell: cURL
+  
 ---
 
 # Split de Pagamentos
