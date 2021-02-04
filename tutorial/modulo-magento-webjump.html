@@ -176,9 +176,9 @@ bin/magento setup:di:compile
 
 <h1 id="configuração">Configuração</h1>
 
-<h2 id="configurações-gerais---acesso">Configurações Gerais - Acesso</h2>
+<h2 id="configurações-gerais">Configurações Gerais</h2>
 
-<p>Seguem instruções de acesso para as configurações gerais do módulo Braspag.</p>
+<p>Seguem instruções de acesso para as configurações gerais do módulo Braspag:</p>
 
 <ol>
   <li>Fazer login no admin do Magento;</li>
@@ -233,15 +233,15 @@ bin/magento setup:di:compile
 
 <h2 id="autenticação-oauth">Autenticação OAuth</h2>
 
-<p>Seguem instruções para configuração da autenticação <strong>OAuth</strong>. Essa autenticação é utilizada para a criação do token em requisições na Braspag.</p>
+<p>Essa autenticação é utilizada para a criação do token em requisições na Braspag. Seguem instruções para configuração da autenticação <strong>OAuth</strong>:</p>
 
 <ol>
   <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
   <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
-  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">OAuth2 Config</code>.</li>
+  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">OAuth2 - Config</code>.</li>
 </ol>
 
-<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “OAuth Config”:
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “OAuth2 - Config”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-oauth.png" alt="OAuth2 - Config" /></p>
 
 <table>
@@ -390,10 +390,10 @@ bin/magento setup:di:compile
 
 <h2 id="autenticação-3ds-20">Autenticação 3DS 2.0</h2>
 
-<p>A autenticação 3DS 2.0 é utilizada para a criação do token em requisições na Braspag. Consulte o nosso <a href="https://braspag.github.io//manualp/emv3ds">Manual 3DS 2.0</a> para conhecer suas vantagens.
-Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na sua loja, entre em contato com o nosso Comercial (comercial@braspag.com.br).</p>
+<p>A autenticação 3DS 2.0 é utilizada para a criação do token em requisições na Braspag. Consulte o nosso <a href="https://braspag.github.io//manualp/emv3ds">Manual 3DS 2.0</a> e conheça suas vantagens.
+<br />Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 em sua loja, entre em contato com o nosso Comercial (comercial@braspag.com.br).</p>
 
-<p>Seguem instruções para configuração da autenticação <strong>OAuth</strong> para a <strong>Autenticação 3DS 2.0</strong>.</p>
+<p>Seguem instruções para configuração da autenticação OAuth para a <strong>Autenticação 3DS 2.0</strong>:</p>
 
 <ol>
   <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
@@ -425,15 +425,16 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h2 id="post-de-notificação">Post de Notificação</h2>
 
-<p>O módulo Magento possui um endpoint criado e preparado para receber as notificações de atualização de status da transação, como um boleto que foi pago, por exemplo. Assim, são feitas as atualizações dos pedidos na loja.Para configurar a URL de sua loja aqui na Braspag, entre em contato conosco informando o seu “MerchantID” e a “URL de Notificação”.</p>
+<p>O módulo Magento possui um endpoint criado e preparado para receber as notificações de atualização de status da transação, como um boleto que foi pago, por exemplo. Assim, são feitas atualizações dos pedidos na loja.
+<br />Para configurar a URL de sua loja aqui na Braspag, entre em contato conosco informando o seu “MerchantID” e a “URL de Notificação”.</p>
 
-<aside class="notice">URL de notificação para o Módulo Magento: http://URL_DA_LOJA/braspag-pagador/post/notification</aside>
+<aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Magento).</aside>
 
 <p>Consulte o <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o">Manual do Pagador</a> para mais informações sobre o Post de Notificação.</p>
 
 <h2 id="split-de-pagamentos">Split de Pagamentos</h2>
 
-<p>Seguem instruções para configuração do <strong>Split de Pagamentos</strong>.</p>
+<p>Seguem instruções para configuração do <strong>Split de Pagamentos</strong>:</p>
 
 <ol>
   <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
@@ -523,7 +524,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h1 id="clientes">Clientes</h1>
 
-<p>Seguem instruções para configuração de <strong>Dados do Cliente</strong>.</p>
+<p>Seguem instruções para configuração de <strong>Dados do Cliente</strong>:</p>
 
 <ol>
   <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
@@ -577,7 +578,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h1 id="boleto">Boleto</h1>
 
-<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Boleto</strong>.</p>
+<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Boleto</strong>:</p>
 
 <ol>
   <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
@@ -646,7 +647,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 <h2 id="payment-split">Payment Split</h2>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos para boletos na seção “Payment Split”:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-boleto-config.png" alt="Boleto" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento-boleto-paymentsplit.png" alt="Boleto" /></p>
 
 <table>
   <thead>
@@ -683,15 +684,14 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
   </tbody>
 </table>
 
-<h2 id="visualização-final---boleto">Visualização Final - Boleto</h2>
+<h2 id="visualização-final">Visualização Final</h2>
 
-<p>A visão do método de pagamento, após a configuração na loja, será a seguinte:</p>
-
-<p><img src="https://braspag.github.io//images/braspag/pagador/magento-boleto-transaction.png" alt="Boleto" /></p>
+<p>A visão do método de pagamento boleto, após a configuração na loja, será a seguinte:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-boleto-transaction.png" alt="Boleto" /></p>
 
 <h1 id="cartão-de-crédito">Cartão de Crédito</h1>
 
-<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Crédito</strong>.</p>
+<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Crédito</strong>:</p>
 
 <ol>
   <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
@@ -755,7 +755,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h2 id="types">Types</h2>
 
-<p>A imagem a seguir mostra o campo de configuração a ser preenchido na seção “Types”:
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção “Types”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-types.png" alt="Types" /></p>
 
 <table>
@@ -775,7 +775,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h2 id="installments">Installments</h2>
 
-<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Installments”:
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de crédito na seção “Installments”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-installments.png" alt="Installments" /></p>
 
 <table>
@@ -815,7 +815,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h2 id="silent-order-post">Silent Order Post</h2>
 
-<p>A imagem a seguir mostra o campo de configuração a ser preenchido na seção “Silent Order Post”:
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção “Silent Order Post”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-sop.png" alt="Silent Order Post" /></p>
 
 <table>
@@ -835,7 +835,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h2 id="autenticação-3ds-20-1">Autenticação 3DS 2.0</h2>
 
-<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Aunthentication 3DS 2.0”:
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de crédito na seção “Aunthentication 3DS 2.0”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-authentication.png" alt="Authentication 3DS 2.0" /></p>
 
 <table>
@@ -875,7 +875,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h2 id="payment-split-1">Payment Split</h2>
 
-<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Payment Split”:
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de crédito na seção “Payment Split”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-paymentsplit.png" alt="Payment Split" /></p>
 
 <table>
@@ -915,7 +915,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h2 id="avs---address-verification-service">AVS - Address Verification Service</h2>
 
-<p>A imagem a seguir mostra o campo de configuração a ser preenchido na seção “Avs”:
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção “Avs”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-avs.png" alt="AVS" /></p>
 
 <table>
@@ -935,7 +935,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h2 id="checkout-card-view">Checkout Card View</h2>
 
-<p>A imagem a seguir mostra o campo de configuração a ser preenchido na seção “Checkout Card View”:
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção “Checkout Card View”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-checkout.png" alt="Checkout Card View" /></p>
 
 <table>
@@ -953,17 +953,16 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
   </tbody>
 </table>
 
-<h2 id="visualização-final---cartão-de-crédito">Visualização Final - Cartão de Crédito</h2>
+<h2 id="visualização-final-1">Visualização Final</h2>
 
-<p>A visão do método de pagamento, após a configuração na loja, será a seguinte:</p>
-
-<p><img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-transaction.png" alt="Cartão de Crédito" /></p>
+<p>A visão do método de pagamento cartão de crédito, após a configuração na loja, será a seguinte:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-transaction.png" alt="Cartão de Crédito" /></p>
 
 <h1 id="cartão-de-crédito---cartão-salvo-just-click">Cartão de Crédito - Cartão Salvo (Just Click)</h1>
 
 <p>A função “JustClick” funcionará apenas com a contratação do serviço do Cartão Protegido da Braspag. Entre em contato conosco através do email “comercial@braspag.com.br” para mais detalhes.</p>
 
-<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Crédito Salvo (JustClick)</strong>.</p>
+<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Crédito Salvo (JustClick)</strong>:</p>
 
 <ol>
   <li>Fazer login no admin do Magento;</li>
@@ -1048,15 +1047,14 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
   </tbody>
 </table>
 
-<h2 id="visualização-final---cartão-de-crédito-justclick">Visualização Final - Cartão de Crédito JustClick</h2>
+<h2 id="visualização-final-2">Visualização Final</h2>
 
-<p>A visão do método de pagamento, após a configuração na loja, será a seguinte:</p>
-
-<p><img src="https://braspag.github.io//images/braspag/pagador/magento-justclick-transaction.png" alt="Cartão de Crédito JustClick" /></p>
+<p>A visão do método de pagamento cartão de crédito JustClick, após a configuração na loja, será a seguinte:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-justclick-transaction.png" alt="Cartão de Crédito JustClick" /></p>
 
 <h1 id="cartão-de-débito">Cartão de Débito</h1>
 
-<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Débito</strong>.</p>
+<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Débito</strong>:</p>
 
 <ol>
   <li>Fazer login no admin do Magento;</li>
@@ -1105,7 +1103,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h2 id="types-1">Types</h2>
 
-<p>A imagem a seguir mostra o campo de configuração a ser preenchido na seção “Types”:
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de débito na seção “Types”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-types.png" alt="Types" /></p>
 
 <table>
@@ -1125,7 +1123,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h2 id="autenticação-3ds-20-2">Autenticação 3DS 2.0</h2>
 
-<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Aunthentication 3DS 2.0”:
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de débito na seção “Aunthentication 3DS 2.0”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-authentication.png" alt="Authentication 3DS 2.0" /></p>
 
 <table>
@@ -1165,7 +1163,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h2 id="payment-split-2">Payment Split</h2>
 
-<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Payment Split”:
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de débito na seção “Payment Split”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-paymentsplit.png" alt="Payment Split" /></p>
 
 <table>
@@ -1203,9 +1201,9 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
   </tbody>
 </table>
 
-<h2 id="avs---address-verification-service-1">AVS - Address Verification Service</h2>
+<h2 id="avs-address-verification-service">AVS (Address Verification Service)</h2>
 
-<p>A imagem a seguir mostra o campo de configuração a ser preenchido na seção “Avs”:
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de débito na seção “Avs”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-avs.png" alt="AVS" /></p>
 
 <table>
@@ -1225,7 +1223,7 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <h2 id="checkout-card-view-1">Checkout Card View</h2>
 
-<p>A imagem a seguir mostra o campo de configuração a ser preenchido na seção “Checkout Card View”:
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de débito na seção “Checkout Card View”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-checkout.png" alt="Checkout Card View" /></p>
 
 <table>
@@ -1243,40 +1241,36 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
   </tbody>
 </table>
 
-<h2 id="visualização-final---cartão-de-débito">Visualização Final - Cartão de Débito</h2>
+<h2 id="visualização-final-3">Visualização Final</h2>
 
-<p>A visão do método de pagamento, após a configuração na loja, será a seguinte:</p>
+<p>A visão do método de pagamento cartão de débito, após a configuração na loja, será a seguinte:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-transaction.png" alt="Cartão de Débito" /></p>
 
-<p><img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-transaction.png" alt="Cartão de Débito" /></p>
+<h1 id="split-de-pagamentos-1">Split de Pagamentos</h1>
 
-<h1 id="split-de-pagamentos-magento">Split de Pagamentos (Magento)</h1>
+<h2 id="split-magento">Split (Magento)</h2>
 
-<p>Seguem instruções para acesso e configuração do <strong>Split de Pagamentos</strong>.</p>
+<p>Seguem instruções para acesso e configurações de algumas funcionalidades do <strong>Split de Pagamentos</strong> disponibilizadas no Magento:</p>
 
 <ol>
   <li>Fazer login no admin do Magento;</li>
-  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; Payment Splits.</li>
+  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Payment Splits</code>.</li>
 </ol>
-
-<h2 id="funcionalidades">Funcionalidades</h2>
-
-<p>Conheça algumas funcionalidades do split de pagamentos disponibilizadas no Magento.</p>
 
 <h3 id="trava-do-split">Trava do Split</h3>
 
-<p>Para efetuar uma trava no pagamento de split, acesse as transações seguindo os passos 1 e 2 acima. Na lista, localize a transação em que deseja efetuar a trava e selecione a ação “Lock”, em Actions, na parte superior da grid:</p>
+<p>Para efetuar uma trava no pagamento de split, acesse as transações seguindo os passos 1 e 2 acima. Na lista, localize a transação em que deseja efetuar a trava e selecione a ação “Lock”, em Actions, na parte superior da grid:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-split-paymentsplit.png" alt="Trava do Split" /></p>
 
-<p><img src="https://braspag.github.io//images/braspag/pagador/magento-split-paymentsplit.png" alt="Trava do Split" /></p>
-
-<h3 id="envio-manual-do-split-pós-transacional">Envio Manual do Split Pós-Transacional</h3>
+<h3 id="envio-manual-pós-transacional">Envio Manual Pós-Transacional</h3>
 
 <p>Para efetuar o envio do split pós transacional manualmente, é necessário acessar o pedido no admin do Magento (<code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Pedidos</code> &gt; <code class="language-plaintext highlighter-rouge">Visualizar</code>) e, caso o pós transacional esteja ativado mas ainda não tenha sido efetuado, será possível clicar no botão “Send Payment Split”.</p>
 
-<h1 id="split-de-pagamentos-magento--unirgy">Split de Pagamentos (Magento + Unirgy)</h1>
+<h2 id="split-magento--unirgy">Split (Magento + Unirgy)</h2>
 
-<p>A seguir, algumas funcionalidades do split de pagamentos disponibilizadas de forma customizada na Unirgy.</p>
+<p>A seguir, algumas funcionalidades do split de pagamentos disponibilizadas de forma customizada na Unirgy:</p>
 
-<h2 id="vínculo-do-seller-unirgy-ao-subordinado-braspag">Vínculo do Seller (Unirgy) ao Subordinado (Braspag)</h2>
+<h3 id="vínculo-do-seller-ao-subordinado">Vínculo do Seller ao Subordinado</h3>
 
 <p>Existem 2 formas de um seller ser vinculado a um subordinado:</p>
 
@@ -1295,20 +1289,20 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
   </li>
 </ul>
 
-<aside class="warning">O vínculo do seller deve ser feito diretamente no produto somente quando não mais que 1 seller irá fazer a venda do mesmo. Caso contrário, a recomendação é que o vínculo seja feito diretamente nas configurações do seller.</aside>
+<aside class="warning">O vínculo do seller deve ser feito diretamente no produto somente quando não mais que 1 seller vá fazer a venda do mesmo. Caso contrário, a recomendação é que o vínculo seja feito diretamente nas configurações do seller.</aside>
 
 <h2 id="cadastro-de-taxas-e-descontos-de-comissão-do-seller-unirgy">Cadastro de Taxas e Descontos de Comissão do Seller (Unirgy)</h2>
 
 <p>Existem 3 formas de se cadastrar as taxas e descontos de comissões para um seller:</p>
 
 <ul>
-  <li><strong>Configuração Default do Seller</strong> - quando o Seller terá taxas e descontos padrões que poderão ser sobrescritos por configurações de taxas e descontos de comissões efetuadas dentro de produtos (Itens 2 e 3 abaixo).
+  <li><strong>Configuração Default do Seller</strong> (para quando o seller irá ter taxas e descontos padrões que poderão ser sobrescritos por configurações de taxas e descontos de comissões efetuadas dentro de produtos - itens 2 e 3 abaixo)
     <ol>
       <li>Para acessar esta configuração, é necessário ir até o menu <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Dropship</code> &gt; <code class="language-plaintext highlighter-rouge">Vendors</code> e selecionar o seller pretendido na grid, clicando em “Editar”.</li>
       <li>Localizar os campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee” e inserir as informações de taxas default para o seller.</li>
     </ol>
   </li>
-  <li><strong>Configuração do Produto</strong> - quando um seller apenas fará a comercialização do produto.
+  <li><strong>Configuração do Produto</strong> (para quando apenas um seller irá fazer a comercialização do produto)
     <ol>
       <li>Para acessar esta configuração, é necessário ir até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecionar o produto pretendido na grid, clicando em “Editar”.</li>
       <li>Localizar os atributos “Braspag Subordinate MDR” e “Braspag Subordinate Fee” e inserir as informações de taxas e desconto de comissões default para o seller.</li>
@@ -1316,17 +1310,17 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
   </li>
 </ul>
 
-<aside class="warning">O vínculo das taxas do seller deve ser feito diretamente no produto somente quando não mais que 1 seller irá fazer a venda do mesmo. Caso contrário, a recomendação é que o vínculo seja feito diretamente nas configurações do seller ao produto Unirgy, seguindo os passos descritos na opção abaixo.</aside>
+<aside class="warning">O vínculo das taxas do seller deve ser feito diretamente no produto somente quando não mais que 1 seller vá fazer a venda do mesmo. Caso contrário, a recomendação é que o vínculo seja feito diretamente nas configurações do seller ao produto Unirgy, seguindo os passos descritos na opção abaixo.</aside>
 
 <aside class="warning">A configuração descrita logo a seguir irá sobrescrever a configuração acima caso o produto seja comercializado por mais de um seller.</aside>
 
 <ul>
   <li>
-    <p><strong>Configuração do Vínculo de Produtos a Sellers</strong> - quando mais de um seller irá fazer a comercialização do produto.</p>
+    <p><strong>Configuração do Vínculo de Produtos a Sellers</strong> (para quando mais de um seller irá fazer a comercialização do produto)</p>
 
     <ol>
       <li>Para acessar esta configuração, é necessário ir até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecionar o produto pretendido na grid, clicando em “Editar”.</li>
-      <li>Localizar a aba <code class="language-plaintext highlighter-rouge">Dropship Vendors</code>. Adicionar o seller ao produto (é importante que o mesmo já tenha um Merchant ID Braspag vinculado, como demonstrado <a href="https://braspag.github.io//tutorial/modulo-magento-webjump#">aqui</a>, e nos campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee”, adicionar as informações de taxas e descontos de comissões a serem aplicadas para o Seller na venda do produto que está sendo editado.</li>
+      <li>Localizar a aba <code class="language-plaintext highlighter-rouge">Dropship Vendors</code>. Adicionar o seller ao produto (é importante que o mesmo já tenha um Merchant ID Braspag vinculado, como demonstrado <a href="https://braspag.github.io//tutorial/modulo-magento-webjump#v%C3%ADnculo-do-seller-ao-subordinado">aqui</a>, e nos campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee”, adicionar as informações de taxas e descontos de comissões a serem aplicadas para o Seller na venda do produto que está sendo editado.</li>
     </ol>
   </li>
 </ul>
