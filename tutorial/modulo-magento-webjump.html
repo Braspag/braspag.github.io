@@ -131,10 +131,8 @@
 
 <h3 id="instalação-via-composer">Instalação via Composer</h3>
 
-<ol>
-  <li>Acessar o servidor via SSH.</li>
-  <li>Localizar a raiz do projeto e executar os seguintes comandos:</li>
-</ol>
+<p>1- Acessar o servidor via SSH.
+2- Localizar a raiz do projeto e executar os seguintes comandos:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require webjump/magento2-module-braspagpagador
 composer update
@@ -149,25 +147,22 @@ bin/magento setup:di:compile
 
 <h3 id="instalação-via-composer-1">Instalação via Composer</h3>
 
-<ol>
-  <li>Acessar o servidor via SSH.</li>
-  <li>
-    <p>Localizar a raiz do projeto. No arquivo <em>composer.json</em>, adicionar as seguintes informações:</p>
+<p>1- Acessar o servidor via SSH.
+2- Localizar a raiz do projeto. No arquivo <em>composer.json</em>, adicionar as seguintes informações:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"repositories": {
- "webjump/magento2-module-braspag-unirgy": {
-     "type": "vcs",
-     "url": "https://github.com/webjump/magento2-module-braspag-unirgy.git"
- }
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"repositories": {
+    "webjump/magento2-module-braspag-unirgy": {
+        "type": "vcs",
+        "url": "https://github.com/webjump/magento2-module-braspag-unirgy.git"
+    }
 },
 "require": {
- "webjump/magento2-module-braspag-unirgy": "1.0.0",
- ...
+    "webjump/magento2-module-braspag-unirgy": "1.0.0",
+    ...
 },
-</code></pre></div>    </div>
-  </li>
-  <li>Ainda na raiz do projeto, executar os seguintes comandos:</li>
-</ol>
+</code></pre></div></div>
+
+<p>3- Ainda na raiz do projeto, executar os seguintes comandos:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer update
 bin/magento module:enable Braspag_Unirgy
