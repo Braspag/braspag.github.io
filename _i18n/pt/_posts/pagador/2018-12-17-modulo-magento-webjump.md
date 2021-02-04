@@ -42,8 +42,8 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
 
 ### Instalação via Composer
 
-1. Acessar o servidor via SSH.
-2. Localizar a raiz do projeto. No arquivo *composer.json*, adicionar as seguintes informações:
+1- Acessar o servidor via SSH.
+2- Localizar a raiz do projeto. No arquivo *composer.json*, adicionar as seguintes informações:
 
 ```
 "repositories": {
@@ -58,7 +58,7 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
 },
 ```
 
-3. Ainda na raiz do projeto, executar os seguintes comandos:
+3- Ainda na raiz do projeto, executar os seguintes comandos:
 
 ```
 composer update
@@ -560,13 +560,13 @@ A seguir, algumas funcionalidades do split de pagamentos disponibilizadas de for
 
 Existem 2 formas de um seller ser vinculado a um subordinado:
 
-1. **Configuração Default do Seller**
-   1.1. Para acessar esta configuração, é necessário ir até o menu `Vendas` > `Dropship` > `Vendors` e selecionar o seller pretendido na grid, clicando em “Editar”.
-   1.2. Localizar o campo “Braspag Subordinate Merchant ID” e inserir a informação do MerchantID do seller cadastrado na Braspag.
+* **Configuração Default do Seller**
+   1. Para acessar esta configuração, é necessário ir até o menu `Vendas` > `Dropship` > `Vendors` e selecionar o seller pretendido na grid, clicando em “Editar”.
+   2. Localizar o campo “Braspag Subordinate Merchant ID” e inserir a informação do MerchantID do seller cadastrado na Braspag.
    
-2. **Configuração do Produto**
-   1.1. Para acessar esta configuração, é necessário ir até o menu `Catálogo` > `Produtos` e selecionar o produto pretendido na grid, clicando em “Editar”.
-   1.2. Localizar o atributo “Braspag Subordinate Merchant ID” e inserir a informação do MerchantID do seller cadastrado na Braspag.
+* **Configuração do Produto**
+   1. Para acessar esta configuração, é necessário ir até o menu `Catálogo` > `Produtos` e selecionar o produto pretendido na grid, clicando em “Editar”.
+   2. Localizar o atributo “Braspag Subordinate Merchant ID” e inserir a informação do MerchantID do seller cadastrado na Braspag.
 
 <aside class="warning">O vínculo do seller deve ser feito diretamente no produto somente quando não mais que 1 seller irá fazer a venda do mesmo. Caso contrário, a recomendação é que o vínculo seja feito diretamente nas configurações do seller.</aside>
 
