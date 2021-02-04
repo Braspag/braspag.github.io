@@ -58,7 +58,7 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
 },
 ```
 
-\3. Ainda na raiz do projeto, executar os seguintes comandos:
+3\. Ainda na raiz do projeto, executar os seguintes comandos:
 
 ```
 composer update
