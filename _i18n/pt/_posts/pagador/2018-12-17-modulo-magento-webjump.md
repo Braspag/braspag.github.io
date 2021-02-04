@@ -25,8 +25,8 @@ Para saber quais os requisitos técnicos de infraestrutura para a instalação d
 
 ### Instalação via Composer
 
-1. Acessar o servidor via SSH.
-2. Localizar a raiz do projeto e executar os seguintes comandos:
+1- Acessar o servidor via SSH.
+2- Localizar a raiz do projeto e executar os seguintes comandos:
 
 ```
 composer require webjump/magento2-module-braspagpagador
@@ -42,10 +42,10 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
 
 ### Instalação via Composer
 
-1. Acessar o servidor via SSH.
-2. Localizar a raiz do projeto. No arquivo *composer.json*, adicionar as seguintes informações:
+1- Acessar o servidor via SSH.
+2- Localizar a raiz do projeto. No arquivo *composer.json*, adicionar as seguintes informações:
 
-    ```
+```
 "repositories": {
     "webjump/magento2-module-braspag-unirgy": {
         "type": "vcs",
@@ -56,9 +56,9 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
     "webjump/magento2-module-braspag-unirgy": "1.0.0",
     ...
 },
-    ```
+```
 
-3. Ainda na raiz do projeto, executar os seguintes comandos:
+3- Ainda na raiz do projeto, executar os seguintes comandos:
 
 ```
 composer update
