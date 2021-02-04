@@ -143,7 +143,7 @@ bin/magento setup:upgrade
 bin/magento setup:di:compile
 </code></pre></div></div>
 
-<h2 id="instalação-para-integração-com-a-unirgy-marketplace">Instalação para Integração com a Unirgy Marketplace</h2>
+<h2 id="integrando-com-a-unirgy-marketplace">Integrando com a Unirgy Marketplace</h2>
 
 <p>A instalação descrita nos próximos passos só é necessária caso o módulo <strong>Marketplace Unirgy</strong> seja adquirido.</p>
 
@@ -151,22 +151,21 @@ bin/magento setup:di:compile
 
 <ol>
   <li>Acessar o servidor via SSH.</li>
-  <li>Localizar a raiz do projeto. No arquivo <em>composer.json</em>, adicionar as seguintes informações:</li>
-</ol>
+  <li>
+    <p>Localizar a raiz do projeto. No arquivo <em>composer.json</em>, adicionar as seguintes informações:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"repositories": {
-    "webjump/magento2-module-braspag-unirgy": {
-        "type": "vcs",
-        "url": "https://github.com/webjump/magento2-module-braspag-unirgy.git"
-    }
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"repositories": {
+ "webjump/magento2-module-braspag-unirgy": {
+     "type": "vcs",
+     "url": "https://github.com/webjump/magento2-module-braspag-unirgy.git"
+ }
 },
 "require": {
-    "webjump/magento2-module-braspag-unirgy": "1.0.0",
-    ...
+ "webjump/magento2-module-braspag-unirgy": "1.0.0",
+ ...
 },
-</code></pre></div></div>
-
-<ol>
+</code></pre></div>    </div>
+  </li>
   <li>Ainda na raiz do projeto, executar os seguintes comandos:</li>
 </ol>
 
