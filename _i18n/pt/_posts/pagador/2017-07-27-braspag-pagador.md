@@ -3805,6 +3805,8 @@ O lojista conta com recursos diferenciados para modelar sua cobrança de acordo 
 
 <aside class="warning">A recorrência não está disponível para transações de e-wallets devido à necessidade de utilização de chaves temporárias para realizar operações de crédito.</aside>
 
+<aside class="warning">Atenção: Por questões de segurança, a recorrência só é possível para cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
+
 ## Autorização de Recorrência
 
 ### Autorizando Recorrência com Cartão de Crédito
@@ -4042,8 +4044,8 @@ Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.D
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`RecurrentPaymentId`|ID que representa a recorrência, utilizada para consultas e alterações futuras. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`NextRecurrency`|Data de quando acontecerá a próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`NextRecurrency`|Data de quando acontecerá a próxima recorrência. |Texto |10|2019-12-11 (YYYY-MM-DD) |
+|`EndDate`|Data do fim da recorrência. |Texto |10|2019-12-31 (YYYY-MM-DD) |
 |`Interval`|Intervalo entre as recorrências. |Texto |10 |Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
 |`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |Booleano |--- |"true" ou "false" |
 
