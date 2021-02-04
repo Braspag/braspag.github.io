@@ -149,8 +149,10 @@ bin/magento setup:di:compile
 
 <h3 id="instalação-via-composer-1">Instalação via Composer</h3>
 
-<p>1- Acessar o servidor via SSH.
-2- Localizar a raiz do projeto. No arquivo <em>composer.json</em>, adicionar as seguintes informações:</p>
+<ol>
+  <li>Acessar o servidor via SSH.</li>
+  <li>Localizar a raiz do projeto. No arquivo <em>composer.json</em>, adicionar as seguintes informações:</li>
+</ol>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"repositories": {
     "webjump/magento2-module-braspag-unirgy": {
@@ -164,7 +166,7 @@ bin/magento setup:di:compile
 },
 </code></pre></div></div>
 
-<p>3- Ainda na raiz do projeto, executar os seguintes comandos:</p>
+<p>\3. Ainda na raiz do projeto, executar os seguintes comandos:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer update
 bin/magento module:enable Braspag_Unirgy
