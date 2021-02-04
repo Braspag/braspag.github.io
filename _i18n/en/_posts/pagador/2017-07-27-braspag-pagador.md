@@ -710,7 +710,6 @@ A debit card transaction creation is similar to that of a credit card, except fo
 #### Response
 
 ```json
-
 {
  [...]
   "Payment":{
@@ -738,7 +737,6 @@ A debit card transaction creation is similar to that of a credit card, except fo
     [...]
   }
 }
-
 ```
 
 ```shell
@@ -1069,7 +1067,6 @@ An authorization that is not captured by the deadline is automatically released 
         }
     ]
 }
-
 ```
 
 |Property|Description|Type|Size|Format|
@@ -3085,7 +3082,7 @@ The Visa Checkout service must be hired through contacting Visa directly.
 
 ##### Request
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {
@@ -3307,7 +3304,7 @@ A transaction with a voucher card is similar to a debit card transaction; only w
 |`Payment.ReturnUrl`|URL to which the user will be redirected after the end of the payment.|Text|1024|Yes|
 |`DeditCard.CardNumber`|Customer's card number.|Text|16|Yes|
 |`DeditCard.Holder`|Name of the cardholder printed on the card.|Text|25|Yes|
-|`DebitCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format.|Text|7|Yes|
+|`DebitCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format. Note: "Ticket" vouchers do not have an expiration date printed on the card. Send a date previous to the current date to process the transaction.|Text|7|Yes|
 |`DebitCard.SecurityCode`|Security code printed on back of card.|Text|4|Yes|
 |`DebitCard.Brand`|Card brand.|Text|10|Yes|
 
