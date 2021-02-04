@@ -380,7 +380,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos para ca
 |**Default Store MDR**|Valor padrão da loja para MDR. Esse valor será enviado quando não existir nenhum valor padrão de MDR vinculado ao vendedor ou aos itens de venda.|
 |**Default Store Fee**|Valor padrão da loja para Fee. Esse valor será enviado quando não existir nenhum valor padrão de Fee vinculado ao vendedor ou aos itens de venda.|
 
-## AVS - Address Verification Service
+## AVS (Address Verification Service)
 
 A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção "Avs":
 ![AVS]({{ site.baseurl_root }}/images/braspag/pagador/magento-creditcard-avs.png)
