@@ -131,8 +131,10 @@
 
 <h3 id="instalação-via-composer">Instalação via Composer</h3>
 
-<p>1- Acessar o servidor via SSH.
-2- Localizar a raiz do projeto e executar os seguintes comandos:</p>
+<ol>
+  <li>Acessar o servidor via SSH.</li>
+  <li>Localizar a raiz do projeto e executar os seguintes comandos:</li>
+</ol>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require webjump/magento2-module-braspagpagador
 composer update
@@ -141,7 +143,7 @@ bin/magento setup:upgrade
 bin/magento setup:di:compile
 </code></pre></div></div>
 
-<h2 id="integrando-com-a-unirgy-marketplace">Integrando com a Unirgy Marketplace</h2>
+<h2 id="instalação-para-integração-com-a-unirgy-marketplace">Instalação para Integração com a Unirgy Marketplace</h2>
 
 <p>A instalação descrita nos próximos passos só é necessária caso o módulo <strong>Marketplace Unirgy</strong> seja adquirido.</p>
 
@@ -1276,18 +1278,20 @@ Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 na su
 
 <p>Existem 2 formas de um seller ser vinculado a um subordinado:</p>
 
-<ol>
-  <li>
-    <p><strong>Configuração Default do Seller</strong>
-1.1. Para acessar esta configuração, é necessário ir até o menu <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Dropship</code> &gt; <code class="language-plaintext highlighter-rouge">Vendors</code> e selecionar o seller pretendido na grid, clicando em “Editar”.
-1.2. Localizar o campo “Braspag Subordinate Merchant ID” e inserir a informação do MerchantID do seller cadastrado na Braspag.</p>
+<ul>
+  <li><strong>Configuração Default do Seller</strong>
+    <ol>
+      <li>Para acessar esta configuração, é necessário ir até o menu <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Dropship</code> &gt; <code class="language-plaintext highlighter-rouge">Vendors</code> e selecionar o seller pretendido na grid, clicando em “Editar”.</li>
+      <li>Localizar o campo “Braspag Subordinate Merchant ID” e inserir a informação do MerchantID do seller cadastrado na Braspag.</li>
+    </ol>
   </li>
-  <li>
-    <p><strong>Configuração do Produto</strong>
-1.1. Para acessar esta configuração, é necessário ir até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecionar o produto pretendido na grid, clicando em “Editar”.
-1.2. Localizar o atributo “Braspag Subordinate Merchant ID” e inserir a informação do MerchantID do seller cadastrado na Braspag.</p>
+  <li><strong>Configuração do Produto</strong>
+    <ol>
+      <li>Para acessar esta configuração, é necessário ir até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecionar o produto pretendido na grid, clicando em “Editar”.</li>
+      <li>Localizar o atributo “Braspag Subordinate Merchant ID” e inserir a informação do MerchantID do seller cadastrado na Braspag.</li>
+    </ol>
   </li>
-</ol>
+</ul>
 
 <aside class="warning">O vínculo do seller deve ser feito diretamente no produto somente quando não mais que 1 seller irá fazer a venda do mesmo. Caso contrário, a recomendação é que o vínculo seja feito diretamente nas configurações do seller.</aside>
 
