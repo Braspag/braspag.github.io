@@ -1485,8 +1485,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 
 <h4 id="response-1">Response</h4>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
  </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"DebitCard"</span><span class="p">:{</span><span class="w">
@@ -1513,7 +1512,6 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre></div></div>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
@@ -2096,7 +2094,6 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
         <span class="o">}</span>
     <span class="o">]</span>
 <span class="o">}</span>
-
 </code></pre></div></div>
 
 <table>
@@ -5855,7 +5852,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <h5 id="request-15">Request</h5>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -6298,7 +6295,7 @@ The example below covers the minimum required fields to be submitted for authori
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
-      <td>Expiration date printed on the card, in the MM/YYYY format.</td>
+      <td>Expiration date printed on the card, in the MM/YYYY format. Note: “Ticket” vouchers do not have an expiration date printed on the card. Send a date previous to the current date to process the transaction.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
