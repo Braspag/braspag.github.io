@@ -563,7 +563,7 @@ Existem 2 formas de um seller ser vinculado a um subordinado:
 
 <aside class="warning">O vínculo do seller deve ser feito diretamente no produto somente quando não mais que 1 seller vá fazer a venda do mesmo. Caso contrário, a recomendação é que o vínculo seja feito diretamente nas configurações do seller.</aside>
 
-## Cadastro de Taxas e Descontos de Comissão do Seller (Unirgy)
+### Cadastro de Taxas e Descontos de Comissão do Seller (Unirgy)
 
 Existem 3 formas de se cadastrar as taxas e descontos de comissões para um seller:
 
