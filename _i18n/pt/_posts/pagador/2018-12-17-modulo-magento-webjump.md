@@ -44,7 +44,8 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
 
 1. Acessar o servidor via SSH.
 2. Localizar a raiz do projeto. No arquivo *composer.json*, adicionar as seguintes informações:
-```
+
+    ```
 "repositories": {
     "webjump/magento2-module-braspag-unirgy": {
         "type": "vcs",
@@ -55,7 +56,8 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
     "webjump/magento2-module-braspag-unirgy": "1.0.0",
     ...
 },
-```
+    ```
+
 3. Ainda na raiz do projeto, executar os seguintes comandos:
 
 ```
