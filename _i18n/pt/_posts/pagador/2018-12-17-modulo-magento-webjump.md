@@ -403,7 +403,7 @@ A imagem a seguir mostra o campo de configuração a ser preenchido para cartão
 A visão do método de pagamento cartão de crédito, após a configuração na loja, será a seguinte:
 ![Cartão de Crédito]({{ site.baseurl_root }}/images/braspag/pagador/magento-creditcard-transaction.png)
 
-# Cartão de Crédito - Cartão Salvo (Just Click)
+# Cartão Salvo (Just Click)
 
 A função "JustClick" funcionará apenas com a contratação do serviço do Cartão Protegido da Braspag. Entre em contato conosco através do email "comercial@braspag.com.br" para mais detalhes.
 
