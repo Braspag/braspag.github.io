@@ -36,7 +36,7 @@ bin/magento setup:upgrade
 bin/magento setup:di:compile
 ```
 
-## Instalação para Integração com a Unirgy Marketplace
+## Integrando com a Unirgy Marketplace
 
 A instalação descrita nos próximos passos só é necessária caso o módulo **Marketplace Unirgy** seja adquirido. 
 
@@ -44,7 +44,6 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
 
 1. Acessar o servidor via SSH.
 2. Localizar a raiz do projeto. No arquivo *composer.json*, adicionar as seguintes informações:
-
 ```
 "repositories": {
     "webjump/magento2-module-braspag-unirgy": {
@@ -57,7 +56,6 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
     ...
 },
 ```
-
 3. Ainda na raiz do projeto, executar os seguintes comandos:
 
 ```
