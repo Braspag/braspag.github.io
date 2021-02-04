@@ -3209,7 +3209,7 @@ Para utilizar o Masterpass é necessária a contratação do serviço através d
 
 ##### Requisição
 
-Exemplo de requisição padrão Master-Pass:
+Exemplo de requisição padrão Masterpass:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3805,7 +3805,7 @@ O lojista conta com recursos diferenciados para modelar sua cobrança de acordo 
 
 <aside class="warning">A recorrência não está disponível para transações de e-wallets devido à necessidade de utilização de chaves temporárias para realizar operações de crédito.</aside>
 
-<aside class="warning">Atenção: Por questões de segurança, a recorrência só é possível para cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
+<aside class="warning">Por questões de segurança, a recorrência só é possível para cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
 ## Autorização de Recorrência
 
