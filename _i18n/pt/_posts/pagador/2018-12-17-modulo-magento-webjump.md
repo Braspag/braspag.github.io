@@ -42,8 +42,8 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
 
 ### Instalação via Composer
 
-1- Acessar o servidor via SSH.
-2- Localizar a raiz do projeto. No arquivo *composer.json*, adicionar as seguintes informações:
+1. Acessar o servidor via SSH.
+2. Localizar a raiz do projeto. No arquivo *composer.json*, adicionar as seguintes informações:
 
 ```
 "repositories": {
@@ -58,7 +58,7 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
 },
 ```
 
-3- Ainda na raiz do projeto, executar os seguintes comandos:
+\3. Ainda na raiz do projeto, executar os seguintes comandos:
 
 ```
 composer update
