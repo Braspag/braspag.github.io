@@ -127,6 +127,8 @@ Além da ativação do antifraude, nesta aba são também configurados o Fingerp
 
 ### FingerPrint
 
+O FingerPrint é uma funcionalidade utilizada para identificar o dispositivo do comprador.
+
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "FingerPrint":
 ![Fingerprint]({{ site.baseurl_root }}/images/braspag/pagador/magento-fingerprint.png)
 
@@ -143,7 +145,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 |Campo|Descrição|
 |---|---|
-|**Sequence**|Sequência do processamento do antifraude.<br>"Analyse First" - é efetuada a análise de fraude e depois a autorização. / "Authorize First" - é efetuada a autorização e depois a análise de fraude.|
+|**Sequence**|Sequência do processamento do antifraude.<br>"Analyse First" - é efetuada a análise de fraude e depois a autorização. / "Authorize First" - é efetuada a autorização e depois a análise de fraude. <br> Obs.: Clientes utilizando revisão manual devem operar no fluxo "Authorize First".|
 |**Sequence Criteria**|Critério da sequência do processamento.<br>"On Success" - realiza a análise apenas quando a transação é efetuada com sucesso. / "Always" - a análise sempre será efetuada.|
 |**Capture On Low Risk**|Ativa ("Yes") ou desativa ("No") a captura em caso de baixo risco na transação.|
 |**Void On High Risk**|Ativa ("Yes") ou desativa ("No") o estorno automático em caso de alto risco na transação.|
@@ -239,18 +241,18 @@ Seguem instruções para configuração de **Dados do Cliente**:
 
 ## Address
 
-A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Address":
+A imagem a seguir mostra os campos de configuração com os respectivos valores a serem utilizados na seção "Address":
 ![Address]({{ site.baseurl_root }}/images/braspag/pagador/magento-customer-config.png)
 
-|Campo|Descrição|
-|---|---|
-|**Should we sanitize address data?**|Ativa ("Yes") ou desativa ("No") a formatação do campo "bairro" do endereço do cliente.|
-|**District Dictionary**|Palavras a serem substituídas durante a formatação do campo "bairro" do endereço do cliente.|
-|**Street Attribute**|Atributo utilizado no campo "logradouro" do endereço do cliente.|
-|**Number Attribute**|Atributo utilizado no campo "número" do endereço do cliente.|
-|**Complement Attribute**|Atributo utilizado no campo "complemento" do endereço do cliente.|
-|**District Attribute**|Atributo utilizado no campo "bairro" do endereço do cliente.|
-|**Customer Identity (CPF/CNPJ) Attribute**|Atributo utilizado no campo "CPF/CNPJ" do cliente. Valor padrão Magento: "customer_taxvat".|
+|Campo|Descrição|Valor|
+|---|---|---|
+|**Should we sanitize address data?**|Ativa ("Yes") ou desativa ("No") a formatação do campo "bairro" do endereço do cliente.|"Yes"|
+|**District Dictionary**|Palavras a serem substituídas durante a formatação do campo "bairro" do endereço do cliente.|"Neighborhood-Nb.;Housing-Hs"|
+|**Street Attribute**|Atributo utilizado no campo "logradouro" do endereço do cliente.|"street_1"|
+|**Number Attribute**|Atributo utilizado no campo "número" do endereço do cliente.|"street_2"|
+|**Complement Attribute**|Atributo utilizado no campo "complemento" do endereço do cliente.|"street_3"|
+|**District Attribute**|Atributo utilizado no campo "bairro" do endereço do cliente.|"street_4"|
+|**Customer Identity (CPF/CNPJ) Attribute**|Atributo utilizado no campo "CPF/CNPJ" do cliente.|"customer_taxvat"|
 
 # Boleto
 
