@@ -14,7 +14,7 @@ title: Home
                 {% if lang[0] == site.default_lang %}
                 <a href="{{ site.baseurl_root }}{{page.url}}">
                 {% else %}
-                <a href="{{ site.baseurl_root }}/{{ lang[0] }}{{page.url}}">
+                <a href="{{ site.baseurl_root }}/{{ lang[0] }}{{page.url}}" target="_blank">
                 {% endif %}
 
                    <img alt="{{ lang[1] }}" src="{{ site.baseurl }}/assets/images/{{ lang[0] }}.png"/>
