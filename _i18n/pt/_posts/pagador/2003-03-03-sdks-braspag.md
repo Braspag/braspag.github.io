@@ -5,10 +5,11 @@ description: Lista de SDKs API Pagador
 toc_footers: true
 categories: tutorial
 translated: true
-sort_order: 7
+sort_order: 8
 hub_visible: false
 tags:
     - 1. Pagador
+    
 ---
 
 # Software Development Kits - Pagador
