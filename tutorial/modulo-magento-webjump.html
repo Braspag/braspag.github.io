@@ -294,6 +294,8 @@ bin/magento setup:di:compile
 
 <h3 id="fingerprint">FingerPrint</h3>
 
+<p>O FingerPrint é uma funcionalidade utilizada para identificar o dispositivo do comprador.</p>
+
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “FingerPrint”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-fingerprint.png" alt="Fingerprint" /></p>
 
@@ -335,7 +337,7 @@ bin/magento setup:di:compile
   <tbody>
     <tr>
       <td><strong>Sequence</strong></td>
-      <td>Sequência do processamento do antifraude.<br />“Analyse First” - é efetuada a análise de fraude e depois a autorização. / “Authorize First” - é efetuada a autorização e depois a análise de fraude.</td>
+      <td>Sequência do processamento do antifraude.<br />“Analyse First” - é efetuada a análise de fraude e depois a autorização. / “Authorize First” - é efetuada a autorização e depois a análise de fraude. <br /> Obs.: Clientes utilizando revisão manual devem operar no fluxo “Authorize First”.</td>
     </tr>
     <tr>
       <td><strong>Sequence Criteria</strong></td>
@@ -534,7 +536,7 @@ bin/magento setup:di:compile
 
 <h2 id="address">Address</h2>
 
-<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Address”:
+<p>A imagem a seguir mostra os campos de configuração com os respectivos valores a serem utilizados na seção “Address”:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-customer-config.png" alt="Address" /></p>
 
 <table>
@@ -542,36 +544,44 @@ bin/magento setup:di:compile
     <tr>
       <th>Campo</th>
       <th>Descrição</th>
+      <th>Valor</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>Should we sanitize address data?</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) a formatação do campo “bairro” do endereço do cliente.</td>
+      <td>“Yes”</td>
     </tr>
     <tr>
       <td><strong>District Dictionary</strong></td>
       <td>Palavras a serem substituídas durante a formatação do campo “bairro” do endereço do cliente.</td>
+      <td>“Neighborhood-Nb.;Housing-Hs”</td>
     </tr>
     <tr>
       <td><strong>Street Attribute</strong></td>
       <td>Atributo utilizado no campo “logradouro” do endereço do cliente.</td>
+      <td>“street_1”</td>
     </tr>
     <tr>
       <td><strong>Number Attribute</strong></td>
       <td>Atributo utilizado no campo “número” do endereço do cliente.</td>
+      <td>“street_2”</td>
     </tr>
     <tr>
       <td><strong>Complement Attribute</strong></td>
       <td>Atributo utilizado no campo “complemento” do endereço do cliente.</td>
+      <td>“street_3”</td>
     </tr>
     <tr>
       <td><strong>District Attribute</strong></td>
       <td>Atributo utilizado no campo “bairro” do endereço do cliente.</td>
+      <td>“street_4”</td>
     </tr>
     <tr>
       <td><strong>Customer Identity (CPF/CNPJ) Attribute</strong></td>
-      <td>Atributo utilizado no campo “CPF/CNPJ” do cliente. Valor padrão Magento: “customer_taxvat”.</td>
+      <td>Atributo utilizado no campo “CPF/CNPJ” do cliente.</td>
+      <td>“customer_taxvat”</td>
     </tr>
   </tbody>
 </table>
