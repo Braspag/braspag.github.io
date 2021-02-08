@@ -132,8 +132,8 @@
 <h3 id="instalação-via-composer">Instalação via Composer</h3>
 
 <ol>
-  <li>Acessar o servidor via SSH.</li>
-  <li>Localizar a raiz do projeto e executar os seguintes comandos:</li>
+  <li>Acesse o servidor via SSH.</li>
+  <li>Localize a raiz do projeto e executar os seguintes comandos:</li>
 </ol>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require webjump/magento2-module-braspagpagador
@@ -150,8 +150,8 @@ bin/magento setup:di:compile
 <h3 id="instalação-via-composer-1">Instalação via Composer</h3>
 
 <ol>
-  <li>Acessar o servidor via SSH.</li>
-  <li>Localizar a raiz do projeto. No arquivo <em>composer.json</em>, adicionar as seguintes informações:</li>
+  <li>Acesse o servidor via SSH.</li>
+  <li>Localize a raiz do projeto. No arquivo <em>composer.json</em>, adicione as seguintes informações:</li>
 </ol>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"repositories": {
@@ -166,7 +166,7 @@ bin/magento setup:di:compile
 },
 </code></pre></div></div>
 
-<p>3. Ainda na raiz do projeto, executar os seguintes comandos:</p>
+<p>3. Ainda na raiz do projeto, execute os seguintes comandos:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer update
 bin/magento module:enable Braspag_Unirgy
@@ -181,10 +181,10 @@ bin/magento setup:di:compile
 <p>Seguem instruções de acesso para as configurações gerais do módulo Braspag:</p>
 
 <ol>
-  <li>Fazer login no admin do Magento;</li>
-  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
-  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
-  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code>.</li>
+  <li>Faça login no admin do Magento;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code>.</li>
 </ol>
 
 <h2 id="configurações-globais">Configurações Globais</h2>
@@ -236,9 +236,9 @@ bin/magento setup:di:compile
 <p>Essa autenticação é utilizada para a criação do token em requisições na Braspag. Seguem instruções para configuração da autenticação <strong>OAuth</strong>:</p>
 
 <ol>
-  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
-  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
-  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">OAuth2 - Config</code>.</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">OAuth2 - Config</code>.</li>
 </ol>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “OAuth2 - Config”:
@@ -268,8 +268,8 @@ bin/magento setup:di:compile
 <p>Seguem as instruções de acesso para ativação do <strong>Anti Fraud</strong>:</p>
 
 <ol>
-  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
-  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Anti Fraud</code>.</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Anti Fraud</code>.</li>
 </ol>
 
 <p>A imagem a seguir mostra o campo de configuração a ser preenchido na seção “General”:
@@ -398,9 +398,9 @@ bin/magento setup:di:compile
 <p>Seguem instruções para configuração da autenticação OAuth para a <strong>Autenticação 3DS 2.0</strong>:</p>
 
 <ol>
-  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
-  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
-  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Authentication 3DS 2.0 Config</code>.</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Authentication 3DS 2.0 Config</code>.</li>
 </ol>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Authentication 3DS 2.0 Config”:
@@ -439,9 +439,9 @@ bin/magento setup:di:compile
 <p>Seguem instruções para configuração do <strong>Split de Pagamentos</strong>:</p>
 
 <ol>
-  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
-  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
-  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Payment Split - Config</code>.</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Payment Split - Config</code>.</li>
 </ol>
 
 <h3 id="marketplace-vendor">Marketplace Vendor</h3>
@@ -529,9 +529,9 @@ bin/magento setup:di:compile
 <p>Seguem instruções para configuração de <strong>Dados do Cliente</strong>:</p>
 
 <ol>
-  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
-  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
-  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Customer Config</code>.</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Customer Config</code>.</li>
 </ol>
 
 <h2 id="address">Address</h2>
@@ -591,9 +591,9 @@ bin/magento setup:di:compile
 <p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Boleto</strong>:</p>
 
 <ol>
-  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
-  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
-  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Pagador Transaction</code> &gt; <code class="language-plaintext highlighter-rouge">Boleto</code>.</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Pagador Transaction</code> &gt; <code class="language-plaintext highlighter-rouge">Boleto</code>.</li>
 </ol>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Boleto”:
@@ -704,9 +704,9 @@ bin/magento setup:di:compile
 <p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Crédito</strong>:</p>
 
 <ol>
-  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
-  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
-  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Pagador Transaction</code> &gt; <code class="language-plaintext highlighter-rouge">Credit Card</code>.</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Pagador Transaction</code> &gt; <code class="language-plaintext highlighter-rouge">Credit Card</code>.</li>
 </ol>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Credit Card”:
@@ -975,10 +975,10 @@ bin/magento setup:di:compile
 <p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Crédito Salvo (JustClick)</strong>:</p>
 
 <ol>
-  <li>Fazer login no admin do Magento;</li>
-  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
-  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
-  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Credit Card JustClick</code>.</li>
+  <li>Faça login no admin do Magento;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Credit Card JustClick</code>.</li>
 </ol>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Credit Card JustClick (Token)”:
@@ -1067,10 +1067,10 @@ bin/magento setup:di:compile
 <p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Débito</strong>:</p>
 
 <ol>
-  <li>Fazer login no admin do Magento;</li>
-  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
-  <li>Acessar a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
-  <li>Na lista de Métodos de Pagamento, clicar em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Debit Card</code>.</li>
+  <li>Faça login no admin do Magento;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Debit Card</code>.</li>
 </ol>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Debit Card”:
@@ -1263,8 +1263,8 @@ bin/magento setup:di:compile
 <p>Seguem instruções para acesso e configurações de algumas funcionalidades do <strong>Split de Pagamentos</strong> disponibilizadas no Magento:</p>
 
 <ol>
-  <li>Fazer login no admin do Magento;</li>
-  <li>No menu, acessar <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Payment Splits</code>.</li>
+  <li>Faça login no admin do Magento;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Payment Splits</code>.</li>
 </ol>
 
 <h3 id="trava-do-split">Trava do Split</h3>
@@ -1287,14 +1287,14 @@ bin/magento setup:di:compile
 <ul>
   <li><strong>Configuração Default do Seller</strong>
     <ol>
-      <li>Para acessar esta configuração, é necessário ir até o menu <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Dropship</code> &gt; <code class="language-plaintext highlighter-rouge">Vendors</code> e selecionar o seller pretendido na grid, clicando em “Editar”.</li>
-      <li>Localizar o campo “Braspag Subordinate Merchant ID” e inserir a informação do MerchantID do seller cadastrado na Braspag.</li>
+      <li>Para acessar esta configuração, vá até o menu <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Dropship</code> &gt; <code class="language-plaintext highlighter-rouge">Vendors</code> e selecione o seller pretendido na grid, clicando em “Editar”.</li>
+      <li>Localize o campo “Braspag Subordinate Merchant ID” e insira a informação do MerchantID do seller cadastrado na Braspag.</li>
     </ol>
   </li>
   <li><strong>Configuração do Produto</strong>
     <ol>
-      <li>Para acessar esta configuração, é necessário ir até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecionar o produto pretendido na grid, clicando em “Editar”.</li>
-      <li>Localizar o atributo “Braspag Subordinate Merchant ID” e inserir a informação do MerchantID do seller cadastrado na Braspag.</li>
+      <li>Para acessar esta configuração, vá até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecione o produto pretendido na grid, clicando em “Editar”.</li>
+      <li>Localize o atributo “Braspag Subordinate Merchant ID” e insira a informação do MerchantID do seller cadastrado na Braspag.</li>
     </ol>
   </li>
 </ul>
@@ -1308,14 +1308,14 @@ bin/magento setup:di:compile
 <ul>
   <li><strong>Configuração Default do Seller</strong> (para quando o seller irá ter taxas e descontos padrões que poderão ser sobrescritos por configurações de taxas e descontos de comissões efetuadas dentro de produtos - itens 2 e 3 abaixo)
     <ol>
-      <li>Para acessar esta configuração, é necessário ir até o menu <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Dropship</code> &gt; <code class="language-plaintext highlighter-rouge">Vendors</code> e selecionar o seller pretendido na grid, clicando em “Editar”.</li>
-      <li>Localizar os campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee” e inserir as informações de taxas default para o seller.</li>
+      <li>Para acessar esta configuração, vá até o menu <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Dropship</code> &gt; <code class="language-plaintext highlighter-rouge">Vendors</code> e selecione o seller pretendido na grid, clicando em “Editar”.</li>
+      <li>Localize os campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee” e insira as informações de taxas default para o seller.</li>
     </ol>
   </li>
   <li><strong>Configuração do Produto</strong> (para quando apenas um seller irá fazer a comercialização do produto)
     <ol>
-      <li>Para acessar esta configuração, é necessário ir até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecionar o produto pretendido na grid, clicando em “Editar”.</li>
-      <li>Localizar os atributos “Braspag Subordinate MDR” e “Braspag Subordinate Fee” e inserir as informações de taxas e desconto de comissões default para o seller.</li>
+      <li>Para acessar esta configuração, vá até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecione o produto pretendido na grid, clicando em “Editar”.</li>
+      <li>Localize os atributos “Braspag Subordinate MDR” e “Braspag Subordinate Fee” e insira as informações de taxas e desconto de comissões default para o seller.</li>
     </ol>
   </li>
 </ul>
@@ -1329,8 +1329,8 @@ bin/magento setup:di:compile
     <p><strong>Configuração do Vínculo de Produtos a Sellers</strong> (para quando mais de um seller irá fazer a comercialização do produto)</p>
 
     <ol>
-      <li>Para acessar esta configuração, é necessário ir até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecionar o produto pretendido na grid, clicando em “Editar”.</li>
-      <li>Localizar a aba <code class="language-plaintext highlighter-rouge">Dropship Vendors</code>. Adicionar o seller ao produto (é importante que o mesmo já tenha um Merchant ID Braspag vinculado, como demonstrado no item <a href="https://braspag.github.io//tutorial/modulo-magento-webjump#split-(magento-+-unirgy)">Vínculo do Seller ao Subordinado</a>, e nos campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee”, adicionar as informações de taxas e descontos de comissões a serem aplicadas para o Seller na venda do produto que está sendo editado.</li>
+      <li>Para acessar esta configuração, vá até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecione o produto pretendido na grid, clicando em “Editar”.</li>
+      <li>Localize a aba <code class="language-plaintext highlighter-rouge">Dropship Vendors</code>. Adicione o seller ao produto (é importante que o mesmo já tenha um Merchant ID Braspag vinculado, como demonstrado no item <a href="https://braspag.github.io//tutorial/modulo-magento-webjump#split-(magento-+-unirgy)">Vínculo do Seller ao Subordinado</a>, e nos campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee”, adicione as informações de taxas e descontos de comissões a serem aplicadas para o Seller na venda do produto que está sendo editado.</li>
     </ol>
   </li>
 </ul>
