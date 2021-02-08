@@ -57,8 +57,6 @@
                     
                     <li><a data-language-name='shell'>cURL</a></li>
                     
-                    <li><a data-language-name='html'>HTML</a></li>
-                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -142,9 +140,9 @@
             <div class="post">
   <h1 id="consultando-dados-de-um-cartão-via-zero-auth-e-consulta-bin">Consultando Dados de um Cartão via Zero Auth e Consulta BIN</h1>
 
-<p>O <em>VerifyCard</em> é composto por dois serviços: <strong>Zero Auth</strong> e <strong>Consulta BIN</strong>.<br />O Zero Auth é um serviço que identifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor de R$ 0,00.<br />A Consulta BIN é um serviço disponível para clientes Cielo 3.0 que retorna as características do BIN tais como bandeira e tipo do cartão, a partir do BIN (6 primeiros dígitos do cartão).<br />Os dois serviços podem ser consumidos simultaneamente através do VerifyCard, conforme o exemplo abaixo. Também é possível que o processo de autorização seja condicionado automaticamente a um retorno de sucesso do ZeroAuth. Para habilitar este fluxo, por favor, entre em contato com nosso time de suporte.</p>
+<p>O <strong>VerifyCard</strong> é composto por dois serviços: Zero Auth e Consulta BIN.<br />O <strong>Zero Auth</strong> é um serviço que identifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor de R$ 0,00.<br />A <strong>Consulta BIN</strong> é um serviço disponível para clientes Cielo 3.0 que retorna as características do BIN, tais como bandeira e tipo do cartão, a partir do BIN (6 primeiros dígitos do cartão).<br />Os dois serviços podem ser consumidos simultaneamente através do VerifyCard, conforme o exemplo abaixo. Também é possível que o processo de autorização seja condicionado automaticamente a um retorno de sucesso do ZeroAuth, fluxo este que deve ser habilitado entrando em contato com nosso time de suporte.</p>
 
-<p>Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST no serviço <em>VerifyCard</em>, de acordo com o modelo a seguir:</p>
+<p>Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST no serviço VerifyCard, de acordo com o modelo a seguir:</p>
 
 <h2 id="requisição">Requisição</h2>
 
@@ -164,8 +162,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> GET <span class="s2">"https://apisandbox.braspag.com.br/v2/verifycard"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://apisandbox.braspag.com.br/v2/verifycard"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -213,7 +210,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome da provedora de meio de pagamento.</td>
+      <td>Nome da provedora do meio de pagamento.</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -255,9 +252,9 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Type</code></td>
-      <td>Tipo do cartão a ser consultado. Este campo é particularmente importante devido aos cartões com funções múltiplas.</td>
+      <td>Tipo do cartão a ser consultado (“CreditCard” / “DebitCard”). Este campo é particularmente importante devido aos cartões com funções múltiplas.</td>
       <td>Texto</td>
-      <td>CreditCard ou DebitCard</td>
+      <td>10</td>
       <td>Sim</td>
     </tr>
   </tbody>
@@ -530,8 +527,6 @@
         
         langs += "<a data-language-name='shell'>cURL</a>";
         
-        langs += "<a data-language-name='html'>HTML</a>";
-        
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
         </script>
@@ -539,7 +534,7 @@
         <script src="https://braspag.github.io//assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "json",  "shell",  "html", ]);
+                setupLanguages([  "json",  "shell", ]);
             });
         </script>
         
