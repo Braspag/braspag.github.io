@@ -121,7 +121,7 @@ A imagem a seguir mostra o campo de configuração a ser preenchido na seção "
 
 |Campo|Descrição|
 |---|---|
-|**Enable/Disable**|Ativa ("Yes") ou desativa ("No") o Antifraude.|
+|**Enable/Disable**|Ativa ("Yes") ou desativa ("No") o antifraude.|
 
 Além da ativação do antifraude, nesta aba são também configurados o Fingerprint, as opções de sequência e captura do antifraude e os MDDs (Merchant Defined Data).
 
@@ -174,7 +174,7 @@ Seguem instruções para configuração da autenticação OAuth para a **Autenti
 2. Acesse a aba `Vendas` > `Métodos de Pagamento`;
 3. Na lista de Métodos de Pagamento, clique em `Braspag` > `Authentication 3DS 2.0 Config`.
 
-A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Authentication 3DS 2.0 Config":
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Authentication 3DS 2.0 - Config":
 ![Authentication 3DS 2.0 Config]({{ site.baseurl_root }}/images/braspag/pagador/magento-authentication.png)
 
 |Campo|Descrição|
