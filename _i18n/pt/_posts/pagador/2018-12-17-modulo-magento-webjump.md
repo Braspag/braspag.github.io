@@ -25,8 +25,8 @@ Para saber quais os requisitos técnicos de infraestrutura para a instalação d
 
 ### Instalação via Composer
 
-1. Acessar o servidor via SSH.
-2. Localizar a raiz do projeto e executar os seguintes comandos:
+1. Acesse o servidor via SSH.
+2. Localize a raiz do projeto e executar os seguintes comandos:
 
 ```
 composer require webjump/magento2-module-braspagpagador
@@ -42,8 +42,8 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
 
 ### Instalação via Composer
 
-1. Acessar o servidor via SSH.
-2. Localizar a raiz do projeto. No arquivo *composer.json*, adicionar as seguintes informações:
+1. Acesse o servidor via SSH.
+2. Localize a raiz do projeto. No arquivo *composer.json*, adicione as seguintes informações:
 
 ```
 "repositories": {
@@ -58,7 +58,7 @@ A instalação descrita nos próximos passos só é necessária caso o módulo *
 },
 ```
 
-3\. Ainda na raiz do projeto, executar os seguintes comandos:
+3\. Ainda na raiz do projeto, execute os seguintes comandos:
 
 ```
 composer update
@@ -73,10 +73,10 @@ bin/magento setup:di:compile
 
 Seguem instruções de acesso para as configurações gerais do módulo Braspag:
 
-1. Fazer login no admin do Magento;
-2. No menu, acessar `Lojas` > `Configurações`;
-3. Acessar a aba `Vendas` > `Métodos de Pagamento`;
-4. Na lista de Métodos de Pagamento, clicar em `Braspag`.
+1. Faça login no admin do Magento;
+2. No menu, acesse `Lojas` > `Configurações`;
+3. Acesse a aba `Vendas` > `Métodos de Pagamento`;
+4. Na lista de Métodos de Pagamento, clique em `Braspag`.
 
 ## Configurações Globais
 
@@ -97,9 +97,9 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 Essa autenticação é utilizada para a criação do token em requisições na Braspag. Seguem instruções para configuração da autenticação **OAuth**: 
 
-1. No menu, acessar `Lojas` > `Configurações`;
-2. Acessar a aba `Vendas` > `Métodos de Pagamento`;
-3. Na lista de Métodos de Pagamento, clicar em `Braspag` > `OAuth2 - Config`.
+1. No menu, acesse `Lojas` > `Configurações`;
+2. Acesse a aba `Vendas` > `Métodos de Pagamento`;
+3. Na lista de Métodos de Pagamento, clique em `Braspag` > `OAuth2 - Config`.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "OAuth2 - Config":
 ![OAuth2 - Config]({{ site.baseurl_root }}/images/braspag/pagador/magento-oauth.png)
@@ -113,8 +113,8 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 Seguem as instruções de acesso para ativação do **Anti Fraud**:
 
-1. No menu, acessar `Lojas` > `Configurações`;
-2. Acessar a aba `Braspag` > `Anti Fraud`.
+1. No menu, acesse `Lojas` > `Configurações`;
+2. Acesse a aba `Braspag` > `Anti Fraud`.
 
 A imagem a seguir mostra o campo de configuração a ser preenchido na seção "General":
 ![Antifraude]({{ site.baseurl_root }}/images/braspag/pagador/magento-antifraud-general.png)
@@ -170,9 +170,9 @@ A autenticação 3DS 2.0 é utilizada para a criação do token em requisições
 
 Seguem instruções para configuração da autenticação OAuth para a **Autenticação 3DS 2.0**:
 
-1. No menu, acessar `Lojas` > `Configurações`;
-2. Acessar a aba `Vendas` > `Métodos de Pagamento`;
-3. Na lista de Métodos de Pagamento, clicar em `Braspag` > `Authentication 3DS 2.0 Config`.
+1. No menu, acesse `Lojas` > `Configurações`;
+2. Acesse a aba `Vendas` > `Métodos de Pagamento`;
+3. Na lista de Métodos de Pagamento, clique em `Braspag` > `Authentication 3DS 2.0 Config`.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Authentication 3DS 2.0 Config":
 ![Authentication 3DS 2.0 Config]({{ site.baseurl_root }}/images/braspag/pagador/magento-authentication.png)
@@ -195,9 +195,9 @@ Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador
 
 Seguem instruções para configuração do **Split de Pagamentos**:
 
-1. No menu, acessar `Lojas` > `Configurações`;
-2. Acessar a aba `Vendas` > `Métodos de Pagamento`;
-3. Na lista de Métodos de Pagamento, clicar em `Braspag` > `Payment Split - Config`.
+1. No menu, acesse `Lojas` > `Configurações`;
+2. Acesse a aba `Vendas` > `Métodos de Pagamento`;
+3. Na lista de Métodos de Pagamento, clique em `Braspag` > `Payment Split - Config`.
 
 ### Marketplace Vendor
 
@@ -235,9 +235,9 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 Seguem instruções para configuração de **Dados do Cliente**:
 
-1. No menu, acessar `Lojas` > `Configurações`;
-2. Acessar a aba `Vendas` > `Métodos de Pagamento`;
-3. Na lista de Métodos de Pagamento, clicar em `Braspag` > `Customer Config`.
+1. No menu, acesse `Lojas` > `Configurações`;
+2. Acesse a aba `Vendas` > `Métodos de Pagamento`;
+3. Na lista de Métodos de Pagamento, clique em `Braspag` > `Customer Config`.
 
 ## Address
 
@@ -258,9 +258,9 @@ A imagem a seguir mostra os campos de configuração com os respectivos valores 
 
 Seguem instruções para acesso e configurações específicas para o método de pagamento **Boleto**:
 
-1. No menu, acessar `Lojas` > `Configurações`;
-2. Acessar a aba `Vendas` > `Métodos de Pagamento`;
-3. Na lista de Métodos de Pagamento, clicar em `Braspag` > `Pagador Transaction` > `Boleto`.
+1. No menu, acesse `Lojas` > `Configurações`;
+2. Acesse a aba `Vendas` > `Métodos de Pagamento`;
+3. Na lista de Métodos de Pagamento, clique em `Braspag` > `Pagador Transaction` > `Boleto`.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Boleto":
 ![Boleto]({{ site.baseurl_root }}/images/braspag/pagador/magento-boleto-config.png)
@@ -302,9 +302,9 @@ A visão do método de pagamento boleto, após a configuração na loja, será a
 
 Seguem instruções para acesso e configurações específicas para o método de pagamento **Cartão de Crédito**:
 
-1. No menu, acessar `Lojas` > `Configurações`;
-2. Acessar a aba `Vendas` > `Métodos de Pagamento`;
-3. Na lista de Métodos de Pagamento, clicar em `Braspag` > `Pagador Transaction` > `Credit Card`.
+1. No menu, acesse `Lojas` > `Configurações`;
+2. Acesse a aba `Vendas` > `Métodos de Pagamento`;
+3. Na lista de Métodos de Pagamento, clique em `Braspag` > `Pagador Transaction` > `Credit Card`.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Credit Card":
 ![Credit Card]({{ site.baseurl_root }}/images/braspag/pagador/magento-creditcard-config.png)
@@ -411,10 +411,10 @@ A função "JustClick" funcionará apenas com a contratação do serviço do Car
 
 Seguem instruções para acesso e configurações específicas para o método de pagamento **Cartão de Crédito Salvo (JustClick)**:
 
-1. Fazer login no admin do Magento;
-2. No menu, acessar `Lojas` > `Configurações`;
-3. Acessar a aba `Vendas` > `Métodos de Pagamento`;
-4. Na lista de Métodos de Pagamento, clicar em `Braspag` > `Credit Card JustClick`.
+1. Faça login no admin do Magento;
+2. No menu, acesse `Lojas` > `Configurações`;
+3. Acesse a aba `Vendas` > `Métodos de Pagamento`;
+4. Na lista de Métodos de Pagamento, clique em `Braspag` > `Credit Card JustClick`.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Credit Card JustClick (Token)":
 ![Credit Card JustClick]({{ site.baseurl_root }}/images/braspag/pagador/magento-justclick-token.png)
@@ -452,10 +452,10 @@ A visão do método de pagamento cartão de crédito JustClick, após a configur
 
 Seguem instruções para acesso e configurações específicas para o método de pagamento **Cartão de Débito**:
 
-1. Fazer login no admin do Magento;
-2. No menu, acessar `Lojas` > `Configurações`;
-3. Acessar a aba `Vendas` > `Métodos de Pagamento`;
-4. Na lista de Métodos de Pagamento, clicar em `Braspag` > `Debit Card`.
+1. Faça login no admin do Magento;
+2. No menu, acesse `Lojas` > `Configurações`;
+3. Acesse a aba `Vendas` > `Métodos de Pagamento`;
+4. Na lista de Métodos de Pagamento, clique em `Braspag` > `Debit Card`.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Debit Card":
 ![Debit Card]({{ site.baseurl_root }}/images/braspag/pagador/magento-debitcard-config.png)
@@ -535,8 +535,8 @@ A visão do método de pagamento cartão de débito, após a configuração na l
 
 Seguem instruções para acesso e configurações de algumas funcionalidades do **Split de Pagamentos** disponibilizadas no Magento:
 
-1. Fazer login no admin do Magento;
-2. No menu, acessar `Vendas` > `Braspag` > `Payment Splits`.
+1. Faça login no admin do Magento;
+2. No menu, acesse `Vendas` > `Braspag` > `Payment Splits`.
 
 ### Trava do Split
 
@@ -556,12 +556,12 @@ A seguir, algumas funcionalidades do split de pagamentos disponibilizadas de for
 Existem 2 formas de um seller ser vinculado a um subordinado:
 
 * **Configuração Default do Seller**
-   1. Para acessar esta configuração, é necessário ir até o menu `Vendas` > `Dropship` > `Vendors` e selecionar o seller pretendido na grid, clicando em “Editar”.
-   2. Localizar o campo “Braspag Subordinate Merchant ID” e inserir a informação do MerchantID do seller cadastrado na Braspag.
+   1. Para acessar esta configuração, vá até o menu `Vendas` > `Dropship` > `Vendors` e selecione o seller pretendido na grid, clicando em “Editar”.
+   2. Localize o campo “Braspag Subordinate Merchant ID” e insira a informação do MerchantID do seller cadastrado na Braspag.
    
 * **Configuração do Produto**
-   1. Para acessar esta configuração, é necessário ir até o menu `Catálogo` > `Produtos` e selecionar o produto pretendido na grid, clicando em “Editar”.
-   2. Localizar o atributo “Braspag Subordinate Merchant ID” e inserir a informação do MerchantID do seller cadastrado na Braspag.
+   1. Para acessar esta configuração, vá até o menu `Catálogo` > `Produtos` e selecione o produto pretendido na grid, clicando em “Editar”.
+   2. Localize o atributo “Braspag Subordinate Merchant ID” e insira a informação do MerchantID do seller cadastrado na Braspag.
 
 <aside class="warning">O vínculo do seller deve ser feito diretamente no produto somente quando não mais que 1 seller vá fazer a venda do mesmo. Caso contrário, a recomendação é que o vínculo seja feito diretamente nas configurações do seller.</aside>
 
@@ -570,12 +570,12 @@ Existem 2 formas de um seller ser vinculado a um subordinado:
 Existem 3 formas de se cadastrar as taxas e descontos de comissões para um seller:
 
 * **Configuração Default do Seller** (para quando o seller irá ter taxas e descontos padrões que poderão ser sobrescritos por configurações de taxas e descontos de comissões efetuadas dentro de produtos - itens 2 e 3 abaixo)
-   1. Para acessar esta configuração, é necessário ir até o menu `Vendas` > `Dropship` > `Vendors` e selecionar o seller pretendido na grid, clicando em “Editar”.
-   2. Localizar os campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee” e inserir as informações de taxas default para o seller.
+   1. Para acessar esta configuração, vá até o menu `Vendas` > `Dropship` > `Vendors` e selecione o seller pretendido na grid, clicando em “Editar”.
+   2. Localize os campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee” e insira as informações de taxas default para o seller.
    
 * **Configuração do Produto** (para quando apenas um seller irá fazer a comercialização do produto)
-   1. Para acessar esta configuração, é necessário ir até o menu `Catálogo` > `Produtos` e selecionar o produto pretendido na grid, clicando em “Editar”.
-   2. Localizar os atributos “Braspag Subordinate MDR” e “Braspag Subordinate Fee” e inserir as informações de taxas e desconto de comissões default para o seller.
+   1. Para acessar esta configuração, vá até o menu `Catálogo` > `Produtos` e selecione o produto pretendido na grid, clicando em “Editar”.
+   2. Localize os atributos “Braspag Subordinate MDR” e “Braspag Subordinate Fee” e insira as informações de taxas e desconto de comissões default para o seller.
    
 <aside class="warning">O vínculo das taxas do seller deve ser feito diretamente no produto somente quando não mais que 1 seller vá fazer a venda do mesmo. Caso contrário, a recomendação é que o vínculo seja feito diretamente nas configurações do seller ao produto Unirgy, seguindo os passos descritos na opção abaixo.</aside>
 
@@ -583,5 +583,5 @@ Existem 3 formas de se cadastrar as taxas e descontos de comissões para um sell
 
 * **Configuração do Vínculo de Produtos a Sellers** (para quando mais de um seller irá fazer a comercialização do produto)
 
-   1. Para acessar esta configuração, é necessário ir até o menu `Catálogo` > `Produtos` e selecionar o produto pretendido na grid, clicando em “Editar”.
-   2. Localizar a aba `Dropship Vendors`. Adicionar o seller ao produto (é importante que o mesmo já tenha um Merchant ID Braspag vinculado, como demonstrado no item [Vínculo do Seller ao Subordinado](https://braspag.github.io//tutorial/modulo-magento-webjump#split-(magento-+-unirgy)), e nos campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee”, adicionar as informações de taxas e descontos de comissões a serem aplicadas para o Seller na venda do produto que está sendo editado.
+   1. Para acessar esta configuração, vá até o menu `Catálogo` > `Produtos` e selecione o produto pretendido na grid, clicando em “Editar”.
+   2. Localize a aba `Dropship Vendors`. Adicione o seller ao produto (é importante que o mesmo já tenha um Merchant ID Braspag vinculado, como demonstrado no item [Vínculo do Seller ao Subordinado](https://braspag.github.io//tutorial/modulo-magento-webjump#split-(magento-+-unirgy)), e nos campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee”, adicione as informações de taxas e descontos de comissões a serem aplicadas para o Seller na venda do produto que está sendo editado.
