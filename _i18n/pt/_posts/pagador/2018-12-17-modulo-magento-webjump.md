@@ -21,7 +21,7 @@ Para saber quais os requisitos técnicos de infraestrutura para a instalação d
 
 <aside class="notice">A versão do Magento recomendada é a 2.4.0, mas são suportadas as versões a partir da 2.3.0.</aside>
 
-## Instalando o Módulo Base
+## Instalação do Módulo Base
 
 ### Instalação via Composer
 
