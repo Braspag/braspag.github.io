@@ -91,7 +91,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |**Establishment Code**|Código de estabelecimento da loja, disponibilizado pela Braspag.|
 |**MCC**|*Merchant Category Code* da loja, disponibilizado pela Braspag.|
 |**Test Mode Active**|Ativa ou desativa o modo de testes no plugin. Quando ativado, as transações serão efetuadas no ambiente Sandbox.|
-|**Return URL**|URL de retorno após a finalização da autenticação do método de pagamento Débito.|
+|**Return URL**|URL de retorno após a finalização da autenticação do método de pagamento cartão de débito.|
 
 ## Autenticação OAuth
 
