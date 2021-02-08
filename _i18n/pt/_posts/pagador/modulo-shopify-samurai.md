@@ -44,7 +44,7 @@ https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=**_loja_**.myshopify.com
 |Id Cielo (3DS)|Id da Cielo para autenticação 3DS (não requerido caso não tenha split).|
 |Secret Cielo (3DS)|Secret da Cielo para autenticação 3DS (não requerido caso não tenha split).|
 |Nome Estab. Braspag|Nome do estabelecimento na Braspag/Cielo para autenticação 3DS.|
-|Cod Estab. Braspag|Código do estabelecimento na Braspag/Cielo, numérico, para autenticação 3DS.|
+|Cod. Estab. Braspag|Código do estabelecimento na Braspag/Cielo, numérico, para autenticação 3DS.|
 |MCC (Cód Categoria) Braspag|MCC do estabelecimento na Braspag/Cielo, numérico, 4 dígitos, para autenticação 3DS.|
 |CNPJ Habilitado|Se a loja aceita vender para CNPJ.|
 |Validade do Boleto em Dias|Validade do boleto, em dias.|
