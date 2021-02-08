@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title:  Módulo Shopify Samurai
-description: Como Integrar sua Loja Shopify com o Módulo de Pagamentos Braspag na Webjump
+description: Como Integrar sua Loja Shopify com o Módulo de Pagamentos Braspag
 toc_footers: false
 categories: tutorial
 translated: true
@@ -23,20 +23,20 @@ https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=**_loja_**.myshopify.com
 
 1. Instale o app e veja a seguinte tela:
 ![Instalação](https://braspag.github.io/images/images/braspag/pagador/shopify-instalacao.png)
-2. Clique em `Instalar Gateway` para iniciar a instalação. Se a loja estiver online, esta ação deverá ser a última a ser tomada; mas se a loja não estiver online, esta ação poderá ser feita a qualquer momento.
+2. Clique em `Instalar Gateway` para iniciar a instalação. Se a loja estiver online, esta ação deverá ser a última a ser tomada; mas se a loja não estiver online, esta ação poderá ser executada a qualquer momento.
 3. Clique em `Configurações`e veja esta tela com os seguintes campos:
 ![Configurações](https://braspag.github.io/images/images/braspag/pagador/shopify-configuracoes.png)
 
 |CAMPO|DESCRIÇÃO|
 |---|---|
 |URL do Logo|URL do logo a ser futuramente usada no boleto (ainda indisponível).|
-|Public Key Braspag|Merchant Id enviado pela Braspag (não o da Cielo).|
-|Access Token Braspag|Merchant Key enviado pela Braspag (não o da Cielo).|
+|Public Key Braspag|Merchant Id enviado pela Braspag (diferente da credencial de afiliação Cielo).|
+|Access Token Braspag|Merchant Key enviado pela Braspag (diferente da credencial de afiliação Cielo).|
 |Email da Conta da Braspag|Email relacionado à conta Braspag.|
 |URL do Webhook|URL de webhook a ser cadastrada pelo cliente/suporte junto à Braspag, conforme instruções [neste link](https://suporte.braspag.com.br/hc/pt-br/articles/360005145671).|
 |Utilizar Anti-Fraude|Habilita a opção de utilização do antifraude da Braspag. Possível apenas após a homologação da loja pela Braspag.|
 |MID Cybersource|MID da loja informado pela Braspag após homologação.|
-|Utilizar Auto-Captura|Habilita a utilização de auto-captura e depende do tipo de anti-fraude contratado pelo cliente. A Braspag deve informar se deve ser utilizado ou não.|
+|Utilizar Auto-Captura|Habilita a captura automática para clientes que utilizam antifraude, sendo possível dependendo do tipo de antifraude contratado pelo cliente. Consulte a Braspag caso tenha dúvidas se deve utilizá-lo ou não durante a implantação.|
 |Tipo de Loja Braspag| Dentre os disponíveis, o tipo que mais se encaixa naquela loja.|
 |Provedor de Boleto Braspag|Provedor de boleto do cliente, caso a loja deseje utilizar boleto. Se desconhecido pelo cliente, entre em contato com a Braspag.|
 |Provedor de Crédito Braspag|Padrão "Cielo", porém é possível usar outros provedores que o cliente tenha cadastrados na Braspag.|
@@ -48,7 +48,7 @@ https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=**_loja_**.myshopify.com
 |MCC (Cód Categoria) Braspag|MCC do estabelecimento na Braspag/Cielo, numérico, 4 dígitos, para autenticação 3DS.|
 |CNPJ Habilitado|Se a loja aceita vender para CNPJ.|
 |Validade do Boleto em Dias|Validade do boleto, em dias.|
-|1ª/2ª/3ª linhas de instrução de boleto|Instruções do boleto.|
+|1ª/2ª/3ª Linhas de Instrução de Boleto|Instruções do boleto.|
 
 ## Configurações de Split
 
