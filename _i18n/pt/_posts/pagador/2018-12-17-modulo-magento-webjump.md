@@ -7,7 +7,6 @@ categories: tutorial
 translated: true
 sort_order: 6
 tags:
-  - 1. Pagador
 
 ---
 
