@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Módulo WooCommerce &middot; Braspag Developers - Manuais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//tutorial/modulo-woo-commerce" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/tutorial/modulo-woo-commerce" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
+</head>
+
+    <body>
+        
+            <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="http://www.braspag.com.br/suporte/" class="help">Ajuda</a>
+
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
+
+                                
+                                    
+                                    <a href="https://braspag.github.io//tutorial/modulo-woo-commerce">
+                                    
+
+                                        <img alt="Português" src="https://braspag.github.io//assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://braspag.github.io//en/tutorial/modulo-woo-commerce">
+                                    
+
+                                        <img alt="English" src="https://braspag.github.io//assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//tutorial/modulo-woo-commerce">Módulo WooCommerce</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+    <h1 id="integração-do-módulo-woocommerce">Integração do Módulo WooCommerce</h1>
+
+<h1 id="pré-instalação-e-instalação">Pré-Instalação e Instalação</h1>
+
+<h2 id="requisitos-mínimos">Requisitos Mínimos</h2>
+
+<ul>
+  <li><strong>Espaço no disco rígido:</strong> 1GB+</li>
+  <li><strong>Web Server:</strong> Apache ou Nginx.</li>
+  <li><strong>Database:</strong> MySQL versão 5.0. 15 ou superior ou qualquer versão do MariaDB.</li>
+  <li><strong>RAM:</strong> 512MB+</li>
+  <li><strong>PHP:</strong> Versão 7.3 ou superior</li>
+  <li><strong>Processador:</strong> 1.0GHz+</li>
+</ul>
+
+<h2 id="versões-suportadas">Versões Suportadas</h2>
+
+<ul>
+  <li><strong>Wordpress:</strong> &gt; 5.3.2</li>
+  <li><strong>WooCommerce:</strong> &gt; 4.0.0</li>
+</ul>
+
+<h2 id="plugin-requerido">Plugin Requerido</h2>
+
+<p>É necessária a instalação do plugin <a href="https://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil">Brazilian Market on WooCommerce</a>, da WordPress, para adicionar recursos de preenchimento de informações pessoais do cliente.</p>
+
+<h2 id="instalação">Instalação</h2>
+
+<h3 id="download-do-plugin">Download do Plugin</h3>
+
+<p>Primeiramente deve-se acessar <a href="https://drive.google.com/drive/folders/13p9hFk2fF2Jy8hIMe4bngXadDjQFjul4?usp=sharing">este endereço</a> e fazer o donwload do plugin.
+<br /></p>
+
+<h3 id="instalação-do-plugin-no-wordpress">Instalação do Plugin no WordPress</h3>
+
+<ol>
+  <li>Faça login no admin do WordPress;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Plugins</code> &gt; <code class="language-plaintext highlighter-rouge">Add New</code>;
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-add-new-plugin.png" alt="Add New" /></li>
+  <li>Na parte superior, clique em <code class="language-plaintext highlighter-rouge">Upload Plugin</code>;
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-upload-plugin.png" alt="Upload Plugin" /></li>
+  <li>Clique em <code class="language-plaintext highlighter-rouge">Choose File</code>;
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-choose-file.png" alt="Add New" /></li>
+  <li>Localize o arquivo baixado e clique em <code class="language-plaintext highlighter-rouge">Install Now</code>.</li>
+</ol>
+
+<h3 id="ativação-do-plugin">Ativação do Plugin</h3>
+
+<ol>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Plugins</code> &gt; <code class="language-plaintext highlighter-rouge">Installed Plugins</code>;</li>
+  <li>Localize o plugin “Gateway for Braspag on WooCommerce”</li>
+  <li>Caso exista o link “Activate” logo abaixo do nome do plugin, clique no mesmo.</li>
+</ol>
+
+<h1 id="configuração">Configuração</h1>
+
+<h2 id="configurações-gerais">Configurações Gerais</h2>
+
+<p>Seguem instruções de acesso para as configurações gerais do módulo Braspag:</p>
+
+<ol>
+  <li>Faça login no admin do WordPress;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">WooCommerce</code> &gt; <code class="language-plaintext highlighter-rouge">Settings</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Payments</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code>.</li>
+</ol>
+
+<h2 id="configurações-globais">Configurações Globais</h2>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Global Settings” do plugin Braspag.
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-global-settings.png" alt="Configurações Gerais" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable/Disable</strong></td>
+      <td>Ativa ou desativa o plugin.</td>
+    </tr>
+    <tr>
+      <td><strong>Test Mode</strong></td>
+      <td>Ativa ou desativa o modo de testes no plugin. Quando ativado, as transações serão efetuadas no ambiente Sandbox.</td>
+    </tr>
+    <tr>
+      <td><strong>Debug</strong></td>
+      <td>Ativa ou desativa a gravação dos logs das transações em arquivo físico.</td>
+    </tr>
+    <tr>
+      <td><strong>Merchant ID</strong></td>
+      <td>ID da loja, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Merchant Key</strong></td>
+      <td>Chave da loja, disponibilizada pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Merchant Name</strong></td>
+      <td>Nome da loja, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Establishment Code</strong></td>
+      <td>Código de estabelecimento da loja, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>MCC</strong></td>
+      <td><em>Merchant Category Code</em> da loja, disponibilizado pela Braspag.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="autenticação-oauth">Autenticação OAuth</h2>
+
+<p>Essa autenticação é utilizada para a criação do token em requisições na Braspag.<br />
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “OAuth Authentication” do plugin Braspag.
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-oauth-authentication.png" alt="Autenticação OAuth" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Client ID</strong></td>
+      <td>ID do cliente, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Client Secret</strong></td>
+      <td>Chave secreta do cliente, disponibilizada pela Braspag.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="antifraude">Antifraude</h2>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Anti Fraud”:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-antifraud.png" alt="Antifraude" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable/Disable</strong></td>
+      <td>Ativa ou desativa o antifraude.</td>
+    </tr>
+    <tr>
+      <td><strong>Send with Pagador Transaction</strong></td>
+      <td>Ativa ou desativa o envio das informações de antifraude junto com a transação do Pagador.</td>
+    </tr>
+    <tr>
+      <td><strong>Finger Print Org ID</strong></td>
+      <td>Fingerprint Org ID, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Finger Print Merchant ID</strong></td>
+      <td>Fingerprint Merchant ID, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Finger Print Use Order ID</strong></td>
+      <td>Ativa ou desativa a utilização do ID do pedido na composição do fingerprint.</td>
+    </tr>
+    <tr>
+      <td><strong>Options Sequence</strong></td>
+      <td>Sequência do processamento do antifraude.<br />“Analyse First” - é efetuada a análise de fraude e depois a autorização. / “Authorize First” - é efetuada a autorização e depois a análise de fraude. / “Analyse Only” - é efetuada apenas a análise de fraude na Braspag.<br /> Obs.: Clientes utilizando revisão manual devem operar no fluxo “Authorize First”.</td>
+    </tr>
+    <tr>
+      <td><strong>Options Sequence Criteria</strong></td>
+      <td>Critério da sequência do processamento.<br />“On Success” - realiza a análise apenas quando a transação é efetuada com sucesso. / “Always” - a análise sempre será efetuada.</td>
+    </tr>
+    <tr>
+      <td><strong>Options Capture On Low Risk</strong></td>
+      <td>Ativa ou desativa a captura em caso de baixo risco na transação.</td>
+    </tr>
+    <tr>
+      <td><strong>Options Void On High Risk</strong></td>
+      <td>Ativa ou desativa o estorno automático em caso de alto risco na transação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="autenticação-3ds-20">Autenticação 3DS 2.0</h2>
+
+<p>A autenticação 3DS 2.0 é utilizada para a criação do token em requisições na Braspag. Consulte o nosso <a href="https://braspag.github.io//manualp/emv3ds">Manual 3DS 2.0</a> e conheça suas vantagens.
+<br />Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 em sua loja, entre em contato com o nosso Comercial (comercial@braspag.com.br).</p>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Authentication 3DS 2.0”:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-authentication-3ds.png" alt="Authentication 3DS 2.0" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Client ID</strong></td>
+      <td>ID do cliente, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Client Secret</strong></td>
+      <td>Chave secreta do cliente, disponibilizada pela Braspag.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="post-de-notificação">Post de Notificação</h2>
+
+<p>Cadastre o endpoint <strong>http://wordpress.local/<em>?wc-api=wc_braspag</em></strong> na URL da sua loja na Braspag, para que o webhook atualize os status de cobrança dos pedidos na loja.
+<br />Consulte o <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o">Manual do Pagador</a> para mais informações sobre o Post de Notificação.</p>
+
+<h1 id="clientes">Clientes</h1>
+
+<h2 id="plugin-brazilian-market-on-woocommerce">Plugin “Brazilian Market on WooCommerce”</h2>
+
+<p>Para o correto funcionamento do plugin WooCommerce, é necessário que seja instalado o plugin <a href="https://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil">Brazilian Market on WooCommerce</a>.
+<br />Com ele, as informações pessoais como CPF, bairro e número no endereço do cliente podem ser configuradas corretamente.</p>
+
+<h1 id="boleto">Boleto</h1>
+
+<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Boleto</strong>:</p>
+
+<ol>
+  <li>Faça login no admin do WordPress;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">WooCommerce</code> &gt; <code class="language-plaintext highlighter-rouge">Settings</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Payments</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag Boleto</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Braspag Boleto”:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-braspag-boleto.png" alt="Braspag Boleto" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable/Disable</strong></td>
+      <td>Ativa ou desativa o método de pagamento boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>Title</strong></td>
+      <td>Título do método de pagamento boleto exibido no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Description</strong></td>
+      <td>Descrição do método de pagamento boleto exibido no chekout.</td>
+    </tr>
+    <tr>
+      <td><strong>New Order Status</strong></td>
+      <td>Status padrão de um novo pedido para o método de pagamento boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>Available Type</strong></td>
+      <td><em>Provider</em> utilizado para o método de pagamento boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>Demonstrative</strong></td>
+      <td>Instruções de pagamento no boleto para o cliente.</td>
+    </tr>
+    <tr>
+      <td><strong>Payment Instructions for Customer</strong></td>
+      <td>Instruções de pagamento no boleto para o cliente.</td>
+    </tr>
+    <tr>
+      <td><strong>Payment Instructions for Bank</strong></td>
+      <td>Instruções de pagamento no boleto para o banco.</td>
+    </tr>
+    <tr>
+      <td><strong>Label Print Button</strong></td>
+      <td>Título do botão de pagamento para o método de pagamento boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>Days to Expire</strong></td>
+      <td>Dias para a expiração do boleto.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="visualização-final">Visualização Final</h2>
+
+<p>A visão do método de pagamento do boleto, após a configuração na loja, será a seguinte:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-visao-boleto.png" alt="Visão Final Boleto" /></p>
+
+<h1 id="cartão-de-crédito">Cartão de Crédito</h1>
+
+<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Crédito</strong>:</p>
+
+<ol>
+  <li>Faça login no admin do WordPress;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">WooCommerce</code> &gt; <code class="language-plaintext highlighter-rouge">Settings</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Payments</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag Credit Card</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Braspag Credit Card”:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-braspag-credit.png" alt="Braspag Cartão de Crédito" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable/Disable</strong></td>
+      <td>Ativa ou desativa o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Title</strong></td>
+      <td>Título do método de pagamento cartão de crédito exibido no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Description</strong></td>
+      <td>Descrição do método de pagamento cartão de crédito exibido no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Payment Action</strong></td>
+      <td>Ação do pagamento.<br />“Authorize Only” - apenas autorização. / “Authorize and Capture” - autoriza e captura a transação.</td>
+    </tr>
+    <tr>
+      <td><strong>Save Credit Card Token</strong></td>
+      <td>Ativa ou desativa a possibilidade de salvar os dados do cartão de crédito. A ser autorizado por usuário no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>New Order Status</strong></td>
+      <td>Status padrão de um novo pedido para o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Minimum Amount of Installments</strong></td>
+      <td>Quantidade mínima de parcelamento da compra.</td>
+    </tr>
+    <tr>
+      <td><strong>Maximum Installments</strong></td>
+      <td>Quantidade máxima de parcelamento da compra.</td>
+    </tr>
+    <tr>
+      <td><strong>Available Types</strong></td>
+      <td><em>Providers</em> e bandeiras utilizados para o método de pagamento cartão de crédito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="antifraude-1">Antifraude</h2>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Anti Fraud”:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-antifraud-credit.png" alt="Antifraude" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Reject Order Status</td>
+      <td>Determina o status do pedido na loja, em caso de rejeição, após a análise de fraude.</td>
+    </tr>
+    <tr>
+      <td>Review Order Status</td>
+      <td>Determina o status do pedido na loja durante a análise de fraude.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="autenticação-3ds-20-1">Autenticação 3DS 2.0</h2>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Authentication 3DS 2.0 for Credit Card”.:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-authentication-3ds-credit.png" alt="Autenticação 3DS 2.0" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable</strong></td>
+      <td>Ativa ou desativa a Autenticação 3DS 2.0 para o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>MasterCard - Notify Only</strong></td>
+      <td>Ativa ou desativa a notificação para a autenticação 3DS 2.0 caso a bandeira do cartão seja MasterCard.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Error</strong></td>
+      <td>Ativa ou desativa a autorização da transação em caso de erro na Autenticação 3DS 2.0.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Failure</strong></td>
+      <td>Ativa ou desativa a autorização da transação em caso de falha na Autenticação 3DS 2.0.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Unenrolled</strong></td>
+      <td>Ativa ou desativa a autorização da transação em caso de não inscrição na Autenticação 3DS 2.0.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Unsupported Brand</strong></td>
+      <td>Ativa ou desativa a autorização da transação em caso de falta de suporte para a bandeira do cartão na Autenticação 3DS 2.0.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="visualização-final-1">Visualização Final</h2>
+
+<p>A visão do método de pagamento do cartão de crédito, após a configuração na loja, será a seguinte:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-visao-credit.png" alt="Visão Final Cartão de Crédito" /></p>
+
+<h1 id="cartão-de-crédito-salvo-justclick">Cartão de Crédito Salvo (JustClick)</h1>
+
+<p>A função “JustClick” funcionará apenas com a contratação do serviço do Cartão Protegido da Braspag. Entre em contato conosco através do email “comercial@braspag.com.br” para mais detalhes.</p>
+
+<p>Seguem instruções para acesso e configurações específicas para o método de pagamento Cartão de Crédito Salvo (JustClick):</p>
+
+<ol>
+  <li>Faça login no admin do WordPress;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">WooCommerce</code> &gt; <code class="language-plaintext highlighter-rouge">Settings</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Payments</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag Credit Card JustClick</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Braspag Credit Card JustClick”:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-confgerais-justclick.png" alt="Braspag Credit Card JustClick" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable/Disable</strong></td>
+      <td>Ativa ou desativa o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Title</strong></td>
+      <td>Título do método de pagamento cartão de crédito exibido no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Description</strong></td>
+      <td>Descrição do método de pagamento cartão de crédito exibido no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Payment Action</strong></td>
+      <td>Ação do pagamento.<br />“Authorize Only” - apenas autorização. / “Authorize and Capture” - autoriza e captura a transação.</td>
+    </tr>
+    <tr>
+      <td><strong>New Order Status</strong></td>
+      <td>Status padrão de um novo pedido para o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Minimum Amount of Installments</strong></td>
+      <td>Quantidade mínima de parcelamento da compra.</td>
+    </tr>
+    <tr>
+      <td><strong>Maximum Installments</strong></td>
+      <td>Quantidade máxima de parcelamento da compra.</td>
+    </tr>
+    <tr>
+      <td><strong>Available Types</strong></td>
+      <td><em>Providers</em> e bandeiras utilizados para o método de pagamento cartão de crédito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="antifraude-2">Antifraude</h2>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Anti Fraud”:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-antifraud-justclick.png" alt="Antifraude" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Reject Order Status</td>
+      <td>Determina o status do pedido na loja, em caso de rejeição, após a análise de fraude.</td>
+    </tr>
+    <tr>
+      <td>Review Order Status</td>
+      <td>Determina o status do pedido na loja durante a análise de fraude.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="autenticação-3ds-20-2">Autenticação 3DS 2.0</h2>
+
+<p>Utilize as mesmas configurações descritas no método de pagamento <a href="#cartão-de-crédito">Cartão de Crédito</a>.</p>
+
+<h2 id="visualização-final-2">Visualização Final</h2>
+
+<p>A visão do método de pagamento do Cartão de Crédito JustClick, após a configuração na loja, será a seguinte:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-visao-justclick.png" alt="Visão Final Cartão de Crédito" /></p>
+
+<h1 id="cartão-de-débito">Cartão de Débito</h1>
+
+<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Débito</strong>:</p>
+
+<ol>
+  <li>Faça login no admin do WordPress;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">WooCommerce</code> &gt; <code class="language-plaintext highlighter-rouge">Settings</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Payments</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag Debit Card</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Braspag Debit Card”:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-braspag-debit.png" alt="Braspag Cartão de Débito" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable/Disable</strong></td>
+      <td>Ativa ou desativa o método de pagamento cartão de débito.</td>
+    </tr>
+    <tr>
+      <td><strong>Title</strong></td>
+      <td>Título do método de pagamento cartão de débito exibido no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Description</strong></td>
+      <td>Descrição do método de pagamento cartão de débito exibido no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Available Type</strong></td>
+      <td><em>Provider</em> utilizado para o método de pagamento cartão de débito.</td>
+    </tr>
+    <tr>
+      <td><strong>Label Pay Button</strong></td>
+      <td>Título do botão de pagamento para o método de pagamento cartão de débito.</td>
+    </tr>
+    <tr>
+      <td><strong>Automatic Redirect</strong></td>
+      <td>Ativa ou desativa o redirecionamento automático para a autenticação do banco no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Bank Return URL</strong></td>
+      <td>Determina a URL a que o usuário será direcionado após a autenticação no banco.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="autenticação-3ds-20-3">Autenticação 3DS 2.0</h2>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Authentication 3DS 2.0 for Debit Card”.:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-authentication-3ds-debit.png" alt="Autenticação 3DS 2.0" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable</strong></td>
+      <td>Ativa ou desativa a Autenticação 3DS 2.0 para o método de pagamento cartão de débito.</td>
+    </tr>
+    <tr>
+      <td><strong>MasterCard - Notify Only</strong></td>
+      <td>Ativa ou desativa a notificação para a autenticação 3DS 2.0 caso a bandeira do cartão seja MasterCard.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Error</strong></td>
+      <td>Ativa ou desativa a autorização da transação em caso de erro na Autenticação 3DS 2.0.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Failure</strong></td>
+      <td>Ativa ou desativa a autorização da transação em caso de falha na Autenticação 3DS 2.0.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Unenrolled</strong></td>
+      <td>Ativa ou desativa a autorização da transação em caso de não inscrição na Autenticação 3DS 2.0.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Unsupported Brand</strong></td>
+      <td>Ativa ou desativa a autorização da transação em caso de falta de suporte para a bandeira do cartão na Autenticação 3DS 2.0.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="visualização-final-3">Visualização Final</h2>
+
+<p>A visão do método de pagamento do cartão de débito, após a configuração na loja, será a seguinte:
+<img src="https://braspag.github.io//images/braspag/pagador/woocommerce-visao-debit.png" alt="Visão Final Cartão de Débito" /></p>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="http://www.braspag.com.br/fale-conosco/">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io/">
+        <img src="https://braspag.github.io//assets/images/logo.png" alt="Braspag Developers - Manuais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/Braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2191438,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
