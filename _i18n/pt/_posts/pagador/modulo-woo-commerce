@@ -15,8 +15,6 @@ tags:
 
 # Pré-Instalação e Instalação
 
-A seguir, veja os requisitos mínimos de infraestrutura e versões suportadas para a integração do módulo WooCommerce:
-
 ## Requisitos Mínimos
 
 * **Espaço no disco rígido:** 1GB+
@@ -46,15 +44,18 @@ Primeiramente deve-se acessar [este endereço](https://drive.google.com/drive/fo
 
 1. Faça login no admin do WordPress;
 2. No menu, acesse `Plugins` > `Add New`;
+![Add New]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-add-new-plugin.png)
 3. Na parte superior, clique em `Upload Plugin`;
+![Upload Plugin]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-upload-plugin.png)
 4. Clique em `Choose File`;
+![Add New]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-choose-file.png)
 5. Localize o arquivo baixado e clique em `Install Now`.
 
 ### Ativação do Plugin
 
 1. No menu, acesse `Plugins` > `Installed Plugins`;
 2. Localize o plugin "Gateway for Braspag on WooCommerce"
-3. Caso exista o link "Activate" abaixo do nome do plugin, clique no mesmo.
+3. Caso exista o link "Activate" logo abaixo do nome do plugin, clique no mesmo.
 
 # Configuração
 
@@ -62,7 +63,7 @@ Primeiramente deve-se acessar [este endereço](https://drive.google.com/drive/fo
 
 Seguem instruções de acesso para as configurações gerais do módulo Braspag:
 
-1. Faça login no admin do WrodPress;
+1. Faça login no admin do WordPress;
 2. No menu, acesse `WooCommerce` > `Settings`;
 3. Acesse a aba `Payments`;
 4. Na lista de Métodos de Pagamento, clique em `Braspag`.
@@ -70,7 +71,7 @@ Seguem instruções de acesso para as configurações gerais do módulo Braspag:
 ## Configurações Globais
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Global Settings" do plugin Braspag.
-!
+![Configurações Gerais]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-global-settings.png)
 
 |Campo|Descrição|
 |---|---|
@@ -87,7 +88,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 Essa autenticação é utilizada para a criação do token em requisições na Braspag.<br/>
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "OAuth Authentication" do plugin Braspag.
-!
+![Autenticação OAuth]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-oauth-authentication.png)
 
 |Campo|Descrição|
 |---|---|
@@ -97,7 +98,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 ## Antifraude
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Anti Fraud”:
-!
+![Antifraude]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-antifraud.png)
 
 |Campo|Descrição|
 |---|---|
@@ -117,7 +118,7 @@ A autenticação 3DS 2.0 é utilizada para a criação do token em requisições
 <br/>Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 em sua loja, entre em contato com o nosso Comercial (comercial@braspag.com.br).
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Authentication 3DS 2.0”:
-!
+![Authentication 3DS 2.0]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-authentication-3ds.png)
 
 |Campo|Descrição|
 |---|---|
@@ -146,7 +147,7 @@ Seguem instruções para acesso e configurações específicas para o método de
 4. Na lista de Métodos de Pagamento, clique em `Braspag Boleto`.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Braspag Boleto":
-!
+![Braspag Boleto]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-braspag-boleto.png)
 
 |Campo|Descrição|
 |---|---|
@@ -164,7 +165,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 ## Visualização Final
 
 A visão do método de pagamento do boleto, após a configuração na loja, será a seguinte:
-!
+![Visão Final Boleto]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-visao-boleto.png)
 
 # Cartão de Crédito
 
@@ -176,18 +177,130 @@ Seguem instruções para acesso e configurações específicas para o método de
 4. Na lista de Métodos de Pagamento, clique em `Braspag Credit Card`.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Braspag Credit Card":
-!
+![Braspag Cartão de Crédito]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-braspag-credit.png)
 
 |Campo|Descrição|
 |---|---|
 |**Enable/Disable**|Ativa ou desativa o método de pagamento cartão de crédito.|
 |**Title**|Título do método de pagamento cartão de crédito exibido no checkout.|
 |**Description**|Descrição do método de pagamento cartão de crédito exibido no checkout.|
-|**Decimal Grand Total**|Decimais permitidos no valor total do pedido para o método de pagamento cartão de crédito.|
 |**Payment Action**|Ação do pagamento.<br>"Authorize Only" - apenas autorização. / "Authorize and Capture" - autoriza e captura a transação.|
 |**Save Credit Card Token**|Ativa ou desativa a possibilidade de salvar os dados do cartão de crédito. A ser autorizado por usuário no checkout.|
 |**New Order Status**|Status padrão de um novo pedido para o método de pagamento cartão de crédito.|
 |**Minimum Amount of Installments**|Quantidade mínima de parcelamento da compra.|
 |**Maximum Installments**|Quantidade máxima de parcelamento da compra.|
-|**Available Types**|*Provider* e bandeiras utilizados para o método de pagamento cartão de crédito.|
+|**Available Types**|*Providers* e bandeiras utilizados para o método de pagamento cartão de crédito.|
 
+## Antifraude
+
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Anti Fraud":
+![Antifraude]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-antifraud-credit.png)
+
+|Campo|Descrição|
+|---|---|
+|Reject Order Status|Determina o status do pedido na loja, em caso de rejeição, após a análise de fraude.|
+|Review Order Status|Determina o status do pedido na loja durante a análise de fraude.|
+
+## Autenticação 3DS 2.0
+
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Authentication 3DS 2.0 for Credit Card".:
+![Autenticação 3DS 2.0]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-authentication-3ds-credit.png)
+
+|Campo|Descrição|
+|---|---|
+|**Enable**|Ativa ou desativa a Autenticação 3DS 2.0 para o método de pagamento cartão de crédito.|
+|**MasterCard - Notify Only**|Ativa ou desativa a notificação para a autenticação 3DS 2.0 caso a bandeira do cartão seja MasterCard.|
+|**Authorization On Error**|Ativa ou desativa a autorização da transação em caso de erro na Autenticação 3DS 2.0.|
+|**Authorization On Failure**|Ativa ou desativa a autorização da transação em caso de falha na Autenticação 3DS 2.0.|
+|**Authorization On Unenrolled**|Ativa ou desativa a autorização da transação em caso de não inscrição na Autenticação 3DS 2.0.|
+|**Authorization On Unsupported Brand**|Ativa ou desativa a autorização da transação em caso de falta de suporte para a bandeira do cartão na Autenticação 3DS 2.0.|
+
+## Visualização Final
+
+A visão do método de pagamento do cartão de crédito, após a configuração na loja, será a seguinte:
+![Visão Final Cartão de Crédito]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-visao-credit.png)
+
+# Cartão de Crédito Salvo (JustClick)
+
+A função “JustClick” funcionará apenas com a contratação do serviço do Cartão Protegido da Braspag. Entre em contato conosco através do email “comercial@braspag.com.br” para mais detalhes.
+
+Seguem instruções para acesso e configurações específicas para o método de pagamento Cartão de Crédito Salvo (JustClick):
+
+1. Faça login no admin do WordPress;
+2. No menu, acesse `WooCommerce` > `Settings`;
+3. Acesse a aba `Payments`;
+4. Na lista de Métodos de Pagamento, clique em `Braspag Credit Card JustClick`.
+
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Braspag Credit Card JustClick":
+![Braspag Credit Card JustClick]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-confgerais-justclick.png)
+
+|Campo|Descrição|
+|---|---|
+|**Enable/Disable**|Ativa ou desativa o método de pagamento cartão de crédito.|
+|**Title**|Título do método de pagamento cartão de crédito exibido no checkout.|
+|**Description**|Descrição do método de pagamento cartão de crédito exibido no checkout.|
+|**Payment Action**|Ação do pagamento.<br>"Authorize Only" - apenas autorização. / "Authorize and Capture" - autoriza e captura a transação.|
+|**New Order Status**|Status padrão de um novo pedido para o método de pagamento cartão de crédito.|
+|**Minimum Amount of Installments**|Quantidade mínima de parcelamento da compra.|
+|**Maximum Installments**|Quantidade máxima de parcelamento da compra.|
+|**Available Types**|*Providers* e bandeiras utilizados para o método de pagamento cartão de crédito.|
+
+## Antifraude
+
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Anti Fraud":
+![Antifraude]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-antifraud-justclick.png)
+
+|Campo|Descrição|
+|---|---|
+|Reject Order Status|Determina o status do pedido na loja, em caso de rejeição, após a análise de fraude.|
+|Review Order Status|Determina o status do pedido na loja durante a análise de fraude.|
+
+## Autenticação 3DS 2.0
+
+Utilize as mesmas configurações descritas no método de pagamento [Cartão de Crédito](#cartão-de-crédito).
+
+## Visualização Final
+
+A visão do método de pagamento do Cartão de Crédito JustClick, após a configuração na loja, será a seguinte:
+![Visão Final Cartão de Crédito]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-visao-justclick.png)
+
+# Cartão de Débito
+
+Seguem instruções para acesso e configurações específicas para o método de pagamento **Cartão de Débito**:
+
+1. Faça login no admin do WordPress;
+2. No menu, acesse `WooCommerce` > `Settings`;
+3. Acesse a aba `Payments`;
+4. Na lista de Métodos de Pagamento, clique em `Braspag Debit Card`.
+
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Braspag Debit Card":
+![Braspag Cartão de Débito]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-braspag-debit.png)
+
+|Campo|Descrição|
+|---|---|
+|**Enable/Disable**|Ativa ou desativa o método de pagamento cartão de débito.|
+|**Title**|Título do método de pagamento cartão de débito exibido no checkout.|
+|**Description**|Descrição do método de pagamento cartão de débito exibido no checkout.|
+|**Available Type**|*Provider* utilizado para o método de pagamento cartão de débito.|
+|**Label Pay Button**|Título do botão de pagamento para o método de pagamento cartão de débito.|
+|**Automatic Redirect**|Ativa ou desativa o redirecionamento automático para a autenticação do banco no checkout.|
+|**Bank Return URL**|Determina a URL a que o usuário será direcionado após a autenticação no banco.|
+
+## Autenticação 3DS 2.0
+
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Authentication 3DS 2.0 for Debit Card".:
+![Autenticação 3DS 2.0]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-authentication-3ds-debit.png)
+
+|Campo|Descrição|
+|---|---|
+|**Enable**|Ativa ou desativa a Autenticação 3DS 2.0 para o método de pagamento cartão de débito.|
+|**MasterCard - Notify Only**|Ativa ou desativa a notificação para a autenticação 3DS 2.0 caso a bandeira do cartão seja MasterCard.|
+|**Authorization On Error**|Ativa ou desativa a autorização da transação em caso de erro na Autenticação 3DS 2.0.|
+|**Authorization On Failure**|Ativa ou desativa a autorização da transação em caso de falha na Autenticação 3DS 2.0.|
+|**Authorization On Unenrolled**|Ativa ou desativa a autorização da transação em caso de não inscrição na Autenticação 3DS 2.0.|
+|**Authorization On Unsupported Brand**|Ativa ou desativa a autorização da transação em caso de falta de suporte para a bandeira do cartão na Autenticação 3DS 2.0.|
+
+## Visualização Final
+
+A visão do método de pagamento do cartão de débito, após a configuração na loja, será a seguinte:
+![Visão Final Cartão de Débito]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-visao-debit.png)
