@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title:  Módulo WooCommerce
+title:  Módulo WooCommerce 2.2.4
 description: Como Integrar sua Loja WooCommerce com o Módulo de Pagamentos Braspag
 toc_footers: false
 categories: tutorial
@@ -11,7 +11,7 @@ tags:
 
 ---
 
-# Integração do Módulo WooCommerce
+# Integração do Módulo WooCommerce 2.2.4
 
 # Pré-Instalação e Instalação
 
@@ -33,14 +33,14 @@ tags:
 
 É necessária a instalação do plugin [Brazilian Market on WooCommerce](https://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil), da WordPress, para adicionar recursos de preenchimento de informações pessoais do cliente. 
 
-## Instalação
+## Instalação no WordPress
 
 ### Download do Plugin
 
-Primeiramente deve-se acessar [este endereço](https://drive.google.com/drive/folders/13p9hFk2fF2Jy8hIMe4bngXadDjQFjul4?usp=sharing) e fazer o donwload do plugin.
+Primeiramente deve-se acessar [este endereço](https://github.com/Braspag) e fazer o donwload do plugin.
 <br/>
 
-### Instalação do Plugin no WordPress
+### Instalação do Plugin
 
 1. Faça login no admin do WordPress;
 2. No menu, acesse `Plugins` > `Add New`;
@@ -203,7 +203,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 ## Autenticação 3DS 2.0
 
-A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Authentication 3DS 2.0 for Credit Card".:
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Authentication 3DS 2.0 for Credit Card":
 ![Autenticação 3DS 2.0]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-authentication-3ds-credit.png)
 
 |Campo|Descrição|
@@ -274,7 +274,7 @@ Seguem instruções para acesso e configurações específicas para o método de
 4. Na lista de Métodos de Pagamento, clique em `Braspag Debit Card`.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Braspag Debit Card":
-![Braspag Cartão de Débito]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-braspag-debit.png)
+![Braspag Cartão de Débito]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-confgerais-debit.png)
 
 |Campo|Descrição|
 |---|---|
@@ -288,7 +288,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 ## Autenticação 3DS 2.0
 
-A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Authentication 3DS 2.0 for Debit Card".:
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "Authentication 3DS 2.0 for Debit Card":
 ![Autenticação 3DS 2.0]({{ site.baseurl_root }}/images/braspag/pagador/woocommerce-authentication-3ds-debit.png)
 
 |Campo|Descrição|
