@@ -298,7 +298,7 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
@@ -702,7 +702,7 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Nome do provedor do meio de pagamento. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-providers) para acessar a lista de provedores. Obs.: Atualmente somente a **Cielo** suporta esta forma de pagamento via Pagador.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|Texto|100|Sim|
@@ -961,7 +961,7 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Nome do provedor do meio de pagamento. Obs.: Disponível apenas para **Cielo30**.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|Texto|100|Sim|
@@ -1073,7 +1073,7 @@ Transações que não são capturadas até a [data limite](https://suporte.brasp
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. | GUID | 36 | Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API. | Texto | 40 | Sim (envio no *header*)|
@@ -1281,7 +1281,7 @@ Na autenticação padrão, o lojista que não possui uma conexão direta com um 
 --verbose
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
@@ -1545,7 +1545,7 @@ Na autenticação externa, o lojista que possui um autenticador próprio (MPI) n
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`Payment.ExternalAuthentication.Cavv`|Valor Cavv retornado pelo mecanismo de autenticação externa.|Texto | - |Sim|
 |`Payment.ExternalAuthentication.Xid`|Valor Xid retornado pelo mecanismo de autenticação externa.|Texto| - |Sim|
@@ -1676,7 +1676,7 @@ Para cancelar uma transação de cartão de crédito, é necessário o envio de 
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim (envio no *header*)|
@@ -1959,7 +1959,7 @@ Segue um exemplo de confirmação da transação com a moeda escolhida pelo comp
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`Id`|Id da ação da troca de moeda.|Text|50|Sim|
 |`Currency`|Moeda selecionada pelo comprador.|Numérico|4|Sim|
@@ -2108,7 +2108,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
 |`Customer.Name`|Nome do comprador.|Texto|255|Não|
@@ -2308,7 +2308,7 @@ Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizad
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
@@ -2585,7 +2585,7 @@ Para criar uma venda, é necessário o envio de mensagem HTTP através do métod
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim (envio no *header*)|
@@ -2779,7 +2779,7 @@ Abaixo, um exemplo de requisição padrão para integração da e-wallet:
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |---|---|---|---|---|
 | `MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
 | `MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
@@ -3045,7 +3045,7 @@ curl
 }
 ```
 
-| Propriedade                | Descrição                                                                                               | Tipo   | Tamanho | Obrigatório |
+| Propriedade                | Descrição                                                                                               | Tipo   | Tamanho | Obrigatório? |
 |----------------------------|---------------------------------------------------------------------------------------------------------|--------|---------|-------------|
 | `MerchantId`               | Identificador da loja na Braspag.                                                                        | GUID   | 36      | Sim (envio no *header*)|
 | `MerchantKey`              | Chave pública para autenticação dupla na Braspag.                                                        | Texto  | 40      | Sim (envio no *header*)|
@@ -3261,7 +3261,7 @@ Exemplo de requisição padrão Masterpass:
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |---|---|---|---|---|
 |`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
@@ -3454,7 +3454,7 @@ Exemplo de requisição padrão Visa Checkout:
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |---|---|---|---|---|
 |`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
@@ -3691,7 +3691,7 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Nome do provedor do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador#providers-para-voucher) para acessar a lista de provedores.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|Texto|100|Sim|
@@ -3930,7 +3930,7 @@ Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.D
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
@@ -4136,7 +4136,7 @@ Entre em contato com o [time de suporte](https://suporte.braspag.com.br/hc/pt-br
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
@@ -4389,7 +4389,7 @@ Para programar a primeira transação da série de recorrências, passe o parâm
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
@@ -4577,7 +4577,7 @@ Para alterar os dados do comprador de uma recorrência existente, basta fazer um
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -4641,7 +4641,7 @@ Para alterar a data final da recorrência já existente, basta fazer um PUT conf
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -4685,7 +4685,7 @@ Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT c
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -4735,7 +4735,7 @@ Ao efetuar a alteração do dia da recorrência, devem ser levadas em considera�
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -4781,7 +4781,7 @@ Para modificar o valor da transação de uma recorrência já existente, basta f
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API.|GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -4827,7 +4827,7 @@ Para alterar somente a data do pagamento seguinte, basta fazer um PUT conforme o
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -4921,7 +4921,7 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -4981,7 +4981,7 @@ Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -5026,7 +5026,7 @@ Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -5311,7 +5311,7 @@ Para salvar um cartão de crédito utilizado em uma transação, basta enviar o 
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
@@ -5577,7 +5577,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
@@ -5832,7 +5832,7 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
@@ -6300,7 +6300,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
@@ -7008,7 +7008,7 @@ Para consultar uma transação de cartão de crédito, é necessário o envio de
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -7318,7 +7318,7 @@ Para consultar uma transação de boleto registrado, é necessário o envio de m
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -7529,7 +7529,7 @@ Para consultar uma venda pelo identificador da loja, é necessário o envio de m
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -7600,7 +7600,7 @@ Para consultar um pedido de recorrência, é necessário o envio de mensagem HTT
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
@@ -7741,7 +7741,7 @@ Caso tenha configurado o campo "URL Status Pagamento" durante o cadastro de sua 
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`RecurrentPaymentId`|Identificador que representa o pedido recorrente (aplicável somente para `ChangeType` "2" ou "4").|GUID|36|Não|
 |`PaymentId`|Identificador que representa a transação.|GUID|36|Sim|
