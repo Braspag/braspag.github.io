@@ -11,7 +11,7 @@ tags:
 
 ---
 
-# Integração do Módulo WooCommerce 2.2.4
+# Integração do Módulo WooCommerce 2.2.25
 
 # Pré-Instalação e Instalação
 
