@@ -22,18 +22,18 @@ Este método possibilita o envio de dados do pagamento do seu cliente de forma s
 
 Por permitir total personalização na página de checkout da loja, essa solução é ideal para lojistas que exigem um alto grau de segurança, sem perder a identidade de sua página.
 
-# Características
+# Principais Benefícios
 
-* Captura de dados do pagamento diretamente para os sistemas da Braspag, por meio dos campos definidos no seu checkout, através de um script (javascript).
-* Compatibilidade com todos os meios de pagamento disponibilizados no Gateway Pagador (Nacional e Internacional).
-* Redução do escopo de PCI DSS.
-* Controle total sobre a experiência de checkout, mantendo o *look & feel* de sua marca.
+* **Captura direta**: a captura de dados do pagamento é feita diretamente para os sistemas da Braspag, por meio dos campos definidos no seu checkout, através de um script (javascript).
+* **Total compatibilidade**: a solução é compatível com todos os meios de pagamento disponibilizados no Gateway Pagador (Nacional e Internacional).
+* **Certificação PCI DSS 3.2**: a certificação garante total conformidade com as normas da indústria de cartões, reduzindo o escopo de PCI DSS.
+* **Checkout personalizado**: a personalização oferece controle total sobre a experiência de checkout, mantendo o *look & feel* de sua marca.
 
 # Fluxo Transacional
 
 ![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-sop-br.jpg)
 
-# Integração
+# Integrando a Solução
 
 ## 1. Obtendo AccessToken
 
