@@ -7,7 +7,8 @@ categories: tutorial
 translated: true
 sort_order: 6
 tags:
-
+  - 1. Pagador
+  
 ---
 
 # Integração do Módulo Magento 2.0
@@ -192,6 +193,8 @@ Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador
 
 ## Split de Pagamentos
 
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível a alterações.</aside>
+
 Seguem instruções para configuração do **Split de Pagamentos**:
 
 1. No menu, acesse `Lojas` > `Configurações`;
@@ -279,6 +282,8 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |**Sort Order**|Ordem de exibição do método de pagamento boleto no front da loja.|
 
 ## Payment Split
+
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível a alterações.</aside>
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos para boletos na seção "Payment Split":
 ![Boleto]({{ site.baseurl_root }}/images/braspag/pagador/magento-boleto-paymentsplit.png)
@@ -368,6 +373,8 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos para ca
 |**Authorization On Unsupported Brand**|Ativa ("Yes") ou desativa ("No") a autorização da transação em caso de falta de suporte para a bandeira do cartão na Autenticação 3DS 2.0.|
 
 ## Payment Split
+
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível a alterações.</aside>
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de crédito na seção "Payment Split":
 ![Payment Split]({{ site.baseurl_root }}/images/braspag/pagador/magento-creditcard-paymentsplit.png)
@@ -493,6 +500,8 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos para ca
 
 ## Payment Split
 
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível a alterações.</aside>
+
 A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de débito na seção "Payment Split":
 ![Payment Split]({{ site.baseurl_root }}/images/braspag/pagador/magento-debitcard-paymentsplit.png)
 
@@ -529,6 +538,8 @@ A visão do método de pagamento cartão de débito, após a configuração na l
 ![Cartão de Débito]({{ site.baseurl_root }}/images/braspag/pagador/magento-debitcard-transaction.png)
 
 # Split de Pagamentos 
+
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível a alterações.</aside>
 
 ## Split (Magento)
 
