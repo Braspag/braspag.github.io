@@ -43,12 +43,12 @@ Para solicitar o `AccessToken`, o estabelecimento deve realizar um envio de requ
 
 | Ambiente | URL |
 | --- | --- |
-| Sandbox | https://transactionsandbox.pagador.com.br/_post/api/public/v1/accesstoken?merchantid=**{mid}**_|
-| Produção | https://transaction.pagador.com.br/_post/api/public/v1/accesstoken?merchantid=**{mid}**_|
+| Sandbox | https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_{mid}_**|
+| Produção | https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_{mid}_**|
 
-No lugar do **{mid}** deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag. 
+No lugar do **_{mid}_** deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag. 
 
-EXEMPLO - https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**00000000-0000-0000-0000-000000000000**
+EXEMPLO - https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_00000000-0000-0000-0000-000000000000_**
 
 ### Requisição
 
@@ -61,7 +61,7 @@ EXEMPLO - https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstok
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`mid`|Identificador da loja no Pagador.|Guid |36 |Sim|
 
