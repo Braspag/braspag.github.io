@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title:  Módulo WooCommerce 2.2.4
+title:  Módulo WooCommerce 2.2.25
 description: Como Integrar sua Loja WooCommerce com o Módulo de Pagamentos Braspag
 toc_footers: false
 categories: tutorial
@@ -37,7 +37,7 @@ tags:
 
 ### Download do Plugin
 
-Primeiramente deve-se acessar [este endereço](https://github.com/Braspag) e fazer o donwload do plugin.
+Primeiramente deve-se acessar [este endereço](https://github.com/Braspag/woocommerce) e fazer o donwload do plugin.
 <br/>
 
 ### Instalação do Plugin
