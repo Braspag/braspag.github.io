@@ -10,6 +10,8 @@ tags:
   - 1. Pagador
 language_tabs:
   shell: cURL
+  json: JSON
+  
 ---
 
 # Silent Order Post
@@ -33,27 +35,26 @@ Por permitir total personalização na página de checkout da loja, essa soluç�
 
 # Integração
 
-## 1. Obtendo *AccessToken*
+## 1. Obtendo AccessToken
 
-Quando o comprador acessar o checkout, o estabelecimento deve gerar o *AccessToken* a partir da API de autenticação da Braspag (*oAuth*). Em caso de sucesso, a API retornará um *AccessToken* que deverá ser preenchido no script a ser carregado na página. 
+Quando o comprador acessa o checkout, o estabelecimento deve gerar o `AccessToken` a partir da API de autenticação da Braspag (**oAuth**). Em caso de sucesso, a API retornará um `AccessToken` que deverá ser preenchido no script a ser carregado na página. 
 
-Para solicitar o *AccessToken*, o estabelecimento deve realizar um envio de requisição utilizando o VERBO HTTP **POST** para o seguinte endpoint no modelo server-to-server:
+Para solicitar o `AccessToken`, o estabelecimento deve realizar um envio de requisição utilizando o VERBO HTTP **POST** para a URL com o seguinte endpoint, no modelo server-to-server:
 
-| Endpoint | Ambiente |
+| Ambiente | URL |
 | --- | --- |
-| https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid} | Sandbox |
-| https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid} | Produção |
+| Sandbox | https://transactionsandbox.pagador.com.br/_post/api/public/v1/accesstoken?merchantid=**{mid}**_|
+| Produção | https://transaction.pagador.com.br/_post/api/public/v1/accesstoken?merchantid=**{mid}**_|
 
 No lugar do **{mid}** deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag. 
 
-*Exemplo: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**00000000-0000-0000-0000-000000000000***
+EXEMPLO - https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**00000000-0000-0000-0000-000000000000**
 
 ### Requisição
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/accesstoken?merchantid={mid}</span></aside>
 
 ```shell
-curl
 --request POST "https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000"
 --header "Content-Type: application/json"
 --data-binary
@@ -62,11 +63,20 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
-|`mid`|Identificador da loja no Pagador |Guid |36 |Sim|
+|`mid`|Identificador da loja no Pagador.|Guid |36 |Sim|
 
 ### Resposta
 
-Como resposta, o estabelecimento receberá um json (*HTTP 201 Created*) contendo, entre outras informações, o ticket (*AccessToken*).
+Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo, entre outras informações, o ticket (AccessToken).
+
+```json
+{
+    "MerchantId": "B898E624-EF0F-455C-9509-3FAE12FB1F81",
+    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
+    "Issued": "2019-12-09T17:47:14",
+    "ExpiresIn": "2019-12-09T18:07:14"
+}
+```
 
 ```shell
 --header "Content-Type: application/json"
@@ -83,13 +93,13 @@ Como resposta, o estabelecimento receberá um json (*HTTP 201 Created*) contendo
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`MerchantId`|Identificador da loja no Pagador. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`AccessToken`|Token de acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`AccessToken`|Token de acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para impedir um uso futuro.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
 |`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 
-<aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada (HTTP 401 NotAuthorized).</aside>
+<aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada ("HTTP 401 NotAuthorized").</aside>
 
-Identifique qual será o IP de saída que acessará a API e na sequência solicite o cadastro do mesmo através do canal de atendimento Braspag: [https://suporte.braspag.com.br/hc/pt-br](https://suporte.braspag.com.br/hc/pt-br).
+Identifique qual será o IP de saída que acessará a API e, na sequência, solicite o cadastro do mesmo através do [Canal de Atendimento](https://suporte.braspag.com.br/hc/pt-br) Braspag.
 
 ## 2. Implementando o Script
 
@@ -101,10 +111,10 @@ O estabelecimento deverá parametrizar os elementos de formulário com as seguin
 
 |Propriedade|Nome da Classe|
 |-----------|---------|
-|Nome do portador do cartão de crédito/débito|bp-sop-cardholdername |
-|Número do cartão de crédito/débito|bp-sop-cardnumber |
-|Data de validade do cartão de crédito/débito|bp-sop-cardexpirationdate |
-|Código de segurança do cartão de crédito/débito|bp-sop-cardcvvc|
+|Nome do portador do cartão de crédito/débito|"bp-sop-cardholdername" |
+|Número do cartão de crédito/débito|"bp-sop-cardnumber" |
+|Data de validade do cartão de crédito/débito|"bp-sop-cardexpirationdate" |
+|Código de segurança do cartão de crédito/débito|"bp-sop-cardcvvc"|
 
 ### Definindo Parâmetros
 
@@ -112,33 +122,33 @@ O estabelecimento deverá parametrizar os elementos de formulário com as seguin
 
 |Propriedade|Descrição|
 |-----------|---------|
-|accessToken| Token de acesso obtido via API de autenticação da Braspag.|
-|environment| Tipo de ambiente: "sandbox" / "production".|
-|language| Idioma: "pt" / "en" / "es". |
-|enableBinQuery| "true" se quiser habilitar o Consulta BIN (retorna as características do cartão). "false" caso contrário. Obs.: Disponível somente para Cielo 3.0.|
-|enableVerifyCard| "true" se quiser habilitar o *ZeroAuth* (retorna se o cartão é válido ou não). "false" caso contrário. |
-|enableTokenize| "true" se quiser salvar o cartão diretamente no Cartão Protegido (retorna um *cardToken* ao invés de um *paymentToken*). "false" caso contrário. |
-|cvvRequired| "false" se quiser desligar a obrigatoriedade de envio do CVV. "true" caso contrário. |
+|`accessToken`| Token de acesso obtido via API de autenticação da Braspag.|
+|`environment`| Tipo de ambiente: "sandbox" / "production".|
+|`language`| Idioma: "pt" / "en" / "es". |
+|`enableBinQuery`| "true" (habilita o *Consulta BIN*, retornando as características do cartão). "false" (caso contrário). Obs.: Disponível somente para Cielo 3.0.|
+|`enableVerifyCard`| "true" (habilita o *ZeroAuth*, retornando se o cartão é válido ou não) / "false" (caso contrário). |
+|`enableTokenize`| "true" (salva o cartão diretamente no Cartão Protegido, retornando um *cardToken* ao invés de um *paymentToken*) / "false" (caso contrário). |
+|`cvvRequired`| "false" (desliga a obrigatoriedade de envio do CVV) / "true" (caso contrário). |
 
 **RETORNOS DO SCRIPT**
 
 |Propriedade|Descrição|Condição|
 |-----------|---------|---------|
-|PaymentToken| Token efêmero utilizado para pagamento no formato de um GUID (36). |---|
-|CardToken| Token permanente utilizado para pagamento no formato de um GUID (36). |Quando *enableTokenize* for "true". |
-|brand| Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard). |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
-|binQueryReturnCode| "00" se a análise do BIN for um sucesso. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
-|binQueryReturnMessage| Ex.: “Transacao Autorizada” se a análise do BIN for um sucesso. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
-|CardBin| Ex.: “455187”.|Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
-|CardLast4Digits| Ex.: “0181”.|Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
-|foreignCard| O campo retorna "true" se é um cartão emitido fora do Brasil. "false" caso contrário. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
-|VerifyCardReturnCode| Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código "00" significa sucesso na validação. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
-|VerifyCardReturnMessage| Ex.: “Transacao Autorizada”. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
-|VerifyCardStatus| 0-Cartão Inválido; 1-Cartão Válido; 99-Situação Desconhecida. |Quando *enableVerifyCard* for "true". |
+|`PaymentToken`| Token efêmero utilizado para pagamento no formato de um GUID (36). |---|
+|`CardToken`| Token permanente utilizado para pagamento no formato de um GUID (36). |Quando *enableTokenize* for "true". |
+|`brand`| Nome da bandeira do cartão (Visa, Master, Elo, Amex, Diners, JCB, Hipercard). |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|`binQueryReturnCode`| "00" se a análise do BIN for um sucesso. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|`binQueryReturnMessage`| Ex.: “Transacao Autorizada” se a análise do BIN for um sucesso. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|`CardBin`| Ex.: “455187”.|Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|`CardLast4Digits`| Ex.: “0181”.|Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|`foreignCard`| O campo retorna "true" se é um cartão emitido fora do Brasil. "false" caso contrário. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|`VerifyCardReturnCode`| Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código "00" significa sucesso na validação. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|`VerifyCardReturnMessage`| Ex.: “Transacao Autorizada”. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|`VerifyCardStatus`| "0"- Cartão Inválido; "1"- Cartão Válido; "99"- Situação Desconhecida. |Quando *enableVerifyCard* for "true". |
 
 ### Implementando Eventos
 
-O script fornecido pela Braspag fornece os três seguintes eventos para manipulação e tratamento por parte do estabelecimento: 
+O script fornecido pela Braspag oferece os três seguintes eventos para manipulação e tratamento por parte do estabelecimento: 
 
 |Evento|Descrição|
 |-----------|---------|
@@ -184,7 +194,6 @@ Para maiores detalhes sobre a implementação, acesse o [Manual da API do Pagado
 ```
 
 ```shell
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -207,10 +216,10 @@ curl
 }
 ```
 
-| **Campo** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| Campo | Descrição | Tipo/Tamanho | Obrigatório? |
 | --- | --- | --- | --- |
-| Payment.Card.PaymentToken | Fornece o PaymentToken gerado através do script. Esta informação substitui os dados do cartão. | GUID (36) | Sim |
+| `Payment.Card.PaymentToken` | Fornece o PaymentToken gerado através do script. Esta informação substitui os dados do cartão. | GUID / 36 | Sim |
 
 ### Response
 
-Consulte o [Manual da API do Pagador](https://braspag.github.io//manual/braspag-pagador) para exemplos de resposta à requisições de autorização. 
+Consulte o [Manual da API do Pagador](https://braspag.github.io//manual/braspag-pagador) para exemplos de resposta a requisições de autorização. 
