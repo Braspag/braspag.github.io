@@ -29,7 +29,7 @@ Abaixo veja a representação de um **fluxo transacional** padrão seguida de um
 * **Bandeira:** Faz a comunicação com o emissor do cartão da transação e liquida a transação para os adquirentes.
 * **Emissor:** Dá crédito e armazena o dinheiro do comprador. Na transação, aprova ou nega por razões de saldo, validade do cartão ou fraude. Liquida a transação para a bandeira.
 
-## Características da Solução
+## Principais Benefícios
 
 A solução [API Pagador](https://suporte.braspag.com.br/hc/pt-br/articles/360013153791-O-que-%C3%A9-o-Pagador-) foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: *ASP, ASP.Net, Java, PHP, Ruby* e *Python*.
 
