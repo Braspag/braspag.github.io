@@ -80,7 +80,7 @@ Neste passo é possível informar os dados do pedido.
 <br/>Abaixo a descrição e obrigatoriedade de cada campo.
 ![]({{ site.baseurl_root }}/images/braspag/posvirtual/camposdadosdopedido.png)
 
-|Campo|Descrição|Obrigatório|
+|Campo|Descrição|Obrigatório?|
 |-----|---------|------------|
 |Número do Pedido|Identificador do pedido da loja.|SIM|
 |Nome|Nome do cliente.|SIM|
