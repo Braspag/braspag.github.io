@@ -14,7 +14,7 @@ language_tabs:
   
 ---
 
-# Consultando Dados de um Cartão via Zero Auth e Consulta BIN
+# VerifyCard
 
 O **VerifyCard** é composto por dois serviços: Zero Auth e Consulta BIN.
  
