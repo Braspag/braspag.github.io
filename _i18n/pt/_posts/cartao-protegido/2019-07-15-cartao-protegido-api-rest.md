@@ -10,39 +10,40 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
+  
 ---
 
-# O Que é Cartão Protegido?
+# Cartão Protegido
 
 O **Cartão Protegido** é uma plataforma que permite o armazenamento seguro de cartões de crédito e débito. Contamos com ambiente totalmente certificado pelo respeitado conselho de padrão de segurança PCI Security Standards Council, que assegura que a Braspag segue plenamente os rígidos requisitos e normas determinadas pelo mesmo.
 
-A plataforma é compatível com o gateway Pagador, também da Braspag, facilitando o processamento de transações de cartão de crédito e débito via token.
+A plataforma é compatível com o gateway [Pagador](https://braspag.github.io//manual/braspag-pagador), também da Braspag, facilitando o processamento de transações de cartão de crédito e débito via token.
 
-## Principais benefícios
+## Principais Benefícios
 
-* **Atualiza Fácil**: a plataforma conta com _Atualiza Fácil_, que é uma funcionalidade bastante interessante principalmente para quem trabalha no modelo de recorrência. Através da tecnologia das bandeiras, qualquer atualização no número de cartõe que sofreu bloqueio ou cancelamento por parte do emissor, é automaticamente informado à Braspag que por sua vez associa o novo cartão ao token já existente, tudo isso de forma totalmente transparente para os estabelecimentos e portadores. Esta feature está disponível para para cartões Mastercard e deve solicitar a habilitação da mesma através do canal de suporte da Braspsag.
+* **Atualiza Fácil**: qualquer atualização no número do cartão que tenha sofrido bloqueio ou cancelamento por parte do emissor é automaticamente informado à Braspag, que por sua vez associa o novo cartão ao token já existente. Através da tecnologia das bandeiras, tudo isso é realizado de forma totalmente transparente para os estabelecimentos e portadores. Esta feature, interessante principalmente para quem trabalha no modelo de recorrência, está disponível para cartões Mastercard e deve ser solicitada através do [canal de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672) da Braspag.
 
-* **Maior taxa de conversão**: as transações tokenizadas e processadas na Braspag via Pagador podem resultar em uma taxa de conversão maior que a média do mercado. Isso é porque os cartões tokenizados nas bandeiras são autorizadas junto com o criptograma, que provê maior segurança no processo, com isso, os emissores tendem a aprovar mais facilmente. Esta feature está disponível para para cartões Mastercard processando via Cielo 3.0. Solicitar a habilitação da mesma através do canal de suporte da Braspsag.
+* **Maior taxa de conversão**: as transações tokenizadas e processadas na Braspag via Pagador podem resultar em uma taxa de conversão maior que a média do mercado. Isso porque os cartões tokenizados nas bandeiras são autorizadas junto com o criptograma, que provê maior segurança no processo. Com isso, os emissores tendem a aprovar mais facilmente. Esta feature está disponível para cartões Mastercard processando via Cielo 3.0 e deve ser solicitada através do [canal de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672) da Braspag.
 
-* **Ambiente Seguro PCI DSS**: a Braspag conta com ambiente certificado PCI DSS, que assegura a integridade e segurança de dados sensíveis como os de cartão de crédito.
+* **Ambiente seguro PCI DSS**: a Braspag conta com ambiente certificado PCI DSS, que assegura a integridade e segurança de dados sensíveis como os de cartões de crédito.
 
-* **Garantia da utilização de cartões válidos**: o Cartão Protegido só aceitará salvar cartões que passarem pela checagem do Algorítimo de Luhn, também conhecido como "mod10". Isso dará maior segurança e certeza de que os cartões salvos tenham o mínimo de validação de sua veracidade.
+* **Garantia da utilização de cartões válidos**: o Cartão Protegido só aceitará salvar cartões que passarem pela checagem do Algorítimo de Luhn, também conhecido como "mod10". Isso dará maior segurança e certeza de que os cartões salvos tenham o mínimo de validação de sua veracidade. Conheça esse processo em nosso artigo [Como Validar um Cartão?](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
 
 ## Casos de Uso
 
-A plataforma tem como propósito ajudar os estabelecimentos que possuem diversos casos de usos, entre eles:
+A plataforma tem como propósito ajudar estabelecimentos em diferentes casos de uso. Entre eles, estão:
 
-* **Cobrança Recorrente Agendada (Scheduled Recurring Payments)**: Estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma para armazenar os dados de cartão de crédito e processar através de tokens de pagamento. Exmeplo: assinatura de serviços. 
+* **Cobrança Recorrente Agendada (Scheduled Recurring Payments)**: estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma para armazenar os dados de cartão de crédito e processar através de tokens de pagamento. Exemplo: assinatura de serviços. 
 
-* **Cobrança Recorrente não Agendada (Unscheduled Recurring Payments)**: Estabelecimentos que cobram seus clientes já cadastrados, mas sem uma periodicidade definida. Exemplo: aplicativos de transporte. 
+* **Cobrança Recorrente não Agendada (Unscheduled Recurring Payments)**: estabelecimentos que cobram seus clientes já cadastrados, mas sem uma periodicidade definida. Exemplo: aplicativos de transporte. 
 
-* **Compra com um clique (Just Click Payments)**: A “compra com um clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorizaçãol.
+* **Compra com um Clique (Just Click Payments)**: a “compra com um clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorização.
 
-* **Recuperação de vendas**: Estabelecimentos podem entrar novamente em contato com os clientes que eventualmente tiveram problemas na compra, oferecer uma nova tentativa de cobrança. 
+* **Recuperação de Vendas**: estabelecimentos podem entrar novamente em contato com os clientes que eventualmente tenham tido problemas na compra, oferecendo uma nova tentativa de cobrança. 
 
-## Arquitetura
+## Arquitetura da Integração
 
-A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Através do endpoint serão enviadas todas as requisições relativas à esse serviço. Essa URL recebera as mensagens HTTP através dos métodos POST, GET ou DEL. Cada tipo de mensagem deve ser enviada para um endereço identificado através do "path".
+A integração é realizada através de serviços disponibilizados como web services. O modelo empregado é bastante simples: através do endpoint serão enviadas todas as requisições relativas à esse serviço. Essa URL recebera as mensagens HTTP através dos métodos POST, GET ou DEL. Cada tipo de mensagem deve ser enviada para um endereço identificado através do "path".
 
 | Endpoint | Ambiente |
 | --- | --- |
@@ -53,7 +54,7 @@ A integração é realizada através de serviços disponibilizados como Web Serv
 * **DEL** - O método HTTP DEL é utilizado para remoção de token.
 * **GET** - O método HTTP GET é utilizado para consultas de recursos já existentes. Por exemplo, consulta de tokens já criados.
 
-# Como se integra?
+# Integrando a Solução
 
 ## Coleção do Postman
 
@@ -593,7 +594,7 @@ curl
 |`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Texto|10|Não |Status atual do token no Cartão Protegido.|
 
-# Códigos de erro
+# Códigos de Erro
 
 Em casos de erro na requisição, serão informados os códos de erro e sua descrição, conforme o exemplo.
 
@@ -630,7 +631,7 @@ curl
 |CP903|Token alias already exists|Acontece quando o Alias já foi utilizado anteriormente.|
 |CP990|'XXXXX' must not be empty.|Acontece quando algum campo está inválido.|
 
-# Dicas de implementação
+# Dicas de Implementação
 
 ## Código de segurança do cartão
 
