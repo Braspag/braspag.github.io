@@ -12,7 +12,7 @@
 
     <title>
         
-        Módulo Magento Webjump &middot; Braspag Developers - Manuais
+        Módulo Magento 2.0 Webjump &middot; Braspag Developers - Manuais
         
     </title>
 
@@ -107,7 +107,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//tutorial/modulo-magento-webjump">Módulo Magento Webjump</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//tutorial/modulo-magento-webjump">Módulo Magento 2.0 Webjump</a></li>
                                     
                                 
                             
@@ -117,9 +117,1233 @@
             </div>
 
             <div class="post">
-    <h1 id="integração-do-módulo-magento">Integração do Módulo Magento</h1>
+    <h1 id="integração-do-módulo-magento-20">Integração do Módulo Magento 2.0</h1>
 
-<aside class="warning">Desculpe! O Tutorial de Integração do Módulo Magento está em processo de homologação e em breve voltará a ficar disponível para consulta.</aside>
+<h1 id="instalação">Instalação</h1>
+
+<h2 id="pré-requisitos-técnicos">Pré-Requisitos Técnicos</h2>
+
+<p>Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Magento, consulte o <a href="https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html">Guia de Instalação</a> na documentação oficial do Magento.</p>
+
+<aside class="notice">A versão do Magento recomendada é a 2.4.0, mas são suportadas as versões a partir da 2.3.0.</aside>
+
+<h2 id="instalação-do-módulo-base">Instalação do Módulo Base</h2>
+
+<h3 id="instalação-via-composer">Instalação via Composer</h3>
+
+<ol>
+  <li>Acesse o servidor via SSH.</li>
+  <li>Localize a raiz do projeto e executar os seguintes comandos:</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require webjump/magento2-module-braspagpagador
+composer update
+bin/magento module:enable Webjump_BraspagPagador
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+</code></pre></div></div>
+
+<h2 id="instalação-para-integração-com-a-unirgy-marketplace">Instalação para Integração com a Unirgy Marketplace</h2>
+
+<p>A instalação descrita nos próximos passos só é necessária caso o módulo <strong>Marketplace Unirgy</strong> seja adquirido.</p>
+
+<h3 id="instalação-via-composer-1">Instalação via Composer</h3>
+
+<ol>
+  <li>Acesse o servidor via SSH.</li>
+  <li>Localize a raiz do projeto. No arquivo <em>composer.json</em>, adicione as seguintes informações:</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"repositories": {
+    "webjump/magento2-module-braspag-unirgy": {
+        "type": "vcs",
+        "url": "https://github.com/webjump/magento2-module-braspag-unirgy.git"
+    }
+},
+"require": {
+    "webjump/magento2-module-braspag-unirgy": "1.0.0",
+    ...
+},
+</code></pre></div></div>
+
+<p>3. Ainda na raiz do projeto, execute os seguintes comandos:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer update
+bin/magento module:enable Braspag_Unirgy
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+</code></pre></div></div>
+
+<h1 id="configuração">Configuração</h1>
+
+<h2 id="configurações-gerais">Configurações Gerais</h2>
+
+<p>Seguem instruções de acesso para as configurações gerais do módulo Braspag:</p>
+
+<ol>
+  <li>Faça login no admin do Magento;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code>.</li>
+</ol>
+
+<h2 id="configurações-globais">Configurações Globais</h2>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Global Settings” do plugin Braspag:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-global-settings.png" alt="Global Settings" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Merchant ID</strong></td>
+      <td>ID da loja, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Merchant Key</strong></td>
+      <td>Chave da loja, disponibilizada pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Merchant Name</strong></td>
+      <td>Nome da loja, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Establishment Code</strong></td>
+      <td>Código de estabelecimento da loja, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>MCC</strong></td>
+      <td><em>Merchant Category Code</em> da loja, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Test Mode Active</strong></td>
+      <td>Ativa ou desativa o modo de testes no plugin. Quando ativado, as transações serão efetuadas no ambiente Sandbox.</td>
+    </tr>
+    <tr>
+      <td><strong>Return URL</strong></td>
+      <td>URL de retorno após a finalização da autenticação do método de pagamento cartão de débito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="autenticação-oauth">Autenticação OAuth</h2>
+
+<p>Essa autenticação é utilizada para a criação do token em requisições na Braspag. Seguem instruções para configuração da autenticação <strong>OAuth</strong>:</p>
+
+<ol>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">OAuth2 - Config</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “OAuth2 - Config”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-oauth.png" alt="OAuth2 - Config" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Client ID</strong></td>
+      <td>ID do cliente, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Client Secret</strong></td>
+      <td>Chave secreta do cliente, disponibilizada pela Braspag.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="antifraude">Antifraude</h2>
+
+<p>Seguem as instruções de acesso para ativação do <strong>Anti Fraud</strong>:</p>
+
+<ol>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Anti Fraud</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido na seção “General”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-antifraud-general.png" alt="Antifraude" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable/Disable</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o antifraude.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Além da ativação do antifraude, nesta aba são também configurados o Fingerprint, as opções de sequência e captura do antifraude e os MDDs (Merchant Defined Data).</p>
+
+<h3 id="fingerprint">FingerPrint</h3>
+
+<p>O FingerPrint é uma funcionalidade utilizada para identificar o dispositivo do comprador.</p>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “FingerPrint”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-fingerprint.png" alt="Fingerprint" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Org ID</strong></td>
+      <td>Fingerprint Org ID, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Merchant ID</strong></td>
+      <td>Fingerprint Merchant ID, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Use Order ID to Fingerprint</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a utilização do ID do pedido na composição do fingerprint.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="options">Options</h3>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Options”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-antifraud-options.png" alt="Options" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Sequence</strong></td>
+      <td>Sequência do processamento do antifraude.<br />“Analyse First” - é efetuada a análise de fraude e depois a autorização. / “Authorize First” - é efetuada a autorização e depois a análise de fraude. <br /> Obs.: Clientes utilizando revisão manual devem operar no fluxo “Authorize First”.</td>
+    </tr>
+    <tr>
+      <td><strong>Sequence Criteria</strong></td>
+      <td>Critério da sequência do processamento.<br />“On Success” - realiza a análise apenas quando a transação é efetuada com sucesso. / “Always” - a análise sempre será efetuada.</td>
+    </tr>
+    <tr>
+      <td><strong>Capture On Low Risk</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a captura em caso de baixo risco na transação.</td>
+    </tr>
+    <tr>
+      <td><strong>Void On High Risk</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o estorno automático em caso de alto risco na transação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="mdds">MDDs</h3>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “MDD’s”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-antifraud-mdds.png" alt="MDD's" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Customer Fetch Self Shipping Method</strong></td>
+      <td>Método de entrega do cliente.</td>
+    </tr>
+    <tr>
+      <td><strong>Store Code From Customer Fetch Self</strong></td>
+      <td>Código da loja do cliente.</td>
+    </tr>
+    <tr>
+      <td><strong>Vertical Segment</strong></td>
+      <td>Segmento da loja.</td>
+    </tr>
+    <tr>
+      <td><strong>Store Identity (CNPJ)</strong></td>
+      <td>CNPJ da loja.</td>
+    </tr>
+    <tr>
+      <td><strong>Category Attribute Code</strong></td>
+      <td>Código do atributo da categoria.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="autenticação-3ds-20">Autenticação 3DS 2.0</h2>
+
+<p>A autenticação 3DS 2.0 é utilizada para a criação do token em requisições na Braspag. Consulte o nosso <a href="https://braspag.github.io//manualp/emv3ds">Manual 3DS 2.0</a> e conheça suas vantagens.
+<br />Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 em sua loja, entre em contato com o nosso Comercial (comercial@braspag.com.br).</p>
+
+<p>Seguem instruções para configuração da autenticação OAuth para a <strong>Autenticação 3DS 2.0</strong>:</p>
+
+<ol>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Authentication 3DS 2.0 Config</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Authentication 3DS 2.0 - Config”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-authentication.png" alt="Authentication 3DS 2.0 Config" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Client ID</strong></td>
+      <td>ID do cliente, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Client Secret</strong></td>
+      <td>Chave secreta do cliente, disponibilizada pela Braspag.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="post-de-notificação">Post de Notificação</h2>
+
+<p>O módulo Magento possui um endpoint criado e preparado para receber as notificações de atualização de status da transação, como um boleto que foi pago, por exemplo. Assim, são feitas atualizações dos pedidos na loja.
+<br />Para configurar a URL de sua loja aqui na Braspag, entre em contato conosco informando o seu “MerchantID” e a “URL de Notificação”.</p>
+
+<aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Magento).</aside>
+
+<p>Consulte o <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o">Manual do Pagador</a> para mais informações sobre o Post de Notificação.</p>
+
+<h2 id="split-de-pagamentos">Split de Pagamentos</h2>
+
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível a alterações.</aside>
+
+<p>Seguem instruções para configuração do <strong>Split de Pagamentos</strong>:</p>
+
+<ol>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Payment Split - Config</code>.</li>
+</ol>
+
+<h3 id="marketplace-vendor">Marketplace Vendor</h3>
+
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido na seção “Marketplace Vendor”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-marketplace-vendor.png" alt="Marketplace Vendor" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Vendor</strong></td>
+      <td>Fornecedor que irá gerenciar o marketplace.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="marketplace-credentials">Marketplace Credentials</h3>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Marketplace Credentials”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-marketplace-credentials.png" alt="Marketplace Credentials" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Merchant ID</strong></td>
+      <td>ID da loja habilitado para split de pagamentos, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Client ID</strong></td>
+      <td>Client ID da loja habilitado para split de pagamentos, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Client Secret</strong></td>
+      <td>Client secret da loja habilitado para split de pagamentos, disponibilizado pela Braspag.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="marketplace-general-config">Marketplace General Config</h3>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Marketplace General Config”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-marketplace-generalconfig.png" alt="Marketplace General Config" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Does the Marketplace participate in sales?</strong></td>
+      <td>Ativa (“Yes”) ou inativa (“No”) a participação da loja nas vendas.</td>
+    </tr>
+    <tr>
+      <td><strong>Marketplace sales participation type</strong></td>
+      <td>Seleciona o tipo de participação da loja nas vendas.<br />“Fixed Value” - valor fixo. / “Percent” - em porcentagem.</td>
+    </tr>
+    <tr>
+      <td><strong>Fixed value in sales participation</strong></td>
+      <td>Valor fixo que será direcionado à loja durante o split de pagamentos caso a loja participe das vendas no tipo de participação “Fixed value”.</td>
+    </tr>
+    <tr>
+      <td><strong>Percent value in sales participation</strong></td>
+      <td>Percentual que será direcionado à loja durante o split de pagamentos caso a loja participe das vendas no tipo de participação “Percent”.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="clientes">Clientes</h1>
+
+<p>Seguem instruções para configuração de <strong>Dados do Cliente</strong>:</p>
+
+<ol>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Customer Config</code>.</li>
+</ol>
+
+<h2 id="address">Address</h2>
+
+<p>A imagem a seguir mostra os campos de configuração com os respectivos valores a serem utilizados na seção “Address”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-customer-config.png" alt="Address" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Should we sanitize address data?</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a formatação do campo “bairro” do endereço do cliente.</td>
+      <td>“Yes”</td>
+    </tr>
+    <tr>
+      <td><strong>District Dictionary</strong></td>
+      <td>Palavras a serem substituídas durante a formatação do campo “bairro” do endereço do cliente.</td>
+      <td>“Neighborhood-Nb.;Housing-Hs”</td>
+    </tr>
+    <tr>
+      <td><strong>Street Attribute</strong></td>
+      <td>Atributo utilizado no campo “logradouro” do endereço do cliente.</td>
+      <td>“street_1”</td>
+    </tr>
+    <tr>
+      <td><strong>Number Attribute</strong></td>
+      <td>Atributo utilizado no campo “número” do endereço do cliente.</td>
+      <td>“street_2”</td>
+    </tr>
+    <tr>
+      <td><strong>Complement Attribute</strong></td>
+      <td>Atributo utilizado no campo “complemento” do endereço do cliente.</td>
+      <td>“street_3”</td>
+    </tr>
+    <tr>
+      <td><strong>District Attribute</strong></td>
+      <td>Atributo utilizado no campo “bairro” do endereço do cliente.</td>
+      <td>“street_4”</td>
+    </tr>
+    <tr>
+      <td><strong>Customer Identity (CPF/CNPJ) Attribute</strong></td>
+      <td>Atributo utilizado no campo “CPF/CNPJ” do cliente.</td>
+      <td>“customer_taxvat”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="boleto">Boleto</h1>
+
+<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Boleto</strong>:</p>
+
+<ol>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Pagador Transaction</code> &gt; <code class="language-plaintext highlighter-rouge">Boleto</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Boleto”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-boleto-config.png" alt="Boleto" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable/Disable</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o método de pagamento boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>Title</strong></td>
+      <td>Título do método de pagamento boleto exibido no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Type</strong></td>
+      <td><em>Provider</em> utilizado para o método de pagamento boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>Demonstrative</strong></td>
+      <td>Instruções de pagamento no boleto para o cliente.</td>
+    </tr>
+    <tr>
+      <td><strong>Instructions</strong></td>
+      <td>Instruções de pagamento no boleto para o banco.</td>
+    </tr>
+    <tr>
+      <td><strong>Assignor</strong></td>
+      <td>Nome do cedente para o método de pagamento boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>Assignor Address</strong></td>
+      <td>Endereço do cedente para o método de pagamento boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>Identification</strong></td>
+      <td>CNPJ do cedente para o método de pagamento boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>Expiration Day</strong></td>
+      <td>Dias para a expiração do boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>New Order Status</strong></td>
+      <td>Status padrão de um novo pedido para o método de pagamento boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>Sort Order</strong></td>
+      <td>Ordem de exibição do método de pagamento boleto no front da loja.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="payment-split">Payment Split</h2>
+
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível a alterações.</aside>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos para boletos na seção “Payment Split”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-boleto-paymentsplit.png" alt="Boleto" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o split de pagamentos para o método de pagamento boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>Split Type</strong></td>
+      <td>Tipo do split de pagamentos para o método de pagamento boleto.<br />“Transactional” - o split de pagamentos é enviado no momento da finalização do pedido. / “Transactional Post” - o split de pagamentos é enviado em um momento posterior ao da finalização do pedido. Esse momento é determinado nas configurações abaixo.</td>
+    </tr>
+    <tr>
+      <td><strong>Transactional Post Sends Request Automatically?</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o envio do split de pagamentos via CRON, de forma automática, ao invés do envio manual. Este campo só é exibido quando o tipo de split de pagamentos é “Transactional Post”.</td>
+    </tr>
+    <tr>
+      <td><strong>Transactional Post Sends Request Automatically After (Days)</strong></td>
+      <td>Após quantos dias da finalização do pedido o split de pagamentos deverá ser enviado de forma automática (CRON). Este campo só é exibido quando o tipo de split de pagamentos é “Transactional Post”. De acordo com a documentação, a Braspag permite “20 dias” (campo numérico) como valor máximo.</td>
+    </tr>
+    <tr>
+      <td><strong>Default Store MDR</strong></td>
+      <td>Valor padrão da loja para MDR. Esse valor será enviado quando não existir nenhum valor padrão de MDR vinculado ao vendedor ou aos itens de venda.</td>
+    </tr>
+    <tr>
+      <td><strong>Default Store Fee</strong></td>
+      <td>Valor padrão da loja para Fee. Esse valor será enviado quando não existir nenhum valor padrão de Fee vinculado ao vendedor ou aos itens de venda.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="visualização-final">Visualização Final</h2>
+
+<p>A visão do método de pagamento boleto, após a configuração na loja, será a seguinte:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-boleto-transaction.png" alt="Boleto" /></p>
+
+<h1 id="cartão-de-crédito">Cartão de Crédito</h1>
+
+<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Crédito</strong>:</p>
+
+<ol>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Pagador Transaction</code> &gt; <code class="language-plaintext highlighter-rouge">Credit Card</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Credit Card”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-config.png" alt="Credit Card" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable/Disable</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Title</strong></td>
+      <td>Título do método de pagamento cartão de crédito exibido no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Description</strong></td>
+      <td>Descrição do método de pagamento cartão de crédito exibido no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Decimal Grand Total</strong></td>
+      <td>Decimais permitidos no valor total do pedido para o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Payment Action</strong></td>
+      <td>Ação do pagamento.<br />“Authorize Only” - apenas autorização. / “Authorize and Capture” - autoriza e captura a transação.</td>
+    </tr>
+    <tr>
+      <td><strong>New Order Status</strong></td>
+      <td>Status padrão de um novo pedido para o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Review Order Status</strong></td>
+      <td>Status padrão de um novo pedido para o método de pagamento cartão de crédito quando o mesmo fica com o status “Em revisão” na Braspag. <strong>ANTI FRAUD</strong>*</td>
+    </tr>
+    <tr>
+      <td><strong>Reject Order Status</strong></td>
+      <td>Status padrão de um novo pedido para o método de pagamento cartão de crédito quando o mesmo fica com o status “Rejeitado” na Braspag. <strong>ANTI FRAUD</strong>*</td>
+    </tr>
+    <tr>
+      <td><strong>Create Invoice on Notification Return Captured Status</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a criação de fatura após notificação de captura no método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Sort Order</strong></td>
+      <td>Ordem de exibição do método de pagamento cartão de crédito no front da loja.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="types">Types</h2>
+
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção “Types”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-types.png" alt="Types" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Types</strong></td>
+      <td>Adquirentes e bandeiras disponíveis para o método de pagamento cartão de crédito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="installments">Installments</h2>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de crédito na seção “Installments”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-installments.png" alt="Installments" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active</strong></td>
+      <td>Ativa (“Yes”) ou inativa (“No”) o parcelamento para o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Number</strong></td>
+      <td>Número de parcelamentos para o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Min Amount</strong></td>
+      <td>Valor mínimo para ativar o parcelamento para o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Interest by Issuer</strong></td>
+      <td>Ativa os juros de parcelamento para o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Interest Rate (%)</strong></td>
+      <td>Porcentagem dos juros para o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Max Without Interest</strong></td>
+      <td>Determina a partir de qual número de parcelamentos os juros serão adicionados para o método de pagamento cartão de crédito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="silent-order-post">Silent Order Post</h2>
+
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção “Silent Order Post”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-sop.png" alt="Silent Order Post" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active</strong></td>
+      <td>Ativa (“Yes”) ou inativa (“No”) a tokenização do cartão para o método de pagamento cartão de crédito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="autenticação-3ds-20-1">Autenticação 3DS 2.0</h2>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de crédito na seção “Aunthentication 3DS 2.0”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-authentication.png" alt="Authentication 3DS 2.0" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a Autenticação 3DS 2.0 para o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>MasterCard - Notify Only</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a notificação para a autenticação 3DS 2.0 caso a bandeira do cartão seja MasterCard.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Error</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a autorização da transação em caso de erro na Autenticação 3DS 2.0.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Failure</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a autorização da transação em caso de falha na Autenticação 3DS 2.0.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Unenrolled</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a autorização da transação em caso de não inscrição na Autenticação 3DS 2.0.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Unsupported Brand</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a autorização da transação em caso de falta de suporte para a bandeira do cartão na Autenticação 3DS 2.0.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="payment-split-1">Payment Split</h2>
+
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível a alterações.</aside>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de crédito na seção “Payment Split”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-paymentsplit.png" alt="Payment Split" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o split de pagamentos para o método de pagamento cartão de crédito.</td>
+    </tr>
+    <tr>
+      <td><strong>Split Type</strong></td>
+      <td>Tipo do split de pagamentos para o método de pagamento cartão de crédito.<br />“Transactional” - o split de pagamentos é enviado no momento da finalização do pedido. / “Transactional Post” - o split de pagamentos é enviado em um momento posterior ao da finalização do pedido. Esse momento é determinado nas configurações abaixo.</td>
+    </tr>
+    <tr>
+      <td><strong>Transactional Post Sends Request Automatically?</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o envio do split de pagamentos via CRON, de forma automática, ao invés do envio manual. Este campo só é exibido quando o tipo de split de pagamentos é “Transactional Post”.</td>
+    </tr>
+    <tr>
+      <td><strong>Transactional Post Sends Request Automatically After (Days)</strong></td>
+      <td>Após quantos dias da finalização do pedido o split de pagamentos deverá ser enviado de forma automática (CRON). Este campo só é exibido quando o tipo de split de pagamentos é “Transactional Post”. De acordo com a documentação, a Braspag permite “20 dias” (campo numérico) como valor máximo.</td>
+    </tr>
+    <tr>
+      <td><strong>Default Store MDR</strong></td>
+      <td>Valor padrão da loja para MDR. Esse valor será enviado quando não existir nenhum valor padrão de MDR vinculado ao vendedor ou aos itens de venda.</td>
+    </tr>
+    <tr>
+      <td><strong>Default Store Fee</strong></td>
+      <td>Valor padrão da loja para Fee. Esse valor será enviado quando não existir nenhum valor padrão de Fee vinculado ao vendedor ou aos itens de venda.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="avs-address-verification-service">AVS (Address Verification Service)</h2>
+
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção “Avs”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-avs.png" alt="AVS" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o Serviço de Verificação do Endereço para o método de pagamento cartão de crédito. Quando ativado, a informação do endereço será relevante para a autorização da transação. Será feita a comparação do endereço salvo no banco emissor do cartão com o informado no momento da compra.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="checkout-card-view">Checkout Card View</h2>
+
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção “Checkout Card View”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-checkout.png" alt="Checkout Card View" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a exibição da animação com a imagem do cartão de crédito no checkout para o método de pagamento cartão de crédito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="visualização-final-1">Visualização Final</h2>
+
+<p>A visão do método de pagamento cartão de crédito, após a configuração na loja, será a seguinte:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-transaction.png" alt="Cartão de Crédito" /></p>
+
+<h1 id="cartão-salvo-just-click">Cartão Salvo (Just Click)</h1>
+
+<p>A função “JustClick” funcionará apenas com a contratação do serviço do Cartão Protegido da Braspag. Entre em contato conosco através do email “comercial@braspag.com.br” para mais detalhes.</p>
+
+<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Crédito Salvo (JustClick)</strong>:</p>
+
+<ol>
+  <li>Faça login no admin do Magento;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Credit Card JustClick</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Credit Card JustClick (Token)”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-justclick-token.png" alt="Credit Card JustClick" /></p>
+
+<aside class="warning">Quando ativado o JustClick, todas as configurações informadas para o método cartão de crédito serão aplicadas, com exceção das configurações abaixo, que irão sobrescrevê-las.</aside>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable/Disable</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o método de pagamento cartão de crédito JustClick.</td>
+    </tr>
+    <tr>
+      <td><strong>Title</strong></td>
+      <td>Título do método de pagamento cartão de crédito JustClick exibido no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Payment Action</strong></td>
+      <td>Ação do pagamento, no momento de fechamento do pedido no checkout da loja.<br />“Authorize Only” - apenas autorização. / “Authorize and Capture” - autoriza e captura a transação.</td>
+    </tr>
+    <tr>
+      <td><strong>New Order Status</strong></td>
+      <td>Status padrão de um novo pedido para o método de pagamento cartão de crédito JustClick.</td>
+    </tr>
+    <tr>
+      <td><strong>Sort Order</strong></td>
+      <td>Ordem de exibição do método de pagamento cartão de crédito no front da loja.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="installments-1">Installments</h2>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Installments”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-justclick-installments.png" alt="Installments" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active</strong></td>
+      <td>Adquirentes e bandeiras disponíveis para o método de pagamento cartão de crédito JustClick.</td>
+    </tr>
+    <tr>
+      <td><strong>Number</strong></td>
+      <td>Número de parcelamentos para o método de pagamento cartão de crédito JustClick.</td>
+    </tr>
+    <tr>
+      <td><strong>Min Amount</strong></td>
+      <td>Valor mínimo para ativar o parcelamento para o método de pagamento cartão de crédito JustClick.</td>
+    </tr>
+    <tr>
+      <td><strong>Interest by Issuer</strong></td>
+      <td>Ativa os juros de parcelamento para o método de pagamento cartão de crédito JustClick.</td>
+    </tr>
+    <tr>
+      <td><strong>Interest Rate (%)</strong></td>
+      <td>Porcentagem dos juros para o método de pagamento cartão de crédito JustClick.</td>
+    </tr>
+    <tr>
+      <td><strong>Max Without Interest</strong></td>
+      <td>Determina a partir de qual número de parcelamentos os juros serão adicionados para o método de pagamento cartão de crédito JustClick.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="visualização-final-2">Visualização Final</h2>
+
+<p>A visão do método de pagamento cartão de crédito JustClick, após a configuração na loja, será a seguinte:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-justclick-transaction.png" alt="Cartão de Crédito JustClick" /></p>
+
+<h1 id="cartão-de-débito">Cartão de Débito</h1>
+
+<p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Débito</strong>:</p>
+
+<ol>
+  <li>Faça login no admin do Magento;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
+  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Debit Card</code>.</li>
+</ol>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Debit Card”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-config.png" alt="Debit Card" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable/Disable</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o método de pagamento cartão de débito.</td>
+    </tr>
+    <tr>
+      <td><strong>Title</strong></td>
+      <td>Título do método de pagamento cartão de débito exibido no checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>New Order Status</strong></td>
+      <td>Status padrão de um novo pedido para o método de pagamento cartão de débito.</td>
+    </tr>
+    <tr>
+      <td><strong>Super Débito</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o super débito para o método de pagamento cartão de débito.</td>
+    </tr>
+    <tr>
+      <td><strong>Sort Order</strong></td>
+      <td>Ordem de exibição do método de pagamento cartão de débito no front da loja.</td>
+    </tr>
+    <tr>
+      <td><strong>Redirect After Place Order?</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o redirecionamento para a autenticação após a finalização do pedido para o método de pagamento cartão de débito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="types-1">Types</h2>
+
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de débito na seção “Types”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-types.png" alt="Types" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Types</strong></td>
+      <td>Adquirentes e bandeiras disponíveis para o método de pagamento cartão de débito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="autenticação-3ds-20-2">Autenticação 3DS 2.0</h2>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de débito na seção “Aunthentication 3DS 2.0”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-authentication.png" alt="Authentication 3DS 2.0" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a Autenticação 3DS 2.0 para o método de pagamento cartão de débito.</td>
+    </tr>
+    <tr>
+      <td><strong>MasterCard - Notify Only</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a notificação para a autenticação 3DS 2.0 caso a bandeira do cartão seja MasterCard.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Error</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a autorização da transação em caso de erro na Autenticação 3DS 2.0.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Failure</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a autorização da transação em caso de falha na Autenticação 3DS 2.0.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Unenrolled</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a autorização da transação em caso de não inscrição na Autenticação 3DS 2.0.</td>
+    </tr>
+    <tr>
+      <td><strong>Authorization On Unsupported Brand</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a autorização da transação em caso de falta de suporte para a bandeira do cartão na Autenticação 3DS 2.0.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="payment-split-2">Payment Split</h2>
+
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível a alterações.</aside>
+
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de débito na seção “Payment Split”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-paymentsplit.png" alt="Payment Split" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o split de pagamentos para o método de pagamento cartão de débito.</td>
+    </tr>
+    <tr>
+      <td><strong>Split Type</strong></td>
+      <td>Tipo do split de pagamentos para o método de pagamento cartão de débito.<br />“Transactional” - o split de pagamentos é enviado no momento da finalização do pedido. / “Transactional Post” - o split de pagamentos é enviado em um momento posterior ao da finalização do pedido. Esse momento é determinado nas configurações abaixo.</td>
+    </tr>
+    <tr>
+      <td><strong>Transactional Post Sends Request Automatically?</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o envio do split de pagamentos via CRON, de forma automática, ao invés do envio manual. Este campo só é exibido quando o tipo de split de pagamentos é “Transactional Post”.</td>
+    </tr>
+    <tr>
+      <td><strong>Transactional Post Sends Request Automatically After (Days)</strong></td>
+      <td>Após quantos dias da finalização do pedido o split de pagamentos deverá ser enviado de forma automática (CRON). Este campo só é exibido quando o tipo de split de pagamentos é “Transactional Post”. De acordo com a documentação, a Braspag permite “20 dias” (campo numérico) como valor máximo.</td>
+    </tr>
+    <tr>
+      <td><strong>Default Store MDR</strong></td>
+      <td>Valor padrão da loja para MDR. Esse valor será enviado quando não existir nenhum valor padrão de MDR vinculado ao vendedor ou aos itens de venda.</td>
+    </tr>
+    <tr>
+      <td><strong>Default Store Fee</strong></td>
+      <td>Valor padrão da loja para Fee. Esse valor será enviado quando não existir nenhum valor padrão de Fee vinculado ao vendedor ou aos itens de venda.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="avs-address-verification-service-1">AVS (Address Verification Service)</h2>
+
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de débito na seção “Avs”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-avs.png" alt="AVS" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o Serviço de Verificação do Endereço para o método de pagamento cartão de crédito. Quando ativado, a informação do endereço será relevante para a autorização da transação. Será feita a comparação do endereço salvo no banco emissor do cartão com o informado no momento da compra.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="checkout-card-view-1">Checkout Card View</h2>
+
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de débito na seção “Checkout Card View”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-checkout.png" alt="Checkout Card View" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a exibição de animação com a imagem do cartão de débito no checkout para o método de pagamento cartão de débito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="visualização-final-3">Visualização Final</h2>
+
+<p>A visão do método de pagamento cartão de débito, após a configuração na loja, será a seguinte:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-transaction.png" alt="Cartão de Débito" /></p>
+
+<h1 id="split-de-pagamentos-1">Split de Pagamentos</h1>
+
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível a alterações.</aside>
+
+<h2 id="split-magento">Split (Magento)</h2>
+
+<p>Seguem instruções para acesso e configurações de algumas funcionalidades do <strong>Split de Pagamentos</strong> disponibilizadas no Magento:</p>
+
+<ol>
+  <li>Faça login no admin do Magento;</li>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Payment Splits</code>.</li>
+</ol>
+
+<h3 id="trava-do-split">Trava do Split</h3>
+
+<p>Para efetuar uma trava no pagamento de split, acesse as transações seguindo os passos 1 e 2 acima. Na lista, localize a transação em que deseja efetuar a trava e selecione a ação “Lock”, em Actions, na parte superior da grid:
+<img src="https://braspag.github.io//images/braspag/pagador/magento-split-paymentsplit.png" alt="Trava do Split" /></p>
+
+<h3 id="envio-manual-pós-transacional">Envio Manual Pós-Transacional</h3>
+
+<p>Para efetuar o envio do split pós transacional manualmente, é necessário acessar o pedido no admin do Magento (<code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Pedidos</code> &gt; <code class="language-plaintext highlighter-rouge">Visualizar</code>) e, caso o pós transacional esteja ativado mas ainda não tenha sido efetuado, será possível clicar no botão “Send Payment Split”.</p>
+
+<h2 id="split-magento--unirgy">Split (Magento + Unirgy)</h2>
+
+<p>A seguir, algumas funcionalidades do split de pagamentos disponibilizadas de forma customizada na Unirgy:</p>
+
+<h3 id="vínculo-do-seller-ao-subordinado">Vínculo do Seller ao Subordinado</h3>
+
+<p>Existem 2 formas de um seller ser vinculado a um subordinado:</p>
+
+<ul>
+  <li><strong>Configuração Default do Seller</strong>
+    <ol>
+      <li>Para acessar esta configuração, vá até o menu <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Dropship</code> &gt; <code class="language-plaintext highlighter-rouge">Vendors</code> e selecione o seller pretendido na grid, clicando em “Editar”.</li>
+      <li>Localize o campo “Braspag Subordinate Merchant ID” e insira a informação do MerchantID do seller cadastrado na Braspag.</li>
+    </ol>
+  </li>
+  <li><strong>Configuração do Produto</strong>
+    <ol>
+      <li>Para acessar esta configuração, vá até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecione o produto pretendido na grid, clicando em “Editar”.</li>
+      <li>Localize o atributo “Braspag Subordinate Merchant ID” e insira a informação do MerchantID do seller cadastrado na Braspag.</li>
+    </ol>
+  </li>
+</ul>
+
+<aside class="warning">O vínculo do seller deve ser feito diretamente no produto somente quando não mais que 1 seller vá fazer a venda do mesmo. Caso contrário, a recomendação é que o vínculo seja feito diretamente nas configurações do seller.</aside>
+
+<h3 id="cadastro-de-taxas-e-descontos-de-comissão-do-seller-unirgy">Cadastro de Taxas e Descontos de Comissão do Seller (Unirgy)</h3>
+
+<p>Existem 3 formas de se cadastrar as taxas e descontos de comissões para um seller:</p>
+
+<ul>
+  <li><strong>Configuração Default do Seller</strong> (para quando o seller irá ter taxas e descontos padrões que poderão ser sobrescritos por configurações de taxas e descontos de comissões efetuadas dentro de produtos - itens 2 e 3 abaixo)
+    <ol>
+      <li>Para acessar esta configuração, vá até o menu <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Dropship</code> &gt; <code class="language-plaintext highlighter-rouge">Vendors</code> e selecione o seller pretendido na grid, clicando em “Editar”.</li>
+      <li>Localize os campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee” e insira as informações de taxas default para o seller.</li>
+    </ol>
+  </li>
+  <li><strong>Configuração do Produto</strong> (para quando apenas um seller irá fazer a comercialização do produto)
+    <ol>
+      <li>Para acessar esta configuração, vá até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecione o produto pretendido na grid, clicando em “Editar”.</li>
+      <li>Localize os atributos “Braspag Subordinate MDR” e “Braspag Subordinate Fee” e insira as informações de taxas e desconto de comissões default para o seller.</li>
+    </ol>
+  </li>
+</ul>
+
+<aside class="warning">O vínculo das taxas do seller deve ser feito diretamente no produto somente quando não mais que 1 seller vá fazer a venda do mesmo. Caso contrário, a recomendação é que o vínculo seja feito diretamente nas configurações do seller ao produto Unirgy, seguindo os passos descritos na opção abaixo.</aside>
+
+<aside class="warning">A configuração descrita logo a seguir irá sobrescrever a configuração acima caso o produto seja comercializado por mais de um seller.</aside>
+
+<ul>
+  <li>
+    <p><strong>Configuração do Vínculo de Produtos a Sellers</strong> (para quando mais de um seller irá fazer a comercialização do produto)</p>
+
+    <ol>
+      <li>Para acessar esta configuração, vá até o menu <code class="language-plaintext highlighter-rouge">Catálogo</code> &gt; <code class="language-plaintext highlighter-rouge">Produtos</code> e selecione o produto pretendido na grid, clicando em “Editar”.</li>
+      <li>Localize a aba <code class="language-plaintext highlighter-rouge">Dropship Vendors</code>. Adicione o seller ao produto (é importante que o mesmo já tenha um Merchant ID Braspag vinculado, como demonstrado no item <a href="https://braspag.github.io//tutorial/modulo-magento-webjump#split-(magento-+-unirgy)">Vínculo do Seller ao Subordinado</a>, e nos campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee”, adicione as informações de taxas e descontos de comissões a serem aplicadas para o Seller na venda do produto que está sendo editado.</li>
+    </ol>
+  </li>
+</ul>
 
 </div>
 
