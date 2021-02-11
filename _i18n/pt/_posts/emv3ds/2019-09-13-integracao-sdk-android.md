@@ -6,7 +6,7 @@ search: true
 translated: true
 categories: manual
 tags:
-  - 4. EMV 3DS (3DS 2.0)
+  - 5. EMV 3DS (3DS 2.0)
 ---
 
 # O que é 3DS 2.0?
