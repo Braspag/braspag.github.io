@@ -6,10 +6,11 @@ search: true
 translated: true
 categories: manual
 tags:
-  - 4. EMV 3DS (3DS 2.0)
+  - 5. EMV 3DS (3DS 2.0)
 language_tabs:
   json: JSON
   shell: cURL
+  
 ---
 
 # O que é 3DS 2.0?
