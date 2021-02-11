@@ -5,11 +5,11 @@ description: Integração Técnica Gateway Braspag
 search: true
 translated: true
 categories: manual
-sort_order: 5
+sort_order:
 tags:
-  - 1. Pagador
 language_tabs:
   json: JSON
+  
 ---
 
 # Google Pay ™
