@@ -8,7 +8,7 @@ categories: manual
 sort_order: 7
 hub_visible: false
 tags:
-  - 5. Soluções para Marketplace
+  - 6. Soluções para Marketplace
 ---
 
 # Boleto Braspag
