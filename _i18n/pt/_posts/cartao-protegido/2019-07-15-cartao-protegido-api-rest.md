@@ -6,7 +6,7 @@ search: true
 translated: true
 categories: manual
 tags:
-  - 2. Cartão Protegido
+  - 3. Cartão Protegido
 language_tabs:
   json: JSON
   shell: cURL
