@@ -5,7 +5,7 @@ description: Integração Técnica
 search: true
 categories: manual
 tags:
-  - 6. Conciliador
+  - 7. Conciliador
 language_tabs:
   xml: XML
 ---
