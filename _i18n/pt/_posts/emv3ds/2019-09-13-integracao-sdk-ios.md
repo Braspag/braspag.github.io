@@ -7,9 +7,7 @@ translated: true
 categories: manual
 tags:
   - 5. EMV 3DS (3DS 2.0)
-language_tabs:
-  - json: JSON
-  - shell: SWIFT
+
 ---
 
 # O que é 3DS 2.0?
@@ -64,19 +62,19 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 
 Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:
 
-```shell
+```swift
 import Braspag3dsSdk
 ```
 
 Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:
 
-```shell
+```swift
 let braspag3ds = Braspag3ds(accessToken: "[Access_Token gerado no passo 1]", environment: Environment.production)
 ```
 
 Em seguida é necessário utilizar o método `authenticate`, informando os dados do comprador e o *callback* que receberá a resposta:
 
-```shell
+```swift
 braspag3ds.authenticate(orderData: OrderData(...),
                         cardData: CardData(...),
                         authOptions: OptionsData(...),
