@@ -8,6 +8,7 @@ categories: tutorial
 sort_order: 6
 tags:
   - 9. Documentos Adicionais
+  
 ---
 
 # Sistema de Gestão de Continuidade de Negócios (SGCN) da Braspag
