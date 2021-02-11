@@ -6,11 +6,10 @@ search: true
 translated: true
 categories: manual
 tags:
-    - 3. Gestão de Risco
+    - 4. Gestão de Risco
 language_tabs:
   json: JSON
-  shell: cURL
-  html: HTML 
+
 ---
 
 # Visão Geral
