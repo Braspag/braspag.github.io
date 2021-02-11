@@ -8,7 +8,7 @@ categories: manual
 sort_order: 1
 hub_visible: true
 tags:
-  - 5. Soluções para Marketplace
+  - 6. Soluções para Marketplace
   
 ---
 
