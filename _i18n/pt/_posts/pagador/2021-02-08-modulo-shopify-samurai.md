@@ -22,15 +22,15 @@ https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=**_loja_**.myshopify.com
 <aside class="notice">A palavra "loja" deve ser substituída pelo nome da loja (presente em sua URL myshopify) onde será instalado o app.</aside>
 
 1. Instale o app e veja a seguinte tela:
-![Instalação](https://braspag.github.io/images/images/braspag/pagador/shopify-instalacao.png)
+![Instalação](https://braspag.github.io/images/braspag/pagador/shopify-instalacao.png)
 2. Clique em `Instalar Gateway` para iniciar a instalação. Se a loja estiver online, esta ação deverá ser a última a ser tomada; mas se a loja não estiver online, esta ação poderá ser executada a qualquer momento.
 3. Clique em `Configurações`.
 
 ## URL do Logo e Boleto
 
 Preencha os seguintes campos referentes à **URL do logo** e às **Configurações do boleto**:
-![Configurações](https://braspag.github.io/images/images/braspag/pagador/shopify-configuracoes.png)
-![Configurações](https://braspag.github.io/images/images/braspag/pagador/shopify-configuracoes2.png)
+![Configurações](https://braspag.github.io/images/braspag/pagador/shopify-configuracoes.png)
+![Configurações](https://braspag.github.io/images/braspag/pagador/shopify-configuracoes2.png)
 
 |CAMPO|DESCRIÇÃO|
 |---|---|
@@ -60,10 +60,10 @@ Preencha os seguintes campos referentes à **URL do logo** e às **Configuraçõ
 Preencha os seguintes campos referentes às **Configurações de Split** e às **Configurações de Parcela**.
 
 Caso sua opção de utilização da função split seja "Sim", as seguintes opções serão habilitadas:
-![Configurações de Split](https://braspag.github.io/images/images/braspag/pagador/shopify-confsplit.png)
+![Configurações de Split](https://braspag.github.io/images/braspag/pagador/shopify-confsplit.png)
 
 Caso sua opção de utilização da função split seja "Não", siga para o preenchimento das configurações de parcela:
-![Configurações de Split](https://braspag.github.io/images/images/braspag/pagador/shopify-confsplit-nao.png)
+![Configurações de Split](https://braspag.github.io/images/braspag/pagador/shopify-confsplit-nao.png)
 
 |CAMPO|DESCRIÇÃO|
 |---|---|
@@ -80,7 +80,7 @@ Caso sua opção de utilização da função split seja "Não", siga para o pree
 ## Customização e Envio de Boletos
 
 Preencha os seguintes campos referentes às **Configurações de Customização** e **Configure Seu Remetente para Envio de Boletos**:
-![Configurações de remetente para envio de boletos](https://braspag.github.io/images/images/braspag/pagador/shopify-confremetente.png)
+![Configurações de remetente para envio de boletos](https://braspag.github.io/images/braspag/pagador/shopify-confremetente.png)
 
 |CAMPO|DESCRIÇÃO|
 |---|---|
@@ -92,8 +92,8 @@ Preencha os seguintes campos referentes às **Configurações de Customização*
 # Utilização
 
 Após digitar todas as informações de endereço e frete no checkout, o usuário deverá clicar em `Finalizar a compra`:
-![Pagamento](https://braspag.github.io/images/images/braspag/pagador/shopify-pagamento.png)
+![Pagamento](https://braspag.github.io/images/braspag/pagador/shopify-pagamento.png)
 
  Ao clicar em `Finalizar a compra`, o usuário será redirecionado ao gateway para a página "Dados de pagamento", mostrada na imagem abaixo.
  Basta efetuar o preenchimento dos dados para realizar uma compra pagando com a Braspag:
- ![Pagamento](https://braspag.github.io/images/images/braspag/pagador/shopify-pagamentodados.png)
+ ![Pagamento](https://braspag.github.io/images/braspag/pagador/shopify-pagamentodados.png)
