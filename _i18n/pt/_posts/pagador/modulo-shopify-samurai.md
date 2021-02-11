@@ -24,8 +24,13 @@ https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=**_loja_**.myshopify.com
 1. Instale o app e veja a seguinte tela:
 ![Instalação](https://braspag.github.io/images/images/braspag/pagador/shopify-instalacao.png)
 2. Clique em `Instalar Gateway` para iniciar a instalação. Se a loja estiver online, esta ação deverá ser a última a ser tomada; mas se a loja não estiver online, esta ação poderá ser executada a qualquer momento.
-3. Clique em `Configurações`e veja esta tela com os seguintes campos:
+3. Clique em `Configurações`.
+
+## URL do Logo e Boleto
+
+Preencha os seguintes campos referentes à **URL do logo** e às **Configurações do boleto**:
 ![Configurações](https://braspag.github.io/images/images/braspag/pagador/shopify-configuracoes.png)
+![Configurações](https://braspag.github.io/images/images/braspag/pagador/shopify-configuracoes2.png)
 
 |CAMPO|DESCRIÇÃO|
 |---|---|
@@ -50,9 +55,15 @@ https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=**_loja_**.myshopify.com
 |Validade do Boleto em Dias|Validade do boleto, em dias.|
 |1ª/2ª/3ª Linhas de Instrução de Boleto|Instruções do boleto.|
 
-## Configurações de Split
+## Split
 
-![Configurações de Split](https://braspag.github.io/images/images/braspag/pagador/shopify-configuracoes.png)
+Preencha os seguintes campos referentes às **Configurações de Split** e às **Configurações de Parcela**.
+
+Caso sua opção de utilização da função split seja "Sim", as seguintes opções serão habilitadas:
+![Configurações de Split](https://braspag.github.io/images/images/braspag/pagador/shopify-confsplit.png)
+
+Caso sua opção de utilização da função split seja "Não", siga para o preenchimento das configurações de parcela:
+![Configurações de Split](https://braspag.github.io/images/images/braspag/pagador/shopify-confsplit-nao.png)
 
 |CAMPO|DESCRIÇÃO|
 |---|---|
