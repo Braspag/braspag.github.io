@@ -7,6 +7,10 @@ translated: true
 categories: manual
 tags:
   - 5. EMV 3DS (3DS 2.0)
+language_tabs:
+  - json: JSON
+  - kotlin: KOTLIN
+  
 ---
 
 # O que é 3DS 2.0?
