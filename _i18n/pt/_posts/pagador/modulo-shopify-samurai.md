@@ -15,7 +15,7 @@ tags:
 
 # Instalação e Configuração
 
-Para a integração do módulo Shopify, primeiramente deve-se instalar o app na loja através da URL:
+Para a integração do módulo Shopify, deve-se primeiramente instalar o app na loja através da URL:
 <br/>
 https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=**_loja_**.myshopify.com
 
@@ -55,7 +55,7 @@ Preencha os seguintes campos referentes à **URL do logo** e às **Configuraçõ
 |Validade do Boleto em Dias|Validade do boleto, em dias.|
 |1ª/2ª/3ª Linhas de Instrução de Boleto|Instruções do boleto.|
 
-## Split
+## Split e Parcelas
 
 Preencha os seguintes campos referentes às **Configurações de Split** e às **Configurações de Parcela**.
 
@@ -76,12 +76,18 @@ Caso sua opção de utilização da função split seja "Não", siga para o pree
 |Número máximo de parcelas|Número máximo de parcelas.|
 |Taxa de juros por parcela|Indica se o acordo da loja com a Braspag tem taxa de juros para algum tipo de parcela.|
 |Número de Parcelas/Taxa de Juros|A taxa de juros da parcela correspondente, de acordo com o que já existe na Braspag.|
-|Enviar email com boleto|Indica se o lojista deseja que o comprador receba um email com o boleto. Neste caso, é necessário preencher todas as opções de remetente (título, emaiL, senha, smtp e porta), mostradas na imagem mais abaixo.|
+
+## Customização e Envio de Boletos
+
+Preencha os seguintes campos referentes às **Configurações de Customização** e **Configure Seu Remetente para Envio de Boletos**:
+![Configurações de remetente para envio de boletos](https://braspag.github.io/images/images/braspag/pagador/shopify-confremetente.png)
+
+|CAMPO|DESCRIÇÃO|
+|---|---|
+|Enviar email com boleto|Indica se o lojista deseja que o comprador receba um email com o boleto. Neste caso, é necessário preencher todas as opções de remetente (título, emaiL, senha, smtp e porta), mostradas na imagem acima.|
 |Desabilitar boleto|Desabilita a opção de boleto como pagamento.|
 |Desabilitar cartão de crédito|Desabilita a opção de cartão de crédito como pagamento.|
 |Desabilitar cartão de débito|Desabilita a opção de cartão de débito como pagamento. Obs.: Opção ainda não disponível no momento. Débito não irá aparecer, independente da marcação.|
-
-![Configurações de remetente para envio de boletos](https://braspag.github.io/images/images/braspag/pagador/shopify-confremetente.png)
 
 # Utilização
 
