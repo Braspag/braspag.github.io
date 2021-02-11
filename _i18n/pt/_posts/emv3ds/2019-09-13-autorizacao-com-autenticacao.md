@@ -7,10 +7,11 @@ translated: true
 categories: manual
 sort_order: 5
 tags:
-  - 4. EMV 3DS (3DS 2.0)
+  - 5. EMV 3DS (3DS 2.0)
 language_tabs:
   json: JSON
   shell: cURL
+  
 ---
 
 # Autorização com Autenticação
@@ -59,7 +60,6 @@ Veja abaixo um exemplo de envio de dados de autenticação da requisição de au
 ```
 
 ```shell
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -151,7 +151,6 @@ Veja abaixo um exemplo de envio de dados de autenticação da requisição de au
 ```
 
 ```shell
-curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
