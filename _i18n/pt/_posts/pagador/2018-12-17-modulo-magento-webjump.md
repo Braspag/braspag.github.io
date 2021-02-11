@@ -8,7 +8,7 @@ translated: true
 sort_order: 2
 tags:
     - 2. Módulos e SDKs
-  
+    
 ---
 
 # Integração do Módulo Magento 2.0
