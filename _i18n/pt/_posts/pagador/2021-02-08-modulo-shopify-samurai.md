@@ -13,11 +13,11 @@ tags:
 
 # Integração do Módulo Shopify
 
-# Instalando e Configurando
-
 Para a integração do módulo Shopify, deve-se primeiramente instalar o app na loja.
 
-A URL a ser acessada deve seguir o seguinte padrão:
+# Instalando e Configurando
+
+A URL a ser acessada para instalação do módulo deve seguir o seguinte padrão:
 
 > https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=**_loja_**.myshopify.com
 
@@ -59,7 +59,7 @@ Em "Configurações", preencha os seguintes campos referentes à **URL do logo**
 
 ## Split e Parcelas
 
-Preencha os seguintes campos referentes às **Configurações de Split** e às **Configurações de Parcela**.
+Preencha os seguintes campos referentes às **Configurações de Split** e às **Configurações de parcela**.
 
 Caso sua opção de utilização da função split seja "Sim", as seguintes opções serão habilitadas:
 ![Configurações de Split](https://braspag.github.io/images/braspag/pagador/shopify-confsplit.png)
@@ -81,7 +81,7 @@ Caso sua opção de utilização da função split seja "Não", siga para o pree
 
 ## Customização e Envio de Boletos
 
-Preencha os seguintes campos referentes às **Configurações de Customização** e **Configure Seu Remetente para Envio de Boletos**:
+Preencha os seguintes campos referentes às **Configurações de customização** e **Configure seu remetente para envio de boletos**:
 ![Configurações de remetente para envio de boletos](https://braspag.github.io/images/braspag/pagador/shopify-confremetente.png)
 
 |CAMPO|DESCRIÇÃO|
@@ -97,5 +97,5 @@ Após digitar todas as informações de endereço e frete no checkout, o usuári
 ![Pagamento](https://braspag.github.io/images/braspag/pagador/shopify-pagamento.png)
 
  Ao clicar em `Finalizar a compra`, o usuário será redirecionado ao gateway para a página **Dados de pagamento**, mostrada na imagem abaixo.
- <br/><br/>Basta efetuar o preenchimento dos dados para realizar uma compra pagando com a Braspag:
+ <br/>Basta efetuar o preenchimento dos dados para realizar uma compra pagando com a Braspag:
  ![Pagamento](https://braspag.github.io/images/braspag/pagador/shopify-pagamentodados.png)
