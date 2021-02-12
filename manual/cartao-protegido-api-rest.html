@@ -182,32 +182,49 @@
 
 <h2 id="arquitetura-da-integração">Arquitetura da Integração</h2>
 
-<p>A integração é realizada através de serviços disponibilizados como web services. O modelo empregado é bastante simples: através do endpoint serão enviadas todas as requisições relativas à esse serviço. Essa URL recebera as mensagens HTTP através dos métodos POST, GET ou DEL. Cada tipo de mensagem deve ser enviada para um endereço identificado através do “path”.</p>
+<p>A integração é realizada através de serviços disponibilizados como web services. O modelo empregado é simples: através do endpoint serão enviadas todas as requisições relativas a esse serviço. A URL (base + endpoint) receberá as mensagens HTTP através dos métodos POST, GET ou DEL:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Endpoint</th>
       <th>Ambiente</th>
+      <th>Endpoint</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>https://cartaoprotegidoapisandbox.braspag.com.br/</td>
       <td>Sandbox</td>
+      <td>https://cartaoprotegidoapisandbox.braspag.com.br/</td>
     </tr>
     <tr>
-      <td>https://cartaoprotegidoapi.braspag.com.br/</td>
       <td>Produção</td>
+      <td>https://cartaoprotegidoapi.braspag.com.br/</td>
     </tr>
   </tbody>
 </table>
 
-<ul>
-  <li><strong>POST</strong> - O método HTTP POST é utilizado na criação do token.</li>
-  <li><strong>DEL</strong> - O método HTTP DEL é utilizado para remoção de token.</li>
-  <li><strong>GET</strong> - O método HTTP GET é utilizado para consultas de recursos já existentes. Por exemplo, consulta de tokens já criados.</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Método HTTP</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>GET</strong></td>
+      <td>Utilizado para consultas de recursos já existentes, ex.: consulta de tokens já criados.</td>
+    </tr>
+    <tr>
+      <td><strong>POST</strong></td>
+      <td>Utilizado na criação do token.</td>
+    </tr>
+    <tr>
+      <td><strong>DEL</strong></td>
+      <td>Utilizado para remoção de token.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="integrando-a-solução">Integrando a Solução</h1>
 
@@ -222,13 +239,13 @@
 
 <h2 id="etapa-de-autenticação">Etapa de Autenticação</h2>
 
-<p>Para consumir os métodos da API, é necessário obter o AccessToken no padrão OAuth 2.0</p>
+<p>Para consumir os métodos da API, é necessário obter o AccessToken no padrão OAuth 2.0:</p>
 
 <table>
   <thead>
     <tr>
       <th>Ambiente</th>
-      <th>Endpoint</th>
+      <th>URL</th>
       <th>Authorization</th>
     </tr>
   </thead>
@@ -236,7 +253,7 @@
     <tr>
       <td><strong>SANDBOX</strong></td>
       <td>https://authsandbox.braspag.com.br/oauth2/token</td>
-      <td><strong>Basic <em>(Authorization)</em></strong><br />O valor do Authorization deve ser obtido concatenando-se o valor do “ClientID”, sinal de dois-pontos (“:”) e “ClientSecret”<br />Ex. b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br />e na sequência, codificar o resultado na base 64. <br />Com isso, será gerado um código alphanumérico que será utilizado na requisição de access token. Para efeitos de teste, utilize os dados abaixo:<br />ClientID: <strong>b4c14ad4-5184-4ca0-8d1a-d3a7276cead9</strong><br />ClientSecret: <strong>qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=</strong></td>
+      <td><strong>Basic <em>(Authorization)</em></strong><br />O valor do Authorization deve ser obtido concatenando-se o valor do “ClientID”, sinal de dois-pontos (“:”) e “ClientSecret”<br />Ex.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br />e na sequência, codificar o resultado na base 64. <br />Com isso, será gerado um código alphanumérico que será utilizado na requisição de access token. Para efeitos de teste, utilize os dados abaixo:<br />ClientID: <strong>b4c14ad4-5184-4ca0-8d1a-d3a7276cead9</strong><br />ClientSecret: <strong>qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=</strong></td>
     </tr>
     <tr>
       <td><strong>PRODUÇÃO</strong></td>
@@ -246,7 +263,7 @@
   </tbody>
 </table>
 
-<h3 id="request">Request</h3>
+<h3 id="requisição">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
@@ -279,7 +296,7 @@
   </tbody>
 </table>
 
-<h3 id="response">Response</h3>
+<h3 id="resposta">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
@@ -288,8 +305,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="o">{</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
   <span class="s2">"access_token"</span>: <span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span>,
   <span class="s2">"token_type"</span>: <span class="s2">"bearer"</span>,
   <span class="s2">"expires_in"</span>: 599
@@ -299,22 +315,22 @@
 <table>
   <thead>
     <tr>
-      <th>Propriedades do Response</th>
+      <th>Propriedades da Resposta</th>
       <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
-      <td>O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido</td>
+      <td>O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">token_type</code></td>
-      <td>Indica o valor do tipo de token</td>
+      <td>Indica o valor do tipo de token.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">expires_in</code></td>
-      <td>Expiração do o token de acesso, em segundos <br /> O token quando expirar, é necessário obter um novo</td>
+      <td>Expiração do token de acesso, em segundos. <br /> Quando o token expira, é necessário obter um novo.</td>
     </tr>
   </tbody>
 </table>
@@ -323,7 +339,7 @@
 
 <p>O objetivo deste método é salvar um cartão e obter como resposta a referência do token (Token Reference).</p>
 
-<h3 id="request-1">Request</h3>
+<h3 id="requisição-1">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/Token</span></aside>
 
@@ -338,8 +354,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> POST <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
@@ -359,73 +374,73 @@
   <thead>
     <tr>
       <th>Parâmetros</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
+      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)</td>
       <td>GUID</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(é o token de acesso gerado no passo anterior)</td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(é o token de acesso gerado no passo anterior)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>application/json</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Alias</code></td>
+      <td>Alias do cartão. O valor desta informação deve ser único (não pode repetir).</td>
       <td>Texto</td>
       <td>64</td>
       <td>Não</td>
-      <td>Alias do cartão. O valor desta informação deve ser único (não pode repetir).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Number</code></td>
+      <td>Número do Cartão do comprador</td>
       <td>Número</td>
       <td>16</td>
       <td>Sim</td>
-      <td>Número do Cartão do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
+      <td>Nome do Comprador impresso no cartão</td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
-      <td>Nome do Comprador impresso no cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
+      <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
-      <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão</td>
       <td>Número</td>
       <td>4</td>
       <td>Sim</td>
-      <td>Código de segurança impresso no verso do cartão</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="response-1">Response</h3>
+<h3 id="resposta-1">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5R2O4042YP"</span><span class="p">,</span><span class="w">
@@ -558,7 +573,7 @@
 
 <p>O objetivo deste método é obter as informações relacionadas a uma referência de token, tais como Status, Cartão Mascarado, Data de Validade e Nome do Portador.</p>
 
-<h3 id="request-2">Request</h3>
+<h3 id="requisição-2">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
@@ -612,7 +627,7 @@
   </tbody>
 </table>
 
-<h3 id="response-2">Response</h3>
+<h3 id="resposta-2">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"TokenReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1fdb4ef8-17f3-4f26-87e9-3a5f34bca8a0"</span><span class="p">,</span><span class="w">
@@ -704,7 +719,7 @@
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Alias/_{Alias}_/TokenReference</span></aside>
 
-<h3 id="request-3">Request</h3>
+<h3 id="requisição-3">Requisição</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"</span>
@@ -756,7 +771,7 @@
   </tbody>
 </table>
 
-<h3 id="response-3">Response</h3>
+<h3 id="resposta-3">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"TokenReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a36ffc37-e472-4d85-af2a-6f64c52bcccf"</span><span class="w">
@@ -799,7 +814,7 @@
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
-<h3 id="request-4">Request</h3>
+<h3 id="requisição-4">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
      </span><span class="nl">"RemovedBy"</span><span class="p">:</span><span class="s2">"Merchant"</span><span class="p">,</span><span class="w">
@@ -868,7 +883,7 @@
   </tbody>
 </table>
 
-<h3 id="response-4">Response</h3>
+<h3 id="resposta-4">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"TokenReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26eb7cb4-c2b4-4409-8d2e-810215c42eee"</span><span class="p">,</span><span class="w">
@@ -934,7 +949,7 @@
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/suspend</span></aside>
 
-<h3 id="request-5">Request</h3>
+<h3 id="requisição-5">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
      </span><span class="nl">"RemovedBy"</span><span class="p">:</span><span class="s2">"Merchant"</span><span class="p">,</span><span class="w">
@@ -1003,7 +1018,7 @@
   </tbody>
 </table>
 
-<h3 id="response-5">Response</h3>
+<h3 id="resposta-5">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"TokenReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a69a878-e50a-4252-bccc-24942a6225a9"</span><span class="p">,</span><span class="w">
@@ -1079,7 +1094,7 @@
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/unsuspend</span></aside>
 
-<h3 id="request-6">Request</h3>
+<h3 id="requisição-6">Requisição</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"</span>
@@ -1124,7 +1139,7 @@
   </tbody>
 </table>
 
-<h3 id="response-6">Response</h3>
+<h3 id="resposta-6">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"TokenReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0a69a878-e50a-4252-bccc-24942a6225a9"</span><span class="p">,</span><span class="w">
@@ -1208,7 +1223,7 @@
 
 <p>Em casos de erro na requisição, serão informados os códos de erro e sua descrição, conforme o exemplo.</p>
 
-<h3 id="response-7">Response</h3>
+<h3 id="resposta-7">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
