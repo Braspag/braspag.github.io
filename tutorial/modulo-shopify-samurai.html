@@ -174,7 +174,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Utilizar Anti-Fraude</code></td>
-      <td>Habilita a opção de utilização do antifraude da Braspag. Possível apenas após a homologação da loja pela Braspag.</td>
+      <td>Habilita a utilização do <a href="https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude">Antifraude da Braspag</a>. Possível apenas após a homologação da loja pela Braspag.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MID Cybersource</code></td>
@@ -182,7 +182,19 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Utilizar Auto-Captura</code></td>
-      <td>Habilita a captura automática para clientes que utilizam antifraude, sendo possível dependendo do tipo de antifraude contratado pelo cliente. Consulte a Braspag caso tenha dúvidas se deve utilizá-lo ou não durante a implantação.</td>
+      <td>Habilita a <a href="https://braspag.github.io//manual/braspag-pagador#termos-transacionais">captura automática</a> das transações, não sendo aplicada a <a href="https://braspag.github.io//manual/braspag-pagador#termos-transacionais">pré-autorização</a> (bloqueio do valor no cartão de crédito). Para clientes que utilizam o fluxo transacional com o antifraude incluso, deve-se atentar que esta opção <strong>não</strong> deve ser habilitada caso opte por receber o retorno da análise de antifraude antes da captura da transação. Consulte a Braspag caso tenha dúvidas se deve utilizá-lo ou não durante a implantação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Utilizar parâmetros captureOnLowRisk e voidOnHighRisk</code></td>
+      <td>Habilita as opções <code class="language-plaintext highlighter-rouge">captureOnLowRisk</code> e <code class="language-plaintext highlighter-rouge">voidOnHighRisk</code> para as transações, após a análise do antifraude.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Utilizar captureOnLowRisk</code></td>
+      <td>Habilita a captura do valor bloqueado (pré-autorizado) caso o antifraude defina a transação como sendo de baixo risco. A cobrança na fatura do cartão é efetivada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Utilizar voidOnHighRisk</code></td>
+      <td>Habilita o cancelamento automático da transação caso o antifraude defina a transação como sendo de alto risco. A cobrança na fatura é cancelada ou estornada.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Tipo de Loja Braspag</code></td>
