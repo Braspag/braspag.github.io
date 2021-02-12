@@ -43,16 +43,18 @@ A plataforma tem como propósito ajudar estabelecimentos em diferentes casos de 
 
 ## Arquitetura da Integração
 
-A integração é realizada através de serviços disponibilizados como web services. O modelo empregado é bastante simples: através do endpoint serão enviadas todas as requisições relativas à esse serviço. Essa URL recebera as mensagens HTTP através dos métodos POST, GET ou DEL. Cada tipo de mensagem deve ser enviada para um endereço identificado através do "path".
+A integração é realizada através de serviços disponibilizados como web services. O modelo empregado é simples: através do endpoint serão enviadas todas as requisições relativas a esse serviço. A URL (base + endpoint) receberá as mensagens HTTP através dos métodos POST, GET ou DEL:
 
-| Endpoint | Ambiente |
+| Ambiente | Endpoint | 
 | --- | --- |
-| https://cartaoprotegidoapisandbox.braspag.com.br/ | Sandbox |
-| https://cartaoprotegidoapi.braspag.com.br/ | Produção |
+| Sandbox | https://cartaoprotegidoapisandbox.braspag.com.br/ |
+| Produção | https://cartaoprotegidoapi.braspag.com.br/ |
 
-* **POST** - O método HTTP POST é utilizado na criação do token.
-* **DEL** - O método HTTP DEL é utilizado para remoção de token.
-* **GET** - O método HTTP GET é utilizado para consultas de recursos já existentes. Por exemplo, consulta de tokens já criados.
+|Método HTTP|Descrição|
+|---|---|
+|**GET**|Utilizado para consultas de recursos já existentes, ex.: consulta de tokens já criados.|
+|**POST**|Utilizado na criação do token.|
+|**DEL**|Utilizado para remoção de token.|
 
 # Integrando a Solução
 
@@ -65,14 +67,14 @@ Para quem quiser experimentar as APIs diretamente via Postman, segue o link para
 
 ## Etapa de Autenticação
 
-Para consumir os métodos da API, é necessário obter o AccessToken no padrão OAuth 2.0
+Para consumir os métodos da API, é necessário obter o AccessToken no padrão OAuth 2.0:
 
-|Ambiente | Endpoint | Authorization |
+|Ambiente | URL | Authorization |
 |---|---|---|
-| **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | **Basic _(Authorization)_**<br><br>O valor do Authorization deve ser obtido concatenando-se o valor do "ClientID", sinal de dois-pontos (":") e "ClientSecret"<br><br>Ex. b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br><br>e na sequência, codificar o resultado na base 64. <br>Com isso, será gerado um código alphanumérico que será utilizado na requisição de access token. Para efeitos de teste, utilize os dados abaixo:<br><br>ClientID: **b4c14ad4-5184-4ca0-8d1a-d3a7276cead9**<br>ClientSecret: **qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=**|
+| **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | **Basic _(Authorization)_**<br><br>O valor do Authorization deve ser obtido concatenando-se o valor do "ClientID", sinal de dois-pontos (":") e "ClientSecret"<br><br>Ex.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br><br>e na sequência, codificar o resultado na base 64. <br>Com isso, será gerado um código alphanumérico que será utilizado na requisição de access token. Para efeitos de teste, utilize os dados abaixo:<br><br>ClientID: **b4c14ad4-5184-4ca0-8d1a-d3a7276cead9**<br>ClientSecret: **qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=**|
 | **PRODUÇÃO** | https://auth.braspag.com.br/oauth2/token | Solicite os dados "ClientID" e "ClientSecret" à equipe de suporte após concluir o desenvolvimento em sandbox. |
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
@@ -89,7 +91,7 @@ Para consumir os métodos da API, é necessário obter o AccessToken no padrão 
 |`Content-Type`|application/x-www-form-urlencoded|
 |`grant_type`|client_credentials|
 
-### Response
+### Resposta
 
 ``` json
 {
@@ -100,7 +102,6 @@ Para consumir os métodos da API, é necessário obter o AccessToken no padrão 
 ```
 
 ```shell
-curl
 {
   "access_token": "faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw",
   "token_type": "bearer",
@@ -108,17 +109,17 @@ curl
 }
 ```
 
-|Propriedades do Response|Descrição|
+|Propriedades da Resposta|Descrição|
 |---|---|
-|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido|
-|`token_type`|Indica o valor do tipo de token|
-|`expires_in`|Expiração do o token de acesso, em segundos <br/> O token quando expirar, é necessário obter um novo|
+|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido.|
+|`token_type`|Indica o valor do tipo de token.|
+|`expires_in`|Expiração do token de acesso, em segundos. <br/> Quando o token expira, é necessário obter um novo.|
 
 ## Create Token Reference
 
 O objetivo deste método é salvar um cartão e obter como resposta a referência do token (Token Reference).
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/Token</span></aside>
 
@@ -135,7 +136,6 @@ O objetivo deste método é salvar um cartão e obter como resposta a referênci
 ```
 
 ```shell
-curl
 --request POST "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -152,18 +152,18 @@ curl
 }
 ```
 
-|Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
+|Parâmetros|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
-|`Authorization`|Texto|-|Sim|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
-|`Content-Type`|Texto|-|Sim|application/json|
-|`Alias`|Texto|64|Não |Alias do cartão. O valor desta informação deve ser único (não pode repetir).|
-|`Card.Number`|Número|16|Sim|Número do Cartão do comprador|
-|`Card.Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão|
-|`Card.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
-|`Card.SecurityCode`|Número|4|Sim|Código de segurança impresso no verso do cartão|
+|`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|GUID|-|Sim|
+|`Authorization`|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|Texto|-|Sim|
+|`Content-Type`|application/json|Texto|-|Sim|
+|`Alias`|Alias do cartão. O valor desta informação deve ser único (não pode repetir).|Texto|64|Não |
+|`Card.Number`|Número do Cartão do comprador|Número|16|Sim|
+|`Card.Holder`|Nome do Comprador impresso no cartão|Texto|25|Sim|
+|`Card.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA|Texto|7|Sim|
+|`Card.SecurityCode`|Código de segurança impresso no verso do cartão|Número|4|Sim|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -245,7 +245,7 @@ curl
 
 O objetivo deste método é obter as informações relacionadas a uma referência de token, tais como Status, Cartão Mascarado, Data de Validade e Nome do Portador.
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
@@ -265,7 +265,7 @@ curl
 |`Content-Type`|Texto|-|Sim|application/json|
 |`TokenReference`|GUID|36|Sim|Token no Cartão Protegido que representa os dados do cartão|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -312,7 +312,7 @@ O objetivo deste método é obter a referência de token a partir de um alias pr
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Alias/_{Alias}_/TokenReference</span></aside>
 
-### Request
+### Requisição
 
 ```shell
 curl
@@ -330,7 +330,7 @@ curl
 |`Content-Type`|Texto|-|Sim|application/json|
 |`Alias`|Texto|64|Não |Alias (Apelido) do cartão de crédito utilizado anteriormente no método Create Token|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -358,7 +358,7 @@ O objetivo deste método é remover a referência do token da base definitivamen
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
-### Request
+### Requisição
 
 ```json
 {
@@ -388,7 +388,7 @@ curl
 |`RemovedBy`|Texto|10|Sim|Quem solicitou a remoção. Valores possíveis: 'Merchant' ou 'CardHolder'|
 |`Reason`|Texto|10|Sim|Motivo da remoção do token. Valores possíveis: 'FraudSuspicion' ou 'Other'|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -433,7 +433,7 @@ O objetivo deste método é suspender uma referência do token temporariamente. 
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/suspend</span></aside>
 
-### Request
+### Requisição
 
 ```json
 {
@@ -463,7 +463,7 @@ curl
 |`RemovedBy`|Texto|10|Sim|Quem solicitou a remoção. Valores possíveis: 'Merchant' ou 'CardHolder'|
 |`Reason`|Texto|10|Sim|Motivo da remoção do token. Valores possíveis: 'FraudSuspicion' ou 'Other'|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -518,7 +518,7 @@ O objetivo deste método é reativar uma referência do token.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/unsuspend</span></aside>
 
-### Request
+### Requisição
 
 ```shell
 curl
@@ -535,7 +535,7 @@ curl
 |`Authorization`|Texto|-|Sim|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
 |`Content-Type`|Texto|-|Sim|application/json|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -598,7 +598,7 @@ curl
 
 Em casos de erro na requisição, serão informados os códos de erro e sua descrição, conforme o exemplo.
 
-### Response
+### Resposta
 
 ```json
 {
