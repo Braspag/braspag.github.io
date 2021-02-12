@@ -121,22 +121,26 @@
 
 <h1 id="instalação-e-configuração">Instalação e Configuração</h1>
 
-<p>Para a integração do módulo Shopify, deve-se primeiramente instalar o app na loja através da URL:
-<br />
-https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=<strong><em>loja</em></strong>.myshopify.com</p>
+<p>Para a integração do módulo Shopify, deve-se primeiramente instalar o app na loja.</p>
 
-<aside class="notice">A palavra "loja" deve ser substituída pelo nome da loja (presente em sua URL myshopify) onde será instalado o app.</aside>
+<p>A URL a ser acessada deve seguir o seguinte padrão:</p>
+
+<blockquote>
+  <p>https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=<strong><em>loja</em></strong>.myshopify.com</p>
+</blockquote>
+
+<p>A palavra <strong><em>loja</em></strong> deve ser substituída pelo nome da loja (presente em sua URL myshopify) onde será instalado o app.</p>
 
 <ol>
   <li>Instale o app e veja a seguinte tela:
 <img src="https://braspag.github.io/images/braspag/pagador/shopify-instalacao.png" alt="Instalação" /></li>
-  <li>Clique em <code class="language-plaintext highlighter-rouge">Instalar Gateway</code> para iniciar a instalação. Se a loja estiver online, esta ação deverá ser a última a ser tomada; mas se a loja não estiver online, esta ação poderá ser executada a qualquer momento.</li>
+  <li>Clique em <code class="language-plaintext highlighter-rouge">Instalar Gateway</code> para iniciar a instalação. Se a loja estiver online, esta ação deverá ser a última a ser tomada; porém, se a loja não estiver online, esta ação poderá ser executada a qualquer momento.</li>
   <li>Clique em <code class="language-plaintext highlighter-rouge">Configurações</code>.</li>
 </ol>
 
 <h2 id="url-do-logo-e-boleto">URL do Logo e Boleto</h2>
 
-<p>Preencha os seguintes campos referentes à <strong>URL do logo</strong> e às <strong>Configurações do boleto</strong>:
+<p>Em “Configurações”, preencha os seguintes campos referentes à <strong>URL do logo</strong> e às <strong>Configurações do boleto</strong>:
 <img src="https://braspag.github.io/images/braspag/pagador/shopify-configuracoes.png" alt="Configurações" />
 <img src="https://braspag.github.io/images/braspag/pagador/shopify-configuracoes2.png" alt="Configurações" /></p>
 
@@ -149,83 +153,83 @@ https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=<strong><em>loja</em></s
   </thead>
   <tbody>
     <tr>
-      <td>URL do Logo</td>
+      <td><code class="language-plaintext highlighter-rouge">URL do Logo</code></td>
       <td>URL do logo a ser futuramente usada no boleto (ainda indisponível).</td>
     </tr>
     <tr>
-      <td>Public Key Braspag</td>
+      <td><code class="language-plaintext highlighter-rouge">Public Key Braspag</code></td>
       <td>Merchant Id enviado pela Braspag (diferente da credencial de afiliação Cielo).</td>
     </tr>
     <tr>
-      <td>Access Token Braspag</td>
+      <td><code class="language-plaintext highlighter-rouge">Access Token Braspag</code></td>
       <td>Merchant Key enviado pela Braspag (diferente da credencial de afiliação Cielo).</td>
     </tr>
     <tr>
-      <td>Email da Conta da Braspag</td>
+      <td><code class="language-plaintext highlighter-rouge">Email da Conta da Braspag</code></td>
       <td>Email relacionado à conta Braspag.</td>
     </tr>
     <tr>
-      <td>URL do Webhook</td>
+      <td><code class="language-plaintext highlighter-rouge">URL do Webhook</code></td>
       <td>URL de webhook a ser cadastrada pelo cliente/suporte junto à Braspag, conforme instruções <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360005145671">neste link</a>.</td>
     </tr>
     <tr>
-      <td>Utilizar Anti-Fraude</td>
+      <td><code class="language-plaintext highlighter-rouge">Utilizar Anti-Fraude</code></td>
       <td>Habilita a opção de utilização do antifraude da Braspag. Possível apenas após a homologação da loja pela Braspag.</td>
     </tr>
     <tr>
-      <td>MID Cybersource</td>
+      <td><code class="language-plaintext highlighter-rouge">MID Cybersource</code></td>
       <td>MID da loja informado pela Braspag após homologação.</td>
     </tr>
     <tr>
-      <td>Utilizar Auto-Captura</td>
+      <td><code class="language-plaintext highlighter-rouge">Utilizar Auto-Captura</code></td>
       <td>Habilita a captura automática para clientes que utilizam antifraude, sendo possível dependendo do tipo de antifraude contratado pelo cliente. Consulte a Braspag caso tenha dúvidas se deve utilizá-lo ou não durante a implantação.</td>
     </tr>
     <tr>
-      <td>Tipo de Loja Braspag</td>
+      <td><code class="language-plaintext highlighter-rouge">Tipo de Loja Braspag</code></td>
       <td>Dentre os disponíveis, o tipo que mais se encaixa naquela loja.</td>
     </tr>
     <tr>
-      <td>Provedor de Boleto Braspag</td>
+      <td><code class="language-plaintext highlighter-rouge">Provedor de Boleto Braspag</code></td>
       <td>Provedor de boleto do cliente, caso a loja deseje utilizar boleto. Se desconhecido pelo cliente, entre em contato com a Braspag.</td>
     </tr>
     <tr>
-      <td>Provedor de Crédito Braspag</td>
+      <td><code class="language-plaintext highlighter-rouge">Provedor de Crédito Braspag</code></td>
       <td>Padrão “Cielo”, porém é possível usar outros provedores que o cliente tenha cadastrados na Braspag.</td>
     </tr>
     <tr>
-      <td>Provedor de Débito Braspag</td>
+      <td><code class="language-plaintext highlighter-rouge">Provedor de Débito Braspag</code></td>
       <td>Padrão “Cielo”, porém é possível usar outros provedores que o cliente tenha cadastrados na Braspag. Obs.: A funcionalidade de débito ainda não foi testada em produção.</td>
     </tr>
     <tr>
-      <td>Id Cielo (3DS)</td>
+      <td><code class="language-plaintext highlighter-rouge">Id Cielo (3DS)</code></td>
       <td>Id da Cielo para autenticação 3DS (não requerido caso não tenha split).</td>
     </tr>
     <tr>
-      <td>Secret Cielo (3DS)</td>
+      <td><code class="language-plaintext highlighter-rouge">Secret Cielo (3DS)</code></td>
       <td>Secret da Cielo para autenticação 3DS (não requerido caso não tenha split).</td>
     </tr>
     <tr>
-      <td>Nome Estab. Braspag</td>
+      <td><code class="language-plaintext highlighter-rouge">Nome Estab. Braspag</code></td>
       <td>Nome do estabelecimento na Braspag/Cielo para autenticação 3DS.</td>
     </tr>
     <tr>
-      <td>Cod. Estab. Braspag</td>
+      <td><code class="language-plaintext highlighter-rouge">Cod. Estab. Braspag</code></td>
       <td>Código do estabelecimento na Braspag/Cielo, numérico, para autenticação 3DS.</td>
     </tr>
     <tr>
-      <td>MCC (Cód Categoria) Braspag</td>
+      <td><code class="language-plaintext highlighter-rouge">MCC (Cód Categoria) Braspag</code></td>
       <td>MCC do estabelecimento na Braspag/Cielo, numérico, 4 dígitos, para autenticação 3DS.</td>
     </tr>
     <tr>
-      <td>CNPJ Habilitado</td>
+      <td><code class="language-plaintext highlighter-rouge">CNPJ Habilitado</code></td>
       <td>Se a loja aceita vender para CNPJ.</td>
     </tr>
     <tr>
-      <td>Validade do Boleto em Dias</td>
+      <td><code class="language-plaintext highlighter-rouge">Validade do boleto em dias</code></td>
       <td>Validade do boleto, em dias.</td>
     </tr>
     <tr>
-      <td>1ª/2ª/3ª Linhas de Instrução de Boleto</td>
+      <td><code class="language-plaintext highlighter-rouge">1ª/2ª/3ª Linhas de instrução do boleto</code></td>
       <td>Instruções do boleto.</td>
     </tr>
   </tbody>
@@ -250,39 +254,39 @@ https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=<strong><em>loja</em></s
   </thead>
   <tbody>
     <tr>
-      <td>Usar Split</td>
+      <td><code class="language-plaintext highlighter-rouge">Usar Split</code></td>
       <td>Opção de utilizar a função de split. Se “Sim”, as opções seguintes são habilitadas. Obs.: Essa funcionalidade foi homologada, porém não foi testada em uma situação real em produção.</td>
     </tr>
     <tr>
-      <td>Atualizar Fornecedores</td>
-      <td>Botão utilizado para carregar os fornecedores (vendors) do lojista, dos quais as configurações de split dependem.</td>
-    </tr>
-    <tr>
-      <td>Porcentagem do split (%)</td>
+      <td><code class="language-plaintext highlighter-rouge">Porcentagem do split (%)</code></td>
       <td>Porcentagem ganha pela loja no split.</td>
     </tr>
     <tr>
-      <td>Taxa Fixa (R$)</td>
+      <td><code class="language-plaintext highlighter-rouge">Taxa Fixa (R$)</code></td>
       <td>Valor em reais caso a loja ganhe uma taxa fixa na venda.</td>
     </tr>
     <tr>
-      <td>Id Braspag</td>
+      <td><code class="language-plaintext highlighter-rouge">Id Braspag</code></td>
       <td>Merchant Id da Braspag da conta do fornecedor.</td>
     </tr>
     <tr>
-      <td>Parcela Mínima</td>
+      <td><code class="language-plaintext highlighter-rouge">Atualizar fornecedores</code></td>
+      <td>Botão utilizado para carregar os fornecedores (vendors) do lojista, dos quais as configurações de split dependem.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Parcela mínima</code></td>
       <td>Valor em reais da parcela mínima da loja, caso exista.</td>
     </tr>
     <tr>
-      <td>Número máximo de parcelas</td>
+      <td><code class="language-plaintext highlighter-rouge">Número máximo de parcelas</code></td>
       <td>Número máximo de parcelas.</td>
     </tr>
     <tr>
-      <td>Taxa de juros por parcela</td>
+      <td><code class="language-plaintext highlighter-rouge">Taxa de juros por parcela</code></td>
       <td>Indica se o acordo da loja com a Braspag tem taxa de juros para algum tipo de parcela.</td>
     </tr>
     <tr>
-      <td>Número de Parcelas/Taxa de Juros</td>
+      <td><code class="language-plaintext highlighter-rouge">Número de parcelas/Taxa de juros</code></td>
       <td>A taxa de juros da parcela correspondente, de acordo com o que já existe na Braspag.</td>
     </tr>
   </tbody>
@@ -302,19 +306,19 @@ https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=<strong><em>loja</em></s
   </thead>
   <tbody>
     <tr>
-      <td>Enviar email com boleto</td>
+      <td><code class="language-plaintext highlighter-rouge">Enviar email com boleto</code></td>
       <td>Indica se o lojista deseja que o comprador receba um email com o boleto. Neste caso, é necessário preencher todas as opções de remetente (título, emaiL, senha, smtp e porta), mostradas na imagem acima.</td>
     </tr>
     <tr>
-      <td>Desabilitar boleto</td>
+      <td><code class="language-plaintext highlighter-rouge">Desabilitar boleto</code></td>
       <td>Desabilita a opção de boleto como pagamento.</td>
     </tr>
     <tr>
-      <td>Desabilitar cartão de crédito</td>
+      <td><code class="language-plaintext highlighter-rouge">Desabilitar cartão de crédito</code></td>
       <td>Desabilita a opção de cartão de crédito como pagamento.</td>
     </tr>
     <tr>
-      <td>Desabilitar cartão de débito</td>
+      <td><code class="language-plaintext highlighter-rouge">Desabilitar cartão de débito</code></td>
       <td>Desabilita a opção de cartão de débito como pagamento. Obs.: Opção ainda não disponível no momento. Débito não irá aparecer, independente da marcação.</td>
     </tr>
   </tbody>
@@ -325,8 +329,8 @@ https://cielo.azurewebsites.net/AppSetup/CreateApp?shop=<strong><em>loja</em></s
 <p>Após digitar todas as informações de endereço e frete no checkout, o usuário deverá clicar em <code class="language-plaintext highlighter-rouge">Finalizar a compra</code>:
 <img src="https://braspag.github.io/images/braspag/pagador/shopify-pagamento.png" alt="Pagamento" /></p>
 
-<p>Ao clicar em <code class="language-plaintext highlighter-rouge">Finalizar a compra</code>, o usuário será redirecionado ao gateway para a página “Dados de pagamento”, mostrada na imagem abaixo.
- Basta efetuar o preenchimento dos dados para realizar uma compra pagando com a Braspag:
+<p>Ao clicar em <code class="language-plaintext highlighter-rouge">Finalizar a compra</code>, o usuário será redirecionado ao gateway para a página <strong>Dados de pagamento</strong>, mostrada na imagem abaixo.
+ <br /><br />Basta efetuar o preenchimento dos dados para realizar uma compra pagando com a Braspag:
  <img src="https://braspag.github.io/images/braspag/pagador/shopify-pagamentodados.png" alt="Pagamento" /></p>
 
 </div>
