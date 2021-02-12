@@ -40,7 +40,7 @@ Em "Configurações", preencha os seguintes campos referentes à **URL do logo**
 |`Public Key Braspag`|Merchant Id enviado pela Braspag (diferente da credencial de afiliação Cielo).|
 |`Access Token Braspag`|Merchant Key enviado pela Braspag (diferente da credencial de afiliação Cielo).|
 |`Email da Conta da Braspag`|Email relacionado à conta Braspag.|
-|`URL do Webhook`|URL de webhook a ser cadastrada pelo cliente/suporte junto à Braspag, conforme instruções [neste link](https://suporte.braspag.com.br/hc/pt-br/articles/360005145671).|
+|`URL do Webhook`|URL de webhook a ser cadastrada pelo cliente/suporte junto à Braspag, conforme instruções [neste link](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o).|
 |`Utilizar Anti-Fraude`|Habilita a utilização do [Antifraude da Braspag](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude). Possível apenas após a homologação da loja pela Braspag.|
 |`MID Cybersource`|MID da loja informado pela Braspag após homologação.|
 |`Utilizar Auto-Captura`|Habilita a [captura automática](https://braspag.github.io//manual/braspag-pagador#termos-transacionais) das transações, não sendo aplicada a [pré-autorização](https://braspag.github.io//manual/braspag-pagador#termos-transacionais) (bloqueio do valor no cartão de crédito). Para clientes que utilizam o fluxo transacional com o antifraude incluso, deve-se atentar que esta opção **não** deve ser habilitada caso opte por receber o retorno da análise de antifraude antes da captura da transação. Consulte a Braspag caso tenha dúvidas se deve utilizá-lo ou não durante a implantação.|
