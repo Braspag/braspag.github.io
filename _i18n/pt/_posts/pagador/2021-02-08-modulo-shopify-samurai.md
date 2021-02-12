@@ -49,8 +49,8 @@ Em "Configurações", preencha os seguintes campos referentes à **URL do logo**
 |`Utilizar voidOnHighRisk`|Habilita o cancelamento automático da transação caso o antifraude defina a transação como sendo de alto risco. A cobrança na fatura é cancelada ou estornada.|
 |`Tipo de Loja Braspag`| Dentre os disponíveis, o tipo que mais se encaixa naquela loja.|
 |`Provedor de Boleto Braspag`|Provedor de boleto do cliente, caso a loja deseje utilizar boleto. Se desconhecido pelo cliente, entre em contato com a Braspag.|
-|`Provedor de Crédito Braspag`|Padrão "Cielo", porém é possível usar outros provedores que o cliente tenha cadastrados na Braspag.|
-|`Provedor de Débito Braspag`|Padrão "Cielo", porém é possível usar outros provedores que o cliente tenha cadastrados na Braspag. Obs.: A funcionalidade de débito ainda não foi testada em produção.|
+|`Provedor de Crédito Braspag`|Provedor de crédito do cliente. Configure o meio de pagamento que está cadastrado em sua loja de produção junto à Braspag.|
+|`Provedor de Débito Braspag`|Provedor de débito do cliente. Configure o meio de pagamento que está cadastrado em sua loja de produção junto à Braspag. Obs.: A funcionalidade de débito ainda não foi testada em produção.|
 |`Id Cielo (3DS)`|Id da Cielo para autenticação 3DS (não requerido caso não tenha split).|
 |`Secret Cielo (3DS)`|Secret da Cielo para autenticação 3DS (não requerido caso não tenha split).|
 |`Nome Estab. Braspag`|Nome do estabelecimento na Braspag/Cielo para autenticação 3DS.|
