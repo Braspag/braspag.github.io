@@ -41,9 +41,12 @@ Em "Configurações", preencha os seguintes campos referentes à **URL do logo**
 |`Access Token Braspag`|Merchant Key enviado pela Braspag (diferente da credencial de afiliação Cielo).|
 |`Email da Conta da Braspag`|Email relacionado à conta Braspag.|
 |`URL do Webhook`|URL de webhook a ser cadastrada pelo cliente/suporte junto à Braspag, conforme instruções [neste link](https://suporte.braspag.com.br/hc/pt-br/articles/360005145671).|
-|`Utilizar Anti-Fraude`|Habilita a opção de utilização do antifraude da Braspag. Possível apenas após a homologação da loja pela Braspag.|
+|`Utilizar Anti-Fraude`|Habilita a utilização do [Antifraude da Braspag](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude). Possível apenas após a homologação da loja pela Braspag.|
 |`MID Cybersource`|MID da loja informado pela Braspag após homologação.|
-|`Utilizar Auto-Captura`|Habilita a captura automática para clientes que utilizam antifraude, sendo possível dependendo do tipo de antifraude contratado pelo cliente. Consulte a Braspag caso tenha dúvidas se deve utilizá-lo ou não durante a implantação.|
+|`Utilizar Auto-Captura`|Habilita a [captura automática](https://braspag.github.io//manual/braspag-pagador#termos-transacionais) das transações, não sendo aplicada a [pré-autorização](https://braspag.github.io//manual/braspag-pagador#termos-transacionais) (bloqueio do valor no cartão de crédito). Para clientes que utilizam o fluxo transacional com o antifraude incluso, deve-se atentar que esta opção **não** deve ser habilitada caso opte por receber o retorno da análise de antifraude antes da captura da transação. Consulte a Braspag caso tenha dúvidas se deve utilizá-lo ou não durante a implantação.|
+|`Utilizar parâmetros captureOnLowRisk e voidOnHighRisk`|Habilita as opções `captureOnLowRisk` e `voidOnHighRisk` para as transações, após a análise do antifraude.|
+|`Utilizar captureOnLowRisk`|Habilita a captura do valor bloqueado (pré-autorizado) caso o antifraude defina a transação como sendo de baixo risco. A cobrança na fatura do cartão é efetivada.|
+|`Utilizar voidOnHighRisk`|Habilita o cancelamento automático da transação caso o antifraude defina a transação como sendo de alto risco. A cobrança na fatura é cancelada ou estornada.|
 |`Tipo de Loja Braspag`| Dentre os disponíveis, o tipo que mais se encaixa naquela loja.|
 |`Provedor de Boleto Braspag`|Provedor de boleto do cliente, caso a loja deseje utilizar boleto. Se desconhecido pelo cliente, entre em contato com a Braspag.|
 |`Provedor de Crédito Braspag`|Padrão "Cielo", porém é possível usar outros provedores que o cliente tenha cadastrados na Braspag.|
