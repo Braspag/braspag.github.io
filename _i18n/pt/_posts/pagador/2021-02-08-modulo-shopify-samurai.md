@@ -13,7 +13,7 @@ tags:
 
 # Integração do Módulo Shopify
 
-# Instalação e Configuração
+# Instalando e Configurando
 
 Para a integração do módulo Shopify, deve-se primeiramente instalar o app na loja.
 
@@ -91,7 +91,7 @@ Preencha os seguintes campos referentes às **Configurações de Customização*
 |`Desabilitar cartão de crédito`|Desabilita a opção de cartão de crédito como pagamento.|
 |`Desabilitar cartão de débito`|Desabilita a opção de cartão de débito como pagamento. Obs.: Opção ainda não disponível no momento. Débito não irá aparecer, independente da marcação.|
 
-# Utilização
+# Finalizando a Compra
 
 Após digitar todas as informações de endereço e frete no checkout, o usuário deverá clicar em `Finalizar a compra`:
 ![Pagamento](https://braspag.github.io/images/braspag/pagador/shopify-pagamento.png)
