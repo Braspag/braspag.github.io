@@ -2829,7 +2829,7 @@ This is the `Signature` format to be passed to the Pagador API:
 
 ### Examples of Integration
 
-Refer to our [E-Wallets](https://braspag.github.io//en/manual/ewallets#e-wallet-(digital-wallet)) guide for a few examples of integration with the main e-wallets available in the market.
+Refer to our [E-Wallets](https://braspag.github.io//en/manual/ewallets) guide for a few examples of integration with the main e-wallets available in the market.
 
 ## Voucher
 
