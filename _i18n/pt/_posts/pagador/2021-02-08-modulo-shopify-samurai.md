@@ -84,12 +84,12 @@ Caso sua opção de utilização da função split seja "Não", siga para o pree
 
 ## Customização e Envio de Boletos
 
-Preencha os seguintes campos referentes às **Configurações de customização** e **Configure seu remetente para envio de boletos**:
+Preencha os seguintes campos referentes às **Configurações de customização** e, caso opte pelo envio do boleto por email ao comprador, preencha também a sessão **Configure seu remetente para envio de boletos**:
 ![Configurações de remetente para envio de boletos](https://braspag.github.io/images/braspag/pagador/shopify-confremetente.png)
 
 |CAMPO|DESCRIÇÃO|
 |---|---|
-|`Enviar email com boleto`|Indica se o lojista deseja que o comprador receba um email com o boleto. Neste caso, é necessário preencher todas as opções de remetente (título, emaiL, senha, smtp e porta), mostradas na imagem acima.|
+|`Enviar email com boleto`|Indica se o lojista deseja que o comprador receba um email com o boleto. Neste caso, é necessário preencher todas as opções de remetente (título, email, senha, smtp e porta), mostradas na imagem acima.|
 |`Desabilitar boleto`|Desabilita a opção de boleto como pagamento.|
 |`Desabilitar cartão de crédito`|Desabilita a opção de cartão de crédito como pagamento.|
 |`Desabilitar cartão de débito`|Desabilita a opção de cartão de débito como pagamento. Obs.: Opção ainda não disponível no momento. Débito não irá aparecer, independente da marcação.|
