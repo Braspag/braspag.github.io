@@ -741,7 +741,7 @@
 
 <p>Boa parte do processo para disponibilização do botão “Pagar com Apple Pay” no seu app ou site será realizado na sua integração junto à wallet. Por isso, recomendamos que siga as orientações disponíveis no site de <a href="https://developer.apple.com/documentation">Documentação da Apple</a> para a implementação, que é totalmente self-service.</p>
 
-<p>Ao final do processo realizado na API da Apple, você receberá um JSON contendo dois campos importantes que deverão ser utilizados no próximo passo. São os campos <code class="language-plaintext highlighter-rouge">paymentData.data</code> e <code class="language-plaintext highlighter-rouge">ephemeralPublicKey.header.EphemeralPublicKey</code>.</p>
+<p>Ao final do processo realizado na API da Apple, você receberá um JSON contendo dois campos importantes que deverão ser utilizados na “ETAPA 3”. São os campos <code class="language-plaintext highlighter-rouge">paymentData.data</code> e <code class="language-plaintext highlighter-rouge">ephemeralPublicKey.header.EphemeralPublicKey</code>.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"applePayData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
