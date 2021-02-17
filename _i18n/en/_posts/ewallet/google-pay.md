@@ -10,6 +10,7 @@ tags:
   - 1. Pagador
 language_tabs:
   json: JSON
+  
 ---
 
 # Google Pay
