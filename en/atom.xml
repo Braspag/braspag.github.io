@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-02-17T18:05:33+00:00</updated>
+    <updated>2021-02-17T18:14:13+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -19665,7 +19665,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 &lt;h3 id=&quot;examples-of-integration&quot;&gt;Examples of Integration&lt;/h3&gt;
 
-&lt;p&gt;Refer to our &lt;a href=&quot;https://braspag.github.io//en/manual/ewallets#e-wallet-(digital-wallet)&quot;&gt;E-Wallets&lt;/a&gt; guide for a few examples of integration with the main e-wallets available in the market.&lt;/p&gt;
+&lt;p&gt;Refer to our &lt;a href=&quot;https://braspag.github.io//en/manual/ewallets&quot;&gt;E-Wallets&lt;/a&gt; guide for a few examples of integration with the main e-wallets available in the market.&lt;/p&gt;
 
 &lt;h2 id=&quot;voucher&quot;&gt;Voucher&lt;/h2&gt;
 
