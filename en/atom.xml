@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-02-17T21:46:30+00:00</updated>
+    <updated>2021-02-18T13:30:09+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -472,35 +472,35 @@
 
 &lt;h2 id=&quot;part-1---configuring-the-merchant-identifier&quot;&gt;PART 1 - Configuring the Merchant Identifier&lt;/h2&gt;
 
-&lt;p&gt;To begin with, you must create a &lt;strong&gt;merchant identifier&lt;/strong&gt; for your store. After that, the merchant identifier must be sent to Braspag in request for a “&lt;strong&gt;.CSR&lt;/strong&gt;” certificate. The “.CSR” certificate created by Braspag must be used to create the new “&lt;strong&gt;.CER&lt;/strong&gt;” certificate, in Apple. This “.CER” certificate will be used to proceed to the second step of the process.&lt;/p&gt;
+&lt;p&gt;To begin with, you must create a &lt;strong&gt;merchant identifier&lt;/strong&gt; for your store. After that, the merchant identifier must be sent to Braspag in request for a &lt;strong&gt;“.CSR” certificate&lt;/strong&gt;. The “.CSR” certificate created by Braspag must be used to create the new “.CER” certificate, in Apple. This &lt;strong&gt;“.CER” certificate&lt;/strong&gt; will be used to proceed to the second part of the process.&lt;/p&gt;
 
-&lt;h3 id=&quot;step-1---creating-a-merchant-identifier&quot;&gt;Step 1 - Creating a Merchant Identifier&lt;/h3&gt;
+&lt;h3 id=&quot;step-1---create-a-merchant-identifier&quot;&gt;Step 1 - Create a Merchant Identifier&lt;/h3&gt;
 
 &lt;p&gt;The merchant identifier must be created through the &lt;a href=&quot;https://developer.apple.com/account/resources&quot;&gt;Apple Developer&lt;/a&gt; website as follows:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;In the &lt;strong&gt;“Certificates, Identifiers &amp;amp; Profiles”&lt;/strong&gt; section, select &lt;strong&gt;“Identifiers”&lt;/strong&gt; on the side menu, and click the &lt;strong&gt;”(+)”&lt;/strong&gt; button on the top right corner:
+  &lt;li&gt;In the &lt;strong&gt;“Certificates, Identifiers &amp;amp; Profiles”&lt;/strong&gt; section, select &lt;strong&gt;“Identifiers”&lt;/strong&gt; on the side menu, and click the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(+)&lt;/code&gt; button by the title:
 &lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay01.png&quot; alt=&quot;Step1.1&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Select &lt;strong&gt;“Merchant IDs”&lt;/strong&gt;, then click &lt;strong&gt;“Continue”&lt;/strong&gt;:
+  &lt;li&gt;Select the &lt;strong&gt;“Merchant IDs”&lt;/strong&gt; option, then click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Continue&lt;/code&gt;:
 &lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay02.png&quot; alt=&quot;Step1.2&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Insert values in the &lt;strong&gt;“Description”&lt;/strong&gt; and &lt;strong&gt;“Identifier”&lt;/strong&gt; fields, in accordance with each specification, and click &lt;strong&gt;“Continue”&lt;/strong&gt;:
+  &lt;li&gt;Insert values in the &lt;strong&gt;“Description”&lt;/strong&gt; and &lt;strong&gt;“Identifier”&lt;/strong&gt; fields, in accordance with each specification, and click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Continue&lt;/code&gt;:
 &lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay03.png&quot; alt=&quot;Step1.3&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Click &lt;strong&gt;“Register”&lt;/strong&gt;:
+  &lt;li&gt;Finally click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Register&lt;/code&gt;:
 &lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay04.png&quot; alt=&quot;Step1.4&quot; /&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;step-2---applying-for-a-csr-certificate&quot;&gt;Step 2 - Applying for a “.CSR” Certificate&lt;/h3&gt;
+&lt;h3 id=&quot;step-2---apply-for-a-csr-certificate&quot;&gt;Step 2 - Apply for a “.CSR” Certificate&lt;/h3&gt;
 
 &lt;p&gt;To send Braspag a request for a certificate in the “.CSR” format, contact our &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br/requests/new&quot;&gt;Support Team&lt;/a&gt; informing the following:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;The &lt;strong&gt;Merchant Identifier&lt;/strong&gt; created in step 1;&lt;/li&gt;
+  &lt;li&gt;The &lt;strong&gt;Merchant Identifier&lt;/strong&gt; created in “Step 1”;&lt;/li&gt;
   &lt;li&gt;Your store “in production” &lt;strong&gt;Merchant ID&lt;/strong&gt; at Braspag.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Our team will get back to you with the “.CSR” file in up to 48 working hours.&lt;/p&gt;
 
-&lt;h3 id=&quot;step-3---creating-a-cer-certificate&quot;&gt;Step 3 - Creating a “.CER” Certificate&lt;/h3&gt;
+&lt;h3 id=&quot;step-3---create-a-cer-certificate&quot;&gt;Step 3 - Create a “.CER” Certificate&lt;/h3&gt;
 
 &lt;p&gt;To create a payment processing certificate (“.CER”) to be used in your virtual store or app, you must enter the &lt;a href=&quot;https://developer.apple.com/account/resources&quot;&gt;Apple Developer&lt;/a&gt;  website and follow the procedure below:&lt;/p&gt;
 
@@ -508,17 +508,17 @@
   &lt;li&gt;In the &lt;strong&gt;“Certificates, Identifier &amp;amp; Profiles”&lt;/strong&gt; section, select &lt;strong&gt;“Identifiers”&lt;/strong&gt; on the side menu.&lt;/li&gt;
   &lt;li&gt;Use the filter on the top right corner (&lt;strong&gt;“App IDs”&lt;/strong&gt;), to locate the &lt;strong&gt;“Merchant IDs”&lt;/strong&gt; item:
 &lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay05.png&quot; alt=&quot;Step2.1&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;On the right, select the recently created identifier:
+  &lt;li&gt;Select the recently created identifier:
 &lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay06.png&quot; alt=&quot;Step2.2&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;In the &lt;strong&gt;“Apple Pay Payment Processing Certificate”&lt;/strong&gt; block, click the &lt;strong&gt;“Create Certificate”&lt;/strong&gt; button right after the text short description:
+  &lt;li&gt;In the &lt;strong&gt;“Apple Pay Payment Processing Certificate”&lt;/strong&gt; block, click the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Create Certificate&lt;/code&gt; button right after the short description:
 &lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay07.png&quot; alt=&quot;Step2.3&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Choose “No” in &lt;strong&gt;“Edit or Configure Merchant ID”&lt;/strong&gt;:
+  &lt;li&gt;Choose &lt;strong&gt;“No”&lt;/strong&gt; in &lt;strong&gt;“Edit or Configure Merchant ID”&lt;/strong&gt;:
 &lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay08.png&quot; alt=&quot;Step2.4&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;In the dialog box, choose the “.CSR” certificate sent by Braspag:
+  &lt;li&gt;In the dialog box, click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Choose File&lt;/code&gt; and choose the “.CSR” certificate sent by Braspag:
 &lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay09.png&quot; alt=&quot;Step2.5&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Click &lt;strong&gt;“Continue”&lt;/strong&gt;:
+  &lt;li&gt;Click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Continue&lt;/code&gt;:
 &lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay10.png&quot; alt=&quot;Step2.6&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Click &lt;strong&gt;“Download”&lt;/strong&gt; and save the “.CER” file:
+  &lt;li&gt;Click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Download&lt;/code&gt; and save the “.CER” file:
 &lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/applepay11.png&quot; alt=&quot;Step2.7&quot; /&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -526,9 +526,9 @@
 
 &lt;h2 id=&quot;part-2-integrating-with-apple-pay&quot;&gt;PART 2. Integrating with Apple Pay&lt;/h2&gt;
 
-&lt;p&gt;Most of the process when enabling the “Pay with Apple Pay” button in your app or site is performed during your wallet integration. For that reason, we recommend you to follow the instructions available in the &lt;a href=&quot;https://developer.apple.com/documentation&quot;&gt;Apple Developer Documentation&lt;/a&gt; website for their self-service implementation.&lt;/p&gt;
+&lt;p&gt;Most of the process of enabling the “Pay with Apple Pay” button in your app or site is performed during your wallet integration. For that reason, we recommend you to follow the instructions available in the &lt;a href=&quot;https://developer.apple.com/documentation&quot;&gt;Apple Developer Documentation&lt;/a&gt; website for Apple’s self-service implementation.&lt;/p&gt;
 
-&lt;p&gt;At the end of the process performed in the Apple API, you will receive a JSON containing two important fields that will be used in the next step: the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;paymentData.data&lt;/code&gt; and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ephemeralPublicKey.header.EphemeralPublicKey&lt;/code&gt; fields.&lt;/p&gt;
+&lt;p&gt;At the end of the process performed in the Apple API, you will receive a JSON containing two important fields that will be used in “PART 3”: the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;paymentData.data&lt;/code&gt; and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ephemeralPublicKey.header.EphemeralPublicKey&lt;/code&gt; fields.&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;applePayData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -556,7 +556,7 @@
 
 &lt;h3 id=&quot;important-note&quot;&gt;Important Note&lt;/h3&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;During the Apple Pay implementation, there will be a reference to the &quot;. CER&quot; certificate, generated in PART 1, to encrypt the data while communicating with Apple. The decryption process of the data returned by Apple must not be implemented at this point as, for Braspag customers, this task will be carried out by our gateway solution, Pagador.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;During the Apple Pay implementation, there will be a reference to the &quot;. CER&quot; certificate, generated in PART 1, to encrypt the data while communicating with Apple. The decryption process of the data returned by Apple MUST NOT be implemented at this point as, for Braspag customers, this task will be carried out by our gateway solution, Pagador.&lt;/aside&gt;
 
 &lt;h2 id=&quot;part-3-integrating-with-pagador-decryption-and-authorization&quot;&gt;PART 3. Integrating with Pagador (decryption and authorization)&lt;/h2&gt;
 
@@ -692,46 +692,42 @@
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;google-pay-&quot;&gt;Google Pay ™&lt;/h1&gt;
-
 &lt;p&gt;The authorization response returned by the wallet will have the same fields shown in our &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#response&quot;&gt;Pagador&lt;/a&gt; documentation, but with the addition of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Wallet&lt;/code&gt; node repeating the same fields used in the authorization, as described above.&lt;/p&gt;
+
+&lt;h1 id=&quot;google-pay-&quot;&gt;Google Pay ™&lt;/h1&gt;
 
 &lt;p&gt;Google Pay is an e-wallet. It allows shoppers to make payments in e-commerce stores and apps using their credit and debit cards stored in their Google Account and Android devices in a safe and easy way.&lt;/p&gt;
 
 &lt;h2 id=&quot;prerequisites-1&quot;&gt;Prerequisites&lt;/h2&gt;
 
+&lt;p&gt;In order to use Google Pay, your store must be previously registered and integrated with Google Pay. In addition to that, you must also:&lt;/p&gt;
+
 &lt;ol&gt;
   &lt;li&gt;Agree to Google’s terms of service.&lt;/li&gt;
-  &lt;li&gt;Integrate Google Pay into your app (&lt;a href=&quot;https://developers.google.com/pay/api/android/overview&quot;&gt;https://developers.google.com/pay/api/android/overview&lt;/a&gt;).&lt;/li&gt;
-  &lt;li&gt;Contrat the Braspag’s payment gateway service (API REST)&lt;/li&gt;
-  &lt;li&gt;Contrat the Cielo 3.0 as payment acquier&lt;/li&gt;
-  &lt;li&gt;Integrate Braspag’s payment gateway Pagador API REST (&lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador&quot;&gt;https://braspag.github.io/manual/braspag-pagador&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Follow the steps in this documentation to thoroughly &lt;a href=&quot;https://developers.google.com/pay/api/android/overview&quot;&gt;integrate Google Pay&lt;/a&gt; into your app.&lt;/li&gt;
+  &lt;li&gt;Hire Pagador API REST as the payment gateway.&lt;/li&gt;
+  &lt;li&gt;Hire Cielo 3.0 as the acquirer.&lt;/li&gt;
+  &lt;li&gt;Integrate with &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador&quot;&gt;Pagador API REST&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;part-1-integrating-google-pay-into-you-android-app&quot;&gt;PART 1: Integrating Google Pay into you Android app&lt;/h2&gt;
+&lt;h2 id=&quot;part-1-integrating-google-pay&quot;&gt;PART 1: Integrating Google Pay&lt;/h2&gt;
 
-&lt;h3 id=&quot;step-1---configure-your-project&quot;&gt;Step 1 - Configure your project&lt;/h3&gt;
+&lt;p&gt;Initially, you must &lt;strong&gt;configure your project&lt;/strong&gt; and &lt;strong&gt;implement Google Pay&lt;/strong&gt; in your Android app.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://developers.google.com/pay/api/android/guides/setup&quot;&gt;https://developers.google.com/pay/api/android/guides/setup&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;step-1---configure-your-project&quot;&gt;Step 1 - Configure your Project&lt;/h3&gt;
 
-&lt;p&gt;In these steps, the following points should be observed:&lt;/p&gt;
+&lt;p&gt;Follow the instructions described in the &lt;a href=&quot;https://developers.google.com/pay/api/android/guides/setup&quot;&gt;Google Pay Setup Guide&lt;/a&gt;.&lt;br /&gt;
+In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by importing the Google Pay Services library or choosing the APIs you wish to compile. Then, you must follow the instructions and &lt;strong&gt;modify your project’s &lt;em&gt;“AndroidManifest.xml”&lt;/em&gt; file&lt;/strong&gt; accordingly.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Project Configuration&lt;/li&gt;
-  &lt;li&gt;Modify your &lt;em&gt;Manifest&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&quot;step-2---implement-google-pay&quot;&gt;Step 2 - Implement Google Pay&lt;/h3&gt;
 
-&lt;h3 id=&quot;step-2---google-pay-implementation&quot;&gt;Step 2 - Google Pay Implementation&lt;/h3&gt;
+&lt;p&gt;To integrate Google Play into your app, follow all the steps described in the &lt;a href=&quot;https://developers.google.com/pay/api/android/guides/tutorial&quot;&gt;Google Pay Tutorial Guide&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;To integrate Google Play into your app, follow all the steps in the Google Pay documentation:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developers.google.com/pay/api/android/guides/tutorial&quot;&gt;https://developers.google.com/pay/api/android/guides/tutorial&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;For the correct integration of Google Play using Braspag’s payment gateway, it is necessary to observe the following points:&lt;/p&gt;
+&lt;p&gt;For an accurate integration of Google Pay using Braspag’s payment gateway, the following points must be carefully considered:&lt;/p&gt;
 
 &lt;h4 id=&quot;gateway-definition&quot;&gt;Gateway Definition&lt;/h4&gt;
 
-&lt;p&gt;In “&lt;em&gt;Step 2: Choose a payment tokenization method&lt;/em&gt;”, follow the “GATEWAY” integration model and send the “type” as “ &lt;strong&gt;PAYMENT_GATEWAY&lt;/strong&gt;” and “ &lt;strong&gt;gateway&lt;/strong&gt;” as “ &lt;strong&gt;cielo&lt;/strong&gt;”, according to the example:&lt;/p&gt;
+&lt;p&gt;In &lt;em&gt;“Step 2: Choose a payment tokenization method”&lt;/em&gt;, follow the “GATEWAY” integration model and assign the “PAYMENT_GATEWAY” value to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type&lt;/code&gt; parameter and the “cielo” value to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gateway&lt;/code&gt; parameter, according to the example:&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;getTokenizationSpecification()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject();&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -745,23 +741,23 @@
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;To the field “ &lt;strong&gt;gatewayMerchantId&lt;/strong&gt;”, send your application code registered at Google Pay. To test purpose, use “18045945416119260263”&lt;/p&gt;
+&lt;p&gt;Fill the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gatewayMerchantId&lt;/code&gt; with the identifier generated for your store by the gateway. The merchant identifier has the “XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX” format (type &lt;em&gt;GUID&lt;/em&gt; / size &lt;em&gt;36&lt;/em&gt;).&lt;/p&gt;
 
-&lt;h4 id=&quot;brands-definition&quot;&gt;Brands Definition&lt;/h4&gt;
+&lt;h4 id=&quot;card-networks-definition&quot;&gt;Card Networks Definition&lt;/h4&gt;
 
-&lt;p&gt;In the “&lt;em&gt;Step 3: Define supported payment card networks&lt;/em&gt;”, use these brands: “VISA”, “MASTERCARD”, “AMEX”, “DISCOVER” E “JCB”&lt;/p&gt;
+&lt;p&gt;In &lt;em&gt;“Step 3: Define supported payment card networks”&lt;/em&gt;, proceed with the supported brands: “VISA”, “MASTERCARD”, “AMEX”, “DISCOVER” and “JCB”.&lt;/p&gt;
 
 &lt;h4 id=&quot;environment-definition&quot;&gt;Environment Definition&lt;/h4&gt;
 
-&lt;p&gt;In the “&lt;em&gt;Step 5: Create a PaymentsClient instance&lt;/em&gt;”, use the vaue “WalletConstants.ENVIRONMENT_TEST” for test purpose.&lt;/p&gt;
+&lt;p&gt;In &lt;em&gt;“Step 5: Create a PaymentsClient instance”&lt;/em&gt;, use the “WalletConstants.ENVIRONMENT_TEST” value for test purposes.&lt;/p&gt;
 
 &lt;h4 id=&quot;shopping-data-definition&quot;&gt;Shopping Data Definition&lt;/h4&gt;
 
-&lt;p&gt;In the “&lt;em&gt;Step 7: Create a PaymentDataRequest object&lt;/em&gt;”, use the value “BRL” for “ &lt;strong&gt;currencyCode&lt;/strong&gt;”. The field “ &lt;strong&gt;merchantName&lt;/strong&gt;” is the name that shopper will see during Google Pay payment process, then, the recomendation is the use of friendly name.&lt;/p&gt;
+&lt;p&gt;In &lt;em&gt;“Step 7: Create a PaymentDataRequest object”&lt;/em&gt;, use the “BRL” value for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;currencyCode&lt;/code&gt; parameter. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;merchantName&lt;/code&gt; field is the name that the buyer will see throughout the Google Pay payment process. Thus, the use of a friendly name is recommended.&lt;/p&gt;
 
 &lt;h4 id=&quot;payment-data-recovery&quot;&gt;Payment Data Recovery&lt;/h4&gt;
 
-&lt;p&gt;In the “&lt;em&gt;Step 9: Handle the response object&lt;/em&gt;”, the “Activity.RESULT_OK” event is described, which is returned a object with all the payment data, including payment tokens.&lt;/p&gt;
+&lt;p&gt;In the &lt;em&gt;“Step 9: Handle the response object”&lt;/em&gt;, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Activity.RESULT_OK&lt;/code&gt; event is described, which is returned a object with all the payment data, including payment tokens.&lt;/p&gt;
 
 &lt;p&gt;The &lt;em&gt;PaymentData&lt;/em&gt; contains the object &lt;em&gt;PaymentMethodToken&lt;/em&gt;. To get this object, use the &lt;strong&gt;getPaymentMethodToken()&lt;/strong&gt; method.&lt;/p&gt;
 
