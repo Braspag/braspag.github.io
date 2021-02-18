@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title:  Módulo Shopify Samurai
+title:  Módulo Shopify
 description: Como Integrar sua Loja Shopify com o Módulo de Pagamentos Braspag
 toc_footers: false
 categories: tutorial
