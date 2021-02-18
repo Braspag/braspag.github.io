@@ -2717,7 +2717,7 @@ O Pagador possui suporte para as principais carteiras digitais disponíveis no m
 
 ### Integração da E-Wallet
 
-Consulte nosso manual [E-Wallets](https://braspag.github.io//manual/ewallets) e saiba mais detalhes sobre a integração dessas e-wallets com o Pagador.
+Consulte nosso manual [E-Wallets](https://braspag.github.io//manual/ewallets) e saiba mais detalhes sobre a integração dessas e-wallets em seu checkout.
 
 ## Voucher
 
