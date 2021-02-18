@@ -4847,7 +4847,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <h3 id="available-e-wallets">Available E-Wallets</h3>
 
-<p>Pagador currently supports the following digital wallets:</p>
+<p>Pagador currently supports the main digital wallets available in the market, which are listed below:</p>
 
 <ul>
   <li><a href="https://www.apple.com/br/apple-pay/"><em>Apple Pay</em></a></li>
@@ -4863,415 +4863,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <h3 id="e-wallet-integration">E-Wallet Integration</h3>
 
-<p>Here is an example of a standard request for the e-wallet integration:</p>
-
-<h4 id="request-12">Request</h4>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Standard Wallet"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11225468954"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-    </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WALLET TYPE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WALLET STORE ID"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"EphemeralPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOKEN INFORMED BY WALLET"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Mandatory</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier at Braspag. (through header)</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public key for dual authentication at Braspag. (through header)</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT. (through header)</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Order ID number.</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Customer’s name.</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Customer’s registration status (“NEW” / “EXISTING”).</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Payment method type.</td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Order amount in cents.</td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Cielo providers only (“Cielo” / “Cielo30”).</td>
-      <td>Text</td>
-      <td>15</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number of installments.</td>
-      <td>Number</td>
-      <td>2</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
-      <td>Wallet type: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.</td>
-      <td>Text</td>
-      <td>–</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
-      <td>Cryptographic key that identifies stores in wallets. Refer to the WalletKey table in the ANNEXES for more information.</td>
-      <td>Text</td>
-      <td>–</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.EphemeralPublicKey</code></td>
-      <td>Token returned by wallet. Must be submitted in <strong>ApplePay</strong> integrations.</td>
-      <td>Text</td>
-      <td>–</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.CaptureCode</code></td>
-      <td>Code informed by <strong>Masterpass</strong> to the merchant.</td>
-      <td>Text</td>
-      <td>–</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.Signature</code></td>
-      <td>Token returned by wallet. Must be submitted in <strong>GooglePay</strong> integrations.</td>
-      <td>Text</td>
-      <td>–</td>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
-
-<h5 id="walletkey">WalletKey</h5>
-
-<p>WalletKey is the identifier used by Braspag to decrypt the payloads returned by an e-wallet.</p>
-
-<p>Here is a list of the <code class="language-plaintext highlighter-rouge">WalletKey</code> formats to be passed to the Pagador API:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Wallet</th>
-      <th>Example</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><em>Apple Pay</em></td>
-      <td>9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+easdhghrsa/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc</td>
-      <td>.</td>
-    </tr>
-    <tr>
-      <td><em>Samsung Pay</em></td>
-      <td>eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR–gApzoXH-fdafddfa-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ</td>
-      <td>.</td>
-    </tr>
-    <tr>
-      <td><em>Google Pay</em></td>
-      <td>{"encryptedMessage":"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\u003d\u003d","ephemeralPublicKey":"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\u003d","tag":"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\u003d"}</td>
-      <td>.</td>
-    </tr>
-    <tr>
-      <td><em>Visa Checkout</em></td>
-      <td>1140812334225873901</td>
-      <td>.</td>
-    </tr>
-    <tr>
-      <td><em>Masterpass</em></td>
-      <td>a561da1c18a89cfdafas875f9d43fc46cd9bf3e1</td>
-      <td>.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h5 id="ephemeralpublickey">EphemeralPublicKey</h5>
-
-<p>This is the <code class="language-plaintext highlighter-rouge">EphemeralPublicKey</code> format to be passed to the Pagador API:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Wallet</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><em>Apple Pay</em></td>
-      <td><code class="language-plaintext highlighter-rouge">MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h5 id="signature">Signature</h5>
-
-<p>This is the <code class="language-plaintext highlighter-rouge">Signature</code> format to be passed to the Pagador API:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Wallet</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><em>Google Pay</em></td>
-      <td><code class="language-plaintext highlighter-rouge">MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA=</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="responses">Responses</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Guest]"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453211* *** **1521"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BJORN IRONSIDE"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08/2020"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0319040817883"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"817883"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"027795"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WALLET TYPE"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WALLET STORE ID"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"EphemeralPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOKEN INFORMED BY WALLET"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-19 16:08:16"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e57b09eb-475b-44b6-ac71-01b9b82f2491"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Authorization number, identical to NSU.</td>
-      <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
-      <td>Transaction ID in the acquirer.</td>
-      <td>Text</td>
-      <td>20</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization code.</td>
-      <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Text to be printed on the bearer bank statement. Available for VISA/MASTER only - no special characters allowed.</td>
-      <td>Text</td>
-      <td>13</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order identifier field.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
-      <td><em>Electronic Commerce Indicator</em>. Represents how secure a transaction is.</td>
-      <td>Text</td>
-      <td>2</td>
-      <td>E.g.: 7</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction status.</td>
-      <td>Byte</td>
-      <td>2</td>
-      <td>E.g.: 1</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Return code from the acquirer.</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Return message from the acquirer.</td>
-      <td>Text</td>
-      <td>–</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>Wallet type: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.</td>
-      <td>Text</td>
-      <td>–</td>
-      <td>Alphanumeric</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">WalletKey</code></td>
-      <td>Cryptographic key that identifies stores in wallets. Check the WalletKey table in the ANNEXES for more information.</td>
-      <td>Text</td>
-      <td>–</td>
-      <td>See “WalletKey” table annexed</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AdditionalData.EphemeralPublicKey</code></td>
-      <td>Token returned by wallet. Must be submitted in <strong>ApplePay</strong> integrations.</td>
-      <td>Text</td>
-      <td>–</td>
-      <td>See “EphemeralPublicKey” table annexed</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AdditionalData.CaptureCode</code></td>
-      <td>Code informed by <strong>Masterpass</strong> to the merchant.</td>
-      <td>Text</td>
-      <td>–</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AdditionalData.Signature</code></td>
-      <td>Token returned by wallet. Must be submitted in <strong>GooglePay</strong> integrations.</td>
-      <td>Text</td>
-      <td>–</td>
-      <td>See “Signature” table annexed</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="examples-of-integration">Examples of Integration</h3>
-
-<p>Refer to our <a href="https://braspag.github.io//en/manual/ewallets">E-Wallets</a> guide for a few examples of integration with the main e-wallets available in the market.</p>
+<p>Refer to our <a href="https://braspag.github.io//en/manual/ewallets">E-Wallets</a> guide for more details about how to integrate the e-wallets in your checkout.</p>
 
 <h2 id="voucher">Voucher</h2>
 
@@ -5279,7 +4871,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>A transaction with a voucher card is similar to a debit card transaction; only without the authentication process. Currently, only the <em>Alelo</em> and <em>Ticket</em> providers are supported in this modality.</p>
 
-<h4 id="request-13">Request</h4>
+<h4 id="request-12">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5650,7 +5242,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>The <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> and <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code> parameters, marked with an “*” in the “MANDATORY” column, must not be used together.</p>
 
-<h4 id="request-14">Request</h4>
+<h4 id="request-13">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5972,7 +5564,7 @@ curl
 
 <p>Contact Support to determine how many days you want your boletos generated via Recurrence to expire.</p>
 
-<h4 id="request-15">Request</h4>
+<h4 id="request-14">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -6289,7 +5881,7 @@ curl
 
 <p>To schedule the first transaction in the recurrence series, pass the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> parameter to <em>“false”</em> and add the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code> parameter.</p>
 
-<h4 id="request-16">Request</h4>
+<h4 id="request-15">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -6603,7 +6195,7 @@ curl
 
 <p>To change customer data in an existing recurrence, simply make a PUT call as demonstrated in the example:</p>
 
-<h4 id="request-17">Request</h4>
+<h4 id="request-16">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -6880,7 +6472,7 @@ HTTP Status 200
 
 <p>To change the end date of the existing recurrence, just make a PUT as shown.</p>
 
-<h4 id="request-18">Request</h4>
+<h4 id="request-17">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -6964,7 +6556,7 @@ HTTP Status 200
 
 <p>To change the range of an existing recurrence, just make a PUT as per the example.</p>
 
-<h4 id="request-19">Request</h4>
+<h4 id="request-18">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -7050,7 +6642,7 @@ HTTP Status 200
 
 <aside class="notice">Rule: If the new day entered is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is May 5, and the next recurrence is May 25. When I upgrade to the 10, the next recurrence date will be May 10. If the new day entered is before the current day, we will update the recurrence day, but this will take effect only after the next recurrence has been successfully executed. E.g.: Today is 5th, and the next recurrence is May 25. When I upgrade to day 3, the date of the next recurrence will remain on May 25, and after it runs, the next will be scheduled for June 3. If the new day entered is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is 5th, and the next recurrence is September 25. When I upgrade to day 3, the next recurrence date will be September 3</aside>
 
-<h4 id="request-20">Request</h4>
+<h4 id="request-19">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -7134,7 +6726,7 @@ HTTP Status 200
 
 <p>To modify the transaction value of an existing recurrence, simply make a PUT as per the example.</p>
 
-<h4 id="request-21">Request</h4>
+<h4 id="request-20">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -7222,7 +6814,7 @@ HTTP Status 200
 
 <p>This operation only modifies the date of the next payment, i.e. future recurrences will remain with the original characteristics.</p>
 
-<h4 id="request-22">Request</h4>
+<h4 id="request-21">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -7316,7 +6908,7 @@ HTTP Status 200
 
 <aside class="notice">Attention: This change affects all Payment node data. So to keep the previous data you must enter the fields that will not change with the same values that were already saved.</aside>
 
-<h4 id="request-23">Request</h4>
+<h4 id="request-22">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -7600,7 +7192,7 @@ curl
 
 <p>To deactivate a recurring request, simply make a PUT as per the example.</p>
 
-<h4 id="request-24">Request</h4>
+<h4 id="request-23">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -7669,7 +7261,7 @@ curl
 
 <p>To reactivate a recurring request, simply make a PUT as per the example.</p>
 
-<h4 id="request-25">Request</h4>
+<h4 id="request-24">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -7888,7 +7480,7 @@ HTTP Status 200
 
 <h2 id="saving-a-card-during-an-authorization">Saving a card during an authorization</h2>
 
-<h4 id="request-26">Request</h4>
+<h4 id="request-25">Request</h4>
 
 <p>To save a credit card used in a transaction, simply send the <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> parameter as <em>true</em> in the standard authorization request.</p>
 
@@ -8244,7 +7836,7 @@ curl
 
 <p>This is an example of how to use the previously saved Card Token to create a transaction. For security reasons, a Card Token has not kept the Security Code (CVV). Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.</p>
 
-<h4 id="request-27">Request</h4>
+<h4 id="request-26">Request</h4>
 
 <p>The <code class="language-plaintext highlighter-rouge">CreditCard</code> node within the <code class="language-plaintext highlighter-rouge">Payment</code> node will change as shown below.</p>
 
@@ -8552,7 +8144,7 @@ curl
 
 <p>This is an example of how to use the previously saved Alias to create a transaction. For security reasons, an Alias has not kept the Security Code. Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.</p>
 
-<h4 id="request-28">Request</h4>
+<h4 id="request-27">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -8926,7 +8518,7 @@ curl
 
 <p>For CyberSource fraud analysis to be performed during a credit card transaction, you must supplement the authorization agreement with the “FraudAnalysis”, “Cart”, “MerchantDefinedFields” and “Travel (only for airline tickets)” nodes.</p>
 
-<h4 id="request-29">Request</h4>
+<h4 id="request-28">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -11053,7 +10645,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a credit card transaction, you must do a GET to the Payment feature as shown.</p>
 
-<h4 id="request-30">Request</h4>
+<h4 id="request-29">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -11945,7 +11537,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a credit card transaction, you must do a GET to the Payment feature as shown.</p>
 
-<h4 id="request-31">Request</h4>
+<h4 id="request-30">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -12485,7 +12077,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a sale by store identifier, you must GET the resource/sales as shown.</p>
 
-<h4 id="request-32">Request</h4>
+<h4 id="request-31">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId = {merchantOrderId}</span></aside>
 
@@ -12600,7 +12192,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <p>To query a Recurrence request, you need to get a GET as per the example.</p>
 
-<h4 id="request-33">Request</h4>
+<h4 id="request-32">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
