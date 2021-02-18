@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title:  Módulo WooCommerce 2.2.25
+title:  Módulo WooCommerce
 description: Como Integrar sua Loja WooCommerce com o Módulo de Pagamentos Braspag
 toc_footers: false
 categories: tutorial
