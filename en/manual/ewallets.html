@@ -877,17 +877,13 @@ In this step, you must <strong>add dependencies</strong> either by importing the
 
 <h4 id="payment-data-recovery">Payment Data Recovery</h4>
 
-<p>In the <em>“Step 9: Handle the response object”</em>, the <code class="language-plaintext highlighter-rouge">Activity.RESULT_OK</code> event is described, which is returned a object with all the payment data, including payment tokens.</p>
+<p>In <em>“Step 9: Handle the response object”</em>, the <code class="language-plaintext highlighter-rouge">Activity.RESULT_OK</code> event is described, in which an object is returned with all the payment data, including payment tokens.</p>
 
-<p>The <em>PaymentData</em> contains the object <em>PaymentMethodToken</em>. To get this object, use the <strong>getPaymentMethodToken()</strong> method.</p>
+<p>Use the <code class="language-plaintext highlighter-rouge">getPaymentMethodToken()</code> method to get the <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code> object from <code class="language-plaintext highlighter-rouge">PaymentData</code>. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData">Click here</a> for details.</p>
 
-<p>(to see more details: <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData">https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData</a>)</p>
+<p>After obtaining the <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code>, use the <code class="language-plaintext highlighter-rouge">GetToken()</code> method, from the <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code> object in order to obtain the <em>string</em> that contains the payment tokens. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken">Click here</a> for details.</p>
 
-<p>After getting the PaymentMethodToken, you shold get the <em>string</em> that contains the payment tokens. To get the string, use the <strong>GetToken()</strong> method from <em>PaymentMethodToken</em> object.</p>
-
-<p>(to see more details: <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken">https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken</a>)</p>
-
-<p>The string obtained will be similar as follows:</p>
+<p>The string obtained has a similar structure to the one in the following example. <a href="https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography">Click here</a> for further information.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"protocolVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ECv1"</span><span class="p">,</span><span class="w">
@@ -908,12 +904,12 @@ In this step, you must <strong>add dependencies</strong> either by importing the
   </thead>
   <tbody>
     <tr>
-      <td>encryptedMessage</td>
+      <td><code class="language-plaintext highlighter-rouge">signedMessage</code></td>
       <td>string</td>
       <td>Base64-encoded encrypted message containing payment information and some additional security fields.</td>
     </tr>
     <tr>
-      <td>ephemeralPublicKey</td>
+      <td><code class="language-plaintext highlighter-rouge">signature</code></td>
       <td>string</td>
       <td>Base64-encoded ephemeral public key associated with the private key to encrypt the message in uncompressed point format.</td>
     </tr>
@@ -922,11 +918,11 @@ In this step, you must <strong>add dependencies</strong> either by importing the
 
 <p>(to see more details: <a href="https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography">https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography</a>)</p>
 
-<p>Keep the values “<em>encryptedMessage</em>” and “<em>ephemeralPublicKey</em>”. They will be requested in the Braspag’s authorization process in the next step (Step 2: Authorization with Google Pay)</p>
+<p>Hold the <code class="language-plaintext highlighter-rouge">signedMessage</code> and <code class="language-plaintext highlighter-rouge">signature</code> values. They will be requested in Braspag’s authorization process in PART 2, described ahead.</p>
 
-<h2 id="part-2-authorization-with-google-pay">PART 2: Authorization with Google Pay</h2>
+<h2 id="part-2-authorization-with-token">PART 2: Authorization with Token</h2>
 
-<p>The authorization with the Google Pay token must be performed as the same way as a standard authorization for a credit card, but providing token in place of the open card data, as following example:</p>
+<p>The authorization with the Google Pay token must be performed in the same way as a standard authorization for a credit card. Although, instead of openly providing the card data, the token received through Google Pay must be provided, as in the example.</p>
 
 <h3 id="request-2">Request</h3>
 
@@ -954,65 +950,101 @@ In this step, you must <strong>add dependencies</strong> either by importing the
 <table>
   <thead>
     <tr>
-      <th><strong>Parâmetro</strong></th>
-      <th><strong>Type</strong></th>
-      <th><strong>Descrição</strong></th>
+      <th>Header Parameters</th>
+      <th>Description</th>
+      <th>Type and Size</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>MerchantOrderId</td>
-      <td>String (50)</td>
-      <td>Order identification number</td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier at Cielo 3.0. For the Sandbox environment, use 63D6ACCB-2734-4236-AB5D-843A9DAC44C7.</td>
+      <td>GUID (36)</td>
     </tr>
     <tr>
-      <td>Customer</td>
-      <td>Node with shopper data</td>
-      <td>See <a href="https://braspag.github.io/manual/braspag-pagador?json#criando-uma-transa%C3%A7%C3%A3o-com-dados-do-comprador">https://braspag.github.io/manual/braspag-pagador?json#criando-uma-transa%C3%A7%C3%A3o-com-dados-do-comprador</a></td>
-    </tr>
-    <tr>
-      <td>Payment.Type</td>
-      <td>String (100)</td>
-      <td>Payment method type. Possible values: “CreditCard” ou “DebitCard”</td>
-    </tr>
-    <tr>
-      <td>Payment.Amount</td>
-      <td>Número (15)</td>
-      <td>Transaction amount in cents</td>
-    </tr>
-    <tr>
-      <td>Payment.Provider</td>
-      <td>String (15)</td>
-      <td>Payment method provider name. For Google Pay, use “Cielo30”</td>
-    </tr>
-    <tr>
-      <td>Payment.Installments</td>
-      <td>Número (2)</td>
-      <td>Number of installments</td>
-    </tr>
-    <tr>
-      <td>Payment.Wallet.Type</td>
-      <td>String (15)</td>
-      <td>Wallet provider name. For Google Pay, use “AndroidPay”</td>
-    </tr>
-    <tr>
-      <td>Payment.Wallet.WalletKey</td>
-      <td>String</td>
-      <td>Provide the “encryptedMessage” received from Google Pay</td>
-    </tr>
-    <tr>
-      <td>Payment.Wallet.AdditionalData. EphemeralPublicKey</td>
-      <td>String</td>
-      <td>Provide the “ephemeralPublicKey” received from Google Pay</td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>API key for Cielo 3.0. For the Sandbox environment, use ZCVHDJWKTGOZXADDYJFURIDIKHEMRYQAQDYEJMQK.</td>
+      <td>String (24)</td>
     </tr>
   </tbody>
 </table>
 
-<p>For more information: <a href="https://braspag.github.io/manual/braspag-pagador">https://braspag.github.io//en/manual/braspag-pagador</a></p>
+<table>
+  <thead>
+    <tr>
+      <th>Parameters</th>
+      <th>Description</th>
+      <th>Type and Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Order identification number.</td>
+      <td>String (50)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
+      <td>Node with the buyer’s data.</td>
+      <td>Refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador#request">Pagador Guide</a>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method type. Possible values: “CreditCard” / “DebitCard”.</td>
+      <td>String (100)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Transaction amount in cents.</td>
+      <td>Number (15)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Payment method provider name. For Google Pay, use “Cielo30”.</td>
+      <td>String (15)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Number of installments.</td>
+      <td>Number (2)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Wallet.Type</code></td>
+      <td>Wallet provider name. For Google Pay, use “AndroidPay”.</td>
+      <td>String (15)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Wallet.WalletKey</code></td>
+      <td>Provide the <code class="language-plaintext highlighter-rouge">signedMessage</code> received from Google Pay.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Wallet.AdditionalData. EphemeralPublicKey</code></td>
+      <td>Provide the <code class="language-plaintext highlighter-rouge">signature</code> received from Google Pay.</td>
+      <td>String</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For further information, refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador">Pagador Guide</a>.</p>
 
 <h3 id="response-1">Response</h3>
 
-<p>Refer to <a href="https://braspag.github.io//en/manual/braspag-pagador#response">https://braspag.github.io//en/manual/braspag-pagador#response</a></p>
+<p>The wallet authorization response will have the same fields as the ones presented in our <a href="https://braspag.github.io//en/manual/braspag-pagador#response">Pagador</a> documentation. The response will be added of the <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> node, which will repeat the same fields used in the request and described above.</p>
+
+<h2 id="part-3-production-data-request">PART 3: Production Data Request</h2>
+
+<p>In order to complete the process, first <strong>validate the steps</strong> performed in PARTS 1 and 2. Then, <strong>request your access credentials</strong> for deployment.</p>
+
+<h3 id="step-1---branding-guideline">Step 1 - Branding Guideline</h3>
+
+<p>Verify whether the <a href="https://developers.google.com/pay/api/android/guides/brand-guidelines">branding guidelines</a> have been thoroughly followed.</p>
+
+<h3 id="step-2---checklist-and-credentials-request">Step 2 - Checklist and Credentials Request</h3>
+
+<p>Verify whether all items in the <a href="https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist">integration checklist</a> have been completed.</p>
+
+<p>After the validation in steps 1 and 2 is done, request your access credentials for the production environment.</p>
 
 <h1 id="masterpass-">Masterpass ™</h1>
 
