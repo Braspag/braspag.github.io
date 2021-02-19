@@ -266,12 +266,14 @@
 <p>O valor do “<strong>Basic <em>{base64}</em></strong>” deve ser obtido da seguinte forma:</p>
 
 <ol>
-  <li>Concatene o <em>ClientId</em> e o <em>ClientSecret</em>: “ClientId:ClientSecret”.</li>
+  <li>Concatene o ClientId e o ClientSecret: “ClientId:ClientSecret”.</li>
   <li>Codifique o resultado da concatenação em Base64.</li>
   <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
 </ol>
 
-<p>Para efeitos de teste, utilize os seguintes dados:<br /><em>ClientID</em>: “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9”<br /><em>ClientSecret</em>: “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”<br />(Ex.: “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”)</p>
+<p>Para efeitos de <strong>teste</strong>, utilize os seguintes dados:</p>
+
+<p>ClientID - “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9”<br />ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”<br />(Ex.: “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”)</p>
 
 <h3 id="requisição">Requisição</h3>
 
@@ -294,7 +296,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
-      <td>“Basic {base64}”</td>
+      <td>“Basic <em>{base64}</em>”</td>
       <td>Envio no header.</td>
     </tr>
     <tr>
