@@ -58,9 +58,9 @@ A integração é realizada através de serviços disponibilizados como web serv
 
 # Integrando a Solução
 
-## Coleção do Postman
+## Testes no Postman
 
-Para quem quiser experimentar as APIs diretamente via Postman, seguem os links para baixar a coleção:
+Experimente as APIs diretamente via Postman. Segue o link para baixar a coleção:
 
 * Coleção do Postman: [https://bit.ly/2YX3YwE](https://bit.ly/2YX3YwE)
 * Variáveis do Sandbox: [https://bit.ly/2YX3YwE](https://bit.ly/2YX3YwE)
@@ -242,7 +242,7 @@ O objetivo deste método é salvar um cartão e obter como resposta a referênci
 
 |Propriedades|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Alias`|Alias do cartão de crédito.|Texto|64|Qualquer texto, que seja único na base de tokens do estabelecimento|
+|`Alias`|Alias do cartão de crédito.|Texto|64|Texto único para o token.|
 |`TokenReference`|Token no Cartão Protegido que representa os dados do cartão.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ExpirationDate`|Data de expiração do token, no formato MM/AAAA.|Texto|7|MM/AAAA|
 |`Card.Number`|Número do cartão mascarado.|Número|16|Sim|
