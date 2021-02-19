@@ -263,7 +263,7 @@
   </tbody>
 </table>
 
-<p>O valor do “<strong>Basic <em>{base64}</em></strong>” deve ser obtido da seguinte forma:</p>
+<p>O valor “<strong><em>{base64}</em></strong>” do <em>Basic Authorization</em> deve ser obtido da seguinte forma:</p>
 
 <ol>
   <li>Concatene o ClientId e o ClientSecret: “<strong>ClientId:ClientSecret</strong>”.</li>
@@ -271,7 +271,7 @@
   <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
 </ol>
 
-<p>Para efeitos de <strong>teste</strong>, utilize os seguintes dados no ambiente SANDBOX:</p>
+<p>Para fins de <strong>teste</strong>, utilize os seguintes dados no ambiente SANDBOX:</p>
 
 <p>ClientID - “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9”<br />ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
 
@@ -351,7 +351,7 @@
   </tbody>
 </table>
 
-<h2 id="criando-o-token-reference">Criando o Token Reference</h2>
+<h2 id="criar-o-token-reference">Criar o Token Reference</h2>
 
 <p>O objetivo deste método é salvar um cartão e obter como resposta a referência do token (Token Reference).</p>
 
@@ -413,7 +413,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
-      <td>Token de acesso gerado no passo anterior (“Bearer {access_token}”).</td>
+      <td>Token de acesso gerado no passo anterior (“Bearer <em>{access_token}</em>”).</td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim (envio no header)</td>
@@ -584,7 +584,7 @@
   </tbody>
 </table>
 
-<h2 id="obtendo-informações-do-token-reference">Obtendo Informações do Token Reference</h2>
+<h2 id="obter-informações-do-token-reference">Obter Informações do Token Reference</h2>
 
 <p>O objetivo deste método é obter as informações relacionadas a uma referência de token, tais como Status, Cartão Mascarado, Data de Validade e Nome do Portador.</p>
 
@@ -633,7 +633,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
-      <td>Token de acesso gerado no passo anterior. (“Bearer {access_token}”).</td>
+      <td>Token de acesso gerado no passo anterior. (“Bearer <em>{access_token}</em>”).</td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim (envio no header)</td>
@@ -726,7 +726,7 @@
   </tbody>
 </table>
 
-<h2 id="obtendo-o-token-reference">Obtendo o Token Reference</h2>
+<h2 id="obter-o-token-reference">Obter o Token Reference</h2>
 
 <p>O objetivo deste método é obter a referência de token a partir de um alias previamente informado.</p>
 
@@ -819,7 +819,7 @@
   </tbody>
 </table>
 
-<h2 id="deletando-o-token-reference">Deletando o Token Reference</h2>
+<h2 id="deletar-o-token-reference">Deletar o Token Reference</h2>
 
 <p>O objetivo deste método é remover a referência do token da base definitivamente. O Token Reference removido através deste método não permite que seja recuperado futuramente.</p>
 
@@ -952,7 +952,7 @@
   </tbody>
 </table>
 
-<h2 id="suspendendo-o-token-reference">Suspendendo o Token Reference</h2>
+<h2 id="suspender-o-token-reference">Suspender o Token Reference</h2>
 
 <p>O objetivo deste método é suspender uma referência do token temporariamente. O Token Reference suspenso através deste método pode ser reativado via método Unsuspend Token Reference.</p>
 
@@ -1095,7 +1095,7 @@
   </tbody>
 </table>
 
-<h2 id="reativação-do-token-reference">Reativação do Token Reference</h2>
+<h2 id="reativar-o-token-reference">Reativar o Token Reference</h2>
 
 <p>O objetivo deste método é reativar uma referência do token.</p>
 
