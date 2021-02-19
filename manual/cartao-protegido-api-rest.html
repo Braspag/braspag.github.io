@@ -230,7 +230,7 @@
 
 <h2 id="coleção-do-postman">Coleção do Postman</h2>
 
-<p>Para quem quiser experimentar as APIs diretamente via Postman, segue o link para baixar a coleção:</p>
+<p>Para quem quiser experimentar as APIs diretamente via Postman, seguem os links para baixar a coleção:</p>
 
 <ul>
   <li>Coleção do Postman: <a href="https://bit.ly/2YX3YwE">https://bit.ly/2YX3YwE</a></li>
@@ -266,14 +266,14 @@
 <p>O valor do “<strong>Basic <em>{base64}</em></strong>” deve ser obtido da seguinte forma:</p>
 
 <ol>
-  <li>Concatene o ClientId e o ClientSecret: “ClientId:ClientSecret”.</li>
+  <li>Concatene o ClientId e o ClientSecret: “<strong>ClientId:ClientSecret</strong>”.</li>
   <li>Codifique o resultado da concatenação em Base64.</li>
   <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
 </ol>
 
-<p>Para efeitos de <strong>teste</strong>, utilize os seguintes dados:</p>
+<p>Para efeitos de <strong>teste</strong>, utilize os seguintes dados no ambiente SANDBOX:</p>
 
-<p>ClientID - “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9”<br />ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”<br />(Ex.: “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”)</p>
+<p>ClientID - “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9”<br />ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
 
 <h3 id="requisição">Requisição</h3>
 
@@ -351,7 +351,7 @@
   </tbody>
 </table>
 
-<h2 id="create-token-reference">Create Token Reference</h2>
+<h2 id="criando-o-token-reference">Criando o Token Reference</h2>
 
 <p>O objetivo deste método é salvar um cartão e obter como resposta a referência do token (Token Reference).</p>
 
@@ -399,7 +399,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td>application/json</td>
+      <td>“application/json”</td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim (envio no header)</td>
@@ -488,8 +488,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> POST <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
@@ -535,57 +534,57 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Alias</code></td>
-      <td>Alias do cartão de crédito</td>
+      <td>Alias do cartão de crédito.</td>
       <td>Texto</td>
       <td>64</td>
       <td>Qualquer texto, que seja único na base de tokens do estabelecimento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
-      <td>Token no Cartão Protegido que representa os dados do cartão</td>
+      <td>Token no Cartão Protegido que representa os dados do cartão.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ExpirationDate</code></td>
-      <td>Data de expiração do token, no formato MM/AAAA</td>
+      <td>Data de expiração do token, no formato MM/AAAA.</td>
       <td>Texto</td>
       <td>7</td>
       <td>MM/AAAA</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Number</code></td>
+      <td>Número do cartão mascarado.</td>
       <td>Número</td>
       <td>16</td>
       <td>Sim</td>
-      <td>Número do cartão mascarado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
+      <td>Nome do portador impresso no cartão.</td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
-      <td>Nome do portador impresso no cartão</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
+      <td>Data de validade impressa no cartão, no formato MM/AAAA.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
-      <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão mascarado.</td>
       <td>Número</td>
       <td>4</td>
       <td>Sim</td>
-      <td>Código de segurança impresso no verso do cartão mascarado</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="get-token-reference-information">Get Token Reference Information</h2>
+<h2 id="obtendo-informações-do-token-reference">Obtendo Informações do Token Reference</h2>
 
 <p>O objetivo deste método é obter as informações relacionadas a uma referência de token, tais como Status, Cartão Mascarado, Data de Validade e Nome do Portador.</p>
 
@@ -593,8 +592,7 @@
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
@@ -605,40 +603,40 @@
   <thead>
     <tr>
       <th>Parâmetros</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
+      <td>Token no Cartão Protegido que representa os dados do cartão.</td>
       <td>GUID</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(é o token de acesso gerado no passo anterior)</td>
+      <td>36</td>
+      <td>Sim (envio no endpoint)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>“application/json”</td>
       <td>Texto</td>
       <td>-</td>
-      <td>Sim</td>
-      <td>application/json</td>
+      <td>Sim (envio no header)</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
+      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).</td>
       <td>GUID</td>
-      <td>36</td>
-      <td>Sim</td>
-      <td>Token no Cartão Protegido que representa os dados do cartão</td>
+      <td>-</td>
+      <td>Sim (envio no header)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Token de acesso gerado no passo anterior. (“Bearer {access_token}”).</td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Sim (envio no header)</td>
     </tr>
   </tbody>
 </table>
@@ -657,8 +655,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
@@ -686,7 +683,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
-      <td>Token no Cartão Protegido que representa os dados do cartão</td>
+      <td>Token no Cartão Protegido que representa os dados do cartão.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -707,38 +704,37 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Account.Number</code></td>
-      <td>Número do Cartão do comprador mascarado</td>
+      <td>Número do cartão mascarado do comprador.</td>
       <td>Texto</td>
       <td>16</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Account.Holder</code></td>
-      <td>Nome do Comprador impresso no cartão, sem caraceteres acentuados</td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Exemplo: Jose da Silva</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Account.ExpirationDate</code></td>
-      <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
+      <td>Data de validade impressa no cartão, no formato MM/AAAA.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Exemplo: 12/2021</td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Account.Holder</code></td>
+      <td>Nome do comprador impresso no cartão, sem caracteres acentuados.</td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Exemplo: Jose Olimpio</td>
+    </tr>
   </tbody>
 </table>
 
-<h2 id="get-token-reference">Get Token Reference</h2>
+<h2 id="obtendo-o-token-reference">Obtendo o Token Reference</h2>
 
 <p>O objetivo deste método é obter a referência de token a partir de um alias previamente informado.</p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Alias/_{Alias}_/TokenReference</span></aside>
-
 <h3 id="requisição-3">Requisição</h3>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"</span>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Alias/_{Alias}_/TokenReference</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
@@ -794,8 +790,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
@@ -824,11 +819,11 @@
   </tbody>
 </table>
 
-<h2 id="delete-token-reference">Delete Token Reference</h2>
+<h2 id="deletando-o-token-reference">Deletando o Token Reference</h2>
 
 <p>O objetivo deste método é remover a referência do token da base definitivamente. O Token Reference removido através deste método não permite que seja recuperado futuramente.</p>
 
-<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
+<aside class="request"><span class="method patch">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
 <h3 id="requisição-4">Requisição</h3>
 
@@ -838,8 +833,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> DELETE <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> DELETE <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
@@ -914,8 +908,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> DELETE <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> DELETE <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
@@ -959,7 +952,7 @@
   </tbody>
 </table>
 
-<h2 id="suspend-token-reference">Suspend Token Reference</h2>
+<h2 id="suspendendo-o-token-reference">Suspendendo o Token Reference</h2>
 
 <p>O objetivo deste método é suspender uma referência do token temporariamente. O Token Reference suspenso através deste método pode ser reativado via método Unsuspend Token Reference.</p>
 
@@ -973,8 +966,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
@@ -1054,8 +1046,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
@@ -1104,7 +1095,7 @@
   </tbody>
 </table>
 
-<h2 id="unsuspend-token-reference">Unsuspend Token Reference</h2>
+<h2 id="reativação-do-token-reference">Reativação do Token Reference</h2>
 
 <p>O objetivo deste método é reativar uma referência do token.</p>
 
@@ -1112,8 +1103,7 @@
 
 <h3 id="requisição-6">Requisição</h3>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
@@ -1180,8 +1170,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
@@ -1251,8 +1240,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
@@ -1289,7 +1277,7 @@
 
 <h1 id="dicas-de-implementação">Dicas de Implementação</h1>
 
-<h2 id="código-de-segurança-do-cartão">Código de segurança do cartão</h2>
+<h2 id="código-de-segurança-do-cartão">Código de Segurança do Cartão</h2>
 
 <p>O código de segurança é obrigatório para que uma autorização seja aceita pelo banco emissor do cartão. Ele é mais um mecanismo de segurança no processo anti-fraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. 
 Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo a Braspag, certificada PCI.
@@ -1297,7 +1285,7 @@ A recomendação é que o CVV seja sempre solicitado no ato da compra.</p>
 
 <aside class="notice">Estabelecimentos que possuem o modelo de negócio baseado em recorrência, como, por exemplo, assinaturas de serviços, devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
 
-<h2 id="compra-com-um-clique">Compra com um clique</h2>
+<h2 id="compra-com-um-clique">Compra com Um Clique</h2>
 
 <p>Uma dica para melhorar sua conversão é salvar o número do cartão mascarado para apresentar ao cliente qual cartão ele tem habilitado para “a compra com 1 clique” no site;</p>
 
