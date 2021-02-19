@@ -4359,7 +4359,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address</code></td>
-      <td>Endereço da loja cadastrada no emissor.</td>
+      <td>Endereço da loja cadastrada no banco emissor.</td>
       <td>Texto</td>
       <td>256</td>
       <td>Ex.: Av. Teste, 160</td>
@@ -4378,9 +4378,9 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p>Para atualizar o status de um boleto para <em>Pago</em>, o Pagador deve receber dos bancos os arquivos CNAB com as liquidações referentes. Para habilitar sua loja a receber os arquivos bancários, basta seguir o procedimento descrito <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-">neste link</a>.</p>
 
-<h3 id="regras-específicas-por-emissor">Regras Específicas por Emissor</h3>
+<h3 id="regras-específicas-por-banco-emissor">Regras Específicas por Banco Emissor</h3>
 
-<p>Segue uma lista de propriedades e suas especificações de tamanho, relativas a regras distintas de cada emissor e seus respectivos <em>providers</em>:</p>
+<p>Segue uma lista de propriedades e suas especificações de tamanho, relativas a regras distintas de cada banco emissor e seus respectivos <em>providers</em>:</p>
 
 <table>
   <thead>
@@ -4488,7 +4488,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">*3</code></td>
-      <td>O valor deve ser único, ou seja, o emissor não permite a repetição de valores previamente utilizados.</td>
+      <td>O valor deve ser único, ou seja, o banco emissor não permite a repetição de valores previamente utilizados.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">*4</code></td>
@@ -4500,7 +4500,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">*6</code></td>
-      <td>A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador, antes de mandar para o emissor. Caso o total ultrapasse os 14 dígitos, a API considera os últimos 14 dígitos.</td>
+      <td>A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador, antes de mandar para o banco emissor. Caso o total ultrapasse os 14 dígitos, a API considera os últimos 14 dígitos.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">*7</code></td>
