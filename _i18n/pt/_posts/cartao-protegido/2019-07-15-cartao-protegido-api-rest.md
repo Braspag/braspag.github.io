@@ -76,11 +76,13 @@ Para consumir os métodos da API, é necessário obter o AccessToken no padrão 
 
 O valor do "**Basic _{base64}_**" deve ser obtido da seguinte forma:
 
-1. Concatene o *ClientId* e o *ClientSecret*: "ClientId:ClientSecret". 
+1. Concatene o ClientId e o ClientSecret: "ClientId:ClientSecret". 
 3. Codifique o resultado da concatenação em Base64.
 4. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
 
-Para efeitos de teste, utilize os seguintes dados:<br><br>*ClientID*: "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"<br>*ClientSecret*: "qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs="<br>(Ex.: "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=")
+Para efeitos de **teste**, utilize os seguintes dados:
+
+ClientID - "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"<br>ClientSecret - "qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs="<br/>(Ex.: "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=")
 
 ### Requisição
 
@@ -95,7 +97,7 @@ Para efeitos de teste, utilize os seguintes dados:<br><br>*ClientID*: "b4c14ad4-
 
 |Parâmetros|Formato|Envio|
 |---|---|---|
-|`Authorization`|"Basic {base64}"|Envio no header.|
+|`Authorization`|"Basic *{base64}*"|Envio no header.|
 |`Content-Type`|"application/x-www-form-urlencoded"|Envio no header.|
 |`grant_type`|"client_credentials"|Envio no body.|
 
