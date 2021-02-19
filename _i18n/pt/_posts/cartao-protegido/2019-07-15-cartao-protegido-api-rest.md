@@ -71,8 +71,16 @@ Para consumir os métodos da API, é necessário obter o AccessToken no padrão 
 
 |Ambiente | URL | Authorization |
 |---|---|---|
-| **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | **Basic _(Authorization)_**<br><br>O valor do Authorization deve ser obtido concatenando-se o valor do "ClientID", sinal de dois-pontos (":") e "ClientSecret"<br><br>Ex.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br><br>e na sequência, codificar o resultado na base 64. <br>Com isso, será gerado um código alphanumérico que será utilizado na requisição de access token. Para efeitos de teste, utilize os dados abaixo:<br><br>ClientID: **b4c14ad4-5184-4ca0-8d1a-d3a7276cead9**<br>ClientSecret: **qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=**|
+| **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | "Basic *{base64}*"|
 | **PRODUÇÃO** | https://auth.braspag.com.br/oauth2/token | Solicite os dados "ClientID" e "ClientSecret" à equipe de suporte após concluir o desenvolvimento em sandbox. |
+
+O valor do "**Basic _{base64}_**" deve ser obtido da seguinte forma:
+
+1. Concatene o *ClientId* e o *ClientSecret*: "ClientId:ClientSecret". 
+3. Codifique o resultado da concatenação em Base64.
+4. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
+
+Para efeitos de teste, utilize os seguintes dados:<br><br>*ClientID*: "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"<br>*ClientSecret*: "qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs="<br>(Ex.: "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=")
 
 ### Requisição
 
@@ -80,16 +88,16 @@ Para consumir os métodos da API, é necessário obter o AccessToken no padrão 
 
 ``` shell
 --request POST "https://authsandbox.braspag.com.br/oauth2/token"
---header "Authorization: Basic _(Authorization)_"
+--header "Authorization: Basic {base64}"
 --header "Content-Type: application/x-www-form-urlencoded" 
 --body "grant_type=client_credentials"
 ```
 
-|Parâmetros|Descrição|
-|---|---|
-|`Authorization`|Basic _(Authorization)_|
-|`Content-Type`|application/x-www-form-urlencoded|
-|`grant_type`|client_credentials|
+|Parâmetros|Formato|Envio|
+|---|---|---|
+|`Authorization`|"Basic {base64}"|Envio no header.|
+|`Content-Type`|"application/x-www-form-urlencoded"|Envio no header.|
+|`grant_type`|"client_credentials"|Envio no body.|
 
 ### Resposta
 
@@ -113,7 +121,7 @@ Para consumir os métodos da API, é necessário obter o AccessToken no padrão 
 |---|---|
 |`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido.|
 |`token_type`|Indica o valor do tipo de token.|
-|`expires_in`|Expiração do token de acesso, em segundos. <br/> Quando o token expira, é necessário obter um novo.|
+|`expires_in`|Expiração do token de acesso, em segundos. Quando o token expira, é necessário obter um novo.|
 
 ## Create Token Reference
 
@@ -154,14 +162,14 @@ O objetivo deste método é salvar um cartão e obter como resposta a referênci
 
 |Parâmetros|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|GUID|-|Sim|
-|`Authorization`|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|Texto|-|Sim|
-|`Content-Type`|application/json|Texto|-|Sim|
-|`Alias`|Alias do cartão. O valor desta informação deve ser único (não pode repetir).|Texto|64|Não |
-|`Card.Number`|Número do Cartão do comprador|Número|16|Sim|
-|`Card.Holder`|Nome do Comprador impresso no cartão|Texto|25|Sim|
-|`Card.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA|Texto|7|Sim|
-|`Card.SecurityCode`|Código de segurança impresso no verso do cartão|Número|4|Sim|
+|`Content-Type`|application/json|Texto|-|Sim (envio no header)|
+|`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).|GUID|-|Sim (envio no header)|
+|`Authorization`|Token de acesso gerado no passo anterior ("Bearer {access_token}").|Texto|-|Sim (envio no header)|
+|`Alias`|Alias do cartão. O valor desta informação deve ser único (não pode ser repetido).|Texto|64|Não |
+|`Card.Number`|Número do cartão do comprador.|Número|16|Sim|
+|`Card.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`Card.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`Card.SecurityCode`|Código de segurança impresso no verso do cartão.|Número|4|Sim|
 
 ### Resposta
 
