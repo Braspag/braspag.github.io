@@ -3,6 +3,7 @@ layout: manual
 title: Split Payments - 3.0 Cielo
 description: Split Payments Integration Manual
 search: true
+translated: true
 toc_footers: false
 categories: manual
 sort_order: 1
