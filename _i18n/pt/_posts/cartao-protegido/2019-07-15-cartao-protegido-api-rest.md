@@ -74,13 +74,13 @@ Para consumir os métodos da API, é necessário obter o AccessToken no padrão 
 | **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | "Basic *{base64}*"|
 | **PRODUÇÃO** | https://auth.braspag.com.br/oauth2/token | Solicite os dados "ClientID" e "ClientSecret" à equipe de suporte após concluir o desenvolvimento em sandbox. |
 
-O valor do "**Basic _{base64}_**" deve ser obtido da seguinte forma:
+O valor "**_{base64}_**" do *Basic Authorization* deve ser obtido da seguinte forma:
 
 1. Concatene o ClientId e o ClientSecret: "**ClientId:ClientSecret**". 
 3. Codifique o resultado da concatenação em Base64.
 4. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
 
-Para efeitos de **teste**, utilize os seguintes dados no ambiente SANDBOX:
+Para fins de **teste**, utilize os seguintes dados no ambiente SANDBOX:
 
 ClientID - "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"<br>ClientSecret - "qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs="
 
@@ -125,7 +125,7 @@ ClientID - "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"<br>ClientSecret - "qYmZNOSo/5T
 |`token_type`|Indica o valor do tipo de token.|
 |`expires_in`|Expiração do token de acesso, em segundos. Quando o token expira, é necessário obter um novo.|
 
-## Criando o Token Reference
+## Criar o Token Reference
 
 O objetivo deste método é salvar um cartão e obter como resposta a referência do token (Token Reference).
 
@@ -166,7 +166,7 @@ O objetivo deste método é salvar um cartão e obter como resposta a referênci
 |---|---|---|---|---|
 |`Content-Type`|"application/json"|Texto|-|Sim (envio no header)|
 |`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).|GUID|-|Sim (envio no header)|
-|`Authorization`|Token de acesso gerado no passo anterior ("Bearer {access_token}").|Texto|-|Sim (envio no header)|
+|`Authorization`|Token de acesso gerado no passo anterior ("Bearer *{access_token}*").|Texto|-|Sim (envio no header)|
 |`Alias`|Alias do cartão. O valor desta informação deve ser único (não pode ser repetido).|Texto|64|Não |
 |`Card.Number`|Número do cartão do comprador.|Número|16|Sim|
 |`Card.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
@@ -250,7 +250,7 @@ O objetivo deste método é salvar um cartão e obter como resposta a referênci
 |`Card.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
 |`Card.SecurityCode`|Código de segurança impresso no verso do cartão mascarado.|Número|4|Sim|
 
-## Obtendo Informações do Token Reference
+## Obter Informações do Token Reference
 
 O objetivo deste método é obter as informações relacionadas a uma referência de token, tais como Status, Cartão Mascarado, Data de Validade e Nome do Portador.
 
@@ -271,7 +271,7 @@ O objetivo deste método é obter as informações relacionadas a uma referênci
 |`TokenReference`|Token no Cartão Protegido que representa os dados do cartão.|GUID|36|Sim (envio no endpoint)|
 |`Content-Type`|"application/json"|Texto|-|Sim (envio no header)|
 |`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).|GUID|-|Sim (envio no header)|
-|`Authorization`|Token de acesso gerado no passo anterior. ("Bearer {access_token}").|Texto|-|Sim (envio no header)|
+|`Authorization`|Token de acesso gerado no passo anterior. ("Bearer *{access_token}*").|Texto|-|Sim (envio no header)|
 
 ### Resposta
 
@@ -313,7 +313,7 @@ O objetivo deste método é obter as informações relacionadas a uma referênci
 |`Account.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Exemplo: 12/2021|
 |`Account.Holder`|Nome do comprador impresso no cartão, sem caracteres acentuados.|Texto|25|Exemplo: Jose Olimpio|
 
-## Obtendo o Token Reference
+## Obter o Token Reference
 
 O objetivo deste método é obter a referência de token a partir de um alias previamente informado.
 
@@ -357,7 +357,7 @@ O objetivo deste método é obter a referência de token a partir de um alias pr
 |-----------|---------|----|-------|-------|
 |`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-## Deletando o Token Reference
+## Deletar o Token Reference
 
 O objetivo deste método é remover a referência do token da base definitivamente. O Token Reference removido através deste método não permite que seja recuperado futuramente.
 
@@ -430,7 +430,7 @@ O objetivo deste método é remover a referência do token da base definitivamen
 |`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Texto|10|Não |Status atual do token no Cartão Protegido|
 
-## Suspendendo o Token Reference
+## Suspender o Token Reference
 
 O objetivo deste método é suspender uma referência do token temporariamente. O Token Reference suspenso através deste método pode ser reativado via método Unsuspend Token Reference.
 
@@ -513,7 +513,7 @@ O objetivo deste método é suspender uma referência do token temporariamente. 
 |`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Texto|10|Não |Status atual do token no Cartão Protegido|
 
-## Reativação do Token Reference
+## Reativar o Token Reference
 
 O objetivo deste método é reativar uma referência do token.
 
