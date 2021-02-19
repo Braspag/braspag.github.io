@@ -3,6 +3,7 @@ layout: manual
 title: Split de Pagamentos - 3.0 Cielo
 description: Manual de Integração do Split de Pagamentos
 search: true
+translated: true
 toc_footers: false
 categories: manual
 sort_order: 1
