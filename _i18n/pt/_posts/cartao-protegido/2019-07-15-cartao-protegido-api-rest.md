@@ -60,7 +60,7 @@ A integração é realizada através de serviços disponibilizados como web serv
 
 ## Coleção do Postman
 
-Para quem quiser experimentar as APIs diretamente via Postman, segue o link para baixar a coleção:
+Para quem quiser experimentar as APIs diretamente via Postman, seguem os links para baixar a coleção:
 
 * Coleção do Postman: [https://bit.ly/2YX3YwE](https://bit.ly/2YX3YwE)
 * Variáveis do Sandbox: [https://bit.ly/2YX3YwE](https://bit.ly/2YX3YwE)
@@ -76,13 +76,13 @@ Para consumir os métodos da API, é necessário obter o AccessToken no padrão 
 
 O valor do "**Basic _{base64}_**" deve ser obtido da seguinte forma:
 
-1. Concatene o ClientId e o ClientSecret: "ClientId:ClientSecret". 
+1. Concatene o ClientId e o ClientSecret: "**ClientId:ClientSecret**". 
 3. Codifique o resultado da concatenação em Base64.
 4. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
 
-Para efeitos de **teste**, utilize os seguintes dados:
+Para efeitos de **teste**, utilize os seguintes dados no ambiente SANDBOX:
 
-ClientID - "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"<br>ClientSecret - "qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs="<br/>(Ex.: "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=")
+ClientID - "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"<br>ClientSecret - "qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs="
 
 ### Requisição
 
@@ -125,7 +125,7 @@ ClientID - "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"<br>ClientSecret - "qYmZNOSo/5T
 |`token_type`|Indica o valor do tipo de token.|
 |`expires_in`|Expiração do token de acesso, em segundos. Quando o token expira, é necessário obter um novo.|
 
-## Create Token Reference
+## Criando o Token Reference
 
 O objetivo deste método é salvar um cartão e obter como resposta a referência do token (Token Reference).
 
@@ -164,7 +164,7 @@ O objetivo deste método é salvar um cartão e obter como resposta a referênci
 
 |Parâmetros|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`Content-Type`|application/json|Texto|-|Sim (envio no header)|
+|`Content-Type`|"application/json"|Texto|-|Sim (envio no header)|
 |`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).|GUID|-|Sim (envio no header)|
 |`Authorization`|Token de acesso gerado no passo anterior ("Bearer {access_token}").|Texto|-|Sim (envio no header)|
 |`Alias`|Alias do cartão. O valor desta informação deve ser único (não pode ser repetido).|Texto|64|Não |
@@ -207,7 +207,6 @@ O objetivo deste método é salvar um cartão e obter como resposta a referênci
 ```
 
 ```shell
-curl
 --request POST "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"
 --header "Content-Type: application/json"
 --data-binary
@@ -243,15 +242,15 @@ curl
 
 |Propriedades|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Alias`|Alias do cartão de crédito|Texto|64|Qualquer texto, que seja único na base de tokens do estabelecimento|
-|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ExpirationDate`|Data de expiração do token, no formato MM/AAAA|Texto|7|MM/AAAA|
-|`Card.Number`|Número|16|Sim|Número do cartão mascarado|
-|`Card.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
-|`Card.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão, no formato MM/AAAA|
-|`Card.SecurityCode`|Número|4|Sim|Código de segurança impresso no verso do cartão mascarado|
+|`Alias`|Alias do cartão de crédito.|Texto|64|Qualquer texto, que seja único na base de tokens do estabelecimento|
+|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ExpirationDate`|Data de expiração do token, no formato MM/AAAA.|Texto|7|MM/AAAA|
+|`Card.Number`|Número do cartão mascarado.|Número|16|Sim|
+|`Card.Holder`|Nome do portador impresso no cartão.|Texto|25|Sim|
+|`Card.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`Card.SecurityCode`|Código de segurança impresso no verso do cartão mascarado.|Número|4|Sim|
 
-## Get Token Reference Information
+## Obtendo Informações do Token Reference
 
 O objetivo deste método é obter as informações relacionadas a uma referência de token, tais como Status, Cartão Mascarado, Data de Validade e Nome do Portador.
 
@@ -260,7 +259,6 @@ O objetivo deste método é obter as informações relacionadas a uma referênci
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
 ```shell
-curl
 --request GET "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -268,12 +266,12 @@ curl
 --data-binary
 ```
 
-|Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
+|Parâmetros|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
-|`Authorization`|Texto|-|Sim|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
-|`Content-Type`|Texto|-|Sim|application/json|
-|`TokenReference`|GUID|36|Sim|Token no Cartão Protegido que representa os dados do cartão|
+|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão.|GUID|36|Sim (envio no endpoint)|
+|`Content-Type`|"application/json"|Texto|-|Sim (envio no header)|
+|`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).|GUID|-|Sim (envio no header)|
+|`Authorization`|Token de acesso gerado no passo anterior. ("Bearer {access_token}").|Texto|-|Sim (envio no header)|
 
 ### Resposta
 
@@ -291,7 +289,6 @@ curl
 ```
 
 ```shell
-curl
 --request GET "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
 --header "Content-Type: application/json"
 --data-binary
@@ -309,23 +306,22 @@ curl
 
 |Propriedades|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Status atual do token no Cartão Protegido.|-|Valores possíveis: Active, Removed, Suspended|Texto|
 |`Provider`|Indica o provedor que armazenou o cartão.|-|Valores possíveis: Braspag ou Master|Texto|
-|`Account.Number`|Número do Cartão do comprador mascarado|Texto|16|-|
-|`Account.Holder`|Nome do Comprador impresso no cartão, sem caraceteres acentuados|Texto|25|Exemplo: Jose da Silva|
-|`Account.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA|Texto|7|Exemplo: 12/2021|
+|`Account.Number`|Número do cartão mascarado do comprador.|Texto|16|-|
+|`Account.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Exemplo: 12/2021|
+|`Account.Holder`|Nome do comprador impresso no cartão, sem caracteres acentuados.|Texto|25|Exemplo: Jose Olimpio|
 
-## Get Token Reference
+## Obtendo o Token Reference
 
 O objetivo deste método é obter a referência de token a partir de um alias previamente informado.
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Alias/_{Alias}_/TokenReference</span></aside>
-
 ### Requisição
 
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Alias/_{Alias}_/TokenReference</span></aside>
+
 ```shell
-curl
 --request GET "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -349,7 +345,6 @@ curl
 ```
 
 ```shell
-curl
 --request GET "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Alias/_{Alias}_/TokenReference"
 --header "Content-Type: application/json"
 --data-binary
@@ -362,11 +357,11 @@ curl
 |-----------|---------|----|-------|-------|
 |`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-## Delete Token Reference
+## Deletando o Token Reference
 
 O objetivo deste método é remover a referência do token da base definitivamente. O Token Reference removido através deste método não permite que seja recuperado futuramente.
 
-<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
+<aside class="request"><span class="method patch">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
 ### Requisição
 
@@ -378,7 +373,6 @@ O objetivo deste método é remover a referência do token da base definitivamen
 ```
 
 ```shell
-curl
 --request DELETE "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -415,7 +409,6 @@ curl
 ```
 
 ```shell
-curl
 --request DELETE "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}"
 --header "Content-Type: application/json"
 --data-binary
@@ -437,7 +430,7 @@ curl
 |`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Texto|10|Não |Status atual do token no Cartão Protegido|
 
-## Suspend Token Reference
+## Suspendendo o Token Reference
 
 O objetivo deste método é suspender uma referência do token temporariamente. O Token Reference suspenso através deste método pode ser reativado via método Unsuspend Token Reference.
 
@@ -453,7 +446,6 @@ O objetivo deste método é suspender uma referência do token temporariamente. 
 ```
 
 ```shell
-curl
 --request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -495,7 +487,6 @@ curl
 ```
 
 ```shell
-curl
 --request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/suspend"
 --header "Content-Type: application/json"
 --data-binary
@@ -522,7 +513,7 @@ curl
 |`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Texto|10|Não |Status atual do token no Cartão Protegido|
 
-## Unsuspend Token Reference
+## Reativação do Token Reference
 
 O objetivo deste método é reativar uma referência do token.
 
@@ -531,7 +522,6 @@ O objetivo deste método é reativar uma referência do token.
 ### Requisição
 
 ```shell
-curl
 --request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -572,7 +562,6 @@ curl
 ```
 
 ```shell
-curl
 --request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"
 --header "Content-Type: application/json"
 --data-binary
@@ -622,7 +611,6 @@ Em casos de erro na requisição, serão informados os códos de erro e sua desc
 ```
 
 ```shell
-curl
 --request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token"
 --header "Content-Type: application/json"
 --data-binary
@@ -643,7 +631,7 @@ curl
 
 # Dicas de Implementação
 
-## Código de segurança do cartão
+## Código de Segurança do Cartão
 
 O código de segurança é obrigatório para que uma autorização seja aceita pelo banco emissor do cartão. Ele é mais um mecanismo de segurança no processo anti-fraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. 
 Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo a Braspag, certificada PCI.
@@ -651,7 +639,7 @@ A recomendação é que o CVV seja sempre solicitado no ato da compra.
 
 <aside class="notice">Estabelecimentos que possuem o modelo de negócio baseado em recorrência, como, por exemplo, assinaturas de serviços, devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
 
-## Compra com um clique
+## Compra com Um Clique
 
 Uma dica para melhorar sua conversão é salvar o número do cartão mascarado para apresentar ao cliente qual cartão ele tem habilitado para “a compra com 1 clique” no site;
 
