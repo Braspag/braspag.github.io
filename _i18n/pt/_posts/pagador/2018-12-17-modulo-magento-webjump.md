@@ -26,7 +26,7 @@ Para saber quais os requisitos técnicos de infraestrutura para a instalação d
 ### Instalação via Composer
 
 1. Acesse o servidor via SSH.
-2. Localize a raiz do projeto e executar os seguintes comandos:
+2. Localize a raiz do projeto e execute os seguintes comandos:
 
 ```
 composer require webjump/magento2-module-braspagpagador
