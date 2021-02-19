@@ -253,7 +253,7 @@
     <tr>
       <td><strong>SANDBOX</strong></td>
       <td>https://authsandbox.braspag.com.br/oauth2/token</td>
-      <td><strong>Basic <em>(Authorization)</em></strong><br />O valor do Authorization deve ser obtido concatenando-se o valor do “ClientID”, sinal de dois-pontos (“:”) e “ClientSecret”<br />Ex.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br />e na sequência, codificar o resultado na base 64. <br />Com isso, será gerado um código alphanumérico que será utilizado na requisição de access token. Para efeitos de teste, utilize os dados abaixo:<br />ClientID: <strong>b4c14ad4-5184-4ca0-8d1a-d3a7276cead9</strong><br />ClientSecret: <strong>qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=</strong></td>
+      <td>“Basic <em>{base64}</em>”</td>
     </tr>
     <tr>
       <td><strong>PRODUÇÃO</strong></td>
@@ -263,12 +263,22 @@
   </tbody>
 </table>
 
+<p>O valor do “<strong>Basic <em>{base64}</em></strong>” deve ser obtido da seguinte forma:</p>
+
+<ol>
+  <li>Concatene o <em>ClientId</em> e o <em>ClientSecret</em>: “ClientId:ClientSecret”.</li>
+  <li>Codifique o resultado da concatenação em Base64.</li>
+  <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
+</ol>
+
+<p>Para efeitos de teste, utilize os seguintes dados:<br /><em>ClientID</em>: “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9”<br /><em>ClientSecret</em>: “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”<br />(Ex.: “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”)</p>
+
 <h3 id="requisição">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://authsandbox.braspag.com.br/oauth2/token"</span>
-<span class="nt">--header</span> <span class="s2">"Authorization: Basic _(Authorization)_"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Basic {base64}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> 
 <span class="nt">--body</span> <span class="s2">"grant_type=client_credentials"</span>
 </code></pre></div></div>
@@ -277,21 +287,25 @@
   <thead>
     <tr>
       <th>Parâmetros</th>
-      <th>Descrição</th>
+      <th>Formato</th>
+      <th>Envio</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
-      <td>Basic <em>(Authorization)</em></td>
+      <td>“Basic {base64}”</td>
+      <td>Envio no header.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td>application/x-www-form-urlencoded</td>
+      <td>“application/x-www-form-urlencoded”</td>
+      <td>Envio no header.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">grant_type</code></td>
-      <td>client_credentials</td>
+      <td>“client_credentials”</td>
+      <td>Envio no body.</td>
     </tr>
   </tbody>
 </table>
@@ -330,7 +344,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">expires_in</code></td>
-      <td>Expiração do token de acesso, em segundos. <br /> Quando o token expira, é necessário obter um novo.</td>
+      <td>Expiração do token de acesso, em segundos. Quando o token expira, é necessário obter um novo.</td>
     </tr>
   </tbody>
 </table>
@@ -382,57 +396,57 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
-      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)</td>
-      <td>GUID</td>
-      <td>-</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
-      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(é o token de acesso gerado no passo anterior)</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>application/json</td>
       <td>Texto</td>
       <td>-</td>
-      <td>Sim</td>
+      <td>Sim (envio no header)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
+      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).</td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Sim (envio no header)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Token de acesso gerado no passo anterior (“Bearer {access_token}”).</td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Sim (envio no header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Alias</code></td>
-      <td>Alias do cartão. O valor desta informação deve ser único (não pode repetir).</td>
+      <td>Alias do cartão. O valor desta informação deve ser único (não pode ser repetido).</td>
       <td>Texto</td>
       <td>64</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Number</code></td>
-      <td>Número do Cartão do comprador</td>
+      <td>Número do cartão do comprador.</td>
       <td>Número</td>
       <td>16</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
-      <td>Nome do Comprador impresso no cartão</td>
+      <td>Nome do comprador impresso no cartão.</td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
-      <td>Data de validade impresso no cartão, no formato MM/AAAA</td>
+      <td>Data de validade impressa no cartão, no formato MM/AAAA.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
-      <td>Código de segurança impresso no verso do cartão</td>
+      <td>Código de segurança impresso no verso do cartão.</td>
       <td>Número</td>
       <td>4</td>
       <td>Sim</td>
