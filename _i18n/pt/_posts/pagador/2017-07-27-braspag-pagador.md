@@ -2462,16 +2462,16 @@ Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizad
 |`BoletoNumber`|"NossoNumero" gerado. |Texto|50 |2017091101 |
 |`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
-|`Address`|Endereço da loja cadastrada no emissor. |Texto |256 |Ex.: Av. Teste, 160 |
+|`Address`|Endereço da loja cadastrada no banco emissor. |Texto |256 |Ex.: Av. Teste, 160 |
 |`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte | 2 | Ex.: 1 |
 
 ### Conciliação de Boletos
 
 Para atualizar o status de um boleto para *Pago*, o Pagador deve receber dos bancos os arquivos CNAB com as liquidações referentes. Para habilitar sua loja a receber os arquivos bancários, basta seguir o procedimento descrito [neste link](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-).
 
-### Regras Específicas por Emissor
+### Regras Específicas por Banco Emissor
 
-Segue uma lista de propriedades e suas especificações de tamanho, relativas a regras distintas de cada emissor e seus respectivos *providers*:
+Segue uma lista de propriedades e suas especificações de tamanho, relativas a regras distintas de cada banco emissor e seus respectivos *providers*:
 
 | Propriedade | Bradesco | Banco do Brasil | Itaú Shopline | Santander | Caixa Econômica | Citibank |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -2488,10 +2488,10 @@ Segue uma lista de propriedades e suas especificações de tamanho, relativas a 
 |---|---|
 |`*1`|Apenas letras, números e caracteres como "\_" e "$".|
 |`*2`|Caso passe dos 11 dígitos, a API gerará um número incremental a partir da configuração definida. |
-|`*3`|O valor deve ser único, ou seja, o emissor não permite a repetição de valores previamente utilizados. |
+|`*3`|O valor deve ser único, ou seja, o banco emissor não permite a repetição de valores previamente utilizados. |
 |`*4`|Quando enviado acima de 9 posições, a API considera os últimos 9 dígitos. |
 |`*5`|Deverá ser sempre igual ao número de pedido (`MerchantOrderId`). |
-|`*6`|A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador, antes de mandar para o emissor. Caso o total ultrapasse os 14 dígitos, a API considera os últimos 14 dígitos. |
+|`*6`|A API concatena automaticamente o valor “14” + 12 dígitos livres + dígito verificador, antes de mandar para o banco emissor. Caso o total ultrapasse os 14 dígitos, a API considera os últimos 14 dígitos. |
 |`*7`|Quando enviado mais que o permitido, a API gera um número aleatório. |
 |`*8`|São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen "-" e apóstrofo "‘"). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.|
 |`*9`|Caracteres especiais e acentuações são removidos automaticamente. |
