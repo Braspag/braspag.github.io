@@ -76,11 +76,11 @@ Para consumir os métodos da API, é necessário obter o `AccessToken` no padrã
 
 O valor "_{base64}_" do **Basic Authorization** deve ser obtido da seguinte forma:
 
-1. Concatene o `ClientId` e o `ClientSecret`: `ClientId:ClientSecret`. 
-2. Codifique o resultado da concatenação em Base64.
+1. Concatene o `ClientId` e o `ClientSecret` (**ClientId:ClientSecret**). 
+2. Codifique o resultado da concatenação em base64.
 3. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
-<br/>
-Para fins de **teste** em ambiente SANDBOX, utilize os seguintes dados na concatenação:
+
+Para fins de teste em ambiente SANDBOX, utilize os seguintes dados na concatenação:
 
 `ClientID` - "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"
 <br>   
