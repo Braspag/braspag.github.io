@@ -826,7 +826,7 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
 
 <p>O objetivo deste método é remover a referência do token da base definitivamente. O <code class="language-plaintext highlighter-rouge">TokenReference</code> removido através deste método não pode ser recuperado.</p>
 
-<aside class="request"><span class="method remove">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
 <h3 id="requisição-4">Requisição</h3>
 
@@ -860,14 +860,14 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td>application/json</td>
+      <td>“application/json”</td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim (envio no header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
-      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)</td>
+      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).</td>
       <td>GUID</td>
       <td>-</td>
       <td>Sim (envio no header)</td>
@@ -881,14 +881,14 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RemovedBy</code></td>
-      <td>Quem solicitou a remoção. Valores possíveis: ‘Merchant’ ou ‘CardHolder’</td>
+      <td>Quem solicitou a remoção. Valores possíveis: “Merchant” / “CardHolder”</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
-      <td>Motivo da remoção do token. Valores possíveis: ‘FraudSuspicion’ ou ‘Other’</td>
+      <td>Motivo da remoção do token. Valores possíveis: “FraudSuspicion” / “Other”</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
@@ -940,17 +940,17 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
-      <td>Token no Cartão Protegido que representa os dados do cartão</td>
+      <td>Token no Cartão Protegido que representa os dados do cartão.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status atual do token no Cartão Protegido.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
-      <td>Status atual do token no Cartão Protegido</td>
     </tr>
   </tbody>
 </table>
@@ -992,39 +992,39 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
   </thead>
   <tbody>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>“application/json”</td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Sim (envio no header)</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
+      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).</td>
       <td>GUID</td>
       <td>-</td>
-      <td>Sim</td>
-      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)</td>
+      <td>Sim (envio no header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Token de acesso gerado no passo anterior (“Bearer” <em>{access_token}</em>”).</td>
       <td>Texto</td>
       <td>-</td>
-      <td>Sim</td>
-      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(é o token de acesso gerado no passo anterior)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td>application/json</td>
+      <td>Sim (envio no header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RemovedBy</code></td>
+      <td>Quem solicitou a remoção. Valores possíveis: “Merchant” / “CardHolder”</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Quem solicitou a remoção. Valores possíveis: ‘Merchant’ ou ‘CardHolder’</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
+      <td>Motivo da remoção do token. Valores possíveis: “FraudSuspicion” / “Other”</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Motivo da remoção do token. Valores possíveis: ‘FraudSuspicion’ ou ‘Other’</td>
     </tr>
   </tbody>
 </table>
@@ -1083,17 +1083,17 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
-      <td>Token no Cartão Protegido que representa os dados do cartão</td>
+      <td>Token no Cartão Protegido que representa os dados do cartão.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status atual do token no Cartão Protegido.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
-      <td>Status atual do token no Cartão Protegido</td>
     </tr>
   </tbody>
 </table>
@@ -1125,25 +1125,25 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
   </thead>
   <tbody>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>“application/json”</td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Sim (envio no header)</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
+      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).</td>
       <td>GUID</td>
       <td>-</td>
-      <td>Sim</td>
-      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)</td>
+      <td>Sim (envio no header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Token de acesso gerado no passo anterior (“Bearer” <em>{access_token}</em>”).</td>
       <td>Texto</td>
       <td>-</td>
-      <td>Sim</td>
-      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(é o token de acesso gerado no passo anterior)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td>application/json</td>
+      <td>Sim (envio no header)</td>
     </tr>
   </tbody>
 </table>
@@ -1212,24 +1212,24 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
-      <td>Token no Cartão Protegido que representa os dados do cartão</td>
+      <td>Token no Cartão Protegido que representa os dados do cartão.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status atual do token no Cartão Protegido.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
-      <td>Status atual do token no Cartão Protegido.</td>
     </tr>
   </tbody>
 </table>
 
 <h1 id="códigos-de-erro">Códigos de Erro</h1>
 
-<p>Em casos de erro na requisição, serão informados os códos de erro e sua descrição, conforme o exemplo.</p>
+<p>Em casos de erro na requisição, serão informados os códigos de erro e suas descrições, conforme o exemplo.</p>
 
 <h3 id="resposta-7">Resposta</h3>
 
@@ -1267,13 +1267,13 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
   <tbody>
     <tr>
       <td>CP903</td>
-      <td>Token alias already exists</td>
       <td>Acontece quando o Alias já foi utilizado anteriormente.</td>
+      <td>“Token alias already exists”</td>
     </tr>
     <tr>
       <td>CP990</td>
-      <td>‘XXXXX’ must not be empty.</td>
       <td>Acontece quando algum campo está inválido.</td>
+      <td>“XXXXX must not be empty”</td>
     </tr>
   </tbody>
 </table>
