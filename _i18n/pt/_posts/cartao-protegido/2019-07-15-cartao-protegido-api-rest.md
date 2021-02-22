@@ -15,7 +15,7 @@ language_tabs:
 
 # Cartão Protegido
 
-O **Cartão Protegido** é uma plataforma que permite o armazenamento seguro de cartões de crédito e débito. Contamos com ambiente totalmente certificado pelo respeitado conselho de padrão de segurança PCI Security Standards Council, que assegura que a Braspag segue plenamente os rígidos requisitos e normas determinadas pelo mesmo.
+O **Cartão Protegido** é uma plataforma que permite o armazenamento seguro de cartões de crédito e débito. Contamos com ambiente totalmente certificado pelo respeitado conselho de padrão de segurança *PCI Security Standards Council*, que assegura que a Braspag siga plenamente os rígidos requisitos e normas determinadas pelo mesmo.
 
 A plataforma é compatível com o gateway [Pagador](https://braspag.github.io//manual/braspag-pagador), também da Braspag, facilitando o processamento de transações de cartão de crédito e débito via token.
 
@@ -27,34 +27,34 @@ A plataforma é compatível com o gateway [Pagador](https://braspag.github.io//m
 
 * **Ambiente seguro PCI DSS**: a Braspag conta com ambiente certificado PCI DSS, que assegura a integridade e segurança de dados sensíveis como os de cartões de crédito.
 
-* **Garantia da utilização de cartões válidos**: o Cartão Protegido só aceitará salvar cartões que passarem pela checagem do Algorítimo de Luhn, também conhecido como "mod10". Isso dará maior segurança e certeza de que os cartões salvos tenham o mínimo de validação de sua veracidade. Conheça esse processo em nosso artigo [Como Validar um Cartão?](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
+* **Garantia da utilização de cartões válidos**: o Cartão Protegido só aceitará salvar cartões que passem pela checagem do Algorítimo de Luhn, também conhecido como "mod10". Isso dará maior segurança e certeza de que os cartões salvos tenham o mínimo de validação de sua veracidade. Para saber mais sobre esse processo, consulte o nosso artigo "[Como Validar um Cartão?](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051)".
 
 ## Casos de Uso
 
 A plataforma tem como propósito ajudar estabelecimentos em diferentes casos de uso. Entre eles, estão:
 
-* **Cobrança Recorrente Agendada (Scheduled Recurring Payments)**: estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma para armazenar os dados de cartão de crédito e processar através de tokens de pagamento. Exemplo: assinatura de serviços. 
+* **Cobrança Recorrente Agendada (Scheduled Recurring Payments)**: permite que estabelecimentos que já possuem uma solução interna de gerenciamento de recorrências possam utilizar a plataforma para armazenar os dados de cartão de crédito e processar através de tokens de pagamento. Exemplo: assinatura de serviços. 
 
-* **Cobrança Recorrente não Agendada (Unscheduled Recurring Payments)**: estabelecimentos que cobram seus clientes já cadastrados, mas sem uma periodicidade definida. Exemplo: aplicativos de transporte. 
+* **Cobrança Recorrente não Agendada (Unscheduled Recurring Payments)**: permite que estabelecimentos que cobram seus clientes já cadastrados, mas sem uma periodicidade definida, possam utilizar a plataforma. Exemplo: aplicativos de transporte. 
 
-* **Compra com um Clique (Just Click Payments)**: a “compra com um clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorização.
+* **Compra com um Clique (Just Click Payments)**: permite que um pagamento online, via cartão de crédito, seja feito pulando-se a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras. Os dados do cartão já foram previamente informados em compras anteriores e serão replicados em futuras compras mediante a autorização do comprador.
 
-* **Recuperação de Vendas**: estabelecimentos podem entrar novamente em contato com os clientes que eventualmente tenham tido problemas na compra, oferecendo uma nova tentativa de cobrança. 
+* **Recuperação de Vendas**: permite que estabelecimentos possam entrar novamente em contato com clientes que eventualmente tenham tido problemas na compra, oferecendo uma nova tentativa de cobrança. 
 
 ## Arquitetura da Integração
 
-A integração é realizada através de serviços disponibilizados como web services. O modelo empregado é simples: através do endpoint serão enviadas todas as requisições relativas a esse serviço. A URL (base + endpoint) receberá as mensagens HTTP através dos métodos POST, GET ou DEL:
+A integração é realizada através de serviços disponibilizados como web services. O modelo empregado é simples: através do endpoint devem ser enviadas todas as requisições relativas ao serviço em questão. A URL (base + endpoint) receberá as mensagens HTTP através dos métodos POST, GET ou DEL:
 
 | Ambiente | Endpoint | 
 | --- | --- |
-| Sandbox | https://cartaoprotegidoapisandbox.braspag.com.br/ |
-| Produção | https://cartaoprotegidoapi.braspag.com.br/ |
+|**SANDBOX**| https://cartaoprotegidoapisandbox.braspag.com.br/ |
+|**PRODUÇÃO**| https://cartaoprotegidoapi.braspag.com.br/ |
 
 |Método HTTP|Descrição|
 |---|---|
-|**GET**|Utilizado para consultas de recursos já existentes, ex.: consulta de tokens já criados.|
+|**GET**|Utilizado para consultas de recursos existentes, como tokens já criados.|
 |**POST**|Utilizado na criação do token.|
-|**DEL**|Utilizado para remoção de token.|
+|**DEL**|Utilizado para remoção do token.|
 
 # Integrando a Solução
 
@@ -77,13 +77,14 @@ Para consumir os métodos da API, é necessário obter o `AccessToken` no padrã
 O valor "**_{base64}_**" do *Basic Authorization* deve ser obtido da seguinte forma:
 
 1. Concatene o ClientId e o ClientSecret: "**ClientId:ClientSecret**". 
-3. Codifique o resultado da concatenação em Base64.
-4. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
+2. Codifique o resultado da concatenação em Base64.
+3. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
 
-> Para fins de **teste**, utilize os seguintes dados na concatenação:
->
-> ClientID - "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"
-> ClientSecret - "qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs="
+NOTA: Para fins de **teste**, utilize os seguintes dados na concatenação:
+
+ClientID - "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"
+<br/>   
+ClientSecret - "qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs="
 
 ### Requisição
 
@@ -243,7 +244,7 @@ O objetivo deste método é salvar um cartão e obter como resposta o `TokenRefe
 
 |Propriedades|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Alias`|Alias do cartão de crédito.|Texto|64|Texto único para o token.|
+|`Alias`|Alias do cartão de crédito.|Texto|64|Texto único para o token|
 |`TokenReference`|Token no Cartão Protegido que representa os dados do cartão.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ExpirationDate`|Data de expiração do token, no formato MM/AAAA.|Texto|7|MM/AAAA|
 |`Card.Number`|Número do cartão mascarado.|Número|16|Sim|
@@ -253,7 +254,7 @@ O objetivo deste método é salvar um cartão e obter como resposta o `TokenRefe
 
 ## Obtenção de Informações do Token
 
-O objetivo deste método é obter as informações relacionadas a uma referência de token, tais como *Status*, *Cartão Mascarado*, *Data de Validade* e *Nome do Portador*.
+O objetivo deste método é obter informações relacionadas a uma referência de token, tais como *Status*, *Cartão Mascarado*, *Data de Validade* e *Nome do Portador*.
 
 ### Requisição
 
@@ -312,7 +313,7 @@ O objetivo deste método é obter as informações relacionadas a uma referênci
 |`Provider`|Indica o provedor que armazenou o cartão.|Texto|-|Valores possíveis: "Braspag" / "Master"|
 |`Account.Number`|Número do cartão mascarado do comprador.|Texto|16|-|
 |`Account.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Exemplo: 12/2021|
-|`Account.Holder`|Nome do comprador impresso no cartão, sem caracteres acentuados.|Texto|25|Exemplo: Jose Olimpio|
+|`Account.Holder`|Nome do comprador impresso no cartão, sem acentos.|Texto|25|Exemplo: Jose Olimpio|
 
 ## Obtenção do Token
 
@@ -332,9 +333,9 @@ O objetivo deste método é obter a referência de token a partir de um alias pr
 
 |Parâmetros|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`Alias`|Alias (apelido) do cartão de crédito utilizado anteriormente no método Create Token|Texto|64|Não (envio no endopoint)|
-|`Content-Type`|application/json|Texto|-|Sim (envio no header)|
-|`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|GUID|-|Sim (envio no header)|
+|`Alias`|Alias (apelido) do cartão de crédito utilizado anteriormente no método **Criação do Token**.|Texto|64|Não (envio no endpoint)|
+|`Content-Type`|"application/json"|Texto|-|Sim (envio no header)|
+|`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).|GUID|-|Sim (envio no header)|
 |`Authorization`|Token de acesso gerado no passo anterior ("Bearer" *{access_token}*").|Texto|-|Sim (envio no header)|
 
 ### Resposta
@@ -362,9 +363,9 @@ O objetivo deste método é obter a referência de token a partir de um alias pr
 
 O objetivo deste método é remover a referência do token da base definitivamente. O `TokenReference` removido através deste método não pode ser recuperado.
 
-<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
-
 ### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
 ```json
 {
@@ -390,8 +391,8 @@ O objetivo deste método é remover a referência do token da base definitivamen
 |`Content-Type`|"application/json"|Texto|-|Sim (envio no header)|
 |`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).|GUID|-|Sim (envio no header)|
 |`Authorization`|Token de acesso gerado no passo anterior ("Bearer" *{access_token}*").|Texto|-|Sim (envio no header)|
-|`RemovedBy`|Quem solicitou a remoção. Valores possíveis: "Merchant" / "CardHolder"|Texto|10|Sim|
-|`Reason`|Motivo da remoção do token. Valores possíveis: "FraudSuspicion" / "Other"|Texto|10|Sim|
+|`RemovedBy`|Quem solicitou a remoção. Valores possíveis: "Merchant" / "CardHolder".|Texto|10|Sim|
+|`Reason`|Motivo da remoção do token. Valores possíveis: "FraudSuspicion" / "Other".|Texto|10|Sim|
 
 ### Resposta
 
@@ -435,9 +436,9 @@ O objetivo deste método é remover a referência do token da base definitivamen
 
 O objetivo deste método é suspender uma referência do token temporariamente. O `TokenReference` suspenso através deste método pode ser reativado via método **Reativação do Token**.
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/suspend</span></aside>
-
 ### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/suspend</span></aside>
 
 ```json
 {
@@ -458,13 +459,13 @@ O objetivo deste método é suspender uma referência do token temporariamente. 
 }
 ```
 
-|Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
+|Parâmetros|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
 |`Content-Type`|"application/json"|Texto|-|Sim (envio no header)|
 |`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).|GUID|-|Sim (envio no header)|
 |`Authorization`|Token de acesso gerado no passo anterior ("Bearer" *{access_token}*").|Texto|-|Sim (envio no header)|
-|`RemovedBy`|Quem solicitou a remoção. Valores possíveis: "Merchant" / "CardHolder"|Texto|10|Sim|
-|`Reason`|Motivo da remoção do token. Valores possíveis: "FraudSuspicion" / "Other"|Texto|10|Sim|
+|`RemovedBy`|Quem solicitou a remoção. Valores possíveis: "Merchant" / "CardHolder".|Texto|10|Sim|
+|`Reason`|Motivo da remoção do token. Valores possíveis: "FraudSuspicion" / "Other".|Texto|10|Sim|
 
 ### Resposta
 
@@ -518,9 +519,9 @@ O objetivo deste método é suspender uma referência do token temporariamente. 
 
 O objetivo deste método é reativar uma referência do token.
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/unsuspend</span></aside>
-
 ### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/unsuspend</span></aside>
 
 ```shell
 --request PUT "https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"
@@ -530,7 +531,7 @@ O objetivo deste método é reativar uma referência do token.
 --data-binary
 ```
 
-|Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
+|Parâmetros|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|
 |`Content-Type`|"application/json"|Texto|-|Sim (envio no header)|
 |`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).|GUID|-|Sim (envio no header)|
@@ -625,7 +626,7 @@ Em casos de erro na requisição, serão informados os códigos dos erros e suas
 }
 ```
 
-|Code|Message|Descrição|
+|Código|Descrição|Mensagem|
 |------|--------|---------|
 |CP903|Acontece quando o Alias já foi utilizado anteriormente.|"Token alias already exists"|
 |CP990|Acontece quando algum campo está inválido.|"XXXXX must not be empty"|
@@ -634,18 +635,18 @@ Em casos de erro na requisição, serão informados os códigos dos erros e suas
 
 ## Código de Segurança do Cartão
 
-O código de segurança é obrigatório para que uma autorização seja aceita pelo emissor do cartão. Ele é mais um mecanismo de segurança no processo anti-fraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. 
-Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo tendo-se a certificação PCI, como no caso da Braspag.
+O código de segurança é obrigatório para que uma autorização seja aceita pelo emissor do cartão. Ele é mais um mecanismo de segurança no processo antifraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. <br/>
+Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo tendo-se a certificação PCI, como no caso da Braspag.<br/>
 A recomendação é que o CVV seja sempre solicitado no ato da compra. 
 
 <aside class="notice">Estabelecimentos que possuam o modelo de negócio baseado em recorrência (ex.: assinaturas de serviços) devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
 
 ## Compra com Um Clique
 
-Algumas dicas para melhorar sua conversão:
+Algumas dicas para impulsionar sua conversão:
 
-* Salve o número do cartão mascarado. Então, apresente ao cliente os cartões habilitados para “compra com 1 clique”; 
-* Salve a data de validade do cartão mascarado. Então, comunique ao cliente quando o cartão armazenado expirar, sugerindo sua troca;
+* Salve o número do cartão mascarado. Assim, você poderá apresentar ao cliente os cartões habilitados para “compra com 1 clique”; 
+* Salve a data de validade do cartão mascarado. Assim, você poderá comunicar ao cliente quando o cartão armazenado expirar, sugerindo sua troca;
 * Pergunte se o comprador deseja armazenar os dados do cartão para uma próxima compra;
-* Garanta a segurança de login e senha dos usuarios do site. Senhas fracas são facilmente descobertas e o fraudador consegue realizar uma compra mesmo sem ter o cartão (no caso de não solicitação do CVV pelo site);
-* Controle variáveis de sessão para evitar que o usuário (com o login do cliente) permaneça logado no site e outra pessoa acesse depois, fazendo “compras via 1 clique” com este login (ex.: usuários conectados em lan houses).
+* Garanta a segurança de login e senha dos usuarios do site. Senhas fracas são facilmente descobertas e o fraudador consegue realizar uma compra mesmo sem ter o cartão (em caso de não solicitação do CVV pelo site);
+* Controle variáveis de sessão para evitar que o usuário permaneça logado no site e que outra pessoa acesse depois, fazendo “compras via 1 clique” com este login (ex.: usuários conectados em LAN houses).
