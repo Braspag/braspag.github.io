@@ -239,7 +239,7 @@
 
 <h2 id="etapa-de-autenticação">Etapa de Autenticação</h2>
 
-<p>Para consumir os métodos da API, é necessário obter o AccessToken no padrão OAuth 2.0:</p>
+<p>Para consumir os métodos da API, é necessário obter o <code class="language-plaintext highlighter-rouge">AccessToken</code> no padrão OAuth 2.0:</p>
 
 <table>
   <thead>
@@ -271,9 +271,12 @@
   <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
 </ol>
 
-<p>Para fins de <strong>teste</strong>, utilize os seguintes dados no ambiente SANDBOX:</p>
+<blockquote>
+  <p>Para fins de <strong>teste</strong>, utilize os seguintes dados na concatenação:</p>
 
-<p>ClientID - “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9”<br />ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
+  <p>ClientID - “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9”
+ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
+</blockquote>
 
 <h3 id="requisição">Requisição</h3>
 
@@ -351,9 +354,9 @@
   </tbody>
 </table>
 
-<h2 id="criar-o-token-reference">Criar o Token Reference</h2>
+<h2 id="criação-do-tokenreference">Criação do TokenReference</h2>
 
-<p>O objetivo deste método é salvar um cartão e obter como resposta a referência do token (Token Reference).</p>
+<p>O objetivo deste método é salvar um cartão e obter como resposta o <code class="language-plaintext highlighter-rouge">TokenReference</code> (referência do token).</p>
 
 <h3 id="requisição-1">Requisição</h3>
 
@@ -584,9 +587,9 @@
   </tbody>
 </table>
 
-<h2 id="obter-informações-do-token-reference">Obter Informações do Token Reference</h2>
+<h2 id="obtenção-de-informações-do-token">Obtenção de Informações do Token</h2>
 
-<p>O objetivo deste método é obter as informações relacionadas a uma referência de token, tais como Status, Cartão Mascarado, Data de Validade e Nome do Portador.</p>
+<p>O objetivo deste método é obter as informações relacionadas a uma referência de token, tais como <em>Status</em>, <em>Cartão Mascarado</em>, <em>Data de Validade</em> e <em>Nome do Portador</em>.</p>
 
 <h3 id="requisição-2">Requisição</h3>
 
@@ -633,7 +636,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
-      <td>Token de acesso gerado no passo anterior. (“Bearer <em>{access_token}</em>”).</td>
+      <td>Token de acesso gerado no passo anterior (“Bearer <em>{access_token}</em>”).</td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim (envio no header)</td>
@@ -691,16 +694,16 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Status atual do token no Cartão Protegido.</td>
-      <td>-</td>
-      <td>Valores possíveis: Active, Removed, Suspended</td>
       <td>Texto</td>
+      <td>-</td>
+      <td>Valores possíveis: “Active” / “Removed” / “Suspended”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Provider</code></td>
       <td>Indica o provedor que armazenou o cartão.</td>
-      <td>-</td>
-      <td>Valores possíveis: Braspag ou Master</td>
       <td>Texto</td>
+      <td>-</td>
+      <td>Valores possíveis: “Braspag” / “Master”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Account.Number</code></td>
@@ -726,7 +729,7 @@
   </tbody>
 </table>
 
-<h2 id="obter-o-token-reference">Obter o Token Reference</h2>
+<h2 id="obtenção-do-token">Obtenção do Token</h2>
 
 <p>O objetivo deste método é obter a referência de token a partir de um alias previamente informado.</p>
 
@@ -745,40 +748,40 @@
   <thead>
     <tr>
       <th>Parâmetros</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
-      <td>GUID</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Alias</code></td>
+      <td>Alias (apelido) do cartão de crédito utilizado anteriormente no método Create Token</td>
       <td>Texto</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(é o token de acesso gerado no passo anterior)</td>
+      <td>64</td>
+      <td>Não (envio no endopoint)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
       <td>Texto</td>
       <td>-</td>
-      <td>Sim</td>
-      <td>application/json</td>
+      <td>Sim (envio no header)</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Alias</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
+      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)</td>
+      <td>GUID</td>
+      <td>-</td>
+      <td>Sim (envio no header)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Token de acesso gerado no passo anterior (“Bearer” <em>{access_token}</em>”).</td>
       <td>Texto</td>
-      <td>64</td>
-      <td>Não</td>
-      <td>Alias (Apelido) do cartão de crédito utilizado anteriormente no método Create Token</td>
+      <td>-</td>
+      <td>Sim (envio no header)</td>
     </tr>
   </tbody>
 </table>
@@ -811,7 +814,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
-      <td>Token no Cartão Protegido que representa os dados do cartão</td>
+      <td>Token no Cartão Protegido que representa os dados do cartão.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -819,11 +822,11 @@
   </tbody>
 </table>
 
-<h2 id="deletar-o-token-reference">Deletar o Token Reference</h2>
+<h2 id="remoção-do-token">Remoção do Token</h2>
 
-<p>O objetivo deste método é remover a referência do token da base definitivamente. O Token Reference removido através deste método não permite que seja recuperado futuramente.</p>
+<p>O objetivo deste método é remover a referência do token da base definitivamente. O <code class="language-plaintext highlighter-rouge">TokenReference</code> removido através deste método não pode ser recuperado.</p>
 
-<aside class="request"><span class="method patch">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
+<aside class="request"><span class="method remove">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
 <h3 id="requisição-4">Requisição</h3>
 
@@ -848,47 +851,47 @@
   <thead>
     <tr>
       <th>Parâmetros</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Sim (envio no header)</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
+      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)</td>
       <td>GUID</td>
       <td>-</td>
-      <td>Sim</td>
-      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)</td>
+      <td>Sim (envio no header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Token de acesso gerado no passo anterior (“Bearer” <em>{access_token}</em>”).</td>
       <td>Texto</td>
       <td>-</td>
-      <td>Sim</td>
-      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(é o token de acesso gerado no passo anterior)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td>application/json</td>
+      <td>Sim (envio no header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RemovedBy</code></td>
+      <td>Quem solicitou a remoção. Valores possíveis: ‘Merchant’ ou ‘CardHolder’</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Quem solicitou a remoção. Valores possíveis: ‘Merchant’ ou ‘CardHolder’</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
+      <td>Motivo da remoção do token. Valores possíveis: ‘FraudSuspicion’ ou ‘Other’</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Motivo da remoção do token. Valores possíveis: ‘FraudSuspicion’ ou ‘Other’</td>
     </tr>
   </tbody>
 </table>
@@ -952,9 +955,9 @@
   </tbody>
 </table>
 
-<h2 id="suspender-o-token-reference">Suspender o Token Reference</h2>
+<h2 id="suspensão-do-token">Suspensão do Token</h2>
 
-<p>O objetivo deste método é suspender uma referência do token temporariamente. O Token Reference suspenso através deste método pode ser reativado via método Unsuspend Token Reference.</p>
+<p>O objetivo deste método é suspender uma referência do token temporariamente. O <code class="language-plaintext highlighter-rouge">TokenReference</code> suspenso através deste método pode ser reativado via método <strong>Reativação do Token</strong>.</p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/suspend</span></aside>
 
@@ -1095,7 +1098,7 @@
   </tbody>
 </table>
 
-<h2 id="reativar-o-token-reference">Reativar o Token Reference</h2>
+<h2 id="reativação-do-token">Reativação do Token</h2>
 
 <p>O objetivo deste método é reativar uma referência do token.</p>
 
