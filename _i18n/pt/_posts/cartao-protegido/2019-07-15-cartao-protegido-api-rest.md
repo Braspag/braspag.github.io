@@ -72,19 +72,19 @@ Para consumir os métodos da API, é necessário obter o `AccessToken` no padrã
 |Ambiente | URL | Authorization |
 |---|---|---|
 | **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | "Basic *{base64}*"|
-| **PRODUÇÃO** | https://auth.braspag.com.br/oauth2/token | Solicite os dados "ClientID" e "ClientSecret" à equipe de suporte após concluir o desenvolvimento em sandbox. |
+| **PRODUÇÃO** | https://auth.braspag.com.br/oauth2/token | Solicite os dados `ClientID` e `ClientSecret` à equipe de suporte após concluir o desenvolvimento em sandbox. |
 
-O valor "**_{base64}_**" do *Basic Authorization* deve ser obtido da seguinte forma:
+O valor "_{base64}_" do **Basic Authorization** deve ser obtido da seguinte forma:
 
-1. Concatene o ClientId e o ClientSecret: "**ClientId:ClientSecret**". 
+1. Concatene o `ClientId` e o `ClientSecret`: `ClientId:ClientSecret`. 
 2. Codifique o resultado da concatenação em Base64.
 3. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
+<br/>
+Para fins de **teste** em ambiente SANDBOX, utilize os seguintes dados na concatenação:
 
-NOTA: Para fins de **teste**, utilize os seguintes dados na concatenação:
-
-ClientID - "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"
-<br/>   
-ClientSecret - "qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs="
+`ClientID` - "b4c14ad4-5184-4ca0-8d1a-d3a7276cead9"
+<br>   
+`ClientSecret` - "qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs="
 
 ### Requisição
 
@@ -635,11 +635,11 @@ Em casos de erro na requisição, serão informados os códigos dos erros e suas
 
 ## Código de Segurança do Cartão
 
-O código de segurança é obrigatório para que uma autorização seja aceita pelo emissor do cartão. Ele é mais um mecanismo de segurança no processo antifraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. <br/>
-Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo tendo-se a certificação PCI, como no caso da Braspag.<br/>
-A recomendação é que o CVV seja sempre solicitado no ato da compra. 
+O código de segurança é obrigatório para que uma autorização seja aceita pelo emissor do cartão. Ele é mais um mecanismo de segurança no processo antifraude, em que busca-se validar que a pessoa utilizando o cartão é de fato a dona dele.
 
-<aside class="notice">Estabelecimentos que possuam o modelo de negócio baseado em recorrência (ex.: assinaturas de serviços) devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
+Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo tendo-se a certificação PCI, como no caso da Braspag. A recomendação é que o CVV seja sempre solicitado no ato da compra. 
+
+<aside class="warning">Estabelecimentos que possuam o modelo de negócio baseado em recorrência (ex.: assinaturas de serviços) devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
 
 ## Compra com Um Clique
 
