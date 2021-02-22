@@ -258,24 +258,23 @@
     <tr>
       <td><strong>PRODUÇÃO</strong></td>
       <td>https://auth.braspag.com.br/oauth2/token</td>
-      <td>Solicite os dados “ClientID” e “ClientSecret” à equipe de suporte após concluir o desenvolvimento em sandbox.</td>
+      <td>Solicite os dados <code class="language-plaintext highlighter-rouge">ClientID</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code> à equipe de suporte após concluir o desenvolvimento em sandbox.</td>
     </tr>
   </tbody>
 </table>
 
-<p>O valor “<strong><em>{base64}</em></strong>” do <em>Basic Authorization</em> deve ser obtido da seguinte forma:</p>
+<p>O valor “<em>{base64}</em>” do <strong>Basic Authorization</strong> deve ser obtido da seguinte forma:</p>
 
 <ol>
-  <li>Concatene o ClientId e o ClientSecret: “<strong>ClientId:ClientSecret</strong>”.</li>
+  <li>Concatene o <code class="language-plaintext highlighter-rouge">ClientId</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code>: <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>.</li>
   <li>Codifique o resultado da concatenação em Base64.</li>
-  <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
+  <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
+<br />
+Para fins de <strong>teste</strong> em ambiente SANDBOX, utilize os seguintes dados na concatenação:</li>
 </ol>
 
-<p>NOTA: Para fins de <strong>teste</strong>, utilize os seguintes dados na concatenação:</p>
-
-<p>ClientID - “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9”
-<br /> <br />
-ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
+<p><code class="language-plaintext highlighter-rouge">ClientID</code> - “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9” <br />
+<code class="language-plaintext highlighter-rouge">ClientSecret</code> - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
 
 <h3 id="requisição">Requisição</h3>
 
@@ -1281,11 +1280,11 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
 
 <h2 id="código-de-segurança-do-cartão">Código de Segurança do Cartão</h2>
 
-<p>O código de segurança é obrigatório para que uma autorização seja aceita pelo emissor do cartão. Ele é mais um mecanismo de segurança no processo antifraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. <br />
-Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo tendo-se a certificação PCI, como no caso da Braspag.<br />
-A recomendação é que o CVV seja sempre solicitado no ato da compra.</p>
+<p>O código de segurança é obrigatório para que uma autorização seja aceita pelo emissor do cartão. Ele é mais um mecanismo de segurança no processo antifraude, em que busca-se validar que a pessoa utilizando o cartão é de fato a dona dele.</p>
 
-<aside class="notice">Estabelecimentos que possuam o modelo de negócio baseado em recorrência (ex.: assinaturas de serviços) devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
+<p>Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo tendo-se a certificação PCI, como no caso da Braspag. A recomendação é que o CVV seja sempre solicitado no ato da compra.</p>
+
+<aside class="warning">Estabelecimentos que possuam o modelo de negócio baseado em recorrência (ex.: assinaturas de serviços) devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
 
 <h2 id="compra-com-um-clique">Compra com Um Clique</h2>
 
