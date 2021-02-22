@@ -140,7 +140,7 @@
             <div class="post">
   <h1 id="cartão-protegido">Cartão Protegido</h1>
 
-<p>O <strong>Cartão Protegido</strong> é uma plataforma que permite o armazenamento seguro de cartões de crédito e débito. Contamos com ambiente totalmente certificado pelo respeitado conselho de padrão de segurança PCI Security Standards Council, que assegura que a Braspag segue plenamente os rígidos requisitos e normas determinadas pelo mesmo.</p>
+<p>O <strong>Cartão Protegido</strong> é uma plataforma que permite o armazenamento seguro de cartões de crédito e débito. Contamos com ambiente totalmente certificado pelo respeitado conselho de padrão de segurança <em>PCI Security Standards Council</em>, que assegura que a Braspag siga plenamente os rígidos requisitos e normas determinadas pelo mesmo.</p>
 
 <p>A plataforma é compatível com o gateway <a href="https://braspag.github.io//manual/braspag-pagador">Pagador</a>, também da Braspag, facilitando o processamento de transações de cartão de crédito e débito via token.</p>
 
@@ -157,7 +157,7 @@
     <p><strong>Ambiente seguro PCI DSS</strong>: a Braspag conta com ambiente certificado PCI DSS, que assegura a integridade e segurança de dados sensíveis como os de cartões de crédito.</p>
   </li>
   <li>
-    <p><strong>Garantia da utilização de cartões válidos</strong>: o Cartão Protegido só aceitará salvar cartões que passarem pela checagem do Algorítimo de Luhn, também conhecido como “mod10”. Isso dará maior segurança e certeza de que os cartões salvos tenham o mínimo de validação de sua veracidade. Conheça esse processo em nosso artigo <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051">Como Validar um Cartão?</a>.</p>
+    <p><strong>Garantia da utilização de cartões válidos</strong>: o Cartão Protegido só aceitará salvar cartões que passem pela checagem do Algorítimo de Luhn, também conhecido como “mod10”. Isso dará maior segurança e certeza de que os cartões salvos tenham o mínimo de validação de sua veracidade. Para saber mais sobre esse processo, consulte o nosso artigo “<a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051">Como Validar um Cartão?</a>”.</p>
   </li>
 </ul>
 
@@ -167,22 +167,22 @@
 
 <ul>
   <li>
-    <p><strong>Cobrança Recorrente Agendada (Scheduled Recurring Payments)</strong>: estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma para armazenar os dados de cartão de crédito e processar através de tokens de pagamento. Exemplo: assinatura de serviços.</p>
+    <p><strong>Cobrança Recorrente Agendada (Scheduled Recurring Payments)</strong>: permite que estabelecimentos que já possuem uma solução interna de gerenciamento de recorrências possam utilizar a plataforma para armazenar os dados de cartão de crédito e processar através de tokens de pagamento. Exemplo: assinatura de serviços.</p>
   </li>
   <li>
-    <p><strong>Cobrança Recorrente não Agendada (Unscheduled Recurring Payments)</strong>: estabelecimentos que cobram seus clientes já cadastrados, mas sem uma periodicidade definida. Exemplo: aplicativos de transporte.</p>
+    <p><strong>Cobrança Recorrente não Agendada (Unscheduled Recurring Payments)</strong>: permite que estabelecimentos que cobram seus clientes já cadastrados, mas sem uma periodicidade definida, possam utilizar a plataforma. Exemplo: aplicativos de transporte.</p>
   </li>
   <li>
-    <p><strong>Compra com um Clique (Just Click Payments)</strong>: a “compra com um clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorização.</p>
+    <p><strong>Compra com um Clique (Just Click Payments)</strong>: permite que um pagamento online, via cartão de crédito, seja feito pulando-se a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras. Os dados do cartão já foram previamente informados em compras anteriores e serão replicados em futuras compras mediante a autorização do comprador.</p>
   </li>
   <li>
-    <p><strong>Recuperação de Vendas</strong>: estabelecimentos podem entrar novamente em contato com os clientes que eventualmente tenham tido problemas na compra, oferecendo uma nova tentativa de cobrança.</p>
+    <p><strong>Recuperação de Vendas</strong>: permite que estabelecimentos possam entrar novamente em contato com clientes que eventualmente tenham tido problemas na compra, oferecendo uma nova tentativa de cobrança.</p>
   </li>
 </ul>
 
 <h2 id="arquitetura-da-integração">Arquitetura da Integração</h2>
 
-<p>A integração é realizada através de serviços disponibilizados como web services. O modelo empregado é simples: através do endpoint serão enviadas todas as requisições relativas a esse serviço. A URL (base + endpoint) receberá as mensagens HTTP através dos métodos POST, GET ou DEL:</p>
+<p>A integração é realizada através de serviços disponibilizados como web services. O modelo empregado é simples: através do endpoint devem ser enviadas todas as requisições relativas ao serviço em questão. A URL (base + endpoint) receberá as mensagens HTTP através dos métodos POST, GET ou DEL:</p>
 
 <table>
   <thead>
@@ -193,11 +193,11 @@
   </thead>
   <tbody>
     <tr>
-      <td>Sandbox</td>
+      <td><strong>SANDBOX</strong></td>
       <td>https://cartaoprotegidoapisandbox.braspag.com.br/</td>
     </tr>
     <tr>
-      <td>Produção</td>
+      <td><strong>PRODUÇÃO</strong></td>
       <td>https://cartaoprotegidoapi.braspag.com.br/</td>
     </tr>
   </tbody>
@@ -213,7 +213,7 @@
   <tbody>
     <tr>
       <td><strong>GET</strong></td>
-      <td>Utilizado para consultas de recursos já existentes, ex.: consulta de tokens já criados.</td>
+      <td>Utilizado para consultas de recursos existentes, como tokens já criados.</td>
     </tr>
     <tr>
       <td><strong>POST</strong></td>
@@ -221,7 +221,7 @@
     </tr>
     <tr>
       <td><strong>DEL</strong></td>
-      <td>Utilizado para remoção de token.</td>
+      <td>Utilizado para remoção do token.</td>
     </tr>
   </tbody>
 </table>
@@ -271,12 +271,11 @@
   <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
 </ol>
 
-<blockquote>
-  <p>Para fins de <strong>teste</strong>, utilize os seguintes dados na concatenação:</p>
+<p>NOTA: Para fins de <strong>teste</strong>, utilize os seguintes dados na concatenação:</p>
 
-  <p>ClientID - “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9”
+<p>ClientID - “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9”
+<br /> <br />
 ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
-</blockquote>
 
 <h3 id="requisição">Requisição</h3>
 
@@ -540,7 +539,7 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
       <td>Alias do cartão de crédito.</td>
       <td>Texto</td>
       <td>64</td>
-      <td>Texto único para o token.</td>
+      <td>Texto único para o token</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
@@ -589,7 +588,7 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
 
 <h2 id="obtenção-de-informações-do-token">Obtenção de Informações do Token</h2>
 
-<p>O objetivo deste método é obter as informações relacionadas a uma referência de token, tais como <em>Status</em>, <em>Cartão Mascarado</em>, <em>Data de Validade</em> e <em>Nome do Portador</em>.</p>
+<p>O objetivo deste método é obter informações relacionadas a uma referência de token, tais como <em>Status</em>, <em>Cartão Mascarado</em>, <em>Data de Validade</em> e <em>Nome do Portador</em>.</p>
 
 <h3 id="requisição-2">Requisição</h3>
 
@@ -721,7 +720,7 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Account.Holder</code></td>
-      <td>Nome do comprador impresso no cartão, sem caracteres acentuados.</td>
+      <td>Nome do comprador impresso no cartão, sem acentos.</td>
       <td>Texto</td>
       <td>25</td>
       <td>Exemplo: Jose Olimpio</td>
@@ -757,21 +756,21 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Alias</code></td>
-      <td>Alias (apelido) do cartão de crédito utilizado anteriormente no método Create Token</td>
+      <td>Alias (apelido) do cartão de crédito utilizado anteriormente no método <strong>Criação do Token</strong>.</td>
       <td>Texto</td>
       <td>64</td>
-      <td>Não (envio no endopoint)</td>
+      <td>Não (envio no endpoint)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td>application/json</td>
+      <td>“application/json”</td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim (envio no header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
-      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)</td>
+      <td>Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).</td>
       <td>GUID</td>
       <td>-</td>
       <td>Sim (envio no header)</td>
@@ -826,9 +825,9 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
 
 <p>O objetivo deste método é remover a referência do token da base definitivamente. O <code class="language-plaintext highlighter-rouge">TokenReference</code> removido através deste método não pode ser recuperado.</p>
 
-<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
-
 <h3 id="requisição-4">Requisição</h3>
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
      </span><span class="nl">"RemovedBy"</span><span class="p">:</span><span class="s2">"Merchant"</span><span class="p">,</span><span class="w">
@@ -881,14 +880,14 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RemovedBy</code></td>
-      <td>Quem solicitou a remoção. Valores possíveis: “Merchant” / “CardHolder”</td>
+      <td>Quem solicitou a remoção. Valores possíveis: “Merchant” / “CardHolder”.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
-      <td>Motivo da remoção do token. Valores possíveis: “FraudSuspicion” / “Other”</td>
+      <td>Motivo da remoção do token. Valores possíveis: “FraudSuspicion” / “Other”.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
@@ -959,9 +958,9 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
 
 <p>O objetivo deste método é suspender uma referência do token temporariamente. O <code class="language-plaintext highlighter-rouge">TokenReference</code> suspenso através deste método pode ser reativado via método <strong>Reativação do Token</strong>.</p>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/suspend</span></aside>
-
 <h3 id="requisição-5">Requisição</h3>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/suspend</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
      </span><span class="nl">"RemovedBy"</span><span class="p">:</span><span class="s2">"Merchant"</span><span class="p">,</span><span class="w">
@@ -984,10 +983,10 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
   <thead>
     <tr>
       <th>Parâmetros</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
@@ -1014,14 +1013,14 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RemovedBy</code></td>
-      <td>Quem solicitou a remoção. Valores possíveis: “Merchant” / “CardHolder”</td>
+      <td>Quem solicitou a remoção. Valores possíveis: “Merchant” / “CardHolder”.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
-      <td>Motivo da remoção do token. Valores possíveis: “FraudSuspicion” / “Other”</td>
+      <td>Motivo da remoção do token. Valores possíveis: “FraudSuspicion” / “Other”.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
@@ -1102,9 +1101,9 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
 
 <p>O objetivo deste método é reativar uma referência do token.</p>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/unsuspend</span></aside>
-
 <h3 id="requisição-6">Requisição</h3>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/unsuspend</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://cartaoprotegidoapisandbox.braspag.com.br/v1/Token/{TokenReference}/unsuspend"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
@@ -1117,10 +1116,10 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
   <thead>
     <tr>
       <th>Parâmetros</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
@@ -1259,9 +1258,9 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
 <table>
   <thead>
     <tr>
-      <th>Code</th>
-      <th>Message</th>
+      <th>Código</th>
       <th>Descrição</th>
+      <th>Mensagem</th>
     </tr>
   </thead>
   <tbody>
@@ -1282,22 +1281,22 @@ ClientSecret - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
 
 <h2 id="código-de-segurança-do-cartão">Código de Segurança do Cartão</h2>
 
-<p>O código de segurança é obrigatório para que uma autorização seja aceita pelo emissor do cartão. Ele é mais um mecanismo de segurança no processo anti-fraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. 
-Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo tendo-se a certificação PCI, como no caso da Braspag.
+<p>O código de segurança é obrigatório para que uma autorização seja aceita pelo emissor do cartão. Ele é mais um mecanismo de segurança no processo antifraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. <br />
+Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo tendo-se a certificação PCI, como no caso da Braspag.<br />
 A recomendação é que o CVV seja sempre solicitado no ato da compra.</p>
 
 <aside class="notice">Estabelecimentos que possuam o modelo de negócio baseado em recorrência (ex.: assinaturas de serviços) devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
 
 <h2 id="compra-com-um-clique">Compra com Um Clique</h2>
 
-<p>Algumas dicas para melhorar sua conversão:</p>
+<p>Algumas dicas para impulsionar sua conversão:</p>
 
 <ul>
-  <li>Salve o número do cartão mascarado. Então, apresente ao cliente os cartões habilitados para “compra com 1 clique”;</li>
-  <li>Salve a data de validade do cartão mascarado. Então, comunique ao cliente quando o cartão armazenado expirar, sugerindo sua troca;</li>
+  <li>Salve o número do cartão mascarado. Assim, você poderá apresentar ao cliente os cartões habilitados para “compra com 1 clique”;</li>
+  <li>Salve a data de validade do cartão mascarado. Assim, você poderá comunicar ao cliente quando o cartão armazenado expirar, sugerindo sua troca;</li>
   <li>Pergunte se o comprador deseja armazenar os dados do cartão para uma próxima compra;</li>
-  <li>Garanta a segurança de login e senha dos usuarios do site. Senhas fracas são facilmente descobertas e o fraudador consegue realizar uma compra mesmo sem ter o cartão (no caso de não solicitação do CVV pelo site);</li>
-  <li>Controle variáveis de sessão para evitar que o usuário (com o login do cliente) permaneça logado no site e outra pessoa acesse depois, fazendo “compras via 1 clique” com este login (ex.: usuários conectados em lan houses).</li>
+  <li>Garanta a segurança de login e senha dos usuarios do site. Senhas fracas são facilmente descobertas e o fraudador consegue realizar uma compra mesmo sem ter o cartão (em caso de não solicitação do CVV pelo site);</li>
+  <li>Controle variáveis de sessão para evitar que o usuário permaneça logado no site e que outra pessoa acesse depois, fazendo “compras via 1 clique” com este login (ex.: usuários conectados em LAN houses).</li>
 </ul>
 
 </div>
