@@ -596,7 +596,7 @@ O objetivo deste método é reativar uma referência do token.
 
 # Códigos de Erro
 
-Em casos de erro na requisição, serão informados os códigos de erro e suas descrições, conforme o exemplo.
+Em casos de erro na requisição, serão informados os códigos dos erros e suas descrições, conforme o exemplo.
 
 ### Resposta
 
@@ -634,17 +634,18 @@ Em casos de erro na requisição, serão informados os códigos de erro e suas d
 
 ## Código de Segurança do Cartão
 
-O código de segurança é obrigatório para que uma autorização seja aceita pelo banco emissor do cartão. Ele é mais um mecanismo de segurança no processo anti-fraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. 
-Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo a Braspag, certificada PCI.
+O código de segurança é obrigatório para que uma autorização seja aceita pelo emissor do cartão. Ele é mais um mecanismo de segurança no processo anti-fraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. 
+Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo tendo-se a certificação PCI, como no caso da Braspag.
 A recomendação é que o CVV seja sempre solicitado no ato da compra. 
 
-<aside class="notice">Estabelecimentos que possuem o modelo de negócio baseado em recorrência, como, por exemplo, assinaturas de serviços, devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
+<aside class="notice">Estabelecimentos que possuam o modelo de negócio baseado em recorrência (ex.: assinaturas de serviços) devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
 
 ## Compra com Um Clique
 
-Uma dica para melhorar sua conversão é salvar o número do cartão mascarado para apresentar ao cliente qual cartão ele tem habilitado para “a compra com 1 clique” no site;
+Algumas dicas para melhorar sua conversão:
 
-* Opcionalmente, também salvar a data de validade, para ativamente comunicar ao cliente que o cartão que ele tem armazenado expirou e sugerir a troca;
-* Sempre perguntar se o comprador deseja armazenar os dados do cartão para próxima compra;
-* Segurança do login e senha dos usuarios do site – senhas muito fracas são facilmente descobertas e o fraudador consegue fazer uma compra mesmo sem ter o cartão (no caso de não solicitação do CVV pelo site);
-* Controlar variáveis de sessão para evitar que o usuário (login do cliente) permaneça logado no site e outra pessoa acesse depois fazendo “compras via 1 clique” com este login (ex: usuários conectados em lan houses).
+* Salve o número do cartão mascarado. Então, apresente ao cliente os cartões habilitados para “compra com 1 clique”; 
+* Salve a data de validade do cartão mascarado. Então, comunique ao cliente quando o cartão armazenado expirar, sugerindo sua troca;
+* Pergunte se o comprador deseja armazenar os dados do cartão para uma próxima compra;
+* Garanta a segurança de login e senha dos usuarios do site. Senhas fracas são facilmente descobertas e o fraudador consegue realizar uma compra mesmo sem ter o cartão (no caso de não solicitação do CVV pelo site);
+* Controle variáveis de sessão para evitar que o usuário (com o login do cliente) permaneça logado no site e outra pessoa acesse depois, fazendo “compras via 1 clique” com este login (ex.: usuários conectados em lan houses).
