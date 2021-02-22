@@ -362,7 +362,7 @@ O objetivo deste método é obter a referência de token a partir de um alias pr
 
 O objetivo deste método é remover a referência do token da base definitivamente. O `TokenReference` removido através deste método não pode ser recuperado.
 
-<aside class="request"><span class="method remove">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
 ### Requisição
 
@@ -387,11 +387,11 @@ O objetivo deste método é remover a referência do token da base definitivamen
 
 |Parâmetros|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`Content-Type`|application/json|Texto|-|Sim (envio no header)|
-|`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|GUID|-|Sim (envio no header)|
+|`Content-Type`|"application/json"|Texto|-|Sim (envio no header)|
+|`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).|GUID|-|Sim (envio no header)|
 |`Authorization`|Token de acesso gerado no passo anterior ("Bearer" *{access_token}*").|Texto|-|Sim (envio no header)|
-|`RemovedBy`|Quem solicitou a remoção. Valores possíveis: 'Merchant' ou 'CardHolder'|Texto|10|Sim|
-|`Reason`|Motivo da remoção do token. Valores possíveis: 'FraudSuspicion' ou 'Other'|Texto|10|Sim|
+|`RemovedBy`|Quem solicitou a remoção. Valores possíveis: "Merchant" / "CardHolder"|Texto|10|Sim|
+|`Reason`|Motivo da remoção do token. Valores possíveis: "FraudSuspicion" / "Other"|Texto|10|Sim|
 
 ### Resposta
 
@@ -428,8 +428,8 @@ O objetivo deste método é remover a referência do token da base definitivamen
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Texto|10|Não |Status atual do token no Cartão Protegido|
+|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Status atual do token no Cartão Protegido.|Texto|10|Não|
 
 ## Suspensão do Token
 
@@ -460,11 +460,11 @@ O objetivo deste método é suspender uma referência do token temporariamente. 
 
 |Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
-|`Authorization`|Texto|-|Sim|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
-|`Content-Type`|Texto|-|Sim|application/json|
-|`RemovedBy`|Texto|10|Sim|Quem solicitou a remoção. Valores possíveis: 'Merchant' ou 'CardHolder'|
-|`Reason`|Texto|10|Sim|Motivo da remoção do token. Valores possíveis: 'FraudSuspicion' ou 'Other'|
+|`Content-Type`|"application/json"|Texto|-|Sim (envio no header)|
+|`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).|GUID|-|Sim (envio no header)|
+|`Authorization`|Token de acesso gerado no passo anterior ("Bearer" *{access_token}*").|Texto|-|Sim (envio no header)|
+|`RemovedBy`|Quem solicitou a remoção. Valores possíveis: "Merchant" / "CardHolder"|Texto|10|Sim|
+|`Reason`|Motivo da remoção do token. Valores possíveis: "FraudSuspicion" / "Other"|Texto|10|Sim|
 
 ### Resposta
 
@@ -511,8 +511,8 @@ O objetivo deste método é suspender uma referência do token temporariamente. 
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Texto|10|Não |Status atual do token no Cartão Protegido|
+|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Status atual do token no Cartão Protegido.|Texto|10|Não|
 
 ## Reativação do Token
 
@@ -532,9 +532,9 @@ O objetivo deste método é reativar uma referência do token.
 
 |Parâmetros|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|
-|`MerchantID`|GUID|-|Sim|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção)|
-|`Authorization`|Texto|-|Sim|**Bearer** _(Authorization)_<BR>(é o token de acesso gerado no passo anterior)|
-|`Content-Type`|Texto|-|Sim|application/json|
+|`Content-Type`|"application/json"|Texto|-|Sim (envio no header)|
+|`MerchantID`|Merchant ID do estabelecimento para plataforma Cartão Protegido no respectivo ambiente (Sandbox/Produção).|GUID|-|Sim (envio no header)|
+|`Authorization`|Token de acesso gerado no passo anterior ("Bearer" *{access_token}*").|Texto|-|Sim (envio no header)|
 
 ### Resposta
 
@@ -591,12 +591,12 @@ O objetivo deste método é reativar uma referência do token.
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Texto|10|Não |Status atual do token no Cartão Protegido.|
+|`TokenReference`|Token no Cartão Protegido que representa os dados do cartão.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Status atual do token no Cartão Protegido.|Texto|10|Não|
 
 # Códigos de Erro
 
-Em casos de erro na requisição, serão informados os códos de erro e sua descrição, conforme o exemplo.
+Em casos de erro na requisição, serão informados os códigos de erro e suas descrições, conforme o exemplo.
 
 ### Resposta
 
@@ -627,8 +627,8 @@ Em casos de erro na requisição, serão informados os códos de erro e sua desc
 
 |Code|Message|Descrição|
 |------|--------|---------|
-|CP903|Token alias already exists|Acontece quando o Alias já foi utilizado anteriormente.|
-|CP990|'XXXXX' must not be empty.|Acontece quando algum campo está inválido.|
+|CP903|Acontece quando o Alias já foi utilizado anteriormente.|"Token alias already exists"|
+|CP990|Acontece quando algum campo está inválido.|"XXXXX must not be empty"|
 
 # Dicas de Implementação
 
