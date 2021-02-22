@@ -335,7 +335,8 @@ aside a:hover {
 }
 .content .method.post,
 .content .method.put,
-.content .method.get
+.content .method.get,
+.content .method.delete
  {
     background: #b5f0c8;
 }
@@ -1033,6 +1034,12 @@ aside.request span.method.put {
 aside.request span.method.get {
     background-color: #b3dceb;
     color: #718c95;
+    margin: 0;
+}
+
+aside.request span.method.delete {
+    background-color: #ffcccc;
+    color: #957171;
     margin: 0;
 }
 
