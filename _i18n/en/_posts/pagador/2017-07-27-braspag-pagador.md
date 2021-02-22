@@ -2892,7 +2892,7 @@ The merchant counts with features that can be used to shape their charging syste
 
 <aside class="notice">Recurring credit card sales do not require CVV.</aside>
 <aside class="warning">Recurrence is not available for e-wallet transactions due to the use of ephemeral keys which are necessary in credit operations.</aside>
-<aside class="warning">For safety reasons, recurrence is only possible for cards that pass the Luhn Algorithm checksum formula, also known as "mod10".
+<aside class="warning">For safety reasons, recurrence is only possible for cards that pass the Luhn Algorithm checksum formula, also known as "mod10".</aside>
 
 ## Recurrence Authorization
 
