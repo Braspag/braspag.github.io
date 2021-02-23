@@ -7232,7 +7232,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Credentials.Signature</code></td>
-      <td>Enviar o <em>TerminalID</em> da adquirente <strong>Global Payments</strong> Ex.: 001. Para <strong>Safra</strong>, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula “;”. Ex.: NomedaLoja;São Paulo;SP</td>
+      <td>Enviar o <em>TerminalID</em> da adquirente <strong>Global Payments</strong> Ex.: 001. Para <strong>Safra</strong>, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula “;”. Ex.: NomedaLoja;São Paulo;SP.</td>
       <td>Texto</td>
       <td>–</td>
       <td>Não</td>
@@ -7504,7 +7504,6 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
       <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
-      <th>Formato</th>
     </tr>
   </thead>
   <tbody>
@@ -7513,35 +7512,30 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
       <td>Novo número do cartão do comprador.</td>
       <td>Texto</td>
       <td>16</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NewCard.Holder</code></td>
       <td>Nome do portador impresso no novo cartão.</td>
       <td>Texto</td>
       <td>25</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NewCard.ExpirationDate</code></td>
       <td>Data de validade impressa no novo cartão.</td>
       <td>Texto</td>
       <td>7</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NewCard.SecurityCode</code></td>
       <td>Código de segurança impresso no verso do novo cartão.</td>
       <td>Texto</td>
       <td>4</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NewCard.Brand</code></td>
       <td>Bandeira do novo cartão.</td>
       <td>Texto</td>
       <td>10</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -7781,7 +7775,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
-      <td>“true” - para salvar o cartão. “false” - para não salvar o cartão.</td>
+      <td>“true” - para salvar o cartão. / “false” - para não salvar o cartão.</td>
       <td>Booleano</td>
       <td>10</td>
       <td>Não (default “false”)</td>
