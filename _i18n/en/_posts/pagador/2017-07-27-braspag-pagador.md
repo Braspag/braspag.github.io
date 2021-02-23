@@ -570,8 +570,8 @@ Here are request and answer examples of how to create a credit transaction:
 |`ReasonCode`|Return code from operation.|Text|32|Alphanumeric|
 |`ReasonMessage`|Return message from operation.|Text|512|Alphanumeric|
 |`Status`|Transaction status.|Byte|2|E.g.: 1|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and issuer).|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and issuer).|Text|512|Transaction Approved|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
 
 ### Creating a Debit Transaction
 
@@ -782,8 +782,8 @@ A debit card transaction creation is similar to that of a credit card, except fo
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction Status.|Byte|2|E.g.: 1|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and issuer).|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and issuer).|Text|512|Transaction Approved|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
 |`AuthenticationUrl`|URL to which the holder will be redirected for authentication.|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
 ### Creating a Debit Transaction with no Authentication
@@ -989,8 +989,8 @@ It is possible to process a debit card without having to submit your customer to
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction status.|Byte|2|E.g.: 1|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and issuer).|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and issuer).|Text|512|Transaction Approved|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
 
 ### Capturing a Transaction
 
@@ -1340,8 +1340,8 @@ With the default authentication, a transaction will receive the `Payment.Authent
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction status.|Byte|2|E.g.: 1|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and issuer).|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and issuer).|Text|512|Transaction Approved|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
 |`AuthenticationUrl`|URL to which the holder will be redirected for authentication.|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
 
 #### External Authentication
@@ -1849,8 +1849,8 @@ There is no difference between a standard authorization request and a DCC author
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction status.|Byte|2|E.g.: 12|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and issuer).|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and issuer).|Text|512|Transaction Approved|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
 |`CurrencyExchangeData.Id`|ID of the currency exchange action.|Text|50|1b05456446c116374005602dcbaf8db8879515a0|
 |`CurrencyExchangeData.CurrencyExchanges.Currency`|Customer's local currency/credit card.|Numeric|4|EUR|
 |`CurrencyExchangeData.CurrencyExchanges.ConvertedAmount`|Converted value.|Numeric|12|23|
@@ -1997,8 +1997,8 @@ In the third step, the store system sends the transaction confirmation with the 
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction status.|Byte|2|E.g.: 12|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and issuer).|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and issuer).|Text|512|Transaction Approved|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
 
 ## QR Code Transaction
 
@@ -2874,12 +2874,12 @@ A transaction with a voucher card is similar to a debit card transaction; only w
 |`ProofOfSale`|Proof of sale reference.|Text|20|Alphanumeric|
 |`AuthorizationCode`|Authorization code from the acquirer.|Text|300|Alphanumeric|
 |`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Braspag.|Text|19|YYYY-MM-DDHH:mm:SS|
+|`ReceivedDate`|Date the transaction was received by Braspag.|Text|19|YYYY-MM-DDHH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction status.|Byte|2|E.g.: 1|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and issuer).|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and issuer).|Text|512|Transaction Approved|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
 |`AuthenticationUrl`|URL to which the holder will be redirected for authentication.|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
 # Recurrence
@@ -3579,7 +3579,7 @@ To schedule the first transaction in the recurrence series, pass the `Payment.Re
 |`NextRecurrency`|Date of next recurrence.|Text|7|05/2019 (MM/YYYY)|
 |`StartDate`|Start date of recurrence.|Text|7|05/2019 (MM/YYYY)|
 |`EndDate`|End date of recurrence.|Text|7|05/2019 (MM/YYYY)|
-|`Interval`|Interval between recurrences.|Text|10|Monthly / Bimonthly / Quarterly / SemiAnnual / Annual.|
+|`Interval`|Interval between recurrences.|Text|10|Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
 |`AuthorizeNow`|Whether the first recurrence will already be authorized or not.|Boolean|---|"true" / "false"|
 
 ## Data Alteration
@@ -3911,7 +3911,7 @@ During the life cycle of a recurrence, you can change:
 <br/>
 To change the payment details, simply make a PUT call as shown in the example.
 
-<aside class="warning">CAUTION: This change affects all Payment node data. In order to keep the previous data, you must enter the fields that will remain unchanged with their currently saved values.</aside>
+<aside class="warning">CAUTION! This change affects all Payment node data. In order to keep the previous data, you must enter the fields that will remain unchanged with their currently saved values.</aside>
 
 #### Request
 
@@ -4076,13 +4076,13 @@ Refer to the [HTTP Status Code](https://braspag.github.io//en/manual/braspag-pag
 
 ## Transaction with Renova Fácil
 
-Renova Fácil is a service developed by CIELO together with issuing banks, which aims to increase the conversion rate of recurring credit card sales.
+*Renova Fácil* was developed by CIELO together with issuers. It's a service which aims in increasing the conversion rate of recurring credit card sales.
 
-By identifying expired cards at the time of transaction, the authorization is made with a new card and the new card is returned for storage.
+It identifies expired cards during the transaction and goes through the authorization using a new card, which is then returned for storage.
 
-To use Renova Fácil, the service must be enabled at CIELO. It is not necessary to send any extra information in the authorization request, but the response will have one more node as shown below.
+To use Renova Fácil, the service must be enabled at CIELO. No extra information must be sent in the authorization request, but the response will have one more node as shown in the example response.
 
-Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank
+<aside class="notice>Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.</aside>
 
 ### Response
 
@@ -4126,11 +4126,9 @@ Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citiban
     [...]
   }
 }
-
 ```
 
 ```shell
-
 {
   [...]
   "Payment":{
@@ -4170,123 +4168,196 @@ Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citiban
     [...]
   }
 }
-
 ```
 
-|Property|Description|Type|Size|Format|
+|Property|Description|Type|Size|
 |-----------|---------|----|-------|-------|
-|`NewCard.CardNumber`|New Shopper's Card Number|Text|16|
-|`NewCard.Holder`|Holder name printed on new card|Text|25|
-|`NewCard.ExpirationDate`|Expiration date printed on the new card|Text|7|
-|`CreditCard.SecurityCode`|Security code printed on back of the card|Text|4|Yes|
-|`NewCard.Brand`|New Card Brand|Text|10|
+|`NewCard.CardNumber`|Customer's new card number.|Text|16|
+|`NewCard.Holder`|Name of cardholder printed on the new card.|Text|25|
+|`NewCard.ExpirationDate`|Expiration date printed on the new card.|Text|7|
+|`CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|
+|`NewCard.Brand`|New card brand.|Text|10|
 
-# Saving and reusing cards
+# Saving and Reusing Cards
 
-With the Cartão Protegido, you can save your client's credit card on Braspag and use it for future "one-click" transactions, from returning buyers, or recurrent payments. Important: for security reasons, Braspag will never store the credit card security code (CVV).
+With [Cartão Protegido](https://braspag.github.io//en/manual/cartao-protegido-api-rest), you can safely save your client's credit card in accordance with the PCI standards. The card information is saved as a token (excluding the card CVV), making transaction process easier by replacing its data in a future transaction from the same buyer, while keeping the integrity of the saved cards. 
 
-In addition to Card Token generation, you can associate a name, an identifier in text format, with the saved card. This identifier will be the Alias.
+<aside class="warning">ATTENTION! For safety reasons, it's only possible to save cards that pass the Luhn Algorithm checksum formula, also known as "mod10".</aside>
 
-## Saving a card during an authorization
+In addition to generating a card token, you can associate a name (identifier in text format) with the saved card. This identifier will be the `Alias`.
+
+## Saving a Card During an Authorization
 
 #### Request
 
-To save a credit card used in a transaction, simply send the `Payment.SaveCard` parameter as _true_ in the standard authorization request.
+To save a credit card used in a transaction, simply send the `Payment.SaveCard` parameter as _true_ in the standard authorization request. The card number to be used can be validated through the technique exaplained in [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051), in Portuguese.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
-{
-   [...]
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment":{
-        "Provider":"Simulado",
-        "Type":"CreditCard",
-        "Amount":10000,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate":false,
-        "Recurrent":false,
-        "SoftDescriptor":"Message",
-        "CreditCard":{
-            "CardNumber":"455187******0181",
-            "Holder": "Cardholder Name",
-            "ExpirationDate":"12/2021",
-            "SecurityCode":"123",
-            "Brand":"Visa",
-            "SaveCard": true,
-            "Alias":""
-        },
-        [...]
-    }
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":true,
+         "Alias":"",
+       },
+      "Credentials":{  
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-   [...]
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment":{
-        "Provider":"Simulado",
-        "Type":"CreditCard",
-        "Amount":10000,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate":false,
-        "Recurrent":false,
-        "SoftDescriptor":"Message",
-        "CreditCard":{
-            "CardNumber":"455187******0181",
-            "Holder": "Cardholder Name",
-            "ExpirationDate":"12/2021",
-            "SecurityCode":"123",
-            "Brand":"Visa",
-            "SaveCard": true,
-            "Alias":""
-        },
-        [...]
-    }
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":true,
+         "Alias":"",
+       },
+      "Credentials":{  
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
 --verbose
-
 ```
 
-|Property|Type|Size|Mandatory?|Description|
+|Property|Description|Type|Size|Mandatory?|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Text|15|Yes|Name of Payment Method Provider|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|
-|`CreditCard.CardNumber`|Text|16|Yes|Customer’s card number.|
-|`CreditCard.Holder`|Text|25|Yes|Name of cardholder printed on card|
-|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on the card, in the MM/YYYY format|
-|`CreditCard.SecurityCode`|Text|4|Yes|Security code printed on back of card|
-|`CreditCard.Brand`|Text|10|Yes|Card brand|
-|`CreditCard.SaveCard`|Boolean|10|No (Default false)|true to save the card and false to not save|
-|`CreditCard.Alias`|Text|64|No|Credit Card Alias|
+|`Payment.Provider`|Name of the payment method provider.|Text|15|Yes|
+|`Payment.Type`|Payment method type.|Text|100|Yes|
+|`Payment.Amount`|Order amount in cents.|Number|15|Yes|
+|`Payment.Installments`|Number of installments.|Number|2|Yes|
+|`CreditCard.CardNumber`|Customer’s card number.|Text|16|Yes|
+|`CreditCard.Holder`|Name of cardholder printed on the card.|Text|25|Yes|
+|`CreditCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format.|Text|7|Yes|
+|`CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
+|`CreditCard.Brand`|Card brand.|Text|10|Yes|
+|`CreditCard.SaveCard`|"true" - saves the card. / "false" - does not save the card.|Boolean|10|No (default "false")|
+|`CreditCard.Alias`|Credit card alias.|Text|64|No|
 
 ##### Response
 
 The `CreditCard.CardToken` parameter will return the token to be saved for future transactions with the same card.
 
 ```json
-
 {
   [...]
   },
@@ -4324,12 +4395,9 @@ The `CreditCard.CardToken` parameter will return the token to be saved for futur
     [...]
   }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4374,111 +4442,182 @@ curl
   }
 }
 --verbose
-
 ```
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
-|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
-|`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
-|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Braspag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`AcquirerTransactionId`|Transaction ID of the payment method provider.|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of sale reference.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code from the acquirer.|Text|300|Alphanumeric text|
+|`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Date the transaction was received by Braspag.|Text|19|YYYY-MM-DD HH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
 |`Status`|Transaction status.|Byte|2|E.g.: 1|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
-|`CreditCard.CardToken`|Cartão Protegido Token representing card data|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
+|`CreditCard.CardToken`|*Cartão Protegido* token, representing the card data.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
 ## Creating a Card Token Transaction
 
-This is an example of how to use the previously saved Card Token to create a transaction. For security reasons, a Card Token has not kept the Security Code (CVV). Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.
+This is an example of how to use the previously saved *card token* to create a transaction. For security reasons, a card token doesn't include the Security Code (CVV). Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to "recurring", you can submit transactions without the CVV.
+
+The `CreditCard` node within the `Payment` node will change as shown in the example.
 
 #### Request
-
-The `CreditCard` node within the `Payment` node will change as shown below.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
-{
-   [...]
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment":{
-        "Provider":"Simulado",
-        "Type":"CreditCard",
-        "Amount":10000,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate":false,
-        "Recurrent":false,
-        "SoftDescriptor":"Message",
-        "CreditCard":{
-            "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-            },
-        [...]
-    }
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "Credentials":{  
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-   [...]
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment":{
-        "Provider":"Simulado",
-        "Type":"CreditCard",
-        "Amount":10000,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate":false,
-        "Recurrent":false,
-        "SoftDescriptor":"Message",
-        "CreditCard":{
-            "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-            },
-        [...]
-    }
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "Credentials":{  
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
 --verbose
-
 ```
 
-|Property|Type|Size|Mandatory?|Description|
+|Property|Description|Type|Size|Mandatory?|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Text|15|Yes|Name of Payment Method Provider|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|
-|`CreditCard.CardToken`|Cartão Protegido Token representing card data|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`CreditCard.SecurityCode`|Text|4|No|Security code printed on the back of the card. To make transactions without the CVV, you must request permission with your acquirer.|
-|`CreditCard.Brand`|Text|10|Yes|Card brand|
+|`Payment.Provider`|Name of the payment method provider.|Text|15|Yes|
+|`Payment.Type`|Payment method type.|Text|100|Yes|
+|`Payment.Amount`|Order amount in cents.|Number|15|Yes|
+|`Payment.Installments`|Number of installments.|Number|2|Yes|
+|`CreditCard.CardToken`|*Cartão Protegido* token, representing the card data.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`CreditCard.SecurityCode`|Security code printed on the back of the card. To make transactions without the CVV, you must request permission with your acquirer.|Text|4|No|
+|`CreditCard.Brand`|Card brand.|Text|10|Yes|
 
 ##### Response
 
 ```json
-
 {
    [...]
    },
@@ -4517,11 +4656,9 @@ curl
    [...]
   }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -4563,109 +4700,180 @@ curl
    [...]
   }
 }
-
 ```
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
-|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
-|`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
-|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Braspag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`AcquirerTransactionId`|Transaction ID of the payment method provider.|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of sale reference.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code from the acquirer.|Text|300|Alphanumeric text|
+|`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Date the transaction was received by Braspag.|Text|19|YYYY-MM-DD HH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
-|`Status`|Transaction Status|Byte|2|E.g.: 1|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
+|`Status`|Transaction status.|Byte|2|E.g.: 1|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
 
 ## Creating a Transaction with Alias
 
-This is an example of how to use the previously saved Alias to create a transaction. For security reasons, an Alias has not kept the Security Code. Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to Recurring, you may submit transactions without CVV.
+This is an example of how to use the previously saved *alias* to create a transaction. For security reasons, an alias does not include the Security Code. Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to *recurring*, you can submit transactions without CVV.
 
 #### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-
-{
-   [...]
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment":{
-        "Provider":"Simulado",
-        "Type":"CreditCard",
-        "Amount":10000,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate":false,
-        "Recurrent":false,
-        "SoftDescriptor":"Message",
-        "CreditCard":{
-            "Alias": "Customer1",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-            },
-        [...]
-    }
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "Alias":"Cliente1",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "Credentials":{  
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{
-   [...]
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
    },
-     "Payment":{
-        "Provider":"Simulado",
-        "Type":"CreditCard",
-        "Amount":10000,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":true,
-        "Authenticate":false,
-        "Recurrent":false,
-        "SoftDescriptor":"Message",
-        "CreditCard":{
-            "Alias": "Customer1",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-            },
-        [...]
-    }
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "Alias":"Cliente1",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "Credentials":{  
+         "Code":"9999999",
+         "Key":"D8888888",
+         "Password":"LOJA9999999",
+         "Username":"#Braspag2018@NOMEDALOJA#",
+         "Signature":"001"
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+         }
+      ]
+   }
 }
 --verbose
-
 ```
 
-|Property|Type|Size|Mandatory?|Description|
+|Property|Description|Type|Size|Mandatory?|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Text|15|Yes|Name of Payment Method Provider|
-|`Payment.Type`|Text|100|Yes|Payment Method Type|
-|`Payment.Amount`|Number|15|Yes|Order Amount (in cents)|
-|`Payment.Installments`|Number|2|Yes|Number of Installments|
-|`CreditCard.CardToken`|Cartão Protegido Token representing card data|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`CreditCard.SecurityCode`|Text|4|No|Security code printed on the back of the card. To make transactions without the CVV, you must request permission with your acquirer.|
-|`CreditCard.Brand`|Text|10|Yes|Card brand|
-|`CreditCard.Alias`|Text|64|No|Credit Card Alias|
+|`Payment.Provider`|Name of Payment Method Provider|Text|15|Yes|
+|`Payment.Type`|Payment Method Type|Text|100|Yes|
+|`Payment.Amount`|Order Amount (in cents)|Number|15|Yes|
+|`Payment.Installments`|Number of Installments|Number|2|Yes|
+|`CreditCard.CardToken`|*Cartão Protegido* token, representing the card data.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`CreditCard.SecurityCode`|Security code printed on the back of the card. To make transactions without the CVV, you must request permission with your acquirer.|Text|4|No|
+|`CreditCard.Brand`|Card brand.|Text|10|Yes|
+|`CreditCard.Alias`|Credit card alias.|Text|64|No|
 
 ##### Response
 
 ```json
-
 {
    [...]
    },
@@ -4704,11 +4912,9 @@ curl
    [...]
   }
 }
-
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -4755,38 +4961,44 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
-|`ProofOfSale`|Proof of Sale Reference|Text|20|Alphanumeric|
-|`AuthorizationCode`|Authorization code from the acquirer|Text|300|Alphanumeric text|
-|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date that the transaction was received by Braspag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`AcquirerTransactionId`|Transaction ID of the payment method provider.|Text|40|Alphanumeric|
+|`ProofOfSale`|Proof of sale reference.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code from the acquirer.|Text|300|Alphanumeric text|
+|`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Date the transaction was received by Braspag.|Text|19|YYYY-MM-DD HH:mm:SS|
 |`ReasonCode`|Operation return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Operation return message.|Text|512|Alphanumeric|
-|`Status`|Transaction Status|Byte|2|E.g.: 1|
-|`ProviderReturnCode`|Code returned by the payment provider (acquirer and banks)|Text|32|57|
-|`ProviderReturnMessage`|Message returned by the payment provider (acquirer and banks)|Text|512|Transaction Approved|
+|`Status`|Transaction status.|Byte|2|E.g.: 1|
+|`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
+|`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
 
 # Payments with Fraud Analysis
 
-You can verify whether a transaction is likely to be a fraud or not during an authorization.
+You can verify whether a transaction is likely to be a fraud or not during an authorization. This verification can be triggered in different moments of the transaction, according to the rules defined by the client. See below the different behaviors the risk analysis will have, according to each type of integration: 
 
 |Integration Type|Description|Required Parameters|
 |-|-|-|
-|Pre-authorization review|Before the transaction is submitted for authorization, AntiFraude assesses whether it is at high risk or not. This avoids sending risky transactions for authorization|`FraudAnalysis.Sequence` equal to _AnalyseFirst_|
-|Analysis after authorization|Before the transaction is sent to Antifraud, it will be sent for authorization|`FraudAnalysis.Sequence` equal to _AuthorizeFirst_|
-|Risk analysis only if transaction is authorized|AntiFraude is only triggered to analyze transactions with _authorized_ staus. This avoids the cost of unauthorized transaction analysis|`FraudAnalysis.SequenceCriteria` equal to _OnSuccess_|
-|Risk analysis in any event|Regardless of transaction status after authorization, Antifraud will analyze risk|`FraudAnalysis.Sequence` equal to _AuthorizeFirst_ and` FraudAnalysis.SequenceCriteria` as _Always_|
-|Authorization in any event|Regardless of the transaction fraud score, it will always be submitted for authorization|`FraudAnalysis.Sequence` as _AnalyseFirst_ and` FraudAnalysis.SequenceCriteria` as _Always_|
-|Capture only if a transaction is secure|After fraud analysis, automatically captures an already authorized transaction if set low risk. This same parameter is for you that will work with manual review, which after Braspag receives notification of the new status and is equal to accepted, the transaction will be automatically captured|`FraudAnalysis.Sequence` equal to _AuthorizeFirst_,` FraudAnalysis.CaptureOnLowRisk` _true_ and `Payment.Capture` equal to _false_||
-|Cancel a suspect transaction|If fraud analysis returns a high risk for an already authorized or captured transaction, it will be immediately canceled or reversed. This same parameter is for you who will work with manual review, that after Braspag receives notification of the new status and is equal to rejected, the transaction will be automatically canceled or reversed|`FraudAnalysis.Sequence` as _AuthorizeFirst_ and` FraudAnalysis.VoidOnHighRisk` equal to _true_|
+|Pre-authorization analysis|Before the transaction is submitted for authorization, AntiFraude assesses whether it is at high risk or not. This avoids risky transactions being sent for authorization.|`FraudAnalysis.Sequence` is "AnalyseFirst"|
+|Analysis after authorization|Before the transaction is sent to Antifraud, it will be sent for authorization.|`FraudAnalysis.Sequence` is "AuthorizeFirst"|
+|Analysis of authorized transactions|AntiFraude is only triggered to analyze transactions with the "authorized" status. This avoids the cost of unauthorized transactions analyses.|`FraudAnalysis.SequenceCriteria` is "OnSuccess"|
+|Analysis in any event|Regardless of the transaction status after authorization, Antifraud will analyze the risk.|`FraudAnalysis.Sequence` is "AuthorizeFirst", `FraudAnalysis.SequenceCriteria` is "Always"|
+|Authorization in any event|Regardless of the transaction fraud score, it will always be submitted for authorization.|`FraudAnalysis.Sequence` is "AnalyseFirst", `FraudAnalysis.SequenceCriteria` is "Always"|
+|Capture secure transactions|After the fraud analysis, an authorized transaction is automatically captured if set as low risk. In the case of manual review, the transaction will be automatically captured as soon as Braspag is notified of the new status "Accept".|`FraudAnalysis.Sequence` is "AuthorizeFirst", `FraudAnalysis.CaptureOnLowRisk` is "true", `Payment.Capture` is "false"|
+|Cancel a suspect transaction|If the fraud analysis sets high risk for an already authorized or captured transaction, it will be immediately canceled or reversed. In the case of manual review, the transaction will be automatically canceled or reversed as soon as Braspag is notified of the new status "Reject".|`FraudAnalysis.Sequence` is "AuthorizeFirst", `FraudAnalysis.VoidOnHighRisk` is "true"|
 
-If not specified otherwise during authorization, Braspag will process your transaction through the flow `FraudAnalysis.Sequence` _AuthorizeFirst_, `FraudAnalysis.SequenceCriteria` _OnSuccess_, `FraudAnalysis.VoidOnHighRisk` _false_ and `FraudAnalysis.CaptureOnLowRisk` _false_.
+If not otherwise specified during authorization, Braspag will process your transaction through the following flow:
+* `FraudAnalysis.Sequence` as "AuthorizeFirst",
+* `FraudAnalysis.SequenceCriteria` as "OnSuccess",
+* `FraudAnalysis.VoidOnHighRisk` as "false",
+* `FraudAnalysis.CaptureOnLowRisk` as "false".
 
 ## Implementing Cybersource Fraud Analysis
 
-For CyberSource fraud analysis to be performed during a credit card transaction, you must supplement the authorization agreement with the "FraudAnalysis", "Cart", "MerchantDefinedFields" and "Travel (only for airline tickets)" nodes.
+For the CyberSource fraud analysis to be performed during a credit card transaction, you must add the following nodes to the authorization agreement: `FraudAnalysis`, `Cart`, `MerchantDefinedFields` and `Travel` (this one only for airline tickets). 
 
-#### Request
+During the Cybersource deployment, additional information can be stored through MDDs (Merchand Defined Data). MDDs are fields numbered 0 through N used to store unique merchant information. [This article](https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral) (in Portuguese) has details on how to fill these fields.
+
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4948,12 +5160,9 @@ For CyberSource fraud analysis to be performed during a credit card transaction,
       }
    }
 }
-
 ```
 
 ```shell
-
-curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -5118,110 +5327,109 @@ curl
    }
 }
 --verbose
-
 ```
 
-|Property|Type|Size|Mandatory?|Description|
+|Property|Description|Type|Size|Mandatory?|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|GUID|36|Yes|Store identifier at Braspag|
-|`MerchantKey`|Text|40|Yes|Public key for dual authentication with Braspag|
-|`RequestId`|GUID|36|No|Store-defined request identifier|
-|`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|120|Yes|Shopper's full name|
-|`Customer.Identity`|Text|16|Yes|Shopper's ID|
-|`Customer.IdentityType`|Text|255|No|Shopper's ID Type  <br/> Possible values: CPF or CNPJ|
-|`Customer.Email`|Text|100|Yes|Shopper's Email|
-|`Customer.Birthdate`|Date|10|Yes|Shopper's date of birth  <br/> E.g.: 1991-01-10|
-|`Customer.Phone`|Text|15|Yes|Buyer Phone Number  <br/> E.g.: 5521976781114|
-|`Customer.Address.Street`|Text|54|Yes|Billing Address Street|
-|`Customer.Address.Number`|Text|5|Yes|Billing Address Number|
-|`Customer.Address.Complement`|Text|14|No|Billing Address Supplement|
-|`Customer.Address.ZipCode`|Text|9|Yes|Billing Address ZipCode|
-|`Customer.Address.City`|Text|50|Yes|Billing Address City|
-|`Customer.Address.State`|Text|2|Yes|Billing Address Status|
-|`Customer.Address.Country`|Text|2|Yes|Billing Address Country. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
-|`Customer.Address.District`|Text|45|Yes|Billing Address Neighborhood|
-|`Customer.DeliveryAddress.Street`|Text|54|No|Delivery Address Street|
-|`Customer.DeliveryAddress.Number`|Text|5|No|Delivery Address Number|
-|`Customer.DeliveryAddress.Complement`|Text|14|No|Delivery Address Supplement|
-|`Customer.DeliveryAddress.ZipCode`|Text|9|No|Delivery Address Zipcode|
-|`Customer.DeliveryAddress.City`|Text|50|No|Delivery Address City|
-|`Customer.DeliveryAddress.State`|Text|2|No|Delivery Address Status|
-|`Customer.DeliveryAddress.Country`|Text|2|No|Delivery address country. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
-|`Customer.DeliveryAddress.District`|Text|45|No|Delivery Address Neighborhood|
-|`Payment.Provider`|Text|15|Yes|Name of authorization provider|
-|`Payment.Type`|Text|100|Yes|Type of payment method. <br/> Note: Only _CreditCard_ type works with Fraud Analysis|
-|`Payment.Amount`|Number|15|Yes|Financial transaction amount in cents  <br/> Ex: 150000 = $ 1,500.00|
-|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines only. Amount of authorization amount to be allocated to service fee  <br/> Note: This amount is not added to authorization value|
-|`Payment.Currency`|Text|3|No|Currency in which payment will be made <br/> possible values: BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP|
-|`Payment.Country`|Text|3|No|Country in which payment will be made|
-|`Payment.Installments`|Number|2|Yes|Number of installments|
-|`Payment.Interest`|Text|10|No|Installment type  <br/> Possible values: ByMerchant/ByIssuer|
-|`Payment.Capture`|Boolean|---|No|Indicates whether authorization should be auto-capture  <br/> Possible values: true/false (default)  <br/> Note: You should check with the acquirer for the availability of this feature  <br/> . Note2: This field should be completed according to fraud analysis flow|
-|`Payment.Authenticate`|Boolean|---|No|Indicates whether the transaction should be authenticated  <br/> Possible values: true/false (default)  <br/> Note: You should check with the acquirer for the availability of this feature|
-|`Payment.Recurrent`|Boolean|---|No|Indicates whether the transaction is of a recurring type  <br/> Possible values: true/false (default)  <br/> Note: This field equal to _true_ will not create a recurrence, it will only allow to perform of a transaction without the need to send the CVV and serving as an indication to the acquirer that is charging a transaction of a recurrence  <br/> Note2: For Cielo transactions only  <br/> Note3: The `Payment.Authenticate` field must be equal to _false_ when this equals _true_|
-|`Payment.SoftDescriptor`|Text|13|No|Text that will be printed on the carrier  's invoice <br/> Note: The value of this field must be clear and easy to identify by the carrier the place of purchase as it is one of the Top Chargeback Offenders|
-|`Payment.DoSplit`|Boolean|---|No|Indicates whether the transaction will be split among multiple participants  <br/> Possible values: true/false (default)  <br/> To use the split payment functionality, you must contract the solution with Braspag|
-|`Payment.ExtraDataCollection.Name`|Text|50|No|Extra field identifier to be sent|
-|`Payment.ExtraDataCollection.Value`|Text|1024|No|Extra field value to be sent|
-|`Payment.Credentials.Code`|Text|100|Yes|Acquirer affiliation|
-|`Payment.Credentials.Key`|Text|100|Yes|Affiliate/Token Key Generated by acquirer|
-|`Payment.Credentials.Username`|Text|50|No|User generated by Acquirer Getnet <br/> Note: The field must be submitted if the transaction is directed to Getnet|
-|`Payment.Credentials.Password`|Text|50|No|Password generated with the Acquirer Getnet <br/> Note: The field must be submitted if the transaction is directed to Getnet|
-|`Payment.Credentials.Signature`|Text|3|No|Terminal ID with Acquirer Global Payments  <br/> Note: This field must be submitted if the transaction is directed to Global Payments|
-|`Payment.CreditCard.CardNumber`|Text|16|Yes|Credit Card Number|
-|`Payment.CreditCard.Holder`|Text|25|Yes|Holder name printed on credit card|
-|`Payment.CreditCard.ExpirationDate`|Text|7|Yes|Credit Card Expiration Date|
-|`Payment.CreditCard.SecurityCode`|Text|4|Yes|Security Code printed on the back of Credit Card|
-|`Payment.CreditCard.Brand`|Text|10|Yes|Credit Card brand|
-|`Payment.CreditCard.SaveCard`|Boolean|---|No|Indicates whether credit card data will be stored on Cartão Protegido|
-|`Payment.CreditCard.Alias`|Text|64|No|Credit Card Alias (alias) saved to Cartão Protegido|
-|`Payment.FraudAnalysis.Sequence`|Text|14|Yes|Fraud Analysis Flow Type  <br/> Possible Values: AnalyseFirst/AuthorizeFirst|
-|`Payment.FraudAnalysis.SequenceCriteria`|Text|9|Yes|Fraud Analysis Flow Criteria  <br/> Possible Values: OnSuccess/Always|
-|`Payment.FraudAnalysis.Provider`|Text|10|Yes|Anti-fraud provider  <br/> Possible values: Cybersource|
-|`Payment.FraudAnalysis.CaptureOnLowRisk`|Boolean|---|No|Indicates whether transaction after fraud analysis will be captured  <br/> Possible values: true/false (default)  <br/> Note: When sent equal to _true_ and return of analysis of fraud is low risk (Accept) the previously authorized transaction will be captured  <br/> Note2: When sent equal to _true_ and the return of fraud analysis is Review the transaction will be authorized. It will be captured after Braspag receives notification of the status change and it is low risk (Accept)  <br/> Note: To use this parameter, the sequence of the risk analysis flow must be _AuthorizeFirst_|
-|`Payment.FraudAnalysis.VoidOnHighRisk`|Boolean|---|No|Indicates if transaction after fraud analysis will be canceled  <br/> Possible values: true/false (default)  <br/> Note: When sent equal to _true_ and return of analysis If a fraud is high risk (Reject) the previously authorized transaction will be canceled  <br/> . Note2: When sent equal to _true_ and the return of the fraud analysis is Review the transaction will be authorized. It will be canceled after Braspag receives notification of the status change and it is high risk (Reject)  <br/> Note: To use this parameter, the sequence of the risk analysis flow must be _AuthorizeFirst_|
-|`Payment.FraudAnalysis.TotalOrderAmount`|Number|15|Yes|Total order value in cents  <br/> Ex: 123456 = R $ 1,234.56|
-|`Payment.FraudAnalysis.FingerPrintId`|Text|100|Yes|Identifier used to crosscheck information obtained from the shopper's device. This same identifier must be used to generate the value that will be assigned to the `session_id` field of the script that will be included in the checkout page. <br/> Note: This identifier can be any value or order number, but must be unique for 48 hours|
-|`Payment.FraudAnalysis.Browser.HostName`|Text|60|No|Host name entered by the shopper's browser and identified through the HTTP header|
-|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Boolean|---|Yes|Identifies if the shopper's browser accepts cookies  <br/> Possible values: true/false (default)|
-|`Payment.FraudAnalysis.Browser.Email`|Text|100|No|Email registered in the shopper's browser. May differ from store registration email (`Customer.Email`)|
-|`Payment.FraudAnalysis.Browser.Type`|Text|40|No|Name of browser used by shopper and identified via HTTP header  <br/> E.g.: Google Chrome, Mozilla Firefox, Safari, etc|
-|`Payment.FraudAnalysis.Browser.IpAddress`|Text|45|Yes|Shopper's IP Address. IPv4 or IPv6 format|
-|`Payment.FraudAnalysis.Cart.IsGift`|Boolean|---|No|Indicates if the order placed by the shopper is for gift|
-|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Boolean|---|No|Indicates whether the shopper's order can be returned to the store<br/> Possible values: true/false (default)|
-|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Text|9|No|Identifies that it will evaluate the billing and delivery addresses for different cities, states or countries  <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n} .GiftCategory]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.tems[n].giftcategory|
-|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Text|6|No|Importance Level of Shopper IP Address and Email Address in Fraud Analysis  <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n }.HostHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge)|
-|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Text|6|No|Importance level of meaningless buyer data checks in fraud analysis  <br/> [List of Values - Cart.Items {n}.NonSensicalHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge)|
-|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Text|6|No|Importance level of checks on buyer data with obscenity in fraud analysis  <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n} .ObscenitiesHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].obscenitieshedge)|
-|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Text|6|No|Importance level of checks on buyer phone numbers in fraud analysis  <br/> [List of Values - Payment.Fraudanalysis.Cart.Items {n} .PhoneHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].phonehedge)|
-|`Payment.FraudAnalysis.Cart.Items.Name`|Text|255|Yes|Product Name|
-|`Payment.FraudAnalysis.Cart.Items.Quantity`|Number|15|Yes|Product Quantity|
-|`Payment.FraudAnalysis.Cart.Items.Sku`|Text|255|Yes|Stock Keeping Unit (SKU) of the product|
-|`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Number|15|Yes|Unit price  <br/> E.g.: 10950 = $ 109.50|
-|`Payment.FraudAnalysis.Cart.Items.Risk`|Text|6|No|Product risk level associated with chargeback amount  <br/> [List of Values - Payment.Fraudanalysis.CartI.tems {n}.Risk]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].risk)|
-|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Text|6|No|Level of importance of the time of day in the fraud analysis that the buyer placed the order  <br/> [List of Payments - Payment.Fraudanalysis.Cart.Items {n }.TimeHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].timehedge)|
-|`Payment.FraudAnalysis.Cart.Items.Type`|Text|19|No|Product Category  <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n}.Type]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type)|
-|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Text|6|No|Importance level of buyer purchase frequency in fraud analysis within the previous 15 minutes  <br/> [List of Values - Payment.Fraudanalysis.Cart.Items { n}.VelocityHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].velocityhedge)|
-|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Número|2|Sim|ID of additional information to be sent  <br/> [Tabela de MDDs]({{site.baseurl_root}}manual/braspag-pagador#tabela-de-mdds)|
-|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Text|255|Yes|Value of additional information to be sent  <br/> [MDDs table]({{site.baseurl_root}}manual/braspag-pagador#tabela-de-mdds)|
-|`Payment.FraudAnalysis.Shipping.Addressee`|Text|120|No|Full name of person responsible for receiving product at shipping address|
-|`Payment.FraudAnalysis.Shipping.Method`|Texto|8|Não|Shipping Delivery Method  <br/> [Lista de Valores - Payment.Fraudanalysis.Shipping.Method]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.method)|
-|`Payment.FraudAnalysis.Shipping.Phone`|Text|15|No|Phone number of the receiving party at shipping address  <br/> E.g.: 552121114700|
-|`Payment.FraudAnalysis.Travel.JourneyType`|Texto|32|No|Trip Type <br/> [Value List - Payment.FraudAnalysis.Travel.JourneyType]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.journeytype)|
-|`Payment.FraudAnalysis.Travel.DepartureTime`|DateTime|---|No|Date and time of departure <br/> E.g.: 2018-03-31 19: 16: 38|
-|`Payment.FraudAnalysis.Travel.Passengers.Name`|Text|120|No|Passenger Full Name|
-|`Payment.FraudAnalysis.Travel.Passengers.Identity`|Text|32|No|Passenger Document Number|
-|`Payment.FraudAnalysis.Travel.Passengers.Status`|Text|15|No|Airline Rating  <br/> [List of Values - Payment.FraudAnalysis.Travel.Passengers {n}.Status]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status)|
-|`Payment.FraudAnalysis.Travel.Passengers.Rating`|Text|13|No|Passenger Type  <br/> [Value List - Payment.FraudAnalysis.Travel.Passengers {n}.PassengerType]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating)|
-|`Payment.FraudAnalysis.Travel.Passengers.Email`|Text|255|No|Passenger Email|
-|`Payment.FraudAnalysis.Travel.Passengers.Phone`|Text|15|No|Passenger Phone  <br/> E.g.: 552121114700|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Text|3|No|Departure airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Text|3|No|Airport code of arrival. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
+|`MerchantId`|Store identifier at Braspag|GUID|36|Yes|
+|`MerchantKey`|Public key for dual authentication with Braspag|Text|40|Yes|
+|`RequestId`|Store-defined request identifier|GUID|36|No|
+|`MerchantOrderId`|Order ID number.|Text|50|Yes|
+|`Customer.Name`|Shopper's full name|Text|120|Yes|
+|`Customer.Identity`|Shopper's ID|Text|16|Yes|
+|`Customer.IdentityType`|Shopper's ID Type  <br/> Possible values: CPF or CNPJ|Text|255|No|
+|`Customer.Email`|Shopper's Email|Text|100|Yes|
+|`Customer.Birthdate`|Shopper's date of birth  <br/> E.g.: 1991-01-10|Date|10|Yes|
+|`Customer.Phone`|Buyer Phone Number  <br/> E.g.: 5521976781114|Text|15|Yes|
+|`Customer.Address.Street`|Billing Address Street|Text|54|Yes|
+|`Customer.Address.Number`|Billing Address Number|Text|5|Yes|
+|`Customer.Address.Complement`|Billing Address Supplement|Text|14|No|
+|`Customer.Address.ZipCode`|Billing Address ZipCode|Text|9|Yes|
+|`Customer.Address.City`|Billing Address City|Text|50|Yes|
+|`Customer.Address.State`|Billing Address Status|Text|2|Yes|
+|`Customer.Address.Country`|Billing Address Country. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|Text|2|Yes|
+|`Customer.Address.District`|Billing Address Neighborhood|Text|45|Yes|
+|`Customer.DeliveryAddress.Street`|Delivery Address Street|Text|54|No|
+|`Customer.DeliveryAddress.Number`|Delivery Address Number|Text|5|No|
+|`Customer.DeliveryAddress.Complement`|Delivery Address Supplement|Text|14|No|
+|`Customer.DeliveryAddress.ZipCode`|Delivery Address Zipcode|Text|9|No|
+|`Customer.DeliveryAddress.City`|Delivery Address City|Text|50|No|
+|`Customer.DeliveryAddress.State`|Delivery Address Status|Text|2|No|
+|`Customer.DeliveryAddress.Country`|Delivery address country. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|Text|2|No|
+|`Customer.DeliveryAddress.District`|Delivery Address Neighborhood|Text|45|No|
+|`Payment.Provider`|Name of authorization provider|Text|15|Yes|
+|`Payment.Type`|Type of payment method. <br/> Note: Only _CreditCard_ type works with Fraud Analysis|Text|100|Yes|
+|`Payment.Amount`|Financial transaction amount in cents  <br/> Ex: 150000 = $ 1,500.00|Number|15|Yes|
+|`Payment.ServiceTaxAmount`|Applicable to airlines only. Amount of authorization amount to be allocated to service fee  <br/> Note: This amount is not added to authorization value|Number|15|No|
+|`Payment.Currency`|Currency in which payment will be made <br/> possible values: BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP|Text|3|No|
+|`Payment.Country`|Country in which payment will be made|Text|3|No|
+|`Payment.Installments`|Number of installments|Number|2|Yes|
+|`Payment.Interest`|Installment type  <br/> Possible values: ByMerchant/ByIssuer|Text|10|No|
+|`Payment.Capture`|Indicates whether authorization should be auto-capture  <br/> Possible values: true/false (default)  <br/> Note: You should check with the acquirer for the availability of this feature  <br/> . Note2: This field should be completed according to fraud analysis flow|Boolean|---|No|
+|`Payment.Authenticate`|Indicates whether the transaction should be authenticated  <br/> Possible values: true/false (default)  <br/> Note: You should check with the acquirer for the availability of this feature|Boolean|---|No|
+|`Payment.Recurrent`|Indicates whether the transaction is of a recurring type  <br/> Possible values: true/false (default)  <br/> Note: This field equal to _true_ will not create a recurrence, it will only allow to perform of a transaction without the need to send the CVV and serving as an indication to the acquirer that is charging a transaction of a recurrence  <br/> Note2: For Cielo transactions only  <br/> Note3: The `Payment.Authenticate` field must be equal to _false_ when this equals _true_|Boolean|---|No|
+|`Payment.SoftDescriptor`|Text that will be printed on the carrier  's invoice <br/> Note: The value of this field must be clear and easy to identify by the carrier the place of purchase as it is one of the Top Chargeback Offenders|Text|13|No|
+|`Payment.DoSplit`|Indicates whether the transaction will be split among multiple participants  <br/> Possible values: true/false (default)  <br/> To use the split payment functionality, you must contract the solution with Braspag|Boolean|---|No|
+|`Payment.ExtraDataCollection.Name`|Extra field identifier to be sent|Text|50|No|
+|`Payment.ExtraDataCollection.Value`|Extra field value to be sent|Text|1024|No|
+|`Payment.Credentials.Code`|Acquirer affiliation|Text|100|Yes|
+|`Payment.Credentials.Key`|Affiliate/Token Key Generated by acquirer|Text|100|Yes|
+|`Payment.Credentials.Username`|User generated by Acquirer Getnet <br/> Note: The field must be submitted if the transaction is directed to Getnet|Text|50|No|
+|`Payment.Credentials.Password`|Password generated with the Acquirer Getnet <br/> Note: The field must be submitted if the transaction is directed to Getnet|Text|50|No|
+|`Payment.Credentials.Signature`|Terminal ID with Acquirer Global Payments  <br/> Note: This field must be submitted if the transaction is directed to Global Payments|Text|3|No|
+|`Payment.CreditCard.CardNumber`|Credit Card Number|Text|16|Yes|
+|`Payment.CreditCard.Holder`|Holder name printed on credit card|Text|25|Yes|
+|`Payment.CreditCard.ExpirationDate`|Credit Card Expiration Date|Text|7|Yes|
+|`Payment.CreditCard.SecurityCode`|Security Code printed on the back of Credit Card|Text|4|Yes|
+|`Payment.CreditCard.Brand`|Credit Card brand|Text|10|Yes|
+|`Payment.CreditCard.SaveCard`|Indicates whether credit card data will be stored on Cartão Protegido|Boolean|---|No|
+|`Payment.CreditCard.Alias`|Credit Card Alias (alias) saved to Cartão Protegido|Text|64|No|
+|`Payment.FraudAnalysis.Sequence`|Fraud Analysis Flow Type  <br/> Possible Values: AnalyseFirst/AuthorizeFirst|Text|14|Yes|
+|`Payment.FraudAnalysis.SequenceCriteria`|Fraud Analysis Flow Criteria  <br/> Possible Values: OnSuccess/Always|Text|9|Yes|
+|`Payment.FraudAnalysis.Provider`|Anti-fraud provider  <br/> Possible values: Cybersource|Text|10|Yes|
+|`Payment.FraudAnalysis.CaptureOnLowRisk`|Indicates whether transaction after fraud analysis will be captured  <br/> Possible values: true/false (default)  <br/> Note: When sent equal to _true_ and return of analysis of fraud is low risk (Accept) the previously authorized transaction will be captured  <br/> Note2: When sent equal to _true_ and the return of fraud analysis is Review the transaction will be authorized. It will be captured after Braspag receives notification of the status change and it is low risk (Accept)  <br/> Note: To use this parameter, the sequence of the risk analysis flow must be _AuthorizeFirst_|Boolean|---|No|
+|`Payment.FraudAnalysis.VoidOnHighRisk`|Indicates if transaction after fraud analysis will be canceled  <br/> Possible values: true/false (default)  <br/> Note: When sent equal to _true_ and return of analysis If a fraud is high risk (Reject) the previously authorized transaction will be canceled  <br/> . Note2: When sent equal to _true_ and the return of the fraud analysis is Review the transaction will be authorized. It will be canceled after Braspag receives notification of the status change and it is high risk (Reject)  <br/> Note: To use this parameter, the sequence of the risk analysis flow must be _AuthorizeFirst_|Boolean|---|No|
+|`Payment.FraudAnalysis.TotalOrderAmount`|Total order value in cents  <br/> Ex: 123456 = R $ 1,234.56|Number|15|Yes|
+|`Payment.FraudAnalysis.FingerPrintId`|Identifier used to crosscheck information obtained from the shopper's device. This same identifier must be used to generate the value that will be assigned to the `session_id` field of the script that will be included in the checkout page. <br/> Note: This identifier can be any value or order number, but must be unique for 48 hours|Text|100|Yes|
+|`Payment.FraudAnalysis.Browser.HostName`|Host name entered by the shopper's browser and identified through the HTTP header|Text|60|No|
+|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Identifies if the shopper's browser accepts cookies  <br/> Possible values: true/false (default)|Boolean|---|Yes|
+|`Payment.FraudAnalysis.Browser.Email`|Email registered in the shopper's browser. May differ from store registration email (`Customer.Email`)|Text|100|No|
+|`Payment.FraudAnalysis.Browser.Type`|Name of browser used by shopper and identified via HTTP header  <br/> E.g.: Google Chrome, Mozilla Firefox, Safari, etc|Text|40|No|
+|`Payment.FraudAnalysis.Browser.IpAddress`|Shopper's IP Address. IPv4 or IPv6 format|Text|45|Yes|
+|`Payment.FraudAnalysis.Cart.IsGift`|Indicates if the order placed by the shopper is for gift|Boolean|---|No|
+|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Indicates whether the shopper's order can be returned to the store<br/> Possible values: true/false (default)|Boolean|---|No|
+|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Identifies that it will evaluate the billing and delivery addresses for different cities, states or countries  <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n} .GiftCategory]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.tems[n].giftcategory|Text|9|No|
+|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Importance Level of Shopper IP Address and Email Address in Fraud Analysis  <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n }.HostHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge)|Text|6|No|
+|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Importance level of meaningless buyer data checks in fraud analysis  <br/> [List of Values - Cart.Items {n}.NonSensicalHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge)|Text|6|No|
+|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Importance level of checks on buyer data with obscenity in fraud analysis  <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n} .ObscenitiesHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].obscenitieshedge)|Text|6|No|
+|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Importance level of checks on buyer phone numbers in fraud analysis  <br/> [List of Values - Payment.Fraudanalysis.Cart.Items {n} .PhoneHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].phonehedge)|Text|6|No|
+|`Payment.FraudAnalysis.Cart.Items.Name`|Product Name|Text|255|Yes|
+|`Payment.FraudAnalysis.Cart.Items.Quantity`|Product Quantity|Number|15|Yes|
+|`Payment.FraudAnalysis.Cart.Items.Sku`|Stock Keeping Unit (SKU) of the product|Text|255|Yes|
+|`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Unit price  <br/> E.g.: 10950 = $ 109.50|Number|15|Yes|
+|`Payment.FraudAnalysis.Cart.Items.Risk`|Product risk level associated with chargeback amount  <br/> [List of Values - Payment.Fraudanalysis.CartI.tems {n}.Risk]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].risk)|Text|6|No|
+|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Level of importance of the time of day in the fraud analysis that the buyer placed the order  <br/> [List of Payments - Payment.Fraudanalysis.Cart.Items {n }.TimeHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].timehedge)|Text|6|No|
+|`Payment.FraudAnalysis.Cart.Items.Type`|Product Category  <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n}.Type]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type)|Text|19|No|
+|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Importance level of buyer purchase frequency in fraud analysis within the previous 15 minutes  <br/> [List of Values - Payment.Fraudanalysis.Cart.Items { n}.VelocityHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].velocityhedge)|Text|6|No|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|ID of additional information to be sent  <br/> [Tabela de MDDs]({{site.baseurl_root}}manual/braspag-pagador#tabela-de-mdds)|Número|2|Sim|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Value of additional information to be sent  <br/> [MDDs table]({{site.baseurl_root}}manual/braspag-pagador#tabela-de-mdds)|Text|255|Yes|
+|`Payment.FraudAnalysis.Shipping.Addressee`|Full name of person responsible for receiving product at shipping address|Text|120|No|
+|`Payment.FraudAnalysis.Shipping.Method`|Shipping Delivery Method  <br/> [Lista de Valores - Payment.Fraudanalysis.Shipping.Method]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.method)|Texto|8|Não|
+|`Payment.FraudAnalysis.Shipping.Phone`|Phone number of the receiving party at shipping address  <br/> E.g.: 552121114700|Text|15|No|
+|`Payment.FraudAnalysis.Travel.JourneyType`|Trip Type <br/> [Value List - Payment.FraudAnalysis.Travel.JourneyType]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.journeytype)|Texto|32|No|
+|`Payment.FraudAnalysis.Travel.DepartureTime`|Date and time of departure <br/> E.g.: 2018-03-31 19: 16: 38|DateTime|---|No|
+|`Payment.FraudAnalysis.Travel.Passengers.Name`|Passenger Full Name|Text|120|No|
+|`Payment.FraudAnalysis.Travel.Passengers.Identity`|Passenger Document Number|Text|32|No|
+|`Payment.FraudAnalysis.Travel.Passengers.Status`|Airline Rating  <br/> [List of Values - Payment.FraudAnalysis.Travel.Passengers {n}.Status]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status)|Text|15|No|
+|`Payment.FraudAnalysis.Travel.Passengers.Rating`|Passenger Type  <br/> [Value List - Payment.FraudAnalysis.Travel.Passengers {n}.PassengerType]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating)|Text|13|No|
+|`Payment.FraudAnalysis.Travel.Passengers.Email`|Passenger Email|Text|255|No|
+|`Payment.FraudAnalysis.Travel.Passengers.Phone`|Passenger Phone  <br/> E.g.: 552121114700|Text|15|No|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Departure airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|Text|3|No|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Airport code of arrival. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|Text|3|No|
 
 > The fields of the `FraudAnalysis.Travel` node become mandatory if your business segment is an airline company.
 
-##### Response
+### Response
 
 ```json
 {
@@ -5738,7 +5946,7 @@ curl
 |`Payment.AcquirerTransactionId`|Text|Transaction identifier on acquirer|
 |`Payment.ProofOfSale`|Text|Voucher number at the acquirer (NSU - Unique Transaction Sequence Number)|
 |`Payment.AuthorizationCode`|Text|Authorization Code on Purchaser|
-|`Payment.ReceivedDate`|Datetime|Date the transaction was received at the Braspag Payer <br/> E.g.: 2018-01-16 16: 38: 19|
+|`Payment.ReceivedDate`|Datetime|Date the transaction was received by Braspag Pagador. <br/> E.g.: 2018-01-16 16: 38: 19|
 |`Payment.CapturedDate`|Datetime|Date the transaction was captured on the acquirer  <br/> E.g.: 2018-01-16 16: 38: 20|
 |`Payment.CapturedAmount`|Number|Amount captured from transaction  <br/> E.g.: 123456 = $ 1,234.56|
 |`Payment.ECI`|Text|Electronic Commerce Indicator. Code generated in a credit transaction with external authentication|
@@ -5759,7 +5967,7 @@ This page describes how it works and how to set up fingerprint on your checkout 
 
 You will need to add two tags, *script* inside the *head* tag for proper performance and *noscript* inside the *body* tag, so that device data collection can be performed even if browser Javascript is disabled.
 
-<aside class="warning">If the 2 code segments are not placed on the checkout page, the fraud analysis results may not be accurate.</aside>
+<aside class="warning">ATTENTION! If the 2 code segments are not placed on the checkout page, the fraud analysis results may not be accurate.</aside>
 
 **Domain**
 
@@ -6096,7 +6304,7 @@ curl
 |`Payment.Chargebacks [n].Chargeback Status`|[Value List - Payment.Chargebacks {n}.Status]({{site.baseurl_root}}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Text|32|Text|
 |`Payment.Chargebacks [n].RawData`|Data sent by the acquirer and may be the cardholder or other message|Text|512|Alphanumeric text|
 |`PaymentId`|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Date the transaction was received by Braspag|Text|19|YYYY-MM-DD HH:mm:SS|
+|`ReceivedDate`|Date the transaction was received by Braspag.|Text|19|YYYY-MM-DD HH:mm:SS|
 |`Payment.ReasonCode`|Acquisition Return Code|Text|32|Alphanumeric|
 |`Payment.ReasonMessage`|Acquisition Return Message|Text|512|Alphanumeric|
 |`Payment.CapturedAmount`|Valor capturado|Número|15|10000|
@@ -6315,7 +6523,7 @@ curl
 |`Payment.ExpirationDate`|Boleto Due Date|Text|YYYY-MM-DD|E.g.: "2018-06-21"|
 |`Payment.CreditDate`|Boleto's liquidation date|Text|YYYY-MM-DD|E.g.: "2018-06-19"|
 |`Payment.CapturedDate`|Bill Payment Date|Text|YYYY-MM-DD HH:mm:SS|E.g.: "2018-06-19 01:45:57"|
-|`Payment.ReceivedDate`|Date the transaction was received by Braspag|Text|YYYY-MM-DD HH:mm:SS|"2018-06-19 01:45:57"|
+|`Payment.ReceivedDate`|Date the transaction was received by Braspag.|Text|YYYY-MM-DD HH:mm:SS|"2018-06-19 01:45:57"|
 |`Payment.ReturnUrl`|URL of the store to which the customer redirects|Text|-|E.g.: "https://www.loja.com.br"|
 |`Payment.Currency`|Currency in which payment will be made|Text|3|BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP|
 |`Payment.Country`|Country in which payment will be made|Text|3|BRA|
