@@ -2199,9 +2199,9 @@
 
 <p>Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de <em>chargeback</em> (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.</p>
 
-<p>No ambiente mobile, indicamos a utilização da versão <a href="https://braspag.github.io//manualp/emv3ds">3DS 2.0</a> para autenticação.</p>
+<p>Indicamos a utilização da versão <a href="https://braspag.github.io//manualp/emv3ds">3DS 2.0</a> para autenticação.</p>
 
-<aside class="warning">Importante: O 3DS 1.0 não funciona em ambiente mobile.</aside>
+<aside class="warning">IMPORTANTE: O 3DS 1.0 deverá ser descontinuado a partir de Julho de 2021 e não recomendamos, portanto, sua integração.</aside>
 
 <p>Existem duas maneiras de autenticar transações na Braspag:</p>
 
@@ -8770,7 +8770,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <h2 id="implementando-a-análise-cybersource">Implementando a Análise Cybersource</h2>
 
-<p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós <code class="language-plaintext highlighter-rouge">FraudAnalysis</code>, <code class="language-plaintext highlighter-rouge">Cart</code>, <code class="language-plaintext highlighter-rouge">MerchantDefinedFields</code> e <code class="language-plaintext highlighter-rouge">Travel</code> (somente para venda de passagens aéreas).</p>
+<p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós <code class="language-plaintext highlighter-rouge">FraudAnalysis</code>, <code class="language-plaintext highlighter-rouge">Cart</code>, <code class="language-plaintext highlighter-rouge">MerchantDefinedFields</code> e <code class="language-plaintext highlighter-rouge">Travel</code> (este somente para venda de passagens aéreas).</p>
 
 <p>Durante implantação do Cybersource, informações adicionais podem ser armazenadas através de MDDs (Merchand Defined Data), que são campos numerados de 0 a N utilizados para armazenar informações exclusivas do merchant. Confira <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral">este artigo</a> com detalhes sobre o preenchimento desses campos.</p>
 
