@@ -4082,7 +4082,7 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 |`Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|Texto|100|Sim|
 |`Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
 |`Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
-|`Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP|Texto|--|Não|
+|`Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP.|Texto|--|Não|
 
 #### Resposta
 
@@ -4283,8 +4283,8 @@ Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado n
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
+|Propriedade|Descrição|Tipo|Tamanho|
+|-----------|---------|----|-------|
 |`NewCard.CardNumber`|Novo número do cartão do comprador.|Texto|16|
 |`NewCard.Holder`|Nome do portador impresso no novo cartão.|Texto|25|
 |`NewCard.ExpirationDate`|Data de validade impressa no novo cartão.|Texto|7|
@@ -4463,7 +4463,7 @@ Para salvar um cartão de crédito utilizado em uma transação, basta enviar o 
 |`CreditCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
-|`CreditCard.SaveCard`|"true" - para salvar o cartão. "false" - para não salvar o cartão.|Booleano|10|Não (default "false") |
+|`CreditCard.SaveCard`|"true" - para salvar o cartão. / "false" - para não salvar o cartão.|Booleano|10|Não (default "false") |
 |`CreditCard.Alias`|Alias (apelido) do cartão de crédito.|Texto|64|Não |
 
 ### Resposta
