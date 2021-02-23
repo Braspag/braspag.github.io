@@ -578,8 +578,8 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e emissor).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).|Texto|512|Transação Aprovada|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
 
 ### Criando uma Transação de Débito
 
@@ -841,8 +841,8 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e emissor).|Texto|32|Ex.: 57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).|Texto|512|Ex.: Transação Aprovada|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|Ex.: 57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Ex.: Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação.|Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
 ### Criando uma Transação de Débito sem Autenticação
@@ -1046,8 +1046,8 @@ Uma transação com cartão de débito se efetua de forma semelhante à com cart
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e emissor).|Texto|32|Ex.: 57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).|Texto|512|Ex.: Transação Aprovada|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|Ex.: 57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Ex.: Transação Aprovada|
 
 ### Capturando uma Transação
 
@@ -1402,8 +1402,8 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e emissor).|Texto|32|Ex.: 57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).|Texto|512|Ex.: Transação Aprovada|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|Ex.: 57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Ex.: Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação.|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
 
 #### Autenticação Externa
@@ -1910,8 +1910,8 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
 | `ReasonCode`            | Código de retorno da operação.                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReasonMessage`         | Mensagem de retorno da operação.                                            | Texto | 512     | Texto alfanumérico                   |
 | `Status`                | Status da transação.                                                        | Byte  | 2       | Ex.: 12                              |
-| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e emissor).   | Texto | 32      | 57                                   |
-| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor). | Texto | 512     | Transação Aprovada                   |
+| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).   | Texto | 32      | 57                                   |
+| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor). | Texto | 512     | Transação Aprovada                   |
 | `CurrencyExchangeData.Id` | Id da ação da troca de moeda. | Texto | 50     | 1b05456446c116374005602dcbaf8db8879515a0                   |
 | `CurrencyExchangeData.CurrencyExchanges.Currency` | Moeda local do comprador/cartão de crédito. | Numérico | 4     | EUR                   |
 | `CurrencyExchangeData.CurrencyExchanges.ConvertedAmount` | Valor convertido. | Numérico | 12     | 23                   |
@@ -2060,8 +2060,8 @@ Segue um exemplo de confirmação da transação com a moeda escolhida pelo comp
 | `ReasonCode`            | Código de retorno da operação.                                               | Texto | 32      | Texto alfanumérico                   |
 | `ReasonMessage`         | Mensagem de retorno da operação.                                             | Texto | 512     | Texto alfanumérico                   |
 | `Status`                | Status da transação.                                                         | Byte  | 2       | Ex.: 2                                  |
-| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e emissor).   | Texto | 32      | 57                                   |
-| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor). | Texto | 512     | Transação Aprovada                   |
+| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).   | Texto | 32      | 57                                   |
+| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor). | Texto | 512     | Transação Aprovada                   |
 
 ## QR Code
 
@@ -2930,8 +2930,8 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e emissor).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).|Texto|512|Transação Aprovada|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação. |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
 # Recorrência
@@ -4542,8 +4542,8 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e emissor).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).|Texto|512|Transação Aprovada|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
 |`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
 ## Criando uma Transação com Card Token
@@ -4800,8 +4800,8 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e emissor).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).|Texto|512|Transação Aprovada|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
 
 ## Criando uma Transação com Alias
 
@@ -5056,8 +5056,8 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e emissor).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e emissor).|Texto|512|Transação Aprovada|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
 
 # Pagamentos com Análise de Fraude
 
