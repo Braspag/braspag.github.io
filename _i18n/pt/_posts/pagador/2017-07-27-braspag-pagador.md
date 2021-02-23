@@ -1143,9 +1143,9 @@ Com o processo de autenticação, é possível fazer uma análise de risco consi
 
 Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
-No ambiente mobile, indicamos a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) para autenticação.
+Indicamos a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) para autenticação.
 
-<aside class="warning">Importante: O 3DS 1.0 não funciona em ambiente mobile.</aside>
+<aside class="warning">IMPORTANTE: O 3DS 1.0 deverá ser descontinuado a partir de Julho de 2021 e não recomendamos, portanto, sua integração.</aside>
 
 Existem duas maneiras de autenticar transações na Braspag:
 
@@ -5081,7 +5081,7 @@ Caso não seja especificado durante a autorização, a Braspag irá processar su
 
 ## Implementando a Análise Cybersource
 
-Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós `FraudAnalysis`, `Cart`, `MerchantDefinedFields` e `Travel` (somente para venda de passagens aéreas).
+Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós `FraudAnalysis`, `Cart`, `MerchantDefinedFields` e `Travel` (este somente para venda de passagens aéreas).
 
 Durante implantação do Cybersource, informações adicionais podem ser armazenadas através de MDDs (Merchand Defined Data), que são campos numerados de 0 a N utilizados para armazenar informações exclusivas do merchant. Confira [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral) com detalhes sobre o preenchimento desses campos.
 
