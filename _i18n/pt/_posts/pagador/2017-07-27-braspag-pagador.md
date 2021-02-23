@@ -3999,7 +3999,7 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 
 <br/>Para alterar os dados de pagamento, basta fazer um PUT conforme o exemplo.
 
-<aside class="warning">Atenção: Essa alteração afeta a todos os dados do nó "Payment". Então, para manter os dados anteriores, você deve informar os campos que não deverão sofrer alterações com os mesmos valores que já estavam salvos.</aside>
+<aside class="warning">ATENÇÃO! Essa alteração afeta a todos os dados do nó "Payment". Para manter os dados anteriores, você deve informar esses campos utilizando os valores já salvos a serem mantidos.</aside>
 
 #### Requisição
 
@@ -4086,11 +4086,6 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 
 #### Resposta
 
-```json
-
-
-```
-
 ```shell
 HTTP Status 200
 ```
@@ -4106,11 +4101,6 @@ Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 #### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
-
-```json
-
-
-```
 
 ```shell
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate"
@@ -4131,11 +4121,6 @@ Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 
 #### Resposta
 
-```json
-
-
-```
-
 ```shell
 HTTP Status 200
 ```
@@ -4151,11 +4136,6 @@ Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 #### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
-
-```json
-
-
-```
 
 ```shell
 --request PUT "https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate"
@@ -4175,11 +4155,6 @@ Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 |`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
 
 #### Resposta
-
-```json
-
-
-```
 
 ```shell
 HTTP Status 200
@@ -4295,7 +4270,7 @@ Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado n
 
 Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
 
-<aside class="warning">Atenção: Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
+<aside class="warning">Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
 Além da geração do card token, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
 
@@ -6082,7 +6057,7 @@ Ao integrar a tecnologia fingerprint em sua página de checkout, é necessária 
 * a tag *script* dentro da tag *head* para uma performance correta;
 * a tag *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
-<aside class="warning">Atenção: Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
+<aside class="warning">ATENÇÃO! Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
 
 #### Preenchendo a URL
 
