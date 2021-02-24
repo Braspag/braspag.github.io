@@ -760,14 +760,14 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Indicates whether the authorization should use automatic capture (“true”) or not (“false”). Please check with acquirer about the availability of this feature.</td>
+      <td>Indicates whether the authorization will use automatic capture (“true”) or not (“false”). Please check with acquirer about the availability of this feature.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Indicates whether the transaction should be authenticated (“true”) or not (“false”). Please check with acquirer about the availability of this feature.</td>
+      <td>Indicates whether the transaction will be authenticated (“true”) or not (“false”). Please check with acquirer about the availability of this feature.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No (default “false”)</td>
@@ -2150,7 +2150,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 
 <h4 id="standard-authentication">Standard Authentication</h4>
 
-<p>In a standard authentication, as the merchant does not have a direct connection to an authenticator (MPI), the payment method redirects the customer to the authentication environment. The <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> parameter should be sent as “true”, as shown below:</p>
+<p>In a standard authentication, as the merchant does not have a direct connection to an authenticator (MPI), the payment method redirects the customer to the authentication environment. The <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> parameter must be sent as “true”, as shown below:</p>
 
 <h5 id="request-4">Request</h5>
 
@@ -3336,7 +3336,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 
 <h4 id="step-2---payment-options">STEP 2 - Payment Options</h4>
 
-<p>In the second step, the store system should present the customer with the options of paying in reais or in their country’s currency (credit card currency), following the best practices requested by the brand. The text is presented in English and the website layout does not need to be changed, as long as the currency selection options follow the same font, color and dimension characteristics.</p>
+<p>In the second step, the store system will present the customer with the options of paying in reais or in their country’s currency (credit card currency), following the best practices requested by the brand. The text is presented in English and the website layout does not need to be changed, as long as the currency selection options follow the same font, color and dimension characteristics.</p>
 
 <p>In Global Payments, the payment options (in reais or in the card currency) are displayed on the screen, right beside a summary of the purchase.</p>
 
@@ -9101,21 +9101,21 @@ To change the payment details, simply make a PUT call as shown in the example.</
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier at Braspag</td>
+      <td>Store identifier at Braspag.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public key for dual authentication with Braspag</td>
+      <td>Public key for dual authentication with Braspag.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Store-defined request identifier</td>
+      <td>Store-defined request identifier.</td>
       <td>GUID</td>
       <td>36</td>
       <td>No</td>
@@ -9129,371 +9129,371 @@ To change the payment details, simply make a PUT call as shown in the example.</
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Shopper’s full name</td>
+      <td>Customer’s full name.</td>
       <td>Text</td>
       <td>120</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Shopper’s ID</td>
+      <td>Customer’s ID number.</td>
       <td>Text</td>
       <td>16</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Shopper’s ID Type  <br /> Possible values: CPF or CNPJ</td>
+      <td>Customer’s ID document type.<br />Possible values: CPF / CNPJ.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Shopper’s Email</td>
+      <td>Customer’s email address.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>Shopper’s date of birth  <br /> E.g.: 1991-01-10</td>
+      <td>Customer’s date of birth.<br />E.g.: 1991-01-10.</td>
       <td>Date</td>
       <td>10</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
-      <td>Buyer Phone Number  <br /> E.g.: 5521976781114</td>
+      <td>Customer’s phone number.<br />E.g.: 5521976781114.</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Billing Address Street</td>
+      <td>Billing address street.</td>
       <td>Text</td>
       <td>54</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Billing Address Number</td>
+      <td>Billing address number.</td>
       <td>Text</td>
       <td>5</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Billing Address Supplement</td>
+      <td>Billing address additional information.</td>
       <td>Text</td>
       <td>14</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Billing Address ZipCode</td>
+      <td>Billing address zip code.</td>
       <td>Text</td>
       <td>9</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Billing Address City</td>
+      <td>Billing address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Billing Address Status</td>
+      <td>Billing address status.</td>
       <td>Text</td>
       <td>2</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Billing Address Country. More information at <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td>Billing address country.<br />For details, refer to <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a>.</td>
       <td>Text</td>
       <td>2</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Billing Address Neighborhood</td>
+      <td>Billing address neighborhood.</td>
       <td>Text</td>
       <td>45</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
-      <td>Delivery Address Street</td>
+      <td>Delivery address street.</td>
       <td>Text</td>
       <td>54</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
-      <td>Delivery Address Number</td>
+      <td>Delivery address number.</td>
       <td>Text</td>
       <td>5</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
-      <td>Delivery Address Supplement</td>
+      <td>Delivery address additional information.</td>
       <td>Text</td>
       <td>14</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
-      <td>Delivery Address Zipcode</td>
+      <td>Delivery address zip code.</td>
       <td>Text</td>
       <td>9</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
-      <td>Delivery Address City</td>
+      <td>Delivery address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
-      <td>Delivery Address Status</td>
+      <td>Delivery address state.</td>
       <td>Text</td>
       <td>2</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
-      <td>Delivery address country. More information at <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td>Delivery address country.<br />For details, refer to <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a>.</td>
       <td>Text</td>
       <td>2</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
-      <td>Delivery Address Neighborhood</td>
+      <td>Delivery address neighborhood.</td>
       <td>Text</td>
       <td>45</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Name of authorization provider</td>
+      <td>Name of authorization provider.</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Type of payment method. <br /> Note: Only <em>CreditCard</em> type works with Fraud Analysis</td>
+      <td>Type of payment method.<br />Note: Only “CreditCard” type works with Fraud Analysis.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Financial transaction amount in cents  <br /> Ex: 150000 = $ 1,500.00</td>
+      <td>Financial transaction amount in cents.<br />E.g.: 150000 = $ 1,500.00.</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
-      <td>Applicable to airlines only. Amount of authorization amount to be allocated to service fee  <br /> Note: This amount is not added to authorization value</td>
+      <td>Applicable to airlines only. Amount of the authorization to be allocated to service fee.<br /> Note: This amount is not added to the authorization value.</td>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
-      <td>Currency in which payment will be made <br /> possible values: BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP</td>
+      <td>Currency in which the payment will be made.<br />Possible values: BRL / USD / MXN / COP / PLC / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP.</td>
       <td>Text</td>
       <td>3</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
-      <td>Country in which payment will be made</td>
+      <td>Country in which the payment will be made.</td>
       <td>Text</td>
       <td>3</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number of installments</td>
+      <td>Number of installments.</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
-      <td>Installment type  <br /> Possible values: ByMerchant/ByIssuer</td>
+      <td>Installment type.<br />Possible values: “ByMerchant” / “ByIssuer”.</td>
       <td>Text</td>
       <td>10</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Indicates whether authorization should be auto-capture  <br /> Possible values: true/false (default)  <br /> Note: You should check with the acquirer for the availability of this feature  <br /> . Note2: This field should be completed according to fraud analysis flow</td>
+      <td>Indicates whether the authorization will use automatic capture.<br />Possible values: true / false (default). <br /> Note: Check with the acquirer about the availability of this feature.<br />Note2: This field must be completed in accordance with the fraud analysis flow.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Indicates whether the transaction should be authenticated  <br /> Possible values: true/false (default)  <br /> Note: You should check with the acquirer for the availability of this feature</td>
+      <td>Indicates whether the transaction will be authenticated.<br />Possible values: “true” / “false” (default).<br />Note: Check with the acquirer about the availability of this feature.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>Indicates whether the transaction is of a recurring type  <br /> Possible values: true/false (default)  <br /> Note: This field equal to <em>true</em> will not create a recurrence, it will only allow to perform of a transaction without the need to send the CVV and serving as an indication to the acquirer that is charging a transaction of a recurrence  <br /> Note2: For Cielo transactions only  <br /> Note3: The <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> field must be equal to <em>false</em> when this equals <em>true</em></td>
+      <td>Indicates whether the transaction is of recurring type.<br />Possible values: “true” / “false” (default).<br />Note: “true” will not create a recurrence, but  only allow a transaction to continue without the need to send the CVV. It will also indicate to the acquirer that it’s the charging of a recurrence transaction.<br /> Note2: For <strong>Cielo</strong> transactions only.<br /> Note3: The <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> field must be “false” when this one is “true”.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Text that will be printed on the carrier  ‘s invoice <br /> Note: The value of this field must be clear and easy to identify by the carrier the place of purchase as it is one of the Top Chargeback Offenders</td>
+      <td>Text that will be printed on the bearer’s invoice. <br /> Note: The value of this field must be clear and easy for the bearer to identify the place of purchase as it is one of the main chargeback offenders.</td>
       <td>Text</td>
       <td>13</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
-      <td>Indicates whether the transaction will be split among multiple participants  <br /> Possible values: true/false (default)  <br /> To use the split payment functionality, you must contract the solution with Braspag</td>
+      <td>Indicates whether the transaction will be split among multiple participants.<br /> Possible values: “true” / “false” (default).<br /> To use the split payment functionality, you must contract the solution with Braspag.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
-      <td>Extra field identifier to be sent</td>
+      <td>Extra field identifier to be sent.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
-      <td>Extra field value to be sent</td>
+      <td>Extra field value to be sent.</td>
       <td>Text</td>
       <td>1024</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Code</code></td>
-      <td>Acquirer affiliation</td>
+      <td>Affiliation generated by the acquirer.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Key</code></td>
-      <td>Affiliate/Token Key Generated by acquirer</td>
+      <td>Affiliation key/token generated by the acquirer.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Username</code></td>
-      <td>User generated by Acquirer Getnet <br /> Note: The field must be submitted if the transaction is directed to Getnet</td>
+      <td>User generated by the <strong>Getnet</strong> acquirer.<br /> Note: The field must be submitted if the transaction is directed to Getnet.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Password</code></td>
-      <td>Password generated with the Acquirer Getnet <br /> Note: The field must be submitted if the transaction is directed to Getnet</td>
+      <td>Password generated with the Acquirer Getnet <br /> Note: The field must be submitted if the transaction is directed to Getnet.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Signature</code></td>
-      <td>Terminal ID with Acquirer Global Payments  <br /> Note: This field must be submitted if the transaction is directed to Global Payments</td>
+      <td>Terminal ID with the <strong>Global Payments</strong> acquirer.<br /> Note: This field must be submitted if the transaction is directed to Global Payments.</td>
       <td>Text</td>
       <td>3</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
-      <td>Credit Card Number</td>
+      <td>Credit card number.</td>
       <td>Text</td>
       <td>16</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
-      <td>Holder name printed on credit card</td>
+      <td>Holder name printed on credit card. Note: Size regulation may vary depending on the acquirer.</td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
-      <td>Credit Card Expiration Date</td>
+      <td>Credit card expiration date.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
-      <td>Security Code printed on the back of Credit Card</td>
+      <td>Security code printed on the back of the credit card.</td>
       <td>Text</td>
       <td>4</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
-      <td>Credit Card brand</td>
+      <td>Credit card brand.</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
-      <td>Indicates whether credit card data will be stored on Cartão Protegido</td>
+      <td>Indicates whether the credit card data will be stored in <em>Cartão Protegido</em>.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Alias</code></td>
-      <td>Credit Card Alias (alias) saved to Cartão Protegido</td>
+      <td>Credit card alias saved to <em>Cartão Protegido</em>.</td>
       <td>Text</td>
       <td>64</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Sequence</code></td>
-      <td>Fraud Analysis Flow Type  <br /> Possible Values: AnalyseFirst/AuthorizeFirst</td>
+      <td>Fraud analysis flow type.<br /> Possible values: “AnalyseFirst” / “AuthorizeFirst”.</td>
       <td>Text</td>
       <td>14</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
-      <td>Fraud Analysis Flow Criteria  <br /> Possible Values: OnSuccess/Always</td>
+      <td>Fraud analysis flow criteria.<br /> Possible values: “OnSuccess” / “Always”.</td>
       <td>Text</td>
       <td>9</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
-      <td>Anti-fraud provider  <br /> Possible values: Cybersource</td>
+      <td>Antifraud provider.<br /> Possible value: “Cybersource”</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
-      <td>Indicates whether transaction after fraud analysis will be captured  <br /> Possible values: true/false (default)  <br /> Note: When sent equal to <em>true</em> and return of analysis of fraud is low risk (Accept) the previously authorized transaction will be captured  <br /> Note2: When sent equal to <em>true</em> and the return of fraud analysis is Review the transaction will be authorized. It will be captured after Braspag receives notification of the status change and it is low risk (Accept)  <br /> Note: To use this parameter, the sequence of the risk analysis flow must be <em>AuthorizeFirst</em></td>
+      <td>Indicates whether the transaction after fraud analysis will be captured.<br /> Possible values: “true” / “false” (default)<br /> Note: When “true” and return of fraud analysis returns low risk (“<em>Accept</em>”) the previously authorized transaction will be captured.<br />Note2: When sent equal to <em>true</em> and the return of fraud analysis is Review the transaction will be authorized. It will be captured after Braspag receives notification of the status change and it is low risk (Accept)  <br /> Note: To use this parameter, the sequence of the risk analysis flow must be <em>AuthorizeFirst</em></td>
       <td>Boolean</td>
       <td>—</td>
       <td>No</td>
@@ -10339,12 +10339,12 @@ To change the payment details, simply make a PUT call as shown in the example.</
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
       <td style="text-align: left">Boolean</td>
-      <td style="text-align: left">Indicates whether authorization should be with automatic capture</td>
+      <td style="text-align: left">Indicates whether authorization will be have automatic capture.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td style="text-align: left">Boolean</td>
-      <td style="text-align: left">Indicates whether the transaction should be authenticated</td>
+      <td style="text-align: left">Indicates whether the transaction will be authenticated.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
@@ -10859,7 +10859,7 @@ There are two variables to fill in the Javascript URL. The <code class="language
 
 <p><strong>Setting Up Your Web Server</strong></p>
 
-<p>All objects refer to h.online-metrix.net, which is the fingerprint server’s DNS. When you are ready for production, you should change the server name to a local URL, and set up on your web server a URL redirection to h.online-metrix.net.</p>
+<p>All objects refer to h.online-metrix.net, which is the fingerprint server’s DNS. When you are ready for production, you must change the server name to a local URL, and set up on your web server a URL redirection to h.online-metrix.net.</p>
 
 <aside class="warning">If you do not complete this section, you will not receive correct results, and the fingerprint provider domain (URL) will be visible, and your consumer is more likely to block it.</aside>
 
@@ -11446,7 +11446,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Boolean which indicates whether the authorization should be with automatic capture (true) or not (false). You should check with the acquirer for the availability of this feature</td>
+      <td>Boolean which indicates whether the authorization will have automatic capture (true) or not (false). Check with the acquirer for the availability of this feature</td>
       <td>Boolean</td>
       <td>— (Default false)</td>
       <td>Boolean</td>
@@ -11464,7 +11464,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Boolean indicating whether the transaction should be authenticated (true) or not (false). You should check with the acquirer for the availability of this feature</td>
+      <td>Boolean indicating whether the transaction will be authenticated (true) or not (false). Check with the acquirer for the availability of this feature</td>
       <td>Boolean</td>
       <td>— (Default false)</td>
       <td>Boolean</td>
@@ -13290,7 +13290,7 @@ If you do not have the data to send, please kindly do not send the corresponding
     </tr>
     <tr>
       <td>22</td>
-      <td>Code of store where product will be taken  <br /> This field should be sent when field 9 is sent equal to YES</td>
+      <td>Code of store where product will be taken  <br /> This field must be sent when field 9 is sent as “YES”.</td>
       <td>string</td>
       <td>3</td>
       <td>Retail or Cosmetics</td>
@@ -13409,7 +13409,7 @@ If you do not have the data to send, please kindly do not send the corresponding
     </tr>
     <tr>
       <td>39</td>
-      <td>Call Center Username  <br /> This field should be sent when field 4 is sent equal to Call Center</td>
+      <td>Call Center Username  <br /> This field must be sent when field 4 is sent equal to Call Center</td>
       <td>string</td>
       <td>1</td>
       <td>All</td>
