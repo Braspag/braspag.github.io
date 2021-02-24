@@ -5427,7 +5427,7 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Departure airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm).|Text|3|No|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Arrival airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm).|Text|3|No|
 
-<aside class="warning">The fields of the "FraudAnalysis.Travel" node become mandatory if your business segment is the airline segment.
+<aside class="warning">The fields of the "FraudAnalysis.Travel" node become mandatory if your business segment is the airline segment.</aside>
 
 ### Response
 
