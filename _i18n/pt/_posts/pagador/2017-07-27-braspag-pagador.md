@@ -1143,7 +1143,7 @@ Com o processo de autenticação, é possível fazer uma análise de risco consi
 
 Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
-Indicamos a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) para autenticação.
+Indicamos a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) para autenticação, principalmente para o ambiente mobile.
 
 <aside class="warning">IMPORTANTE: O 3DS 1.0 deverá ser descontinuado a partir de Julho de 2021 e não recomendamos, portanto, sua integração.</aside>
 
@@ -5473,7 +5473,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`Payment.CreditCard.Alias`|Alias (apelido) do cartão de crédito salvo no *Cartão Protegido*.|Texto|64|Não|
 |`Payment.FraudAnalysis.Sequence`|Tipo de fluxo da análise de fraude. <br/> Possíveis valores: "AnalyseFirst" / "AuthorizeFirst".|Texto|14|Sim|
 |`Payment.FraudAnalysis.SequenceCriteria`|Critério do fluxo da análise de fraude. <br/> Possíveis valores: "OnSuccess" / "Always".|Texto|9|Sim|
-|`Payment.FraudAnalysis.Provider`|Provedor de *AntiFraude*. <br/> Possíveis valores: "Cybersource".|Texto|10|Sim|
+|`Payment.FraudAnalysis.Provider`|Provedor de *AntiFraude*. <br/> Possível valor: "Cybersource".|Texto|10|Sim|
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Indica se a transação após a análise de fraude será capturada. <br/> Possíveis valores: "true" / "false" (default) <br/> Obs1.: Quando enviado igual a "true" e o retorno da análise de fraude for de baixo risco ("*Accept*"), a transação anteriormente autorizada será capturada. <br/> Obs2.: Quando enviado igual a "true" e o retorno da análise de fraude for revisão ("*Review*"), a transação ficará autorizada, sendo capturada após a Braspag receber notificação de alteração do status para baixo risco ("*Accept*"). <br/> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (`FraudAnalysis.Sequence`) deve ser obrigatoriamente "AuthorizeFirst".|Booleano|---|Não|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Indica se a transação após a análise de fraude será cancelada. <br/> Possíveis valores: "true" / "false" (default). <br/> Obs1.: Quando enviado igual a "true" e o retorno da análise de fraude for de alto risco ("*Reject*"), a transação anteriormente autorizada será cancelada. <br/> Obs2.: Quando enviado igual a "true" e o retorno da análise de fraude for revisão ("*Review*"), a transação ficará autorizada, sendo cancelada após a Braspag receber notificação de alteração do status para alto risco ("*Reject*"). <br/> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (`FraudAnalysis.Sequence`) deve ser obrigatoriamente "AuthorizeFirst".|Booleano|---|Não|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Valor total do pedido, em centavos. <br/> Ex.: 123456 = R$ 1.234,56.|Número|15|Sim|
