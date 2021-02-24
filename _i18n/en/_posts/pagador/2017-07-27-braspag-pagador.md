@@ -326,8 +326,8 @@ Here are request and answer examples of how to create a credit transaction:
 |`Payment.Country`|Country in which the payment will be made.|Text|3|No|
 |`Payment.Installments`|Number of installments.|Number|2|Yes|
 |`Payment.Interest`|Installment type - Store ("ByMerchant") or Issuer ("ByIssuer").|Text|10|No|
-|`Payment.Capture`|Indicates whether the authorization should use automatic capture ("true") or not ("false"). Please check with acquirer about the availability of this feature.|Boolean|---|No (default "false")|
-|`Payment.Authenticate`|Indicates whether the transaction should be authenticated ("true") or not ("false"). Please check with acquirer about the availability of this feature.|Boolean|---|No (default "false")|
+|`Payment.Capture`|Indicates whether the authorization will use automatic capture ("true") or not ("false"). Please check with acquirer about the availability of this feature.|Boolean|---|No (default "false")|
+|`Payment.Authenticate`|Indicates whether the transaction will be authenticated ("true") or not ("false"). Please check with acquirer about the availability of this feature.|Boolean|---|No (default "false")|
 |`Payment.Recurrent`|Indicates whether the transaction is of recurring type ("true") or not ("false"). The "true" value will not set a new recurrence, it will only allow the execution of a transaction without the need to send CVV. `Authenticate` must be "false" when `Recurrent` is "true". **For Cielo transactions only.** |Boolean|---|No (default "false")|
 |`Payment.SoftDescriptor`|Text to be printed on bearer's invoice.|Text|13|No|
 |`Payment.DoSplit`|Indicates whether the transaction will be split between multiple accounts ("true") or not ("false").|Boolean|---|No (default "false")|
@@ -1092,7 +1092,7 @@ There are two ways of authenticating transactions with Braspag:
 
 #### Standard Authentication
 
-In a standard authentication, as the merchant does not have a direct connection to an authenticator (MPI), the payment method redirects the customer to the authentication environment. The `Payment.Authenticate` parameter should be sent as "true", as shown below:
+In a standard authentication, as the merchant does not have a direct connection to an authenticator (MPI), the payment method redirects the customer to the authentication environment. The `Payment.Authenticate` parameter must be sent as "true", as shown below:
 
 ##### Request
 
@@ -1861,7 +1861,7 @@ There is no difference between a standard authorization request and a DCC author
 
 #### STEP 2 - Payment Options
 
-In the second step, the store system should present the customer with the options of paying in reais or in their country's currency (credit card currency), following the best practices requested by the brand. The text is presented in English and the website layout does not need to be changed, as long as the currency selection options follow the same font, color and dimension characteristics.
+In the second step, the store system will present the customer with the options of paying in reais or in their country's currency (credit card currency), following the best practices requested by the brand. The text is presented in English and the website layout does not need to be changed, as long as the currency selection options follow the same font, color and dimension characteristics.
 
 In Global Payments, the payment options (in reais or in the card currency) are displayed on the screen, right beside a summary of the purchase.
 
@@ -5331,63 +5331,63 @@ During the Cybersource deployment, additional information can be stored through 
 
 |Property|Description|Type|Size|Mandatory?|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Store identifier at Braspag|GUID|36|Yes|
-|`MerchantKey`|Public key for dual authentication with Braspag|Text|40|Yes|
-|`RequestId`|Store-defined request identifier|GUID|36|No|
+|`MerchantId`|Store identifier at Braspag.|GUID|36|Yes|
+|`MerchantKey`|Public key for dual authentication with Braspag.|Text|40|Yes|
+|`RequestId`|Store-defined request identifier.|GUID|36|No|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
-|`Customer.Name`|Shopper's full name|Text|120|Yes|
-|`Customer.Identity`|Shopper's ID|Text|16|Yes|
-|`Customer.IdentityType`|Shopper's ID Type  <br/> Possible values: CPF or CNPJ|Text|255|No|
-|`Customer.Email`|Shopper's Email|Text|100|Yes|
-|`Customer.Birthdate`|Shopper's date of birth  <br/> E.g.: 1991-01-10|Date|10|Yes|
-|`Customer.Phone`|Buyer Phone Number  <br/> E.g.: 5521976781114|Text|15|Yes|
-|`Customer.Address.Street`|Billing Address Street|Text|54|Yes|
-|`Customer.Address.Number`|Billing Address Number|Text|5|Yes|
-|`Customer.Address.Complement`|Billing Address Supplement|Text|14|No|
-|`Customer.Address.ZipCode`|Billing Address ZipCode|Text|9|Yes|
-|`Customer.Address.City`|Billing Address City|Text|50|Yes|
-|`Customer.Address.State`|Billing Address Status|Text|2|Yes|
-|`Customer.Address.Country`|Billing Address Country. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|Text|2|Yes|
-|`Customer.Address.District`|Billing Address Neighborhood|Text|45|Yes|
-|`Customer.DeliveryAddress.Street`|Delivery Address Street|Text|54|No|
-|`Customer.DeliveryAddress.Number`|Delivery Address Number|Text|5|No|
-|`Customer.DeliveryAddress.Complement`|Delivery Address Supplement|Text|14|No|
-|`Customer.DeliveryAddress.ZipCode`|Delivery Address Zipcode|Text|9|No|
-|`Customer.DeliveryAddress.City`|Delivery Address City|Text|50|No|
-|`Customer.DeliveryAddress.State`|Delivery Address Status|Text|2|No|
-|`Customer.DeliveryAddress.Country`|Delivery address country. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|Text|2|No|
-|`Customer.DeliveryAddress.District`|Delivery Address Neighborhood|Text|45|No|
-|`Payment.Provider`|Name of authorization provider|Text|15|Yes|
-|`Payment.Type`|Type of payment method. <br/> Note: Only _CreditCard_ type works with Fraud Analysis|Text|100|Yes|
-|`Payment.Amount`|Financial transaction amount in cents  <br/> Ex: 150000 = $ 1,500.00|Number|15|Yes|
-|`Payment.ServiceTaxAmount`|Applicable to airlines only. Amount of authorization amount to be allocated to service fee  <br/> Note: This amount is not added to authorization value|Number|15|No|
-|`Payment.Currency`|Currency in which payment will be made <br/> possible values: BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP|Text|3|No|
-|`Payment.Country`|Country in which payment will be made|Text|3|No|
-|`Payment.Installments`|Number of installments|Number|2|Yes|
-|`Payment.Interest`|Installment type  <br/> Possible values: ByMerchant/ByIssuer|Text|10|No|
-|`Payment.Capture`|Indicates whether authorization should be auto-capture  <br/> Possible values: true/false (default)  <br/> Note: You should check with the acquirer for the availability of this feature  <br/> . Note2: This field should be completed according to fraud analysis flow|Boolean|---|No|
-|`Payment.Authenticate`|Indicates whether the transaction should be authenticated  <br/> Possible values: true/false (default)  <br/> Note: You should check with the acquirer for the availability of this feature|Boolean|---|No|
-|`Payment.Recurrent`|Indicates whether the transaction is of a recurring type  <br/> Possible values: true/false (default)  <br/> Note: This field equal to _true_ will not create a recurrence, it will only allow to perform of a transaction without the need to send the CVV and serving as an indication to the acquirer that is charging a transaction of a recurrence  <br/> Note2: For Cielo transactions only  <br/> Note3: The `Payment.Authenticate` field must be equal to _false_ when this equals _true_|Boolean|---|No|
-|`Payment.SoftDescriptor`|Text that will be printed on the carrier  's invoice <br/> Note: The value of this field must be clear and easy to identify by the carrier the place of purchase as it is one of the Top Chargeback Offenders|Text|13|No|
-|`Payment.DoSplit`|Indicates whether the transaction will be split among multiple participants  <br/> Possible values: true/false (default)  <br/> To use the split payment functionality, you must contract the solution with Braspag|Boolean|---|No|
-|`Payment.ExtraDataCollection.Name`|Extra field identifier to be sent|Text|50|No|
-|`Payment.ExtraDataCollection.Value`|Extra field value to be sent|Text|1024|No|
-|`Payment.Credentials.Code`|Acquirer affiliation|Text|100|Yes|
-|`Payment.Credentials.Key`|Affiliate/Token Key Generated by acquirer|Text|100|Yes|
-|`Payment.Credentials.Username`|User generated by Acquirer Getnet <br/> Note: The field must be submitted if the transaction is directed to Getnet|Text|50|No|
-|`Payment.Credentials.Password`|Password generated with the Acquirer Getnet <br/> Note: The field must be submitted if the transaction is directed to Getnet|Text|50|No|
-|`Payment.Credentials.Signature`|Terminal ID with Acquirer Global Payments  <br/> Note: This field must be submitted if the transaction is directed to Global Payments|Text|3|No|
-|`Payment.CreditCard.CardNumber`|Credit Card Number|Text|16|Yes|
-|`Payment.CreditCard.Holder`|Holder name printed on credit card|Text|25|Yes|
-|`Payment.CreditCard.ExpirationDate`|Credit Card Expiration Date|Text|7|Yes|
-|`Payment.CreditCard.SecurityCode`|Security Code printed on the back of Credit Card|Text|4|Yes|
-|`Payment.CreditCard.Brand`|Credit Card brand|Text|10|Yes|
-|`Payment.CreditCard.SaveCard`|Indicates whether credit card data will be stored on Cartão Protegido|Boolean|---|No|
-|`Payment.CreditCard.Alias`|Credit Card Alias (alias) saved to Cartão Protegido|Text|64|No|
-|`Payment.FraudAnalysis.Sequence`|Fraud Analysis Flow Type  <br/> Possible Values: AnalyseFirst/AuthorizeFirst|Text|14|Yes|
-|`Payment.FraudAnalysis.SequenceCriteria`|Fraud Analysis Flow Criteria  <br/> Possible Values: OnSuccess/Always|Text|9|Yes|
-|`Payment.FraudAnalysis.Provider`|Anti-fraud provider  <br/> Possible values: Cybersource|Text|10|Yes|
-|`Payment.FraudAnalysis.CaptureOnLowRisk`|Indicates whether transaction after fraud analysis will be captured  <br/> Possible values: true/false (default)  <br/> Note: When sent equal to _true_ and return of analysis of fraud is low risk (Accept) the previously authorized transaction will be captured  <br/> Note2: When sent equal to _true_ and the return of fraud analysis is Review the transaction will be authorized. It will be captured after Braspag receives notification of the status change and it is low risk (Accept)  <br/> Note: To use this parameter, the sequence of the risk analysis flow must be _AuthorizeFirst_|Boolean|---|No|
+|`Customer.Name`|Customer's full name.|Text|120|Yes|
+|`Customer.Identity`|Customer's ID number.|Text|16|Yes|
+|`Customer.IdentityType`|Customer's ID document type.<br/>Possible values: CPF / CNPJ.|Text|255|No|
+|`Customer.Email`|Customer's email address.|Text|100|Yes|
+|`Customer.Birthdate`|Customer's date of birth.<br/>E.g.: 1991-01-10.|Date|10|Yes|
+|`Customer.Phone`|Customer's phone number.<br/>E.g.: 5521976781114.|Text|15|Yes|
+|`Customer.Address.Street`|Billing address street.|Text|54|Yes|
+|`Customer.Address.Number`|Billing address number.|Text|5|Yes|
+|`Customer.Address.Complement`|Billing address additional information.|Text|14|No|
+|`Customer.Address.ZipCode`|Billing address zip code.|Text|9|Yes|
+|`Customer.Address.City`|Billing address city.|Text|50|Yes|
+|`Customer.Address.State`|Billing address status.|Text|2|Yes|
+|`Customer.Address.Country`|Billing address country.<br/>For details, refer to [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Text|2|Yes|
+|`Customer.Address.District`|Billing address neighborhood.|Text|45|Yes|
+|`Customer.DeliveryAddress.Street`|Delivery address street.|Text|54|No|
+|`Customer.DeliveryAddress.Number`|Delivery address number.|Text|5|No|
+|`Customer.DeliveryAddress.Complement`|Delivery address additional information.|Text|14|No|
+|`Customer.DeliveryAddress.ZipCode`|Delivery address zip code.|Text|9|No|
+|`Customer.DeliveryAddress.City`|Delivery address city.|Text|50|No|
+|`Customer.DeliveryAddress.State`|Delivery address state.|Text|2|No|
+|`Customer.DeliveryAddress.Country`|Delivery address country.<br/>For details, refer to [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Text|2|No|
+|`Customer.DeliveryAddress.District`|Delivery address neighborhood.|Text|45|No|
+|`Payment.Provider`|Name of authorization provider.|Text|15|Yes|
+|`Payment.Type`|Type of payment method.<br/>Note: Only "CreditCard" type works with Fraud Analysis.|Text|100|Yes|
+|`Payment.Amount`|Financial transaction amount in cents.<br/>E.g.: 150000 = $ 1,500.00.|Number|15|Yes|
+|`Payment.ServiceTaxAmount`|Applicable to airlines only. Amount of the authorization to be allocated to service fee.<br/> Note: This amount is not added to the authorization value.|Number|15|No|
+|`Payment.Currency`|Currency in which the payment will be made.<br/>Possible values: BRL / USD / MXN / COP / PLC / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP.|Text|3|No|
+|`Payment.Country`|Country in which the payment will be made.|Text|3|No|
+|`Payment.Installments`|Number of installments.|Number|2|Yes|
+|`Payment.Interest`|Installment type.<br/>Possible values: "ByMerchant" / "ByIssuer".|Text|10|No|
+|`Payment.Capture`|Indicates whether the authorization will use automatic capture.<br/>Possible values: true / false (default). <br/> Note: Check with the acquirer about the availability of this feature.<br/>Note2: This field must be completed in accordance with the fraud analysis flow.|Boolean|---|No|
+|`Payment.Authenticate`|Indicates whether the transaction will be authenticated.<br/>Possible values: "true" / "false" (default).<br/>Note: Check with the acquirer about the availability of this feature.|Boolean|---|No|
+|`Payment.Recurrent`|Indicates whether the transaction is of recurring type.<br/>Possible values: "true" / "false" (default).<br/>Note: "true" will not create a recurrence, but  only allow a transaction to continue without the need to send the CVV. It will also indicate to the acquirer that it's the charging of a recurrence transaction.<br/> Note2: For **Cielo** transactions only.<br/> Note3: The `Payment.Authenticate` field must be "false" when this one is "true".|Boolean|---|No|
+|`Payment.SoftDescriptor`|Text that will be printed on the bearer's invoice. <br/> Note: The value of this field must be clear and easy for the bearer to identify the place of purchase as it is one of the main chargeback offenders.|Text|13|No|
+|`Payment.DoSplit`|Indicates whether the transaction will be split among multiple participants.<br/> Possible values: "true" / "false" (default).<br/> To use the split payment functionality, you must contract the solution with Braspag.|Boolean|---|No|
+|`Payment.ExtraDataCollection.Name`|Extra field identifier to be sent.|Text|50|No|
+|`Payment.ExtraDataCollection.Value`|Extra field value to be sent.|Text|1024|No|
+|`Payment.Credentials.Code`|Affiliation generated by the acquirer.|Text|100|Yes|
+|`Payment.Credentials.Key`|Affiliation key/token generated by the acquirer.|Text|100|Yes|
+|`Payment.Credentials.Username`|User generated by the **Getnet** acquirer.<br/> Note: The field must be submitted if the transaction is directed to Getnet.|Text|50|No|
+|`Payment.Credentials.Password`|Password generated with the Acquirer Getnet <br/> Note: The field must be submitted if the transaction is directed to Getnet.|Text|50|No|
+|`Payment.Credentials.Signature`|Terminal ID with the **Global Payments** acquirer.<br/> Note: This field must be submitted if the transaction is directed to Global Payments.|Text|3|No|
+|`Payment.CreditCard.CardNumber`|Credit card number.|Text|16|Yes|
+|`Payment.CreditCard.Holder`|Holder name printed on credit card. Note: Size regulation may vary depending on the acquirer.|Text|25|Yes|
+|`Payment.CreditCard.ExpirationDate`|Credit card expiration date.|Text|7|Yes|
+|`Payment.CreditCard.SecurityCode`|Security code printed on the back of the credit card.|Text|4|Yes|
+|`Payment.CreditCard.Brand`|Credit card brand.|Text|10|Yes|
+|`Payment.CreditCard.SaveCard`|Indicates whether the credit card data will be stored in *Cartão Protegido*.|Boolean|---|No|
+|`Payment.CreditCard.Alias`|Credit card alias saved to *Cartão Protegido*.|Text|64|No|
+|`Payment.FraudAnalysis.Sequence`|Fraud analysis flow type.<br/> Possible values: "AnalyseFirst" / "AuthorizeFirst".|Text|14|Yes|
+|`Payment.FraudAnalysis.SequenceCriteria`|Fraud analysis flow criteria.<br/> Possible values: "OnSuccess" / "Always".|Text|9|Yes|
+|`Payment.FraudAnalysis.Provider`|Antifraud provider.<br/> Possible value: "Cybersource"|Text|10|Yes|
+|`Payment.FraudAnalysis.CaptureOnLowRisk`|Indicates whether the transaction after fraud analysis will be captured.<br/> Possible values: "true" / "false" (default)<br/> Note: When "true" and return of fraud analysis returns low risk ("*Accept*") the previously authorized transaction will be captured.<br/>Note2: When sent equal to _true_ and the return of fraud analysis is Review the transaction will be authorized. It will be captured after Braspag receives notification of the status change and it is low risk (Accept)  <br/> Note: To use this parameter, the sequence of the risk analysis flow must be _AuthorizeFirst_|Boolean|---|No|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Indicates if transaction after fraud analysis will be canceled  <br/> Possible values: true/false (default)  <br/> Note: When sent equal to _true_ and return of analysis If a fraud is high risk (Reject) the previously authorized transaction will be canceled  <br/> . Note2: When sent equal to _true_ and the return of the fraud analysis is Review the transaction will be authorized. It will be canceled after Braspag receives notification of the status change and it is high risk (Reject)  <br/> Note: To use this parameter, the sequence of the risk analysis flow must be _AuthorizeFirst_|Boolean|---|No|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Total order value in cents  <br/> Ex: 123456 = R $ 1,234.56|Number|15|Yes|
 |`Payment.FraudAnalysis.FingerPrintId`|Identifier used to crosscheck information obtained from the shopper's device. This same identifier must be used to generate the value that will be assigned to the `session_id` field of the script that will be included in the checkout page. <br/> Note: This identifier can be any value or order number, but must be unique for 48 hours|Text|100|Yes|
@@ -5865,8 +5865,8 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.Country`|Text|Country in which payment will be made|
 |`Payment.Installments`|Number |Number of installments|
 |`Payment.Interest`|Text|Installment Type|
-|`Payment.Capture`|Boolean|Indicates whether authorization should be with automatic capture|
-|`Payment.Authenticate`|Boolean|Indicates whether the transaction should be authenticated|
+|`Payment.Capture`|Boolean|Indicates whether authorization will be have automatic capture.|
+|`Payment.Authenticate`|Boolean|Indicates whether the transaction will be authenticated.|
 |`Payment.Recurrent`|Boolean|Indicates whether the transaction is a recurring type|
 |`Payment.SoftDescriptor`|Text|Text that will be printed on the invoice|
 |`Payment.DoSplit`|Boolean|Indicates whether the transaction will be split among multiple participants|
@@ -5998,7 +5998,7 @@ The variables, when properly filled in, would provide a URL similar to the examp
 
 **Setting Up Your Web Server**
 
-All objects refer to h.online-metrix.net, which is the fingerprint server's DNS. When you are ready for production, you should change the server name to a local URL, and set up on your web server a URL redirection to h.online-metrix.net.
+All objects refer to h.online-metrix.net, which is the fingerprint server's DNS. When you are ready for production, you must change the server name to a local URL, and set up on your web server a URL redirection to h.online-metrix.net.
 
 <aside class="warning">If you do not complete this section, you will not receive correct results, and the fingerprint provider domain (URL) will be visible, and your consumer is more likely to block it.</aside>
 
@@ -6284,9 +6284,9 @@ curl
 |`Payment.Currency`|Currency in which payment will be made|Text|3|BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP|
 |`Payment.Installments`|Number of Installments|Number|2|6|
 |`Payment.Interest`|Installment Type|Text|10|Shop (ByMerchant) or Issuer (ByIssuer)|
-|`Payment.Capture`|Boolean which indicates whether the authorization should be with automatic capture (true) or not (false). You should check with the acquirer for the availability of this feature|Boolean|--- (Default false)|Boolean|
+|`Payment.Capture`|Boolean which indicates whether the authorization will have automatic capture (true) or not (false). Check with the acquirer for the availability of this feature|Boolean|--- (Default false)|Boolean|
 |`AcquirerTransactionId`|Transaction Id of the Payment Method Provider|Text|40|Alphanumeric|
-|`Payment.Authenticate`|Boolean indicating whether the transaction should be authenticated (true) or not (false). You should check with the acquirer for the availability of this feature|Boolean|--- (Default false)|Boolean|
+|`Payment.Authenticate`|Boolean indicating whether the transaction will be authenticated (true) or not (false). Check with the acquirer for the availability of this feature|Boolean|--- (Default false)|Boolean|
 |`Payment.Recurrent`|Boolean that indicates whether the transaction is a recurring (true) or not (false) transaction. This value of true will not give rise to a new Recurrence, it will only allow the execution of a transaction without the need to send CVV. For Cielo transactions only. Authenticate must be false when Recurrent is true|Boolean|--- (Default false)|Boolean|
 |`Payment.SoftDescriptor`|Text to be printed on invoice|Text|13|Alphanumeric text|
 |`Payment.ExtraDataCollection.Name`|Name of the field to be written Extra Data|Text|50|Alphanumeric text|
@@ -6911,7 +6911,7 @@ Status returned by API
 |19|Identifies if the package refers to cruise  <br/> Possible values: YES or NO|string|2|Tourism|
 |20|Fraud review decision for last purchase  <br/> Possible values: ACCEPT or REJECTED|string|3|All|
 |21|Shipping Value  <br/> Eg: 10599 = $ 105.99|long|1|Retail or Cosmetics|
-|22|Code of store where product will be taken  <br/> This field should be sent when field 9 is sent equal to YES|string|3|Retail or Cosmetics|
+|22|Code of store where product will be taken  <br/> This field must be sent when field 9 is sent as "YES".|string|3|Retail or Cosmetics|
 |23|Credit card suffix (last 4 digits)|int|1|All|
 |24|Number of days since first customer purchase  <br/> E.g.: 150|int|3|All|
 |25|Customer gender  <br/> Possible values:  <br/> F -> Female  <br/> M -> Male|string|2|All|
@@ -6928,7 +6928,7 @@ Status returned by API
 |36|Identifies whether a gift card was used as a payment method  <br/> Possible values: YES or NO|string|1|All|
 |37|Order delivery method <br/> Possible values: Sedex <br/> Sedex 10 <br/> 1 day<br/> 2 days <br/> Motoboy <br/> Same day <br/>|string|3|Retail or Cosmetics|
 |38|Customer phone number identified via Caller ID when sale made through sales channel equal to Call Center  <br/> Format: DDIDDNumber - E.g.: 552121114720|string|3|All|
-|39|Call Center Username  <br/> This field should be sent when field 4 is sent equal to Call Center|string|1|All|
+|39|Call Center Username  <br/> This field must be sent when field 4 is sent equal to Call Center|string|1|All|
 |40|Comments entered when order is present|string|1|All|
 |41|Document type  <br/> Possible values: CPF or CNPJ or Passport|string|2|All|
 |42|Age of client|int|2|Everyone|
