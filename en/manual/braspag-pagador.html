@@ -9493,14 +9493,14 @@ To change the payment details, simply make a PUT call as shown in the example.</
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
-      <td>Indicates whether the transaction after fraud analysis will be captured.<br /> Possible values: “true” / “false” (default)<br /> Note: When “true” and return of fraud analysis returns low risk (“<em>Accept</em>”) the previously authorized transaction will be captured.<br />Note2: When sent equal to <em>true</em> and the return of fraud analysis is Review the transaction will be authorized. It will be captured after Braspag receives notification of the status change and it is low risk (Accept)  <br /> Note: To use this parameter, the sequence of the risk analysis flow must be <em>AuthorizeFirst</em></td>
+      <td>Indicates whether the transaction will be captured after fraud analysis.<br /> Possible values: “true” / “false” (default)<br /> Note: When sent as “true” and the fraud analysis returns it as low risk (“<em>Accept</em>”) the previously authorized transaction will be captured.<br />Note2: When sent as “true” and the fraud analysis returns it as “<em>Review</em>” the transaction will be authorized. It will be captured after Braspag receives notification of the status change to low risk (“<em>Accept</em>”).<br /> Note: To use this parameter, the sequence of the risk analysis flow (<code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code>) must be “AuthorizeFirst”.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.VoidOnHighRisk</code></td>
-      <td>Indicates if transaction after fraud analysis will be canceled  <br /> Possible values: true/false (default)  <br /> Note: When sent equal to <em>true</em> and return of analysis If a fraud is high risk (Reject) the previously authorized transaction will be canceled  <br /> . Note2: When sent equal to <em>true</em> and the return of the fraud analysis is Review the transaction will be authorized. It will be canceled after Braspag receives notification of the status change and it is high risk (Reject)  <br /> Note: To use this parameter, the sequence of the risk analysis flow must be <em>AuthorizeFirst</em></td>
+      <td>Indicates if transaction will be canceled after fraud analysis. <br /> Possible values: “true” / “false” (default).<br /> Note: When sent as “true” and the fraud analysis returns it as of high risk (Reject) the previously authorized transaction will be canceled  <br /> . Note2: When sent equal to <em>true</em> and the return of the fraud analysis is Review the transaction will be authorized. It will be canceled after Braspag receives notification of the status change and it is high risk (Reject)  <br /> Note: To use this parameter, the sequence of the risk analysis flow must be <em>AuthorizeFirst</em></td>
       <td>Boolean</td>
       <td>—</td>
       <td>No</td>
