@@ -103,7 +103,7 @@ Some of the important features that we offer for your transactions are listed be
 
 |Term|Description|
 |---|---|
-|**Antifraude**| A feature which consists in a fraud prevention platform, that provides a detailed risk analysis of online purchases. The process is fully transparent to the cardholder. According to a pre-established criteria, the request can be automatically accepted, rejected or redirected for manual review. For further information, refer to the [Antifraud](https://braspag.github.io//en/manual/antifraude) integration guide.
+|**Antifraude**| A feature which consists in a fraud prevention platform, that provides a detailed risk analysis of online purchases. The process is fully transparent to the cardholder. According to a pre-established criteria, the request can be automatically accepted, rejected or redirected for manual review. For further information, refer to the [Antifraude](https://braspag.github.io//en/manual/antifraude) integration guide.
 |**Autenticação**| A process which allows the transaction to pass through the card issuing bank authentication process, bringing more security to the sale as it transfers the risk of fraud to the issuer. For further information, refer to the [3DS 2.0 Authentication](https://braspag.github.io//en/manualp/emv3ds) documentation. 
 |**Cartão Protegido**| A platform that offers secure storage of sensitive credit card data. This data is transformed into an encrypted code called "token", which can be stored in a database. With this platform, the store is able to offer features such as "*1-Click Purchase*" and "*Transaction Submission Retry*", while preserving the integrity and confidentiality of that data. For further information, refer to the [Cartão Protegido](https://braspag.github.io//en/manual/cartao-protegido-api-rest) integration guide.
 
@@ -127,9 +127,9 @@ When requesting authorization for a credit transaction, it is necessary to follo
 
 If your store uses *Retry* or *Loadbalance* services, affiliations must be registered by the customer support team. To request the registration of affiliations, [click here](https://suporte.braspag.com.br/hc/en-us/requests/new) and send your request.
 
-<aside class="warning">Important: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).</aside>
+<aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).</aside>
 
-The parameters contained within the `Address` and `DeliveryAddress` nodes are **mandatory** when the transaction is submitted to [Antifraud](https://braspag.github.io//en/manual/antifraude) or to the **Velocity** analysis. These parameters are marked with an * in the mandatory column of the table below.
+The parameters contained within the `Address` and `DeliveryAddress` nodes are **mandatory** when the transaction is submitted to the [Antifraude](https://braspag.github.io//en/manual/antifraude) or **Velocity** analysis. These parameters are marked with an * in the mandatory column of the table below.
 
 Here are request and answer examples of how to create a credit transaction:
 
@@ -1083,7 +1083,7 @@ Through Pagador, when a transaction is submitted to the authentication process, 
 
 In the mobile environment, we recommend using the [3DS 2.0](https://braspag.github.io//en/manualp/emv3ds) version for authentication.
 
-<aside class="warning"> Important: The 3DS 1.0 version is not compatible in the mobile environment.</aside>
+<aside class="warning"> IMPORTANT: The 3DS 1.0 version is not compatible in the mobile environment.</aside>
 
 There are two ways of authenticating transactions with Braspag:
 
@@ -3911,7 +3911,7 @@ During the life cycle of a recurrence, you can change:
 <br/>
 To change the payment details, simply make a PUT call as shown in the example.
 
-<aside class="warning">CAUTION! This change affects all Payment node data. In order to keep the previous data, you must enter the fields that will remain unchanged with their currently saved values.</aside>
+<aside class="warning">CAUTION: This change affects all Payment node data. In order to keep the previous data, you must enter the fields that will remain unchanged with their currently saved values.</aside>
 
 #### Request
 
@@ -4182,7 +4182,7 @@ To use Renova Fácil, the service must be enabled at CIELO. No extra information
 
 With [Cartão Protegido](https://braspag.github.io//en/manual/cartao-protegido-api-rest), you can safely save your client's credit card in accordance with the PCI standards. The card information is saved as a token (excluding the card CVV), making transaction process easier by replacing its data in a future transaction from the same buyer, while keeping the integrity of the saved cards. 
 
-<aside class="warning">ATTENTION! For safety reasons, it's only possible to save cards that pass the Luhn Algorithm checksum formula, also known as "mod10".</aside>
+<aside class="warning">ATTENTION: For safety reasons, it's only possible to save cards that pass the Luhn Algorithm checksum formula, also known as "mod10".</aside>
 
 In addition to generating a card token, you can associate a name (identifier in text format) with the saved card. This identifier will be the `Alias`.
 
@@ -4974,16 +4974,16 @@ This is an example of how to use the previously saved *alias* to create a transa
 
 # Payments with Fraud Analysis
 
-You can verify whether a transaction is likely to be a fraud or not during an authorization. This verification can be triggered in different moments of the transaction, according to the rules defined by the client. See below the different behaviors the risk analysis will have, according to each type of integration: 
+You can verify whether a transaction is likely to be a fraud or not during an authorization. This verification can be triggered in different stages of the transaction, according to the rules defined by the client. The fraud analysis will have a different behavior for each type of integration, as described below : 
 
 |Integration Type|Description|Required Parameters|
 |-|-|-|
-|Pre-authorization analysis|Before the transaction is submitted for authorization, AntiFraude assesses whether it is at high risk or not. This avoids risky transactions being sent for authorization.|`FraudAnalysis.Sequence` is "AnalyseFirst"|
-|Analysis after authorization|Before the transaction is sent to Antifraud, it will be sent for authorization.|`FraudAnalysis.Sequence` is "AuthorizeFirst"|
-|Analysis of authorized transactions|AntiFraude is only triggered to analyze transactions with the "authorized" status. This avoids the cost of unauthorized transactions analyses.|`FraudAnalysis.SequenceCriteria` is "OnSuccess"|
-|Analysis in any event|Regardless of the transaction status after authorization, Antifraud will analyze the risk.|`FraudAnalysis.Sequence` is "AuthorizeFirst", `FraudAnalysis.SequenceCriteria` is "Always"|
+|Pre-authorization analysis|Before the transaction is submitted for authorization, the fraud analysis assesses whether it is of high risk or not. This avoids risky transactions being sent for authorization.|`FraudAnalysis.Sequence` is "AnalyseFirst"|
+|Analysis after authorization|Before the transaction is sent to the fraud analysis, it will be sent for authorization.|`FraudAnalysis.Sequence` is "AuthorizeFirst"|
+|Analysis of authorized transactions|The fraud analysis is only triggered to analyze transactions with the "authorized" status. This avoids the cost of unauthorized transactions analyses.|`FraudAnalysis.SequenceCriteria` is "OnSuccess"|
+|Analysis in any event|Regardless of the transaction status after authorization, the fraud analysis will examine the risks.|`FraudAnalysis.Sequence` is "AuthorizeFirst", `FraudAnalysis.SequenceCriteria` is "Always"|
 |Authorization in any event|Regardless of the transaction fraud score, it will always be submitted for authorization.|`FraudAnalysis.Sequence` is "AnalyseFirst", `FraudAnalysis.SequenceCriteria` is "Always"|
-|Capture secure transactions|After the fraud analysis, an authorized transaction is automatically captured if set as low risk. In the case of manual review, the transaction will be automatically captured as soon as Braspag is notified of the new status "Accept".|`FraudAnalysis.Sequence` is "AuthorizeFirst", `FraudAnalysis.CaptureOnLowRisk` is "true", `Payment.Capture` is "false"|
+|Capture secure transactions|After the fraud analysis, an authorized transaction is automatically captured if tagged as low risk. In the case of manual review, the transaction will be automatically captured as soon as Braspag is notified of the new status "Accept".|`FraudAnalysis.Sequence` is "AuthorizeFirst", `FraudAnalysis.CaptureOnLowRisk` is "true", `Payment.Capture` is "false"|
 |Cancel a suspect transaction|If the fraud analysis sets high risk for an already authorized or captured transaction, it will be immediately canceled or reversed. In the case of manual review, the transaction will be automatically canceled or reversed as soon as Braspag is notified of the new status "Reject".|`FraudAnalysis.Sequence` is "AuthorizeFirst", `FraudAnalysis.VoidOnHighRisk` is "true"|
 
 If not otherwise specified during authorization, Braspag will process your transaction through the following flow:
@@ -5386,7 +5386,7 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.CreditCard.Alias`|Credit card alias saved to *Cartão Protegido*.|Text|64|No|
 |`Payment.FraudAnalysis.Sequence`|Fraud analysis flow type.<br/> Possible values: "AnalyseFirst" / "AuthorizeFirst".|Text|14|Yes|
 |`Payment.FraudAnalysis.SequenceCriteria`|Fraud analysis flow criteria.<br/> Possible values: "OnSuccess" / "Always".|Text|9|Yes|
-|`Payment.FraudAnalysis.Provider`|Antifraud provider.<br/> Possible value: "Cybersource"|Text|10|Yes|
+|`Payment.FraudAnalysis.Provider`|Anti-fraud analysis provider.<br/> Possible value: "Cybersource"|Text|10|Yes|
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Indicates if the transaction will be captured after the fraud analysis.<br/> Possible values: "true" / "false" (default)<br/> Note: When sent as "true" and the fraud analysis returns it as low risk ("*Accept*") the previously authorized transaction will be captured.<br/>Note2: When sent as "true" and the fraud analysis returns it as "*Review*" the transaction will be authorized. It will be captured after Braspag receives notification of the status change to low risk ("*Accept*").<br/> Note: To use this parameter, the sequence of the risk analysis flow (`FraudAnalysis.Sequence`) must be "AuthorizeFirst".|Boolean|---|No|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Indicates if the transaction will be captured after the fraud analysis. <br/> Possible values: "true" / "false" (default).<br/> Note: When sent as "true" and the fraud analysis returns it as of high risk ("*Reject*") the previously authorized transaction will be canceled.<br/>Note2: When sent as "true" and the fraud analysis returns it as "*Review*" the transaction will remain authorized. It will be cancelled after Braspag receives notification of the status change to high risk ("*Reject*").<br/> Note: To use this parameter, the sequence of the risk analysis flow (`FraudAnalysis.Sequence`) must be "AuthorizeFirst".|Boolean|---|No|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Order total value in cents.<br/> E.g.: 123456 = R $ 1,234.56|Number|15|Yes|
@@ -5887,7 +5887,7 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.CreditCard.CardToken`|Credit card identifier saved in *Cartão Protegido*.|GUID|
 |`Payment.FraudAnalysis.Sequence`|Fraud analysis flow type.|Text|
 |`Payment.FraudAnalysis.SequenceCriteria`|Fraud analysis flow criteria.|Text|
-|`Payment.FraudAnalysis.Provider`|Antifraud provider.|Text|
+|`Payment.FraudAnalysis.Provider`|Anti-fraud analysis provider.|Text|
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Indicates if transaction will be captured after the fraud analysis.|Boolean|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Indicates if the transaction will be canceled after the fraud analysis.|Boolean|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Total order value in cents.|Number|
@@ -5927,8 +5927,8 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.FraudAnalysis.Travel.Passengers.Phone`|Passenger's phone.|Number|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Departure airport code.|Text|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Arrival airport code.|Text|
-|`Payment.FraudAnalysis.Id`|Antifraud transaction ID Braspag|GUID|
-|`Payment.FraudAnalysis.Status`|Braspag antifraud transaction status.<br/> [List of Values - Payment.FraudAnalysis.Status]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status).|Number|
+|`Payment.FraudAnalysis.Id`|Anti-fraud analysis transaction ID Braspag|GUID|
+|`Payment.FraudAnalysis.Status`|Braspag anti-fraud analysis transaction status.<br/> [List of Values - Payment.FraudAnalysis.Status]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status).|Number|
 |`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Cybersouce return code [  <br/> List of Values - Payment.FraudAnalysis.FraudAnalysisReasonCode]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode).|Number|
 |`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Codes indicate incompatibilities between buyer's billing and delivery addresses. <br/> Codes are concatenated using a ^ character. E.g.: COR-BA^MM-BIN. <br/> [List of Payments - Payment. FraudAnalysis.ReplyData.AddressInfoCode]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode).|Text|
 |`Payment.FraudAnalysis.ReplyData.FactorCode`|Codes that affected the analysis score. <br/> Codes are concatenated using the ^ character. E.g.: B^D^R^Z. <br/>[List of Values - ProviderAnalysisResult.AfsReply.FactorCode]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode).|Text|
@@ -5958,54 +5958,44 @@ During the Cybersource deployment, additional information can be stored through 
 
 ## Configuring Fingerprint
 
-An important component of the fraud analysis, Fingerprint is a Javascript that must be entered on your website to capture important data such as shopper's IP, browser version, operating system, etc.
-Often, just cart data is not enough to warrant an assertive analysis. The data collected by Fingerprint complements the analysis and ensures your store is better protected.
+The *fingerprint* is an important component of the anti-fraud analysis. It is a script that must be added to your website in order to capture important data about the device being used for the transaction, such as the machine IP, browser version and operating system used.
+Sometimes only the cart information is not enough to guarantee an assertive analysis. The data collected by the fingerprint adds on to the analysis, making sure your store is better protected.
 
-This page describes how it works and how to set up fingerprint on your checkout and mobiles page.
+This page describes how to integrate and set up fingerprint in your checkout and mobile page.
 
-### Cybersource
+### Checkout Integration
 
-You will need to add two tags, *script* inside the *head* tag for proper performance and *noscript* inside the *body* tag, so that device data collection can be performed even if browser Javascript is disabled.
+In order to integrate the fingerprint technology into your checkout page, you must add two tags to its source code: 
 
-<aside class="warning">ATTENTION! If the 2 code segments are not placed on the checkout page, the fraud analysis results may not be accurate.</aside>
+* the *script* tag, inside the *head* tag for an accurate performance;
+* the *noscript* tag, inside the *body* tag, for collecting the device data even when the browser's Javascript is disabled. 
 
-**Domain**
+<aside class="warning">ATTENTION: If the 2 code snippets are not added to the checkout page, the fraud analysis results may not be accurate.</aside>
 
-|Environment|Description|
-|:-|:-|
-|`Testing`|Use h.online-metrix.net, which is the fingerprint server DNS, as shown in the HTML example below|
-|`Production`|Change the domain to a local URL, and configure your web server to redirect this URL to h.online-metrix.net|
+#### Filling in the URL
 
-**Variables**
-There are two variables to fill in the Javascript URL. The `org_id` and the` session_id`. `Org_id` is a default value according to the table below, while` session_id` is composed by concatenating the `ProviderMerchantId` and` FraudAnalysis.FingerPrintId` parameters, as shown below:
+Two variables must be filled in the Javascript URL: the `org_id` and the` session_id`. The `org_id` variable has a preset value, while the `session_id` variable holds the concatenation of the `ProviderMerchantId` and `FraudAnalysis.FingerPrintId` parameters, as shown below:
 
 |Variable|Description|
 |:-|:-|
-|`org_id`|for Sandbox = 1snn5n9w  <br/> for Production = k8vif92e|
-|`session_id`|`ProviderMerchantId` = Identifier of your Cybersource store. If not, contact Braspag  <br/> `FraudAnalysis.FingerPrintId` = Identifier used to crosscheck information obtained from the shopper's device.  <br/> Note: This identifier can be any value or order number, but must be unique for 48 hours.|
+|`org_id`|for Sandbox = "1snn5n9w"  <br/> for Production = "k8vif92e"|
+|`session_id`|`ProviderMerchantId`(Your store identifier at Cybersource. Contact Braspag in case you don't have one.) <br/> `FraudAnalysis.FingerPrintId` (Identifier used to crosscheck information obtained from the buyer's device.) <br/><br/>Note: This identifier can have any value or be the order number, but it must be unique for 48 hours.|
 
-**Application**
+#### Applying the Script
 
-The Javascript template is as follows:
+This is the script template:
 
 ![Example Code](https://braspag.github.io/images/braspag/af/exemploscriptdfp.png)
 
-The variables, when properly filled in, would provide a URL similar to the example below:
+After being properly filled in, the variables will provide a URL as in the example below:
 
-![Url Example](https://braspag.github.io/images/braspag/af/urldfp.png)
+![Url Example](https://braspag.github.io/images/braspag/af/urldfp-en.png)
 
-<aside class="warning">Be sure to copy all data correctly and have replaced the variables correctly with their values.</aside>
+<aside class="notice">Make sure to copy all data accurately and have all the variables correctly replaced with their respective values.</aside>
 
-**Setting Up Your Web Server**
+### Mobile Apps Integration
 
-All objects refer to h.online-metrix.net, which is the fingerprint server's DNS. When you are ready for production, you must change the server name to a local URL, and set up on your web server a URL redirection to h.online-metrix.net.
-
-<aside class="warning">If you do not complete this section, you will not receive correct results, and the fingerprint provider domain (URL) will be visible, and your consumer is more likely to block it.</aside>
-
-### Mobile Application Integration
-
-**Downloading the SDK**
-If you have not yet downloaded the iOS or Android SDK, you must do so before continuing. To do so, access one of the links below as desired.<br/> [Download iOS SDK Deviceprint]({{site.baseurl_root}}/files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip)  <br/> [Download Android SDK Deviceprint]({{site.baseurl_root}}/files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip)
+<aside class="notice">Request the SDKs (iOS and Android) and guidelines in your integration ticket.</aside>
 
 # Queries
 
@@ -6779,7 +6769,7 @@ If the HTTP Status Code 200 OK is not returned, it will be retried twice to send
 |----------|---------|
 |1|Payment Status Change|
 |2|Recurrence Created|
-|3|Antifraud Status Change|
+|3|Anti-fraud Status Change|
 |4|Recurring payment status change (E.g.: automatic deactivation)|
 |5|Refund denied (applicable to Rede)|
 |6|Underpaid Registered Boleto|
@@ -6973,7 +6963,7 @@ Status returned by API
 |81|Identifies whether the credit card holder will travel  <br/> Possible values: YES or NO|string|3|Air|
 |82|Identifies whether the seller will work with manual review or not  <br/> Possible values: YES or NO|string|1|All|
 |83|Business Segment  <br/> E.g.: Retail|string|2|All|
-|84|Platform Name Integrated with the Gateway Braspag Antifraud API  <br/> If this is a direct integration between the store and Braspag, send value equal to PROPRIA|string|3|All|
+|84|Name of the Platform Integrated with the Gateway Braspag Anti-fraud API  <br/> If this is a direct integration between the store and Braspag, send value equal to "PROPRIA"|string|3|All|
 |85 to 89|Free and defined fields with the anti-fraud provider, according to business rules|-|-|-|
 |90 to 100|Reserved|-|-|-|
 
