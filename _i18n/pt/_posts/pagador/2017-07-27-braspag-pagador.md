@@ -109,7 +109,7 @@ Alguns recursos importantes que oferecemos para suas transações estão listado
 
 |Termo|Descrição|
 |---|---|
-|**AntiFraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual. Para mais informações, consulte o manual [Antifraude](https://braspag.github.io//manual/antifraude).|
+|**Antifraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual. Para mais informações, consulte o manual [Antifraude](https://braspag.github.io//manual/antifraude).|
 |**Autenticação**|Processo que possibilita realizar uma venda que passará por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude. Para mais informações, consulte o manual [Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).|
 |**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de *token*, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como "*Compra com 1 clique*" e "*Retentativa de envio de transação*", sempre preservando a integridade e a confidencialidade das informações. Para mais informações, consulte o manual [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest).|
 
@@ -135,7 +135,7 @@ Caso a sua loja utilize os serviços de *Retentativa* ou *Loadbalance*, as afili
 
 <aside class="warning">Importante: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
 
-Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao [AntiFraude](https://braspag.github.io//manual/antifraude) ou à análise do [Velocity](https://braspag.github.io//manual/velocity). Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.
+Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao [Antifraude](https://braspag.github.io//manual/antifraude) ou à análise do [Velocity](https://braspag.github.io//manual/velocity). Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.
 
 Seguem exemplos de envio de requisição e resposta para criar uma transação de crédito:
 
@@ -5065,10 +5065,10 @@ Ao efetuar um pagamento, é possível verificar se a transação possui risco de
 
 |Tipo de Integração|Descrição|Parâmetros Necessários|
 |-|-|-|
-|Análise antes da autorização|A transação é analisada pelo AntiFraude e então enviada para autorização. Dessa forma, evita-se o envio de transações de alto risco para autorização.|`FraudAnalysis.Sequence` igual a "AnalyseFirst"|
-|Análise após a autorização|A transação é enviada para a autorização e então analisada pelo AntiFraude.|`FraudAnalysis.Sequence` igual a "AuthorizeFirst"|
-|Análise das transações autorizadas|O AntiFraude é acionado apenas para analisar transações autorizadas, evitando-se o custo com análises de transações que não receberiam autorização.|`FraudAnalysis.SequenceCriteria` igual a "OnSuccess"|
-|Análise em qualquer hipótese|O AntiFraude é acionado independentemente do status da transação após a autorização.|`FraudAnalysis.Sequence` igual a "AuthorizeFirst" e `FraudAnalysis.SequenceCriteria` igual a "Always"|
+|Análise antes da autorização|A transação é analisada pelo Antifraude e então enviada para autorização. Dessa forma, evita-se o envio de transações de alto risco para autorização.|`FraudAnalysis.Sequence` igual a "AnalyseFirst"|
+|Análise após a autorização|A transação é enviada para a autorização e então analisada pelo Antifraude.|`FraudAnalysis.Sequence` igual a "AuthorizeFirst"|
+|Análise das transações autorizadas|O Antifraude é acionado apenas para analisar transações autorizadas, evitando-se o custo com análises de transações que não receberiam autorização.|`FraudAnalysis.SequenceCriteria` igual a "OnSuccess"|
+|Análise em qualquer hipótese|O Antifraude é acionado independentemente do status da transação após a autorização.|`FraudAnalysis.Sequence` igual a "AuthorizeFirst" e `FraudAnalysis.SequenceCriteria` igual a "Always"|
 |Autorização em qualquer hipótese|A transação será enviada para autorização independentemente de seu score de fraude.|`FraudAnalysis.Sequence` igual a "AnalyseFirst" e `FraudAnalysis.SequenceCriteria` igual a "Always"|
 |Captura para transações seguras|Após a análise de fraude, a captura será automática para transações autorizadas definidas como de baixo risco. Para a loja que utiliza revisão manual, a transação será capturada automaticamente assim que a Braspag receber notificação do novo status "_Accept_".|`FraudAnalysis.Sequence` igual a "AuthorizeFirst", `FraudAnalysis.CaptureOnLowRisk` igual a "true" e `Payment.Capture` igual a "false"|
 |Cancelamento de transações comprometidas|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Para a loja que utiliza revisão manual, a transação será cancelada ou estornada automaticamente assim que a Braspag receber notificação do novo status "_Reject_".|`FraudAnalysis.Sequence` igual a "AuthorizeFirst" e `FraudAnalysis.VoidOnHighRisk` igual a "true"|
@@ -5473,7 +5473,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`Payment.CreditCard.Alias`|Alias (apelido) do cartão de crédito salvo no *Cartão Protegido*.|Texto|64|Não|
 |`Payment.FraudAnalysis.Sequence`|Tipo de fluxo da análise de fraude. <br/> Possíveis valores: "AnalyseFirst" / "AuthorizeFirst".|Texto|14|Sim|
 |`Payment.FraudAnalysis.SequenceCriteria`|Critério do fluxo da análise de fraude. <br/> Possíveis valores: "OnSuccess" / "Always".|Texto|9|Sim|
-|`Payment.FraudAnalysis.Provider`|Provedor de *AntiFraude*. <br/> Possível valor: "Cybersource".|Texto|10|Sim|
+|`Payment.FraudAnalysis.Provider`|Provedor de *Antifraude*. <br/> Possível valor: "Cybersource".|Texto|10|Sim|
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Indica se a transação após a análise de fraude será capturada. <br/> Possíveis valores: "true" / "false" (default) <br/> Obs1.: Quando enviado igual a "true" e o retorno da análise de fraude for de baixo risco ("*Accept*"), a transação anteriormente autorizada será capturada. <br/> Obs2.: Quando enviado igual a "true" e o retorno da análise de fraude for revisão ("*Review*"), a transação ficará autorizada, sendo capturada após a Braspag receber notificação de alteração do status para baixo risco ("*Accept*"). <br/> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (`FraudAnalysis.Sequence`) deve ser obrigatoriamente "AuthorizeFirst".|Booleano|---|Não|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Indica se a transação após a análise de fraude será cancelada. <br/> Possíveis valores: "true" / "false" (default). <br/> Obs1.: Quando enviado igual a "true" e o retorno da análise de fraude for de alto risco ("*Reject*"), a transação anteriormente autorizada será cancelada. <br/> Obs2.: Quando enviado igual a "true" e o retorno da análise de fraude for revisão ("*Review*"), a transação ficará autorizada, sendo cancelada após a Braspag receber notificação de alteração do status para alto risco ("*Reject*"). <br/> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (`FraudAnalysis.Sequence`) deve ser obrigatoriamente "AuthorizeFirst".|Booleano|---|Não|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Valor total do pedido, em centavos. <br/> Ex.: 123456 = R$ 1.234,56.|Número|15|Sim|
@@ -5974,7 +5974,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`Payment.CreditCard.CardToken`|Identificador do cartão de crédito salvo no *Cartão Protegido*.|GUID|
 |`Payment.FraudAnalysis.Sequence`|Tipo de fluxo da análise de fraude.|Texto|
 |`Payment.FraudAnalysis.SequenceCriteria`|Critério do fluxo da análise de fraude.|Texto|
-|`Payment.FraudAnalysis.Provider`|Provedor de *AntiFraude*.|Texto|
+|`Payment.FraudAnalysis.Provider`|Provedor de *Antifraude*.|Texto|
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Indica se a transação após a análise de fraude será capturada.|Booleano|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Indica se a transação após a análise de fraude será cancelada.|Booleano|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Valor total do pedido, em centavos.|Número|
@@ -6014,8 +6014,8 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`Payment.FraudAnalysis.Travel.Passengers.Phone`|Telefone do passageiro.|Número|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.|Texto|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Código do aeroporto de chegada.|Texto|
-|`Payment.FraudAnalysis.Id`|Id da transação no *AntiFraude* Braspag.|GUID|
-|`Payment.FraudAnalysis.Status`|Status da transação no *AntiFraude* Braspag. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status).|Número|
+|`Payment.FraudAnalysis.Id`|Id da transação no *Antifraude* Braspag.|GUID|
+|`Payment.FraudAnalysis.Status`|Status da transação no *Antifraude* Braspag. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status).|Número|
 |`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Código de retorno da Cybersouce. <br/> [Lista de Valores - FraudAnalysisReasonCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode).|Número|
 |`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. <br/> Os códigos são concatenados usando o caractere "^". Ex.: COR-BA^MM-BIN. <br/> [Lista de Valores - AddressInfoCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode).|Texto|
 |`Payment.FraudAnalysis.ReplyData.FactorCode`|Códigos que afetaram a pontuação da análise. <br/> Os códigos são concatenados usando o caractere "^". Ex.: B^D^R^Z. <br/>[Lista de Valores - FactorCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode).|Texto|
@@ -6048,7 +6048,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 Importante componente da análise de fraude, o *fingerprint* é um script (em Javascript) que deve ser inserido no seu site para capturar dados importantes do dispositivo utilizado pelo comprador, como IP da máquina, versão do browser e sistema operacional utilizados.
 Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo fingerprint complementam a análise e garantem que sua loja esteja mais protegida.
 
-Abaixo seguem as descrições de como integrar e configurar o fingerprint em sua página de checkout e mobiles. Para maiores detalhes, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360000212987-Detalhamento-da-implanta%C3%A7%C3%A3o-do-DeviceFingerPrint).
+Abaixo seguem as descrições de como integrar e configurar o fingerprint em sua página de checkout e mobile. Para maiores detalhes, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360000212987-Detalhamento-da-implanta%C3%A7%C3%A3o-do-DeviceFingerPrint).
 
 ### Integração em Checkout
 
@@ -6867,7 +6867,7 @@ Caso tenha configurado o campo "URL Status Pagamento" durante o cadastro de sua 
 |----------|---------|
 |"1"|Mudança de status do pagamento.|
 |"2"|Recorrência criada.|
-|"3"|Mudança de status do *AntiFraude*.|
+|"3"|Mudança de status do *Antifraude*.|
 |"4"|Mudança de status do pagamento recorrente (Ex.: desativação automática).|
 |"5"|Estorno negado (aplicável para **Rede**).|
 |"6"|Boleto registrado pago a menor.|
@@ -6967,7 +6967,7 @@ Lista de status retornados pela API:
 |13|Aborted|Todos|Pagamento cancelado por falha no processamento.|
 |20|Scheduled|Cartão de crédito|Recorrência agendada.|
 
-## Lista de Status do AntiFraude
+## Lista de Status do Antifraude
 
 | Código | Descrição  |
 |:-------|:-----------|
@@ -7074,8 +7074,8 @@ De acordo com a necessidade do seu negócio, é desenhada uma estratégia de ris
 |81|Identifica se o dono do cartão de crédito irá viajar. Possíveis valores: "SIM" / "NAO".|string|3|Aéreo|
 |82|Identifica se o seller (vendedor) irá trabalhar com revisão manual ou não. Possíveis valores: "SIM" / "NAO".|string|1|Todos|
 |83|Segmento de negócio. Ex.: Varejo.|string|2|Todos|
-|84|Nome da plataforma integrada à API AntiFraude Gateway Braspag. Caso seja uma integração direta entre a loja e a Braspag, enviar valor igual a "PROPRIA".|string|3|Todos|
-|85 a 89|Campos livres e definidos junto ao provedor de AntiFraude, conforme as regras de negócio.|---|---|---|
+|84|Nome da plataforma integrada à API Antifraude Gateway Braspag. Caso seja uma integração direta entre a loja e a Braspag, enviar valor igual a "PROPRIA".|string|3|Todos|
+|85 a 89|Campos livres e definidos junto ao provedor de Antifraude, conforme as regras de negócio.|---|---|---|
 |90 a 100|Reservados.|---|---|---|
 
 ## Lista de HTTP Status Code
@@ -7201,7 +7201,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 |162|Boleto Demostrative length exceeded|Dado enviado excede o tamanho do campo.|
 |163|Return Url is required|URL de retorno não é valida - Não são aceitas paginação ou extensões (EX.: PHP) na URL de retorno.|
 |166|AuthorizeNow is required|---|
-|167|Antifraud not configured|AntiFraude não vinculado ao cadastro do lojista.|
+|167|Antifraud not configured|Antifraude não vinculado ao cadastro do lojista.|
 |168|Recurrent Payment not found|Recorrência não encontrada.|
 |169|Recurrent Payment is not active|Recorrência não está ativa. Execução paralizada.|
 |170|Cartão Protegido not configured|Cartão protegido não vinculado ao cadastro do lojista.|
