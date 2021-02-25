@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-02-25T21:57:43+00:00</updated>
+    <updated>2021-02-25T22:03:20+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -14737,7 +14737,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Antifraude&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;A feature which consists in a fraud prevention platform, that provides a detailed risk analysis of online purchases. The process is fully transparent to the cardholder. According to a pre-established criteria, the request can be automatically accepted, rejected or redirected for manual review. For further information, refer to the &lt;a href=&quot;https://braspag.github.io//en/manual/antifraude&quot;&gt;Antifraud&lt;/a&gt; integration guide.&lt;/td&gt;
+      &lt;td&gt;A feature which consists in a fraud prevention platform, that provides a detailed risk analysis of online purchases. The process is fully transparent to the cardholder. According to a pre-established criteria, the request can be automatically accepted, rejected or redirected for manual review. For further information, refer to the &lt;a href=&quot;https://braspag.github.io//en/manual/antifraude&quot;&gt;Antifraude&lt;/a&gt; integration guide.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Autenticação&lt;/strong&gt;&lt;/td&gt;
@@ -14770,9 +14770,9 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
 
 &lt;p&gt;If your store uses &lt;em&gt;Retry&lt;/em&gt; or &lt;em&gt;Loadbalance&lt;/em&gt; services, affiliations must be registered by the customer support team. To request the registration of affiliations, &lt;a href=&quot;https://suporte.braspag.com.br/hc/en-us/requests/new&quot;&gt;click here&lt;/a&gt; and send your request.&lt;/p&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;Important: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).&lt;/aside&gt;
 
-&lt;p&gt;The parameters contained within the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Address&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DeliveryAddress&lt;/code&gt; nodes are &lt;strong&gt;mandatory&lt;/strong&gt; when the transaction is submitted to &lt;a href=&quot;https://braspag.github.io//en/manual/antifraude&quot;&gt;Antifraud&lt;/a&gt; or to the &lt;strong&gt;Velocity&lt;/strong&gt; analysis. These parameters are marked with an * in the mandatory column of the table below.&lt;/p&gt;
+&lt;p&gt;The parameters contained within the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Address&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DeliveryAddress&lt;/code&gt; nodes are &lt;strong&gt;mandatory&lt;/strong&gt; when the transaction is submitted to the &lt;a href=&quot;https://braspag.github.io//en/manual/antifraude&quot;&gt;Antifraude&lt;/a&gt; or &lt;strong&gt;Velocity&lt;/strong&gt; analysis. These parameters are marked with an * in the mandatory column of the table below.&lt;/p&gt;
 
 &lt;p&gt;Here are request and answer examples of how to create a credit transaction:&lt;/p&gt;
 
@@ -16561,7 +16561,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
 
 &lt;p&gt;In the mobile environment, we recommend using the &lt;a href=&quot;https://braspag.github.io//en/manualp/emv3ds&quot;&gt;3DS 2.0&lt;/a&gt; version for authentication.&lt;/p&gt;
 
-&lt;aside class=&quot;warning&quot;&gt; Important: The 3DS 1.0 version is not compatible in the mobile environment.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt; IMPORTANT: The 3DS 1.0 version is not compatible in the mobile environment.&lt;/aside&gt;
 
 &lt;p&gt;There are two ways of authenticating transactions with Braspag:&lt;/p&gt;
 
@@ -21378,7 +21378,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
 To change the payment details, simply make a PUT call as shown in the example.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;CAUTION! This change affects all Payment node data. In order to keep the previous data, you must enter the fields that will remain unchanged with their currently saved values.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;CAUTION: This change affects all Payment node data. In order to keep the previous data, you must enter the fields that will remain unchanged with their currently saved values.&lt;/aside&gt;
 
 &lt;h4 id=&quot;request-22&quot;&gt;Request&lt;/h4&gt;
 
@@ -21930,7 +21930,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
 
 &lt;p&gt;With &lt;a href=&quot;https://braspag.github.io//en/manual/cartao-protegido-api-rest&quot;&gt;Cartão Protegido&lt;/a&gt;, you can safely save your client’s credit card in accordance with the PCI standards. The card information is saved as a token (excluding the card CVV), making transaction process easier by replacing its data in a future transaction from the same buyer, while keeping the integrity of the saved cards.&lt;/p&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;ATTENTION! For safety reasons, it's only possible to save cards that pass the Luhn Algorithm checksum formula, also known as &quot;mod10&quot;.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;ATTENTION: For safety reasons, it's only possible to save cards that pass the Luhn Algorithm checksum formula, also known as &quot;mod10&quot;.&lt;/aside&gt;
 
 &lt;p&gt;In addition to generating a card token, you can associate a name (identifier in text format) with the saved card. This identifier will be the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Alias&lt;/code&gt;.&lt;/p&gt;
 
@@ -23118,7 +23118,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
 
 &lt;h1 id=&quot;payments-with-fraud-analysis&quot;&gt;Payments with Fraud Analysis&lt;/h1&gt;
 
-&lt;p&gt;You can verify whether a transaction is likely to be a fraud or not during an authorization. This verification can be triggered in different moments of the transaction, according to the rules defined by the client. See below the different behaviors the risk analysis will have, according to each type of integration:&lt;/p&gt;
+&lt;p&gt;You can verify whether a transaction is likely to be a fraud or not during an authorization. This verification can be triggered in different stages of the transaction, according to the rules defined by the client. The fraud analysis will have a different behavior for each type of integration, as described below :&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -23131,22 +23131,22 @@ To change the payment details, simply make a PUT call as shown in the example.&l
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Pre-authorization analysis&lt;/td&gt;
-      &lt;td&gt;Before the transaction is submitted for authorization, AntiFraude assesses whether it is at high risk or not. This avoids risky transactions being sent for authorization.&lt;/td&gt;
+      &lt;td&gt;Before the transaction is submitted for authorization, the fraud analysis assesses whether it is of high risk or not. This avoids risky transactions being sent for authorization.&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; is “AnalyseFirst”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Analysis after authorization&lt;/td&gt;
-      &lt;td&gt;Before the transaction is sent to Antifraud, it will be sent for authorization.&lt;/td&gt;
+      &lt;td&gt;Before the transaction is sent to the fraud analysis, it will be sent for authorization.&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; is “AuthorizeFirst”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Analysis of authorized transactions&lt;/td&gt;
-      &lt;td&gt;AntiFraude is only triggered to analyze transactions with the “authorized” status. This avoids the cost of unauthorized transactions analyses.&lt;/td&gt;
+      &lt;td&gt;The fraud analysis is only triggered to analyze transactions with the “authorized” status. This avoids the cost of unauthorized transactions analyses.&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FraudAnalysis.SequenceCriteria&lt;/code&gt; is “OnSuccess”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Analysis in any event&lt;/td&gt;
-      &lt;td&gt;Regardless of the transaction status after authorization, Antifraud will analyze the risk.&lt;/td&gt;
+      &lt;td&gt;Regardless of the transaction status after authorization, the fraud analysis will examine the risks.&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; is “AuthorizeFirst”, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FraudAnalysis.SequenceCriteria&lt;/code&gt; is “Always”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -23156,7 +23156,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Capture secure transactions&lt;/td&gt;
-      &lt;td&gt;After the fraud analysis, an authorized transaction is automatically captured if set as low risk. In the case of manual review, the transaction will be automatically captured as soon as Braspag is notified of the new status “Accept”.&lt;/td&gt;
+      &lt;td&gt;After the fraud analysis, an authorized transaction is automatically captured if tagged as low risk. In the case of manual review, the transaction will be automatically captured as soon as Braspag is notified of the new status “Accept”.&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt; is “AuthorizeFirst”, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FraudAnalysis.CaptureOnLowRisk&lt;/code&gt; is “true”, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt; is “false”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -23908,7 +23908,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Antifraud provider.&lt;br /&gt; Possible value: “Cybersource”&lt;/td&gt;
+      &lt;td&gt;Anti-fraud analysis provider.&lt;br /&gt; Possible value: “Cybersource”&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -24868,7 +24868,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Antifraud provider.&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Anti-fraud analysis provider.&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Text&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -25068,12 +25068,12 @@ To change the payment details, simply make a PUT call as shown in the example.&l
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Id&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Antifraud transaction ID Braspag&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Anti-fraud analysis transaction ID Braspag&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;GUID&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.FraudAnalysis.Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Braspag antifraud transaction status.&lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status&quot;&gt;List of Values - Payment.FraudAnalysis.Status&lt;/a&gt;.&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Braspag anti-fraud analysis transaction status.&lt;br /&gt; &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status&quot;&gt;List of Values - Payment.FraudAnalysis.Status&lt;/a&gt;.&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Number&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -25211,40 +25211,25 @@ To change the payment details, simply make a PUT call as shown in the example.&l
 
 &lt;h2 id=&quot;configuring-fingerprint&quot;&gt;Configuring Fingerprint&lt;/h2&gt;
 
-&lt;p&gt;An important component of the fraud analysis, Fingerprint is a Javascript that must be entered on your website to capture important data such as shopper’s IP, browser version, operating system, etc.
-Often, just cart data is not enough to warrant an assertive analysis. The data collected by Fingerprint complements the analysis and ensures your store is better protected.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;fingerprint&lt;/em&gt; is an important component of the anti-fraud analysis. It is a script that must be added to your website in order to capture important data about the device being used for the transaction, such as the machine IP, browser version and operating system used.
+Sometimes only the cart information is not enough to guarantee an assertive analysis. The data collected by the fingerprint adds on to the analysis, making sure your store is better protected.&lt;/p&gt;
 
-&lt;p&gt;This page describes how it works and how to set up fingerprint on your checkout and mobiles page.&lt;/p&gt;
+&lt;p&gt;This page describes how to integrate and set up fingerprint in your checkout and mobile page.&lt;/p&gt;
 
-&lt;h3 id=&quot;cybersource&quot;&gt;Cybersource&lt;/h3&gt;
+&lt;h3 id=&quot;checkout-integration&quot;&gt;Checkout Integration&lt;/h3&gt;
 
-&lt;p&gt;You will need to add two tags, &lt;em&gt;script&lt;/em&gt; inside the &lt;em&gt;head&lt;/em&gt; tag for proper performance and &lt;em&gt;noscript&lt;/em&gt; inside the &lt;em&gt;body&lt;/em&gt; tag, so that device data collection can be performed even if browser Javascript is disabled.&lt;/p&gt;
+&lt;p&gt;In order to integrate the fingerprint technology into your checkout page, you must add two tags to its source code:&lt;/p&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;ATTENTION! If the 2 code segments are not placed on the checkout page, the fraud analysis results may not be accurate.&lt;/aside&gt;
+&lt;ul&gt;
+  &lt;li&gt;the &lt;em&gt;script&lt;/em&gt; tag, inside the &lt;em&gt;head&lt;/em&gt; tag for an accurate performance;&lt;/li&gt;
+  &lt;li&gt;the &lt;em&gt;noscript&lt;/em&gt; tag, inside the &lt;em&gt;body&lt;/em&gt; tag, for collecting the device data even when the browser’s Javascript is disabled.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;Domain&lt;/strong&gt;&lt;/p&gt;
+&lt;aside class=&quot;warning&quot;&gt;ATTENTION: If the 2 code snippets are not added to the checkout page, the fraud analysis results may not be accurate.&lt;/aside&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Environment&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Testing&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Use h.online-metrix.net, which is the fingerprint server DNS, as shown in the HTML example below&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Production&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Change the domain to a local URL, and configure your web server to redirect this URL to h.online-metrix.net&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;h4 id=&quot;filling-in-the-url&quot;&gt;Filling in the URL&lt;/h4&gt;
 
-&lt;p&gt;&lt;strong&gt;Variables&lt;/strong&gt;
-There are two variables to fill in the Javascript URL. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;org_id&lt;/code&gt; and the&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; session_id&lt;/code&gt;. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Org_id&lt;/code&gt; is a default value according to the table below, while&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; session_id&lt;/code&gt; is composed by concatenating the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderMerchantId&lt;/code&gt; and&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; FraudAnalysis.FingerPrintId&lt;/code&gt; parameters, as shown below:&lt;/p&gt;
+&lt;p&gt;Two variables must be filled in the Javascript URL: the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;org_id&lt;/code&gt; and the&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; session_id&lt;/code&gt;. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;org_id&lt;/code&gt; variable has a preset value, while the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;session_id&lt;/code&gt; variable holds the concatenation of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderMerchantId&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FraudAnalysis.FingerPrintId&lt;/code&gt; parameters, as shown below:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -25256,37 +25241,30 @@ There are two variables to fill in the Javascript URL. The &lt;code class=&quot;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;org_id&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;for Sandbox = 1snn5n9w  &lt;br /&gt; for Production = k8vif92e&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;for Sandbox = “1snn5n9w”  &lt;br /&gt; for Production = “k8vif92e”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;session_id&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderMerchantId&lt;/code&gt; = Identifier of your Cybersource store. If not, contact Braspag  &lt;br /&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FraudAnalysis.FingerPrintId&lt;/code&gt; = Identifier used to crosscheck information obtained from the shopper’s device.  &lt;br /&gt; Note: This identifier can be any value or order number, but must be unique for 48 hours.&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderMerchantId&lt;/code&gt;(Your store identifier at Cybersource. Contact Braspag in case you don’t have one.) &lt;br /&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FraudAnalysis.FingerPrintId&lt;/code&gt; (Identifier used to crosscheck information obtained from the buyer’s device.) &lt;br /&gt;&lt;br /&gt;Note: This identifier can have any value or be the order number, but it must be unique for 48 hours.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Application&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&quot;applying-the-script&quot;&gt;Applying the Script&lt;/h4&gt;
 
-&lt;p&gt;The Javascript template is as follows:&lt;/p&gt;
+&lt;p&gt;This is the script template:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/af/exemploscriptdfp.png&quot; alt=&quot;Example Code&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;The variables, when properly filled in, would provide a URL similar to the example below:&lt;/p&gt;
+&lt;p&gt;After being properly filled in, the variables will provide a URL as in the example below:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/af/urldfp.png&quot; alt=&quot;Url Example&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/af/urldfp-en.png&quot; alt=&quot;Url Example&quot; /&gt;&lt;/p&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;Be sure to copy all data correctly and have replaced the variables correctly with their values.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Make sure to copy all data accurately and have all the variables correctly replaced with their respective values.&lt;/aside&gt;
 
-&lt;p&gt;&lt;strong&gt;Setting Up Your Web Server&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;mobile-apps-integration&quot;&gt;Mobile Apps Integration&lt;/h3&gt;
 
-&lt;p&gt;All objects refer to h.online-metrix.net, which is the fingerprint server’s DNS. When you are ready for production, you must change the server name to a local URL, and set up on your web server a URL redirection to h.online-metrix.net.&lt;/p&gt;
-
-&lt;aside class=&quot;warning&quot;&gt;If you do not complete this section, you will not receive correct results, and the fingerprint provider domain (URL) will be visible, and your consumer is more likely to block it.&lt;/aside&gt;
-
-&lt;h3 id=&quot;mobile-application-integration&quot;&gt;Mobile Application Integration&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Downloading the SDK&lt;/strong&gt;
-If you have not yet downloaded the iOS or Android SDK, you must do so before continuing. To do so, access one of the links below as desired.&lt;br /&gt; &lt;a href=&quot;https://braspag.github.io//files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip&quot;&gt;Download iOS SDK Deviceprint&lt;/a&gt;  &lt;br /&gt; &lt;a href=&quot;https://braspag.github.io//files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip&quot;&gt;Download Android SDK Deviceprint&lt;/a&gt;&lt;/p&gt;
+&lt;aside class=&quot;notice&quot;&gt;Request the SDKs (iOS and Android) and guidelines in your integration ticket.&lt;/aside&gt;
 
 &lt;h1 id=&quot;queries&quot;&gt;Queries&lt;/h1&gt;
 
@@ -27184,7 +27162,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;3&lt;/td&gt;
-      &lt;td&gt;Antifraud Status Change&lt;/td&gt;
+      &lt;td&gt;Anti-fraud Status Change&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;4&lt;/td&gt;
@@ -28144,7 +28122,7 @@ If you do not have the data to send, please kindly do not send the corresponding
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;84&lt;/td&gt;
-      &lt;td&gt;Platform Name Integrated with the Gateway Braspag Antifraud API  &lt;br /&gt; If this is a direct integration between the store and Braspag, send value equal to PROPRIA&lt;/td&gt;
+      &lt;td&gt;Name of the Platform Integrated with the Gateway Braspag Anti-fraud API  &lt;br /&gt; If this is a direct integration between the store and Braspag, send value equal to “PROPRIA”&lt;/td&gt;
       &lt;td&gt;string&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;All&lt;/td&gt;
