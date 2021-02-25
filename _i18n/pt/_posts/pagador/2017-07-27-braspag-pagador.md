@@ -133,7 +133,7 @@ Ao requisitar a **autorização** de uma transação de crédito, é necessário
 
 Caso a sua loja utilize os serviços de *Retentativa* ou *Loadbalance*, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, [clique aqui](https://suporte.braspag.com.br/hc/pt-br/requests/new) e envie sua requisição.
 
-<aside class="warning">Importante: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
+<aside class="warning">IMPORTANTE: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
 
 Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao [Antifraude](https://braspag.github.io//manual/antifraude) ou à análise do [Velocity](https://braspag.github.io//manual/velocity). Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.
 
@@ -3999,7 +3999,7 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 
 <br/>Para alterar os dados de pagamento, basta fazer um PUT conforme o exemplo.
 
-<aside class="warning">ATENÇÃO! Essa alteração afeta a todos os dados do nó "Payment". Para manter os dados anteriores, você deve informar esses campos utilizando os valores já salvos a serem mantidos.</aside>
+<aside class="warning">ATENÇÃO: Essa alteração afeta a todos os dados do nó "Payment". Para manter os dados anteriores, você deve informar esses campos utilizando os valores já salvos a serem mantidos.</aside>
 
 #### Requisição
 
@@ -6045,7 +6045,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 
 ## Configurando o Fingerprint
 
-Importante componente da análise de fraude, o *fingerprint* é um script (em Javascript) que deve ser inserido no seu site para capturar dados importantes do dispositivo utilizado pelo comprador, como IP da máquina, versão do browser e sistema operacional utilizados.
+Importante componente da análise de fraude, o *fingerprint* é um script que deve ser inserido no seu site para capturar dados importantes do dispositivo utilizado pelo comprador, como IP da máquina, versão do browser e sistema operacional utilizados.
 Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo fingerprint complementam a análise e garantem que sua loja esteja mais protegida.
 
 Abaixo seguem as descrições de como integrar e configurar o fingerprint em sua página de checkout e mobile. Para maiores detalhes, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360000212987-Detalhamento-da-implanta%C3%A7%C3%A3o-do-DeviceFingerPrint).
@@ -6057,7 +6057,7 @@ Ao integrar a tecnologia fingerprint em sua página de checkout, é necessária 
 * a tag *script* dentro da tag *head* para uma performance correta;
 * a tag *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
-<aside class="warning">ATENÇÃO! Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
+<aside class="warning">ATENÇÃO: Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
 
 #### Preenchendo a URL
 
@@ -6066,19 +6066,19 @@ Existem duas variáveis a serem preenchidas na URL do Javascript: o `org_id` e o
 |Variável|Valores|
 |---|---|
 |`org_id`|para Sandbox = "1snn5n9w" <br/> para Produção = "k8vif92e"|
-|`session_id`|`ProviderMerchantId` (identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag.) <br/> `FraudAnalysis.FingerPrintId` (identificador utilizado para cruzar informações obtidas do dispositivo do comprador.) <br/><br/> Obs.: Este identificador poderá ser qualquer valor ou então o número do pedido, mas deverá ser único durante 48 horas.|
+|`session_id`|`ProviderMerchantId` (Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag.) <br/> `FraudAnalysis.FingerPrintId` (Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.) <br/><br/> Obs.: Este identificador pode ser qualquer valor ou então o número do pedido, devendo ser único durante 48 horas.|
 
 #### Aplicando o Script
 
-Este é um modelo do Javascript:
+Este é um modelo do script:
 
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
 As variáveis, após devidamente preenchidas, fornecem uma URL semelhante ao exemplo abaixo:
 
-![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfp.png)
+![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfp-pt.png)
 
-<aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis pelos seus respectivos valores.</aside>
+<aside class="notice">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis pelos seus respectivos valores.</aside>
 
 ### Integração em Aplicativos Mobile
 
@@ -6419,11 +6419,6 @@ Para consultar uma transação de boleto registrado, é necessário o envio de m
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
-```json
-
-
-```
-
 ```shell
 --request GET "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
 --header "Content-Type: application/json"
@@ -6630,11 +6625,6 @@ Para consultar uma venda pelo identificador da loja, é necessário o envio de m
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId={merchantOrderId}</span></aside>
 
-```json
-
-
-```
-
 ```shell
 --request GET "https://apiquerysandbox.braspag.com.brv2/sales?merchantOrderId={merchantOrderId}"
 --header "Content-Type: application/json"
@@ -6700,11 +6690,6 @@ Para consultar um pedido de recorrência, é necessário o envio de mensagem HTT
 ### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
-
-```json
-
-
-```
 
 ```shell
 --request GET "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}"
