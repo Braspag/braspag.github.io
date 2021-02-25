@@ -322,7 +322,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>AntiFraude</strong></td>
+      <td><strong>Antifraude</strong></td>
       <td>Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual. Para mais informações, consulte o manual <a href="https://braspag.github.io//manual/antifraude">Antifraude</a>.</td>
     </tr>
     <tr>
@@ -358,7 +358,7 @@
 
 <aside class="warning">Importante: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
 
-<p>Os parâmetros contidos dentro dos nós <code class="language-plaintext highlighter-rouge">Address</code> e <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> são de preenchimento <strong>obrigatório</strong> quando a transação é submetida ao <a href="https://braspag.github.io//manual/antifraude">AntiFraude</a> ou à análise do <a href="https://braspag.github.io//manual/velocity">Velocity</a>. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.</p>
+<p>Os parâmetros contidos dentro dos nós <code class="language-plaintext highlighter-rouge">Address</code> e <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> são de preenchimento <strong>obrigatório</strong> quando a transação é submetida ao <a href="https://braspag.github.io//manual/antifraude">Antifraude</a> ou à análise do <a href="https://braspag.github.io//manual/velocity">Velocity</a>. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.</p>
 
 <p>Seguem exemplos de envio de requisição e resposta para criar uma transação de crédito:</p>
 
@@ -8724,22 +8724,22 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   <tbody>
     <tr>
       <td>Análise antes da autorização</td>
-      <td>A transação é analisada pelo AntiFraude e então enviada para autorização. Dessa forma, evita-se o envio de transações de alto risco para autorização.</td>
+      <td>A transação é analisada pelo Antifraude e então enviada para autorização. Dessa forma, evita-se o envio de transações de alto risco para autorização.</td>
       <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> igual a “AnalyseFirst”</td>
     </tr>
     <tr>
       <td>Análise após a autorização</td>
-      <td>A transação é enviada para a autorização e então analisada pelo AntiFraude.</td>
+      <td>A transação é enviada para a autorização e então analisada pelo Antifraude.</td>
       <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> igual a “AuthorizeFirst”</td>
     </tr>
     <tr>
       <td>Análise das transações autorizadas</td>
-      <td>O AntiFraude é acionado apenas para analisar transações autorizadas, evitando-se o custo com análises de transações que não receberiam autorização.</td>
+      <td>O Antifraude é acionado apenas para analisar transações autorizadas, evitando-se o custo com análises de transações que não receberiam autorização.</td>
       <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.SequenceCriteria</code> igual a “OnSuccess”</td>
     </tr>
     <tr>
       <td>Análise em qualquer hipótese</td>
-      <td>O AntiFraude é acionado independentemente do status da transação após a autorização.</td>
+      <td>O Antifraude é acionado independentemente do status da transação após a autorização.</td>
       <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> igual a “AuthorizeFirst” e <code class="language-plaintext highlighter-rouge">FraudAnalysis.SequenceCriteria</code> igual a “Always”</td>
     </tr>
     <tr>
@@ -9501,7 +9501,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
-      <td>Provedor de <em>AntiFraude</em>. <br /> Possível valor: “Cybersource”.</td>
+      <td>Provedor de <em>Antifraude</em>. <br /> Possível valor: “Cybersource”.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
@@ -10461,7 +10461,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
-      <td style="text-align: left">Provedor de <em>AntiFraude</em>.</td>
+      <td style="text-align: left">Provedor de <em>Antifraude</em>.</td>
       <td style="text-align: left">Texto</td>
     </tr>
     <tr>
@@ -10661,12 +10661,12 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Id</code></td>
-      <td style="text-align: left">Id da transação no <em>AntiFraude</em> Braspag.</td>
+      <td style="text-align: left">Id da transação no <em>Antifraude</em> Braspag.</td>
       <td style="text-align: left">GUID</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Status</code></td>
-      <td style="text-align: left">Status da transação no <em>AntiFraude</em> Braspag. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status">Lista de Valores - Status</a>.</td>
+      <td style="text-align: left">Status da transação no <em>Antifraude</em> Braspag. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status">Lista de Valores - Status</a>.</td>
       <td style="text-align: left">Número</td>
     </tr>
     <tr>
@@ -10807,7 +10807,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 <p>Importante componente da análise de fraude, o <em>fingerprint</em> é um script (em Javascript) que deve ser inserido no seu site para capturar dados importantes do dispositivo utilizado pelo comprador, como IP da máquina, versão do browser e sistema operacional utilizados.
 Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo fingerprint complementam a análise e garantem que sua loja esteja mais protegida.</p>
 
-<p>Abaixo seguem as descrições de como integrar e configurar o fingerprint em sua página de checkout e mobiles. Para maiores detalhes, consulte <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360000212987-Detalhamento-da-implanta%C3%A7%C3%A3o-do-DeviceFingerPrint">este artigo</a>.</p>
+<p>Abaixo seguem as descrições de como integrar e configurar o fingerprint em sua página de checkout e mobile. Para maiores detalhes, consulte <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360000212987-Detalhamento-da-implanta%C3%A7%C3%A3o-do-DeviceFingerPrint">este artigo</a>.</p>
 
 <h3 id="integração-em-checkout">Integração em Checkout</h3>
 
@@ -12661,7 +12661,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
     </tr>
     <tr>
       <td>“3”</td>
-      <td>Mudança de status do <em>AntiFraude</em>.</td>
+      <td>Mudança de status do <em>Antifraude</em>.</td>
     </tr>
     <tr>
       <td>“4”</td>
@@ -12997,7 +12997,7 @@ As listas a seguir se referem a provedores na integração REST:</p>
   </tbody>
 </table>
 
-<h2 id="lista-de-status-do-antifraude">Lista de Status do AntiFraude</h2>
+<h2 id="lista-de-status-do-antifraude">Lista de Status do Antifraude</h2>
 
 <table>
   <thead>
@@ -13639,14 +13639,14 @@ As listas a seguir se referem a provedores na integração REST:</p>
     </tr>
     <tr>
       <td>84</td>
-      <td>Nome da plataforma integrada à API AntiFraude Gateway Braspag. Caso seja uma integração direta entre a loja e a Braspag, enviar valor igual a “PROPRIA”.</td>
+      <td>Nome da plataforma integrada à API Antifraude Gateway Braspag. Caso seja uma integração direta entre a loja e a Braspag, enviar valor igual a “PROPRIA”.</td>
       <td>string</td>
       <td>3</td>
       <td>Todos</td>
     </tr>
     <tr>
       <td>85 a 89</td>
-      <td>Campos livres e definidos junto ao provedor de AntiFraude, conforme as regras de negócio.</td>
+      <td>Campos livres e definidos junto ao provedor de Antifraude, conforme as regras de negócio.</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
@@ -14190,7 +14190,7 @@ As listas a seguir se referem a provedores na integração REST:</p>
     <tr>
       <td>167</td>
       <td>Antifraud not configured</td>
-      <td>AntiFraude não vinculado ao cadastro do lojista.</td>
+      <td>Antifraude não vinculado ao cadastro do lojista.</td>
     </tr>
     <tr>
       <td>168</td>
