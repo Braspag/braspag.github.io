@@ -356,7 +356,7 @@
 
 <p>Caso a sua loja utilize os serviços de <em>Retentativa</em> ou <em>Loadbalance</em>, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">clique aqui</a> e envie sua requisição.</p>
 
-<aside class="warning">Importante: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
+<aside class="warning">IMPORTANTE: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
 
 <p>Os parâmetros contidos dentro dos nós <code class="language-plaintext highlighter-rouge">Address</code> e <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> são de preenchimento <strong>obrigatório</strong> quando a transação é submetida ao <a href="https://braspag.github.io//manual/antifraude">Antifraude</a> ou à análise do <a href="https://braspag.github.io//manual/velocity">Velocity</a>. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.</p>
 
@@ -7032,7 +7032,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p><br />Para alterar os dados de pagamento, basta fazer um PUT conforme o exemplo.</p>
 
-<aside class="warning">ATENÇÃO! Essa alteração afeta a todos os dados do nó "Payment". Para manter os dados anteriores, você deve informar esses campos utilizando os valores já salvos a serem mantidos.</aside>
+<aside class="warning">ATENÇÃO: Essa alteração afeta a todos os dados do nó "Payment". Para manter os dados anteriores, você deve informar esses campos utilizando os valores já salvos a serem mantidos.</aside>
 
 <h4 id="requisição-22">Requisição</h4>
 
@@ -10804,7 +10804,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <h2 id="configurando-o-fingerprint">Configurando o Fingerprint</h2>
 
-<p>Importante componente da análise de fraude, o <em>fingerprint</em> é um script (em Javascript) que deve ser inserido no seu site para capturar dados importantes do dispositivo utilizado pelo comprador, como IP da máquina, versão do browser e sistema operacional utilizados.
+<p>Importante componente da análise de fraude, o <em>fingerprint</em> é um script que deve ser inserido no seu site para capturar dados importantes do dispositivo utilizado pelo comprador, como IP da máquina, versão do browser e sistema operacional utilizados.
 Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo fingerprint complementam a análise e garantem que sua loja esteja mais protegida.</p>
 
 <p>Abaixo seguem as descrições de como integrar e configurar o fingerprint em sua página de checkout e mobile. Para maiores detalhes, consulte <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360000212987-Detalhamento-da-implanta%C3%A7%C3%A3o-do-DeviceFingerPrint">este artigo</a>.</p>
@@ -10818,7 +10818,7 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
   <li>a tag <em>noscript</em> dentro da tag <em>body</em>, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.</li>
 </ul>
 
-<aside class="warning">ATENÇÃO! Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
+<aside class="warning">ATENÇÃO: Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
 
 <h4 id="preenchendo-a-url">Preenchendo a URL</h4>
 
@@ -10838,22 +10838,22 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">session_id</code></td>
-      <td><code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> (identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag.) <br /> <code class="language-plaintext highlighter-rouge">FraudAnalysis.FingerPrintId</code> (identificador utilizado para cruzar informações obtidas do dispositivo do comprador.) <br /><br /> Obs.: Este identificador poderá ser qualquer valor ou então o número do pedido, mas deverá ser único durante 48 horas.</td>
+      <td><code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> (Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag.) <br /> <code class="language-plaintext highlighter-rouge">FraudAnalysis.FingerPrintId</code> (Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.) <br /><br /> Obs.: Este identificador pode ser qualquer valor ou então o número do pedido, devendo ser único durante 48 horas.</td>
     </tr>
   </tbody>
 </table>
 
 <h4 id="aplicando-o-script">Aplicando o Script</h4>
 
-<p>Este é um modelo do Javascript:</p>
+<p>Este é um modelo do script:</p>
 
 <p><img src="https://braspag.github.io//images/braspag/af/exemploscriptdfp.png" alt="Exemplo Código" /></p>
 
 <p>As variáveis, após devidamente preenchidas, fornecem uma URL semelhante ao exemplo abaixo:</p>
 
-<p><img src="https://braspag.github.io/images/braspag/af/urldfp.png" alt="Exemplo Url" /></p>
+<p><img src="https://braspag.github.io/images/braspag/af/urldfp-pt.png" alt="Exemplo Url" /></p>
 
-<aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis pelos seus respectivos valores.</aside>
+<aside class="notice">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis pelos seus respectivos valores.</aside>
 
 <h3 id="integração-em-aplicativos-mobile">Integração em Aplicativos Mobile</h3>
 
@@ -11673,10 +11673,6 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-
-</span></code></pre></div></div>
-
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
@@ -12208,10 +12204,6 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId={merchantOrderId}</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-
-</span></code></pre></div></div>
-
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.brv2/sales?merchantOrderId={merchantOrderId}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
@@ -12326,10 +12318,6 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 <h3 id="requisição-32">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-
-</span></code></pre></div></div>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
