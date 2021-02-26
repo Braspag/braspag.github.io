@@ -21,7 +21,7 @@ O objetivo desta documentação é orientar o desenvolvedor sobre como integrar 
 
 Abaixo veja a representação de um **fluxo transacional** padrão seguida de uma pequena descrição das principais partes envolvidas:
 
-![Fluxo Transacional]({{ site.baseurl_root }}/images/fluxo-transacional-pt.png)
+![Fluxo Transacional]({{ site.baseurl_root }}/images/fluxo-transacional-pt-menor.png)
 
 * **Plataforma de e-commerce:** Provê solução técnica para lojistas construírem toda a infraestrutura e processos necessários para sua operação de e-commerce.
 * **Gateway:** Conecta e-commerces com os serviços de pagamento (adquirente, boleto, emissor), facilitando a gestão dos fornecedores de pagamento pelos lojistas.
