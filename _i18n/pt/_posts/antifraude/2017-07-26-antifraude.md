@@ -1,12 +1,12 @@
 ---
 layout: manual
-title: Antifraude - Manual de integração
-description: Integração técnica API Antifraude Gateway Braspag
+title: Manual de Integração - Antifraude
+description: Integração Técnica API Antifraude Gateway Braspag
 search: true
 translated: true
 categories: manual
 tags:
-  - Gestão de Risco
+  - 4. Gestão de Risco
 language_tabs:
   json: JSON
   shell: cURL
@@ -1197,6 +1197,7 @@ As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao
 > Baixe as últimas versões dos SDKs: [Android](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20Android%20SDK%206.0-138_.zip) e [IOS](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20iOS%20SDK%206.0-91_.zip).   
 > Material de apoio [baixe aqui](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf).
  
+ # 
 <details>
   <summary>Versões antigas</summary>
 
