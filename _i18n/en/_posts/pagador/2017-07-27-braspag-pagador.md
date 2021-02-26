@@ -4865,10 +4865,10 @@ This is an example of how to use the previously saved *alias* to create a transa
 
 |Property|Description|Type|Size|Mandatory?|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Name of Payment Method Provider|Text|15|Yes|
-|`Payment.Type`|Payment Method Type|Text|100|Yes|
-|`Payment.Amount`|Order Amount (in cents)|Number|15|Yes|
-|`Payment.Installments`|Number of Installments|Number|2|Yes|
+|`Payment.Provider`|Name of the payment method provider.|Text|15|Yes|
+|`Payment.Type`|Payment method type.|Text|100|Yes|
+|`Payment.Amount`|Order amount in cents.|Number|15|Yes|
+|`Payment.Installments`|Number of installments.|Number|2|Yes|
 |`CreditCard.CardToken`|*Cartão Protegido* token, representing the card data.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`CreditCard.SecurityCode`|Security code printed on the back of the card. To make transactions without the CVV, you must request permission with your acquirer.|Text|4|No|
 |`CreditCard.Brand`|Card brand.|Text|10|Yes|
@@ -6476,67 +6476,59 @@ In order to query a registered boleto transaction via PaymentID, you must send a
 |-----------|---------|----|-------|-------|
 |`MerchantOrderId`|Order ID number.|Text|50|Alphanumeric|
 |`Customer.Name`|Customer's name.|Text|255|Alphanumeric|
-|`Customer.Identity`|Customer's ID number (CPF or CNPJ)|Text|14|Alphanumeric text|
-|`Customer.IdentityType`|Type of shopper identificanumber tion document (CPF or CNPJ)|Text|255|CPF or CNPJ|
-|`Customer.Email`|Shopper Email|Text|255|Alphanumeric|
-|`Customer.Birthdate`|Shopper's Date of Birth|Date|10|format YYYY-MM-DD|
-|`Customer.Address.Street`|Shopper's Contact Address|Text|255|Alphanumeric|
-|`Customer.Address.Number`|Shopper's Contact Number|Text|15|Alphanumeric|
-|`Customer.Address.Complement`|Shopper's Contact Address Supplement|Text|50|Alphanumeric|
-|`Customer.Address.ZipCode`|Shopper's Contact Address Zip Code|Text|9|Alphanumeric|
-|`Customer.Address.City`|City of Shopper's contact address|Text|50|Alphanumeric text|
-|`Customer.Address.State`|Shopper's Contact Address Status|Text|2|Alphanumeric|
-|`Customer.Address.Country`|Shopper's Contact Address Country|Text|35|Alphanumeric|
-|`Customer.Address.District`|Shopper's Neighborhood|Text|50|Alphanumeric|
-|`Customer.DeliveryAddress.Street`|Shopper's Address|Text|255|Alphanumeric|
-|`Customer.DeliveryAddress.Number`|Order Delivery Address Number|Text|15|Alphanumeric|
-|`Customer.DeliveryAddress.Complement`|Order Delivery Address Supplement|Text|50|Alphanumeric|
-|`Customer.DeliveryAddress.ZipCode`|Order Delivery Address Zip Code|Text|9|Alphanumeric|
-|`Customer.DeliveryAddress.City`|Order Delivery Address City|Text|50|Alphanumeric|
-|`Customer.DeliveryAddress.State`|Order Delivery Address Status|Text|2|Alphanumeric|
-|`Customer.DeliveryAddress.Country`|Order Delivery Address Country|Text|35|Alphanumeric|
-|`Customer.DeliveryAddress.District`|Shopper's neighborhood.|Text|50|Alphanumeric|
-|`Payment.Provider`|Name of Payment Provider|Text|15|Consult the providers available in the annexes|
-|`Payment.Type`|Payment Medium Type|Text|100|E.g.: Boleto|
-|`Payment.Amount`|Order Value (in cents)|Number|15|10000|
-|`Payment.CapturedAmount`|Amount paid from the ticket (in cents)|Number|15|10000|
-|`Payment.Instructions`|Text about some specific statement for the boleto|Text|See Banks table|E.g.: "Do not pay after expiration date"|
-|`Payment.Demonstrative`|Text about some  boleto specific information|Text|See Banks table|E.g: "Boleto for the Order #99999"|
-|`Payment.Url`|URL for bill of exchange|Text|-|E.g.: "https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX"|
-|`Payment.BoletoNumber`|Nosso Número|Text|See Banks Table|E.g.: "12345678"|
-|`Payment.BarCodeNumber`|Boleto's Bar Code|Text|44|E.g.: "99999390276000001234864001834007775680099999"|
-|`Payment.DigitableLine`|Digitable Boleto line|Text|54|E.g.: "99999.39027 60000.012348 64001.834007 7 75680000199999"|
-|`Payment.Assignor`|Name of the boleto's assignor|Text|200|E.g.: "SHOP LTDA SOCIAL REASON"|
-|`Payment.Address`|Address of the boleto's assignor|Text|160|E.g.: "Alameda Xingu 512"|
-|`Payment.Identification`|CNPJ of the assignor|Text|18|E.g.: "11.355.111/0001-11"|
-|`Payment.ExpirationDate`|Boleto Due Date|Text|YYYY-MM-DD|E.g.: "2018-06-21"|
-|`Payment.CreditDate`|Boleto's liquidation date|Text|YYYY-MM-DD|E.g.: "2018-06-19"|
-|`Payment.CapturedDate`|Bill Payment Date|Text|YYYY-MM-DD HH:mm:SS|E.g.: "2018-06-19 01:45:57"|
+|`Customer.Identity`|Customer's ID number (CPF or CNPJ).|Text|14|Alphanumeric text|
+|`Customer.IdentityType`|Type of customer's ID document (CPF or CNPJ).|Text|255|"CPF" / "CNPJ"|
+|`Customer.Email`|Customer's email.|Text|255|Alphanumeric|
+|`Customer.Birthdate`|Customer's date of birth.|Date|10|format YYYY-MM-DD|
+|`Customer.Address.Street`|Customer's contact address.|Text|255|Alphanumeric|
+|`Customer.Address.Number`|Customer's contact number.|Text|15|Alphanumeric|
+|`Customer.Address.Complement`|Customer's contact address additional information.|Text|50|Alphanumeric|
+|`Customer.Address.ZipCode`|Customer's contact address zip code.|Text|9|Alphanumeric|
+|`Customer.Address.City`|Customer's contact address city.|Text|50|Alphanumeric text|
+|`Customer.Address.State`|Customer's contact address status.|Text|2|Alphanumeric|
+|`Customer.Address.Country`|Customer's contact address country.|Text|35|Alphanumeric|
+|`Customer.Address.District`|Customer's contact address neighborhood.|Text|50|Alphanumeric|
+|`Customer.DeliveryAddress.Street`|Order delivery address.|Text|255|Alphanumeric|
+|`Customer.DeliveryAddress.Number`|Order delivery address number.|Text|15|Alphanumeric|
+|`Customer.DeliveryAddress.Complement`|Order delivery address additional information.|Text|50|Alphanumeric|
+|`Customer.DeliveryAddress.ZipCode`|Order delivery address zip code.|Text|9|Alphanumeric|
+|`Customer.DeliveryAddress.City`|Order delivery address city.|Text|50|Alphanumeric|
+|`Customer.DeliveryAddress.State`|Order delivery address status.|Text|2|Alphanumeric|
+|`Customer.DeliveryAddress.Country`|Order delivery address country.|Text|35|Alphanumeric|
+|`Customer.DeliveryAddress.District`|Order delivery address neighborhood.|Text|50|Alphanumeric|
+|`Payment.Provider`|Name of the payment provider.|Text|15|Check list of providers in the annexes.|
+|`Payment.Type`|Payment method type.|Text|100|E.g.: Boleto|
+|`Payment.Amount`|Order value in cents.|Number|15|"10000"|
+|`Payment.CapturedAmount`|Boleto paid amount in cents.|Number|15|"10000"|
+|`Payment.Instructions`|Any specific statement for the boleto.|Text|Check [Specific Rules by Issuer](#boleto-conciliation).|E.g.: "Do not pay after expiration date"|
+|`Payment.Demonstrative`|Any specific information for the boleto.|Text|Check [Specific Rules by Issuer](#boleto-conciliation).|E.g: "Boleto for the Order #99999"|
+|`Payment.Url`|URL for displaying the boleto.|Text|-|E.g.: "https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX"|
+|`Payment.BoletoNumber`|Our number.|Text|Check [Specific Rules by Issuer](#boleto-conciliation).|E.g.: "12345678"|
+|`Payment.BarCodeNumber`|Boleto's bar code.|Text|44|E.g.: "99999390276000001234864001834007775680099999"|
+|`Payment.DigitableLine`|Boleto's digitable line.|Text|54|E.g.: "99999.39027 60000.012348 64001.834007 7 75680000199999"|
+|`Payment.Assignor`|Name of the assignor.|Text|200|E.g.: "SHOP LTDA SOCIAL REASON"|
+|`Payment.Address`|Address of the assignor.|Text|160|E.g.: "Alameda Xingu 512"|
+|`Payment.Identification`|CNPJ of the assignor.|Text|18|E.g.: "11.355.111/0001-11"|
+|`Payment.ExpirationDate`|Boleto's expiration date.|Text|YYYY-MM-DD|E.g.: "2018-06-21"|
+|`Payment.CreditDate`|Boleto's liquidation date.|Text|YYYY-MM-DD|E.g.: "2018-06-19"|
+|`Payment.CapturedDate`|Bill payment date.|Text|YYYY-MM-DD HH:mm:SS|E.g.: "2018-06-19 01:45:57"|
 |`Payment.ReceivedDate`|Date the transaction was received by Braspag.|Text|YYYY-MM-DD HH:mm:SS|"2018-06-19 01:45:57"|
-|`Payment.ReturnUrl`|URL of the store to which the customer redirects|Text|-|E.g.: "https://www.loja.com.br"|
-|`Payment.Currency`|Currency in which payment will be made|Text|3|BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP|
-|`Payment.Country`|Country in which payment will be made|Text|3|BRA|
-|`Payment.ExtraDataCollection.Name`|Name of the field to be written Extra Data|Text|50|Alphanumeric text|
-|`Payment.ExtraDataCollection.Value`|Value of the field to be written Extra Data|Text|1024|Alphanumeric text|
-|'PaymentId'|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Payment.ReasonCode`|Acquisition Return Code|Text|32|Alphanumeric|
-|`Payment.Status`|Transaction Status|Byte|2|E.g.: 1|
+|`Payment.ReturnUrl`|URL of the store to which the customer is redirected.|Text|-|E.g.: "https://www.loja.com.br"|
+|`Payment.Currency`|Currency in which the payment will be made.|Text|3|BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP|
+|`Payment.Country`|Country in which the payment will be made.|Text|3|"BRA"|
+|`Payment.ExtraDataCollection.Name`|Name of the extra data field.|Text|50|Alphanumeric text|
+|`Payment.ExtraDataCollection.Value`|Value of the extra data field.|Text|1024|Alphanumeric text|
+|`PaymentId`|Order identifier field.|GUID|36|"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"|
+|`Payment.ReasonCode`|Acquirer's return code.|Text|32|Alphanumeric|
+|`Payment.Status`|Transaction status.|Byte|2|E.g.: 1|
 
-## Querying a Sale by Store Identifier
+## Querying a Sale by the Store Identifier
 
-<aside class="notice"><strong>Rule:</strong>
-<ul>
-<li>Transaction with life up to 3 months - consultation via API or Admin Panel Braspag</a></li>
-<li>Transaction with life from 3 months to 12 months - only via consultation on Admin Braspag Panel</a> with “History” option selected</li>
-<li>Transaction with life over 12 months - contact your Braspag Commercial Executive</li>
-</ul>
-</aside>
+It is not possible to query a payment directly by the identifier submitted by the store (`MerchantOrderId`), but it is possible to obtain all `PaymentIds` associated with the identifier.
 
-You cannot directly query a payment for the store-submitted identifier (MerchantOrderId), but you can get all PaymentIds associated with the identifier.
+In order to query a sale by the store identifier, you must send an HTTP message through the GET method to the */sales* resource, as in the example:
 
-To query a sale by store identifier, you must GET the resource/sales as shown.
-
-#### Request
+### Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId = {merchantOrderId}</span></aside>
 
@@ -6552,12 +6544,12 @@ To query a sale by store identifier, you must GET the resource/sales as shown.
 
 |Property|Description|Type|Size|Mandatory?|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
+|`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
+|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
 |`MerchantOrderId`|Order ID number.|Text|36|Yes (through endpoint)|
 
-##### Response
+### Response
 
 ```json
 {
@@ -6596,18 +6588,17 @@ To query a sale by store identifier, you must GET the resource/sales as shown.
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`PaymentId`|Order Identifier field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
 ## Querying a Recurring Order
 
-To query a Recurrence request, you need to get a GET as per the example.
+In order to query a recurring order, you must send an HTTP message through the GET method as in the example:
 
-#### Request
+### Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
 ```shell
-curl
 --request GET "https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -6619,12 +6610,12 @@ curl
 
 |Property|Description|Type|Size|Mandatory?|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
-|`RecurrentPaymentId`|Recurrence Identifier field.|Text|36|Yes (through endpoint)|
+|`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
+|`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
+|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
+|`RecurrentPaymentId`|Recurrence identifier field.|Text|36|Yes (through endpoint)|
 
-##### Response
+### Response
 
 ```json
 {
@@ -6727,28 +6718,28 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`RecurrentPaymentId`|Field Identifier of the next recurrence.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`NextRecurrency`|Date of next recurrence.|Text|7|05/2019 (MM/YYYY)|
-|`StartDate`|Date of start of recurrence.|Text|7|05/2019 (MM/YYYY)|
-|`EndDate`|Date of end of recurrence.|Text|7|05/2019 (MM/YYYY)|
+|`RecurrentPaymentId`|Identifies the next recurrence.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`NextRecurrency`|Date of the next recurrence.|Text|7|05/2019 (MM/YYYY)|
+|`StartDate`|Start date of recurrence.|Text|7|05/2019 (MM/YYYY)|
+|`EndDate`|End date of the recurrence.|Text|7|05/2019 (MM/YYYY)|
 |`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly</li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
-|`CurrentRecurrencyTry`|Indicates the current recurrence retry number|Number|1|1|
-|`OrderNumber`|Store Order ID|Text|50|2017051101|
-|`Status`|Recurring Order Status|Number|1<UL><LI>|</LI><LI> 1 -Active2 -Finished3,4,5</LI><LI> - Inactive</LI></UL>|
-|`RecurrencyDay`|The day of recurrence|Number|2|22|
-|`SuccessfulRecurrences`|Quantity of successful recurrence made|Number|2|5|
-|`RecurrentTransactions.RecurrentPaymentId`|Recurrence Id|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RecurrentTransactions.TransactionId`|Payment Transaction ID generated on recurrence|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RecurrentTransactions.PaymentNumber`|Recurrence Number. The first is zero|Number|2|3|
-|`RecurrentTransactions.TryNumber`|Number of current attempt at specific recurrence|Number|2|1|
+|`CurrentRecurrencyTry`|Indicates the current recurrency retry number.|Number|1|1|
+|`OrderNumber`|Store order ID.|Text|50|2017051101|
+|`Status`|Recurring order status.|Number|1|1- Active / 2- Finished / 3,4,5- Inactive|
+|`RecurrencyDay`|The day of recurrence.|Number|2|22|
+|`SuccessfulRecurrences`|Quantity of successful recurrences.|Number|2|5|
+|`RecurrentTransactions.RecurrentPaymentId`|Recurrence ID.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RecurrentTransactions.TransactionId`|Payment transaction ID generated on recurrence.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RecurrentTransactions.PaymentNumber`|Recurrence number. The first one is zero.|Number|2|3|
+|`RecurrentTransactions.TryNumber`|Number of the current attempt at a specific recurrence.|Number|2|1|
 
 # Notification Post
 
-To receive notification of change of status you must have configured the registration of your store in Braspag, the URL Status Payment field to receive the parameters as the example below.
+To receive notifications of status changes, you must have configured the URL Status Payment field during registration of your store at Braspag. The parameters will be sent to the registered URL as shown in the example below.
 
-Expected Store Response: HTTP Status Code 200 OK
+<aside class="warning">As there is a possibility of intermittence between the client and server APIs, it is necessary to track pending (unpaid) transactions that have not yet been updated on the current day.</aside>
 
-If the HTTP Status Code 200 OK is not returned, it will be retried twice to send the Notification Post.
+## Sent Notification
 
 ```json
 {
@@ -6773,6 +6764,12 @@ If the HTTP Status Code 200 OK is not returned, it will be retried twice to send
 |5|Refund denied (applicable to Rede)|
 |6|Underpaid Registered Boleto|
 |7|Chargeback Notification  <br/> For More Details [Risk Notification](https://braspag.github.io//manual/risknotification)|
+
+## Expected Response
+
+The expected response from the store is: `HTTP Status Code 200 OK`.
+
+If the above response is not returned, there will be two more attempts to send the Notification Post.
 
 # ANNEXES
 
