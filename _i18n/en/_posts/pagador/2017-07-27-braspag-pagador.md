@@ -6012,15 +6012,7 @@ There are different ways to perform the query of a sale or transaction. Dependin
 
 ## Querying a Transaction via PaymentID
 
-
-Para que o nó `Chargeback` esteja contido no retorno, a Braspag deverá passar a receber os chargebacks da sua loja. Você poderá então acatar ou contestar as operações, acompanhando os resultados das contestações no Painel Admin Braspag. Através do Post de Notificação, sua loja poderá ser informada da transação que sofreu o chargeback.
-As operações contidas no Painel Admin Braspag também estão disponíveis na [API Risk Notification](https://braspag.github.io//manual/risknotification).
-
-Para que o nó `FraudAlert` esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no Painel Admin Braspag. Através do Post de Notificação, a sua loja irá ser informada da transação que sofreu o alerta de fraude.
-
-### Transação de Cartão de Crédito
-
-Para consultar uma transação de cartão de crédito via PaymentID, é necessário o envio de mensagem HTTP através do método GET para o recurso *Payment*, conforme o exemplo:
+Braspag must receive your store's chargebacks in order to include the `Chargeback` node in the response. You will be able to either accept or contest the operations, keeping up with the results in the Admin Braspag panel.
 
 ### Credit Card Transaction
 
@@ -6047,7 +6039,7 @@ In order to query a credit card transaction via PaymentID, you must send an HTTP
 |`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
 |`PaymentId`|Payment identification number.|Text|36|Yes (through endpoint)|
 
-##### Response
+#### Response
 
 ```json
 {
@@ -6293,38 +6285,38 @@ In order to query a credit card transaction via PaymentID, you must send an HTTP
 |`Payment.Authenticate`|Indicates whether the transaction will be authenticated or not. Note: Check with the acquirer for the availability of this feature.|Boolean|---| "true" / "false" (default)|
 |`Payment.Recurrent`|Indicates whether the transaction is recurring or not. Note: “true” will not create a recurrence, but only allow a transaction to continue without the need to send the CVV.<br/>Note2: For Cielo transactions only.<br/>Note3: The `Payment.Authenticate` field must be “false” when this one is “true”.|Boolean|---|"true" / "false" (default)|
 |`Payment.SoftDescriptor`|Text to be printed on the invoice.|Text|13|Alphanumeric text|
-|`Payment.ExtraDataCollection.Name`|Name of the field to be written Extra Data|Text|50|Alphanumeric text|
-|`Payment.ExtraDataCollection.Value`|Value of the field to be written Extra Data|Text|1024|Alphanumeric text|
-|`ProofOfSale`|Proof of Sale Number|Text|20|Alphanumeric|
-|`Payment.AuthorizationCode`|Authorization code|Text|300|Alphanumeric text|
-|`Payment.Refunds.Amount`|Refunded Amount|Number|15|Amount in cents|
-|`Payment.Refunds.Status`|Refund status|Number|1|Received = 1, Sent = 2, Approved = 3, Denied = 4, Rejected = 5|
-|`Payment.Refunds.ReceivedDate`|Refund date|Text|19|AAAA-MM-DD HH:mm:SS|E.g.: "2018-06-19 01:45:57"|
-|`Payment.Chargebacks [n].Amount`|Chargeback amount|Number|15|10000|
-|`Payment.Chargebacks [n].CaseNumber`|Chargeback-related case number|Text|16|Alphanumeric text|
-|`Payment.Chargebacks [n].Date`|Chargeback Date|Date|10|YYYY-MM-DD|
-|`Payment.Chargebacks [n].ReasonCode`|Chargeback Reason Code|Text|10|Alphanumeric|
-|`Payment.Chargebacks [n].ReasonMessage`|Chargeback Reason Message|Text|512|Alphanumeric|
-|`Payment.Chargebacks [n].Chargeback Status`|[Value List - Payment.Chargebacks {n}.Status]({{site.baseurl_root}}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Text|32|Text|
-|`Payment.Chargebacks [n].RawData`|Data sent by the acquirer and may be the cardholder or other message|Text|512|Alphanumeric text|
-|`PaymentId`|Order Identifier Field|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Payment.ExtraDataCollection.Name`|Name of the extra data field.|Text|50|Alphanumeric text|
+|`Payment.ExtraDataCollection.Value`|Value of the extra data field.|Text|1024|Alphanumeric text|
+|`ProofOfSale`|Proof of sale number.|Text|20|Alphanumeric|
+|`Payment.AuthorizationCode`|Authorization code.|Text|300|Alphanumeric text|
+|`Payment.Refunds.Amount`|Refunded amount in cents.|Number|15|"10000"|
+|`Payment.Refunds.Status`|Refund status.|Number|1|Received = "1", Sent = "2", Approved = "3", Denied = "4", Rejected = "5"|
+|`Payment.Refunds.ReceivedDate`|Refund date. E.g.: "2018-06-19 01:45:57"|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.Chargebacks [n].Amount`|Chargeback amount.|Number|15|10000|
+|`Payment.Chargebacks [n].CaseNumber`|Chargeback-related case number.|Text|16|Alphanumeric text|
+|`Payment.Chargebacks [n].Date`|Chargeback date.|Date|10|YYYY-MM-DD|
+|`Payment.Chargebacks [n].ReasonCode`|Chargeback reason code.|Text|10|Alphanumeric|
+|`Payment.Chargebacks [n].ReasonMessage`|Chargeback reason message.|Text|512|Alphanumeric|
+|`Payment.Chargebacks [n].Chargeback Status`|[Value List - Payment.Chargebacks {n}.Status]({{site.baseurl_root}}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status).|Text|32|Text|
+|`Payment.Chargebacks [n].RawData`|Data sent by the acquirer (cardholder or other message).|Text|512|Alphanumeric text|
+|`PaymentId`|Order identifier field.|GUID|36|"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"|
 |`ReceivedDate`|Date the transaction was received by Braspag.|Text|19|YYYY-MM-DD HH:mm:SS|
-|`Payment.ReasonCode`|Acquisition Return Code|Text|32|Alphanumeric|
-|`Payment.ReasonMessage`|Acquisition Return Message|Text|512|Alphanumeric|
-|`Payment.CapturedAmount`|Valor capturado|Número|15|10000|
-|`Payment.CapturedDate`|Data da captura|Texto|19|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
-|`Payment.VoidedAmount`|Valor cancelado/estornado|Número|15|10000|
-|`Payment.VoidedDate`|Data do cancelamento/estorno|Texto|19|AAAA-MM-DD HH:mm:SS|Ex. "2018-06-19 01:45:57"|
-|`Payment.Status`|Transaction Status|Byte|2|E.g.: 1|
-|`Payment.Provider`|Provider used|Texto|32|Simulado|
-|`Payment.ProviderDescription`|Acquirer's name|Texto|512|Simulado|
-|`CreditCard.CardNumber`|Customer’s card number.|Text|16|
-|`CreditCard.Holder`|Name of cardholder printed on card|Text|25|
-|`CreditCard.ExpirationDate`|Expiration Date Printed on the Card|Text|7|
-|`CreditCard.Brand`|Card Brand|Text|10|
-|`CreditCard.SaveCard`|Boolean which identifies whether the card will be saved to generate the token (CardToken)|Boolean|--- (Default false)|
+|`Payment.ReasonCode`|Acquisition return code.|Text|32|Alphanumeric|
+|`Payment.ReasonMessage`|Acquisition return message.|Text|512|Alphanumeric|
+|`Payment.CapturedAmount`|Valor capturado.|Número|15|10000|
+|`Payment.CapturedDate`|Data da captura. E.g.: "2018-06-19 01:45:57".|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.VoidedAmount`|Valor cancelado/estornado.|Número|15|10000|
+|`Payment.VoidedDate`|Data do cancelamento/estorno. E.g.: "2018-06-19 01:45:57".|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.Status`|Transaction status.|Byte|2|E.g.: "1"|
+|`Payment.Provider`|Provider used.|Texto|32|"Simulado"|
+|`Payment.ProviderDescription`|Name of the acquirer.|Texto|512|"Simulado"|
+|`CreditCard.CardNumber`|Customer’s card number.|Text|16|---|
+|`CreditCard.Holder`|Name of the cardholder printed on the card.|Text|25|---|
+|`CreditCard.ExpirationDate`|Expiration date printed on the card.|Text|7|---|
+|`CreditCard.Brand`|Card brand.|Text|10|---|
+|`CreditCard.SaveCard`|Identifies whether the card will be saved to generate the token (*CardToken*).|Boolean|---|"true" / "false" (default)|
 
-## Querying a Boleto transaction via PaymentID
+### Registered Boleto Transaction
 
 <aside class="notice"><strong>Rule:</strong>
 <ul>
