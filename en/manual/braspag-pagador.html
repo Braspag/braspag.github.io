@@ -142,7 +142,7 @@
 
 <p>The purpose of this documentation is to guide the developer on how to integrate with the <strong>Pagador API</strong>, Braspag’s payment gateway, describing all available services using request and response examples.</p>
 
-<p>Below is the representation of a standard transactional flow, followed by a short description of the main parties involved:</p>
+<p>Below is the representation of a standard <strong>transactional flow</strong>, followed by a short description of the main parties involved:</p>
 
 <p><img src="https://braspag.github.io/images/fluxo-transacional-en-menor.png" alt="Fluxo Transacional" /></p>
 
@@ -156,7 +156,7 @@
 
 <h2 id="attributes-of-the-solution">Attributes of the Solution</h2>
 
-<p>The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: <em>ASP</em>, <em>ASP.Net</em>, <em>Java</em>, <em>PHP</em>, <em>Ruby</em> and <em>Python</em>.</p>
+<p>The Pagador API solution (refer to <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360013153791-O-que-%C3%A9-o-Pagador-">this article</a> in Portuguese for more details) was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: <em>ASP</em>, <em>ASP.Net</em>, <em>Java</em>, <em>PHP</em>, <em>Ruby</em> and <em>Python</em>.</p>
 
 <p>Here are some of the main benefits of using Braspag’s e-commerce platform:</p>
 
@@ -177,7 +177,12 @@
   <li>URL for queries - specific for consultation operations, such as a transaction search.</li>
 </ul>
 
-<p><br />To perform an operation, combine the environment base URL with the desired operation endpoint (as in https://api.braspag.com.br/<em>v2/sales/</em>) and then submit a request to this URL using the correct HTTP method.</p>
+<p><br />To perform an operation:</p>
+
+<ol>
+  <li>Combine the environment <strong>base</strong> URL with the desired operation <strong>endpoint</strong>. E.g.: https://api.braspag.com.br/<em>v2/sales/</em>.</li>
+  <li>Submit a request to that URL using the correct HTTP method.</li>
+</ol>
 
 <table>
   <thead>
@@ -10836,25 +10841,42 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>After being properly filled in, the variables will provide a URL as in the example below:</p>
 
-<p><img src="https://braspag.github.io/images/braspag/af/urldfp-en.png" alt="Url Example" /></p>
+<p><img src="https://braspag.github.io/images/braspag/af/urldfp-en-menor.png" alt="Url Example" /></p>
 
 <aside class="notice">Make sure to copy all data accurately and have all the variables correctly replaced with their respective values.</aside>
 
 <h3 id="mobile-apps-integration">Mobile Apps Integration</h3>
 
-<aside class="notice">Request the SDKs (iOS and Android) and guidelines in your integration ticket.</aside>
+<aside class="notice">Use your integration ticket to request the SDKs (iOS and Android) and guidelines for this integration.</aside>
 
 <h1 id="queries">Queries</h1>
 
+<p>There are different ways to perform the query of a sale or transaction. Depending on its lifetime, here are the 3 forms:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>LIFETIME</th>
+      <th>FORM OF QUERY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Up to 3 months</td>
+      <td>Via API or Admin Braspag panel.</td>
+    </tr>
+    <tr>
+      <td>From 3 to 12 months</td>
+      <td>Via Admin Braspag panel with the “History” option selected.</td>
+    </tr>
+    <tr>
+      <td>Over 12 months</td>
+      <td>Contact your Braspag Commercial Executive directly.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="querying-a-transaction-via-paymentid">Querying a Transaction via PaymentID</h2>
-
-<aside class="notice">Rule:
-
-Transaction with life up to 3 months - consultation via API or Admin Panel Braspag
-Transaction with life from 3 months to 12 months - only via consultation on Admin Braspag Panel with “History” option selected
-Transaction with life over 12 months - contact your Braspag Commercial Executive
-
-</aside>
 
 <p>To query a credit card transaction, you must do a GET to the Payment feature as shown.</p>
 
@@ -10862,8 +10884,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>

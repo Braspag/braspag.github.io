@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-02-26T13:26:47+00:00</updated>
+    <updated>2021-02-26T14:23:21+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -14564,7 +14564,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;p&gt;The purpose of this documentation is to guide the developer on how to integrate with the &lt;strong&gt;Pagador API&lt;/strong&gt;, Braspag’s payment gateway, describing all available services using request and response examples.&lt;/p&gt;
 
-&lt;p&gt;Below is the representation of a standard transactional flow, followed by a short description of the main parties involved:&lt;/p&gt;
+&lt;p&gt;Below is the representation of a standard &lt;strong&gt;transactional flow&lt;/strong&gt;, followed by a short description of the main parties involved:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/fluxo-transacional-en-menor.png&quot; alt=&quot;Fluxo Transacional&quot; /&gt;&lt;/p&gt;
 
@@ -14578,7 +14578,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;h2 id=&quot;attributes-of-the-solution&quot;&gt;Attributes of the Solution&lt;/h2&gt;
 
-&lt;p&gt;The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: &lt;em&gt;ASP&lt;/em&gt;, &lt;em&gt;ASP.Net&lt;/em&gt;, &lt;em&gt;Java&lt;/em&gt;, &lt;em&gt;PHP&lt;/em&gt;, &lt;em&gt;Ruby&lt;/em&gt; and &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The Pagador API solution (refer to &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br/articles/360013153791-O-que-%C3%A9-o-Pagador-&quot;&gt;this article&lt;/a&gt; in Portuguese for more details) was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: &lt;em&gt;ASP&lt;/em&gt;, &lt;em&gt;ASP.Net&lt;/em&gt;, &lt;em&gt;Java&lt;/em&gt;, &lt;em&gt;PHP&lt;/em&gt;, &lt;em&gt;Ruby&lt;/em&gt; and &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Here are some of the main benefits of using Braspag’s e-commerce platform:&lt;/p&gt;
 
@@ -14599,7 +14599,12 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;li&gt;URL for queries - specific for consultation operations, such as a transaction search.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;br /&gt;To perform an operation, combine the environment base URL with the desired operation endpoint (as in https://api.braspag.com.br/&lt;em&gt;v2/sales/&lt;/em&gt;) and then submit a request to this URL using the correct HTTP method.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;To perform an operation:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Combine the environment &lt;strong&gt;base&lt;/strong&gt; URL with the desired operation &lt;strong&gt;endpoint&lt;/strong&gt;. E.g.: https://api.braspag.com.br/&lt;em&gt;v2/sales/&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;Submit a request to that URL using the correct HTTP method.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -25258,25 +25263,42 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 &lt;p&gt;After being properly filled in, the variables will provide a URL as in the example below:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/af/urldfp-en.png&quot; alt=&quot;Url Example&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/af/urldfp-en-menor.png&quot; alt=&quot;Url Example&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Make sure to copy all data accurately and have all the variables correctly replaced with their respective values.&lt;/aside&gt;
 
 &lt;h3 id=&quot;mobile-apps-integration&quot;&gt;Mobile Apps Integration&lt;/h3&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Request the SDKs (iOS and Android) and guidelines in your integration ticket.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Use your integration ticket to request the SDKs (iOS and Android) and guidelines for this integration.&lt;/aside&gt;
 
 &lt;h1 id=&quot;queries&quot;&gt;Queries&lt;/h1&gt;
 
+&lt;p&gt;There are different ways to perform the query of a sale or transaction. Depending on its lifetime, here are the 3 forms:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;LIFETIME&lt;/th&gt;
+      &lt;th&gt;FORM OF QUERY&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Up to 3 months&lt;/td&gt;
+      &lt;td&gt;Via API or Admin Braspag panel.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;From 3 to 12 months&lt;/td&gt;
+      &lt;td&gt;Via Admin Braspag panel with the “History” option selected.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Over 12 months&lt;/td&gt;
+      &lt;td&gt;Contact your Braspag Commercial Executive directly.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h2 id=&quot;querying-a-transaction-via-paymentid&quot;&gt;Querying a Transaction via PaymentID&lt;/h2&gt;
-
-&lt;aside class=&quot;notice&quot;&gt;Rule:
-
-Transaction with life up to 3 months - consultation via API or Admin Panel Braspag
-Transaction with life from 3 months to 12 months - only via consultation on Admin Braspag Panel with “History” option selected
-Transaction with life over 12 months - contact your Braspag Commercial Executive
-
-&lt;/aside&gt;
 
 &lt;p&gt;To query a credit card transaction, you must do a GET to the Payment feature as shown.&lt;/p&gt;
 
@@ -25284,8 +25306,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
-&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}&quot;&lt;/span&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; GET &lt;span class=&quot;s2&quot;&gt;&quot;https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
