@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-02-26T20:58:08+00:00</updated>
+    <updated>2021-02-26T21:29:15+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -25300,7 +25300,9 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 &lt;h2 id=&quot;querying-a-transaction-via-paymentid&quot;&gt;Querying a Transaction via PaymentID&lt;/h2&gt;
 
-&lt;p&gt;Braspag must receive your store’s chargebacks in order to include the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Chargeback&lt;/code&gt; node in the response. You will be able to either accept or contest the operations, keeping up with the results in the Admin Braspag panel.&lt;/p&gt;
+&lt;p&gt;In order to include the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Chargeback&lt;/code&gt; node in your response, Braspag must receive your store’s chargebacks. You will be able to either accept or dispute the operations, and then track their progress in the Admin Braspag panel. Your store can be informed of the transactions with issued chargebacks through the Notification Post. The operations displayed in the Admin Braspag panel are also available in the &lt;a href=&quot;https://braspag.github.io//en/manual/risknotification&quot;&gt;Risk Notification API&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In order to include the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FraudAlert&lt;/code&gt; node in your response, Braspag must receive your store’s fraud alerts. They will be available in the Admin Braspag panel. Your store will be informed of the transactions with issued fraud alerts through the Notification Post.&lt;/p&gt;
 
 &lt;h3 id=&quot;credit-card-transaction&quot;&gt;Credit Card Transaction&lt;/h3&gt;
 
@@ -26051,15 +26053,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 &lt;h3 id=&quot;registered-boleto-transaction&quot;&gt;Registered Boleto Transaction&lt;/h3&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Rule:
-
-Transaction with life up to 3 months - consultation via API or Admin Panel Braspag
-Transaction with life from 3 months to 12 months - only via consultation on Admin Braspag Panel with “History” option selected
-Transaction with life over 12 months - contact your Braspag Commercial Executive
-
-&lt;/aside&gt;
-
-&lt;p&gt;To query a credit card transaction, you must do a GET to the Payment feature as shown.&lt;/p&gt;
+&lt;p&gt;In order to query a registered boleto transaction via PaymentID, you must send an HTTP message through the GET method to the &lt;em&gt;Payment&lt;/em&gt; resource, as in the example:&lt;/p&gt;
 
 &lt;h4 id=&quot;request-30&quot;&gt;Request&lt;/h4&gt;
 
@@ -26087,21 +26081,21 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;API Store Identifier&lt;/td&gt;
+      &lt;td&gt;API store identifier.&lt;/td&gt;
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;Yes (through header)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Public Key for Dual Authentication in API&lt;/td&gt;
+      &lt;td&gt;Public key for dual authentication in API.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;40&lt;/td&gt;
       &lt;td&gt;Yes (through header)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT&lt;/td&gt;
+      &lt;td&gt;Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.&lt;/td&gt;
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;No (through header)&lt;/td&gt;
@@ -26116,7 +26110,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h5 id=&quot;response-32&quot;&gt;Response&lt;/h5&gt;
+&lt;h4 id=&quot;response-32&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -26270,14 +26264,14 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Identity&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Customer ID, CPF or CNPJ number&lt;/td&gt;
+      &lt;td&gt;Customer’s ID number (CPF or CNPJ)&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;14&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.IdentityType&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Type of shopper identification document (CPF or CNPJ)&lt;/td&gt;
+      &lt;td&gt;Type of shopper identificanumber tion document (CPF or CNPJ)&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;CPF or CNPJ&lt;/td&gt;

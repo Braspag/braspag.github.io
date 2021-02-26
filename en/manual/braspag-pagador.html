@@ -10878,7 +10878,9 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <h2 id="querying-a-transaction-via-paymentid">Querying a Transaction via PaymentID</h2>
 
-<p>Braspag must receive your store’s chargebacks in order to include the <code class="language-plaintext highlighter-rouge">Chargeback</code> node in the response. You will be able to either accept or contest the operations, keeping up with the results in the Admin Braspag panel.</p>
+<p>In order to include the <code class="language-plaintext highlighter-rouge">Chargeback</code> node in your response, Braspag must receive your store’s chargebacks. You will be able to either accept or dispute the operations, and then track their progress in the Admin Braspag panel. Your store can be informed of the transactions with issued chargebacks through the Notification Post. The operations displayed in the Admin Braspag panel are also available in the <a href="https://braspag.github.io//en/manual/risknotification">Risk Notification API</a>.</p>
+
+<p>In order to include the <code class="language-plaintext highlighter-rouge">FraudAlert</code> node in your response, Braspag must receive your store’s fraud alerts. They will be available in the Admin Braspag panel. Your store will be informed of the transactions with issued fraud alerts through the Notification Post.</p>
 
 <h3 id="credit-card-transaction">Credit Card Transaction</h3>
 
@@ -11629,15 +11631,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <h3 id="registered-boleto-transaction">Registered Boleto Transaction</h3>
 
-<aside class="notice">Rule:
-
-Transaction with life up to 3 months - consultation via API or Admin Panel Braspag
-Transaction with life from 3 months to 12 months - only via consultation on Admin Braspag Panel with “History” option selected
-Transaction with life over 12 months - contact your Braspag Commercial Executive
-
-</aside>
-
-<p>To query a credit card transaction, you must do a GET to the Payment feature as shown.</p>
+<p>In order to query a registered boleto transaction via PaymentID, you must send an HTTP message through the GET method to the <em>Payment</em> resource, as in the example:</p>
 
 <h4 id="request-30">Request</h4>
 
@@ -11665,21 +11659,21 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>API Store Identifier</td>
+      <td>API store identifier.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Dual Authentication in API</td>
+      <td>Public key for dual authentication in API.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
       <td>No (through header)</td>
@@ -11694,7 +11688,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
   </tbody>
 </table>
 
-<h5 id="response-32">Response</h5>
+<h4 id="response-32">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -11848,14 +11842,14 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Customer ID, CPF or CNPJ number</td>
+      <td>Customer’s ID number (CPF or CNPJ)</td>
       <td>Text</td>
       <td>14</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Type of shopper identification document (CPF or CNPJ)</td>
+      <td>Type of shopper identificanumber tion document (CPF or CNPJ)</td>
       <td>Text</td>
       <td>255</td>
       <td>CPF or CNPJ</td>
