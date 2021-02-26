@@ -18,7 +18,7 @@ language_tabs:
 
 The purpose of this documentation is to guide the developer on how to integrate with the **Pagador API**, Braspag's payment gateway, describing all available services using request and response examples.
 
-Below is the representation of a standard transactional flow, followed by a short description of the main parties involved:
+Below is the representation of a standard **transactional flow**, followed by a short description of the main parties involved:
 
 ![Fluxo Transacional](https://braspag.github.io/images/fluxo-transacional-en-menor.png)
 
@@ -30,7 +30,7 @@ Below is the representation of a standard transactional flow, followed by a shor
 
 ## Attributes of the Solution
 
-The Pagador API solution was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: *ASP*, *ASP.Net*, *Java*, *PHP*, *Ruby* and *Python*.
+The Pagador API solution (refer to [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360013153791-O-que-%C3%A9-o-Pagador-) in Portuguese for more details) was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: *ASP*, *ASP.Net*, *Java*, *PHP*, *Ruby* and *Python*.
 
 Here are some of the main benefits of using Braspag's e-commerce platform:
 
@@ -47,7 +47,10 @@ The model used in the integration of the APIs is simple. It is based in the use 
 * URL for transactions - specific for operations such as authorization, capture and cancellation of transactions.
 * URL for queries - specific for consultation operations, such as a transaction search.
 
-<br/>To perform an operation, combine the environment base URL with the desired operation endpoint (as in https://api.braspag.com.br/*v2/sales/*) and then submit a request to this URL using the correct HTTP method.
+<br/>To perform an operation:
+
+1. Combine the environment **base** URL with the desired operation **endpoint**. E.g.: https://api.braspag.com.br/*v2/sales/*.
+2. Submit a request to that URL using the correct HTTP method.
 
 |HTTP Method| Description|
 |---|---|
@@ -5989,25 +5992,25 @@ This is the script template:
 
 After being properly filled in, the variables will provide a URL as in the example below:
 
-![Url Example](https://braspag.github.io/images/braspag/af/urldfp-en.png)
+![Url Example](https://braspag.github.io/images/braspag/af/urldfp-en-menor.png)
 
 <aside class="notice">Make sure to copy all data accurately and have all the variables correctly replaced with their respective values.</aside>
 
 ### Mobile Apps Integration
 
-<aside class="notice">Request the SDKs (iOS and Android) and guidelines in your integration ticket.</aside>
+<aside class="notice">Use your integration ticket to request the SDKs (iOS and Android) and guidelines for this integration.</aside>
 
 # Queries
 
-## Querying a Transaction via PaymentID
+There are different ways to perform the query of a sale or transaction. Depending on its lifetime, here are the 3 forms:
 
-<aside class="notice"><strong>Rule:</strong>
-<ul>
-<li>Transaction with life up to 3 months - consultation via API or Admin Panel Braspag</a></li>
-<li>Transaction with life from 3 months to 12 months - only via consultation on Admin Braspag Panel</a> with “History” option selected</li>
-<li>Transaction with life over 12 months - contact your Braspag Commercial Executive</li>
-</ul>
-</aside>
+|LIFETIME|FORM OF QUERY|
+|---|---|
+|Up to 3 months|Via API or Admin Braspag panel.|
+|From 3 to 12 months|Via Admin Braspag panel with the “History” option selected.|
+|Over 12 months|Contact your Braspag Commercial Executive directly.|
+
+## Querying a Transaction via PaymentID
 
 To query a credit card transaction, you must do a GET to the Payment feature as shown.
 
@@ -6016,7 +6019,6 @@ To query a credit card transaction, you must do a GET to the Payment feature as 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
 ```shell
-curl
 --request GET "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
