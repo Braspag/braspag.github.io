@@ -6099,18 +6099,13 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na [
 
 Para que o nó `FraudAlert` esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no Painel Admin Braspag. Através do Post de Notificação, a sua loja irá ser informada da transação que sofreu o alerta de fraude.
 
-### Consultando uma Transação de Cartão de Crédito via PaymentID
+### Transação de Cartão de Crédito
 
-Para consultar uma transação de cartão de crédito, é necessário o envio de mensagem HTTP através do método GET para o recurso *Payment*, conforme o exemplo:
+Para consultar uma transação de cartão de crédito via PaymentID, é necessário o envio de mensagem HTTP através do método GET para o recurso *Payment*, conforme o exemplo:
 
 #### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
-
-```json
-
-
-```
 
 ```shell
 --request GET "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
@@ -6409,9 +6404,9 @@ Para consultar uma transação de cartão de crédito, é necessário o envio de
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|---|
 |`CreditCard.SaveCard`|Identifica se o cartão será salvo para gerar o token (*CardToken*).|Booleano|---|true / false (default)|
 
-### Consultando uma Transação de Boleto via PaymentID
+### Transação de Boleto Registrado
 
-Para consultar uma transação de boleto registrado, é necessário o envio de mensagem HTTP do método GET para o recurso *Payment*, conforme o exemplo:
+Para consultar uma transação de boleto registrado via PaymentID, é necessário o envio de mensagem HTTP do método GET para o recurso *Payment*, conforme o exemplo:
 
 #### Requisição
 
@@ -6604,7 +6599,7 @@ Para consultar uma transação de boleto registrado, é necessário o envio de m
 |`Payment.CreditDate`|Data de crédito do valor pago do boleto.|Texto|AAAA-MM-DD|Ex.: "2018-06-19"|
 |`Payment.CapturedDate`|Data de pagamento do boleto.|Texto|AAAA-MM-DD HH:mm:SS|Ex.: "2018-06-19 01:45:57"|
 |`Payment.ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|AAAA-MM-DD HH:mm:SS|Ex.: "2018-06-19 01:45:57"|
-|`Payment.ReturnUrl`|URL da loja para onde redireciona o cliente|Texto|-|Ex.: "https://www.loja.com.br"|
+|`Payment.ReturnUrl`|URL da loja para onde o cliente é redirecionado.|Texto|-|Ex.: "https://www.loja.com.br"|
 |`Payment.Currency`|Moeda na qual o pagamento será feito.|Texto|3|BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
 |`Payment.Country`|País na qual o pagamento será feito.|Texto|3|BRA|
 |`Payment.ExtraDataCollection.Name`|Nome do campo em que será gravado o dado extra.|Texto|50|Texto alfanumérico|
@@ -6816,7 +6811,7 @@ Para consultar um pedido de recorrência, é necessário o envio de mensagem HTT
 |`Interval`|Intervalo entre as recorrências. |Texto |10 |"Monthly" / "Bimonthly" / "Quarterly" / "SemiAnnual" / "Annual"|
 |`CurrentRecurrencyTry`|Número atual da tentativa de recorrência.|Número|1|1|
 |`OrderNumber`|Identificação do pedido na loja. |Texto|50 |2017051101|
-|`Status`|Status do pedido recorrente. |Número|1 |1 - Ativo / 2 - Finalizado / 3,4,5 - Inativo|
+|`Status`|Status do pedido recorrente. |Número|1 |1- Ativo / 2- Finalizado / 3,4,5- Inativo|
 |`RecurrencyDay`|Dia da recorrência.|Número|2 |22 |
 |`SuccessfulRecurrences`|Quantidade de recorrências realizadas com sucesso.|Número|2 |5|
 |`RecurrentTransactions.RecurrentPaymentId`|Id da recorrência.|GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
