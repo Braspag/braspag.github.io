@@ -1,15 +1,16 @@
 ---
 layout: manual
-title: Manual de Integração - Antifraude
-description: Integração Técnica API Antifraude Gateway Braspag
+title: Antifraude - Manual de integração
+description: Integração técnica API Antifraude Gateway Braspag
 search: true
 translated: true
 categories: manual
 tags:
-  - 4. Gestão de Risco
+  - Gestão de Risco
 language_tabs:
   json: JSON
-
+  shell: cURL
+  html: HTML
 ---
 
 # Visão Geral
@@ -1189,10 +1190,25 @@ As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao
 ![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfpaf.png)
 
 <aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
+<br />
 
-** Integração em aplicativos mobile **
+**Integração em aplicativos mobile**
 
-> Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.
+> Baixe as últimas versões dos SDKs: [Android](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20Android%20SDK%206.0-138_.zip) e [IOS](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20iOS%20SDK%206.0-91_.zip).   
+> Material de apoio [baixe aqui](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf).
+<details>
+  <summary>Versões antigas</summary>
+
+  |Sistema|Versão|Apoio|
+  |:-|:-|:-|
+  |[Android][A55]|[5.5][A55]|[Material de Apoio][M55]|
+  |[IOS][I55]|[5.5][I55]|[Material de Apoio][M55]|
+
+  [A55]:https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/cybersource-androidsdk-fingerprint-v5.0.96.zip
+  [I55]:https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip
+  [M55]:https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v5.pdf
+</details>
+</br>
 
 # Tabelas
 
@@ -1672,7 +1688,7 @@ As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao
 |47|Identifica se o cartão é private label <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
 |48|Quantidade de meios de pagamentos utilizados para efetuar a compra|int|2|Todos|
 |49|Média das compras realizadas nos últimos 6 meses <br/> Ex.: 159050 = r$ 1.590,99|long|3|Todos|
-|50|Fator de desvio de valor da compra atual sobre a média dos últimos 6 meses|3|Todos|
+|50|Fator de desvio de valor da compra atual sobre a média dos últimos 6 meses <br/> Exemplo de formato: 2.5 (sem separador de milhares, separar decimal por ponto)|float|3|Todos|
 |51|Identifica se é um cliente VIP com tratamento de risco diferenciado ou lista positiva <br/> Possíveis valores: SIM ou NAO|string|3|Todos|
 |52|Categoria do produto <br/> Possíveis valores: <br/> Animais e Bichos de Estimação <br/> Roupas e Acessórios <br/> Negócios e Indústria <br/> Câmeras e Óticas <br/> Eletrônicos <br/> Comidas, Bebidas e Cigarro <br/> Móveis <br/> Ferramentas <br/> Saúde e Beleza <br/> Casa e Jardim <br/> Malas e Bagagens <br/> Adulto <br/> Armas e Munição <br/> Materiais de Escritório <br/> Religião e Cerimoniais <br/> Software <br/> Equipamentos de Esporte <br/> Brinquedos e Jogos <br/> Veículos e Peças <br/> Livros <br/> DVDs e Vídeos <br/> Revistas e Jornais <br/> Música <br/> Outras Categorias Não Especificadas|string|2|Todos|
 |53|Identifica se existe rotina de confirmação de celular por SMS <br/> Possíveis valores: SIM ou NAO|string|2|Todos|
