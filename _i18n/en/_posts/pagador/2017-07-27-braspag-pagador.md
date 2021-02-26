@@ -6012,7 +6012,9 @@ There are different ways to perform the query of a sale or transaction. Dependin
 
 ## Querying a Transaction via PaymentID
 
-Braspag must receive your store's chargebacks in order to include the `Chargeback` node in the response. You will be able to either accept or contest the operations, keeping up with the results in the Admin Braspag panel.
+In order to include the `Chargeback` node in your response, Braspag must receive your store's chargebacks. You will be able to either accept or dispute the operations, and then track their progress in the Admin Braspag panel. Your store can be informed of the transactions with issued chargebacks through the Notification Post. The operations displayed in the Admin Braspag panel are also available in the [Risk Notification API](https://braspag.github.io//en/manual/risknotification).
+
+In order to include the `FraudAlert` node in your response, Braspag must receive your store's fraud alerts. They will be available in the Admin Braspag panel. Your store will be informed of the transactions with issued fraud alerts through the Notification Post.
 
 ### Credit Card Transaction
 
@@ -6318,15 +6320,7 @@ In order to query a credit card transaction via PaymentID, you must send an HTTP
 
 ### Registered Boleto Transaction
 
-<aside class="notice"><strong>Rule:</strong>
-<ul>
-<li>Transaction with life up to 3 months - consultation via API or Admin Panel Braspag</a></li>
-<li>Transaction with life from 3 months to 12 months - only via consultation on Admin Braspag Panel</a> with “History” option selected</li>
-<li>Transaction with life over 12 months - contact your Braspag Commercial Executive</li>
-</ul>
-</aside>
-
-To query a credit card transaction, you must do a GET to the Payment feature as shown.
+In order to query a registered boleto transaction via PaymentID, you must send an HTTP message through the GET method to the *Payment* resource, as in the example:
 
 #### Request
 
@@ -6344,12 +6338,12 @@ To query a credit card transaction, you must do a GET to the Payment feature as 
 
 |Property|Description|Type|Size|Mandatory?|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|API Store Identifier|GUID|36|Yes (through header)|
-|`MerchantKey`|Public Key for Dual Authentication in API|Text|40|Yes (through header)|
-|`RequestId`|Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT|GUID|36|No (through header)|
+|`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
+|`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
+|`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
 |`PaymentId`|Payment identification number.|GUID|36|Yes (through endpoint)|
 
-##### Response
+#### Response
 
 ```json
 {
@@ -6482,8 +6476,8 @@ To query a credit card transaction, you must do a GET to the Payment feature as 
 |-----------|---------|----|-------|-------|
 |`MerchantOrderId`|Order ID number.|Text|50|Alphanumeric|
 |`Customer.Name`|Customer's name.|Text|255|Alphanumeric|
-|`Customer.Identity`|Customer ID, CPF or CNPJ number|Text|14|Alphanumeric text|
-|`Customer.IdentityType`|Type of shopper identification document (CPF or CNPJ)|Text|255|CPF or CNPJ|
+|`Customer.Identity`|Customer's ID number (CPF or CNPJ)|Text|14|Alphanumeric text|
+|`Customer.IdentityType`|Type of shopper identificanumber tion document (CPF or CNPJ)|Text|255|CPF or CNPJ|
 |`Customer.Email`|Shopper Email|Text|255|Alphanumeric|
 |`Customer.Birthdate`|Shopper's Date of Birth|Date|10|format YYYY-MM-DD|
 |`Customer.Address.Street`|Shopper's Contact Address|Text|255|Alphanumeric|
