@@ -10888,17 +10888,13 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <p>Para que o nó <code class="language-plaintext highlighter-rouge">FraudAlert</code> esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no Painel Admin Braspag. Através do Post de Notificação, a sua loja irá ser informada da transação que sofreu o alerta de fraude.</p>
 
-<h3 id="consultando-uma-transação-de-cartão-de-crédito-via-paymentid">Consultando uma Transação de Cartão de Crédito via PaymentID</h3>
+<h3 id="transação-de-cartão-de-crédito">Transação de Cartão de Crédito</h3>
 
-<p>Para consultar uma transação de cartão de crédito, é necessário o envio de mensagem HTTP através do método GET para o recurso <em>Payment</em>, conforme o exemplo:</p>
+<p>Para consultar uma transação de cartão de crédito via PaymentID, é necessário o envio de mensagem HTTP através do método GET para o recurso <em>Payment</em>, conforme o exemplo:</p>
 
 <h4 id="requisição-29">Requisição</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-
-</span></code></pre></div></div>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
@@ -11660,9 +11656,9 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
   </tbody>
 </table>
 
-<h3 id="consultando-uma-transação-de-boleto-via-paymentid">Consultando uma Transação de Boleto via PaymentID</h3>
+<h3 id="transação-de-boleto-registrado">Transação de Boleto Registrado</h3>
 
-<p>Para consultar uma transação de boleto registrado, é necessário o envio de mensagem HTTP do método GET para o recurso <em>Payment</em>, conforme o exemplo:</p>
+<p>Para consultar uma transação de boleto registrado via PaymentID, é necessário o envio de mensagem HTTP do método GET para o recurso <em>Payment</em>, conforme o exemplo:</p>
 
 <h4 id="requisição-30">Requisição</h4>
 
@@ -12132,7 +12128,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
-      <td>URL da loja para onde redireciona o cliente</td>
+      <td>URL da loja para onde o cliente é redirecionado.</td>
       <td>Texto</td>
       <td>-</td>
       <td>Ex.: “https://www.loja.com.br”</td>
@@ -12529,7 +12525,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
       <td>Status do pedido recorrente.</td>
       <td>Número</td>
       <td>1</td>
-      <td>1 - Ativo / 2 - Finalizado / 3,4,5 - Inativo</td>
+      <td>1- Ativo / 2- Finalizado / 3,4,5- Inativo</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrencyDay</code></td>
