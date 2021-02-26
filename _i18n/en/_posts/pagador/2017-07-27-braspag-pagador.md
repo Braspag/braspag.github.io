@@ -20,7 +20,7 @@ The purpose of this documentation is to guide the developer on how to integrate 
 
 Below is the representation of a standard transactional flow, followed by a short description of the main parties involved:
 
-![Fluxo Transacional](https://braspag.github.io/images/fluxo-transacional-en.png)
+![Fluxo Transacional](https://braspag.github.io/images/fluxo-transacional-en-menor.png)
 
 * **E-commerce platform:** Provides technical solution for merchants to build all the infrastructure and processes needed for their e-commerce operation.
 * **Gateway:** Connects e-commerces with payment services (acquirer, *boleto* bill, issuer), making it easier for the merchants to manage payment providers.
