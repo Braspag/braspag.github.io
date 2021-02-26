@@ -1196,6 +1196,7 @@ As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao
 
 > Baixe as últimas versões dos SDKs: [Android](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20Android%20SDK%206.0-138_.zip) e [IOS](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20iOS%20SDK%206.0-91_.zip).   
 > Material de apoio [baixe aqui](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf).
+
 <details>
   <summary>Versões antigas</summary>
 
@@ -1208,7 +1209,8 @@ As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao
   [I55]:https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/cybersource-iossdk-fingerprint-v5.0.32.zip
   [M55]:https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v5.pdf
 </details>
-</br>
+
+<br />
 
 # Tabelas
 
