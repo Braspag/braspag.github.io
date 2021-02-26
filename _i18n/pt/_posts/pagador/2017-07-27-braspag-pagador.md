@@ -6076,7 +6076,7 @@ Este é um modelo do script:
 
 As variáveis, após devidamente preenchidas, fornecem uma URL semelhante ao exemplo abaixo:
 
-![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfp-pt.png)
+![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfp-pt-menor.png)
 
 <aside class="notice">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis pelos seus respectivos valores.</aside>
 
