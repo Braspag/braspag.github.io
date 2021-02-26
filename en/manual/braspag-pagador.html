@@ -10878,7 +10878,11 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <h2 id="querying-a-transaction-via-paymentid">Querying a Transaction via PaymentID</h2>
 
-<p>To query a credit card transaction, you must do a GET to the Payment feature as shown.</p>
+<p>Braspag must receive your store’s chargebacks in order to include the <code class="language-plaintext highlighter-rouge">Chargeback</code> node in the response. You will be able to either accept or contest the operations, keeping up with the results in the Admin Braspag panel.</p>
+
+<h3 id="credit-card-transaction">Credit Card Transaction</h3>
+
+<p>In order to query a credit card transaction via PaymentID, you must send an HTTP message through the GET method to the <em>Payment</em> resource, as in the example:</p>
 
 <h4 id="request-29">Request</h4>
 
@@ -10906,21 +10910,21 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>API Store Identifier</td>
+      <td>API store identifier.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Dual Authentication in API</td>
+      <td>Public key for dual authentication in API.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes (through header)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Store-defined Request identifier used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>GUID</td>
       <td>36</td>
       <td>No (through header)</td>
@@ -10935,7 +10939,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h5 id="response-31">Response</h5>
+<h4 id="response-31">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -11148,8 +11152,6 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       <th>Type</th>
       <th>Size</th>
       <th>Format</th>
-      <th> </th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -11159,8 +11161,6 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       <td>Text</td>
       <td>50</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
@@ -11168,458 +11168,356 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       <td>Text</td>
       <td>255</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Customer ID, CPF or CNPJ number</td>
+      <td>Customer’s ID.</td>
       <td>Text</td>
       <td>14</td>
       <td>Alphanumeric text</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Type of shopper identification document (CPF or CNPJ)</td>
+      <td>Type of customer’s ID document (CPF or CNPJ).</td>
       <td>Text</td>
       <td>255</td>
-      <td>CPF or CNPJ</td>
-      <td> </td>
-      <td> </td>
+      <td>“CPF” / “CNPJ”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Shopper Email</td>
+      <td>Customer’s email.</td>
       <td>Text</td>
       <td>255</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>Shopper’s Date of Birth</td>
+      <td>Customer’s date of birth.</td>
       <td>Date</td>
       <td>10</td>
       <td>format YYYY-MM-DD</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Shopper’s Contact Address</td>
+      <td>Customer’s contact address.</td>
       <td>Text</td>
       <td>255</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Shopper’s Contact Number</td>
+      <td>Customer’s contact number.</td>
       <td>Text</td>
       <td>15</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Shopper’s Contact Address Supplement</td>
+      <td>Customer’s contact address additional information.</td>
       <td>Text</td>
       <td>50</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Shopper’s Contact Address Zip Code</td>
+      <td>Customer’s contact address zip code.</td>
       <td>Text</td>
       <td>9</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>City of Shopper’s contact address</td>
+      <td>Customer’s contact address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Shopper’s Contact Address Status</td>
+      <td>Customer’s contact address status.</td>
       <td>Text</td>
       <td>2</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Shopper’s Contact Address Country</td>
+      <td>Customer’s contact address country.</td>
       <td>Text</td>
       <td>35</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Shopper’s Neighborhood</td>
+      <td>Customer’s contact address neighborhood.</td>
       <td>Text</td>
       <td>50</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
-      <td>Shopper’s Address</td>
+      <td>Order delivery address.</td>
       <td>Text</td>
       <td>255</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
-      <td>Order Delivery Address Number</td>
+      <td>Order delivery address number.</td>
       <td>Text</td>
       <td>15</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
-      <td>Order Delivery Address Supplement</td>
+      <td>Order delivery address additional information.</td>
       <td>Text</td>
       <td>50</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
-      <td>Order Delivery Address Zip Code</td>
+      <td>Order delivery address zip code.</td>
       <td>Text</td>
       <td>9</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
-      <td>Order Delivery Address City</td>
+      <td>Order delivery address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
-      <td>Order Delivery Address Status</td>
+      <td>Order delivery address status.</td>
       <td>Text</td>
       <td>2</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
-      <td>Order Delivery Address Country</td>
+      <td>Order delivery address country.</td>
       <td>Text</td>
       <td>35</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
-      <td>Shopper’s neighborhood.</td>
+      <td>Orde delivery address neighborhood.</td>
       <td>Text</td>
       <td>50</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Merchant.Id</code></td>
-      <td>MerchantID where the transaction was made</td>
+      <td>MerchantID where the transaction was made.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-      <td> </td>
-      <td> </td>
+      <td>“xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Merchant.TradeName</code></td>
-      <td>Store name</td>
+      <td>Store name.</td>
+      <td>Text</td>
       <td>50</td>
       <td>Alphanumeric</td>
-      <td>–</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Name of Payment Provider</td>
+      <td>Name of the payment provider.</td>
       <td>Text</td>
       <td>15</td>
-      <td>Consult the providers available in the annexes</td>
-      <td> </td>
-      <td> </td>
+      <td>Check list of providers in the annexes.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
-      <td>Country in which payment will be made</td>
+      <td>Country in which the payment will be made.</td>
       <td>Text</td>
       <td>3</td>
-      <td>BRA</td>
-      <td> </td>
-      <td> </td>
+      <td>“BRA”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Payment Medium Type</td>
+      <td>Payment method type.</td>
       <td>Text</td>
       <td>100</td>
-      <td>E.g.: CreditCard</td>
-      <td> </td>
-      <td> </td>
+      <td>E.g.: “CreditCard”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Order Value (in cents)</td>
+      <td>Order value in cents.</td>
       <td>Number</td>
       <td>15</td>
-      <td>10000</td>
-      <td> </td>
-      <td> </td>
+      <td>“10000”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
-      <td>Number</td>
-      <td>Amount of authorization amount to be used for service charge</td>
-      <td>Note: This value is not added to the authorization value</td>
+      <td>Amount of authorization amount to be used for service charge. Note: This value is not added to the authorization value.</td>
       <td>Number</td>
       <td>15</td>
-      <td>10000</td>
+      <td>“10000”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
-      <td>Currency in which payment will be made</td>
+      <td>Currency in which the payment will be made.</td>
       <td>Text</td>
       <td>3</td>
       <td>BRL/USD/MXN/COP/PLC/ARS/PEN/EUR/PYN/UYU/VEB/VEF/GBP</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number of Installments</td>
+      <td>Number of installments.</td>
       <td>Number</td>
       <td>2</td>
-      <td>6</td>
-      <td> </td>
-      <td> </td>
+      <td>“6”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
-      <td>Installment Type</td>
+      <td>Installment type.</td>
       <td>Text</td>
       <td>10</td>
-      <td>Shop (ByMerchant) or Issuer (ByIssuer)</td>
-      <td> </td>
-      <td> </td>
+      <td>“ByMerchant” (store) / “ByIssuer” (issuer)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Boolean which indicates whether the authorization will have automatic capture (true) or not (false). Check with the acquirer for the availability of this feature</td>
+      <td>Indicates whether the authorization will have automatic capture or not. Note: Check with the acquirer for the availability of this feature.</td>
       <td>Boolean</td>
-      <td>— (Default false)</td>
-      <td>Boolean</td>
-      <td> </td>
-      <td> </td>
+      <td>—</td>
+      <td>“true” / “false” (default)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td>Transaction Id of the Payment Method Provider</td>
+      <td>Transaction ID of the payment method provider.</td>
       <td>Text</td>
       <td>40</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Boolean indicating whether the transaction will be authenticated (true) or not (false). Check with the acquirer for the availability of this feature</td>
+      <td>Indicates whether the transaction will be authenticated or not. Note: Check with the acquirer for the availability of this feature.</td>
       <td>Boolean</td>
-      <td>— (Default false)</td>
-      <td>Boolean</td>
-      <td> </td>
-      <td> </td>
+      <td>—</td>
+      <td>“true” / “false” (default)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>Boolean that indicates whether the transaction is a recurring (true) or not (false) transaction. This value of true will not give rise to a new Recurrence, it will only allow the execution of a transaction without the need to send CVV. For Cielo transactions only. Authenticate must be false when Recurrent is true</td>
+      <td>Indicates whether the transaction is recurring or not. Note: “true” will not create a recurrence, but only allow a transaction to continue without the need to send the CVV.<br />Note2: For Cielo transactions only.<br />Note3: The <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> field must be “false” when this one is “true”.</td>
       <td>Boolean</td>
-      <td>— (Default false)</td>
-      <td>Boolean</td>
-      <td> </td>
-      <td> </td>
+      <td>—</td>
+      <td>“true” / “false” (default)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Text to be printed on invoice</td>
+      <td>Text to be printed on the invoice.</td>
       <td>Text</td>
       <td>13</td>
       <td>Alphanumeric text</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
-      <td>Name of the field to be written Extra Data</td>
+      <td>Name of the extra data field.</td>
       <td>Text</td>
       <td>50</td>
       <td>Alphanumeric text</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
-      <td>Value of the field to be written Extra Data</td>
+      <td>Value of the extra data field.</td>
       <td>Text</td>
       <td>1024</td>
       <td>Alphanumeric text</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Proof of Sale Number</td>
+      <td>Proof of sale number.</td>
       <td>Text</td>
       <td>20</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.AuthorizationCode</code></td>
-      <td>Authorization code</td>
+      <td>Authorization code.</td>
       <td>Text</td>
       <td>300</td>
       <td>Alphanumeric text</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Refunds.Amount</code></td>
-      <td>Refunded Amount</td>
+      <td>Refunded amount in cents.</td>
       <td>Number</td>
       <td>15</td>
-      <td>Amount in cents</td>
-      <td> </td>
-      <td> </td>
+      <td>“10000”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Refunds.Status</code></td>
-      <td>Refund status</td>
+      <td>Refund status.</td>
       <td>Number</td>
       <td>1</td>
-      <td>Received = 1, Sent = 2, Approved = 3, Denied = 4, Rejected = 5</td>
-      <td> </td>
-      <td> </td>
+      <td>Received = “1”, Sent = “2”, Approved = “3”, Denied = “4”, Rejected = “5”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Refunds.ReceivedDate</code></td>
-      <td>Refund date</td>
+      <td>Refund date. E.g.: “2018-06-19 01:45:57”</td>
       <td>Text</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
-      <td>E.g.: “2018-06-19 01:45:57”</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks [n].Amount</code></td>
-      <td>Chargeback amount</td>
+      <td>Chargeback amount.</td>
       <td>Number</td>
       <td>15</td>
       <td>10000</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks [n].CaseNumber</code></td>
-      <td>Chargeback-related case number</td>
+      <td>Chargeback-related case number.</td>
       <td>Text</td>
       <td>16</td>
       <td>Alphanumeric text</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks [n].Date</code></td>
-      <td>Chargeback Date</td>
+      <td>Chargeback date.</td>
       <td>Date</td>
       <td>10</td>
       <td>YYYY-MM-DD</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks [n].ReasonCode</code></td>
-      <td>Chargeback Reason Code</td>
+      <td>Chargeback reason code.</td>
       <td>Text</td>
       <td>10</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks [n].ReasonMessage</code></td>
-      <td>Chargeback Reason Message</td>
+      <td>Chargeback reason message.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks [n].Chargeback Status</code></td>
-      <td><a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status">Value List - Payment.Chargebacks {n}.Status</a></td>
+      <td><a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status">Value List - Payment.Chargebacks {n}.Status</a>.</td>
       <td>Text</td>
       <td>32</td>
       <td>Text</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks [n].RawData</code></td>
-      <td>Data sent by the acquirer and may be the cardholder or other message</td>
+      <td>Data sent by the acquirer (cardholder or other message).</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric text</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier Field</td>
+      <td>Order identifier field.</td>
       <td>GUID</td>
       <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-      <td> </td>
-      <td> </td>
+      <td>“xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
@@ -11627,139 +11525,109 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       <td>Text</td>
       <td>19</td>
       <td>YYYY-MM-DD HH:mm:SS</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReasonCode</code></td>
-      <td>Acquisition Return Code</td>
+      <td>Acquisition return code.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReasonMessage</code></td>
-      <td>Acquisition Return Message</td>
+      <td>Acquisition return message.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code></td>
-      <td>Valor capturado</td>
+      <td>Valor capturado.</td>
       <td>Número</td>
       <td>15</td>
       <td>10000</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CapturedDate</code></td>
-      <td>Data da captura</td>
+      <td>Data da captura. E.g.: “2018-06-19 01:45:57”.</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
-      <td>Ex. “2018-06-19 01:45:57”</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.VoidedAmount</code></td>
-      <td>Valor cancelado/estornado</td>
+      <td>Valor cancelado/estornado.</td>
       <td>Número</td>
       <td>15</td>
       <td>10000</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.VoidedDate</code></td>
-      <td>Data do cancelamento/estorno</td>
+      <td>Data do cancelamento/estorno. E.g.: “2018-06-19 01:45:57”.</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
-      <td>Ex. “2018-06-19 01:45:57”</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
-      <td>Transaction Status</td>
+      <td>Transaction status.</td>
       <td>Byte</td>
       <td>2</td>
-      <td>E.g.: 1</td>
-      <td> </td>
-      <td> </td>
+      <td>E.g.: “1”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Provider used</td>
+      <td>Provider used.</td>
       <td>Texto</td>
       <td>32</td>
-      <td>Simulado</td>
-      <td> </td>
-      <td> </td>
+      <td>“Simulado”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ProviderDescription</code></td>
-      <td>Acquirer’s name</td>
+      <td>Name of the acquirer.</td>
       <td>Texto</td>
       <td>512</td>
-      <td>Simulado</td>
-      <td> </td>
-      <td> </td>
+      <td>“Simulado”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
       <td>Customer’s card number.</td>
       <td>Text</td>
       <td>16</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Name of cardholder printed on card</td>
+      <td>Name of the cardholder printed on the card.</td>
       <td>Text</td>
       <td>25</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Expiration Date Printed on the Card</td>
+      <td>Expiration date printed on the card.</td>
       <td>Text</td>
       <td>7</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Card Brand</td>
+      <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
-      <td>Boolean which identifies whether the card will be saved to generate the token (CardToken)</td>
+      <td>Identifies whether the card will be saved to generate the token (<em>CardToken</em>).</td>
       <td>Boolean</td>
-      <td>— (Default false)</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>—</td>
+      <td>“true” / “false” (default)</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="querying-a-boleto-transaction-via-paymentid">Querying a Boleto transaction via PaymentID</h2>
+<h3 id="registered-boleto-transaction">Registered Boleto Transaction</h3>
 
 <aside class="notice">Rule:
 
@@ -11775,8 +11643,7 @@ Transaction with life over 12 months - contact your Braspag Commercial Executive
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
