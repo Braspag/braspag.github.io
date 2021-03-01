@@ -6751,19 +6751,20 @@ To receive notifications of status changes, you must have configured the URL Sta
 
 |Property|Description|Type|Size|Mandatory?|
 |-----------|---------|----|-------|-----------|
-|`RecurrentPaymentId`|Identifier representing the Recurring order (only applicable for ChangeType 2 or 4|GUID|36|No|
-|`PaymentId`|Identifier representing the transaction|GUID|36|Yes|
-|`ChangeType`|Specifies the notification type. See table below|Number|1|Yes|
+|`RecurrentPaymentId`|Identifier representing the recurring order (only applicable for `ChangeType` "2" or "4").|GUID|36|No|
+|`PaymentId`|Identifier representing the transaction.|GUID|36|Yes|
+|`ChangeType`|Specifies the notification type. Note: See table below.|Number|1|Yes|
 
 |ChangeType|Description|
 |----------|---------|
-|1|Payment Status Change|
-|2|Recurrence Created|
-|3|Anti-fraud Status Change|
-|4|Recurring payment status change (E.g.: automatic deactivation)|
-|5|Refund denied (applicable to Rede)|
-|6|Underpaid Registered Boleto|
-|7|Chargeback Notification  <br/> For More Details [Risk Notification](https://braspag.github.io//manual/risknotification)|
+|"1"|Payment status change.|
+|"2"|Recurrence created.|
+|"3"|Anti-fraud status change.|
+|"4"|Recurring payment status change (e.g.: automatic deactivation).|
+|"5"|Refund denied (applicable to **Rede**).|
+|"6"|Underpaid registered boleto.|
+|"7"|Chargeback notification.<br/>For more details, refer to the [Risk Notification](https://braspag.github.io//manual/risknotification) guide.|
+|"8"|Fraud alert.|
 
 ## Expected Response
 
@@ -6775,59 +6776,60 @@ If the above response is not returned, there will be two more attempts to send t
 
 ## List of Providers
 
+For SOAP integration, refer to the list of providers listed in [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360026794092), in Portuguese, and also refer to their reference numbers for the `PaymentMethod` field.<br/>
+The following lists refer to providers for the REST integration:
+
 ### Providers for Credit Card
 
 |Provider|Brand|Description|
 |--------|-----|---------|
-|Simulated|---|Sandbox Provider|
-|Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper|Provider for transactions on the Cielo 3.0 e-commerce platform|
-|Rede2|Visa, Master, Hipercard, Hyper, Diners, Link, Amex|Provider for transactions in e-commerce platform Rede (e-Rede) in REST version|
-|Getnet|Visa, Master, Elo, Amex|Provider for transactions on Getnet e-commerce platform|
-|GlobalPayments|Visa, Master, Elo, Hiper, Hipercard, Cabal, Amex|Provider for transactions on Global Payments e-commerce platform|
-|Stone|Visa, Master, Hipercard, Elo|Provider for transactions on e-commerce platform Stone|
-|Safra|Visa, Master, Hipercard, Elo|Provider for transactions on e-commerce platform Safra|
-|Safra2|Visa, Master, Hipercard, Elo|Provider for transactions on new e-commerce platform Safra|
-|FirstData|Visa, Master, Elo, Hipercard, Cabal, Amex|Provider for Guarani (PYG), Argentine Pesos (ARG) and Real (BRL) transactions on the First Data e-commerce platform|
-|Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Orange and Nevada|Provider for Argentine Peso (ARG) transactions on the Sub1 First Data legacy platform|
-|Banorte|Visa, Master, Carnet|Provider for Mexican Peso (MXN) transactions on Banorte e-commerce platform|
-|Credibanco|Visa, Master, Diners, Amex, Credential|Provider for Colombian Peso (COP) transactions on Credibanco e-commerce platform|
-|Transbank2|Visa, Master, Diners, Amex|Provider for Chilean pesos (CLP) transactions on Transbank e-commerce platform|
-|DMCard|---|---|
+|Simulado|---|Sandbox Provider. [Click here](https://braspag.github.io//en/manual/braspag-pagador#test-cards-(simulado)) for more details about cards for tests.|
+|Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper|Provider for transactions on the Cielo 3.0 e-commerce platform.|
+|Rede2|Visa, Master, Hipercard, Hyper, Diners, Link, Amex|Provider for transactions in e-commerce platform Rede (e-Rede) in REST version.|
+|Getnet|Visa, Master, Elo, Amex|Provider for transactions on Getnet e-commerce platform.|
+|GlobalPayments|Visa, Master, Elo, Hiper, Hipercard, Cabal, Amex|Provider for transactions on Global Payments e-commerce platform.|
+|Stone|Visa, Master, Hipercard, Elo|Provider for transactions on e-commerce platform Stone.|
+|Safra2|Visa, Master, Hipercard, Elo|Provider for transactions on new e-commerce platform Safra.|
+|FirstData|Visa, Master, Elo, Hipercard, Cabal, Amex|Provider for Guarani (PYG), Argentine Pesos (ARG) and Real (BRL) transactions on the First Data e-commerce platform.|
+|Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Orange and Nevada|Provider for Argentine Peso (ARG) transactions on the Sub1 First Data legacy platform.|
+|Banorte|Visa, Master, Carnet|Provider for Mexican Peso (MXN) transactions on Banorte e-commerce platform.|
+|Credibanco|Visa, Master, Diners, Amex, Credential|Provider for Colombian Peso (COP) transactions on Credibanco e-commerce platform.|
+|Transbank2|Visa, Master, Diners, Amex|Provider for Chilean pesos (CLP) transactions on Transbank e-commerce platform.|
+|Banese|Banese|Provider for transaction with the BaneseCard network.|
+|BrasilCard|BrasilCard|Provider for transaction with the BrasilCard network.|
+|Credz|Credz|Private Label Brand System.|
+|DMCard|---|Private Label Brand System.|
 
 ### Providers for Debit Card
 
 |Provider|Brand|Description|
 |--------|-----|---------|
-|Cielo|Visa, Master|Provider for debit transactions on legacy platform Cielo 1.5|
-|Cielo30|Visa, Master|Provider for debit transactions on e-commerce platform Cielo 3.0|
-|Rede2|Visa, Master|Provider for transactions on Rede e-commerce platform|
-|Getnet|Visa, Master|Provider for transactions on Getnet e-commerce platform|
-|FirstData|Visa, Master|Provider for debit transactions on the First Data e-commerce platform|
-|GlobalPayments|Visa, Master|Provider for transactions on Global Payments e-commerce platform|
+|Cielo|Visa, Master|Provider for debit transactions on legacy platform Cielo 1.5.|
+|Cielo30|Visa, Master|Provider for debit transactions on e-commerce platform Cielo 3.0.|
+|Rede2|Visa, Master|Provider for transactions on Rede e-commerce platform.|
+|Safra2|Visa, Master|Provider for debit transactions on e-commerce Safra platform.|
+|Getnet|Visa, Master|Provider for transactions on Getnet e-commerce platform.|
+|FirstData|Visa, Master|Provider for debit transactions on the First Data e-commerce platform.|
+|GlobalPayments|Visa, Master|Provider for transactions on Global Payments e-commerce platform.|
 
 ### Providers for Voucher
 
 |Provider|Brand|Description|
 |--------|-----|---------|
-|Alelo|Elo|Provider for voucher (meal and food voucher) transactions on the Alelo platform|
+|Alelo|Elo|Provider for voucher (meal and food) transactions on the Alelo platform.|
+|Ticket|Ticket|Provider for voucher (meal and food) transactions on the Ticket platform.|
 
 ### Providers for Zero Auth via VerifyCard
 
 |Provider|
 |--------|
-|Simulado|
-|Cielo30 (Cielo 3.0)|
-|Rede2 (REST e-Rede)|
-|Getnet|
-|FirstData|
-|GlobalPayments|
+|Simulado, Cielo30 (Cielo 3.0), Rede2 (REST e-Rede), Getnet, FirstData, GlobalPayments|
 
 ### Providers for BIN Query via VerifyCard
 
 |Provider|
 |--------|
-|Simulado|
-|Cielo30 (Cielo 3.0)|
+|Simulado, Cielo30 (Cielo 3.0)|
 
 ### Providers for Registered Boleto
 
@@ -6843,19 +6845,19 @@ If the above response is not returned, there will be two more attempts to send t
 
 ## Transaction Status List
 
-Status returned by API
+List of statuses returned by API:
 
-|Code|Payment Status|Payment Means|Description|
+|Code|Payment Status|Payment method|Description|
 |------|-------------------|-----------------|---------|
-|0|NotFinished|All|Failed to process payment|
-|1|Authorized|All|Payment method to be captured or paid (Boleto)|
-|2|PaymentConfirmed|All|Payment confirmed and finalized|
-|3|Denied|Credit & Debit Card (Wire Transfer)|
-|10|Voided|All|Payment canceled|
-|11|Refunded|Credit & Debit Card|Payment Canceled/Refunded|
-|12|Pending|Credit & Debit Card (Wire Transfer)|Awaiting Return from Financial Institution|
-|13|Aborted|All|Payment canceled due to processing failure|
-|20|Scheduled|Credit Card|Scheduled Recurrence|
+|0|NotFinished|All|Failed to process payment.|
+|1|Authorized|All|Payment method to be captured or paid (Boleto).|
+|2|PaymentConfirmed|All|Payment confirmed and finalized.|
+|3|Denied|Credit & debit cards (electronic transfer)|Payment denied by authorizer.|
+|10|Voided|All|Payment cancelled.|
+|11|Refunded|Credit & debit cards|Payment cancelled/refunded.|
+|12|Pending|Credit & debit cards (electronic transfer)|Awaiting response from the financial institution.|
+|13|Aborted|All|Payment cancelled due to processing failure.|
+|20|Scheduled|Credit card|Recurrence scheduled.|
 
 ## Anti-Fraud Status List
 
@@ -6870,9 +6872,16 @@ Status returned by API
 
 ## MDD Table
 
-> Level of Relevance  <br/> 1 - Relevant  <br/> 2 - Very Relevant  <br/> 3 - Extremely Relevant <br/><br/>
-> Depending on the level of relevance of the fields and the possibility of designing the risk strategy according to the needs of your business, the validation of test transactions will be charged if not sent. With this, we request a prior analysis of the documentation and signaling of fields that will not be sent.<br/><br/>
-> If you do not have the data to send, please kindly do not send the corresponding field as empty, ie just do not send.
+A risk strategy is designed in accordance with your business needs, taking into consideration the level of relevance of the MDD (Merchant Defined Data) fields. Even if those fields are not sent, they will still be charged during the validation of the test transactions. For this reason, we request that a prior analysis of the documentation is carried out and the store informs the fields that cannot be sent.
+
+<aside class="warning">In case of any field with no data to be sent, simply ignore the field itself. Do not send any empty fields.</aside>
+
+**Level of Relevance of the MDD Fields**
+
+1- Relevant <br/>
+2- Very Relevant <br/>
+3- Extremely Relevant <br/><br/>
+
 
 |ID|Value|Type|Relevance Level|Segment|
 |--|-----|----|-------------------|--------|
