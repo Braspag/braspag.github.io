@@ -12990,7 +12990,7 @@ The following lists refer to providers for the REST integration:</p>
 
 <p>A risk strategy is designed in accordance with your business needs, taking into consideration the level of relevance of the MDD (Merchant Defined Data) fields. Even if those fields are not sent, they will still be charged during the validation of the test transactions. For this reason, we request that a prior analysis of the documentation is carried out and the store informs the fields that cannot be sent.</p>
 
-<aside class="warning">In case of any field with no data to be sent, simply ignore the field itself. Do not send any empty fields.</aside>
+<aside class="warning">Do not send any empty fields. In case of any fields with no data to be sent, simply skip it.</aside>
 
 <p><strong>Level of Relevance of the MDD Fields</strong></p>
 
@@ -13011,602 +13011,602 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td>1</td>
-      <td>Customer Logged In  <br /> If the final customer logged in to the site to buy, submit: their login  <br /> If they made a purchase as a visitor, submit: Guest  <br /> If the sale was made directly by a third party, an agent for example did not submit the field</td>
+      <td>Customer who logged in. Possible values: “{<em>customer_login</em>}” (if the final customer logs in to purchase on the site) / “Guest” (if the final customer makes the purchase as a visitor). Note: <strong>Do not</strong> submit the field if the sale is made directly by a third party (e.g.: an agent).</td>
       <td>string</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>Quantity in days the customer is your customer  <br /> E.g.: 314</td>
+      <td>How long (in days) the customer has been your customer. E.g.: 314.</td>
       <td>int</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>Quantity of order’s installments</td>
+      <td>Quantity of order installments.</td>
       <td>int</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>Sales Channel   <br /> Possible values:   <br /> Call Center -&gt; Web phone purchase   <br /> -&gt; Web purchase   <br /> Portal -&gt; one agent making the purchase for the customer   <br /> Kiosk -&gt; Kiosk  purchases  <br /> -&gt; Mobile or tablet purchases</td>
+      <td>Sales channel. Possible values: “Call Center” (phone purchase) / “Web” (web purchase) / “Portal” (purchase through agent) / “Kiosk” (kiosk  purchase) / “Mobile” (cell phone or tablet purchases). Note: When “Call Center”, the submission of field <strong>39</strong>(call center user name) is mandatory.</td>
       <td>string</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>Send coupon/discount code if customer uses purchase</td>
+      <td>Coupon/discount code in case the customer uses it in the purchase.</td>
       <td>string</td>
       <td>1</td>
       <td>All</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>Quantity in days since last customer purchase  <br /> E.g.: 55</td>
+      <td>How long (in days) since customer’s last purchase. E.g.: 55.</td>
       <td>int</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>Seller’s code or name (seller)</td>
+      <td>Seller’s code or name.</td>
       <td>string</td>
       <td>1</td>
       <td>All</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>Attempts by the customer to make the payment for the same order, which may be with different credit cards and/or other means of payment</td>
+      <td>Number of customer’s attempts to pay one same order, which may have been using different credit cards and/or other payment methods.</td>
       <td>int</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>Identifies if customer will pick up product in store  <br /> Possible values: YES or NO</td>
+      <td>Identifies if the customer will pick up the product in the store. Possible values: “YES” / “NO”. Note: When “YES”, the submission of field <strong>22</strong>(code of pick up store) is mandatory.</td>
       <td>string</td>
       <td>3</td>
       <td>Retail or Cosmetics</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>Identifies whether payment will be made by someone not present on the trip or package  <br /> Possible values: YES or NO</td>
+      <td>Identifies whether payment will be made by someone not present on the trip or package. Possible values: “YES” / “NO”.</td>
       <td>string</td>
       <td>3</td>
       <td>Air or Tourism</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>Hotel category (how many stars)  <br /> Possible values:  <br /> 1 -&gt; Simple 2  -&gt; <br /> Budget 3  -&gt; <br /> Tourism 4  -&gt; <br /> Superior 5  -&gt; <br /> Luxury</td>
+      <td>Hotel category (star rating). Possible values: “1” (simple) / “2”  (budget) / “3” (tourism) / “4” (superior) / “5” (luxury).</td>
       <td>int</td>
       <td>3</td>
       <td>Tourism</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>Amount in days from purchase date to hotel check-in  <br /> E.g.: 123</td>
+      <td>How long (in days) from purchase date to hotel check-in. E.g.: 123.</td>
       <td>int</td>
       <td>3</td>
       <td>Tourism</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>Amount of hotel nights  <br /> E.g.: 5</td>
+      <td>Number of nights at the hotel. E.g.: 5.</td>
       <td>int</td>
       <td>3</td>
       <td>Tourism</td>
     </tr>
     <tr>
       <td>14</td>
-      <td>Category of trip or package  <br /> Possible values: National or International or National/International</td>
+      <td>Trip or package category. <br /> Possible values: “National” / “International” / “National/International”.</td>
       <td>string</td>
       <td>3</td>
       <td>Air or Tourism</td>
     </tr>
     <tr>
       <td>15</td>
-      <td>Name of airline/car rental/hotel  <br /> Name each company name, separated by/</td>
+      <td>Name of airline / car rental /hotel. Note: Name each company name, separated by a “/”.</td>
       <td>string</td>
       <td>2</td>
       <td>Air or Tourism</td>
     </tr>
     <tr>
       <td>16</td>
-      <td>Reservation PNR Code  <br /> When there is a reservation change for this PNR, in advance of the flight date, it is important to do a new fraud analysis by resubmitting this PNR</td>
+      <td>Reservation PNR code. When there is a reservation change for this PNR to an earlier flight date, it is important to apply a new fraud analysis by resubmitting this PNR.</td>
       <td>string</td>
       <td>3</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>17</td>
-      <td>Identifies if the reservation was anticipated  <br /> Possible values: YES or NO  <br /> If yes, it is also essential to send field 16 - Reservation PNR code</td>
+      <td>Identifies if the reservation was brought forward. Possible values: “YES” / “NO”. Note: When “YES”, the submission of field <strong>16</strong> (reservation PNR code) is mandatory.</td>
       <td>string</td>
       <td>3</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>18</td>
-      <td>Rental vehicle category  <br /> Possible values:  <br /> 1 - Basic 2  <br /> - Sport  <br /> 3 - Prime  <br /> 4 - Utility  <br /> 5 - Armored</td>
+      <td>Rented vehicle category. Possible values: “1” (basic) / “2” (sport) / “3” (prime) / “4” (utility) / “5” (armored).</td>
       <td>string</td>
       <td>3</td>
       <td>Tourism</td>
     </tr>
     <tr>
       <td>19</td>
-      <td>Identifies if the package refers to cruise  <br /> Possible values: YES or NO</td>
+      <td>Identifies if the package refers to a cruise. Possible values: “YES” / “NO”.</td>
       <td>string</td>
       <td>2</td>
       <td>Tourism</td>
     </tr>
     <tr>
       <td>20</td>
-      <td>Fraud review decision for last purchase  <br /> Possible values: ACCEPT or REJECTED</td>
+      <td>Decision of fraud review for the latest purchase. Possible values: “ACCEPT” / “REJECTED”.</td>
       <td>string</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>21</td>
-      <td>Shipping Value  <br /> Eg: 10599 = $ 105.99</td>
+      <td>Shipping cost. E.g.: 10599 = $ 105.99</td>
       <td>long</td>
       <td>1</td>
       <td>Retail or Cosmetics</td>
     </tr>
     <tr>
       <td>22</td>
-      <td>Code of store where product will be taken  <br /> This field must be sent when field 9 is sent as “YES”.</td>
+      <td>Code of pick up store. Note: This field must be sent when field <strong>9</strong> is “YES”.</td>
       <td>string</td>
       <td>3</td>
       <td>Retail or Cosmetics</td>
     </tr>
     <tr>
       <td>23</td>
-      <td>Credit card suffix (last 4 digits)</td>
+      <td>Credit card suffix (last 4 digits).</td>
       <td>int</td>
       <td>1</td>
       <td>All</td>
     </tr>
     <tr>
       <td>24</td>
-      <td>Number of days since first customer purchase  <br /> E.g.: 150</td>
+      <td>How long in days since first customer purchase. E.g.: 150.</td>
       <td>int</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>25</td>
-      <td>Customer gender  <br /> Possible values:  <br /> F -&gt; Female  <br /> M -&gt; Male</td>
+      <td>Gender of the customer. Possible values: “F” (female) / “M” (male).</td>
       <td>string</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>26</td>
-      <td>Credit card bin (first 6 digits)</td>
+      <td>Credit card bin (first 6 digits).</td>
       <td>int</td>
       <td>1</td>
       <td>All</td>
     </tr>
     <tr>
       <td>27</td>
-      <td>Delivery address street type  <br /> Possible values:  <br /> R -&gt; Residential  C -&gt; <br /> Commercial</td>
+      <td>Delivery address street type. Possible values: “R” (residential) / “C” (commercial).</td>
       <td>string</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>28</td>
-      <td>Average time taken by the customer to make the purchase</td>
+      <td>Average time taken by the customer to make the purchase.</td>
       <td>int</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>29</td>
-      <td>Number of retries the customer made to log in</td>
+      <td>Number of retries the customer made to log in.</td>
       <td>int</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>30</td>
-      <td>Number of web pages the customer has previously visited with a purchase within 30 minutes</td>
+      <td>Number of web pages the customer visited within the 30 minutes before the purchase.</td>
       <td>int</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>31</td>
-      <td>Number of credit card number exchanges the customer has made to make the order payment</td>
+      <td>Number of changes of credit card number the customer made to make the order payment.</td>
       <td>int</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>32</td>
-      <td>Identifies whether the email was pasted or typed  <br /> Possible values: Typed or Pasted</td>
+      <td>Identifies whether the email was pasted or typed. Possible values: “Typed” / “Pasted”.</td>
       <td>string</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>33</td>
-      <td>Identifies whether the credit card number has been pasted or entered  <br /> . Possible values: Typed or Pasted</td>
+      <td>Identifies whether the credit card number was pasted or entered. Possible values: “Typed / Pasted”.</td>
       <td>string</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>34</td>
-      <td>Identifies if the email has been verified for account activation  <br /> Possible values: YES or NO</td>
+      <td>Identifies if the email has been verified for account activation. Possible values: “YES” / “NO”.</td>
       <td>string</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>35</td>
-      <td>Identifies the type of customer  <br /> Possible values: Local or Tourist</td>
+      <td>Identifies the type of customer. Possible values: “Local” / “Tourist”.</td>
       <td>string</td>
       <td>2</td>
       <td>Tourism</td>
     </tr>
     <tr>
       <td>36</td>
-      <td>Identifies whether a gift card was used as a payment method  <br /> Possible values: YES or NO</td>
+      <td>Identifies whether a giftcard was used as the payment method. Possible values: “YES” / “NO”.</td>
       <td>string</td>
       <td>1</td>
       <td>All</td>
     </tr>
     <tr>
       <td>37</td>
-      <td>Order delivery method <br /> Possible values: Sedex <br /> Sedex 10 <br /> 1 day<br /> 2 days <br /> Motoboy <br /> Same day <br /></td>
+      <td>Order delivery method. Possible values: “Sedex” / “Sedex 10” / “1 day” / “2 days” / “Motoboy” / “Same day”.</td>
       <td>string</td>
       <td>3</td>
       <td>Retail or Cosmetics</td>
     </tr>
     <tr>
       <td>38</td>
-      <td>Customer phone number identified via Caller ID when sale made through sales channel equal to Call Center  <br /> Format: DDIDDNumber - E.g.: 552121114720</td>
+      <td>Customer phone number identified via caller ID for a sale made through a “Call Center”. Format: DDIDDNumber - E.g.: 552121114720.</td>
       <td>string</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>39</td>
-      <td>Call Center Username  <br /> This field must be sent when field 4 is sent equal to Call Center</td>
+      <td>Call center username. Note: This field must be sent when field <strong>4</strong> is “Call Center”.</td>
       <td>string</td>
       <td>1</td>
       <td>All</td>
     </tr>
     <tr>
       <td>40</td>
-      <td>Comments entered when order is present</td>
+      <td>Comments added when the order is a gift.</td>
       <td>string</td>
       <td>1</td>
       <td>All</td>
     </tr>
     <tr>
       <td>41</td>
-      <td>Document type  <br /> Possible values: CPF or CNPJ or Passport</td>
+      <td>Document type. Possible values: “CPF” / “CNPJ” / “Passport”.</td>
       <td>string</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>42</td>
-      <td>Age of client</td>
+      <td>Customer’s age.</td>
       <td>int</td>
       <td>2</td>
-      <td>Everyone</td>
+      <td>All</td>
     </tr>
     <tr>
       <td>43</td>
-      <td>Customer income range  <br /> E.g.: 100000 = $ 1,000.00</td>
+      <td>Customer’s income range. E.g.: 100000 = $ 1,000.00.</td>
       <td>long</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>44</td>
-      <td>Historical quantity of customer purchases</td>
+      <td>Historical quantity of customer purchases.</td>
       <td>int</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>45</td>
-      <td>Identifies if it is a purchase by employee  <br /> Possible values: YES or NO</td>
+      <td>Identifies if the purchase was made by an employee. Possible values: “YES” / “NO”.</td>
       <td>string</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>46</td>
-      <td>Credit card name (bearer)</td>
+      <td>Name printed on the credit card (bearer).</td>
       <td>string</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>47</td>
-      <td>Identifies whether the card is private label  <br /> Possible values: YES or NO</td>
+      <td>Identifies whether it is a private label card. Possible values: “YES” / “NO”.</td>
       <td>string</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>48</td>
-      <td>Amount of payment methods used to make the purchase</td>
+      <td>Number of payment methods used to make the purchase.</td>
       <td>int</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>49</td>
-      <td>Average purchases made over the past 6 months  <br /> E.g.: 159050 = $ 1,590.99</td>
+      <td>Average value of the purchases made over the past 6 months. E.g.: 159050 = $ 1,590.99.</td>
       <td>long</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>50</td>
-      <td>Current purchase value deviation factor over last 6 months average</td>
+      <td>Current purchase value deviation factor over average of the past 6 months.</td>
       <td>3</td>
       <td>All</td>
       <td> </td>
     </tr>
     <tr>
       <td>51</td>
-      <td>Identifies if you are a VIP client with differentiated risk treatment or positive list  <br /> Possible values: YES or NO</td>
+      <td>Identifies if you are a VIP client with special risk treatment or positive list. Possible values: “YES” / “NO”.</td>
       <td>string</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>52</td>
-      <td>Product Category  <br /> Possible Values:  <br /> Animals &amp; Pets  <br /> Clothing &amp; Accessories  <br /> Business &amp; Industry  <br /> Cameras &amp; Optics  <br /> Electronics  <br /> Food, Beverage &amp; Cigarette  <br /> Furniture  <br /> Tools  <br /> Health &amp; Beauty  <br /> Home &amp; Garden  <br /> Bags &amp; Luggage  <br /> Adult  <br /> Guns &amp; Ammo  <br /> Office Supplies  <br /> Religion &amp; Ceremonials  <br /> Software  <br /> Sports Equipment  <br /> Toys &amp; Games  <br /> Vehicles &amp; Parts  <br /> Books  <br /> DVDs &amp; Videos  <br /> Magazines &amp; Newspapers  <br /> Music  <br /> Other Categories Unspecified</td>
+      <td>Product category. Possible values: “Animals &amp; Pets” / “Clothing &amp; Accessories” / “Business &amp; Industry” / “Cameras &amp; Optics” / “Electronics” / “Food, Beverage &amp; Cigarettes” / “Furniture” / “Tools” / “Health &amp; Beauty” / “Home &amp; Garden” / “Bags &amp; Luggage” / “Adult” / “Guns &amp; Ammo” / “Office Supplies” / “Religion &amp; Ceremonials” / “Software” / “Sports Equipment” / “Toys &amp; Games” / “Vehicles &amp; Parts” / “Books” / “DVDs &amp; Videos” / “Magazines &amp; Newspapers” / “Music” / “Other Unspecified Categories”.</td>
       <td>string</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>53</td>
-      <td>Identifies if there is SMS phone confirmation routine  <br /> Possible values: YES or NO</td>
+      <td>Identifies if there is an SMS phone confirmation routine. Possible values: “YES” / “NO”.</td>
       <td>string</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>54</td>
-      <td>What is the 2nd payment method</td>
+      <td>2nd payment method.</td>
       <td>string</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>55</td>
-      <td>What is the 3rd payment method</td>
+      <td>3rd payment method.</td>
       <td>string</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>56</td>
-      <td>If 2nd payment method is credit card, send flag</td>
+      <td>If 2nd payment method is “credit card”, send brand.</td>
       <td>string</td>
       <td>1</td>
       <td>All</td>
     </tr>
     <tr>
       <td>57</td>
-      <td>If 3rd payment method is credit card, send flag</td>
+      <td>If 3rd payment method is “credit card”, send brand.</td>
       <td>string</td>
       <td>1</td>
       <td>All</td>
     </tr>
     <tr>
       <td>58</td>
-      <td>If 2nd payment method, enter amount paid  <br /> E.g.: 128599 = $ 1,285.99</td>
+      <td>If 2nd payment method, inform the amount paid. E.g.: 128599 = $ 1,285.99.</td>
       <td>long</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>59</td>
-      <td>If 3rd payment method, inform the amount paid  <br /> E.g.: 59089 = R $ 590,89</td>
+      <td>If 3rd payment method, inform the amount paid. E.g.: 59089 = R $ 590,89.</td>
       <td>long</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>60</td>
-      <td>Quantity in days since last change  <br /> E.g.: 57</td>
+      <td>How long (in days) since last change. E.g.: 57.</td>
       <td>int</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>61</td>
-      <td>Identifies if there was any cadastral change</td>
+      <td>Identifies if there was any registration information change.</td>
       <td>string</td>
       <td>1</td>
       <td> </td>
     </tr>
     <tr>
       <td>62</td>
-      <td>Number of points redeemed on last purchase</td>
+      <td>Number of points redeemed in the latest purchase.</td>
       <td>long</td>
       <td>3</td>
       <td>Loyalty</td>
     </tr>
     <tr>
       <td>63</td>
-      <td>Amount of points left in balance</td>
+      <td>Amount of points left in balance.</td>
       <td>long</td>
       <td>2</td>
       <td>Loyalty</td>
     </tr>
     <tr>
       <td>64</td>
-      <td>Number of days since last point exchange</td>
+      <td>Number of days since last points exchange.</td>
       <td>long</td>
       <td>2</td>
       <td>Loyalty</td>
     </tr>
     <tr>
       <td>65</td>
-      <td>Customer identifier in loyalty program</td>
+      <td>Customer identifier in loyalty program.</td>
       <td>string</td>
       <td>2</td>
       <td>Loyalty</td>
     </tr>
     <tr>
       <td>66</td>
-      <td>Number of minutes recharged over last 30 days</td>
+      <td>Number of minutes recharged over the past 30 days.</td>
       <td>long</td>
       <td>2</td>
       <td>Digital Goods</td>
     </tr>
     <tr>
       <td>67</td>
-      <td>Number of top-ups to last 30 days</td>
+      <td>Number of top-ups performed over the past 30 days.</td>
       <td>long</td>
       <td>2</td>
       <td>Digital Goods</td>
     </tr>
     <tr>
       <td>68</td>
-      <td>Quantity in days between departure date and return date</td>
+      <td>Number of days between departure date and return date.</td>
       <td>int</td>
       <td>2</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>69</td>
-      <td>Number of passengers traveling regardless of age group</td>
+      <td>Number of passengers traveling regardless of age group.</td>
       <td>int</td>
       <td>2</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>70</td>
-      <td>Flight identifier</td>
+      <td>Flight identifier.</td>
       <td>string</td>
       <td>1</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>71</td>
-      <td>Number of infants traveling</td>
+      <td>Number of infants traveling.</td>
       <td>int</td>
       <td>2</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>72</td>
-      <td>Number of children traveling</td>
+      <td>Number of children traveling.</td>
       <td>int</td>
       <td>2</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>73</td>
-      <td>Number of adults traveling</td>
+      <td>Number of adults traveling.</td>
       <td>int</td>
       <td>2</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>74</td>
-      <td>Identifies if you are a Frequent Flyer  <br /> Possible values: YES or NO</td>
+      <td>Identifies a frequent flyer. Possible values: “YES” / “NO”.</td>
       <td>string</td>
       <td>2</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>75</td>
-      <td>Frequently Flyer Number</td>
+      <td>Frequent flyer number.</td>
       <td>string</td>
       <td>2</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>76</td>
-      <td>Frequently Flyer Category  <br /> This category may vary by airline</td>
+      <td>Frequent flyer category. This category may vary according to the airline.</td>
       <td>int</td>
       <td>2</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>77</td>
-      <td>Boarding day <br /> Possible values: Sunday  <br /> Monday  <br /> Tuesday ( <br /> Wednesday <br /> Thursday  <br /> Friday<br /> Saturday</td>
+      <td>Boarding day. Possible values: “Sunday” / “Monday” / “Tuesday” / “Wednesday” / “Thursday” / “Friday” / “Saturday”.</td>
       <td>string</td>
       <td>2</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>78</td>
-      <td>Airline Code  <br /> E.g.: JJ or LA or AA or UA or G3 and etc.</td>
+      <td>Airline code. E.g.: “JJ” / “LA” / “AA” / “UA” / “G3” etc.</td>
       <td>string</td>
       <td>1</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>79</td>
-      <td>Ticket fare class  <br /> E.g.: W or Y or N and etc</td>
+      <td>Class of ticket fare. E.g.: “W” / “Y” / “N” etc.</td>
       <td>string</td>
       <td>2</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>80</td>
-      <td>Passenger Mobile Number <br /> E.g.: Format: DDIDDNumber - E.g.: 5521976781114</td>
+      <td>Passenger’s cell phone number. Format: DDIDDNumber - E.g.: 5521976781114.</td>
       <td>string</td>
       <td>2</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>81</td>
-      <td>Identifies whether the credit card holder will travel  <br /> Possible values: YES or NO</td>
+      <td>Identifies if the credit card holder will travel. Possible values: “YES” / “NO”.</td>
       <td>string</td>
       <td>3</td>
       <td>Air</td>
     </tr>
     <tr>
       <td>82</td>
-      <td>Identifies whether the seller will work with manual review or not  <br /> Possible values: YES or NO</td>
+      <td>Identifies if the seller will work with manual review. Possible values: “YES” / “NO”.</td>
       <td>string</td>
       <td>1</td>
       <td>All</td>
     </tr>
     <tr>
       <td>83</td>
-      <td>Business Segment  <br /> E.g.: Retail</td>
+      <td>Business segment. E.g.: “Retail”.</td>
       <td>string</td>
       <td>2</td>
       <td>All</td>
     </tr>
     <tr>
       <td>84</td>
-      <td>Name of the Platform Integrated with the Gateway Braspag Anti-fraud API  <br /> If this is a direct integration between the store and Braspag, send value equal to “PROPRIA”</td>
+      <td>Name of the platform integrated with the Gateway Braspag Anti-fraud API. For direct integrations between the store and Braspag, send the value “PROPRIA”.</td>
       <td>string</td>
       <td>3</td>
       <td>All</td>
     </tr>
     <tr>
       <td>85 to 89</td>
-      <td>Free and defined fields with the anti-fraud provider, according to business rules</td>
+      <td>Free fields defined with the anti-fraud provider, according to the business rules.</td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
     </tr>
     <tr>
       <td>90 to 100</td>
-      <td>Reserved</td>
+      <td>Reserved.</td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
@@ -13626,19 +13626,19 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td>200</td>
-      <td>OK</td>
+      <td>OK.</td>
     </tr>
     <tr>
       <td>400</td>
-      <td>Bad Request</td>
+      <td>Bad Request.</td>
     </tr>
     <tr>
       <td>404</td>
-      <td>Resource Not Found</td>
+      <td>Resource Not Found.</td>
     </tr>
     <tr>
       <td>500</td>
-      <td>Internal Server Error</td>
+      <td>Internal Server Error.</td>
     </tr>
   </tbody>
 </table>
@@ -13655,23 +13655,23 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td>1</td>
-      <td>Active</td>
+      <td>Active.</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>Finished</td>
+      <td>Finished.</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>DisabledByMerchant</td>
+      <td>DisabledByMerchant.</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>DisabledMaxAttempts</td>
+      <td>DisabledMaxAttempts.</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>DisabledExpiredCreditCard</td>
+      <td>DisabledExpiredCreditCard.</td>
     </tr>
   </tbody>
 </table>
@@ -13688,118 +13688,118 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td>0</td>
-      <td>Successful</td>
+      <td>Successful.</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>AffiliationNotFound</td>
+      <td>AffiliationNotFound.</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>IssuficientFunds</td>
+      <td>IssuficientFunds.</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>CouldNotGetCreditCard</td>
+      <td>CouldNotGetCreditCard.</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>ConnectionWithAcquirerFailed</td>
+      <td>ConnectionWithAcquirerFailed.</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>InvalidTransactionType</td>
+      <td>InvalidTransactionType.</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>InvalidPaymentPlan</td>
+      <td>InvalidPaymentPlan.</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>Denied</td>
+      <td>Denied.</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>Scheduled</td>
+      <td>Scheduled.</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>Waiting</td>
+      <td>Waiting.</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>Authenticated</td>
+      <td>Authenticated.</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>NotAuthenticated</td>
+      <td>NotAuthenticated.</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>ProblemsWithCreditCard</td>
+      <td>ProblemsWithCreditCard.</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>CardCanceled</td>
+      <td>CardCanceled.</td>
     </tr>
     <tr>
       <td>14</td>
-      <td>BlockedCreditCard</td>
+      <td>BlockedCreditCard.</td>
     </tr>
     <tr>
       <td>15</td>
-      <td>CardExpired</td>
+      <td>CardExpired.</td>
     </tr>
     <tr>
       <td>16</td>
-      <td>AbortedByFraud</td>
+      <td>AbortedByFraud.</td>
     </tr>
     <tr>
       <td>17</td>
-      <td>CouldNotAntifraud</td>
+      <td>CouldNotAntifraud.</td>
     </tr>
     <tr>
       <td>18</td>
-      <td>TryAgain</td>
+      <td>TryAgain.</td>
     </tr>
     <tr>
       <td>19</td>
-      <td>InvalidAmount</td>
+      <td>InvalidAmount.</td>
     </tr>
     <tr>
       <td>20</td>
-      <td>ProblemsWithIssuer</td>
+      <td>ProblemsWithIssuer.</td>
     </tr>
     <tr>
       <td>21</td>
-      <td>InvalidCardNumber</td>
+      <td>InvalidCardNumber.</td>
     </tr>
     <tr>
       <td>22</td>
-      <td>TimeOut</td>
+      <td>TimeOut.</td>
     </tr>
     <tr>
       <td>23</td>
-      <td>CardProtectedIsNotEnabled</td>
+      <td>CardProtectedIsNotEnabled.</td>
     </tr>
     <tr>
       <td>24</td>
-      <td>PaymentMethodIsNotEnabled</td>
+      <td>PaymentMethodIsNotEnabled.</td>
     </tr>
     <tr>
       <td>98</td>
-      <td>InvalidRequest</td>
+      <td>InvalidRequest.</td>
     </tr>
     <tr>
       <td>99</td>
-      <td>InternalError</td>
+      <td>InternalError.</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="api-error-codes">API Error Codes</h2>
 
-<p>Codes returned on error, identifying the reason for the error and its respective messages.</p>
+<p>Error codes returned, identifying the reason for the error and their respective messages.</p>
 
 <table>
   <thead>
@@ -13813,157 +13813,157 @@ The following lists refer to providers for the REST integration:</p>
     <tr>
       <td>0</td>
       <td>Internal error</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>100</td>
       <td>RequestId is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>101</td>
       <td>MerchantId is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>102</td>
       <td>Payment Type is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>103</td>
       <td>Payment Type can only contain letters</td>
-      <td>Special characters not allowed</td>
+      <td>Special characters not allowed.</td>
     </tr>
     <tr>
       <td>104</td>
       <td>Customer Identity is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>105</td>
       <td>Customer Name is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>106</td>
       <td>Transaction ID is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>107</td>
       <td>OrderId is invalid or does not exist</td>
-      <td>Submitted field exceeds size or contains special characters</td>
+      <td>Submitted field exceeds size or contains special characters.</td>
     </tr>
     <tr>
       <td>108</td>
       <td>Amount must be greater or equal to zero</td>
-      <td>Transaction value must be greater than “0”</td>
+      <td>Transaction value must be greater than “0”.</td>
     </tr>
     <tr>
       <td>109</td>
       <td>Payment Type is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>110</td>
       <td>Invalid Payment Currency</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>111</td>
       <td>Payment Country is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>112</td>
       <td>Invalid Payment Country</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>113</td>
       <td>Invalid Payment Currency</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>114</td>
       <td>The provided MerchantId is not in correct format</td>
-      <td>The submitted MerchantId is not a GUID</td>
+      <td>The submitted MerchantId is not a GUID.</td>
     </tr>
     <tr>
       <td>115</td>
       <td>The provided MerchantId was not found</td>
-      <td>MerchantID does not exist or belongs to another environment (EX: Sandbox)</td>
+      <td>MerchantID does not exist or belongs to another environment (EX: Sandbox).</td>
     </tr>
     <tr>
       <td>116</td>
       <td>The provided MerchantId is blocked</td>
-      <td>Shop locked, contact support Braspag</td>
+      <td>Shop locked, contact support Braspag.</td>
     </tr>
     <tr>
       <td>117</td>
       <td>Credit Card Holder is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>118</td>
       <td>Credit Card Number is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>119</td>
       <td>At least one Payment is required</td>
-      <td>“Payment” node not sent</td>
+      <td>“Payment” node not sent.</td>
     </tr>
     <tr>
       <td>120</td>
       <td>Request IP not allowed. Check your IP White List</td>
-      <td>IP blocked for security reasons</td>
+      <td>IP blocked for security reasons.</td>
     </tr>
     <tr>
       <td>121</td>
       <td>Customer is required</td>
-      <td>“Customer” node not sent</td>
+      <td>“Customer” node not sent.</td>
     </tr>
     <tr>
       <td>122</td>
       <td>MerchantOrderId is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>123</td>
       <td>Installations must be greater or equal to one</td>
-      <td>Number of installments must be greater than 1</td>
+      <td>Number of installments must be greater than 1.</td>
     </tr>
     <tr>
       <td>124</td>
       <td>Credit Card Number is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>125</td>
       <td>Credit Card Expiration Date is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>126</td>
       <td>Credit Card Expiration Date is invalid</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>127</td>
       <td>You must provide CreditCard Number</td>
-      <td>Credit Card Number is required</td>
+      <td>Credit Card Number is required.</td>
     </tr>
     <tr>
       <td>128</td>
       <td>Card Number length exceeded</td>
-      <td>Card number over 16 digits</td>
+      <td>Card number over 16 digits.</td>
     </tr>
     <tr>
       <td>129</td>
       <td>Affiliation not found</td>
-      <td>Non-store payment method or invalid Provider</td>
+      <td>Non-store payment method or invalid Provider.</td>
     </tr>
     <tr>
       <td>130</td>
@@ -13973,167 +13973,167 @@ The following lists refer to providers for the REST integration:</p>
     <tr>
       <td>131</td>
       <td>MerchantKey is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>132</td>
       <td>MerchantKey is invalid</td>
-      <td>The submitted Merchantkey is not a valid</td>
+      <td>The submitted Merchantkey is not a valid.</td>
     </tr>
     <tr>
       <td>133</td>
       <td>Provider is not supported for this Payment Type</td>
-      <td>Provider submitted does not exist</td>
+      <td>Provider submitted does not exist.</td>
     </tr>
     <tr>
       <td>134</td>
       <td>FingerPrint length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>135</td>
       <td>MerchantDefinedFieldValue length exceeded</td>
-      <td>Submitted data exceeds field size</td>
+      <td>Submitted data exceeds field size.</td>
     </tr>
     <tr>
       <td>136</td>
       <td>ItemDataName length exceeded</td>
-      <td>Submitted data exceeds field size</td>
+      <td>Submitted data exceeds field size.</td>
     </tr>
     <tr>
       <td>137</td>
       <td>ItemDataSKU length exceeded</td>
-      <td>Submitted data exceeds field size</td>
+      <td>Submitted data exceeds field size.</td>
     </tr>
     <tr>
       <td>138</td>
       <td>PassengerDataName length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>139</td>
       <td>PassengerDataStatus length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>140</td>
       <td>PassengerDataEmail length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>141</td>
       <td>PassengerDataPhone length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>142</td>
       <td>TravelDataRoute length exceeded</td>
-      <td>Submitted data exceeds field size</td>
+      <td>Submitted data exceeds field size.</td>
     </tr>
     <tr>
       <td>143</td>
       <td>TravelDataJourneyType length exceeded</td>
-      <td>Submitted data exceeds field size</td>
+      <td>Submitted data exceeds field size.</td>
     </tr>
     <tr>
       <td>144</td>
       <td>TravelLegDataDestination length exceeded</td>
-      <td>Submitted data exceeds field size</td>
+      <td>Submitted data exceeds field size.</td>
     </tr>
     <tr>
       <td>145</td>
       <td>TravelLegDataOrigin length exceeded</td>
-      <td>Submitted data exceeds field size</td>
+      <td>Submitted data exceeds field size.</td>
     </tr>
     <tr>
       <td>146</td>
       <td>SecurityCode length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>147</td>
       <td>Address Street length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>148</td>
       <td>Address Number length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>149</td>
       <td>Address Complement length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>150</td>
       <td>Address ZipCode length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>151</td>
       <td>Address City length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>152</td>
       <td>Address State length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>153</td>
       <td>Address Country length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>154</td>
       <td>Address District length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>155</td>
       <td>Customer Name length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>156</td>
       <td>Customer Identity length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>157</td>
       <td>Customer IdentityType length exceeded</td>
-      <td>Submitted data exceeds field size</td>
+      <td>Submitted data exceeds field size.</td>
     </tr>
     <tr>
       <td>158</td>
       <td>Customer Email length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>159</td>
       <td>ExtraData Name length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>160</td>
       <td>ExtraData Value length exceeded</td>
-      <td>Submitted data exceeds field size</td>
+      <td>Submitted data exceeds field size.</td>
     </tr>
     <tr>
       <td>161</td>
       <td>Boleto Instructions length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>162</td>
       <td>Boleto Demostrative length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>163</td>
       <td>Return Url is required</td>
-      <td>Return URL is not valid - Paging or extensions (E.g.:PHP) in the return URL</td>
+      <td>Return URL is not valid - Paging or extensions (E.g.:PHP) in the return URL.</td>
     </tr>
     <tr>
       <td>166</td>
@@ -14143,22 +14143,22 @@ The following lists refer to providers for the REST integration:</p>
     <tr>
       <td>167</td>
       <td>Antifraud not configured</td>
-      <td>Antifraud not linked to merchant registration</td>
+      <td>Antifraud not linked to merchant registration.</td>
     </tr>
     <tr>
       <td>168</td>
       <td>Recurrent Payment not found</td>
-      <td>Recurrence not found</td>
+      <td>Recurrence not found.</td>
     </tr>
     <tr>
       <td>169</td>
       <td>Recurrent Payment is not active</td>
-      <td>Recurrence is not active. Paralyzed Execution</td>
+      <td>Recurrence is not active. Paralyzed Execution.</td>
     </tr>
     <tr>
       <td>170</td>
       <td>Protected Card not configured</td>
-      <td>Protected Card not linked to merchant registration</td>
+      <td>Protected Card not linked to merchant registration.</td>
     </tr>
     <tr>
       <td>171</td>
@@ -14168,77 +14168,77 @@ The following lists refer to providers for the REST integration:</p>
     <tr>
       <td>172</td>
       <td>Credential Code is required</td>
-      <td>Validation of submitted credentials failed</td>
+      <td>Validation of submitted credentials failed.</td>
     </tr>
     <tr>
       <td>173</td>
       <td>Payment method is not enabled</td>
-      <td>Payment method not linked to merchant registration</td>
+      <td>Payment method not linked to merchant registration.</td>
     </tr>
     <tr>
       <td>174</td>
       <td>Credit Card Number is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>175</td>
       <td>EAN is required</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>176</td>
       <td>Payment Currency is not supported</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>177</td>
       <td>Card Number is invalid</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>178</td>
       <td>EAN is invalid</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>179</td>
       <td>The max number of installments allowed for recurring payment is 1</td>
-      <td>Submitted field is empty or invalid</td>
+      <td>Submitted field is empty or invalid.</td>
     </tr>
     <tr>
       <td>180</td>
       <td>The provided Card PaymentToken was not found</td>
-      <td>Cartão Protegido’s token not found</td>
+      <td>Cartão Protegido’s token not found.</td>
     </tr>
     <tr>
       <td>181</td>
       <td>The MerchantIdJustClick is not configured</td>
-      <td>Cartão Protegido’s Token Locked</td>
+      <td>Cartão Protegido’s Token Locked.</td>
     </tr>
     <tr>
       <td>182</td>
       <td>Brand is required</td>
-      <td>Card brand not sent</td>
+      <td>Card brand not sent.</td>
     </tr>
     <tr>
       <td>183</td>
       <td>Invalid customer birthdate</td>
-      <td>Invalid or future date of birth</td>
+      <td>Invalid or future date of birth.</td>
     </tr>
     <tr>
       <td>184</td>
       <td>Request could not be empty</td>
-      <td>Failed to form this request. Check the code sent</td>
+      <td>Failed to form this request. Check the code sent.</td>
     </tr>
     <tr>
       <td>185</td>
       <td>Brand is not supported by selected provider</td>
-      <td>Flag not supported by API Braspag</td>
+      <td>Flag not supported by API Braspag.</td>
     </tr>
     <tr>
       <td>186</td>
       <td>The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments)</td>
-      <td>Payment method does not support sent command</td>
+      <td>Payment method does not support sent command.</td>
     </tr>
     <tr>
       <td>187</td>
@@ -14253,147 +14253,147 @@ The following lists refer to providers for the REST integration:</p>
     <tr>
       <td>189</td>
       <td>Avs with length of street exceeded</td>
-      <td>Submitted data exceeds field size</td>
+      <td>Submitted data exceeds field size.</td>
     </tr>
     <tr>
       <td>190</td>
       <td>Avs with length of number exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>190</td>
       <td>Avs with length of complement exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>191</td>
       <td>Avs with length of district exceeded</td>
-      <td>Submitted data exceeds field size</td>
+      <td>Submitted data exceeds field size.</td>
     </tr>
     <tr>
       <td>192</td>
       <td>Avs with zip code invalid</td>
-      <td>Zip code sent is invalid</td>
+      <td>Zip code sent is invalid.</td>
     </tr>
     <tr>
       <td>193</td>
       <td>Split Amount must be greater than zero</td>
-      <td>Value for SPLIT must be greater than 0</td>
+      <td>Value for SPLIT must be greater than 0.</td>
     </tr>
     <tr>
       <td>194</td>
       <td>Split Establishment is Required</td>
-      <td>SPLIT not enabled for store registration</td>
+      <td>SPLIT not enabled for store registration.</td>
     </tr>
     <tr>
       <td>195</td>
       <td>The PlataformId is required</td>
-      <td>Platform Not Validated</td>
+      <td>Platform Not Validated.</td>
     </tr>
     <tr>
       <td>196</td>
       <td>DeliveryAddress is required</td>
-      <td>Required field not submitted</td>
+      <td>Required field not submitted.</td>
     </tr>
     <tr>
       <td>197</td>
       <td>Street is required</td>
-      <td>Required field not submitted</td>
+      <td>Required field not submitted.</td>
     </tr>
     <tr>
       <td>198</td>
       <td>Number is required</td>
-      <td>Required field not submitted</td>
+      <td>Required field not submitted.</td>
     </tr>
     <tr>
       <td>199</td>
       <td>ZipCode is required</td>
-      <td>Required field not submitted</td>
+      <td>Required field not submitted.</td>
     </tr>
     <tr>
       <td>200</td>
       <td>City is required</td>
-      <td>Required field not submitted</td>
+      <td>Required field not submitted.</td>
     </tr>
     <tr>
       <td>201</td>
       <td>State is required</td>
-      <td>Required field not submitted</td>
+      <td>Required field not submitted.</td>
     </tr>
     <tr>
       <td>202</td>
       <td>District is required</td>
-      <td>Required field not submitted</td>
+      <td>Required field not submitted.</td>
     </tr>
     <tr>
       <td>203</td>
       <td>Cart item Name is required</td>
-      <td>Required field not submitted</td>
+      <td>Required field not submitted.</td>
     </tr>
     <tr>
       <td>204</td>
       <td>Cart item Quantity is required</td>
-      <td>Required field not submitted</td>
+      <td>Required field not submitted.</td>
     </tr>
     <tr>
       <td>205</td>
       <td>Cart item type is required</td>
-      <td>Required field not submitted</td>
+      <td>Required field not submitted.</td>
     </tr>
     <tr>
       <td>206</td>
       <td>Cart item name length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>207</td>
       <td>Cart item description length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>208</td>
       <td>Cart item sku length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>209</td>
       <td>Shipping address sku length exceeded</td>
-      <td>Data sent exceeds field size</td>
+      <td>Data sent exceeds field size.</td>
     </tr>
     <tr>
       <td>210</td>
       <td>Shipping data cannot be null</td>
-      <td>Required field not submitted</td>
+      <td>Required field not submitted.</td>
     </tr>
     <tr>
       <td>211</td>
       <td>WalletKey is invalid</td>
-      <td>Invalid Visa Checkout data</td>
+      <td>Invalid Visa Checkout data.</td>
     </tr>
     <tr>
       <td>212</td>
       <td>Merchant Wallet Configuration not found</td>
-      <td>Visa Checkout not linked to merchant account</td>
+      <td>Visa Checkout not linked to merchant account.</td>
     </tr>
     <tr>
       <td>213</td>
       <td>Credit Card Number is invalid</td>
-      <td>Credit card sent is invalid</td>
+      <td>Credit card sent is invalid.</td>
     </tr>
     <tr>
       <td>214</td>
       <td>Credit Card Holder Must Have Only Letters</td>
-      <td>Cardholder must not contain special characters</td>
+      <td>Cardholder must not contain special characters.</td>
     </tr>
     <tr>
       <td>215</td>
       <td>Agency is required in Boleto Credential</td>
-      <td>Required Field Not Submitted</td>
+      <td>Required Field Not Submitted.</td>
     </tr>
     <tr>
       <td>216</td>
       <td>Customer IP address is invalid</td>
-      <td>IP blocked for security</td>
+      <td>IP blocked for security.</td>
     </tr>
     <tr>
       <td>300</td>
@@ -14428,37 +14428,37 @@ The following lists refer to providers for the REST integration:</p>
     <tr>
       <td>307</td>
       <td>Transaction not found</td>
-      <td>Transaction not found or missing in environment</td>
+      <td>Transaction not found or missing in environment.</td>
     </tr>
     <tr>
       <td>308</td>
       <td>Transaction not available to capture</td>
-      <td>Transaction cannot be captured - Contact Braspag Support</td>
+      <td>Transaction cannot be captured - Contact Braspag Support.</td>
     </tr>
     <tr>
       <td>309</td>
       <td>Transaction not available to void</td>
-      <td>Transaction cannot be canceled - Contact Support Braspag</td>
+      <td>Transaction cannot be canceled - Contact Support Braspag.</td>
     </tr>
     <tr>
       <td>310</td>
       <td>Payment method do not support this operation</td>
-      <td>Command sent not supported by payment method</td>
+      <td>Command sent not supported by payment method.</td>
     </tr>
     <tr>
       <td>311</td>
       <td>Refund is not enabled for this merchant</td>
-      <td>Cancellation after 24 hours not released to retailer</td>
+      <td>Cancellation after 24 hours not released to retailer.</td>
     </tr>
     <tr>
       <td>312</td>
       <td>Transaction not available to refund</td>
-      <td>Transaction does not allow cancellation after 24 hours</td>
+      <td>Transaction does not allow cancellation after 24 hours.</td>
     </tr>
     <tr>
       <td>313</td>
       <td>Recurrent Payment not found</td>
-      <td>Recurring transaction not found or not available in the environment</td>
+      <td>Recurring transaction not found or not available in the environment.</td>
     </tr>
     <tr>
       <td>314</td>
@@ -14473,7 +14473,7 @@ The following lists refer to providers for the REST integration:</p>
     <tr>
       <td>316</td>
       <td>Cannot set NextRecurrency to past date</td>
-      <td>Not allowed to change recurrence data for a past date</td>
+      <td>Not allowed to change recurrence data for a past date.</td>
     </tr>
     <tr>
       <td>317</td>
@@ -14488,7 +14488,7 @@ The following lists refer to providers for the REST integration:</p>
     <tr>
       <td>319</td>
       <td>Smart recurrency is not enabled</td>
-      <td>Recurrence not linked to merchant registration</td>
+      <td>Recurrence not linked to merchant registration.</td>
     </tr>
     <tr>
       <td>320</td>
@@ -14503,12 +14503,12 @@ The following lists refer to providers for the REST integration:</p>
     <tr>
       <td>322</td>
       <td>Zero Dollar Auth is not enabled</td>
-      <td>Zero Dollar not linked to merchant registration</td>
+      <td>Zero Dollar not linked to merchant registration.</td>
     </tr>
     <tr>
       <td>323</td>
       <td>Bin Query is not enabled</td>
-      <td>Bins Query not linked to merchant registration</td>
+      <td>Bins Query not linked to merchant registration.</td>
     </tr>
   </tbody>
 </table>
