@@ -12573,21 +12573,21 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Identifier representing the Recurring order (only applicable for ChangeType 2 or 4</td>
+      <td>Identifier representing the recurring order (only applicable for <code class="language-plaintext highlighter-rouge">ChangeType</code> “2” or “4”).</td>
       <td>GUID</td>
       <td>36</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Identifier representing the transaction</td>
+      <td>Identifier representing the transaction.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ChangeType</code></td>
-      <td>Specifies the notification type. See table below</td>
+      <td>Specifies the notification type. Note: See table below.</td>
       <td>Number</td>
       <td>1</td>
       <td>Yes</td>
@@ -12604,32 +12604,36 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </thead>
   <tbody>
     <tr>
-      <td>1</td>
-      <td>Payment Status Change</td>
+      <td>“1”</td>
+      <td>Payment status change.</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>Recurrence Created</td>
+      <td>“2”</td>
+      <td>Recurrence created.</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>Anti-fraud Status Change</td>
+      <td>“3”</td>
+      <td>Anti-fraud status change.</td>
     </tr>
     <tr>
-      <td>4</td>
-      <td>Recurring payment status change (E.g.: automatic deactivation)</td>
+      <td>“4”</td>
+      <td>Recurring payment status change (e.g.: automatic deactivation).</td>
     </tr>
     <tr>
-      <td>5</td>
-      <td>Refund denied (applicable to Rede)</td>
+      <td>“5”</td>
+      <td>Refund denied (applicable to <strong>Rede</strong>).</td>
     </tr>
     <tr>
-      <td>6</td>
-      <td>Underpaid Registered Boleto</td>
+      <td>“6”</td>
+      <td>Underpaid registered boleto.</td>
     </tr>
     <tr>
-      <td>7</td>
-      <td>Chargeback Notification  <br /> For More Details <a href="https://braspag.github.io//manual/risknotification">Risk Notification</a></td>
+      <td>“7”</td>
+      <td>Chargeback notification.<br />For more details, refer to the <a href="https://braspag.github.io//manual/risknotification">Risk Notification</a> guide.</td>
+    </tr>
+    <tr>
+      <td>“8”</td>
+      <td>Fraud alert.</td>
     </tr>
   </tbody>
 </table>
@@ -12644,6 +12648,9 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <h2 id="list-of-providers">List of Providers</h2>
 
+<p>For SOAP integration, refer to the list of providers listed in <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360026794092">this article</a>, in Portuguese, and also refer to their reference numbers for the <code class="language-plaintext highlighter-rouge">PaymentMethod</code> field.<br />
+The following lists refer to providers for the REST integration:</p>
+
 <h3 id="providers-for-credit-card">Providers for Credit Card</h3>
 
 <table>
@@ -12656,74 +12663,84 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </thead>
   <tbody>
     <tr>
-      <td>Simulated</td>
+      <td>Simulado</td>
       <td>—</td>
-      <td>Sandbox Provider</td>
+      <td>Sandbox Provider. <a href="https://braspag.github.io//en/manual/braspag-pagador#test-cards-(simulado)">Click here</a> for more details about cards for tests.</td>
     </tr>
     <tr>
       <td>Cielo30</td>
       <td>Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper</td>
-      <td>Provider for transactions on the Cielo 3.0 e-commerce platform</td>
+      <td>Provider for transactions on the Cielo 3.0 e-commerce platform.</td>
     </tr>
     <tr>
       <td>Rede2</td>
       <td>Visa, Master, Hipercard, Hyper, Diners, Link, Amex</td>
-      <td>Provider for transactions in e-commerce platform Rede (e-Rede) in REST version</td>
+      <td>Provider for transactions in e-commerce platform Rede (e-Rede) in REST version.</td>
     </tr>
     <tr>
       <td>Getnet</td>
       <td>Visa, Master, Elo, Amex</td>
-      <td>Provider for transactions on Getnet e-commerce platform</td>
+      <td>Provider for transactions on Getnet e-commerce platform.</td>
     </tr>
     <tr>
       <td>GlobalPayments</td>
       <td>Visa, Master, Elo, Hiper, Hipercard, Cabal, Amex</td>
-      <td>Provider for transactions on Global Payments e-commerce platform</td>
+      <td>Provider for transactions on Global Payments e-commerce platform.</td>
     </tr>
     <tr>
       <td>Stone</td>
       <td>Visa, Master, Hipercard, Elo</td>
-      <td>Provider for transactions on e-commerce platform Stone</td>
-    </tr>
-    <tr>
-      <td>Safra</td>
-      <td>Visa, Master, Hipercard, Elo</td>
-      <td>Provider for transactions on e-commerce platform Safra</td>
+      <td>Provider for transactions on e-commerce platform Stone.</td>
     </tr>
     <tr>
       <td>Safra2</td>
       <td>Visa, Master, Hipercard, Elo</td>
-      <td>Provider for transactions on new e-commerce platform Safra</td>
+      <td>Provider for transactions on new e-commerce platform Safra.</td>
     </tr>
     <tr>
       <td>FirstData</td>
       <td>Visa, Master, Elo, Hipercard, Cabal, Amex</td>
-      <td>Provider for Guarani (PYG), Argentine Pesos (ARG) and Real (BRL) transactions on the First Data e-commerce platform</td>
+      <td>Provider for Guarani (PYG), Argentine Pesos (ARG) and Real (BRL) transactions on the First Data e-commerce platform.</td>
     </tr>
     <tr>
       <td>Sub1</td>
       <td>Visa, Master, Diners, Amex, Discover, Cabal, Orange and Nevada</td>
-      <td>Provider for Argentine Peso (ARG) transactions on the Sub1 First Data legacy platform</td>
+      <td>Provider for Argentine Peso (ARG) transactions on the Sub1 First Data legacy platform.</td>
     </tr>
     <tr>
       <td>Banorte</td>
       <td>Visa, Master, Carnet</td>
-      <td>Provider for Mexican Peso (MXN) transactions on Banorte e-commerce platform</td>
+      <td>Provider for Mexican Peso (MXN) transactions on Banorte e-commerce platform.</td>
     </tr>
     <tr>
       <td>Credibanco</td>
       <td>Visa, Master, Diners, Amex, Credential</td>
-      <td>Provider for Colombian Peso (COP) transactions on Credibanco e-commerce platform</td>
+      <td>Provider for Colombian Peso (COP) transactions on Credibanco e-commerce platform.</td>
     </tr>
     <tr>
       <td>Transbank2</td>
       <td>Visa, Master, Diners, Amex</td>
-      <td>Provider for Chilean pesos (CLP) transactions on Transbank e-commerce platform</td>
+      <td>Provider for Chilean pesos (CLP) transactions on Transbank e-commerce platform.</td>
+    </tr>
+    <tr>
+      <td>Banese</td>
+      <td>Banese</td>
+      <td>Provider for transaction with the BaneseCard network.</td>
+    </tr>
+    <tr>
+      <td>BrasilCard</td>
+      <td>BrasilCard</td>
+      <td>Provider for transaction with the BrasilCard network.</td>
+    </tr>
+    <tr>
+      <td>Credz</td>
+      <td>Credz</td>
+      <td>Private Label Brand System.</td>
     </tr>
     <tr>
       <td>DMCard</td>
       <td>—</td>
-      <td>—</td>
+      <td>Private Label Brand System.</td>
     </tr>
   </tbody>
 </table>
@@ -12742,32 +12759,37 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
     <tr>
       <td>Cielo</td>
       <td>Visa, Master</td>
-      <td>Provider for debit transactions on legacy platform Cielo 1.5</td>
+      <td>Provider for debit transactions on legacy platform Cielo 1.5.</td>
     </tr>
     <tr>
       <td>Cielo30</td>
       <td>Visa, Master</td>
-      <td>Provider for debit transactions on e-commerce platform Cielo 3.0</td>
+      <td>Provider for debit transactions on e-commerce platform Cielo 3.0.</td>
     </tr>
     <tr>
       <td>Rede2</td>
       <td>Visa, Master</td>
-      <td>Provider for transactions on Rede e-commerce platform</td>
+      <td>Provider for transactions on Rede e-commerce platform.</td>
+    </tr>
+    <tr>
+      <td>Safra2</td>
+      <td>Visa, Master</td>
+      <td>Provider for debit transactions on e-commerce Safra platform.</td>
     </tr>
     <tr>
       <td>Getnet</td>
       <td>Visa, Master</td>
-      <td>Provider for transactions on Getnet e-commerce platform</td>
+      <td>Provider for transactions on Getnet e-commerce platform.</td>
     </tr>
     <tr>
       <td>FirstData</td>
       <td>Visa, Master</td>
-      <td>Provider for debit transactions on the First Data e-commerce platform</td>
+      <td>Provider for debit transactions on the First Data e-commerce platform.</td>
     </tr>
     <tr>
       <td>GlobalPayments</td>
       <td>Visa, Master</td>
-      <td>Provider for transactions on Global Payments e-commerce platform</td>
+      <td>Provider for transactions on Global Payments e-commerce platform.</td>
     </tr>
   </tbody>
 </table>
@@ -12786,7 +12808,12 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
     <tr>
       <td>Alelo</td>
       <td>Elo</td>
-      <td>Provider for voucher (meal and food voucher) transactions on the Alelo platform</td>
+      <td>Provider for voucher (meal and food) transactions on the Alelo platform.</td>
+    </tr>
+    <tr>
+      <td>Ticket</td>
+      <td>Ticket</td>
+      <td>Provider for voucher (meal and food) transactions on the Ticket platform.</td>
     </tr>
   </tbody>
 </table>
@@ -12801,22 +12828,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </thead>
   <tbody>
     <tr>
-      <td>Simulado</td>
-    </tr>
-    <tr>
-      <td>Cielo30 (Cielo 3.0)</td>
-    </tr>
-    <tr>
-      <td>Rede2 (REST e-Rede)</td>
-    </tr>
-    <tr>
-      <td>Getnet</td>
-    </tr>
-    <tr>
-      <td>FirstData</td>
-    </tr>
-    <tr>
-      <td>GlobalPayments</td>
+      <td>Simulado, Cielo30 (Cielo 3.0), Rede2 (REST e-Rede), Getnet, FirstData, GlobalPayments</td>
     </tr>
   </tbody>
 </table>
@@ -12831,10 +12843,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </thead>
   <tbody>
     <tr>
-      <td>Simulado</td>
-    </tr>
-    <tr>
-      <td>Cielo30 (Cielo 3.0)</td>
+      <td>Simulado, Cielo30 (Cielo 3.0)</td>
     </tr>
   </tbody>
 </table>
@@ -12871,14 +12880,14 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <h2 id="transaction-status-list">Transaction Status List</h2>
 
-<p>Status returned by API</p>
+<p>List of statuses returned by API:</p>
 
 <table>
   <thead>
     <tr>
       <th>Code</th>
       <th>Payment Status</th>
-      <th>Payment Means</th>
+      <th>Payment method</th>
       <th>Description</th>
     </tr>
   </thead>
@@ -12887,55 +12896,55 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       <td>0</td>
       <td>NotFinished</td>
       <td>All</td>
-      <td>Failed to process payment</td>
+      <td>Failed to process payment.</td>
     </tr>
     <tr>
       <td>1</td>
       <td>Authorized</td>
       <td>All</td>
-      <td>Payment method to be captured or paid (Boleto)</td>
+      <td>Payment method to be captured or paid (Boleto).</td>
     </tr>
     <tr>
       <td>2</td>
       <td>PaymentConfirmed</td>
       <td>All</td>
-      <td>Payment confirmed and finalized</td>
+      <td>Payment confirmed and finalized.</td>
     </tr>
     <tr>
       <td>3</td>
       <td>Denied</td>
-      <td>Credit &amp; Debit Card (Wire Transfer)</td>
-      <td> </td>
+      <td>Credit &amp; debit cards (electronic transfer)</td>
+      <td>Payment denied by authorizer.</td>
     </tr>
     <tr>
       <td>10</td>
       <td>Voided</td>
       <td>All</td>
-      <td>Payment canceled</td>
+      <td>Payment cancelled.</td>
     </tr>
     <tr>
       <td>11</td>
       <td>Refunded</td>
-      <td>Credit &amp; Debit Card</td>
-      <td>Payment Canceled/Refunded</td>
+      <td>Credit &amp; debit cards</td>
+      <td>Payment cancelled/refunded.</td>
     </tr>
     <tr>
       <td>12</td>
       <td>Pending</td>
-      <td>Credit &amp; Debit Card (Wire Transfer)</td>
-      <td>Awaiting Return from Financial Institution</td>
+      <td>Credit &amp; debit cards (electronic transfer)</td>
+      <td>Awaiting response from the financial institution.</td>
     </tr>
     <tr>
       <td>13</td>
       <td>Aborted</td>
       <td>All</td>
-      <td>Payment canceled due to processing failure</td>
+      <td>Payment cancelled due to processing failure.</td>
     </tr>
     <tr>
       <td>20</td>
       <td>Scheduled</td>
-      <td>Credit Card</td>
-      <td>Scheduled Recurrence</td>
+      <td>Credit card</td>
+      <td>Recurrence scheduled.</td>
     </tr>
   </tbody>
 </table>
@@ -12979,11 +12988,15 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <h2 id="mdd-table">MDD Table</h2>
 
-<blockquote>
-  <p>Level of Relevance  <br /> 1 - Relevant  <br /> 2 - Very Relevant  <br /> 3 - Extremely Relevant <br /><br />
-Depending on the level of relevance of the fields and the possibility of designing the risk strategy according to the needs of your business, the validation of test transactions will be charged if not sent. With this, we request a prior analysis of the documentation and signaling of fields that will not be sent.<br /><br />
-If you do not have the data to send, please kindly do not send the corresponding field as empty, ie just do not send.</p>
-</blockquote>
+<p>A risk strategy is designed in accordance with your business needs, taking into consideration the level of relevance of the MDD (Merchant Defined Data) fields. Even if those fields are not sent, they will still be charged during the validation of the test transactions. For this reason, we request that a prior analysis of the documentation is carried out and the store informs the fields that cannot be sent.</p>
+
+<aside class="warning">In case of any field with no data to be sent, simply ignore the field itself. Do not send any empty fields.</aside>
+
+<p><strong>Level of Relevance of the MDD Fields</strong></p>
+
+<p>1- Relevant <br />
+2- Very Relevant <br />
+3- Extremely Relevant <br /><br /></p>
 
 <table>
   <thead>
