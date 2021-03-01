@@ -853,7 +853,7 @@ Possíveis valores do chargeback.
 |103|Outras Fraudes - Cartão Presente|Visa|Sim|
 |121|Apresentação Tardia|Visa|Não|
 |111|Boletim de recuperação de cartões|Visa|Não|
-|137|Transação de crédito original não aceita|Visa|Não|
+|138|Transação de crédito original não aceita|Visa|Não|
 |104|Outras Fraudes - Cartão Ausente|Visa|Sim|
 |124|Número de conta incorreto|Visa|Não|
 |4846|Código Correto da Moeda da Transação Não Fornecido|Master|Não|
