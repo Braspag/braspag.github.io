@@ -6960,7 +6960,7 @@ Lista de status retornados pela API:
 
 De acordo com a necessidade do seu negócio, é desenhada uma estratégia de risco considerando o nível de relevância dos campos MDD (Merchant Defined Data). Caso não sejam enviados, esses campos ainda serão cobrados durante a validação das transações de testes. Por esse motivo, solicitamos que seja feita uma análise prévia da documentação e que seja feita sinalização, por parte da loja, dos campos cujo envio não será possível realizar.
 
-<aside class="warning">Caso não possua algum dos dados para enviar, simplesmente ignore o campo correspondente; ou seja, não faça o envio do campo vazio.</aside>
+<aside class="warning">Não faça o envio de campos vazios. Caso não possua algum dos dados para enviar, simplesmente ignore o campo correspondente.</aside>
 
 **Nível de Relevância dos Campos MDD**
 
@@ -6970,7 +6970,7 @@ De acordo com a necessidade do seu negócio, é desenhada uma estratégia de ris
 
 |ID|Valor|Tipo|Nível de Relevância|Segmento|
 |--|-----|----|-------------------|--------|
-|1|Cliente efetua login. Possíveis valores: <*login_do_cliente*> (caso o cliente final efetue login no site para comprar) / "Guest" (caso o cliente final faça a compra como visitante). Obs.: **Não enviar** o campo caso um terceiro (ex.: um agente) realize a venda diretamente.|string|2|Todos|
+|1|Cliente efetua login. Possíveis valores: {*login_do_cliente*} (caso o cliente final efetue login no site para comprar) / "Guest" (caso o cliente final faça a compra como visitante). Obs.: **Não enviar** o campo caso um terceiro (ex.: um agente) realize a venda diretamente.|string|2|Todos|
 |2|Quantidade de dias que a pessoa é cliente da loja. Ex.: 314.|int|3|Todos|
 |3|Quantidade de parcelas do pedido.|int|3|Todos|
 |4|Canal de venda. Possíveis valores: "Call Center" (compra pelo telefone) / "Web" (compra pela web) / "Portal" (compra através de agente) / "Quiosque" (compra em quiosque) / "Móvel" (compra por celular ou tablet). Obs.: Se "Call Center", fundamental o envio também do campo **39** - Nome de usuário do Call Center.|string|3|Todos|
