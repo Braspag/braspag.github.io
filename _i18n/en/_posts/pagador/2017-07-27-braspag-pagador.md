@@ -6874,7 +6874,7 @@ List of statuses returned by API:
 
 A risk strategy is designed in accordance with your business needs, taking into consideration the level of relevance of the MDD (Merchant Defined Data) fields. Even if those fields are not sent, they will still be charged during the validation of the test transactions. For this reason, we request that a prior analysis of the documentation is carried out and the store informs the fields that cannot be sent.
 
-<aside class="warning">In case of any field with no data to be sent, simply ignore the field itself. Do not send any empty fields.</aside>
+<aside class="warning">Do not send any empty fields. In case of any fields with no data to be sent, simply skip it.</aside>
 
 **Level of Relevance of the MDD Fields**
 
@@ -6884,290 +6884,290 @@ A risk strategy is designed in accordance with your business needs, taking into 
 
 |ID|Value|Type|Relevance Level|Segment|
 |--|-----|----|-------------------|--------|
-|1|Customer Logged In  <br/> If the final customer logged in to the site to buy, submit: their login  <br/> If they made a purchase as a visitor, submit: Guest  <br/> If the sale was made directly by a third party, an agent for example did not submit the field|string|2|All|
-|2|Quantity in days the customer is your customer  <br/> E.g.: 314|int|3|All|
-|3|Quantity of order's installments|int|3|All|
-|4|Sales Channel   <br/> Possible values:   <br/> Call Center -> Web phone purchase   <br/> -> Web purchase   <br/> Portal -> one agent making the purchase for the customer   <br/> Kiosk -> Kiosk  purchases  <br/> -> Mobile or tablet purchases|string|3|All|
-|5|Send coupon/discount code if customer uses purchase|string|1|All|
-|6|Quantity in days since last customer purchase  <br/> E.g.: 55|int|3|All|
-|7|Seller's code or name (seller)|string|1|All|
-|8|Attempts by the customer to make the payment for the same order, which may be with different credit cards and/or other means of payment|int|2|All|
-|9|Identifies if customer will pick up product in store  <br/> Possible values: YES or NO|string|3|Retail or Cosmetics|
-|10|Identifies whether payment will be made by someone not present on the trip or package  <br/> Possible values: YES or NO|string|3|Air or Tourism|
-|11|Hotel category (how many stars)  <br/> Possible values:  <br/> 1 -> Simple 2  -> <br/> Budget 3  -> <br> Tourism 4  -> <br/> Superior 5  -> <br/> Luxury|int|3|Tourism|
-|12|Amount in days from purchase date to hotel check-in  <br/> E.g.: 123|int|3|Tourism|
-|13|Amount of hotel nights  <br/> E.g.: 5|int|3|Tourism|
-|14|Category of trip or package  <br> Possible values: National or International or National/International|string|3|Air or Tourism|
-|15|Name of airline/car rental/hotel  <br/> Name each company name, separated by/|string|2|Air or Tourism|
-|16|Reservation PNR Code  <br/> When there is a reservation change for this PNR, in advance of the flight date, it is important to do a new fraud analysis by resubmitting this PNR|string|3|Air|
-|17|Identifies if the reservation was anticipated  <br/> Possible values: YES or NO  <br/> If yes, it is also essential to send field 16 - Reservation PNR code|string|3|Air|
-|18|Rental vehicle category  <br/> Possible values:  <br/> 1 - Basic 2  <br/> - Sport  <br/> 3 - Prime  <br/> 4 - Utility  <br/> 5 - Armored|string|3|Tourism|
-|19|Identifies if the package refers to cruise  <br/> Possible values: YES or NO|string|2|Tourism|
-|20|Fraud review decision for last purchase  <br/> Possible values: ACCEPT or REJECTED|string|3|All|
-|21|Shipping Value  <br/> Eg: 10599 = $ 105.99|long|1|Retail or Cosmetics|
-|22|Code of store where product will be taken  <br/> This field must be sent when field 9 is sent as "YES".|string|3|Retail or Cosmetics|
-|23|Credit card suffix (last 4 digits)|int|1|All|
-|24|Number of days since first customer purchase  <br/> E.g.: 150|int|3|All|
-|25|Customer gender  <br/> Possible values:  <br/> F -> Female  <br/> M -> Male|string|2|All|
-|26|Credit card bin (first 6 digits)|int|1|All|
-|27|Delivery address street type  <br/> Possible values:  <br/> R -> Residential  C -> <br/> Commercial|string|2|All|
-|28|Average time taken by the customer to make the purchase|int|2|All|
-|29|Number of retries the customer made to log in|int|2|All|
-|30|Number of web pages the customer has previously visited with a purchase within 30 minutes|int|2|All|
-|31|Number of credit card number exchanges the customer has made to make the order payment|int|2|All|
-|32|Identifies whether the email was pasted or typed  <br/> Possible values: Typed or Pasted|string|3|All|
-|33|Identifies whether the credit card number has been pasted or entered  <br/> . Possible values: Typed or Pasted|string|3|All|
-|34|Identifies if the email has been verified for account activation  <br/> Possible values: YES or NO|string|2|All|
-|35|Identifies the type of customer  <br/> Possible values: Local or Tourist|string|2|Tourism|
-|36|Identifies whether a gift card was used as a payment method  <br/> Possible values: YES or NO|string|1|All|
-|37|Order delivery method <br/> Possible values: Sedex <br/> Sedex 10 <br/> 1 day<br/> 2 days <br/> Motoboy <br/> Same day <br/>|string|3|Retail or Cosmetics|
-|38|Customer phone number identified via Caller ID when sale made through sales channel equal to Call Center  <br/> Format: DDIDDNumber - E.g.: 552121114720|string|3|All|
-|39|Call Center Username  <br/> This field must be sent when field 4 is sent equal to Call Center|string|1|All|
-|40|Comments entered when order is present|string|1|All|
-|41|Document type  <br/> Possible values: CPF or CNPJ or Passport|string|2|All|
-|42|Age of client|int|2|Everyone|
-|43|Customer income range  <br/> E.g.: 100000 = $ 1,000.00|long|2|All|
-|44|Historical quantity of customer purchases|int|3|All|
-|45|Identifies if it is a purchase by employee  <br/> Possible values: YES or NO|string|2|All|
-|46|Credit card name (bearer)|string|3|All|
-|47|Identifies whether the card is private label  <br/> Possible values: YES or NO|string|2|All|
-|48|Amount of payment methods used to make the purchase|int|2|All|
-|49|Average purchases made over the past 6 months  <br/> E.g.: 159050 = $ 1,590.99|long|3|All|
-|50|Current purchase value deviation factor over last 6 months average|3|All|
-|51|Identifies if you are a VIP client with differentiated risk treatment or positive list  <br/> Possible values: YES or NO|string|3|All|
-|52|Product Category  <br/> Possible Values:  <br/> Animals & Pets  <br/> Clothing & Accessories  <br/> Business & Industry  <br/> Cameras & Optics  <br/> Electronics  <br/> Food, Beverage & Cigarette  <br/> Furniture  <br/> Tools  <br/> Health & Beauty  <br/> Home & Garden  <br/> Bags & Luggage  <br/> Adult  <br/> Guns & Ammo  <br/> Office Supplies  <br/> Religion & Ceremonials  <br/> Software  <br/> Sports Equipment  <br/> Toys & Games  <br/> Vehicles & Parts  <br/> Books  <br/> DVDs & Videos  <br/> Magazines & Newspapers  <br/> Music  <br/> Other Categories Unspecified|string|2|All|
-|53|Identifies if there is SMS phone confirmation routine  <br/> Possible values: YES or NO|string|2|All|
-|54|What is the 2nd payment method|string|2|All|
-|55|What is the 3rd payment method|string|2|All|
-|56|If 2nd payment method is credit card, send flag|string|1|All|
-|57|If 3rd payment method is credit card, send flag|string|1|All|
-|58|If 2nd payment method, enter amount paid  <br/> E.g.: 128599 = $ 1,285.99|long|2|All|
-|59|If 3rd payment method, inform the amount paid  <br/> E.g.: 59089 = R $ 590,89|long|2|All|
-|60|Quantity in days since last change  <br/> E.g.: 57|int|3|All|
-|61|Identifies if there was any cadastral change|string|1|
-|62|Number of points redeemed on last purchase|long|3|Loyalty|
-|63|Amount of points left in balance|long|2|Loyalty|
-|64|Number of days since last point exchange|long|2|Loyalty|
-|65|Customer identifier in loyalty program|string|2|Loyalty|
-|66|Number of minutes recharged over last 30 days|long|2|Digital Goods|
-|67|Number of top-ups to last 30 days|long|2|Digital Goods|
-|68|Quantity in days between departure date and return date|int|2|Air|
-|69|Number of passengers traveling regardless of age group|int|2|Air|
-|70|Flight identifier|string|1|Air|
-|71|Number of infants traveling|int|2|Air|
-|72|Number of children traveling|int|2|Air|
-|73|Number of adults traveling|int|2|Air|
-|74|Identifies if you are a Frequent Flyer  <br/> Possible values: YES or NO|string|2|Air|
-|75|Frequently Flyer Number|string|2|Air|
-|76|Frequently Flyer Category  <br/> This category may vary by airline|int|2|Air|
-77|Boarding day <br/> Possible values: Sunday  <br/> Monday  <br/> Tuesday ( <br/> Wednesday <br/> Thursday  <br/> Friday<br/> Saturday|string|2|Air|
-|78|Airline Code  <br/> E.g.: JJ or LA or AA or UA or G3 and etc.|string|1|Air|
-|79|Ticket fare class  <br/> E.g.: W or Y or N and etc|string|2|Air|
-|80|Passenger Mobile Number <br/> E.g.: Format: DDIDDNumber - E.g.: 5521976781114|string|2|Air|
-|81|Identifies whether the credit card holder will travel  <br/> Possible values: YES or NO|string|3|Air|
-|82|Identifies whether the seller will work with manual review or not  <br/> Possible values: YES or NO|string|1|All|
-|83|Business Segment  <br/> E.g.: Retail|string|2|All|
-|84|Name of the Platform Integrated with the Gateway Braspag Anti-fraud API  <br/> If this is a direct integration between the store and Braspag, send value equal to "PROPRIA"|string|3|All|
-|85 to 89|Free and defined fields with the anti-fraud provider, according to business rules|-|-|-|
-|90 to 100|Reserved|-|-|-|
+|1|Customer who logged in. Possible values: "{*customer_login*}" (if the final customer logs in to purchase on the site) / "Guest" (if the final customer makes the purchase as a visitor). Note: **Do not** submit the field if the sale is made directly by a third party (e.g.: an agent).|string|2|All|
+|2|How long (in days) the customer has been your customer. E.g.: 314.|int|3|All|
+|3|Quantity of order installments.|int|3|All|
+|4|Sales channel. Possible values: "Call Center" (phone purchase) / "Web" (web purchase) / "Portal" (purchase through agent) / "Kiosk" (kiosk  purchase) / "Mobile" (cell phone or tablet purchases). Note: When “Call Center”, the submission of field **39**(call center user name) is mandatory.|string|3|All|
+|5|Coupon/discount code in case the customer uses it in the purchase.|string|1|All|
+|6|How long (in days) since customer's last purchase. E.g.: 55.|int|3|All|
+|7|Seller's code or name.|string|1|All|
+|8|Number of customer's attempts to pay one same order, which may have been using different credit cards and/or other payment methods.|int|2|All|
+|9|Identifies if the customer will pick up the product in the store. Possible values: "YES" / "NO". Note: When “YES”, the submission of field **22**(code of pick up store) is mandatory.|string|3|Retail or Cosmetics|
+|10|Identifies whether payment will be made by someone not present on the trip or package. Possible values: "YES" / "NO".|string|3|Air or Tourism|
+|11|Hotel category (star rating). Possible values: "1" (simple) / "2"  (budget) / "3" (tourism) / "4" (superior) / "5" (luxury).|int|3|Tourism|
+|12|How long (in days) from purchase date to hotel check-in. E.g.: 123.|int|3|Tourism|
+|13|Number of nights at the hotel. E.g.: 5.|int|3|Tourism|
+|14|Trip or package category. <br> Possible values: "National" / "International" / "National/International".|string|3|Air or Tourism|
+|15|Name of airline / car rental /hotel. Note: Name each company name, separated by a "/".|string|2|Air or Tourism|
+|16|Reservation PNR code. When there is a reservation change for this PNR to an earlier flight date, it is important to apply a new fraud analysis by resubmitting this PNR.|string|3|Air|
+|17|Identifies if the reservation was brought forward. Possible values: "YES" / "NO". Note: When “YES”, the submission of field **16** (reservation PNR code) is mandatory.|string|3|Air|
+|18|Rented vehicle category. Possible values: "1" (basic) / "2" (sport) / "3" (prime) / "4" (utility) / "5" (armored).|string|3|Tourism|
+|19|Identifies if the package refers to a cruise. Possible values: "YES" / "NO".|string|2|Tourism|
+|20|Decision of fraud review for the latest purchase. Possible values: "ACCEPT" / "REJECTED".|string|3|All|
+|21|Shipping cost. E.g.: 10599 = $ 105.99|long|1|Retail or Cosmetics|
+|22|Code of pick up store. Note: This field must be sent when field **9** is "YES".|string|3|Retail or Cosmetics|
+|23|Credit card suffix (last 4 digits).|int|1|All|
+|24|How long in days since first customer purchase. E.g.: 150.|int|3|All|
+|25|Gender of the customer. Possible values: "F" (female) / "M" (male).|string|2|All|
+|26|Credit card bin (first 6 digits).|int|1|All|
+|27|Delivery address street type. Possible values: "R" (residential) / "C" (commercial).|string|2|All|
+|28|Average time taken by the customer to make the purchase.|int|2|All|
+|29|Number of retries the customer made to log in.|int|2|All|
+|30|Number of web pages the customer visited within the 30 minutes before the purchase.|int|2|All|
+|31|Number of changes of credit card number the customer made to make the order payment.|int|2|All|
+|32|Identifies whether the email was pasted or typed. Possible values: "Typed" / "Pasted".|string|3|All|
+|33|Identifies whether the credit card number was pasted or entered. Possible values: "Typed / Pasted".|string|3|All|
+|34|Identifies if the email has been verified for account activation. Possible values: "YES" / "NO".|string|2|All|
+|35|Identifies the type of customer. Possible values: "Local" / "Tourist".|string|2|Tourism|
+|36|Identifies whether a giftcard was used as the payment method. Possible values: "YES" / "NO".|string|1|All|
+|37|Order delivery method. Possible values: "Sedex" / "Sedex 10" / "1 day" / "2 days" / "Motoboy" / "Same day".|string|3|Retail or Cosmetics|
+|38|Customer phone number identified via caller ID for a sale made through a "Call Center". Format: DDIDDNumber - E.g.: 552121114720.|string|3|All|
+|39|Call center username. Note: This field must be sent when field **4** is "Call Center".|string|1|All|
+|40|Comments added when the order is a gift.|string|1|All|
+|41|Document type. Possible values: "CPF" / "CNPJ" / "Passport".|string|2|All|
+|42|Customer's age.|int|2|All|
+|43|Customer's income range. E.g.: 100000 = $ 1,000.00.|long|2|All|
+|44|Historical quantity of customer purchases.|int|3|All|
+|45|Identifies if the purchase was made by an employee. Possible values: "YES" / "NO".|string|2|All|
+|46|Name printed on the credit card (bearer).|string|3|All|
+|47|Identifies whether it is a private label card. Possible values: "YES" / "NO".|string|2|All|
+|48|Number of payment methods used to make the purchase.|int|2|All|
+|49|Average value of the purchases made over the past 6 months. E.g.: 159050 = $ 1,590.99.|long|3|All|
+|50|Current purchase value deviation factor over average of the past 6 months.|3|All|
+|51|Identifies if you are a VIP client with special risk treatment or positive list. Possible values: "YES" / "NO".|string|3|All|
+|52|Product category. Possible values: "Animals & Pets" / "Clothing & Accessories" / "Business & Industry" / "Cameras & Optics" / "Electronics" / "Food, Beverage & Cigarettes" / "Furniture" / "Tools" / "Health & Beauty" / "Home & Garden" / "Bags & Luggage" / "Adult" / "Guns & Ammo" / "Office Supplies" / "Religion & Ceremonials" / "Software" / "Sports Equipment" / "Toys & Games" / "Vehicles & Parts" / "Books" / "DVDs & Videos" / "Magazines & Newspapers" / "Music" / "Other Unspecified Categories".|string|2|All|
+|53|Identifies if there is an SMS phone confirmation routine. Possible values: "YES" / "NO".|string|2|All|
+|54|2nd payment method.|string|2|All|
+|55|3rd payment method.|string|2|All|
+|56|If 2nd payment method is "credit card", send brand.|string|1|All|
+|57|If 3rd payment method is "credit card", send brand.|string|1|All|
+|58|If 2nd payment method, inform the amount paid. E.g.: 128599 = $ 1,285.99.|long|2|All|
+|59|If 3rd payment method, inform the amount paid. E.g.: 59089 = R $ 590,89.|long|2|All|
+|60|How long (in days) since last change. E.g.: 57.|int|3|All|
+|61|Identifies if there was any registration information change.|string|1|
+|62|Number of points redeemed in the latest purchase.|long|3|Loyalty|
+|63|Amount of points left in balance.|long|2|Loyalty|
+|64|Number of days since last points exchange.|long|2|Loyalty|
+|65|Customer identifier in loyalty program.|string|2|Loyalty|
+|66|Number of minutes recharged over the past 30 days.|long|2|Digital Goods|
+|67|Number of top-ups performed over the past 30 days.|long|2|Digital Goods|
+|68|Number of days between departure date and return date.|int|2|Air|
+|69|Number of passengers traveling regardless of age group.|int|2|Air|
+|70|Flight identifier.|string|1|Air|
+|71|Number of infants traveling.|int|2|Air|
+|72|Number of children traveling.|int|2|Air|
+|73|Number of adults traveling.|int|2|Air|
+|74|Identifies a frequent flyer. Possible values: "YES" / "NO".|string|2|Air|
+|75|Frequent flyer number.|string|2|Air|
+|76|Frequent flyer category. This category may vary according to the airline.|int|2|Air|
+77|Boarding day. Possible values: "Sunday" / "Monday" / "Tuesday" / "Wednesday" / "Thursday" / "Friday" / "Saturday".|string|2|Air|
+|78|Airline code. E.g.: "JJ" / "LA" / "AA" / "UA" / "G3" etc.|string|1|Air|
+|79|Class of ticket fare. E.g.: "W" / "Y" / "N" etc.|string|2|Air|
+|80|Passenger's cell phone number. Format: DDIDDNumber - E.g.: 5521976781114.|string|2|Air|
+|81|Identifies if the credit card holder will travel. Possible values: "YES" / "NO".|string|3|Air|
+|82|Identifies if the seller will work with manual review. Possible values: "YES" / "NO".|string|1|All|
+|83|Business segment. E.g.: "Retail".|string|2|All|
+|84|Name of the platform integrated with the Gateway Braspag Anti-fraud API. For direct integrations between the store and Braspag, send the value "PROPRIA".|string|3|All|
+|85 to 89|Free fields defined with the anti-fraud provider, according to the business rules.|-|-|-|
+|90 to 100|Reserved.|-|-|-|
 
 ## List of HTTP Status Code
 
 |HTTP Status Code|Description|
 |------------------|-----------------------|
-|200|OK|
-|400|Bad Request|
-|404|Resource Not Found|
-|500|Internal Server Error|
+|200|OK.|
+|400|Bad Request.|
+|404|Resource Not Found.|
+|500|Internal Server Error.|
 
 ## Recurrence Status List
 
 |Code|Description|
 |--------|---------------------------|
-|1|Active|
-|2|Finished|
-|3|DisabledByMerchant|
-|4|DisabledMaxAttempts|
-|5|DisabledExpiredCreditCard|
+|1|Active.|
+|2|Finished.|
+|3|DisabledByMerchant.|
+|4|DisabledMaxAttempts.|
+|5|DisabledExpiredCreditCard.|
 
 ## ReasonCode/ReasonMessage List
 
 |Reason Code|Reason Message|
 |-------------|------------------------------|
-|0|Successful|
-|1|AffiliationNotFound|
-|2|IssuficientFunds|
-|3|CouldNotGetCreditCard|
-|4|ConnectionWithAcquirerFailed|
-|5|InvalidTransactionType|
-|6|InvalidPaymentPlan|
-|7|Denied|
-|8|Scheduled|
-|9|Waiting|
-|10|Authenticated|
-|11|NotAuthenticated|
-|12|ProblemsWithCreditCard|
-|13|CardCanceled|
-|14|BlockedCreditCard|
-|15|CardExpired|
-|16|AbortedByFraud|
-|17|CouldNotAntifraud|
-|18|TryAgain|
-|19|InvalidAmount|
-|20|ProblemsWithIssuer|
-|21|InvalidCardNumber|
-|22|TimeOut|
-|23|CardProtectedIsNotEnabled|
-|24|PaymentMethodIsNotEnabled|
-|98|InvalidRequest|
-|99|InternalError|
+|0|Successful.|
+|1|AffiliationNotFound.|
+|2|IssuficientFunds.|
+|3|CouldNotGetCreditCard.|
+|4|ConnectionWithAcquirerFailed.|
+|5|InvalidTransactionType.|
+|6|InvalidPaymentPlan.|
+|7|Denied.|
+|8|Scheduled.|
+|9|Waiting.|
+|10|Authenticated.|
+|11|NotAuthenticated.|
+|12|ProblemsWithCreditCard.|
+|13|CardCanceled.|
+|14|BlockedCreditCard.|
+|15|CardExpired.|
+|16|AbortedByFraud.|
+|17|CouldNotAntifraud.|
+|18|TryAgain.|
+|19|InvalidAmount.|
+|20|ProblemsWithIssuer.|
+|21|InvalidCardNumber.|
+|22|TimeOut.|
+|23|CardProtectedIsNotEnabled.|
+|24|PaymentMethodIsNotEnabled.|
+|98|InvalidRequest.|
+|99|InternalError.|
 
 ## API Error Codes
 
-Codes returned on error, identifying the reason for the error and its respective messages.
+Error codes returned, identifying the reason for the error and their respective messages.
 
 |Code|Message|Description|
 |------|--------|---------|
-|0|Internal error|Data sent exceeds field size|
-|100|RequestId is required|Submitted field is empty or invalid|
-|101|MerchantId is required|Submitted field is empty or invalid|
-|102|Payment Type is required|Submitted field is empty or invalid|
-|103|Payment Type can only contain letters|Special characters not allowed|
-|104|Customer Identity is required|Submitted field is empty or invalid|
-|105|Customer Name is required|Submitted field is empty or invalid|
-|106|Transaction ID is required|Submitted field is empty or invalid|
-|107|OrderId is invalid or does not exist|Submitted field exceeds size or contains special characters|
-|108|Amount must be greater or equal to zero|Transaction value must be greater than "0"|
-|109|Payment Type is required|Submitted field is empty or invalid|
-|110|Invalid Payment Currency|Submitted field is empty or invalid|
-|111|Payment Country is required|Submitted field is empty or invalid|
-|112|Invalid Payment Country|Submitted field is empty or invalid|
-|113|Invalid Payment Currency|Submitted field is empty or invalid|
-|114|The provided MerchantId is not in correct format|The submitted MerchantId is not a GUID|
-|115|The provided MerchantId was not found|MerchantID does not exist or belongs to another environment (EX: Sandbox)|
-|116|The provided MerchantId is blocked|Shop locked, contact support Braspag|
-|117|Credit Card Holder is required|Submitted field is empty or invalid|
-|118|Credit Card Number is required|Submitted field is empty or invalid|
-|119|At least one Payment is required|"Payment" node not sent|
-|120|Request IP not allowed. Check your IP White List|IP blocked for security reasons|
-|121|Customer is required|"Customer" node not sent|
-|122|MerchantOrderId is required|Submitted field is empty or invalid|
-|123|Installations must be greater or equal to one|Number of installments must be greater than 1|
-|124|Credit Card Number is required|Submitted field is empty or invalid|
-|125|Credit Card Expiration Date is required|Submitted field is empty or invalid|
-|126|Credit Card Expiration Date is invalid|Submitted field is empty or invalid|
-|127|You must provide CreditCard Number|Credit Card Number is required|
-|128|Card Number length exceeded|Card number over 16 digits|
-|129|Affiliation not found|Non-store payment method or invalid Provider|
+|0|Internal error|Data sent exceeds field size.|
+|100|RequestId is required|Submitted field is empty or invalid.|
+|101|MerchantId is required|Submitted field is empty or invalid.|
+|102|Payment Type is required|Submitted field is empty or invalid.|
+|103|Payment Type can only contain letters|Special characters not allowed.|
+|104|Customer Identity is required|Submitted field is empty or invalid.|
+|105|Customer Name is required|Submitted field is empty or invalid.|
+|106|Transaction ID is required|Submitted field is empty or invalid.|
+|107|OrderId is invalid or does not exist|Submitted field exceeds size or contains special characters.|
+|108|Amount must be greater or equal to zero|Transaction value must be greater than "0".|
+|109|Payment Type is required|Submitted field is empty or invalid.|
+|110|Invalid Payment Currency|Submitted field is empty or invalid.|
+|111|Payment Country is required|Submitted field is empty or invalid.|
+|112|Invalid Payment Country|Submitted field is empty or invalid.|
+|113|Invalid Payment Currency|Submitted field is empty or invalid.|
+|114|The provided MerchantId is not in correct format|The submitted MerchantId is not a GUID.|
+|115|The provided MerchantId was not found|MerchantID does not exist or belongs to another environment (EX: Sandbox).|
+|116|The provided MerchantId is blocked|Shop locked, contact support Braspag.|
+|117|Credit Card Holder is required|Submitted field is empty or invalid.|
+|118|Credit Card Number is required|Submitted field is empty or invalid.|
+|119|At least one Payment is required|"Payment" node not sent.|
+|120|Request IP not allowed. Check your IP White List|IP blocked for security reasons.|
+|121|Customer is required|"Customer" node not sent.|
+|122|MerchantOrderId is required|Submitted field is empty or invalid.|
+|123|Installations must be greater or equal to one|Number of installments must be greater than 1.|
+|124|Credit Card Number is required|Submitted field is empty or invalid.|
+|125|Credit Card Expiration Date is required|Submitted field is empty or invalid.|
+|126|Credit Card Expiration Date is invalid|Submitted field is empty or invalid.|
+|127|You must provide CreditCard Number|Credit Card Number is required.|
+|128|Card Number length exceeded|Card number over 16 digits.|
+|129|Affiliation not found|Non-store payment method or invalid Provider.|
 |130|Could not get Credit Card|---|
-|131|MerchantKey is required|Submitted field is empty or invalid|
-|132|MerchantKey is invalid|The submitted Merchantkey is not a valid|
-|133|Provider is not supported for this Payment Type|Provider submitted does not exist|
-|134|FingerPrint length exceeded|Data sent exceeds field size|
-|135|MerchantDefinedFieldValue length exceeded|Submitted data exceeds field size|
-|136|ItemDataName length exceeded|Submitted data exceeds field size|
-|137|ItemDataSKU length exceeded|Submitted data exceeds field size|
-|138|PassengerDataName length exceeded|Data sent exceeds field size|
-|139|PassengerDataStatus length exceeded|Data sent exceeds field size|
-|140|PassengerDataEmail length exceeded|Data sent exceeds field size|
-|141|PassengerDataPhone length exceeded|Data sent exceeds field size|
-|142|TravelDataRoute length exceeded|Submitted data exceeds field size|
-|143|TravelDataJourneyType length exceeded|Submitted data exceeds field size|
-|144|TravelLegDataDestination length exceeded|Submitted data exceeds field size|
-|145|TravelLegDataOrigin length exceeded|Submitted data exceeds field size|
-|146|SecurityCode length exceeded|Data sent exceeds field size|
-|147|Address Street length exceeded|Data sent exceeds field size|
-|148|Address Number length exceeded|Data sent exceeds field size|
-|149|Address Complement length exceeded|Data sent exceeds field size|
-|150|Address ZipCode length exceeded|Data sent exceeds field size|
-|151|Address City length exceeded|Data sent exceeds field size|
-|152|Address State length exceeded|Data sent exceeds field size|
-|153|Address Country length exceeded|Data sent exceeds field size|
-|154|Address District length exceeded|Data sent exceeds field size|
-|155|Customer Name length exceeded|Data sent exceeds field size|
-|156|Customer Identity length exceeded|Data sent exceeds field size|
-|157|Customer IdentityType length exceeded|Submitted data exceeds field size|
-|158|Customer Email length exceeded|Data sent exceeds field size|
-|159|ExtraData Name length exceeded|Data sent exceeds field size|
-|160|ExtraData Value length exceeded|Submitted data exceeds field size|
-|161|Boleto Instructions length exceeded|Data sent exceeds field size|
-|162|Boleto Demostrative length exceeded|Data sent exceeds field size|
-|163|Return Url is required|Return URL is not valid - Paging or extensions (E.g.:PHP) in the return URL|
+|131|MerchantKey is required|Submitted field is empty or invalid.|
+|132|MerchantKey is invalid|The submitted Merchantkey is not a valid.|
+|133|Provider is not supported for this Payment Type|Provider submitted does not exist.|
+|134|FingerPrint length exceeded|Data sent exceeds field size.|
+|135|MerchantDefinedFieldValue length exceeded|Submitted data exceeds field size.|
+|136|ItemDataName length exceeded|Submitted data exceeds field size.|
+|137|ItemDataSKU length exceeded|Submitted data exceeds field size.|
+|138|PassengerDataName length exceeded|Data sent exceeds field size.|
+|139|PassengerDataStatus length exceeded|Data sent exceeds field size.|
+|140|PassengerDataEmail length exceeded|Data sent exceeds field size.|
+|141|PassengerDataPhone length exceeded|Data sent exceeds field size.|
+|142|TravelDataRoute length exceeded|Submitted data exceeds field size.|
+|143|TravelDataJourneyType length exceeded|Submitted data exceeds field size.|
+|144|TravelLegDataDestination length exceeded|Submitted data exceeds field size.|
+|145|TravelLegDataOrigin length exceeded|Submitted data exceeds field size.|
+|146|SecurityCode length exceeded|Data sent exceeds field size.|
+|147|Address Street length exceeded|Data sent exceeds field size.|
+|148|Address Number length exceeded|Data sent exceeds field size.|
+|149|Address Complement length exceeded|Data sent exceeds field size.|
+|150|Address ZipCode length exceeded|Data sent exceeds field size.|
+|151|Address City length exceeded|Data sent exceeds field size.|
+|152|Address State length exceeded|Data sent exceeds field size.|
+|153|Address Country length exceeded|Data sent exceeds field size.|
+|154|Address District length exceeded|Data sent exceeds field size.|
+|155|Customer Name length exceeded|Data sent exceeds field size.|
+|156|Customer Identity length exceeded|Data sent exceeds field size.|
+|157|Customer IdentityType length exceeded|Submitted data exceeds field size.|
+|158|Customer Email length exceeded|Data sent exceeds field size.|
+|159|ExtraData Name length exceeded|Data sent exceeds field size.|
+|160|ExtraData Value length exceeded|Submitted data exceeds field size.|
+|161|Boleto Instructions length exceeded|Data sent exceeds field size.|
+|162|Boleto Demostrative length exceeded|Data sent exceeds field size.|
+|163|Return Url is required|Return URL is not valid - Paging or extensions (E.g.:PHP) in the return URL.|
 |166|AuthorizeNow is required|---|
-|167|Antifraud not configured|Antifraud not linked to merchant registration|
-|168|Recurrent Payment not found|Recurrence not found|
-|169|Recurrent Payment is not active|Recurrence is not active. Paralyzed Execution|
-|170|Protected Card not configured|Protected Card not linked to merchant registration|
+|167|Antifraud not configured|Antifraud not linked to merchant registration.|
+|168|Recurrent Payment not found|Recurrence not found.|
+|169|Recurrent Payment is not active|Recurrence is not active. Paralyzed Execution.|
+|170|Protected Card not configured|Protected Card not linked to merchant registration.|
 |171|Affiliation data not sent|Order Processing Failed - Contact Braspag Support|
-|172|Credential Code is required|Validation of submitted credentials failed|
-|173|Payment method is not enabled|Payment method not linked to merchant registration|
-|174|Credit Card Number is required|Submitted field is empty or invalid|
-|175|EAN is required|Submitted field is empty or invalid|
-|176|Payment Currency is not supported|Submitted field is empty or invalid|
-|177|Card Number is invalid|Submitted field is empty or invalid|
-|178|EAN is invalid|Submitted field is empty or invalid|
-|179|The max number of installments allowed for recurring payment is 1|Submitted field is empty or invalid|
-|180|The provided Card PaymentToken was not found|Cartão Protegido's token not found|
-|181|The MerchantIdJustClick is not configured|Cartão Protegido's Token Locked|
-|182|Brand is required|Card brand not sent|
-|183|Invalid customer birthdate|Invalid or future date of birth|
-|184|Request could not be empty|Failed to form this request. Check the code sent|
-|185|Brand is not supported by selected provider|Flag not supported by API Braspag|
-|186|The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments)|Payment method does not support sent command|
+|172|Credential Code is required|Validation of submitted credentials failed.|
+|173|Payment method is not enabled|Payment method not linked to merchant registration.|
+|174|Credit Card Number is required|Submitted field is empty or invalid.|
+|175|EAN is required|Submitted field is empty or invalid.|
+|176|Payment Currency is not supported|Submitted field is empty or invalid.|
+|177|Card Number is invalid|Submitted field is empty or invalid.|
+|178|EAN is invalid|Submitted field is empty or invalid.|
+|179|The max number of installments allowed for recurring payment is 1|Submitted field is empty or invalid.|
+|180|The provided Card PaymentToken was not found|Cartão Protegido's token not found.|
+|181|The MerchantIdJustClick is not configured|Cartão Protegido's Token Locked.|
+|182|Brand is required|Card brand not sent.|
+|183|Invalid customer birthdate|Invalid or future date of birth.|
+|184|Request could not be empty|Failed to form this request. Check the code sent.|
+|185|Brand is not supported by selected provider|Flag not supported by API Braspag.|
+|186|The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments)|Payment method does not support sent command.|
 |187|ExtraData Collection contains one or more duplicated names|---|
 |188|Avs with CPF invalid|---|
-|189|Avs with length of street exceeded|Submitted data exceeds field size|
-|190|Avs with length of number exceeded|Data sent exceeds field size|
-|190|Avs with length of complement exceeded|Data sent exceeds field size|
-|191|Avs with length of district exceeded|Submitted data exceeds field size|
-|192|Avs with zip code invalid|Zip code sent is invalid|
-|193|Split Amount must be greater than zero|Value for SPLIT must be greater than 0|
-|194|Split Establishment is Required|SPLIT not enabled for store registration|
-|195|The PlataformId is required|Platform Not Validated|
-|196|DeliveryAddress is required|Required field not submitted|
-|197|Street is required|Required field not submitted|
-|198|Number is required|Required field not submitted|
-|199|ZipCode is required|Required field not submitted|
-|200|City is required|Required field not submitted|
-|201|State is required|Required field not submitted|
-|202|District is required|Required field not submitted|
-|203|Cart item Name is required|Required field not submitted|
-|204|Cart item Quantity is required|Required field not submitted|
-|205|Cart item type is required|Required field not submitted|
-|206|Cart item name length exceeded|Data sent exceeds field size|
-|207|Cart item description length exceeded|Data sent exceeds field size|
-|208|Cart item sku length exceeded|Data sent exceeds field size|
-|209|Shipping address sku length exceeded|Data sent exceeds field size|
-|210|Shipping data cannot be null|Required field not submitted|
-|211|WalletKey is invalid|Invalid Visa Checkout data|
-|212|Merchant Wallet Configuration not found|Visa Checkout not linked to merchant account|
-|213|Credit Card Number is invalid|Credit card sent is invalid|
-|214|Credit Card Holder Must Have Only Letters|Cardholder must not contain special characters|
-|215|Agency is required in Boleto Credential|Required Field Not Submitted|
-|216|Customer IP address is invalid|IP blocked for security|
+|189|Avs with length of street exceeded|Submitted data exceeds field size.|
+|190|Avs with length of number exceeded|Data sent exceeds field size.|
+|190|Avs with length of complement exceeded|Data sent exceeds field size.|
+|191|Avs with length of district exceeded|Submitted data exceeds field size.|
+|192|Avs with zip code invalid|Zip code sent is invalid.|
+|193|Split Amount must be greater than zero|Value for SPLIT must be greater than 0.|
+|194|Split Establishment is Required|SPLIT not enabled for store registration.|
+|195|The PlataformId is required|Platform Not Validated.|
+|196|DeliveryAddress is required|Required field not submitted.|
+|197|Street is required|Required field not submitted.|
+|198|Number is required|Required field not submitted.|
+|199|ZipCode is required|Required field not submitted.|
+|200|City is required|Required field not submitted.|
+|201|State is required|Required field not submitted.|
+|202|District is required|Required field not submitted.|
+|203|Cart item Name is required|Required field not submitted.|
+|204|Cart item Quantity is required|Required field not submitted.|
+|205|Cart item type is required|Required field not submitted.|
+|206|Cart item name length exceeded|Data sent exceeds field size.|
+|207|Cart item description length exceeded|Data sent exceeds field size.|
+|208|Cart item sku length exceeded|Data sent exceeds field size.|
+|209|Shipping address sku length exceeded|Data sent exceeds field size.|
+|210|Shipping data cannot be null|Required field not submitted.|
+|211|WalletKey is invalid|Invalid Visa Checkout data.|
+|212|Merchant Wallet Configuration not found|Visa Checkout not linked to merchant account.|
+|213|Credit Card Number is invalid|Credit card sent is invalid.|
+|214|Credit Card Holder Must Have Only Letters|Cardholder must not contain special characters.|
+|215|Agency is required in Boleto Credential|Required Field Not Submitted.|
+|216|Customer IP address is invalid|IP blocked for security.|
 |300|MerchantId was not found|---|
 |301|Request IP is not allowed|---|
 |302|Sent MerchantOrderId is duplicated|---|
 |303|Sent OrderId does not exist|---|
 |304|Customer Identity is required|---|
 |306|Merchant is blocked|---|
-|307|Transaction not found|Transaction not found or missing in environment|
-|308|Transaction not available to capture|Transaction cannot be captured - Contact Braspag Support|
-|309|Transaction not available to void|Transaction cannot be canceled - Contact Support Braspag|
-|310|Payment method do not support this operation|Command sent not supported by payment method|
-|311|Refund is not enabled for this merchant|Cancellation after 24 hours not released to retailer|
-|312|Transaction not available to refund|Transaction does not allow cancellation after 24 hours|
-|313|Recurrent Payment not found|Recurring transaction not found or not available in the environment|
+|307|Transaction not found|Transaction not found or missing in environment.|
+|308|Transaction not available to capture|Transaction cannot be captured - Contact Braspag Support.|
+|309|Transaction not available to void|Transaction cannot be canceled - Contact Support Braspag.|
+|310|Payment method do not support this operation|Command sent not supported by payment method.|
+|311|Refund is not enabled for this merchant|Cancellation after 24 hours not released to retailer.|
+|312|Transaction not available to refund|Transaction does not allow cancellation after 24 hours.|
+|313|Recurrent Payment not found|Recurring transaction not found or not available in the environment.|
 |314|Invalid Integration|---|
 |315|Cannot change NextRecurrency with pending payment|---|
-|316|Cannot set NextRecurrency to past date|Not allowed to change recurrence data for a past date|
+|316|Cannot set NextRecurrency to past date|Not allowed to change recurrence data for a past date.|
 |317|Invalid Recurrency Day|---|
 |318|No transaction found|---|
-|319|Smart recurrency is not enabled|Recurrence not linked to merchant registration|
+|319|Smart recurrency is not enabled|Recurrence not linked to merchant registration.|
 |320|Cannot Update Affiliation Because this Recurrency not Affiliation saved|---|
 |321|Cannot set EndDate to before next recurrency|---|
-|322|Zero Dollar Auth is not enabled|Zero Dollar not linked to merchant registration|
-|323|Bin Query is not enabled|Bins Query not linked to merchant registration|
+|322|Zero Dollar Auth is not enabled|Zero Dollar not linked to merchant registration.|
+|323|Bin Query is not enabled|Bins Query not linked to merchant registration.|
 
 ## Test Cards (Simulado)
 
