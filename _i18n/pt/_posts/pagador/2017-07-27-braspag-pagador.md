@@ -6970,7 +6970,7 @@ De acordo com a necessidade do seu negócio, é desenhada uma estratégia de ris
 
 |ID|Valor|Tipo|Nível de Relevância|Segmento|
 |--|-----|----|-------------------|--------|
-|1|Cliente efetua login. Possíveis valores: {*login_do_cliente*} (caso o cliente final efetue login no site para comprar) / "Guest" (caso o cliente final faça a compra como visitante). Obs.: **Não enviar** o campo caso um terceiro (ex.: um agente) realize a venda diretamente.|string|2|Todos|
+|1|Cliente que efetua o login. Possíveis valores: "{*login_do_cliente*}" (caso o cliente final efetue login no site para comprar) / "Guest" (caso o cliente final faça a compra como visitante). Obs.: **Não enviar** o campo caso um terceiro (ex.: um agente) realize a venda diretamente.|string|2|Todos|
 |2|Quantidade de dias que a pessoa é cliente da loja. Ex.: 314.|int|3|Todos|
 |3|Quantidade de parcelas do pedido.|int|3|Todos|
 |4|Canal de venda. Possíveis valores: "Call Center" (compra pelo telefone) / "Web" (compra pela web) / "Portal" (compra através de agente) / "Quiosque" (compra em quiosque) / "Móvel" (compra por celular ou tablet). Obs.: Se "Call Center", fundamental o envio também do campo **39** - Nome de usuário do Call Center.|string|3|Todos|
@@ -7043,9 +7043,9 @@ De acordo com a necessidade do seu negócio, é desenhada uma estratégia de ris
 |71|Número de infantes viajando.|int|2|Aéreo|
 |72|Número de crianças viajando.|int|2|Aéreo|
 |73|Número de adultos viajando.|int|2|Aéreo|
-|74|Identifica se é um passageiro frequente (Frequent Flyer). Possíveis valores: "SIM" / "NAO".|string|2|Aéreo|
-|75|Identificar do passageiro frequente (Frequent Flyer Number).|string|2|Aéreo|
-|76|Categoria do passageiro frequente (Frequent Flyer). Esta categoria pode variar de acordo com a companhia aérea.|int|2|Aéreo|
+|74|Identifica se é um passageiro frequente (frequent flyer). Possíveis valores: "SIM" / "NAO".|string|2|Aéreo|
+|75|Identificação do passageiro frequente (frequent flyer number).|string|2|Aéreo|
+|76|Categoria do passageiro frequente (frequent flyer). Esta categoria pode variar de acordo com a companhia aérea.|int|2|Aéreo|
 |77|Dia da semana do embarque. Possíveis valores: "Sunday" (Domingo) / "Monday" (Segunda-feira) / "Tuesday" (Terça-feira) / "Wednesday" (Quarta-feira) / "Thursday" (Quinta-feira) / "Friday" (Sexta-feira) / "Saturday" (Sábado).|string|2|Aéreo|
 |78|Código da companhia aérea. Ex.: "JJ" / "LA" / "AA" / "UA" / "G3" etc.|string|1|Aéreo|
 |79|Classe tarifária da passagem. Ex.: "W" / "Y" / "N" etc.|string|2|Aéreo|
