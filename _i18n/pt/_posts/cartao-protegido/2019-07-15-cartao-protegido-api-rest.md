@@ -60,10 +60,7 @@ A integração é realizada através de serviços disponibilizados como web serv
 
 ## Testes no Postman
 
-Experimente as APIs diretamente via Postman. Segue o link para baixar a coleção:
-
-* Coleção do Postman: [https://bit.ly/2YX3YwE](https://bit.ly/2YX3YwE)
-* Variáveis do Sandbox: [https://bit.ly/2YX3YwE](https://bit.ly/2YX3YwE)
+Experimente as APIs diretamente via Postman. [Clique aqui](https://www.postman.com/collections/e21ffab28a8e54972c9d) e baixe a coleção.
 
 ## Etapa de Autenticação
 
