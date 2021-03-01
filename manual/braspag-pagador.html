@@ -13017,7 +13017,7 @@ As listas a seguir se referem a provedores na integração REST:</p>
 
 <p>De acordo com a necessidade do seu negócio, é desenhada uma estratégia de risco considerando o nível de relevância dos campos MDD (Merchant Defined Data). Caso não sejam enviados, esses campos ainda serão cobrados durante a validação das transações de testes. Por esse motivo, solicitamos que seja feita uma análise prévia da documentação e que seja feita sinalização, por parte da loja, dos campos cujo envio não será possível realizar.</p>
 
-<aside class="warning">Caso não possua algum dos dados para enviar, simplesmente ignore o campo correspondente; ou seja, não faça o envio do campo vazio.</aside>
+<aside class="warning">Não faça o envio de campos vazios. Caso não possua algum dos dados para enviar, simplesmente ignore o campo correspondente.</aside>
 
 <p><strong>Nível de Relevância dos Campos MDD</strong></p>
 
@@ -13038,7 +13038,7 @@ As listas a seguir se referem a provedores na integração REST:</p>
   <tbody>
     <tr>
       <td>1</td>
-      <td>Cliente efetua login. Possíveis valores:  (caso o cliente final efetue login no site para comprar) / “Guest” (caso o cliente final faça a compra como visitante). Obs.: <strong>Não enviar</strong> o campo caso um terceiro (ex.: um agente) realize a venda diretamente.</td>
+      <td>Cliente efetua login. Possíveis valores: {<em>login_do_cliente</em>} (caso o cliente final efetue login no site para comprar) / “Guest” (caso o cliente final faça a compra como visitante). Obs.: <strong>Não enviar</strong> o campo caso um terceiro (ex.: um agente) realize a venda diretamente.</td>
       <td>string</td>
       <td>2</td>
       <td>Todos</td>
