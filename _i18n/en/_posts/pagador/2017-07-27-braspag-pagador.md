@@ -6882,7 +6882,6 @@ A risk strategy is designed in accordance with your business needs, taking into 
 2- Very Relevant <br/>
 3- Extremely Relevant <br/><br/>
 
-
 |ID|Value|Type|Relevance Level|Segment|
 |--|-----|----|-------------------|--------|
 |1|Customer Logged In  <br/> If the final customer logged in to the site to buy, submit: their login  <br/> If they made a purchase as a visitor, submit: Guest  <br/> If the sale was made directly by a third party, an agent for example did not submit the field|string|2|All|
