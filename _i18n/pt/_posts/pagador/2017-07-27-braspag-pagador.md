@@ -6862,7 +6862,7 @@ Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio
 
 ## Lista de Providers
 
-No caso da integração SOAP, consulte a lista de provedores (*providers*) com seus correspondentes meios de pagamento listados [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360026794092-Lista-de-Payment-Method).<br/>
+No caso da integração SOAP, consulte a lista de provedores (*providers*) e seus correspondentes meios de pagamento listados [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360026794092-Lista-de-Payment-Method).<br/>
 As listas a seguir se referem a provedores na integração REST:  
 
 ### Providers para Crédito
@@ -6941,7 +6941,7 @@ Lista de status retornados pela API:
 |3|Denied|Cartões de crédito e débito (transferência eletrônica)|Pagamento negado por autorizador.|
 |10|Voided|Todos|Pagamento cancelado.|
 |11|Refunded|Cartões de crédito e débito|Pagamento cancelado/estornado.|
-|12|Pending|Cartões de crédito e débito (transferência eletrônica). |Esperando retorno da instituição financeira.|
+|12|Pending|Cartões de crédito e débito (transferência eletrônica)|Esperando retorno da instituição financeira.|
 |13|Aborted|Todos|Pagamento cancelado por falha no processamento.|
 |20|Scheduled|Cartão de crédito|Recorrência agendada.|
 
@@ -6960,9 +6960,10 @@ Lista de status retornados pela API:
 
 De acordo com a necessidade do seu negócio, é desenhada uma estratégia de risco considerando o nível de relevância dos campos MDD (Merchant Defined Data). Caso não sejam enviados, esses campos ainda serão cobrados durante a validação das transações de testes. Por esse motivo, solicitamos que seja feita uma análise prévia da documentação e que seja feita sinalização, por parte da loja, dos campos cujo envio não será possível realizar.
 
-<aside class="warning">Caso não possua algum dado para ser enviado, simplesmente ignore o campo correspondente; ou seja, não faça o envio do campo vazio.</aside>
+<aside class="warning">Caso não possua algum dos dados para enviar, simplesmente ignore o campo correspondente; ou seja, não faça o envio do campo vazio.</aside>
 
-**Nível de Relevância dos Campos MDD** <br/><br/>
+**Nível de Relevância dos Campos MDD**
+
 1- Relevante <br/>
 2- Muito Relevante <br/>
 3- Extremamente Relevante <br/><br/>
