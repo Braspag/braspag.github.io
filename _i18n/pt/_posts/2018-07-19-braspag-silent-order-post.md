@@ -125,7 +125,7 @@ O estabelecimento deverá parametrizar os elementos de formulário com as seguin
 |`accessToken`| Token de acesso obtido via API de autenticação da Braspag.|
 |`environment`| Tipo de ambiente: "sandbox" / "production".|
 |`language`| Idioma: "pt" / "en" / "es". |
-|`enableBinQuery`| "true" (habilita o *Consulta BIN*, retornando as características do cartão). "false" (caso contrário). Obs.: Disponível somente para Cielo 3.0.|
+|`enableBinQuery`| "true" (habilita o *Consulta BIN*, retornando as características do cartão) / "false" (caso contrário). Obs.: Disponível somente para Cielo 3.0.|
 |`enableVerifyCard`| "true" (habilita o *ZeroAuth*, retornando se o cartão é válido ou não) / "false" (caso contrário). |
 |`enableTokenize`| "true" (salva o cartão diretamente no Cartão Protegido, retornando um *cardToken* ao invés de um *paymentToken*) / "false" (caso contrário). |
 |`cvvRequired`| "false" (desliga a obrigatoriedade de envio do CVV) / "true" (caso contrário). |
