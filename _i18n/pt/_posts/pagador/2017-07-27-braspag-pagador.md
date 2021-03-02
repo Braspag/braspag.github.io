@@ -7358,11 +7358,11 @@ As informações de código de segurança (CVV) e validade podem ser aleatórias
 
 |Valor|Descrição|
 |:-|:-|
-|SameDay|Meio de entrega no mesmo dia.|
-|OneDay|Meio de entrega no próximo dia.|
-|TwoDay|Meio de entrega em dois dias.|
-|ThreeDay|Meio de entrega em três dias.|
-|LowCost|Meio de entrega de baixo custo.|
+|SameDay|Entrega no mesmo dia.|
+|OneDay|Entrega no próximo dia.|
+|TwoDay|Entrega em dois dias.|
+|ThreeDay|Entrega em três dias.|
+|LowCost|Entrega de baixo custo.|
 |Pickup|Retirada na loja.|
 |Other|Outro meio de entrega.|
 |None|Sem meio de entrega, pois é um serviço ou assinatura.|
@@ -7386,9 +7386,7 @@ As informações de código de segurança (CVV) e validade podem ser aleatórias
 
 |Valor|
 |:-|
-|Standard|
-|Gold|
-|Platinum|
+|Standard, Gold, Platinum|
 
 ## Lista de Valores - Payment.FraudAnalysis.Status
 
