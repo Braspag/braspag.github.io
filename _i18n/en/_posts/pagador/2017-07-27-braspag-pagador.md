@@ -7320,97 +7320,97 @@ Security Code (CVV) and validity information can be random, preserving its size 
 |Value|Description|
 |:-|:-|
 |100|Operation successfully performed.|
-|101|Transaction submitted for fraud analysis is missing one or more required fields  <br/> Check in response for `ProviderAnalysisResult.Missing` field  <br/> Possible action: Resubmit the transaction with full information|
-|102|Transaction submitted for fraud analysis has one or more fields with invalid values  <br/> Check in response for `ProviderAnalysisResult.Invalid` field  <br/> Possible action: Resubmit the transaction with the correct information|
-|150|Internal Error  <br/> Possible Action: Wait a few minutes and try resubmitting the transaction|
-|151|The transaction was received, but timeout occurred on the server. This error does not include client-server timeout  <br/> Possible action: Please wait a few minutes and try resending the transaction|
-|152|The request was received but timeout occurred Possible  <br/> action: Please wait a few minutes and try resending the transaction|
-|202|Transaction declined because card has expired or expiration date does not match Correct  <br/> action: Request another card or other payment method|
-|231|Transaction declined because card is invalid  <br/> Possible action: Request another card or other payment method|
-|234|Cybersource Store Configuration Issue Possible  <br/> Action: Please contact support to fix the configuration issue|
-|400|Fraud score exceeds threshold  <br/> Possible action: Review buyer's transaction|
-|480|The transaction has been marked for review by the Decision Manager (DM)|
-|481|The transaction was rejected by the Decision Manager (DM)|
+|101|Transaction submitted for fraud analysis is missing one or more required fields. Check in response for the `ProviderAnalysisResult.Missing` field. Possible action: Resubmit the transaction with full information.|
+|102|Transaction submitted for fraud analysis has one or more fields with invalid values. Check in response for the `ProviderAnalysisResult.Invalid` field. Possible action: Resubmit the transaction with the correct information.|
+|150|Internal Error. Possible action: Wait a few minutes and try resubmitting the transaction.|
+|151|The transaction was received, but timeout occurred on the server. This error does not include client-server timeout. Possible action: Please wait a few minutes and try resending the transaction.|
+|152|The request was received but timeout occurred. Possible action: Please wait a few minutes and try resending the transaction.|
+|202|Transaction declined because card has expired or expiration date does not match. Correct action: Request another card or other payment method.|
+|231|Transaction declined because card is invalid. Possible action: Request another card or other payment method.|
+|234|Cybersource store configuration issue possible. Action: Please contact support to fix the configuration issue.|
+|400|Fraud score exceeds threshold. Possible action: Review buyer's transaction.|
+|480|The transaction has been marked for review by the Decision Manager (DM).|
+|481|The transaction was rejected by the Decision Manager (DM).|
 
 ## Value List - Payment.FraudAnalysis.ReplyData.AddressInfoCode
 
 |Value|Description|
 |:-|:-|
-|COR-BA|Billing address can be standardized|
-|COR-SA|Shipping address can be standardized|
-|INTL-BA|Billing address country is outside the US|
-|INTL-SA|Shipping Address Country is outside the US|
-|MIL-USA Military Address in the USA|
-|MM-A|Billing and delivery addresses use different street names|
-|MM-BIN|Card BIN (first six digits of card number) does not match country|
-|MM-C|Billing and shipping addresses use different cities|
-|MM-CO|Billing and shipping addresses use different countries|
-|MM-ST|Billing and shipping addresses use different states|
-|MM-Z|Billing and delivery addresses use different postal codes|
-|UNV-ADDR|Address is unverifiable|
+|COR-BA|Billing address can be standardized.|
+|COR-SA|Shipping address can be standardized.|
+|INTL-BA|Billing address country is outside the US.|
+|INTL-SA|Shipping address country is outside the US.|
+|MIL-USA|Military address in the USA.|
+|MM-A|Billing and shipping addresses use different street names.|
+|MM-BIN|Card BIN (first six digits of card number) does not match country.|
+|MM-C|Billing and shipping addresses use different cities.|
+|MM-CO|Billing and shipping addresses use different countries.|
+|MM-ST|Billing and shipping addresses use different states.|
+|MM-Z|Billing and shipping addresses use different postal codes.|
+|UNV-ADDR|Address is unverifiable.|
 
 ## Value List - Payment.FraudAnalysis.ReplyData.FactorCode
 
 |Value|Description|
 |:-|:-|
-|A|Excessive address change. Buyer has changed billing address two or more times in the last six months|
-|B|BIN of the card or risk authorization. Risk factors relate to credit card BIN and/or card authorization checks|
-|C|High numbers of credit cards. Buyer has used more than six credit card numbers in the last six months|
-|D|Impact of email address. Buyer uses a free email provider or email address is risky|
-|E|Positive list. Buyer is on your positive list|
-|F|Negative list. The account number, address, email address or IP address for this purpose appears in your negative list|
-|G|Geolocation inconsistencies. Shopper's email address or domain, phone number, billing address, shipping address, or IP address is suspicious|
-|H|Excessive name changes. Shopper has changed billing address two or more times in the last six months|
-|I|Internet inconsistencies. IP address and email domain are not consistent with billing address|
-|N|Meaningless input. Shopper name and address fields contain meaningless words or language|
-|O|Obscenities. Shopper Data Contains Obscene Words|
-|P|Identity morphing. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number|
-|Q|Phone inconsistencies. Shopper's phone number is suspicious|
-|R|Risky Order. Transaction, shopper and merchant show high risk correlated information|
-|T|Time Coverage. Shopper is attempting a late purchase|
-|U|Unverifiable address. Billing or shipping address cannot be verified|
-|V|Card has been used many times in the last 15 minutes|
-|W|Marked as suspicious. The billing or shipping address is similar to an address previously marked as suspicious|
-|Y|The address, city, state, or country of the billing and shipping addresses do not match|
-|Z|Invalid value. Because the request contains an unexpected value, a default value has been overridden. Although the transaction can still be processed, carefully examine the request for anomalies|
+|A|Excessive address change. Buyer has changed billing address two or more times in the last six months.|
+|B|BIN of the card or risk authorization. Risk factors related to credit card BIN and/or card authorization checks.|
+|C|High number of credit cards. Buyer has used more than six credit card numbers in the last six months.|
+|D|Impact of email address. Buyer uses a free email provider or the email address is risky.|
+|E|Positive list. Buyer is on your positive list.|
+|F|Negative list. The account number, address, email address or IP address for this purpose appears in your negative list.|
+|G|Geolocation inconsistencies. Buyer's email address or domain, phone number, billing address, shipping address, or IP address is suspicious.|
+|H|Excessive name changes. Buyer has changed billing address two or more times in the past six months.|
+|I|Internet inconsistencies. IP address and email domain are not consistent with billing address.|
+|N|Meaningless input. Buyer's name and address fields contain meaningless words or language.|
+|O|Obscenities. Buyer's data contains obscene words.|
+|P|Identity morphing. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.|
+|Q|Phone inconsistencies. Buyer's phone number is suspicious.|
+|R|Risky order. Transaction, buyer and merchant show high risk correlated information.|
+|T|Time coverage. Buyer is attempting a late purchase.|
+|U|Unverifiable address. Billing or shipping address cannot be verified.|
+|V|Card has been used many times in the past 15 minutes.|
+|W|Marked as suspicious. The billing or shipping address is similar to an address previously marked as suspicious.|
+|Y|The address, city, state, or country of the billing and shipping addresses do not match.|
+|Z|Invalid value. Because the request contains an unexpected value, a default value has been overridden. Although the transaction can still be processed, carefully examine the request for anomalies.|
 
 ## Value List - Payment.FraudAnalysis.ReplyData.InternetInfoCode
 
 |Value|Description|
 |:-|:-|
-|FREE-EM|Shopper's email address is from a free email provider|
-|INTL-IPCO|Shopper's email address country is outside the US|
-|INV-EM|Shopper's email address is invalid|
-|MM-EMBCO|Shopper's email address domain is not consistent with billing address country|
-|MM-IPBC|Shopper's email address is not consistent with city of billing address|
-|MM-IPBCO|Shopper's email address is not consistent with billing address country|
-|MM-IPBST|The shopper's IP address is not consistent with the state in the billing address. However, this information code cannot be returned when the inconsistency is between immediately adjacent states|
-|MM-IPEM|Shopper's email address is not consistent with IP address|
-|RISK-EM|Shopper's email domain (for example, mail.example.com) is associated with high risk|
-|UNV-NID|The shopper's IP address is from an anonymous proxy. These entities completely hide IP address information|
-|UNV-RISK|IP address is from risk place|
-|UNV-EMBCO|Email address country does not match billing address country|
+|FREE-EM|Buyer's email address is from a free email provider.|
+|INTL-IPCO|Buyer's email address country is outside the US.|
+|INV-EM|Buyer's email address is invalid.|
+|MM-EMBCO|Buyer's email address domain is not consistent with billing address country.|
+|MM-IPBC|Buyer's email address is not consistent with city of billing address.|
+|MM-IPBCO|Buyer's email address is not consistent with billing address country.|
+|MM-IPBST|Buyer's IP address is not consistent with the state in the billing address. However, this information code cannot be returned when the inconsistency is between immediately adjacent states.|
+|MM-IPEM|Buyer's email address is not consistent with IP address.|
+|RISK-EM|Buyer's email domain (for example, *mail.example.com*) is associated with high risk.|
+|UNV-NID|Buyer's IP address is from an anonymous proxy. These entities completely hide IP address information.|
+|UNV-RISK|IP address is from risk place.|
+|UNV-EMBCO|Email address country does not match billing address country.|
 
 ## Value List - Payment.FraudAnalysis.ReplyData.IpRoutingMethod
 
 |Value|Description|
 |:-|:-|
-|Anonymizer|IP addresses are hidden because the shopper is extremely cautious, either absolute privacy or fraudulent|
-|AOL, AOL dialup, AOL POP and AOL proxy|AOL members. In most cases, the country can be identified, but the state and city cannot|
-|Proxy cache|Proxy used through an Internet accelerator or service content distribution. Shopper may be located in a country other than IP address|
-|Fixed|The IP address is near or in the same place as the shopper|
-|International proxy|Proxy that contains traffic from various countries. The shopper may be located in a country other than that indicated by the IP address. In many cases, corporate networks are routing international office traffic through a central hub, often corporate headquarters|
-|Mobile gateway|Gateway for connecting mobile devices to the internet. Many carriers, especially in Europe, serve more than one country and traffic occurs through centralized network hubs. Shopper may be located in a country other than IP address|
-|POP|Shopper dialing at a regional ISP probably near IP address location, but possibly across geographic boundaries|
-|Regional proxy|Proxy that contains multi-state traffic within a single country. The shopper may be located in a country other than that indicated by the IP address. In many cases, corporate networks are routing international office traffic through a central hub, often corporate headquarters|
-|Satellite|Satellite connections. If uplink and downlink are registered, the routing method is considered standard because the sender is known. However, if the downlink is not registered, the shopper may be anywhere within the standard satellite beam, which may span one continent or more|
-|SuperPOP|The buyer is dialing from a multi-state or multinational ISP that is unlikely to find the IP address location. Shopper may be dialing across geographic boundaries|
-|No value returned|Routing type is unknown|
+|Anonymizer|IP addresses are hidden because the buyer is extremely cautious, either absolute privacy or fraudulent.|
+|AOL, AOL dialup, AOL POP and AOL proxy|AOL members. In most cases, the country can be identified, but the state and city cannot.|
+|Proxy cache|Proxy used through an internet accelerator or service content distribution. Buyer may be located in a country other than IP address.|
+|Fixed|The IP address is near or in the same place as the buyer.|
+|International proxy|Proxy that contains traffic from various countries. The buyer may be located in a country other than that indicated by the IP address. In many cases, corporate networks are routing international office traffic through a central hub, often corporate headquarters.|
+|Mobile gateway|Gateway for connecting mobile devices to the internet. Many carriers, especially in Europe, serve more than one country and traffic occurs through centralized network hubs. Buyer may be located in a country other than IP address.|
+|POP|Buyer dialing at a regional ISP probably near IP address location, but possibly across geographic boundaries.|
+|Regional proxy|Proxy that contains multi-state traffic within a single country. The buyer may be located in a country other than that indicated by the IP address. In many cases, corporate networks are routing international office traffic through a central hub, often corporate headquarters.|
+|Satellite|Satellite connections. If uplink and downlink are registered, the routing method is considered standard because the sender is known. However, if the downlink is not registered, the buyer may be anywhere within the standard satellite beam, which may span one continent or more.|
+|SuperPOP|The buyer is dialing from a multi-state or multinational ISP that is unlikely to find the IP address location. Buyer may be dialing across geographic boundaries.|
+|No value returned|Routing type is unknown.|
 
 ## Value List - Payment.Chargebacks [n].Status
 
 |Value|Description|
 |:-|:-|
-|Received|Chargeback received from acquirer|
-|AcceptedByMerchant|Chargeback accepted by store. In this case the store understands that it has indeed suffered a chargeback and will not contest it|
-|ContestedByMerchant|Chargeback contested by store. In this case the store has sent the necessary documents to try to reverse the chargeback|
+|Received|Chargeback received from acquirer.|
+|AcceptedByMerchant|Chargeback accepted by store. In this case the store understands that it has indeed suffered a chargeback and will not contest it.|
+|ContestedByMerchant|Chargeback contested by store. In this case the store has sent the necessary documents to try to reverse the chargeback.|
