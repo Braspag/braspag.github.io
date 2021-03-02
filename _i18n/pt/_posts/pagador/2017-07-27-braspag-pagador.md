@@ -7450,10 +7450,10 @@ As informações de código de segurança (CVV) e validade podem ser aleatórias
 |I|Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.|
 |N|Entrada sem sentido. O nome do comprador e os campos de endereço contêm palavras sem sentido ou idioma.|
 |O|Obscenidades. Dados do comprador contêm palavras obscenas.|
-|P|Identidade *morphing*. Vários valores de um elemento de identidade estão ligados ao valor de um elemento de identidade diferente. Por exemplo, vários números de telefones estão ligados a um número de conta única.|
+|P|Mutação de identidade. Vários valores de um elemento de identidade estão ligados ao valor de um elemento de identidade diferente. Por exemplo, vários números de telefones estão ligados a um número de conta única.|
 |Q|Inconsistências do telefone. O número de telefone do comprador é suspeito.|
 |R|Ordem arriscada. A transação, o comprador e o lojista mostram informações correlacionadas de alto risco.|
-|T|Cobertura *time*. O comprador está tentanto uma compra fora do horário esperado.|
+|T|Cobertura de horário. O comprador está tentanto uma compra fora do horário esperado.|
 |U|Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.|
 |V|O cartão foi usado muitas vezes nos últimos 15 minutos.|
 |W|Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.|
