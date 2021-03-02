@@ -4503,7 +4503,7 @@ The example below covers the minimum required fields to be submitted for authori
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"EletronicTransfer"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"ElectronicTransfer"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.braspag.com.br"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Beneficiary"</span><span class="p">:</span><span class="w">
@@ -4547,7 +4547,7 @@ The example below covers the minimum required fields to be submitted for authori
     <span class="s2">"Payment"</span>:
     <span class="o">{</span>
         <span class="s2">"Provider"</span>:<span class="s2">"Bradesco"</span>,
-        <span class="s2">"Type"</span>:<span class="s2">"EletronicTransfer"</span>,
+        <span class="s2">"Type"</span>:<span class="s2">"ElectronicTransfer"</span>,
         <span class="s2">"Amount"</span>:10000,
         <span class="s2">"ReturnUrl"</span>:<span class="s2">"http://www.braspag.com.br"</span>,
         <span class="s2">"Beneficiary"</span>:
@@ -4688,7 +4688,7 @@ The example below covers the minimum required fields to be submitted for authori
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Payment method type.</td>
+      <td>Payment method type. In this case, “EletronicTransfer”.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
@@ -4784,7 +4784,7 @@ The example below covers the minimum required fields to be submitted for authori
         <span class="s2">"Name"</span>: <span class="s2">"Shopper name"</span>,
     <span class="o">}</span>,
     <span class="s2">"Payment"</span>:<span class="o">{</span>
-        <span class="s2">"Url"</span>: <span class="s2">"https://xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/{PaymentId}"</span>,
+        <span class="s2">"Url"</span>: <span class="s2">"https://xxx.xxxxxxx.xxx.xx/post/ElectronicTransfer/Redirect/{PaymentId}"</span>,
         <span class="s2">"PaymentId"</span>: <span class="s2">"765548b6-c4b8-4e2c-b9b9-6458dbd5da0a"</span>,
         <span class="s2">"Type"</span>: <span class="s2">"EletronicTransfer"</span>,
         <span class="s2">"Amount"</span>:10000,
@@ -14163,7 +14163,7 @@ The following lists refer to providers for the REST integration:</p>
     <tr>
       <td>171</td>
       <td>Affiliation data not sent</td>
-      <td>Order Processing Failed - Contact Braspag Support</td>
+      <td>Order Processing Failed - Contact Braspag Support.</td>
     </tr>
     <tr>
       <td>172</td>
@@ -14238,7 +14238,7 @@ The following lists refer to providers for the REST integration:</p>
     <tr>
       <td>186</td>
       <td>The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments)</td>
-      <td>Payment method does not support sent command.</td>
+      <td>Payment method does not support the command sent.</td>
     </tr>
     <tr>
       <td>187</td>
@@ -14515,11 +14515,11 @@ The following lists refer to providers for the REST integration:</p>
 
 <h2 id="test-cards-simulado">Test Cards (Simulado)</h2>
 
-<p>“Simulado” is a payment method that emulates the use of Credit Card payments. With this payment method it is possible to simulate all Authorization, Capture and Cancellation flows.</p>
+<p>“<em>Simulado</em>” is a payment method that emulates the use of Credit Card payments. With this payment method it is possible to simulate all <em>Authorization</em>, <em>Capture</em> and <em>Cancellation</em> flows.</p>
 
-<p>For better use of Simulado Payment Methods, we are providing test cards in the table below.</p>
+<p>For a better use of “Simulado” Payment Methods, you can use the provided test cards in the table below.</p>
 
-<p>Transaction status will be as each card is used.</p>
+<p>The transaction status will vary according to how each card is used.</p>
 
 <table>
   <thead>
@@ -14533,7 +14533,7 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td>Authorized</td>
-      <td>0000.0000.0000.0000/0000.0000.0000.0001/0000.0000.0000.0004</td>
+      <td>0000.0000.0000.0000 / 0000.0000.0000.0001 / 0000.0000.0000.0004</td>
       <td>4</td>
       <td>Operação realizada com sucesso</td>
     </tr>
@@ -14576,13 +14576,13 @@ The following lists refer to providers for the REST integration:</p>
     <tr>
       <td>Random Authorization</td>
       <td>0000.0000.0000.0009</td>
-      <td>4/99</td>
+      <td>4 / 99</td>
       <td>Operation Successful/Time Out</td>
     </tr>
   </tbody>
 </table>
 
-<p>Security Code (CVV) and validity information can be random, keeping the format - CVV (3 digits) Validity (MM/YYYY).</p>
+<p>Security Code (CVV) and validity information can be random, preserving its size and format - “3 digits” (CVV) and “MM/YYYY” (Validity). Do not use dots or hyphens between the numbers in the card.</p>
 
 <h2 id="list-of-values---paymentfraudanalysiscartitems-ngiftcategory">List of Values - Payment.FraudAnalysis.Cart.Items [n].GiftCategory</h2>
 
@@ -14596,15 +14596,15 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">Yes</td>
-      <td style="text-align: left">In case of divergence between billing and delivery addresses, assigns low risk to order</td>
+      <td style="text-align: left">In case of divergence between billing and shipping addresses, assigns low risk to the order.</td>
     </tr>
     <tr>
       <td style="text-align: left">No</td>
-      <td style="text-align: left">In case of divergence between billing and delivery addresses, assigns high risk to order (default)</td>
+      <td style="text-align: left">In case of divergence between billing and shipping addresses, assigns high risk to the order (default).</td>
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Differences between billing and shipping addresses do not affect score</td>
+      <td style="text-align: left">Differences between billing and shipping addresses do not affect score.</td>
     </tr>
   </tbody>
 </table>
@@ -14621,19 +14621,19 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">Low</td>
-      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Low.</td>
     </tr>
     <tr>
       <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Normal (default)</td>
+      <td style="text-align: left">Normal (default).</td>
     </tr>
     <tr>
       <td style="text-align: left">High</td>
-      <td style="text-align: left">High</td>
+      <td style="text-align: left">High.</td>
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Will not affect fraud analysis score</td>
+      <td style="text-align: left">Does not affect the fraud analysis score.</td>
     </tr>
   </tbody>
 </table>
@@ -14650,19 +14650,19 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">Low</td>
-      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Low.</td>
     </tr>
     <tr>
       <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Normal (default)</td>
+      <td style="text-align: left">Normal (default).</td>
     </tr>
     <tr>
       <td style="text-align: left">High</td>
-      <td style="text-align: left">High</td>
+      <td style="text-align: left">High.</td>
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Will not affect fraud analysis score</td>
+      <td style="text-align: left">Does not affect the fraud analysis score.</td>
     </tr>
   </tbody>
 </table>
@@ -14679,19 +14679,19 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">Low</td>
-      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Low.</td>
     </tr>
     <tr>
       <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Normal (default)</td>
+      <td style="text-align: left">Normal (default).</td>
     </tr>
     <tr>
       <td style="text-align: left">High</td>
-      <td style="text-align: left">High</td>
+      <td style="text-align: left">High.</td>
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Will not affect fraud analysis score</td>
+      <td style="text-align: left">Does not affect the fraud analysis score.</td>
     </tr>
   </tbody>
 </table>
@@ -14708,19 +14708,19 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">Low</td>
-      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Low.</td>
     </tr>
     <tr>
       <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Normal (default)</td>
+      <td style="text-align: left">Normal (default).</td>
     </tr>
     <tr>
       <td style="text-align: left">High</td>
-      <td style="text-align: left">High</td>
+      <td style="text-align: left">High.</td>
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Will not affect fraud analysis score</td>
+      <td style="text-align: left">Does not affect the fraud analysis score.</td>
     </tr>
   </tbody>
 </table>
@@ -14737,19 +14737,19 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">Low</td>
-      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Low.</td>
     </tr>
     <tr>
       <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Normal (default)</td>
+      <td style="text-align: left">Normal (default).</td>
     </tr>
     <tr>
       <td style="text-align: left">High</td>
-      <td style="text-align: left">High</td>
+      <td style="text-align: left">High.</td>
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Will not affect fraud analysis score</td>
+      <td style="text-align: left">Does not affect the fraud analysis score.</td>
     </tr>
   </tbody>
 </table>
@@ -14766,19 +14766,19 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">Low</td>
-      <td style="text-align: left">Low</td>
+      <td style="text-align: left">Low.</td>
     </tr>
     <tr>
       <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Normal (default)</td>
+      <td style="text-align: left">Normal (default).</td>
     </tr>
     <tr>
       <td style="text-align: left">High</td>
-      <td style="text-align: left">High</td>
+      <td style="text-align: left">High.</td>
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Will not affect fraud analysis score</td>
+      <td style="text-align: left">Does not affect the fraud analysis score.</td>
     </tr>
   </tbody>
 </table>
@@ -14795,47 +14795,47 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">AdultContent</td>
-      <td style="text-align: left">Adult Content</td>
+      <td style="text-align: left">Adult content.</td>
     </tr>
     <tr>
       <td style="text-align: left">Coupon</td>
-      <td style="text-align: left">Coupon applied to any order</td>
+      <td style="text-align: left">Coupon applied to any order.</td>
     </tr>
     <tr>
       <td style="text-align: left">Default</td>
-      <td style="text-align: left">Default value for the product type. When no other value is sent, the type is assumed to be this</td>
+      <td style="text-align: left">Default value for the product type. When no other value is sent, this type is assumed.</td>
     </tr>
     <tr>
-      <td style="text-align: left">EletronicGood</td>
-      <td style="text-align: left">Electronic product other than software</td>
+      <td style="text-align: left">ElectronicGood</td>
+      <td style="text-align: left">Electronic product other than software.</td>
     </tr>
     <tr>
-      <td style="text-align: left">EletronicSoftware</td>
-      <td style="text-align: left">Downloaded electronically distributed software</td>
+      <td style="text-align: left">ElectronicSoftware</td>
+      <td style="text-align: left">Software electronically distributed via download.</td>
     </tr>
     <tr>
       <td style="text-align: left">GiftCertificate</td>
-      <td style="text-align: left">Gift Certificate</td>
+      <td style="text-align: left">Gift certificate.</td>
     </tr>
     <tr>
       <td style="text-align: left">HandlingOnly</td>
-      <td style="text-align: left">Fee you charge your customer to cover your administrative selling costs. E.g.: Convenience Fee/Installation Fee</td>
+      <td style="text-align: left">The fee you charge your customer to cover your sales administrative expenses. E.g.: Convenience fee / Installation fee.</td>
     </tr>
     <tr>
       <td style="text-align: left">Service</td>
-      <td style="text-align: left">Service to be performed for the customer</td>
+      <td style="text-align: left">Service to be performed for the customer.</td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingAndHandling</td>
-      <td style="text-align: left">Shipping amount and fee you charge your customer to cover their administrative costs of selling</td>
+      <td style="text-align: left">Shipping amount and fee you charge your customer to cover your sales administrative expenses.</td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingOnly</td>
-      <td style="text-align: left">Shipping Value</td>
+      <td style="text-align: left">Shipping cost.</td>
     </tr>
     <tr>
       <td style="text-align: left">Subscription</td>
-      <td style="text-align: left">Subscription. E.g.: Video Streaming/News Subscription</td>
+      <td style="text-align: left">Subscription. E.g.: Video streaming / News subscription.</td>
     </tr>
   </tbody>
 </table>
@@ -14852,35 +14852,35 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">SameDay</td>
-      <td style="text-align: left">Same Day Delivery</td>
+      <td style="text-align: left">Same day delivery.</td>
     </tr>
     <tr>
       <td style="text-align: left">OneDay</td>
-      <td style="text-align: left">Next Day Delivery</td>
+      <td style="text-align: left">Next day delivery.</td>
     </tr>
     <tr>
       <td style="text-align: left">TwoDay</td>
-      <td style="text-align: left">Two-day delivery</td>
+      <td style="text-align: left">Two-day delivery.</td>
     </tr>
     <tr>
       <td style="text-align: left">ThreeDay</td>
-      <td style="text-align: left">Three-day delivery</td>
+      <td style="text-align: left">Three-day delivery.</td>
     </tr>
     <tr>
       <td style="text-align: left">LowCost</td>
-      <td style="text-align: left">Low Cost Delivery</td>
+      <td style="text-align: left">Low cost delivery.</td>
     </tr>
     <tr>
       <td style="text-align: left">Pickup</td>
-      <td style="text-align: left">Pick up on the store</td>
+      <td style="text-align: left">Pick up on the store.</td>
     </tr>
     <tr>
       <td style="text-align: left">Other</td>
-      <td style="text-align: left">Other delivery method</td>
+      <td style="text-align: left">Other delivery method.</td>
     </tr>
     <tr>
       <td style="text-align: left">None</td>
-      <td style="text-align: left">No delivery since it is a service or subscription</td>
+      <td style="text-align: left">No delivery since it is a service or subscription.</td>
     </tr>
   </tbody>
 </table>
@@ -14897,11 +14897,11 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">OneWayTrip</td>
-      <td style="text-align: left">One way only</td>
+      <td style="text-align: left">One way trip.</td>
     </tr>
     <tr>
       <td style="text-align: left">RoundTrip</td>
-      <td style="text-align: left">Round Trip</td>
+      <td style="text-align: left">Round Trip.</td>
     </tr>
   </tbody>
 </table>
@@ -14918,15 +14918,15 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">Adult</td>
-      <td style="text-align: left">Adult</td>
+      <td style="text-align: left">Adult.</td>
     </tr>
     <tr>
       <td style="text-align: left">Child</td>
-      <td style="text-align: left">Child</td>
+      <td style="text-align: left">Child.</td>
     </tr>
     <tr>
       <td style="text-align: left">Infant</td>
-      <td style="text-align: left">Infant</td>
+      <td style="text-align: left">Infant.</td>
     </tr>
   </tbody>
 </table>
@@ -14937,17 +14937,21 @@ The following lists refer to providers for the REST integration:</p>
   <thead>
     <tr>
       <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left">Standard</td>
+      <td style="text-align: left">Standard type.</td>
     </tr>
     <tr>
       <td style="text-align: left">Gold</td>
+      <td style="text-align: left">Gold type.</td>
     </tr>
     <tr>
       <td style="text-align: left">Platinum</td>
+      <td style="text-align: left">Platinum type.</td>
     </tr>
   </tbody>
 </table>
@@ -14964,27 +14968,27 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">Accept</td>
-      <td style="text-align: left">Transaction accepted after fraud analysis</td>
+      <td style="text-align: left">Transaction accepted after fraud analysis.</td>
     </tr>
     <tr>
       <td style="text-align: left">Review</td>
-      <td style="text-align: left">Transaction under review after fraud analysis</td>
+      <td style="text-align: left">Transaction under review after fraud analysis.</td>
     </tr>
     <tr>
       <td style="text-align: left">Reject</td>
-      <td style="text-align: left">Transaction rejected after fraud analysis</td>
+      <td style="text-align: left">Transaction rejected after fraud analysis.</td>
     </tr>
     <tr>
       <td style="text-align: left">Pendent</td>
-      <td style="text-align: left">Transaction pending, because submitting the same for fraud analysis there was a timeout in the response between Braspag and Cybersource</td>
+      <td style="text-align: left">Transaction pending, because there was a timeout in the response between Braspag and Cybersource during its submission to fraud analysis.</td>
     </tr>
     <tr>
       <td style="text-align: left">Unfinished</td>
-      <td style="text-align: left">Transaction not finalized for any contract validation reason or internal error</td>
+      <td style="text-align: left">Transaction not finalized for any contract validation reason or internal error.</td>
     </tr>
     <tr>
       <td style="text-align: left">ProviderError</td>
-      <td style="text-align: left">Transaction with provider error being submitted for analysis</td>
+      <td style="text-align: left">Transaction with a provider error during submission for analysis.</td>
     </tr>
   </tbody>
 </table>
@@ -15001,7 +15005,7 @@ The following lists refer to providers for the REST integration:</p>
   <tbody>
     <tr>
       <td style="text-align: left">100</td>
-      <td style="text-align: left">Operation successfully performed</td>
+      <td style="text-align: left">Operation successfully performed.</td>
     </tr>
     <tr>
       <td style="text-align: left">101</td>
