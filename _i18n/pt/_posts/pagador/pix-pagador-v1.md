@@ -99,7 +99,7 @@ A seguir, a especificação da requisição de geração do QRCode através da A
       "Type":"Pix",
       "Provider":"Cielo30",
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
-         "ProofOfSale":"123456",	  
+         "ProofOfSale":"123456",
       "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==",
       "Amount":100,
       "ReceivedDate":"2020-10-15 18:53:20",
@@ -121,12 +121,12 @@ A seguir, a especificação da requisição de geração do QRCode através da A
       "Name":"Nome do Pagador"
    },
    "Payment":{
-      (...)    
+      (...)
       "Paymentid":"1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
       "Type":"Pix",
       "Provider":"Cielo30",
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
-         "ProofOfSale":"123456",	  
+         "ProofOfSale":"123456",
       "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==",
       "Amount":100,
       "ReceivedDate":"2020-10-15 18:53:20",
@@ -280,13 +280,13 @@ Como uma parte importante para a implementação do ciclo de vida, é necessári
    },
    "Payment": {
       (...)
-      "Provider": "Cielo30",	  
+      "Provider": "Cielo30",
       "PaymentId": "1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
       "Type": "Pix",
       "Amount": 100,
       "Status": 2,
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
-         "ProofOfSale":"123456",	  	  
+         "ProofOfSale":"123456",
       "ReceivedDate": "2020-10-28 16:25:38",
       "CapturedAmount": 100,
       "CapturedDate": "2020-10-28 17:25:38",
@@ -308,13 +308,13 @@ Como uma parte importante para a implementação do ciclo de vida, é necessári
    },
    "Payment": {
       (...)
-      "Provider": "Cielo30",	  
+      "Provider": "Cielo30",
       "PaymentId": "1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
       "Type": "Pix",
       "Amount": 100,
       "Status": 2,
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
-         "ProofOfSale":"123456",	  
+         "ProofOfSale":"123456",
       "ReceivedDate": "2020-10-28 16:25:38",
       "CapturedAmount": 100,
       "CapturedDate": "2020-10-28 17:25:38",
