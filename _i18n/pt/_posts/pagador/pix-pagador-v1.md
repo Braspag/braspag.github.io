@@ -49,15 +49,14 @@ A seguir, a especificação da requisição de geração do QRCode através da A
       "Name":"Nome do Pagador"
    },
    "Payment":{ 
-	  "Type":"Pix",
-	  "Provider":"Cielo30",
-	  "Amount":100
+      "Type":"Pix",
+      "Provider":"Cielo30",
+      "Amount":100
    }    
 }
 ```
 
 ```shell
-curl
 --request POST "https://(...)/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -70,9 +69,9 @@ curl
       "Name":"Nome do Pagador"
    },
    "Payment":{ 
-	  "Type":"Pix",
-	  "Provider":"Cielo30",
-	  "Amount":100
+      "Type":"Pix",
+      "Provider":"Cielo30",
+      "Amount":100
    }    
 }
 --verbose
@@ -100,7 +99,7 @@ curl
       "Type":"Pix",
       "Provider":"Cielo30",
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
-	  "ProofOfSale":"123456",	  
+         "ProofOfSale":"123456",	  
       "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==",
       "Amount":100,
       "ReceivedDate":"2020-10-15 18:53:20",
@@ -113,7 +112,6 @@ curl
 ```
 
 ```shell
-curl
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -128,7 +126,7 @@ curl
       "Type":"Pix",
       "Provider":"Cielo30",
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
-	  "ProofOfSale":"123456",	  
+         "ProofOfSale":"123456",	  
       "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==",
       "Amount":100,
       "ReceivedDate":"2020-10-15 18:53:20",
@@ -166,15 +164,12 @@ Quando uma devolução é acatada, terá uma notificação sobre o fato, que dev
 | `/v2/sales/{PaymentId}/void?Amount={Amount}` | `PUT` |
 
 ```shell
-
-curl
 --request PUT "https://(...)/sales/{PaymentId}/void?Amount=xxx"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --verbose
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -188,41 +183,37 @@ curl
 #### Resposta
 
 ```json
-
 {
-    "Status": 12,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Reembolso solicitado com sucesso",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://(...)/sales/{PaymentId}"
-        }
-    ]
+   "Status": 12,
+   "ReasonCode": 0,
+   "ReasonMessage": "Successful",
+   "ProviderReturnCode": "0",
+   "ProviderReturnMessage": "Reembolso solicitado com sucesso",
+   "Links": [
+      {
+         "Method": "GET",
+         "Rel": "self",
+         "Href": "https://(...)/sales/{PaymentId}"
+      }
+   ]
 }
-
 ```
 
 ```shell
-
 {
-    "Status": 12,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Reembolso solicitado com sucesso",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://(...)/sales/{PaymentId}"
-        }
-    ]
+   "Status": 12,
+   "ReasonCode": 0,
+   "ReasonMessage": "Successful",
+   "ProviderReturnCode": "0",
+   "ProviderReturnMessage": "Reembolso solicitado com sucesso",
+   "Links": [
+      {
+         "Method": "GET",
+         "Rel": "self",
+         "Href": "https://(...)/sales/{PaymentId}"
+      }
+   ]
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
@@ -263,7 +254,6 @@ Como uma parte importante para a implementação do ciclo de vida, é necessári
 | `/v2/sales/{PaymentId}` | `GET` |
 
 ```shell
-curl
 --request GET "https://(...)/sales/{PaymentId}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -296,14 +286,14 @@ curl
       "Amount": 100,
       "Status": 2,
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
-	  "ProofOfSale":"123456",	  	  
+         "ProofOfSale":"123456",	  	  
       "ReceivedDate": "2020-10-28 16:25:38",
       "CapturedAmount": 100,
       "CapturedDate": "2020-10-28 17:25:38",
       "VoidedAmount": 100,
       "VoidedDate": "2020-10-31 16:25:38",
       (...)
-    }
+   }
 }
 ```
 
@@ -324,14 +314,14 @@ curl
       "Amount": 100,
       "Status": 2,
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
-	  "ProofOfSale":"123456",	  
+         "ProofOfSale":"123456",	  
       "ReceivedDate": "2020-10-28 16:25:38",
       "CapturedAmount": 100,
       "CapturedDate": "2020-10-28 17:25:38",
       "VoidedAmount": 100,
       "VoidedDate": "2020-10-31 16:25:38",
       (...)
-    }
+   }
 }
 --verbose
 ```
