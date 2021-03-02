@@ -2475,7 +2475,7 @@ To create a sale, you must send an HTTP message through the POST method to the *
     "Payment":
     {
         "Provider":"Bradesco",
-        "Type":"EletronicTransfer",
+        "Type":"ElectronicTransfer",
         "Amount":10000,
         "ReturnUrl":"http://www.braspag.com.br",
         "Beneficiary":
@@ -2520,7 +2520,7 @@ To create a sale, you must send an HTTP message through the POST method to the *
     "Payment":
     {
         "Provider":"Bradesco",
-        "Type":"EletronicTransfer",
+        "Type":"ElectronicTransfer",
         "Amount":10000,
         "ReturnUrl":"http://www.braspag.com.br",
         "Beneficiary":
@@ -2554,7 +2554,7 @@ To create a sale, you must send an HTTP message through the POST method to the *
 |`Customer.Address.State`|Customer's contact address state.|Text|2|Yes|
 |`Customer.Address.Country`|Customer's contact address country.|Text|35|Yes|
 |`Customer.Address.District`|Customer's contact address neighborhood.|Text|35|Yes|
-|`Payment.Type`|Payment method type.|Text|100|Yes|
+|`Payment.Type`|Payment method type. In this case, "EletronicTransfer".|Text|100|Yes|
 |`Payment.Amount`|Order amount in cents.|Number|15|Yes|
 |`Payment.Provider`|Name of payment method provider.|Text|15|Yes|
 |`Payment.Beneficiary.Bank`|Payer's bank (required only for electronic transfers with PayMeeSemiTransparent).|Text|100|Conditional|
@@ -2616,7 +2616,7 @@ To create a sale, you must send an HTTP message through the POST method to the *
         "Name": "Shopper name",
     },
     "Payment":{
-        "Url": "https://xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/{PaymentId}",
+        "Url": "https://xxx.xxxxxxx.xxx.xx/post/ElectronicTransfer/Redirect/{PaymentId}",
         "PaymentId": "765548b6-c4b8-4e2c-b9b9-6458dbd5da0a",
         "Type": "EletronicTransfer",
         "Amount":10000,
@@ -7098,7 +7098,7 @@ Error codes returned, identifying the reason for the error and their respective 
 |168|Recurrent Payment not found|Recurrence not found.|
 |169|Recurrent Payment is not active|Recurrence is not active. Paralyzed Execution.|
 |170|Protected Card not configured|Protected Card not linked to merchant registration.|
-|171|Affiliation data not sent|Order Processing Failed - Contact Braspag Support|
+|171|Affiliation data not sent|Order Processing Failed - Contact Braspag Support.|
 |172|Credential Code is required|Validation of submitted credentials failed.|
 |173|Payment method is not enabled|Payment method not linked to merchant registration.|
 |174|Credit Card Number is required|Submitted field is empty or invalid.|
@@ -7113,7 +7113,7 @@ Error codes returned, identifying the reason for the error and their respective 
 |183|Invalid customer birthdate|Invalid or future date of birth.|
 |184|Request could not be empty|Failed to form this request. Check the code sent.|
 |185|Brand is not supported by selected provider|Flag not supported by API Braspag.|
-|186|The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments)|Payment method does not support sent command.|
+|186|The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments)|Payment method does not support the command sent.|
 |187|ExtraData Collection contains one or more duplicated names|---|
 |188|Avs with CPF invalid|---|
 |189|Avs with length of street exceeded|Submitted data exceeds field size.|
@@ -7171,155 +7171,155 @@ Error codes returned, identifying the reason for the error and their respective 
 
 ## Test Cards (Simulado)
 
-"Simulado" is a payment method that emulates the use of Credit Card payments. With this payment method it is possible to simulate all Authorization, Capture and Cancellation flows.
+"*Simulado*" is a payment method that emulates the use of Credit Card payments. With this payment method it is possible to simulate all *Authorization*, *Capture* and *Cancellation* flows.
 
-For better use of Simulado Payment Methods, we are providing test cards in the table below.
+For a better use of "Simulado" Payment Methods, you can use the provided test cards in the table below.
 
-Transaction status will be as each card is used.
+The transaction status will vary according to how each card is used.
 
 |Transaction Status|Testing Cards|Return Code|Return Message|
 |-------------------|----------------------------------|-----------------|-------------------|
-|Authorized|0000.0000.0000.0000/0000.0000.0000.0001/0000.0000.0000.0004|4|Operação realizada com sucesso|
+|Authorized|0000.0000.0000.0000 / 0000.0000.0000.0001 / 0000.0000.0000.0004 |4|Operação realizada com sucesso|
 |Not Authorized|0000.0000.0000.0002|05|Not Authorized|
 |Not Authorized|0000.0000.0000.0003|57|Expired Card|
 |Not Authorized|0000.0000.0000.0005|78|Bloqued Card|
 |Not Authorized|0000.0000.0000.0006|99|Time Out|
 |Not Authorized|0000.0000.0000.0007|77|Canceled Card|
 |Not Authorized|0000.0000.0000.0008|70|Problems with the Credit Card|
-|Random Authorization|0000.0000.0000.0009|4/99|Operation Successful/Time Out|
+|Random Authorization|0000.0000.0000.0009|4 / 99|Operation Successful/Time Out|
 
-Security Code (CVV) and validity information can be random, keeping the format - CVV (3 digits) Validity (MM/YYYY).
+Security Code (CVV) and validity information can be random, preserving its size and format - "3 digits" (CVV) and "MM/YYYY" (Validity). Do not use dots or hyphens between the numbers in the card.
 
 ## List of Values - Payment.FraudAnalysis.Cart.Items [n].GiftCategory
 
 |Value|Description|
 |:-|:-|
-|Yes|In case of divergence between billing and delivery addresses, assigns low risk to order|
-|No|In case of divergence between billing and delivery addresses, assigns high risk to order (default)|
-|Off|Differences between billing and shipping addresses do not affect score|
+|Yes|In case of divergence between billing and shipping addresses, assigns low risk to the order.|
+|No|In case of divergence between billing and shipping addresses, assigns high risk to the order (default).|
+|Off|Differences between billing and shipping addresses do not affect score.|
 
 ## List of Values - Payment.FraudAnalysis.Cart.Items [n].HostHedge
 
 |Value|Description|
 |:-|:-|
-|Low|Low|
-|Normal|Normal (default)|
-|High|High|
-|Off|Will not affect fraud analysis score|
+|Low|Low.|
+|Normal|Normal (default).|
+|High|High.
+|Off|Does not affect the fraud analysis score.|
 
 ## List of Values - Payment.FraudAnalysis.Cart.Items [n].NonSensicalHedge
 
 |Value|Description|
 |:-|:-|
-|Low|Low|
-|Normal|Normal (default)|
-|High|High|
-|Off|Will not affect fraud analysis score|
+|Low|Low.|
+|Normal|Normal (default).|
+|High|High.|
+|Off|Does not affect the fraud analysis score.|
 
 ## List of Values - Payment.FraudAnalysis.Cart.Items [n].ObscenitiesHedge
 
 |Value|Description|
 |:-|:-|
-|Low|Low|
-|Normal|Normal (default)|
-|High|High|
-|Off|Will not affect fraud analysis score|
+|Low|Low.|
+|Normal|Normal (default).|
+|High|High.|
+|Off|Does not affect the fraud analysis score.|
 
 ## List of Values - Payment.FraudAnalysis.Cart.Items [n].TimeHedge
 
 |Value|Description|
 |:-|:-|
-|Low|Low|
-|Normal|Normal (default)|
-|High|High|
-|Off|Will not affect fraud analysis score|
+|Low|Low.|
+|Normal|Normal (default).|
+|High|High.|
+|Off|Does not affect the fraud analysis score.|
 
 ## List of Values - Payment.FraudAnalysis.Cart.Items [n].PhoneHedge
 
 |Value|Description|
 |:-|:-|
-|Low|Low|
-|Normal|Normal (default)|
-|High|High|
-|Off|Will not affect fraud analysis score|
+|Low|Low.|
+|Normal|Normal (default).|
+|High|High.|
+|Off|Does not affect the fraud analysis score.|
 
 ## List of Values - Payment.FraudAnalysis.Cart.Items [n].VelocityHedge
 
 |Value|Description|
 |:-|:-|
-|Low|Low|
-|Normal|Normal (default)|
-|High|High|
-|Off|Will not affect fraud analysis score|
+|Low|Low.|
+|Normal|Normal (default).|
+|High|High.|
+|Off|Does not affect the fraud analysis score.|
 
 ## List of Values - Payment.FraudAnalysis.Cart.Items [n].Type
 
 |Value|Description|
 |:-|:-|
-|AdultContent|Adult Content|
-|Coupon|Coupon applied to any order|
-|Default|Default value for the product type. When no other value is sent, the type is assumed to be this|
-|EletronicGood|Electronic product other than software|
-|EletronicSoftware|Downloaded electronically distributed software|
-|GiftCertificate|Gift Certificate|
-|HandlingOnly|Fee you charge your customer to cover your administrative selling costs. E.g.: Convenience Fee/Installation Fee|
-|Service|Service to be performed for the customer|
-|ShippingAndHandling|Shipping amount and fee you charge your customer to cover their administrative costs of selling|
-|ShippingOnly|Shipping Value|
-|Subscription|Subscription. E.g.: Video Streaming/News Subscription|
+|AdultContent|Adult content.|
+|Coupon|Coupon applied to any order.|
+|Default|Default value for the product type. When no other value is sent, this type is assumed.|
+|ElectronicGood|Electronic product other than software.|
+|ElectronicSoftware|Software electronically distributed via download.|
+|GiftCertificate|Gift certificate.|
+|HandlingOnly|The fee you charge your customer to cover your sales administrative expenses. E.g.: Convenience fee / Installation fee.|
+|Service|Service to be performed for the customer.|
+|ShippingAndHandling|Shipping amount and fee you charge your customer to cover your sales administrative expenses.|
+|ShippingOnly|Shipping cost.|
+|Subscription|Subscription. E.g.: Video streaming / News subscription.|
 
 ## Value List - Payment.FraudAnalysis.Shipping.Method
 
 |Value|Description|
 |:-|:-|
-|SameDay|Same Day Delivery|
-|OneDay|Next Day Delivery|
-|TwoDay|Two-day delivery|
-|ThreeDay|Three-day delivery|
-|LowCost|Low Cost Delivery|
-|Pickup|Pick up on the store|
-|Other|Other delivery method|
-|None|No delivery since it is a service or subscription|
+|SameDay|Same day delivery.|
+|OneDay|Next day delivery.|
+|TwoDay|Two-day delivery.|
+|ThreeDay|Three-day delivery.|
+|LowCost|Low cost delivery.|
+|Pickup|Pick up on the store.|
+|Other|Other delivery method.|
+|None|No delivery since it is a service or subscription.|
 
 ## List of Values - Payment.FraudAnalysis.Travel.JourneyType
 
 |Value|Description|
 |:-|:-|
-|OneWayTrip|One way only|
-|RoundTrip|Round Trip|
+|OneWayTrip|One way trip.|
+|RoundTrip|Round Trip.|
 
 ## Value List - Payment.FraudAnalysis.Travel.Passengers [n].Rating
 
 |Value|Description|
 |:-|:-|
-|Adult|Adult|
-|Child|Child|
-|Infant|Infant|
+|Adult|Adult.|
+|Child|Child.|
+|Infant|Infant.|
 
 ## Value List - Payment.FraudAnalysis.Travel.Passengers [n].Status
 
-|Value|
-|:-|
-|Standard|
-|Gold|
-|Platinum|
+|Value|Description|
+|:-|:-|
+|Standard| Standard type.|
+|Gold| Gold type.|
+|Platinum| Platinum type.|
 
 ## List of Values - Payment.FraudAnalysis.Status
 
 |Value|Description|
 |:-|:-|
-|Accept|Transaction accepted after fraud analysis|
-|Review|Transaction under review after fraud analysis|
-|Reject|Transaction rejected after fraud analysis|
-|Pendent|Transaction pending, because submitting the same for fraud analysis there was a timeout in the response between Braspag and Cybersource|
-|Unfinished|Transaction not finalized for any contract validation reason or internal error|
-|ProviderError|Transaction with provider error being submitted for analysis|
+|Accept|Transaction accepted after fraud analysis.|
+|Review|Transaction under review after fraud analysis.|
+|Reject|Transaction rejected after fraud analysis.|
+|Pendent|Transaction pending, because there was a timeout in the response between Braspag and Cybersource during its submission to fraud analysis.|
+|Unfinished|Transaction not finalized for any contract validation reason or internal error.|
+|ProviderError|Transaction with a provider error during submission for analysis.|
 
 ## Value List - Payment.FraudAnalysis.FraudAnalysisReasonCode
 
 |Value|Description|
 |:-|:-|
-|100|Operation successfully performed|
+|100|Operation successfully performed.|
 |101|Transaction submitted for fraud analysis is missing one or more required fields  <br/> Check in response for `ProviderAnalysisResult.Missing` field  <br/> Possible action: Resubmit the transaction with full information|
 |102|Transaction submitted for fraud analysis has one or more fields with invalid values  <br/> Check in response for `ProviderAnalysisResult.Invalid` field  <br/> Possible action: Resubmit the transaction with the correct information|
 |150|Internal Error  <br/> Possible Action: Wait a few minutes and try resubmitting the transaction|
