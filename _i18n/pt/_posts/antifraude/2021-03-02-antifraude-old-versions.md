@@ -13,7 +13,7 @@ tags:
 
 # SDKs Antifraude - Fingerprint
 
-Para utilizar versões mais antigas do Fingerprint na sua integração em aplicativos mobile, utilize os seguintes links de acesso aos arquivos no Github da Braspag:
+Para utilizar versões mais antigas do Fingerprint na sua integração em aplicativos mobile, baixe os arquivos através dos seguintes links:
 
 ## Versões Antigas
 
