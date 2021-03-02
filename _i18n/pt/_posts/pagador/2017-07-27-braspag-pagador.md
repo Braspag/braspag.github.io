@@ -7384,9 +7384,11 @@ As informações de código de segurança (CVV) e validade podem ser aleatórias
 
 ## Lista de Valores - Payment.FraudAnalysis.Travel.Passengers[n].Status
 
-|Valor|
-|:-|
-|Standard, Gold, Platinum|
+|Valor|Descrição|
+|:-|:-|
+|Standard|Tipo Standard.|
+|Gold|Tipo Gold.|
+|Platinum|Tipo Platinum.|
 
 ## Lista de Valores - Payment.FraudAnalysis.Status
 
