@@ -2601,7 +2601,7 @@ Para criar uma venda, é necessário o envio de mensagem HTTP através do métod
 |`Customer.Address.State`|Estado do endereço de contato do comprador.|Texto|2|Sim|
 |`Customer.Address.Country`|País do endereço de contato do comprador.|Texto|35|Sim|
 |`Customer.Address.District`|Bairro do endereço de contato do comprador.|Texto|35|Sim|
-|`Payment.Type`|Tipo do meio de pagamento. |Texto |100 |Sim|
+|`Payment.Type`|Tipo do meio de pagamento. Neste caso, "EletronicTransfer".|Texto |100 |Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
 |`Payment.Provider`|Nome do provedor do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador##providers-para-transferência-eletrônica-(débito-online)) para acessar a lista de provedores.|Texto |15 |---|
 |`Payment.Beneficiary.Bank`|Banco do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). |Texto |100 |Condicional|
