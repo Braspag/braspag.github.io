@@ -12,7 +12,7 @@ tags:
     
 ---
 
-# Software Development Kits - Pagador
+# SDKs - Pagador
 
 O Pagador oferece uma gama de Software Development Kits (SDKs), disponíveis no repositório oficial da Braspag no Github:
 
