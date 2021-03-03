@@ -2063,11 +2063,13 @@ Segue um exemplo de confirmação da transação com a moeda escolhida pelo comp
 
 ## QR Code
 
-Para criar uma transação com QR code é necessário enviar uma requisição utilizando o método POST conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status *Pendente* na Braspag, e gerar o QR code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex.: *Pago*, *Não pago* ou *Não autorizado*).
+### Criando uma Transação com QR Code
+
+Uma transação com QR code se efetua com o envio de uma requisição através do método POST conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status *Pendente* na Braspag, e gerar o QR code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex.: *Pago*, *Não pago* ou *Não autorizado*).
 
 O exemplo abaixo contempla o mínimo de campos necessários a serem enviados para a autorização:
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2116,7 +2118,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
 |`Payment.Capture`|Enviar "true" para uma transação de captura automática.|Booleano|-|Não|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -2498,7 +2500,7 @@ Segue uma lista de propriedades e suas especificações de tamanho, relativas a 
 
 Semelhante ao pagamento com cartão de débito, a transferência eletrônica conecta o consumidor ao seu emissor para autenticar uma venda em débito. A diferença entre ambos é que as transferências não são submetidas à adquirente nem dependem de dados de cartão.
 
-### Criando uma Transação
+### Criando uma Transação de Transferência Eletrônica
 
 Para criar uma venda, é necessário o envio de mensagem HTTP através do método POST para o recurso *Payment*, conforme o exemplo:
 
