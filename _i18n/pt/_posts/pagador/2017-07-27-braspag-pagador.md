@@ -6823,7 +6823,9 @@ Para consultar um pedido de recorrência, é necessário o envio de mensagem HTT
 
 # Post de Notificação
 
-Caso tenha configurado o campo "URL Status Pagamento" durante o cadastro de sua loja na Braspag, você irá receber notificações de alteração de status da transação. Os parâmetros serão enviados à URL cadastrada conforme demonstrado no exemplo abaixo. 
+Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), deve-se ter configurado o campo "URL Status Pagamento" durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).
+
+Os parâmetros serão enviados à URL cadastrada conforme demonstrado no exemplo abaixo.
 
 <aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
