@@ -231,7 +231,7 @@ Como uma parte importante para a implementação do ciclo de vida, é necessári
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
 |`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não (envio no *header*)|
-|`PaymentId`|Numero de identificação do pagamento. |Texto |36 |Sim (envio no *endpoint*)|
+|`PaymentId`|Número de identificação do pagamento. |Texto |36 |Sim (envio no *endpoint*)|
 
 ### Resposta
 
