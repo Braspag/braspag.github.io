@@ -12576,7 +12576,9 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <h1 id="post-de-notificação">Post de Notificação</h1>
 
-<p>Caso tenha configurado o campo “URL Status Pagamento” durante o cadastro de sua loja na Braspag, você irá receber notificações de alteração de status da transação. Os parâmetros serão enviados à URL cadastrada conforme demonstrado no exemplo abaixo.</p>
+<p>Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), deve-se ter configurado o campo “URL Status Pagamento” durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
+
+<p>Os parâmetros serão enviados à URL cadastrada conforme demonstrado no exemplo abaixo.</p>
 
 <aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
