@@ -1,15 +1,9 @@
-# Manual Beta - Pix
+## Pix
 
-## Importante
-
-Este manual tem como objetivo compartilhar informações com os primeiros interessados em disponibilizar PIX como meio de pagamento através da integração via Braspag Pagador. 
-A especificação poderá sofrer mudanças e adequações até a data oficial de lançamento da funcionalidade pela Braspag.
-
-## Pix via Pagador
+<aside class="notice">As especificações do Pix poderão sofrer mudanças e adequações até a data oficial de lançamento da funcionalidade pela Braspag.</aside>
+<aside class="warning">No momento, a habilitação do Pix só está disponível para a Cielo e deve ser efetuada diretamente com a mesma.</aside>
 
 Sobre o Pix: é a plataforma do Banco Central que viabiliza pagamentos instantâneos; ou seja, são as transferências monetárias eletrônicas na qual a transmissão da ordem de pagamento e a disponibilidade de fundos para o usuário recebedor ocorrem em tempo real e cujo serviço está disponível durante 24 horas por dia, sete dias por semana e em todos os dias no ano. As transferências ocorrem diretamente da conta do usuário pagador para a conta do usuário recebedor, sem a necessidade de intermediários, o que propicia custos de transação menores. Todo o fluxo de pagamento acontece através do instrumento chamado QR Code, ou seja, código em forma de imagem que é lido por aplicativos habilitados dentro do programa Pix, que efetivam as transferências entre pagador e recebedor.
-
-<aside class="notice">No momento, a habilitação do Pix só pode ser feita diretamente com a Cielo.</aside>
 
 O ciclo de vida de uma transação Pix:
 
@@ -24,11 +18,11 @@ O ciclo de vida de uma transação Pix:
 |7| Loja | Recebimento da notificação de confirmação de devolução. | 11 - Estornado |
 |8| Loja | Consulta ao status da transação. | 11 - Estornado |
 
-### 1. Implementar a geração do QRCode Pix
+### Criando uma Transação com QR Code Pix
 
-Para gerar um QR code Pix através da API Pagador, basta realizar a integração conforme a especificação abaixo. Entre diversas informações obrigatórias, destacam-se duas: "Type", que deve ser enviado como "Pix" e "Provider", que deve ser "Cielo30". Na resposta da requisição será retornado o código base 64 da imagem do QRCode Pix, que deve ser disponibilizado para o comprador.
+Para gerar um QR code Pix através da API Pagador, basta realizar a integração conforme a especificação abaixo. Entre os campos de envio obrigatório, destacam-se dois: `Type`, que deve ser enviado como "Pix" e `Provider`, que deve ser "Cielo30". Na resposta da requisição será retornado o código base 64 da imagem do QR Code Pix, que deve ser disponibilizado para o comprador.
 
-![Fluxo de Geração do QRCode Pix](https://braspag.github.io/images/braspag/pagador/pix/1-pix-geracao-qrcode.jpg)
+![Fluxo de Geração do QR Code Pix](https://braspag.github.io/images/braspag/pagador/pix/1-pix-geracao-qrcode.jpg)
 
 A segunda etapa é quando o comprador realiza a leitura do QRCode através de um dos aplicativos habilitados para o pagamento Pix, e efetiva o pagamento. Nesta etapa não há participação da loja nem da Braspag.
 
