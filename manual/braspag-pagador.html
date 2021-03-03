@@ -3625,11 +3625,13 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <h2 id="qr-code">QR Code</h2>
 
-<p>Para criar uma transação com QR code é necessário enviar uma requisição utilizando o método POST conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status <em>Pendente</em> na Braspag, e gerar o QR code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex.: <em>Pago</em>, <em>Não pago</em> ou <em>Não autorizado</em>).</p>
+<h3 id="criando-uma-transação-com-qr-code">Criando uma Transação com QR Code</h3>
+
+<p>Uma transação com QR code se efetua com o envio de uma requisição através do método POST conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status <em>Pendente</em> na Braspag, e gerar o QR code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex.: <em>Pago</em>, <em>Não pago</em> ou <em>Não autorizado</em>).</p>
 
 <p>O exemplo abaixo contempla o mínimo de campos necessários a serem enviados para a autorização:</p>
 
-<h3 id="requisição-9">Requisição</h3>
+<h4 id="requisição-9">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3729,7 +3731,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
   </tbody>
 </table>
 
-<h3 id="resposta-10">Resposta</h3>
+<h4 id="resposta-10">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"20191023"</span><span class="p">,</span><span class="w">
@@ -4516,7 +4518,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p>Semelhante ao pagamento com cartão de débito, a transferência eletrônica conecta o consumidor ao seu emissor para autenticar uma venda em débito. A diferença entre ambos é que as transferências não são submetidas à adquirente nem dependem de dados de cartão.</p>
 
-<h3 id="criando-uma-transação">Criando uma Transação</h3>
+<h3 id="criando-uma-transação-de-transferência-eletrônica">Criando uma Transação de Transferência Eletrônica</h3>
 
 <p>Para criar uma venda, é necessário o envio de mensagem HTTP através do método POST para o recurso <em>Payment</em>, conforme o exemplo:</p>
 
