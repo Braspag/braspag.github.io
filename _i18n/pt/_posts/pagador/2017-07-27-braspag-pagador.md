@@ -2066,7 +2066,7 @@ Segue um exemplo de confirmação da transação com a moeda escolhida pelo comp
 No Pix, a transmissão da ordem de pagamento e a disponibilidade de fundos para o usuário recebedor ocorrem em tempo real, 24 horas por dia e sem a necessidade de intermediários. Sendo assim, é um meio que viabiliza pagamentos rápidos e com menores custos de transação.
 
 <aside class="notice">As especificações do Pix poderão sofrer mudanças e adequações até a data oficial de lançamento da funcionalidade pela Braspag.</aside>
-<aside class="warning">No momento a habilitação do Pix só está disponível para a adquirente Cielo 3.0 e é necessário contactar a mesma para a liberação do meio de pagamento.</aside>
+<aside class="warning">No momento, a habilitação do Pix só está disponível para a adquirente Cielo 3.0 e é necessário contactar a mesma para a liberação do meio de pagamento.</aside>
 
 Conheça o ciclo de vida de uma transação Pix:
 
@@ -2206,7 +2206,7 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 
 ### Solicitando uma Devolução Pix
 
-Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar uma operação chamada de "devolução". É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma [notificação](#) é recebida pela loja.<br/>
+Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar uma operação chamada de "devolução". É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma [notificação](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o) é recebida pela loja.<br/>
 
 ![Fluxo de Devolução](https://braspag.github.io/images/braspag/pagador/pix/3-pix-devolucao.png)
 
@@ -2269,9 +2269,9 @@ Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar 
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
-|`ReasonCode`|Código de retorno da Adquirência. |Texto |32 |Texto alfanumérico
-|`ReasonMessage`|Mensagem de retorno da Adquirência. |Texto |512 |Texto alfanumérico
+|`Status`|Status da transação. |Byte | 2 | Ex.: "1" |
+|`ReasonCode`|Código de retorno da adquirência. |Texto |32 |Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da adquirência. |Texto |512 |Texto alfanumérico|
 
 ## QR Code
 
@@ -6308,14 +6308,14 @@ As formas de consultar uma transação ou venda dependem de quanto tempo tem de 
 
 ## Consultando uma Transação via PaymentID
 
-Para que o nó `Chargeback` esteja contido no retorno, a Braspag deverá passar a receber os chargebacks da sua loja. Você poderá então acatar ou contestar as operações, acompanhando os resultados das contestações no Painel Admin Braspag. Através do Post de Notificação, sua loja poderá ser informada da transação que sofreu o chargeback.
+Para que o nó `Chargeback` esteja contido no retorno, a Braspag deverá passar a receber os chargebacks da sua loja. Você poderá então acatar ou contestar as operações, acompanhando os resultados das contestações no Painel Admin Braspag. Através do [Post de Notificação](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o), sua loja poderá ser informada da transação que sofreu o chargeback.
 As operações contidas no Painel Admin Braspag também estão disponíveis na [API Risk Notification](https://braspag.github.io//manual/risknotification).
 
-Para que o nó `FraudAlert` esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no Painel Admin Braspag. Através do Post de Notificação, a sua loja irá ser informada da transação que sofreu o alerta de fraude.
+Para que o nó `FraudAlert` esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no Painel Admin Braspag. Através do Post de Notificação, a sua loja será informada da transação que sofreu o alerta de fraude.
 
 ### Transações de Crédito, Débito ou Pix
 
-Para consultar uma transação de cartão de crédito, cartão de débito ou Pix via PaymentID, é necessário o envio de mensagem HTTP através do método GET para o recurso *Payment*, conforme o exemplo:
+Para consultar uma transação de cartão de crédito, cartão de débito ou Pix via `PaymentID`, é necessário o envio de mensagem HTTP através do método GET para o recurso *Payment*, conforme o exemplo:
 
 #### Requisição
 
@@ -7065,7 +7065,7 @@ Os parâmetros serão enviados à URL cadastrada conforme demonstrado no exemplo
 |"4"|Mudança de status do pagamento recorrente (Ex.: desativação automática).|
 |"5"|Estorno negado (aplicável para **Rede**).|
 |"6"|Boleto registrado pago a menor.|
-|"7"|Notificação de chargeback. <br/> Para mais detalhes, consulte o manual de [Risk Notification](https://braspag.github.io//manual/risknotification).|
+|"7"|Notificação de chargeback. Para mais detalhes, consulte o manual de [Risk Notification](https://braspag.github.io//manual/risknotification).|
 |"8"|Alerta de fraude.|
 
 ## Resposta Esperada
