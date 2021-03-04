@@ -2061,6 +2061,218 @@ Segue um exemplo de confirmação da transação com a moeda escolhida pelo comp
 | `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).   | Texto | 32      | 57                                   |
 | `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor). | Texto | 512     | Transação Aprovada                   |
 
+## Pix
+
+No Pix, a transmissão da ordem de pagamento e a disponibilidade de fundos para o usuário recebedor ocorrem em tempo real, 24 horas por dia e sem a necessidade de intermediários. Sendo assim, é um meio que viabiliza pagamentos rápidos e com menores custos de transação.
+
+<aside class="notice">As especificações do Pix poderão sofrer mudanças e adequações até a data oficial de lançamento da funcionalidade pela Braspag.</aside>
+<aside class="warning">No momento a habilitação do Pix só está disponível para a adquirente Cielo 3.0 e é necessário contactar a mesma para a liberação do meio de pagamento.</aside>
+
+Conheça o ciclo de vida de uma transação Pix:
+
+| SEQUÊNCIA | RESPONSÁVEL | DESCRIÇÃO | STATUS DA TRANSAÇÃO |
+|--------------|------------|------------|------------|
+|1| Loja | Geração do QR code. | 12 - Pendente |
+|2| Comprador | Pagamento do QR code. | 2 - Pago |
+|3| Loja | Recebimento da notificação de confirmação do pagamento. | 2 - Pago |
+|4| Loja | Consulta ao status da transação. | 2 - Pago |
+|5| Loja | Liberação do pedido. | 2 - Pago |
+|6| Loja | Caso necessário, solicitação da devolução da transação Pix (semelhante ao estorno do cartão). | 2 - Pago |
+|7| Loja | Recebimento da notificação de confirmação de devolução. | 11 - Estornado |
+|8| Loja | Consulta ao status da transação. | 11 - Estornado |
+
+### Criando uma Transação com QR Code Pix
+
+Para gerar um QR code Pix através da API Pagador, basta realizar a integração conforme a especificação abaixo.
+
+Entre os campos de envio obrigatório, destacam-se dois: `Type`, que deve ser enviado como "Pix"; e `Provider`, que deve ser "Cielo30". Na resposta da requisição será retornado o *código base64* da imagem do QR code Pix, que deve ser disponibilizado ao comprador.
+![Fluxo de Geração do QR Code Pix](https://braspag.github.io/images/braspag/pagador/pix/1-pix-geracao-qrcode.png)
+
+O comprador então realiza a leitura do QR code através de um dos aplicativos habilitados para o pagamento Pix e efetiva o pagamento. Nesta etapa não há participação da loja nem da Braspag.
+![Fluxo de Pagamento](https://braspag.github.io/images/braspag/pagador/pix/2-pix-pagamento.png)
+
+Seguem exemplos de envio de requisição e resposta para a geração do QR code Pix:
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{ 
+   "MerchantOrderId":"2020102601",
+   "Customer":{
+      "Name":"Nome do Pagador"
+   },
+   "Payment":{ 
+      "Type":"Pix",
+      "Provider":"Cielo30",
+      "Amount":100
+   }    
+}
+```
+
+```shell
+--request POST "https://(...)/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{ 
+   "MerchantOrderId":"2020102601",
+   "Customer":{
+      "Name":"Nome do Pagador"
+   },
+   "Payment":{ 
+      "Type":"Pix",
+      "Provider":"Cielo30",
+      "Amount":100
+   }    
+}
+--verbose
+```
+
+| PROPRIEDADE| DESCRIÇÃO| TIPO| TAMANHO | OBRIGATÓRIO?|
+| --- | --- | --- | --- | --- |
+| `MerchantOrderId` | Número de identificação do pedido.| Texto | 50 | Sim |
+| `Customer.Name` | Nome do pagador. | Texto | 255 | Não |
+| `Payment.Type` | Tipo do meio de pagamento. Neste caso, "Pix". | Texto | - | Sim |
+| `Payment.Provider` |Nome do provedor do meio de pagamento. Neste caso, "Cielo30". | Texto | - | Sim |
+| `Payment.Amount` | Valor do pedido, em centavos.| Número | 15 | Sim |
+
+#### Resposta
+
+```json
+{
+   "MerchantOrderId":"2020102601",
+   "Customer":{
+      "Name":"Nome do Pagador"
+   },
+   "Payment":{
+      (...)   
+      "Paymentid":"1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
+      "Type":"Pix",
+      "Provider":"Cielo30",
+      "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
+         "ProofOfSale":"123456",
+      "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==",
+      "Amount":100,
+      "ReceivedDate":"2020-10-15 18:53:20",
+      "Status":12,
+      "ProviderReturnCode":"0",
+      "ProviderReturnMessage":"Pix gerado com sucesso",
+      (...)
+   }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+   "MerchantOrderId":"2020102601",
+   "Customer":{
+      "Name":"Nome do Pagador"
+   },
+   "Payment":{
+      (...)
+      "PaymentId":"1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
+      "Type":"Pix",
+      "Provider":"Cielo30",
+      "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
+         "ProofOfSale":"123456",
+      "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==",
+      "Amount":100,
+      "ReceivedDate":"2020-10-15 18:53:20",
+      "Status":12,
+      "ProviderReturnCode":"0",
+      "ProviderReturnMessage":"Pix gerado com sucesso",
+      (...)
+   }
+}
+--verbose
+```
+
+| PROPRIEDADE | DESCRIÇÃO| TIPO | TAMANHO | FORMATO |
+| --- | --- | --- | --- | --- |
+| `Payment.PaymentId` | Campo identificador do pedido. | GUID | 40 | Texto |
+| `Payment.AcquirerTransactionId` | Id da transação no provedor de meio de pagamento.| GUID | 36 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `Payment.ProofOfSale` | NSU Pix. |Texto|20|Texto alfanumérico|
+| `Payment.QrcodeBase64Image` | Código em base64 da imagem do QR code. | Texto | - | Texto |
+| `Payment.Status` | Status da transação. Em caso de sucesso, o status inicial é “12” (*Pendente*). [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o) para ver lista de status.| Número | - | 12 |
+| `Payment.ProviderReturnCode` | Código retornado pelo provedor do meio de pagamento. | Texto | 32 | 0 |
+| `Payment.ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento. | Texto | 512 |"Pix gerado com sucesso" |
+
+### Solicitando uma Devolução Pix
+
+Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar uma operação chamada de "devolução". É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma [notificação](#) é recebida pela loja.<br/>
+
+![Fluxo de Devolução](https://braspag.github.io/images/braspag/pagador/pix/3-pix-devolucao.png)
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
+
+```shell
+--request PUT "https://(...)/sales/{PaymentId}/void?Amount=xxx"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`PaymentId`|Campo identificador do pedido. |GUID |36 |Sim|
+|`Amount`|Valor a ser cancelado/estornado, em centavos. Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.|Número |15 |Não|
+
+#### Resposta
+
+```json
+{
+   "Status": 12,
+   "ReasonCode": 0,
+   "ReasonMessage": "Successful",
+   "ProviderReturnCode": "0",
+   "ProviderReturnMessage": "Reembolso solicitado com sucesso",
+   "Links": [
+      {
+         "Method": "GET",
+         "Rel": "self",
+         "Href": "https://(...)/sales/{PaymentId}"
+      }
+   ]
+}
+```
+
+```shell
+{
+   "Status": 12,
+   "ReasonCode": 0,
+   "ReasonMessage": "Successful",
+   "ProviderReturnCode": "0",
+   "ProviderReturnMessage": "Reembolso solicitado com sucesso",
+   "Links": [
+      {
+         "Method": "GET",
+         "Rel": "self",
+         "Href": "https://(...)/sales/{PaymentId}"
+      }
+   ]
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
+|`ReasonCode`|Código de retorno da Adquirência. |Texto |32 |Texto alfanumérico
+|`ReasonMessage`|Mensagem de retorno da Adquirência. |Texto |512 |Texto alfanumérico
+
 ## QR Code
 
 ### Criando uma Transação com QR Code
@@ -6101,9 +6313,9 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na [
 
 Para que o nó `FraudAlert` esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no Painel Admin Braspag. Através do Post de Notificação, a sua loja irá ser informada da transação que sofreu o alerta de fraude.
 
-### Transação de Cartão de Crédito
+### Transações de Crédito, Débito ou Pix
 
-Para consultar uma transação de cartão de crédito via PaymentID, é necessário o envio de mensagem HTTP através do método GET para o recurso *Payment*, conforme o exemplo:
+Para consultar uma transação de cartão de crédito, cartão de débito ou Pix via PaymentID, é necessário o envio de mensagem HTTP através do método GET para o recurso *Payment*, conforme o exemplo:
 
 #### Requisição
 
@@ -6360,7 +6572,7 @@ Para consultar uma transação de cartão de crédito via PaymentID, é necessá
 |`Merchant.Id`|Identificador da loja que efetuou essa transação.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Merchant.TradeName`|Nome da loja.|Texto|50|Texto alfanumérico|
 |`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15| Consulte os [anexos](#anexos).|
-|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Ex.: CreditCard|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Ex.: "CreditCard"|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|10000|
 |`Payment.ServiceTaxAmount`|Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|10000|
 |`Payment.Currency`|Moeda na qual o pagamento será feito.|Texto|3|BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
@@ -6373,7 +6585,7 @@ Para consultar uma transação de cartão de crédito via PaymentID, é necessá
 |`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador.|Texto|13|Texto alfanumérico|
 |`Payment.ExtraDataCollection.Name`|Nome do campo em que será gravado o dado extra.|Texto|50|Texto alfanumérico|
 |`Payment.ExtraDataCollection.Value`|Valor do campo em que será gravado o dado extra.|Texto|1024|Texto alfanumérico|
-|`Payment.AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
+|`Payment.AcquirerTransactionId`|Id da transação no provedor do meio de pagamento.|Texto|40|Texto alfanumérico|
 |`Payment.ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
 |`Payment.AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
 |`Payment.Refunds.Amount`|Valor reembolsado, em centavos.|Número|15|10000|
@@ -6397,7 +6609,7 @@ Para consultar uma transação de cartão de crédito via PaymentID, é necessá
 |`Payment.CapturedDate`|Data da captura.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.VoidedAmount`|Valor cancelado/estornado, em centavos.|Número|15|10000|
 |`Payment.VoidedDate`|Data do cancelamento/estorno.|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.Status`|Status da transação.|Byte|2| Ex.: 1|
+|`Payment.Status`|Status da transação.|Byte|2| Ex.: "1"|
 |`Payment.Provider`|Provedor utilizado.|Texto|32|Simulado|
 |`Payment.ProviderDescription`|Nome do adquirente que processou a transação.|Texto|512|Simulado|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|---|
