@@ -3628,7 +3628,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 <p>No Pix, a transmissão da ordem de pagamento e a disponibilidade de fundos para o usuário recebedor ocorrem em tempo real, 24 horas por dia e sem a necessidade de intermediários. Sendo assim, é um meio que viabiliza pagamentos rápidos e com menores custos de transação.</p>
 
 <aside class="notice">As especificações do Pix poderão sofrer mudanças e adequações até a data oficial de lançamento da funcionalidade pela Braspag.</aside>
-<aside class="warning">No momento a habilitação do Pix só está disponível para a adquirente Cielo 3.0 e é necessário contactar a mesma para a liberação do meio de pagamento.</aside>
+<aside class="warning">No momento, a habilitação do Pix só está disponível para a adquirente Cielo 3.0 e é necessário contactar a mesma para a liberação do meio de pagamento.</aside>
 
 <p>Conheça o ciclo de vida de uma transação Pix:</p>
 
@@ -3908,7 +3908,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <h3 id="solicitando-uma-devolução-pix">Solicitando uma Devolução Pix</h3>
 
-<p>Caso o lojista precise “cancelar” uma transferência Pix, é possível realizar uma operação chamada de “devolução”. É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma <a href="#">notificação</a> é recebida pela loja.<br /></p>
+<p>Caso o lojista precise “cancelar” uma transferência Pix, é possível realizar uma operação chamada de “devolução”. É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o">notificação</a> é recebida pela loja.<br /></p>
 
 <p><img src="https://braspag.github.io/images/braspag/pagador/pix/3-pix-devolucao.png" alt="Fluxo de Devolução" /></p>
 
@@ -4020,21 +4020,21 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
+      <td>Status da transação.</td>
       <td>Byte</td>
       <td>2</td>
-      <td>Ex. 1</td>
+      <td>Ex.: “1”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Código de retorno da Adquirência.</td>
+      <td>Código de retorno da adquirência.</td>
       <td>Texto</td>
       <td>32</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Mensagem de retorno da Adquirência.</td>
+      <td>Mensagem de retorno da adquirência.</td>
       <td>Texto</td>
       <td>512</td>
       <td>Texto alfanumérico</td>
@@ -11304,14 +11304,14 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
 
 <h2 id="consultando-uma-transação-via-paymentid">Consultando uma Transação via PaymentID</h2>
 
-<p>Para que o nó <code class="language-plaintext highlighter-rouge">Chargeback</code> esteja contido no retorno, a Braspag deverá passar a receber os chargebacks da sua loja. Você poderá então acatar ou contestar as operações, acompanhando os resultados das contestações no Painel Admin Braspag. Através do Post de Notificação, sua loja poderá ser informada da transação que sofreu o chargeback.
+<p>Para que o nó <code class="language-plaintext highlighter-rouge">Chargeback</code> esteja contido no retorno, a Braspag deverá passar a receber os chargebacks da sua loja. Você poderá então acatar ou contestar as operações, acompanhando os resultados das contestações no Painel Admin Braspag. Através do <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o">Post de Notificação</a>, sua loja poderá ser informada da transação que sofreu o chargeback.
 As operações contidas no Painel Admin Braspag também estão disponíveis na <a href="https://braspag.github.io//manual/risknotification">API Risk Notification</a>.</p>
 
-<p>Para que o nó <code class="language-plaintext highlighter-rouge">FraudAlert</code> esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no Painel Admin Braspag. Através do Post de Notificação, a sua loja irá ser informada da transação que sofreu o alerta de fraude.</p>
+<p>Para que o nó <code class="language-plaintext highlighter-rouge">FraudAlert</code> esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no Painel Admin Braspag. Através do Post de Notificação, a sua loja será informada da transação que sofreu o alerta de fraude.</p>
 
 <h3 id="transações-de-crédito-débito-ou-pix">Transações de Crédito, Débito ou Pix</h3>
 
-<p>Para consultar uma transação de cartão de crédito, cartão de débito ou Pix via PaymentID, é necessário o envio de mensagem HTTP através do método GET para o recurso <em>Payment</em>, conforme o exemplo:</p>
+<p>Para consultar uma transação de cartão de crédito, cartão de débito ou Pix via <code class="language-plaintext highlighter-rouge">PaymentID</code>, é necessário o envio de mensagem HTTP através do método GET para o recurso <em>Payment</em>, conforme o exemplo:</p>
 
 <h4 id="requisição-31">Requisição</h4>
 
@@ -13079,7 +13079,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
     </tr>
     <tr>
       <td>“7”</td>
-      <td>Notificação de chargeback. <br /> Para mais detalhes, consulte o manual de <a href="https://braspag.github.io//manual/risknotification">Risk Notification</a>.</td>
+      <td>Notificação de chargeback. Para mais detalhes, consulte o manual de <a href="https://braspag.github.io//manual/risknotification">Risk Notification</a>.</td>
     </tr>
     <tr>
       <td>“8”</td>
