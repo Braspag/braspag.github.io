@@ -64,7 +64,7 @@ Experimente as APIs diretamente via Postman. [Clique aqui](https://www.postman.c
 
 ## Etapa de Autenticação
 
-Para consumir os métodos da API, é necessário obter o `AccessToken` no padrão OAuth 2.0:
+O `AccessToken` é um recurso que autoriza o acesso de uma aplicação a dados específicos de um cliente, como os dados de seu cartão de crédito. Para consumir os métodos da API Cartão Protegido, é necessário obter o `AccessToken` no padrão OAuth 2.0:
 
 |Ambiente | URL | Authorization |
 |---|---|---|
