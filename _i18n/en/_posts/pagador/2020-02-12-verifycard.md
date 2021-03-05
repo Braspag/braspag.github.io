@@ -30,15 +30,15 @@ To query data from a card, send a request through the POST HTTP verb to the Veri
 
 ```json
 {
-   "Provider":"Cielo30",
+   "Provider": "Cielo30",
    "Card" :
    {
        "CardNumber": "999999 ****** 9999",
-       "Holder":"Joao da Silva",
-       "ExpirationDate":"03/2026",
+       "Holder": "Joao da Silva",
+       "ExpirationDate": "03/2026",
        "SecurityCode": "***"
-       "Brand":"Visa",
-       "Type":"CreditCard"
+       "Brand": "Visa",
+       "Type": "CreditCard"
    }
 }
 ```
@@ -52,15 +52,15 @@ To query data from a card, send a request through the POST HTTP verb to the Veri
 --data-binary
 --verbose
 {
-   "Provider":"Cielo30",
-   "Card" :
+   "Provider": "Cielo30",
+   "Card":
    {
        "CardNumber": "999999 ****** 9999",
-       "Holder":"Joao da Silva",
-       "ExpirationDate":"03/2026",
-       "SecurityCode":"***",
-       "Brand":"Visa",
-       "Type":"CreditCard"
+       "Holder": "Joao da Silva",
+       "ExpirationDate": "03/2026",
+       "SecurityCode": "***",
+       "Brand": "Visa",
+       "Type": "CreditCard"
    }
 }
 ```
