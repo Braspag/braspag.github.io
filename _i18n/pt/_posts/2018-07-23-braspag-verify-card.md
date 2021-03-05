@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de Integração - Verify Card
+title: Manual de Integração - VerifyCard
 description: Integração Técnica Gateway Braspag
 search: true
 translated: true
@@ -16,17 +16,17 @@ language_tabs:
 
 # VerifyCard
 
-O **VerifyCard** é composto por dois serviços: Zero Auth e Consulta BIN.
+O **VerifyCard** é composto por dois serviços: *Zero Auth* e *Consulta BIN*.
  
 O **Zero Auth** é um serviço que identifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor de R$ 0,00.<br/>A **Consulta BIN** é um serviço disponível para clientes Cielo 3.0 que retorna, a partir do BIN (6 primeiros dígitos do cartão), características tais como bandeira e tipo do cartão. 
  
 Os dois serviços podem ser consumidos simultaneamente através do VerifyCard. Também é possível que o processo de autorização seja condicionado automaticamente a um retorno de sucesso do ZeroAuth. Para habilitar este último fluxo, deve-se entrar em contato com nosso time de suporte.
  
-Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST no serviço VerifyCard, de acordo com o modelo a seguir:
+Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST para o serviço VerifyCard, de acordo com o modelo a seguir:
 
 ## Requisição
 
-<aside class="request"><span class="method get">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
 ```json
 {
@@ -128,6 +128,6 @@ Para consultar dados de um cartão, é necessário enviar requisição utilizand
 |`BinData.ForeignCard`|Indica se é um cartão emitido fora do Brasil.|booleano|- |Ex.: "true" / "false" |
 |`BinData.Code`|Código de retorno da Consulta BIN.|Número|2 |Ex.: "00" - consulta realizada com sucesso (para provedor Cielo30)|
 |`BinData.Message`|Mensagem de retorno da Consulta BIN.|Texto|512 |Ex.: "Analise autorizada" - consulta realizada com sucesso (para provedor Cielo30)  |
-|`BinData.CorporateCard`|Indica se o cartão é corporativo.|booleano|--- |Ex.: "true" ou "false"|
+|`BinData.CorporateCard`|Indica se o cartão é corporativo.|booleano|--- |Ex.: "true" / "false"|
 |`BinData.Issuer`|Nome do emissor do cartão.|Texto|512 |Ex.: "Banco da Praça" (sujeito a mapeamento do adquirente)|
 |`BinData.IssuerCode`|Código do emissor do cartão.|Número|3 |Ex.: "000" (sujeito a mapeamento do adquirente)|
