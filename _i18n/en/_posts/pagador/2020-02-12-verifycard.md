@@ -44,7 +44,7 @@ To query data from a card, send a request through the POST HTTP verb to the Veri
 ```
 
 ```shell
---request GET "https://apisandbox.braspag.com.br/v2/verifycard"
+--request POST "https://apisandbox.braspag.com.br/v2/verifycard"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
