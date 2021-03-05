@@ -11,16 +11,22 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
-  html: HTML
+  
 ---
 
-# Querying Card Data via Zero Auth and BIN Query
+# VerifyCard
 
-To query data from a card, you need to make a POST on the VerifyCard service. VerifyCard consists of two services: Zero Auth and Consulta BIN . Zero Auth is a service that identifies whether a card is valid or not, through an operation similar to an authorization, but with a value of $ 0.00. Consulta BIN is a service available to Cielo 3.0 customers that returns BIN features such as brand and card type from BIN (first 6 digits of card). Both services can be consumed simultaneously through VerifyCard, as shown below. It is also possible that the authorization process will be automatically conditioned to a successful return of ZeroAuth. To enable this flow, please contact our support team.
+**VerifyCard** is composed of two services: *Zero Auth* and *Consulta BIN*.
+
+**Zero Auth** is a service that identifies whether a card is valid or not, through an operation similar to an authorization, but with a value of $ 0.00.<br/>**Consulta BIN** is a service that uses a card's BIN (first 6 digits of a card) to return features such as brand and card type. It is available to Cielo 3.0 customers.
+
+Both services can be consumed simultaneously through VerifyCard. It is also possible to condition the authorization process to automatically follow a successful return of ZeroAuth. To enable this flow, please contact our support team.
+
+To query data from a card, send a request through the POST HTTP verb to the VerifyCard service, as in the example:
 
 ## Request
 
-<aside class="request"><span class="method get">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
 ```json
 {
@@ -38,7 +44,6 @@ To query data from a card, you need to make a POST on the VerifyCard service. Ve
 ```
 
 ```shell
-curl
 --request GET "https://apisandbox.braspag.com.br/v2/verifycard"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -60,17 +65,17 @@ curl
 }
 ```
 
-|Property|Type|Size|Mandatory|Description|
+|Property|Description|Type|Size|Mandatory|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Guid|36|Yes|Store identifier at Braspag|
-|`MerchantKey`|Text|40|Yes|Public Key for Dual Authentication at Braspag|
-|`Payment.Provider`|Text|15|Yes|Name of Payment Method's Provider|
-|`Card.CardNumber`|Text|16|Yes|Shopper's Card Number for Zero Auth and Consulta BIN. If it is a Consulta BIN request only, send only the BIN (6 or 9 digits)|
-|`Card.Holder`|Text|25|Yes|Shopper's Name Printed on Card|
-|`Card.ExpirationDate`|Text|7|Yes|Expiration date printed on card in MM/YYYY format|
-|`Card.SecurityCode`|Number|4|Yes|Security code printed on back of card|
-|`Card.Brand`|Text|10|Yes|Card Brand|
-|`Card.Type`|Text|CreditCard or DebitCard|Yes|Type of card to be consulted. This field is particularly important due to multi-function cards.|
+|`MerchantId`|Store identifier at Braspag.|Guid|36|Yes|
+|`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes|
+|`Payment.Provider`|Name of payment method's provider.|Text|15|Yes|
+|`Card.CardNumber`|Buyer's card number for Zero Auth and Consulta BIN. If it is a Consulta BIN request only, send only BIN (6 or 9 digits).|Text|16|Yes|
+|`Card.Holder`|Buyer's name printed on the card.|Text|25|Yes|
+|`Card.ExpirationDate`|Expiration date printed on the card in the MM/YYYY format.|Text|7|Yes|
+|`Card.SecurityCode`|Security code printed on the back of the card.|Number|4|Yes|
+|`Card.Brand`|Card brand.|Text|10|Yes|
+|`Card.Type`|Type of card to be consulted ("CreditCard" / "DebitCard"). This field is particularly important due to multi-function cards.|Text|10|Yes|
 
 ## Response
 
@@ -115,14 +120,14 @@ curl
 
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`Status`|Zero Auth Status|Number|1|<ul><li>0-Zero Auth query failed</li><li>1-Query Zero Auth successfully;</li><li>99-Successful consultation, but card status is inconclusive</li></ul>|
-|`ProviderReturnCode`|Zero Auth query code returned by the provider. This is the same code returned by the provider during a standard authorization. E.g.: Cielo30 Provider Code 82-Invalid Card|
-|`ProviderReturnMessage`|Query message Zero Auth returned by the provider.|Text|512|E.g.: “Authorized Transaction”|
-|`BinData.Provider`|Service Provider|Text|15|Ex. Cielo30|
-|`BinData.CardType`|Card Type returned from Consulta BIN|Text|15|E.g.: Credit, Debit or Multiple|
-|`BinData.ForeignCard`|Indicates if it is a card issued outside Brazil|boolean|-|Ex. true or false|
-|`BinData.Code`|BIN Query Return Code|Number|2|Ex. For provider Cielo30, 00 means successful consultation|
-|`BinData.Message`|BIN Query Return Message|Text|512|E.g.: For Cielo30 provider, "Analise autorizada" means successful consultation.|
-|`BinData.CorporateCard`|Indicates whether the card is corporate|boolean|-|Ex. true or false|
-|`BinData.Issuer`|Name of card issuer|Text|512|Ex. "Bank Name" (Subject to acquirer's mapping)|
-|`BinData.IssuerCode`|Card issuer code|Number|3|Ex. 000 (Subject to acquirer mapping)|
+|`Status`|Zero Auth status.|Number|1|"0" - Failed Zero Auth query<br/>"1" - Successful Zero Auth query<br/>"99" - Successful consultation, but card status is inconclusive|
+|`ProviderReturnCode`|Zero Auth query code returned by the provider. This is the same code returned by the provider during a standard authorization. E.g.: "82" - invalid card (for the Cielo30 provider)|
+|`ProviderReturnMessage`|Zero Auth query message returned by the provider.|Text|512|E.g.: “Authorized Transaction”|
+|`BinData.Provider`|Service provider.|Text|15|E.g.: "Cielo30"|
+|`BinData.CardType`|Card type returned from Consulta BIN.|Text|15|E.g.: "Credit" / "Debit" / "Multiple"|
+|`BinData.ForeignCard`|Indicates if it is a card issued outside Brazil.|boolean|-|E.g.: "true" / "false"|
+|`BinData.Code`|BIN query return code.|Number|2|E.g.: "00" - successful consultation (for the Cielo30 provider)|
+|`BinData.Message`|BIN Query Return Message|Text|512|E.g.: "Analise autorizada" means successful consultation (for the Cielo30 provider)|
+|`BinData.CorporateCard`|Indicates whether it is a corporate card.|boolean|-|E.g.: "true" / "false"|
+|`BinData.Issuer`|Name of the card issuer.|Text|512|E.g.: "Bank Name" (subject to mapping by the acquirer)|
+|`BinData.IssuerCode`|Card issuer code.|Number|3|E.g.: "000" (subject to mapping by the acquirer)|
