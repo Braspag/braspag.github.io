@@ -31,20 +31,20 @@ Para consultar dados de um cartão, é necessário enviar requisição utilizand
 ```json
 {
    "Provider":"Cielo30",
-   "Card" :
+   "Card":
    {
-       "CardNumber":"999999******9999",
-       "Holder":"Joao da Silva",
-       "ExpirationDate":"03/2026",
-       "SecurityCode":"***",
-       "Brand":"Visa",
-       "Type":"CreditCard"
+       "CardNumber": "999999******9999",
+       "Holder": "Joao da Silva",
+       "ExpirationDate": "03/2026",
+       "SecurityCode": "***",
+       "Brand": "Visa",
+       "Type": "CreditCard"
    }
 }
 ```
 
 ```shell
---request GET "https://apisandbox.braspag.com.br/v2/verifycard"
+--request POST "https://apisandbox.braspag.com.br/v2/verifycard"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
@@ -52,15 +52,15 @@ Para consultar dados de um cartão, é necessário enviar requisição utilizand
 --data-binary
 --verbose
 {
-   "Provider":"Cielo30",
+   "Provider": "Cielo30",
    "Card" :
    {
-       "CardNumber":"999999******9999",
-       "Holder":"Joao da Silva",
-       "ExpirationDate":"03/2026",
-       "SecurityCode":"***",
-       "Brand":"Visa",
-       "Type":"CreditCard"
+       "CardNumber": "999999******9999",
+       "Holder": "Joao da Silva",
+       "ExpirationDate": "03/2026",
+       "SecurityCode": "***",
+       "Brand": "Visa",
+       "Type": "CreditCard"
    }
 }
 ```
