@@ -57,8 +57,6 @@
                     
                     <li><a data-language-name='shell'>cURL</a></li>
                     
-                    <li><a data-language-name='html'>HTML</a></li>
-                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -140,13 +138,19 @@
             </div>
 
             <div class="post">
-  <h1 id="querying-card-data-via-zero-auth-and-bin-query">Querying Card Data via Zero Auth and BIN Query</h1>
+  <h1 id="verifycard">VerifyCard</h1>
 
-<p>To query data from a card, you need to make a POST on the VerifyCard service. VerifyCard consists of two services: Zero Auth and Consulta BIN . Zero Auth is a service that identifies whether a card is valid or not, through an operation similar to an authorization, but with a value of $ 0.00. Consulta BIN is a service available to Cielo 3.0 customers that returns BIN features such as brand and card type from BIN (first 6 digits of card). Both services can be consumed simultaneously through VerifyCard, as shown below. It is also possible that the authorization process will be automatically conditioned to a successful return of ZeroAuth. To enable this flow, please contact our support team.</p>
+<p><strong>VerifyCard</strong> is composed of two services: <em>Zero Auth</em> and <em>Consulta BIN</em>.</p>
+
+<p><strong>Zero Auth</strong> is a service that identifies whether a card is valid or not, through an operation similar to an authorization, but with a value of $ 0.00.<br /><strong>Consulta BIN</strong> is a service that uses a card’s BIN (first 6 digits of a card) to return features such as brand and card type. It is available to Cielo 3.0 customers.</p>
+
+<p>Both services can be consumed simultaneously through VerifyCard. It is also possible to condition the authorization process to automatically follow a successful return of ZeroAuth. To enable this flow, please contact our support team.</p>
+
+<p>To query data from a card, send a request through the POST HTTP verb to the VerifyCard service, as in the example:</p>
 
 <h2 id="request">Request</h2>
 
-<aside class="request"><span class="method get">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
@@ -162,8 +166,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> GET <span class="s2">"https://apisandbox.braspag.com.br/v2/verifycard"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> GET <span class="s2">"https://apisandbox.braspag.com.br/v2/verifycard"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -188,75 +191,75 @@
   <thead>
     <tr>
       <th>Property</th>
+      <th>Description</th>
       <th>Type</th>
       <th>Size</th>
       <th>Mandatory</th>
-      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier at Braspag.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
-      <td>Store identifier at Braspag</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public key for dual authentication at Braspag.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
-      <td>Public Key for Dual Authentication at Braspag</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Name of payment method’s provider.</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
-      <td>Name of Payment Method’s Provider</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.CardNumber</code></td>
+      <td>Buyer’s card number for Zero Auth and Consulta BIN. If it is a Consulta BIN request only, send only BIN (6 or 9 digits).</td>
       <td>Text</td>
       <td>16</td>
       <td>Yes</td>
-      <td>Shopper’s Card Number for Zero Auth and Consulta BIN. If it is a Consulta BIN request only, send only the BIN (6 or 9 digits)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
+      <td>Buyer’s name printed on the card.</td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
-      <td>Shopper’s Name Printed on Card</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
+      <td>Expiration date printed on the card in the MM/YYYY format.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
-      <td>Expiration date printed on card in MM/YYYY format</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
+      <td>Security code printed on the back of the card.</td>
       <td>Number</td>
       <td>4</td>
       <td>Yes</td>
-      <td>Security code printed on back of card</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Brand</code></td>
+      <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
-      <td>Card Brand</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Type</code></td>
+      <td>Type of card to be consulted (“CreditCard” / “DebitCard”). This field is particularly important due to multi-function cards.</td>
       <td>Text</td>
-      <td>CreditCard or DebitCard</td>
+      <td>10</td>
       <td>Yes</td>
-      <td>Type of card to be consulted. This field is particularly important due to multi-function cards.</td>
     </tr>
   </tbody>
 </table>
@@ -313,80 +316,80 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Zero Auth Status</td>
+      <td>Zero Auth status.</td>
       <td>Number</td>
       <td>1</td>
-      <td>0-Zero Auth query failed1-Query Zero Auth successfully;99-Successful consultation, but card status is inconclusive</td>
+      <td>“0” - Failed Zero Auth query<br />“1” - Successful Zero Auth query<br />“99” - Successful consultation, but card status is inconclusive</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Zero Auth query code returned by the provider. This is the same code returned by the provider during a standard authorization. E.g.: Cielo30 Provider Code 82-Invalid Card</td>
+      <td>Zero Auth query code returned by the provider. This is the same code returned by the provider during a standard authorization. E.g.: “82” - invalid card (for the Cielo30 provider)</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Query message Zero Auth returned by the provider.</td>
+      <td>Zero Auth query message returned by the provider.</td>
       <td>Text</td>
       <td>512</td>
       <td>E.g.: “Authorized Transaction”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.Provider</code></td>
-      <td>Service Provider</td>
+      <td>Service provider.</td>
       <td>Text</td>
       <td>15</td>
-      <td>Ex. Cielo30</td>
+      <td>E.g.: “Cielo30”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.CardType</code></td>
-      <td>Card Type returned from Consulta BIN</td>
+      <td>Card type returned from Consulta BIN.</td>
       <td>Text</td>
       <td>15</td>
-      <td>E.g.: Credit, Debit or Multiple</td>
+      <td>E.g.: “Credit” / “Debit” / “Multiple”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.ForeignCard</code></td>
-      <td>Indicates if it is a card issued outside Brazil</td>
+      <td>Indicates if it is a card issued outside Brazil.</td>
       <td>boolean</td>
       <td>-</td>
-      <td>Ex. true or false</td>
+      <td>E.g.: “true” / “false”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.Code</code></td>
-      <td>BIN Query Return Code</td>
+      <td>BIN query return code.</td>
       <td>Number</td>
       <td>2</td>
-      <td>Ex. For provider Cielo30, 00 means successful consultation</td>
+      <td>E.g.: “00” - successful consultation (for the Cielo30 provider)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.Message</code></td>
       <td>BIN Query Return Message</td>
       <td>Text</td>
       <td>512</td>
-      <td>E.g.: For Cielo30 provider, “Analise autorizada” means successful consultation.</td>
+      <td>E.g.: “Analise autorizada” means successful consultation (for the Cielo30 provider)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.CorporateCard</code></td>
-      <td>Indicates whether the card is corporate</td>
+      <td>Indicates whether it is a corporate card.</td>
       <td>boolean</td>
       <td>-</td>
-      <td>Ex. true or false</td>
+      <td>E.g.: “true” / “false”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.Issuer</code></td>
-      <td>Name of card issuer</td>
+      <td>Name of the card issuer.</td>
       <td>Text</td>
       <td>512</td>
-      <td>Ex. “Bank Name” (Subject to acquirer’s mapping)</td>
+      <td>E.g.: “Bank Name” (subject to mapping by the acquirer)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.IssuerCode</code></td>
-      <td>Card issuer code</td>
+      <td>Card issuer code.</td>
       <td>Number</td>
       <td>3</td>
-      <td>Ex. 000 (Subject to acquirer mapping)</td>
+      <td>E.g.: “000” (subject to mapping by the acquirer)</td>
     </tr>
   </tbody>
 </table>
@@ -528,8 +531,6 @@
         
         langs += "<a data-language-name='shell'>cURL</a>";
         
-        langs += "<a data-language-name='html'>HTML</a>";
-        
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
         </script>
@@ -537,7 +538,7 @@
         <script src="https://braspag.github.io//en/assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "json",  "shell",  "html", ]);
+                setupLanguages([  "json",  "shell", ]);
             });
         </script>
         

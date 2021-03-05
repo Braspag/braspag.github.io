@@ -12,7 +12,7 @@
 
     <title>
         
-        Manual de Integração - Verify Card &middot; Braspag Developers - Manuais
+        Manual de Integração - VerifyCard &middot; Braspag Developers - Manuais
         
     </title>
 
@@ -128,7 +128,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/braspag-verify-card">Manual de Integração - Verify Card</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/braspag-verify-card">Manual de Integração - VerifyCard</a></li>
                                     
                                 
                             
@@ -140,17 +140,17 @@
             <div class="post">
   <h1 id="verifycard">VerifyCard</h1>
 
-<p>O <strong>VerifyCard</strong> é composto por dois serviços: Zero Auth e Consulta BIN.</p>
+<p>O <strong>VerifyCard</strong> é composto por dois serviços: <em>Zero Auth</em> e <em>Consulta BIN</em>.</p>
 
 <p>O <strong>Zero Auth</strong> é um serviço que identifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor de R$ 0,00.<br />A <strong>Consulta BIN</strong> é um serviço disponível para clientes Cielo 3.0 que retorna, a partir do BIN (6 primeiros dígitos do cartão), características tais como bandeira e tipo do cartão.</p>
 
 <p>Os dois serviços podem ser consumidos simultaneamente através do VerifyCard. Também é possível que o processo de autorização seja condicionado automaticamente a um retorno de sucesso do ZeroAuth. Para habilitar este último fluxo, deve-se entrar em contato com nosso time de suporte.</p>
 
-<p>Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST no serviço VerifyCard, de acordo com o modelo a seguir:</p>
+<p>Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST para o serviço VerifyCard, de acordo com o modelo a seguir:</p>
 
 <h2 id="requisição">Requisição</h2>
 
-<aside class="request"><span class="method get">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
@@ -375,7 +375,7 @@
       <td>Indica se o cartão é corporativo.</td>
       <td>booleano</td>
       <td>—</td>
-      <td>Ex.: “true” ou “false”</td>
+      <td>Ex.: “true” / “false”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.Issuer</code></td>
