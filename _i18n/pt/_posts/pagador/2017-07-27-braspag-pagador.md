@@ -3209,7 +3209,7 @@ Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.D
       "Amount": 10000,
       "Installments": 1,
       "CreditCard": {
-         "CardNumber":"4551870000000181",
+         "CardNumber":"5412217070050381",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
@@ -3267,7 +3267,7 @@ Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.D
       "Amount": 10000,
       "Installments": 1,
       "CreditCard": {
-         "CardNumber":"4551870000000181",
+         "CardNumber":"5412217070050381",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
@@ -3679,7 +3679,7 @@ Para programar a primeira transação da série de recorrências, passe o parâm
       "Amount":10000,
       "Installments":1,
       "CreditCard":{
-         "CardNumber":"4551870000000181",
+         "CardNumber":"5412217070050381",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
@@ -3725,7 +3725,7 @@ Para programar a primeira transação da série de recorrências, passe o parâm
       "Amount":10000,
       "Installments":1,
       "CreditCard":{
-         "CardNumber":"4551870000000181",
+         "CardNumber":"5412217070050381",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
@@ -4229,7 +4229,7 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
    "CreditCard":{  
       "Brand":"Master",
       "Holder":"Nome do Portador",
-      "CardNumber":"4111111111111111",
+      "CardNumber":"5412217070050381",
       "ExpirationDate":"05/2019"
    },
    "Credentials": {
@@ -4260,7 +4260,7 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
    "CreditCard":{  
       "Brand":"Master",
       "Holder":"Nome do Portador",
-      "CardNumber":"4111111111111111",
+      "CardNumber":"5412217070050381",
       "ExpirationDate":"05/2019"
    },
    "Credentials": {
