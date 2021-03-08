@@ -4488,7 +4488,7 @@ Além da geração do card token, é possível associar um nome (um identificado
 
 ## Salvando um Cartão Durante uma Autorização
 
-Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. O número do cartão utilizado pode ser validado através da técnica explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
+Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. O numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
 
 ### Requisição
 
