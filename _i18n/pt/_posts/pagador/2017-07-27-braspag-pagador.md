@@ -103,13 +103,13 @@ Para que possa aproveitar melhor todos os recursos disponíveis em nossa API, é
 
 <aside class="warning">Lembre-se: Uma transação autorizada somente gera o crédito para o lojista depois de capturada.</aside>
 <br><br>
-Alguns recursos importantes que oferecemos para suas transações estão listados a seguir:
+Alguns recursos importantes que oferecemos podem ser aplicados em momentos diferentes no seu fluxo transacional. São estes, listados a seguir:
 
 |Termo|Descrição|
 |---|---|
-|**Antifraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual. Para mais informações, consulte o manual [Antifraude](https://braspag.github.io//manual/antifraude).|
-|**Autenticação**|Processo que possibilita realizar uma venda que passará por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude. Para mais informações, consulte o manual [Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).|
-|**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de *token*, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como "*Compra com 1 clique*" e "*Retentativa de envio de transação*", sempre preservando a integridade e a confidencialidade das informações. Para mais informações, consulte o manual [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest).|
+|**Antifraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual. Leia mais na seção [Pagamentos com Análise de Fraude](#pagamentos-com-análise-de-fraude) ou consulte o manual [Antifraude](https://braspag.github.io//manual/antifraude).|
+|**Autenticação**|Processo que possibilita passagem da venda por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude. Leia mais na seção [Autenticando uma Transação](#autenticando-uma-transação) ou consulte o manual [Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).|
+|**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito no formato de *token*. Com a plataforma, a loja poderá oferecer recursos como "*Compra com 1 clique*" e "*Retentativa de envio de transação*", sempre preservando a integridade e a confidencialidade das informações. Leia mais na seção [Salvando e Reutilizando Cartões](#salvando-e-reutilizando-cartões) ou consulte o manual [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest).|
 
 ## Suporte Braspag
 
