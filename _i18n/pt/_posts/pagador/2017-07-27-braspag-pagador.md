@@ -101,15 +101,15 @@ Para que possa aproveitar melhor todos os recursos disponíveis em nossa API, é
 |**Cancelamento**|Recurso de cancelamento de compra aplicável no dia em que a transação foi autorizada/capturada. No caso de uma transação apenas **autorizada**, o cancelamento irá liberar o limite do cartão que foi sensibilizado. Se a transação já tiver sido **capturada**, o cancelamento irá desfazer a venda, mas somente quando executado até às 23:59:59 da data da autorização/captura.|
 |**Estorno**|Recurso de cancelamento de compra aplicável no dia seguite ao da captura da transação. Neste caso, a transação será submetida ao processo de estorno pela adquirente.|
 
-<aside class="warning">Lembre-se: Uma transação autorizada somente gera o crédito para o lojista depois de capturada.</aside>
+<aside class="warning">Uma transação autorizada somente gera o crédito para o lojista depois de capturada.</aside>
 <br><br>
-Alguns recursos importantes que oferecemos podem ser aplicados em momentos diferentes no seu fluxo transacional. São estes, listados a seguir:
+Os seguintes recursos são oferecidos, podendo ser aplicados em diferentes momentos do seu fluxo transacional:
 
 |Termo|Descrição|
 |---|---|
 |**Antifraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual. Leia mais na seção [Pagamentos com Análise de Fraude](#pagamentos-com-análise-de-fraude) ou consulte o manual [Antifraude](https://braspag.github.io//manual/antifraude).|
 |**Autenticação**|Processo que possibilita passagem da venda por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude. Leia mais na seção [Autenticando uma Transação](#autenticando-uma-transação) ou consulte o manual [Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).|
-|**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito no formato de *token*. Com a plataforma, a loja poderá oferecer recursos como "*Compra com 1 clique*" e "*Retentativa de envio de transação*", sempre preservando a integridade e a confidencialidade das informações. Leia mais na seção [Salvando e Reutilizando Cartões](#salvando-e-reutilizando-cartões) ou consulte o manual [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest).|
+|**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito no formato de *token*. Com a plataforma, a loja poderá oferecer recursos como "*Compra com 1 clique*" e "*Retentativa*" de envio de transação, sempre preservando a integridade e a confidencialidade das informações. Leia mais na seção [Salvando e Reutilizando Cartões](#salvando-e-reutilizando-cartões) ou consulte o manual [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest).|
 
 ## Suporte Braspag
 
@@ -4482,9 +4482,9 @@ Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado n
 
 Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
 
-<aside class="warning">Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
-
 Além da geração do card token, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
+
+<aside class="warning">Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
 ## Salvando um Cartão Durante uma Autorização
 
