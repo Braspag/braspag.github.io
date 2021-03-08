@@ -37,7 +37,7 @@ A plataforma tem como propósito ajudar estabelecimentos em diferentes casos de 
 
 * **Cobrança Recorrente não Agendada (Unscheduled Recurring Payments)**: permite que estabelecimentos que cobram seus clientes já cadastrados, mas sem uma periodicidade definida, possam utilizar a plataforma. Exemplo: aplicativos de transporte. 
 
-* **Compra com um Clique (Just Click Payments)**: permite que um pagamento online, via cartão de crédito, seja feito pulando-se a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras. Os dados do cartão já foram previamente informados em compras anteriores e serão replicados em futuras compras mediante a autorização do comprador.
+* **Compra com 1 Clique (Just Click Payments)**: permite que um pagamento online, via cartão de crédito, seja feito pulando-se a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras. Os dados do cartão já foram previamente informados em compras anteriores e serão replicados em futuras compras mediante a autorização do comprador.
 
 * **Recuperação de Vendas**: permite que estabelecimentos possam entrar novamente em contato com clientes que eventualmente tenham tido problemas na compra, oferecendo uma nova tentativa de cobrança. 
 
@@ -638,7 +638,7 @@ Por esta razão, as regras do PCI permitem que se armazene o número do cartão 
 
 <aside class="warning">Estabelecimentos que possuam o modelo de negócio baseado em recorrência (ex.: assinaturas de serviços) devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
 
-## Compra com Um Clique
+## Compra com 1 Clique
 
 Algumas dicas para impulsionar sua conversão:
 
