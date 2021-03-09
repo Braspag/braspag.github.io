@@ -18,7 +18,7 @@ Caso seja aceita pelo antifraude, a transação é então capturada e a cobranç
 Este fluxo é similar ao primeiro, com a diferença da captura automática no lugar da pré-autorização. Neste caso, se o Antifraude rejeita o pedido que já foi autorizado pela Adquirente e cobrado no cartão do cliente, a transação terá que passar por uma requisição de cancelamento, para que o valor cobrado seja estornado ao cliente.
 
 2. Fluxo AnalyseFirst:
-![Antifraude 1]({{ site.baseurl_root }}/images/fluxo-trans2-pt.png)
+![Antifraude 2]({{ site.baseurl_root }}/images/fluxo-trans2-pt.png)
 
 **Loja** – **Antifraude** – **Loja**<br/>
 **Loja** – **Pagador** – **Adquirente** – **Pagador** - **Loja**
@@ -29,7 +29,7 @@ Caso o pedido seja aceito pelo antifraude, a loja envia uma requisição de auto
 ## Fluxos com Cartão Protegido
 
 1 - Fluxos 1:
-![Antifraude 1]({{ site.baseurl_root }}/images/fluxo-trans3-pt.png)
+![Cartão Protegido 1]({{ site.baseurl_root }}/images/fluxo-trans3-pt.png)
 **Loja** – **Cartão Protegido**<br/>
 **Loja** – **Pagador** - **Adquirente**
 
@@ -38,7 +38,7 @@ Neste fluxo, a loja (plataforma) solicita a tokenização do cartão antes mesmo
 PS: A loja pode optar pela utilização do serviço VerifyCard (Zero Auth) em conjunto com o serviço de tokenização do cartão. Com o VerifyCard, a API do Cartão Protegido primeiramente recebe a requisição do Zero Auth e faz a validação com a adquirente, que responde se o cartão é válido ou não. A API envia então este retorno à loja, que irá escolher fazer ou não a requisição de tokenização do cartão. 
 
 3.2 - Fluxo 2:
-![Antifraude 1]({{ site.baseurl_root }}/images/fluxo-trans4-pt.png)
+![Cartão Protegido 2]({{ site.baseurl_root }}/images/fluxo-trans4-pt.png)
 **Loja** – **Pagador** - **Loja**
 
 Neste fluxo, a loja (plataforma) utiliza o cartão protegido dentro da requisição de autorização de uma compra à própria API do Pagador. Ex.: quando o comprador autoriza, geralmente na primeira vez que utiliza um app ou site, que seu cartão seja salvo para futuras “compras com 1 clique”. 
