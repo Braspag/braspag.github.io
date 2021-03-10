@@ -37,7 +37,7 @@ Por permitir total personalização na página de checkout da loja, essa soluç�
 
 ## 1. Obtendo o AccessToken
 
-Quando o comprador acessa o checkout, o estabelecimento deve gerar o `AccessToken` a partir da API de autenticação da Braspag (**oAuth**). Em caso de sucesso, a API retornará um `AccessToken` que deverá ser preenchido no script a ser carregado na página. Para consultar sobre o processo de geração do `AccessToken` utilizando MerchantID e IP do comprador, [clique aqui](#anexo). 
+Quando o comprador acessa o checkout, o estabelecimento deve gerar o `AccessToken` a partir da API de autenticação da Braspag (**oAuth**). Em caso de sucesso, a API retornará um `AccessToken` que deverá ser preenchido no script a ser carregado na página.
 
 Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), realize um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL, formada pela "URL base do ambiente + endpoint", no modelo server-to-server:
 
@@ -52,7 +52,7 @@ O valor "_{base64}_" do **Basic Authorization** deve ser obtido da seguinte form
 2. Codifique o resultado da concatenação em base64.
 3. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
 
-Solicite os dados `ClientID` e `ClientSecret` à equipe de suporte para utilização nos ambientes SANDBOX e de PRODUÇÃO.
+Solicite à equipe de suporte os dados `ClientID` e `ClientSecret` para utilização nos ambientes SANDBOX e de PRODUÇÃO.
 
 ### Requisição
 
@@ -94,6 +94,8 @@ Solicite os dados `ClientID` e `ClientSecret` à equipe de suporte para utiliza�
 |`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido.|
 |`token_type`|Indica o valor do tipo de token.|
 |`expires_in`|Expiração do token de acesso, em segundos. Quando o token expira, é necessário obter um novo.|
+
+Para consultar sobre o processo de autenticação legado, com geração do `AccessToken` utilizando MerchantID e IP do comprador, [clique aqui](#anexo). 
 
 ## 2. Implementando o Script
 
@@ -220,18 +222,18 @@ Consulte o [Manual da API do Pagador](https://braspag.github.io//manual/braspag-
 
 # ANEXO
 
-## Alternativa para Autenticação
+## Autenticação Legado
 
-Veja abaixo um fluxo alternativo de obtenção do **_AccessToken_** para autenticação.
+Veja abaixo o fluxo legado de obtenção do **_AccessToken_** para autenticação.
 
-O estabelecimento deve realizar um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL, formada pela URL "base do ambiente + endpoint", no modelo server-to-server:
+O estabelecimento realiza um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL, formada pela URL "base do ambiente + endpoint", no modelo server-to-server:
 
 | Ambiente | URL base + endpoint|
 | --- | --- |
 | Sandbox | https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_{mid}_**|
 | Produção | https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_{mid}_**|
 
-No lugar de **_{mid}_** deve-se preencher o `MerchantID` de sua loja na plataforma Pagador da Braspag, no seguinte formato: 
+No lugar de **_{mid}_** preencha o `MerchantID` de sua loja na plataforma Pagador da Braspag, no seguinte formato: 
 
 "https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_00000000-0000-0000-0000-000000000000_**"
 
