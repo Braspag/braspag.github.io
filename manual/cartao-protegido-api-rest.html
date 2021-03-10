@@ -261,15 +261,10 @@
 <p>O valor “<em>{base64}</em>” do <strong>Basic Authorization</strong> deve ser obtido da seguinte forma:</p>
 
 <ol>
-  <li>Concatene o <code class="language-plaintext highlighter-rouge">ClientId</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code> (<strong>ClientId:ClientSecret</strong>).</li>
+  <li>Concatene o “ClientId” e o “ClientSecret” (<code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>).</li>
   <li>Codifique o resultado da concatenação em base64.</li>
   <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
 </ol>
-
-<p>Para fins de teste em ambiente SANDBOX, utilize os seguintes dados na concatenação:</p>
-
-<p><code class="language-plaintext highlighter-rouge">ClientID</code> - “b4c14ad4-5184-4ca0-8d1a-d3a7276cead9” <br />
-<code class="language-plaintext highlighter-rouge">ClientSecret</code> - “qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=”</p>
 
 <h3 id="requisição">Requisição</h3>
 
