@@ -29,7 +29,7 @@ Caso o pedido seja aceito pelo antifraude, a loja envia uma requisição de auto
 
 ## Fluxos com Cartão Protegido
 
-### 1. Com a API do Cartão Protegido:
+### 1. Pela API do Cartão Protegido:
 
 ![Cartão Protegido 1](https://braspag.github.io/images/fluxo-trans3-pt.png)
 
@@ -37,7 +37,7 @@ Neste fluxo, a loja (plataforma) solicita a tokenização do cartão antes mesmo
 
 Nota: A loja pode optar pela utilização da funcionalidade *VerifyCard* em conjunto com o serviço de tokenização do cartão. Neste caso, a API do VerifyCard primeiramente recebe a requisição do serviço Zero Auth e faz a validação com a adquirente, que responde se o cartão é válido ou não. A API do VerifyCard envia então este retorno à loja, que irá escolher fazer ou não a requisição de tokenização do cartão para a API do Cartão Protegido. 
 
-### 2. Sem a API do Cartão Protegido:
+### 2. Pela API do Pagador:
 
 ![Cartão Protegido 2](https://braspag.github.io/images/fluxo-trans4-pt.png)
 
