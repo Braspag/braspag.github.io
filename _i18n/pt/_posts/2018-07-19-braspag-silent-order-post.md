@@ -35,71 +35,65 @@ Por permitir total personalização na página de checkout da loja, essa soluç�
 
 # Integrando a Solução
 
-## 1. Obtendo AccessToken
+## 1. Obtendo o AccessToken
 
-Quando o comprador acessa o checkout, o estabelecimento deve gerar o `AccessToken` a partir da API de autenticação da Braspag (**oAuth**). Em caso de sucesso, a API retornará um `AccessToken` que deverá ser preenchido no script a ser carregado na página. 
+Quando o comprador acessa o checkout, o estabelecimento deve gerar o `AccessToken` a partir da API de autenticação da Braspag (**oAuth**). Em caso de sucesso, a API retornará um `AccessToken` que deverá ser preenchido no script a ser carregado na página. Para consultar sobre o processo de geração do `AccessToken` utilizando MerchantID e IP do comprador, [clique aqui](#anexo). 
 
-Para solicitar o `AccessToken`, o estabelecimento deve realizar um envio de requisição utilizando o VERBO HTTP **POST** para a URL com o seguinte endpoint, no modelo server-to-server:
+Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), realize um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL, formada pela "URL base do ambiente + endpoint", no modelo server-to-server:
 
-| Ambiente | URL |
-| --- | --- |
-| Sandbox | https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_{mid}_**|
-| Produção | https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_{mid}_**|
+|Ambiente | URL base + endpoint | Authorization |
+|---|---|---|
+| **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | "Basic *{base64}*"|
+| **PRODUÇÃO** | https://auth.braspag.com.br/oauth2/token |"Basic *{base64}*"|
 
-No lugar do **_{mid}_** deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag. 
+O valor "_{base64}_" do **Basic Authorization** deve ser obtido da seguinte forma:
 
-EXEMPLO - https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_00000000-0000-0000-0000-000000000000_**
+1. Concatene o `ClientId` e o `ClientSecret` ("**ClientId:ClientSecret**"). 
+2. Codifique o resultado da concatenação em base64.
+3. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
+
+Solicite os dados `ClientID` e `ClientSecret` à equipe de suporte para utilização nos ambientes SANDBOX e de PRODUÇÃO.
 
 ### Requisição
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/accesstoken?merchantid={mid}</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-```shell
---request POST "https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000"
---header "Content-Type: application/json"
---data-binary
---verbose
+``` shell
+--request POST "https://authsandbox.braspag.com.br/oauth2/token"
+--header "Authorization: Basic {base64}"
+--header "Content-Type: application/x-www-form-urlencoded" 
+--body "grant_type=client_credentials"
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
-|-----------|---------|----|-------|-----------|
-|`mid`|Identificador da loja no Pagador.|Guid |36 |Sim|
+|Parâmetros|Formato|Envio|
+|---|---|---|
+|`Authorization`|"Basic *{base64}*"|Envio no header.|
+|`Content-Type`|"application/x-www-form-urlencoded"|Envio no header.|
+|`grant_type`|"client_credentials"|Envio no body.|
 
 ### Resposta
 
-Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo, entre outras informações, o ticket (AccessToken).
-
-```json
+``` json
 {
-    "MerchantId": "B898E624-EF0F-455C-9509-3FAE12FB1F81",
-    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
-    "Issued": "2019-12-09T17:47:14",
-    "ExpiresIn": "2019-12-09T18:07:14"
+  "access_token": "faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw",
+  "token_type": "bearer",
+  "expires_in": 599
 }
 ```
 
 ```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
 {
-    "MerchantId": "B898E624-EF0F-455C-9509-3FAE12FB1F81",
-    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
-    "Issued": "2019-12-09T17:47:14",
-    "ExpiresIn": "2019-12-09T18:07:14"
+  "access_token": "faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw",
+  "token_type": "bearer",
+  "expires_in": 599
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
-|`MerchantId`|Identificador da loja no Pagador. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`AccessToken`|Token de acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para impedir um uso futuro.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
-|`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
-|`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
-
-<aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada ("HTTP 401 NotAuthorized").</aside>
-
-Identifique qual será o IP de saída que acessará a API e, na sequência, solicite o cadastro do mesmo através do [Canal de Atendimento](https://suporte.braspag.com.br/hc/pt-br) Braspag.
+|Propriedades da Resposta|Descrição|
+|---|---|
+|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido.|
+|`token_type`|Indica o valor do tipo de token.|
+|`expires_in`|Expiração do token de acesso, em segundos. Quando o token expira, é necessário obter um novo.|
 
 ## 2. Implementando o Script
 
@@ -222,4 +216,72 @@ Para maiores detalhes sobre a implementação, acesse o [Manual da API do Pagado
 
 ### Response
 
-Consulte o [Manual da API do Pagador](https://braspag.github.io//manual/braspag-pagador) para exemplos de resposta a requisições de autorização. 
+Consulte o [Manual da API do Pagador](https://braspag.github.io//manual/braspag-pagador) para exemplos de resposta a requisições de autorização.
+
+# ANEXO
+
+## Alternativa para Autenticação
+
+Veja abaixo um fluxo alternativo de obtenção do **_AccessToken_** para autenticação.
+
+O estabelecimento deve realizar um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL, formada pela URL "base do ambiente + endpoint", no modelo server-to-server:
+
+| Ambiente | URL base + endpoint|
+| --- | --- |
+| Sandbox | https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_{mid}_**|
+| Produção | https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_{mid}_**|
+
+No lugar de **_{mid}_** deve-se preencher o `MerchantID` de sua loja na plataforma Pagador da Braspag, no seguinte formato: 
+
+"https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_00000000-0000-0000-0000-000000000000_**"
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/accesstoken?merchantid={mid}</span></aside>
+
+```shell
+--request POST "https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000"
+--header "Content-Type: application/json"
+--data-binary
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|---------|----|-------|-----------|
+|`mid`|Identificador da loja no Pagador.|Guid |36 |Sim|
+
+### Resposta
+
+Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo, entre outras informações, o ticket (AccessToken).
+
+```json
+{
+    "MerchantId": "B898E624-EF0F-455C-9509-3FAE12FB1F81",
+    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
+    "Issued": "2019-12-09T17:47:14",
+    "ExpiresIn": "2019-12-09T18:07:14"
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantId": "B898E624-EF0F-455C-9509-3FAE12FB1F81",
+    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
+    "Issued": "2019-12-09T17:47:14",
+    "ExpiresIn": "2019-12-09T18:07:14"
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`MerchantId`|Identificador da loja no Pagador. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AccessToken`|Token de acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para impedir um uso futuro.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
+|`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
+
+<aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada ("HTTP 401 NotAuthorized").</aside>
+
+Identifique qual será o IP de saída que acessará a API e, na sequência, solicite o cadastro do mesmo através do [Canal de Atendimento](https://suporte.braspag.com.br/hc/pt-br) Braspag.
