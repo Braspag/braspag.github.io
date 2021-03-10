@@ -4482,7 +4482,7 @@ Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado n
 
 Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
 
-Além da geração do card token, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
+Além da geração do `CardToken`, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
 
 <aside class="warning">Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
@@ -4760,7 +4760,7 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
 
 ## Criando uma Transação com CardToken
 
-Este é um exemplo de como utilizar o *CardToken*, previamente salvo, para criar uma transação. Por questões de segurança, um card token não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como *recorrente*, você poderá submeter transações sem o CVV.
+Este é um exemplo de como utilizar o `CardToken`, previamente salvo, para criar uma transação. Por questões de segurança, um `CardToken` não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como *recorrente*, você poderá submeter transações sem o CVV.
 
 O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir:
 
