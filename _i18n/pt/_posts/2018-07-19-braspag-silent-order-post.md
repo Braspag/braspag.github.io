@@ -46,7 +46,7 @@ Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), realize
 | **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | "Basic *{base64}*"|
 | **PRODUÇÃO** | https://auth.braspag.com.br/oauth2/token |"Basic *{base64}*"|
 
-O valor "_{base64}_" do **Basic Authorization** deve ser obtido da seguinte forma:
+O valor "_{base64}_" deve ser obtido da seguinte forma:
 
 1. Concatene o `ClientId` e o `ClientSecret` ("**ClientId:ClientSecret**"). 
 2. Codifique o resultado da concatenação em base64.
