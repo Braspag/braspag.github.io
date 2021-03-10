@@ -161,134 +161,119 @@
 
 <h1 id="integrando-a-solução">Integrando a Solução</h1>
 
-<h2 id="1-obtendo-accesstoken">1. Obtendo AccessToken</h2>
+<h2 id="1-obtendo-o-accesstoken">1. Obtendo o AccessToken</h2>
 
-<p>Quando o comprador acessa o checkout, o estabelecimento deve gerar o <code class="language-plaintext highlighter-rouge">AccessToken</code> a partir da API de autenticação da Braspag (<strong>oAuth</strong>). Em caso de sucesso, a API retornará um <code class="language-plaintext highlighter-rouge">AccessToken</code> que deverá ser preenchido no script a ser carregado na página.</p>
+<p>Quando o comprador acessa o checkout, o estabelecimento deve gerar o <code class="language-plaintext highlighter-rouge">AccessToken</code> a partir da API de autenticação da Braspag (<strong>oAuth</strong>). Em caso de sucesso, a API retornará um <code class="language-plaintext highlighter-rouge">AccessToken</code> que deverá ser preenchido no script a ser carregado na página. Para consultar sobre o processo de geração do <code class="language-plaintext highlighter-rouge">AccessToken</code> utilizando MerchantID e IP do comprador, <a href="#anexo">clique aqui</a>.</p>
 
-<p>Para solicitar o <code class="language-plaintext highlighter-rouge">AccessToken</code>, o estabelecimento deve realizar um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a URL com o seguinte endpoint, no modelo server-to-server:</p>
+<p>Para obter o <code class="language-plaintext highlighter-rouge">AccessToken</code> no padrão <a href="https://oauth.net/2/">OAuth 2.0</a>, realize um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL, formada pela “URL base do ambiente + endpoint”, no modelo server-to-server:</p>
 
 <table>
   <thead>
     <tr>
       <th>Ambiente</th>
-      <th>URL</th>
+      <th>URL base + endpoint</th>
+      <th>Authorization</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Sandbox</td>
-      <td>https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=<strong><em>{mid}</em></strong></td>
+      <td><strong>SANDBOX</strong></td>
+      <td>https://authsandbox.braspag.com.br/oauth2/token</td>
+      <td>“Basic <em>{base64}</em>”</td>
     </tr>
     <tr>
-      <td>Produção</td>
-      <td>https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid=<strong><em>{mid}</em></strong></td>
+      <td><strong>PRODUÇÃO</strong></td>
+      <td>https://auth.braspag.com.br/oauth2/token</td>
+      <td>“Basic <em>{base64}</em>”</td>
     </tr>
   </tbody>
 </table>
 
-<p>No lugar do <strong><em>{mid}</em></strong> deve-se preencher o MerchantID de sua loja na plataforma Pagador da Braspag.</p>
+<p>O valor “<em>{base64}</em>” do <strong>Basic Authorization</strong> deve ser obtido da seguinte forma:</p>
 
-<p>EXEMPLO - https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=<strong><em>00000000-0000-0000-0000-000000000000</em></strong></p>
+<ol>
+  <li>Concatene o <code class="language-plaintext highlighter-rouge">ClientId</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code> (“<strong>ClientId:ClientSecret</strong>”).</li>
+  <li>Codifique o resultado da concatenação em base64.</li>
+  <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
+</ol>
+
+<p>Solicite os dados <code class="language-plaintext highlighter-rouge">ClientID</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code> à equipe de suporte para utilização nos ambientes SANDBOX e de PRODUÇÃO.</p>
 
 <h3 id="requisição">Requisição</h3>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/accesstoken?merchantid={mid}</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--data-binary</span>
-<span class="nt">--verbose</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://authsandbox.braspag.com.br/oauth2/token"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Basic {base64}"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> 
+<span class="nt">--body</span> <span class="s2">"grant_type=client_credentials"</span>
 </code></pre></div></div>
 
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório?</th>
+      <th>Parâmetros</th>
+      <th>Formato</th>
+      <th>Envio</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">mid</code></td>
-      <td>Identificador da loja no Pagador.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>“Basic <em>{base64}</em>”</td>
+      <td>Envio no header.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>“application/x-www-form-urlencoded”</td>
+      <td>Envio no header.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">grant_type</code></td>
+      <td>“client_credentials”</td>
+      <td>Envio no body.</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="resposta">Resposta</h3>
 
-<p>Como resposta, o estabelecimento receberá um json (“HTTP 201 Created”) contendo, entre outras informações, o ticket (AccessToken).</p>
-
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B898E624-EF0F-455C-9509-3FAE12FB1F81"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"AccessToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg=="</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Issued"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-09T17:47:14"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ExpiresIn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-09T18:07:14"</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-    <span class="s2">"MerchantId"</span>: <span class="s2">"B898E624-EF0F-455C-9509-3FAE12FB1F81"</span>,
-    <span class="s2">"AccessToken"</span>: <span class="s2">"MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg=="</span>,
-    <span class="s2">"Issued"</span>: <span class="s2">"2019-12-09T17:47:14"</span>,
-    <span class="s2">"ExpiresIn"</span>: <span class="s2">"2019-12-09T18:07:14"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+  <span class="s2">"access_token"</span>: <span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span>,
+  <span class="s2">"token_type"</span>: <span class="s2">"bearer"</span>,
+  <span class="s2">"expires_in"</span>: 599
 <span class="o">}</span>
 </code></pre></div></div>
 
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
+      <th>Propriedades da Resposta</th>
       <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Formato</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja no Pagador.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+      <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
+      <td>O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">AccessToken</code></td>
-      <td>Token de acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo <em>ExpiresIn</em> (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para impedir um uso futuro.</td>
-      <td>Texto</td>
-      <td>–</td>
-      <td>NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==</td>
+      <td><code class="language-plaintext highlighter-rouge">token_type</code></td>
+      <td>Indica o valor do tipo de token.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Issued</code></td>
-      <td>Data e hora da geração.</td>
-      <td>Texto</td>
-      <td>–</td>
-      <td>AAAA-MM-DDTHH:MM:SS</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ExpiresIn</code></td>
-      <td>Data e hora da expiração.</td>
-      <td>Texto</td>
-      <td>–</td>
-      <td>AAAA-MM-DDTHH:MM:SS</td>
+      <td><code class="language-plaintext highlighter-rouge">expires_in</code></td>
+      <td>Expiração do token de acesso, em segundos. Quando o token expira, é necessário obter um novo.</td>
     </tr>
   </tbody>
 </table>
-
-<aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada ("HTTP 401 NotAuthorized").</aside>
-
-<p>Identifique qual será o IP de saída que acessará a API e, na sequência, solicite o cadastro do mesmo através do <a href="https://suporte.braspag.com.br/hc/pt-br">Canal de Atendimento</a> Braspag.</p>
 
 <h2 id="2-implementando-o-script">2. Implementando o Script</h2>
 
@@ -544,6 +529,137 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
 <h3 id="response">Response</h3>
 
 <p>Consulte o <a href="https://braspag.github.io//manual/braspag-pagador">Manual da API do Pagador</a> para exemplos de resposta a requisições de autorização.</p>
+
+<h1 id="anexo">ANEXO</h1>
+
+<h2 id="alternativa-para-autenticação">Alternativa para Autenticação</h2>
+
+<p>Veja abaixo um fluxo alternativo de obtenção do <strong><em>AccessToken</em></strong> para autenticação.</p>
+
+<p>O estabelecimento deve realizar um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL, formada pela URL “base do ambiente + endpoint”, no modelo server-to-server:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ambiente</th>
+      <th>URL base + endpoint</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sandbox</td>
+      <td>https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=<strong><em>{mid}</em></strong></td>
+    </tr>
+    <tr>
+      <td>Produção</td>
+      <td>https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid=<strong><em>{mid}</em></strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>No lugar de <strong><em>{mid}</em></strong> deve-se preencher o <code class="language-plaintext highlighter-rouge">MerchantID</code> de sua loja na plataforma Pagador da Braspag, no seguinte formato:</p>
+
+<p>“https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=<strong><em>00000000-0000-0000-0000-000000000000</em></strong>”</p>
+
+<h3 id="requisição-1">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/accesstoken?merchantid={mid}</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mid</code></td>
+      <td>Identificador da loja no Pagador.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-1">Resposta</h3>
+
+<p>Como resposta, o estabelecimento receberá um json (“HTTP 201 Created”) contendo, entre outras informações, o ticket (AccessToken).</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B898E624-EF0F-455C-9509-3FAE12FB1F81"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AccessToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg=="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Issued"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-09T17:47:14"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ExpiresIn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-09T18:07:14"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"MerchantId"</span>: <span class="s2">"B898E624-EF0F-455C-9509-3FAE12FB1F81"</span>,
+    <span class="s2">"AccessToken"</span>: <span class="s2">"MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg=="</span>,
+    <span class="s2">"Issued"</span>: <span class="s2">"2019-12-09T17:47:14"</span>,
+    <span class="s2">"ExpiresIn"</span>: <span class="s2">"2019-12-09T18:07:14"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja no Pagador.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AccessToken</code></td>
+      <td>Token de acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo <em>ExpiresIn</em> (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para impedir um uso futuro.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Issued</code></td>
+      <td>Data e hora da geração.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>AAAA-MM-DDTHH:MM:SS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ExpiresIn</code></td>
+      <td>Data e hora da expiração.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>AAAA-MM-DDTHH:MM:SS</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada ("HTTP 401 NotAuthorized").</aside>
+
+<p>Identifique qual será o IP de saída que acessará a API e, na sequência, solicite o cadastro do mesmo através do <a href="https://suporte.braspag.com.br/hc/pt-br">Canal de Atendimento</a> Braspag.</p>
 
 </div>
 
