@@ -95,7 +95,7 @@ Solicite à equipe de suporte os dados `ClientID` e `ClientSecret` para utiliza�
 |`token_type`|Indica o valor do tipo de token.|
 |`expires_in`|Expiração do token de acesso, em segundos. Quando o token expira, é necessário obter um novo.|
 
-Para consultar sobre o processo de autenticação legado, com geração do `AccessToken` utilizando MerchantID e IP do comprador, [clique aqui](#anexo). 
+Para consultar sobre o processo legado de autenticação, com geração do `AccessToken` utilizando MerchantID e IP do comprador, [clique aqui](#anexo). 
 
 ## 2. Implementando o Script
 
@@ -222,7 +222,7 @@ Consulte o [Manual da API do Pagador](https://braspag.github.io//manual/braspag-
 
 # ANEXO
 
-## Autenticação Legado
+## Autenticação Legada
 
 Veja abaixo o fluxo legado de obtenção do **_AccessToken_** para autenticação.
 
