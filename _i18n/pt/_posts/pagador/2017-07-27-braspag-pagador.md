@@ -4488,7 +4488,7 @@ Além da geração do card token, é possível associar um nome (um identificado
 
 ## Salvando um Cartão Durante uma Autorização
 
-Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. O numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
+Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
 
 ### Requisição
 
@@ -4758,9 +4758,9 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
 |`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-## Criando uma Transação com Card Token
+## Criando uma Transação com CardToken
 
-Este é um exemplo de como utilizar o *card token*, previamente salvo, para criar uma transação. Por questões de segurança, um card token não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como *recorrente*, você poderá submeter transações sem o CVV.
+Este é um exemplo de como utilizar o *CardToken*, previamente salvo, para criar uma transação. Por questões de segurança, um card token não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como *recorrente*, você poderá submeter transações sem o CVV.
 
 O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir:
 
