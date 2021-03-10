@@ -163,7 +163,7 @@
 
 <h2 id="1-obtendo-o-accesstoken">1. Obtendo o AccessToken</h2>
 
-<p>Quando o comprador acessa o checkout, o estabelecimento deve gerar o <code class="language-plaintext highlighter-rouge">AccessToken</code> a partir da API de autenticação da Braspag (<strong>oAuth</strong>). Em caso de sucesso, a API retornará um <code class="language-plaintext highlighter-rouge">AccessToken</code> que deverá ser preenchido no script a ser carregado na página. Para consultar sobre o processo de geração do <code class="language-plaintext highlighter-rouge">AccessToken</code> utilizando MerchantID e IP do comprador, <a href="#anexo">clique aqui</a>.</p>
+<p>Quando o comprador acessa o checkout, o estabelecimento deve gerar o <code class="language-plaintext highlighter-rouge">AccessToken</code> a partir da API de autenticação da Braspag (<strong>oAuth</strong>). Em caso de sucesso, a API retornará um <code class="language-plaintext highlighter-rouge">AccessToken</code> que deverá ser preenchido no script a ser carregado na página.</p>
 
 <p>Para obter o <code class="language-plaintext highlighter-rouge">AccessToken</code> no padrão <a href="https://oauth.net/2/">OAuth 2.0</a>, realize um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL, formada pela “URL base do ambiente + endpoint”, no modelo server-to-server:</p>
 
@@ -197,7 +197,7 @@
   <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
 </ol>
 
-<p>Solicite os dados <code class="language-plaintext highlighter-rouge">ClientID</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code> à equipe de suporte para utilização nos ambientes SANDBOX e de PRODUÇÃO.</p>
+<p>Solicite à equipe de suporte os dados <code class="language-plaintext highlighter-rouge">ClientID</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code> para utilização nos ambientes SANDBOX e de PRODUÇÃO.</p>
 
 <h3 id="requisição">Requisição</h3>
 
@@ -274,6 +274,8 @@
     </tr>
   </tbody>
 </table>
+
+<p>Para consultar sobre o processo de autenticação legado, com geração do <code class="language-plaintext highlighter-rouge">AccessToken</code> utilizando MerchantID e IP do comprador, <a href="#anexo">clique aqui</a>.</p>
 
 <h2 id="2-implementando-o-script">2. Implementando o Script</h2>
 
@@ -532,11 +534,11 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
 
 <h1 id="anexo">ANEXO</h1>
 
-<h2 id="alternativa-para-autenticação">Alternativa para Autenticação</h2>
+<h2 id="autenticação-legado">Autenticação Legado</h2>
 
-<p>Veja abaixo um fluxo alternativo de obtenção do <strong><em>AccessToken</em></strong> para autenticação.</p>
+<p>Veja abaixo o fluxo legado de obtenção do <strong><em>AccessToken</em></strong> para autenticação.</p>
 
-<p>O estabelecimento deve realizar um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL, formada pela URL “base do ambiente + endpoint”, no modelo server-to-server:</p>
+<p>O estabelecimento realiza um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL, formada pela URL “base do ambiente + endpoint”, no modelo server-to-server:</p>
 
 <table>
   <thead>
@@ -557,7 +559,7 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
   </tbody>
 </table>
 
-<p>No lugar de <strong><em>{mid}</em></strong> deve-se preencher o <code class="language-plaintext highlighter-rouge">MerchantID</code> de sua loja na plataforma Pagador da Braspag, no seguinte formato:</p>
+<p>No lugar de <strong><em>{mid}</em></strong> preencha o <code class="language-plaintext highlighter-rouge">MerchantID</code> de sua loja na plataforma Pagador da Braspag, no seguinte formato:</p>
 
 <p>“https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=<strong><em>00000000-0000-0000-0000-000000000000</em></strong>”</p>
 
