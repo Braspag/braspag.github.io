@@ -142,18 +142,6 @@
 
 <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a <strong>API do Pagador</strong>, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e resposta.</p>
 
-<p>Abaixo veja a representação de um <strong>fluxo transacional</strong> padrão seguida de uma pequena descrição das principais partes envolvidas:</p>
-
-<p><img src="https://braspag.github.io//images/fluxo-transacional-pt-menor.png" alt="Fluxo Transacional" /></p>
-
-<ul>
-  <li><strong>Plataforma de e-commerce:</strong> Provê solução técnica para lojistas construírem toda a infraestrutura e processos necessários para sua operação de e-commerce.</li>
-  <li><strong>Gateway:</strong> Conecta e-commerces com os serviços de pagamento (adquirente, boleto, emissor), facilitando a gestão dos fornecedores de pagamento pelos lojistas.</li>
-  <li><strong>Adquirente:</strong> Faz a conexão da transação com as bandeiras e liquida a transação para os lojistas.</li>
-  <li><strong>Bandeira:</strong> Faz a comunicação com o emissor do cartão da transação e liquida a transação para os adquirentes.</li>
-  <li><strong>Emissor:</strong> Dá crédito e armazena o dinheiro do comprador. Na transação, aprova ou nega por razões de saldo, validade do cartão ou fraude. Liquida a transação para a bandeira.</li>
-</ul>
-
 <h2 id="principais-benefícios">Principais Benefícios</h2>
 
 <p>A solução <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360013153791-O-que-%C3%A9-o-Pagador-">API Pagador</a> foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: <em>ASP, ASP.Net, Java, PHP, Ruby</em> e <em>Python</em>.</p>
@@ -339,9 +327,21 @@
 
 <h1 id="meios-de-pagamento">Meios de Pagamento</h1>
 
-<p>A API do Pagador trabalha com transações referentes às seguintes formas de pagamento: cartão de crédito, cartão de débito, boleto bancário, transferência eletrônica, e-wallet e voucher.</p>
+<p>A API do Pagador trabalha com transações referentes às seguintes formas de pagamento: cartão de crédito, cartão de débito, boleto bancário, transferência eletrônica, e-wallet e voucher. O fluxo da transação depende dos serviços utilizados e das configurações escolhidas pela loja.</p>
 
-<p>Para evitar que a duplicidade de pedidos ocorra durante uma transação, o Pagador possui a opção de bloqueio de pedidos duplicados que, quando habilitado, retorna o código de erro “302”, informando que o <code class="language-plaintext highlighter-rouge">MerchantOrderId</code> enviado está duplicado. Para saber mais detalhes sobre essa feature, consulte <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360030183991">este artigo</a>.</p>
+<p>Abaixo veja a representação de um <strong>fluxo transacional</strong> padrão seguida de uma pequena descrição das principais partes envolvidas:</p>
+
+<p><img src="https://braspag.github.io//images/fluxo-transacional-pt-menor.png" alt="Fluxo Transacional" /></p>
+
+<ul>
+  <li><strong>Plataforma de e-commerce:</strong> Provê solução técnica para lojistas construírem toda a infraestrutura e processos necessários para sua operação de e-commerce.</li>
+  <li><strong>Gateway:</strong> Conecta e-commerces com os serviços de pagamento (adquirente, boleto, emissor), facilitando a gestão dos fornecedores de pagamento pelos lojistas.</li>
+  <li><strong>Adquirente:</strong> Faz a conexão da transação com as bandeiras e liquida a transação para os lojistas.</li>
+  <li><strong>Bandeira:</strong> Faz a comunicação com o emissor do cartão da transação e liquida a transação para os adquirentes.</li>
+  <li><strong>Emissor:</strong> Dá crédito e armazena o dinheiro do comprador. Na transação, aprova ou nega por razões de saldo, validade do cartão ou fraude. Liquida a transação para a bandeira.</li>
+</ul>
+
+<p><br /><strong>Nota:</strong> Para evitar que a duplicidade de pedidos ocorra durante uma transação, o Pagador possui a opção de bloqueio de pedidos duplicados que, quando habilitado, retorna o código de erro “302”, informando que o <code class="language-plaintext highlighter-rouge">MerchantOrderId</code> enviado está duplicado. Para saber mais detalhes sobre essa feature, consulte <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360030183991">este artigo</a>.</p>
 
 <h2 id="cartões-de-crédito-e-débito">Cartões de Crédito e Débito</h2>
 
