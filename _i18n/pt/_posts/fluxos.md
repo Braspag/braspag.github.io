@@ -12,7 +12,7 @@ Neste fluxo, a loja (plataforma) envia a requisição para a API Pagador, que en
 Com a pré-autorização, o Pagador faz a chamada para o Antifraude, onde ocorre a análise de risco do pedido.<br/>
 Caso seja aceita pelo antifraude, a transação é então capturada e a cobrança é realizada no cartão. Caso seja rejeitada pelo antifraude, a loja é informada e fica responsável por desfazer a pré-autorização e cancelar o pedido, para que o valor bloqueado no cartão retorne 100% para o cliente final.
 
-![Antifraude 1a](https://braspag.github.io/images/fluxo-trans1a-mod-pt.png)
+![Antifraude 1a](https://braspag.github.io/images/fluxo-trans1a-pt-mod.png)
 
 <br/>**Com Captura Automática**
 
