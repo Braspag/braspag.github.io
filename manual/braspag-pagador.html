@@ -3806,6 +3806,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
       </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="s2">"86c200c7-7cdf-4375-92dd-1f62dfa846ad"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"QrcodeBase64Image"</span><span class="p">:</span><span class="s2">"rfhviy64ak+zse18cwcmtg=="</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"QrCodeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="s2">"2020-10-15 18:53:20"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Status"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -3832,6 +3833,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
       <span class="s2">"AcquirerTransactionId"</span>:<span class="s2">"86c200c7-7cdf-4375-92dd-1f62dfa846ad"</span>,
          <span class="s2">"ProofOfSale"</span>:<span class="s2">"123456"</span>,
       <span class="s2">"QrcodeBase64Image"</span>:<span class="s2">"rfhviy64ak+zse18cwcmtg=="</span>,
+      <span class="s2">"QrCodeString"</span>: <span class="s2">"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C"</span>,
       <span class="s2">"Amount"</span>:100,
       <span class="s2">"ReceivedDate"</span>:<span class="s2">"2020-10-15 18:53:20"</span>,
       <span class="s2">"Status"</span>:12,
@@ -3881,6 +3883,13 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
       <td>Texto</td>
       <td>-</td>
       <td>Texto</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment."QrCodeString</code></td>
+      <td>Texto codificado para o comprador “copiar” e “colar” no campo do Internet Banking em pagamento no ambiente mobile.</td>
+      <td>Texto</td>
+      <td>Variável</td>
+      <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
