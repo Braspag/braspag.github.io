@@ -8,15 +8,15 @@ Além do fluxo transacional **padrão**, existem também os que são modificados
 
 **Com Autorização**
 
-Neste fluxo, a loja (plataforma) envia a requisição para a API Pagador, que então envia a transação para autorização na adquirente cadastrada na loja. Se autorizada, ocorre a autorização da transação. O valor da venda ainda não terá sido cobrado no cartão.
-Com a autorização, o Pagador faz a chamada para o Antifraude, onde ocorre a análise de risco do pedido.<br/>
-Caso seja aceita pelo antifraude, a transação é então capturada e a cobrança é realizada no cartão. Caso seja rejeitada pelo antifraude, a API do Pagador solicita o cancelamento da transação à Adquirente e informa a loja. O valor bloqueado no cartão deverá retornar 100% para o cliente final.
+Neste fluxo, a loja (plataforma) envia a requisição para a API do Pagador, que então envia a transação para autorização na Adquirente cadastrada na loja. Uma vez autorizada, o valor da venda estará sensibilizado, mas ainda não terá sido cobrado no cartão.<br/>
+O Pagador faz a chamada para o Antifraude, onde ocorre a análise de risco do pedido.<br/>
+Caso seja aceita pelo Antifraude, a transação é então capturada e a cobrança é realizada no cartão. Caso seja rejeitada pelo Antifraude, a API do Pagador solicita o cancelamento da transação à Adquirente e informa a loja. O valor bloqueado no cartão deverá retornar 100% para o cliente final.
 
 ![Antifraude 1a](https://braspag.github.io/images/fluxo-trans1a-pt.png)
 
 <br/>**Com Captura Automática**
 
-Este fluxo é similar ao primeiro, com a diferença da captura automática no lugar da autorização. Neste caso, se o Antifraude rejeita um pedido que já foi autorizado pela Adquirente e cobrado no cartão do cliente, a transação terá que passar posteriormente por uma requisição de cancelamento, para que o valor cobrado seja estornado.
+Este fluxo é similar ao primeiro, com a diferença da captura automática no lugar da autorização. Se o Antifraude rejeita o pedido, que foi previamente autorizado pela Adquirente e já cobrado no cartão do cliente, a API do Pagador irá solicitar o cancelamento da transação à Adquirente e informar a loja. Neste caso, o valor já cobrado no cartão deverá igualmente ser estornado 100% para o cliente final.
 
 ![Antifraude 1b](https://braspag.github.io/images/fluxo-trans1b-pt.png)
 
