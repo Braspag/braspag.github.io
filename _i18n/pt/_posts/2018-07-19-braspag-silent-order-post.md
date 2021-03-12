@@ -46,13 +46,13 @@ Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), realize
 | **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | "Basic *{base64}*"|
 | **PRODUÇÃO** | https://auth.braspag.com.br/oauth2/token |"Basic *{base64}*"|
 
-O valor "_{base64}_" deve ser obtido da seguinte forma:
+**Nota:** O valor "_{base64}_" para a autorização do tipo "Basic" deve ser obtido da seguinte forma:
 
-1. Concatene o `ClientId` e o `ClientSecret` ("**ClientId:ClientSecret**"). 
+1. Concatene o "ClientId" e o "ClientSecret" (`ClientId:ClientSecret`). 
 2. Codifique o resultado da concatenação em base64.
 3. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
 
-Solicite à equipe de suporte os dados `ClientID` e `ClientSecret` para utilização nos ambientes SANDBOX e de PRODUÇÃO.
+Solicite à equipe de suporte a criação do "ClientID" e do "ClientSecret" de sua loja para utilização nos ambientes SANDBOX e de PRODUÇÃO.
 
 ### Requisição
 
