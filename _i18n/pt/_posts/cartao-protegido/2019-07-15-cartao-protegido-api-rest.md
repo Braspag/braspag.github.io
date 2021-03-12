@@ -64,14 +64,14 @@ Experimente as APIs diretamente via Postman. [Clique aqui](https://www.postman.c
 
 ## Etapa de Autenticação
 
-O `AccessToken` é um recurso que autoriza o acesso de uma aplicação a dados específicos de um cliente, como os dados de seu cartão de crédito. Para consumir os métodos da API Cartão Protegido, é necessário obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/):
+O `AccessToken` é um recurso que autoriza o acesso a dados específicos de um cliente, como os dados de seu cartão de crédito. Para consumir os métodos da API Cartão Protegido, é necessário obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/):
 
 |Ambiente | URL base + endpoint | Authorization |
 |---|---|---|
 | **SANDBOX** | https://authsandbox.braspag.com.br/_oauth2/token_ |"Basic *{base64}*"|
 | **PRODUÇÃO** | https://auth.braspag.com.br/_oauth2/token_ |"Basic *{base64}*"|
 
-O valor _"{base64}"_ deve ser obtido da seguinte forma:
+O valor _"{base64}"_ para a autorização do tipo "Basic" deve ser obtido da seguinte forma:
 
 1. Concatene o "ClientId" e o "ClientSecret" (`ClientId:ClientSecret`). 
 2. Codifique o resultado da concatenação em base64.
