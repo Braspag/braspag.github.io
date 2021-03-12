@@ -234,37 +234,39 @@
 
 <h2 id="etapa-de-autenticação">Etapa de Autenticação</h2>
 
-<p>O <code class="language-plaintext highlighter-rouge">AccessToken</code> é um recurso que autoriza o acesso de uma aplicação a dados específicos de um cliente, como os dados de seu cartão de crédito. Para consumir os métodos da API Cartão Protegido, é necessário obter o <code class="language-plaintext highlighter-rouge">AccessToken</code> no padrão OAuth 2.0:</p>
+<p>O <code class="language-plaintext highlighter-rouge">AccessToken</code> é um recurso que autoriza o acesso de uma aplicação a dados específicos de um cliente, como os dados de seu cartão de crédito. Para consumir os métodos da API Cartão Protegido, é necessário obter o <code class="language-plaintext highlighter-rouge">AccessToken</code> no padrão <a href="https://oauth.net/2/">OAuth 2.0</a>:</p>
 
 <table>
   <thead>
     <tr>
       <th>Ambiente</th>
-      <th>URL</th>
+      <th>URL base + endpoint</th>
       <th>Authorization</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>SANDBOX</strong></td>
-      <td>https://authsandbox.braspag.com.br/oauth2/token</td>
+      <td>https://authsandbox.braspag.com.br/<em>oauth2/token</em></td>
       <td>“Basic <em>{base64}</em>”</td>
     </tr>
     <tr>
       <td><strong>PRODUÇÃO</strong></td>
-      <td>https://auth.braspag.com.br/oauth2/token</td>
-      <td>Solicite os dados <code class="language-plaintext highlighter-rouge">ClientID</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code> à equipe de suporte após concluir o desenvolvimento em sandbox.</td>
+      <td>https://auth.braspag.com.br/<em>oauth2/token</em></td>
+      <td>“Basic <em>{base64}</em>”</td>
     </tr>
   </tbody>
 </table>
 
-<p>O valor “<em>{base64}</em>” do <strong>Basic Authorization</strong> deve ser obtido da seguinte forma:</p>
+<p>O valor <em>“{base64}”</em> deve ser obtido da seguinte forma:</p>
 
 <ol>
   <li>Concatene o “ClientId” e o “ClientSecret” (<code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>).</li>
   <li>Codifique o resultado da concatenação em base64.</li>
   <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
 </ol>
+
+<p>Solicite à equipe de suporte a criação do “ClientID” e do “ClientSecret” de sua loja para utilização nos ambientes SANDBOX e de PRODUÇÃO.</p>
 
 <h3 id="requisição">Requisição</h3>
 
