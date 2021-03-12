@@ -64,18 +64,20 @@ Experimente as APIs diretamente via Postman. [Clique aqui](https://www.postman.c
 
 ## Etapa de Autenticação
 
-O `AccessToken` é um recurso que autoriza o acesso de uma aplicação a dados específicos de um cliente, como os dados de seu cartão de crédito. Para consumir os métodos da API Cartão Protegido, é necessário obter o `AccessToken` no padrão OAuth 2.0:
+O `AccessToken` é um recurso que autoriza o acesso de uma aplicação a dados específicos de um cliente, como os dados de seu cartão de crédito. Para consumir os métodos da API Cartão Protegido, é necessário obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/):
 
-|Ambiente | URL | Authorization |
+|Ambiente | URL base + endpoint | Authorization |
 |---|---|---|
-| **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | "Basic *{base64}*"|
-| **PRODUÇÃO** | https://auth.braspag.com.br/oauth2/token | Solicite os dados `ClientID` e `ClientSecret` à equipe de suporte após concluir o desenvolvimento em sandbox. |
+| **SANDBOX** | https://authsandbox.braspag.com.br/_oauth2/token_ |"Basic *{base64}*"|
+| **PRODUÇÃO** | https://auth.braspag.com.br/_oauth2/token_ |"Basic *{base64}*"|
 
-O valor "_{base64}_" do **Basic Authorization** deve ser obtido da seguinte forma:
+O valor _"{base64}"_ deve ser obtido da seguinte forma:
 
 1. Concatene o "ClientId" e o "ClientSecret" (`ClientId:ClientSecret`). 
 2. Codifique o resultado da concatenação em base64.
 3. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
+
+Solicite à equipe de suporte a criação do "ClientID" e do "ClientSecret" de sua loja para utilização nos ambientes SANDBOX e de PRODUÇÃO.
 
 ### Requisição
 
