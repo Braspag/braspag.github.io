@@ -23,7 +23,7 @@ Este fluxo é similar ao primeiro, com a diferença da captura automática no lu
 ### 2. Fluxo AnalyseFirst:
 
 Neste fluxo, a loja (plataforma) envia a requisição para o Antifraude, que analisa o risco da transação, tendo a chance de rejeitá-la antes mesmo da tentativa de autorização do pagamento.
-Caso o pedido seja aceito pelo antifraude, a loja envia uma requisição de autorização da transação para o Pagador, que encaminha essa solicitação para a Adquirente. Sendo autorizada pela Adquirente, a transação é capturada automaticamente e o fluxo é finalizado.
+Caso o pedido seja aceito pelo Antifraude, a loja envia uma requisição de autorização da transação para o Pagador, que encaminha essa solicitação para a Adquirente. Sendo autorizada pela Adquirente, a transação é capturada automaticamente e o fluxo é finalizado.
 
 ![Antifraude 2](https://braspag.github.io/images/fluxo-trans2-pt.png)
 
@@ -43,6 +43,6 @@ Nota: A loja pode optar pela utilização da funcionalidade *VerifyCard* em conj
 
 ### 2. Pela API do Pagador:
 
-Neste fluxo, a loja (plataforma) utiliza o cartão protegido dentro da própria requisição de autorização de compra feita à API do Pagador. Ex.: quando o comprador autoriza, geralmente na primeira vez que utiliza um app ou site, que seu cartão seja salvo para futuras “compras com 1 clique”. 
+Neste fluxo, a loja (plataforma) utiliza o serviço do Cartão Protegido dentro da própria requisição de autorização de compra feita à API do Pagador. Ex.: quando o comprador permite, geralmente na primeira vez que utiliza um app ou site, que seu cartão seja salvo para futuras “compras com 1 clique”. 
 
 ![Cartão Protegido 2](https://braspag.github.io/images/fluxo-trans4-pt.png)
