@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-03-12T23:44:46+00:00</updated>
+    <updated>2021-03-13T22:34:01+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -21457,9 +21457,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
       &lt;th&gt;Mandatory?&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -21469,9 +21466,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;Yes (through header)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
@@ -21479,9 +21473,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;40&lt;/td&gt;
       &lt;td&gt;Yes (through header)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
@@ -21489,9 +21480,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;No (through header)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RecurrentPaymentId&lt;/code&gt;&lt;/td&gt;
@@ -21499,9 +21487,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;Yes (through endpoint)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt;&lt;/td&gt;
@@ -21509,9 +21494,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Type&lt;/code&gt;&lt;/td&gt;
@@ -21519,9 +21501,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Amount&lt;/code&gt;&lt;/td&gt;
@@ -21529,9 +21508,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Installments&lt;/code&gt;&lt;/td&gt;
@@ -21539,9 +21515,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SoftDescriptor&lt;/code&gt;&lt;/td&gt;
@@ -21549,9 +21522,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;13&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
@@ -21559,9 +21529,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;16&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.Holder&lt;/code&gt;&lt;/td&gt;
@@ -21569,9 +21536,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;25&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.ExpirationDate&lt;/code&gt;&lt;/td&gt;
@@ -21579,9 +21543,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;7&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.SecurityCode&lt;/code&gt;&lt;/td&gt;
@@ -21589,9 +21550,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
@@ -21599,9 +21557,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Credentials.Code&lt;/code&gt;&lt;/td&gt;
@@ -21609,9 +21564,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Credentials.Key&lt;/code&gt;&lt;/td&gt;
@@ -21619,9 +21571,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Credentials.Username&lt;/code&gt;&lt;/td&gt;
@@ -21629,9 +21578,6 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Credentials.Password&lt;/code&gt;&lt;/td&gt;
@@ -21639,15 +21585,9 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Credentials.Signature&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;3&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
       &lt;td&gt;Submit the &lt;em&gt;TerminalID&lt;/em&gt; from &lt;strong&gt;Global Payments&lt;/strong&gt;. E.g.: 001. For &lt;strong&gt;Safra&lt;/strong&gt;, include establishment name, city and state concatenated with a semicolon “;”. E.g.: StoreName;Sao Paulo;SP.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
