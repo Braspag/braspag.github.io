@@ -1141,14 +1141,14 @@ Com o processo de autenticação, é possível fazer uma análise de risco consi
 
 Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
-Indicamos a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) para autenticação, principalmente para o ambiente mobile.
+Indicamos a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) para autenticação, especialmente para o ambiente mobile que não suporta a versão 1.0.
 
-<aside class="warning">IMPORTANTE: O 3DS 1.0 deverá ser descontinuado a partir de Julho de 2021 e não recomendamos, portanto, sua integração.</aside>
+<aside class="warning">IMPORTANTE: O 3DS 1.0 deverá ser descontinuado a partir de Outubro de 2021 e não recomendamos, portanto, sua integração.</aside>
 
-Existem duas maneiras de autenticar transações na Braspag:
+Existem duas maneiras de autenticar transações na Braspag. Isso irá depender da loja utilizar nosso Merchant Plug-in (MPI) interno ou um externo, como explicado abaixo:
 
-* **Padrão** - quando o lojista não possui uma conexão direta com um autenticador (MPI)
-* **Externa** - quando o lojista possui um autenticador próprio (MPI)
+* **Autenticação Padrão** - se o lojista não possui uma conexão direta com um autenticador, ele utiliza a nossa solução integrada ao Pagador
+* **Autenticação Externa** - quando o lojista já possui um fornecedor de MPI externo
 
 #### Autenticação Padrão
 
@@ -1406,7 +1406,7 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
 
 #### Autenticação Externa
 
-Na autenticação externa, o lojista que possui um autenticador próprio (MPI) não precisa que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação. Adicione o nó `Payment.ExternalAuthentication` ao contrato padrão, conforme exemplo. Este fluxo é suportado pelas adquirentes **Cielo**, **Global Payments** e **Banorte**.
+Na autenticação externa, o lojista que possui um autenticador (MPI) próprio não precisa que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação. Adicione o nó `Payment.ExternalAuthentication` ao contrato padrão, conforme exemplo. Este fluxo é suportado pelas adquirentes **Cielo**, **Global Payments** e **Banorte**.
 
 ##### Requisição
 
