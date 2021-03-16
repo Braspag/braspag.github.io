@@ -1300,7 +1300,7 @@ Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada
 
 ![SplitSample003](https://developercielo.github.io/images/split/split003.png)
 
-#### Transação de Débito
+#### Transação de Débito  
 
 Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la a autenticação e o nó `Payment.FraudAnalysis` não deve ser informado pois a transação não necessita de análise de fraude.
 
