@@ -1487,9 +1487,6 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
     }
 }
 ```
-
-
-
 ### Modelos de Split
 
 O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
