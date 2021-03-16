@@ -1416,7 +1416,6 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
             "Brand": "Visa"
         },
         "Provider": "Simulado",
-        "AuthenticationUrl": "https://authenticationmocksandbox.cieloecommerce.cielo.com.br/CardAuthenticator/Receive/ae887a0c-5a6c-45ce-b196-029c419c9210",
         "SoftDescriptor": "teste",
         "Tid": "0823034725144",
         "ProofOfSale": "4725144",
