@@ -444,7 +444,7 @@ A autorização de uma transação no Split de Pagamentos deve ser realizada atr
 
 Exemplo:
 
-#### Request - Transação de Crédito
+#### Transação de Crédito
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1300,9 +1300,21 @@ Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada
 
 ![SplitSample003](https://developercielo.github.io/images/split/split003.png)
 
-#### Request - Transação de Débito
+#### Transação de Débito
 
-Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação do banco correspondente e o nó referente a análise de fraude não deve ser informado.
+Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la a autenticação e o nó `Payment.FraudAnalysis` não deve ser informado pois a transação não necessita de análise de fraude.
+
+>Para a autenticação será utilizada a [integração 3DS 2.0](https://braspag.github.io//manualp/emv3ds), onde obterá os dados necessários para utilizar no nó `Payment.ExternalAuthentication`.  
+
+| Propriedade | Descrição | Tipo/Tamanho | Obrigatório |
+| --- | --- | --- | --- |
+|`Payment.Authenticate`| Define se o comprador será direcionado ao emissor para autenticação do cartão. | Booleano ("true" / "false") | Sim, caso a autenticação seja validada.|
+|`Payment.ExternalAuthentication.ReturnUrl`| URL de retorno aplicável somente se a versão for "1". | Alfanumérico / 1024 posições | Sim. |
+|`Payment.ExternalAuthentication.Cavv`| Assinatura retornada nos cenários de sucesso na autenticação. | Texto | Sim, caso a autenticação seja validada. |
+|`Payment.ExternalAuthentication.Xid`| XID retornado no processo de autenticação. | Texto | Sim, quando a versão do 3DS for "1".|
+|`Payment.ExternalAuthentication.Eci`| *Electronic Commerce Indicator* retornado no processo de autenticação. | Numérico / 1 posição | Sim. |
+|`Payment.ExternalAuthentication.Version`| Versão do 3DS utilizado no processo de autenticação. | Alfanumérico / 1 posição | Sim, quando a versão do 3DS for "2".|
+|`Payment.ExternalAuthentication.ReferenceID`| RequestID retornado no processo de autenticação. | GUID / 36 posições | Sim, quando a versão do 3DS for "2". |
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1342,6 +1354,13 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
             "securitycode": "756",
             "brand": "Visa",
             "savecard": "false"
+        },
+        "ExternalAuthentication":{
+            "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+            "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+            "Eci":"5",
+            "Version":"2",
+            "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
         },
         "SplitPayments": [
             {
@@ -1402,6 +1421,13 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
         "Tid": "0823034725144",
         "ProofOfSale": "4725144",
         "Authenticate": true,
+        "ExternalAuthentication":{
+            "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+            "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+            "Eci":"5",
+            "Version":"2",
+            "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
+        },
         "Recurrent": false,
         "SplitPayments": [
             {
@@ -1462,10 +1488,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 }
 ```
 
-| Propriedade                             | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
-|-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
-| `AuthenticationUrl`   | URL para qual o Lojista deve redirecionar o Cliente para o fluxo de Débito.                                                      | Texto    | 56      | Sim         |
-| `ReturnUrl`                  | Url de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo.             | Texto | 1024       | Sim         |
+
 
 ### Modelos de Split
 
