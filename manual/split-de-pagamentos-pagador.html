@@ -756,7 +756,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <p>Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro Payment.DoSplit como true e adicionar o nó Payment.SplitPayments, conforme exemplo:</p>
 
-<h4 id="request---transação-de-crédito">Request - Transação de Crédito</h4>
+<h4 id="transação-de-crédito">Transação de Crédito</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1785,9 +1785,68 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <p><img src="https://developercielo.github.io/images/split/split003.png" alt="SplitSample003" /></p>
 
-<h4 id="request---transação-de-débito">Request - Transação de Débito</h4>
+<h4 id="transação-de-débito">Transação de Débito</h4>
 
-<p>Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la ao processo de autenticação do banco correspondente e o nó referente a análise de fraude não deve ser informado.</p>
+<p>Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la a autenticação e o nó <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code> não deve ser informado pois a transação não necessita de análise de fraude.</p>
+
+<blockquote>
+  <p>Para a autenticação será utilizada a <a href="https://braspag.github.io//manualp/emv3ds">integração 3DS 2.0</a>, onde obterá os dados necessários para utilizar no nó <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code>.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo/Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Define se o comprador será direcionado ao emissor para autenticação do cartão.</td>
+      <td>Booleano (“true” / “false”)</td>
+      <td>Sim, caso a autenticação seja validada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.ReturnUrl</code></td>
+      <td>URL de retorno aplicável somente se a versão for “1”.</td>
+      <td>Alfanumérico / 1024 posições</td>
+      <td>Sim.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Cavv</code></td>
+      <td>Assinatura retornada nos cenários de sucesso na autenticação.</td>
+      <td>Texto</td>
+      <td>Sim, caso a autenticação seja validada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Xid</code></td>
+      <td>XID retornado no processo de autenticação.</td>
+      <td>Texto</td>
+      <td>Sim, quando a versão do 3DS for “1”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Eci</code></td>
+      <td><em>Electronic Commerce Indicator</em> retornado no processo de autenticação.</td>
+      <td>Numérico / 1 posição</td>
+      <td>Sim.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Version</code></td>
+      <td>Versão do 3DS utilizado no processo de autenticação.</td>
+      <td>Alfanumérico / 1 posição</td>
+      <td>Sim, quando a versão do 3DS for “2”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.ReferenceID</code></td>
+      <td>RequestID retornado no processo de autenticação.</td>
+      <td>GUID / 36 posições</td>
+      <td>Sim, quando a versão do 3DS for “2”.</td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1814,6 +1873,13 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
             </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"693"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"ExternalAuthentication"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Cavv"</span><span class="p">:</span><span class="s2">"AAABB2gHA1B5EFNjWQcDAAAAAAB="</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Xid"</span><span class="p">:</span><span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Eci"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Version"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReferenceID"</span><span class="p">:</span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"splitpayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -1857,8 +1923,14 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
             </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.UrlDeRetornoDoLojista.com.br/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AuthenticationUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://transactionsandbox.pagador.com.br/post/mpi/auth/5bb92d7c-4f3e-40dc-9f83-bd09c02fea38"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExternalAuthentication"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Cavv"</span><span class="p">:</span><span class="s2">"AAABB2gHA1B5EFNjWQcDAAAAAAB="</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Xid"</span><span class="p">:</span><span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Eci"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Version"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReferenceID"</span><span class="p">:</span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.UrlDeRetornoDoLojista.com.br/"</span><span class="p">,</span><span class="w">        
         </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"439387"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0830110439387"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste"</span><span class="p">,</span><span class="w">
@@ -1927,34 +1999,6 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
-      <td>URL para qual o Lojista deve redirecionar o Cliente para o fluxo de Débito.</td>
-      <td>Texto</td>
-      <td>56</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnUrl</code></td>
-      <td>Url de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo.</td>
-      <td>Texto</td>
-      <td>1024</td>
-      <td>Sim</td>
-    </tr>
-  </tbody>
-</table>
 
 <h3 id="modelos-de-split">Modelos de Split</h3>
 
