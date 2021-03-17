@@ -18,10 +18,16 @@ language_tabs:
 
 O **VerifyCard** é composto por dois serviços: *Zero Auth* e *Consulta BIN*.
  
-O **Zero Auth** é um serviço que identifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor de R$ 0,00.<br/>A **Consulta BIN** é um serviço disponível para clientes Cielo 3.0 que retorna, a partir do BIN (6 primeiros dígitos do cartão), características tais como bandeira e tipo do cartão. 
+O **Zero Auth** é um serviço que identifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor R$ 0,00.<br/>A **Consulta BIN** é um serviço disponível para clientes Cielo 3.0 que retorna, a partir do BIN (6 primeiros dígitos do cartão), características tais como bandeira e tipo do cartão. 
  
 Os dois serviços podem ser consumidos simultaneamente através do VerifyCard. Também é possível que o processo de autorização seja condicionado automaticamente a um retorno de sucesso do ZeroAuth. Para habilitar este último fluxo, deve-se entrar em contato com nosso time de suporte.
- 
+
+A funcionalidade *VerifyCard* pode ser utilizada em conjunto com o serviço de tokenização do cartão. Neste caso, a API do VerifyCard primeiramente recebe a requisição do serviço Zero Auth e faz a validação com a adquirente, que responde se o cartão é válido ou não. A API do VerifyCard envia então este retorno à loja, que poderá escolher fazer ou não a requisição de tokenização do cartão para a API do Cartão Protegido. 
+
+Abaixo veja a representação desse fluxo transacional, utilizando-se o VerifyCard em conjunto com o Cartão Protegido:
+
+![VerifyCard com Cartão Protegido](https://braspag.github.io/images/fluxo-trans3b-pt.png)
+
 Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST para o serviço VerifyCard, de acordo com o modelo a seguir:
 
 ## Requisição
