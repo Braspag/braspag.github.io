@@ -58,6 +58,19 @@ A integração é realizada através de serviços disponibilizados como web serv
 
 # Integrando a Solução
 
+## Fluxo da Transação
+
+O serviço do Cartão Protegido pode ser consumido de duas formas:
+
+1. Durante um processo de autorização, através da [API do Pagador](https://braspag.github.io//manual/braspag-pagador#salvando-um-cart%C3%A3o-durante-uma-autoriza%C3%A7%C3%A3o);
+2. Antes mesmo de se efetivar a compra, acionando-se diretamente a API do Cartão Protegido.
+
+Veja a representação do **fluxo transacional** quando o token é solicitado diretamente à **API do Cartão Protegido**:
+
+![Cartão Protegido](https://braspag.github.io/images/fluxo-trans3a-pt.png)
+
+Consulte também sobre a utilização da funcionalidade [VerifyCard](https://braspag.github.io//manual/braspag-verify-card) em conjunto com o serviço de tokenização do cartão.
+
 ## Testes no Postman
 
 Experimente as APIs diretamente via Postman. [Clique aqui](https://www.postman.com/collections/e21ffab28a8e54972c9d) e baixe a coleção.
