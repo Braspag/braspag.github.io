@@ -45,7 +45,7 @@ A plataforma tem como propósito ajudar estabelecimentos em diferentes casos de 
 
 A integração é realizada através de serviços disponibilizados como web services. O modelo empregado é simples: através do endpoint devem ser enviadas todas as requisições relativas ao serviço em questão. A URL (base + endpoint) receberá as mensagens HTTP através dos métodos POST, GET ou DEL:
 
-| Ambiente | Endpoint | 
+| Ambiente | URL base | 
 | --- | --- |
 |**SANDBOX**| https://cartaoprotegidoapisandbox.braspag.com.br/ |
 |**PRODUÇÃO**| https://cartaoprotegidoapi.braspag.com.br/ |
