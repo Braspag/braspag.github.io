@@ -188,7 +188,7 @@
   <thead>
     <tr>
       <th>Ambiente</th>
-      <th>Endpoint</th>
+      <th>URL base</th>
     </tr>
   </thead>
   <tbody>
@@ -227,6 +227,21 @@
 </table>
 
 <h1 id="integrando-a-solução">Integrando a Solução</h1>
+
+<h2 id="fluxo-da-transação">Fluxo da Transação</h2>
+
+<p>O serviço do Cartão Protegido pode ser consumido de duas formas:</p>
+
+<ol>
+  <li>Durante um processo de autorização, através da <a href="https://braspag.github.io//manual/braspag-pagador#salvando-um-cart%C3%A3o-durante-uma-autoriza%C3%A7%C3%A3o">API do Pagador</a>;</li>
+  <li>Antes mesmo de se efetivar a compra, acionando-se diretamente a API do Cartão Protegido.</li>
+</ol>
+
+<p>Veja a representação do <strong>fluxo transacional</strong> quando o token é solicitado diretamente à <strong>API do Cartão Protegido</strong>:</p>
+
+<p><img src="https://braspag.github.io/images/fluxo-trans3a-pt.png" alt="Cartão Protegido" /></p>
+
+<p>Consulte também sobre a utilização da funcionalidade <a href="https://braspag.github.io//manual/braspag-verify-card">VerifyCard</a> em conjunto com o serviço de tokenização do cartão.</p>
 
 <h2 id="testes-no-postman">Testes no Postman</h2>
 
