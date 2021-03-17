@@ -51,10 +51,16 @@ Neste fluxo, a loja (plataforma) utiliza o serviço do Cartão Protegido dentro 
 
 Neste fluxo, a loja (plataforma) recebe os posts de notificação enviados pela API do Pagador sempre que o banco ou meio de pagamento informa sobre alteração de status da transação. Assim, a loja pode manter o status do pedido atualizado e alinhado com o status na Braspag.
 
+![Post de Notificação](https://braspag.github.io/images/fluxo-trans5-pt.png)
+
 ## Fluxo com Consulta
 
 Para obter informações a respeito de uma transação, é possível enviar uma requisição para nossa API de Consulta. Neste fluxo, a loja (plataforma) envia a requisição para a API, que então consulta o banco de dados. A informação obtida é então retornada à loja.
 
+![Consulta](https://braspag.github.io/images/fluxo-trans6-pt.png)
+
 ## Fluxo com Silent Order Post
 
 Neste fluxo, a loja (plataforma) utiliza o nosso script, previamente anexado à sua página de checkout, para permitir que o comprador preencha os campos referentes aos dados do pagamento. Esse script insere os dados sensíveis do cartão diretamente no ambiente seguro da Braspag, sem que os mesmos passem pelo servidor da loja. A API do Pagador então segue para o processo de autorização padrão com a adquirente.
+
+![Silent Order Post](https://braspag.github.io/images/fluxo-trans7-pt.png)
