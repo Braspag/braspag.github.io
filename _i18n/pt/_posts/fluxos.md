@@ -31,7 +31,7 @@ Caso o pedido seja aceito pelo Antifraude, a loja envia uma requisição de auto
 
 ### 1. Pela API do Cartão Protegido:
 
-Neste fluxo, a loja (plataforma) solicita a tokenização do cartão antes mesmo da compra de fato ocorrer. Ex.: quando o comprador escolhe salvar os dados do seu cartão no momento do checkout de pagamento, a plataforma aciona a API do Cartão Protegido solicitando a tokenização do cartão do comprador, para efetuação da “Compra por 1 Clique”. Após o processo de tokenização, é enviado à loja o CardToken gerado.
+Neste fluxo, a loja (plataforma) solicita a tokenização do cartão antes mesmo da compra de fato ocorrer. Ex.: quando o comprador escolhe salvar os dados do seu cartão no momento do checkout de pagamento, a loja aciona a API do Cartão Protegido solicitando a tokenização do cartão do comprador, para efetuação da “Compra por 1 Clique”. Após o processo de tokenização, é enviado à loja o CardToken gerado.
 
 ![Cartão Protegido 1](https://braspag.github.io/images/fluxo-trans3a-pt.png)
 
@@ -46,3 +46,15 @@ Nota: A loja pode optar pela utilização da funcionalidade *VerifyCard* em conj
 Neste fluxo, a loja (plataforma) utiliza o serviço do Cartão Protegido dentro da própria requisição de autorização de compra feita à API do Pagador. Ex.: quando o comprador permite, geralmente na primeira vez que utiliza um app ou site, que seu cartão seja salvo para futuras “compras com 1 clique”. 
 
 ![Cartão Protegido 2](https://braspag.github.io/images/fluxo-trans4-pt.png)
+
+## Fluxo com o Post de Notificação
+
+Neste fluxo, a loja (plataforma) recebe os posts de notificação enviados pela API do Pagador sempre que o banco ou meio de pagamento informa sobre alteração de status da transação. Assim, a loja pode manter o status do pedido atualizado e alinhado com o status na Braspag.
+
+## Fluxo com Consulta
+
+Para obter informações a respeito de uma transação, é possível enviar uma requisição para nossa API de Consulta. Neste fluxo, a loja (plataforma) envia a requisição para a API, que então consulta o banco de dados. A informação obtida é então retornada à loja.
+
+## Fluxo com Silent Order Post
+
+Neste fluxo, a loja (plataforma) utiliza o nosso script, previamente anexado à sua página de checkout, para permitir que o comprador preencha os campos referentes aos dados do pagamento. Esse script insere os dados sensíveis do cartão diretamente no ambiente seguro da Braspag, sem que os mesmos passem pelo servidor da loja. A API do Pagador então segue para o processo de autorização padrão com a adquirente.
