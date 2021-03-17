@@ -2052,7 +2052,6 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
 |`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -2060,8 +2059,6 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
 
 #### Criando uma Transação com Alias
 

@@ -1615,7 +1615,722 @@ grant_type=client_credentials
 
 O nó referente ao Split no Split Pós-transacional, tanto no contrato de request quanto de response, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.
 
-> O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **20 dias** para **Cartão de Crédito** se estiver enquadrado no regime de pagamento padrão. 
+> O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **20 dias** para **Cartão de Crédito** se estiver enquadrado no regime de pagamento padrão.  
+
+### Salvando e Reutilizando Cartões
+
+Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
+
+Além da geração do `CardToken`, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
+
+<aside class="warning">Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
+
+#### Salvando um Cartão Durante uma Autorização
+
+Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
+
+**Requisição**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":true,
+         "Alias":"",
+       }
+   }
+}
+```
+
+```shell
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "CreditCard":{  
+         "CardNumber":"4551870000000181",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":true,
+         "Alias":"",
+       }
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|----|-------|-----------|---------|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+|`CreditCard.SaveCard`|"true" - para salvar o cartão. / "false" - para não salvar o cartão.|Booleano|10|Não (default "false") |
+|`CreditCard.Alias`|Alias (apelido) do cartão de crédito.|Texto|64|Não |
+
+**Resposta**
+
+O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transações futuras com o mesmo cartão.
+
+```json
+{
+  [...]
+  },
+    "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "455187******0181",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2021",
+      "SaveCard": true,
+      "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+      "Brand": "Visa",
+      "Alias": "Cliente1"
+    },
+    "ProofOfSale": "3519928",
+    "AcquirerTransactionId": "0511023519928",
+    "AuthorizationCode": "536934",
+    "PaymentId": "3af00b2d-dbd0-42d6-a669-d4937f0881da",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 14:35:19",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Simulado",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 1,
+    "ProviderReturnCode": "4",
+    "ProviderReturnMessage": "Operation Successful",
+    [...]
+  }
+}
+```
+
+```shell
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  [...]
+  },
+    "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "455187******0181",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2021",
+      "SaveCard": true,
+      "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+      "Brand": "Visa",
+      "Alias": "Cliente1"
+    },
+    "ProofOfSale": "3519928",
+    "AcquirerTransactionId": "0511023519928",
+    "AuthorizationCode": "536934",
+    "PaymentId": "3af00b2d-dbd0-42d6-a669-d4937f0881da",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 14:35:19",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Simulado",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 1,
+    "ProviderReturnCode": "4",
+    "ProviderReturnMessage": "Operation Successful",
+    [...]
+  }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`AcquirerTransactionId`|Id da transação no provedor do meio de pagamento.|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
+|`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+
+#### Criando uma Transação com CardToken
+
+Este é um exemplo de como utilizar o `CardToken`, previamente salvo, para criar uma transação. Por questões de segurança, um `CardToken` não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos [canais de atendimento](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
+
+O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir:
+
+**Requisição**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      }
+   }
+}
+```
+
+```shell
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      }
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|----|-------|-----------|---------|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.|Texto|4|Não|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+
+**Resposta**
+
+```json
+{  
+   [...]
+   },
+     "Payment": {
+        "Provider": "Simulado",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "SoftDescriptor": "Mensagem",
+        "CreditCard": {
+            "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+            },
+    "ProofOfSale": "124305",
+    "AcquirerTransactionId": "0511030124305",
+    "AuthorizationCode": "065964",
+    "PaymentId": "23cd8bf5-2251-4991-9042-533ff5608788",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 15:01:24",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Simulado",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 1,
+    "ProviderReturnCode": "4",
+    "ProviderReturnMessage": "Operation Successful",
+   [...]
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   [...]
+   },
+     "Payment": {
+        "Provider": "Simulado",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "SoftDescriptor": "Mensagem",
+        "CreditCard": {
+            "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+            },
+    "ProofOfSale": "124305",
+    "AcquirerTransactionId": "0511030124305",
+    "AuthorizationCode": "065964",
+    "PaymentId": "23cd8bf5-2251-4991-9042-533ff5608788",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 15:01:24",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Simulado",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 1,
+    "ProviderReturnCode": "4",
+    "ProviderReturnMessage": "Operation Successful",
+   [...]
+  }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
+
+#### Criando uma Transação com Alias
+
+Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos [canais de atendimento](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
+
+**Requisição**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "Alias":"Cliente1",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      }
+   }
+}
+```
+
+```shell
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "SoftDescriptor": "Mensagem",
+      "CreditCard": {
+         "Alias":"Cliente1",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      }
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|----|-------|-----------|---------|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.|Texto|4|Não|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+|`CreditCard.Alias`|Alias (apelido) do cartão de crédito.|Texto|64|Não |
+
+**Resposta**
+
+```json
+{  
+   [...]
+   },
+     "Payment": {
+        "Provider": "Simulado",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "SoftDescriptor": "Mensagem",
+        "CreditCard": {
+            "Alias":"Cliente1",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+            },
+    "ProofOfSale": "124305",
+    "AcquirerTransactionId": "0511030124305",
+    "AuthorizationCode": "065964",
+    "PaymentId": "23cd8bf5-2251-4991-9042-533ff5608788",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 15:01:24",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Simulado",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 1,
+    "ProviderReturnCode": "4",
+    "ProviderReturnMessage": "Operation Successful",
+   [...]
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   [...]
+   },
+     "Payment": {
+        "Provider": "Simulado",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "SoftDescriptor": "Mensagem",
+        "CreditCard": {
+            "Alias":"Cliente1",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+            },
+    "ProofOfSale": "124305",
+    "AcquirerTransactionId": "0511030124305",
+    "AuthorizationCode": "065964",
+    "PaymentId": "23cd8bf5-2251-4991-9042-533ff5608788",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 15:01:24",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Simulado",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 1,
+    "ProviderReturnCode": "4",
+    "ProviderReturnMessage": "Operation Successful",
+   [...]
+  }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
 
 ### Captura
 
