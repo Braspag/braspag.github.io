@@ -136,23 +136,19 @@
             </div>
 
             <div class="post">
-  <h1 id="visão-geral">Visão Geral</h1>
+  <h1 id="antifraude">Antifraude</h1>
 
-<p><strong>Antifraude Gateway</strong> é uma plataforma desenvolvida pelo time de Risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores distintos e com tecnologias distintas, ou seja, o Antifraude Gateway é responsável por realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.</p>
+<p>O <strong>Antifraude</strong> é uma plataforma desenvolvida pelo time de risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores e tecnologias distintos. Ele é, portanto, responsável por realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.</p>
 
-<p>A plataforma é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo OAuth 2, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.</p>
+<p>A plataforma é baseada em arquitetura REST, com troca de dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo <a href="https://oauth.net/2/">OAuth 2</a>, com padrões amplamente utilizados pelo mercado e suportados pelas comunidades técnicas.</p>
 
-<blockquote>
-  <p>Para saber mais sobre OAuth 2, consulte <a href="https://oauth.net/2/">https://oauth.net/2/</a></p>
-</blockquote>
-
-<p>A plataforma foi construída utilizando um dos principais produtos da Braspag, o Cartão Protegido, para tokenização de cartões e análises de fraude através dos tokens.</p>
+<p>A plataforma foi construída utilizando o Cartão Protegido, um dos principais produtos da Braspag, para a tokenização de cartões e análises de fraude através dos tokens.</p>
 
 <h1 id="objetivo">Objetivo</h1>
 
 <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.</p>
 
-<p>Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.</p>
+<p>Para executar uma operação, combine a URL base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.</p>
 
 <h1 id="hosts">Hosts</h1>
 
@@ -162,7 +158,7 @@
   <thead>
     <tr>
       <th style="text-align: left">Ambiente</th>
-      <th style="text-align: left">URL</th>
+      <th style="text-align: left">URL base</th>
     </tr>
   </thead>
   <tbody>
@@ -183,7 +179,7 @@
   <thead>
     <tr>
       <th style="text-align: left">Ambiente</th>
-      <th style="text-align: left">URL</th>
+      <th style="text-align: left">URL base</th>
     </tr>
   </thead>
   <tbody>
@@ -204,11 +200,11 @@
 
 <p>A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: <strong>Sandbox</strong> e <strong>Produção</strong>.</p>
 
-<p>Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na plataforma.</p>
+<p>Esta sessão descreve o fluxo necessário para que uma aplicação cliente obtenha tokens de acesso válidos para uso na plataforma.</p>
 
-<h2 id="obtenção-do-token-de-acesso">Obtenção do token de acesso</h2>
+<h2 id="como-obter-o-token-de-acesso">Como Obter o Token de Acesso</h2>
 
-<p>O token de acesso é obtido através do fluxo oauth <strong>client_credentials</strong>. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a <strong>Aplicação Cliente</strong>, a <strong>API BraspagAuth</strong> e a <strong>API Antifraude Gateway</strong>.</p>
+<p>O token de acesso é obtido através do fluxo oauth <strong>client_credentials</strong>. A comunicação se dá entre a <strong>Aplicação Cliente</strong>, a <strong>API BraspagAuth</strong> e a <strong>API Antifraude Gateway</strong> na seguinte ordem:</p>
 
 <ol>
   <li>
@@ -226,11 +222,11 @@
 </ol>
 
 <blockquote>
-  <p>Caso não tenha recebido a credencial, solicite-a abrindo um ticket através da nossa ferramenta de suporte.
-<a href="https://suporte.braspag.com.br/hc/pt-br">Suporte Braspag</a></p>
+  <p>Caso não tenha recebido a credencial, solicite-a abrindo um ticket através da nossa ferramenta de suporte, em
+<a href="https://suporte.braspag.com.br/hc/pt-br">Suporte Braspag</a>.</p>
 </blockquote>
 
-<h2 id="como-obter-o-token">Como obter o token</h2>
+<h2 id="como-obter-o-token">Como Obter o Token</h2>
 
 <p>Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção <strong>client_id:client_secret</strong>, e enviar o resultado no cabeçalho através do campo <strong>Authorization</strong>.</p>
 
@@ -309,15 +305,15 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">access_token</code></td>
-      <td style="text-align: left">O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway</td>
+      <td style="text-align: left">O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">token_type</code></td>
-      <td style="text-align: left">Indica o valor do tipo de token</td>
+      <td style="text-align: left">Indica o valor do tipo de token.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">expires_in</code></td>
-      <td style="text-align: left">Expiração do o token de acesso, em segundos <br />O token quando expirar, é necessário obter um novo</td>
+      <td style="text-align: left">Expiração do token de acesso, em segundos. <br />Após expirar, é necessário obter um novo.</td>
     </tr>
   </tbody>
 </table>
