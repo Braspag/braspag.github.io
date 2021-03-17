@@ -63,7 +63,7 @@ A integração é realizada através de serviços disponibilizados como web serv
 O serviço do Cartão Protegido pode ser consumido de duas formas:
 
 1. Durante um processo de autorização, através da [API do Pagador](https://braspag.github.io//manual/braspag-pagador#salvando-um-cart%C3%A3o-durante-uma-autoriza%C3%A7%C3%A3o);
-2. Antes mesmo de se efetivar a compra, acionando-se diretamente a API do Cartão Protegido.
+2. Antes mesmo de se efetuar a compra, acionando-se diretamente a API do Cartão Protegido.
 
 Veja a representação do **fluxo transacional** quando o token é solicitado diretamente à **API do Cartão Protegido**:
 
