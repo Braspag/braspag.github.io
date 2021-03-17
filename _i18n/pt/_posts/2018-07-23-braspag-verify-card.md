@@ -28,7 +28,7 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 
 ![VerifyCard com Cartão Protegido](https://braspag.github.io/images/fluxo-trans3b-pt.png)
 
-Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST para o serviço VerifyCard, de acordo com o exemplo a seguir:
+<br/>Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST para o serviço VerifyCard, de acordo com o exemplo a seguir:
 
 ## Requisição
 
