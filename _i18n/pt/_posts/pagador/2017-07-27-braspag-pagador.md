@@ -111,7 +111,7 @@ Acesse nossa ferramenta de atendimento web [Zendesk](http://suporte.braspag.com.
 
 A API do Pagador trabalha com transações referentes às seguintes formas de pagamento: cartão de crédito, cartão de débito, boleto bancário, transferência eletrônica, e-wallet e voucher. O fluxo da transação depende dos serviços utilizados e das configurações escolhidas pela loja.
 
-Abaixo veja a representação de um **fluxo transacional** padrão seguida de uma pequena descrição das principais partes envolvidas:
+Veja abaixo a representação de um **fluxo transacional** padrão seguida de uma pequena descrição das principais partes envolvidas:
 
 ![Fluxo Transacional]({{ site.baseurl_root }}/images/fluxo-transacional-pt-menor.png)
 
@@ -4493,6 +4493,12 @@ Além da geração do `CardToken`, é possível associar um nome (um identificad
 
 Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
 
+Abaixo veja a representação do fluxo transacional de solicitação do token pela API do Pagador:
+
+![Cartão Protegido - Pagador](https://braspag.github.io/images/fluxo-trans4-pt.png)
+
+Consulte também os fluxos de tokenização direta com a [API do Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), com a opção dos serviços da [API do VerifyCard](https://braspag.github.io//manual/braspag-verify-card).
+
 ### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
@@ -5276,16 +5282,42 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
 
 # Pagamentos com Análise de Fraude
 
-Ao efetuar um pagamento, é possível verificar se a transação possui risco de ser uma fraude ou não durante sua autorização. Essa verificação pode ocorrer em momentos diferentes, de acordo com as regras definidas pelo cliente. Confira abaixo o comportamento da análise de risco de acordo com cada tipo de integração:
+Ao efetuar um pagamento, é possível verificar qual o risco de uma transação ser fraudulenta. Essa verificação pode ocorrer antes ou depois da autorização da transação, de acordo com as regras definidas pelo cliente.
+
+## Fluxo AuthorizeFirst
+
+A sequência mais comum, em que acontece a **autorização antes da análise**, pode ocorrer com ou sem a **captura automática** da transação.
+
+<br/>**Com Autorização**
+
+Neste fluxo, a loja (plataforma) envia a requisição para a API do Pagador, que então envia a transação para autorização na Adquirente cadastrada na loja. Uma vez autorizada, o valor da venda estará sensibilizado, mas ainda não terá sido cobrado no cartão.<br/>
+O Pagador faz a chamada para o Antifraude, onde ocorre a análise de risco do pedido.<br/>
+Caso seja aceita pelo Antifraude, a transação é então capturada e a cobrança é realizada no cartão. Caso seja rejeitada pelo Antifraude, a API do Pagador solicita o cancelamento da transação à Adquirente e informa a loja. O valor bloqueado no cartão deverá retornar 100% para o cliente final.
+
+![Antifraude 1a](https://braspag.github.io/images/fluxo-trans1a-pt.png)
+
+<br/>**Com Captura Automática**
+
+Este fluxo é similar ao primeiro, com a diferença da captura automática no lugar da autorização. Se o Antifraude rejeita o pedido, que foi previamente autorizado pela Adquirente e já cobrado no cartão do cliente, a API do Pagador irá solicitar o cancelamento da transação à Adquirente e informar a loja. Neste caso, o valor já cobrado no cartão deverá igualmente ser estornado 100% para o cliente final.
+
+![Antifraude 1b](https://braspag.github.io/images/fluxo-trans1b-pt.png)
+
+## Fluxo AnalyseFrist
+
+Para maiores detalhes sobre o fluxo em que acontece a **análise antes da autorização**, consulte o [Manual do Antifraude](https://braspag.github.io//manual/antifraude?json#realizando-uma-an%C3%A1lise-de-fraude).
+
+## AuthorizeFirst x AnalyseFirst
+
+Confira a seguir o comportamento da análise de risco de acordo com cada tipo de integração:
 
 |Tipo de Integração|Descrição|Parâmetros Necessários|
 |-|-|-|
-|Análise antes da autorização|A transação é analisada pelo Antifraude e então enviada para autorização. Dessa forma, evita-se o envio de transações de alto risco para autorização.|`FraudAnalysis.Sequence` igual a "AnalyseFirst"|
-|Análise após a autorização|A transação é enviada para a autorização e então analisada pelo Antifraude.|`FraudAnalysis.Sequence` igual a "AuthorizeFirst"|
+|Autorização antes|A transação é enviada para a autorização e então analisada pelo Antifraude.|`FraudAnalysis.Sequence` igual a "AuthorizeFirst"|
+|Análise antes|A transação é analisada pelo Antifraude e então enviada para autorização. Dessa forma, evita-se o envio de transações de alto risco para autorização.|`FraudAnalysis.Sequence` igual a "AnalyseFirst"|
 |Análise das transações autorizadas|O Antifraude é acionado apenas para analisar transações autorizadas, evitando-se o custo com análises de transações que não receberiam autorização.|`FraudAnalysis.SequenceCriteria` igual a "OnSuccess"|
 |Análise em qualquer hipótese|O Antifraude é acionado independentemente do status da transação após a autorização.|`FraudAnalysis.Sequence` igual a "AuthorizeFirst" e `FraudAnalysis.SequenceCriteria` igual a "Always"|
 |Autorização em qualquer hipótese|A transação será enviada para autorização independentemente de seu score de fraude.|`FraudAnalysis.Sequence` igual a "AnalyseFirst" e `FraudAnalysis.SequenceCriteria` igual a "Always"|
-|Captura para transações seguras|Após a análise de fraude, a captura será automática para transações autorizadas definidas como de baixo risco. Para a loja que utiliza revisão manual, a transação será capturada automaticamente assim que a Braspag receber notificação do novo status "_Accept_".|`FraudAnalysis.Sequence` igual a "AuthorizeFirst", `FraudAnalysis.CaptureOnLowRisk` igual a "true" e `Payment.Capture` igual a "false"|
+|Captura de transações seguras|Após a análise de fraude, a captura será automática para transações autorizadas definidas como de baixo risco. Para a loja que utiliza revisão manual, a transação será capturada automaticamente assim que a Braspag receber notificação do novo status "_Accept_".|`FraudAnalysis.Sequence` igual a "AuthorizeFirst", `FraudAnalysis.CaptureOnLowRisk` igual a "true" e `Payment.Capture` igual a "false"|
 |Cancelamento de transações comprometidas|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Para a loja que utiliza revisão manual, a transação será cancelada ou estornada automaticamente assim que a Braspag receber notificação do novo status "_Reject_".|`FraudAnalysis.Sequence` igual a "AuthorizeFirst" e `FraudAnalysis.VoidOnHighRisk` igual a "true"|
 
 Caso não seja especificado durante a autorização, a Braspag irá processar sua transação pelo seguinte fluxo:
