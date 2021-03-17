@@ -1636,6 +1636,629 @@ O nó referente ao Split no Split Pós-transacional, tanto no contrato de reques
 
 > O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **20 dias** para **Cartão de Crédito** se estiver enquadrado no regime de pagamento padrão. 
 
+## Salvando e Reutilizando Cartões
+
+Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
+
+Além da geração do `CardToken`, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
+
+<aside class="warning">Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
+
+### Salvando um Cartão Durante uma Autorização
+
+Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{  
+   "merchantorderid":"23082019",
+   "customer": {
+        "Name": "Comprador Accept",
+        "email": "comprador@teste.com.br",
+        "Identity": "12750233713",
+        "identitytype": "CPF",
+        "Mobile": "5521996660078"
+    },
+    "payment": {
+        "type": "splittedcreditcard",
+        "amount": 10000,
+        "capture": true,
+        "installments": 1,
+        "softdescriptor": "teste",
+        "CreditCard": {
+            "cardNumber": "4481530710186111",
+            "holder": "Oswaldo Soares",
+            "ExpirationDate": "12/2019",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+            "SaveCard": "true",
+            "Alias": "Client1"
+        },
+        "fraudanalysis": {
+            "provider": "cybersource", 
+            "Shipping": {
+                "Addressee": "Comprador Accept"
+            },
+            "browser": {
+                "ipaddress": "179.221.103.151",
+                "browserfingerprint": "22082019"
+            },
+            "totalorderamount": 10000,
+            "cart": {
+                "isgift": false,
+                "returnsaccepted": true,
+                "items": [
+                    {
+                        "name": "Produto teste",
+                        "quantity": 1,
+                        "sku": 563,
+                        "unitprice": 100.00
+                    }
+                ]
+            },
+            "MerchantDefinedFields": [
+                {
+                    "Id": 1,
+                    "Value": "Guest"
+                }
+            ]
+        }
+   }
+}
+```
+
+```shell
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "Authorization: Bearer {access_token}"
+--data-binary
+{  
+   "merchantorderid":"23082019",
+   "customer": {
+        "Name": "Comprador Accept",
+        "email": "comprador@teste.com.br",
+        "Identity": "12750233713",
+        "identitytype": "CPF",
+        "Mobile": "5521996660078"
+    },
+    "payment": {
+        "type": "splittedcreditcard",
+        "amount": 10000,
+        "capture": true,
+        "installments": 1,
+        "softdescriptor": "teste",
+        "CreditCard": {
+            "cardNumber": "4481530710186111",
+            "holder": "Oswaldo Soares",
+            "ExpirationDate": "12/2019",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+            "SaveCard": "true",
+            "Alias": "Client1"
+        },
+        "fraudanalysis": {
+            "provider": "cybersource", 
+            "Shipping": {
+                "Addressee": "Comprador Accept"
+            },
+            "browser": {
+                "ipaddress": "179.221.103.151",
+                "browserfingerprint": "22082019"
+            },
+            "totalorderamount": 10000,
+            "cart": {
+                "isgift": false,
+                "returnsaccepted": true,
+                "items": [
+                    {
+                        "name": "Produto teste",
+                        "quantity": 1,
+                        "sku": 563,
+                        "unitprice": 100.00
+                    }
+                ]
+            },
+            "MerchantDefinedFields": [
+                {
+                    "Id": 1,
+                    "Value": "Guest"
+                }
+            ]
+        }
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|----|-------|-----------|---------|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+|`CreditCard.SaveCard`|"true" - para salvar o cartão. / "false" - para não salvar o cartão.|Booleano|10|Não (default "false") |
+|`CreditCard.Alias`|Alias (apelido) do cartão de crédito.|Texto|64|Não |
+
+#### Resposta
+
+O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transações futuras com o mesmo cartão.
+
+```json
+{
+  [...]
+  },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "448153******6111",
+            "Holder": "Oswaldo Soares",
+            "ExpirationDate": "12/2019",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "Alias": "Cliente1"
+        },
+        "Tid": "0823032122562",
+        "ProofOfSale": "20190823032122562",
+        "AuthorizationCode": "329269",
+        "SoftDescriptor": "teste",
+    [...]
+  }
+}
+```
+
+```shell
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "Authorization: Bearer {access_token}"
+--data-binary
+{
+  [...]
+  },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "448153******6111",
+            "Holder": "Oswaldo Soares",
+            "ExpirationDate": "12/2019",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "Alias": "Cliente1"
+        },
+        "Tid": "0823032122562",
+        "ProofOfSale": "20190823032122562",
+        "AuthorizationCode": "329269",
+        "SoftDescriptor": "teste",
+    [...]
+  }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`CreditCard.Alias`| Alias (apelido) do cartão de crédito. | Texto | 64 | Texto alfanumérico
+
+### Criando uma Transação com CardToken
+
+Este é um exemplo de como utilizar o `CardToken`, previamente salvo, para criar uma transação. Por questões de segurança, um `CardToken` não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos [canais de atendimento](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
+
+O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir:
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{  
+   "merchantorderid":"23082019",
+   "customer": {
+        "Name": "Comprador Accept",
+        "email": "comprador@teste.com.br",
+        "Identity": "12750233713",
+        "identitytype": "CPF",
+        "Mobile": "5521996660078"
+    },
+    "payment": {
+        "type": "splittedcreditcard",
+        "amount": 10000,
+        "capture": true,
+        "installments": 1,
+        "softdescriptor": "teste",
+        "CreditCard": {
+            "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+        },
+        "fraudanalysis": {
+            "provider": "cybersource", 
+            "Shipping": {
+                "Addressee": "Comprador Accept"
+            },
+            "browser": {
+                "ipaddress": "179.221.103.151",
+                "browserfingerprint": "22082019"
+            },
+            "totalorderamount": 10000,
+            "cart": {
+                "isgift": false,
+                "returnsaccepted": true,
+                "items": [
+                    {
+                        "name": "Produto teste",
+                        "quantity": 1,
+                        "sku": 563,
+                        "unitprice": 100.00
+                    }
+                ]
+            },
+            "MerchantDefinedFields": [
+                {
+                    "Id": 1,
+                    "Value": "Guest"
+                }
+            ]
+        }
+   }
+}
+```
+
+```shell
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "Authorization: Bearer {access_token}"
+--data-binary
+{  
+   "merchantorderid":"23082019",
+   "customer": {
+        "Name": "Comprador Accept",
+        "email": "comprador@teste.com.br",
+        "Identity": "12750233713",
+        "identitytype": "CPF",
+        "Mobile": "5521996660078"
+    },
+    "payment": {
+        "type": "splittedcreditcard",
+        "amount": 10000,
+        "capture": true,
+        "installments": 1,
+        "softdescriptor": "teste",
+        "CreditCard": {
+            "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+        },
+        "fraudanalysis": {
+            "provider": "cybersource", 
+            "Shipping": {
+                "Addressee": "Comprador Accept"
+            },
+            "browser": {
+                "ipaddress": "179.221.103.151",
+                "browserfingerprint": "22082019"
+            },
+            "totalorderamount": 10000,
+            "cart": {
+                "isgift": false,
+                "returnsaccepted": true,
+                "items": [
+                    {
+                        "name": "Produto teste",
+                        "quantity": 1,
+                        "sku": 563,
+                        "unitprice": 100.00
+                    }
+                ]
+            },
+            "MerchantDefinedFields": [
+                {
+                    "Id": 1,
+                    "Value": "Guest"
+                }
+            ]
+        }
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|----|-------|-----------|---------|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+
+#### Resposta
+
+```json
+{  
+   [...]
+   }"Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+        },
+        "Tid": "0823032122562",
+        "ProofOfSale": "20190823032122562",
+        "AuthorizationCode": "329269",
+        "SoftDescriptor": "teste",
+        "Provider": "Simulado",
+   [...]
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   [...]
+   }"Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+        },
+        "Tid": "0823032122562",
+        "ProofOfSale": "20190823032122562",
+        "AuthorizationCode": "329269",
+        "SoftDescriptor": "teste",
+        "Provider": "Simulado",
+   [...]
+  }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
+
+### Criando uma Transação com Alias
+
+Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos [canais de atendimento](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{  
+   "merchantorderid":"23082019",
+   "customer": {
+        "Name": "Comprador Accept",
+        "email": "comprador@teste.com.br",
+        "Identity": "12750233713",
+        "identitytype": "CPF",
+        "Mobile": "5521996660078"
+    },
+    "payment": {
+        "type": "splittedcreditcard",
+        "amount": 10000,
+        "capture": true,
+        "installments": 1,
+        "softdescriptor": "teste",
+        "CreditCard": {
+            "Alias": "Cliente1",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+        },
+        "fraudanalysis": {
+            "provider": "cybersource", 
+            "Shipping": {
+                "Addressee": "Comprador Accept"
+            },
+            "browser": {
+                "ipaddress": "179.221.103.151",
+                "browserfingerprint": "22082019"
+            },
+            "totalorderamount": 10000,
+            "cart": {
+                "isgift": false,
+                "returnsaccepted": true,
+                "items": [
+                    {
+                        "name": "Produto teste",
+                        "quantity": 1,
+                        "sku": 563,
+                        "unitprice": 100.00
+                    }
+                ]
+            },
+            "MerchantDefinedFields": [
+                {
+                    "Id": 1,
+                    "Value": "Guest"
+                }
+            ]
+        }
+   }
+}
+```
+
+```shell
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "Authorization: Bearer {access_token}"
+--data-binary
+{  
+   "merchantorderid":"23082019",
+   "customer": {
+        "Name": "Comprador Accept",
+        "email": "comprador@teste.com.br",
+        "Identity": "12750233713",
+        "identitytype": "CPF",
+        "Mobile": "5521996660078"
+    },
+    "payment": {
+        "type": "splittedcreditcard",
+        "amount": 10000,
+        "capture": true,
+        "installments": 1,
+        "softdescriptor": "teste",
+        "CreditCard": {
+            "Alias": "Cliente1",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+        },
+        "fraudanalysis": {
+            "provider": "cybersource", 
+            "Shipping": {
+                "Addressee": "Comprador Accept"
+            },
+            "browser": {
+                "ipaddress": "179.221.103.151",
+                "browserfingerprint": "22082019"
+            },
+            "totalorderamount": 10000,
+            "cart": {
+                "isgift": false,
+                "returnsaccepted": true,
+                "items": [
+                    {
+                        "name": "Produto teste",
+                        "quantity": 1,
+                        "sku": 563,
+                        "unitprice": 100.00
+                    }
+                ]
+            },
+            "MerchantDefinedFields": [
+                {
+                    "Id": 1,
+                    "Value": "Guest"
+                }
+            ]
+        }
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|----|-------|-----------|---------|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+|`CreditCard.Alias`| Alias (apelido) do cartão de crédito. | Texto | 64 | Não
+
+#### Resposta
+
+```json
+{  
+   [...]
+   }"Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "Alias": "Cliente1",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+        },
+        "Tid": "0823032122562",
+        "ProofOfSale": "20190823032122562",
+        "AuthorizationCode": "329269",
+        "SoftDescriptor": "teste",
+        "Provider": "Simulado",
+   [...]
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   [...]
+   }"Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardToken": "250e7c7c-5501-4a7c-aa42-a33d7ad61167",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+        },
+        "Tid": "0823032122562",
+        "ProofOfSale": "20190823032122562",
+        "AuthorizationCode": "329269",
+        "SoftDescriptor": "teste",
+        "Provider": "Simulado",
+   [...]
+  }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação.|Byte|2|Ex.: 1|
+
 ### Consulta
 
 Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.
