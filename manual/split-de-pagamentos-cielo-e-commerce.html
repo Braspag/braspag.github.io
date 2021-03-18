@@ -4521,7 +4521,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <h3 id="criando-uma-transação-de-boleto">Criando uma transação de Boleto</h3>
 
-<p>Para gerar um boleto em Sandbox, é necessár Tokenio fornecer dados do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.</p>
+<p>Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este meio de pagamento.</p>
 
 <h4 id="criando-uma-transação">Criando uma transação</h4>
 
@@ -4561,13 +4561,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
      </span><span class="nl">"Demonstrative"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desmonstrative Teste"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-31"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12346578909"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"DaysToFine"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"FineRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.00000</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"FineAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"DaysToInterest"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"InterestRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00000</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"InterestAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+     </span><span class="nl">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -4584,32 +4578,18 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-      <td>Identificador da loja na Braspag</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Sim</td>
-      <td>Chave Publica para Autenticação Dupla na Braspag</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Texto</td>
-      <td>vide tabela abaixo</td>
+      <td>50</td>
       <td>Sim</td>
-      <td>Numero de identificação do Pedido. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
+      <td>Numero de identificação do Pedido</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Texto</td>
-      <td>vide tabela abaixo</td>
+      <td>60(*)</td>
       <td>Sim</td>
-      <td>Nome do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
+      <td>Nome do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
@@ -4628,23 +4608,23 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
       <td>Texto</td>
-      <td>vide tabela abaixo</td>
+      <td>60(*)</td>
       <td>Sim</td>
-      <td>Endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
+      <td>Endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
       <td>Texto</td>
-      <td>vide tabela abaixo</td>
+      <td>60(*)</td>
       <td>Sim</td>
-      <td>Número endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
+      <td>Número endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
       <td>Texto</td>
-      <td>vide tabela abaixo</td>
+      <td>60(*)</td>
       <td>Não</td>
-      <td>Complemento do endereço de contato do Comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
+      <td>Complemento do endereço de contato do Comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
@@ -4656,16 +4636,16 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
       <td>Texto</td>
-      <td>vide tabela abaixo</td>
+      <td>60(*)</td>
       <td>Sim</td>
-      <td>Bairro do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
+      <td>Bairro do endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
       <td>Texto</td>
-      <td>vide tabela abaixo</td>
+      <td>18(*)</td>
       <td>Sim</td>
-      <td>Cidade do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
+      <td>Cidade do endereço de contato do comprador</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
@@ -4686,21 +4666,21 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Nome da provedora de Meio de Pagamento de Boleto (Braspag)</td>
+      <td>Nome da provedora de Meio de Pagamento de Boleto <code class="language-plaintext highlighter-rouge">Braspag</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Bank</code></td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Nome do Banco que o boleto será emitido</td>
+      <td>Nome do Banco que o boleto será emitido <code class="language-plaintext highlighter-rouge">BancoDoBrasil</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Tipo do Meio de Pagamento. No caso “Boleto”</td>
+      <td>Tipo do Meio de Pagamento. No caso <code class="language-plaintext highlighter-rouge">Boleto</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
@@ -4712,9 +4692,9 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
       <td>Texto</td>
-      <td>vide tabela abaixo</td>
+      <td>9(**)</td>
       <td>Não</td>
-      <td>Número do Boleto (“Nosso Número”). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo</td>
+      <td>Número do Boleto (“Nosso Número”). Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Assignor</code></td>
@@ -4726,9 +4706,9 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
       <td>Texto</td>
-      <td>vide tabela abaixo</td>
+      <td>N/A</td>
       <td>Não</td>
-      <td>Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
+      <td>Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExpirationDate</code></td>
@@ -4747,63 +4727,18 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
       <td>Texto</td>
-      <td>vide tabela abaixo</td>
+      <td>450</td>
       <td>Não</td>
-      <td>Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.NullifyDays</code></td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo contado a partir da data do vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12, após esta data o título é cancelado. *Recurso válido somente para boletos registrados do Banco Santander.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.DaysToFine</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Opcional e somente para provider Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex: 3</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FineRate</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não enviar se utilizar FineAmount. Ex: 10.12345 = 10.12345%</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FineAmount</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não enviar se utilizar FineRate.  Ex: 1000 = R$ 10,00</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.DaysToInterest</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Opcional e somente para provider Bradesco2.Quantidade de dias após o vencimento para iniciar a cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex: 3</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.InterestRate</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Opcional e somente para provider Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (Mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não enviar se utilizar InterestAmount. Ex: 10.12345</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Opcional e somente para provider Bradesco2. Valor absoluto de juros diário após o vencimento em centavos. Não enviar se utilizar InterestRate. Ex: 1000 = R$ 10,00</td>
+      <td>Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Response</strong></p>
+<blockquote>
+  <p>(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.
+(<strong>) Caracteres especiais e acentuações são removidos automaticamente.
+**Response</strong></p>
+</blockquote>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
