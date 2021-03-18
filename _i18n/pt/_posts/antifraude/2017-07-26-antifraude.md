@@ -989,7 +989,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ## Antifraude e Outra Solução de Autorização
 
-<aside class="request"><span class="method patch">PUT</span> <span class="endpoint">transaction/{id}</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">transaction/{id}</span></aside>
 
 ### Request
 
