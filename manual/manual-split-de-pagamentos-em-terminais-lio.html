@@ -125,11 +125,60 @@
   <p>Para que seja possível operar com o Split utilizando terminais LIO, entre em contato com a equipe comercial Cielo/Braspag.</p>
 </blockquote>
 
+<h2 id="ambientes">Ambientes</h2>
+
+<p>O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.</p>
+
+<h3 id="sandbox">Sandbox</h3>
+
+<ul>
+  <li><strong>API Split</strong>: https://splitsandbox.braspag.com.br/</li>
+  <li><strong>Braspag OAUTH2 Server</strong>: https://authsandbox.braspag.com.br/</li>
+</ul>
+
+<h3 id="produção">Produção</h3>
+
+<ul>
+  <li><strong>API Split</strong>: https://split.braspag.com.br/</li>
+  <li><strong>Braspag OAUTH2 Server</strong>: https://auth.braspag.com.br/</li>
+</ul>
+
 <h2 id="autenticação">Autenticação</h2>
 
-<p>O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/" target="_blank">OAUTH2</a>, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split.</p>
+<p>O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/">OAUTH2</a>, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado a API Cielo e-Commerce e a API do Split.</p>
 
-<p>Consulte <a href="https://braspag.github.io//manual/split-pagamentos-braspag#autentica%C3%A7%C3%A3o" target="_blank">Split de Pagamentos - Autenticação</a> para detalhes técnicos.</p>
+<p>Para obter um token de acesso:</p>
+
+<ol>
+  <li>Concatene o ClientId e ClientSecret: <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>.</li>
+  <li>Codifique o resultado da concatenação em Base64.</li>
+  <li>Realize uma requisição ao servidor de autorização:</li>
+</ol>
+
+<p><strong>Request</strong></p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
+<span class="nt">--header</span> <span class="s2">"Authorization: Basic {base64}"</span>  
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>  
+<span class="nv">grant_type</span><span class="o">=</span>client_credentials
+</code></pre></div></div>
+
+<p><strong>Response</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.</p>
+</blockquote>
+
+<p>O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.</p>
 
 <h2 id="integração">Integração</h2>
 
