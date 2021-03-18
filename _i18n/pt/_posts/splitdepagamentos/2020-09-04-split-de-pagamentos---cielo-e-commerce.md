@@ -3534,37 +3534,35 @@ Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dad
 --header "Content-Type: application/json"
 --header "Authorization: Bearer Token"
 
-{  
-    "MerchantOrderId":"2017091101",
-    "Customer":
-    {  
-        "Name":"Nome do Comprador",
-        "Identity":"12345678909",
-        "IdentityType":"CPF",
-        "Address":{  
-            "Street":"Alameda Xingu",
-            "Number":"512",
-            "Complement":"27 andar",
-            "ZipCode":"12345987",
-            "City":"Sao Paulo",
-            "State":"SP",
-            "Country":"BRA",
-            "District":"Alphaville"
-        }
-    },
-    "Payment":
-    {  
-     "Provider":"Braspag",
-     "Bank": "BancoDoBrasil",
-     "Type":"Boleto",
-     "Amount":10000,
-     "BoletoNumber":"2017091101",
-     "Assignor": "Empresa Teste",
-     "Demonstrative": "Desmonstrative Teste",
-     "ExpirationDate": "2017-12-31",
-     "Identification": "12346578909",
-     "Instructions": "Aceitar somente até a data de vencimento."
-    }
+{
+   "MerchantOrderId":"2017091101",
+   "Customer":{
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Address":{
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"Sao Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment":{
+      "Provider":"Braspag",
+      "Bank":"BancoDoBrasil",
+      "Type":"Boleto",
+      "Amount":10000,
+      "BoletoNumber":"2017091101",
+      "Assignor":"Empresa Teste",
+      "Demonstrative":"Desmonstrative Teste",
+      "ExpirationDate":"2017-12-31",
+      "Identification":"12346578909",
+      "Instructions":"Aceitar somente até a data de vencimento."
+   }
 }
 ```
 
@@ -3593,8 +3591,9 @@ Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dad
 |`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
 |`Payment.Instructions`|Texto |450|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
 
->(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.
->(**) Caracteres especiais e acentuações são removidos automaticamente.
+>(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.  
+>(**) Caracteres especiais e acentuações são removidos automaticamente.  
+
 **Response**
 
 ```json
