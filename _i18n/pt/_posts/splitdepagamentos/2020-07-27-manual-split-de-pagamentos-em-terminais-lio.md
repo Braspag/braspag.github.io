@@ -21,7 +21,7 @@ Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pag
 
 ## Configuração
 
-Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, onde será necessário configurar o estabelecimento comercial da Braspag, (Facilitador) pelo qual serão realizadas as transações destinadas ao Split de Pagamentos. 
+Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, onde será necessário configurar o estabelecimento comercial da Braspag, (Facilitador) pelo qual serão realizadas as transações destinadas ao Split de Pagamentos.  
 
 Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um Subordinado, indicando onde o mesmo estará presente fisicamente.
 
@@ -29,11 +29,54 @@ Com isso, no momento da configuração de um terminal, é necessário informar o
 
 > Para que seja possível operar com o Split utilizando terminais LIO, entre em contato com a equipe comercial Cielo/Braspag.
 
+## Ambientes
+
+O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.
+
+### Sandbox
+
+* **API Split**: https://splitsandbox.braspag.com.br/
+* **Braspag OAUTH2 Server**: https://authsandbox.braspag.com.br/
+
+### Produção
+
+* **API Split**: https://split.braspag.com.br/
+* **Braspag OAUTH2 Server**: https://auth.braspag.com.br/
+
 ## Autenticação
 
-O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split.
+O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/), onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado a API Cielo e-Commerce e a API do Split.
 
-Consulte [Split de Pagamentos - Autenticação](https://braspag.github.io//manual/split-pagamentos-braspag#autentica%C3%A7%C3%A3o){:target="_blank"} para detalhes técnicos.
+Para obter um token de acesso:
+
+1. Concatene o ClientId e ClientSecret: `ClientId:ClientSecret`.  
+2. Codifique o resultado da concatenação em Base64.  
+3. Realize uma requisição ao servidor de autorização:  
+
+**Request**  
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
+
+``` shell
+x-www-form-urlencoded
+--header "Authorization: Basic {base64}"  
+--header "Content-Type: application/x-www-form-urlencoded"  
+grant_type=client_credentials
+```
+
+**Response**
+
+```json
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs",
+    "token_type": "bearer",
+    "expires_in": 1199
+}
+```
+
+> O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
+
+O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.  
 
 ## Integração
 
