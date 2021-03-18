@@ -3285,7 +3285,7 @@ Nome do campo: ReleasedToAnticipation
             "TotalOrderAmount":10000
         },
         "SplitTransaction": {
-            "ReleasedToAnticipation": false
+            "ReleasedToAnticipation": true
         },
         "SplitPayments": [
             {
@@ -3377,7 +3377,7 @@ Nome do campo: ReleasedToAnticipation
             }
         ],
         "SplitTransaction": {
-            "ReleasedToAnticipation": false
+            "ReleasedToAnticipation": true
         },
         "ServiceTaxAmount": 0,
         "Installments": 1,

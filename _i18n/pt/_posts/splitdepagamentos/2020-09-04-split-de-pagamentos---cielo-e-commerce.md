@@ -3291,7 +3291,7 @@ Nome do campo: ReleasedToAnticipation
             "Brand": "Visa"
         },
         "SplitTransaction": {
-            "ReleasedToAnticipation": false
+            "ReleasedToAnticipation": true
         },
         "SplitPayments": [
             {
@@ -3381,7 +3381,7 @@ Nome do campo: ReleasedToAnticipation
             }
         ],
         "SplitTransaction": {
-            "ReleasedToAnticipation": false
+            "ReleasedToAnticipation": true
         },
         "ServiceTaxAmount": 0,
         "Installments": 1,
