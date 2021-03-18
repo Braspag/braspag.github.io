@@ -3536,7 +3536,7 @@ A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigat
 
 ### Criando uma transação de Boleto
 
-Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como CPF e endereço. Abaixo temos um exemplo de como criar um pedido com o meio de pagamento boleto.
+Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este meio de pagamento.
 
 #### Criando uma transação  
 
@@ -3577,13 +3577,7 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
      "Demonstrative": "Desmonstrative Teste",
      "ExpirationDate": "2017-12-31",
      "Identification": "12346578909",
-     "Instructions": "Aceitar somente até a data de vencimento.",
-     "DaysToFine": 1,
-     "FineRate": 10.00000,
-     "FineAmount": 1000,
-     "DaysToInterest": 1,
-     "InterestRate": 5.00000,
-     "InterestAmount": 500
+     "Instructions": "Aceitar somente até a data de vencimento."
     }
 }
 ```
@@ -3592,35 +3586,31 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Braspag|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Braspag|
-|`MerchantOrderId`|Texto|vide tabela abaixo|Sim|Numero de identificação do Pedido. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Name`|Texto|vide tabela abaixo|Sim|Nome do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Identity`|Texto |14 |Sim|Número do RG, CPF ou CNPJ do Cliente| 
+|`MerchantOrderId`|Texto| 50 |Sim|Numero de identificação do Pedido|
+|`Customer.Name`|Texto| 60(*) |Sim|Nome do comprador|
+|`Customer.Identity`|Texto |14 |Sim|Número do RG, CPF ou CNPJ do Cliente|
 |`Customer.IdentityType`|Texto|255|Sim|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
-|`Customer.Address.Street`|Texto|vide tabela abaixo|Sim|Endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.Number`|Texto|vide tabela abaixo|Sim|Número endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.Complement`|Texto|vide tabela abaixo|Não|Complemento do endereço de contato do Comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
+|`Customer.Address.Street`|Texto|60(*)|Sim|Endereço de contato do comprador|
+|`Customer.Address.Number`|Texto|60(*)|Sim|Número endereço de contato do comprador|
+|`Customer.Address.Complement`|Texto|60(*)|Não|Complemento do endereço de contato do Comprador|
 |`Customer.Address.ZipCode`|Texto|8|Sim|CEP do endereço de contato do comprador|
-|`Customer.Address.District`|Texto|vide tabela abaixo|Sim|Bairro do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Customer.Address.City`|Texto|vide tabela abaixo|Sim|Cidade do endereço de contato do comprador. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
+|`Customer.Address.District`|Texto|60(*)|Sim|Bairro do endereço de contato do comprador|
+|`Customer.Address.City`|Texto|18(*)|Sim|Cidade do endereço de contato do comprador|
 |`Customer.Address.State`|Texto|2|Sim|Estado do endereço de contato do comprador|
 |`Customer.Address.Country`|Texto|35|Sim|Pais do endereço de contato do comprador|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento de Boleto (Braspag)|
-|`Payment.Bank`|Texto|15|Sim|Nome do Banco que o boleto será emitido|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso "Boleto"|
+|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento de Boleto `Braspag`|
+|`Payment.Bank`|Texto|15|Sim|Nome do Banco que o boleto será emitido `BancoDoBrasil`|
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. No caso `Boleto`|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (deve ser enviado em centavos)|
-|`Payment.BoletoNumber`|Texto |vide tabela abaixo|Não|Número do Boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo|
+|`Payment.BoletoNumber`|Texto |9(**)|Não|Número do Boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
 |`Payment.Assignor`|Texto |200|Não|Nome do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Demonstrative`|Texto |vide tabela abaixo|Não|Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
+|`Payment.Demonstrative`|Texto |N/A|Não|Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
 |`Payment.ExpirationDate`|Date |AAAA-MM-DD|Não|Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|
 |`Payment.Identification`|Texto |14 |Não|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
-|`Payment.Instructions`|Texto |vide tabela abaixo|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o Provider utilizado (vide tabela abaixo)|
-|`Payment.NullifyDays`|Número |2 |Não|Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo contado a partir da data do vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12, após esta data o título é cancelado. *Recurso válido somente para boletos registrados do Banco Santander.|
-|`Payment.DaysToFine`|Número |15 |Não|Opcional e somente para provider Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex: 3|
-|`Payment.FineRate`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não enviar se utilizar FineAmount. Ex: 10.12345 = 10.12345%|
-|`Payment.FineAmount`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não enviar se utilizar FineRate.  Ex: 1000 = R$ 10,00|
-|`Payment.DaysToInterest`|Número |15 |Não|Opcional e somente para provider Bradesco2.Quantidade de dias após o vencimento para iniciar a cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex: 3|
-|`Payment.InterestRate`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (Mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não enviar se utilizar InterestAmount. Ex: 10.12345|
-|`Payment.InterestAmount`|Número |15 |Não|Opcional e somente para provider Bradesco2. Valor absoluto de juros diário após o vencimento em centavos. Não enviar se utilizar InterestRate. Ex: 1000 = R$ 10,00|
+|`Payment.Instructions`|Texto |450|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
+
+>(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.
+>(**) Caracteres especiais e acentuações são removidos automaticamente.
 
 **Response**
 
@@ -3654,12 +3644,6 @@ Para gerar um boleto em Sandbox, é necessário fornecer dados do comprador como
         "Address": "ESTRADA TENENTE MARQUES, 1818, SALA 6 B",
         "Identification": "12346578909",
         "IsRecurring": false,
-        "InterestAmount": 500,
-        "InterestRate": 5.0,
-        "FineRate": 10.0,
-        "FineAmount": 1000,
-        "DaysToFine": 1,
-        "DaysToInterest": 1,
         "Bank": "BancoDoBrasil",
         "PaymentId": "d605c399-96b2-4bb9-ae75-33824ec01be9",
         "Type": "Boleto",
