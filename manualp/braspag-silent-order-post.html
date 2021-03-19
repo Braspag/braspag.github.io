@@ -140,7 +140,7 @@
             <div class="post">
   <h1 id="silent-order-post">Silent Order Post</h1>
 
-<p>Esta é uma integração que a Braspag oferece aos lojistas com o intuito de oferecer maior segurança e controle sobre a experiência de checkout. Ela é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito; ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.</p>
+<p>Esta é uma integração que a Braspag oferece aos lojistas com o intuito de oferecer maior segurança e controle sobre a experiência de checkout.<br />O <strong>Silent Order Post</strong> é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito; ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.</p>
 
 <p>Este método possibilita o envio de dados do pagamento do seu cliente de forma segura, diretamente em nosso sistema. Os dados do pagamento, tais como número do cartão e data de validade, são armazenados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2.</p>
 
@@ -149,7 +149,7 @@
 <h1 id="principais-benefícios">Principais Benefícios</h1>
 
 <ul>
-  <li><strong>Captura direta</strong>: a captura de dados do pagamento é feita diretamente para os sistemas da Braspag, por meio dos campos definidos no seu checkout, através de um script (javascript).</li>
+  <li><strong>Captura direta</strong>: a captura dos dados do pagamento é feita diretamente para os sistemas da Braspag por um script, através dos campos definidos no seu checkout.</li>
   <li><strong>Total compatibilidade</strong>: a solução é compatível com todos os meios de pagamento disponibilizados no Gateway Pagador (Nacional e Internacional).</li>
   <li><strong>Certificação PCI DSS 3.2</strong>: a certificação garante total conformidade com as normas da indústria de cartões, reduzindo o escopo de PCI DSS.</li>
   <li><strong>Checkout personalizado</strong>: a personalização oferece controle total sobre a experiência de checkout, mantendo o <em>look &amp; feel</em> de sua marca.</li>
@@ -157,13 +157,13 @@
 
 <h1 id="fluxo-transacional">Fluxo Transacional</h1>
 
-<p><img src="https://braspag.github.io//images/fluxo-sop-br.jpg" alt="Fluxo Silent Order Post" /></p>
+<p><img src="https://braspag.github.io/images/fluxo-trans7-pt.png" alt="Fluxo Silent Order Post" /></p>
 
 <h1 id="integrando-a-solução">Integrando a Solução</h1>
 
 <h2 id="1-obtendo-o-accesstoken">1. Obtendo o AccessToken</h2>
 
-<p>Quando o comprador acessa o checkout, o estabelecimento deve gerar o <code class="language-plaintext highlighter-rouge">AccessToken</code> a partir da API de autenticação da Braspag (<strong>oAuth</strong>). Em caso de sucesso, a API retornará um <code class="language-plaintext highlighter-rouge">AccessToken</code> que deverá ser preenchido no script a ser carregado na página.</p>
+<p>Quando o comprador acessa o checkout, o estabelecimento deve gerar o <code class="language-plaintext highlighter-rouge">AccessToken</code> a partir da API de autenticação da Braspag (<strong>OAuth</strong>). Em caso de sucesso, a API retornará um <code class="language-plaintext highlighter-rouge">AccessToken</code> que deverá ser preenchido no script a ser carregado na página.</p>
 
 <p>Para obter o <code class="language-plaintext highlighter-rouge">AccessToken</code> no padrão <a href="https://oauth.net/2/">OAuth 2.0</a>, realize um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL, formada pela “URL base do ambiente + endpoint”, no modelo server-to-server:</p>
 
