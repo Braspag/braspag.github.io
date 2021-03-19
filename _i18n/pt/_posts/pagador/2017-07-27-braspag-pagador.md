@@ -4493,7 +4493,7 @@ Além da geração do `CardToken`, é possível associar um nome (um identificad
 
 Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
 
-Abaixo veja a representação do fluxo transacional de solicitação do token pela API do Pagador:
+Abaixo veja a representação do **fluxo transacional** com a solicitação do token pela API do Pagador:
 
 ![Cartão Protegido - Pagador](https://braspag.github.io/images/fluxo-trans4-pt.png)
 
