@@ -107,7 +107,7 @@
             <div class="post">
   <h1 id="introdução">Introdução</h1>
 
-<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma a API do Split de Pagamentos, descrevendo os serviços disponíveis com exemplos de requisição e resposta.</p>
+<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma à API do Split de Pagamentos, descrevendo os serviços disponíveis com exemplos de requisição e resposta.</p>
 
 <p>O Split de Pagamentos se divide em <strong>Transacional</strong> e <strong>Agenda Financeira / Conciliação</strong>.</p>
 
@@ -123,7 +123,7 @@ Possuímos duas maneiras de integração com as API transacionais, são elas:</p
 
 <h2 id="agenda-financeira--conciliação">Agenda Financeira / Conciliação</h2>
 
-<p>As operações de gerenciamento do Split de Pagamento serão exploradas nessa documentação, elas lhe permitem acessar serviços como:</p>
+<p>As operações de gerenciamento do Split de Pagamentos serão exploradas nessa documentação. Elas lhe permitem acessar serviços como:</p>
 
 <ul>
   <li>Pós Transacional</li>
@@ -135,44 +135,86 @@ Possuímos duas maneiras de integração com as API transacionais, são elas:</p
 
 <h2 id="ambientes">Ambientes</h2>
 
-<p>Disponibilizamos de dois ambientes para a integração com a API, com o ambiente de Sandbox é possível realizar a homologação e testes de sua integração, no ambiente de Produção serão realizadas as transações reais.</p>
+<p>Existem dois ambientes distintos para a integração com a API: o ambiente <strong>Sandbox</strong> e o ambiente de <strong>Produção</strong>.<br />
+No ambiente Sandbox, podem ser realizados a homologação e os testes de sua integração. Já no ambiente de Produção, são realizadas as transações reais.</p>
+
+<p><br />Para executar uma operação:</p>
+
+<ol>
+  <li>Combine a <strong>base</strong> da URL do ambiente com o <strong><em>endpoint</em></strong> da operação desejada. Ex.: https://split.braspag.com.br/<em>oauth2/token</em>.</li>
+  <li>Envie a requisição para a URL utilizando o método HTTP (GET, POST ou PUT) adequado à operação.</li>
+</ol>
 
 <h3 id="sandbox">Sandbox</h3>
 
-<ul>
-  <li><strong>API Split</strong>: https://splitsandbox.braspag.com.br/</li>
-  <li><strong>Braspag OAUTH2 Server</strong>: https://authsandbox.braspag.com.br/</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>URL Base</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>API Split</strong></td>
+      <td>https://splitsandbox.braspag.com.br/</td>
+      <td>Para requisições de agenda financeira, chargeback, liquidação e antecipação.</td>
+    </tr>
+    <tr>
+      <td><strong>Braspag OAUTH2 Server</strong></td>
+      <td>https://authsandbox.braspag.com.br/</td>
+      <td>Para requisição de autenticação.</td>
+    </tr>
+  </tbody>
+</table>
 
-<blockquote>
-  <p>Solicite suas credenciais para o ambiente de teste em nosso portal de suporte https://suporte.braspag.com.br ou pelo telefone 3003-6554</p>
-</blockquote>
+<p><strong>Nota:</strong> Solicite suas credenciais para o ambiente de teste em nosso <a href="https://suporte.braspag.com.br">Portal de Suporte</a> ou pelo telefone <strong>3003-6554</strong>.</p>
 
 <h3 id="produção">Produção</h3>
 
-<ul>
-  <li><strong>API Split</strong>: https://split.braspag.com.br/</li>
-  <li><strong>Braspag OAUTH2 Server</strong>: https://auth.braspag.com.br/</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>URL Base</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>API Split</strong></td>
+      <td>https://split.braspag.com.br/</td>
+      <td>Para requisições de agenda financeira, chargeback, liquidação e antecipação.</td>
+    </tr>
+    <tr>
+      <td><strong>Braspag OAUTH2 Server</strong></td>
+      <td>https://auth.braspag.com.br/</td>
+      <td>Para requisição de autenticação.</td>
+    </tr>
+  </tbody>
+</table>
 
 <aside class="notice">Credenciais de acesso são utilizadas para autenticar todas as requisições feitas para os endpoints da API.</aside>
 <aside class="warning">Por segurança, essas credenciais não devem ser indevidamente compartilhadas ou expostas.</aside>
 
 <h2 id="autenticação">Autenticação</h2>
 
-<p>O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/">OAUTH2</a>, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado a API do Split.</p>
+<p>O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/">OAUTH2</a>. É necessário primeiramente obter um token de acesso, utilizando suas credenciais. O token deverá posteriormente ser enviado à API do Split.</p>
 
 <p>Para obter um token de acesso:</p>
 
 <ol>
   <li>Concatene o ClientId e ClientSecret: <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>.</li>
   <li>Codifique o resultado da concatenação em Base64.</li>
-  <li>Realize uma requisição ao servidor de autorização:</li>
+  <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
 </ol>
 
-<p><strong>Request</strong></p>
+<p>Segue exemplo de requisição a ser enviada:</p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
+<h3 id="requisição">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/oauth2/token</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Basic {base64}"</span>  
@@ -180,7 +222,7 @@ Possuímos duas maneiras de integração com as API transacionais, são elas:</p
 <span class="nv">grant_type</span><span class="o">=</span>client_credentials
 </code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<h3 id="resposta">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs"</span><span class="p">,</span><span class="w">
@@ -189,20 +231,17 @@ Possuímos duas maneiras de integração com as API transacionais, são elas:</p
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<blockquote>
-  <p>O ClientId é o identificador dentro da Braspag, conhecido também como MerchantId.<br />
-O ClientSecret é a chave utilizada na autenticação.</p>
-</blockquote>
+<p><strong>Nota:</strong> O ClientId é o identificador dentro da Braspag, conhecido também como MerchantId. O ClientSecret é a chave utilizada na autenticação.</p>
 
-<p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.</p>
+<p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos, sendo necessário obter um novo token toda vez que ele expirar.</p>
 
 <h1 id="agenda-financeira">Agenda Financeira</h1>
 
-<p>No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).</p>
+<p>No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).<br />
+A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.
+Essa agenda é composta por eventos de Crédito e Débito que são gerados de acordo com as operações efetuadas e o regime de pagamento acordado.</p>
 
-<p>A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.</p>
-
-<p>A agenda é composta por eventos de Crédito e Débito que são gerados de acordo com as operações efetuadas e o regime de pagamento acordado.</p>
+<p>Em uma consulta ou ajuste na agenda, os seguintes valores podem ser retornados no campo <code class="language-plaintext highlighter-rouge">Schedules.EventDescription</code>, em resposta à requisição:</p>
 
 <p>Eventos de <strong>Crédito</strong>:</p>
 
@@ -223,7 +262,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
     <tr>
       <td>3</td>
       <td><code class="language-plaintext highlighter-rouge">FeeCredit</code></td>
-      <td>Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).</td>
+      <td>Lançamento de crédito da tarifa fixa acordada entre o Marketplace e a Braspag (Facilitador).</td>
     </tr>
     <tr>
       <td>5</td>
@@ -258,7 +297,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
     <tr>
       <td>17</td>
       <td><code class="language-plaintext highlighter-rouge">ChargebackReversalCredit</code></td>
-      <td>Lançamento de crédito referente a reversão de um chargeback.</td>
+      <td>Lançamento de crédito referente à reversão de um chargeback.</td>
     </tr>
     <tr>
       <td>19</td>
@@ -268,7 +307,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
     <tr>
       <td>20</td>
       <td><code class="language-plaintext highlighter-rouge">AnticipationCommissionCredit</code></td>
-      <td>Lançamento de crédito referente a comissão de uma antecipação.</td>
+      <td>Lançamento de crédito referente à comissão de uma antecipação.</td>
     </tr>
   </tbody>
 </table>
@@ -292,7 +331,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
     <tr>
       <td>4</td>
       <td><code class="language-plaintext highlighter-rouge">FeeDebit</code></td>
-      <td>Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).</td>
+      <td>Lançamento de débito da tarifa fixa acordada entre o Marketplace e a Braspag (Facilitador).</td>
     </tr>
     <tr>
       <td>6</td>
@@ -327,12 +366,12 @@ O ClientSecret é a chave utilizada na autenticação.</p>
     <tr>
       <td>18</td>
       <td><code class="language-plaintext highlighter-rouge">ChargebackReversalDebit</code></td>
-      <td>Lançamento de débito referente a reversão de um chargeback.</td>
+      <td>Lançamento de débito referente à reversão de um chargeback.</td>
     </tr>
     <tr>
       <td>22</td>
       <td><code class="language-plaintext highlighter-rouge">AnticipationCommissionDebit</code></td>
-      <td>Lançamento de débito referente a comissão de uma antecipação.</td>
+      <td>Lançamento de débito referente à comissão de uma antecipação.</td>
     </tr>
   </tbody>
 </table>
@@ -344,15 +383,15 @@ O ClientSecret é a chave utilizada na autenticação.</p>
   <li><strong>Pending</strong>: Aguardando confirmação de liquidação.</li>
   <li><strong>Settled</strong>: Liquidado.</li>
   <li><strong>Error</strong>: Erro de liquidação na instituição financeira.</li>
-  <li><strong>WaitingForAdjustementDebit</strong>: Aguardando liquidação do ajuste de débito associado.</li>
+  <li><strong>WaitingForAdjustmentDebit</strong>: Aguardando liquidação do ajuste de débito associado.</li>
   <li><strong>Anticipated</strong>: Evento antecipado.</li>
 </ul>
 
 <h2 id="consultar-eventos">Consultar Eventos</h2>
 
-<p>A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.</p>
+<p>A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas, de acordo com o seguinte padrão de requisição:</p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialForecastedDate={initialDate}&amp;finalForecastedDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/events?initialForecastedDate={initialDate}&amp;finalForecastedDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
 
 <table>
   <thead>
@@ -416,7 +455,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">EventStatus</code></td>
-      <td>Status do evento [Scheduled - Pending - Settled - Error - WaitingFoAdjustementDebit - Anticipated].</td>
+      <td>Status do evento [Scheduled - Pending - Settled - Error - WaitingForAdjustmentDebit - Anticipated].</td>
       <td>String</td>
       <td>-</td>
       <td>Não</td>
@@ -441,21 +480,21 @@ O ClientSecret é a chave utilizada na autenticação.</p>
   </tbody>
 </table>
 
-<p><strong>Resquest</strong></p>
+<h3 id="requisições">Requisições</h3>
 
-<h3 id="por-data-prevista-de-pagamento">Por Data Prevista de Pagamento</h3>
+<h4 id="por-data-prevista-de-pagamento">Por Data Prevista de Pagamento</h4>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialForecastedDate=2017-12-01&amp;finalForecastedDate=2018-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/events?initialForecastedDate=2017-12-01&amp;finalForecastedDate=2018-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
-<h3 id="por-data-de-pagamento">Por Data de Pagamento</h3>
+<h4 id="por-data-de-pagamento">Por Data de Pagamento</h4>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialPaymentDate=2018-08-22&amp;finalPaymentDate=2018-08-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/events?initialPaymentDate=2018-08-22&amp;finalPaymentDate=2018-08-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
 </code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<h3 id="resposta-1">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -553,7 +592,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Schedules[].Id</code></td>
-      <td>Identificador do evento na agenda financiera.</td>
+      <td>Identificador do evento na agenda financeira.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
@@ -571,7 +610,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Schedules[].PaymentDate</code></td>
-      <td>Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)</td>
+      <td>Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled).</td>
       <td>Data</td>
       <td>-</td>
     </tr>
@@ -607,13 +646,13 @@ O ClientSecret é a chave utilizada na autenticação.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Schedules[].EventDescription</code></td>
-      <td>Descrição do evento.</td>
+      <td>Descrição do evento. Consulte os tipos de <a href="#agenda-financeira">eventos de débito e crédito</a>.</td>
       <td>String</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Schedules[].EventStatus</code></td>
-      <td>Status do evento. [Scheduled - Pending - Settled - Error - WaitingForAdjustementDebit]</td>
+      <td>Status do evento [Scheduled - Pending - Settled - Error - WaitingForAdjustmentDebit].</td>
       <td>String</td>
       <td>-</td>
     </tr>
@@ -622,9 +661,9 @@ O ClientSecret é a chave utilizada na autenticação.</p>
 
 <h2 id="consultar-transações">Consultar Transações</h2>
 
-<p>O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.</p>
+<p>O Split de Pagamentos permite consultar a agenda financeira de várias transações ou de uma transação específica, de acordo com o seguinte padrão de requisição:</p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate={initialDate}&amp;finalCaptureDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/transactions?initialCaptureDate={initialDate}&amp;finalCaptureDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
 
 <table>
   <thead>
@@ -697,17 +736,19 @@ O ClientSecret é a chave utilizada na autenticação.</p>
   </tbody>
 </table>
 
-<p>Para informar várias lojas na consulta, basta repetir o parâmetro “merchantIds”. Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.</p>
+<p><strong>Nota:</strong> Para informar várias lojas na consulta, basta repetir o parâmetro “merchantIds”. Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.</p>
 
-<p><strong>Request</strong></p>
+<h3 id="requisições-1">Requisições</h3>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate=2017-12-01&amp;finalCaptureDate=2017-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<h4 id="para-várias-transações">Para Várias Transações</h4>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/transactions?initialCaptureDate=2017-12-01&amp;finalCaptureDate=2017-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
 </code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<h4 id="resposta-2">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -794,7 +835,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].PaymentDate</code></td>
-      <td>Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)</td>
+      <td>Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled).</td>
       <td>Data</td>
       <td>-</td>
     </tr>
@@ -830,32 +871,31 @@ O ClientSecret é a chave utilizada na autenticação.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].EventDescription</code></td>
-      <td>Descrição do evento.</td>
+      <td>Descrição do evento.  Consulte os tipos de <a href="#agenda-financeira">eventos de débito e crédito</a>.</td>
       <td>String</td>
       <td>-</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].EventStatus</code></td>
-      <td>Status do evento. [Scheduled - Pending - Settled - Error - Anticipated]</td>
+      <td>Status do evento [Scheduled - Pending - Settled - Error - Anticipated].</td>
       <td>String</td>
       <td>-</td>
     </tr>
   </tbody>
 </table>
 
-<p>Para consultar a agenda de uma transação específica basta informar o identificador da transação na requisição.</p>
+<h4 id="para-uma-transação-específica">Para Uma Transação Específica</h4>
 
-<p>Neste caso poderão ser utilizados os filtros MarchantIds e EventStatus.</p>
+<p>Para consultar a agenda de uma transação específica, basta informar o identificador da transação (<code class="language-plaintext highlighter-rouge">PaymentId</code>) na requisição.<br />
+Neste caso, poderão ser utilizados os filtros <code class="language-plaintext highlighter-rouge">MerchantIds</code> e <code class="language-plaintext highlighter-rouge">EventStatus</code>.</p>
 
-<p><strong>Request</strong></p>
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
 </code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<h4 id="resposta-3">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -894,41 +934,36 @@ O ClientSecret é a chave utilizada na autenticação.</p>
 
 <h2 id="ajustes">Ajustes</h2>
 
-<p>O Split de Pagamentos permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.</p>
+<p>O Split de Pagamentos permite que sejam lançados ajustes a crédito e a débito nas agendas dos Subordinados.</p>
 
-<p>Um ajuste somente será efetivamente liquidado para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.</p>
+<p>Um ajuste somente será efetivamente liquidado para os envolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.</p>
 
-<p><strong>Ex:</strong> Marketplace lança um ajuste a débito de R$100,00 para o Subordinado A com data prevista de cobrança em 17/10/2018.</p>
+<p><strong>Ex:</strong> Marketplace lança um ajuste a débito de R$100,00 para o Subordinado “A” com data prevista de cobrança em 17/10/2018.</p>
 
 <p><strong>Caso 1)</strong> Subordinado possui saldo positivo na data prevista informada.</p>
 
 <p><img src="https://braspag.github.io/images/braspag/split/adjustment001.png" alt="SplitSampleadjustment001" /></p>
 
-<p>Os valores até o dia 16/10/2018 foram liquidados normalmente.</p>
-
-<p>Como o subordinado tinha R$150,00 para receber no dia 17/10/2018, o ajuste foi lançado na agenda financeira na data prevista informada e o mesmo receberá R$50,00 devido ao débito do ajuste.</p>
-
-<p>O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 17/10/2018.</p>
+<p>Os valores até o dia 16/10/2018 foram liquidados normalmente.<br />
+Como o subordinado tinha R$150,00 para receber no dia 17/10/2018, o ajuste foi lançado na agenda financeira na data prevista informada e o mesmo receberá R$50,00 devido ao débito do ajuste.<br />
+O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 17/10/2018.</p>
 
 <p><strong>Caso 2)</strong> Subordinado não possui saldo positivo na data prevista informada.</p>
 
 <p><img src="https://braspag.github.io/images/braspag/split/adjustment002.png" alt="SplitSampleadjustment002" /></p>
 
-<p>Os valores até o dia 16/10/2018 foram liquidados normalmente.</p>
-
-<p>O Subordinado tinha a receber apenas R$60,00 no dia 17/10/2018, o que não cobre o valore do ajuste a ser debitado do mesmo.</p>
-
-<p>Neste cenário, os pagamentos do subordinado serão retidos até que o mesmo tenha saldo para cobrir o ajuste, o que ocorre no dia 19/10/2018, onde o acumulado retido é de R$130,00. Com isso, o subordinado receberá R$30,00.</p>
-
-<p>O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 19/10/2018.</p>
+<p>Os valores até o dia 16/10/2018 foram liquidados normalmente.<br />
+O Subordinado tinha a receber apenas R$60,00 no dia 17/10/2018, o que não cobre o valore do ajuste a ser debitado do mesmo.<br />
+Neste cenário, os pagamentos do subordinado serão retidos até que o mesmo tenha saldo para cobrir o ajuste, o que ocorre no dia 19/10/2018, onde o acumulado retido é de R$130,00. Com isso, o subordinado receberá R$30,00. <br />
+O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 19/10/2018.</p>
 
 <h3 id="criar-ajuste">Criar Ajuste</h3>
 
-<p>A criação de um novo ajuste na agenda financeira deve ser realizado como o exemplo abaixo:</p>
+<p>A criação de um novo ajuste na agenda financeira deve ser realizado como no exemplo abaixo:</p>
 
-<p><strong>Request</strong></p>
+<h4 id="requisição-1">Requisição</h4>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/adjustment-api/adjustments/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/adjustment-api/adjustments/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="err">--header</span><span class="w"> </span><span class="s2">"Accept: application/json"</span><span class="w">
@@ -983,7 +1018,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">description</code></td>
-      <td>Decrição do ajuste.</td>
+      <td>Descrição do ajuste.</td>
       <td>String</td>
       <td>500</td>
       <td>Sim</td>
@@ -1000,7 +1035,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
 
 <aside class="warning">Ao associar o ajuste a uma transação, os envolvidos devem ser participantes da transação.</aside>
 
-<p><strong>Response</strong></p>
+<h4 id="resposta-4">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="mi">201</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Created</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1035,7 +1070,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">status</code></td>
-      <td>Status do ajustes [Created - Scheduled - Processed - Canceled ].</td>
+      <td>Status do ajuste [Created - Scheduled - Processed - Cancelled ].</td>
       <td>String</td>
       <td>-</td>
       <td>-</td>
@@ -1047,9 +1082,9 @@ O ClientSecret é a chave utilizada na autenticação.</p>
 
 <p>É possível realizar consulta de ajustes com base em um período.</p>
 
-<p><strong>Request</strong></p>
+<h4 id="requisição-2">Requisição</h4>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/adjustment-api/adjustments/?Status=Created&amp;InitialCreationDate=2020-08-20&amp;Page=1&amp;PageSize=25</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/adjustment-api/adjustments/?Status=Created&amp;InitialCreationDate=2020-08-20&amp;Page=1&amp;PageSize=25</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
@@ -1068,28 +1103,28 @@ O ClientSecret é a chave utilizada na autenticação.</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status do ajuste [ <code class="language-plaintext highlighter-rouge">Created</code>, <code class="language-plaintext highlighter-rouge">Scheduled</code>, <code class="language-plaintext highlighter-rouge">Processed</code>, <code class="language-plaintext highlighter-rouge">Canceled</code>]</td>
+      <td>Status do ajuste [Created, Scheduled, Processed, Cancelled].</td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">InitialCreationDate</code></td>
-      <td>Data de criação do ajuste</td>
+      <td>Data de criação do ajuste.</td>
       <td>YYYY-MM-DD</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Page</code></td>
-      <td>Índice da página</td>
+      <td>Índice da página.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
-      <td>Quantidade total de itens por página</td>
+      <td>Quantidade total de itens por página.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Não</td>
@@ -1097,7 +1132,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
   </tbody>
 </table>
 
-<p><strong>Response</strong></p>
+<h4 id="resposta-5">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">OK</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1138,91 +1173,91 @@ O ClientSecret é a chave utilizada na autenticação.</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Pagination.Total</code></td>
-      <td>Total de páginas</td>
+      <td>Total de páginas.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Pagination.PageSize</code></td>
-      <td>Quantidade total de itens por página</td>
+      <td>Quantidade total de itens por página.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Pagination.CurrentPage</code></td>
-      <td>Página atual</td>
+      <td>Página atual.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Pagination.PageCount</code></td>
-      <td>Quantidade de itens na página atual</td>
+      <td>Quantidade de itens na página atual.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Pagination.LastPage</code></td>
-      <td>Última página</td>
+      <td>Última página.</td>
       <td>Booleano</td>
       <td>-</td>
       <td><code class="language-plaintext highlighter-rouge">true</code> ou <code class="language-plaintext highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Id</code></td>
-      <td>Id do ajuste</td>
+      <td>Id do ajuste.</td>
       <td>GUID</td>
       <td>-</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].CreatedAt</code></td>
-      <td>Data de criação</td>
+      <td>Data de criação.</td>
       <td>String</td>
       <td>-</td>
       <td>yyyy-MM-dd hh:mm:ss</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].MerchantIdToDebit</code></td>
-      <td>Merchant do qual o valor será debitado</td>
+      <td>Merchant do qual o valor será debitado.</td>
       <td>GUID</td>
       <td>-</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].MerchantIdToCredit</code></td>
-      <td>Merchant para o qual o valor será creditado</td>
+      <td>Merchant para o qual o valor será creditado.</td>
       <td>GUID</td>
       <td>-</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].ForecastedDate</code></td>
-      <td>Data de previsão</td>
+      <td>Data de previsão.</td>
       <td>String</td>
       <td>-</td>
       <td>yyyy-MM-dd</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Amount</code></td>
-      <td>Valor do ajuste em centavos</td>
+      <td>Valor do ajuste em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].TransactionId</code></td>
-      <td>Id da transação</td>
+      <td>Id da transação.</td>
       <td>GUID</td>
       <td>-</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Description</code></td>
-      <td>Descrição do ajuste</td>
+      <td>Descrição do ajuste.</td>
       <td>String</td>
       <td>500</td>
       <td>Texto alfanumérico</td>
@@ -1232,21 +1267,19 @@ O ClientSecret é a chave utilizada na autenticação.</p>
 
 <h1 id="chargeback">Chargeback</h1>
 
-<p>No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o repassará para seus Subordinados, desde que acordado previamente entre as partes.</p>
+<p>No Split de Pagamentos, o Marketplace pode definir se assumirá o chargeback ou se o repassará para seus Subordinados, desde que acordado previamente entre as partes.</p>
 
-<p>Se o Marketplace optar por repassar para os Subordinados, o Chargeback Total é sensibilizado automaticamente na agenda dos mesmos. Caso contrário o chargeback será sensibilizado automaticamente na agenda do Marketplace, como acontece com um Charback Parcial.</p>
+<p>Se o Marketplace optar por repassar para os Subordinados, o <strong>Chargeback Total</strong> é sensibilizado automaticamente na agenda dos mesmos. Caso contrário, o chargeback será sensibilizado automaticamente na agenda do Marketplace, como acontece com um <strong>Chargeback Parcial</strong>.</p>
 
-<p>O Marketplace pode decidir ainda repassar o Chargeback para seus subordinados. Para isso a API Split disponibiliza um serviço onde o Marketplace pode informar como dividir o valor do chargeback entre os subordinados, caso seja um Chargeback Parcial.</p>
+<p>O Marketplace pode decidir ainda repassar o chargeback para seus subordinados. Para isso, a API Split disponibiliza um serviço onde o Marketplace pode informar como dividir o valor do chargeback entre os subordinados, caso seja um Chargeback Parcial.</p>
 
-<blockquote>
-  <p>É possível solicitar que todo chargeback seja repassado para o subordinado por padrão, mediante abertura de chamado.</p>
-</blockquote>
+<aside class="notice">É possível solicitar que todo chargeback seja repassado para o subordinado por padrão, mediante abertura de chamado.</aside>
 
-<p>No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transação com valor capturado de R$100,00.</p>
+<p>No exemplo abaixo, ocorreu um Chargeback Parcial no valor de R$60,00 de uma transação com valor capturado de R$100,00.</p>
 
-<p><strong>Request</strong></p>
+<h2 id="requisição-3">Requisição</h2>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/chargebacks/{ChargebackId}/splits</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/api/chargebacks/{ChargebackId}/splits</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -1286,7 +1319,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
   </tbody>
 </table>
 
-<p><strong>Response</strong></p>
+<h2 id="resposta-6">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"ChargebackSplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1322,9 +1355,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<blockquote>
-  <p>O Marketplace tem 1 dia, contado a partir da data de efetivação do chargeback, para informar como deseja repassar os valores aos subordinados.</p>
-</blockquote>
+<aside class="warning">O Marketplace tem 1 dia, contado a partir da data de efetivação do chargeback, para informar como deseja repassar os valores aos subordinados.</aside>
 
 <table>
   <thead>
@@ -1347,15 +1378,16 @@ O ClientSecret é a chave utilizada na autenticação.</p>
 
 <h1 id="liquidação">Liquidação</h1>
 
-<p>A plataforma permite que o Master bloqueie temporariamente a liquidação para um Subordinado para garantia da entrega do produto/serviço, funcionalidade conhecida como Escrow.</p>
+<p>A plataforma permite que o Master bloqueie temporariamente a liquidação para um Subordinado, para garantia da entrega do produto/serviço. Essa funcionalidade é conhecida como “Escrow”.</p>
 
 <h2 id="trava">Trava</h2>
 
-<p>Este bloqueio, conhecido como custódia, pode durar até 180 dias. Após este prazo, a Braspag liquidará o valor para o subordinado independentemente do bloqueio.</p>
+<p>Este bloqueio, conhecido como custódia, pode durar até 180 dias. Após este prazo, a Braspag liquidará o valor para o subordinado independentemente do bloqueio.<br />
+Segue exemplo de requisição:</p>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{splitApi}/api/transactions/{paymentid}/settlements</span></aside>
+<h3 id="requisição-4">Requisição</h3>
 
-<p><strong>Request</strong></p>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/api/transactions/{paymentid}/settlements</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1373,26 +1405,26 @@ O ClientSecret é a chave utilizada na autenticação.</p>
   <thead>
     <tr>
       <th>Propriedade</th>
+      <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code></td>
+      <td>Identificador do subordinado.</td>
       <td>Texto</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Merchantid identificador do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Locked</code></td>
+      <td>Identifica se a liquidação será travada para o subordinado ou não.</td>
       <td>Booleano</td>
       <td>—</td>
       <td>Sim</td>
-      <td>Booleano que identifica se o a liquidação será travada para o subordinado ou não</td>
     </tr>
   </tbody>
 </table>
@@ -1401,7 +1433,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
 
 <p>No Split de Pagamentos, para os clientes que estejam habilitados e optem por fazer uso de antecipações, existe a possibilidade de determinar quais transações podem participar de operações de antecipação.</p>
 
-<p>O comportamento padrão é que todas as transações possam fazer parte de operações de antecipação, porém o Master pode determinar quais transações e quando estarão disponíveis.</p>
+<p>O comportamento padrão é que todas as transações possam fazer parte de operações de antecipação, porém o Master pode determinar quais transações estarão disponíveis e quando.</p>
 
 <p>Existem 4 momentos em que se pode liberar uma transação para participar de operações de antecipação:</p>
 
@@ -1412,11 +1444,9 @@ O ClientSecret é a chave utilizada na autenticação.</p>
   <li>Através de endpoint específico para liberação de transação para antecipação.</li>
 </ol>
 
-<blockquote>
-  <p>Uma vez que a transação está liberada para participar de operações de antecipação, a mesma não pode mais ser bloqueada!</p>
-</blockquote>
+<aside class="warning">Uma vez que a transação está liberada para participar de operações de antecipação, a mesma não pode mais ser bloqueada!</aside>
 
-<h2 id="valor-configurado">Valor configurado</h2>
+<h2 id="valor-configurado">Valor Configurado</h2>
 
 <p>Entre em contato com o suporte para criar, atualizar ou remover a configuração com o estado (liberado ou bloqueado) com o qual a transação deve ser criada caso nenhum valor seja passado no request.</p>
 
@@ -1434,20 +1464,20 @@ O ClientSecret é a chave utilizada na autenticação.</p>
   <tbody>
     <tr>
       <td><strong>true</strong></td>
-      <td>Com esta opção, a transação ficará liberada para antecipação e não poderá mais ser bloqueada.</td>
+      <td>A transação ficará liberada para antecipação e não poderá mais ser bloqueada.</td>
     </tr>
     <tr>
       <td><strong>false</strong></td>
-      <td>Com esta opção, a transação estará bloqueada para ser usada em operações de antecipação e poderá ser liberada em um momento posterior.</td>
+      <td>A transação estará bloqueada para ser usada em operações de antecipação e poderá ser liberada em um momento posterior.</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="configuração-no-pós-transacional">Configuração no Pós Transacional</h2>
 
-<p><strong>Request</strong></p>
+<h3 id="requisição-5">Requisição</h3>
 
-<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?releasedToAnticipation=true</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/api/transactions/{PaymentId}/split?releasedToAnticipation=true</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">[</span><span class="w">
@@ -1466,7 +1496,7 @@ O ClientSecret é a chave utilizada na autenticação.</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<h3 id="resposta-7">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c96bf94c-b213-44a7-9ea3-0ee2865dc57e"</span><span class="p">,</span><span class="w">
@@ -1511,13 +1541,13 @@ O ClientSecret é a chave utilizada na autenticação.</p>
 
 <h2 id="endpoint-de-liberação">Endpoint de Liberação</h2>
 
-<p><strong>Request</strong></p>
+<h3 id="requisição-6">Requisição</h3>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/anticipation-api/{PaymentId}/release-to-anticipation</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/anticipation-api/{PaymentId}/release-to-anticipation</span></aside>
 
-<p><strong>Response</strong></p>
+<h3 id="resposta-8">Resposta</h3>
 
-<aside class="request"><span class="method post">200 OK</span></aside>
+<p><code class="language-plaintext highlighter-rouge">HTTP Status Code 200 OK</code></p>
 
 <h1 id="anexos">Anexos</h1>
 
