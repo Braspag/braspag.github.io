@@ -11,7 +11,7 @@
 ## Pix
 
 Fluxo para a geração de um QR Code Pix:<br/>
-![Pix1](https://braspag.github.io/images/pix1.png)
+![Pix1](https://braspag.github.io/images/pix.png)
 
 Fluxo de pagamento pelo QR Code Pix:<br/>
 ![Pix2](https://braspag.github.io/images/pix2.png)
