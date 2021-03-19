@@ -10,10 +10,10 @@
 
 ## Pix
 
-Fluxo para a geração de um QR Code Pix:
+Fluxo para a geração de um QR Code Pix:<br/>
 ![Pix1](https://braspag.github.io/images/pix1.png)
 
-Fluxo de pagamento pelo QR Code Pix:
+Fluxo de pagamento pelo QR Code Pix:<br/>
 ![Pix2](https://braspag.github.io/images/pix2.png)
 
 ## QR Code
@@ -26,10 +26,10 @@ Fluxo de pagamento pelo QR Code Pix:
 
 ## E-Wallet
 
-Fluxo de integração da loja com uma e-wallet:
+Fluxo de integração da loja com uma e-wallet:<br/>
 ![E-Wallet1](https://braspag.github.io/images/e-wallet1.png)
 
-Fluxo de pagamento com uma e-wallet:
+Fluxo de pagamento com uma e-wallet:<br/>
 ![E-Wallet2](https://braspag.github.io/images/e-wallet2.png)
 
 ## Voucher
