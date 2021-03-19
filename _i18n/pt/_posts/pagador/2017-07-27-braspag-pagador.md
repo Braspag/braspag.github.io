@@ -6333,13 +6333,17 @@ As variáveis, após devidamente preenchidas, fornecem uma URL semelhante ao exe
 
 # Consultas
 
-As formas de consultar uma transação ou venda dependem de quanto tempo tem de vida, como especificado na tabela abaixo:
+As formas de consultar uma transação ou venda dependem de quanto tempo ela tem de vida, como especificado na tabela abaixo:
 
 |TEMPO DE VIDA|FORMA DE CONSULTA|
 |---|---|
 |Até 3 meses|Pela API ou pelo painel Admin Braspag.|
 |De 3 a 12 meses|Pelo painel Admin Braspag com a opção “Histórico” selecionada.|
 |Acima de 12 meses|Por contato direto com seu Executivo Comercial Braspag.|
+
+A consulta deve ser feita através de requisição diretamente à API de Consulta, como mostrado na figura:
+
+![Consulta](https://braspag.github.io/images/fluxo-trans6-pt.png)
 
 ## Consultando uma Transação via PaymentID
 
@@ -7072,9 +7076,13 @@ Para consultar um pedido de recorrência, é necessário o envio de mensagem HTT
 
 Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), deve-se ter configurado o campo "URL Status Pagamento" durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).
 
-Os parâmetros serão enviados à URL cadastrada conforme demonstrado no exemplo abaixo.
+Veja o fluxo percorrido pelo post de notificação:
+
+![Post de Notificação](https://braspag.github.io/images/fluxo-trans5-pt.png)
 
 <aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
+
+Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exemplo abaixo.
 
 ## Notificação Enviada
 
