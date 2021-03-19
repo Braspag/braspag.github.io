@@ -11318,7 +11318,7 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
 
 <h1 id="consultas">Consultas</h1>
 
-<p>As formas de consultar uma transação ou venda dependem de quanto tempo tem de vida, como especificado na tabela abaixo:</p>
+<p>As formas de consultar uma transação ou venda dependem de quanto tempo ela tem de vida, como especificado na tabela abaixo:</p>
 
 <table>
   <thead>
@@ -11342,6 +11342,10 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
     </tr>
   </tbody>
 </table>
+
+<p>A consulta deve ser feita através de requisição diretamente à API de Consulta, como mostrado na figura:</p>
+
+<p><img src="https://braspag.github.io/images/fluxo-trans6-pt.png" alt="Consulta" /></p>
 
 <h2 id="consultando-uma-transação-via-paymentid">Consultando uma Transação via PaymentID</h2>
 
@@ -13038,9 +13042,13 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <p>Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), deve-se ter configurado o campo “URL Status Pagamento” durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
 
-<p>Os parâmetros serão enviados à URL cadastrada conforme demonstrado no exemplo abaixo.</p>
+<p>Veja o fluxo percorrido pelo post de notificação:</p>
+
+<p><img src="https://braspag.github.io/images/fluxo-trans5-pt.png" alt="Post de Notificação" /></p>
 
 <aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
+
+<p>Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exemplo abaixo.</p>
 
 <h2 id="notificação-enviada">Notificação Enviada</h2>
 
