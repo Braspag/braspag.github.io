@@ -2590,7 +2590,7 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API B
 |`Customer.DeliveryAddress.District`|Bairro do endereço de entrega do pedido. |Texto |50|Texto alfanumérico|
 |`Merchant.Id`|Identificador da loja que efetuou essa transação.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Merchant.TradeName`|Nome da loja.|Texto|50|Texto alfanumérico|
-|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15| Consulte os [anexos](#anexos).|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15| Texto alfanumérico|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Ex.: "CreditCard"|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|10000|
 |`Payment.ServiceTaxAmount`|Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|10000|
