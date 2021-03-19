@@ -16,7 +16,7 @@ language_tabs:
 
 # Silent Order Post
 
-Esta é uma integração que a Braspag oferece aos lojistas com o intuito de oferecer maior segurança e controle sobre a experiência de checkout. Ela é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito; ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.
+Esta é uma integração que a Braspag oferece aos lojistas com o intuito de oferecer maior segurança e controle sobre a experiência de checkout.<br/>O **Silent Order Post** é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito; ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.
 
 Este método possibilita o envio de dados do pagamento do seu cliente de forma segura, diretamente em nosso sistema. Os dados do pagamento, tais como número do cartão e data de validade, são armazenados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2.
 
@@ -24,20 +24,20 @@ Por permitir total personalização na página de checkout da loja, essa soluç�
 
 # Principais Benefícios
 
-* **Captura direta**: a captura de dados do pagamento é feita diretamente para os sistemas da Braspag, por meio dos campos definidos no seu checkout, através de um script (javascript).
+* **Captura direta**: a captura dos dados do pagamento é feita diretamente para os sistemas da Braspag por um script, através dos campos definidos no seu checkout.
 * **Total compatibilidade**: a solução é compatível com todos os meios de pagamento disponibilizados no Gateway Pagador (Nacional e Internacional).
 * **Certificação PCI DSS 3.2**: a certificação garante total conformidade com as normas da indústria de cartões, reduzindo o escopo de PCI DSS.
 * **Checkout personalizado**: a personalização oferece controle total sobre a experiência de checkout, mantendo o *look & feel* de sua marca.
 
 # Fluxo Transacional
 
-![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-sop-br.jpg)
+![Fluxo Silent Order Post](https://braspag.github.io/images/fluxo-trans7-pt.png)
 
 # Integrando a Solução
 
 ## 1. Obtendo o AccessToken
 
-Quando o comprador acessa o checkout, o estabelecimento deve gerar o `AccessToken` a partir da API de autenticação da Braspag (**oAuth**). Em caso de sucesso, a API retornará um `AccessToken` que deverá ser preenchido no script a ser carregado na página.
+Quando o comprador acessa o checkout, o estabelecimento deve gerar o `AccessToken` a partir da API de autenticação da Braspag (**OAuth**). Em caso de sucesso, a API retornará um `AccessToken` que deverá ser preenchido no script a ser carregado na página.
 
 Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), realize um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL, formada pela "URL base do ambiente + endpoint", no modelo server-to-server:
 
