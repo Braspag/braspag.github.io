@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Split de Pagamentos - API SPLIT
+title: Split de Pagamentos - Agenda Financeira / Conciliação
 description: Manual de Integração API Split de Pagamentos
 search: true
 toc_footers: false
@@ -11,11 +11,11 @@ tags:
   - 6. Soluções para Marketplace
 ---
 
-# Introdução à API do Split de Pagamentos
+# Introdução
 
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma a API do Split de Pagamentos, descrevendo os serviços disponíveis com exemplos de requisição e resposta.  
 
-O Split de Pagamentos se divide em **Transacional** e **Gerenciamento**.  
+O Split de Pagamentos se divide em **Transacional** e **Agenda Financeira / Conciliação**.  
 
 ## Transacional
 
@@ -25,7 +25,7 @@ Possuímos duas maneiras de integração com as API transacionais, são elas:
 >[**Pagador Braspag**](https://braspag.github.io//manual/split-de-pagamentos-pagador)  
 >[**Cielo 3.0**](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce)
 
-## Gerenciamento
+## Agenda Financeira / Conciliação
 
 As operações de gerenciamento do Split de Pagamento serão exploradas nessa documentação, elas lhe permitem acessar serviços como:  
 
