@@ -16,7 +16,7 @@ language_tabs:
 
 # Silent Order Post
 
-Esta é uma integração que a Braspag oferece aos lojistas com o intuito de oferecer maior segurança e controle sobre a experiência de checkout.<br/>O **Silent Order Post** é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito; ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.
+Esta é uma integração que a Braspag oferece aos lojistas com o intuito de oferecer maior segurança e controle sobre a experiência de checkout.<br/>O **Silent Order Post** é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito; ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio. Para saber mais sobre o PCI DSS, [clique aqui](#certificação-pci-dss).
 
 Este método possibilita o envio de dados do pagamento do seu cliente de forma segura, diretamente em nosso sistema. Os dados do pagamento, tais como número do cartão e data de validade, são armazenados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2.
 
@@ -287,3 +287,20 @@ Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo
 <aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada ("HTTP 401 NotAuthorized").</aside>
 
 Identifique qual será o IP de saída que acessará a API e, na sequência, solicite o cadastro do mesmo através do [Canal de Atendimento](https://suporte.braspag.com.br/hc/pt-br) Braspag.
+
+## Certificação PCI DSS
+
+O **Padrão de Segurança de Dados da Indústria de Cartões de Pagamento (PCI DSS)** é um conjunto de padrões globais de segurança projetados para garantir que todas as empresas (merchants) que armazenem, processem e/ou transmitam dados de cartões de débito ou crédito mantenham um ambiente seguro. Dessa forma, protegem-se tanto os clientes quanto seus dados, independentemente do local ou canal utilizado para as compras.
+
+O PCI DSS é administrado e gerenciado pelo **Conselho de Padrões de Segurança da Indústria de Cartões de Pagamento (PCI SSC)**, um órgão independente criado pelas principais bandeiras de cartões de pagamento (Visa, MasterCard, American Express, Discover e JCB). 
+<br/>As bandeiras de pagamento e adquirentes são responsáveis por garantir a conformidade dos padrões, através da utilização de programas próprios de *PCI compliance* para proteção dos dados de seus afiliados. Além disso, orientam os merchants quanto aos níveis de segurança relacionados ao dados do portador do cartão, a partir de dados como volume de transações.
+
+Acesse a página oficial do [PCI SSC](www.pcisecuritystandards.org/merchants) e consulte a seção de FAQ dedicada aos merchants de pequeno e médio porte. 
+
+Merchants podem precisar de uma auditoria externa, com emissão de um ROC (Report on Compliance) ao final, ou então de um SAQ (Self-Assessment Questionnaire) para atestar sua 
+conformidade, dependendo do seu nível, que varia de acordo com cada bandeira.
+<br/>Consulte a página de [Produtos e Serviços de Pagamento Digital - Visa](https://www.visa.com.br/sobre-a-visa/geral/programa-ais-pci.html) e veja as especificações dos níveis da bandeira (de 1 a 4), que podem ser usados como exemplo.  
+
+A Braspag faz parte do [REB (Regional Engagement Board)](https://www.pcisecuritystandards.org/get_involved/regional_engagement_board?hsCtaTracking=fde79905-8cc1-4927-b0fa-b3408f1e0726%7C3962f448-7b5a-4957-82e3-33bc886d9717), em conjunto com adquirentes, bandeiras e outros representantes do e-commerce no Brasil, para discutir sobre a segurança no uso do cartão para pagamento no mercado brasileiro.
+
+Caso ainda tenha dúvidas sobre os processos envolvendo a Certificação PCI DSS, entre em contato com o [Suporte da Cielo](https://devcielo.zendesk.com/hc/pt-br#suporte) ou com o [Suporte da Braspag](https://suporte.braspag.com.br/hc/pt-br/requests/new).
