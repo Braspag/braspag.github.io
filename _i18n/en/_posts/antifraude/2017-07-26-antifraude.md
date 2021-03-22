@@ -323,7 +323,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`Customer.BrowserCookiesAccepted`|Identifies whether the customer's browser accepts cookies or not|bool|-|-|
 |`Customer.BrowserEmail`|E-mail registered in the customer's browser. Can differ from merchant email (`Customer.Email`)|string|no|100|
 |`Customer.BrowserType`|Name of the browser used by the customer and identified through the HTTP header|string|no|40|
-|`Customer.BrowserFingerprint`|Identifier used to cross information obtained from the buyer's device. This same identifier must be used to generate the value that will be assigned to the `session_id` field of the script that will be included on the checkout page. <br/> Note: This identifier can be any value or order number but must be unique for 48 hours. <br/> [Fingerprint Configuration]({{ site.baseurl_root }}/manual/antifraude#cybersource)|string|yes|100|
+|`Customer.BrowserFingerprint`|Identifier used to cross information obtained from the buyer's device. This same identifier must be used to generate the value that will be assigned to the `session_id` field of the script that will be included on the checkout page. <br/> Note: This identifier can be any value or order number but must be unique for 48 hours. <br/> [Fingerprint Configuration]({{ site.baseurl_root }}/manual/antifraude#cybersource)|string|yes|88|
 |`CartItem[n].ProductName`|Product name|string|yes|255|
 |`CartItem[n].Risk`|Risk level of the product associated with the quantity of chargebacks <br/> [Table 11 - CartItem{n}.Risk]({{ site.baseurl_root }}en/manual/antifraude#table-11-cartitem[n].risk)|enum|-|-|
 |`CartItem[n].UnitPrice`|Product unit price <br/> Ex: 10950 = r$ 109,50|long|yes|-|
