@@ -26,7 +26,7 @@ A funcionalidade VerifyCard pode ser utilizada em conjunto com o serviço de tok
 
 Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **VerifyCard** em conjunto com o **Cartão Protegido**:
 
-![VerifyCard com Cartão Protegido](https://braspag.github.io/images/fluxo-trans3b-pt.png)
+![VerifyCard com Cartão Protegido]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/fluxo-trans3b-pt.png)
 
 <br/>Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST para o serviço VerifyCard, de acordo com o exemplo a seguir:
 
