@@ -125,15 +125,13 @@
             </div>
 
             <div class="post">
-  <h1 id="split-de-pagamentos">Split de Pagamentos</h1>
+  <h1 id="introdução">Introdução</h1>
+
+<p>O <strong>Split de Pagamentos</strong> permite a divisão de uma transação entre diferentes participantes de uma venda.</p>
 
 <blockquote>
   <p>Solicite suas credenciais para o ambiente de teste em nosso portal de suporte https://suporte.braspag.com.br ou pelo telefone 3003-6554</p>
 </blockquote>
-
-<h2 id="introdução">Introdução</h2>
-
-<p>O <strong>Split de Pagamentos</strong> permite a divisão de uma transação entre diferentes participantes de uma venda.</p>
 
 <p>Muito utilizado em Marketplaces, onde <strong>o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes</strong>.</p>
 
@@ -186,7 +184,7 @@
 
 <p>O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de <strong>Subordinado</strong> e ter seus próprios produtos no carrinho.</p>
 
-<h3 id="taxas">Taxas</h3>
+<h2 id="taxas">Taxas</h2>
 
 <p>As taxas acordadas entre os participantes, podendo ser um <strong>MDR(%)</strong> e/ou uma <strong>Taxa Fixa(R$)</strong>, devem ser definidas no momento do cadastro do Marketplace e dos seus Subordinados junto à Braspag (Facilitador).</p>
 
@@ -197,7 +195,7 @@
 <strong>Fee:</strong> Taxa fixa. Valor em centavos a ser cobrado por transação capturada.</p>
 </blockquote>
 
-<h4 id="braspag-facilitador">Braspag (Facilitador)</h4>
+<h3 id="braspag-facilitador">Braspag (Facilitador)</h3>
 
 <p>A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.</p>
 
@@ -209,7 +207,7 @@
   <p><strong>Custo Marketplace:</strong> MDR Braspag (%) + Tarifa Fixa Braspag (R$)</p>
 </blockquote>
 
-<h4 id="marketplace">Marketplace</h4>
+<h3 id="marketplace">Marketplace</h3>
 
 <p>O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace, e uma Tarifa Fixa, que é opcional.</p>
 
@@ -217,7 +215,7 @@
   <p><strong>Custo Subordinado:</strong> MDR Marketplace (%) + Tarifa Fixa (R$), onde o MDR Marketplace (%) considera o MDR Braspag (%).</p>
 </blockquote>
 
-<h4 id="exemplo">Exemplo</h4>
+<h3 id="exemplo">Exemplo</h3>
 
 <p>Uma transação de <strong>R$100,00</strong>, realizada por um <strong>Marketplace</strong> com participação do <strong>Subordinado 01</strong>.</p>
 
@@ -241,7 +239,7 @@ Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]</p>
 Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
-<h3 id="bandeiras">Bandeiras</h3>
+<h2 id="bandeiras">Bandeiras</h2>
 
 <p>As bandeiras suportadas pelo Split são:</p>
 
@@ -255,11 +253,11 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   <li>Discover</li>
 </ul>
 
-<h2 id="ambientes">Ambientes</h2>
+<h1 id="ambientes">Ambientes</h1>
 
 <p>O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.</p>
 
-<h3 id="sandbox">Sandbox</h3>
+<h2 id="sandbox">Sandbox</h2>
 
 <ul>
   <li><strong>API Cielo E-Commerce</strong>: https://apisandbox.cieloecommerce.cielo.com.br/</li>
@@ -268,7 +266,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   <li><strong>Braspag OAUTH2 Server</strong>: https://authsandbox.braspag.com.br/</li>
 </ul>
 
-<h3 id="produção">Produção</h3>
+<h2 id="produção">Produção</h2>
 
 <ul>
   <li><strong>API Cielo E-Commerce</strong>: https://api.cieloecommerce.cielo.com.br/</li>
@@ -277,7 +275,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   <li><strong>Braspag OAUTH2 Server</strong>: https://auth.braspag.com.br/</li>
 </ul>
 
-<h2 id="autenticação">Autenticação</h2>
+<h1 id="autenticação">Autenticação</h1>
 
 <p>O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/">OAUTH2</a>, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado a API Cielo e-Commerce e a API do Split.</p>
 
@@ -314,13 +312,13 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <p>O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.</p>
 
-<h2 id="quickstart">QuickStart</h2>
+<h1 id="quickstart">QuickStart</h1>
 
 <p>O request de crédito do Split é composto por 4 campos obrigatórios: <strong>MerchantOrderId</strong>, <strong>Customer</strong>, <strong>Payment</strong> e <strong>Payment.FraudAnalysis</strong>.</p>
 
 <p>Abaixo montaremos um request simples. O suficiente para enviarmos a nossa primeira transação, sem nos preocuparmos muito com detalhes. <strong>Esse exemplo é o básico para entendimento e não deve ser utilizado em produção</strong>.</p>
 
-<h3 id="merchantorderid">MerchantOrderId</h3>
+<h2 id="merchantorderid">MerchantOrderId</h2>
 
 <p>Esse campo é onde informamos o número do pedido que existe na loja do cliente.</p>
 
@@ -350,7 +348,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   </tbody>
 </table>
 
-<h3 id="customer">Customer</h3>
+<h2 id="customer">Customer</h2>
 
 <p>Esse campo contém os dados do comprador. Possui diversos subcampos que devem ser analisados cuidadosamente.</p>
 
@@ -405,7 +403,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   </tbody>
 </table>
 
-<h3 id="payment">Payment</h3>
+<h2 id="payment">Payment</h2>
 
 <p>Esse campo possui os elementos da transação, assim como o antifraude (<strong>Payment.FraudAnalysis</strong>), que será explicado separadamente.</p>
 
@@ -541,7 +539,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   </tbody>
 </table>
 
-<h3 id="paymentfraudanalysis">Payment.FraudAnalysis</h3>
+<h2 id="paymentfraudanalysis">Payment.FraudAnalysis</h2>
 
 <p>Esse campo é referente ao sistema de antifraude. 
 O antifraude é obrigatório no Split de Pagamentos. E para esse sistema utilizamos o nosso parceiro <a href="https://www.cybersource.com/">CyberSource</a> do Grupo <a href="https://www.visa.com.br/">Visa</a>.
@@ -795,15 +793,15 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <p>Nos próximos exemplos explicaremos como aumentar a segurança e manipular os campos da nossa transação entre crédito e débito.</p>
 
-<h2 id="integração">Integração</h2>
+<h1 id="integração">Integração</h1>
 
-<h3 id="autorização">Autorização</h3>
+<h2 id="autorização">Autorização</h2>
 
 <p>A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.</p>
 
 <p>Exemplo:</p>
 
-<h4 id="transação-de-crédito">Transação de Crédito</h4>
+<h3 id="transação-de-crédito">Transação de Crédito</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1820,7 +1818,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <p><img src="https://developercielo.github.io/images/split/split003.png" alt="SplitSample003" /></p>
 
-<h4 id="transação-de-débito">Transação de Débito</h4>
+<h3 id="transação-de-débito">Transação de Débito</h3>
 
 <p>Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la a autenticação e o nó <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code> não deve ser informado pois a transação não necessita de análise de fraude.</p>
 
@@ -2052,7 +2050,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="modelos-de-split">Modelos de Split</h3>
+<h2 id="modelos-de-split">Modelos de Split</h2>
 
 <p>O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:</p>
 
@@ -2079,7 +2077,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   <p>No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.</p>
 </blockquote>
 
-<h4 id="transacional">Transacional</h4>
+<h3 id="transacional">Transacional</h3>
 
 <p>No Split Transacional é necessário que o Marketplace envie um “nó” adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.</p>
 
@@ -2189,7 +2187,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </tbody>
 </table>
 
-<h4 id="pós-transacional">Pós-Transacional</h4>
+<h3 id="pós-transacional">Pós-Transacional</h3>
 
 <p>Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.</p>
 
@@ -2275,7 +2273,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   <p>O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de <strong>20 dias</strong> para <strong>Cartão de Crédito</strong> se estiver enquadrado no regime de pagamento padrão.</p>
 </blockquote>
 
-<h3 id="salvando-e-reutilizando-cartões">Salvando e Reutilizando Cartões</h3>
+<h2 id="salvando-e-reutilizando-cartões">Salvando e Reutilizando Cartões</h2>
 
 <p>Ao contratar o <a href="https://braspag.github.io//manual/cartao-protegido-api-rest">Cartão Protegido</a>, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.</p>
 
@@ -2283,7 +2281,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <aside class="warning">Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
-<h4 id="salvando-um-cartão-durante-uma-autorização">Salvando um Cartão Durante uma Autorização</h4>
+<h3 id="salvando-um-cartão-durante-uma-autorização">Salvando um Cartão Durante uma Autorização</h3>
 
 <p>Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> como “true” na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051">neste artigo</a>.</p>
 
@@ -2622,7 +2620,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </tbody>
 </table>
 
-<h4 id="criando-uma-transação-com-cardtoken">Criando uma Transação com CardToken</h4>
+<h3 id="criando-uma-transação-com-cardtoken">Criando uma Transação com CardToken</h3>
 
 <p>Este é um exemplo de como utilizar o <code class="language-plaintext highlighter-rouge">CardToken</code>, previamente salvo, para criar uma transação. Por questões de segurança, um <code class="language-plaintext highlighter-rouge">CardToken</code> não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">canais de atendimento</a>.</p>
 
@@ -2915,7 +2913,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </tbody>
 </table>
 
-<h4 id="criando-uma-transação-com-alias">Criando uma Transação com Alias</h4>
+<h3 id="criando-uma-transação-com-alias">Criando uma Transação com Alias</h3>
 
 <p>Este é um exemplo de como utilizar o <em>Alias</em>, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">canais de atendimento</a>.</p>
 
@@ -3213,7 +3211,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </tbody>
 </table>
 
-<h3 id="consulta">Consulta</h3>
+<h2 id="consulta">Consulta</h2>
 
 <p>Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.</p>
 
@@ -3319,11 +3317,11 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="captura">Captura</h3>
+<h2 id="captura">Captura</h2>
 
 <p>Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Marketplace.</p>
 
-<h4 id="captura-total">Captura Total</h4>
+<h3 id="captura-total">Captura Total</h3>
 
 <p>Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.</p>
 
@@ -3417,7 +3415,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="captura-parcial">Captura Parcial</h4>
+<h3 id="captura-parcial">Captura Parcial</h3>
 
 <p>Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Marketplace.</p>
 
@@ -3570,7 +3568,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="cancelamento">Cancelamento</h3>
+<h2 id="cancelamento">Cancelamento</h2>
 
 <p>Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.</p>
 
@@ -3578,7 +3576,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   <p>O prazo de estorno de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.</p>
 </blockquote>
 
-<h4 id="cancelamento-total">Cancelamento Total</h4>
+<h3 id="cancelamento-total">Cancelamento Total</h3>
 
 <p>No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.</p>
 
@@ -3640,7 +3638,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="cancelamento-parcial">Cancelamento Parcial</h4>
+<h3 id="cancelamento-parcial">Cancelamento Parcial</h3>
 
 <p>No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial.</p>
 
@@ -3770,11 +3768,11 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   <p>Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.</p>
 </blockquote>
 
-<h3 id="opções-de-configuração-da-transação">Opções de Configuração da Transação</h3>
+<h2 id="opções-de-configuração-da-transação">Opções de Configuração da Transação</h2>
 
 <p>Em uma transação do Split, existem configurações opcionais que podem ser utilizadas para controlar alguns aspectos.</p>
 
-<h4 id="origem-do-desconto-das-taxas">Origem do Desconto das Taxas</h4>
+<h3 id="origem-do-desconto-das-taxas">Origem do Desconto das Taxas</h3>
 
 <p>Por padrão, as taxas e tarifas fixas do Split são descontadas do valor de comissão do Master, porém é possível que o desconto seja feito da parte da venda do Master.</p>
 
@@ -3790,7 +3788,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   <p>Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.</p>
 </blockquote>
 
-<h5 id="tipos-de-desconto-possíveis">Tipos de Desconto Possíveis</h5>
+<h4 id="tipos-de-desconto-possíveis">Tipos de Desconto Possíveis</h4>
 
 <table>
   <thead>
@@ -3811,7 +3809,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </tbody>
 </table>
 
-<h5 id="no-momento-transacional">No Momento Transacional</h5>
+<h4 id="no-momento-transacional">No Momento Transacional</h4>
 
 <p>Transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão e o Marketplace participando da venda.</p>
 
@@ -4161,7 +4159,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="no-momento-pós-transacional">No Momento Pós-Transacional</h5>
+<h4 id="no-momento-pós-transacional">No Momento Pós-Transacional</h4>
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
 
@@ -4224,7 +4222,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="liberação-de-transação-para-antecipação">Liberação de Transação para Antecipação</h4>
+<h3 id="liberação-de-transação-para-antecipação">Liberação de Transação para Antecipação</h3>
 
 <p>No Split de Pagamentos, para os clientes que estejam habilitados e optem por fazer uso de antecipações, existe a possibilidade de determinar quais transações podem participar de operações de antecipação.</p>
 
@@ -4242,7 +4240,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   <p>Uma vez que a transação está liberada para participar de operações de antecipação, a mesma não pode mais ser bloqueada!</p>
 </blockquote>
 
-<h5 id="usando-valor-pré-configurado">Usando valor pré-configurado</h5>
+<h4 id="usando-valor-pré-configurado">Usando valor pré-configurado</h4>
 
 <p>Entre em contato com o suporte para criar, atualizar ou remover a configuração com o estado (liberado ou bloqueado) com o qual a transação deve ser criada caso nenhum valor seja passado no request.</p>
 
@@ -4435,7 +4433,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="no-momento-pós-transacional-1">No Momento Pós-Transacional</h5>
+<h4 id="no-momento-pós-transacional-1">No Momento Pós-Transacional</h4>
 
 <p><strong>Request</strong></p>
 
@@ -4501,7 +4499,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="usando-endpoint-de-liberação-para-antecipação">Usando endpoint de liberação para antecipação</h5>
+<h4 id="usando-endpoint-de-liberação-para-antecipação">Usando endpoint de liberação para antecipação</h4>
 
 <p><strong>Request</strong></p>
 
@@ -4511,19 +4509,17 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <aside class="request"><span class="method post">200 OK</span></aside>
 
-<h2 id="boleto-braspag">Boleto Braspag</h2>
+<h1 id="boleto-braspag">Boleto Braspag</h1>
 
-<h3 id="boleto-registrado">Boleto Registrado</h3>
+<h2 id="boleto-registrado">Boleto Registrado</h2>
 
 <p>Com o objetivo de promover maior controle e segurança ao transacional de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários, a Febraban em conjunto com os Bancos lançou a Nova Plataforma de Cobrança.</p>
 
 <p>A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigatoriamente, terão de ser registrados. <a href="https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos">Clique aqui</a> para acessar o comunicado completo.</p>
 
-<h3 id="criando-uma-transação-de-boleto">Criando uma transação de Boleto</h3>
+<h2 id="criando-uma-transação-de-boleto">Criando uma transação de Boleto</h2>
 
 <p>Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este meio de pagamento.</p>
-
-<h4 id="criando-uma-transação">Criando uma transação</h4>
 
 <p><strong>Request</strong></p>
 
@@ -4862,7 +4858,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </tbody>
 </table>
 
-<h2 id="antifraude">Antifraude</h2>
+<h1 id="antifraude">Antifraude</h1>
 
 <p>O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.</p>
 
@@ -4870,7 +4866,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   <p>No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.</p>
 </blockquote>
 
-<h3 id="fluxo-transacional">Fluxo transacional</h3>
+<h2 id="fluxo-transacional">Fluxo transacional</h2>
 
 <p>A integração com o antifraude se dá através do próprio fluxo transacional, na mesma requisição da transação.</p>
 
@@ -5346,1028 +5342,23 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </tbody>
 </table>
 
-<h2 id="agenda-financeira">Agenda Financeira</h2>
+<h1 id="post-de-notificação">Post de Notificação</h1>
 
-<p>No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).</p>
+<p>Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), deve-se ter configurado o campo “URL Status Pagamento” durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
 
-<p>A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.</p>
+<p>Veja o fluxo percorrido pelo post de notificação:</p>
 
-<p>A agenda é composta por eventos de Crédito e Débito que são gerados de acordo com as operações efetuadas e o regime de pagamento acordado.</p>
+<p><img src="https://braspag.github.io/images/fluxo-trans5-pt.png" alt="Post de Notificação" /></p>
 
-<p>Eventos de Crédito:</p>
+<aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Evento</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td><code class="language-plaintext highlighter-rouge">Credit</code></td>
-      <td>Lançamento de crédito das parcelas de uma transação.</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td><code class="language-plaintext highlighter-rouge">FeeCredit</code></td>
-      <td>Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td><code class="language-plaintext highlighter-rouge">RefundCredit</code></td>
-      <td>Lançamento de crédito devido a um cancelamento.</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td><code class="language-plaintext highlighter-rouge">ChargebackCredit</code></td>
-      <td>Lançamento de crédito devido a um chargeback.</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td><code class="language-plaintext highlighter-rouge">UndoChargebackCredit</code></td>
-      <td>Lançamento de crédito para reversão de um chargeback.</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td><code class="language-plaintext highlighter-rouge">AntiFraudFeeCredit</code></td>
-      <td>Lançamento de crédito referente à transação de antifraude.</td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td><code class="language-plaintext highlighter-rouge">AntiFraudFeeWithReviewCredit</code></td>
-      <td>Lançamento de crédito referente à transação de antifraude com revisão manual.</td>
-    </tr>
-    <tr>
-      <td>15</td>
-      <td><code class="language-plaintext highlighter-rouge">AdjustmentCredit</code></td>
-      <td>Lançamento de um crédito como ajuste.</td>
-    </tr>
-    <tr>
-      <td>17</td>
-      <td><code class="language-plaintext highlighter-rouge">ChargebackReversalCredit</code></td>
-      <td>Lançamento de crédito referente a reversão de um chargeback.</td>
-    </tr>
-    <tr>
-      <td>19</td>
-      <td><code class="language-plaintext highlighter-rouge">AnticipationCredit</code></td>
-      <td>Lançamento de crédito referente a antecipação.</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td><code class="language-plaintext highlighter-rouge">AnticipationCommissionCredit</code></td>
-      <td>Lançamento de crédito referente a comissão de uma antecipação.</td>
-    </tr>
-  </tbody>
-</table>
+<p>Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exemplo abaixo.</p>
 
-<p>Eventos de Débito:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Evento</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2</td>
-      <td><code class="language-plaintext highlighter-rouge">Debit</code></td>
-      <td>Lançamento de débito das parcelas de uma transação.</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td><code class="language-plaintext highlighter-rouge">FeeDebit</code></td>
-      <td>Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td><code class="language-plaintext highlighter-rouge">RefundDebit</code></td>
-      <td>Lançamento de débito devido a um cancelamento.</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td><code class="language-plaintext highlighter-rouge">ChargebackDebit</code></td>
-      <td>Lançamento de débito devido a um chargeback.</td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td><code class="language-plaintext highlighter-rouge">UndoChargebackDebit</code></td>
-      <td>Lançamento de débito para reversão de um chargeback.</td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td><code class="language-plaintext highlighter-rouge">AntiFraudFeeDebit</code></td>
-      <td>Lançamento de débito referente à transação de antifraude.</td>
-    </tr>
-    <tr>
-      <td>14</td>
-      <td><code class="language-plaintext highlighter-rouge">AntiFraudFeeWithReviewDebit</code></td>
-      <td>Lançamento de débito referente à transação de antifraude com revisão manual.</td>
-    </tr>
-    <tr>
-      <td>16</td>
-      <td><code class="language-plaintext highlighter-rouge">AdjustmentDebit</code></td>
-      <td>Lançamento de um débito como ajuste.</td>
-    </tr>
-    <tr>
-      <td>18</td>
-      <td><code class="language-plaintext highlighter-rouge">ChargebackReversalDebit</code></td>
-      <td>Lançamento de débito referente a reversão de um chargeback.</td>
-    </tr>
-    <tr>
-      <td>22</td>
-      <td><code class="language-plaintext highlighter-rouge">AnticipationCommissionDebit</code></td>
-      <td>Lançamento de débito referente a comissão de uma antecipação.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Um evento poderá estar em um dos seguintes status na agenda financeira:</p>
-
-<ul>
-  <li><strong>Scheduled</strong>: Agendado.</li>
-  <li><strong>Pending</strong>: Aguardando confirmação de liquidação.</li>
-  <li><strong>Settled</strong>: Liquidado.</li>
-  <li><strong>Error</strong>: Erro de liquidação na instituição financeira.</li>
-  <li><strong>WaitingForAdjustementDebit</strong>: Aguardando liquidação do ajuste de débito associado.</li>
-  <li><strong>Anticipated</strong>: Evento antecipado.</li>
-</ul>
-
-<h3 id="consultar-eventos">Consultar Eventos</h3>
-
-<p>A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.</p>
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialForecastedDate={initialDate}&amp;finalForecastedDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
-
-<table>
-  <thead>
-    <tr>
-      <th>Parâmetro</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Formato</th>
-      <th>Obrigatório</th>
-      <th>Valor Padrão</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">InitialForecastedDate</code></td>
-      <td>Data de pagamento prevista inicial a ser consultada.</td>
-      <td>Data</td>
-      <td>YYYY-MM-DD</td>
-      <td>Não</td>
-      <td>CurrentDate</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FinalForecastedDate</code></td>
-      <td>Data de pagamento prevista final a ser consultada.</td>
-      <td>Data</td>
-      <td>YYYY-MM-DD</td>
-      <td>Não</td>
-      <td>InitialForecastedDate</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">InitialPaymentDate</code></td>
-      <td>Data de pagamento inicial a ser consultada.</td>
-      <td>Data</td>
-      <td>YYYY-MM-DD</td>
-      <td>Não</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FinalPaymentDate</code></td>
-      <td>Data de pagamento final a ser consultada.</td>
-      <td>Data</td>
-      <td>YYYY-MM-DD</td>
-      <td>Não</td>
-      <td>InitialPaymentDate</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
-      <td>Página a ser consultada.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
-      <td>Tamanho da página. Valores possíveis: 25, 50, 100.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">EventStatus</code></td>
-      <td>Status do evento [Scheduled - Pending - Settled - Error - WaitingFoAdjustementDebit - Anticipated].</td>
-      <td>String</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Todos</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">IncludeAllSubordinates</code></td>
-      <td>Inclui todos os subordinados na consulta.</td>
-      <td>Boolean</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>false</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantIds</code></td>
-      <td>Lojas a serem consideradas na consulta.</td>
-      <td>Guid</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Resquest</strong></p>
-
-<p><strong>Por Data Prevista de Pagamento</strong></p>
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialForecastedDate=2017-12-01&amp;finalForecastedDate=2018-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
-
-<p><strong>Por Data de Pagamento</strong></p>
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialPaymentDate=2018-08-22&amp;finalPaymentDate=2018-08-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
-<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
-</code></pre></div></div>
-
-<p><strong>Response</strong></p>
+<h2 id="notificação-enviada">Notificação Enviada</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Schedules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b579fafb-8271-4a1d-a657-00e5fd9b9f83"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"069ee5ef-ce7a-43ce-a9af-022f652e115a"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea4db25a-f981-4849-87ff-026897e006c6"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-22"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9255</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Settled"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e3efe82f-1eee-4c28-bb9f-8054fcd4ca3f"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.2</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Commission"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2f110f0d-82c9-4a1f-8df5-08203348d160"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"069ee5ef-ce7a-43ce-a9af-022f652e115a"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea4db25a-f981-4849-87ff-026897e006c6"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-22"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9255</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Settled"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e3efe82f-1eee-4c28-bb9f-8054fcd4ca3f"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.2</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Commission"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01d9b78f-b287-4376-a5e4-12d91cde1938"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"069ee5ef-ce7a-43ce-a9af-022f652e115a"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea4db25a-f981-4849-87ff-026897e006c6"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-22"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9255</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Settled"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e3efe82f-1eee-4c28-bb9f-8054fcd4ca3f"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.2</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Commission"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e30760d7-01e2-4b2b-9a43-2b252fcfbd84"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"069ee5ef-ce7a-43ce-a9af-022f652e115a"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea4db25a-f981-4849-87ff-026897e006c6"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-22"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9262</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Settled"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e3efe82f-1eee-4c28-bb9f-8054fcd4ca3f"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.2</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Commission"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90ea1e11-568f-49ee-bc3f-7ab2a225a1e1"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"069ee5ef-ce7a-43ce-a9af-022f652e115a"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea4db25a-f981-4849-87ff-026897e006c6"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-22"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9255</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Settled"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e3efe82f-1eee-4c28-bb9f-8054fcd4ca3f"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.2</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Commission"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Schedules[].Id</code></td>
-      <td>Identificador do evento na agenda financiera.</td>
-      <td>Guid</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Schedules[].PaymentId</code></td>
-      <td>Identificador da transação.</td>
-      <td>Guid</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Schedules[].MerchantId</code></td>
-      <td>Identificador da loja.</td>
-      <td>Guid</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Schedules[].PaymentDate</code></td>
-      <td>Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)</td>
-      <td>Data</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Schedules[].ForecastedDate</code></td>
-      <td>Data de liquidação prevista.</td>
-      <td>Data</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Schedules[].Installments</code></td>
-      <td>Número de parcelas da transação.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Schedules[].InstallmentAmount</code></td>
-      <td>Valor, em centavos, da parcela a liquidar.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Schedules[].InstallmentNumber</code></td>
-      <td>Número da parcela a liquidar.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Schedules[].Event</code></td>
-      <td>Identificador do evento.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Schedules[].EventDescription</code></td>
-      <td>Descrição do evento.</td>
-      <td>String</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Schedules[].EventStatus</code></td>
-      <td>Status do evento. [Scheduled - Pending - Settled - Error - WaitingForAdjustementDebit]</td>
-      <td>String</td>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="consultar-transações">Consultar Transações</h3>
-
-<p>O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.</p>
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate={initialDate}&amp;finalCaptureDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;eventStatus={eventStatus}&amp;merchantIds={merchantId}</span></aside>
-
-<table>
-  <thead>
-    <tr>
-      <th>Parâmetro</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Formato</th>
-      <th>Obrigatório</th>
-      <th>Valor Padrão</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">InitialCaptureDate</code></td>
-      <td>Data inicial a ser consultada, considerando a data de captura das transações.</td>
-      <td>Data</td>
-      <td>YYYY-MM-DD</td>
-      <td>Não</td>
-      <td>CurrentDate</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FinalCaptureDate</code></td>
-      <td>Data final a ser consultada, considerando a data de captura das transações.</td>
-      <td>Data</td>
-      <td>YYYY-MM-DD</td>
-      <td>Não</td>
-      <td>InitialCaptureDate</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
-      <td>Página a ser consultada.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
-      <td>Tamanho da página.  Valores possíveis: 25, 50, 100.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">EventStatus</code></td>
-      <td>Status do evento [Scheduled - Pending - Settled - Error - Anticipated].</td>
-      <td>String</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Todos</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">IncludeAllSubordinates</code></td>
-      <td>Inclui todos os subordinados na consulta.</td>
-      <td>Boolean</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>false</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantIds</code></td>
-      <td>Lojas a serem consideradas na consulta.</td>
-      <td>Guid</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Para informar várias lojas na consulta, basta repetir o parâmetro “merchantIds”. Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.</p>
-
-<p><strong>Request</strong></p>
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate=2017-12-01&amp;finalCaptureDate=2017-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
-<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
-</code></pre></div></div>
-
-<p><strong>Response</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24afaaaf-f2a1-40a5-bb25-f914fa623c4c"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-01"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Schedules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-21"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">24357</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scheduled"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-21"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1450</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scheduled"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-21"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">38480</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scheduled"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-21"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scheduled"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Transactions[].PaymentId</code></td>
-      <td>Identificador da transação.</td>
-      <td>Guid</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Transactions[].CaptureDate</code></td>
-      <td>Data de captura da transação.</td>
-      <td>Data</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].MerchantId</code></td>
-      <td>Identificador da loja.</td>
-      <td>Guid</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].PaymentDate</code></td>
-      <td>Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)</td>
-      <td>Data</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].ForecastedDate</code></td>
-      <td>Data de liquidação prevista.</td>
-      <td>Data</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].Installments</code></td>
-      <td>Número de parcelas a liquidar.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].InstallmentsAmount</code></td>
-      <td>Valor, em centavos, da parcela a liquidar.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].InstallmentNumber</code></td>
-      <td>Número da parcela a liquidar.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].Event</code></td>
-      <td>Identificador do evento.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].EventDescription</code></td>
-      <td>Descrição do evento.</td>
-      <td>String</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].EventStatus</code></td>
-      <td>Status do evento. [Scheduled - Pending - Settled - Error - Anticipated]</td>
-      <td>String</td>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Para consultar a agenda de uma transação específica basta informar o identificador da transação na requisição.</p>
-
-<p>Neste caso poderão ser utilizados os filtros MarchantIds e EventStatus.</p>
-
-<p><strong>Request</strong></p>
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
-<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>
-</code></pre></div></div>
-
-<p><strong>Response</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cd2309d3-3fec-4816-aec7-bcb6d51a0988"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-11"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Schedules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5790</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scheduled"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3790</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"EventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scheduled"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h3 id="ajustes">Ajustes</h3>
-
-<p>O Split de Pagamentos permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.</p>
-
-<p>Um ajuste somente será efetivamente liquidado para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.</p>
-
-<p><strong>Ex:</strong> Marketplace lança um ajuste a débito de R$100,00 para o Subordinado A com data prevista de cobrança em 17/10/2018.</p>
-
-<p><strong>Caso 1)</strong> Subordinado possui saldo positivo na data prevista informada.</p>
-
-<p><img src="https://braspag.github.io/images/braspag/split/adjustment001.png" alt="SplitSampleadjustment001" /></p>
-
-<p>Os valores até o dia 16/10/2018 foram liquidados normalmente.</p>
-
-<p>Como o subordinado tinha R$150,00 para receber no dia 17/10/2018, o ajuste foi lançado na agenda financeira na data prevista informada e o mesmo receberá R$50,00 devido ao débito do ajuste.</p>
-
-<p>O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 17/10/2018.</p>
-
-<p><strong>Caso 2)</strong> Subordinado não possui saldo positivo na data prevista informada.</p>
-
-<p><img src="https://braspag.github.io/images/braspag/split/adjustment002.png" alt="SplitSampleadjustment002" /></p>
-
-<p>Os valores até o dia 16/10/2018 foram liquidados normalmente.</p>
-
-<p>O Subordinado tinha a receber apenas R$60,00 no dia 17/10/2018, o que não cobre o valore do ajuste a ser debitado do mesmo.</p>
-
-<p>Neste cenário, os pagamentos do subordinado serão retidos até que o mesmo tenha saldo para cobrir o ajuste, o que ocorre no dia 19/10/2018, onde o acumulado retido é de R$130,00. Com isso, o subordinado receberá R$30,00.</p>
-
-<p>O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 19/10/2018.</p>
-
-<p><strong>Request</strong></p>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/adjustment-api/adjustments/</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Accept: application/json"</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="nl">"merchantIdToDebit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EA4DB25A-F981-4849-87FF-026897E006C6"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"merchantIdToCredit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44F68284-27CF-43CB-9D14-1B1EE3F36838"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"forecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-17"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multa por não cumprimento do prazo de entrega no pedido XYZ"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"717A0BD0-3D92-43DB-9D1E-9B82DFAFA392"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">merchantIdToDebit</code></td>
-      <td>Merchant do qual o valor será debitado.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">merchantIdToCredit</code></td>
-      <td>Merchant para o qual o valor será creditado.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">forecastedDate</code></td>
-      <td>Data prevista para lançamento do ajuste na agenda financeira.</td>
-      <td>String</td>
-      <td>-</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
-      <td>Valor em centavos do ajuste.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">description</code></td>
-      <td>Decrição do ajuste.</td>
-      <td>String</td>
-      <td>500</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">transactionId</code></td>
-      <td>Identificador da transação para qual o ajuste está sendo lançado.</td>
-      <td>Guid</td>
-      <td>-</td>
-      <td>Não</td>
-    </tr>
-  </tbody>
-</table>
-
-<aside class="warning">Ao associar o ajuste a uma transação, os envolvidos devem ser participantes da transação.</aside>
-
-<p><strong>Response</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="mi">201</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">Created</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68465ddd-451a-4194-abca-be1ed71fb2ea"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"merchantIdToDebit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EA4DB25A-F981-4849-87FF-026897E006C6"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"merchantIdToCredit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44F68284-27CF-43CB-9D14-1B1EE3F36838"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"forecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-19"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Multa por não cumprimento do prazo de entrega no pedido"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"717A0BD0-3D92-43DB-9D1E-9B82DFAFA392"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Created"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">id</code></td>
-      <td>Identificador do ajuste.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">status</code></td>
-      <td>Status do ajustes [Created - Scheduled - Processed - Canceled ].</td>
-      <td>String</td>
-      <td>-</td>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="chargeback">Chargeback</h2>
-
-<p>No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o repassará para seus Subordinados, desde que acordado previamente entre as partes.</p>
-
-<p>Se o Marketplace optar por repassar para os Subordinados, o Chargeback Total é sensibilizado automaticamente na agenda dos mesmos. Caso contrário o chargeback será sensibilizado automaticamente na agenda do Marketplace, como acontece com um Charback Parcial.</p>
-
-<p>O Marketplace pode decidir ainda repassar o Chargeback para seus subordinados. Para isso A API Split disponibiliza um serviço onde o Marketplace pode informar como dividir o valor do chargeback entre os subordinados, caso seja um Chargeback Parcial.</p>
-
-<blockquote>
-  <p>É possível solicitar que todo chargeback seja repassado para o subordinado por padrão, mediante abertura de chamado.</p>
-</blockquote>
-
-<p>No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transação com valor capturado de R$100,00.</p>
-
-<p><strong>Request</strong></p>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/chargebacks/{ChargebackId}/splits</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code></td>
-      <td>Identificador do Subordinado.</td>
-      <td>Guid</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ChargebackAmount</code></td>
-      <td>Valor do chargeback que deverá ser repassado ao Subordinado, em centavos.</td>
-      <td>Inteiro</td>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Response</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"ChargebackSplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ChargebackSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3780</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">220</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ChargebackSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1912</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">88</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<blockquote>
-  <p>O Marketplace tem 1 dia, contado a partir da data de efetivação do chargeback, para informar como deseja repassar os valores aos subordinados.</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ChargebackSplitPayments.ChargebackSplits</code></td>
-      <td>Lista contendo a divisão do chargeback para cada participante.</td>
-      <td>Guid</td>
-      <td>36</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="liquidação">Liquidação</h2>
-
-<p>A plataforma permite que o Master bloqueie temporariamente a liquidação para um Subordinado para garantia da entrega do produto/serviço, funcionalidade conhecida como Escrow.</p>
-
-<h3 id="trava">Trava</h3>
-
-<p>Este bloqueio, conhecido como custódia, pode durar até 180 dias. Após este prazo, a Braspag liquidará o valor para o subordinado independentemente do bloqueio.</p>
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{splitApi}/api/transactions/{paymentid}/settlements</span></aside>
-
-<p><strong>Request</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9140ca78-3955-44a5-bd44-793370afef94"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Locked"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="kc">true</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="kc">false</span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f2d6eb34-2c6b-4948-8fff-51facdd2a28f"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Locked"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="kc">true</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="kc">false</span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code></td>
-      <td>Texto</td>
-      <td>36</td>
-      <td>Sim</td>
-      <td>Merchantid identificador do subordinado</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Locked</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Booleano que identifica se o a liquidação será travada para o subordinado ou não</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="post-de-notificação">Post de Notificação</h2>
-
-<p>Para receber a notificação de alteração de status deve-se ter configurado no cadastro de sua loja na Braspag, o campo URL Status Pagamento para receber os parametros conforme o exemplo ao lado.</p>
-
-<p>Resposta esperada da Loja: HTTP Status Code 200 OK</p>
-
-<p>Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes enviar o Post de Notificação.</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"ChangeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+   </span><span class="nl">"ChangeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -6378,27 +5369,20 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
       <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
-      <th>Obrigatório</th>
+      <th>Obrigatório?</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Não</td>
-    </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Identificador que representa a transação</td>
+      <td>Identificador que representa a transação.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ChangeType</code></td>
-      <td>Especifica o tipo de notificação. Vide tabela abaixo</td>
+      <td>Especifica o tipo de notificação. Obs.: Consulte a tabela abaixo.</td>
       <td>Número</td>
       <td>1</td>
       <td>Sim</td>
@@ -6415,43 +5399,37 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </thead>
   <tbody>
     <tr>
-      <td>1</td>
-      <td>Mudança de status do pagamento</td>
+      <td>“1”</td>
+      <td>Mudança de status do pagamento.</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>Recorrência criada</td>
+      <td>“3”</td>
+      <td>Mudança de status do <em>Antifraude</em>.</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>Mudança de status do AntiFraude</td>
+      <td>“6”</td>
+      <td>Boleto registrado pago a menor.</td>
     </tr>
     <tr>
-      <td>4</td>
-      <td>Mudança de status do pagamento recorrente (Ex. desativação automática)</td>
+      <td>“7”</td>
+      <td>Notificação de chargeback. Para mais detalhes, consulte o manual de <a href="https://braspag.github.io//manual/risknotification">Risk Notification</a>.</td>
     </tr>
     <tr>
-      <td>5</td>
-      <td>Estorno negado (aplicável para Rede)</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>Boleto registrado pago a menor</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>Notificação de chargeback <br /> Para mais detalhes <a href="https://braspag.github.io//manual/risknotification">Risk Notification</a></td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>Alerta de fraude</td>
+      <td>“8”</td>
+      <td>Alerta de fraude.</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="anexos">Anexos</h2>
+<h2 id="resposta-esperada">Resposta Esperada</h2>
 
-<h3 id="lista-de-status-da-transação">Lista de Status da Transação</h3>
+<p>É esperado o retorno da loja com a seguinte resposta: <code class="language-plaintext highlighter-rouge">HTTP Status Code 200 OK</code>.</p>
+
+<p>Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio do Post de Notificação.</p>
+
+<h1 id="anexos">Anexos</h1>
+
+<h2 id="lista-de-status-da-transação">Lista de Status da Transação</h2>
 
 <p>Status retornados pela API</p>
 
@@ -6522,7 +5500,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </tbody>
 </table>
 
-<h3 id="lista-de-status-do-antifraude">Lista de Status do AntiFraude</h3>
+<h2 id="lista-de-status-do-antifraude">Lista de Status do AntiFraude</h2>
 
 <table>
   <thead>
@@ -6559,7 +5537,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </tbody>
 </table>
 
-<h3 id="lista-de-http-status-code">Lista de HTTP Status Code</h3>
+<h2 id="lista-de-http-status-code">Lista de HTTP Status Code</h2>
 
 <table>
   <thead>
