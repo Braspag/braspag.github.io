@@ -11,13 +11,11 @@ tags:
   - 6. Soluções para Marketplace
 ---
 
-# Split de Pagamentos
-
-> Solicite suas credenciais para o ambiente de teste em nosso portal de suporte https://suporte.braspag.com.br ou pelo telefone 3003-6554
-
-## Introdução
+# Introdução
 
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
+
+> Solicite suas credenciais para o ambiente de teste em nosso portal de suporte https://suporte.braspag.com.br ou pelo telefone 3003-6554
 
 Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
 
@@ -49,7 +47,7 @@ Na divisão de uma transação, devem ser informados:
 
 O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de **Subordinado** e ter seus próprios produtos no carrinho.
 
-### Taxas
+## Taxas
 
 As taxas acordadas entre os participantes, podendo ser um **MDR(%)** e/ou uma **Taxa Fixa(R$)**, devem ser definidas no momento do cadastro do Marketplace e dos seus Subordinados junto à Braspag (Facilitador).
 
@@ -58,7 +56,7 @@ As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transa
 > **MDR (*Merchant Discount Rate*):** Percentual a ser descontado do valor de uma transação, definido por produto (Crédito / Débito), Bandeira e Faixa de Parcelamento. <br>
 > **Fee:** Taxa fixa. Valor em centavos a ser cobrado por transação capturada.
 
-#### Braspag (Facilitador)
+### Braspag (Facilitador)
 
 A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.
 
@@ -68,13 +66,13 @@ O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é apl
 
 > **Custo Marketplace:** MDR Braspag (%) + Tarifa Fixa Braspag (R$)
 
-#### Marketplace
+### Marketplace
 
 O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace, e uma Tarifa Fixa, que é opcional.
 
 > **Custo Subordinado:** MDR Marketplace (%) + Tarifa Fixa (R$), onde o MDR Marketplace (%) considera o MDR Braspag (%).
 
-#### Exemplo
+### Exemplo
 
 Uma transação de **R$100,00**, realizada por um **Marketplace** com participação do **Subordinado 01**.
 
@@ -98,7 +96,7 @@ Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
 Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]
 
-### Bandeiras
+## Bandeiras
 
 As bandeiras suportadas pelo Split são:
 
@@ -110,31 +108,31 @@ As bandeiras suportadas pelo Split são:
 * Diners
 * Discover
 
-## Ambientes
+# Ambientes
 
 É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu executivo comercial.
 
-### Sandbox
+## Sandbox
 
 * **API Transacional Pagador**: https://apisandbox.braspag.com.br/
 * **API para Serviços de Consultas Pagador**: https://apiquerysandbox.braspag.com.br/
 * **API Split**: https://splitsandbox.braspag.com.br/
 * **Braspag OAUTH2 Server**: https://authsandbox.braspag.com.br/
 
-### Produção
+## Produção
 
 * **API Transacional Pagador**: https://api.braspag.com.br/
 * **API para Serviços de Consultas Pagador**: https://apiquery.braspag.com.br/
 * **API Split**: https://split.braspag.com.br/
 * **Braspag OAUTH2 Server**: https://auth.braspag.com.br/
 
-## QuickStart
+# QuickStart
 
 O request de crédito do Split é composto por 4 campos obrigatórios: **MerchantOrderId**, **Customer**, **Payment** e **Payment.FraudAnalysis**.
 
 Abaixo montaremos um request simples. O suficiente para enviarmos a nossa primeira transação, sem nos preocuparmos muito com detalhes. **Esse exemplo é o básico para entendimento e não deve ser utilizado em produção**.
 
-### MerchantOrderId
+## MerchantOrderId
 
 Esse campo é onde informamos o número do pedido que existe na loja do cliente.
 
@@ -148,7 +146,7 @@ Esse campo é onde informamos o número do pedido que existe na loja do cliente.
 |-----|----|-------|-----------|---------|
 |**MerchantOrderId**|Texto|50|Sim|Número de identificação do pedido|
 
-### Customer
+## Customer
 
 Esse campo contém os dados do comprador. Possui diversos subcampos que devem ser analisados cuidadosamente.
 
@@ -169,7 +167,7 @@ Esse campo contém os dados do comprador. Possui diversos subcampos que devem se
 |`Customer.Identity`|Texto|18|Sim|Número de documento do comprador|
 |`Customer.IdentityType`|Texto|4|Sim|Tipo de documento de identificação do comprador. Ex.: `CPF` ou `CNPJ`|
 
-### Payment
+## Payment
 
 Esse campo possui os elementos da transação, assim como o antifraude (**Payment.FraudAnalysis**), que será explicado separadamente.
 
@@ -397,13 +395,13 @@ Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefined
 
 Nos próximos exemplos explicaremos como aumentar a segurança e manipular os campos da nossa transação entre crédito e débito.
 
-## Integração
+# Integração
 
-### Autorização  
+## Autorização  
 
 Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro Payment.DoSplit como true e adicionar o nó Payment.SplitPayments, conforme exemplo:
 
-#### Transação de Crédito
+### Transação de Crédito
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1265,7 +1263,7 @@ Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada
 
 ![SplitSample003](https://developercielo.github.io/images/split/split003.png)
 
-#### Transação de Débito
+### Transação de Débito
 
 Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la a autenticação e o nó `Payment.FraudAnalysis` não deve ser informado pois a transação não necessita de análise de fraude.
 
@@ -1435,7 +1433,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 }
 ```
 
-### Modelos de Split
+## Modelos de Split
 
 O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
 
@@ -1445,7 +1443,7 @@ O Split de Pagamentos disponibiliza dois modelos para divisão da transação en
 
 > No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.
 
-#### Transacional
+### Transacional
 
 No Split Transacional é necessário que o Marketplace envie um "nó" adicional na integração da API do Pagador, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
 
@@ -1499,7 +1497,7 @@ Como resposta, A API retornará um nó contento as regras de divisão enviadas e
 | `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
 | `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
-#### Pós-Transacional
+### Pós-Transacional
 
 Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.
 
@@ -1617,7 +1615,7 @@ O nó referente ao Split no Split Pós-transacional, tanto no contrato de reques
 
 > O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **20 dias** para **Cartão de Crédito** se estiver enquadrado no regime de pagamento padrão.  
 
-### Salvando e Reutilizando Cartões
+## Salvando e Reutilizando Cartões
 
 Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
 
@@ -1625,7 +1623,7 @@ Além da geração do `CardToken`, é possível associar um nome (um identificad
 
 <aside class="warning">Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
-#### Salvando um Cartão Durante uma Autorização
+### Salvando um Cartão Durante uma Autorização
 
 Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
 
@@ -1871,7 +1869,7 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
 |`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-#### Criando uma Transação com CardToken
+### Criando uma Transação com CardToken
 
 Este é um exemplo de como utilizar o `CardToken`, previamente salvo, para criar uma transação. Por questões de segurança, um `CardToken` não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos [canais de atendimento](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
 
@@ -2102,7 +2100,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
 
-#### Criando uma Transação com Alias
+### Criando uma Transação com Alias
 
 Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos [canais de atendimento](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
 
@@ -2332,7 +2330,7 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
 
-### Consulta
+## Consulta
 
 Para consultar uma transação, utilize o próprio serviço de consulta da API Braspag, informando o `PaymentId` da transação:
 
@@ -2637,11 +2635,11 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API B
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|---|
 |`CreditCard.SaveCard`|Identifica se o cartão será salvo para gerar o token (*CardToken*).|Booleano|---|true / false (default)|
 
-### Captura
+## Captura
 
 Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Marketplace.
 
-#### Captura Total
+### Captura Total
 
 Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.
 
@@ -2736,7 +2734,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 }
 ```
 
-#### Captura Parcial
+### Captura Parcial
 
 Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Marketplace.
 
@@ -2881,11 +2879,11 @@ Como explicitado anteriormente, se realizada uma captura total ou parcial sem in
 }
 ```
 
-### Cancelamento
+## Cancelamento
 
 Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.
 
-#### Cancelamento Total
+### Cancelamento Total
 
 No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.
 
@@ -2944,7 +2942,7 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 }
 ```
 
-#### Cancelamento Parcial
+### Cancelamento Parcial
 
 No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial.
 
@@ -3047,11 +3045,11 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 
 > Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.
 
-### Opções de Configuração da Transação
+## Opções de Configuração da Transação
 
 Em uma transação do Split, existem configurações opcionais que podem ser utilizadas para controlar alguns aspectos.
 
-#### Origem do Desconto das Taxas
+### Origem do Desconto das Taxas
 
 Por padrão, as taxas e tarifas fixas do Split são descontadas do valor de comissão do Master, porém é possível que o desconto seja feito da parte da venda do Master.
 
@@ -3063,14 +3061,14 @@ No caso de uma transação criada com uma forma de desconto, o mesmo será utili
 
 > Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.
 
-##### Tipos de Desconto Possíveis
+#### Tipos de Desconto Possíveis
 
 | Tipo | Descrição |
 |-|-|
 | `Commission` | Com esta opção, o desconto será feito sobre o valor de comissão que o Master tem a receber na transação. |
 | `Sale` | Com esta opção, o desconto será feito sobre o valor de venda que o Master tem a receber na transação. |
 
-##### No Momento Transacional
+#### No Momento Transacional
 
 Transação no valor de **R$100,00** com o nó contendo as regras de divisão e o Marketplace participando da venda.
 
@@ -3466,7 +3464,7 @@ Com a mesma transação:
 }
 ```
 
-##### No Momento Pós-Transacional
+#### No Momento Pós-Transacional
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
 
@@ -3531,7 +3529,7 @@ Com a mesma transação:
 }
 ```
 
-#### Liberação de Transação para Antecipação
+### Liberação de Transação para Antecipação
 
 No Split de Pagamentos, para os clientes que estejam habilitados e optem por fazer uso de antecipações, existe a possibilidade de determinar quais transações podem participar de operações de antecipação.
 
@@ -3545,11 +3543,11 @@ Existem 4 momentos em que se pode liberar uma transação para participar de ope
 
 > Uma vez que a transação está liberada para participar de operações de antecipação, a mesma não pode mais ser bloqueada!
 
-##### Usando valor pré-configurado
+#### Usando valor pré-configurado
 
 Entre em contato com o suporte para criar, atualizar ou remover a configuração com o estado (liberado ou bloqueado) com o qual a transação deve ser criada caso nenhum valor seja passado no request.
 
-##### Usando valor passado através do request
+#### Usando valor passado através do request
 
 Nome do campo: ReleasedToAnticipation
 
@@ -3753,7 +3751,7 @@ Nome do campo: ReleasedToAnticipation
 }
 ```
 
-##### No Momento Pós-Transacional
+#### No Momento Pós-Transacional
 
 **Request**
 
@@ -3821,7 +3819,7 @@ Nome do campo: ReleasedToAnticipation
 }
 ```
 
-##### Usando endpoint de liberação para antecipação
+#### Usando endpoint de liberação para antecipação
 
 **Request**
 
@@ -3831,19 +3829,17 @@ Nome do campo: ReleasedToAnticipation
 
 <aside class="request"><span class="method post">200 OK</span></aside>
 
-## Boleto Braspag
+# Boleto Braspag
 
-### Boleto Registrado
+## Boleto Registrado
 
 Com o objetivo de promover maior controle e segurança ao transacional de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários, a Febraban em conjunto com os Bancos lançou a Nova Plataforma de Cobrança.
 
 A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigatoriamente, terão de ser registrados. [Clique aqui](https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos) para acessar o comunicado completo.
 
-### Criando uma transação de Boleto
+## Criando uma transação de Boleto
 
 Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este meio de pagamento.
-
-#### Criando uma transação  
 
 **Request**
 
@@ -3984,13 +3980,13 @@ Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dad
 |`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
 |`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
 
-## Antifraude
+# Antifraude
 
 O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.
 
 > No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.
 
-### Fluxo transacional
+## Fluxo transacional
 
 É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização.
 
@@ -4007,7 +4003,7 @@ Se não for especificado o contrário durante a autorização, o Split processar
 
 Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós "FraudAnalysis", "Cart", "MerchantDefinedFields" e "Travel (somente para venda de passagens aéreas)".
 
-#### Request
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4257,7 +4253,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 
 > Os campos do nó `FraudAnalysis.Travel` se tornam obrigatórios caso o segmento do seu negócio seja aéreas.
 
-#### Response
+### Response
 
 ```json
 {  
@@ -4575,9 +4571,9 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.ProviderReturnCode`|Texto|Código retornado pela adquirente ou banco|
 |`Payment.ProviderReturnMessage`|Texto|Mensagem retornada pela adquirente ou banco|
 
-### Tabelas
+## Tabelas
 
-#### Tabela 1 - Payment.FraudAnalysis.Cart.Items[n].GiftCategory
+### Tabela 1 - Payment.FraudAnalysis.Cart.Items[n].GiftCategory
 
 |Valor|Descrição|
 |:-|:-|
@@ -4585,7 +4581,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |No|Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)|
 |Off|Diferenças entre os endereços de cobrança e entrega não afetam a pontuação|
 
-#### Tabela 2 - Payment.FraudAnalysis.Cart.Items[n].HostHedge
+### Tabela 2 - Payment.FraudAnalysis.Cart.Items[n].HostHedge
 
 |Valor|Descrição|
 |:-|:-|
@@ -4594,7 +4590,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |High|Alta|
 |Off|Não irá afetar o score da análise de fraude|
 
-#### Tabela 3 - Payment.FraudAnalysis.Cart.Items[n].NonSensicalHedge
+### Tabela 3 - Payment.FraudAnalysis.Cart.Items[n].NonSensicalHedge
 
 |Valor|Descrição|
 |:-|:-|
@@ -4603,7 +4599,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |High|Alta|
 |Off|Não irá afetar o score da análise de fraude|
 
-#### Tabela 4 - Payment.FraudAnalysis.Cart.Items[n].ObscenitiesHedge
+### Tabela 4 - Payment.FraudAnalysis.Cart.Items[n].ObscenitiesHedge
 
 |Valor|Descrição|
 |:-|:-|
@@ -4612,7 +4608,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |High|Alta|
 |Off|Não irá afetar o score da análise de fraude|
 
-#### Tabela 5 - Payment.FraudAnalysis.Cart.Items[n].PhoneHedge
+### Tabela 5 - Payment.FraudAnalysis.Cart.Items[n].PhoneHedge
 
 |Valor|Descrição|
 |:-|:-|
@@ -4621,7 +4617,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |High|Alta|
 |Off|Não irá afetar o score da análise de fraude|
 
-#### Tabela 7 - Payment.FraudAnalysis.Cart.Items[n].TimeHedge
+### Tabela 7 - Payment.FraudAnalysis.Cart.Items[n].TimeHedge
 
 |Valor|Descrição|
 |:-|:-|
@@ -4630,7 +4626,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |High|Alta|
 |Off|Não irá afetar o score da análise de fraude|
 
-#### Tabela 8 - Payment.FraudAnalysis.Cart.Items[n].Type
+### Tabela 8 - Payment.FraudAnalysis.Cart.Items[n].Type
 
 |Valor|Descrição|
 |:-|:-|
@@ -4646,7 +4642,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |ShippingOnly|Valor do frete|
 |Subscription|Assinatura. Ex.: Streaming de vídeos / Assinatura de notícias|
 
-#### Tabela 9 - Payment.FraudAnalysis.Cart.Items[n].VelocityHedge
+### Tabela 9 - Payment.FraudAnalysis.Cart.Items[n].VelocityHedge
 
 |Valor|Descrição|
 |:-|:-|
@@ -4655,7 +4651,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |High|Alta|
 |Off|Não irá afetar o score da análise de fraude|
 
-#### Tabela 10 - Payment.FraudAnalysis.Shipping.Method
+### Tabela 10 - Payment.FraudAnalysis.Shipping.Method
 
 |Valor|Descrição|
 |:-|:-|
@@ -4668,14 +4664,14 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |Other|Outro meio de entrega|
 |None|Sem meio de entrega, pois é um serviço ou assinatura|
 
-#### Tabela 11 - Payment.FraudAnalysis.Travel.JourneyType
+### Tabela 11 - Payment.FraudAnalysis.Travel.JourneyType
 
 |Valor|Descrição|
 |:-|:-|
 |OneWayTrip|Viagem somente de ida|
 |RoundTrip|Viagem de ida e volta|
 
-#### Tabela 12 - Payment.FraudAnalysis.Travel.Passengers[n].Status
+### Tabela 12 - Payment.FraudAnalysis.Travel.Passengers[n].Status
 
 |Valor|
 |:-|
@@ -4683,7 +4679,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |Gold|
 |Platinum|
 
-#### Tabela 13 - Payment.FraudAnalysis.Travel.Passengers[n].Rating
+### Tabela 13 - Payment.FraudAnalysis.Travel.Passengers[n].Rating
 
 |Valor|Descrição|
 |:-|:-|
@@ -4691,7 +4687,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |Child|Criança|
 |Infant|Infantil|
 
-#### Tabela 14 - Payment.FraudAnalysis.Status
+### Tabela 14 - Payment.FraudAnalysis.Status
 
 |Código|Descrição|
 |:-|:-|
@@ -4702,7 +4698,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |4|Aborted|
 |5|Unfinished|
 
-#### Tabela 15 - Payment.FraudAnalysis.FraudAnalysisReasonCode
+### Tabela 15 - Payment.FraudAnalysis.FraudAnalysisReasonCode
 
 |Valor|Descrição|
 |:-|:-|
@@ -4719,7 +4715,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |480|A transação foi marcada como revisão pelo DM (Decision Manager)|
 |481|A transação foi rejeitada pelo DM (Decision Manager)|
 
-#### Tabela 16 - Payment.FraudAnalysis.ReplyData.AddressInfoCode
+### Tabela 16 - Payment.FraudAnalysis.ReplyData.AddressInfoCode
 
 |Valor|Descrição
 |:-|:-|
@@ -4736,7 +4732,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |MM-Z|Os endereços de cobrança e entrega usam códidos postais diferentes|
 |UNV-ADDR|O endereço é inverificável|
 
-#### Tabela 17 - Payment.FraudAnalysis.ReplyData.FactorCode
+### Tabela 17 - Payment.FraudAnalysis.ReplyData.FactorCode
 
 |Valor|Descrição|
 |:-|:-|
@@ -4761,7 +4757,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |Y|O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam|
 |Z|Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias|
 
-#### Tabela 18 - Payment.FraudAnalysis.ReplyData.InternetInfoCode
+### Tabela 18 - Payment.FraudAnalysis.ReplyData.InternetInfoCode
 
 |Valor|Descrição|
 |:-|:-|
@@ -4778,7 +4774,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |UNV-RISK|O endereço IP é de origem de risco|
 |UNV-EMBCO|O país do endereço de e-mail não corresponde ao país do endereço de cobrança|
 
-#### Tabela 19 - Payment.FraudAnalysis.ReplyData.IpRoutingMethod
+### Tabela 19 - Payment.FraudAnalysis.ReplyData.IpRoutingMethod
 
 |Valor|Descrição|
 |:-|:-|
@@ -4794,7 +4790,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |SuperPOP|O comprador está discando em um ISP multi-estatal ou multinacional que provavelmente não é provável a localização do endereço de IP. O comprador pode estar discando através de limites geográficos|
 |No value returned|O tipo de roteamento é desconhecido|
 
-#### Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields
+### Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields
 
 > Nível de Relevância <br/> 1 - Relevante <br/> 2 - Muito Relevante <br/> 3 - Extremamente Relevante <br/><br/>
 > Conforme nível de relevância dos campos e possibilidade de desenho da estratégia de risco de acordo com a necessidade do seu negócio, na validação das transações de testes os mesmos serão cobrados caso não sejam enviaos. Com isso, solicitamos uma análise prévia da documentação e sinalização dos campos que não serão possíveis de serem enviados.<br/><br/>
@@ -4889,7 +4885,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |85 a 89|Campos livres e definidos junto ao provedor de AntiFraude, conforme as regras de negócio|-|-|-|
 |90 a 100|Reservados|-|-|-|
 
-#### Tabela 21 - Payment.Status
+### Tabela 21 - Payment.Status
 
 |Código|Status do Pagamento|Meio de pagamento|Descrição|
 |------|-------------------|-----------------|---------|
@@ -4902,7 +4898,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |12|Pending|Cartão de Crédito e Débito  (Transferência eletrônica) |Esperando retorno da instituição financeira|
 |13|Aborted|Todos|Pagamento cancelado por falha no processamento|
 
-#### Integração em checkout
+### Integração em checkout
 
 Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
@@ -4932,552 +4928,80 @@ As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao
 
 > Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.
 
-## Agenda Financeira
+# Post de Notificação
 
-No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).
+Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), deve-se ter configurado o campo "URL Status Pagamento" durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).
 
-A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.
+Veja o fluxo percorrido pelo post de notificação:
 
-A agenda é composta por eventos de Crédito e Débito que são gerados de acordo com as operações efetuadas e o regime de pagamento acordado.
+![Post de Notificação](https://braspag.github.io/images/fluxo-trans5-pt.png)
 
-Eventos de Crédito:
+<aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
-| Id | Evento                         | Descrição                                                                                               |
-|----|--------------------------------|---------------------------------------------------------------------------------------------------------|
-| 1  | `Credit`                       | Lançamento de crédito das parcelas de uma transação.                                                    |
-| 3  | `FeeCredit`                    | Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).            |
-| 5  | `RefundCredit`                 | Lançamento de crédito devido a um cancelamento.                                                         |
-| 7  | `ChargebackCredit`             | Lançamento de crédito devido a um chargeback.                                                           |
-| 9  | `UndoChargebackCredit`         | Lançamento de crédito para reversão de um chargeback.                                                   |
-| 11 | `AntiFraudFeeCredit`           | Lançamento de crédito referente à transação de antifraude.                                              |
-| 13 | `AntiFraudFeeWithReviewCredit` | Lançamento de crédito referente à transação de antifraude com revisão manual.                           |
-| 15 | `AdjustmentCredit`             | Lançamento de um crédito como ajuste.                                                                   |
-| 17 | `ChargebackReversalCredit`     | Lançamento de crédito referente a reversão de um chargeback.                                            |
-| 19 | `AnticipationCredit`           | Lançamento de crédito referente a antecipação.                                                          |
-| 20 | `AnticipationCommissionCredit` | Lançamento de crédito referente a comissão de uma antecipação.                                          |
+Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exemplo abaixo.
 
-Eventos de Débito:
-
-| Id | Evento                        | Descrição                                                                                               |
-|----|-------------------------------|---------------------------------------------------------------------------------------------------------|
-| 2  | `Debit`                       | Lançamento de débito das parcelas de uma transação.                                                     |
-| 4  | `FeeDebit`                    | Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).             |
-| 6  | `RefundDebit`                 | Lançamento de débito devido a um cancelamento.                                                          |
-| 8  | `ChargebackDebit`             | Lançamento de débito devido a um chargeback.                                                            |
-| 10 | `UndoChargebackDebit`         | Lançamento de débito para reversão de um chargeback.                                                    |
-| 12 | `AntiFraudFeeDebit`           | Lançamento de débito referente à transação de antifraude.                                               |
-| 14 | `AntiFraudFeeWithReviewDebit` | Lançamento de débito referente à transação de antifraude com revisão manual.                            |
-| 16 | `AdjustmentDebit`             | Lançamento de um débito como ajuste.                                                                    |
-| 18 | `ChargebackReversalDebit`    | Lançamento de débito referente a reversão de um chargeback.                                             |
-| 22 | `AnticipationCommissionDebit` | Lançamento de débito referente a comissão de uma antecipação.                                           |
-
-Um evento poderá estar em um dos seguintes status na agenda financeira:
-
-* **Scheduled**: Agendado.
-* **Pending**: Aguardando confirmação de liquidação.
-* **Settled**: Liquidado.
-* **Error**: Erro de liquidação na instituição financeira.
-* **WaitingForAdjustementDebit**: Aguardando liquidação do ajuste de débito associado.
-* **Anticipated**: Evento antecipado.
-
-### Consultar Eventos
-
-A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialForecastedDate={initialDate}&finalForecastedDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
-
-| Parâmetro                  | Descrição                                                                            | Tipo    | Formato    | Obrigatório | Valor Padrão          |
-|----------------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|-----------------------|
-| `InitialForecastedDate`    | Data de pagamento prevista inicial a ser consultada.                                 | Data    | YYYY-MM-DD | Não         | CurrentDate           |
-| `FinalForecastedDate`      | Data de pagamento prevista final a ser consultada.                                   | Data    | YYYY-MM-DD | Não         | InitialForecastedDate |
-| `InitialPaymentDate`       | Data de pagamento inicial a ser consultada.                                          | Data    | YYYY-MM-DD | Não         | -                     |
-| `FinalPaymentDate`         | Data de pagamento final a ser consultada.                                            | Data    | YYYY-MM-DD | Não         | InitialPaymentDate    |
-| `PageIndex`                | Página a ser consultada.                                                             | Inteiro | -          | Não         | 1                     |
-| `PageSize`                 | Tamanho da página. Valores possíveis: 25, 50, 100.                                   | Inteiro | -          | Não         | 25                    |
-| `EventStatus`              | Status do evento [Scheduled - Pending - Settled - Error - WaitingFoAdjustementDebit - Anticipated].| String  | -          | Não         | Todos                 |
-| `IncludeAllSubordinates`   | Inclui todos os subordinados na consulta.                                            | Boolean | -          | Não         | false                 | 
-| `MerchantIds`              | Lojas a serem consideradas na consulta.                                              | Guid    | -          | Não         | -                     |
-
-**Resquest**
-
-**Por Data Prevista de Pagamento**
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialForecastedDate=2017-12-01&finalForecastedDate=2018-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
-
-**Por Data de Pagamento**
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/events?initialPaymentDate=2018-08-22&finalPaymentDate=2018-08-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
-
-```json
-x-www-form-urlencoded
---header "Authorization: Bearer {access_token}"
-```
-
-**Response**
+## Notificação Enviada
 
 ```json
 {
-    "PageCount": 1,
-    "PageSize": 25,
-    "PageIndex": 1,
-    "Schedules": [
-        {
-            "Id": "b579fafb-8271-4a1d-a657-00e5fd9b9f83",
-            "PaymentId": "069ee5ef-ce7a-43ce-a9af-022f652e115a",
-            "MerchantId": "ea4db25a-f981-4849-87ff-026897e006c6",
-            "ForecastedDate": "2018-08-22",
-            "Installments": 10,
-            "InstallmentAmount": 9255,
-            "InstallmentNumber": 6,
-            "Event": 1,
-            "EventDescription": "Credit",
-            "EventStatus": "Settled",
-            "SourceId": "e3efe82f-1eee-4c28-bb9f-8054fcd4ca3f",
-            "Mdr": 3.2,
-            "Commission": false
-        },
-        {
-            "Id": "2f110f0d-82c9-4a1f-8df5-08203348d160",
-            "PaymentId": "069ee5ef-ce7a-43ce-a9af-022f652e115a",
-            "MerchantId": "ea4db25a-f981-4849-87ff-026897e006c6",
-            "ForecastedDate": "2018-08-22",
-            "Installments": 10,
-            "InstallmentAmount": 9255,
-            "InstallmentNumber": 9,
-            "Event": 1,
-            "EventDescription": "Credit",
-            "EventStatus": "Settled",
-            "SourceId": "e3efe82f-1eee-4c28-bb9f-8054fcd4ca3f",
-            "Mdr": 3.2,
-            "Commission": false
-        },
-        {
-            "Id": "01d9b78f-b287-4376-a5e4-12d91cde1938",
-            "PaymentId": "069ee5ef-ce7a-43ce-a9af-022f652e115a",
-            "MerchantId": "ea4db25a-f981-4849-87ff-026897e006c6",
-            "ForecastedDate": "2018-08-22",
-            "Installments": 10,
-            "InstallmentAmount": 9255,
-            "InstallmentNumber": 2,
-            "Event": 1,
-            "EventDescription": "Credit",
-            "EventStatus": "Settled",
-            "SourceId": "e3efe82f-1eee-4c28-bb9f-8054fcd4ca3f",
-            "Mdr": 3.2,
-            "Commission": false
-        },
-        {
-            "Id": "e30760d7-01e2-4b2b-9a43-2b252fcfbd84",
-            "PaymentId": "069ee5ef-ce7a-43ce-a9af-022f652e115a",
-            "MerchantId": "ea4db25a-f981-4849-87ff-026897e006c6",
-            "ForecastedDate": "2018-08-22",
-            "Installments": 10,
-            "InstallmentAmount": 9262,
-            "InstallmentNumber": 10,
-            "Event": 1,
-            "EventDescription": "Credit",
-            "EventStatus": "Settled",
-            "SourceId": "e3efe82f-1eee-4c28-bb9f-8054fcd4ca3f",
-            "Mdr": 3.2,
-            "Commission": false
-        },
-        {
-            "Id": "90ea1e11-568f-49ee-bc3f-7ab2a225a1e1",
-            "PaymentId": "069ee5ef-ce7a-43ce-a9af-022f652e115a",
-            "MerchantId": "ea4db25a-f981-4849-87ff-026897e006c6",
-            "ForecastedDate": "2018-08-22",
-            "Installments": 10,
-            "InstallmentAmount": 9255,
-            "InstallmentNumber": 1,
-            "Event": 1,
-            "EventDescription": "Credit",
-            "EventStatus": "Settled",
-            "SourceId": "e3efe82f-1eee-4c28-bb9f-8054fcd4ca3f",
-            "Mdr": 3.2,
-            "Commission": false
-        }
-    ]
-}
-```
-
-| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
-| `Schedules[].Id`                  | Identificador do evento na agenda financiera.                                                           | Guid    | 36      |
-| `Schedules[].PaymentId`           | Identificador da transação.                                                                             | Guid    | 36      |
-| `Schedules[].MerchantId`          | Identificador da loja.                                                                                  | Guid    | 36      |
-| `Schedules[].PaymentDate`         | Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)                | Data    | -       |
-| `Schedules[].ForecastedDate`      | Data de liquidação prevista.                                                                            | Data    | -       |
-| `Schedules[].Installments`        | Número de parcelas da transação.                                                                        | Inteiro | -       |
-| `Schedules[].InstallmentAmount`   | Valor, em centavos, da parcela a liquidar.                                                              | Inteiro | -       |
-| `Schedules[].InstallmentNumber`   | Número da parcela a liquidar.                                                                           | Inteiro | -       |
-| `Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
-| `Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
-| `Schedules[].EventStatus`         | Status do evento. [Scheduled - Pending - Settled - Error - WaitingForAdjustementDebit]                  | String  | -       |
-
-### Consultar Transações
-
-O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate={initialDate}&finalCaptureDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&eventStatus={eventStatus}&merchantIds={merchantId}</span></aside>
-
-| Parâmetro               | Descrição                                                                     | Tipo    | Formato    | Obrigatório | Valor Padrão       |
-|-------------------------|-------------------------------------------------------------------------------|---------|------------|-------------|--------------------|
-| `InitialCaptureDate`    | Data inicial a ser consultada, considerando a data de captura das transações. | Data    | YYYY-MM-DD | Não         | CurrentDate        |
-| `FinalCaptureDate`      | Data final a ser consultada, considerando a data de captura das transações.   | Data    | YYYY-MM-DD | Não         | InitialCaptureDate |
-| `PageIndex`             | Página a ser consultada.                                                      | Inteiro | -          | Não         | 1                  |
-| `PageSize`              | Tamanho da página.  Valores possíveis: 25, 50, 100.                           | Inteiro | -          | Não         | 25                 |
-| `EventStatus`           | Status do evento [Scheduled - Pending - Settled - Error - Anticipated].                     | String  | -          | Não         | Todos              |
-| `IncludeAllSubordinates`| Inclui todos os subordinados na consulta.                                     | Boolean | -          | Não         | false              |
-| `MerchantIds`           | Lojas a serem consideradas na consulta.                                       | Guid    | -          | Não         | -                  |
-
-Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds". Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.
-
-**Request**
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions?initialCaptureDate=2017-12-01&finalCaptureDate=2017-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
-
-```json
-x-www-form-urlencoded
---header "Authorization: Bearer {access_token}"  
-```
-
-**Response**
-
-```json
-{
-    "PageCount": 1,
-    "PageSize": 25,
-    "PageIndex": 1,
-    "Transactions": [
-        {
-            "PaymentId": "24afaaaf-f2a1-40a5-bb25-f914fa623c4c",
-            "CapturedDate": "2017-12-01",
-            "Schedules": [
-                {
-                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                    "ForecastedDate": "2017-12-21",
-                    "Installments": 2,
-                    "InstallmentAmount": 24357,
-                    "InstallmentNumber": 1,
-                    "Event": "Credit",
-                    "EventDescription": "Credit",
-                    "EventStatus": "Scheduled"
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "ForecastedDate": "2017-12-21",
-                    "Installments": 2,
-                    "InstallmentAmount": 1450,
-                    "InstallmentNumber": 1,
-                    "Event": "Credit",
-                    "EventDescription": "Credit",
-                    "EventStatus": "Scheduled"
-                },
-                {
-                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                    "ForecastedDate": "2017-12-21",
-                    "Installments": 2,
-                    "InstallmentAmount": 38480,
-                    "InstallmentNumber": 1,
-                    "Event": "Credit",
-                    "EventDescription": "Credit",
-                    "EventStatus": "Scheduled"
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "ForecastedDate": "2017-12-21",
-                    "Installments": 2,
-                    "InstallmentAmount": 5,
-                    "InstallmentNumber": 1,
-                    "Event": "FeeDebit",
-                    "EventDescription": "FeeDebit",
-                    "EventStatus": "Scheduled"
-                },
-            ]
-        }
-    ]
-}
-```
-
-| Propriedade                                      | Descrição                                                                                               | Tipo    | Tamanho |
-|--------------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
-| `Transactions[].PaymentId`                       | Identificador da transação.                                                                             | Guid    | 36      |
-| `Transactions[].CaptureDate`                     | Data de captura da transação.                                                                           | Data    | -       |
-| `Transactions[].Schedules[].MerchantId`          | Identificador da loja.                                                                                  | Guid    | 36      |
-| `Transactions[].Schedules[].PaymentDate`         | Data de liquidação. Retornada somente quando pagamento realizado (EventStatus = Settled)                | Data    | -       |
-| `Transactions[].Schedules[].ForecastedDate`      | Data de liquidação prevista.                                                                            | Data    | -       |
-| `Transactions[].Schedules[].Installments`        | Número de parcelas a liquidar.                                                                          | Inteiro | -       |
-| `Transactions[].Schedules[].InstallmentsAmount`  | Valor, em centavos, da parcela a liquidar.                                                              | Inteiro | -       |
-| `Transactions[].Schedules[].InstallmentNumber`   | Número da parcela a liquidar.                                                                           | Inteiro | -       |
-| `Transactions[].Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
-| `Transactions[].Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
-| `Transactions[].Schedules[].EventStatus`         | Status do evento. [Scheduled - Pending - Settled - Error - Anticipated]                                               | String  | -       |
-
-Para consultar a agenda de uma transação específica basta informar o identificador da transação na requisição.
-
-Neste caso poderão ser utilizados os filtros MarchantIds e EventStatus.
-
-**Request**
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedule-api/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
-
-```json
-x-www-form-urlencoded
---header "Authorization: Bearer {access_token}"
-```
-
-**Response**
-
-```json
-{
-    "PageCount": 1,
-    "PageSize": 25,
-    "PageIndex": 1,
-    "Transactions": [
-        {
-            "PaymentId": "cd2309d3-3fec-4816-aec7-bcb6d51a0988",
-            "CapturedDate": "2017-12-11",
-            "Schedules": [
-                {
-                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                    "ForecastedDate": "2018-01-11",
-                    "Installments": 1,
-                    "InstallmentAmount": 5790,
-                    "InstallmentNumber": 1,
-                    "Event": 1,
-                    "EventDescription": "Credit",
-                    "EventStatus": "Scheduled"
-                },
-                {
-                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                    "ForecastedDate": "2018-01-11",
-                    "Installments": 1,
-                    "InstallmentAmount": 3790,
-                    "InstallmentNumber": 1,
-                    "Event": 1,
-                    "EventDescription": "Credit",
-                    "EventStatus": "Scheduled"
-                }
-            ]
-        }
-    ]
-}
-```
-
-### Ajustes
-
-O Split de Pagamentos permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.
-
-Um ajuste somente será efetivamente liquidado para os evolvidos caso o participante a ser debitado possua saldo positivo na data prevista informada para efetivação do ajuste. Caso contrário, a liquidação do ajuste será postergada, para ambos os envolvidos, até que o participante a ser debitado tenha saldo positivo para cobrir o valor do ajuste.
-
-**Ex:** Marketplace lança um ajuste a débito de R$100,00 para o Subordinado A com data prevista de cobrança em 17/10/2018.
-
-**Caso 1)** Subordinado possui saldo positivo na data prevista informada.
-
-![SplitSampleadjustment001](https://braspag.github.io/images/braspag/split/adjustment001.png)
-
-Os valores até o dia 16/10/2018 foram liquidados normalmente.
-
-Como o subordinado tinha R$150,00 para receber no dia 17/10/2018, o ajuste foi lançado na agenda financeira na data prevista informada e o mesmo receberá R$50,00 devido ao débito do ajuste.
-
-O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 17/10/2018.
-
-**Caso 2)** Subordinado não possui saldo positivo na data prevista informada.
-
-![SplitSampleadjustment002](https://braspag.github.io/images/braspag/split/adjustment002.png)
-
-Os valores até o dia 16/10/2018 foram liquidados normalmente.
-
-O Subordinado tinha a receber apenas R$60,00 no dia 17/10/2018, o que não cobre o valore do ajuste a ser debitado do mesmo.
-
-Neste cenário, os pagamentos do subordinado serão retidos até que o mesmo tenha saldo para cobrir o ajuste, o que ocorre no dia 19/10/2018, onde o acumulado retido é de R$130,00. Com isso, o subordinado receberá R$30,00.
-
-O participante a ser creditado terá a efetivação do crédito na mesma data de efetivação do débito, ou seja, receberá R$150,00 no dia 19/10/2018.
-
-**Request**
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/adjustment-api/adjustments/</span></aside>
-
-```json
---header "Authorization: Bearer {access_token}"
---header "Accept: application/json"
-{
-    "merchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
-    "merchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
-    "forecastedDate": "2018-09-17",
-    "amount": 1000,
-    "description": "Multa por não cumprimento do prazo de entrega no pedido XYZ",
-    "transactionId": "717A0BD0-3D92-43DB-9D1E-9B82DFAFA392"
-}
-```
-
-| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------| 
-| `merchantIdToDebit`               | Merchant do qual o valor será debitado.                                                                 | Guid    | 36      | Sim         |
-| `merchantIdToCredit`              | Merchant para o qual o valor será creditado.                                                            | Inteiro | -       | Sim         |
-| `forecastedDate`                  | Data prevista para lançamento do ajuste na agenda financeira.                                           | String  | -       | Sim         |
-| `amount`                          | Valor em centavos do ajuste.                                                                            | Inteiro | -       | Sim         |
-| `description`                     | Decrição do ajuste.                                                                                     | String  | 500     | Sim         |
-| `transactionId`                   | Identificador da transação para qual o ajuste está sendo lançado.                                       | Guid    | -       | Não         |
-
-<aside class="warning">Ao associar o ajuste a uma transação, os envolvidos devem ser participantes da transação.</aside>
-
-**Response**
-
-```json
--- 201 - Created
-{
-    "id": "68465ddd-451a-4194-abca-be1ed71fb2ea",
-    "merchantIdToDebit": "EA4DB25A-F981-4849-87FF-026897E006C6",
-    "merchantIdToCredit": "44F68284-27CF-43CB-9D14-1B1EE3F36838",
-    "forecastedDate": "2018-09-19",
-    "amount": 1000,
-    "description": "Multa por não cumprimento do prazo de entrega no pedido",
-    "transactionId": "717A0BD0-3D92-43DB-9D1E-9B82DFAFA392",
-    "status": "Created"
-}
-```
-
-| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------| 
-| `id`                              | Identificador do ajuste.                                                                                | Guid    | 36      | -           |
-| `status`                          | Status do ajustes [Created - Scheduled - Processed - Canceled ].                                        | String  | -       | -           |
-
-## Chargeback
-
-No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o repassará para seus Subordinados, desde que acordado previamente entre as partes.
-
-Se o Marketplace optar por repassar para os Subordinados, o Chargeback Total é sensibilizado automaticamente na agenda dos mesmos. Caso contrário o chargeback será sensibilizado automaticamente na agenda do Marketplace, como acontece com um Charback Parcial.
-
-O Marketplace pode decidir ainda repassar o Chargeback para seus subordinados. Para isso A API Split disponibiliza um serviço onde o Marketplace pode informar como dividir o valor do chargeback entre os subordinados, caso seja um Chargeback Parcial.  
-
-No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transação com valor capturado de R$100,00.
-
-**Request**
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/chargebacks/{ChargebackId}/splits</span></aside>
-
-```json
-[
-  {
-    "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-    "ChargebackAmount": 4000
-  },
-  {
-    "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-    "ChargebackAmount": 2000
-  }
-]
-
-```
-
-| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
-| `SubordinateMerchantId`           | Identificador do Subordinado.                                                                           | Guid    | 36      |
-| `ChargebackAmount`                | Valor do chargeback que deverá ser repassado ao Subordinado, em centavos.                               | Inteiro | -       |
-
-**Response**
-
-```json
-{
-    "ChargebackSplitPayments": [
-        {
-            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-            "ChargebackAmount": 4000,
-            "ChargebackSplits": [
-                {
-                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                    "ChargebackAmount": 3780
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "ChargebackAmount": 220
-                }
-            ]
-        },
-        {
-            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-            "ChargebackAmount": 2000,
-            "ChargebackSplits": [
-                {
-                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                    "ChargebackAmount": 1912
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "ChargebackAmount": 88
-                }
-            ]
-        }
-    ]
-}
-```
-
-> O Marketplace tem 1 dia, contado a partir da data de efetivação do chargeback, para informar como deseja repassar os valores aos subordinados.
-
-| Propriedade                                | Descrição                                                                                               | Tipo    | Tamanho |
-|--------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
-| `ChargebackSplitPayments.ChargebackSplits` | Lista contendo a divisão do chargeback para cada participante.                                          | Guid    | 36      |
-
-## Liquidação
-
-A plataforma permite que o Master bloqueie temporariamente a liquidação para um Subordinado para garantia da entrega do produto/serviço, funcionalidade conhecida como Escrow.
-
-### Trava
-
-Este bloqueio, conhecido como custódia, pode durar até 180 dias. Após este prazo, a Braspag liquidará o valor para o subordinado independentemente do bloqueio.
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{splitApi}/api/transactions/{paymentid}/settlements</span></aside>
-
-**Request**
-
-```json
-[
-    {
-        "SubordinateMerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
-        "Locked": [true | false]
-    },
-    {
-        "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-        "Locked": [true | false]
-    },
-]
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|-----------|----|-------|-----------|---------|
-|`SubordinateMerchantId`|Texto|36|Sim|Merchantid identificador do subordinado|
-|`Locked`|Booleano|---|Sim|Booleano que identifica se o a liquidação será travada para o subordinado ou não|
-
-## Post de Notificação
-
-Para receber a notificação de alteração de status deve-se ter configurado no cadastro de sua loja na Braspag, o campo URL Status Pagamento para receber os parametros conforme o exemplo ao lado.
-
-Resposta esperada da Loja: HTTP Status Code 200 OK
-
-Caso não seja retornado o HTTP Status Code 200 OK será tentado mais duas vezes enviar o Post de Notificação.
-
-```json
-{
-   "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
    "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "ChangeType": "2"
+   "ChangeType": "1"
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
-|`RecurrentPaymentId`|Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4|GUID|36|Não|
-|`PaymentId`|Identificador que representa a transação|GUID|36|Sim|
-|`ChangeType`|Especifica o tipo de notificação. Vide tabela abaixo | Número | 1 |Sim|
+|`PaymentId`|Identificador que representa a transação.|GUID|36|Sim|
+|`ChangeType`|Especifica o tipo de notificação. Obs.: Consulte a tabela abaixo. | Número | 1 |Sim|
 
 |ChangeType|Descrição|
 |----------|---------|
-|1|Mudança de status do pagamento|
-|2|Recorrência criada|
-|3|Mudança de status do AntiFraude|
-|4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
-|5|Estorno negado (aplicável para Rede)|
-|6|Boleto registrado pago a menor|
-|7|Notificação de chargeback <br/> Para mais detalhes [Risk Notification](https://braspag.github.io//manual/risknotification)|
-|8|Alerta de fraude|
+|"1"|Mudança de status do pagamento.|
+|"3"|Mudança de status do *Antifraude*.|
+|"6"|Boleto registrado pago a menor.|
+|"7"|Notificação de chargeback. Para mais detalhes, consulte o manual de [Risk Notification](https://braspag.github.io//manual/risknotification).|
+|"8"|Alerta de fraude.|
+
+## Resposta Esperada
+
+É esperado o retorno da loja com a seguinte resposta: `HTTP Status Code 200 OK`.
+
+Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio do Post de Notificação.
+
+# Anexos
+
+## Lista de Status da Transação
+
+Status retornados pela API
+
+|Código|Status do Pagamento|Meio de pagamento|Descrição|
+|------|-------------------|-----------------|---------|
+|0|NotFinished|Todos|Falha ao processar o pagamento|
+|1|Authorized|Todos|Meio de pagamento apto a ser capturado ou pago(Boleto)|
+|2|PaymentConfirmed|Todos|Pagamento confirmado e finalizado|
+|3|Denied|Cartão de Crédito e Débito (Transferência eletrônica) |
+|10|Voided|Todos|Pagamento cancelado|
+|11|Refunded|Cartão de crédito e Débito|Pagamento Cancelado/Estornado|
+|12|Pending|Cartão de Crédito e Débito  (Transferência eletrônica) |Esperando retorno da instituição financeira|
+|13|Aborted|Todos|Pagamento cancelado por falha no processamento|
+|20|Scheduled|Cartão de crédito|Recorrência agendada|
+
+## Lista de Status do AntiFraude
+
+| Código | Descrição  |
+|--------|------------|
+| 0      | Unknown    |
+| 1      | Accept     |
+| 2      | Reject     |
+| 3      | Review     |
+| 4      | Aborted    |
+| 5      | Unfinished |
+
+## Lista de HTTP Status Code
+
+| HTTP Status Code | Descrição             |
+|------------------|-----------------------|
+| 200              | OK                    |
+| 400              | Bad Request           |
+| 404              | Resource Not Found    |
+| 500              | Internal Server Error |

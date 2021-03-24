@@ -29,7 +29,6 @@ Possuímos duas maneiras de integração com as API transacionais, são elas:
 
 As operações de gerenciamento do Split de Pagamento serão exploradas nessa documentação, elas lhe permitem acessar serviços como:  
 
-* Pós Transacional
 * Agenda Financeira
 * Chargeback (Divisão)
 * Liquidação (Trava)
