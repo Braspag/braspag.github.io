@@ -67,7 +67,7 @@ O serviço do Cartão Protegido pode ser consumido de duas formas:
 
 Veja a representação do **fluxo transacional** quando o token é solicitado diretamente à **API do Cartão Protegido**:
 
-![Cartão Protegido](https://braspag.github.io/images/fluxo-trans3a-pt.png)
+![Cartão Protegido]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/fluxo-trans3a-pt.png)
 
 Consulte também sobre a utilização da funcionalidade [VerifyCard](https://braspag.github.io//manual/braspag-verify-card) em conjunto com o serviço de tokenização do cartão.
 
