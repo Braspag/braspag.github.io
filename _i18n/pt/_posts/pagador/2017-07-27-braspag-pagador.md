@@ -127,7 +127,10 @@ Veja abaixo a representação de um **fluxo transacional** padrão seguida de um
 
 ### Criando uma Transação de Crédito
 
-Ao requisitar a **autorização** de uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó `Payment.Credentials`, e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.
+Veja abaixo a representação de um **fluxo transacional** padrão na criação de uma transação de crédito:
+![Fluxo Cartão de Crédito]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/cartao-de-credito.png)
+
+Ao solicitar a **autorização** de uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó `Payment.Credentials` e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.
 
 Caso a sua loja utilize os serviços de *Retentativa* ou *Loadbalance*, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, [clique aqui](https://suporte.braspag.com.br/hc/pt-br/requests/new) e envie sua requisição.
 
@@ -582,6 +585,9 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 ### Criando uma Transação de Débito
 
 Uma transação com cartão de débito se efetua de forma semelhante à com cartão de crédito. É obrigatório, porém, submetê-la ao processo de autenticação.
+
+Veja abaixo a representação de um **fluxo transacional** padrão na criação de uma transação de débito:
+![Fluxo Cartão de Débito]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/cartao-de-debito.png)
 
 #### Requisição
 
@@ -2086,10 +2092,12 @@ Conheça o ciclo de vida de uma transação Pix:
 Para gerar um QR code Pix através da API Pagador, basta realizar a integração conforme a especificação abaixo.
 
 Entre os campos de envio obrigatório, destacam-se dois: `Type`, que deve ser enviado como "Pix"; e `Provider`, que deve ser "Cielo30". Na resposta da requisição será retornado o *código base64* da imagem do QR code Pix, que deve ser disponibilizado ao comprador.
-![Fluxo de Geração do QR Code Pix](https://braspag.github.io/images/braspag/pagador/pix/1-pix-geracao-qrcode.png)
 
-O comprador então realiza a leitura do QR code através de um dos aplicativos habilitados para o pagamento Pix e efetiva o pagamento. Nesta etapa não há participação da loja nem da Braspag.
-![Fluxo de Pagamento](https://braspag.github.io/images/braspag/pagador/pix/2-pix-pagamento.png)
+Veja abaixo a representação do **fluxo transacional** na geração do QR code Pix:
+![Fluxo Geração QR Code Pix]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/pix.png)
+
+O comprador então realiza a leitura do QR code através de um dos aplicativos habilitados para o pagamento Pix e efetiva o pagamento. Nesta etapa não há participação da loja nem da Braspag, como demonstrado abaixo:
+![Fluxo Pagamento QR Code Pix]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/pix2.png)
 
 Seguem exemplos de envio de requisição e resposta para a geração do QR code Pix:
 
@@ -2211,7 +2219,7 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 
 Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar uma operação chamada de "devolução". É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma [notificação](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o) é recebida pela loja.<br/>
 
-![Fluxo de Devolução](https://braspag.github.io/images/braspag/pagador/pix/3-pix-devolucao.png)
+![Fluxo Cancelamento Pix]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/pix3.png)
 
 #### Requisição
 
@@ -2279,6 +2287,9 @@ Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar 
 ## QR Code
 
 ### Criando uma Transação com QR Code
+
+Veja abaixo a representação de um **fluxo transacional** padrão na criação de uma transação com QR code:
+![Fluxo QR Code]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/qr-code.png)
 
 Uma transação com QR code se efetua com o envio de uma requisição através do método POST conforme o exemplo abaixo. Essa requisição irá criar a transação, que ficará com o status *Pendente* na Braspag, e gerar o QR code para realizar o pagamento. Usando um dos aplicativos compatíveis, o comprador efetua o pagamento e a transação muda de status (ex.: *Pago*, *Não pago* ou *Não autorizado*).
 
@@ -2431,6 +2442,9 @@ Abaixo seguem os procedimentos de migração/filiação de cada banco:
 * [Caixa Econômica](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf)
 
 ### Criando uma Transação de Boleto
+
+Veja abaixo a representação de um **fluxo transacional** padrão na criação de uma transação com boleto:
+![Fluxo Boleto]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/boleto.png)
 
 Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este meio de pagamento.
 
@@ -2934,9 +2948,15 @@ O Pagador possui suporte para as principais carteiras digitais disponíveis no m
 
 Consulte nosso manual [E-Wallets](https://braspag.github.io//manual/ewallets) e saiba mais detalhes sobre a integração dessas e-wallets em seu checkout.
 
+Com a e-wallet já totalmente integrada, o seu **fluxo transacional** de pagamento será o seguinte:
+![Fluxo E-Wallet]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/e-wallet2.png)
+
 ## Voucher
 
 ### Criando uma Transação com Voucher
+
+Veja abaixo a representação de um **fluxo transacional** padrão na criação de uma transação com voucher:
+![Fluxo Voucher]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/voucher.png)
 
 Uma transação com cartão voucher se efetua de forma semelhante à com cartão de débito; porém, sem o processo de autenticação.
 Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
