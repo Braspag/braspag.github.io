@@ -39,7 +39,7 @@ As operações de gerenciamento do Split de Pagamentos serão exploradas nessa d
 Existem dois ambientes distintos para a integração com a API: o ambiente **Sandbox** e o ambiente de **Produção**.<br/>
 No ambiente Sandbox, podem ser realizados a homologação e os testes de sua integração. Já no ambiente de Produção, são realizadas as transações reais.
 
-<br/>Para executar uma operação:
+Para executar uma operação:
 
 1. Combine a **base** da URL do ambiente com o **_endpoint_** da operação desejada. Ex.: https://split.braspag.com.br/*oauth2/token*.
 2. Envie a requisição para a URL utilizando o método HTTP (GET, POST ou PUT) adequado à operação.
@@ -65,7 +65,7 @@ No ambiente Sandbox, podem ser realizados a homologação e os testes de sua int
 
 ## Autenticação
 
-O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/). É necessário primeiramente obter um token de acesso, utilizando suas credenciais. O token deverá posteriormente ser enviado à API do Split.
+O Split de Pagamentos utiliza como segurança o protocolo [OAuth 2.0](https://oauth.net/2/). É necessário primeiramente obter um token de acesso, utilizando suas credenciais. O token deverá posteriormente ser enviado à API do Split.
 
 Para obter um token de acesso:
 
