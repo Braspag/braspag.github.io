@@ -7979,7 +7979,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>Abaixo veja a representação do <strong>fluxo transacional</strong> com a solicitação do token pela API do Pagador:</p>
 
-<p><img src="https://braspag.github.io/images/fluxo-trans4-pt.png" alt="Cartão Protegido - Pagador" /></p>
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/fluxo-trans4-pt.png" alt="Cartão Protegido - Pagador" /></p>
 
 <p>Consulte também os fluxos de tokenização direta com a <a href="https://braspag.github.io//manual/cartao-protegido-api-rest">API do Cartão Protegido</a>, com a opção dos serviços da <a href="https://braspag.github.io//manual/braspag-verify-card">API do VerifyCard</a>.</p>
 
@@ -9174,13 +9174,13 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 O Pagador faz a chamada para o Antifraude, onde ocorre a análise de risco do pedido.<br />
 Caso seja aceita pelo Antifraude, a transação é então capturada e a cobrança é realizada no cartão. Caso seja rejeitada pelo Antifraude, a API do Pagador solicita o cancelamento da transação à Adquirente e informa a loja. O valor bloqueado no cartão deverá retornar 100% para o cliente final.</p>
 
-<p><img src="https://braspag.github.io/images/fluxo-trans1a-pt.png" alt="Antifraude 1a" /></p>
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/fluxo-trans1a-pt.png" alt="Antifraude 1a" /></p>
 
 <p><br /><strong>Com Captura Automática</strong></p>
 
 <p>Este fluxo é similar ao primeiro, com a diferença da captura automática no lugar da autorização. Se o Antifraude rejeita o pedido, que foi previamente autorizado pela Adquirente e já cobrado no cartão do cliente, a API do Pagador irá solicitar o cancelamento da transação à Adquirente e informar a loja. Neste caso, o valor já cobrado no cartão deverá igualmente ser estornado 100% para o cliente final.</p>
 
-<p><img src="https://braspag.github.io/images/fluxo-trans1b-pt.png" alt="Antifraude 1b" /></p>
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/fluxo-trans1b-pt.png" alt="Antifraude 1b" /></p>
 
 <h2 id="fluxo-analysefrist">Fluxo AnalyseFrist</h2>
 
@@ -11365,7 +11365,7 @@ Muitas vezes, somente os dados do carrinho não são suficientes para garantir u
 
 <p>A consulta deve ser feita através de requisição diretamente à API de Consulta, como mostrado na figura:</p>
 
-<p><img src="https://braspag.github.io/images/fluxo-trans6-pt.png" alt="Consulta" /></p>
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/fluxo-trans6-pt.png" alt="Consulta" /></p>
 
 <h2 id="consultando-uma-transação-via-paymentid">Consultando uma Transação via PaymentID</h2>
 
@@ -13064,7 +13064,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <p>Veja o fluxo percorrido pelo post de notificação:</p>
 
-<p><img src="https://braspag.github.io/images/fluxo-trans5-pt.png" alt="Post de Notificação" /></p>
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/fluxo-trans5-pt.png" alt="Post de Notificação" /></p>
 
 <aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
