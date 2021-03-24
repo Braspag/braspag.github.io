@@ -31,7 +31,7 @@ Por permitir total personalização na página de checkout da loja, essa soluç�
 
 # Fluxo Transacional
 
-![Fluxo Silent Order Post](https://braspag.github.io/images/fluxo-trans7-pt.png)
+![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/fluxo-trans7-pt.png)
 
 # Integrando a Solução
 
