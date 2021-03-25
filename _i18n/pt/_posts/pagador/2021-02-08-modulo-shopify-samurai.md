@@ -15,9 +15,9 @@ tags:
 
 Para realizar a integração do módulo Shopify, deve-se primeiramente instalar o app na loja.
 
-# Instalando e Configurando
+# Instalação e Configuração
 
-## Instalação
+## Instalando
 
 A URL a ser acessada para instalação do módulo deve seguir o seguinte padrão:
 
@@ -30,7 +30,7 @@ A palavra **_loja_** deve ser substituída pelo nome da loja (presente em sua UR
 2. Clique em `Instalar Gateway` para iniciar a instalação. Se a loja estiver online, esta ação deverá ser a última a ser tomada. Se a loja não estiver online, esta ação poderá ser executada a qualquer momento.
 3. Clique em `Configurações`.
 
-## Configuração
+## Configurando
 
 Em "Configurações", preencha os campos com dados referentes a provedores de pagamentos, utilização das funções Antifraude e Split, entre outros detalhes.
 
@@ -98,7 +98,7 @@ Caso sua opção de utilização da função split seja "Sim", as seguintes opç
 |`Id Braspag`|Merchant Id da Braspag da conta do fornecedor.|
 |`Atualizar fornecedores`|Botão utilizado para carregar os fornecedores (vendors) do lojista, dos quais as configurações de split dependem.|
 
-Caso sua opção de utilização da função split seja "Não", siga para o preenchimento das configurações de parcela:
+<br/>Caso sua opção de utilização da função split seja "Não", siga para o preenchimento das configurações de parcela:
 ![Sem Split]({{ site.baseurl_root }}/images/braspag/pagador/shopify/config-split-no.png)
 
 |CAMPO|DESCRIÇÃO|
@@ -109,9 +109,10 @@ Caso sua opção de utilização da função split seja "Não", siga para o pree
 |`Taxa de juros por parcela`|Indica se o acordo da loja com a Braspag tem taxa de juros para algum tipo de parcela.|
 |`Número de parcelas/Taxa de juros`|A taxa de juros da parcela correspondente, de acordo com o que já existe na Braspag.|
 
-### Customização de Pagamento
+### Formas de Pagamento
 
-![Pagamento]({{ site.baseurl_root }}/images/braspag/pagador/shopify/config-split-no.png)
+Preencha os seguintes campos referentes à customização das formas de pagamento:
+![Pagamento]({{ site.baseurl_root }}/images/braspag/pagador/shopify/config-custom.png)
 
 |CAMPO|DESCRIÇÃO|
 |---|---|
@@ -126,7 +127,7 @@ Caso sua opção de utilização da função split seja "Não", siga para o pree
 
 ![Envio de Boleto]({{ site.baseurl_root }}/images/braspag/pagador/shopify/config-rem.png)
 
-# Finalizando a Compra
+# Finalização da Compra
 
 Após digitar todas as informações de endereço e frete no checkout, o usuário deverá clicar em `Finalizar a compra`:
 ![Pagamento]({{ site.baseurl_root }}/images/braspag/pagador/shopify/shopify-pagamento.png)
