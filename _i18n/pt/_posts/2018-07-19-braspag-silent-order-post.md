@@ -299,7 +299,7 @@ Acesse a página oficial do [PCI SSC](www.pcisecuritystandards.org/merchants) e 
 
 Merchants podem precisar de uma auditoria externa, com emissão de um ROC (Report on Compliance) ao final, ou então de um SAQ (Self-Assessment Questionnaire) para atestar sua 
 conformidade, dependendo do seu nível, que varia de acordo com cada bandeira.
-<br/>Consulte a página de [Produtos e Serviços de Pagamento Digital - Visa](https://www.visa.com.br/sobre-a-visa/geral/programa-ais-pci.html) e veja as especificações dos níveis da bandeira (de 1 a 4), que podem ser usados como exemplo.  
+<br/>Consulte a página de [Produtos e Serviços de Pagamento Digital - Visa](https://www.visa.com.br/sobre-a-visa/geral/programa-ais-pci.html) e veja as especificações dos níveis da bandeira (de 1 a 4), que podem ser usados como exemplo. Entre em contato com a sua adquirente e/ou bandeira para saber detalhes sobre os requisitos e nível de sua loja.
 
 A Braspag faz parte do [REB (Regional Engagement Board)](https://www.pcisecuritystandards.org/get_involved/regional_engagement_board?hsCtaTracking=fde79905-8cc1-4927-b0fa-b3408f1e0726%7C3962f448-7b5a-4957-82e3-33bc886d9717), em conjunto com adquirentes, bandeiras e outros representantes do e-commerce no Brasil, para discutir sobre a segurança no uso do cartão para pagamento no mercado brasileiro.
 
