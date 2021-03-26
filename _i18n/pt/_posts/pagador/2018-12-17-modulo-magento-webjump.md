@@ -539,7 +539,7 @@ A visão do método de pagamento cartão de débito, após a configuração na l
 
 # Split de Pagamentos 
 
-<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível a alterações.</aside>
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível de alterações.</aside>
 
 ## Split (Magento)
 
