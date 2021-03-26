@@ -40,7 +40,7 @@ Em "Configurações", preencha os campos com dados referentes a provedores de pa
 
 |CAMPO|DESCRIÇÃO|
 |---|---|
-|`URL do Logo`|URL do logo a ser futuramente usada no boleto (ainda indisponível).|
+|`URL logo personalizado`|URL do logo a ser futuramente usada no boleto (ainda indisponível).|
 |`MerchantID Braspag`|Merchant Id enviado pela Braspag (diferente da credencial de afiliação Cielo).|
 |`MerchantKey Braspag`|Merchant Key enviado pela Braspag (diferente da credencial de afiliação Cielo).|
 |`Email da Conta da Braspag`|Email relacionado à conta Braspag.|
