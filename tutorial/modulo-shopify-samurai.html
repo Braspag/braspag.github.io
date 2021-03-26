@@ -161,11 +161,11 @@
       <td>URL do logo a ser futuramente usada no boleto (ainda indisponível).</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Public Key Braspag</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantID Braspag</code></td>
       <td>Merchant Id enviado pela Braspag (diferente da credencial de afiliação Cielo).</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Access Token Braspag</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey Braspag</code></td>
       <td>Merchant Key enviado pela Braspag (diferente da credencial de afiliação Cielo).</td>
     </tr>
     <tr>
@@ -173,7 +173,7 @@
       <td>Email relacionado à conta Braspag.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">URL do Webhook</code></td>
+      <td><code class="language-plaintext highlighter-rouge">URL do WebHook</code></td>
       <td>URL de webhook a ser cadastrada pelo cliente/suporte junto à Braspag, conforme instruções <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o">neste link</a>.</td>
     </tr>
   </tbody>
@@ -255,15 +255,15 @@
       <td>Secret da Cielo para autenticação 3DS (não requerido caso não tenha split).</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Nome Estab. Braspag</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Nome do Estab. na Braspag</code></td>
       <td>Nome do estabelecimento na Braspag/Cielo para autenticação 3DS.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Cod. Estab. Braspag</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cod. do Estab. na Braspag</code></td>
       <td>Código do estabelecimento na Braspag/Cielo, numérico, para autenticação 3DS.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MCC (Cód Categoria) Braspag</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MCC (Cód. Categoria) Braspag</code></td>
       <td>MCC do estabelecimento na Braspag/Cielo, numérico, 4 dígitos, para autenticação 3DS.</td>
     </tr>
     <tr>
@@ -290,7 +290,7 @@
       <td>Validade do boleto, em dias.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">1ª/2ª/3ª Linhas de instrução do boleto</code></td>
+      <td><code class="language-plaintext highlighter-rouge">1ª/2ª/3ª linhas de instrução do boleto</code></td>
       <td>Instruções do boleto.</td>
     </tr>
   </tbody>
@@ -310,7 +310,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Usar Split</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Usar split</code></td>
       <td>Opção de utilizar a função de split. Se “Sim”, as opções seguintes são habilitadas. Obs.: Essa funcionalidade foi homologada, porém não foi testada em uma situação real em produção.</td>
     </tr>
     <tr>
@@ -318,7 +318,7 @@
       <td>Porcentagem ganha pela loja no split.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Taxa Fixa (R$)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Taxa fixa (R$)</code></td>
       <td>Valor em reais caso a loja ganhe uma taxa fixa na venda.</td>
     </tr>
     <tr>
@@ -349,7 +349,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Parcela mínima</code></td>
-      <td>Valor em reais da parcela mínima da loja, caso exista.</td>
+      <td>Insira o valor em reais da parcela mínima da loja, caso exista.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Número máximo de parcelas</code></td>
@@ -360,7 +360,7 @@
       <td>Indica se o acordo da loja com a Braspag tem taxa de juros para algum tipo de parcela.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Número de parcelas/Taxa de juros</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Número de parcelas/Taxa de juros (%)</code></td>
       <td>A taxa de juros da parcela correspondente, de acordo com o que já existe na Braspag.</td>
     </tr>
   </tbody>
@@ -400,9 +400,40 @@
 
 <h4 id="envio-do-boleto">Envio do Boleto</h4>
 
-<p>Caso opte pelo envio do boleto por email ao comprador, preencha também a sessão seguinte:</p>
+<p>Caso opte pelo envio do boleto por email ao comprador, preencha também a sessão seguinte e, ao final, clique em <code class="language-plaintext highlighter-rouge">Salvar</code>:</p>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/shopify/config-rem.png" alt="Envio de Boleto" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Título e-mail para envio de boletos</code></td>
+      <td>Texto a ser enviado como título/assunto do email.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">E-mail para envio de boletos</code></td>
+      <td>Endereço de e-mail a aparecer como remetente do mesmo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Senha do e-mail para envio de boletos</code></td>
+      <td>Senha de autenticação do e-mail.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SMTP do provedor de e-mail para envio de boletos</code></td>
+      <td>Servidor SMTP a ser utilizado para o envio.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Porta do SMTP do e-mail para envio de boletos</code></td>
+      <td>Porta do servidor SMTP a ser utilizado para o envio.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="finalização-da-compra">Finalização da Compra</h1>
 
