@@ -132,6 +132,6 @@ Preencha os seguintes campos referentes à customização das formas de pagament
 Após digitar todas as informações de endereço e frete no checkout, o usuário deverá clicar em `Finalizar a compra`:
 ![Pagamento]({{ site.baseurl_root }}/images/braspag/pagador/shopify/shopify-pagamento.png)
 
- Ao clicar em `Finalizar a compra`, o usuário será redirecionado ao gateway para a página **Dados de pagamento**, mostrada na imagem abaixo.
- <br/>Basta efetuar o preenchimento dos dados e clicar em `Realizar Pagamento` para realizar uma compra pagando com a Braspag:
- ![Pagamento](https://braspag.github.io/images/braspag/pagador/shopify-pagamentodados.png)
+Ao clicar em `Finalizar a compra`, o usuário será redirecionado ao gateway para a página **Dados de pagamento**, mostrada na imagem abaixo.
+<br/>Basta efetuar o preenchimento dos dados e clicar em `Realizar Pagamento` para realizar uma compra pagando com a Braspag:
+![Endereço de Faturamento]({{ site.baseurl_root }}/images/braspag/pagador/shopify/shopify-pagamentodados.png)
