@@ -57,7 +57,7 @@ Acesse `Configurações` > `Operadores` e preencha corretamente o formulário ab
 |Usuário|*Username* a ser utilizado para acessar o POS.|SIM|
 |Nome|Nome do operador.|SIM|
 |E-mail|E-mail do operador.|SIM|
-|Grupo|Grupo de permissão a que o operador pertence.|SIM|
+|Grupo(s)|Grupo(s) de permissão a que o operador pertence.|SIM|
 |Lojas|Lojas para as quais o operador fará as vendas.|SIM|
 
 # Realização de Venda
@@ -77,8 +77,7 @@ A seguir iremos explicar passo a passo quais os blocos disponíveis com seus cam
 
 Neste passo é possível informar os dados do pedido.
 <br/>O campo de e-mail é opcional, e pode ser configurado para ser exibido na tela de criação de um novo pedido no momento do setup do seu POS Virtual.
-<br/>Abaixo a descrição e obrigatoriedade de cada campo.
-![]({{ site.baseurl_root }}/images/braspag/posvirtual/camposdadosdopedido.png)
+<br/>Abaixo, confira a descrição e obrigatoriedade de cada campo.
 
 |Campo|Descrição|Obrigatório?|
 |-----|---------|------------|
@@ -91,7 +90,7 @@ Neste passo é possível informar os dados do pedido.
 
 Neste passo é possível informar os dados do endereço de entrega do pedido.
 <br/>Os campos com os dados de endereço de entrega são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.  
-<br/>Abaixo a descrição e obrigatoriedade de cada campo.
+<br/>Abaixo, confira a descrição e obrigatoriedade de cada campo.
 ![]({{ site.baseurl_root }}/images/braspag/posvirtual/camposdadosendereco.png)
 
 |Campo|Descrição|Obrigatório?|
@@ -118,9 +117,9 @@ Neste passo é possível informar os dados do pedido criando uma recorrência co
 Para cada opção de recorrência abaixo os campos têm comportamentos de obrigatoriedade diferentes.
 
 <br/>
-**Opção 1: Agendar para uma Data Futura**
+**Opção 1: Agendar para uma data futura**
 
-Nesta opção uma recorrência será agendada de acordo com as informações fornecidas nos campos exibidos abaixo. Neste caso o cliente só será cobrado quando a primeira recorrência ocorrer, ou seja, no dia da data início informada.
+Nesta opção, uma recorrência será agendada de acordo com as informações fornecidas nos campos exibidos abaixo. Neste caso, o cliente só será cobrado quando a primeira recorrência ocorrer, ou seja, no dia da data início informada.
 
 O fim de uma recorrência dependerá da data fim informada. Caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.
 ![]({{ site.baseurl_root }}/images/braspag/posvirtual/dadosdarecorrencia1.png)
@@ -132,9 +131,9 @@ O fim de uma recorrência dependerá da data fim informada. Caso não seja infor
 |Data Fim|Data para término da recorrência.|NÃO|
 
 <br/>
-**Opção 2: Cobrar Agora e Agendar as Demais Recorrências para o Mesmo Dia**
+**Opção 2: Cobrar agora e agendar as demais recorrências para o mesmo dia**
 
-Nesta opção uma recorrência será criada e a primeira recorrência será cobrada de imediato. As demais recorrências sempre irão ocorrer no mesmo dia da data de início da recorrência.
+Nesta opção, uma recorrência será criada e a primeira recorrência será cobrada de imediato. As demais recorrências sempre irão ocorrer no mesmo dia da data de início da recorrência.
 
 O fim de uma recorrência dependerá da data fim informada. Caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.
 
@@ -150,7 +149,7 @@ O fim de uma recorrência dependerá da data fim informada. Caso não seja infor
 <br/>
 **Opção 3: Cobrar agora e agendar as demais recorrências para um dia diferente**
 
-Nesta opção uma recorrência será criada e a primeira recorrência será cobrada de imediato. As demais recorrências sempre irão ocorrer no dia definido para o campo “Dia das demais recorrências”.
+Nesta opção, uma recorrência será criada e a primeira recorrência será cobrada de imediato. As demais recorrências sempre irão ocorrer no dia definido para o campo “Dia das demais recorrências”.
 
 O fim de uma recorrência dependerá da data fim informada. Caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.
 ![]({{ site.baseurl_root }}/images/braspag/posvirtual/dadosdarecorrencia3.png)
@@ -164,9 +163,9 @@ O fim de uma recorrência dependerá da data fim informada. Caso não seja infor
 
 ### Endereço de Cobrança
 
-Neste passo é possível informar os dados do endereço de cobrança do pedido.
+Neste passo, é possível informar os dados do endereço de cobrança do pedido.
 
-Os campos com os dados de endereço de cobrança são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.
+Os campos com os dados de endereço de cobrança são opcionais, podendo ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.
 ![]({{ site.baseurl_root }}/images/braspag/posvirtual/camposdadosenderecocobranca.png)
 
 |Campo|Descrição|Obrigatório?|
@@ -182,7 +181,7 @@ Os campos com os dados de endereço de cobrança são opcionais, e podem ser con
 
 ### Dados de Pagamento
 
-Neste passo é possível informar os dados do pagamento do pedido.
+Neste passo, é possível informar os dados do pagamento do pedido.
 
 Para o campo "Meio de Pagamento", as bandeiras estarão disponíveis de acordo com as opções de meios de pagamentos configurados para o seu POS Virtual.
 
@@ -209,10 +208,9 @@ O botão `Limpar` limpa todos os campos da tela de criação de um novo pedido.
 
 # Lista de Pedidos
 
-Nesta sessão serão exibidos todos os pedidos realizados pelo operador.
-![]({{ site.baseurl_root }}/images/braspag/posvirtual/listapedidos.png)
+Nesta seção, serão exibidos todos os pedidos realizados pelo operador.
 
-Acima da lista de pedidos, existem duas legendas com informações dos totais. Estas representam o valor total pago e o valor total pendente de captura.
+Acima da lista de pedidos existem duas legendas com informações dos totais. Estas representam o valor total pago e o valor total pendente de captura.
 
 * Total pago - valor total de pedidos capturados na lista de pedidos.
 * Total pendente de captura - valor total de pedidos que foram apenas autorizados, ou seja, estão passíveis de serem capturados.
@@ -221,23 +219,25 @@ A coluna “Ações” possui links onde o usuário poderá tomar a ação desej
 
 ## Capturar
 
-Esta ação ficará disponível para o usuário caso o seu POS Virtual no momento do setup não desejar que a forma de pagamento seja com captura automática. Ou seja, ao realizar o passo 7 clicando no botão `Pagar`, o pedido será autorizado apenas, necessitando da ação de clicar no link “Capturar” do usuário para mudar o status de “Não Pago” para “Pago”. <br/>Para esta opção, no momento do setup do seu POS Virtual, é possível escolher por captura parcial ou total.
+Esta ação ficará disponível para o usuário caso o seu POS Virtual no momento do setup não desejar que a forma de pagamento seja com captura automática. Ou seja, ao realizar o passo 7, clicando no botão `Pagar`, o pedido será autorizado apenas, necessitando da ação de clicar no link “Capturar” do usuário para mudar o status de “Não Pago” para “Pago”. <br/>Para esta opção, no momento do setup do seu POS Virtual, é possível escolher por captura parcial ou total.
 
 ### Captura Parcial
 
-É a ação de capturar um determinado valor menor que o valor autorizado. Ex.:
+É a ação de capturar um determinado valor menor que o valor autorizado.
+<br/>**Exemplo**:
 
 * Transação autorizada de R$ 100,00
 * Captura parcial de R$ 50,00
-<br/>
-Caso a opção seja por captura parcial no setup do seu POS Virtual, ao clicar no link “Capturar”, a tela abaixo será exibida ao usuário, permitindo assim a escolha do valor a ser capturado.
+
+Caso a opção seja por captura parcial no setup do seu POS Virtual, ao clicar no link “Capturar”, a tela abaixo será exibida ao usuário, permitindo assim a escolha do valor a ser capturado:
 ![]({{ site.baseurl_root }}/images/braspag/posvirtual/capturar.png)
 
 <aside class="warning">A ação de capturar só poderá ocorrer uma única vez. Portanto, caso seja realizada uma captura parcial conforme exemplo acima, os R$ 50,00 restantes não poderão mais ser capturados, disponibilizando novamente esses R$ 50,00 no limite do cliente. </aside>
 
 ### Captura Total
 
-É a ação de capturar o valor total autorizado. Ex.:
+É a ação de capturar o valor total autorizado.
+<br/>**Exemplo**:
 
 * Transação autorizada de R$ 100,00
 * Captura total de R$ 100,00
