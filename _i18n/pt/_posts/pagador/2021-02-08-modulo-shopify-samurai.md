@@ -41,10 +41,10 @@ Em "Configurações", preencha os campos com dados referentes a provedores de pa
 |CAMPO|DESCRIÇÃO|
 |---|---|
 |`URL do Logo`|URL do logo a ser futuramente usada no boleto (ainda indisponível).|
-|`Public Key Braspag`|Merchant Id enviado pela Braspag (diferente da credencial de afiliação Cielo).|
-|`Access Token Braspag`|Merchant Key enviado pela Braspag (diferente da credencial de afiliação Cielo).|
+|`MerchantID Braspag`|Merchant Id enviado pela Braspag (diferente da credencial de afiliação Cielo).|
+|`MerchantKey Braspag`|Merchant Key enviado pela Braspag (diferente da credencial de afiliação Cielo).|
 |`Email da Conta da Braspag`|Email relacionado à conta Braspag.|
-|`URL do Webhook`|URL de webhook a ser cadastrada pelo cliente/suporte junto à Braspag, conforme instruções [neste link](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o).|
+|`URL do WebHook`|URL de webhook a ser cadastrada pelo cliente/suporte junto à Braspag, conforme instruções [neste link](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o).|
 
 ### Antifraude
 
@@ -71,9 +71,9 @@ Em "Configurações", preencha os campos com dados referentes a provedores de pa
 |`Provedor de Débito Braspag`|Provedor de débito do cliente. Configure o meio de pagamento que está cadastrado em sua loja de produção junto à Braspag. Obs.: A funcionalidade de débito ainda não foi testada em produção.|
 |`Id Cielo (3DS)`|Id da Cielo para autenticação 3DS (não requerido caso não tenha split).|
 |`Secret Cielo (3DS)`|Secret da Cielo para autenticação 3DS (não requerido caso não tenha split).|
-|`Nome Estab. Braspag`|Nome do estabelecimento na Braspag/Cielo para autenticação 3DS.|
-|`Cod. Estab. Braspag`|Código do estabelecimento na Braspag/Cielo, numérico, para autenticação 3DS.|
-|`MCC (Cód Categoria) Braspag`|MCC do estabelecimento na Braspag/Cielo, numérico, 4 dígitos, para autenticação 3DS.|
+|`Nome do Estab. na Braspag`|Nome do estabelecimento na Braspag/Cielo para autenticação 3DS.|
+|`Cod. do Estab. na Braspag`|Código do estabelecimento na Braspag/Cielo, numérico, para autenticação 3DS.|
+|`MCC (Cód. Categoria) Braspag`|MCC do estabelecimento na Braspag/Cielo, numérico, 4 dígitos, para autenticação 3DS.|
 |`CNPJ Habilitado`|Se a loja aceita vender para CNPJ.|
 
 ### Boleto
@@ -83,7 +83,7 @@ Em "Configurações", preencha os campos com dados referentes a provedores de pa
 |CAMPO|DESCRIÇÃO|
 |---|---|
 |`Validade do boleto em dias`|Validade do boleto, em dias.|
-|`1ª/2ª/3ª Linhas de instrução do boleto`|Instruções do boleto.|
+|`1ª/2ª/3ª linhas de instrução do boleto`|Instruções do boleto.|
 
 ### Split
 
@@ -92,9 +92,9 @@ Caso sua opção de utilização da função split seja "Sim", as seguintes opç
 
 |CAMPO|DESCRIÇÃO|
 |---|---|
-|`Usar Split`|Opção de utilizar a função de split. Se "Sim", as opções seguintes são habilitadas. Obs.: Essa funcionalidade foi homologada, porém não foi testada em uma situação real em produção.|
+|`Usar split`|Opção de utilizar a função de split. Se "Sim", as opções seguintes são habilitadas. Obs.: Essa funcionalidade foi homologada, porém não foi testada em uma situação real em produção.|
 |`Porcentagem do split (%)`|Porcentagem ganha pela loja no split.|
-|`Taxa Fixa (R$)`|Valor em reais caso a loja ganhe uma taxa fixa na venda.| 
+|`Taxa fixa (R$)`|Valor em reais caso a loja ganhe uma taxa fixa na venda.| 
 |`Id Braspag`|Merchant Id da Braspag da conta do fornecedor.|
 |`Atualizar fornecedores`|Botão utilizado para carregar os fornecedores (vendors) do lojista, dos quais as configurações de split dependem.|
 
@@ -104,10 +104,10 @@ Caso sua opção de utilização da função split seja "Sim", as seguintes opç
 |CAMPO|DESCRIÇÃO|
 |---|---|
 |`Usar Split`|Opção de utilizar a função de split. Se "Não", as opções seguintes são habilitadas. Obs.: Essa funcionalidade foi homologada, porém não foi testada em uma situação real em produção.|
-|`Parcela mínima`|Valor em reais da parcela mínima da loja, caso exista.|
+|`Parcela mínima`|Insira o valor em reais da parcela mínima da loja, caso exista.|
 |`Número máximo de parcelas`|Número máximo de parcelas.|
 |`Taxa de juros por parcela`|Indica se o acordo da loja com a Braspag tem taxa de juros para algum tipo de parcela.|
-|`Número de parcelas/Taxa de juros`|A taxa de juros da parcela correspondente, de acordo com o que já existe na Braspag.|
+|`Número de parcelas/Taxa de juros (%)`|A taxa de juros da parcela correspondente, de acordo com o que já existe na Braspag.|
 
 ### Formas de Pagamento
 
@@ -123,9 +123,17 @@ Preencha os seguintes campos referentes à customização das formas de pagament
 
 #### Envio do Boleto
 
- Caso opte pelo envio do boleto por email ao comprador, preencha também a sessão seguinte:
+ Caso opte pelo envio do boleto por email ao comprador, preencha também a sessão seguinte e, ao final, clique em `Salvar`:
 
 ![Envio de Boleto]({{ site.baseurl_root }}/images/braspag/pagador/shopify/config-rem.png)
+
+|CAMPO|DESCRIÇÃO|
+|---|---|
+|`Título e-mail para envio de boletos`|Texto a ser enviado como título/assunto do email.|
+|`E-mail para envio de boletos`|Endereço de e-mail a aparecer como remetente do mesmo.|
+|`Senha do e-mail para envio de boletos`|Senha de autenticação do e-mail.|
+|`SMTP do provedor de e-mail para envio de boletos`|Servidor SMTP a ser utilizado para o envio.|
+|`Porta do SMTP do e-mail para envio de boletos`|Porta do servidor SMTP a ser utilizado para o envio.|
 
 # Finalização da Compra
 
