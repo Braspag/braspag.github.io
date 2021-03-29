@@ -1143,22 +1143,22 @@ Transações que não são capturadas até a [data limite](https://suporte.brasp
 
 ### Autenticando uma Transação
 
-Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim no processo de validação da compra online.
+Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim no processo de validação da compra online. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
-Através do Pagador, quando uma transação é submetida ao processo de autenticação, o portador será redirecionado ao ambiente do emissor, onde deverá realizar a confirmação de seus dados. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
+O padrão mais atual do autenticador é o [3DS 2.0](https://braspag.github.io//manualp/emv3ds), sendo que a versão 3DS 1.0 está em vias de descontinuação.
 
-Indicamos a utilização da versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) para autenticação, especialmente para o ambiente mobile que não suporta a versão 1.0.
+<aside class="notice">A utilização da versão 3DS 2.0 é indicada para autenticação no ambiente mobile, que não suporta a versão 1.0.</aside>
+<aside class="warning">O 3DS 1.0 deverá ser descontinuado a partir de Outubro de 2021 e não recomendamos, portanto, sua integração.</aside>
 
-<aside class="warning">IMPORTANTE: O 3DS 1.0 deverá ser descontinuado a partir de Outubro de 2021 e não recomendamos, portanto, sua integração.</aside>
+#### Autenticação com 3DS 2.0
 
-Existem duas maneiras de autenticar transações na Braspag. Isso irá depender da loja utilizar nosso Merchant Plug-in (MPI) interno ou um externo, como explicado abaixo:
+Além de ser compatível com os diferentes tipos de dispositivos (desktop, tablet ou smartphone), a versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) possui recursos que proporcionam uma melhor experiência de compra online para o seu cliente.
 
-* **Autenticação Padrão** - se o lojista não possui uma conexão direta com um autenticador, ele utiliza a nossa solução integrada ao Pagador
-* **Autenticação Externa** - quando o lojista já possui um fornecedor de MPI externo
+Durante o fluxo da transação, a etapa de autorização pode ser realizada separada ou juntamente com a autenticação. Para conhecer sobre o segundo fluxo, confira a documentação da [Autorização com Autenticação](https://braspag.github.io/manual/autorizacao-com-autenticacao#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o) do 3DS 2.0.  
 
-#### Autenticação Padrão
+#### Autenticação Padrão com 3DS 1.0
 
-Na autenticação padrão, o lojista que não possui uma conexão direta com um autenticador (MPI) conta com que o meio de pagamento redirecione o cliente para o ambiente de autenticação. O parâmetro `Payment.Authenticate` deverá ser enviado como "true", como no exemplo abaixo:
+A autenticação padrão com o 3DS 1.0 é utilizada pelo lojista que não possui uma conexão direta com um autenticador. Neste caso, ele utiliza a solução integrada ao Pagador, que conta com um Merchant Plug-in (MPI) interno. Neste fluxo, o meio de pagamento redireciona o cliente para o ambiente do emissor, onde deverá realizar a confirmação de seus dados para a autenticação. O parâmetro `Payment.Authenticate` deverá ser enviado como "true", como no exemplo abaixo:
 
 ##### Requisição
 
@@ -1410,9 +1410,11 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Ex.: Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação.|Texto|256|https://qasecommerce.cielo.com.br/web/index.cbmp?id=5f177203bf524c78982ad28f7ece5f08|
 
-#### Autenticação Externa
+#### Autenticação Externa com 3DS 1.0
 
-Na autenticação externa, o lojista que possui um autenticador (MPI) próprio não precisa que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação. Adicione o nó `Payment.ExternalAuthentication` ao contrato padrão, conforme exemplo. Este fluxo é suportado pelas adquirentes **Cielo**, **Global Payments** e **Banorte**.
+Na autenticação externa com o 3DS 1.0, o lojista que possui um autenticador (MPI) próprio não precisa que o meio de pagamento redirecione seu consumidor para o ambiente de autenticação. Este fluxo é suportado pelas adquirentes **Cielo**, **Global Payments** e **Banorte**.
+
+Adicione o nó `Payment.ExternalAuthentication` ao contrato padrão, conforme exemplo.
 
 ##### Requisição
 
