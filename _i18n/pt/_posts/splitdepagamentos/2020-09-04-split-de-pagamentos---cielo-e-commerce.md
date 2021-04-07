@@ -1648,7 +1648,7 @@ Para salvar um cartão de crédito utilizado em uma transação, basta enviar o 
 
 **Requisição**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
 {  
@@ -1869,7 +1869,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 
 **Requisição**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
 {  
@@ -2064,7 +2064,7 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
 
 **Requisição**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
 {  
