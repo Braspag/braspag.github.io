@@ -62,7 +62,7 @@ Solicite à equipe de suporte a criação do "ClientID" e do "ClientSecret" de s
 --request POST "https://authsandbox.braspag.com.br/oauth2/token"
 --header "Authorization: Basic {base64}"
 --header "Content-Type: application/x-www-form-urlencoded" 
---body "grant_type=client_credentials"
+--data-binary "grant_type=client_credentials"
 ```
 
 |Parâmetros|Formato|Envio|
