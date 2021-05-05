@@ -35,9 +35,9 @@ Por permitir total personalização na página de checkout da loja, essa soluç�
 
 # Integrando a Solução
 
-## 1. Obtendo o AccessToken
+## 1. Obtendo o AccessToken OAuth2
 
-Quando o comprador acessa o checkout, o estabelecimento deve gerar o `AccessToken` a partir da API de autenticação da Braspag (**OAuth**). Em caso de sucesso, a API retornará um `AccessToken` que deverá ser preenchido no script a ser carregado na página.
+Quando o comprador acessa o checkout, o estabelecimento deve gerar o `AccessToken` a partir da API de autenticação da Braspag (**OAuth2**). Em caso de sucesso, a API retornará um `AccessToken` que deverá ser utilizado na próxima camada de autenticação da ferramenta.
 
 Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), realize um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL, formada pela "URL base do ambiente + endpoint", no modelo server-to-server:
 
@@ -91,13 +91,72 @@ Solicite à equipe de suporte a criação do "ClientID" e do "ClientSecret" de s
 
 |Propriedades da Resposta|Descrição|
 |---|---|
-|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido.|
+|`access_token`|O token de autenticação solicitado. Ele será utilizado no próximo passo.|
 |`token_type`|Indica o valor do tipo de token.|
 |`expires_in`|Expiração do token de acesso, em segundos. Quando o token expira, é necessário obter um novo.|
 
-Para consultar sobre o processo legado de autenticação, com geração do `AccessToken` utilizando MerchantID e IP do comprador, [clique aqui](#anexo). 
+## 2. Obtendo AccessToken SOP
 
-## 2. Implementando o Script
+Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL, formada pela URL "base do ambiente + endpoint", no modelo server-to-server:
+
+| Ambiente | URL base + endpoint|
+| --- | --- |
+| Sandbox | https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken|
+| Produção | https://transaction.pagador.com.br/post/api/public/v2/accesstoken|
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/v2/accesstoken?merchantid</span></aside>
+
+```shell
+--request POST "https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"
+--header "Content-Type: application/json"
+--header "MerchantId: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+--header "Authorization: Bearer faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"
+--data-binary
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|---------|----|-------|-----------|
+|`mid`|Identificador da loja no Pagador.|GUID |36 |Sim|
+|`Authorization`|Bearer [AccessToken OAuth2]|Texto |36 |Sim|
+
+### Resposta
+
+Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo, entre outras informações, o token (AccessToken SOP).
+
+```json
+{
+    "MerchantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
+    "Issued": "2021-05-05T08:50:04",
+    "ExpiresIn": "2021-05-05T09:10:04"
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
+    "Issued": "2021-05-05T08:50:04",
+    "ExpiresIn": "2021-05-05T09:10:04"
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`MerchantId`|Identificador da loja no Pagador. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AccessToken`|Token de acesso (AccessToken SOP). Por questões de segurança, este token dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo token para impedir um uso futuro.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
+|`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
+
+<aside class="warning">Para consultar sobre o processo legado de autenticação, com geração do `AccessToken` utilizando MerchantID e IP do comprador, [clique aqui](#anexo).</aside>
+
+## 3. Implementando o Script
 
 ### Mapeando Classes
 
@@ -118,7 +177,7 @@ O estabelecimento deverá parametrizar os elementos de formulário com as seguin
 
 |Propriedade|Descrição|
 |-----------|---------|
-|`accessToken`| Token de acesso obtido via API de autenticação da Braspag.|
+|`accessToken`| Token de acesso obtido via API de autenticação da Braspag (AccessToken SOP).|
 |`environment`| Tipo de ambiente: "sandbox" / "production".|
 |`language`| Idioma: "pt" / "en" / "es". |
 |`enableBinQuery`| "true" (habilita o *Consulta BIN*, retornando as características do cartão) / "false" (caso contrário). Obs.: Disponível somente para Cielo 3.0.|
@@ -161,7 +220,7 @@ Exemplo de uma parametrização na página de checkout:
 
 ![Pagina Checkout]({{ site.baseurl_root }}/images/consulta-bin.jpg)
 
-## 3. Autorizando com PaymentToken
+## 4. Autorizando com PaymentToken
 
 Após a obtenção do *PaymentToken* através do script, execute o processo de autorização, enviando o *PaymentToken* no lugar de dados do cartão. 
 
