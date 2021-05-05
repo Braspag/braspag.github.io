@@ -161,9 +161,9 @@
 
 <h1 id="integrando-a-solução">Integrando a Solução</h1>
 
-<h2 id="1-obtendo-o-accesstoken">1. Obtendo o AccessToken</h2>
+<h2 id="1-obtendo-o-accesstoken-oauth2">1. Obtendo o AccessToken OAuth2</h2>
 
-<p>Quando o comprador acessa o checkout, o estabelecimento deve gerar o <code class="language-plaintext highlighter-rouge">AccessToken</code> a partir da API de autenticação da Braspag (<strong>OAuth</strong>). Em caso de sucesso, a API retornará um <code class="language-plaintext highlighter-rouge">AccessToken</code> que deverá ser preenchido no script a ser carregado na página.</p>
+<p>Quando o comprador acessa o checkout, o estabelecimento deve gerar o <code class="language-plaintext highlighter-rouge">AccessToken</code> a partir da API de autenticação da Braspag (<strong>OAuth2</strong>). Em caso de sucesso, a API retornará um <code class="language-plaintext highlighter-rouge">AccessToken</code> que deverá ser utilizado na próxima camada de autenticação da ferramenta.</p>
 
 <p>Para obter o <code class="language-plaintext highlighter-rouge">AccessToken</code> no padrão <a href="https://oauth.net/2/">OAuth 2.0</a>, realize um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL, formada pela “URL base do ambiente + endpoint”, no modelo server-to-server:</p>
 
@@ -262,7 +262,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
-      <td>O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido.</td>
+      <td>O token de autenticação solicitado. Ele será utilizado no próximo passo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">token_type</code></td>
@@ -275,9 +275,137 @@
   </tbody>
 </table>
 
-<p>Para consultar sobre o processo legado de autenticação, com geração do <code class="language-plaintext highlighter-rouge">AccessToken</code> utilizando MerchantID e IP do comprador, <a href="#anexo">clique aqui</a>.</p>
+<h2 id="2-obtendo-accesstoken-sop">2. Obtendo AccessToken SOP</h2>
 
-<h2 id="2-implementando-o-script">2. Implementando o Script</h2>
+<p>Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL, formada pela URL “base do ambiente + endpoint”, no modelo server-to-server:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ambiente</th>
+      <th>URL base + endpoint</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sandbox</td>
+      <td>https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken</td>
+    </tr>
+    <tr>
+      <td>Produção</td>
+      <td>https://transaction.pagador.com.br/post/api/public/v2/accesstoken</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="requisição-1">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/v2/accesstoken?merchantid</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Bearer faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mid</code></td>
+      <td>Identificador da loja no Pagador.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Bearer [AccessToken OAuth2]</td>
+      <td>Texto</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-1">Resposta</h3>
+
+<p>Como resposta, o estabelecimento receberá um json (“HTTP 201 Created”) contendo, entre outras informações, o token (AccessToken SOP).</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AccessToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg=="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Issued"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T08:50:04"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ExpiresIn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T09:10:04"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"MerchantId"</span>: <span class="s2">"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"</span>,
+    <span class="s2">"AccessToken"</span>: <span class="s2">"MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg=="</span>,
+    <span class="s2">"Issued"</span>: <span class="s2">"2021-05-05T08:50:04"</span>,
+    <span class="s2">"ExpiresIn"</span>: <span class="s2">"2021-05-05T09:10:04"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja no Pagador.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AccessToken</code></td>
+      <td>Token de acesso (AccessToken SOP). Por questões de segurança, este token dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo <em>ExpiresIn</em> (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo token para impedir um uso futuro.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Issued</code></td>
+      <td>Data e hora da geração.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>AAAA-MM-DDTHH:MM:SS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ExpiresIn</code></td>
+      <td>Data e hora da expiração.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>AAAA-MM-DDTHH:MM:SS</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="warning">Para consultar sobre o processo legado de autenticação, com geração do `AccessToken` utilizando MerchantID e IP do comprador, [clique aqui](#anexo).</aside>
+
+<h2 id="3-implementando-o-script">3. Implementando o Script</h2>
 
 <h3 id="mapeando-classes">Mapeando Classes</h3>
 
@@ -326,7 +454,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">accessToken</code></td>
-      <td>Token de acesso obtido via API de autenticação da Braspag.</td>
+      <td>Token de acesso obtido via API de autenticação da Braspag (AccessToken SOP).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">environment</code></td>
@@ -460,7 +588,7 @@ Exemplo de uma parametrização na página de checkout:</p>
 
 <p><img src="https://braspag.github.io//images/consulta-bin.jpg" alt="Pagina Checkout" /></p>
 
-<h2 id="3-autorizando-com-paymenttoken">3. Autorizando com PaymentToken</h2>
+<h2 id="4-autorizando-com-paymenttoken">4. Autorizando com PaymentToken</h2>
 
 <p>Após a obtenção do <em>PaymentToken</em> através do script, execute o processo de autorização, enviando o <em>PaymentToken</em> no lugar de dados do cartão.</p>
 
@@ -563,7 +691,7 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
 
 <p>“https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=<strong><em>00000000-0000-0000-0000-000000000000</em></strong>”</p>
 
-<h3 id="requisição-1">Requisição</h3>
+<h3 id="requisição-2">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/accesstoken?merchantid={mid}</span></aside>
 
@@ -594,7 +722,7 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
   </tbody>
 </table>
 
-<h3 id="resposta-1">Resposta</h3>
+<h3 id="resposta-2">Resposta</h3>
 
 <p>Como resposta, o estabelecimento receberá um json (“HTTP 201 Created”) contendo, entre outras informações, o ticket (AccessToken).</p>
 
