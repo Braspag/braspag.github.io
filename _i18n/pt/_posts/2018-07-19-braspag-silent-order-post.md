@@ -97,7 +97,7 @@ Solicite à equipe de suporte a criação do "ClientID" e do "ClientSecret" de s
 
 ## 2. Obtendo AccessToken SOP
 
-Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL, formada pela URL "base do ambiente + endpoint", no modelo server-to-server:
+Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL:
 
 | Ambiente | URL base + endpoint|
 | --- | --- |
@@ -105,8 +105,6 @@ Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um e
 | Produção | https://transaction.pagador.com.br/post/api/public/v2/accesstoken|
 
 ### Requisição
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/v2/accesstoken?merchantid</span></aside>
 
 ```shell
 --request POST "https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"
