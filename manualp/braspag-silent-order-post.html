@@ -277,7 +277,7 @@
 
 <h2 id="2-obtendo-accesstoken-sop">2. Obtendo AccessToken SOP</h2>
 
-<p>Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL, formada pela URL “base do ambiente + endpoint”, no modelo server-to-server:</p>
+<p>Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL:</p>
 
 <table>
   <thead>
@@ -299,8 +299,6 @@
 </table>
 
 <h3 id="requisição-1">Requisição</h3>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/v2/accesstoken?merchantid</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
