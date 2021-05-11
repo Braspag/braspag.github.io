@@ -7086,7 +7086,7 @@ Para consultar um pedido de recorrência, é necessário o envio de mensagem HTT
 |`Interval`|Intervalo entre as recorrências. |Texto |10 |"Monthly" / "Bimonthly" / "Quarterly" / "SemiAnnual" / "Annual"|
 |`CurrentRecurrencyTry`|Número atual da tentativa de recorrência.|Número|1|1|
 |`OrderNumber`|Identificação do pedido na loja. |Texto|50 |2017051101|
-|`Status`|Status do pedido recorrente. |Número|1 |1- Ativo / 2- Finalizado / 3,4,5- Inativo|
+|`Status`|Status do pedido recorrente. |Número|1 |1- Ativo / 2- Finalizado / 3- Desativado pelo Usuário / 4- Desativado por Número Máximo de Tentativas / 5- Desativado por Cartão de Crédito Expirado|
 |`RecurrencyDay`|Dia da recorrência.|Número|2 |22 |
 |`SuccessfulRecurrences`|Quantidade de recorrências realizadas com sucesso.|Número|2 |5|
 |`RecurrentTransactions.RecurrentPaymentId`|Id da recorrência.|GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
