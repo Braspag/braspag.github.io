@@ -4503,6 +4503,8 @@ Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado n
 |`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão.|Texto|4|
 |`NewCard.Brand`|Bandeira do novo cartão.|Texto|10 |
 
+<aside class="notice">Para simular o retorno do node "NewCard" em Sandbox utilize um cartão com final 3 e o "ExpirationDate" vencido.</aside>
+
 # Salvando e Reutilizando Cartões
 
 Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
@@ -7356,6 +7358,8 @@ De acordo com a necessidade do seu negócio, é desenhada uma estratégia de ris
 | 3      | DisabledByMerchant.       |
 | 4      | DisabledMaxAttempts.      |
 | 5      | DisabledExpiredCreditCard.|
+| 6      | BoletoWaitingConciliation.|
+
 
 ## Lista de ReasonCode/ReasonMessage
 
