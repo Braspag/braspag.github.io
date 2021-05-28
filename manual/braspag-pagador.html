@@ -7965,6 +7965,8 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
+<aside class="notice">Para simular o retorno do node "NewCard" em Sandbox utilize um cartão com final 3 e o "ExpirationDate" vencido.</aside>
+
 <h1 id="salvando-e-reutilizando-cartões">Salvando e Reutilizando Cartões</h1>
 
 <p>Ao contratar o <a href="https://braspag.github.io//manual/cartao-protegido-api-rest">Cartão Protegido</a>, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.</p>
@@ -14191,6 +14193,10 @@ As listas a seguir se referem a provedores na integração REST:</p>
     <tr>
       <td>5</td>
       <td>DisabledExpiredCreditCard.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>BoletoWaitingConciliation.</td>
     </tr>
   </tbody>
 </table>
