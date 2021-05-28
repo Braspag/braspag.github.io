@@ -7360,7 +7360,6 @@ De acordo com a necessidade do seu negócio, é desenhada uma estratégia de ris
 | 5      | DisabledExpiredCreditCard.|
 | 6      | BoletoWaitingConciliation.|
 
-
 ## Lista de ReasonCode/ReasonMessage
 
 | Reason Code | Reason Message               |
