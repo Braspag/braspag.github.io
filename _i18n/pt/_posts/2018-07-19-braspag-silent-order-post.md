@@ -239,7 +239,7 @@ Para maiores detalhes sobre a implementação, acesse o [Manual da API do Pagado
    "Payment":
    {  
      (...)
-     "Card":{  
+     "CreditCard":{  
          "PaymentToken":"eedcb896-40e1-465b-b34c-6d1119dbb6cf"
      }
    }
