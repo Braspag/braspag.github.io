@@ -262,7 +262,7 @@ Para maiores detalhes sobre a implementação, acesse o [Manual da API do Pagado
    "Payment":
    {  
      (...)
-     "Card":{  
+     "CreditCard":{  
          "PaymentToken":"eedcb896-40e1-465b-b34c-6d1119dbb6cf"
      }
    }
@@ -271,7 +271,7 @@ Para maiores detalhes sobre a implementação, acesse o [Manual da API do Pagado
 
 | Campo | Descrição | Tipo/Tamanho | Obrigatório? |
 | --- | --- | --- | --- |
-| `Payment.Card.PaymentToken` | Fornece o PaymentToken gerado através do script. Esta informação substitui os dados do cartão. | GUID / 36 | Sim |
+| `Payment.CreditCard.PaymentToken` | Fornece o PaymentToken gerado através do script. Esta informação substitui os dados do cartão. Substituir por `DebitCard` se for utilizar um cartão de débito | GUID / 36 | Sim |
 
 ### Response
 
