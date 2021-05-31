@@ -628,7 +628,7 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
    <span class="s2">"Payment"</span>:
    <span class="o">{</span>  
      <span class="o">(</span>...<span class="o">)</span>
-     <span class="s2">"Card"</span>:<span class="o">{</span>  
+     <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
          <span class="s2">"PaymentToken"</span>:<span class="s2">"eedcb896-40e1-465b-b34c-6d1119dbb6cf"</span>
      <span class="o">}</span>
    <span class="o">}</span>
@@ -646,8 +646,8 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Card.PaymentToken</code></td>
-      <td>Fornece o PaymentToken gerado através do script. Esta informação substitui os dados do cartão.</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.PaymentToken</code></td>
+      <td>Fornece o PaymentToken gerado através do script. Esta informação substitui os dados do cartão. Substituir por <code class="language-plaintext highlighter-rouge">DebitCard</code> se for utilizar um cartão de débito</td>
       <td>GUID / 36</td>
       <td>Sim</td>
     </tr>
