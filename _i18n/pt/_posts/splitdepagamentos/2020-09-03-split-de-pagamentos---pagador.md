@@ -449,7 +449,7 @@ Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro Pay
                             "name": "Produto teste",
                             "quantity": 1,
                             "sku": 563,
-                            "unitprice": 100
+                            "unitprice": 10000
                         }
                     ]
                 },
@@ -559,7 +559,7 @@ Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro Pay
                         "Name": "Produto teste",
                         "Risk": "Undefined",
                         "Sku": "563",
-                        "UnitPrice": 100,
+                        "UnitPrice": 10000,
                         "Quantity": 1,
                         "HostHedge": "Undefined",
                         "NonSensicalHedge": "Undefined",
@@ -771,7 +771,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
                         "name": "Produto teste",
                         "quantity": 1,
                         "sku": 563,
-                        "unitprice": 100
+                        "unitprice": 10000
                     }
                 ]
             },
@@ -862,7 +862,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
                         "Name": "Produto teste",
                         "Risk": "Undefined",
                         "Sku": "563",
-                        "UnitPrice": 100,
+                        "UnitPrice": 10000,
                         "Quantity": 1,
                         "HostHedge": "Undefined",
                         "NonSensicalHedge": "Undefined",
@@ -1024,7 +1024,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
                         "name": "Produto teste",
                         "quantity": 1,
                         "sku": 563,
-                        "unitprice": 100
+                        "unitprice": 10000
                     }
                 ]
             },
@@ -1133,7 +1133,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
                         "Name": "Produto teste",
                         "Risk": "Undefined",
                         "Sku": "563",
-                        "UnitPrice": 100,
+                        "UnitPrice": 10000,
                         "Quantity": 1,
                         "HostHedge": "Undefined",
                         "NonSensicalHedge": "Undefined",

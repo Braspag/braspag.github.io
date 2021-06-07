@@ -489,7 +489,7 @@ Exemplo:
                         "name": "Produto teste",
                         "quantity": 1,
                         "sku": 563,
-                        "unitprice": 100.00
+                        "unitprice": 10000
                     }
                 ]
             },
@@ -762,7 +762,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
                         "name": "Produto teste",
                         "quantity": 1,
                         "sku": 563,
-                        "unitprice": 100.00
+                        "unitprice": 10000
                     }
                 ]
             },
@@ -1043,7 +1043,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
                         "name": "Produto teste",
                         "quantity": 1,
                         "sku": 563,
-                        "unitprice": 100.00
+                        "unitprice": 10000
                     }
                 ]
             },
@@ -1693,7 +1693,7 @@ Para salvar um cartão de crédito utilizado em uma transação, basta enviar o 
                         "name": "Produto teste",
                         "quantity": 1,
                         "sku": 563,
-                        "unitprice": 100.00
+                        "unitprice": 10000
                     }
                 ]
             },
@@ -1755,7 +1755,7 @@ Para salvar um cartão de crédito utilizado em uma transação, basta enviar o 
                         "name": "Produto teste",
                         "quantity": 1,
                         "sku": 563,
-                        "unitprice": 100.00
+                        "unitprice": 10000
                     }
                 ]
             },
@@ -1910,7 +1910,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
                         "name": "Produto teste",
                         "quantity": 1,
                         "sku": 563,
-                        "unitprice": 100.00
+                        "unitprice": 10000
                     }
                 ]
             },
@@ -1968,7 +1968,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
                         "name": "Produto teste",
                         "quantity": 1,
                         "sku": 563,
-                        "unitprice": 100.00
+                        "unitprice": 10000
                     }
                 ]
             },
@@ -2105,7 +2105,7 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
                         "name": "Produto teste",
                         "quantity": 1,
                         "sku": 563,
-                        "unitprice": 100.00
+                        "unitprice": 10000
                     }
                 ]
             },
@@ -2163,7 +2163,7 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
                         "name": "Produto teste",
                         "quantity": 1,
                         "sku": 563,
-                        "unitprice": 100.00
+                        "unitprice": 10000
                     }
                 ]
             },
