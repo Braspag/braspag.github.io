@@ -7,7 +7,7 @@ translated: true
 toc_footers: false
 categories: manual
 sort_order: 7
-hub_visible: true
+hub_visible: false
 tags:
   - 6. Soluções para Marketplace
 ---
