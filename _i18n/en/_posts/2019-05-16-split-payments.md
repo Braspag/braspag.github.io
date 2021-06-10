@@ -98,7 +98,7 @@ Credit: BRL 0.10 [Fixed fee agreed with Marketplace]
 Split Payments supports the following brands:
 
 * Visa
-* Master 
+* Master
 * Elo
 * Amex
 * Hipercard
