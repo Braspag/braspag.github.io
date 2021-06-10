@@ -1,4 +1,4 @@
----
+--- 
 layout: manual
 title: Split de Pagamentos - Estrutura Balcao de Recebiveis
 description: Manual de Integração do Split de Pagamentos
