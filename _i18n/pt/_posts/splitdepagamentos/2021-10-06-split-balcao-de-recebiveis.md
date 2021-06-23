@@ -11,7 +11,7 @@ tags:
   - 6. Soluções para Marketplace
 ---
 
-## Introdução
+# Introdução
 
 Devido a Resolução nº 4.734/2019 e a Circular nº 3.952/2019 publicadas pelo Conselho Monetário Nacional (CMN) e Banco Central do Brasil, que entrou em vigor na data de 07/06/2021, nossos sistemas de conciliação foram restruturados visando atender estas normas.
 
