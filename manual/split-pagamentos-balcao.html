@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Split de Pagamentos - Balcao de Recebiveis &middot; Braspag Developers - Manuais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//manual/split-pagamentos-balcao" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/manual/split-pagamentos-balcao" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
+</head>
+
+    <body>
+        
+            <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="http://www.braspag.com.br/suporte/" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/split-pagamentos-balcao">Split de Pagamentos - Balcao de Recebiveis</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="introdução">Introdução</h1>
+
+<p>Devido a Resolução nº 4.734/2019 e a Circular nº 3.952/2019 publicadas pelo Conselho Monetário Nacional (CMN) e Banco Central do Brasil, que entrou em vigor na data de 07/06/2021, nossos sistemas de conciliação foram restruturados visando atender estas normas.</p>
+
+<p>Em resumo, a circular e a resolução definem que as Credenciadoras e Subcredenciadoras devem assegurar que as agendas financeiras dos estabelecimentos comerciais, contendo a previsão de liquidação dos recebíveis originados através de transações com cartão de crédito ou cartão de débito, estejam registradas em Sistema de Registro operado por entidades autorizadas a funcionar pelo Banco Central do Brasil para este fim, permitindo com que os estabelecimentos comerciais possam realizar operações de desconto de recebíveis ou operações de crédito garantidas pelos recebíveis.</p>
+
+<p>A ideia desta documentação é explicar as principais mudanças que ocorreram na estrutura de Conciliação da Plataforma do Split de Pagamentos.</p>
+
+<h2 id="fluxo-de-conciliação---antes">Fluxo de conciliação - Antes</h2>
+
+<p>O Split de Pagamentos possuía uma estrutura de agenda financeira dividida por merchants, na qual no dia previsto eram geradas grades de pagamento para serem liquidadas.</p>
+
+<p>No exemplo abaixo, temos o Merchant A que possui duas transações agendadas para serem liquidadas no dia 09/06. É gerada uma grade contendo o valor total que o Merchant tem para receber, onde é enviado para o Banco realizar a liquidação no dia previsto.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/split/s1.png" alt="SplitSample001" /></p>
+
+<h2 id="novo-fluxo-de-conciliação">Novo fluxo de conciliação</h2>
+
+<p>No novo modelo, de agenda financeira nasce um novo conceito chamado Unidade de Recebíveis. Estas unidades são compostas pelo montante financeiro que o cliente possui para receber, data de pagamento e arranjo. As URs seguem uma estrutura parecida com a Grade, porém com a diferença que são agrupadas pelo número de documento do cliente (CPF / CNPJ) e não mais por Merchant.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/split/s2.png" alt="SplitSample002" /></p>
+
+<h2 id="conciliação-com-efeitos-de-contrato">Conciliação com efeitos de contrato</h2>
+
+<p>Com o Registro de Recebíveis será permitido negociar as URs em aberto como operações de desconto ou operações de crédito garantidas. Com isso, uma UR total/parcial poderá ser direcionada para outra instituição. No exemplo abaixo, o cliente realizou uma negociação de Cessão com Troca de Titularidade com o Banco do Brasil, onde R$ 50,00 de uma UR foi utilizada como garantia. A UR é quebrada com o valor acordado com a instituição:</p>
+
+<p>![SplitSample003] (https://braspag.github.io//images/braspag/split/s3.png)</p>
+
+<h2 id="relatórios">Relatórios</h2>
+
+<p>Abaixo seguem as descrições das colunas contidas nos relatórios transacionais e de recebíveis.</p>
+
+<h3 id="relatório-de-transações">Relatório de transações</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CorporateName</td>
+      <td>Razão social do Master que realizou a transação</td>
+    </tr>
+    <tr>
+      <td>FancyName</td>
+      <td>Nome fantasia do Master que realizou a transação</td>
+    </tr>
+    <tr>
+      <td>DocumentNumber</td>
+      <td>Número de documento do Master que realizou a transação</td>
+    </tr>
+    <tr>
+      <td>DocumentType</td>
+      <td>Tipo de documento do Master que realizou a transação</td>
+    </tr>
+    <tr>
+      <td>MerchantId</td>
+      <td>Identificador único do Master que realizou a transação</td>
+    </tr>
+    <tr>
+      <td>TransactionId</td>
+      <td>Identificador único da transação</td>
+    </tr>
+    <tr>
+      <td>AuthorizationDate</td>
+      <td>Data de autorização da transação</td>
+    </tr>
+    <tr>
+      <td>CaptureDate</td>
+      <td>Data de captura da transação</td>
+    </tr>
+    <tr>
+      <td>Amount</td>
+      <td>Valor da transação em centavos</td>
+    </tr>
+    <tr>
+      <td>Installments</td>
+      <td>Número de parcelas</td>
+    </tr>
+    <tr>
+      <td>AuthorizationCode</td>
+      <td>Código de autorização da transação</td>
+    </tr>
+    <tr>
+      <td>Nsu</td>
+      <td>Nsu da transação</td>
+    </tr>
+    <tr>
+      <td>AcquirerTransactionId</td>
+      <td>Identificador único da transação na Adquirente (TID)</td>
+    </tr>
+    <tr>
+      <td>TerminalLogicNumber</td>
+      <td>Número lógico do terminal em que ocorreu a transação</td>
+    </tr>
+    <tr>
+      <td>AffiliationCode</td>
+      <td>Código de afiliação (EC) onde ocorreu a transação</td>
+    </tr>
+    <tr>
+      <td>CardNumber</td>
+      <td>Número do cartão que realizou a transação</td>
+    </tr>
+    <tr>
+      <td>Brand</td>
+      <td>Bandeira (Visa, Master, etc.)</td>
+    </tr>
+    <tr>
+      <td>Product</td>
+      <td>Produto (Crédito, Débito, etc.)</td>
+    </tr>
+    <tr>
+      <td>OrderId</td>
+      <td>Número de pedido estabelecido pelo lojista</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>Status da transação</td>
+    </tr>
+    <tr>
+      <td>TransactionChannel</td>
+      <td>Canal em que o ocorreu a transação (Físico ou E-comerce)</td>
+    </tr>
+    <tr>
+      <td>MasterRateDiscountType</td>
+      <td>Tipo de desconto taxas aplicado sobre a transação</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="relatório-de-participantes">Relatório de Participantes</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CorporateName</td>
+      <td>Razão social do participante</td>
+    </tr>
+    <tr>
+      <td>FancyName</td>
+      <td>Nome fantasia do participante</td>
+    </tr>
+    <tr>
+      <td>DocumentNumber</td>
+      <td>Número de documento do participante</td>
+    </tr>
+    <tr>
+      <td>DocumentType</td>
+      <td>Tipo de documento do participante</td>
+    </tr>
+    <tr>
+      <td>MerchantType</td>
+      <td>Tipo de Merchant do participante (Master ou Subordinado)</td>
+    </tr>
+    <tr>
+      <td>MasterRateDiscountType</td>
+      <td>Tipo de desconto aplicado sobre o Merchant</td>
+    </tr>
+    <tr>
+      <td>TransactionId</td>
+      <td>Identificador único da transação</td>
+    </tr>
+    <tr>
+      <td>OrderId</td>
+      <td>Número de pedido estabelecido pelo lojista</td>
+    </tr>
+    <tr>
+      <td>TransactionTotalAmount</td>
+      <td>Valor total da transação em centavos</td>
+    </tr>
+    <tr>
+      <td>MerchantGrossAmount</td>
+      <td>Valor bruto de venda referente ao participante em centavos</td>
+    </tr>
+    <tr>
+      <td>MerchantNetAmount</td>
+      <td>Valor líquido referente ao participante em centavos</td>
+    </tr>
+    <tr>
+      <td>Mdr</td>
+      <td>Taxa de MDR em % aplicada sobre o participante</td>
+    </tr>
+    <tr>
+      <td>Fee</td>
+      <td>Taxa de Fee em centavos aplicada sobre o participante</td>
+    </tr>
+    <tr>
+      <td>BankSlipFee</td>
+      <td>Tarifa de boleto em centavos (Em casos de transação de boleto)</td>
+    </tr>
+    <tr>
+      <td>RRTotalRate</td>
+      <td>Taxa em % que será aplicada pela Braspag sobre o valor a ser antecipado pelo Receba Rápido</td>
+    </tr>
+    <tr>
+      <td>RRFee</td>
+      <td>Taxa em centavos que será aplicada pela Braspag sobre o valor a ser antecipado pelo Receba Rápido</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="relatório-de-estornos">Relatório de estornos</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CorporateName</td>
+      <td>Razão social do participante</td>
+    </tr>
+    <tr>
+      <td>FancyName</td>
+      <td>Nome fantasia do participante</td>
+    </tr>
+    <tr>
+      <td>DocumentNumber</td>
+      <td>Número de documento do participante</td>
+    </tr>
+    <tr>
+      <td>DocumentType</td>
+      <td>Tipo de documento do participante</td>
+    </tr>
+    <tr>
+      <td>MerchantType</td>
+      <td>Tipo de Merchant do participante (Master ou Subordinado)</td>
+    </tr>
+    <tr>
+      <td>TransactionId</td>
+      <td>Identificador único da transação</td>
+    </tr>
+    <tr>
+      <td>OrderId</td>
+      <td>Número de pedido estabelecido pelo lojista</td>
+    </tr>
+    <tr>
+      <td>TransactionTotalAmount</td>
+      <td>Valor total da transação em centavos</td>
+    </tr>
+    <tr>
+      <td>VoidId</td>
+      <td>Identificador único do estorno</td>
+    </tr>
+    <tr>
+      <td>EventDate</td>
+      <td>Data de realização do estorno</td>
+    </tr>
+    <tr>
+      <td>VoidTotalAmount</td>
+      <td>Valor total estornado</td>
+    </tr>
+    <tr>
+      <td>VoidGrossAmount</td>
+      <td>Valor bruto de estorno aplicado sobre o Merchant em centavos</td>
+    </tr>
+    <tr>
+      <td>VoidNetAmount</td>
+      <td>Valor líquido de estorno aplicado sobre o Merchant em centavos</td>
+    </tr>
+    <tr>
+      <td>Reverted</td>
+      <td>Se o estorno foi revertido (0 para não ou 1 para sim)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="relatório-de-chargebacks">Relatório de chargebacks</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CorporateName</td>
+      <td>Razão social do participante</td>
+    </tr>
+    <tr>
+      <td>FancyName</td>
+      <td>Nome fantasia do participante</td>
+    </tr>
+    <tr>
+      <td>DocumentNumber</td>
+      <td>Número de documento do participante</td>
+    </tr>
+    <tr>
+      <td>DocumentType</td>
+      <td>Tipo de documento do participante</td>
+    </tr>
+    <tr>
+      <td>MerchantType</td>
+      <td>Tipo de Merchant do participante (Master ou Subordinado)</td>
+    </tr>
+    <tr>
+      <td>TransactionId</td>
+      <td>Identificador único da transação</td>
+    </tr>
+    <tr>
+      <td>OrderId</td>
+      <td>Número de pedido estabelecido pelo lojista</td>
+    </tr>
+    <tr>
+      <td>TransactionTotalAmount</td>
+      <td>Valor total da transação em centavos</td>
+    </tr>
+    <tr>
+      <td>ChargebackId</td>
+      <td>Identificador único do chargeback</td>
+    </tr>
+    <tr>
+      <td>EventDate</td>
+      <td>Data de realização do chargeback</td>
+    </tr>
+    <tr>
+      <td>ChargebackTotalAmount</td>
+      <td>Valor total do chargeback</td>
+    </tr>
+    <tr>
+      <td>ChargebackGrossAmount</td>
+      <td>Valor bruto de chargeback aplicado sobre o Merchant em centavos</td>
+    </tr>
+    <tr>
+      <td>ChargebackNetAmount</td>
+      <td>Valor líquido de chargeback aplicado sobre o Merchant em centavos</td>
+    </tr>
+    <tr>
+      <td>Reversed</td>
+      <td>Se o chargeback foi revertido (0 para não ou 1 para sim)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="relatório-de-agenda">Relatório de agenda</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CorporateName</td>
+      <td>Razão social do participante</td>
+    </tr>
+    <tr>
+      <td>FancyName</td>
+      <td>Nome fantasia do participante</td>
+    </tr>
+    <tr>
+      <td>DocumentNumber</td>
+      <td>Número de documento do participante</td>
+    </tr>
+    <tr>
+      <td>DocumentType</td>
+      <td>Tipo de documento do participante</td>
+    </tr>
+    <tr>
+      <td>MerchantType</td>
+      <td>Tipo de Merchant do participante (Master ou Subordinado)</td>
+    </tr>
+    <tr>
+      <td>MerchantId</td>
+      <td>Identificador único do Master que realizou a transação</td>
+    </tr>
+    <tr>
+      <td>AuthorizationDate</td>
+      <td>Data de autorização da transação</td>
+    </tr>
+    <tr>
+      <td>CaptureDate</td>
+      <td>Data de captura da transação</td>
+    </tr>
+    <tr>
+      <td>TransactionId</td>
+      <td>Identificador único da transação</td>
+    </tr>
+    <tr>
+      <td>InstallmentNumber</td>
+      <td>Número da parcela agendada</td>
+    </tr>
+    <tr>
+      <td>ForecastedPaymentDate</td>
+      <td>Data prevista para liquidação da agenda</td>
+    </tr>
+    <tr>
+      <td>Event</td>
+      <td>Evento referente a agenda</td>
+    </tr>
+    <tr>
+      <td>InstallmentNetAmount</td>
+      <td>Valor do evento de agenda em centavos</td>
+    </tr>
+    <tr>
+      <td>Brand</td>
+      <td>Bandeira (Visa, Master, etc.)</td>
+    </tr>
+    <tr>
+      <td>Product</td>
+      <td>Produto (Crédito, Débito, etc.)</td>
+    </tr>
+    <tr>
+      <td>OrderId</td>
+      <td>Número de pedido estabelecido pelo lojista</td>
+    </tr>
+    <tr>
+      <td>AuthorizationCode</td>
+      <td>Código de autorização da transação</td>
+    </tr>
+    <tr>
+      <td>Nsu</td>
+      <td>Nsu da transação</td>
+    </tr>
+    <tr>
+      <td>AffiliationCode</td>
+      <td>Código de afiliação (EC) onde ocorreu a transação</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="relatório-de-recebíveis">Relatório de recebíveis</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CorporateName</td>
+      <td>Razão social da entidade legal mantenedora da unidade de recebíves</td>
+    </tr>
+    <tr>
+      <td>DocumentNumber</td>
+      <td>Número de documento da entidade legal mantenedora da unidade de recebíves</td>
+    </tr>
+    <tr>
+      <td>DocumentType</td>
+      <td>Tipo de documento da entidade legal mantenedora da unidade de recebíves</td>
+    </tr>
+    <tr>
+      <td>ReceivableId</td>
+      <td>Identificador único da unidade de recebíveis</td>
+    </tr>
+    <tr>
+      <td>URAmount</td>
+      <td>Valor total em centavos da unidade de recebíveis</td>
+    </tr>
+    <tr>
+      <td>HolderDocumentNumber</td>
+      <td>Número de documento da entidade legal mantenedora da unidade de recebíves</td>
+    </tr>
+    <tr>
+      <td>HolderDocumentType</td>
+      <td>Tipo de documento da entidade legal mantenedora da unidade de recebíves</td>
+    </tr>
+    <tr>
+      <td>ForecastedPaymentDate</td>
+      <td>Data prevista para liquidação do recebível</td>
+    </tr>
+    <tr>
+      <td>PaymentDate</td>
+      <td>Data de liquidação do recebível</td>
+    </tr>
+    <tr>
+      <td>Brand</td>
+      <td>Bandeira do arranjo de pagamentos que compõe o recebível</td>
+    </tr>
+    <tr>
+      <td>Product</td>
+      <td>Produto do arranjo de pagamentos que compõe o recebível</td>
+    </tr>
+    <tr>
+      <td>PreContractedAmount</td>
+      <td>Valor em centavos précontratado com o sistema de Receba Rápido no recebível</td>
+    </tr>
+    <tr>
+      <td>ReceivablePaymentGroupType</td>
+      <td>Tipo de recebível ( Livre-&gt; ExemptedSchedule / Negociado -&gt; DealedSchedule )</td>
+    </tr>
+    <tr>
+      <td>ForecastedAmount</td>
+      <td>Valor em centavos previsto para ser liquidado</td>
+    </tr>
+    <tr>
+      <td>ReceivablePaymentGroupStatus</td>
+      <td>Status de liquidação do recebível</td>
+    </tr>
+    <tr>
+      <td>PosContractedAnticipation</td>
+      <td>Informa se o recebível está reservado devido a uma antecipação (1-&gt; Sim/ 0-&gt; Não)</td>
+    </tr>
+    <tr>
+      <td>Bank</td>
+      <td>Nome do banco em que o recebível será liquidado</td>
+    </tr>
+    <tr>
+      <td>CompeCode</td>
+      <td>Código do banco em que o recebível será liquidado</td>
+    </tr>
+    <tr>
+      <td>BankAccountNumber</td>
+      <td>Número da conta em que o recebível será liquidado</td>
+    </tr>
+    <tr>
+      <td>BankAccountDigit</td>
+      <td>Dígito verificador da conta em que o recebível será liquidado</td>
+    </tr>
+    <tr>
+      <td>BankAccountType</td>
+      <td>Tipo de conta em que o recebível será liquidado</td>
+    </tr>
+    <tr>
+      <td>AgencyNumber</td>
+      <td>Número da agência em que o recebível será liquidado</td>
+    </tr>
+    <tr>
+      <td>AgencyDigit</td>
+      <td>Dígito verificador da agência em que o recebível será liquidado</td>
+    </tr>
+    <tr>
+      <td>BankAccountDocumentNumber</td>
+      <td>Número de documento da conta em que o recebível será liquidado</td>
+    </tr>
+    <tr>
+      <td>BankAccountDocumentType</td>
+      <td>Tipo de documento da conta em que o recebível será liquidado</td>
+    </tr>
+    <tr>
+      <td>BankAccountHolderName</td>
+      <td>Nome do mantenedor da conta em que o recebível será liquidado</td>
+    </tr>
+    <tr>
+      <td>ContractEffectProtocol</td>
+      <td>Identificador único de contrato firmado para cessão de recebíves</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="http://www.braspag.com.br/fale-conosco/">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io/">
+        <img src="https://braspag.github.io//assets/images/logo.png" alt="Braspag Developers - Manuais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/Braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://braspag.github.io//assets/js/jquery.highlight.js"></script>
+        <script src="https://braspag.github.io//assets/js/lunr.js"></script>
+        <script src="https://braspag.github.io//assets/js/search.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2191438,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
