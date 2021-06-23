@@ -27,7 +27,7 @@ No exemplo abaixo, temos o Merchant A que possui duas transações agendadas par
 
 ![SplitSample001](https://braspag.github.io//images/braspag/split/s1.png)
 
-## Novo fluxo de conciliação
+# Novo fluxo de conciliação
 
 No novo modelo, de agenda financeira nasce um novo conceito chamado Unidade de Recebíveis. Estas unidades são compostas pelo montante financeiro que o cliente possui para receber, data de pagamento e arranjo. As URs seguem uma estrutura parecida com a Grade, porém com a diferença que são agrupadas pelo número de documento do cliente (CPF / CNPJ) e não mais por Merchant.
 
@@ -37,7 +37,7 @@ No novo modelo, de agenda financeira nasce um novo conceito chamado Unidade de R
 
 Com o Registro de Recebíveis será permitido negociar as URs em aberto como operações de desconto ou operações de crédito garantidas. Com isso, uma UR total/parcial poderá ser direcionada para outra instituição. No exemplo abaixo, o cliente realizou uma negociação de Cessão com Troca de Titularidade com o Banco do Brasil, onde R$ 50,00 de uma UR foi utilizada como garantia. A UR é quebrada com o valor acordado com a instituição:
 
-![SplitSample003] (https://braspag.github.io//images/braspag/split/s3.png)
+![SplitSample003](https://braspag.github.io//images/braspag/split/s3.png)
 
 ## Relatórios
 
