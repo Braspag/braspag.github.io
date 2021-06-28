@@ -2074,7 +2074,7 @@ Segue um exemplo de confirmação da transação com a moeda escolhida pelo comp
 No Pix, a transmissão da ordem de pagamento e a disponibilidade de fundos para o usuário recebedor ocorrem em tempo real, 24 horas por dia e sem a necessidade de intermediários. Sendo assim, é um meio que viabiliza pagamentos rápidos e com menores custos de transação.
 
 <aside class="notice">As especificações do Pix poderão sofrer mudanças e adequações até a data oficial de lançamento da funcionalidade pela Braspag.</aside>
-<aside class="warning">No momento, a habilitação do Pix só está disponível para a adquirente Cielo 3.0 e é necessário contactar a mesma para a liberação do meio de pagamento.</aside>
+<aside class="warning">No momento, a habilitação do Pix está disponível para as adquirentes Cielo 3.0 e Bradesco. É necessário entrar em contato primeiramente com esses fornecedores para a liberação do meio de pagamento.</aside>
 
 Conheça o ciclo de vida de uma transação Pix:
 
@@ -2147,7 +2147,7 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 | `MerchantOrderId` | Número de identificação do pedido.| Texto | 50 | Sim |
 | `Customer.Name` | Nome do pagador. | Texto | 255 | Não |
 | `Payment.Type` | Tipo do meio de pagamento. Neste caso, "Pix". | Texto | - | Sim |
-| `Payment.Provider` |Nome do provedor do meio de pagamento. Neste caso, "Cielo30". | Texto | - | Sim |
+| `Payment.Provider` |Nome do provedor do meio de pagamento. Neste caso, "Cielo30" ou "Bradesco2". | Texto | - | Sim |
 | `Payment.Amount` | Valor do pedido, em centavos.| Número | 15 | Sim |
 
 #### Resposta
@@ -2165,7 +2165,7 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
       "Provider":"Cielo30",
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
          "ProofOfSale":"123456",
-      "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==",
+      "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==[...]",
       "QrCodeString":"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C",
       "Amount":100,
       "ReceivedDate":"2020-10-15 18:53:20",
@@ -2193,7 +2193,7 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
       "Provider":"Cielo30",
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
          "ProofOfSale":"123456",
-      "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==",
+      "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==[...]",
       "QrCodeString":"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C",
       "Amount":100,
       "ReceivedDate":"2020-10-15 18:53:20",
@@ -6587,6 +6587,9 @@ Para consultar uma transação de cartão de crédito, cartão de débito ou Pix
       "ProviderDescription": "Simulado",
       "ReasonCode": 0,
       "Status": 1,
+      "RecurrentPayment": {
+        "RecurrentPaymentId": "1069a2c8-83cb-4268-8b62-0a9dc5038665"
+        },
       "Links": [
          {
             "Method": "GET",
@@ -6673,6 +6676,7 @@ Para consultar uma transação de cartão de crédito, cartão de débito ou Pix
 |`Payment.VoidedAmount`|Valor cancelado/estornado, em centavos.|Número|15|10000|
 |`Payment.VoidedDate`|Data do cancelamento/estorno.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.Status`|Status da transação.|Byte|2| Ex.: "1"|
+|`RecurrentPayment.RecurrentPaymentID`|Caso a transação tenha surgido de um pedido recorrente, retorna o RecurrentPaymentID desse pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Payment.Provider`|Provedor utilizado.|Texto|32|Simulado|
 |`Payment.ProviderDescription`|Nome do adquirente que processou a transação.|Texto|512|Simulado|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|---|
@@ -6814,6 +6818,9 @@ Para consultar uma transação de boleto registrado via PaymentID, é necessári
      "ExtraDataCollection": [],
      "ReasonCode": 0,
      "Status": 2,
+     "RecurrentPayment": {
+        "RecurrentPaymentId": "1069a2c8-83cb-4268-8b62-0a9dc5038665"
+        },
     "Links": [
       {
         "Method": "GET",
@@ -6884,6 +6891,7 @@ Para consultar uma transação de boleto registrado via PaymentID, é necessári
 |`Payment.PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Payment.ReasonCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
 |`Payment.Status`|Status da transação.|Byte|2| Ex.: 1|
+|`RecurrentPayment.RecurrentPaymentID`|Caso a transação tenha surgido de um pedido recorrente, retorna o RecurrentPaymentID desse pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
 ## Consultando uma Venda pelo Identificador da Loja
 
@@ -7211,6 +7219,12 @@ As listas a seguir se referem a provedores na integração REST:
 |Provider|
 |--------|
 |Bradesco, BancoDoBrasil, SafetyPay, Itau, PayMeeRedirectCheckout, PayMeeSemiTransparent|
+
+### Providers para PIX
+
+|Provider|
+|--------|
+|Cielo30, Bradesco2|
 
 ## Lista de Status da Transação
 
