@@ -195,6 +195,9 @@ O estabelecimento deverá parametrizar os elementos de formulário com as seguin
 |`CardBin`| Ex.: “455187”.|Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
 |`CardLast4Digits`| Ex.: “0181”.|Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
 |`foreignCard`| O campo retorna "true" se é um cartão emitido fora do Brasil. "false" caso contrário. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|`Issuer`| O campo retorna nome do emissor do cartão. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|`IssuerCode`| O campo retorna código do emissor do cartão. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
+|`CardType`| Retorna o tipo do cartão, por exemplo: Crédito, Débito, Múltiplo, Voucher, etc. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
 |`VerifyCardReturnCode`| Esse é o mesmo código retornado pelo provedor durante uma autorização padrão. Ex: provedor Cielo30 código "00" significa sucesso na validação. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
 |`VerifyCardReturnMessage`| Ex.: “Transacao Autorizada”. |Quando *enableBinQuery* for "true". Disponível somente para Cielo 3.0. |
 |`VerifyCardStatus`| "0"- Cartão Inválido; "1"- Cartão Válido; "99"- Situação Desconhecida. |Quando *enableVerifyCard* for "true". |
