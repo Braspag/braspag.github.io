@@ -85,7 +85,7 @@ Para que possa aproveitar melhor todos os recursos disponíveis em nossa API, é
 
 |Etapa|Descrição|
 |---|---|
-|**Autorização**|Operação que viabiliza o processamento de uma venda com um cartão de crédito. A autorização (também chamada pré-autorização) irá sensibilizar o limite do cliente, mas ainda não irá gerar cobrança em sua fatura.|
+|**Autorização**|Operação que viabiliza o processamento de uma venda com um cartão de crédito. A autorização (também chamada pré-autorização) irá sensibilizar o limite do cliente, mas ainda não irá gerar cobrança em sua fatura|
 |**Captura**|Confirmação necessária para que a cobrança seja efetivada. O tempo limite para capturar uma transação pré-autorizada varia entre adquirentes, mas pode ser de até 5 dias após a data da pré-autorização.|
 |**Captura Automática**|Opção que permite que a transação possa ser **autorizada** e **capturada** num mesmo momento, isentando o lojista de enviar a confirmação.|
 |**Cancelamento**|Recurso de cancelamento de compra aplicável no dia em que a transação foi autorizada/capturada. No caso de uma transação apenas **autorizada**, o cancelamento irá liberar o limite do cartão que foi sensibilizado. Se a transação já tiver sido **capturada**, o cancelamento irá desfazer a venda, mas somente quando executado até às 23:59:59 da data da autorização/captura.|
