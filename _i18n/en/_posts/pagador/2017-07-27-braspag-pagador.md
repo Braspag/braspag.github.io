@@ -16,7 +16,7 @@ language_tabs:
 
 # Introduction to the Pagador API
 
-The purpose of this documentation is to guide the developer on how to integrate with the **Pagador API**, Braspag's payment gateway, describing all available services using request and response examples.
+The purpose of this documentation is to guide the developer on how to integrate with the **Pagador API**, Braspag's payment gateway, describing all available services using request and response examples
 
 Below is the representation of a standard **transactional flow**, followed by a short description of the main parties involved:
 
