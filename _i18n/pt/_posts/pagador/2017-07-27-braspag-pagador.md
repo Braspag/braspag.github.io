@@ -115,13 +115,13 @@ Veja abaixo a representação de um **fluxo transacional** padrão seguida de um
 
 ![Fluxo Transacional]({{ site.baseurl_root }}/images/fluxo-transacional-pt-menor.png)
 
-* **Plataforma de e-commerce:** Provê solução técnica para lojistas construírem toda a infraestrutura e processos necessários para sua operação de e-commerce.
-* **Gateway:** Conecta e-commerces com os serviços de pagamento (adquirente, boleto, emissor), facilitando a gestão dos fornecedores de pagamento pelos lojistas.
-* **Adquirente:** Faz a conexão da transação com as bandeiras e liquida a transação para os lojistas.
-* **Bandeira:** Faz a comunicação com o emissor do cartão da transação e liquida a transação para os adquirentes.
-* **Emissor:** Dá crédito e armazena o dinheiro do comprador. Na transação, aprova ou nega por razões de saldo, validade do cartão ou fraude. Liquida a transação para a bandeira.
+* **Plataforma de e-commerce:** provê solução técnica para lojistas construírem toda a infraestrutura e processos necessários para sua operação de e-commerce.
+* **Gateway:** conecta e-commerces com os serviços de pagamento (adquirente, boleto, emissor), facilitando a gestão dos fornecedores de pagamento pelos lojistas.
+* **Adquirente:** faz a conexão da transação com as bandeiras e liquida a transação para os lojistas.
+* **Bandeira:** faz a comunicação com o emissor do cartão da transação e liquida a transação para os adquirentes.
+* **Emissor:** dá crédito e armazena o dinheiro do comprador. Na transação, aprova ou nega por razões de saldo, validade do cartão ou fraude. Liquida a transação para a bandeira.
 
-<br/>**Nota:** Para evitar que a duplicidade de pedidos ocorra durante uma transação, o Pagador possui a opção de bloqueio de pedidos duplicados que, quando habilitado, retorna o código de erro "302", informando que o `MerchantOrderId` enviado está duplicado. Para saber mais detalhes sobre essa feature, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360030183991).
+<br/>**Nota:** para evitar que a duplicidade de pedidos ocorra durante uma transação, o Pagador possui a opção de bloqueio de pedidos duplicados que, quando habilitado, retorna o código de erro "302", informando que o `MerchantOrderId` enviado está duplicado. Para saber mais detalhes sobre essa feature, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360030183991).
 
 ## Cartões de Crédito e Débito
 
