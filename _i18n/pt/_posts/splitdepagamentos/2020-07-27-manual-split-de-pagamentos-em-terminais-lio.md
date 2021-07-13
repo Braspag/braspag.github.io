@@ -19,7 +19,7 @@ Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pag
 
 # Configuração
 
-Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, onde será necessário configurar o estabelecimento comercial da Braspag, (Facilitador) pelo qual serão realizadas as transações destinadas ao Split de Pagamentos.  
+Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, onde será necessário configurar o estabelecimento comercial da Braspag, (Facilitador) pelo qual serão realizadas as transações destinadas ao Split.  
 
 Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um Subordinado, indicando onde o mesmo estará presente fisicamente.
 
