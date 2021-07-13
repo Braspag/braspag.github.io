@@ -35,7 +35,7 @@ Conheça alguns dos atributos que se destacam na plataforma Braspag eCommerce:
 ## Arquitetura da Integração
 
 O modelo empregado na integração das APIs é simples e se baseia na utilização de duas URLs:
-* URL transacional - específica para operações como autorização, captura e cancelamento de transações;
+* URL transacional - específica para operações como autorização, captura e cancelamento de transações.
 * URL de consulta - para operações consultivas, como uma pesquisa de transações.
 
 <br/>Para executar uma operação:
