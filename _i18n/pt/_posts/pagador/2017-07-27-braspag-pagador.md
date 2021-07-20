@@ -7167,6 +7167,7 @@ As listas a seguir se referem a provedores na integração REST:
 |GlobalPayments|Visa, Master, Elo, Hiper, Hipercard, Cabal, Amex|Provider para transações na plataforma de e-commerce Global Payments.|
 |Stone|Visa, Master, Hipercard, Elo|Provider para transações na plataforma de e-commerce Stone.|
 |Safra2|Visa, Master, Hipercard, Elo, Amex|Provider para transações na plataforma de e-commerce Safra.|
+|PagSeguro|Visa, Master, Hipercard, Elo, Hiper, Diners, Amex|Provider para transações na plataforma de e-commerce PagSeguro.|
 |FirstData|Visa, Master, Elo, Hipercard, Cabal, Amex|Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data.|
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|Provider para transações em pesos argentinos (ARG) na plataforma legado Sub1 First Data.|
 |Banorte|Visa, Master, Carnet|Provider para transações em pesos mexicanos (MXN) na plataforma de e-commerce Banorte.|
