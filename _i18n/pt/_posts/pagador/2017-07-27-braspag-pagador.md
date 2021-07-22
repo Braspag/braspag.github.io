@@ -7564,16 +7564,18 @@ Os status das transações serão conforme a utilização de cada cartão.
 
 |Status da Transação|Cartões para realização dos testes|Código de Retorno|Mensagem de Retorno|
 |-------------------|----------------------------------|-----------------|-------------------|
-|Autorizado|0000.0000.0000.0000 / 0000.0000.0000.0001 / 0000.0000.0000.0004|4|Operação realizada com sucesso|
-|Não Autorizado|0000.0000.0000.0002|05|Não Autorizada|
-|Não Autorizado|0000.0000.0000.0003|57|Cartão Expirado|
-|Não Autorizado|0000.0000.0000.0005|78|Cartão Bloqueado|
-|Não Autorizado|0000.0000.0000.0006|99|Time Out|
-|Não Autorizado|0000.0000.0000.0007|77|Cartão Cancelado|
-|Não Autorizado|0000.0000.0000.0008|70|Problemas com o Cartão de Crédito|
-|Autorização Aleatória|0000.0000.0000.0009|4 / 99|Operation Successful / Time Out|
+|Autorizado|0000 0000 0000 0000 / 0000 0000 0000 0001 / 0000 0000 0000 0004|4|Operação realizada com sucesso|
+|Não Autorizado|0000 0000 0000 0002|05|Não Autorizada|
+|Não Autorizado|0000 0000 0000 0003|57|Cartão Expirado|
+|Não Autorizado|0000 0000 0000 0005|78|Cartão Bloqueado|
+|Não Autorizado|0000 0000 0000 0006|99|Time Out|
+|Não Autorizado|0000 0000 0000 0007|77|Cartão Cancelado|
+|Não Autorizado|0000 0000 0000 0008|70|Problemas com o Cartão de Crédito|
+|Autorização Aleatória|0000 0000 0000 0009|4 / 99|Operation Successful / Time Out|
 
 As informações de código de segurança (CVV) e validade podem ser aleatórias, mantendo o seu formato - "3 dígitos" (CVV) e "MM/YYYY" (Validade). Não utilize pontos ou separadores entre os números do cartão utilizado.
+
+**Nota**: Se o objetivo for testar uma transação no Pagador salvando o número do cartão, é recomendado usar um gerador de cartões para atender a regra do mod10 (Algoritimo de Luhn), que é empregada nos ambientes Sandbox e de Produção do Cartão Protegido.
 
 ## Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].GiftCategory
 
