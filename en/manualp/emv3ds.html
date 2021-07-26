@@ -142,38 +142,38 @@
 
 <h2 id="what-is-3ds-20">What is 3DS 2.0?</h2>
 
-<p>In order to minimize the fraud rate without spoil the conversion rate, the payment industry has developed a new authentication standard called <strong>EMV 3DS</strong>, or also called <strong>3DS 2.0</strong>. The new version is able to analyze dozens of variables that are used as criteria to determine if a shopper is in fact the cardholder, allowing in some cases the silent authentication of the cardholder (authentication without challenge), without prejudice to the issue of <em>Liability Shift</em> of establishments.</p>
+<p>In order to minimize the fraud rate without spoiling the conversion rate, the payment industry has developed a new authentication standard called <strong>EMV 3DS</strong>, or also called <strong>3DS 2.0</strong>. The new version is able to analyze dozens of variables that are used as criteria to determine if a shopper is in fact the cardholder, allowing in some cases the silent authentication of the cardholder (authentication without challenge), without prejudice to the <em>Liability Shift</em> of the establishments.</p>
 
 <p>Main Benefits:</p>
 
 <ul>
-  <li>Easy integration via Java Script;</li>
+  <li>Easy integration via JavaScript;</li>
   <li>Authentication interface is responsive to mobile;</li>
   <li>Possibility of authentication “silent” (exemption from challenge);</li>
   <li>Minimizes transactions with frauds;</li>
 </ul>
 
-<p><strong>Keywords:</strong> Credit and Debit Card Authentication, EMVCO, 3DS 2.0, Visa, Mastercard, E-Commerce</p>
+<p><strong>Keywords:</strong> Credit and Debit Card Authentication, EMVCO, 3DS 2.0, Visa, Mastercard, E-commerce</p>
 
 <h2 id="who-can-use-3ds-20">Who can use 3DS 2.0?</h2>
 
-<p>Any business that has e-Commerce or an application can use the solution. It is particularly suitable for establishments belonging to the high risk segment.</p>
+<p>Any business that has e-commerce or an application can use the solution. It is particularly suitable for establishments belonging to the high risk segment.</p>
 
 <h2 id="what-are-requirements-for-using-3ds-20">What are requirements for using 3DS 2.0?</h2>
 
 <p>The merchant must meet the following requirements for using 3DS 2.0:</p>
 
 <ul>
-  <li>Have Cielo E-Commerce 3.0 affiliation;</li>
+  <li>Be affiliated to Cielo E-Commerce 3.0;</li>
   <li>Complete the technical integration of the authentication flow;</li>
   <li>Complete the technical integration of the authorization flow;</li>
 </ul>
 
 <aside class="notice">If you have implemented authentication mechanism outside Cielo (External MPI), skip straight to "Authorization Step"</aside>
 
-<h2 id="flags-and-issuers-available">Flags and Issuers Available</h2>
+<h2 id="brands-and-issuers-available">Brands and Issuers Available</h2>
 
-<p>For sending transactions with 3DS 2.0 authentication request it is essential that, in addition to Cielo, the Issuer and Flag are ready with the solution. Among the market flags, Visa and Mastercard are currently available in 3DS 2.0 Cielo. Both have a Stand-In model if the Issuer is not yet able to respond to an authentication request using EMV 3DS 2.0. In this scenario, the flag evaluates the submitted data, such as customer behavioral and transactional history, classifying authentication requests as “Low Risk” and “Not Low Risk”. From this information, Issuers can be protected even without having their own 3DS 2.0 solution, and will have greater confidence in authenticated transactions. In Stand-In cases, authentication occurs silently (without challenge to the card holder) and once the transaction has been authenticated, liability in case of fraud will be with the Issuer. The decision to authorize the transaction or not is up to the Issuer.</p>
+<p>For sending transactions with 3DS 2.0 authentication request it is essential that, in addition to Cielo, the Issuer and Brand are ready with the solution. Among the market brands, Visa and Mastercard are currently available in 3DS 2.0 Cielo. Both have a Stand-In model if the Issuer is not yet able to respond to an authentication request using EMV 3DS 2.0. In this scenario, the flag evaluates the submitted data, such as customer behavioral and transactional history, classifying authentication requests as “Low Risk” and “Not Low Risk”. From this information, Issuers can be protected even without having their own 3DS 2.0 solution, and will have greater confidence in authenticated transactions. In Stand-In cases, authentication occurs silently (without challenge to the card holder) and once the transaction has been authenticated, liability in case of fraud will be held by the Issuer. The decision to authorize the transaction or not is up to the Issuer.</p>
 
 <p>Soon Elo and Amex flags will also be available.</p>
 
@@ -272,9 +272,9 @@
 
 <p>To use it, the <strong>bpmpi_auth_notifyonly</strong> field described in item <strong>Authentication Step - step 3 - Class Mapping</strong> must be parameterized. In the Data Only model, additional 3DS 2.0 fields are mapped the same way, and sent to Mastercard and Issuing Banks, however, without requesting authentication.</p>
 
-<p>The benefit of using Data Only is to enrich the Issuing Banks and Mastercard databases, which will receive more information about the bearers of each merchant. This field seeks to improve Issuers’ silent authentication and approval rating, given the current context in which the market is evolving into integration with the new 2.0 authentication protocol. In addition, as of May 2019, Mastercard will charge an additional <em>fee</em> per unauthenticated transaction from the acquirer, which may impact the price negotiated between the acquirer and the merchant. Data Only exempts the amount of <em>fee</em> charged.</p>
+<p>The benefit of using Data Only is to enrich the Issuing Banks and Mastercard databases, which will receive more information about the cardholders of each merchant. This field seeks to improve Issuers’ silent authentication and approval rating, given the current context in which the market is evolving into integration with the new 2.0 authentication protocol. In addition, since May 2019, Mastercard charges an additional <em>fee</em> per unauthenticated transaction from the acquirer, which may impact the price negotiated between the acquirer and the merchant. Data Only exempts the amount of <em>fee</em> charged.</p>
 
-<p>Note that in this model, since there is no authentication of the Issuer, the risk of chargeback for fraud remains with the merchant.</p>
+<p>Note that in this model, since there is no authentication of the Issuer, the risk of chargeback for fraud is held by the merchant.</p>
 
 <h2 id="how-does-authorization-with-3ds-20-authentication-work">How does authorization with 3DS 2.0 authentication work?</h2>
 
@@ -290,14 +290,14 @@
 <p><img src="https://braspag.github.io//images/fluxo-env3ds.jpg" alt="3DS 2.0 Flux" /></p>
 
 <ol>
-  <li>The holder chooses to pay by credit or debit card</li>
+  <li>The cardholder chooses to pay by credit or debit card</li>
   <li>The establishment requests authentication through the Cielo solution.</li>
-  <li>The authentication platform may follow one of two streams: requesting bearer authentication or performing authentication silently. In the first case, the platform will return the Authentication URL to the merchant. In the second case, the next step is already the return with the authentication result.</li>
+  <li>The authentication platform may follow one of two flows: requesting bearer authentication or performing authentication silently. In the first case, the platform will return the Authentication URL to the merchant. In the second case, the next step is already the return with the authentication result.</li>
   <li>Store has authentication interface in <em>lightbox</em> (Issuer Authentication URL)</li>
-  <li>The card holder authenticates to the sender (process known as <strong>performing the challenge</strong>)</li>
-  <li>The sender returns the authentication result to the 3DS platform, which in turn passes it to the establishment</li>
+  <li>The cardholder authenticates to the issuer (process known as <strong>performing the challenge</strong>)</li>
+  <li>The issuer returns the authentication result to the 3DS platform, which in turn sends it to the establishment</li>
   <li>The establishment may or may not proceed with the authorization process. When you choose to authorize you must submit the authentication result in the technical authorization</li>
-  <li>Cielo returns the result of the authorization to the establishment, which in turn returns to the card holder</li>
+  <li>Cielo returns the result of the authorization to the establishment, which, in turn, returns it to the cardholder.</li>
 </ol>
 
 <h2 id="authentication">Authentication</h2>
@@ -306,15 +306,15 @@
 Click one of the options below to view the manual that best suits your needs:</p>
 
 <ol>
-  <li>Authentication via Java Script: Ideal for deployment on [websites] (https://braspag.github.io/manual/integracao-javascript)</li>
-  <li>Android SDK Authentication: Ideal for In-App Deployment [Android] (https://braspag.github.io/manual/integracao-sdk-android)</li>
-  <li>IOS SDK Authentication: Ideal for In-App Deployment [IOS] (https://braspag.github.io/manual/integracao-sdk-ios)</li>
+  <li>Authentication via JavaScript: Ideal for deployment on <a href="https://braspag.github.io/manual/integracao-javascript">websites</a></li>
+  <li>Android SDK Authentication: Ideal for In-App Deployment <a href="https://braspag.github.io/manual/integracao-sdk-android">Android</a></li>
+  <li>IOS SDK Authentication: Ideal for In-App Deployment <a href="https://braspag.github.io/manual/integracao-sdk-ios">IOS</a></li>
 </ol>
 
 <h2 id="authorization-with-authentication">Authorization with Authentication</h2>
 
 <p>After authentication is completed, it undergoes the authorization process by submitting the authentication data in the “external authentication” (node <strong>ExternalAuthentication</strong>).
-See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticacao[(https://braspag.github.io/manual/autorizacao-com-autenticacao)</p>
+See more details at: <a href="https://braspag.github.io/manual/autorizacao-com-autenticacao">https://braspag.github.io/manual/aautizacao-com-autenticacao</a></p>
 
 </div>
 
