@@ -25,7 +25,7 @@ See example below, describing the submission of authentication data from the Pag
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales</span></aside>
 
-### Request
+## Request
 
 ```json
 {
@@ -108,7 +108,7 @@ curl
 |`Payment.ExternalAuthentication.Version`|3DS version used in authentication process|Alphanumeric [1 position]|Yes, when the version of 3DS is "2"|
 |`Payment.ExternalAuthentication.ReferenceID`|RequestID Returned in Authentication Process|GUID [36 positions]|Yes, when the version of 3DS is "2"|
 
-### Response
+## Response
 
 See [https://braspag.github.io//en/manual/braspag-pagador](https://braspag.github.io//en/manual/braspag-pagador)  
 
@@ -117,7 +117,7 @@ See [https://braspag.github.io//en/manual/braspag-pagador](https://braspag.githu
 After the authentication step in Data Only model is completed (field `bpmpi_auth_notifyonly` set as “true”), the transaction undergoes the authorization process by sending the authentication data in the “external authentication” model (node `ExternalAuthentication`).
 See example below, describing the submission of authentication data from the Pagador API authorization request, using POST:
 
-### Request
+## Request
 
 <aside class="request"><span class="methodpost">POST</span><span class="endpoint">/v2/sales/</span></aside>
 
@@ -192,7 +192,7 @@ See example below, describing the submission of authentication data from the Pag
 |`Payment.ExternalAuthentication.ReferenceId`|RequestID returned in authentication process|GUID [36 positions]|Yes|
 |`Payment.ExternalAuthentication.DataOnly`|Defines if transaction is *Data Only*|Boolean (true or false)|Yes. For Data Only transactions the value must be "true"|
 
-### Response
+## Response
 
 See [API Rest Integration Guide](https://braspag.github.io//en/manual/braspag-pagador#introduction-to-the-pagador-api) for authorization with authentication response detailed examples.
 
