@@ -110,4 +110,101 @@ curl
 
 ### Response
 
-See [https://braspag.github.io//en/manual/braspag-pagador](https://braspag.github.io//en/manual/braspag-pagador)
+See [https://braspag.github.io//en/manual/braspag-pagador](https://braspag.github.io//en/manual/braspag-pagador)  
+
+# Authorization for Data Only Transactions 
+
+After the authentication step in Data Only model is completed (field `bpmpi_auth_notifyonly` set as “true”), the transaction undergoes the authorization process by sending the authentication data in the “external authentication” model (node `ExternalAuthentication`).
+See example below, describing the submission of authentication data from the Pagador API authorization request, using POST:
+
+### Request
+
+<aside class="request"><span class="methodpost">POST</span><span class="endpoint">/v2/sales/</span></aside>  
+
+```json
+{  
+   "MerchantOrderId":"2017051002",
+   "Customer":
+   {  
+     (...)
+   },
+   "Payment":
+   {  
+     (...)
+     "Authenticate":false,
+     "ReturnUrl":"http://www.loja.com.br",
+     "CreditCard":{  
+         "CardNumber":"4000000000001000",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false"
+     },
+     "ExternalAuthentication":{
+       "Eci":"4",
+       "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6",
+       "dataonly":true
+     }
+   }
+}
+```
+
+```shell
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+--header "MerchantKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+--data-binary
+--verbose
+{  
+   "MerchantOrderId":"2017051002",
+   "Customer":
+   {  
+     (...)
+   },
+   "Payment":
+   {  
+     (...)
+     "Authenticate":false,
+     "ReturnUrl":"http://www.loja.com.br",
+     "CreditCard":{  
+         "CardNumber":"4000000000001000",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false"
+     },
+     "ExternalAuthentication":{
+       "Eci":"4",
+       "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6",
+       "dataonly":true
+     }
+   }
+}
+```
+ 
+| **FIELD** | **DESCRIPTION** | **TYPE/SIZE** | **REQUIRED** |
+| --- | --- | --- | --- |
+|`Payment.Authenticate`|Defines if the buyer will be directed to the issuing Bank for card authentication|Boolean (true or false)|Yes. For Data Only transactions the value must be "false"|  
+|`Payment.ExternalAuthentication.Eci`|*E-commerce Indicator* returned in authentication process|Numeric [1 position]|Yes|  
+|`Payment.ExternalAuthentication.ReferenceId`|RequestID returned in authentication process|GUID [36 positions]|Yes|  
+|`Payment.ExternalAuthentication.DataOnly`|Defines if transaction is *Data Only*|Boolean (true or false)|Yes. For Data Only transactions the value must be "true"|  
+
+### Response
+
+See [API Rest Integration Guide](https://braspag.github.io//en/manual/braspag-pagador#introduction-to-the-pagador-api) for authorization with authentication response detailed examples.
+
+# ECI Table
+
+|**BRAND**|**ECI**|**TRANSACTION MEANING**|
+|---|---|---|
+|Visa|06|Authenticated by the card brand – chargeback risk is held by the issuer|  
+|Visa|05|Authenticated by the issuer – chargeback risk is held by the issuer|  
+|Visa|Different from 05 and 06|Non-authenticated – chargeback risk is held by the merchant|  
+|Mastercard|01|Authenticated by the card brand – chargeback risk is held by the issuer|  
+|Mastercard|02|Authenticated by the issuer – chargeback risk is held by the issuer|  
+|Mastercard|03|Non-authenticated, Data Only transaction – chargeback risk is held by the merchant|  
+|Mastercard|Different from 01, 02, and 04|Non-authenticated – chargeback risk is held by the merchant|  
+
