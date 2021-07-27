@@ -29,7 +29,7 @@ No exemplo abaixo, temos o Merchant A que possui duas transações agendadas par
 
 # Novo fluxo de conciliação
 
-No novo modelo, de agenda financeira nasce um novo conceito chamado Unidade de Recebíveis. Estas unidades são compostas pelo montante financeiro que o cliente possui para receber, data de pagamento e arranjo. As URs seguem uma estrutura parecida com a Grade, porém com a diferença que são agrupadas pelo número de documento do cliente (CPF / CNPJ) e não mais por Merchant.
+No novo modelo, a agenda financeira nasce um novo conceito chamado Unidade de Recebíveis. Estas unidades são compostas pelo montante financeiro que o cliente possui para receber, data de pagamento e arranjo. As URs seguem uma estrutura parecida com a Grade, porém com a diferença que são agrupadas pelo número de documento do cliente (CPF / CNPJ) e não mais por Merchant.
 
 ![SplitSample002](https://braspag.github.io//images/braspag/split/s2.png)
 
