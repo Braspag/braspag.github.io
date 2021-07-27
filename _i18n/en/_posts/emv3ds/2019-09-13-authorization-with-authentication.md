@@ -207,4 +207,3 @@ See [API Rest Integration Guide](https://braspag.github.io//en/manual/braspag-pa
 |Mastercard|02|Authenticated by the issuer – chargeback risk is held by the issuer|  
 |Mastercard|03|Non-authenticated, Data Only transaction – chargeback risk is held by the merchant|  
 |Mastercard|Different from 01, 02, and 04|Non-authenticated – chargeback risk is held by the merchant|  
-
