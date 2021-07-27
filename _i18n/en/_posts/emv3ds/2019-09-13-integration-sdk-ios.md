@@ -321,4 +321,4 @@ See more details at: [https://braspag.github.io//en/manualp/authorization-with-a
 
 # Last updates
 
-To view the latest manual updates, [click here](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-sdk-ios.md)
+To see the manual latest updates, [click here](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-sdk-ios.md)
