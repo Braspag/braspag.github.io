@@ -15,7 +15,7 @@ language_tabs:
 
 # What is 3DS 2.0?
 
-For more details about 3DS 2.0, please visit: [https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?](https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)
+For more details about 3DS 2.0, please visit: [https://braspag.github.io//en/manualp/emv3ds](https://braspag.github.io//en/manualp/emv3ds)
 
 # Step 1 - Access Token Request
 
