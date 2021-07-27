@@ -12,7 +12,7 @@ tags:
 
 # What is 3DS 2.0?
 
-For more details about 3DS 2.0, please visit: [https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?] (https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)
+For more details about 3DS 2.0, please visit: [https://braspag.github.io//en/manualp/emv3ds](https://braspag.github.io//en/manualp/emv3ds)
 
 # Step 1 - Access Token Request
 
@@ -152,7 +152,7 @@ braspag3ds.customize(
 )
 ```
 
-> Fonts have to be added to the application and the path should be provided in the UI customization.
+> Fonts must be added to the application and the path should be provided in the UI customization.
 
 ## Authenticate
 
@@ -201,7 +201,7 @@ braspag3dsSdk.authenticate(
 )
 ```
 
-## Parâmetros de entrada do método *authenticate*
+## *Authenticate* method input parameters
 
 |**Field**|**Type**|**Description**|**Required**|
 |---|---|--|--|
@@ -244,7 +244,7 @@ braspag3dsSdk.authenticate(
 
 To make it easier to use only what the merchant needs to send, the request is separated into several objects with well-defined data context as the authenticate input parameters table shows. Below we will detail each of the objects used.
 
-<aside class="warning">The greater the number of parameterized fields, the greater the chance of having transparent authentication, as the issuer will have greater subsidy for risk analysis</aside>.
+<aside class="warning">The greater the number of parameterized fields, the greater the chance of having transparent authentication, as the issuer will have greater subsidy for risk analysis</aside>
 
 ## OptionsData
 
@@ -334,7 +334,7 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 ## UserData
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |guest|Indicates if the shopper is a shopper without login (guest)|Boolean<br>true – yes<br>false – no|No|
 |createdDate|Indicates the date when the shopper account was created|Text<br>YYYY-MM-DD - Date Created|No|
@@ -347,7 +347,7 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 ## AirlineData
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |numberOfPassengers|Number of Passengers|Numeric [3 positions]|No|
 |billToPassportCountry|Passport country code (ISO Standard Country Codes)|Text [2 positions]|No|
@@ -357,7 +357,7 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 ## TravelLeg
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |carrier|IATA code for the stretch|Alphanumeric [2 positions]|No|
 |departureDate|Date of Departure|Text<br>YYYY-MM-DD|No|
@@ -366,14 +366,14 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 ## Passenger
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |name|Passenger Name|Alphanumeric [up to 60 positions]|No|
 |ticketPrice|The value of the ticket in cents|Numeric [up to 15 positions],<br>example: $ 125.54 = 12554|No|
 
 ## MDD
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |mdd1|Extra data defined by the merchant|Alphanumeric [up to 255 positions]|No|
 |mdd2|Extra data defined by the merchant|Alphanumeric [up to 255 positions]|No|
@@ -383,7 +383,7 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 ## RecurringData
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |endDate|Identifies recurrence end date|Text (YYYY-MM-DD)|No|
 |frequency|Indicates frequency of recurrence|*RecurringFrequencyEnum* <br><br>MONTHLYBIMONTHLY<br>QUARTERLY<br>TRIANNUAL<br>SEMIANNUAL<br>YEARLY|No|
@@ -391,7 +391,7 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 ## Other parameters
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |ipAddress|Shopper's Machine IP Address|Alphanumeric [up to 45]|No|
 
@@ -411,8 +411,8 @@ Use the **test** cards below to simulate various scenarios in the **SANDBOX** en
 ## Authorization with Authentication
 
 After authentication is completed, it undergoes the authorization process by submitting the authentication data in the "external authentication" (node **ExternalAuthentication**).
-See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticacao[(https://braspag.github.io/manual/autorizacao-com-autenticacao)
+See more details at: [https://braspag.github.io//en/manualp/authorization-with-authentication](https://braspag.github.io//en/manualp/authorization-with-authentication)
 
 # Last updates
 
-To view the latest manual updates, [click here] (https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integracao-sdk -android.md)
+To view the latest manual updates, [click here](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-13-integracao-sdk-android.md).
