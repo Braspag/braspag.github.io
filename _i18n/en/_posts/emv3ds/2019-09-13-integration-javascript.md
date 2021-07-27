@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Integration via Javascript
+title: Integration via JavaScript
 description: Gateway Braspag Technical Integration
 search: true
 translated: true
@@ -15,11 +15,11 @@ language_tabs:
 
 # What is 3DS 2.0?
 
-For more details about 3DS 2.0, please visit: [https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?] (https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)
+For more details about 3DS 2.0, please visit: [https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?](https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)
 
 # Step 1 - Access Token Request
 
-The solution consists of the API access token request step and Java Script authentication request step.
+The solution consists of two steps, the API access token request and the JavaScript authentication request.
 
 |Environment|Endpoint|Authorization|
 |---|---|---|
@@ -87,30 +87,30 @@ curl
 
 # Step 2 - Script Implementation
 
-In this step, is implemented _script_ and mapping of _classes_ are responsible for communicating with the flag and sender authentication platforms. Follow the example below, which demonstrates the basic implementation. It is recommended that the snippet be placed at the end of your checkout HTML code:
+In this step we implement the _script_ and mapping of _classes_, responsible for communicating with the brand and issuer authentication platforms. Follow the example below, which demonstrates the basic implementation. It is recommended that the snippet be placed at the end of your checkout HTML code:
 
-To download the code, [go here] (https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/example.html)
+To download the code, [go here](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/example.html)
 
 ![3DS 2.0 Flux]({{ site.baseurl_root }}/images/exemplo-html.jpg)
 
-Description of Events
+## Description of Events
 
 |**Event**|**Description**|
 |---|---|
 |onReady|Triggers when all solution script loading procedures have completed successfully, which includes access token validation, indicating that the checkout is ready to start authentication|
-|onSuccess|It is triggers when the card is eligible and has successfully completed the authentication process. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.|
-|onFailure|It is triggers when the card is eligible but has not had the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
-|onUnenrolled|It is triggered when the card is not eligible, ie the holder and / or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
-|onDisabled|It is triggers when the merchant has chosen not to subject the bearer to the authentication process (class "bpmpi\_auth" as false). In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
-|onError|It is triggered when the authentication process has received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+|onSuccess|Triggers when the card is eligible and has successfully completed the authentication process. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.|
+|onFailure|Triggers when the card is eligible but has not had the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+|onUnenrolled|Triggers when the card is not eligible, i.e. the holder and / or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+|onDisabled|Triggers when the merchant has chosen not to subject the bearer to the authentication process (class "bpmpi\_auth" as false). In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+|onError|Triggers when the authentication process has received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
 |onUnsupportedBrand|Triggers when card brand is not supported by 3DS 2.0|
 
-Description of Input Parameters
+## Description of Input Parameters
 
 |**Parameter**|**Description**|**Type/Size**|
 |---|---|---|
-|Environment|Indicates the environment to use (Sandbox or Production)|SDB - Sandbox (test environment) PRD - Production (production environment)|
-|Debug|Boolean indicating whether debug mode is enabled or not. When true, the platform will report on the browser debug engine.|Boolean true - debug mode enabled false - debug mode disabled|
+|Environment|Indicates the environment to use (Sandbox or Production)|SDB - Sandbox (test environment)<br>PRD - Production (production environment)|
+|Debug|Boolean indicating whether debug mode is enabled or not. When true, the platform will report on the browser debug engine.|Boolean true - debug mode enabled<br>false - debug mode disabled|
 
 **IMPORTANT!**
 
@@ -118,7 +118,7 @@ The JavaScript file must be saved on the server where the store application is l
 
 [https://bit.ly/2CSOp2n](https://bit.ly/2CSOp2n)
 
-Description of outputs
+## Description of outputs
 
 |**Exit**|**Description**|**Type/Size**|
 |---|---|---|
@@ -136,14 +136,14 @@ The solution provides dozens of classes that must be mapped in your HTML code.
 
 Once the class is mapped in a given field, the script is able to retrieve the value contained in the field and submit it to compose the authentication request.
 
-<aside class="warning">The greater the number of parameterized fields, the greater the chance of having transparent authentication, as the issuer will have greater subsidy for risk analysis</aside>.
+<aside class="warning">The greater the number of parameterized fields, the greater the chance of having transparent authentication, as the issuer will have greater subsidy for risk analysis</aside>
 
 <aside class="notice">The # character indicated in the field must be replaced by a number representing the index of the item. Example: bpmpi_item_1_productName represents the name of cart item 1</aside>
 
 |**Parameterization Data**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |bpmpi_auth|Boolean indicating whether the transaction is submitted to or not for the authentication process|Boolean:<br>true - submit to authentication<br>false - do not submit to authentication|Yes|
-|bpmpi_auth_notifyonly|Boolean indicating whether the card transaction will be submitted in "notification only" mode. In this mode, the authentication process will not be triggered, however, the data will be flagged. ** VALID ONLY FOR MASTERCARD CARDS **|Boolean: <br>true - notification only mode; <br>false - mode with authentication|No|
+|bpmpi_auth_notifyonly|Boolean indicating whether the card transaction will be submitted in "notification only" mode. In this mode, the authentication process will not be triggered, however, the data will be submitted to the brand. **VALID ONLY FOR MASTERCARD CARDS**|Boolean: <br>true - notification only mode; <br>false - mode with authentication|No|
 |bpmpi_auth_suppresschallenge|Boolean indicating whether or not to ignore the challenge when it exists. If a transaction authorized after ignoring the challenge, liability remains with the establishment. |Boolean: <br>true - ignore challenges if any; <br>false - present challenge if any|No|
 |bpmpi_accesstoken|Token generated by the Access Token API (step 1)|Alphanumeric [variable]|Yes|
 
@@ -155,8 +155,8 @@ Once the class is mapped in a given field, the script is able to retrieve the va
 |bpmpi_installments|Number of Installments|Numeric [up to 2 positions]|Yes|
 |bpmpi_paymentmethod|Type of card to be authenticated. In the case of a multiple card, you must specify either Credit or Debit|Credit - Credit<br>CardDebit - Debit Card|Yes|
 |bpmpi_cardnumber|Card Number|Numeric [up to 19 positions]|Yes|
-|bpmpi_cardexpirationmonth|Month of Card Expiration|Numeric [2 positions]|Yes|
-|bpmpi_cardexpirationyear|Year of card expiration|Numeric [4 positions]|Yes|
+|bpmpi_cardexpirationmonth|Card expiration month|Numeric [2 positions]|Yes|
+|bpmpi_cardexpirationyear|Card expiration year|Numeric [4 positions]|Yes|
 |bpmpi_cardalias|Card Alias|Alphanumeric [up to 128 positions]|No|
 |bpmpi_default_card|Indicates if it is a standard customer card in store|Boolean <br>true - yes<br>false - no|No|
 
@@ -256,7 +256,7 @@ Once the class is mapped in a given field, the script is able to retrieve the va
 
 # Step 4 - Implementing the Authentication Event Request
 
-The event **bpmpi_Authenticate()**" must be called at checkout (checkout). See the example below:
+The event **bpmpi_Authenticate()**" must be called at checkout. See the example below:
 
 |||UNTRANSLATED_CONTENT_START|||&lt;input type=&quot;button&quot;onclick=&quot;bpmpi_authenticate()&quot; /&gt;|||UNTRANSLATED_CONTENT_END|||
 
@@ -273,9 +273,9 @@ Use the **test** cards below to simulate various scenarios in the **SANDBOX** en
 
 ## Authorization with Authentication
 
-After authentication is completed, it undergoes the authorization process by submitting the authentication data in the & quot; external authentication & quot; (node **ExternalAuthentication**).
-See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticacao[(https://braspag.github.io/manual/autorizacao-com-autenticacao)
+After authentication is completed, it undergoes the authorization process by submitting the authentication data in the "external authentication" (node **ExternalAuthentication**).
+See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticacao](https://braspag.github.io/manual/autorizacao-com-autenticacao)
 
 # Last updates
 
-To view the latest manual updates, [click here] (https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integracao-javascript .md)
+To view the latest manual updates, [click here](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integracao-javascript .md)
