@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-07-26T20:30:18+00:00</updated>
+    <updated>2021-07-27T14:37:49+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -4445,18 +4445,18 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     </entry>
     
     <entry>
-        <title>Integration via Javascript</title>
+        <title>Integration via JavaScript</title>
         <category term="manualp" />
         <link href="https://braspag.github.io//en/manualp/integration-javascript"/>
         <updated>2019-09-13T00:00:00+00:00</updated>
         <id>https://braspag.github.io//en/manualp/integration-javascript</id>
         <content type="html">&lt;h1 id=&quot;what-is-3ds-20&quot;&gt;What is 3DS 2.0?&lt;/h1&gt;
 
-&lt;p&gt;For more details about 3DS 2.0, please visit: [https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?] (https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)&lt;/p&gt;
+&lt;p&gt;For more details about 3DS 2.0, please visit: &lt;a href=&quot;https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?&quot;&gt;https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;step-1---access-token-request&quot;&gt;Step 1 - Access Token Request&lt;/h1&gt;
 
-&lt;p&gt;The solution consists of the API access token request step and Java Script authentication request step.&lt;/p&gt;
+&lt;p&gt;The solution consists of two steps, the API access token request and the JavaScript authentication request.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4588,13 +4588,13 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;h1 id=&quot;step-2---script-implementation&quot;&gt;Step 2 - Script Implementation&lt;/h1&gt;
 
-&lt;p&gt;In this step, is implemented &lt;em&gt;script&lt;/em&gt; and mapping of &lt;em&gt;classes&lt;/em&gt; are responsible for communicating with the flag and sender authentication platforms. Follow the example below, which demonstrates the basic implementation. It is recommended that the snippet be placed at the end of your checkout HTML code:&lt;/p&gt;
+&lt;p&gt;In this step we implement the &lt;em&gt;script&lt;/em&gt; and mapping of &lt;em&gt;classes&lt;/em&gt;, responsible for communicating with the brand and issuer authentication platforms. Follow the example below, which demonstrates the basic implementation. It is recommended that the snippet be placed at the end of your checkout HTML code:&lt;/p&gt;
 
-&lt;p&gt;To download the code, [go here] (https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/example.html)&lt;/p&gt;
+&lt;p&gt;To download the code, &lt;a href=&quot;https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/example.html&quot;&gt;go here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/exemplo-html.jpg&quot; alt=&quot;3DS 2.0 Flux&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Description of Events&lt;/p&gt;
+&lt;h2 id=&quot;description-of-events&quot;&gt;Description of Events&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4610,23 +4610,23 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onSuccess&lt;/td&gt;
-      &lt;td&gt;It is triggers when the card is eligible and has successfully completed the authentication process. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.&lt;/td&gt;
+      &lt;td&gt;Triggers when the card is eligible and has successfully completed the authentication process. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onFailure&lt;/td&gt;
-      &lt;td&gt;It is triggers when the card is eligible but has not had the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
+      &lt;td&gt;Triggers when the card is eligible but has not had the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onUnenrolled&lt;/td&gt;
-      &lt;td&gt;It is triggered when the card is not eligible, ie the holder and / or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
+      &lt;td&gt;Triggers when the card is not eligible, i.e. the holder and / or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onDisabled&lt;/td&gt;
-      &lt;td&gt;It is triggers when the merchant has chosen not to subject the bearer to the authentication process (class “bpmpi_auth” as false). In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
+      &lt;td&gt;Triggers when the merchant has chosen not to subject the bearer to the authentication process (class “bpmpi_auth” as false). In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onError&lt;/td&gt;
-      &lt;td&gt;It is triggered when the authentication process has received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
+      &lt;td&gt;Triggers when the authentication process has received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onUnsupportedBrand&lt;/td&gt;
@@ -4635,7 +4635,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Description of Input Parameters&lt;/p&gt;
+&lt;h2 id=&quot;description-of-input-parameters&quot;&gt;Description of Input Parameters&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4649,12 +4649,12 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     &lt;tr&gt;
       &lt;td&gt;Environment&lt;/td&gt;
       &lt;td&gt;Indicates the environment to use (Sandbox or Production)&lt;/td&gt;
-      &lt;td&gt;SDB - Sandbox (test environment) PRD - Production (production environment)&lt;/td&gt;
+      &lt;td&gt;SDB - Sandbox (test environment)&lt;br /&gt;PRD - Production (production environment)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Debug&lt;/td&gt;
       &lt;td&gt;Boolean indicating whether debug mode is enabled or not. When true, the platform will report on the browser debug engine.&lt;/td&gt;
-      &lt;td&gt;Boolean true - debug mode enabled false - debug mode disabled&lt;/td&gt;
+      &lt;td&gt;Boolean true - debug mode enabled&lt;br /&gt;false - debug mode disabled&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4665,7 +4665,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;p&gt;&lt;a href=&quot;https://bit.ly/2CSOp2n&quot;&gt;https://bit.ly/2CSOp2n&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Description of outputs&lt;/p&gt;
+&lt;h2 id=&quot;description-of-outputs&quot;&gt;Description of outputs&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4721,7 +4721,6 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 &lt;p&gt;Once the class is mapped in a given field, the script is able to retrieve the value contained in the field and submit it to compose the authentication request.&lt;/p&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;The greater the number of parameterized fields, the greater the chance of having transparent authentication, as the issuer will have greater subsidy for risk analysis&lt;/aside&gt;
-&lt;p&gt;.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;The # character indicated in the field must be replaced by a number representing the index of the item. Example: bpmpi_item_1_productName represents the name of cart item 1&lt;/aside&gt;
 
@@ -4743,7 +4742,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_auth_notifyonly&lt;/td&gt;
-      &lt;td&gt;Boolean indicating whether the card transaction will be submitted in “notification only” mode. In this mode, the authentication process will not be triggered, however, the data will be flagged. ** VALID ONLY FOR MASTERCARD CARDS **&lt;/td&gt;
+      &lt;td&gt;Boolean indicating whether the card transaction will be submitted in “notification only” mode. In this mode, the authentication process will not be triggered, however, the data will be submitted to the brand. &lt;strong&gt;VALID ONLY FOR MASTERCARD CARDS&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Boolean: &lt;br /&gt;true - notification only mode; &lt;br /&gt;false - mode with authentication&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
@@ -4810,13 +4809,13 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_cardexpirationmonth&lt;/td&gt;
-      &lt;td&gt;Month of Card Expiration&lt;/td&gt;
+      &lt;td&gt;Card expiration month&lt;/td&gt;
       &lt;td&gt;Numeric [2 positions]&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_cardexpirationyear&lt;/td&gt;
-      &lt;td&gt;Year of card expiration&lt;/td&gt;
+      &lt;td&gt;Card expiration year&lt;/td&gt;
       &lt;td&gt;Numeric [4 positions]&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
@@ -5368,7 +5367,7 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;h1 id=&quot;step-4---implementing-the-authentication-event-request&quot;&gt;Step 4 - Implementing the Authentication Event Request&lt;/h1&gt;
 
-&lt;p&gt;The event &lt;strong&gt;bpmpi_Authenticate()&lt;/strong&gt;” must be called at checkout (checkout). See the example below:&lt;/p&gt;
+&lt;p&gt;The event &lt;strong&gt;bpmpi_Authenticate()&lt;/strong&gt;” must be called at checkout. See the example below:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;
@@ -5429,12 +5428,12 @@ See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticac
 
 &lt;h2 id=&quot;authorization-with-authentication&quot;&gt;Authorization with Authentication&lt;/h2&gt;
 
-&lt;p&gt;After authentication is completed, it undergoes the authorization process by submitting the authentication data in the &amp;amp; quot; external authentication &amp;amp; quot; (node &lt;strong&gt;ExternalAuthentication&lt;/strong&gt;).
-See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticacao[(https://braspag.github.io/manual/autorizacao-com-autenticacao)&lt;/p&gt;
+&lt;p&gt;After authentication is completed, it undergoes the authorization process by submitting the authentication data in the “external authentication” (node &lt;strong&gt;ExternalAuthentication&lt;/strong&gt;).
+See more details at: &lt;a href=&quot;https://braspag.github.io/manual/autorizacao-com-autenticacao&quot;&gt;https://braspag.github.io/manual/aautizacao-com-autenticacao&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;last-updates&quot;&gt;Last updates&lt;/h1&gt;
 
-&lt;p&gt;To view the latest manual updates, [click here] (https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integracao-javascript .md)&lt;/p&gt;
+&lt;p&gt;To view the latest manual updates, &lt;a href=&quot;https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integracao-javascript .md&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
 </content>
     </entry>
     
