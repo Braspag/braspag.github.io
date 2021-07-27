@@ -16,10 +16,10 @@ language_tabs:
 
 # Authorization with Authentication
 
-After authentication is completed, it undergoes the authorization process by submitting the authentication data in the & quot; external authentication & quot; (node **ExternalAuthentication**).
+After authentication is completed, it undergoes the authorization process by submitting the authentication data in the "external authentication" (node **ExternalAuthentication**).
 This procedure is also valid for establishments that performed authentication outside Cielo (External MPI).
 
-For more details about 3DS 2.0, please visit: [https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?] (https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)
+For more details about 3DS 2.0, please visit: [https://braspag.github.io//en/manualp/emv3ds](https://braspag.github.io//en/manualp/emv3ds)
 
 See example below, describing the submission of authentication data from the Pagador API authorization request.
 
@@ -100,14 +100,14 @@ curl
 
 |**Field**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
-|Payment.Authenticate|Boolean defines if the buyer will be directed to the issuing Bank for card authentication|Boolean (true or false)|Yes, when authentication was a success|
-|Payment.ExternalAuthentication.ReturnUrl|Return URL only applicable if version is "1"|Alphanumeric [1024 positions]|Yes|
-|Payment.ExternalAuthentication.Cavv|Signature that is returned in successful authentication scenarios| Text |Yes, when authentication was a success|
-|Payment.ExternalAuthentication.Xid|XID returned in authentication process| Text |Yes, when the 3DS version is "1"|
-|Payment.ExternalAuthentication.Eci|E-Commerce Indicator Returned in Authentication Process|Numeric [1 position]|Yes
-|Payment.ExternalAuthentication.Version|3DS version used in authentication process|Alphanumeric [1 position]|Yes, when the version of 3DS is "2"|
-|Payment.ExternalAuthentication.ReferenceID|RequestID Returned in Authentication Process|GUID [36 positions]|Yes, when the version of 3DS is "2"|
+|`Payment.Authenticate`|Boolean defines if the buyer will be directed to the issuing Bank for card authentication|Boolean (true or false)|Yes, when authentication was a success|
+|`Payment.ExternalAuthentication.ReturnUrl`|Return URL only applicable if version is "1"|Alphanumeric [1024 positions]|Yes|
+|`Payment.ExternalAuthentication.Cavv`|Signature that is returned in successful authentication scenarios| Text |Yes, when authentication was a success|
+|`Payment.ExternalAuthentication.Xid`|XID returned in authentication process| Text |Yes, when the 3DS version is "1"|
+|`Payment.ExternalAuthentication.Eci`|E-commerce Indicator Returned in Authentication Process|Numeric [1 position]|Yes
+|`Payment.ExternalAuthentication.Version`|3DS version used in authentication process|Alphanumeric [1 position]|Yes, when the version of 3DS is "2"|
+|`Payment.ExternalAuthentication.ReferenceID`|RequestID Returned in Authentication Process|GUID [36 positions]|Yes, when the version of 3DS is "2"|
 
 ### Response
 
-See https://braspag.github.io/manual/braspag-pagador
+See [https://braspag.github.io//en/manual/braspag-pagador](https://braspag.github.io//en/manual/braspag-pagador)
