@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Integration via SDK IOS
+title: Integration via SDK iOS
 description: Gateway Braspag Technical Integration
 search: true
 translated: true
@@ -12,7 +12,7 @@ tags:
 
 # What is 3DS 2.0?
 
-For more details about 3DS 2.0, please visit: [https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?] (https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)
+For more details about 3DS 2.0, please visit: [https://braspag.github.io//en/manualp/emv3ds] (https://braspag.github.io//en/manualp/emv3ds)
 
 # Step 1 - Access Token Request
 
@@ -54,7 +54,7 @@ The solution comprises the API access token request step and authentication requ
 
 |**Parameter**|**Description**|**Type/Size**|
 |---|---|---|
-|access\_token|Token required to perform authentication.|Alphanumeric [variable size]|
+|access\_token|Token required to perform authentication|Alphanumeric [variable size]|
 |token\_type|Fixed "bearer"|Alphanumeric|
 |expires\_in|Time in minutes to expire token|Numeric|
 
@@ -107,14 +107,14 @@ braspag3ds.authenticate(orderData: OrderData(...),
 
 SDK uses minimum version 9.0
 
-## Input model parameters *authenticate*
+## *Authenticate* method input parameters
 
 |**Field**|**Type**|**Description**|**Required**|
 |---|---|--|--|
 |orderData|OrderData|Payment Request Data|Yes|
 |cardData|CardData|Card Data|Yes|
 |authOptions|OptionsData?|Additional Settings to the 3DS Process|No|
-|billToData|BillToData?|Card Holder Billing Data|No|
+|billToData|BillToData?|Cardholder Billing Data|No|
 |shipToData|ShipToData?|Delivery Data|No|
 |cart|[CartItemData]?|Array with Cart Items|No|
 |deviceData|[DeviceData]?|Additional Settings to the 3DS Process|No|
@@ -128,10 +128,10 @@ SDK uses minimum version 9.0
 
 |**Status**|**Description**|
 |---|---|
-|success|It is returned when the card is eligible and the authentication process has been successfully completed. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.|
-|unenrolled|It is returned when the card is not eligible, i.e. the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
-|failure|It is returned when the card is eligible but has not had the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
-|error|It is returned when the authentication process received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+|success|Returns when the card is eligible and the authentication process has been successfully completed. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.|
+|unenrolled|Returns when the card is not eligible, i.e. the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+|failure|Returns when the card is eligible but has not had the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+|error|Returns when the authentication process received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
 |unsupportedBrand|Returns when card banner is not supported by 3DS 2.0|
 
 ## Description of *AuthenticationResponse* fields
@@ -150,7 +150,7 @@ SDK uses minimum version 9.0
 
 To make it easier to use only what the merchant needs to send, the request is separated into several objects with well-defined data context as the authenticate input parameters table shows. Below we will detail each of the objects used.
 
-<aside class="warning">The greater the number of parameterized fields, the greater the chance of having transparent authentication, as the issuer will have greater subsidy for risk analysis</aside>.
+<aside class="warning">The greater the number of parameterized fields, the greater the chance of having transparent authentication, as the issuer will have greater subsidy for risk analysis</aside>
 
 ## OptionsData
 
@@ -240,7 +240,7 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 ## UserData
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |guest|Indicates if the shopper is a shopper without login (guest)|Boolean<br>true – yes<br>false – no|No|
 |createdDate|Indicates the date when the buyer account was created|Text<br>YYYY-MM-DD - Date Created|No|
@@ -253,7 +253,7 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 ## AirlineData
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |numberOfPassengers|Number of Passengers|Numeric [3 positions]|No|
 |billToPassportCountry|Passport country code (ISO Standard Country Codes)|Text [2 positions]|No|
@@ -263,7 +263,7 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 ## TravelLeg
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |carrier|IATA code for the stretch|Alphanumeric [2 positions]|No|
 |departureDate|Date of Departure|Text<br>YYYY-MM-DD|No|
@@ -272,14 +272,14 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 ## Passenger
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |name|Passenger Name|Alphanumeric [up to 60 positions]|No|
 |ticketPrice|The value of the ticket in cents|Numeric [up to 15 positions],<br>example: $ 125.54 = 12554|No|
 
 ## MDD
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |mdd1|Extra data defined by the merchant|Alphanumeric [up to 255 positions]|No|
 |mdd2|Extra data defined by the merchant|Alphanumeric [up to 255 positions]|No|
@@ -289,7 +289,7 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 ## RecurringData
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |endDate|Identifies recurrence end date|Text (YYYY-MM-DD)|No|
 |frequency|Indicates frequency of recurrence|*RecurringFrequencyEnum*|No| <br><br>MonthlyBimonthly<br>Quarterly<br>Triannual<br>SemiAnnual<br>Yearly|No|
@@ -297,7 +297,7 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 ## Other parameters
 
-|** Properties **|** Description **|** Type/Size **|** Required **|
+|**Properties**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
 |ipAddress|Shopper's Machine IP Address|Alphanumeric [up to 45]|No|
 
@@ -317,8 +317,8 @@ Use the **test** cards below to simulate various scenarios in the **SANDBOX** en
 ## Authorization with Authentication
 
 After authentication is completed, it undergoes the authorization process by submitting the authentication data in the external authentication  (node **ExternalAuthentication**).
-See more details at: [https://braspag.github.io/manual/aautizacao-com-autenticacao[(https://braspag.github.io/manual/autorizacao-com-autenticacao)
+See more details at: [https://braspag.github.io//en/manualp/authorization-with-authentication](https://braspag.github.io//en/manualp/authorization-with-authentication)
 
 # Last updates
 
-To view the latest manual updates, [click here] (https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integracao-javascript.md)
+To view the latest manual updates, [click here](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-sdk-ios.md)
