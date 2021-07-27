@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-07-27T18:14:30+00:00</updated>
+    <updated>2021-07-27T18:20:47+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -5443,10 +5443,10 @@ See more details at: &lt;a href=&quot;https://braspag.github.io/manual/autorizac
         <id>https://braspag.github.io//en/manualp/authorization-with-authentication</id>
         <content type="html">&lt;h1 id=&quot;authorization-with-authentication&quot;&gt;Authorization with Authentication&lt;/h1&gt;
 
-&lt;p&gt;After authentication is completed, it undergoes the authorization process by submitting the authentication data in the &amp;amp; quot; external authentication &amp;amp; quot; (node &lt;strong&gt;ExternalAuthentication&lt;/strong&gt;).
+&lt;p&gt;After authentication is completed, it undergoes the authorization process by submitting the authentication data in the “external authentication” (node &lt;strong&gt;ExternalAuthentication&lt;/strong&gt;).
 This procedure is also valid for establishments that performed authentication outside Cielo (External MPI).&lt;/p&gt;
 
-&lt;p&gt;For more details about 3DS 2.0, please visit: [https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?] (https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)&lt;/p&gt;
+&lt;p&gt;For more details about 3DS 2.0, please visit: &lt;a href=&quot;https://braspag.github.io//en/manualp/emv3ds&quot;&gt;https://braspag.github.io//en/manualp/emv3ds&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;See example below, describing the submission of authentication data from the Pagador API authorization request.&lt;/p&gt;
 
@@ -5534,43 +5534,43 @@ This procedure is also valid for establishments that performed authentication ou
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Payment.Authenticate&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Authenticate&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Boolean defines if the buyer will be directed to the issuing Bank for card authentication&lt;/td&gt;
       &lt;td&gt;Boolean (true or false)&lt;/td&gt;
       &lt;td&gt;Yes, when authentication was a success&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Payment.ExternalAuthentication.ReturnUrl&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ExternalAuthentication.ReturnUrl&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Return URL only applicable if version is “1”&lt;/td&gt;
       &lt;td&gt;Alphanumeric [1024 positions]&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Payment.ExternalAuthentication.Cavv&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ExternalAuthentication.Cavv&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Signature that is returned in successful authentication scenarios&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;Yes, when authentication was a success&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Payment.ExternalAuthentication.Xid&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ExternalAuthentication.Xid&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;XID returned in authentication process&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;Yes, when the 3DS version is “1”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Payment.ExternalAuthentication.Eci&lt;/td&gt;
-      &lt;td&gt;E-Commerce Indicator Returned in Authentication Process&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ExternalAuthentication.Eci&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;E-commerce Indicator Returned in Authentication Process&lt;/td&gt;
       &lt;td&gt;Numeric [1 position]&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Payment.ExternalAuthentication.Version&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ExternalAuthentication.Version&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;3DS version used in authentication process&lt;/td&gt;
       &lt;td&gt;Alphanumeric [1 position]&lt;/td&gt;
       &lt;td&gt;Yes, when the version of 3DS is “2”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Payment.ExternalAuthentication.ReferenceID&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ExternalAuthentication.ReferenceID&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;RequestID Returned in Authentication Process&lt;/td&gt;
       &lt;td&gt;GUID [36 positions]&lt;/td&gt;
       &lt;td&gt;Yes, when the version of 3DS is “2”&lt;/td&gt;
@@ -5580,7 +5580,7 @@ This procedure is also valid for establishments that performed authentication ou
 
 &lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;See https://braspag.github.io/manual/braspag-pagador&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador&quot;&gt;https://braspag.github.io//en/manual/braspag-pagador&lt;/a&gt;&lt;/p&gt;
 </content>
     </entry>
     

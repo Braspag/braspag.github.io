@@ -140,10 +140,10 @@
             <div class="post">
   <h1 id="authorization-with-authentication">Authorization with Authentication</h1>
 
-<p>After authentication is completed, it undergoes the authorization process by submitting the authentication data in the &amp; quot; external authentication &amp; quot; (node <strong>ExternalAuthentication</strong>).
+<p>After authentication is completed, it undergoes the authorization process by submitting the authentication data in the “external authentication” (node <strong>ExternalAuthentication</strong>).
 This procedure is also valid for establishments that performed authentication outside Cielo (External MPI).</p>
 
-<p>For more details about 3DS 2.0, please visit: [https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?] (https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)</p>
+<p>For more details about 3DS 2.0, please visit: <a href="https://braspag.github.io//en/manualp/emv3ds">https://braspag.github.io//en/manualp/emv3ds</a></p>
 
 <p>See example below, describing the submission of authentication data from the Pagador API authorization request.</p>
 
@@ -231,43 +231,43 @@ This procedure is also valid for establishments that performed authentication ou
   </thead>
   <tbody>
     <tr>
-      <td>Payment.Authenticate</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td>Boolean defines if the buyer will be directed to the issuing Bank for card authentication</td>
       <td>Boolean (true or false)</td>
       <td>Yes, when authentication was a success</td>
     </tr>
     <tr>
-      <td>Payment.ExternalAuthentication.ReturnUrl</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.ReturnUrl</code></td>
       <td>Return URL only applicable if version is “1”</td>
       <td>Alphanumeric [1024 positions]</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td>Payment.ExternalAuthentication.Cavv</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Cavv</code></td>
       <td>Signature that is returned in successful authentication scenarios</td>
       <td>Text</td>
       <td>Yes, when authentication was a success</td>
     </tr>
     <tr>
-      <td>Payment.ExternalAuthentication.Xid</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Xid</code></td>
       <td>XID returned in authentication process</td>
       <td>Text</td>
       <td>Yes, when the 3DS version is “1”</td>
     </tr>
     <tr>
-      <td>Payment.ExternalAuthentication.Eci</td>
-      <td>E-Commerce Indicator Returned in Authentication Process</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Eci</code></td>
+      <td>E-commerce Indicator Returned in Authentication Process</td>
       <td>Numeric [1 position]</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td>Payment.ExternalAuthentication.Version</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Version</code></td>
       <td>3DS version used in authentication process</td>
       <td>Alphanumeric [1 position]</td>
       <td>Yes, when the version of 3DS is “2”</td>
     </tr>
     <tr>
-      <td>Payment.ExternalAuthentication.ReferenceID</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.ReferenceID</code></td>
       <td>RequestID Returned in Authentication Process</td>
       <td>GUID [36 positions]</td>
       <td>Yes, when the version of 3DS is “2”</td>
@@ -277,7 +277,7 @@ This procedure is also valid for establishments that performed authentication ou
 
 <h3 id="response">Response</h3>
 
-<p>See https://braspag.github.io/manual/braspag-pagador</p>
+<p>See <a href="https://braspag.github.io//en/manual/braspag-pagador">https://braspag.github.io//en/manual/braspag-pagador</a></p>
 
 </div>
 
