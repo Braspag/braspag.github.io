@@ -148,7 +148,7 @@ O SDK utiliza a versão mínima 9.0
 
 # Detalhamento dos objetos da requisição
 
-Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisição é separada em diversos objetos com contexto de dados bem definido conforme a tabela dos parâmetros de entrada do authenticate mostra. Abaixo vamos detalhar cada um dos objetos utilziados.
+Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisição é separada em diversos objetos com contexto de dados bem definido conforme a tabela dos parâmetros de entrada do authenticate mostra. Abaixo vamos detalhar cada um dos objetos utilizados.
 
 <aside class="warning">Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco</aside>
 
