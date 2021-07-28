@@ -274,7 +274,7 @@ Use the **test** cards below to simulate various scenarios in the **SANDBOX** en
 ## Authorization with Authentication
 
 After authentication is completed, it undergoes the authorization process by submitting the authentication data in the "external authentication" (node **ExternalAuthentication**).
-See more details at: [https://braspag.github.io/manual/autorizacao-com-autenticacao](https://braspag.github.io/manual/autorizacao-com-autenticacao)
+See more details at: [https://braspag.github.io//en/manualp/authorization-with-authentication](https://braspag.github.io//en/manualp/authorization-with-authentication)
 
 # Last updates
 
