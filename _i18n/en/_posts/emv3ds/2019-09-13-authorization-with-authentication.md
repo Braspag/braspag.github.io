@@ -27,7 +27,8 @@ See example below, describing the submission of authentication data from the Pag
 
 ### Request
 
-```json
+```
+json
 {
    "MerchantOrderId":"2017051002",
    "Customer":
@@ -59,7 +60,8 @@ See example below, describing the submission of authentication data from the Pag
 }
 ```
 
-```shell
+```
+shell
 curl
 --request POST "https://apisandbox.braspag.com.br/v2/sales"
 --header "Content-Type: application/json"
@@ -121,7 +123,8 @@ See example below, describing the submission of authentication data from the Pag
 
 <aside class="request"><span class="methodpost">POST</span><span class="endpoint">/v2/sales/</span></aside>
 
-```json
+```
+json
 {  
    "MerchantOrderId":"2017051002",
    "Customer":
@@ -150,7 +153,8 @@ See example below, describing the submission of authentication data from the Pag
 }
 ```
 
-```shell
+```
+shell
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
