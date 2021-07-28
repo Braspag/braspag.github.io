@@ -28,7 +28,6 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/auth/token</span></aside>
 
-
 ```json
 {
      "EstablishmentCode":"1006993069",
