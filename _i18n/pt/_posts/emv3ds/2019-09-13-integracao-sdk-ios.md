@@ -26,7 +26,7 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 
 ### Request
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/auth/token</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/auth/token</span></aside>  
 
 ```json
 {
@@ -34,7 +34,7 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
      "MerchantName": "Loja Exemplo Ltda",
      "MCC": "5912"
 }
-```
+```  
 
 | **Campo** | **Descrição** | **Tipo/Tamanho** |
 | --- | --- | --- |
@@ -42,7 +42,7 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 | MerchantName | Nome do estabelecimento registrado na Cielo | Alfanumérico [até 25 posições] |
 | MCC | Código de Categoria do estabelecimento | Numérico [4 posições] |
 
-### Response
+### Response  
 
 ```json
 {
@@ -60,19 +60,18 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 
 # Passo 2 - Utilizando o SDK
 
-Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:
+Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:  
 
 ```swift
 import Braspag3dsSdk
-```
-
-Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:
+```  
+Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:  
 
 ```swift
 let braspag3ds = Braspag3ds(accessToken: "[Access_Token gerado no passo 1]", environment: Environment.production)
-```
+```  
 
-Em seguida é necessário utilizar o método `authenticate`, informando os dados do comprador e o *callback* que receberá a resposta:
+Em seguida é necessário utilizar o método `authenticate`, informando os dados do comprador e o *callback* que receberá a resposta:  
 
 ```swift
 braspag3ds.authenticate(orderData: OrderData(...),
@@ -101,7 +100,7 @@ braspag3ds.authenticate(orderData: OrderData(...),
                           ...
                         }                  
   }
-```
+```  
 
 ## Versão mínima do SDK
 
