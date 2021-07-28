@@ -119,7 +119,7 @@ See example below, describing the submission of authentication data from the Pag
 
 ### Request
 
-<aside class="request"><span class="methodpost">POST</span><span class="endpoint">/v2/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales</span></aside>
 
 ```json
 {  
