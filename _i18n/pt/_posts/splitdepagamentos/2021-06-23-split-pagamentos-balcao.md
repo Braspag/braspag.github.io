@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Split de Pagamentos - Balcao de Recebiveis
+title: Split de Pagamentos - Balcão de Recebiveis
 description: Manual sobre a Estrutura do Balcao de Recebiveis
 search: true
 toc_footers: false
