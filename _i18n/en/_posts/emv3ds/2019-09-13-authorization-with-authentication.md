@@ -184,7 +184,7 @@ See example below, describing the submission of authentication data from the Pag
    }
 }
 ```
- 
+
 | **FIELD** | **DESCRIPTION** | **TYPE/SIZE** | **REQUIRED** |
 | --- | --- | --- | --- |
 |`Payment.Authenticate`|Defines if the buyer will be directed to the issuing Bank for card authentication|Boolean (true or false)|Yes. For Data Only transactions the value must be "false"| 
