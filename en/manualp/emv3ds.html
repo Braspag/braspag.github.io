@@ -175,100 +175,11 @@
 
 <p>For sending transactions with 3DS 2.0 authentication request it is essential that, in addition to Cielo, the Issuer and Brand are ready with the solution. Among the market brands, Visa and Mastercard are currently available in 3DS 2.0 Cielo. Both have a Stand-In model if the Issuer is not yet able to respond to an authentication request using EMV 3DS 2.0. In this scenario, the brand evaluates the submitted data, such as customer behavioral and transactional history, classifying authentication requests as “Low Risk” and “Not Low Risk”. From this information, Issuers can be protected even without having their own 3DS 2.0 solution, and will have greater confidence in authenticated transactions. In Stand-In cases, authentication occurs silently (without challenge to the cardholder) and once the transaction has been authenticated, liability in case of fraud will be held by the Issuer. The decision to authorize the transaction or not is up to the Issuer.</p>
 
-<p>Soon Elo and Amex brands will also be available.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-      <td><strong>BRAND</strong></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><strong>CARD ISSUER</strong></td>
-      <td><strong>MASTERCARD</strong></td>
-      <td><strong>VISA</strong></td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>Banco do Brasil</td>
-      <td>—</td>
-      <td>Credit/Debit</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>Caixa Econômica</td>
-      <td>—</td>
-      <td>Credit</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>Santander</td>
-      <td>Credit/Debit</td>
-      <td>Credit/Debit</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>Itaú</td>
-      <td>Credit</td>
-      <td>Credit</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>Midway</td>
-      <td>—</td>
-      <td>Credit</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>PagSeguro</td>
-      <td>Credit</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>Acesso</td>
-      <td>Credit</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>Banco Neon</td>
-      <td>—</td>
-      <td>Credit</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>Realize</td>
-      <td>Credit</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>C6</td>
-      <td>Credit/Debit</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>Porto Seguro</td>
-      <td>—</td>
-      <td>Credit</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>Pernambucanas</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Credit</td>
-    </tr>
-  </tbody>
-</table>
+<p>Soon Amex will also be available.</p>
 
 <h2 id="what-is-data-only---notification-only">What is Data Only - Notification Only</h2>
 
-<p>Data Only is an optional merchant field that can be used exclusively for Mastercard cards.</p>
+<p>Data Only is an optional merchant field that can be used exclusively for Mastercard cards. ECI will always be 4.</p>
 
 <p>To use it, the <strong>bpmpi_auth_notifyonly</strong> field described in item <strong>Authentication Step - step 3 - Class Mapping</strong> must be parameterized. In the Data Only model, additional 3DS 2.0 fields are mapped the same way, and sent to Mastercard and Issuing Banks, however, without requesting authentication.</p>
 
