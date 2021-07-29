@@ -399,14 +399,21 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 Use the **test** cards below to simulate various scenarios in the **SANDBOX** environment
 
-|**Card**|**Result**|**Description**|
-|---|---|---|
-|4000000000001000|SUCCESS|Silent Authentication and bearer successfully authenticated|
-|4000000000001018|FAILURE|Silent and bearer authentication terminated with failure|
-|4000000000001034|UNENROLLED|Card not eligible for authentication|
-|4000000000001091|SUCCESS|Authentication with challenge and card holder successfully authenticated|
-|4000000000001117|UNENROLLED|Authentication with challenge and Ineligible Card|
-|4000000000001109|FAILURE|Authentication with challenge and card holder failed authentication|
+## Test cards with challenge
+
+|**CARD**|**BRAND**|**RESULT**|**DESCRIPTION**|  
+|---|---|---|---|     
+|4000000000001091<br>5200000000001096<br>6505050000001091|VISA<br>MASTER<br>ELO|SUCCESS|Authentication with challenge and cardholder successfully authenticated|  
+|4000000000001109<br>5200000000001104<br>6505050000001109|VISA<br>MASTER<br>ELO|FAILURE|Authentication with challenge and cardholder authentication terminated with failure|  
+|4000000000001117<br>5200000000001112<br>6505050000001117|VISA<br>MASTER<br>ELO|UNENROLLED|Authentication with challenge currently not available|  
+|4000000000001125<br>5200000000001120<br>6505050000001125|VISA<br>MASTER<br>ELO|UNENROLLED|System error during authentication|  
+
+## Test cards without challenge
+
+|**CARD**|**BRAND**|**RESULT**|**DESCRIPTION**|  
+|---|---|---|---|     
+|4000000000001000<br>5200000000001005<br>6505050000001000|VISA<br>MASTER<br>ELO|SUCCESS|Authentication without challenge and cardholder successfully authenticated|  
+|4000000000001018<br>5200000000001013<br>6505050000001018|VISA<br>MASTER<br>ELO|FAILURE|Authentication without challenge and cardholder authentication terminated with failure| 
 
 ## Authorization with Authentication
 
