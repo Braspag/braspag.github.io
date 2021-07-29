@@ -1079,37 +1079,68 @@
 
 <p>Use the <strong>test</strong> cards below to simulate various scenarios in the <strong>SANDBOX</strong> environment</p>
 
+<h2 id="test-cards-with-challenge">Test cards with challenge</h2>
+
 <table>
+  <thead>
+    <tr>
+      <th><strong>CARD</strong></th>
+      <th><strong>BRAND</strong></th>
+      <th><strong>RESULT</strong></th>
+      <th><strong>DESCRIPTION</strong></th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td><strong>Cards</strong></td>
-      <td><strong>Result</strong></td>
-      <td><strong>Description</strong></td>
-    </tr>
-    <tr>
-      <td>Visa: 4000000000001000<br />Mastercard: 5200000000001005</td>
+      <td>4000000000001091<br />5200000000001096<br />6505050000001091</td>
+      <td>VISA<br />MASTER<br />ELO</td>
       <td>SUCCESS</td>
-      <td>Silent Authentication and card holder successfully authenticated</td>
+      <td>Authentication with challenge and cardholder successfully authenticated</td>
     </tr>
     <tr>
-      <td>Visa: 4000000000001018<br />Mastercard: 5200000000001013</td>
+      <td>4000000000001109<br />5200000000001104<br />6505050000001109</td>
+      <td>VISA<br />MASTER<br />ELO</td>
       <td>FAILURE</td>
-      <td>Silent and card holder authentication terminated with failure</td>
+      <td>Authentication with challenge and cardholder authentication terminated with failure</td>
     </tr>
     <tr>
-      <td>Visa: 4000000000001034<br />Mastercard: 5200000000001039</td>
+      <td>4000000000001117<br />5200000000001112<br />6505050000001117</td>
+      <td>VISA<br />MASTER<br />ELO</td>
       <td>UNENROLLED</td>
-      <td>Card not eligible for authentication</td>
+      <td>Authentication with challenge currently not available</td>
     </tr>
     <tr>
-      <td>Visa:4000000000001091<br />Mastercard: 5200000000001096</td>
+      <td>4000000000001125<br />5200000000001120<br />6505050000001125</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>UNENROLLED</td>
+      <td>System error during authentication</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="test-cards-without-challenge">Test cards without challenge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>CARD</strong></th>
+      <th><strong>BRAND</strong></th>
+      <th><strong>RESULT</strong></th>
+      <th><strong>DESCRIPTION</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4000000000001000<br />5200000000001005<br />6505050000001000</td>
+      <td>VISA<br />MASTER<br />ELO</td>
       <td>SUCCESS</td>
-      <td>Challenging and card holder authentication successfully authenticated</td>
+      <td>Authentication without challenge and cardholder successfully authenticated</td>
     </tr>
     <tr>
-      <td>Visa:4000000000001109<br />Mastercard: 5200000000001104</td>
+      <td>4000000000001018<br />5200000000001013<br />6505050000001018</td>
+      <td>VISA<br />MASTER<br />ELO</td>
       <td>FAILURE</td>
-      <td>Challenge authentication and card holder failed authentication</td>
+      <td>Authentication without challenge and cardholder authentication terminated with failure</td>
     </tr>
   </tbody>
 </table>
@@ -1121,7 +1152,7 @@ See more details at: <a href="https://braspag.github.io//en/manualp/authorizatio
 
 <h1 id="last-updates">Last updates</h1>
 
-<p>To see the manual latest updates, <a href="https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-javascript.md">click here</a></p>
+<p>To see the manual’s latest updates, <a href="https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-javascript.md">click here</a></p>
 
 </div>
 
