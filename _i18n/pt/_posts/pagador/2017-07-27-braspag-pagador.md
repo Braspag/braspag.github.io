@@ -4401,13 +4401,13 @@ Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pa
 
 ## Transação com Renova Fácil
 
-O *Renova Fácil* é um serviço desenvolvido pela CIELO em conjunto com os emissores cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.
+O *Renova Fácil* é um serviço desenvolvido pela Cielo em conjunto com os emissores cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.
 
 Através da identificação de cartões vencidos no momento da transação, é feita a autorização com um novo cartão, que é então retornado para armazenagem.
 
 <aside class="notice">Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.</aside>
 
-Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado na CIELO. Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá um nó a mais conforme exemplo abaixo:
+Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado na Cielo. Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá um nó a mais conforme exemplo abaixo:
 
 ### Resposta
 
