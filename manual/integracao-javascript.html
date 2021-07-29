@@ -225,7 +225,7 @@
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
       </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"barear"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-23T11:29:32"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -234,7 +234,7 @@
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
       <span class="s2">"access_token"</span>: <span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG"</span>,
-      <span class="s2">"token_type"</span>: <span class="s2">"barear"</span>,
+      <span class="s2">"token_type"</span>: <span class="s2">"bearer"</span>,
       <span class="s2">"expires_in"</span>: <span class="s2">"2018-07-23T11:29:32"</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -274,7 +274,7 @@
 
 <p><img src="https://braspag.github.io//images/exemplo-html.jpg" alt="Fluxo 3DS 2.0" /></p>
 
-<p>Descrição dos Eventos</p>
+<h2 id="descrição-dos-eventos">Descrição dos Eventos</h2>
 
 <table>
   <thead>
@@ -286,19 +286,19 @@
   <tbody>
     <tr>
       <td>onReady</td>
-      <td>É acionado quando todos os procedimentos de carregamento do script da solução foram concluídos com sucesso, o que incluir a validação do token de acesso, indicando que o checkout está pronto para iniciar a autenticação</td>
+      <td>É acionado quando todos os procedimentos de carregamento do script da solução foram concluídos com sucesso, o que inclui a validação do token de acesso, indicando que o checkout está pronto para iniciar a autenticação</td>
     </tr>
     <tr>
       <td>onSuccess</td>
-      <td>É acionado quando o cartão é elegível e teve o processo de autenticação finalizado com sucesso. Neste caso, as variáveis CAVV, XID e ECI serão retornados. Estes dados devem ser enviados na requisição no momento da autorização. Neste cenário, se a transação é autorizada, o liability shift é transferido ao emissor.</td>
+      <td>É acionado quando o cartão é elegível e teve o processo de autenticação finalizado com sucesso. Neste caso, as variáveis CAVV, XID e ECI serão retornadas. Estes dados devem ser enviados na requisição no momento da autorização. Neste cenário, se a transação é autorizada, o liability shift é transferido ao emissor.</td>
     </tr>
     <tr>
       <td>onFailure</td>
-      <td>É acionado quando o cartão é elegível, porém não teve o processo de autenticação falhou por algum motivo. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
+      <td>É acionado quando o cartão é elegível, porém não teve o processo de autenticação falhou por algum motivo. Neste caso, somente a variável ECI será retornada. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
     </tr>
     <tr>
       <td>onUnenrolled</td>
-      <td>É acionado quando o cartão não é elegível, ou seja, o portador e/ou emissor não participam do programa de autenticação. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
+      <td>É acionado quando o cartão não é elegível, ou seja, o portador e/ou emissor não participam do programa de autenticação. Neste caso, somente a variável ECI será retornada. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
     </tr>
     <tr>
       <td>onDisabled</td>
@@ -310,12 +310,12 @@
     </tr>
     <tr>
       <td>onUnsupportedBrand</td>
-      <td>É acionado quando a bandeira do cartão não é suportado pelo 3DS 2.0</td>
+      <td>É acionado quando a bandeira do cartão não é suportada pelo 3DS 2.0</td>
     </tr>
   </tbody>
 </table>
 
-<p>Descrição dos Parâmetros de entrada</p>
+<h2 id="descrição-dos-parâmetros-de-entrada">Descrição dos Parâmetros de entrada</h2>
 
 <table>
   <thead>
@@ -345,7 +345,7 @@
 
 <p><a href="https://bit.ly/2CSOp2n">https://bit.ly/2CSOp2n</a></p>
 
-<p>Descrição das saídas</p>
+<h2 id="descrição-das-saídas">Descrição das saídas</h2>
 
 <table>
   <thead>
@@ -416,7 +416,7 @@
   <tbody>
     <tr>
       <td>bpmpi_auth</td>
-      <td>Booleano que indica se a transação é submetida o não para o processo de autenticação</td>
+      <td>Booleano que indica se a transação é submetida ou não para o processo de autenticação</td>
       <td>Booleano:<br />true – submeter à autenticação<br />false – não submeter à autenticação</td>
       <td>Sim</td>
     </tr>
@@ -1062,25 +1062,25 @@
   </thead>
   <tbody>
     <tr>
-      <td>4000 0000 0000 1091<br />5200 0000 0000 1096<br />6505 0500 0000 1091</td>
+      <td>4000000000001091<br />5200000000001096<br />6505050000001091</td>
       <td>VISA<br />MASTER<br />ELO</td>
       <td>SUCCESS</td>
       <td>Autenticação com desafio e portador autenticou com sucesso</td>
     </tr>
     <tr>
-      <td>4000 0000 0000 1109<br />5200 0000 0000 1104<br />6505 0500 0000 1109</td>
+      <td>4000000000001109<br />5200000000001104<br />6505050000001109</td>
       <td>VISA<br />MASTER<br />ELO</td>
       <td>FAILURE</td>
       <td>Autenticação com desafio e portador autenticou com falha</td>
     </tr>
     <tr>
-      <td>4000 0000 0000 1117<br />5200 0000 0000 1112<br />6505 0500 0000 1117</td>
+      <td>4000000000001117<br />5200000000001112<br />6505050000001117</td>
       <td>VISA<br />MASTER<br />ELO</td>
       <td>UNENROLLED</td>
       <td>Autenticação com desafio indisponível no momento</td>
     </tr>
     <tr>
-      <td>4000 0000 0000 1125<br />5200 0000 0000 1120<br />6505 0500 0000 1125</td>
+      <td>4000000000001125<br />5200000000001120<br />6505050000001125</td>
       <td>VISA<br />MASTER<br />ELO</td>
       <td>UNENROLLED</td>
       <td>Erro de sistema durante a etapa de autenticação</td>
@@ -1101,13 +1101,13 @@
   </thead>
   <tbody>
     <tr>
-      <td>4000 0000 0000 1000<br />5200 0000 0000 1005<br />6505 0500 0000 1000</td>
+      <td>4000000000001000<br />5200000000001005<br />6505050000001000</td>
       <td>VISA<br />MASTER<br />ELO</td>
       <td>SUCCESS</td>
       <td>Autenticação sem desafio e portador autenticou com sucesso</td>
     </tr>
     <tr>
-      <td>4000 0000 0000 1018<br />5200 0000 0000 1013<br />6505 0500 0000 1018</td>
+      <td>4000000000001018<br />5200000000001013<br />6505050000001018</td>
       <td>VISA<br />MASTER<br />ELO</td>
       <td>FAILURE</td>
       <td>Autenticação sem desafio e portador autenticou com falha</td>
