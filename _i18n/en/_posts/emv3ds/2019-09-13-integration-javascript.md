@@ -264,12 +264,21 @@ The event **bpmpi_Authenticate()**" must be called at checkout. See the example 
 
 Use the **test** cards below to simulate various scenarios in the **SANDBOX** environment
 
-|**Cards**|**Result**|**Description**|
-|Visa: 4000000000001000<br>Mastercard: 5200000000001005|SUCCESS|Silent Authentication and card holder successfully authenticated|
-|Visa: 4000000000001018<br>Mastercard: 5200000000001013|FAILURE|Silent and card holder authentication terminated with failure|
-|Visa: 4000000000001034<br>Mastercard: 5200000000001039|UNENROLLED|Card not eligible for authentication|
-|Visa:4000000000001091<br>Mastercard: 5200000000001096|SUCCESS|Challenging and card holder authentication successfully authenticated|
-|Visa:4000000000001109<br>Mastercard: 5200000000001104|FAILURE|Challenge authentication and card holder failed authentication|
+## Test cards with challenge
+
+|**CARD**|**BRAND**|**RESULT**|**DESCRIPTION**|  
+|---|---|---|---|     
+|4000000000001091<br>5200000000001096<br>6505050000001091|VISA<br>MASTER<br>ELO|SUCCESS|Authentication with challenge and cardholder successfully authenticated|  
+|4000000000001109<br>5200000000001104<br>6505050000001109|VISA<br>MASTER<br>ELO|FAILURE|Authentication with challenge and cardholder authentication terminated with failure|  
+|4000000000001117<br>5200000000001112<br>6505050000001117|VISA<br>MASTER<br>ELO|UNENROLLED|Authentication with challenge currently not available|  
+|4000000000001125<br>5200000000001120<br>6505050000001125|VISA<br>MASTER<br>ELO|UNENROLLED|System error during authentication|  
+
+## Test cards without challenge
+
+|**CARD**|**BRAND**|**RESULT**|**DESCRIPTION**|  
+|---|---|---|---|     
+|4000000000001000<br>5200000000001005<br>6505050000001000|VISA<br>MASTER<br>ELO|SUCCESS|Authentication without challenge and cardholder successfully authenticated|  
+|4000000000001018<br>5200000000001013<br>6505050000001018|VISA<br>MASTER<br>ELO|FAILURE|Authentication without challenge and cardholder authentication terminated with failure| 
 
 ## Authorization with Authentication
 
@@ -278,4 +287,4 @@ See more details at: [https://braspag.github.io//en/manualp/authorization-with-a
 
 # Last updates
 
-To see the manual latest updates, [click here](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-javascript.md)
+To see the manual's latest updates, [click here](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-javascript.md)
