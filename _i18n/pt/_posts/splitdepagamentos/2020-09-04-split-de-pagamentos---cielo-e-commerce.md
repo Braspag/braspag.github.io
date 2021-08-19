@@ -1069,7 +1069,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
       "splitpayments":[  
          {  
             "subordinatemerchantid":"f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-            "amount":5000,
+            "amount":6000,
             "fares":{  
                "mdr":5,
                "fee":30
@@ -1077,7 +1077,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
          },
          {  
             "subordinatemerchantid":"9140ca78-3955-44a5-bd44-793370afef94",
-            "amount":5000,
+            "amount":4000,
             "fares":{  
                "mdr":4,
                "fee":15
