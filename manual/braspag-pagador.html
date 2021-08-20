@@ -7967,6 +7967,137 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <aside class="notice">Para simular o retorno do node "NewCard" em Sandbox utilize um cartão com final 3 e o "ExpirationDate" vencido.</aside>
 
+<h3 id="resposta-para-clientes-cartão-protegido-e-renova-fácil">Resposta para clientes Cartão Protegido e Renova Fácil</h3>
+
+<p>Para clientes Cartão Protegido e Renova Fácil, o nó <code class="language-plaintext highlighter-rouge">NewCard</code> irá retornar o número mascarado do cartão e o token do cartão.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0183"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2016"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0512105630844"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"NewCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************4731"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2028"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"be7fg5a8-3ac8-59bc-dgf2-344516e20b68"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-12 10:56:30"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CardExpired"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Card Expired"</span><span class="p">,</span><span class="w">
+      </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+   <span class="o">[</span>...]
+   <span class="s2">"Payment"</span>: <span class="o">{</span>
+      <span class="s2">"ServiceTaxAmount"</span>: 0,
+      <span class="s2">"Installments"</span>: 1,
+      <span class="s2">"Interest"</span>: <span class="s2">"ByMerchant"</span>,
+      <span class="s2">"Capture"</span>: <span class="nb">true</span>,
+      <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+      <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+      <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+         <span class="s2">"CardNumber"</span>: <span class="s2">"455187******0183"</span>,
+         <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
+         <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2016"</span>,
+         <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+         <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+      <span class="o">}</span>,
+      <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"0512105630844"</span>,
+      <span class="s2">"NewCard"</span>: <span class="o">{</span>
+         <span class="s2">"CardNumber"</span>: <span class="s2">"************4731"</span>,
+         <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
+         <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2028"</span>,
+         <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+         <span class="s2">"CardToken"</span>: <span class="s2">"be7fg5a8-3ac8-59bc-dgf2-344516e20b68"</span>,
+         <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+      <span class="o">}</span>,
+      <span class="s2">"PaymentId"</span>: <span class="s2">"ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84"</span>,
+      <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+      <span class="s2">"Amount"</span>: 10000,
+      <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-05-12 10:56:30"</span>,
+      <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+      <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+      <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+      <span class="s2">"ReasonCode"</span>: 15,
+      <span class="s2">"ReasonMessage"</span>: <span class="s2">"CardExpired"</span>,
+      <span class="s2">"Status"</span>: 3,
+      <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"57"</span>,
+      <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Card Expired"</span>,
+      <span class="o">[</span>...]
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.CardNumber</code></td>
+      <td>Novo número do cartão do comprador.</td>
+      <td>Texto</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.Holder</code></td>
+      <td>Nome do portador impresso no novo cartão.</td>
+      <td>Texto</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.ExpirationDate</code></td>
+      <td>Data de validade impressa no novo cartão.</td>
+      <td>Texto</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do novo cartão.</td>
+      <td>Texto</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.Brand</code></td>
+      <td>Bandeira do novo cartão.</td>
+      <td>Texto</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="salvando-e-reutilizando-cartões">Salvando e Reutilizando Cartões</h1>
 
 <p>Ao contratar o <a href="https://braspag.github.io//manual/cartao-protegido-api-rest">Cartão Protegido</a>, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.</p>
