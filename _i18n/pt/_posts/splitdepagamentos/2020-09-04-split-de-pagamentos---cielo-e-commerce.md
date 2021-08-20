@@ -1363,7 +1363,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
         "SplitPayments": [
             {
                 "subordinatemerchantid": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                "amount": 5000,
+                "amount": 6000,
                 "fares": {
                     "mdr": 20,
                     "fee": 25
@@ -1371,7 +1371,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
             },
             {
                 "subordinatemerchantid": "9140ca78-3955-44a5-bd44-793370afef94",
-                "amount": 5000,
+                "amount": 4000,
                 "fares": {
                     "mdr": 10,
                     "fee": 15
