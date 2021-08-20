@@ -4532,7 +4532,7 @@ Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o
          "Holder": "Nome do Portador",
          "ExpirationDate": "12/2028",
          "SaveCard": false,
-	 "CardToken": "be7fg5a8-3ac8-59bc-dgf2-344516e20b68",
+         "CardToken": "be7fg5a8-3ac8-59bc-dgf2-344516e20b68",
          "Brand": "Visa"
       },
       "PaymentId": "ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84",
@@ -4575,7 +4575,7 @@ Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o
          "Holder": "Nome do Portador",
          "ExpirationDate": "12/2028",
          "SaveCard": false,
-	 "CardToken": "be7fg5a8-3ac8-59bc-dgf2-344516e20b68",
+         "CardToken": "be7fg5a8-3ac8-59bc-dgf2-344516e20b68",
          "Brand": "Visa"
       },
       "PaymentId": "ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84",
