@@ -4505,6 +4505,104 @@ Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado n
 
 <aside class="notice">Para simular o retorno do node "NewCard" em Sandbox utilize um cartão com final 3 e o "ExpirationDate" vencido.</aside>
 
+### Resposta para clientes Cartão Protegido e Renova Fácil
+
+Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o número mascarado do cartão e o token do cartão.
+
+```json
+{
+   [...]
+   "Payment": {
+      "ServiceTaxAmount": 0,
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "CreditCard": {
+         "CardNumber": "455187******0183",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2016",
+         "SaveCard": false,
+         "Brand": "Visa"
+      },
+      "AcquirerTransactionId": "0512105630844",
+      "NewCard": {
+         "CardNumber": "************4731",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2028",
+         "SaveCard": false,
+	 "CardToken":"be7fg5a8-3ac8-59bc-dgf2-344516e20b68",	
+         "Brand": "Visa"
+      },
+      "PaymentId": "ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "ReceivedDate": "2017-05-12 10:56:30",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Provider": "Simulado",
+      "ReasonCode": 15,
+      "ReasonMessage": "CardExpired",
+      "Status": 3,
+      "ProviderReturnCode": "57",
+      "ProviderReturnMessage": "Card Expired",
+      [...]
+   }
+}
+```
+
+```shell
+{
+   [...]
+   "Payment": {
+      "ServiceTaxAmount": 0,
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "CreditCard": {
+         "CardNumber": "455187******0183",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2016",
+         "SaveCard": false,
+         "Brand": "Visa"
+      },
+      "AcquirerTransactionId": "0512105630844",
+      "NewCard": {
+         "CardNumber": "************4731",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2028",
+         "SaveCard": false,
+	 "CardToken":"be7fg5a8-3ac8-59bc-dgf2-344516e20b68",	
+         "Brand": "Visa"
+      },
+      "PaymentId": "ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "ReceivedDate": "2017-05-12 10:56:30",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Provider": "Simulado",
+      "ReasonCode": 15,
+      "ReasonMessage": "CardExpired",
+      "Status": 3,
+      "ProviderReturnCode": "57",
+      "ProviderReturnMessage": "Card Expired",
+      [...]
+   }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|
+|-----------|---------|----|-------|
+|`NewCard.CardNumber`|Novo número do cartão do comprador.|Texto|16|
+|`NewCard.Holder`|Nome do portador impresso no novo cartão.|Texto|25|
+|`NewCard.ExpirationDate`|Data de validade impressa no novo cartão.|Texto|7|
+|`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão.|Texto|4|
+|`NewCard.Brand`|Bandeira do novo cartão.|Texto|10 |
+
 # Salvando e Reutilizando Cartões
 
 Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
