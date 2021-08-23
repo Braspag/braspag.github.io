@@ -7969,7 +7969,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <h3 id="resposta-para-clientes-cartão-protegido-e-renova-fácil">Resposta para clientes Cartão Protegido e Renova Fácil</h3>
 
-<p>Para clientes Cartão Protegido e Renova Fácil, o nó <code class="language-plaintext highlighter-rouge">NewCard</code> irá retornar o número mascarado do cartão e o token do cartão.</p>
+<p>Para clientes Cartão Protegido e Renova Fácil, o nó <code class="language-plaintext highlighter-rouge">NewCard</code> irá retornar o número mascarado do cartão e um novo token do cartão atualizado. Dessa forma o lojista pode submeter uma nova cobrança, usando o retorno do Renova Fácil de uma forma segura.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -7981,9 +7981,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
       </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0183"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2016"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="s2">"19077eb8-5d84-352f-10cd-6a4280b8c089"</span><span class="w">
          </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -8023,9 +8021,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
       <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
       <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
       <span class="s2">"CreditCard"</span>: <span class="o">{</span>
-         <span class="s2">"CardNumber"</span>: <span class="s2">"455187******0183"</span>,
-         <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
-         <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2016"</span>,
+         <span class="s2">"CardToken"</span>:<span class="s2">"19077eb8-5d84-352f-10cd-6a4280b8c089"</span>
          <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
          <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
       <span class="o">}</span>,
