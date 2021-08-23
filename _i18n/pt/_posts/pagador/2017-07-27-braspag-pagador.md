@@ -4507,7 +4507,7 @@ Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado n
 
 ### Resposta para clientes Cartão Protegido e Renova Fácil
 
-Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o número mascarado do cartão e o token do cartão.
+Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o número mascarado do cartão e um novo token do cartão atualizado. Dessa forma o lojista pode submeter uma nova cobrança, usando o retorno do Renova Fácil de uma forma segura.
 
 ```json
 {
@@ -4520,9 +4520,7 @@ Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o
       "Authenticate": false,
       "Recurrent": false,
       "CreditCard": {
-         "CardNumber": "455187******0183",
-         "Holder": "Nome do Portador",
-         "ExpirationDate": "12/2016",
+         "CardToken":"19077eb8-5d84-352f-10cd-6a4280b8c089"
          "SaveCard": false,
          "Brand": "Visa"
       },
@@ -4563,9 +4561,7 @@ Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o
       "Authenticate": false,
       "Recurrent": false,
       "CreditCard": {
-         "CardNumber": "455187******0183",
-         "Holder": "Nome do Portador",
-         "ExpirationDate": "12/2016",
+         "CardToken":"19077eb8-5d84-352f-10cd-6a4280b8c089"
          "SaveCard": false,
          "Brand": "Visa"
       },
