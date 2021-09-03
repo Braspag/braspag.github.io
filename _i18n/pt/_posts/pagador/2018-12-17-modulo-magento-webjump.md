@@ -67,6 +67,37 @@ bin/magento setup:upgrade
 bin/magento setup:di:compile
 ```
 
+## Instalação do Módulo para a integração com a Webkul Marketplace
+
+Esta instalação só será necessária caso o módulo Marketplace Webkul for adquirido.
+
+### Instalação via Composer
+
+1. Acesse o servidor via SSH.
+2. Localize a raiz do projeto. No arquivo *composer.json*, adicione as seguintes informações:
+
+```
+"repositories": {
+"webjump/magento2-module-braspag-webkul": {
+"type": "vcs",
+"url": "https://github.com/webjump/magento2-module-braspag-webkul.git"
+}
+},
+"require": {
+"webjump/magento2-module-braspag-webkul": "1.0.0",
+...
+},
+```
+
+3. Ainda na raiz do projeto, execute os seguintes comandos:
+
+```
+composer update
+bin/magento module:enable Braspag_Webkul
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+```
+
 # Configuração
 
 ## Configurações Gerais
@@ -563,7 +594,7 @@ A seguir, algumas funcionalidades do split de pagamentos disponibilizadas de for
 
 ### Vínculo do Seller ao Subordinado
 
-Existem 2 formas de um seller ser vinculado a um subordinado:
+Existem duas formas de um seller ser vinculado a um subordinado:
 
 * **Configuração Default do Seller**
    1. Para acessar esta configuração, vá até o menu `Vendas` > `Dropship` > `Vendors` e selecione o seller pretendido na grid, clicando em “Editar”.
@@ -577,7 +608,7 @@ Existem 2 formas de um seller ser vinculado a um subordinado:
 
 ### Cadastro de Taxas e Descontos de Comissão do Seller (Unirgy)
 
-Existem 3 formas de se cadastrar as taxas e descontos de comissões para um seller:
+Existem três formas de se cadastrar as taxas e descontos de comissões para um seller:
 
 * **Configuração Default do Seller** (para quando o seller irá ter taxas e descontos padrões que poderão ser sobrescritos por configurações de taxas e descontos de comissões efetuadas dentro de produtos - itens 2 e 3 abaixo)
    1. Para acessar esta configuração, vá até o menu `Vendas` > `Dropship` > `Vendors` e selecione o seller pretendido na grid, clicando em “Editar”.
@@ -595,3 +626,48 @@ Existem 3 formas de se cadastrar as taxas e descontos de comissões para um sell
 
    1. Para acessar esta configuração, vá até o menu `Catálogo` > `Produtos` e selecione o produto pretendido na grid, clicando em “Editar”.
    2. Localize a aba `Dropship Vendors`. Adicione o seller ao produto (é importante que o mesmo já tenha um Merchant ID Braspag vinculado, como demonstrado no item [Vínculo do Seller ao Subordinado](https://braspag.github.io//tutorial/modulo-magento-webjump#split-(magento-+-unirgy)), e nos campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee”, adicione as informações de taxas e descontos de comissões a serem aplicadas para o Seller na venda do produto que está sendo editado.
+
+## Split (Magento + Webkul)
+
+A seguir, algumas funcionalidades do Split de Pagamentos disponibilizadas de forma customizada na Webkul:
+
+### Vínculo do Seller ao Subordinado
+
+Existem duas formas de um seller ser vinculado a um subordinado:
+
+* **Configuração Default do Seller**
+1. Para acessar esta configuração, é necessário ir até o Menu `Marketplace
+Management` > `Manage Seller` e selecionar o seller pretendido na grid clicando no nome do seller.
+2. Na tela de edição do perfil do seller, localize a aba “Seller Account Information”
+e clique nela.
+3. Localize o campo “Braspag Subordinate Merchant ID” e insira a informação do
+MerchantID do Seller cadastrado na Braspag.
+* **Configuração do Produto**
+1. Para acessar esta configuração, vá até o Menu `Marketplace
+Management` > `Manage Product` e selecione o produto pretendido na grid clicando no nome do
+produto.
+2. Localize o atributo “Braspag Subordinate Merchant ID” e insira a informação do
+MerchantID do seller cadastrado na Braspag.
+
+### Cadastro de taxas e descontos de comissão do Seller (Webkul)
+
+Existem duas formas de cadastrar as taxas e descontos de comissões para um seller:
+
+* **Configuração Default do Seller** (para quando o seller terá taxas e descontos
+padrões que poderão ser sobrescritas por configurações de taxas e descontos de comissões efetuadas
+dentro de produtos (item 2 abaixo).
+1. Para acessar esta configuração, vá até o Menu `Marketplace
+Management` > `Manage Seller`` e selecione o seller pretendido na grid clicando no nome do
+seller.
+2. Na tela de edição do perfil do seller, localize a aba “Seller Account Information”
+e clique nela.
+3. Localize os campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee”, e
+insira as informações de taxas default para o seller.
+
+* **Configuração do Produto** (para quando existirem taxas e descontos de
+comissões diferentes por produtos)
+1. Para acessar esta configuração, vá até o Menu `Marketplace
+Management` > `Manage Product` e selecione o produto pretendido na grid clicando no nome
+do produto.
+2. Localize os atributos “Braspag Subordinate MDR” e “Braspag Subordinate Fee”, e
+insira as informações de taxas e desconto de comissões default para o seller.
