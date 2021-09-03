@@ -657,7 +657,7 @@ Existem duas formas de cadastrar as taxas e descontos de comissões para um sell
 padrões que poderão ser sobrescritas por configurações de taxas e descontos de comissões efetuadas
 dentro de produtos (item 2 abaixo).
 1. Para acessar esta configuração, vá até o Menu `Marketplace
-Management` > `Manage Seller`` e selecione o seller pretendido na grid clicando no nome do
+Management` > `Manage Seller` e selecione o seller pretendido na grid clicando no nome do
 seller.
 2. Na tela de edição do perfil do seller, localize a aba “Seller Account Information”
 e clique nela.
