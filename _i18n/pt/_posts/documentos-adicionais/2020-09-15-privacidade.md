@@ -83,7 +83,7 @@ e no exercício de suas atividades possam vir a ter acesso às informações ref
 
 ### B. INFORMAÇÕES SUJEITAS À POLÍTICA
 
-1. Todas os dados pessoais e/ou dados pessoais sensíveis ou coletados no contexto da prestação dos serviços pela BRASPAG Tecnologia em Pagamento Ltda., com sede na Alameda Xingu 512, 27º andar, Alphaville, CEP 06455-911, no município de Barueri, no estado de São Paulo, inscrita no CNPJ sob o n° 07.355.049/0001-06 aos seus clientes para aceitação de meios eletrônicos de pagamento, compreendendo a captura, transporte e processamento de informações de transações, bem como a oferta de outros serviços e produtos correlatos; e
+1. Todas os dados pessoais e/ou dados pessoais sensíveis ou coletados no contexto da prestação dos serviços pela Stelo S.A., com sede na Alameda Xingu 512, 6º andar, Alphaville, CEP 06455-030, no município de Barueri, no estado de São Paulo, inscrita no CNPJ sob o nº 14.625.224/0001-01 aos seus clientes para aceitação de meios eletrônicos de pagamento, compreendendo a captura, transporte e processamento de informações de transações, bem como a oferta de outros serviços e produtos correlatos; e
 
 2. Dados de colaboradores e terceiros no contexto de obrigação contratual ou legal.
 
@@ -202,3 +202,4 @@ a **Braspag** solicitará o consentimento específico e destacado aos pais ou re
 Versão    |   Data de Revisão  | Histórico
 ----------|--------------------|------------------------- 
 1.0       |   21/08/2020       | Elaboração do documento.
+1.1       |   08/09/2021       | Atualização da razão social, endereço e CNPJ.
