@@ -180,9 +180,9 @@ a **Braspag** solicitará o consentimento específico e destacado aos pais ou re
 * Informações sobre a possibilidade de o usuário não fornecer o consentimento, bem como de ser informado sobre as consequências em caso de negativa;
 * Revogação de consentimento.
 
-1. Os direitos acima expostos poderão ser exercidos diretamente pelo Titular ou Representante Legal, através das solicitações enviadas pelo portal de [suporte ao cliente](https://suporte.braspag.com.br/hc/pt-br) ou através do e-mail **dpo@braspag.com.br**.
+2. Os direitos acima expostos poderão ser exercidos diretamente pelo Titular ou Representante Legal, através das solicitações enviadas pelo portal de [suporte ao cliente](https://suporte.braspag.com.br/hc/pt-br) ou através do e-mail **dpo@braspag.com.br**.
 
-2. A eventual solicitação de exclusão de informações essenciais para a gestão de seu cadastro junto a **Braspag** poderá implicar no término de sua relação contratual, com consequente cancelamento dos serviços então prestados.
+3. A eventual solicitação de exclusão de informações essenciais para a gestão de seu cadastro junto a **Braspag** poderá implicar no término de sua relação contratual, com consequente cancelamento dos serviços então prestados.
 
 ## VIII. GESTÃO DE CONSEQUÊNCIAS
 
