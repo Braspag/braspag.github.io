@@ -23,12 +23,12 @@ Todos os administradores (diretores, estatutários ou não, membros dos Comitês
 
 ## III. DOCUMENTAÇÃO COMPLEMENTAR
 
-* Código de Conduta Ética da Braspag
+* Código de Conduta e Ética da Braspag
 * POL-TI-001 – Gestão de TI
 * PCI Data Security Standard
 * NIST Privacy Framework
 * ABNT NBR ISO 27001 - Segurança da Informação
-* ABNT NBR ISO 22301 – Gestão de Continuidade de Negócio
+* ABNT NBR ISO 22301 - Gestão de Continuidade de Negócio
 * Circular 3.681/13 e 3.909/18 emitida pelo Banco Central do Brasil
 * Lei 12.965/2014 (Marco Civil da Internet)
 * Lei nº 13.709/2018
@@ -36,18 +36,18 @@ Todos os administradores (diretores, estatutários ou não, membros dos Comitês
 
 ## IV. CONCEITOS E SIGLAS
 
-* **Stakeholders**: Públicos relevantes com interesses pertinentes à Companhia, bem como indivíduos ou entidades que assumam algum tipo de risco, direto ou indireto, 
+* **Stakeholders**: públicos relevantes com interesses pertinentes à Companhia, bem como indivíduos ou entidades que assumam algum tipo de risco, direto ou indireto, 
 em face da sociedade. Entre outros, destacam-se: acionistas, investidores, colaboradores, sociedade, clientes, fornecedores, credores, governos e órgãos reguladores, 
 concorrentes, imprensa, associações e entidades de classe, usuários dos meios eletrônicos de pagamento e organizações não governamentais;
-* **Titular**: Pessoa natural, cujos dados se encontrem cadastrados nos sistemas da **Braspag**, a quem se referem os dados pessoais que são objeto de trabalho;
-* **Dado pessoal**: Qualquer informação relacionada à pessoa natural identificada ou identificável, como: nome, sobrenome, data de nascimento, documentos pessoais 
-(CPF, RG, CNH, Carteira de Trabalho, passaporte, título de eleitor, PAN, dentre outros), endereço residencial ou comercial, telefone, e-mail, cookies e endereço IP;
-* **Dado pessoal sensível**: Qualquer dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, 
+* **Titular**: pessoa natural, cujos dados se encontrem cadastrados nos sistemas da **Braspag**, a quem se referem os dados pessoais que são objeto de trabalho;
+* **Dado pessoal**: qualquer informação relacionada à pessoa natural identificada ou identificável, como: nome, sobrenome, data de nascimento, documentos pessoais 
+(CPF, RG, CNH, carteira de trabalho, passaporte, título de eleitor, PAN, dentre outros), endereço residencial ou comercial, telefone, e-mail, cookies e endereço IP;
+* **Dado pessoal sensível**: qualquer dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, 
 filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural;
-* **Informações**: Dados armazenados e processados, que podem ser utilizados para produção e para transmissão de conhecimento, contidos em qualquer meio, suporte ou formato;
-* **Privacidade e Proteção de Dados**: Possibilidade de o titular determinar, de forma autônoma, a utilização que é feita de seus próprios dados pessoais, 
+* **Informações**: dados armazenados e processados, que podem ser utilizados para produção e para transmissão de conhecimento, contidos em qualquer meio, suporte ou formato;
+* **Privacidade e Proteção de Dados**: possibilidade de o titular determinar, de forma autônoma, a utilização que é feita de seus próprios dados pessoais, 
 em conjunto com o estabelecimento de uma série de garantias para evitar que estes dados pessoais sejam utilizados de forma a causar discriminação ou danos de qualquer espécie;
-* **Parceiros**: Pessoa natural ou jurídica, de direito público ou privado, que presta serviços à **Braspag**, em suas dependências ou remotamente, 
+* **Parceiros**: pessoa natural ou jurídica, de direito público ou privado, que presta serviços à **Braspag**, em suas dependências ou remotamente, 
 e no exercício de suas atividades possam vir a ter acesso às informações referentes ao negócio da **Braspag** ou de seus Clientes.
 
 ## V. RESPONSABILIDADES
@@ -62,7 +62,7 @@ e no exercício de suas atividades possam vir a ter acesso às informações ref
 
 2. Prestar esclarecimentos e adotar providências;
 
-3. Receber comunicações da Autoridade Nacional de Proteção de Dados (“ANPD”) e adotar providências;
+3. Receber comunicações da Autoridade Nacional de Proteção de Dados (ANPD) e adotar providências;
 
 4. Orientar os colaboradores e os terceiros da **Braspag** a respeito das práticas a serem tomadas em relação à proteção de dados pessoais; e
 
@@ -73,6 +73,7 @@ e no exercício de suas atividades possam vir a ter acesso às informações ref
 ### A. DISPOSIÇÕES GERAIS
 
 1. Esta política visa demostrar o compromisso da BRASPAG em:
+
 2. Zelar pela privacidade e proteção de dados pessoais dos clientes, dos colaboradores e parceiros da **Braspag**, em função do desempenho de suas atividades;
 
 3. Adotar diretrizes que assegurem o cumprimento, de forma abrangente, de normas e boas práticas relativas à privacidade e proteção de dados pessoais;
@@ -83,7 +84,7 @@ e no exercício de suas atividades possam vir a ter acesso às informações ref
 
 ### B. INFORMAÇÕES SUJEITAS À POLÍTICA
 
-1. Todas os dados pessoais e/ou dados pessoais sensíveis ou coletados no contexto da prestação dos serviços pela Stelo S.A., com sede na Alameda Xingu 512, 6º andar, Alphaville, CEP 06455-030, no município de Barueri, no estado de São Paulo, inscrita no CNPJ sob o nº 14.625.224/0001-01 aos seus clientes para aceitação de meios eletrônicos de pagamento, compreendendo a captura, transporte e processamento de informações de transações, bem como a oferta de outros serviços e produtos correlatos; e
+1. Todos os dados pessoais e/ou dados pessoais sensíveis ou coletados no contexto da prestação dos serviços pela Stelo S.A., com sede na Alameda Xingu 512, 6º andar, Alphaville, CEP 06455-030, no município de Barueri, no estado de São Paulo, inscrita no CNPJ sob o nº 14.625.224/0001-01 aos seus clientes para aceitação de meios eletrônicos de pagamento, compreendendo a captura, transporte e processamento de informações de transações, bem como a oferta de outros serviços e produtos correlatos; e
 
 2. Dados de colaboradores e terceiros no contexto de obrigação contratual ou legal.
 
@@ -91,7 +92,7 @@ e no exercício de suas atividades possam vir a ter acesso às informações ref
 
 * Dados fornecidos pelo Titular: São aqueles inseridos ou encaminhados pelo titular do dado ou seu representante legal, decorrentes do contato ou cadastro junto à **Braspag**. 
 
-* Dados coletados a partir do uso dos nossos serviços: São aqueles relacionados a utilização de meios eletrônicos de pagamento, capturados, transmitidos e/ou compartilhados no contexto e limite necessário para o processamento das transações eletrônicas de pagamento ou para a transmissão de informações relativas a transações não financeiras objeto de serviço prestado pela **Braspag**. 
+* Dados coletados a partir do uso dos nossos serviços: são aqueles relacionados a utilização de meios eletrônicos de pagamento, capturados, transmitidos e/ou compartilhados no contexto e limite necessário para o processamento das transações eletrônicas de pagamento ou para a transmissão de informações relativas a transações não financeiras objeto de serviço prestado pela **Braspag**. 
 
 4. As práticas de privacidade específicas em relação a outros produtos e serviços que a **Braspag** vier a disponibilizar aos seus clientes estarão associadas à aceitação e/ou consentimento dado pelo cliente ou terceiro de cada produto ou serviço.
 
@@ -104,7 +105,7 @@ Essas informações são necessárias para identificar e viabilizar os nossos se
 
 * Endereço de IP;
 * Característica do dispositivo e/ou navegador;
-* Data e Hora;
+* Data e hora;
 * Dispositivo utilizado;
 * Informações sobre os cliques e as páginas acessadas dentro do site **Braspag**; e
 * Hábitos de utilização, dentre outras informações.
@@ -179,9 +180,9 @@ a **Braspag** solicitará o consentimento específico e destacado aos pais ou re
 * Informações sobre a possibilidade de o usuário não fornecer o consentimento, bem como de ser informado sobre as consequências em caso de negativa;
 * Revogação de consentimento.
 
-2. Os direitos acima expostos poderão ser exercidos diretamente pelo Titular ou Representante Legal, através das solicitações enviadas pelo portal de [suporte ao cliente](https://suporte.braspag.com.br/hc/pt-br) ou através do e-mail **dpo@braspag.com.br**.
+1. Os direitos acima expostos poderão ser exercidos diretamente pelo Titular ou Representante Legal, através das solicitações enviadas pelo portal de [suporte ao cliente](https://suporte.braspag.com.br/hc/pt-br) ou através do e-mail **dpo@braspag.com.br**.
 
-3. A eventual solicitação de exclusão de informações essenciais para a gestão de seu cadastro junto a **Braspag** poderá implicar no término de sua relação contratual, com consequente cancelamento dos serviços então prestados.
+2. A eventual solicitação de exclusão de informações essenciais para a gestão de seu cadastro junto a **Braspag** poderá implicar no término de sua relação contratual, com consequente cancelamento dos serviços então prestados.
 
 ## VIII. GESTÃO DE CONSEQUÊNCIAS
 
