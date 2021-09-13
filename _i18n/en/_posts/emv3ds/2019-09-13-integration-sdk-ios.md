@@ -12,7 +12,7 @@ tags:
 
 # What is 3DS 2.0?
 
-For more details about 3DS 2.0, please visit: [https://braspag.github.io//en/manualp/emv3ds] (https://braspag.github.io//en/manualp/emv3ds)
+For more details about 3DS 2.0, please visit: [https://braspag.github.io//en/manualp/emv3ds](https://braspag.github.io//en/manualp/emv3ds).
 
 # Step 1 - Access Token Request
 
