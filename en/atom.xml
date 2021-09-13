@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-09-13T15:10:40+00:00</updated>
+    <updated>2021-09-13T15:15:17+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -4664,7 +4664,7 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onUnenrolled&lt;/td&gt;
-      &lt;td&gt;Triggers when the card is not eligible, i.e. the holder and / or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
+      &lt;td&gt;Triggers when the card is not eligible, i.e. the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onDisabled&lt;/td&gt;
