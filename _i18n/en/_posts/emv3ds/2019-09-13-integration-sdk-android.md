@@ -20,7 +20,7 @@ The solution comprises the API access token request step and authentication requ
 
 |Environment|Endpoint|Authorization|
 |---|---|---|
-|**SANDBOX**|https://authsandbox.braspag.com.br/oauth2/token|**Basic _(Authorization)_**<br><br>The Authorization value must be obtained by concatenating the value of the "ClientID", colon (":"), and "ClientSecret"<br><br>E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br><br>and then encode the result in base 64. <br>This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: ClientID<br><br>: **dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e **<br>ClientSecret:** D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag =**|
+|**SANDBOX**|https://authsandbox.braspag.com.br/oauth2/token|**Basic _(Authorization)_**<br><br>The Authorization value must be obtained by concatenating the value of the "ClientID", colon (":"), and "ClientSecret"<br><br>E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br><br>and then encode the result in base 64. <br>This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: <br>ClientID: **dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e **<br>ClientSecret:** D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag =**|
 |---|---|
 |**PRODUCTION**|https://auth.braspag.com.br/oauth2/token|Request the "ClientID" and "ClientSecret" data from the support team after completing sandbox development.|
 
@@ -250,7 +250,7 @@ To make it easier to use only what the merchant needs to send, the request is se
 
 |**Property**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
-|notifyonly|Boolean indicating whether the card transaction will be submitted in "notification only" mode. In this mode, the authentication process will not be triggered, however, the data will be flagged. ** VALID ONLY FOR MASTERCARD CARDS **|Boolean: <br>true - notification only mode; <br>false - mode with authentication|No|
+|notifyonly|Boolean indicating whether the card transaction will be submitted in "notification only" mode. In this mode, the authentication process will not be triggered, however, the data will be flagged. **VALID ONLY FOR MASTERCARD CARDS**|Boolean: <br>true - notification only mode; <br>false - mode with authentication|No|
 |suppresschallenge|Boolean that indicate if ignore or not the challenge, if requested. If a transaction authorized after ignoring the challenge, liability remains with the establishment. |Boolean: <br>true - ignore challenges if any; <br>false - present challenge if any|No|
 
 ## OrderData
