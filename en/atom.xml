@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-09-10T14:28:21+00:00</updated>
+    <updated>2021-09-13T14:40:49+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -10312,7 +10312,7 @@ The Master must provide Subordinate information in order to use it during the On
 &lt;ol&gt;
   &lt;li&gt;The cardholder chooses to pay by credit or debit card&lt;/li&gt;
   &lt;li&gt;The establishment requests authentication through the Cielo solution.&lt;/li&gt;
-  &lt;li&gt;The authentication platform may follow one of two flows: requesting bearer authentication or performing authentication silently. In the first case, the platform will return the Authentication URL to the merchant. In the second case, the next step is already the return with the authentication result.&lt;/li&gt;
+  &lt;li&gt;The authentication platform may follow one of two flows: requesting cardholder authentication or performing authentication silently. In the first case, the platform will return the Authentication URL to the merchant. In the second case, the next step is already the return with the authentication result.&lt;/li&gt;
   &lt;li&gt;Store has authentication interface in &lt;em&gt;lightbox&lt;/em&gt; (Issuer Authentication URL)&lt;/li&gt;
   &lt;li&gt;The cardholder authenticates to the issuer (process known as &lt;strong&gt;performing the challenge&lt;/strong&gt;)&lt;/li&gt;
   &lt;li&gt;The issuer returns the authentication result to the 3DS platform, which in turn sends it to the establishment&lt;/li&gt;
