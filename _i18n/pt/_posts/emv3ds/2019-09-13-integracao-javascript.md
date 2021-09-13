@@ -109,7 +109,7 @@ Para baixar o código, [acesse aqui](https://github.com/Braspag/braspag.github.i
 
 | **Parâmetro** | **Descrição** | **Tipo/Tamanho** |
 | --- | --- | --- |
-| Environment | Indica o ambiente a ser utilizado (Sandbox ou Produção)| SDB – Sandbox (ambiente de teste)PRD – Produção (ambiente de produção) |
+| Environment | Indica o ambiente a ser utilizado (Sandbox ou Produção)| SDB – Sandbox (ambiente de teste)<br>PRD – Produção (ambiente de produção) |
 | Debug | Booleano que indica se o modo debug é ativado ou não. Quando true, a plataforma emitirá o relatório no mecanismo de debug do browser.| Booleanotrue – modo debug ativadofalse – modo debug desativado |
 
 **IMPORTANTE!**
