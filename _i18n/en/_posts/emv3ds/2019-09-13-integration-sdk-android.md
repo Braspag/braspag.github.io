@@ -22,7 +22,7 @@ The solution comprises the API access token request step and authentication requ
 |---|---|---|
 |**SANDBOX**|https://authsandbox.braspag.com.br/oauth2/token|**Basic _(Authorization)_**<br><br>The Authorization value must be obtained by concatenating the value of the "ClientID", colon (":"), and "ClientSecret"<br><br>E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br><br>and then encode the result in base 64. <br>This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: <br>ClientID: **dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e **<br>ClientSecret:** D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag =**|
 |---|---|
-|**PRODUCTION**|https://auth.braspag.com.br/oauth2/token|Request the "ClientID" and "ClientSecret" data from the support team after completing sandbox development.|
+|**PRODUCTION**|https://auth.braspag.com.br/oauth2/token|Request the "ClientID" and "ClientSecret" data to the Support team after completing sandbox development.|
 
 ### Request
 
@@ -222,11 +222,11 @@ braspag3dsSdk.authenticate(
 
 |**Status**|**Description**|
 |---|---|
-|success|It is returned when the card is eligible and the authentication process has been successfully completed. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.|
-|unenrolled|It is returned when the card is not eligible, ie the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
-|failure|It is returned when the card is eligible but has not had the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
-|error|It is returned when the authentication process received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
-|unsupportedBrand|Returns when card banner is not supported by 3DS 2.0|
+|success|Returned when the card is eligible and the authentication process has been successfully completed. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.|
+|unenrolled|Returned when the card is not eligible, ie the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+|failure|Returned when the card is eligible but has not had the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+|error|Returned when the authentication process received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+|unsupportedBrand|Returned when card brand is not supported by 3DS 2.0|
 
 ## Description of *AuthenticationResponse* fields
 
