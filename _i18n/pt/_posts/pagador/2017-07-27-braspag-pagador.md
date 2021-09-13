@@ -4526,7 +4526,7 @@ Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o
       },
       "AcquirerTransactionId": "0512105630844",
       "NewCard": {
-         "CardNumber": "************4731",
+         "CardNumber": "455187******4731",
          "Holder": "Nome do Portador",
          "ExpirationDate": "12/2028",
          "SaveCard": false,
@@ -4567,7 +4567,7 @@ Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o
       },
       "AcquirerTransactionId": "0512105630844",
       "NewCard": {
-         "CardNumber": "************4731",
+         "CardNumber": "455187******4731",
          "Holder": "Nome do Portador",
          "ExpirationDate": "12/2028",
          "SaveCard": false,
@@ -4593,11 +4593,12 @@ Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o
 
 |Propriedade|Descrição|Tipo|Tamanho|
 |-----------|---------|----|-------|
-|`NewCard.CardNumber`|Novo número do cartão do comprador.|Texto|16|
+|`NewCard.CardNumber`|BIN e 4 últimos dígitios do novo número do cartão do comprador.|Texto|16|
 |`NewCard.Holder`|Nome do portador impresso no novo cartão.|Texto|25|
 |`NewCard.ExpirationDate`|Data de validade impressa no novo cartão.|Texto|7|
 |`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão.|Texto|4|
-|`NewCard.Brand`|Bandeira do novo cartão.|Texto|10 |
+|`NewCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão. OBS.: Se a origem da transação for do *Silent Order Post* então o retorno será `NewCard.PaymentToken`|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`NewCard.Brand`|Bandeira do novo cartão.|Texto|10|
 
 # Salvando e Reutilizando Cartões
 
