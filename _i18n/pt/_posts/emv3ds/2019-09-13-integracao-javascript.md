@@ -128,7 +128,7 @@ O arquivo JavaScript deve ser salvo no servidor onde está a aplicação da loja
 | Version | Versão do 3DS aplicado | Numérico [1 posição]1 – 3DS 1.02 – 3DS 2.0 |
 | ReferenceID | ID que representa a requisição de autenticação | GUID [36 posições] |
 | ReturnCode | Código de retorno da requisição de autenticação | Alfanumérico [até 5 posições] |
-| ReturnMessage | Mensagem de retorno da requisição de autenticação | Alfanumérico [varivável] |
+| ReturnMessage | Mensagem de retorno da requisição de autenticação | Alfanumérico [variável] |
 
 # Passo 3 - Mapeamento de classes
 
@@ -166,7 +166,7 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | bpmpi_recurring_frequency | Indica a frequência da recorrência | Número<br>1 - Mensal<br>2 - Bimestral<br>3 - Trimestral<br>4 - Quadrimestral<br>6 - Semestral<br>12 - Anual| Não |
 | bpmpi_recurring_originalpurchasedate | Identifica a data da 1ª transação que originou a recorrência | Texto (AAAA-MM-DD) | Não |
 | bpmpi_order_recurrence | Indica se é um pedido que gera recorrências futuras | Booleano<br>true<br>false | Não |
-| bpmpi_order_productcode | Tipoda compra | **PHY**: compra de mercadorias<br>**CHA**: Check acceptance<br>**ACF**: Financiamento de conta<br>**QCT**: Transação quase-dinheiro<br>**PAL**: recarga<br>| Sim |
+| bpmpi_order_productcode | Tipo da compra | **PHY**: compra de mercadorias<br>**CHA**: Check acceptance<br>**ACF**: Financiamento de conta<br>**QCT**: Transação quase-dinheiro<br>**PAL**: recarga<br>| Sim |
 | bpmpi_order_countlast24hours | Quantidade de pedidos efetuados por este comprador nas últimas 24h | Numérico [até 3 posições] | Não |
 | bpmpi_order_countlast6months | Quantidade de pedidos efetuados por este comprador nos últimos 6 meses | Numérico [até 4 posições] | Não |
 | bpmpi_order_countlast1year | Quantidade de pedidos efetuados por este comprador no último ano | Numérico [até 3 posições] | Não |
