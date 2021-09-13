@@ -7987,7 +7987,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0512105630844"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"NewCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************4731"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******4731"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2028"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -8027,7 +8027,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
       <span class="o">}</span>,
       <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"0512105630844"</span>,
       <span class="s2">"NewCard"</span>: <span class="o">{</span>
-         <span class="s2">"CardNumber"</span>: <span class="s2">"************4731"</span>,
+         <span class="s2">"CardNumber"</span>: <span class="s2">"455187******4731"</span>,
          <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
          <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2028"</span>,
          <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
@@ -8058,38 +8058,51 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
       <th>Descrição</th>
       <th>Tipo</th>
       <th>Tamanho</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NewCard.CardNumber</code></td>
-      <td>Novo número do cartão do comprador.</td>
+      <td>BIN e 4 últimos dígitios do novo número do cartão do comprador.</td>
       <td>Texto</td>
       <td>16</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NewCard.Holder</code></td>
       <td>Nome do portador impresso no novo cartão.</td>
       <td>Texto</td>
       <td>25</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NewCard.ExpirationDate</code></td>
       <td>Data de validade impressa no novo cartão.</td>
       <td>Texto</td>
       <td>7</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NewCard.SecurityCode</code></td>
       <td>Código de segurança impresso no verso do novo cartão.</td>
       <td>Texto</td>
       <td>4</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.CardToken</code></td>
+      <td>Token no <em>Cartão Protegido</em> que representa os dados do cartão. OBS.: Se a origem da transação for do <em>Silent Order Post</em> então o retorno será <code class="language-plaintext highlighter-rouge">NewCard.PaymentToken</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">NewCard.Brand</code></td>
       <td>Bandeira do novo cartão.</td>
       <td>Texto</td>
       <td>10</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
