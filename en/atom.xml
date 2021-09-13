@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-09-13T14:40:49+00:00</updated>
+    <updated>2021-09-13T14:47:47+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -4516,14 +4516,14 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;SANDBOX&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;https://authsandbox.braspag.com.br/oauth2/token&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Basic &lt;em&gt;(Authorization)&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;The Authorization value must be obtained by concatenating the value of the “ClientID”, colon (“:”), and “ClientSecret”&lt;br /&gt;E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=&lt;br /&gt;and then encode the result in base 64. &lt;br /&gt;This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: ClientID&lt;br /&gt;: &lt;strong&gt;dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e&lt;/strong&gt;&lt;br /&gt;ClientSecret:&lt;strong&gt;D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag=&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Basic &lt;em&gt;(Authorization)&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;The Authorization value must be obtained by concatenating the value of the “ClientID”, colon (“:”), and “ClientSecret”&lt;br /&gt;E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=&lt;br /&gt;and then encode the result in base 64. &lt;br /&gt;This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: &lt;br /&gt;ClientID&lt;br /&gt;: &lt;strong&gt;dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e&lt;/strong&gt;&lt;br /&gt;ClientSecret:&lt;strong&gt;D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag=&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;PRODUCTION&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;https://auth.braspag.com.br/oauth2/token&lt;/td&gt;
-      &lt;td&gt;Request the “ClientID” and “ClientSecret” data from the support team after completing sandbox development.&lt;/td&gt;
+      &lt;td&gt;Request the “ClientID” and “ClientSecret” data to the Support team after completing sandbox development.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
