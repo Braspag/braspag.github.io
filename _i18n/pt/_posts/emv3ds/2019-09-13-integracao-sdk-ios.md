@@ -177,7 +177,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | marketingOptIn | Indica se o comprador aceitou receber ofertas de marketing | Booleano<br>true – sim<br>false – não  | Não |
 | marketingSource | Identifica a origem da campanha de marketing | Alfanumérico [até 40 posições] | Não |
 | transactionMode | Identifica o canal que originou a transação | M: MOTO<br>R: Varejo<br>S: E-Commerce<br>P: Mobile<br>T: Tablet | Não |
-| merchantUrl | Endereço do site do estabelcimento | Alphanumérico [100] Exemplo: http://www.exemplo.com.br | Sim |
+| merchantUrl | Endereço do site do estabelecimento | Alphanumérico [100] Exemplo: http://www.exemplo.com.br | Sim |
 
 ## CardData
 
