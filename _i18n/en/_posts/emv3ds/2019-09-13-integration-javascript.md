@@ -89,7 +89,7 @@ curl
 
 In this step we implement the _script_ and mapping of _classes_, responsible for communicating with the brand and issuer authentication platforms. Follow the example below, which demonstrates the basic implementation. It is recommended that the snippet be placed at the end of your checkout HTML code:
 
-To download the code, [go here](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/example.html)
+To download the code, [go here](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html)
 
 ![3DS 2.0 Flux]({{ site.baseurl_root }}/images/exemplo-html.jpg)
 
@@ -99,10 +99,10 @@ To download the code, [go here](https://github.com/Braspag/braspag.github.io/blo
 |---|---|
 |onReady|Triggers when all solution script loading procedures have completed successfully, which includes access token validation, indicating that the checkout is ready to start authentication|
 |onSuccess|Triggers when the card is eligible and has successfully completed the authentication process. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.|
-|onFailure|Triggers when the card is eligible but the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
-|onUnenrolled|Triggers when the card is not eligible, i.e. the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
-|onDisabled|Triggers when the merchant has chosen not to subject the bearer to the authentication process (class "bpmpi\_auth" as false). In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
-|onError|Triggers when the authentication process has received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+|onFailure|Triggers when the card is eligible but the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.|
+|onUnenrolled|Triggers when the card is not eligible, i.e. the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.|
+|onDisabled|Triggers when the merchant has chosen not to subject the bearer to the authentication process (class "bpmpi\_auth" as false). In this scenario, if the transaction is authorized, the liability shift remains with the merchant.|
+|onError|Triggers when the authentication process has received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.|
 |onUnsupportedBrand|Triggers when card brand is not supported by 3DS 2.0|
 
 ## Description of Input Parameters
@@ -248,17 +248,17 @@ Once the class is mapped in a given field, the script is able to retrieve the va
 
 |**Extra property data (if applicable)**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
-|bpmpi_mdd1|Extra data defined by the shopkeeper|Alphanumeric [up to 255 positions]|No|
-|bpmpi_mdd2|Extra data defined by the shopkeeper|Alphanumeric [up to 255 positions]|No|
-|bpmpi_mdd3|Extra data defined by the shopkeeper|Alphanumeric [up to 255 positions]|No|
-|bpmpi_mdd4|Extra data defined by the shopkeeper|Alphanumeric [up to 255 positions]|No|
-|bpmpi_mdd5|Extra data defined by the shopkeeper|Alphanumeric [up to 255 positions]|No|
+|bpmpi_mdd1|Extra data defined by the merchant|Alphanumeric [up to 255 positions]|No|
+|bpmpi_mdd2|Extra data defined by the merchant|Alphanumeric [up to 255 positions]|No|
+|bpmpi_mdd3|Extra data defined by the merchant|Alphanumeric [up to 255 positions]|No|
+|bpmpi_mdd4|Extra data defined by the merchant|Alphanumeric [up to 255 positions]|No|
+|bpmpi_mdd5|Extra data defined by the merchant|Alphanumeric [up to 255 positions]|No|
 
 # Step 4 - Implementing the Authentication Event Request
 
 The event **bpmpi_Authenticate()**" must be called at checkout. See the example below:
 
-|||UNTRANSLATED_CONTENT_START|||&lt;input type=&quot;button&quot;onclick=&quot;bpmpi_authenticate()&quot; /&gt;|||UNTRANSLATED_CONTENT_END|||
+<input type="button"onclick="bpmpi_authenticate()" />
 
 # Test Cards
 
