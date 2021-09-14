@@ -194,7 +194,7 @@ See example below, describing the submission of authentication data from the Pag
 
 ### Response
 
-See [API Rest Integration Guide](https://braspag.github.io//en/manual/braspag-pagador#introduction-to-the-pagador-api) for authorization with authentication response detailed examples.
+See [API Rest Integration Guide](https://braspag.github.io//en/manualp/authorization-with-authentication?json#authorization-with-authentication) for detailed examples of Authorization with Authentication response.
 
 # ECI Table
 
