@@ -492,23 +492,23 @@
   <tbody>
     <tr>
       <td>success</td>
-      <td>Returned when the card is eligible and the authentication process has been successfully completed. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.</td>
+      <td>Returns when the card is eligible and the authentication process has been successfully completed. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.</td>
     </tr>
     <tr>
       <td>unenrolled</td>
-      <td>Returned when the card is not eligible, ie the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.</td>
+      <td>Returns when the card is not eligible, ie the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.</td>
     </tr>
     <tr>
       <td>failure</td>
-      <td>Returned when the card is eligible but has not had the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.</td>
+      <td>Returns when the card is eligible but has not had the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.</td>
     </tr>
     <tr>
       <td>error</td>
-      <td>Returned when the authentication process received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.</td>
+      <td>Returns when the authentication process received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.</td>
     </tr>
     <tr>
       <td>unsupportedBrand</td>
-      <td>Returned when card brand is not supported by 3DS 2.0</td>
+      <td>Returns when card brand is not supported by 3DS 2.0</td>
     </tr>
   </tbody>
 </table>
@@ -738,7 +738,7 @@
     </tr>
     <tr>
       <td>defaultCard</td>
-      <td>Indicates if it is a standard customer card in store</td>
+      <td>Indicates if it is a standard customer card in the store</td>
       <td>Boolean<br />true - yes<br />false - no</td>
       <td>No</td>
     </tr>
@@ -1029,7 +1029,7 @@
     </tr>
     <tr>
       <td>authenticationTimestamp</td>
-      <td>The date and time the store was logged in</td>
+      <td>The date and time the shopper logged in the store</td>
       <td>Text [19 positions] <em>YYYY-MM-ddTHH: mm: SS</em></td>
       <td>No</td>
     </tr>
