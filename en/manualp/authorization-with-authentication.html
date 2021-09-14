@@ -140,7 +140,7 @@
             <div class="post">
   <h1 id="authorization-with-authentication">Authorization with Authentication</h1>
 
-<p>After authentication is completed, it undergoes the authorization process by submitting the authentication data in the “external authentication” (node <strong>ExternalAuthentication</strong>).
+<p>After authentication is completed, the transaction undergoes the authorization process by submitting the authentication data in the “external authentication” (node <strong>ExternalAuthentication</strong>).
 This procedure is also valid for establishments that performed authentication outside Cielo (External MPI).</p>
 
 <p>For more details about 3DS 2.0, please visit: <a href="https://braspag.github.io//en/manualp/emv3ds">https://braspag.github.io//en/manualp/emv3ds</a></p>
@@ -232,7 +232,7 @@ This procedure is also valid for establishments that performed authentication ou
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Boolean defines if the buyer will be directed to the issuing Bank for card authentication</td>
+      <td>Defines if the buyer will be directed to the issuing Bank for card authentication</td>
       <td>Boolean (true or false)</td>
       <td>Yes, when authentication was a success</td>
     </tr>
@@ -277,7 +277,7 @@ This procedure is also valid for establishments that performed authentication ou
 
 <h3 id="response">Response</h3>
 
-<p>See <a href="https://braspag.github.io//en/manual/braspag-pagador">https://braspag.github.io//en/manual/braspag-pagador</a></p>
+<p>See response at <a href="https://braspag.github.io//en/manual/braspag-pagador#authenticating-a-transaction">API REST Integration Guide</a></p>
 
 <h1 id="authorization-for-data-only-transactions">Authorization for Data Only Transactions</h1>
 
