@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-09-14T13:56:30+00:00</updated>
+    <updated>2021-09-14T14:33:26+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -2196,14 +2196,14 @@ For more details on implementation, please visit: [Pagador API] (https://braspag
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;SANDBOX&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;https://authsandbox.braspag.com.br/oauth2/token&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Basic &lt;em&gt;(Authorization)&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;The Authorization value must be obtained by concatenating the value of the “ClientID”, colon (“:”), and “ClientSecret”&lt;br /&gt;E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=&lt;br /&gt;and then encode the result in base 64. &lt;br /&gt;This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: ClientID&lt;br /&gt;: &lt;strong&gt;dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e **&lt;br /&gt;ClientSecret:&lt;/strong&gt; D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag =**&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Basic &lt;em&gt;(Authorization)&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;The Authorization value must be obtained by concatenating the value of the “ClientID”, colon (“:”), and “ClientSecret”&lt;br /&gt;E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=&lt;br /&gt;and then encode the result in base 64. &lt;br /&gt;This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: &lt;br /&gt;ClientID: &lt;strong&gt;dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e **&lt;br /&gt;ClientSecret:&lt;/strong&gt; D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag =**&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;PRODUCTION&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;https://auth.braspag.com.br/oauth2/token&lt;/td&gt;
-      &lt;td&gt;Request the “ClientID” and “ClientSecret” data from the support team after completing sandbox development.&lt;/td&gt;
+      &lt;td&gt;Request the “ClientID” and “ClientSecret” data to the Support team after completing sandbox development.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2294,7 +2294,7 @@ For more details on implementation, please visit: [Pagador API] (https://braspag
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;braspag3ds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Braspag3ds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;accessToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;[Access_Token gerado no passo 1]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Environment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;production&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Then it is necessary to use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;authenticate&lt;/code&gt; method, informing the buyer data and the &lt;em&gt;callback&lt;/em&gt; that will receive the answer:&lt;/p&gt;
+&lt;p&gt;Then it is necessary to use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;authenticate&lt;/code&gt; method, informing the buyer data and the &lt;em&gt;callback&lt;/em&gt; that will receive the response:&lt;/p&gt;
 
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;braspag3ds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;authenticate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;orderData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;OrderData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
                         &lt;span class=&quot;nv&quot;&gt;cardData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;CardData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
@@ -2517,7 +2517,7 @@ For more details on implementation, please visit: [Pagador API] (https://braspag
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;notifyonly&lt;/td&gt;
-      &lt;td&gt;Boolean indicating whether the card transaction will be submitted in “notification only” mode. In this mode, the authentication process will not be triggered, however, the data will be flagged. ** VALID ONLY FOR MASTERCARD CARDS **&lt;/td&gt;
+      &lt;td&gt;Boolean indicating whether the card transaction will be submitted in “notification only” mode. In this mode, the authentication process will not be triggered, however, the data will be flagged. &lt;strong&gt;VALID ONLY FOR MASTERCARD CARDS&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Boolean: &lt;br /&gt;true - notification only mode; &lt;br /&gt;false - mode with authentication&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;

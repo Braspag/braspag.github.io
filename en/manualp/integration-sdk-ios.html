@@ -145,14 +145,14 @@
     <tr>
       <td><strong>SANDBOX</strong></td>
       <td>https://authsandbox.braspag.com.br/oauth2/token</td>
-      <td><strong>Basic <em>(Authorization)</em></strong><br />The Authorization value must be obtained by concatenating the value of the “ClientID”, colon (“:”), and “ClientSecret”<br />E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br />and then encode the result in base 64. <br />This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: ClientID<br />: <strong>dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e **<br />ClientSecret:</strong> D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag =**</td>
+      <td><strong>Basic <em>(Authorization)</em></strong><br />The Authorization value must be obtained by concatenating the value of the “ClientID”, colon (“:”), and “ClientSecret”<br />E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br />and then encode the result in base 64. <br />This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: <br />ClientID: <strong>dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e **<br />ClientSecret:</strong> D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag =**</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
       <td><strong>PRODUCTION</strong></td>
       <td>https://auth.braspag.com.br/oauth2/token</td>
-      <td>Request the “ClientID” and “ClientSecret” data from the support team after completing sandbox development.</td>
+      <td>Request the “ClientID” and “ClientSecret” data to the Support team after completing sandbox development.</td>
     </tr>
   </tbody>
 </table>
@@ -243,7 +243,7 @@
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">braspag3ds</span> <span class="o">=</span> <span class="kt">Braspag3ds</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="s">"[Access_Token gerado no passo 1]"</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="kt">Environment</span><span class="o">.</span><span class="n">production</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Then it is necessary to use the <code class="language-plaintext highlighter-rouge">authenticate</code> method, informing the buyer data and the <em>callback</em> that will receive the answer:</p>
+<p>Then it is necessary to use the <code class="language-plaintext highlighter-rouge">authenticate</code> method, informing the buyer data and the <em>callback</em> that will receive the response:</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3ds</span><span class="o">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="nv">orderData</span><span class="p">:</span> <span class="kt">OrderData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
                         <span class="nv">cardData</span><span class="p">:</span> <span class="kt">CardData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
@@ -466,7 +466,7 @@
   <tbody>
     <tr>
       <td>notifyonly</td>
-      <td>Boolean indicating whether the card transaction will be submitted in “notification only” mode. In this mode, the authentication process will not be triggered, however, the data will be flagged. ** VALID ONLY FOR MASTERCARD CARDS **</td>
+      <td>Boolean indicating whether the card transaction will be submitted in “notification only” mode. In this mode, the authentication process will not be triggered, however, the data will be flagged. <strong>VALID ONLY FOR MASTERCARD CARDS</strong></td>
       <td>Boolean: <br />true - notification only mode; <br />false - mode with authentication</td>
       <td>No</td>
     </tr>
