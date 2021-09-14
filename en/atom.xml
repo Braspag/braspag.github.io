@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-09-14T15:21:41+00:00</updated>
+    <updated>2021-09-14T15:26:36+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -5771,7 +5771,7 @@ See example below, describing the submission of authentication data from the Pag
 
 &lt;h3 id=&quot;response-1&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;See &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#introduction-to-the-pagador-api&quot;&gt;API Rest Integration Guide&lt;/a&gt; for authorization with authentication response detailed examples.&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&quot;https://braspag.github.io//en/manualp/authorization-with-authentication?json#authorization-with-authentication&quot;&gt;API Rest Integration Guide&lt;/a&gt; for detailed examples of Authorization with Authentication response.&lt;/p&gt;
 
 &lt;h1 id=&quot;eci-table&quot;&gt;ECI Table&lt;/h1&gt;
 
