@@ -342,8 +342,8 @@ To make it easier to use only what the merchant needs to send, the request is se
 |passwordChangedDate|Indicates the date when the shopper account password was changed|Text<br>YYYY-MM-DD - Last Password Change Date|No|
 |authenticationMethod|Authentication Method of the shopper in the store|*AuthenticationMethod* <br> NOAUTHENTICATION - Does not happen authentication<br>OWNSTORELOGIN - Login at the own store<br>FEDERATEDLOGIN - Login at federated store <br>FIDOAUTHENTICATOR - Login with FIDO authenticator|No|
 |authenticationProtocol|This represents the store login protocol|Alphanumeric [up to 2048 positions]|No|
-|authenticationTimestamp|The date and time the shopper logged in the store|Text [19 positions] _YYYY-MM-ddTHH: mm: SS_|No|
-|newCustomer|Identifies if a new buyer in the store|Boolean<br>true – yes<br>false – no|No|
+|authenticationTimestamp|The date and time the buyer logged in the store|Text [19 positions] _YYYY-MM-ddTHH: mm: SS_|No|
+|newCustomer|Identifies if is a new buyer in the store|Boolean<br>true – yes<br>false – no|No|
 
 ## AirlineData
 
