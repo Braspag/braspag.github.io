@@ -16,7 +16,7 @@ language_tabs:
 
 # Authorization with Authentication
 
-After authentication is completed, it undergoes the authorization process by submitting the authentication data in the "external authentication" (node **ExternalAuthentication**).
+After authentication is completed, the transaction undergoes the authorization process by submitting the authentication data in the "external authentication" (node **ExternalAuthentication**).
 This procedure is also valid for establishments that performed authentication outside Cielo (External MPI).
 
 For more details about 3DS 2.0, please visit: [https://braspag.github.io//en/manualp/emv3ds](https://braspag.github.io//en/manualp/emv3ds)
@@ -100,7 +100,7 @@ curl
 
 |**Field**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
-|`Payment.Authenticate`|Boolean defines if the buyer will be directed to the issuing Bank for card authentication|Boolean (true or false)|Yes, when authentication was a success|
+|`Payment.Authenticate`|Defines if the buyer will be directed to the issuing Bank for card authentication|Boolean (true or false)|Yes, when authentication was a success|
 |`Payment.ExternalAuthentication.ReturnUrl`|Return URL only applicable if version is "1"|Alphanumeric [1024 positions]|Yes|
 |`Payment.ExternalAuthentication.Cavv`|Signature that is returned in successful authentication scenarios| Text |Yes, when authentication was a success|
 |`Payment.ExternalAuthentication.Xid`|XID returned in authentication process| Text |Yes, when the 3DS version is "1"|
@@ -110,7 +110,7 @@ curl
 
 ### Response
 
-See [https://braspag.github.io//en/manual/braspag-pagador](https://braspag.github.io//en/manual/braspag-pagador)  
+See response at [API REST Integration Guide](https://braspag.github.io//en/manual/braspag-pagador#authenticating-a-transaction)  
 
 # Authorization for Data Only Transactions
 
