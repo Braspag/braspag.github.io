@@ -109,7 +109,7 @@ Veja abaixo um exemplo de envio de dados de autenticação da requisição de au
 
 ### Response
 
-Consulte o [Manual do Pagador](https://braspag.github.io/manual/braspag-pagador) para exemplos detalhados de response de autorização com autenticação.
+Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#autenticando-uma-transa%C3%A7%C3%A3o) para exemplos detalhados de response de autorização com autenticação.
 
 # Autorização para Transações Data Only
 
@@ -194,7 +194,7 @@ Veja abaixo um exemplo de envio de dados de autenticação da requisição de au
 
 ### Response
 
-Consulte o [Manual do Pagador](https://braspag.github.io/manual/braspag-pagador) para exemplos detalhados de response de autorização com autenticação.
+Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#autenticando-uma-transa%C3%A7%C3%A3o) para exemplos detalhados de response de autorização com autenticação.
 
 # Tabela de ECI
 
