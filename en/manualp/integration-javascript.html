@@ -278,7 +278,7 @@
 
 <p>In this step we implement the <em>script</em> and mapping of <em>classes</em>, responsible for communicating with the brand and issuer authentication platforms. Follow the example below, which demonstrates the basic implementation. It is recommended that the snippet be placed at the end of your checkout HTML code:</p>
 
-<p>To download the code, <a href="https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/example.html">go here</a></p>
+<p>To download the code, <a href="https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html">go here</a></p>
 
 <p><img src="https://braspag.github.io//images/exemplo-html.jpg" alt="3DS 2.0 Flux" /></p>
 
@@ -302,19 +302,19 @@
     </tr>
     <tr>
       <td>onFailure</td>
-      <td>Triggers when the card is eligible but the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.</td>
+      <td>Triggers when the card is eligible but the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.</td>
     </tr>
     <tr>
       <td>onUnenrolled</td>
-      <td>Triggers when the card is not eligible, i.e. the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.</td>
+      <td>Triggers when the card is not eligible, i.e. the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.</td>
     </tr>
     <tr>
       <td>onDisabled</td>
-      <td>Triggers when the merchant has chosen not to subject the bearer to the authentication process (class “bpmpi_auth” as false). In this scenario, if the transaction is authorized, the liability shift remains with the establishment.</td>
+      <td>Triggers when the merchant has chosen not to subject the bearer to the authentication process (class “bpmpi_auth” as false). In this scenario, if the transaction is authorized, the liability shift remains with the merchant.</td>
     </tr>
     <tr>
       <td>onError</td>
-      <td>Triggers when the authentication process has received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.</td>
+      <td>Triggers when the authentication process has received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.</td>
     </tr>
     <tr>
       <td>onUnsupportedBrand</td>
@@ -1022,31 +1022,31 @@
   <tbody>
     <tr>
       <td>bpmpi_mdd1</td>
-      <td>Extra data defined by the shopkeeper</td>
+      <td>Extra data defined by the merchant</td>
       <td>Alphanumeric [up to 255 positions]</td>
       <td>No</td>
     </tr>
     <tr>
       <td>bpmpi_mdd2</td>
-      <td>Extra data defined by the shopkeeper</td>
+      <td>Extra data defined by the merchant</td>
       <td>Alphanumeric [up to 255 positions]</td>
       <td>No</td>
     </tr>
     <tr>
       <td>bpmpi_mdd3</td>
-      <td>Extra data defined by the shopkeeper</td>
+      <td>Extra data defined by the merchant</td>
       <td>Alphanumeric [up to 255 positions]</td>
       <td>No</td>
     </tr>
     <tr>
       <td>bpmpi_mdd4</td>
-      <td>Extra data defined by the shopkeeper</td>
+      <td>Extra data defined by the merchant</td>
       <td>Alphanumeric [up to 255 positions]</td>
       <td>No</td>
     </tr>
     <tr>
       <td>bpmpi_mdd5</td>
-      <td>Extra data defined by the shopkeeper</td>
+      <td>Extra data defined by the merchant</td>
       <td>Alphanumeric [up to 255 positions]</td>
       <td>No</td>
     </tr>
@@ -1056,24 +1056,6 @@
 <h1 id="step-4---implementing-the-authentication-event-request">Step 4 - Implementing the Authentication Event Request</h1>
 
 <p>The event <strong>bpmpi_Authenticate()</strong>” must be called at checkout. See the example below:</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td>UNTRANSLATED_CONTENT_START</td>
-      <td> </td>
-      <td> </td>
-      <td>&lt;input type="button"onclick="bpmpi_authenticate()" /&gt;</td>
-      <td> </td>
-      <td> </td>
-      <td>UNTRANSLATED_CONTENT_END</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <h1 id="test-cards">Test Cards</h1>
 

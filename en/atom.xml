@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-09-14T18:04:32+00:00</updated>
+    <updated>2021-09-14T18:14:01+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -4636,7 +4636,7 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
 
 &lt;p&gt;In this step we implement the &lt;em&gt;script&lt;/em&gt; and mapping of &lt;em&gt;classes&lt;/em&gt;, responsible for communicating with the brand and issuer authentication platforms. Follow the example below, which demonstrates the basic implementation. It is recommended that the snippet be placed at the end of your checkout HTML code:&lt;/p&gt;
 
-&lt;p&gt;To download the code, &lt;a href=&quot;https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/example.html&quot;&gt;go here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To download the code, &lt;a href=&quot;https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html&quot;&gt;go here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/exemplo-html.jpg&quot; alt=&quot;3DS 2.0 Flux&quot; /&gt;&lt;/p&gt;
 
@@ -4660,19 +4660,19 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onFailure&lt;/td&gt;
-      &lt;td&gt;Triggers when the card is eligible but the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
+      &lt;td&gt;Triggers when the card is eligible but the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onUnenrolled&lt;/td&gt;
-      &lt;td&gt;Triggers when the card is not eligible, i.e. the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
+      &lt;td&gt;Triggers when the card is not eligible, i.e. the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onDisabled&lt;/td&gt;
-      &lt;td&gt;Triggers when the merchant has chosen not to subject the bearer to the authentication process (class “bpmpi_auth” as false). In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
+      &lt;td&gt;Triggers when the merchant has chosen not to subject the bearer to the authentication process (class “bpmpi_auth” as false). In this scenario, if the transaction is authorized, the liability shift remains with the merchant.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onError&lt;/td&gt;
-      &lt;td&gt;Triggers when the authentication process has received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.&lt;/td&gt;
+      &lt;td&gt;Triggers when the authentication process has received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onUnsupportedBrand&lt;/td&gt;
@@ -5380,31 +5380,31 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_mdd1&lt;/td&gt;
-      &lt;td&gt;Extra data defined by the shopkeeper&lt;/td&gt;
+      &lt;td&gt;Extra data defined by the merchant&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 255 positions]&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_mdd2&lt;/td&gt;
-      &lt;td&gt;Extra data defined by the shopkeeper&lt;/td&gt;
+      &lt;td&gt;Extra data defined by the merchant&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 255 positions]&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_mdd3&lt;/td&gt;
-      &lt;td&gt;Extra data defined by the shopkeeper&lt;/td&gt;
+      &lt;td&gt;Extra data defined by the merchant&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 255 positions]&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_mdd4&lt;/td&gt;
-      &lt;td&gt;Extra data defined by the shopkeeper&lt;/td&gt;
+      &lt;td&gt;Extra data defined by the merchant&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 255 positions]&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_mdd5&lt;/td&gt;
-      &lt;td&gt;Extra data defined by the shopkeeper&lt;/td&gt;
+      &lt;td&gt;Extra data defined by the merchant&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 255 positions]&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
@@ -5414,24 +5414,6 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
 &lt;h1 id=&quot;step-4---implementing-the-authentication-event-request&quot;&gt;Step 4 - Implementing the Authentication Event Request&lt;/h1&gt;
 
 &lt;p&gt;The event &lt;strong&gt;bpmpi_Authenticate()&lt;/strong&gt;” must be called at checkout. See the example below:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;UNTRANSLATED_CONTENT_START&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;&amp;lt;input type=&quot;button&quot;onclick=&quot;bpmpi_authenticate()&quot; /&amp;gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;UNTRANSLATED_CONTENT_END&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
 
 &lt;h1 id=&quot;test-cards&quot;&gt;Test Cards&lt;/h1&gt;
 
