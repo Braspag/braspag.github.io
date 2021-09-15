@@ -2112,6 +2112,8 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
    "MerchantOrderId":"2020102601",
    "Customer":{
       "Name":"Nome do Pagador"
+      "Identity":"12345678909"
+      "IdentityType":"CPF"
    },
    "Payment":{ 
       "Type":"Pix",
@@ -2132,6 +2134,8 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
    "MerchantOrderId":"2020102601",
    "Customer":{
       "Name":"Nome do Pagador"
+      "Identity":"CPF"
+      "IdentityType":"12345678909"
    },
    "Payment":{ 
       "Type":"Pix",
@@ -2145,7 +2149,9 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 | PROPRIEDADE| DESCRIÇÃO| TIPO| TAMANHO | OBRIGATÓRIO?|
 | --- | --- | --- | --- | --- |
 | `MerchantOrderId` | Número de identificação do pedido.| Texto | 50 | Sim |
-| `Customer.Name` | Nome do pagador. | Texto | 255 | Não |
+| `Customer.Name` | Nome do pagador. | Texto | 255 | Sim |
+| `Customer.Identity` | Número do CPF ou CNPJ do cliente. | Texto | 14 | Sim |
+| `Customer.IdentityType` | Tipo de documento de identificação do comprador (CPF ou CNPJ). | Texto | 255 | Sim |
 | `Payment.Type` | Tipo do meio de pagamento. Neste caso, "Pix". | Texto | - | Sim |
 | `Payment.Provider` |Nome do provedor do meio de pagamento. Neste caso, "Cielo30" ou "Bradesco2". | Texto | - | Sim |
 | `Payment.Amount` | Valor do pedido, em centavos.| Número | 15 | Sim |
