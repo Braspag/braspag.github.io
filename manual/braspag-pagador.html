@@ -3721,6 +3721,8 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2020102601"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
       </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Pagador"</span><span class="w">
+      </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="w">
+      </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w"> 
       </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Pix"</span><span class="p">,</span><span class="w">
@@ -3740,6 +3742,8 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
    <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2020102601"</span>,
    <span class="s2">"Customer"</span>:<span class="o">{</span>
       <span class="s2">"Name"</span>:<span class="s2">"Nome do Pagador"</span>
+      <span class="s2">"Identity"</span>:<span class="s2">"CPF"</span>
+      <span class="s2">"IdentityType"</span>:<span class="s2">"12345678909"</span>
    <span class="o">}</span>,
    <span class="s2">"Payment"</span>:<span class="o">{</span> 
       <span class="s2">"Type"</span>:<span class="s2">"Pix"</span>,
@@ -3773,7 +3777,21 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
       <td>Nome do pagador.</td>
       <td>Texto</td>
       <td>255</td>
-      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>Número do CPF ou CNPJ do cliente.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ).</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
