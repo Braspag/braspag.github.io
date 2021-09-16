@@ -2111,8 +2111,8 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 { 
    "MerchantOrderId":"2020102601",
    "Customer":{
-      "Name":"Nome do Pagador"
-      "Identity":"12345678909"
+      "Name":"Nome do Pagador",
+      "Identity":"12345678909",
       "IdentityType":"CPF"
    },
    "Payment":{ 
@@ -2133,8 +2133,8 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 { 
    "MerchantOrderId":"2020102601",
    "Customer":{
-      "Name":"Nome do Pagador"
-      "Identity":"CPF"
+      "Name":"Nome do Pagador",
+      "Identity":"CPF",
       "IdentityType":"12345678909"
    },
    "Payment":{ 
