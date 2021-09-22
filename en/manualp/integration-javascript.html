@@ -1134,7 +1134,80 @@ See more details at: <a href="https://braspag.github.io//en/manualp/authorizatio
 
 <h1 id="last-updates">Last updates</h1>
 
-<p>To see the manual’s latest updates, <a href="https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-javascript.md">click here</a></p>
+<p>To see the manual’s latest updates, <a href="https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-javascript.md">click here</a>.</p>
+
+<h1 id="annex">ANNEX</h1>
+
+<h2 id="reason-codes-list">Reason Codes List</h2>
+
+<p>See the reason codes that Cybersource returns with the response.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reason Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>100</td>
+      <td>Successful transaction.</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>The request is missing one or more required fields.<br /> Possible action: See the response fields <strong>missingField_0</strong> through <strong>missingField_N</strong> for the missing fields. Resend the request with the complete information.</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>One or more fields in the request contains invalid data. <br />Possible action: See the response fields <strong>invalidField_0</strong> through <strong>invalidField_N</strong> for the invalid fields. Resend the request with the correct information.</td>
+    </tr>
+    <tr>
+      <td>150</td>
+      <td>Error: General system failure.<br />Possible action: Wait a few minutes and resend the request.</td>
+    </tr>
+    <tr>
+      <td>151</td>
+      <td>Error: The request was received, but a server time-out occurred. This error does not include time-outs between the client and the server.<br />Possible action: Wait a few minutes and resend the request.</td>
+    </tr>
+    <tr>
+      <td>152</td>
+      <td>Error: The request was received, but a service time-out occurred. <br />Possible action: Wait a few minutes and resend the request.</td>
+    </tr>
+    <tr>
+      <td>234</td>
+      <td>A problem exists with your Cybersource merchant configuration.<br />Possible action: Do not resend the request. Contact Customer Support to correct the configuration problem.</td>
+    </tr>
+    <tr>
+      <td>475</td>
+      <td>The customer is enrolled in payer authentication. Authenticate the cardholder before continuing with the transaction.</td>
+    </tr>
+    <tr>
+      <td>476</td>
+      <td>The customer cannot be authenticated.<br /> Possible action: Review the customer’s order.</td>
+    </tr>
+    <tr>
+      <td>MPI901</td>
+      <td>Unexpected error.</td>
+    </tr>
+    <tr>
+      <td>MPI902</td>
+      <td>Unexpected authentication response.</td>
+    </tr>
+    <tr>
+      <td>MPI900</td>
+      <td>An error has occurred.</td>
+    </tr>
+    <tr>
+      <td>MPI601</td>
+      <td>Challenge suppressed.</td>
+    </tr>
+    <tr>
+      <td>MPI600</td>
+      <td>Brand not supported for authentication.</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 

@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-09-22T17:10:00+00:00</updated>
+    <updated>2021-09-22T18:59:44+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -5492,7 +5492,80 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
 
 &lt;h1 id=&quot;last-updates&quot;&gt;Last updates&lt;/h1&gt;
 
-&lt;p&gt;To see the manual’s latest updates, &lt;a href=&quot;https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-javascript.md&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To see the manual’s latest updates, &lt;a href=&quot;https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-javascript.md&quot;&gt;click here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;annex&quot;&gt;ANNEX&lt;/h1&gt;
+
+&lt;h2 id=&quot;reason-codes-list&quot;&gt;Reason Codes List&lt;/h2&gt;
+
+&lt;p&gt;See the reason codes that Cybersource returns with the response.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Reason Code&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;Successful transaction.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;The request is missing one or more required fields.&lt;br /&gt; Possible action: See the response fields &lt;strong&gt;missingField_0&lt;/strong&gt; through &lt;strong&gt;missingField_N&lt;/strong&gt; for the missing fields. Resend the request with the complete information.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;102&lt;/td&gt;
+      &lt;td&gt;One or more fields in the request contains invalid data. &lt;br /&gt;Possible action: See the response fields &lt;strong&gt;invalidField_0&lt;/strong&gt; through &lt;strong&gt;invalidField_N&lt;/strong&gt; for the invalid fields. Resend the request with the correct information.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;150&lt;/td&gt;
+      &lt;td&gt;Error: General system failure.&lt;br /&gt;Possible action: Wait a few minutes and resend the request.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;151&lt;/td&gt;
+      &lt;td&gt;Error: The request was received, but a server time-out occurred. This error does not include time-outs between the client and the server.&lt;br /&gt;Possible action: Wait a few minutes and resend the request.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;152&lt;/td&gt;
+      &lt;td&gt;Error: The request was received, but a service time-out occurred. &lt;br /&gt;Possible action: Wait a few minutes and resend the request.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;234&lt;/td&gt;
+      &lt;td&gt;A problem exists with your Cybersource merchant configuration.&lt;br /&gt;Possible action: Do not resend the request. Contact Customer Support to correct the configuration problem.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;475&lt;/td&gt;
+      &lt;td&gt;The customer is enrolled in payer authentication. Authenticate the cardholder before continuing with the transaction.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;476&lt;/td&gt;
+      &lt;td&gt;The customer cannot be authenticated.&lt;br /&gt; Possible action: Review the customer’s order.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MPI901&lt;/td&gt;
+      &lt;td&gt;Unexpected error.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MPI902&lt;/td&gt;
+      &lt;td&gt;Unexpected authentication response.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MPI900&lt;/td&gt;
+      &lt;td&gt;An error has occurred.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MPI601&lt;/td&gt;
+      &lt;td&gt;Challenge suppressed.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MPI600&lt;/td&gt;
+      &lt;td&gt;Brand not supported for authentication.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </entry>
     
