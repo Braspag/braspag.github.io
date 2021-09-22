@@ -288,3 +288,26 @@ Veja maiores detalhes em: [https://braspag.github.io/manual/autorizacao-com-aute
 # Últimas atualizações
 
 Para visualizar as últimas atualizações do manual, [clique aqui](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-13-integracao-javascript.md)
+
+# ANEXO
+
+## Lista de Reason Codes
+
+Na tabela a seguir, apresentamos os reason codes que a Cybersource pode retornar como resultado de uma requisição.
+
+| Reason Code | Descrição |
+|---|---|
+|     100     |Transação realizada com sucesso.|
+|     101     |Está faltando um ou mais campos obrigatórios na requisição.<br>Ação possível: confira os campos **missingField_0** até **missingField_N** na resposta. Envie a requisição novamente com a informação completa.|
+|     102     |Um ou mais campos da requisição contêm dados inválidos.<br>Ação possível: confira os campos  **invalidField_0** até **invalidField_N** na resposta. Reenvie a requisição com a informação correta.|
+|     150     |Erro: falha geral no sistema.<br>Ação possível: aguarde alguns minutos e envie a requisição novamente.|
+|     151     |Erro: a requisição foi recebida, mas houve *time-out* do servidor. Esse erro não inclui *time-outs* entre cliente e servidor.<br>Ação possível: aguarde alguns minutos e envie a requisição novamente.|
+|     152     |Erro: a requisição foi recebida, mas houve *time-out* de serviço.<br>Ação possível: aguarde alguns minutos e envie a requisição novamente.|
+|     234     |Há um problema na sua configuração de merchant.<br>Ação possível: não envie a requisição novamente. Entre em contato com o suporte da Braaspag para corrigir o problema de configuração.|
+|     475     |O cliente está registrado na autenticação do pagante. Faça a autenticação do portador do cartão antes de prosseguir com a transação.|
+|     476     |O cliente não pode ser autenticado.<br>Ação possível: revise o pedido do cliente.|
+|   MPI901    |Erro inesperado.|
+|   MPI902    |Resposta inesperada da autenticação.|
+|   MPI900    |Ocorreu um erro.|
+|   MPI601    |Desafio omitido.|
+|   MPI600    |Bandeira não suporta a autenticação.|
