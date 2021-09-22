@@ -303,7 +303,7 @@ See the reason codes that Cybersource returns with the response.
 |     150     | Error: General system failure.<br>Possible action: Wait a few minutes and resend the request.|
 |     151     | Error: The request was received, but a server time-out occurred. This error does not include time-outs between the client and the server.<br>Possible action: Wait a few minutes and resend the request.|
 |     152     | Error: The request was received, but a service time-out occurred. <br>Possible action: Wait a few minutes and resend the request.|
-|     234     | A problem exists with your Cybersource merchant configuration.<br>Possible action: Do not resend the request. Contact Customer Support to correct the configuration problem.|
+|     234     | A problem exists with your merchant configuration.<br>Possible action: Do not resend the request. Contact Braspag Support to correct the configuration problem.|
 |     475     | The customer is enrolled in payer authentication. Authenticate the cardholder before continuing with the transaction.|
 |     476     | The customer cannot be authenticated.<br> Possible action: Review the customer’s order.|
 |   MPI901    |Unexpected error.|
