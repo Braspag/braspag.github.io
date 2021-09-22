@@ -287,4 +287,27 @@ See more details at: [https://braspag.github.io//en/manualp/authorization-with-a
 
 # Last updates
 
-To see the manual's latest updates, [click here](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-javascript.md)
+To see the manual's latest updates, [click here](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-javascript.md).
+
+# ANNEX
+
+## Reason Codes List
+
+See the reason codes that Cybersource returns with the response.
+
+| Reason Code |Description|
+|---|---|
+|     100     | Successful transaction.|
+|     101     | The request is missing one or more required fields.<br> Possible action: See the response fields **missingField_0** through **missingField_N** for the missing fields. Resend the request with the complete information.
+|     102     | One or more fields in the request contains invalid data. <br>Possible action: See the response fields **invalidField_0** through **invalidField_N** for the invalid fields. Resend the request with the correct information.|
+|     150     | Error: General system failure.<br>Possible action: Wait a few minutes and resend the request.|
+|     151     | Error: The request was received, but a server time-out occurred. This error does not include time-outs between the client and the server.<br>Possible action: Wait a few minutes and resend the request.|
+|     152     | Error: The request was received, but a service time-out occurred. <br>Possible action: Wait a few minutes and resend the request.|
+|     234     | A problem exists with your Cybersource merchant configuration.<br>Possible action: Do not resend the request. Contact Customer Support to correct the configuration problem.|
+|     475     | The customer is enrolled in payer authentication. Authenticate the cardholder before continuing with the transaction.|
+|     476     | The customer cannot be authenticated.<br> Possible action: Review the customer’s order.|
+|   MPI901    |Unexpected error.|
+|   MPI902    |Unexpected authentication response.|
+|   MPI900    |An error has occurred.|
+|   MPI601    |Challenge suppressed.|
+|   MPI600    |Brand not supported for authentication.|
