@@ -1124,6 +1124,79 @@ Veja maiores detalhes em: <a href="https://braspag.github.io/manual/autorizacao-
 
 <p>Para visualizar as últimas atualizações do manual, <a href="https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-13-integracao-javascript.md">clique aqui</a></p>
 
+<h1 id="anexo">ANEXO</h1>
+
+<h2 id="lista-de-reason-codes">Lista de Reason Codes</h2>
+
+<p>Na tabela a seguir, apresentamos os reason codes que a Cybersource pode retornar como resultado de uma requisição.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reason Code</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>100</td>
+      <td>Transação realizada com sucesso.</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>Está faltando um ou mais campos obrigatórios na requisição.<br />Ação possível: confira os campos <strong>missingField_0</strong> até <strong>missingField_N</strong> na resposta. Envie a requisição novamente com a informação completa.</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Um ou mais campos da requisição contêm dados inválidos.<br />Ação possível: confira os campos  <strong>invalidField_0</strong> até <strong>invalidField_N</strong> na resposta. Reenvie a requisição com a informação correta.</td>
+    </tr>
+    <tr>
+      <td>150</td>
+      <td>Erro: falha geral no sistema.<br />Ação possível: aguarde alguns minutos e envie a requisição novamente.</td>
+    </tr>
+    <tr>
+      <td>151</td>
+      <td>Erro: a requisição foi recebida, mas houve <em>time-out</em> do servidor. Esse erro não inclui <em>time-outs</em> entre cliente e servidor.<br />Ação possível: aguarde alguns minutos e envie a requisição novamente.</td>
+    </tr>
+    <tr>
+      <td>152</td>
+      <td>Erro: a requisição foi recebida, mas houve <em>time-out</em> de serviço.<br />Ação possível: aguarde alguns minutos e envie a requisição novamente.</td>
+    </tr>
+    <tr>
+      <td>234</td>
+      <td>Há um problema na sua configuração de merchant.<br />Ação possível: não envie a requisição novamente. Entre em contato com o suporte da Braaspag para corrigir o problema de configuração.</td>
+    </tr>
+    <tr>
+      <td>475</td>
+      <td>O cliente está registrado na autenticação do pagante. Faça a autenticação do portador do cartão antes de prosseguir com a transação.</td>
+    </tr>
+    <tr>
+      <td>476</td>
+      <td>O cliente não pode ser autenticado.<br />Ação possível: revise o pedido do cliente.</td>
+    </tr>
+    <tr>
+      <td>MPI901</td>
+      <td>Erro inesperado.</td>
+    </tr>
+    <tr>
+      <td>MPI902</td>
+      <td>Resposta inesperada da autenticação.</td>
+    </tr>
+    <tr>
+      <td>MPI900</td>
+      <td>Ocorreu um erro.</td>
+    </tr>
+    <tr>
+      <td>MPI601</td>
+      <td>Desafio omitido.</td>
+    </tr>
+    <tr>
+      <td>MPI600</td>
+      <td>Bandeira não suporta a autenticação.</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
