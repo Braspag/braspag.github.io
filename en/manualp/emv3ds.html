@@ -171,11 +171,13 @@
 
 <aside class="notice">If you have implemented authentication mechanism outside Cielo (External MPI), skip straight to "Authorization Step"</aside>
 
-<h2 id="brands-and-issuers-available">Brands and Issuers Available</h2>
+<h2 id="brands-issuers-and-acquirers-available">Brands, Issuers and Acquirers Available</h2>
 
 <p>For sending transactions with 3DS 2.0 authentication request it is essential that, in addition to Cielo, the Issuer and Brand are ready with the solution. Among the market brands, Visa, Mastercard and Elo are currently available in Cielo 3DS 2.0. Visa and Mastercard have a Stand-In model if the Issuer is not yet able to respond to an authentication request using EMV 3DS 2.0. In this scenario, the brand evaluates the submitted data, such as customer behavioral and transactional history, classifying authentication requests as “Low Risk” and “Not Low Risk”. From this information, Issuers can be protected even without having their own 3DS 2.0 solution, and will have greater confidence in authenticated transactions. In Stand-In cases, authentication occurs silently (without challenge to the cardholder) and once the transaction has been authenticated, liability in case of fraud will be held by the Issuer. The decision to authorize the transaction or not is up to the Issuer. In transactions authenticated by the card brand, the decision to authorize (or not) a transaction is still with the issuer, which can deny to authorize transactions in the authorization stage.</p>
 
 <p>Soon Amex will also be available.</p>
+
+<p>The acquirers that operate 3DS 2.0 authentication with Braspag are Cielo, Rede, and Getnet.</p>
 
 <h2 id="what-is-data-only---notification-only">What is Data Only - Notification Only</h2>
 

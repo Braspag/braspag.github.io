@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-09-22T20:01:45+00:00</updated>
+    <updated>2021-09-22T20:30:21+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -10335,11 +10335,13 @@ The Master must provide Subordinate information in order to use it during the On
 
 &lt;aside class=&quot;notice&quot;&gt;If you have implemented authentication mechanism outside Cielo (External MPI), skip straight to &quot;Authorization Step&quot;&lt;/aside&gt;
 
-&lt;h2 id=&quot;brands-and-issuers-available&quot;&gt;Brands and Issuers Available&lt;/h2&gt;
+&lt;h2 id=&quot;brands-issuers-and-acquirers-available&quot;&gt;Brands, Issuers and Acquirers Available&lt;/h2&gt;
 
 &lt;p&gt;For sending transactions with 3DS 2.0 authentication request it is essential that, in addition to Cielo, the Issuer and Brand are ready with the solution. Among the market brands, Visa, Mastercard and Elo are currently available in Cielo 3DS 2.0. Visa and Mastercard have a Stand-In model if the Issuer is not yet able to respond to an authentication request using EMV 3DS 2.0. In this scenario, the brand evaluates the submitted data, such as customer behavioral and transactional history, classifying authentication requests as “Low Risk” and “Not Low Risk”. From this information, Issuers can be protected even without having their own 3DS 2.0 solution, and will have greater confidence in authenticated transactions. In Stand-In cases, authentication occurs silently (without challenge to the cardholder) and once the transaction has been authenticated, liability in case of fraud will be held by the Issuer. The decision to authorize the transaction or not is up to the Issuer. In transactions authenticated by the card brand, the decision to authorize (or not) a transaction is still with the issuer, which can deny to authorize transactions in the authorization stage.&lt;/p&gt;
 
 &lt;p&gt;Soon Amex will also be available.&lt;/p&gt;
+
+&lt;p&gt;The acquirers that operate 3DS 2.0 authentication with Braspag are Cielo, Rede, and Getnet.&lt;/p&gt;
 
 &lt;h2 id=&quot;what-is-data-only---notification-only&quot;&gt;What is Data Only - Notification Only&lt;/h2&gt;
 
