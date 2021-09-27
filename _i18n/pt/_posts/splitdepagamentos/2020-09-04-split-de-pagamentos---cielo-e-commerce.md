@@ -17,46 +17,46 @@ tags:
 
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
-> Solicite suas credenciais para o ambiente de teste em nosso portal de suporte https://suporte.braspag.com.br ou pelo telefone 3003-6554
+> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br).
 
 Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
 
 | **Participantes** | **Descrição** |
 |-----------|---------- |
-| **Marketplace** | Responsável pelo carrinho (Master). <br> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<br> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<br> Pode participar de uma venda fornecendo seus próprios produtos. |
+| **Master** | Responsável pelo carrinho (Master). <br> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<br> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<br> Pode participar de uma venda fornecendo seus próprios produtos. |
 | **Subordinado** | Fornecedor dos produtos que compõem o carrinho.<br>Recebe parte do valor da venda, descontadas as taxas acordadas com o **Marketplace**.|
 | **Braspag (Facilitador)** | Responsável pelo fluxo transacional.<br> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo **Marketplace**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Marketplace**.|
 
-No Split de Pagamentos o responsável pelo fluxo transacional é a Braspag (facilitador).
+No Split de Pagamentos, a responsável pelo fluxo transacional é a Braspag (facilitador).
 
-O Marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como Split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.
+O marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como Split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.
 
 Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento\*), para cada envolvido na transação.
 
-> **Regime de Pagamento**: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
+> **Regime de Pagamento**: prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
 > <br>
-> **Crédito**: Em até 31 dias. <br>
-> **Crédito Parcelado**: 1º parcela em até 31 dias, demais a cada 30.<br>
-> **Débito**: Em até 2 dias úteis.
+> **Crédito**: em até 31 dias. <br>
+> **Crédito Parcelado**: 1º parcela em até 31 dias, demais a cada 30 dias.<br>
+> **Débito**: em até 2 dias úteis.
 
-Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como **MerchantId (MID)**, que deverá ser utlizado ao informar as regras de divisão de uma transação.
+Para utilizar o Split de Pagamentos, o Master (plataforma de marketplace) deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Master quanto seus Subordinados possuirão um identificador único, conhecido como **MerchantId (MID)**, que deverá ser utlizado ao informar as regras de divisão de uma transação.
 
-Na divisão de uma transação, devem ser informados:
+Na divisão de uma transação, você deve informar:
 
 * Os **identificadores dos Subordinados**.
 * Os **valores de participação de cada Subordinado**. O somatório deverá ser igual ao valor total da transação.
-* **Taxas** a serem aplicadas sobre o valor de cada Subordinado destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.
+* As **Taxas** a serem aplicadas sobre o valor de cada Subordinado destinadas ao Master. Essas taxas deverão ser acordadas previamente entre o Master e o Subordinado.
 
-O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de **Subordinado** e ter seus próprios produtos no carrinho.
+O Master também pode ser um participante da divisão; para isso, basta informar seu identificador. Nessa situação, o Master passa a ter também o papel de **Subordinado** e ter seus próprios produtos no carrinho.
 
 ## Taxas
 
-As taxas acordadas entre os participantes, podendo ser um **MDR(%)** e/ou uma **Taxa Fixa(R$)**, devem ser definidas no momento do cadastro do Marketplace e dos seus Subordinados junto à Braspag (Facilitador).
+As taxas acordadas entre os participantes, que podem ser um **MDR (%)** e/ou uma **Taxa Fixa (R$)**, devem ser definidas no momento do cadastro do Master e dos seus Subordinados junto à Braspag (Facilitador).
 
-As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.
+As taxas podem ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.
 
-> **MDR (*Merchant Discount Rate*):** Percentual a ser descontado do valor de uma transação, definido por produto (Crédito / Débito), Bandeira e Faixa de Parcelamento. <br>
-> **Fee:** Taxa fixa. Valor em centavos a ser cobrado por transação capturada.
+> **MDR (*Merchant Discount Rate*):** percentual a ser descontado do valor de uma transação, definido por produto (crédito/débito), bandeira e faixa de parcelamento. <br>
+> **Fee:** taxa fixa. Valor em centavos a ser cobrado por transação capturada.
 
 ### Braspag (Facilitador)
 
