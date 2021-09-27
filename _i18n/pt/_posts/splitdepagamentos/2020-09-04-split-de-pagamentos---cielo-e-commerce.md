@@ -62,53 +62,53 @@ As taxas podem ser enviadas no momento transacional (captura) ou pós-transacion
 
 A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.
 
-O Marketplace, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).
+O Master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).
 
 O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem para receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.
 
 > **Custo Marketplace:** MDR Braspag (%) + Tarifa Fixa Braspag (R$)
 
-### Marketplace
+### Master (marketplace)
 
-O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace, e uma Tarifa Fixa, que é opcional.
+O Master é responsável por acordar as taxas a serem cobradas dos seus Subordinados, definindo um MDR maior ou igual ao MDR definido com a Braspag (Facilitador), e uma Tarifa Fixa, que é opcional.
 
 > **Custo Subordinado:** MDR Marketplace (%) + Tarifa Fixa (R$), onde o MDR Marketplace (%) considera o MDR Braspag (%).
 
 ### Exemplo
 
-Uma transação de **R$100,00**, realizada por um **Marketplace** com participação do **Subordinado 01**.
+Uma transação de **R$100,00**, realizada por um **Master** com participação do **Subordinado 01**.
 
 ![SplitSample001](https://developercielo.github.io/images/split/split001.png)
 
 Neste exemplo, foram assumidos os seguintes acordos:
 
 **Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.  
-**Taxa Marketplace**: 3,5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.
+**Taxa Master**: 3,5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.
 
 Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:
 
 **Subordinado**:  
-Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Marketplace]
+Crédito: R$96,20 (descontados o MDR e a Tarifa Fixa acordados com o Master)
 
-**Marketplace**:  
-Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]
-Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
+**Master (marketplace)**:  
+Crédito: R$1,80 (MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag)
+Débito: R$0,10 (Tarifa Fixa acordada com a Braspag)
 
 **Braspag (Facilitador)**:  
-Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
-Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]
+Crédito: R$2,00 (MDR aplicado sobre o valor total da transação)
+Crédito: R$0,10 (Tarifa Fixa acordada com o Master)
 
 ## Bandeiras
 
 As bandeiras suportadas pelo Split são:
 
-* Visa
-* MasterCard
-* Elo
-* Amex
-* Hipercard
-* Diners
-* Discover
+* Visa;
+* Mastercard;
+* Elo;
+* Amex;
+* Hipercard;
+* Diners;
+* Discover.
 
 # Ambientes
 
@@ -134,11 +134,11 @@ O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth
 
 Para obter um token de acesso:
 
-1. Concatene o ClientId e ClientSecret: `ClientId:ClientSecret`.  
-2. Codifique o resultado da concatenação em Base64.  
-3. Realize uma requisição ao servidor de autorização:  
+1. Concatene o ClientId e ClientSecret: `ClientId:ClientSecret`;  
+2. Codifique o resultado da concatenação em Base64;  
+3. Realize uma requisição ao servidor de autorização.  
 
-**Request**  
+#### Requisição  
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
@@ -149,7 +149,7 @@ x-www-form-urlencoded
 grant_type=client_credentials
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -161,278 +161,7 @@ grant_type=client_credentials
 
 > O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
 
-O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.  
-
-# QuickStart
-
-O request de crédito do Split é composto por 4 campos obrigatórios: **MerchantOrderId**, **Customer**, **Payment** e **Payment.FraudAnalysis**.
-
-Abaixo montaremos um request simples. O suficiente para enviarmos a nossa primeira transação, sem nos preocuparmos muito com detalhes. **Esse exemplo é o básico para entendimento e não deve ser utilizado em produção**.
-
-## MerchantOrderId
-
-Esse campo é onde informamos o número do pedido que existe na loja do cliente.
-
-```json
-{
-    "MerchantOrderId":"201904150001"
-}
-```
-
-|Campos|Tipo|Tamanho|Obrigatório|Descrição|
-|-----|----|-------|-----------|---------|
-|**MerchantOrderId**|Texto|50|Sim|Número de identificação do pedido|
-
-## Customer
-
-Esse campo contém os dados do comprador. Possui diversos subcampos que devem ser analisados cuidadosamente.
-
-```json
-{
-    "Customer":{
-        "Name": "João da Silva Accept",
-        "Identity":"12345678900",
-        "IdentityType":"CPF"
-    }
-}
-```
-
-|Campos|Tipo|Tamanho|Obrigatório|Descrição|
-|-----|----|-------|-----------|---------|
-|`Customer`|-|-|Sim|Dados do comprador|
-|`Customer.Name`|Texto|61|Sim|Nome do comprador (No ambiente de Sandbox, o último nome do comprador deverá ser **ACCEPT**. Ex.: "João da Silva Accept")|
-|`Customer.Identity`|Texto|18|Sim|Número de documento do comprador|
-|`Customer.IdentityType`|Texto|4|Sim|Tipo de documento de identificação do comprador. Ex.: `CPF` ou `CNPJ`|
-
-## Payment
-
-Esse campo possui os elementos da transação, assim como o antifraude (**Payment.FraudAnalysis**), que será explicado separadamente.
-
-Aqui é possível especificar se uma transação será efetuada como crédito ou débito, se utilizará um token de cartão, o número de parcelas e etc.
-
-```json
-{
-    "Payment":{
-        "Type":"SplittedCreditCard",
-        "Amount":10000,
-        "Capture": true,
-        "Installments":1,
-        "SoftDescriptor":"LojaDoJoao",
-        "CreditCard":{
-            "CardNumber":"4481530710186111",
-            "Holder":"Yamilet Taylor",
-            "ExpirationDate":"12/2022",
-            "SecurityCode":"693",
-            "Brand":"Visa"
-        }
-    }
-
-}
-```
-
-|Campos|Tipo|Tamanho|Obrigatório|Descrição|
-|-----|----|-------|-----------|---------|
-|`Payment`|-|-|Sim|Campos refente ao pagamento e antifraude|
-|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. Possíveis Valores: `SplittedCreditCard` ou `SplittedDebitCard`|
-|`Payment.Amount`|Inteiro|15|Sim|Valor do pedido em centavos. Ex.: R$ 1.559,85 = 155985|
-|`Payment.Capture`|Boleano|-|Sim|Parâmetro para capturar a transação. Caso o valor seja `False` a transação será apenas autorizada. Se for `True`, a captura será realizada automaticamente após a autorização.|
-|`Payment.Installments`|Inteiro|2|Sim|Número de parcelas do pedido|
-|`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
-|`Payment.CreditCard`|-|-|Sim|Nó contendo as informações do cartão|
-|`Payment.CreditCard.CardNumber`|Texto|19|Sim|Número do cartão do comprador|
-|`Payment.CreditCard.Holder`|Texto|50|Sim|Nome do comprador impresso no cartão|
-|`Payment.CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade do cartão composta por MM/AAAA|
-|`Payment.CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`Payment.CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão  |Possíveis valores: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover|
-
-## Payment.FraudAnalysis
-
-Esse campo é referente ao sistema de antifraude. 
-O antifraude é obrigatório no Split de Pagamentos. E para esse sistema utilizamos o nosso parceiro [CyberSource](https://www.cybersource.com/) do Grupo [Visa](https://www.visa.com.br/).
-A fim de exemplificar uma transação da forma mais simples possível, alguns campos obrigatórios para o ambiente de produção não foram passados.
-
-Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefinedFields**.
-
-```json
-{
-    "Payment":{
-        "FraudAnalysis":{
-            "Provider":"Cybersource",
-            "TotalOrderAmount":10000
-        }
-    }
-}
-```
-
-|Campos|Tipo|Tamanho|Obrigatório|Descrição|
-|-----|----|-------|-----------|---------|
-|`Payment.FraudAnalysis`|-|-|-|Nó contendo as informações para Análise de Fraude|
-|`Payment.FraudAnalysis.Provider`|Texto|12|Sim|Identifica o provedor da solução de análise de fraude  |Possíveis valores: `Cybersource`|
-|`Payment.FraudAnalysis.TotalOrderAmount`|Inteiro|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação  |Ex.: Valor do pedido sem a taxa de entrega|
-
-**Request**
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
-
-```json
-
---header "Authorization: Bearer {access_token}"
---header "Content-Type: application/json"
-
---body
-{
-    "MerchantOrderId":"201904150001",
-    "Customer":{
-        "Name": "João da Silva",
-        "Identity":"12345678900",
-        "IdentityType":"CPF"
-    },
-    "Payment":{
-        "Type":"SplittedCreditCard",
-        "Amount":10000,
-        "Capture":True,
-        "Installments":1,
-        "SoftDescriptor":"LojaDoJoao",
-        "CreditCard":{
-            "CardNumber":"4481530710186111",
-            "Holder":"Yamilet Taylor",
-            "ExpirationDate":"12/2022",
-            "SecurityCode":"693",
-            "Brand":"Visa"
-        },
-        "SplitPayments":[
-            {
-                "SubordinateMerchantId" :"f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                "Amount":10000,
-                "Fares":{
-                    "Mdr":5,
-                    "Fee":0
-                    }
-            }
-            ],
-        "FraudAnalysis":{
-            "Provider":"Cybersource",
-            "TotalOrderAmount":10000
-        }
-    }
-}
-```
-
-|Campos|Tipo|Tamanho|Obrigatório|Descrição|
-|-----|----|-------|-----------|---------|
-|`SplitPayments.SubordinateMerchantId`|Guid|36|Sim|Identificador do Seller na Braspag|
-|`SplitPayments.Amount`|Número|15|Sim|Total da venda do Seller específico. R$ 100,00 = 10000|
-|`SplitPayments.Fares.Mdr`|Decimal|3,2|Não|Taxa aplicada pela loja Master sobre o Seller para desconto|
-|`SplitPayments.Fares.Fee`|Número|15|Não|Tarifa aplicada pela loja Master sobre o Seller para desconto|
-
-**Response**
-
-```json
-{
-    "MerchantOrderId": "201904150001",
-    "Customer": {
-        "Name": "João da Silva Accept",
-        "Identity": "12345678900",
-        "IdentityType": "CPF"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": 0,
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "CreditCard": {
-            "CardNumber": "448153******6111",
-            "Holder": "Yamilet Taylor",
-            "ExpirationDate": "12/2022",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "Tid": "0415043705142",
-        "ProofOfSale": "20190415043705142",
-        "AuthorizationCode": "910636",
-        "SoftDescriptor": "LojaDoJoao",
-        "Provider": "Simulado",
-        "FraudAnalysis": {
-            "Id": "ebc340d8-b55f-e911-b49e-0003ff358dcf",
-            "Status": 1,
-            "StatusDescription": "Accept",
-            "ReplyData": {
-                "FactorCode": "F^H",
-                "Score": 40,
-                "HostSeverity": 1,
-                "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-HIST",
-                "ScoreModelUsed": "default",
-                "VelocityInfoCode": "VEL-NAME",
-                "CasePriority": 3,
-                "ProviderTransactionId": "5553570245616166304007"
-            },
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "OnSuccess",
-            "TotalOrderAmount": 10000,
-            "TransactionAmount": 0,
-            "FraudAnalysisReasonCode": 100,
-            "Provider": "Cybersource",
-            "IsRetryTransaction": false
-        },
-        "SplitPayments": [
-            {
-                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                "Amount": 10000,
-                "Fares": {
-                    "Mdr": 5.0,
-                    "Fee": 0
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                        "Amount": 9500
-                    },
-                    {
-                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
-                        "Amount": 500
-                    }
-                ]
-            }
-        ],
-        "IsQrCode": false,
-        "Amount": 10000,
-        "ReceivedDate": "2019-04-15 16:37:01",
-        "CapturedAmount": 10000,
-        "CapturedDate": "2019-04-15 16:37:05",
-        "Status": 2,
-        "IsSplitted": true,
-        "ReturnMessage": "Operation Successful",
-        "ReturnCode": "6",
-        "PaymentId": "c8e05b4e-10ce-4f3f-ab64-6a9e8cc06b9a",
-        "Type": "SplittedCreditCard",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "PUT",
-                "Rel": "split",
-                "Href": "https://splitsandbox.braspag.com.br/api/transactions/c8e05b4e-10ce-4f3f-ab64-6a9e8cc06b9a/split"
-            },
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/c8e05b4e-10ce-4f3f-ab64-6a9e8cc06b9a"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/c8e05b4e-10ce-4f3f-ab64-6a9e8cc06b9a/void"
-            }
-        ]
-    }
-}
-```
-
-**Esse é apenas um request de exemplo bem básico e não deve ser utilizado em produção. Para facilitar o entendimento, não foi aplicado nenhum campo que fortalece a segurança da transação.**
-
-Nos próximos exemplos explicaremos como aumentar a segurança e manipular os campos da nossa transação entre crédito e débito.
+O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar deverá um novo token toda vez que a validade expirar.  
 
 # Integração
 
@@ -445,6 +174,8 @@ Exemplo:
 ### Transação de Crédito
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+
+#### Requisição
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -504,7 +235,7 @@ Exemplo:
 }
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -704,7 +435,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 
 **Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.
 
-**Request**
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -789,7 +520,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 }
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -985,7 +716,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 **Taxa Marketplace com o Subordinado 01**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.  
 **Taxa Marketplace com o Subordinado 02**: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.  
 
-**Request**
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1088,7 +819,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 }
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -1316,6 +1047,8 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
+#### Requisição
+
 ```json
 --header "Authorization: Bearer {access_token}"
 {
@@ -1382,7 +1115,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 }
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -1491,14 +1224,16 @@ O Split de Pagamentos disponibiliza dois modelos para divisão da transação en
 
 | Tipo                       | Descrição                                                                                                                          |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Split Transacional**     | O **Marketplace** envia na autorização (captura automática) ou no momento de captura as regras de divisão.                         |
-| **Split Pós-Transacional** | O **Marketplace** envia as regras de divisão após a captura da transação.
+| **Split Transacional**     | O **Master** envia na autorização (captura automática) ou no momento de captura as regras de divisão.                         |
+| **Split Pós-Transacional** | O **Master** envia as regras de divisão após a captura da transação.
 
 > No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.
 
-### Transacional
+### Split Transacional
 
-No Split Transacional é necessário que o Marketplace envie um "nó" adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
+No Split Transacional é necessário que o Master (marketplace) envie um "nó" adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
+
+#### Requisição
 
 ```json
 "SplitPayments":[
@@ -1520,7 +1255,9 @@ No Split Transacional é necessário que o Marketplace envie um "nó" adicional 
 | `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Marketplace** a ser descontado do valor referente a participação do **Subordinado**     | Decimal | -       | Não         |
 | `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos. | Inteiro | -       | Não         |
 
-Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo Marketplace e seus Subordinados:
+#### Resposta
+
+Como resposta, A API Cielo E-Commerce retornará um nó contendo as regras de divisão enviadas e os valores a serem recebidos pelo Master e seus Subordinados:
 
 ```json
 "SplitPayments": [
@@ -1550,15 +1287,13 @@ Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de di
 | `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
 | `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
-### Pós-Transacional
+### Split Pós-Transacional
 
-Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.
+Neste modelo, o Master poderá enviar as regras de divisão da transação após a captura.
 
-Para transações com **Cartão de Crédito** este período é de **20 dias** e para as transações com **Cartão de Débito** este período é de **1 dia**, se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).
+Para transações de crédito e débito o prazo para envio da requisição de Split Pós-Transacional é até 01h00 do dia posterior à captura.
 
-> O período para redividir uma transação poderá ser alterado pela Braspag (Facilitador).
-
-**Request**  
+#### Requisição  
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
 
@@ -1584,7 +1319,7 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
 ]
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -1630,9 +1365,9 @@ Para transações com **Cartão de Crédito** este período é de **20 dias** e 
 }
 ```
 
-O nó referente ao Split no Split Pós-transacional, tanto no contrato de request quanto de response, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.
+O nó referente ao Split no Split Pós-transacional, tanto no contrato de requisição quanto de resposta, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.
 
-> O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **20 dias** para **Cartão de Crédito** se estiver enquadrado no regime de pagamento padrão. 
+> O Master poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **20 dias** para **Cartão de Crédito** se estiver enquadrado no regime de pagamento padrão. 
 
 ## Salvando e Reutilizando Cartões
 
@@ -1646,7 +1381,7 @@ Além da geração do `CardToken`, é possível associar um nome (um identificad
 
 Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
 
-**Requisição**
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1784,7 +1519,7 @@ Para salvar um cartão de crédito utilizado em uma transação, basta enviar o 
 |`CreditCard.SaveCard`|"true" - para salvar o cartão. / "false" - para não salvar o cartão.|Booleano|10|Não (default "false") |
 |`CreditCard.Alias`|Alias (apelido) do cartão de crédito.|Texto|64|Não |
 
-**Resposta**
+#### Resposta
 
 O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transações futuras com o mesmo cartão.
 
@@ -1867,7 +1602,7 @@ Este é um exemplo de como utilizar o `CardToken`, previamente salvo, para criar
 
 O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir:
 
-**Requisição**
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1993,7 +1728,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
 
-**Resposta**
+#### Resposta
 
 ```json
 {  
@@ -2062,7 +1797,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 
 Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos [canais de atendimento](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
 
-**Requisição**
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -2189,7 +1924,7 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
 |`CreditCard.Alias`| Alias (apelido) do cartão de crédito. | Texto | 64 | Não
 
-**Resposta**
+#### Resposta
 
 ```json
 {  
@@ -2258,7 +1993,7 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
 
 Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.
 
-**Request**
+#### Requisição**
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
 
@@ -2267,7 +2002,7 @@ x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -2370,7 +2105,7 @@ Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras d
 
 Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.
 
-**Request**
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
 
@@ -2398,7 +2133,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 }
 ```
 
-**Response**
+#### Response
 
 ```json
 {
@@ -2466,7 +2201,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 
 Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Marketplace.
 
-**Request**
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
@@ -2503,7 +2238,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 }
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -2569,7 +2304,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 
 Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.
 
-**Request**
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
 
@@ -2578,7 +2313,7 @@ x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -2630,7 +2365,7 @@ Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, 
 
 No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.
 
-**Request**
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void</span></aside>
 
@@ -2639,7 +2374,7 @@ x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -2694,7 +2429,7 @@ x-www-form-urlencoded
 
 No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial.
 
-**Request**
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
 
@@ -2728,7 +2463,7 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 | `VoidSplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
 | `VoidedAmount.Amount`                       | Total ou parte do valor destinado ao **Subordinado** a ser cancelado, em centavos.                      | Inteiro | -       | Sim         |
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -2832,7 +2567,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 
 > Desconto sendo aplicado sobre a comissão.
 
-**Request**
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -2885,7 +2620,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 }
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -3004,7 +2739,7 @@ Com a mesma transação:
 
 > Desconto sendo aplicado sobre a venda.
 
-**Request**
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -3057,7 +2792,7 @@ Com a mesma transação:
 }
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -3174,6 +2909,8 @@ Com a mesma transação:
 
 #### No Momento Pós-Transacional
 
+##### Requisição
+
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
 
 ```json
@@ -3194,7 +2931,7 @@ Com a mesma transação:
 ]
 ```
 
-**Response**
+##### Resposta
 
 ```json
 {
@@ -3249,7 +2986,7 @@ A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigat
 
 Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este meio de pagamento.
 
-**Request**
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -3317,7 +3054,7 @@ Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dad
 >(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.  
 >(**) Caracteres especiais e acentuações são removidos automaticamente.  
 
-**Response**
+#### Resposta
 
 ```json
 {
