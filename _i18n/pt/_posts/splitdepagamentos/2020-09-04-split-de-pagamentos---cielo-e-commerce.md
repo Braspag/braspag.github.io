@@ -17,34 +17,30 @@ tags:
 
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
-> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br).
-
 Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
 
 | **Participantes** | **Descrição** |
 |-----------|---------- |
-| **Master** | Responsável pelo carrinho (Master). <br> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<br> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<br> Pode participar de uma venda fornecendo seus próprios produtos. |
-| **Subordinado** | Fornecedor dos produtos que compõem o carrinho.<br>Recebe parte do valor da venda, descontadas as taxas acordadas com o **Marketplace**.|
-| **Braspag (Facilitador)** | Responsável pelo fluxo transacional.<br> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo **Marketplace**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Marketplace**.|
+| **Master** | É o marketplace esponsável pelo carrinho. <br> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<br> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<br> Pode participar de uma venda fornecendo seus próprios produtos. |
+| **Subordinado** | É o fornecedor dos produtos que compõem o carrinho.<br>Recebe parte do valor da venda, descontadas as taxas acordadas com o **Master**.|
+| **Braspag (Facilitador)** | É responsável pelo fluxo transacional.<br> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo **Master**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Master**.|
 
 No Split de Pagamentos, a responsável pelo fluxo transacional é a Braspag (facilitador).
 
 O marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como Split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.
 
-Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento\*), para cada envolvido na transação.
+Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento\*), para cada envolvido na transação. O **Regime de Pagamento** é o prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
 
-> **Regime de Pagamento**: prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
-> <br>
 > **Crédito**: em até 31 dias. <br>
 > **Crédito Parcelado**: 1º parcela em até 31 dias, demais a cada 30 dias.<br>
 > **Débito**: em até 2 dias úteis.
 
-Para utilizar o Split de Pagamentos, o Master (plataforma de marketplace) deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Master quanto seus Subordinados possuirão um identificador único, conhecido como **MerchantId (MID)**, que deverá ser utlizado ao informar as regras de divisão de uma transação.
+Para utilizar o Split de Pagamentos, o Master (marketplace) deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Master quanto seus Subordinados possuirão um identificador único, conhecido como **MerchantId (MID)**, que deverá ser utlizado ao informar as regras de divisão de uma transação.
 
 Na divisão de uma transação, você deve informar:
 
-* Os **identificadores dos Subordinados**.
-* Os **valores de participação de cada Subordinado**. O somatório deverá ser igual ao valor total da transação.
+* Os **identificadores dos Subordinados**;
+* Os **valores de participação de cada Subordinado**. O somatório deverá ser igual ao valor total da transação;
 * As **Taxas** a serem aplicadas sobre o valor de cada Subordinado destinadas ao Master. Essas taxas deverão ser acordadas previamente entre o Master e o Subordinado.
 
 O Master também pode ser um participante da divisão; para isso, basta informar seu identificador. Nessa situação, o Master passa a ter também o papel de **Subordinado** e ter seus próprios produtos no carrinho.
@@ -116,12 +112,16 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 
 ## Sandbox
 
+> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br).
+
 * **API Cielo E-Commerce**: https://apisandbox.cieloecommerce.cielo.com.br/
 * **API Cielo E-Commerce (Consultas)**: https://apiquerysandbox.cieloecommerce.cielo.com.br/
 * **API Split**: https://splitsandbox.braspag.com.br/
 * **Braspag OAUTH2 Server**: https://authsandbox.braspag.com.br/
 
 ## Produção
+
+> Você receberá as credenciais para o ambiente de produção deurante o onboarding.
 
 * **API Cielo E-Commerce**: https://api.cieloecommerce.cielo.com.br/
 * **API Cielo E-Commerce (Consultas)**: https://apiquery.cieloecommerce.cielo.com.br/
@@ -130,7 +130,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 
 # Autenticação
 
-O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/), onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado a API Cielo e-Commerce e a API do Split.
+O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/), no qual é necessário primeiramente obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API Cielo E-Commerce e à API do Split.
 
 Para obter um token de acesso:
 
@@ -169,13 +169,15 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.
 
-Exemplo:
-
 ### Transação de Crédito
+
+Veja a seguir exemplos de requisições e respostas para transações de crédito.
+
+#### Transação de crédito com todos os campos possíveis
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
-#### Requisição
+##### Requisição
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -235,7 +237,7 @@ Exemplo:
 }
 ```
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -396,9 +398,9 @@ Exemplo:
 }
 ```
 
-Ao informar um tipo de pagamento referente ao Split, a API Cielo e-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).
+Ao informar um tipo de pagamento referente ao Split, a API Cielo E-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).
 
-Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Marketplace. Posteriormente é permitido que o Marketplace envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.
+Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Master. Posteriormente, é permitido que o Master envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
@@ -429,13 +431,13 @@ Caso a transação enviada seja marcada para captura automática, o nó contendo
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
 
-**Exemplo 1)**  
+#### Transação de crédito sem o nó da divisão 
 
 Transação no valor de **R$100,00**, com captura automática, sem o nó contendo as regras de divisão.
 
 **Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.
 
-#### Request
+##### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -520,7 +522,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 }
 ```
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -704,19 +706,19 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 }
 ```
 
-Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Marketplace e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
+Neste caso, o Master recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
 
 ![SplitSample002](https://developercielo.github.io/images/split/split002.png)
 
-**Exemplo 2)**  
+#### Transação de crédito com o nó da divisão  
 
 Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 
 **Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 01**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 02**: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.  
+**Taxa Master com o Subordinado 01**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.  
+**Taxa Master com o Subordinado 02**: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.  
 
-#### Requisição
+##### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -819,7 +821,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 }
 ```
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -1031,9 +1033,12 @@ Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada
 
 ### Transação de Débito  
 
-Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la a autenticação e o nó `Payment.FraudAnalysis` não deve ser informado pois a transação não necessita de análise de fraude.
+Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças: [, porém, é obrigatório submetê-la à autenticação e o nó `Payment.FraudAnalysis` não deve ser informado, pois a transação não necessita de análise de fraude.]
 
->Para a autenticação será utilizada a [integração 3DS 2.0](https://braspag.github.io//manualp/emv3ds), onde obterá os dados necessários para utilizar no nó `Payment.ExternalAuthentication`.  
+* O nó `Payment.FraudAnalysis` não deve ser informado, pois a transação não necessita de análise de fraude;
+* É obrigatório submeter a transação de débito à autenticação. Para isso, é necessário incluir o nó `Payment.ExternalAuthentication`. A autenticação é feita pela integração 3DS 2.0. 
+
+>Para saber mais sobre a integração 3DS 2.0, acesse o [Manual de Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).
 
 | Propriedade | Descrição | Tipo/Tamanho | Obrigatório |
 | --- | --- | --- | --- |
@@ -1045,9 +1050,9 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 |`Payment.ExternalAuthentication.Version`| Versão do 3DS utilizado no processo de autenticação. | Alfanumérico / 1 posição | Sim, quando a versão do 3DS for "2".|
 |`Payment.ExternalAuthentication.ReferenceID`| RequestID retornado no processo de autenticação. | GUID / 36 posições | Sim, quando a versão do 3DS for "2". |
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
-
 #### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -1252,7 +1257,7 @@ No Split Transacional é necessário que o Master (marketplace) envie um "nó" a
 |-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
 | `SplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
 | `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do **Subordinado**, em centavos.             | Inteiro | -       | Sim         |
-| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Marketplace** a ser descontado do valor referente a participação do **Subordinado**     | Decimal | -       | Não         |
+| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Master** a ser descontado do valor referente a participação do **Subordinado**     | Decimal | -       | Não         |
 | `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos. | Inteiro | -       | Não         |
 
 #### Resposta
@@ -1284,8 +1289,8 @@ Como resposta, A API Cielo E-Commerce retornará um nó contendo as regras de di
 
 | Propriedade                                  | Descrição                                                                                   | Tipo   | Tamanho | Obrigatório |
 |----------------------------------------------|---------------------------------------------------------------------------------------------|--------|---------|-------------|
-| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
-| `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
+| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Master**.                       | Guid   | 36      | Sim         |
+| `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Master**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
 ### Split Pós-Transacional
 
@@ -1375,7 +1380,7 @@ Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-prot
 
 Além da geração do `CardToken`, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
 
-<aside class="warning">Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
+<aside class="warning">Por questões de segurança, o Cartão Protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
 ### Salvando um Cartão Durante uma Autorização
 
@@ -1993,7 +1998,7 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
 
 Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.
 
-#### Requisição**
+#### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
 
@@ -2099,11 +2104,11 @@ x-www-form-urlencoded
 
 ## Captura
 
-Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Marketplace.
+Ao capturar uma transação do Split de Pagamentos, o Master precisa informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Master.
 
 ### Captura Total
 
-Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.
+Na captura total de uma transação, o somatório dos valores de participação de cada Subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.
 
 #### Requisição
 
@@ -2133,7 +2138,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 }
 ```
 
-#### Response
+#### Resposta
 
 ```json
 {
@@ -2199,7 +2204,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 
 ### Captura Parcial
 
-Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Marketplace.
+Na captura parcial de uma transação, o somatório dos valores de participação de cada Subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Master.
 
 #### Requisição
 
@@ -2304,60 +2309,9 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 
 Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.
 
-#### Requisição
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
-
-```shell
-x-www-form-urlencoded
---header "Authorization: Bearer {access_token}"  
-```
-
-#### Resposta
-
-```json
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "SplitPayments": [
-        {
-            "SubordinateMerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
-            "Amount": 8000,
-            "Fares": {
-                "Mdr": 2,
-                "Fee": 0
-            },
-            "Splits": [
-                {
-                    "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
-                    "Amount": 8000
-                }
-            ]
-        }
-    ],
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/ee849761-d758-4f12-80bf-6ceae3a751ec"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/ee849761-d758-4f12-80bf-6ceae3a751ec/void"
-        }
-    ]
-}
-```
-
 ## Cancelamento
 
-Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.
+Ao cancelar uma transação do Split de Pagamentos o Master deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.
 
 > O prazo de estorno de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.
 
@@ -2519,7 +2473,7 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 }
 ```
 
-Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado, conforme exemplo abaixo:
+Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo Subordinado, conforme exemplo abaixo:
 
 ```json
 {
@@ -2532,7 +2486,7 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 }
 ```
 
-> Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.
+> Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Master tem a receber.
 
 ## Opções de Configuração da Transação
 
@@ -2544,7 +2498,7 @@ Por padrão, as taxas e tarifas fixas do Split são descontadas do valor de comi
 
 > Para que a opção de desconto da parte da venda seja possível, o Master deve possuir venda na transação.
 
-A opção pode ser utilizada no momento da divisão transacional e pós-transacional. Também é possível deixar pré-configurada a opção a ser utilizada. Para utilizar a pré-configuração, é necessário entrar em contato com o suporte do Split para que ela seja criada, removida ou atualizada. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
+A opção pode ser utilizada no momento da divisão transacional ou pós-transacional. Também é possível deixar pré-configurada a opção a ser utilizada. Para utilizar a pré-configuração, é necessário entrar em contato com o suporte do Split para que ela seja criada, removida ou atualizada. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
 
 No caso de uma transação criada com uma forma de desconto, o mesmo será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (divisão pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.
 
