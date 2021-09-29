@@ -17,25 +17,25 @@ tags:
 
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
-Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
+Muito utilizado em marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
 
 | **Participantes** | **Descrição** |
 |-----------|---------- |
-| **Master** | É o marketplace responsável pelo carrinho. <br> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<br> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<br> Pode participar de uma venda fornecendo seus próprios produtos. |
+| **Master** | É o responsável pelo carrinho.<br> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<br> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<br> Pode participar de uma venda fornecendo seus próprios produtos. |
 | **Subordinado** | É o fornecedor dos produtos que compõem o carrinho.<br>Recebe parte do valor da venda, descontadas as taxas acordadas com o **Master**.|
-| **Braspag (Facilitador)** | É responsável pelo fluxo transacional.<br> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo **Master**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Master**.|
+| **Braspag** | É responsável pelo fluxo transacional, funcionando como uma subadquirente.<br> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo **Master**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Master**.|
 
-No Split de Pagamentos, a responsável pelo fluxo transacional é a Braspag (facilitador).
+No Split de Pagamentos, a responsável pelo fluxo transacional é a Braspag.
 
-O marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como Split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.
+O Master se integra à Braspag para transacionar e, para cada transação, informa como será a divisão entre cada participante, podendo ser no momento de captura (Split transacional) ou em um momento posterior (Split pós-transacional), desde que seja dentro de um limite de tempo pré-estabelecido.
 
-Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento\*), para cada envolvido na transação. O **Regime de Pagamento** é o prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
+Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento), para cada envolvido na transação. O **Regime de Pagamento** é o prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
 
 > **Crédito**: em até 31 dias. <br>
 > **Crédito Parcelado**: 1º parcela em até 31 dias, demais a cada 30 dias.<br>
 > **Débito**: em até 2 dias úteis.
 
-Para utilizar o Split de Pagamentos, o Master (marketplace) deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Master quanto seus Subordinados possuirão um identificador único, conhecido como **MerchantId (MID)**, que deverá ser utlizado ao informar as regras de divisão de uma transação.
+Para utilizar o Split de Pagamentos, o Master deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Master quanto seus Subordinados possuirão um identificador único, conhecido como **MerchantId (MID)**, que deverá ser utlizado ao informar as regras de divisão de uma transação.
 
 Na divisão de uma transação, você deve informar:
 
@@ -47,28 +47,28 @@ O Master também pode ser um participante da divisão; para isso, basta informar
 
 ## Taxas
 
-As taxas acordadas entre os participantes, que podem ser um **MDR (%)** e/ou uma **Taxa Fixa (R$)**, devem ser definidas no momento do cadastro do Master e dos seus Subordinados junto à Braspag (Facilitador).
+As taxas acordadas entre os participantes, que podem ser um **MDR (%)** e/ou uma **Taxa Fixa (R$)**, devem ser definidas no momento do cadastro do Master e dos seus Subordinados junto à Braspag.
 
 As taxas podem ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.
 
 > **MDR (*Merchant Discount Rate*):** percentual a ser descontado do valor de uma transação, definido por produto (crédito/débito), bandeira e faixa de parcelamento. <br>
 > **Fee:** taxa fixa. Valor em centavos a ser cobrado por transação capturada.
 
-### Braspag (Facilitador)
+### Braspag
 
-A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.
+A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Master a serem descontadas do valor total de cada transação.
 
-O Master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).
+O Master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado. Se desejar, pode embutir o MDR e/ou Tarifa acordados junto à Braspag.
 
-O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem para receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.
+O desconto da Tarifa Fixa, acordada entre o Master e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Master tem para receber junto à Braspag. O MDR entra no cálculo de divisão da transação, já que o MDR deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.
 
-> **Custo Marketplace:** MDR Braspag (%) + Tarifa Fixa Braspag (R$)
+> **Custo Master:** MDR Braspag (%) + Tarifa Fixa Braspag (R$)
 
-### Master (marketplace)
+### Master
 
 O Master é responsável por acordar as taxas a serem cobradas dos seus Subordinados, definindo um MDR maior ou igual ao MDR definido com a Braspag (Facilitador), e uma Tarifa Fixa, que é opcional.
 
-> **Custo Subordinado:** MDR Marketplace (%) + Tarifa Fixa (R$), onde o MDR Marketplace (%) considera o MDR Braspag (%).
+> **Custo Subordinado:** MDR Master (%) + Tarifa Fixa (R$), onde o MDR Master (%) considera o MDR Braspag (%).
 
 ### Exemplo
 
@@ -86,7 +86,7 @@ Após o split, cada participante terá sua agenda sensibilizada com os seguintes
 **Subordinado**:  
 Crédito: R$96,20 (descontados o MDR e a Tarifa Fixa acordados com o Master)
 
-**Master (marketplace)**:  
+**Master**:  
 Crédito: R$1,80 (MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag)
 Débito: R$0,10 (Tarifa Fixa acordada com a Braspag)
 
@@ -121,7 +121,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 
 ## Produção
 
-> Você receberá as credenciais para o ambiente de produção deurante o onboarding.
+> Você receberá as credenciais para o ambiente de produção durante o onboarding.
 
 * **API Cielo E-Commerce**: https://api.cieloecommerce.cielo.com.br/
 * **API Cielo E-Commerce (Consultas)**: https://apiquery.cieloecommerce.cielo.com.br/
@@ -134,7 +134,7 @@ O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth
 
 Para obter um token de acesso:
 
-1. Concatene o ClientId e ClientSecret: `ClientId:ClientSecret`;  
+1. Concatene o MerchantId e ClientSecret: `MerchantId:ClientSecret`;  
 2. Codifique o resultado da concatenação em Base64;  
 3. Realize uma requisição ao servidor de autorização.  
 
@@ -159,7 +159,7 @@ grant_type=client_credentials
 }
 ```
 
-> O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
+> O MerchantId é o mesmo utilizado na integração com a API Cielo E-Commerce. O ClientSecret deve ser obtido junto à Braspag.
 
 O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar deverá um novo token toda vez que a validade expirar.  
 
