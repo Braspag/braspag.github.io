@@ -21,7 +21,7 @@ Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de d
 
 | **Participantes** | **Descrição** |
 |-----------|---------- |
-| **Master** | É o marketplace esponsável pelo carrinho. <br> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<br> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<br> Pode participar de uma venda fornecendo seus próprios produtos. |
+| **Master** | É o marketplace responsável pelo carrinho. <br> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<br> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<br> Pode participar de uma venda fornecendo seus próprios produtos. |
 | **Subordinado** | É o fornecedor dos produtos que compõem o carrinho.<br>Recebe parte do valor da venda, descontadas as taxas acordadas com o **Master**.|
 | **Braspag (Facilitador)** | É responsável pelo fluxo transacional.<br> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo **Master**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Master**.|
 
