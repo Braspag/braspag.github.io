@@ -547,9 +547,9 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Ao informar um tipo de pagamento referente ao Split, a API Cielo E-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).</p>
+<p>Ao informar um tipo de pagamento referente ao Split, a API Cielo E-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag.</p>
 
-<p>Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Master. Posteriormente, é permitido que o Master envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.</p>
+<p>Caso a transação enviada seja marcada para captura automática, é necessário enviar o nó contendo as regras de divisão; caso contrário, a transação será dividida entre a Braspag e o Master. Posteriormente, é permitido que o Master envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.</p>
 
 <table>
   <thead>
@@ -1020,7 +1020,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Neste caso, o Master recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.</p>
+<p>Neste caso, o Master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o Master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.</p>
 
 <p><img src="https://developercielo.github.io/images/split/split002.png" alt="SplitSample002" /></p>
 
@@ -1345,7 +1345,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 
 <h3 id="transação-de-débito">Transação de Débito</h3>
 
-<p>Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças: [, porém, é obrigatório submetê-la à autenticação e o nó <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code> não deve ser informado, pois a transação não necessita de análise de fraude.]</p>
+<p>Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:</p>
 
 <ul>
   <li>O nó <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code> não deve ser informado, pois a transação não necessita de análise de fraude;</li>
@@ -1596,7 +1596,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
   <tbody>
     <tr>
       <td><strong>Split Transacional</strong></td>
-      <td>O <strong>Master</strong> envia na autorização (captura automática) ou no momento de captura as regras de divisão.</td>
+      <td>O <strong>Master</strong> envia as regras de divisão na autorização (captura automática) ou no momento de captura.</td>
     </tr>
     <tr>
       <td><strong>Split Pós-Transacional</strong></td>
@@ -1606,12 +1606,12 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 </table>
 
 <blockquote>
-  <p>No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.</p>
+  <p>No Split de Pagamentos, a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso as regras de divisão sejam informadas no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.</p>
 </blockquote>
 
 <h3 id="split-transacional">Split Transacional</h3>
 
-<p>No Split Transacional é necessário que o Master (marketplace) envie um “nó” adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.</p>
+<p>No Split Transacional é necessário que o Master envie um “nó” adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.</p>
 
 <h4 id="requisição-5">Requisição</h4>
 
@@ -1799,10 +1799,10 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>O nó referente ao Split no Split Pós-transacional, tanto no contrato de requisição quanto de resposta, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.</p>
+<p>O nó referente ao split no Split Pós-transacional, tanto no contrato de requisição quanto de resposta, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.</p>
 
 <blockquote>
-  <p>O Master poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de <strong>20 dias</strong> para <strong>Cartão de Crédito</strong> se estiver enquadrado no regime de pagamento padrão.</p>
+  <p>O Master poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é até 01h00 do dia posterior à captura, se estiver enquadrado no regime de pagamento padrão.</p>
 </blockquote>
 
 <h2 id="salvando-e-reutilizando-cartões">Salvando e Reutilizando Cartões</h2>
