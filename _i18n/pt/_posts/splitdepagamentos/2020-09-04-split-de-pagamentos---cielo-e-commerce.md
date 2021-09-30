@@ -1603,7 +1603,7 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
 
 ### Criando uma Transação com CardToken
 
-Este é um exemplo de como utilizar o `CardToken`, previamente salvo, para criar uma transação. Por questões de segurança, um `CardToken` não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos [canais de atendimento](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
+Este é um exemplo de como utilizar o `CardToken`, previamente salvo, para criar uma transação. Por questões de segurança, um `CardToken` não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato com o nossso [Suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
 
 O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir:
 
@@ -1800,7 +1800,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 
 ### Criando uma Transação com Alias
 
-Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos [canais de atendimento](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
+Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato com o nossso [Suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
 
 #### Requisição
 
@@ -1996,7 +1996,7 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
 
 ## Consulta
 
-Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.
+Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o **Post de Notificação**[https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#post-de-notifica%C3%A7%C3%A3o].
 
 #### Requisição
 
@@ -2307,17 +2307,17 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 }
 ```
 
-Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.
+Como explicitado anteriormente, se as regras de divisão não forem informadas na requisição da captura total ou parcial, o Split interpreta que todo o valor é destinado ao próprio Marketplace.
 
 ## Cancelamento
 
-Ao cancelar uma transação do Split de Pagamentos o Master deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.
+Ao cancelar uma transação do Split de Pagamentos o Master deve informar, para um cancelamento parcial, qual o valor deve ser cancelado para cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que o valor total será cancelado e, consequentemente, o valor total de cada Subordinado.
 
 > O prazo de estorno de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.
 
 ### Cancelamento Total
 
-No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.
+No cancelamento total de uma transação, será cancelado o valor total da transação e, consequentemente, o valor total de cada Subordinado e as comissões de todos os participantes.
 
 #### Requisição
 
@@ -2473,7 +2473,7 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 }
 ```
 
-Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo Subordinado, conforme exemplo abaixo:
+Não é obrigatório informar todos os Subordinados no cancelamento parcial. Você pode informar apenas os subordinados para os quais deseja cancelar totalmente ou cancelar parte do valor destinado a cada um na transação, conforme exemplo a seguir:
 
 ```json
 {
@@ -2486,7 +2486,7 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 }
 ```
 
-> Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Master tem a receber.
+> Ao cancelar parcialmente parte de um valor destinado a um Subordinado, a Tarifa Fixa que o Master tem a receber também é cancelada proporcionalmente.
 
 ## Opções de Configuração da Transação
 
