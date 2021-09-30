@@ -105,9 +105,7 @@
             </div>
 
             <div class="post">
-  <h1 id="split-de-pagamentos---onboarding">Split de Pagamentos - Onboarding</h1>
-
-<h2 id="introdução">Introdução</h2>
+  <h1 id="introdução">Introdução</h1>
 
 <p>O <strong>Split de Pagamentos</strong> fornece uma API de Onboarding para possibilitar ao Master o gerenciamento de seus subordinados na plataforma.
 O Master deverá coletar as informações do subordinado, para utilizar no processo de Onboarding.</p>
@@ -124,17 +122,17 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
   <li>Ao final da análise, o Master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.</li>
 </ol>
 
-<h2 id="ambientes">Ambientes</h2>
+<h1 id="ambientes">Ambientes</h1>
 
-<h3 id="sandbox">Sandbox</h3>
+<h2 id="sandbox">Sandbox</h2>
 
 <p><strong>API Onboarding</strong>: https://splitonboardingsandbox.braspag.com.br</p>
 
-<h3 id="produção">Produção</h3>
+<h2 id="produção">Produção</h2>
 
 <p><strong>API Onboarding</strong>: https://splitonboarding.braspag.com.br</p>
 
-<h2 id="cadastro-de-subordinados">Cadastro de Subordinados</h2>
+<h1 id="cadastro-de-subordinados">Cadastro de Subordinados</h1>
 
 <p>A solicitação de cadastro deve ser realizada através de uma requisição pelo <strong>Master</strong> informando os dados do subordinado.</p>
 
@@ -252,11 +250,11 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
   </tbody>
 </table>
 
-<p><strong>Request</strong></p>
+<h2 id="requisição">Requisição</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
 
-<h3 id="informando-a-porcentagem-do-mdr-por-arranjos-de-pagamento--e-intervalo-de-parcelas">Informando a porcentagem do MDR por Arranjos de Pagamento  e intervalo de parcelas</h3>
+<h2 id="informando-a-porcentagem-do-mdr-por-arranjos-de-pagamento--e-intervalo-de-parcelas">Informando a porcentagem do MDR por Arranjos de Pagamento  e intervalo de parcelas</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -630,7 +628,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
   </tbody>
 </table>
 
-<p><strong>Response</strong></p>
+<h2 id="resposta">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1041,7 +1039,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
   </tbody>
 </table>
 
-<h3 id="informando-a-porcentagem-do-mdr-único-aplicado-para-todos-os-acordos">Informando a porcentagem do MDR único aplicado para todos os acordos</h3>
+<h2 id="informando-a-porcentagem-do-mdr-único-aplicado-para-todos-os-acordos">Informando a porcentagem do MDR único aplicado para todos os acordos</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1352,7 +1350,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
   </tbody>
 </table>
 
-<p><strong>Response</strong></p>
+<h2 id="resposta-1">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1763,13 +1761,13 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
   </tbody>
 </table>
 
-<h2 id="consulta-de-subordinados">Consulta de Subordinados</h2>
+<h1 id="consulta-de-subordinados">Consulta de Subordinados</h1>
 
 <p>A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado específico através de sua identificação.</p>
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/subordinates/{subordinate-merchant-id}</span></aside>
 
-<p><strong>Response</strong></p>
+<h2 id="resposta-2">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -2196,7 +2194,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
   </tbody>
 </table>
 
-<h2 id="notificação">Notificação</h2>
+<h1 id="notificação">Notificação</h1>
 
 <p>Ao final do processo de KYC, o Master receberá a notificação com o resultado da análise. Será feito uma requisição com os cabeçalhos na URL de notificação informados na criação do subordinado.</p>
 
