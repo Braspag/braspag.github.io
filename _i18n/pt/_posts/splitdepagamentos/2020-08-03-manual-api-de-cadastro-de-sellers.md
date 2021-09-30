@@ -11,9 +11,7 @@ tags:
   - 6. Soluções para Marketplace
 ---
 
-# Split de Pagamentos - Onboarding
-
-## Introdução
+# Introdução
 
 O **Split de Pagamentos** fornece uma API de Onboarding para possibilitar ao Master o gerenciamento de seus subordinados na plataforma.
 O Master deverá coletar as informações do subordinado, para utilizar no processo de Onboarding.
@@ -28,17 +26,17 @@ O Onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
 2. O subordinado será criado com status "Em análise" e estará bloqueado para participar da transação, até que o processo de KYC seja finalizado.
 3. Ao final da análise, o Master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.
 
-## Ambientes
+# Ambientes
 
-### Sandbox
+## Sandbox
 
 **API Onboarding**: https://splitonboardingsandbox.braspag.com.br
 
-### Produção
+## Produção
 
 **API Onboarding**: https://splitonboarding.braspag.com.br
 
-## Cadastro de Subordinados
+# Cadastro de Subordinados
 
 A solicitação de cadastro deve ser realizada através de uma requisição pelo **Master** informando os dados do subordinado.
 
@@ -64,11 +62,11 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 | Crédito 2x a 6x              | 4.00% | 4.00%  | 4.00% | 4.00%  | 4.00% |  4.00% |
 | Crédito 7x a 12x             | 4.00% | 4.00%  | 4.00% | 4.00%  | 4.00% |  4.00% |
 
-**Request**
+## Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
 
-### Informando a porcentagem do MDR por Arranjos de Pagamento  e intervalo de parcelas
+## Informando a porcentagem do MDR por Arranjos de Pagamento  e intervalo de parcelas
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -204,7 +202,7 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 | `Attachments[].File.FileType`                                   | String  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 | `Attachments[].File.Data`                                       | String  | -       | Não         | Documento convertido para **Base64**                                                                                                                                                                                                 |
 
-**Response**
+## Resposta
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -353,7 +351,7 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 | `Attachments[].File.Name`                                       | String  | 50      | Não         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
 | `Attachments[].File.FileType`                                   | String  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 
-### Informando a porcentagem do MDR único aplicado para todos os acordos
+## Informando a porcentagem do MDR único aplicado para todos os acordos
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -450,7 +448,7 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 | `Attachments[].File.FileType`                                   | String  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 | `Attachments[].File.Data`                                       | String  | -       | Não         | Documento convertido para **Base64**                                                                                                                                                                                                 |
 
-**Response**
+## Resposta
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -599,13 +597,13 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 | `Attachments[].File.Name`                                       | String  | 50      | Não         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
 | `Attachments[].File.FileType`                                   | String  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 
-## Consulta de Subordinados
+# Consulta de Subordinados
 
 A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado específico através de sua identificação.
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/subordinates/{subordinate-merchant-id}</span></aside>
 
-**Response**
+## Resposta
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -758,7 +756,7 @@ A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado 
 | `Attachments[].File.Name`                                       | String  | 50      | Não         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
 | `Attachments[].File.FileType`                                   | String  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 
-## Notificação
+# Notificação
 
 Ao final do processo de KYC, o Master receberá a notificação com o resultado da análise. Será feito uma requisição com os cabeçalhos na URL de notificação informados na criação do subordinado.
 
