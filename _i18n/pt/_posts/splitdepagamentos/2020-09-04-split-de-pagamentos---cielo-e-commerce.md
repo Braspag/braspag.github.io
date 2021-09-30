@@ -398,9 +398,9 @@ Veja a seguir exemplos de requisições e respostas para transações de crédit
 }
 ```
 
-Ao informar um tipo de pagamento referente ao Split, a API Cielo E-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).
+Ao informar um tipo de pagamento referente ao Split, a API Cielo E-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag.
 
-Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Master. Posteriormente, é permitido que o Master envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.
+Caso a transação enviada seja marcada para captura automática, é necessário enviar o nó contendo as regras de divisão; caso contrário, a transação será dividida entre a Braspag e o Master. Posteriormente, é permitido que o Master envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
@@ -706,7 +706,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 }
 ```
 
-Neste caso, o Master recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
+Neste caso, o Master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o Master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
 
 ![SplitSample002](https://developercielo.github.io/images/split/split002.png)
 
@@ -1033,7 +1033,7 @@ Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada
 
 ### Transação de Débito  
 
-Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças: [, porém, é obrigatório submetê-la à autenticação e o nó `Payment.FraudAnalysis` não deve ser informado, pois a transação não necessita de análise de fraude.]
+Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:
 
 * O nó `Payment.FraudAnalysis` não deve ser informado, pois a transação não necessita de análise de fraude;
 * É obrigatório submeter a transação de débito à autenticação. Para isso, é necessário incluir o nó `Payment.ExternalAuthentication`. A autenticação é feita pela integração 3DS 2.0. 
@@ -1229,14 +1229,14 @@ O Split de Pagamentos disponibiliza dois modelos para divisão da transação en
 
 | Tipo                       | Descrição                                                                                                                          |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Split Transacional**     | O **Master** envia na autorização (captura automática) ou no momento de captura as regras de divisão.                         |
-| **Split Pós-Transacional** | O **Master** envia as regras de divisão após a captura da transação.
+| **Split Transacional**     | O **Master** envia as regras de divisão na autorização (captura automática) ou no momento de captura.                         |
+| **Split Pós-Transacional** | O **Master** envia as regras de divisão após a captura da transação.|
 
-> No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.
+> No Split de Pagamentos, a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso as regras de divisão sejam informadas no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.
 
 ### Split Transacional
 
-No Split Transacional é necessário que o Master (marketplace) envie um "nó" adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
+No Split Transacional é necessário que o Master envie um "nó" adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
 
 #### Requisição
 
@@ -1370,9 +1370,9 @@ Para transações de crédito e débito o prazo para envio da requisição de Sp
 }
 ```
 
-O nó referente ao Split no Split Pós-transacional, tanto no contrato de requisição quanto de resposta, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.
+O nó referente ao split no Split Pós-transacional, tanto no contrato de requisição quanto de resposta, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.
 
-> O Master poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **20 dias** para **Cartão de Crédito** se estiver enquadrado no regime de pagamento padrão. 
+> O Master poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é até 01h00 do dia posterior à captura, se estiver enquadrado no regime de pagamento padrão. 
 
 ## Salvando e Reutilizando Cartões
 
