@@ -2498,9 +2498,9 @@ Por padrão, as taxas e tarifas fixas do Split são descontadas do valor de comi
 
 > Para que a opção de desconto da parte da venda seja possível, o Master deve possuir venda na transação.
 
-A opção pode ser utilizada no momento da divisão transacional ou pós-transacional. Também é possível deixar pré-configurada a opção a ser utilizada. Para utilizar a pré-configuração, é necessário entrar em contato com o suporte do Split para que ela seja criada, removida ou atualizada. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
+A opção pode ser utilizada no momento da divisão transacional ou pós-transacional. Também é possível pré-configurar a opção que será utilizada; para isso, entre em contato com o [Suporte](https://suporte.braspag.com.br/hc/pt-br), que irá criar, remover ou atualizar a pré-configuração. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
 
-No caso de uma transação criada com uma forma de desconto, o mesmo será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (divisão pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.
+No caso de uma transação criada com uma forma de desconto, este desconto será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (Split pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.
 
 > Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.
 
@@ -2513,15 +2513,15 @@ No caso de uma transação criada com uma forma de desconto, o mesmo será utili
 
 #### No Momento Transacional
 
-Transação no valor de **R$100,00** com o nó contendo as regras de divisão e o Marketplace participando da venda.
+Transação no valor de **R$100,00** com o nó contendo as regras de divisão e o Master participando da venda.
 
 **Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
-**Taxa Marketplace com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.
+**Taxa Master com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
+**Taxa Master com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.
 
 > Desconto sendo aplicado sobre a comissão.
 
-#### Requisição
+##### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -2574,7 +2574,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 }
 ```
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -2693,7 +2693,7 @@ Com a mesma transação:
 
 > Desconto sendo aplicado sobre a venda.
 
-#### Requisição
+##### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -2746,7 +2746,7 @@ Com a mesma transação:
 }
 ```
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -2938,7 +2938,7 @@ A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigat
 
 ## Criando uma transação de Boleto
 
-Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este meio de pagamento.
+Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este tipo de meio de pagamento.
 
 #### Request
 
@@ -3006,7 +3006,6 @@ Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dad
 |`Payment.Instructions`|Texto |450|Não|Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento|
 
 >(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.  
->(**) Caracteres especiais e acentuações são removidos automaticamente.  
 
 #### Resposta
 
@@ -3079,15 +3078,15 @@ Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dad
 
 O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.
 
-> No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.
+> No modelo de negócio do Split, todo chargeback é repassado ao Master, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.
 
 ## Fluxo transacional
 
 A integração com o antifraude se dá através do próprio fluxo transacional, na mesma requisição da transação.
 
-* Cliente realiza uma transação.
-* A anállise de fraude é realizada.
-* Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.
+* Cliente realiza uma transação;
+* A análise de fraude é realizada;
+* Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido;
 * A transação é executada normalmente.
 
 Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.FraudAnalysis`. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos `Customer.DeliveryAddress` e/ou `Customer.BillingAddress`.
@@ -3153,7 +3152,7 @@ Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.F
 
 # Post de Notificação
 
-Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), deve-se ter configurado o campo "URL Status Pagamento" durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).
+Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), é preciso configurar o campo "URL Status Pagamento" durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).
 
 Veja o fluxo percorrido pelo post de notificação:
 
