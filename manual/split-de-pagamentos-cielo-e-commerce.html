@@ -2154,7 +2154,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 
 <h3 id="criando-uma-transação-com-cardtoken">Criando uma Transação com CardToken</h3>
 
-<p>Este é um exemplo de como utilizar o <code class="language-plaintext highlighter-rouge">CardToken</code>, previamente salvo, para criar uma transação. Por questões de segurança, um <code class="language-plaintext highlighter-rouge">CardToken</code> não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">canais de atendimento</a>.</p>
+<p>Este é um exemplo de como utilizar o <code class="language-plaintext highlighter-rouge">CardToken</code>, previamente salvo, para criar uma transação. Por questões de segurança, um <code class="language-plaintext highlighter-rouge">CardToken</code> não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato com o nossso <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">Suporte</a>.</p>
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> será alterado conforme exemplo a seguir:</p>
 
@@ -2447,7 +2447,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 
 <h3 id="criando-uma-transação-com-alias">Criando uma Transação com Alias</h3>
 
-<p>Este é um exemplo de como utilizar o <em>Alias</em>, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">canais de atendimento</a>.</p>
+<p>Este é um exemplo de como utilizar o <em>Alias</em>, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato com o nossso <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">Suporte</a>.</p>
 
 <h4 id="requisição-9">Requisição</h4>
 
@@ -2745,7 +2745,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 
 <h2 id="consulta">Consulta</h2>
 
-<p>Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.</p>
+<p>Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o <strong>Post de Notificação</strong>[https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#post-de-notifica%C3%A7%C3%A3o].</p>
 
 <h4 id="requisição-10">Requisição</h4>
 
@@ -3049,11 +3049,11 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.</p>
+<p>Como explicitado anteriormente, se as regras de divisão não forem informadas na requisição da captura total ou parcial, o Split interpreta que todo o valor é destinado ao próprio Marketplace.</p>
 
 <h2 id="cancelamento">Cancelamento</h2>
 
-<p>Ao cancelar uma transação do Split de Pagamentos o Master deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.</p>
+<p>Ao cancelar uma transação do Split de Pagamentos o Master deve informar, para um cancelamento parcial, qual o valor deve ser cancelado para cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que o valor total será cancelado e, consequentemente, o valor total de cada Subordinado.</p>
 
 <blockquote>
   <p>O prazo de estorno de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.</p>
@@ -3061,7 +3061,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 
 <h3 id="cancelamento-total">Cancelamento Total</h3>
 
-<p>No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.</p>
+<p>No cancelamento total de uma transação, será cancelado o valor total da transação e, consequentemente, o valor total de cada Subordinado e as comissões de todos os participantes.</p>
 
 <h4 id="requisição-13">Requisição</h4>
 
@@ -3235,7 +3235,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo Subordinado, conforme exemplo abaixo:</p>
+<p>Não é obrigatório informar todos os Subordinados no cancelamento parcial. Você pode informar apenas os subordinados para os quais deseja cancelar totalmente ou cancelar parte do valor destinado a cada um na transação, conforme exemplo a seguir:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
@@ -3248,7 +3248,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 </span></code></pre></div></div>
 
 <blockquote>
-  <p>Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Master tem a receber.</p>
+  <p>Ao cancelar parcialmente parte de um valor destinado a um Subordinado, a Tarifa Fixa que o Master tem a receber também é cancelada proporcionalmente.</p>
 </blockquote>
 
 <h2 id="opções-de-configuração-da-transação">Opções de Configuração da Transação</h2>
