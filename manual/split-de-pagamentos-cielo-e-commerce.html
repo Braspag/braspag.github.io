@@ -3263,9 +3263,9 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
   <p>Para que a opção de desconto da parte da venda seja possível, o Master deve possuir venda na transação.</p>
 </blockquote>
 
-<p>A opção pode ser utilizada no momento da divisão transacional ou pós-transacional. Também é possível deixar pré-configurada a opção a ser utilizada. Para utilizar a pré-configuração, é necessário entrar em contato com o suporte do Split para que ela seja criada, removida ou atualizada. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.</p>
+<p>A opção pode ser utilizada no momento da divisão transacional ou pós-transacional. Também é possível pré-configurar a opção que será utilizada; para isso, entre em contato com o <a href="https://suporte.braspag.com.br/hc/pt-br">Suporte</a>, que irá criar, remover ou atualizar a pré-configuração. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.</p>
 
-<p>No caso de uma transação criada com uma forma de desconto, o mesmo será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (divisão pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.</p>
+<p>No caso de uma transação criada com uma forma de desconto, este desconto será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (Split pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.</p>
 
 <blockquote>
   <p>Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.</p>
@@ -3294,17 +3294,17 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 
 <h4 id="no-momento-transacional">No Momento Transacional</h4>
 
-<p>Transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão e o Marketplace participando da venda.</p>
+<p>Transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão e o Master participando da venda.</p>
 
 <p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
-<strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
-<strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
+<strong>Taxa Master com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
+<strong>Taxa Master com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
 
 <blockquote>
   <p>Desconto sendo aplicado sobre a comissão.</p>
 </blockquote>
 
-<h4 id="requisição-15">Requisição</h4>
+<h5 id="requisição-15">Requisição</h5>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -3356,7 +3356,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-15">Resposta</h4>
+<h5 id="resposta-15">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
@@ -3476,7 +3476,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
   <p>Desconto sendo aplicado sobre a venda.</p>
 </blockquote>
 
-<h4 id="requisição-16">Requisição</h4>
+<h5 id="requisição-16">Requisição</h5>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -3528,7 +3528,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-16">Resposta</h4>
+<h5 id="resposta-16">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
@@ -3717,7 +3717,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 
 <h2 id="criando-uma-transação-de-boleto">Criando uma transação de Boleto</h2>
 
-<p>Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este meio de pagamento.</p>
+<p>Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este tipo de meio de pagamento.</p>
 
 <h4 id="request">Request</h4>
 
@@ -3927,8 +3927,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 </table>
 
 <blockquote>
-  <p>(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.<br />
-(**) Caracteres especiais e acentuações são removidos automaticamente.</p>
+  <p>(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.</p>
 </blockquote>
 
 <h4 id="resposta-18">Resposta</h4>
@@ -4061,7 +4060,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 <p>O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.</p>
 
 <blockquote>
-  <p>No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.</p>
+  <p>No modelo de negócio do Split, todo chargeback é repassado ao Master, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.</p>
 </blockquote>
 
 <h2 id="fluxo-transacional">Fluxo transacional</h2>
@@ -4069,9 +4068,9 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 <p>A integração com o antifraude se dá através do próprio fluxo transacional, na mesma requisição da transação.</p>
 
 <ul>
-  <li>Cliente realiza uma transação.</li>
-  <li>A anállise de fraude é realizada.</li>
-  <li>Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.</li>
+  <li>Cliente realiza uma transação;</li>
+  <li>A análise de fraude é realizada;</li>
+  <li>Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido;</li>
   <li>A transação é executada normalmente.</li>
 </ul>
 
@@ -4542,7 +4541,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 
 <h1 id="post-de-notificação">Post de Notificação</h1>
 
-<p>Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), deve-se ter configurado o campo “URL Status Pagamento” durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
+<p>Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), é preciso configurar o campo “URL Status Pagamento” durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
 
 <p>Veja o fluxo percorrido pelo post de notificação:</p>
 
