@@ -5,7 +5,7 @@ description:
 search: true
 toc_footers: true
 categories: tutorial
-sort_order: 8
+sort_order: 4
 tags:
   - 9. Documentos Adicionais
 ---
