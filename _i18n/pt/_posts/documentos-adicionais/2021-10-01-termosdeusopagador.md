@@ -157,7 +157,7 @@ g) O consentimento expresso do usuário/cliente para envio à **CONTRATADA** das
 
 5.8 – Acordam as partes que o(s) serviços(s) contratado(s) na Proposta Comercial poderão ser prestados às filiais e também às demais empresas integrantes do grupo econômico da CONTRATANTE, ficando a CONTRATANTE integralmente responsável pelo adimplemento de todas as obrigações de tais empresas, arcando com todos os valores e penalidades a elas aplicáveis. Para tanto, a CONTRATANTE declara que tem poderes para assumir obrigações em nome de empresas integrantes do grupo econômico, isentando a CONTRATADA de qualquer responsabilidade em razão de eventuais alegações de desconhecimento do presente Contrato.
 
-6ª – Tributos
+## 6ª – Tributos
 
 6.1 – Todos e quaisquer tributos devidos em virtude do presente instrumento são de exclusiva responsabilidade da parte a quem o fato gerador do tributo estiver vinculado, nos termos da legislação tributária em vigor.
 
@@ -165,7 +165,7 @@ g) O consentimento expresso do usuário/cliente para envio à **CONTRATADA** das
 
 6.3 – Os preços do(s) serviço(s) ora contratados sujeitar-se-ão às retenções previstas na legislação vigente, pelo responsável nela definido, inclusive para fins de contribuição previdenciária.
 
-7ª – Vigência e hipótese de rescisão
+## 7ª – Vigência e hipótese de rescisão
 
 7.1 – O presente Contrato vigorará pelo prazo indeterminado, contado a partir do termo inicial previsto na Proposta Comercial.
 
@@ -187,7 +187,7 @@ c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibili
 
 7.7 – Os serviços prestados pela CONTRATADA são independentes, sendo que, a eventual rescisão de um serviço não influenciará os demais, salvo expressa previsão diversa no respectivo Anexo, podendo cada serviço ser individualmente terminado mediante aditivo à Proposta Comercial, permanecendo em vigor os demais serviços eventualmente contratados, bem como o presente Contrato e seus complementos, respeitadas as multas rescisórias individuais dispostas nesta cláusula.
 
-8ª – Propriedade intelectual
+## 8ª – Propriedade intelectual
 
 8.1 – O presente instrumento oferece somente direito de uso não exclusivo e temporário do(s) serviço(s) contratado(s), não transmitindo à CONTRATANTE e/ou aos seus usuários/clientes quaisquer direitos sobre eventuais melhorias e/ou propriedade intelectual.
 
@@ -201,7 +201,7 @@ c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibili
 
 8.5 – A CONTRATADA garante que o método, técnicas, softwares e todo e qualquer material utilizados para o desenvolvimento e conclusão do(s) serviço(s) não infringem qualquer marca, patente, direito autoral, segredo comercial, ou quaisquer outros direitos de propriedade de terceiros.
 
-9ª – Ausência de vínculo e responsabilidade trabalhista
+## 9ª – Ausência de vínculo e responsabilidade trabalhista
 
 9.1 – O presente Contrato não gera qualquer vínculo ou obrigação trabalhista entre as partes, ou qualquer de seus prepostos, vez que não estão presentes os requisitos da relação trabalhista.
 
@@ -213,7 +213,7 @@ c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibili
 
 9.5 – Por ser a CONTRATANTE responsável pela qualidade dos seus próprios serviços, em caso de qualquer medida judicial ou extrajudicial movida contra a CONTRATADA pelos clientes da CONTRATANTE, em decorrência de eventuais danos oriundos da contratação e/ou aquisição de serviços e/ou produtos pela CONTRATANTE, as partes declaram que CONTRATADA está isenta de qualquer responsabilidade, devendo a CONTRATANTE requerer a exclusão da CONTRATADA em juízo, obrigando-se a reembolsar todas as importâncias que a CONTRATADA venha a ser eventualmente obrigada a pagar em condenações e custas judiciais, bem como os honorários advocatícios despendidos, sem prejuízo do direito de regresso da CONTRATADA contra a CONTRATANTE. O reembolso dar-se-á no prazo máximo de 30 (trinta) dias contadas a partir do recebimento da respectiva solicitação, por escrito, enviada pela CONTRATADA à CONTRATANTE. Independentemente do aqui disposto, a CONTRATADA poderá, a seu critério, notificar a CONTRATANTE para que esta apresente garantia em caso de medida judicial de sua responsabilidade, garantia está com base no valor apurado pelos advogados da CONTRATADA. A garantia poderá ser aval, fiança bancária ou qualquer outra que, por sua natureza, assegure a satisfação do débito em questão.
 
-10ª – Confidencialidade
+## 10ª – Confidencialidade
 
 10.1 – As partes obrigam-se a manter sigilo sobre quaisquer dados, documentos, informações técnicas, comerciais ou pessoais que venham a ter conhecimento, acesso, ou que lhes venham a ser confiados, tais como, mas não se limitando a técnicas, planos de ação, relatórios de vendas, desempenho de publicidade, “know how”, especificações e projetos (“Informações Confidenciais”), inclusive em relação aos clientes, fornecedores, associados, distribuidores ou quaisquer outras pessoas, físicas ou jurídicas, com que as partes mantenham relações jurídicas, não podendo as partes, salvo disposição em contrário, diretamente ou indiretamente, divulgar, revelar, reproduzir, utilizar ou dar conhecimento de tais informações a terceiros, ressalvados os casos definidos em lei, por expressa determinação judicial ou disposição diversa neste Contrato.
 
@@ -233,7 +233,7 @@ c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibili
 
 10.9 – Independentemente das demais disposições desta Cláusula 10ª, as partes se comprometem a manter sigilo e confidencialidade sobre os dados de transações e dados bancários de usuários/clientes da CONTRATANTE aos quais tenham acesso em razão dos serviços, conforme disposto nas Leis de Privacidade aplicáveis.
 
-11ª – Limitação de responsabilidade
+## 11ª – Limitação de responsabilidade
 
 11.1 – As partes se comprometem a indenizar, defender e manter imune a outra parte, seus acionistas, conselheiros, diretores, empregados, controladas, coligadas, bem como os sucessores e cessionários de cada um deles, em relação a todas e quaisquer reivindicações, responsabilidades, obrigações, demandas, perdas e danos, prejuízos, custos, despesas (inclusive honorários advocatícios), multas, penalidades e condenações opostos à outra parte, ou por elas incorridos, em razão de: (i) qualquer ação ou omissão sua, seja dolosa ou culposa; e (ii) quaisquer ações, processos, demandas, pendências ou contingências judiciais ou extrajudiciais que, por sua culpa e/ou dolo, sejam de sua responsabilidade, conforme previsto neste Contrato.
 
@@ -249,7 +249,7 @@ c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibili
 
 11.5 – A limitação de responsabilidade prevista neste capítulo não será aplicável nas seguintes hipóteses: (i) quando qualquer das partes agir com dolo devidamente comprovado em juízo, (ii) quando qualquer das partes cometer crimes decorrentes de violação de propriedade intelectual, e crimes de corrupção previstos na Lei nº 12.846/13 mediante ação judicial transitada em julgado, e (iii) quaisquer despesas oriundas de reclamações trabalhistas ou medidas judiciais ou extrajudiciais movidas por funcionários da CONTRATADA em face da CONTRATANTE e vice-versa.
 
-12ª – Lei Anticorrupção
+## 12ª – Lei Anticorrupção
 
 12.1 – As Partes declaram neste ato que estão cientes, conhecem e entendem os termos da Lei nº 12.846/13 (“Lei Anticorrupção”), declarando, ainda, que não praticam e se abstém de praticar qualquer atividade que constitua uma violação das disposições de referida Lei, comprometendo-se, também, por si e por seus sócios, administradores, diretores, funcionários, prepostos e/ou agentes (“Representantes”), a não praticar e a coibir a prática, por ação ou por omissão, de qualquer transgressão à Lei durante todo o prazo de validade deste Contrato.
 
@@ -257,7 +257,7 @@ c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibili
 
 12.3 – Qualquer descumprimento pelas Partes, dos termos da lei da Anticorrupção e/ou desta Cláusula, em qualquer um dos seus aspectos, ensejará a rescisão motivada imediata do presente instrumento, independentemente de qualquer notificação, sem prejuízo da aplicação das penalidades previstas neste Contrato e da apuração de eventuais perdas e danos.
 
-13ª – TRATAMENTO DE DADOS PESSOAIS
+## 13ª – TRATAMENTO DE DADOS PESSOAIS
  
 13.1. As Partes se comprometem a cumprir toda legislação aplicável sobre segurança da informação, privacidade e proteção dos dados pessoais, especialmente a Constituição Federal, o Código de Defesa do Consumidor, o Código Civil, o Marco Civil da Internet (Lei Federal nº 12.965/2014), seu decreto regulamentador (Decreto nº 8.771/2016), a Lei Geral de Proteção de Dados Pessoais (Lei Federal nº 13.709/2018) e demais normas setoriais ou gerais sobre o tema.
 
@@ -285,7 +285,7 @@ c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibili
 
 13.12. Sem prejuízo das cláusulas acima, a CONTRATADA poderá manter os dados pessoais, exclusivamente, para cumprir obrigações legais, contratuais e/ou regulatórias ou para o exercício regular de direitos em processo judicial ou administrativo.
 
-14ª – Disposições Gerais
+## 14ª – Disposições Gerais
 
 14.1 – A tolerância de uma parte em relação à outra não será considerada moratória, novação ou renúncia a qualquer direito, constituindo mera liberalidade, que não impedirá a parte tolerante de exigir da outra o fiel cumprimento deste Contrato, a qualquer tempo.
 
@@ -307,7 +307,7 @@ c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibili
 
 14.10 – O presente Contrato e o cumprimento das obrigações nele previstas serão regidos pelas leis da República Federativa do Brasil e interpretados de acordo suas disposições.
 
-15ª – Foro
+## 15ª – Foro
 
 14.1 – As partes elegem o Foro da Comarca da Capital do Estado de São Paulo como único competente para dirimir eventuais questões oriundas deste instrumento, com expressa renúncia a qualquer outro, por mais privilegiado que seja.
 
@@ -357,7 +357,6 @@ c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibili
 ## 5ª – Documentos Vinculados
 
 5.1 – Fazem parte complementar ao presente Anexo, como se nele estivessem integralmente transcritos, o Contrato de Prestação de Serviços e a Proposta Comercial encaminhada pela CONTRATADA à CONTRATANTE.
-
  
 # ANEXO II – Gestão de Risco
 
@@ -489,4 +488,4 @@ c) Atualizações e correções do sistema quando necessário, a critério exclu
 
 2.6 – Mediante expresso desejo da CONTRATANTE, conforme consta na Proposta Comercial, poderá ser adquirido o serviço de empresa terceira para o desenvolvimento de personalizações e adaptações do ARQUIVO DE VENDAS da CONTRATANTE ou modelo de arquivo lido pelo CONCILIADOR.
 
-2.7 – A CONTRATADA não tem qualquer ingerência e fica isenta de qualquer responsabilidade, seja qual for sua natureza, com relação à segurança e qualidade dos dados enviados, recebidos ou armazenados pela CONTRATANTE, sendo responsável apenas pelas situações decorrentes de eventuais falhas de segurança oriundas de seu ambiente tecnológico, desde que comprovada a sua culpa.![image](https://user-images.githubusercontent.com/10463611/135661544-bd98d136-42cf-4c82-9e08-47c0bfd6cbf0.png)
+2.7 – A CONTRATADA não tem qualquer ingerência e fica isenta de qualquer responsabilidade, seja qual for sua natureza, com relação à segurança e qualidade dos dados enviados, recebidos ou armazenados pela CONTRATANTE, sendo responsável apenas pelas situações decorrentes de eventuais falhas de segurança oriundas de seu ambiente tecnológico, desde que comprovada a sua culpa.
