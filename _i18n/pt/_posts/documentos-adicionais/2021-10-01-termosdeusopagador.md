@@ -258,7 +258,7 @@ c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibili
 12.3 – Qualquer descumprimento pelas Partes, dos termos da lei da Anticorrupção e/ou desta Cláusula, em qualquer um dos seus aspectos, ensejará a rescisão motivada imediata do presente instrumento, independentemente de qualquer notificação, sem prejuízo da aplicação das penalidades previstas neste Contrato e da apuração de eventuais perdas e danos.
 
 ## 13ª – TRATAMENTO DE DADOS PESSOAIS
- 
+
 13.1. As Partes se comprometem a cumprir toda legislação aplicável sobre segurança da informação, privacidade e proteção dos dados pessoais, especialmente a Constituição Federal, o Código de Defesa do Consumidor, o Código Civil, o Marco Civil da Internet (Lei Federal nº 12.965/2014), seu decreto regulamentador (Decreto nº 8.771/2016), a Lei Geral de Proteção de Dados Pessoais (Lei Federal nº 13.709/2018) e demais normas setoriais ou gerais sobre o tema.
 
 13.2. As Partes reconhecem que a CONTRATANTE é Controladora de Dados e a CONTRATADA é a Operadora de Dados.
@@ -357,7 +357,7 @@ c) O ajuizamento de qualquer ação contra a outra parte que afete sua credibili
 ## 5ª – Documentos Vinculados
 
 5.1 – Fazem parte complementar ao presente Anexo, como se nele estivessem integralmente transcritos, o Contrato de Prestação de Serviços e a Proposta Comercial encaminhada pela CONTRATADA à CONTRATANTE.
- 
+
 # ANEXO II – Gestão de Risco
 
 ## 1ª – Definições
