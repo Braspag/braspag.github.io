@@ -2745,7 +2745,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 
 <h2 id="consulta">Consulta</h2>
 
-<p>Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o <strong>Post de Notificação</strong>[https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#post-de-notifica%C3%A7%C3%A3o].</p>
+<p>Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o <a href="https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#post-de-notifica%C3%A7%C3%A3o"><strong>Post de Notificação</strong></a>.</p>
 
 <h4 id="requisição-10">Requisição</h4>
 
@@ -3049,11 +3049,11 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Como explicitado anteriormente, se as regras de divisão não forem informadas na requisição da captura total ou parcial, o Split interpreta que todo o valor é destinado ao próprio Marketplace.</p>
+<p>Como explicitado anteriormente, se as regras de divisão não forem informadas na requisição da captura total ou parcial, o Split interpreta que todo o valor é destinado ao próprio Master.</p>
 
 <h2 id="cancelamento">Cancelamento</h2>
 
-<p>Ao cancelar uma transação do Split de Pagamentos o Master deve informar, para um cancelamento parcial, qual o valor deve ser cancelado para cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que o valor total será cancelado e, consequentemente, o valor total de cada Subordinado.</p>
+<p>Ao cancelar uma transação do Split de Pagamentos o Master deve informar, para um cancelamento parcial, qual o valor que deve ser cancelado para cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que o valor total será cancelado e, consequentemente, o valor total de cada Subordinado.</p>
 
 <blockquote>
   <p>O prazo de estorno de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.</p>
@@ -3133,7 +3133,7 @@ Crédito: R$0,10 (Tarifa Fixa acordada com o Master)</p>
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
 </code></pre></div></div>
 
-<p>No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no valor de R$100,00.</p>
+<p>No exemplo a seguir, a requisição informa o cancelamento do valor de R$25,00 de uma transação capturada no valor de R$100,00.</p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce/1/sales/{PaymentId}/void?amount=2500</span></aside>
 
