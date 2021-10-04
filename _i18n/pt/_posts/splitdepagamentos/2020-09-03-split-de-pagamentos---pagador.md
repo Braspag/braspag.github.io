@@ -70,43 +70,43 @@ O Master é responsável por acordar as taxas a serem cobradas dos seus Subordin
 
 ### Exemplo
 
-Uma transação de **R$100,00**, realizada por um **Marketplace** com participação do **Subordinado 01**.
+Uma transação de **R$100,00**, realizada por um **Master** com participação do **Subordinado 01**.
 
 ![SplitSample001](https://developercielo.github.io/images/split/split001.png)
 
 Neste exemplo, foram assumidos os seguintes acordos:
 
 **Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.  
-**Taxa Marketplace**: 3,5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.
+**Taxa Master**: 3,5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.
 
 Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:
 
 **Subordinado**:  
-Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Marketplace]
+Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Master]
 
-**Marketplace**:  
-Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]
-Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
+**Master**:  
+Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag]
+Débito: R$0,10 [Tarifa Fixa acordada com a Braspag]
 
 **Braspag (Facilitador)**:  
 Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
-Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]
+Crédito: R$0,10 [Tarifa Fixa acordada com o Master]
 
 ## Bandeiras
 
 As bandeiras suportadas pelo Split são:
 
-* Visa
-* MasterCard 
-* Elo
-* Amex
-* Hipercard
-* Diners
-* Discover
+* Visa;
+* Mastercard;
+* Elo;
+* Amex;
+* Hipercard;
+* Diners;
+* Discover.
 
 # Ambientes
 
-É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu executivo comercial.
+É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu [executivo comercial](https://www.braspag.com.br/contato/).
 
 ## Sandbox
 
@@ -126,282 +126,15 @@ As bandeiras suportadas pelo Split são:
 * **API Split**: https://split.braspag.com.br/
 * **Braspag OAUTH2 Server**: https://auth.braspag.com.br/
 
-# QuickStart
-
-O request de crédito do Split é composto por 4 campos obrigatórios: **MerchantOrderId**, **Customer**, **Payment** e **Payment.FraudAnalysis**.
-
-Abaixo montaremos um request simples. O suficiente para enviarmos a nossa primeira transação, sem nos preocuparmos muito com detalhes. **Esse exemplo é o básico para entendimento e não deve ser utilizado em produção**.
-
-## MerchantOrderId
-
-Esse campo é onde informamos o número do pedido que existe na loja do cliente.
-
-```json
-{
-    "MerchantOrderId":"201904150001"
-}
-```
-
-|Campos|Tipo|Tamanho|Obrigatório|Descrição|
-|-----|----|-------|-----------|---------|
-|**MerchantOrderId**|Texto|50|Sim|Número de identificação do pedido|
-
-## Customer
-
-Esse campo contém os dados do comprador. Possui diversos subcampos que devem ser analisados cuidadosamente.
-
-```json
-{
-    "Customer":{
-        "Name": "João da Silva Accept",
-        "Identity":"12345678900",
-        "IdentityType":"CPF"
-    }
-}
-```
-
-|Campos|Tipo|Tamanho|Obrigatório|Descrição|
-|-----|----|-------|-----------|---------|
-|`Customer`|-|-|Sim|Dados do comprador|
-|`Customer.Name`|Texto|61|Sim|Nome do comprador (No ambiente de Sandbox, o último nome do comprador deverá ser **ACCEPT**. Ex.: "João da Silva Accept")|
-|`Customer.Identity`|Texto|18|Sim|Número de documento do comprador|
-|`Customer.IdentityType`|Texto|4|Sim|Tipo de documento de identificação do comprador. Ex.: `CPF` ou `CNPJ`|
-
-## Payment
-
-Esse campo possui os elementos da transação, assim como o antifraude (**Payment.FraudAnalysis**), que será explicado separadamente.
-
-Aqui é possível especificar se uma transação será efetuada como crédito ou débito, se utilizará um token de cartão, o número de parcelas e etc.
-
-```json
-{
-    "Payment":{
-        "Provider": "Simulado",
-        "Type":"CreditCard",
-        "Amount":10000,
-        "Capture": true,
-        "DoSplit": true,
-        "Installments":1,
-        "SoftDescriptor":"LojaDoJoao",
-        "CreditCard":{
-            "CardNumber":"4481530710186111",
-            "Holder":"Yamilet Taylor",
-            "ExpirationDate":"12/2022",
-            "SecurityCode":"693",
-            "Brand":"Visa"
-        }
-    }
-
-}
-```
-
-|Campos|Tipo|Tamanho|Obrigatório|Descrição|
-|-----|----|-------|-----------|---------|
-|`Payment`|-|-|Sim|Campos refente ao pagamento e antifraude|
-|`Payment.Provider`|Texto|15|Sim|Nome da provedora de Meio de Pagamento|
-|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. Possíveis Valores: `CreditCard` ou `DebitCard`|
-|`Payment.Amount`|Inteiro|15|Sim|Valor do pedido em centavos. Ex.: R$ 1.559,85 = 155985|
-|`Payment.Capture`|Boleano|-|Sim|Parâmetro para capturar a transação. Caso o valor seja `False` a transação será apenas autorizada. Se for `True`, a captura será realizada automaticamente após a autorização.|
-|`Payment.DoSplit`|Booleano|-|Não (Default false)|Booleano que indica se a transação será dividida entre várias contas (true) ou não (false)|
-|`Payment.Installments`|Inteiro|2|Sim|Número de parcelas do pedido|
-|`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
-|`Payment.CreditCard`|-|-|Sim|Nó contendo as informações do cartão|
-|`Payment.CreditCard.CardNumber`|Texto|19|Sim|Número do cartão do comprador|
-|`Payment.CreditCard.Holder`|Texto|50|Sim|Nome do comprador impresso no cartão|
-|`Payment.CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade do cartão composta por MM/AAAA|
-|`Payment.CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`Payment.CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão  |Possíveis valores: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover|
-
-### Payment.FraudAnalysis
-
-Esse campo é referente ao sistema de antifraude. 
-O antifraude é obrigatório no Split de Pagamentos. E para esse sistema utilizamos o nosso parceiro [CyberSource](https://www.cybersource.com/) do Grupo [Visa](https://www.visa.com.br/).
-A fim de exemplificar uma transação da forma mais simples possível, alguns campos obrigatórios para o ambiente de produção não foram passados.
-
-Mais a frente explicaremos como utilizar o campo **Browser** e **MerchantDefinedFields**.
-
-```json
-{
-    "Payment":{
-        "FraudAnalysis":{
-            "Provider":"Cybersource",
-            "TotalOrderAmount":10000
-        }
-    }
-}
-```
-
-|Campos|Tipo|Tamanho|Obrigatório|Descrição|
-|-----|----|-------|-----------|---------|
-|`Payment.FraudAnalysis`|-|-|-|Nó contendo as informações para Análise de Fraude|
-|`Payment.FraudAnalysis.Provider`|Texto|12|Sim|Identifica o provedor da solução de análise de fraude  |Possíveis valores: `Cybersource`|
-|`Payment.FraudAnalysis.TotalOrderAmount`|Inteiro|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação  |Ex.: Valor do pedido sem a taxa de entrega|
-
-**Request**
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
-
-```json
-
---body
-{
-    "MerchantOrderId":"201904150001",
-    "Customer":{
-        "Name": "João da Silva Accept",
-        "Identity":"12345678900",
-        "IdentityType":"CPF"
-    },
-    "Payment":{
-        "Provider": "Simulado",
-        "Type":"CreditCard",
-        "DoSplit": true,
-        "Amount":10000,
-        "Capture": true,
-        "Installments":1,
-        "SoftDescriptor":"LojaDoJoao",
-        "CreditCard":{
-            "CardNumber":"4481530710186111",
-            "Holder":"Yamilet Taylor",
-            "ExpirationDate":"12/2022",
-            "SecurityCode":"693",
-            "Brand":"Visa"
-        },
-        "SplitPayments":[
-            {
-                "SubordinateMerchantId" :"f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                "Amount":10000,
-                "Fares":{
-                    "Mdr":5,
-                    "Fee":0
-                    }
-            }
-            ],
-        "FraudAnalysis":{
-            "Provider":"Cybersource",
-            "TotalOrderAmount":10000
-        }
-    }
-}
-```
-
-|Campos|Tipo|Tamanho|Obrigatório|Descrição|
-|-----|----|-------|-----------|---------|
-|`SplitPayments.SubordinateMerchantId`|Guid|36|Sim|Identificador do Seller na Braspag|
-|`SplitPayments.Amount`|Número|15|Sim|Total da venda do Seller específico. R$ 100,00 = 10000|
-|`SplitPayments.Fares.Mdr`|Decimal|3,2|Não|Taxa aplicada pela loja Master sobre o Seller para desconto|
-|`SplitPayments.Fares.Fee`|Número|15|Não|Tarifa aplicada pela loja Master sobre o Seller para desconto|
-
-**Response**
-
-```json
-{
-    "MerchantOrderId": "201904150001",
-    "Customer": {
-        "Name": "João da Silva Accept",
-        "Identity": "12345678900",
-        "IdentityType": "CPF"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "CreditCard": {
-            "CardNumber": "448153******6111",
-            "Holder": "Yamilet Taylor",
-            "ExpirationDate": "12/2022",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "20190829030409594",
-        "AcquirerTransactionId": "0829030409594",
-        "AuthorizationCode": "046879",
-        "SoftDescriptor": "LojaDoJoao",
-        "FraudAnalysis": {
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "OnSuccess",
-            "Provider": "Cybersource",
-            "TotalOrderAmount": 10000,
-            "IsRetryTransaction": false,
-            "Id": "b7211f65-87ca-e911-a40a-0003ff21cf74",
-            "Status": 1,
-            "StatusDescription": "Accept",
-            "FraudAnalysisReasonCode": 100,
-            "ReplyData": {
-                "FactorCode": "F^H",
-                "Score": 38,
-                "HostSeverity": 1,
-                "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-HIST",
-                "ScoreModelUsed": "default",
-                "VelocityInfoCode": "VEL-NAME",
-                "CasePriority": 3,
-                "ProviderTransactionId": "5671018489636116404007"
-            }
-        },
-        "DoSplit": true,
-        "SplitPayments": [
-            {
-                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                "Amount": 10000,
-                "Fares": {
-                    "Mdr": 5.0,
-                    "Fee": 0
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
-                        "Amount": 9500
-                    },
-                    {
-                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
-                        "Amount": 500
-                    }
-                ]
-            }
-        ],
-        "PaymentId": "536b8e54-6d44-4b84-86e2-0d7d01cf4935",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "ReceivedDate": "2019-08-29 15:04:02",
-        "CapturedAmount": 10000,
-        "CapturedDate": "2019-08-29 15:04:09",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Simulado",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 2,
-        "ProviderReturnCode": "6",
-        "ProviderReturnMessage": "Operation Successful",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/536b8e54-6d44-4b84-86e2-0d7d01cf4935"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.braspag.com.br/v2/sales/536b8e54-6d44-4b84-86e2-0d7d01cf4935/void"
-            }
-        ]
-    }
-}
-```
-
-**Esse é apenas um request de exemplo bem básico e não deve ser utilizado em produção. Para facilitar o entendimento, não foi aplicado nenhum campo que fortalece a segurança da transação.**
-
-Nos próximos exemplos explicaremos como aumentar a segurança e manipular os campos da nossa transação entre crédito e débito.
-
 # Integração
 
 ## Autorização  
 
-Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro Payment.DoSplit como true e adicionar o nó Payment.SplitPayments, conforme exemplo:
+Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro `Payment.DoSplit` como true e adicionar o nó `Payment.SplitPayments`.
 
 ### Transação de Crédito
+
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -495,7 +228,7 @@ Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro Pay
 }
 ```
 
-**Response**
+#### Response
 
 ```json
 {
@@ -685,9 +418,9 @@ Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro Pay
 }
 ```
 
-Ao informar um tipo de pagamento referente ao Split, a API do Pagador automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).
+Ao informar um tipo de pagamento referente ao Split, a API do Pagador automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag.
 
-Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Marketplace. Posteriormente é permitido que o Marketplace envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.
+Caso a transação enviada seja marcada para captura automática, é necessário enviar o nó contendo as regras de divisão; caso contrário a transação será dividida entre a Braspag e o Master. Posteriormente é permitido que o Master envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
@@ -719,13 +452,13 @@ Caso a transação enviada seja marcada para captura automática, o nó contendo
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
 
-**Exemplo 1)**  
+#### Exemplo sem o nó da divisão  
 
 Transação no valor de **R$100,00**, com captura automática, sem o nó contendo as regras de divisão.
 
 **Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.
 
-**Request**
+**Requisição**
 
 ```json
 {
@@ -798,7 +531,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 }
 ```
 
-**Response**
+**Resposta**
 
 ```json
 {
@@ -966,19 +699,19 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 }
 ```
 
-Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Marketplace e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
+Neste caso, o Master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o Master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
 
 ![SplitSample002](https://developercielo.github.io/images/split/split002.png)
 
-**Exemplo 2)**  
+#### Exemplo com o nó da divisão  
 
 Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 
 **Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 01**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 02**: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.  
+**Taxa Master com o Subordinado 01**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.  
+**Taxa Master com o Subordinado 02**: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.  
 
-**Request**
+**Requisição**
 
 ```json
 {
@@ -1069,7 +802,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 }
 ```
 
-**Response**
+**Resposta**
 
 ```json
 {
@@ -1265,9 +998,12 @@ Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada
 
 ### Transação de Débito
 
-Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la a autenticação e o nó `Payment.FraudAnalysis` não deve ser informado pois a transação não necessita de análise de fraude.
+Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:
 
->Para a autenticação será utilizada a [integração 3DS 2.0](https://braspag.github.io//manualp/emv3ds), onde obterá os dados necessários para utilizar no nó `Payment.ExternalAuthentication`.  
+* O nó `Payment.FraudAnalysis` não deve ser informado, pois a transação não necessita de análise de fraude;
+* É obrigatório submeter a transação de débito à autenticação. Para isso, é necessário incluir o nó `Payment.ExternalAuthentication`. A autenticação é feita pela integração 3DS 2.0. 
+
+> Para saber mais sobre a integração 3DS 2.0, acesse o [Manual de Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).
 
 | Propriedade | Descrição | Tipo/Tamanho | Obrigatório |
 | --- | --- | --- | --- |
@@ -1278,6 +1014,8 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 |`Payment.ExternalAuthentication.Eci`| *Electronic Commerce Indicator* retornado no processo de autenticação. | Numérico / 1 posição | Sim. |
 |`Payment.ExternalAuthentication.Version`| Versão do 3DS utilizado no processo de autenticação. | Alfanumérico / 1 posição | Sim, quando a versão do 3DS for "2".|
 |`Payment.ExternalAuthentication.ReferenceID`| RequestID retornado no processo de autenticação. | GUID / 36 posições | Sim, quando a versão do 3DS for "2". |
+
+#### Requisição
 
 ```json
 {
@@ -1335,7 +1073,7 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 }
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -1438,14 +1176,16 @@ Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um
 O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
 
 | Tipo                       | Descrição                                                                                          |
-| **Split Transacional**     | O **Marketplace** envia na autorização (captura automática) ou no momento de captura as regras de divisão. |
-| **Split Pós-Transacional** | O **Marketplace** envia as regras de divisão após a captura da transação. |
+| **Split Transacional**     | O **Master** envia as regras de divisão na autorização (captura automática) ou no momento de captura. |
+| **Split Pós-Transacional** | O **Master** envia as regras de divisão após a captura da transação. |
 
-> No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.
+> No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso as regras de divisão sejam informadas no momento de uma autorização sem captura automática, elas serão desconsideradas.
 
-### Transacional
+### Split Transacional
 
-No Split Transacional é necessário que o Marketplace envie um "nó" adicional na integração da API do Pagador, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
+No Split Transacional é necessário que o Master envie um "nó" adicional na integração da API do Pagador, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
+
+#### Requisição
 
 ```json
 "SplitPayments":[
@@ -1464,10 +1204,12 @@ No Split Transacional é necessário que o Marketplace envie um "nó" adicional 
 |-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
 | `SplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
 | `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do **Subordinado**, em centavos.             | Inteiro | -       | Sim         |
-| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Marketplace** a ser descontado do valor referente a participação do **Subordinado**     | Decimal | -       | Não         |
+| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Master** a ser descontado do valor referente a participação do **Subordinado**     | Decimal | -       | Não         |
 | `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos. | Inteiro | -       | Não         |
 
-Como resposta, A API retornará um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo Marketplace e seus Subordinados:
+#### Resposta
+
+Como resposta, A API retornará um nó contendo as regras de divisão enviadas e os valores a serem recebidos pelo Master e seus Subordinados:
 
 ```json
 "SplitPayments": [
@@ -1494,16 +1236,14 @@ Como resposta, A API retornará um nó contento as regras de divisão enviadas e
 
 | Propriedade                                  | Descrição                                                                                   | Tipo   | Tamanho | Obrigatório |
 |----------------------------------------------|---------------------------------------------------------------------------------------------|--------|---------|-------------|
-| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
-| `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
+| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Master**.                       | Guid   | 36      | Sim         |
+| `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Master**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
 ### Pós-Transacional
 
-Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.
+Neste modelo, o Master poderá enviar as regras de divisão da transação após a captura.
 
-Para transações com **Cartão de Crédito** este período é de **20 dias** e para as transações com **Cartão de Débito** este período é de **1 dia**, se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).
-
-> O período para redividir uma transação poderá ser alterado pela Braspag (Facilitador).
+Para transações de crédito e débito o prazo para envio da requisição de Split Pós-Transacional é até 01h00 do dia posterior à captura.
 
 **Autenticação**
 
@@ -1511,11 +1251,11 @@ O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth
 
 Para obter um token de acesso:
 
-1. Concatene o ClientId e ClientSecret: `ClientId:ClientSecret`.  
+1. Concatene o MerchantId e ClientSecret: `MerchantId:ClientSecret`.  
 2. Codifique o resultado da concatenação em Base64.  
 3. Realize uma requisição ao servidor de autorização:  
 
-**Request**  
+#### Requisição  
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
@@ -1526,7 +1266,7 @@ x-www-form-urlencoded
 grant_type=client_credentials
 ```
 
-**Response**
+#### Resposta
 
 ```json
 {
@@ -1537,7 +1277,7 @@ grant_type=client_credentials
 ```
 
 > O ClientSecret deve ser obtido junto à Braspag. <br>
-> O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.  
+> O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar deverá um novo token toda vez que a validade expirar.  
 
 **Request**  
 
@@ -1611,9 +1351,9 @@ grant_type=client_credentials
 }
 ```
 
-O nó referente ao Split no Split Pós-transacional, tanto no contrato de request quanto de response, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.
+O nó referente ao split no Split Pós-transacional, tanto no contrato de requisição quanto de resposta, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.
 
-> O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **20 dias** para **Cartão de Crédito** se estiver enquadrado no regime de pagamento padrão.  
+> O Master poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é até 01h00 do dia posterior à captura, se estiver enquadrado no regime de pagamento padrão.  
 
 ## Salvando e Reutilizando Cartões
 
