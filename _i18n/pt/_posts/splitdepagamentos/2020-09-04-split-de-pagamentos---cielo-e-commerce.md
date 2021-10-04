@@ -1996,7 +1996,7 @@ Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma
 
 ## Consulta
 
-Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o **Post de Notificação**[https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#post-de-notifica%C3%A7%C3%A3o].
+Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o [**Post de Notificação**](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#post-de-notifica%C3%A7%C3%A3o).
 
 #### Requisição
 
@@ -2307,11 +2307,11 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 }
 ```
 
-Como explicitado anteriormente, se as regras de divisão não forem informadas na requisição da captura total ou parcial, o Split interpreta que todo o valor é destinado ao próprio Marketplace.
+Como explicitado anteriormente, se as regras de divisão não forem informadas na requisição da captura total ou parcial, o Split interpreta que todo o valor é destinado ao próprio Master.
 
 ## Cancelamento
 
-Ao cancelar uma transação do Split de Pagamentos o Master deve informar, para um cancelamento parcial, qual o valor deve ser cancelado para cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que o valor total será cancelado e, consequentemente, o valor total de cada Subordinado.
+Ao cancelar uma transação do Split de Pagamentos o Master deve informar, para um cancelamento parcial, qual o valor que deve ser cancelado para cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que o valor total será cancelado e, consequentemente, o valor total de cada Subordinado.
 
 > O prazo de estorno de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.
 
@@ -2392,7 +2392,7 @@ x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
-No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no valor de R$100,00.
+No exemplo a seguir, a requisição informa o cancelamento do valor de R$25,00 de uma transação capturada no valor de R$100,00.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce/1/sales/{PaymentId}/void?amount=2500</span></aside>
 
