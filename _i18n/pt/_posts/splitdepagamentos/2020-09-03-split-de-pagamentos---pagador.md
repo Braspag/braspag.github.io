@@ -15,37 +15,33 @@ tags:
 
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
-> Solicite suas credenciais para o ambiente de teste em nosso portal de suporte https://suporte.braspag.com.br ou pelo telefone 3003-6554
-
-Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
+Muito utilizado em marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
 
 | **Participantes** | **Descrição** |
 |-----------|---------- |
-| **Marketplace** | Responsável pelo carrinho (Master). <br> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<br> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<br> Pode participar de uma venda fornecendo seus próprios produtos. |
-| **Subordinado** | Fornecedor dos produtos que compõem o carrinho.<br>Recebe parte do valor da venda, descontadas as taxas acordadas com o **Marketplace**.|
-| **Braspag (Facilitador)** | Responsável pelo fluxo transacional.<br> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo **Marketplace**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Marketplace**.|
+| **Master** | É o responsável pelo carrinho. <br> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<br> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<br> Pode participar de uma venda fornecendo seus próprios produtos. |
+| **Subordinado** | Fornecedor dos produtos que compõem o carrinho.<br>Recebe parte do valor da venda, descontadas as taxas acordadas com o **Master**.|
+| **Braspag** | É a responsável pelo fluxo transacional, funcionando como subadquirente.<br> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo **Master**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Master**.|
 
-No Split de Pagamentos o responsável pelo fluxo transacional é a Braspag (facilitador).
+No Split de Pagamentos o responsável pelo fluxo transacional é a Braspag.
 
-O Marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como Split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.
+O Master se integra à Braspag para transacionar e, para cada transação, informa como será a divisão entre cada participante, podendo ser no momento de captura (Split transacional) ou em um momento posterior (Split pós-transacional), desde que seja dentro de um limite de tempo pré-estabelecido.
 
-Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento\*), para cada envolvido na transação.
+Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento\*), para cada envolvido na transação. O **Regime de Pagamento** é o prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
 
-> **Regime de Pagamento**: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
-> <br>
-> **Crédito**: Em até 31 dias. <br>
+> **Crédito**: em até 31 dias. <br>
 > **Crédito Parcelado**: 1º parcela em até 31 dias, demais a cada 30.<br>
-> **Débito**: Em até 2 dias úteis.
+> **Débito**: em até 2 dias úteis.
 
-Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como **MerchantId (MID)**, que deverá ser utlizado ao informar as regras de divisão de uma transação.
+Para utilizar o Split de Pagamentos, o Master deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Master quanto seus Subordinados possuirão um identificador único, conhecido como **MerchantId (MID)**, que deverá ser utlizado ao informar as regras de divisão de uma transação.
 
-Na divisão de uma transação, devem ser informados:
+Na divisão de uma transação, você deve informar:
 
-* Os **identificadores dos Subordinados**.
-* Os **valores de participação de cada Subordinado**. O somatório deverá ser igual ao valor total da transação.
-* **Taxas** a serem aplicadas sobre o valor de cada Subordinado destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.
+* Os **identificadores dos Subordinados**;
+* Os **valores de participação de cada Subordinado**. O somatório deverá ser igual ao valor total da transação;
+* As **Taxas** a serem aplicadas sobre o valor de cada Subordinado, destinadas ao Master. Estas deverão ser acordadas previamente entre o Master e o Subordinado.
 
-O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de **Subordinado** e ter seus próprios produtos no carrinho.
+O Master também pode ser um participante da divisão; para isso, basta informar seu identificador. Nessa situação, o Master passa a ter também o papel de Subordinado e ter seus próprios produtos no carrinho.
 
 ## Taxas
 
@@ -114,12 +110,16 @@ As bandeiras suportadas pelo Split são:
 
 ## Sandbox
 
+> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br).
+
 * **API Transacional Pagador**: https://apisandbox.braspag.com.br/
 * **API para Serviços de Consultas Pagador**: https://apiquerysandbox.braspag.com.br/
 * **API Split**: https://splitsandbox.braspag.com.br/
 * **Braspag OAUTH2 Server**: https://authsandbox.braspag.com.br/
 
 ## Produção
+
+> Você receberá as credenciais para o ambiente de produção durante o onboarding.
 
 * **API Transacional Pagador**: https://api.braspag.com.br/
 * **API para Serviços de Consultas Pagador**: https://apiquery.braspag.com.br/
