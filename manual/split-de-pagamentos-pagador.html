@@ -1673,7 +1673,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
   <li>Realize uma requisição ao servidor de autorização:</li>
 </ol>
 
-<h4 id="requisição-3">Requisição</h4>
+<h4 id="requisição-de-autenticação">Requisição de autenticação</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
@@ -1697,7 +1697,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar deverá um novo token toda vez que a validade expirar.</p>
 </blockquote>
 
-<p><strong>Request</strong></p>
+<h4 id="requisição-de-split-pós-transacional">Requisição de Split Pós-Transacional</h4>
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
 
@@ -1722,7 +1722,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<h4 id="resposta-3">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c96bf94c-b213-44a7-9ea3-0ee2865dc57e"</span><span class="p">,</span><span class="w">
@@ -1779,13 +1779,13 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <p>Além da geração do <code class="language-plaintext highlighter-rouge">CardToken</code>, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o <code class="language-plaintext highlighter-rouge">Alias</code>.</p>
 
-<aside class="warning">Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
+<aside class="warning">Por questões de segurança, o Cartão Protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
 <h3 id="salvando-um-cartão-durante-uma-autorização">Salvando um Cartão Durante uma Autorização</h3>
 
 <p>Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> como “true” na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051">neste artigo</a>.</p>
 
-<p><strong>Requisição</strong></p>
+<h4 id="requisição-3">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1997,7 +1997,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </tbody>
 </table>
 
-<p><strong>Resposta</strong></p>
+<h4 id="resposta-4">Resposta</h4>
 
 <p>O parâmetro <code class="language-plaintext highlighter-rouge">CreditCard.CardToken</code> retornará o token a ser salvo para transações futuras com o mesmo cartão.</p>
 
@@ -2179,11 +2179,11 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h3 id="criando-uma-transação-com-cardtoken">Criando uma Transação com CardToken</h3>
 
-<p>Este é um exemplo de como utilizar o <code class="language-plaintext highlighter-rouge">CardToken</code>, previamente salvo, para criar uma transação. Por questões de segurança, um <code class="language-plaintext highlighter-rouge">CardToken</code> não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">canais de atendimento</a>.</p>
+<p>Este é um exemplo de como utilizar o <code class="language-plaintext highlighter-rouge">CardToken</code>, previamente salvo, para criar uma transação. Por questões de segurança, um <code class="language-plaintext highlighter-rouge">CardToken</code> não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato como nosso <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">Suporte</a>.</p>
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> será alterado conforme exemplo a seguir:</p>
 
-<p><strong>Requisição</strong></p>
+<h4 id="requisição-4">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2359,7 +2359,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </tbody>
 </table>
 
-<p><strong>Resposta</strong></p>
+<h4 id="resposta-5">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -2532,7 +2532,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <p>Este é um exemplo de como utilizar o <em>Alias</em>, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">canais de atendimento</a>.</p>
 
-<p><strong>Requisição</strong></p>
+<h4 id="requisição-5">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2715,7 +2715,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </tbody>
 </table>
 
-<p><strong>Resposta</strong></p>
+<h4 id="resposta-6">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -2886,9 +2886,9 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h2 id="consulta">Consulta</h2>
 
-<p>Para consultar uma transação, utilize o próprio serviço de consulta da API Braspag, informando o <code class="language-plaintext highlighter-rouge">PaymentId</code> da transação:</p>
+<p>Para consultar uma transação, utilize o próprio serviço de consulta da API Braspag, informando o <code class="language-plaintext highlighter-rouge">PaymentId</code> da transação. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o <a href="https://braspag.github.io//manual/split-de-pagamentos-pagador#post-de-notifica%C3%A7%C3%A3o">Post de Notificação</a>.</p>
 
-<p><strong>Requisição</strong></p>
+<h3 id="requisição-6">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -2943,7 +2943,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </tbody>
 </table>
 
-<p><strong>Resposta</strong></p>
+<h3 id="resposta-7">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -3654,13 +3654,13 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h2 id="captura">Captura</h2>
 
-<p>Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Marketplace.</p>
+<p>Ao capturar uma transação do Split de Pagamentos, o Master precisa informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Master.</p>
 
 <h3 id="captura-total">Captura Total</h3>
 
 <p>Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.</p>
 
-<p><strong>Request</strong></p>
+<h4 id="requisição-7">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
@@ -3686,7 +3686,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<h4 id="resposta-8">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -3751,9 +3751,9 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h3 id="captura-parcial">Captura Parcial</h3>
 
-<p>Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Marketplace.</p>
+<p>Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Master.</p>
 
-<p><strong>Request</strong></p>
+<h4 id="requisição-8">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
@@ -3781,7 +3781,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<h4 id="resposta-9">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -3844,7 +3844,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.</p>
+<p>Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Master.</p>
 
 <p><strong>Request</strong></p>
 
@@ -3893,17 +3893,17 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h2 id="cancelamento">Cancelamento</h2>
 
-<p>Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.</p>
+<p>Ao cancelar uma transação do Split de Pagamentos o Master deve informar, para um cancelamento parcial, qual o valor que deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e, consequentemente, o valor total de cada Subordinado.</p>
 
 <h3 id="cancelamento-total">Cancelamento Total</h3>
 
-<p>No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado e as comissões de todos os participantes.</p>
+<p>No cancelamento total de uma transação, será cancelado o valor total da transação e, consequentemente, o valor total de cada Subordinado e as comissões de todos os participantes.</p>
 
-<p><strong>Request</strong></p>
+<h4 id="requisição-9">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void</span></aside>
 
-<p><strong>Response</strong></p>
+<h4 id="resposta-10">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -3957,11 +3957,11 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <p>No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial.</p>
 
-<p><strong>Request</strong></p>
+<h4 id="requisição-10">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void?amount={amount}</span></aside>
 
-<p>No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no valor de R$100,00.</p>
+<p>No exemplo a seguir, a requisição informa o cancelamento do valor de R$25,00 de uma transação capturada no valor de R$100,00.</p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void?amount=2500</span></aside>
 
@@ -4007,7 +4007,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </tbody>
 </table>
 
-<p><strong>Response</strong></p>
+<h4 id="resposta-11">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4062,7 +4062,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado, conforme exemplo abaixo:</p>
+<p>Não é obrigatório informar todos os Subordinados no cancelamento parcial. Você pode informar apenas os subordinados para os quais deseja cancelar totalmente ou cancelar parte do valor destinado a cada um na transação, conforme exemplo a seguir:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
@@ -4075,7 +4075,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span></code></pre></div></div>
 
 <blockquote>
-  <p>Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.</p>
+  <p>Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Master tem a receber.</p>
 </blockquote>
 
 <h2 id="opções-de-configuração-da-transação">Opções de Configuração da Transação</h2>
