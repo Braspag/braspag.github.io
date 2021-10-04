@@ -160,33 +160,33 @@
 
 <h2 id="taxas">Taxas</h2>
 
-<p>As taxas acordadas entre os participantes, podendo ser um <strong>MDR(%)</strong> e/ou uma <strong>Taxa Fixa(R$)</strong>, devem ser definidas no momento do cadastro do Marketplace e dos seus Subordinados junto à Braspag (Facilitador).</p>
+<p>As taxas acordadas entre os participantes, podendo ser um <strong>MDR(%)</strong> e/ou uma <strong>Taxa Fixa(R$)</strong>, devem ser definidas no momento do cadastro do Master e dos seus Subordinados junto à Braspag.</p>
 
-<p>As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.</p>
+<p>As taxas podem ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.</p>
 
 <blockquote>
-  <p><strong>MDR (<em>Merchant Discount Rate</em>):</strong> Percentual a ser descontado do valor de uma transação, definido por produto (Crédito / Débito), Bandeira e Faixa de Parcelamento. <br />
-<strong>Fee:</strong> Taxa fixa. Valor em centavos a ser cobrado por transação capturada.</p>
+  <p><strong>MDR (<em>Merchant Discount Rate</em>):</strong> percentual a ser descontado do valor de uma transação, definido por produto (crédito/débito), bandeira e faixa de parcelamento. <br />
+<strong>Fee:</strong> taxa fixa. Valor em centavos a ser cobrado por transação capturada.</p>
 </blockquote>
 
-<h3 id="braspag-facilitador">Braspag (Facilitador)</h3>
+<h3 id="braspag">Braspag</h3>
 
-<p>A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.</p>
+<p>A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Master a serem descontadas do valor total de cada transação.</p>
 
-<p>O Marketplace, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).</p>
+<p>O Master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag.</p>
 
-<p>O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem para receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.</p>
+<p>O desconto da Tarifa Fixa, acordada entre o Master e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Master tem para receber junto à Braspag. O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Master e seus Subordinados.</p>
 
 <blockquote>
-  <p><strong>Custo Marketplace:</strong> MDR Braspag (%) + Tarifa Fixa Braspag (R$)</p>
+  <p><strong>Custo Master:</strong> MDR Braspag (%) + Tarifa Fixa Braspag (R$)</p>
 </blockquote>
 
-<h3 id="marketplace">Marketplace</h3>
+<h3 id="master">Master</h3>
 
-<p>O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace, e uma Tarifa Fixa, que é opcional.</p>
+<p>O Master é responsável por acordar as taxas a serem cobradas dos seus Subordinados, definindo um MDR maior ou igual ao MDR definido entre a Braspag e o Master, e uma Tarifa Fixa, que é opcional.</p>
 
 <blockquote>
-  <p><strong>Custo Subordinado:</strong> MDR Marketplace (%) + Tarifa Fixa (R$), onde o MDR Marketplace (%) considera o MDR Braspag (%).</p>
+  <p><strong>Custo Subordinado:</strong> MDR Master (%) + Tarifa Fixa (R$), onde o MDR Master (%) considera o MDR Braspag (%).</p>
 </blockquote>
 
 <h3 id="exemplo">Exemplo</h3>
