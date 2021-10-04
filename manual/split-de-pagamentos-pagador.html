@@ -109,11 +109,7 @@
 
 <p>O <strong>Split de Pagamentos</strong> permite a divisão de uma transação entre diferentes participantes de uma venda.</p>
 
-<blockquote>
-  <p>Solicite suas credenciais para o ambiente de teste em nosso portal de suporte https://suporte.braspag.com.br ou pelo telefone 3003-6554</p>
-</blockquote>
-
-<p>Muito utilizado em Marketplaces, onde <strong>o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes</strong>.</p>
+<p>Muito utilizado em marketplaces, onde <strong>o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes</strong>.</p>
 
 <table>
   <thead>
@@ -124,45 +120,43 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Marketplace</strong></td>
-      <td>Responsável pelo carrinho (Master). <br /> Possui acordos com <strong>Subordinados</strong> que fornecem os produtos presentes no carrinho.<br /> Define as taxas a serem descontadas sobre a venda de cada <strong>Subordinado</strong>.<br /> Pode participar de uma venda fornecendo seus próprios produtos.</td>
+      <td><strong>Master</strong></td>
+      <td>É o responsável pelo carrinho. <br /> Possui acordos com <strong>Subordinados</strong> que fornecem os produtos presentes no carrinho.<br /> Define as taxas a serem descontadas sobre a venda de cada <strong>Subordinado</strong>.<br /> Pode participar de uma venda fornecendo seus próprios produtos.</td>
     </tr>
     <tr>
       <td><strong>Subordinado</strong></td>
-      <td>Fornecedor dos produtos que compõem o carrinho.<br />Recebe parte do valor da venda, descontadas as taxas acordadas com o <strong>Marketplace</strong>.</td>
+      <td>Fornecedor dos produtos que compõem o carrinho.<br />Recebe parte do valor da venda, descontadas as taxas acordadas com o <strong>Master</strong>.</td>
     </tr>
     <tr>
-      <td><strong>Braspag (Facilitador)</strong></td>
-      <td>Responsável pelo fluxo transacional.<br /> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo <strong>Marketplace</strong>.<br /> Responsável pela liquidação dos pagamentos para os <strong>Subordinados</strong> e <strong>Marketplace</strong>.</td>
+      <td><strong>Braspag</strong></td>
+      <td>É a responsável pelo fluxo transacional, funcionando como subadquirente.<br /> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo <strong>Master</strong>.<br /> Responsável pela liquidação dos pagamentos para os <strong>Subordinados</strong> e <strong>Master</strong>.</td>
     </tr>
   </tbody>
 </table>
 
-<p>No Split de Pagamentos o responsável pelo fluxo transacional é a Braspag (facilitador).</p>
+<p>No Split de Pagamentos o responsável pelo fluxo transacional é a Braspag.</p>
 
-<p>O Marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como Split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.</p>
+<p>O Master se integra à Braspag para transacionar e, para cada transação, informa como será a divisão entre cada participante, podendo ser no momento de captura (Split transacional) ou em um momento posterior (Split pós-transacional), desde que seja dentro de um limite de tempo pré-estabelecido.</p>
 
-<p>Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento*), para cada envolvido na transação.</p>
+<p>Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento*), para cada envolvido na transação. O <strong>Regime de Pagamento</strong> é o prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.</p>
 
 <blockquote>
-  <p><strong>Regime de Pagamento</strong>: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
-<br />
-<strong>Crédito</strong>: Em até 31 dias. <br />
+  <p><strong>Crédito</strong>: em até 31 dias. <br />
 <strong>Crédito Parcelado</strong>: 1º parcela em até 31 dias, demais a cada 30.<br />
-<strong>Débito</strong>: Em até 2 dias úteis.</p>
+<strong>Débito</strong>: em até 2 dias úteis.</p>
 </blockquote>
 
-<p>Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como <strong>MerchantId (MID)</strong>, que deverá ser utlizado ao informar as regras de divisão de uma transação.</p>
+<p>Para utilizar o Split de Pagamentos, o Master deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Master quanto seus Subordinados possuirão um identificador único, conhecido como <strong>MerchantId (MID)</strong>, que deverá ser utlizado ao informar as regras de divisão de uma transação.</p>
 
-<p>Na divisão de uma transação, devem ser informados:</p>
+<p>Na divisão de uma transação, você deve informar:</p>
 
 <ul>
-  <li>Os <strong>identificadores dos Subordinados</strong>.</li>
-  <li>Os <strong>valores de participação de cada Subordinado</strong>. O somatório deverá ser igual ao valor total da transação.</li>
-  <li><strong>Taxas</strong> a serem aplicadas sobre o valor de cada Subordinado destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.</li>
+  <li>Os <strong>identificadores dos Subordinados</strong>;</li>
+  <li>Os <strong>valores de participação de cada Subordinado</strong>. O somatório deverá ser igual ao valor total da transação;</li>
+  <li>As <strong>Taxas</strong> a serem aplicadas sobre o valor de cada Subordinado, destinadas ao Master. Estas deverão ser acordadas previamente entre o Master e o Subordinado.</li>
 </ul>
 
-<p>O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de <strong>Subordinado</strong> e ter seus próprios produtos no carrinho.</p>
+<p>O Master também pode ser um participante da divisão; para isso, basta informar seu identificador. Nessa situação, o Master passa a ter também o papel de Subordinado e ter seus próprios produtos no carrinho.</p>
 
 <h2 id="taxas">Taxas</h2>
 
@@ -239,6 +233,10 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <h2 id="sandbox">Sandbox</h2>
 
+<blockquote>
+  <p>Solicite suas credenciais para o ambiente de teste com o nosso <a href="https://suporte.braspag.com.br/hc/pt-br">Suporte</a>.</p>
+</blockquote>
+
 <ul>
   <li><strong>API Transacional Pagador</strong>: https://apisandbox.braspag.com.br/</li>
   <li><strong>API para Serviços de Consultas Pagador</strong>: https://apiquerysandbox.braspag.com.br/</li>
@@ -247,6 +245,10 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 </ul>
 
 <h2 id="produção">Produção</h2>
+
+<blockquote>
+  <p>Você receberá as credenciais para o ambiente de produção durante o onboarding.</p>
+</blockquote>
 
 <ul>
   <li><strong>API Transacional Pagador</strong>: https://api.braspag.com.br/</li>
