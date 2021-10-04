@@ -191,45 +191,45 @@
 
 <h3 id="exemplo">Exemplo</h3>
 
-<p>Uma transação de <strong>R$100,00</strong>, realizada por um <strong>Marketplace</strong> com participação do <strong>Subordinado 01</strong>.</p>
+<p>Uma transação de <strong>R$100,00</strong>, realizada por um <strong>Master</strong> com participação do <strong>Subordinado 01</strong>.</p>
 
 <p><img src="https://developercielo.github.io/images/split/split001.png" alt="SplitSample001" /></p>
 
 <p>Neste exemplo, foram assumidos os seguintes acordos:</p>
 
 <p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.<br />
-<strong>Taxa Marketplace</strong>: 3,5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.</p>
+<strong>Taxa Master</strong>: 3,5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.</p>
 
 <p>Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:</p>
 
 <p><strong>Subordinado</strong>:<br />
-Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Marketplace]</p>
+Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Master]</p>
 
-<p><strong>Marketplace</strong>:<br />
-Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]
-Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]</p>
+<p><strong>Master</strong>:<br />
+Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag]
+Débito: R$0,10 [Tarifa Fixa acordada com a Braspag]</p>
 
 <p><strong>Braspag (Facilitador)</strong>:<br />
 Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
-Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
+Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 
 <h2 id="bandeiras">Bandeiras</h2>
 
 <p>As bandeiras suportadas pelo Split são:</p>
 
 <ul>
-  <li>Visa</li>
-  <li>MasterCard</li>
-  <li>Elo</li>
-  <li>Amex</li>
-  <li>Hipercard</li>
-  <li>Diners</li>
-  <li>Discover</li>
+  <li>Visa;</li>
+  <li>Mastercard;</li>
+  <li>Elo;</li>
+  <li>Amex;</li>
+  <li>Hipercard;</li>
+  <li>Diners;</li>
+  <li>Discover.</li>
 </ul>
 
 <h1 id="ambientes">Ambientes</h1>
 
-<p>É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu executivo comercial.</p>
+<p>É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu <a href="https://www.braspag.com.br/contato/">executivo comercial</a>.</p>
 
 <h2 id="sandbox">Sandbox</h2>
 
@@ -257,506 +257,15 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
   <li><strong>Braspag OAUTH2 Server</strong>: https://auth.braspag.com.br/</li>
 </ul>
 
-<h1 id="quickstart">QuickStart</h1>
-
-<p>O request de crédito do Split é composto por 4 campos obrigatórios: <strong>MerchantOrderId</strong>, <strong>Customer</strong>, <strong>Payment</strong> e <strong>Payment.FraudAnalysis</strong>.</p>
-
-<p>Abaixo montaremos um request simples. O suficiente para enviarmos a nossa primeira transação, sem nos preocuparmos muito com detalhes. <strong>Esse exemplo é o básico para entendimento e não deve ser utilizado em produção</strong>.</p>
-
-<h2 id="merchantorderid">MerchantOrderId</h2>
-
-<p>Esse campo é onde informamos o número do pedido que existe na loja do cliente.</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"201904150001"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campos</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>MerchantOrderId</strong></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-      <td>Número de identificação do pedido</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="customer">Customer</h2>
-
-<p>Esse campo contém os dados do comprador. Possui diversos subcampos que devem ser analisados cuidadosamente.</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João da Silva Accept"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678900"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campos</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
-      <td>-</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td>Dados do comprador</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Texto</td>
-      <td>61</td>
-      <td>Sim</td>
-      <td>Nome do comprador (No ambiente de Sandbox, o último nome do comprador deverá ser <strong>ACCEPT</strong>. Ex.: “João da Silva Accept”)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Texto</td>
-      <td>18</td>
-      <td>Sim</td>
-      <td>Número de documento do comprador</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Sim</td>
-      <td>Tipo de documento de identificação do comprador. Ex.: <code class="language-plaintext highlighter-rouge">CPF</code> ou <code class="language-plaintext highlighter-rouge">CNPJ</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="payment">Payment</h2>
-
-<p>Esse campo possui os elementos da transação, assim como o antifraude (<strong>Payment.FraudAnalysis</strong>), que será explicado separadamente.</p>
-
-<p>Aqui é possível especificar se uma transação será efetuada como crédito ou débito, se utilizará um token de cartão, o número de parcelas e etc.</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DoSplit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"LojaDoJoao"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"4481530710186111"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Yamilet Taylor"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"693"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campos</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment</code></td>
-      <td>-</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td>Campos refente ao pagamento e antifraude</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Nome da provedora de Meio de Pagamento</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do meio de pagamento. Possíveis Valores: <code class="language-plaintext highlighter-rouge">CreditCard</code> ou <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Inteiro</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Valor do pedido em centavos. Ex.: R$ 1.559,85 = 155985</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Boleano</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td>Parâmetro para capturar a transação. Caso o valor seja <code class="language-plaintext highlighter-rouge">False</code> a transação será apenas autorizada. Se for <code class="language-plaintext highlighter-rouge">True</code>, a captura será realizada automaticamente após a autorização.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não (Default false)</td>
-      <td>Booleano que indica se a transação será dividida entre várias contas (true) ou não (false)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Inteiro</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Número de parcelas do pedido</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Texto</td>
-      <td>13</td>
-      <td>Sim</td>
-      <td>Texto que será impresso na fatura do cartão de crédito do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard</code></td>
-      <td>-</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td>Nó contendo as informações do cartão</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>Sim</td>
-      <td>Número do cartão do comprador</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-      <td>Nome do comprador impresso no cartão</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
-      <td>Texto</td>
-      <td>7</td>
-      <td>Sim</td>
-      <td>Data de validade do cartão composta por MM/AAAA</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Sim</td>
-      <td>Código de segurança impresso no verso do cartão</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Sim</td>
-      <td>Bandeira do cartão</td>
-      <td>Possíveis valores: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="paymentfraudanalysis">Payment.FraudAnalysis</h3>
-
-<p>Esse campo é referente ao sistema de antifraude. 
-O antifraude é obrigatório no Split de Pagamentos. E para esse sistema utilizamos o nosso parceiro <a href="https://www.cybersource.com/">CyberSource</a> do Grupo <a href="https://www.visa.com.br/">Visa</a>.
-A fim de exemplificar uma transação da forma mais simples possível, alguns campos obrigatórios para o ambiente de produção não foram passados.</p>
-
-<p>Mais a frente explicaremos como utilizar o campo <strong>Browser</strong> e <strong>MerchantDefinedFields</strong>.</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Cybersource"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"TotalOrderAmount"</span><span class="p">:</span><span class="mi">10000</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campos</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code></td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Nó contendo as informações para Análise de Fraude</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
-      <td>Texto</td>
-      <td>12</td>
-      <td>Sim</td>
-      <td>Identifica o provedor da solução de análise de fraude</td>
-      <td>Possíveis valores: <code class="language-plaintext highlighter-rouge">Cybersource</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
-      <td>Inteiro</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Valor total do pedido em centavos, podendo ser diferente do valor da transação</td>
-      <td>Ex.: Valor do pedido sem a taxa de entrega</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Request</strong></p>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="err">--body</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"201904150001"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João da Silva Accept"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678900"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DoSplit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"LojaDoJoao"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"4481530710186111"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Yamilet Taylor"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"693"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"f2d6eb34-2c6b-4948-8fff-51facdd2a28f"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Fares"</span><span class="p">:{</span><span class="w">
-                    </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Fee"</span><span class="p">:</span><span class="mi">0</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Cybersource"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"TotalOrderAmount"</span><span class="p">:</span><span class="mi">10000</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campos</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-      <td>Identificador do Seller na Braspag</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Amount</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Total da venda do Seller específico. R$ 100,00 = 10000</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
-      <td>Decimal</td>
-      <td>3,2</td>
-      <td>Não</td>
-      <td>Taxa aplicada pela loja Master sobre o Seller para desconto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Fee</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Tarifa aplicada pela loja Master sobre o Seller para desconto</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Response</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201904150001"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João da Silva Accept"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678900"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"448153******6111"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yamilet Taylor"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20190829030409594"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0829030409594"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"046879"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LojaDoJoao"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"FraudAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AnalyseFirst"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SequenceCriteria"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cybersource"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"IsRetryTransaction"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b7211f65-87ca-e911-a40a-0003ff21cf74"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"FraudAnalysisReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ReplyData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"FactorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F^H"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">38</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"HostSeverity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"HotListInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEG-AFCB^NEG-CC^NEG-HIST"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"ScoreModelUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"VelocityInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VEL-NAME"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"CasePriority"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5671018489636116404007"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"DoSplit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f2d6eb34-2c6b-4948-8fff-51facdd2a28f"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f2d6eb34-2c6b-4948-8fff-51facdd2a28f"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9500</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f43fca07-48ec-46b5-8b93-ce79b75a8f63"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">]</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"536b8e54-6d44-4b84-86e2-0d7d01cf4935"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-29 15:04:02"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-29 15:04:09"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/536b8e54-6d44-4b84-86e2-0d7d01cf4935"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.braspag.com.br/v2/sales/536b8e54-6d44-4b84-86e2-0d7d01cf4935/void"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Esse é apenas um request de exemplo bem básico e não deve ser utilizado em produção. Para facilitar o entendimento, não foi aplicado nenhum campo que fortalece a segurança da transação.</strong></p>
-
-<p>Nos próximos exemplos explicaremos como aumentar a segurança e manipular os campos da nossa transação entre crédito e débito.</p>
-
 <h1 id="integração">Integração</h1>
 
 <h2 id="autorização">Autorização</h2>
 
-<p>Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro Payment.DoSplit como true e adicionar o nó Payment.SplitPayments, conforme exemplo:</p>
+<p>Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro <code class="language-plaintext highlighter-rouge">Payment.DoSplit</code> como true e adicionar o nó <code class="language-plaintext highlighter-rouge">Payment.SplitPayments</code>.</p>
 
 <h3 id="transação-de-crédito">Transação de Crédito</h3>
+
+<h4 id="requisição">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -849,7 +358,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<h4 id="response">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23082019"</span><span class="p">,</span><span class="w">
@@ -1038,9 +547,9 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Ao informar um tipo de pagamento referente ao Split, a API do Pagador automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).</p>
+<p>Ao informar um tipo de pagamento referente ao Split, a API do Pagador automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag.</p>
 
-<p>Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Marketplace. Posteriormente é permitido que o Marketplace envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.</p>
+<p>Caso a transação enviada seja marcada para captura automática, é necessário enviar o nó contendo as regras de divisão; caso contrário a transação será dividida entre a Braspag e o Master. Posteriormente é permitido que o Master envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.</p>
 
 <table>
   <thead>
@@ -1245,13 +754,13 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </tbody>
 </table>
 
-<p><strong>Exemplo 1)</strong></p>
+<h4 id="exemplo-sem-o-nó-da-divisão">Exemplo sem o nó da divisão</h4>
 
 <p>Transação no valor de <strong>R$100,00</strong>, com captura automática, sem o nó contendo as regras de divisão.</p>
 
 <p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.</p>
 
-<p><strong>Request</strong></p>
+<p><strong>Requisição</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1323,7 +832,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<p><strong>Resposta</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1490,19 +999,19 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Marketplace e a Braspag é sensibilizada diretamente na agenda de ambas as partes.</p>
+<p>Neste caso, o Master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o Master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.</p>
 
 <p><img src="https://developercielo.github.io/images/split/split002.png" alt="SplitSample002" /></p>
 
-<p><strong>Exemplo 2)</strong></p>
+<h4 id="exemplo-com-o-nó-da-divisão">Exemplo com o nó da divisão</h4>
 
 <p>Transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão.</p>
 
 <p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.<br />
-<strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.<br />
-<strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.</p>
+<strong>Taxa Master com o Subordinado 01</strong>: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.<br />
+<strong>Taxa Master com o Subordinado 02</strong>: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.</p>
 
-<p><strong>Request</strong></p>
+<p><strong>Requisição</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1592,7 +1101,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<p><strong>Resposta</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1787,10 +1296,15 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <h3 id="transação-de-débito">Transação de Débito</h3>
 
-<p>Uma transação com um Cartão de Débito se efetua de uma forma semelhante a um Cartão de Crédito, porém, é obrigatório submetê-la a autenticação e o nó <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code> não deve ser informado pois a transação não necessita de análise de fraude.</p>
+<p>Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:</p>
+
+<ul>
+  <li>O nó <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code> não deve ser informado, pois a transação não necessita de análise de fraude;</li>
+  <li>É obrigatório submeter a transação de débito à autenticação. Para isso, é necessário incluir o nó <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code>. A autenticação é feita pela integração 3DS 2.0.</li>
+</ul>
 
 <blockquote>
-  <p>Para a autenticação será utilizada a <a href="https://braspag.github.io//manualp/emv3ds">integração 3DS 2.0</a>, onde obterá os dados necessários para utilizar no nó <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication</code>.</p>
+  <p>Para saber mais sobre a integração 3DS 2.0, acesse o <a href="https://braspag.github.io//manualp/emv3ds">Manual de Autenticação 3DS 2.0</a>.</p>
 </blockquote>
 
 <table>
@@ -1848,6 +1362,8 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </tbody>
 </table>
 
+<h4 id="requisição-1">Requisição</h4>
+
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1903,7 +1419,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<h4 id="resposta">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -2012,22 +1528,24 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
     </tr>
     <tr>
       <td><strong>Split Transacional</strong></td>
-      <td>O <strong>Marketplace</strong> envia na autorização (captura automática) ou no momento de captura as regras de divisão.</td>
+      <td>O <strong>Master</strong> envia as regras de divisão na autorização (captura automática) ou no momento de captura.</td>
     </tr>
     <tr>
       <td><strong>Split Pós-Transacional</strong></td>
-      <td>O <strong>Marketplace</strong> envia as regras de divisão após a captura da transação.</td>
+      <td>O <strong>Master</strong> envia as regras de divisão após a captura da transação.</td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p>No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.</p>
+  <p>No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso as regras de divisão sejam informadas no momento de uma autorização sem captura automática, elas serão desconsideradas.</p>
 </blockquote>
 
-<h3 id="transacional">Transacional</h3>
+<h3 id="split-transacional">Split Transacional</h3>
 
-<p>No Split Transacional é necessário que o Marketplace envie um “nó” adicional na integração da API do Pagador, como apresentado em exemplos anteriores, informando as regras de divisão da transação.</p>
+<p>No Split Transacional é necessário que o Master envie um “nó” adicional na integração da API do Pagador, como apresentado em exemplos anteriores, informando as regras de divisão da transação.</p>
+
+<h4 id="requisição-2">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -2068,7 +1586,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
-      <td><strong>MDR(%)</strong> do <strong>Marketplace</strong> a ser descontado do valor referente a participação do <strong>Subordinado</strong></td>
+      <td><strong>MDR(%)</strong> do <strong>Master</strong> a ser descontado do valor referente a participação do <strong>Subordinado</strong></td>
       <td>Decimal</td>
       <td>-</td>
       <td>Não</td>
@@ -2083,7 +1601,9 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   </tbody>
 </table>
 
-<p>Como resposta, A API retornará um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo Marketplace e seus Subordinados:</p>
+<h4 id="resposta-1">Resposta</h4>
+
+<p>Como resposta, A API retornará um nó contendo as regras de divisão enviadas e os valores a serem recebidos pelo Master e seus Subordinados:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -2120,14 +1640,14 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Splits.SubordinateMerchantId</code></td>
-      <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong> ou <strong>Marketplace</strong>.</td>
+      <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong> ou <strong>Master</strong>.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Splits.Amount</code></td>
-      <td>Parte do valor calculado da transação a ser recebido pelo <strong>Subordinado</strong> ou <strong>Marketplace</strong>, já descontando todas as taxas (MDR e Tarifa Fixa)</td>
+      <td>Parte do valor calculado da transação a ser recebido pelo <strong>Subordinado</strong> ou <strong>Master</strong>, já descontando todas as taxas (MDR e Tarifa Fixa)</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
@@ -2137,13 +1657,9 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <h3 id="pós-transacional">Pós-Transacional</h3>
 
-<p>Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.</p>
+<p>Neste modelo, o Master poderá enviar as regras de divisão da transação após a captura.</p>
 
-<p>Para transações com <strong>Cartão de Crédito</strong> este período é de <strong>20 dias</strong> e para as transações com <strong>Cartão de Débito</strong> este período é de <strong>1 dia</strong>, se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).</p>
-
-<blockquote>
-  <p>O período para redividir uma transação poderá ser alterado pela Braspag (Facilitador).</p>
-</blockquote>
+<p>Para transações de crédito e débito o prazo para envio da requisição de Split Pós-Transacional é até 01h00 do dia posterior à captura.</p>
 
 <p><strong>Autenticação</strong></p>
 
@@ -2152,12 +1668,12 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 <p>Para obter um token de acesso:</p>
 
 <ol>
-  <li>Concatene o ClientId e ClientSecret: <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>.</li>
+  <li>Concatene o MerchantId e ClientSecret: <code class="language-plaintext highlighter-rouge">MerchantId:ClientSecret</code>.</li>
   <li>Codifique o resultado da concatenação em Base64.</li>
   <li>Realize uma requisição ao servidor de autorização:</li>
 </ol>
 
-<p><strong>Request</strong></p>
+<h4 id="requisição-3">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
@@ -2167,7 +1683,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 </span><span class="err">grant_type=client_credentials</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<h4 id="resposta-2">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs"</span><span class="p">,</span><span class="w">
@@ -2178,7 +1694,7 @@ A fim de exemplificar uma transação da forma mais simples possível, alguns ca
 
 <blockquote>
   <p>O ClientSecret deve ser obtido junto à Braspag. <br />
-O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.</p>
+O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar deverá um novo token toda vez que a validade expirar.</p>
 </blockquote>
 
 <p><strong>Request</strong></p>
@@ -2251,10 +1767,10 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>O nó referente ao Split no Split Pós-transacional, tanto no contrato de request quanto de response, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.</p>
+<p>O nó referente ao split no Split Pós-transacional, tanto no contrato de requisição quanto de resposta, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.</p>
 
 <blockquote>
-  <p>O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de <strong>20 dias</strong> para <strong>Cartão de Crédito</strong> se estiver enquadrado no regime de pagamento padrão.</p>
+  <p>O Master poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é até 01h00 do dia posterior à captura, se estiver enquadrado no regime de pagamento padrão.</p>
 </blockquote>
 
 <h2 id="salvando-e-reutilizando-cartões">Salvando e Reutilizando Cartões</h2>
@@ -6276,7 +5792,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   <p>Os campos do nó <code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel</code> se tornam obrigatórios caso o segmento do seu negócio seja aéreas.</p>
 </blockquote>
 
-<h3 id="response">Response</h3>
+<h3 id="response-1">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
