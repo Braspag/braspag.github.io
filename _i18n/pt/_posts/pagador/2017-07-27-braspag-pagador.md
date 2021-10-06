@@ -7276,8 +7276,9 @@ As listas a seguir se referem a provedores na integração REST:
 |Transbank2|Visa, Master, Diners, Amex|Provider para transações em pesos chilenos (CLP) na plataforma de e-commerce Transbank.|
 |Banese|Banese|Provider para transações com a bandeira BaneseCard.|
 |BrasilCard|BrasilCard|Provider para transações com a bandeira BrasilCard.|
+|CredSystem|CredSystem|Sistema de cartões em regime de bandeira privativa (Private Label Brand).|
 |Credz|Credz|Sistema de cartões em regime de bandeira privativa (Private Label Brand).|
-|DMCard|---|Sistema de cartões em regime de bandeira privativa (Private Label Brand).|
+|DMCard|DMCard|Sistema de cartões em regime de bandeira privativa (Private Label Brand).|
 
 ### Providers para Débito
 
@@ -7302,7 +7303,7 @@ As listas a seguir se referem a provedores na integração REST:
 
 |Providers|
 |--------|
-|Simulado, Cielo30 (Cielo 3.0), Rede2 (e-Rede REST), Getnet, FirstData, GlobalPayments|
+|Simulado, Cielo30 (Cielo 3.0), Rede2, Getnet, FirstData, GlobalPayments|
 
 ### Providers para Consulta BIN via VerifyCard
 
