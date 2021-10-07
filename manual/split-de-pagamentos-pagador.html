@@ -4090,9 +4090,9 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   <p>Para que a opção de desconto da parte da venda seja possível, o Master deve possuir venda na transação.</p>
 </blockquote>
 
-<p>A opção pode ser utilizada no momento da divisão transacional e pós-transacional. Também é possível deixar pré-configurada a opção a ser utilizada. Para utilizar a pré-configuração, é necessário entrar em contato com o suporte do Split para que ela seja criada, removida ou atualizada. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.</p>
+<p>A opção pode ser utilizada no momento da divisão transacional e pós-transacional. Também é possível deixar pré-configurada a opção a ser utilizada. Para utilizar a pré-configuração, é necessário entrar em contato com o <a href="https://suporte.braspag.com.br/hc/pt-br">Suporte</a>, que irá que irá criar, remover ou atualizar a pré-configuração. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.</p>
 
-<p>No caso de uma transação criada com uma forma de desconto, o mesmo será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (divisão pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.</p>
+<p>No caso de uma transação criada com uma forma de desconto, este desconto será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (divisão pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.</p>
 
 <blockquote>
   <p>Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.</p>
@@ -4121,17 +4121,15 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h4 id="no-momento-transacional">No Momento Transacional</h4>
 
-<p>Transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão e o Marketplace participando da venda.</p>
+<p>Transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão e o Master participando da venda.</p>
 
 <p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
-<strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
-<strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
+<strong>Taxa Master com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
+<strong>Taxa Master com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
 
-<blockquote>
-  <p>Desconto sendo aplicado sobre a comissão.</p>
-</blockquote>
+<h5 id="desconto-sendo-aplicado-sobre-a-comissão">Desconto sendo aplicado sobre a comissão.</h5>
 
-<p><strong>Request</strong></p>
+<p><strong>Requisição</strong></p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4186,7 +4184,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<p><strong>Resposta</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201904150001"</span><span class="p">,</span><span class="w">
@@ -4320,13 +4318,11 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<h5 id="desconto-sendo-aplicado-sobre-a-venda">Desconto sendo aplicado sobre a venda</h5>
+
 <p>Com a mesma transação:</p>
 
-<blockquote>
-  <p>Desconto sendo aplicado sobre a venda.</p>
-</blockquote>
-
-<p><strong>Request</strong></p>
+<p><strong>Requisição</strong></p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4381,7 +4377,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<p><strong>Resposta</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201904150001"</span><span class="p">,</span><span class="w">
@@ -4517,6 +4513,8 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h4 id="no-momento-pós-transacional">No Momento Pós-Transacional</h4>
 
+<h5 id="requisição-11">Requisição</h5>
+
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
@@ -4536,7 +4534,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Response</strong></p>
+<h5 id="resposta-12">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c96bf94c-b213-44a7-9ea3-0ee2865dc57e"</span><span class="p">,</span><span class="w">
@@ -4586,11 +4584,11 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <p>A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigatoriamente, terão de ser registrados. <a href="https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos">Clique aqui</a> para acessar o comunicado completo.</p>
 
-<h2 id="criando-uma-transação-de-boleto">Criando uma transação de Boleto</h2>
+<h2 id="criando-uma-transação-de-boleto">Criando uma Transação de Boleto</h2>
 
 <p>Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este meio de pagamento.</p>
 
-<p><strong>Request</strong></p>
+<h3 id="request">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4818,7 +4816,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 (**) Caracteres especiais e acentuações são removidos automaticamente.</p>
 </blockquote>
 
-<p><strong>Response</strong></p>
+<h3 id="response-1">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
@@ -5008,7 +5006,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós “FraudAnalysis”, “Cart”, “MerchantDefinedFields” e “Travel (somente para venda de passagens aéreas)”.</p>
 
-<h3 id="request">Request</h3>
+<h3 id="requisição-12">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5792,7 +5790,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   <p>Os campos do nó <code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel</code> se tornam obrigatórios caso o segmento do seu negócio seja aéreas.</p>
 </blockquote>
 
-<h3 id="response-1">Response</h3>
+<h3 id="resposta-13">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -8085,7 +8083,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
 
 <aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
-<p>Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exemplo abaixo.</p>
+<p>Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exemplo a seguir.</p>
 
 <h2 id="notificação-enviada">Notificação Enviada</h2>
 
