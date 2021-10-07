@@ -2795,9 +2795,9 @@ Por padrão, as taxas e tarifas fixas do Split são descontadas do valor de comi
 
 > Para que a opção de desconto da parte da venda seja possível, o Master deve possuir venda na transação.
 
-A opção pode ser utilizada no momento da divisão transacional e pós-transacional. Também é possível deixar pré-configurada a opção a ser utilizada. Para utilizar a pré-configuração, é necessário entrar em contato com o suporte do Split para que ela seja criada, removida ou atualizada. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
+A opção pode ser utilizada no momento da divisão transacional e pós-transacional. Também é possível deixar pré-configurada a opção a ser utilizada. Para utilizar a pré-configuração, é necessário entrar em contato com o [Suporte](https://suporte.braspag.com.br/hc/pt-br), que irá que irá criar, remover ou atualizar a pré-configuração. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
 
-No caso de uma transação criada com uma forma de desconto, o mesmo será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (divisão pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.
+No caso de uma transação criada com uma forma de desconto, este desconto será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (divisão pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.
 
 > Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.
 
@@ -2810,15 +2810,15 @@ No caso de uma transação criada com uma forma de desconto, o mesmo será utili
 
 #### No Momento Transacional
 
-Transação no valor de **R$100,00** com o nó contendo as regras de divisão e o Marketplace participando da venda.
+Transação no valor de **R$100,00** com o nó contendo as regras de divisão e o Master participando da venda.
 
 **Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
-**Taxa Marketplace com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.
+**Taxa Master com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
+**Taxa Master com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.
 
-> Desconto sendo aplicado sobre a comissão.
+##### Desconto sendo aplicado sobre a comissão.
 
-**Request**
+**Requisição**
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2874,7 +2874,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 }
 ```
 
-**Response**
+**Resposta**
 
 ```json
 {
@@ -3009,11 +3009,11 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 }
 ```
 
+##### Desconto sendo aplicado sobre a venda
+
 Com a mesma transação:
 
-> Desconto sendo aplicado sobre a venda.
-
-**Request**
+**Requisição**
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3069,7 +3069,7 @@ Com a mesma transação:
 }
 ```
 
-**Response**
+**Resposta**
 
 ```json
 {
@@ -3206,6 +3206,8 @@ Com a mesma transação:
 
 #### No Momento Pós-Transacional
 
+##### Requisição
+
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
 
 ```json
@@ -3226,7 +3228,7 @@ Com a mesma transação:
 ]
 ```
 
-**Response**
+##### Resposta
 
 ```json
 {
@@ -3277,11 +3279,11 @@ Com o objetivo de promover maior controle e segurança ao transacional de boleto
 
 A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigatoriamente, terão de ser registrados. [Clique aqui](https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos) para acessar o comunicado completo.
 
-## Criando uma transação de Boleto
+## Criando uma Transação de Boleto
 
 Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este meio de pagamento.
 
-**Request**
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3353,7 +3355,7 @@ Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dad
 >(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.  
 >(**) Caracteres especiais e acentuações são removidos automaticamente.
 
-**Response**
+### Response
 
 ```json
 {
@@ -3443,7 +3445,7 @@ Se não for especificado o contrário durante a autorização, o Split processar
 
 Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós "FraudAnalysis", "Cart", "MerchantDefinedFields" e "Travel (somente para venda de passagens aéreas)".
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3693,7 +3695,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 
 > Os campos do nó `FraudAnalysis.Travel` se tornam obrigatórios caso o segmento do seu negócio seja aéreas.
 
-### Response
+### Resposta
 
 ```json
 {  
@@ -4378,7 +4380,7 @@ Veja o fluxo percorrido pelo post de notificação:
 
 <aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
-Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exemplo abaixo.
+Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exemplo a seguir.
 
 ## Notificação Enviada
 
