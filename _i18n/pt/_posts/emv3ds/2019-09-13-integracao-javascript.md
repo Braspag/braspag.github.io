@@ -55,8 +55,8 @@ curl
 
 | **Campo** | **Descrição** | **Tipo/Tamanho** |
 | --- | --- | --- |
-| EstablishmentCode | Código do Estabelecimento do Cielo E-Commerce 3.0 | Numérico [10 posições] |
-| MerchantName | Nome do estabelecimento registrado na Cielo | Alfanumérico [até 25 posições] |
+| EstablishmentCode | Código do Estabelecimento do Cielo E-Commerce 3.0 ou Getnet, ou PV na Rede | Numérico [10 posições] |
+| MerchantName | Nome do estabelecimento registrado na adquirente | Alfanumérico [até 25 posições] |
 | MCC | Código de Categoria do estabelecimento | Numérico [4 posições] |
 
 ### Response
