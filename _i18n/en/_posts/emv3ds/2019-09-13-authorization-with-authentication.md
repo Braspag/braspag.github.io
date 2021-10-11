@@ -100,6 +100,7 @@ curl
 
 |**Field**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
+|`Payment.Provider`| Name of payment method provider: Cielo30, Getnet or Rede |Text / 15| Yes|
 |`Payment.Authenticate`|Defines if the buyer will be directed to the issuing Bank for card authentication|Boolean (true or false)|Yes, when authentication was a success|
 |`Payment.ExternalAuthentication.ReturnUrl`|Return URL only applicable if version is "1"|Alphanumeric [1024 positions]|Yes|
 |`Payment.ExternalAuthentication.Cavv`|Signature that is returned in successful authentication scenarios| Text |Yes, when authentication was a success|
