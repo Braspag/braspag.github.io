@@ -191,13 +191,13 @@
 
 <ol>
   <li>O portador escolhe pagar com cartão de crédito ou débito.</li>
-  <li>A loja executa um script, solicitando à Braspag autenticação através da solução Cielo.</li>
+  <li>A loja executa um script, solicitando à Braspag autenticação através da solução 3DS 2.0.</li>
   <li>A plataforma de autenticação da Braspag poderá seguir um dos seguintes fluxos: solicitar a autenticação do portador (passos 4 e 5 a seguir) ou realizar a autenticação de forma silenciosa (pulando para o passo 6).</li>
   <li>A loja recebe a URL de autenticação do emissor, e apresenta a interface com desafio no <em>lightbox</em>.</li>
   <li>O portador se autentica no emissor (processo conhecido como <strong>realizar o desafio</strong>).</li>
   <li>O emissor retorna o resultado da autenticação à plataforma 3DS, que por sua vez repassa para a loja.</li>
   <li>A loja poderá seguir ou não com o processo de autorização. Se optar por autorizar, deverá submeter o resultado da autenticação no contrato técnico de autorização.</li>
-  <li>A Cielo retorna o resultado da autorização para o estabelecimento que, por sua vez, retorna para o portador.</li>
+  <li>A adquirente retorna o resultado da autorização para o estabelecimento que, por sua vez, retorna para o portador.</li>
 </ol>
 
 <h2 id="autenticação">Autenticação</h2>
