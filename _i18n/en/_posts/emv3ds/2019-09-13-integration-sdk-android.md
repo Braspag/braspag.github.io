@@ -36,10 +36,10 @@ The solution comprises the API access token request step and authentication requ
 }
 ```
 
-|**Field**|**Description**|**Type/Size**|**Required**|
+|**Field**|**Description**|**Type/Size**|
 |---|---|---|
-|EstablishmentCode|Cielo E-Commerce 3.0 Establishment Code|Numeric [10 positions]|
-|MerchantName|Name of registered establishment in Cielo|Alphanumeric [up to 25 positions]|
+|EstablishmentCode|Establishment Code in Cielo E-Commerce 3.0 or Getnet, or PV at Rede|Numeric [10 positions]|
+|MerchantName|Name of registered establishment in the acquirer|Alphanumeric [up to 25 positions]|
 |MCC|Merchant Category Code|Numeric [4 positions]|
 
 ### Response
@@ -52,7 +52,7 @@ The solution comprises the API access token request step and authentication requ
 }
 ```
 
-|**Field**|**Description**|**Type/Size**|**Required**|
+|**Field**|**Description**|**Type/Size**|
 |---|---|---|
 |access\_token|Token required to perform authentication.|Alphanumeric [variable size]|
 |token\_type|Fixed "bearer"|Alphanumeric|
