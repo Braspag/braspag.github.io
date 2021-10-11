@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-10-11T17:13:23+00:00</updated>
+    <updated>2021-10-11T17:19:06+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -3331,27 +3331,23 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
       &lt;th&gt;&lt;strong&gt;Field&lt;/strong&gt;&lt;/th&gt;
       &lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
       &lt;th&gt;&lt;strong&gt;Type/Size&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;EstablishmentCode&lt;/td&gt;
-      &lt;td&gt;Cielo E-Commerce 3.0 Establishment Code&lt;/td&gt;
+      &lt;td&gt;Establishment Code in Cielo E-Commerce 3.0 or Getnet, or PV at Rede&lt;/td&gt;
       &lt;td&gt;Numeric [10 positions]&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;MerchantName&lt;/td&gt;
-      &lt;td&gt;Name of registered establishment in Cielo&lt;/td&gt;
+      &lt;td&gt;Name of registered establishment in the acquirer&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 25 positions]&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;MCC&lt;/td&gt;
       &lt;td&gt;Merchant Category Code&lt;/td&gt;
       &lt;td&gt;Numeric [4 positions]&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3371,7 +3367,6 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
       &lt;th&gt;&lt;strong&gt;Field&lt;/strong&gt;&lt;/th&gt;
       &lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
       &lt;th&gt;&lt;strong&gt;Type/Size&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -3379,19 +3374,16 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
       &lt;td&gt;access_token&lt;/td&gt;
       &lt;td&gt;Token required to perform authentication.&lt;/td&gt;
       &lt;td&gt;Alphanumeric [variable size]&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;token_type&lt;/td&gt;
       &lt;td&gt;Fixed “bearer”&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;expires_in&lt;/td&gt;
       &lt;td&gt;Time in minutes to expire token&lt;/td&gt;
       &lt;td&gt;Numeric&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4558,27 +4550,23 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
       &lt;th&gt;&lt;strong&gt;Field&lt;/strong&gt;&lt;/th&gt;
       &lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
       &lt;th&gt;&lt;strong&gt;Type/Size&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;EstablishmentCode&lt;/td&gt;
-      &lt;td&gt;Cielo E-Commerce 3.0 Establishment Code&lt;/td&gt;
+      &lt;td&gt;Establishment Code in Cielo E-Commerce 3.0 or Getnet, or PV at Rede&lt;/td&gt;
       &lt;td&gt;Numeric [10 positions]&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;MerchantName&lt;/td&gt;
-      &lt;td&gt;Name of registered establishment in Cielo&lt;/td&gt;
+      &lt;td&gt;Name of registered establishment in the acquirer&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 25 positions]&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;MCC&lt;/td&gt;
       &lt;td&gt;Merchant Category Code&lt;/td&gt;
       &lt;td&gt;Numeric [4 positions]&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4607,7 +4595,6 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
       &lt;th&gt;&lt;strong&gt;Field&lt;/strong&gt;&lt;/th&gt;
       &lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
       &lt;th&gt;&lt;strong&gt;Type/Size&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -4615,19 +4602,16 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
       &lt;td&gt;access_token&lt;/td&gt;
       &lt;td&gt;Token required to perform authentication.&lt;/td&gt;
       &lt;td&gt;Alphanumeric [variable size]&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;token_type&lt;/td&gt;
       &lt;td&gt;Fixed “bearer”&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;expires_in&lt;/td&gt;
       &lt;td&gt;Time in minutes to expire token&lt;/td&gt;
       &lt;td&gt;Numeric&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
