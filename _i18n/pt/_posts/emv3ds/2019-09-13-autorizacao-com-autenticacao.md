@@ -99,6 +99,7 @@ Veja abaixo um exemplo de envio de dados de autenticação da requisição de au
 
 | Campo | Descrição | Tipo/Tamanho | Obrigatório |
 | --- | --- | --- | --- |
+|`Payment.Provider`| Nome do provedor do meio de pagamento: Cielo30, Getnet ou Rede. | Texto / 15 | Sim. |
 |`Payment.Authenticate`| Define se o comprador será direcionado ao emissor para autenticação do cartão. | Booleano ("true" / "false") | Sim, caso a autenticação seja validada.|
 |`Payment.ExternalAuthentication.ReturnUrl`| URL de retorno aplicável somente se a versão for "1". | Alfanumérico / 1024 posições | Sim. |
 |`Payment.ExternalAuthentication.Cavv`| Assinatura retornada nos cenários de sucesso na autenticação. | Texto | Sim, caso a autenticação seja validada. |
