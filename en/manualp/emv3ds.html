@@ -164,7 +164,7 @@
 <p>The merchant must meet the following requirements for using 3DS 2.0:</p>
 
 <ul>
-  <li>Be affiliated to Cielo E-Commerce 3.0;</li>
+  <li>Be affiliated to an acquirer;</li>
   <li>Complete the technical integration of the authentication flow;</li>
   <li>Complete the technical integration of the authorization flow;</li>
 </ul>
@@ -173,7 +173,7 @@
 
 <h2 id="brands-issuers-and-acquirers-available">Brands, Issuers and Acquirers Available</h2>
 
-<p>For sending transactions with 3DS 2.0 authentication request it is essential that, in addition to Cielo, the Issuer and Brand are ready with the solution. Among the market brands, Visa, Mastercard and Elo are currently available in Cielo 3DS 2.0. Visa and Mastercard have a Stand-In model if the Issuer is not yet able to respond to an authentication request using EMV 3DS 2.0. In this scenario, the brand evaluates the submitted data, such as customer behavioral and transactional history, classifying authentication requests as “Low Risk” and “Not Low Risk”. From this information, Issuers can be protected even without having their own 3DS 2.0 solution, and will have greater confidence in authenticated transactions. In Stand-In cases, authentication occurs silently (without challenge to the cardholder) and once the transaction has been authenticated, liability in case of fraud will be held by the Issuer. The decision to authorize the transaction or not is up to the Issuer. In transactions authenticated by the card brand, the decision to authorize (or not) a transaction is still with the issuer, which can deny to authorize transactions in the authorization stage.</p>
+<p>For sending transactions with 3DS 2.0 authentication request it is essential that, in addition to the acquirer, the issuer and brand are ready with the solution. Among the market brands, Visa, Mastercard and Elo are currently available in 3DS 2.0. Visa and Mastercard have a Stand-In model if the Issuer is not yet able to respond to an authentication request using EMV 3DS 2.0. In this scenario, the brand evaluates the submitted data, such as customer behavioral and transactional history, classifying authentication requests as “Low Risk” and “Not Low Risk”. From this information, Issuers can be protected even without having their own 3DS 2.0 solution, and will have greater confidence in authenticated transactions. In Stand-In cases, authentication occurs silently (without challenge to the cardholder) and once the transaction has been authenticated, liability in case of fraud will be held by the Issuer. The decision to authorize the transaction or not is up to the Issuer. In transactions authenticated by the card brand, the decision to authorize (or not) a transaction is still with the issuer, which can deny to authorize transactions in the authorization stage.</p>
 
 <p>Soon Amex will also be available.</p>
 
@@ -204,13 +204,13 @@
 
 <ol>
   <li>The cardholder chooses to pay by credit or debit card.</li>
-  <li>The establishment requests authentication through the Cielo solution.</li>
+  <li>The establishment requests authentication through the 3DS 2.0 solution.</li>
   <li>The authentication platform may follow one of two flows: requesting cardholder authentication (skip to steps 4 e 5) or performing authentication silently (skip to step 6).</li>
   <li>Store has authentication interface in <em>lightbox</em> (Issuer Authentication URL).</li>
   <li>The cardholder authenticates to the issuer (process known as <strong>performing the challenge</strong>).</li>
   <li>The issuer returns the authentication result to the 3DS platform, which in turn sends it to the establishment.</li>
   <li>The establishment may or may not proceed with the authorization process. When you choose to authorize you must submit the authentication result in the technical authorization.</li>
-  <li>Cielo returns the result of the authorization to the establishment, which, in turn, returns it to the cardholder.</li>
+  <li>The acquirer returns the result of the authorization to the establishment, which, in turn, returns it to the cardholder.</li>
 </ol>
 
 <h2 id="authentication">Authentication</h2>
