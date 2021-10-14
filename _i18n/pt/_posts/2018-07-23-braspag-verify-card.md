@@ -137,3 +137,15 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 |`BinData.CorporateCard`|Indica se o cartão é corporativo.|booleano|--- |Ex.: "true" / "false"|
 |`BinData.Issuer`|Nome do emissor do cartão.|Texto|512 |Ex.: "Banco da Praça" (sujeito a mapeamento do adquirente)|
 |`BinData.IssuerCode`|Código do emissor do cartão.|Número|3 |Ex.: "000" (sujeito a mapeamento do adquirente)|
+
+# Respostas Programadas
+
+É possível testar os retornos do VerifyCard (Zero Auth) em ambiente sandbox usando o provider "Simulado". Para isso, você pode usar os cartões de teste da tabela a seguir para simular os cenários de consulta autorizada, não autorizada e falha na operação.
+
+| Número do cartão | Status | Retorno | Mensagem |
+|---|---|---|---|
+| 4532.1170.8057.3788 | 0 | 70 | Não autorizado |
+| 4532.1170.8057.3799 | 99 | BP900 | Falha na operação |
+| 4532.1170.8057.3701 | 1 | 4 | Autorizado |
+
+Para testar os cenários de retorno da Consulta BIN em sandbox, acesse a [documentação da Cielo](https://developercielo.github.io/manual/'?json#consulta-bin-sandbox).
