@@ -400,6 +400,43 @@
   </tbody>
 </table>
 
+<h1 id="respostas-programadas">Respostas Programadas</h1>
+
+<p>É possível testar os retornos do VerifyCard (Zero Auth) em ambiente sandbox usando o provider “Simulado”. Para isso, você pode usar os cartões de teste da tabela a seguir para simular os cenários de consulta autorizada, não autorizada e falha na operação.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Número do cartão</th>
+      <th>Status</th>
+      <th>Retorno</th>
+      <th>Mensagem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4532.1170.8057.3788</td>
+      <td>0</td>
+      <td>70</td>
+      <td>Não autorizado</td>
+    </tr>
+    <tr>
+      <td>4532.1170.8057.3799</td>
+      <td>99</td>
+      <td>BP900</td>
+      <td>Falha na operação</td>
+    </tr>
+    <tr>
+      <td>4532.1170.8057.3701</td>
+      <td>1</td>
+      <td>4</td>
+      <td>Autorizado</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Para testar os cenários de retorno da Consulta BIN em sandbox, acesse a <a href="https://developercielo.github.io/manual/'?json#consulta-bin-sandbox">documentação da Cielo</a>.</p>
+
 </div>
 
 
