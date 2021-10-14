@@ -138,8 +138,8 @@ You are able test VerifyCard (Zero Auth) returns in sandbox environment using th
 
 | Card number | Status | Return | Message |
 |---|---|---|---|
-| 4532.1170.8057.3788 | 0 | 70 | Not authorized |
-| 4532.1170.8057.3799 | 99 | BP900 | Operation failure |
-| 4532.1170.8057.3701 | 1 | 4 | Authorized |
+| 4532117080573788 | 0 | 70 | Not authorized |
+| 4532117080573799 | 99 | BP900 | Operation failure |
+| 4532117080573701 | 1 | 4 | Authorized |
 
 If you want to test Consulta BIN return scenarios in sandbox, see [Cielo documentation](https://developercielo.github.io/manual/'?json#consulta-bin-sandbox).
