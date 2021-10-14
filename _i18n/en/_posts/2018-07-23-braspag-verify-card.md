@@ -131,3 +131,15 @@ To query data from a card, send a request through the POST HTTP verb to the Veri
 |`BinData.CorporateCard`|Indicates whether it is a corporate card.|boolean|-|E.g.: "true" / "false"|
 |`BinData.Issuer`|Name of the card issuer.|Text|512|E.g.: "Bank Name" (subject to mapping by the acquirer)|
 |`BinData.IssuerCode`|Card issuer code.|Number|3|E.g.: "000" (subject to mapping by the acquirer)|
+
+# Programmed Responses
+
+You are able test VerifyCard (Zero Auth) returns in sandbox environment using the provider "Simulado". Use the test cards in the table below to simulate scenarios for autorized and not authorized consultation and operation failure. 
+
+| Card number | Status | Return | Message |
+|---|---|---|---|
+| 4532.1170.8057.3788 | 0 | 70 | Not authorized |
+| 4532.1170.8057.3799 | 99 | BP900 | Operation failure |
+| 4532.1170.8057.3701 | 1 | 4 | Authorized |
+
+If you want to test Consulta BIN return scenarios in sandbox, see [Cielo documentation](https://developercielo.github.io/manual/'?json#consulta-bin-sandbox).
