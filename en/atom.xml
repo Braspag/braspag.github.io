@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-10-14T15:17:02+00:00</updated>
+    <updated>2021-10-27T19:04:50+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -5885,7 +5885,7 @@ See example below, describing the submission of authentication data from the Pag
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Atualiza Fácil&lt;/strong&gt;: The platform has &lt;em&gt;Atualiza Fácil&lt;/em&gt;, which is a very interesting feature especially for those working on the recurrence model. Through the brand’s technology, any update to the card number that has been blocked or canceled by the issuer is automatically informed to Braspag, which in turn associates the new card with the existing token, all of which is fully transparent to merchants and shoppers. This feature is available for Mastercard and Visa cards and you should request to enable it through Braspsag’s support channel.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Atualiza Fácil&lt;/strong&gt;: The platform has &lt;em&gt;Atualiza Fácil&lt;/em&gt;, which is a very interesting feature especially for those working on the recurrence model. Through the brand’s technology, any update to the card number that has been blocked or canceled by the issuer is automatically informed to Braspag, which in turn associates the new card with the existing token, all of which is fully transparent to merchants and shoppers. This feature is available for Elo, Mastercard and Visa cards and you should request to enable it through Braspag’s support channel.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Higher conversion rate&lt;/strong&gt;: Tokenized transactions processed at Braspag via Pagador may result in a higher than average market conversion rate. This is because tokenized cards in the flags are allowed along with the cryptogram, which provides greater security in the process, so issuers tend to approve more easily. This feature is available for Mastercard cards processing via Cielo 3.0. Request the activation through Braspsag’s support channel.&lt;/p&gt;
