@@ -20,7 +20,7 @@ The platform is compatible with Braspag's Pagador gateway, facilitating the proc
 
 ## Main benefits
 
-* **Atualiza Fácil**: The platform has _Atualiza Fácil_, which is a very interesting feature especially for those working on the recurrence model. Through the brand's technology, any update to the card number that has been blocked or canceled by the issuer is automatically informed to Braspag, which in turn associates the new card with the existing token, all of which is fully transparent to merchants and shoppers. This feature is available for Mastercard and Visa cards and you should request to enable it through Braspsag's support channel.
+* **Atualiza Fácil**: The platform has _Atualiza Fácil_, which is a very interesting feature especially for those working on the recurrence model. Through the brand's technology, any update to the card number that has been blocked or canceled by the issuer is automatically informed to Braspag, which in turn associates the new card with the existing token, all of which is fully transparent to merchants and shoppers. This feature is available for Elo, Mastercard and Visa cards and you should request to enable it through Braspag's support channel.
 
 * **Higher conversion rate**: Tokenized transactions processed at Braspag via Pagador may result in a higher than average market conversion rate. This is because tokenized cards in the flags are allowed along with the cryptogram, which provides greater security in the process, so issuers tend to approve more easily. This feature is available for Mastercard cards processing via Cielo 3.0. Request the activation through Braspsag's support channel.
 
