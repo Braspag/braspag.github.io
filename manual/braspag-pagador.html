@@ -3703,7 +3703,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p>Para gerar um QR code Pix através da API Pagador, basta realizar a integração conforme a especificação abaixo.</p>
 
-<p>Entre os campos de envio obrigatório, destacam-se dois: <code class="language-plaintext highlighter-rouge">Type</code>, que deve ser enviado como “Pix”; e <code class="language-plaintext highlighter-rouge">Provider</code>, que deve ser “Cielo30”. Na resposta da requisição será retornado o <em>código base64</em> da imagem do QR code Pix, que deve ser disponibilizado ao comprador.</p>
+<p>Entre os campos de envio obrigatório, destacam-se dois: <code class="language-plaintext highlighter-rouge">Type</code>, que deve ser enviado como “Pix”; e <code class="language-plaintext highlighter-rouge">Provider</code>, que deve ser “Cielo30” ou “Bradesco2”. Na resposta da requisição será retornado o <em>código base64</em> da imagem do QR code Pix, que deve ser disponibilizado ao comprador.</p>
 
 <p>Veja abaixo a representação do <strong>fluxo transacional</strong> na geração do QR code Pix:
 <img src="https://braspag.github.io//images/braspag/pagador/fluxos/pix.png" alt="Fluxo Geração QR Code Pix" /></p>
