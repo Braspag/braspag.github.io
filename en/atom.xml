@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-11-01T12:54:57+00:00</updated>
+    <updated>2021-11-01T12:59:21+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -18235,12 +18235,460 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;h2 id=&quot;pix&quot;&gt;Pix&lt;/h2&gt;
+
+&lt;p&gt;In Pix, the transmission of the payment order and the availability of funds to the receiving user takes place in real time, 24 hours a day and without the need for intermediates. Thus, it is a type of payment method that enables fast payments with lower transaction costs.&lt;/p&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;Pix specifications may undergo changes and adaptations until the official release date of the feature by Braspag.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;Pix is currently available for Cielo 3.0 and Bradesco acquirers. First, you need to contact these suppliers in order to authorize this type of payment method.&lt;/aside&gt;
+
+&lt;p&gt;The life cycle of a Pix transaction:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SEQUENCE&lt;/th&gt;
+      &lt;th&gt;RESPONSIBLE&lt;/th&gt;
+      &lt;th&gt;DESCRIPTION&lt;/th&gt;
+      &lt;th&gt;TRANSACTION STATUS&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Store&lt;/td&gt;
+      &lt;td&gt;Generates the QR Code.&lt;/td&gt;
+      &lt;td&gt;12 - Pending&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Buyer&lt;/td&gt;
+      &lt;td&gt;Pays QR Code.&lt;/td&gt;
+      &lt;td&gt;2 - Paid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;Store&lt;/td&gt;
+      &lt;td&gt;Receives payment confirmation notification.&lt;/td&gt;
+      &lt;td&gt;2 - Paid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Store&lt;/td&gt;
+      &lt;td&gt;Queries the transaction status.&lt;/td&gt;
+      &lt;td&gt;2 - Paid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;Store&lt;/td&gt;
+      &lt;td&gt;Releases order.&lt;/td&gt;
+      &lt;td&gt;2 - Paid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;Store&lt;/td&gt;
+      &lt;td&gt;If necessary, requests refund of the Pix transaction (similar to card refund).&lt;/td&gt;
+      &lt;td&gt;2 - Paid&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Store&lt;/td&gt;
+      &lt;td&gt;Receives refund confirmation notification.&lt;/td&gt;
+      &lt;td&gt;11 - Refunded&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;*&lt;/td&gt;
+      &lt;td&gt;Store&lt;/td&gt;
+      &lt;td&gt;Queries the transaction status.&lt;/td&gt;
+      &lt;td&gt;11 - Refunded&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;creating-a-transaction-with-qr-code-pix&quot;&gt;Creating a transaction with QR code Pix&lt;/h3&gt;
+
+&lt;p&gt;You can generate a Pix QR code through the API Pagador by simply perform the integration as specified below.&lt;/p&gt;
+
+&lt;p&gt;Among the required request fields, two stand out: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Type&lt;/code&gt;, which must be sent as “Pix”; and `Provider’, which must be “Cielo30” or “Bradesco2”. The response for the request will return the &lt;em&gt;base64&lt;/em&gt; encoded QR Code Pix image, which must be made available to the buyer.&lt;/p&gt;
+
+&lt;p&gt;See below the representation of the &lt;strong&gt;transactional flow&lt;/strong&gt; in QR code Pix generation:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/fluxos/pix-1-geracaoqrcodepix.png&quot; alt=&quot;Fluxo Geração QR Code Pix&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The buyer then performs the QR code reading through one of the Pix payment enabled applications and makes the payment. In this step, there is no participation of the store or Braspag, as shown below:
+&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/fluxos/pix-2-pagamentodopix.png&quot; alt=&quot;Fluxo Pagamento QR Code Pix&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here are examples of a request and response for generating the QR code Pix:&lt;/p&gt;
+
+&lt;h4 id=&quot;request-9&quot;&gt;Request&lt;/h4&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2020102601&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Pagador&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Identity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345678909&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;IdentityType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CPF&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pix&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://(...)/sales/&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+   &lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2020102601&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Pagador&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CPF&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;IdentityType&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12345678909&quot;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+      &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Pix&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;:100
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;    
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;PROPERTY&lt;/th&gt;
+      &lt;th&gt;DESCRIPTION&lt;/th&gt;
+      &lt;th&gt;TYPE&lt;/th&gt;
+      &lt;th&gt;SIZE&lt;/th&gt;
+      &lt;th&gt;MANDATORY?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Order ID number.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Customer’s name.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.Identity&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Customer’s CPF or CNPJ number.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.IdentityType&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Customer’s ID document type (CPF or CNPJ).&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Payment method type. In this case, “Pix”.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Name of payment method provider. In this case, “Cielo30” or “Bradesco2”.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;YES&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Order amount, in cents.&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;response-10&quot;&gt;Response&lt;/h4&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2020102601&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Pagador&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Paymentid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1997be4d-694a-472e-98f0-e7f4b4c8f1e7&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pix&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;AcquirerTransactionId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;86c200c7-7cdf-4375-92dd-1f62dfa846ad&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;QrcodeBase64Image&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;rfhviy64ak+zse18cwcmtg==[...]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;QrCodeString&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ReceivedDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2020-10-15 18:53:20&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ProviderReturnCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ProviderReturnMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pix gerado com sucesso&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2020102601&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Pagador&quot;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;1997be4d-694a-472e-98f0-e7f4b4c8f1e7&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Pix&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;AcquirerTransactionId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;86c200c7-7cdf-4375-92dd-1f62dfa846ad&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;QrcodeBase64Image&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;rfhviy64ak+zse18cwcmtg==[...]&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;QrCodeString&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;:100,
+      &lt;span class=&quot;s2&quot;&gt;&quot;ReceivedDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2020-10-15 18:53:20&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;:12,
+      &lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnMessage&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Pix gerado com sucesso&quot;&lt;/span&gt;,
+      &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;PROPERTY&lt;/th&gt;
+      &lt;th&gt;DESCRIPTION&lt;/th&gt;
+      &lt;th&gt;TYPE&lt;/th&gt;
+      &lt;th&gt;SIZE&lt;/th&gt;
+      &lt;th&gt;FORMAT&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Order identifier field.&lt;/td&gt;
+      &lt;td&gt;GUID&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.AcquirerTransactionId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Transaction identifier at the acquirer.&lt;/td&gt;
+      &lt;td&gt;GUID&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ProofOfSale&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;NSU Pix.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;Alphanumeric text&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.QrcodeBase64Image&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Base64 encoded QR code image.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.QrCodeString&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Coded text for the buyer to “copy” and “paste” in the  internet banking correspondent field for payments made in mobile environment.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;Variable&lt;/td&gt;
+      &lt;td&gt;Alphanumeric text&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Transaction Status. If transaction is a success, the initial status is “12” (&lt;em&gt;Pending&lt;/em&gt;). &lt;a href=&quot;https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o&quot;&gt;Click here&lt;/a&gt; to view status list.&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Code returned by the acquirer.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ProviderReturnMessage&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Message returned by the acquirer.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;512&lt;/td&gt;
+      &lt;td&gt;“Pix generated successfully”&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;requesting-a-pix-refund&quot;&gt;Requesting a Pix Refund&lt;/h3&gt;
+
+&lt;p&gt;If the merchant needs to “cancel” a Pix transfer, it is possible to perform an operation called a “refund”. It is important to note that the refund is not an instant operation, and can be complied with or not by the Pix provider. When a refund is accepted, the store receives a &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#notification-post&quot;&gt;notification&lt;/a&gt;.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/fluxos/pix-3-devolucaopix.png&quot; alt=&quot;Fluxo Cancelamento Pix&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;request-10&quot;&gt;Request&lt;/h4&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/{PaymentId}/void?amount=xxx&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; PUT &lt;span class=&quot;s2&quot;&gt;&quot;https://(...)/sales/{PaymentId}/void?Amount=xxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;PROPERTY&lt;/th&gt;
+      &lt;th&gt;DESCRIPTION&lt;/th&gt;
+      &lt;th&gt;TYPE&lt;/th&gt;
+      &lt;th&gt;SIZE&lt;/th&gt;
+      &lt;th&gt;MANDATORY?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;API store identifier.&lt;/td&gt;
+      &lt;td&gt;GUID&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Public key for dual authentication in the API.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Store-defined request identifier, used when the merchant uses different servers for each GET/POST/PUT.&lt;/td&gt;
+      &lt;td&gt;GUID&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PaymentId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Order identifier field.&lt;/td&gt;
+      &lt;td&gt;GUID&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Amount to be cancelled/refunded, in cents. Check whether the contracted acquirer supports the cancellation or refund operation.&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;response-11&quot;&gt;Response&lt;/h4&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ReasonCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ReasonMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Successful&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ProviderReturnCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ProviderReturnMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reembolso solicitado com sucesso&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Links&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Rel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;self&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Href&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://(...)/sales/{PaymentId}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;: 12,
+   &lt;span class=&quot;s2&quot;&gt;&quot;ReasonCode&quot;&lt;/span&gt;: 0,
+   &lt;span class=&quot;s2&quot;&gt;&quot;ReasonMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Successful&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;ProviderReturnMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Reembolso solicitado com sucesso&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Links&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;Method&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;GET&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Rel&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;self&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Href&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;https://(...)/sales/{PaymentId}&quot;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;PROPERTY&lt;/th&gt;
+      &lt;th&gt;DESCRIPTION&lt;/th&gt;
+      &lt;th&gt;TYPE&lt;/th&gt;
+      &lt;th&gt;SIZE&lt;/th&gt;
+      &lt;th&gt;FORMAT&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Transaction status.&lt;/td&gt;
+      &lt;td&gt;Byte&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Ex.: “1”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ReasonCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Acquirer’s return code.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;Alphanumeric text&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ReasonMessage&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Acquirer’s return message.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;512&lt;/td&gt;
+      &lt;td&gt;Alphanumeric text&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h2 id=&quot;qr-code-transaction&quot;&gt;QR Code Transaction&lt;/h2&gt;
 
 &lt;p&gt;To create a QR code transaction you must submit a request using the POST method as shown below. This request will create the transaction, which will receive the &lt;em&gt;Pending&lt;/em&gt; status in Braspag, and generate the QR code for the payment. The customer makes the payment through one of the supported applications and the transaction changes status (e.g.: to &lt;em&gt;Pago&lt;/em&gt; when paid, &lt;em&gt;Não pago&lt;/em&gt; when not paid, or &lt;em&gt;Não autorizado&lt;/em&gt; for unauthorized transactions).
 The example below covers the minimum required fields to be submitted for authorization:&lt;/p&gt;
 
-&lt;h3 id=&quot;request-9&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-11&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -18340,7 +18788,7 @@ The example below covers the minimum required fields to be submitted for authori
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-10&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-12&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;20191023&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -18484,7 +18932,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.FineRate&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.FineAmount&lt;/code&gt; parameters must not be used together. The same rule applies to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InterestRate&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InterestAmount&lt;/code&gt; parameters. They are all marked with an “*” in the “MANDATORY” column,&lt;/p&gt;
 
-&lt;h4 id=&quot;request-10&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-12&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -18804,7 +19252,7 @@ The example below covers the minimum required fields to be submitted for authori
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-11&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-13&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017091101&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -19135,7 +19583,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 &lt;p&gt;To create a sale, you must send an HTTP message through the POST method to the &lt;em&gt;Payment&lt;/em&gt; resource, according to the example:&lt;/p&gt;
 
-&lt;h4 id=&quot;request-11&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-13&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -19390,7 +19838,7 @@ The example below covers the minimum required fields to be submitted for authori
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-12&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-14&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051109&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -19535,7 +19983,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 &lt;p&gt;A transaction with a voucher card is similar to a debit card transaction; only without the authentication process. Currently, only the &lt;em&gt;Alelo&lt;/em&gt; and &lt;em&gt;Ticket&lt;/em&gt; providers are supported in this modality.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-12&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-14&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -19723,7 +20171,7 @@ The example below covers the minimum required fields to be submitted for authori
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-13&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-15&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -19907,7 +20355,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.RecurrentPayment.Interval&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.RecurrentPayment.DailyInterval&lt;/code&gt; parameters, marked with an “*” in the “MANDATORY” column, must not be used together.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-13&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-15&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -20125,7 +20573,7 @@ The example below covers the minimum required fields to be submitted for authori
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-14&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-16&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -20277,7 +20725,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 &lt;p&gt;Contact our support team to determine in how many days you wish your boletos generated via Recurrence to expire.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-14&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-16&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -20415,7 +20863,7 @@ The example below covers the minimum required fields to be submitted for authori
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-15&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-17&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;teste001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -20612,7 +21060,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 &lt;p&gt;To schedule the first transaction in the recurrence series, pass the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.RecurrentPayment.AuthorizeNow&lt;/code&gt; parameter as “false” and add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.RecurrentPayment.StartDate&lt;/code&gt; parameter.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-15&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-17&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -20806,7 +21254,7 @@ The example below covers the minimum required fields to be submitted for authori
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-16&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-18&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -20948,7 +21396,7 @@ The example below covers the minimum required fields to be submitted for authori
 &lt;p&gt;To change customer data in an existing recurrence, simply make a PUT call to the specified endpoint.
 In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code&quot;&gt;HTTP Status&lt;/a&gt; code, informing whether the operation was successful or not.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-16&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-18&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Customer&lt;/span&gt;&lt;/aside&gt;
 
@@ -21207,7 +21655,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-17&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-19&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -21218,7 +21666,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
 
 &lt;p&gt;To change the end date of the existing recurrence, just make a PUT call as in the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-17&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-19&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate&lt;/span&gt;&lt;/aside&gt;
 
@@ -21284,7 +21732,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-18&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-20&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -21295,7 +21743,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
 
 &lt;p&gt;To change the range of an existing recurrence, just make a PUT call as shown in the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-18&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-20&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Interval&lt;/span&gt;&lt;/aside&gt;
 
@@ -21361,7 +21809,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-19&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-21&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -21378,7 +21826,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
 
 &lt;p&gt;3- If the newly entered day comes before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the coming recurrence.&lt;br /&gt;E.g.: Today is May 5, and the next recurrence is September 25. When I upgrade to day 3, the next recurrence date will be September 3.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-19&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-21&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay&lt;/span&gt;&lt;/aside&gt;
 
@@ -21444,7 +21892,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-20&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-22&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -21455,7 +21903,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
 
 &lt;p&gt;To modify the transaction value of an existing recurrence, simply make a PUT call as shown in the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-20&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-22&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Amount&lt;/span&gt;&lt;/aside&gt;
 
@@ -21522,7 +21970,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-21&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-23&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -21535,7 +21983,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
 
 &lt;aside class=&quot;warning&quot;&gt;This change only affects the payment date of the exact next recurrence. All the following dates will remain unchanged.&lt;/aside&gt;
 
-&lt;h4 id=&quot;request-21&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-23&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate&lt;/span&gt;&lt;/aside&gt;
 
@@ -21601,7 +22049,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-22&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-24&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -21622,7 +22070,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
 
 &lt;aside class=&quot;warning&quot;&gt;CAUTION: This change affects all Payment node data. In order to keep the previous data, you must enter the fields that will remain unchanged with their currently saved values.&lt;/aside&gt;
 
-&lt;h4 id=&quot;request-22&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-24&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Payment&lt;/span&gt;&lt;/aside&gt;
 
@@ -21828,7 +22276,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-23&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-25&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -21841,7 +22289,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
 
 &lt;p&gt;To deactivate a recurring request, simply make a PUT call as shown in the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-23&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-25&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Payment&lt;/span&gt;&lt;/aside&gt;
 
@@ -21896,7 +22344,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-24&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-26&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -21909,7 +22357,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
 
 &lt;p&gt;To reactivate a recurring request, simply make a PUT call as shown in the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-24&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-26&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate&lt;/span&gt;&lt;/aside&gt;
 
@@ -21964,7 +22412,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-25&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-27&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -21981,7 +22429,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
 
 &lt;p&gt;&amp;lt;aside class=”notice&amp;gt;Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.&amp;lt;/aside&amp;gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;response-26&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-28&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -22118,7 +22566,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
 
 &lt;h2 id=&quot;saving-a-card-during-an-authorization&quot;&gt;Saving a Card During an Authorization&lt;/h2&gt;
 
-&lt;h4 id=&quot;request-25&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-27&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;To save a credit card used in a transaction, simply send the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.SaveCard&lt;/code&gt; parameter as &lt;em&gt;true&lt;/em&gt; in the standard authorization request. The card number to be used can be validated through the technique exaplained in &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br/articles/360050638051&quot;&gt;this article&lt;/a&gt;, in Portuguese.&lt;/p&gt;
 
@@ -22358,7 +22806,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h5 id=&quot;response-27&quot;&gt;Response&lt;/h5&gt;
+&lt;h5 id=&quot;response-29&quot;&gt;Response&lt;/h5&gt;
 
 &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.CardToken&lt;/code&gt; parameter will return the token to be saved for future transactions with the same card.&lt;/p&gt;
 
@@ -22544,7 +22992,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
 
 &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard&lt;/code&gt; node within the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment&lt;/code&gt; node will change as shown in the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-26&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-28&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -22746,7 +23194,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h5 id=&quot;response-28&quot;&gt;Response&lt;/h5&gt;
+&lt;h5 id=&quot;response-30&quot;&gt;Response&lt;/h5&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -22919,7 +23367,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
 
 &lt;p&gt;This is an example of how to use the previously saved &lt;em&gt;alias&lt;/em&gt; to create a transaction. For security reasons, an alias does not include the Security Code. Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to &lt;em&gt;recurring&lt;/em&gt;, you can submit transactions without CVV.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-27&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-29&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -23128,7 +23576,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h5 id=&quot;response-29&quot;&gt;Response&lt;/h5&gt;
+&lt;h5 id=&quot;response-31&quot;&gt;Response&lt;/h5&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -23363,7 +23811,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
 
 &lt;p&gt;During the Cybersource deployment, additional information can be stored through MDDs (Merchand Defined Data). MDDs are fields numbered 0 through N used to store unique merchant information. &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral&quot;&gt;This article&lt;/a&gt; (in Portuguese) has details on how to fill these fields.&lt;/p&gt;
 
-&lt;h3 id=&quot;request-28&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-30&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -24373,7 +24821,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
 
 &lt;aside class=&quot;warning&quot;&gt;The fields of the &quot;FraudAnalysis.Travel&quot; node become mandatory if your business segment is the airline segment.&lt;/aside&gt;
 
-&lt;h3 id=&quot;response-30&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-32&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051002&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -25485,7 +25933,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 &lt;p&gt;In order to query a credit card transaction via PaymentID, you must send an HTTP message through the GET method to the &lt;em&gt;Payment&lt;/em&gt; resource, as in the example:&lt;/p&gt;
 
-&lt;h4 id=&quot;request-29&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-31&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -25540,7 +25988,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-31&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-33&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -26232,7 +26680,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 &lt;p&gt;In order to query a registered boleto transaction via PaymentID, you must send an HTTP message through the GET method to the &lt;em&gt;Payment&lt;/em&gt; resource, as in the example:&lt;/p&gt;
 
-&lt;h4 id=&quot;request-30&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-32&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -26287,7 +26735,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-32&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-34&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -26763,7 +27211,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 &lt;p&gt;In order to query a sale by the store identifier, you must send an HTTP message through the GET method to the &lt;em&gt;/sales&lt;/em&gt; resource, as in the example:&lt;/p&gt;
 
-&lt;h3 id=&quot;request-31&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-33&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales?merchantOrderId = {merchantOrderId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -26818,7 +27266,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-33&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-35&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -26878,7 +27326,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 &lt;p&gt;In order to query a recurring order, you must send an HTTP message through the GET method as in the example:&lt;/p&gt;
 
-&lt;h3 id=&quot;request-32&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-34&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/RecurrentPayment/{RecurrentPaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -26933,7 +27381,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-34&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-36&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;

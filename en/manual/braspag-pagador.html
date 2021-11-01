@@ -3576,12 +3576,460 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
   </tbody>
 </table>
 
+<h2 id="pix">Pix</h2>
+
+<p>In Pix, the transmission of the payment order and the availability of funds to the receiving user takes place in real time, 24 hours a day and without the need for intermediates. Thus, it is a type of payment method that enables fast payments with lower transaction costs.</p>
+
+<aside class="notice">Pix specifications may undergo changes and adaptations until the official release date of the feature by Braspag.</aside>
+<aside class="warning">Pix is currently available for Cielo 3.0 and Bradesco acquirers. First, you need to contact these suppliers in order to authorize this type of payment method.</aside>
+
+<p>The life cycle of a Pix transaction:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>SEQUENCE</th>
+      <th>RESPONSIBLE</th>
+      <th>DESCRIPTION</th>
+      <th>TRANSACTION STATUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Store</td>
+      <td>Generates the QR Code.</td>
+      <td>12 - Pending</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Buyer</td>
+      <td>Pays QR Code.</td>
+      <td>2 - Paid</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Store</td>
+      <td>Receives payment confirmation notification.</td>
+      <td>2 - Paid</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Store</td>
+      <td>Queries the transaction status.</td>
+      <td>2 - Paid</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Store</td>
+      <td>Releases order.</td>
+      <td>2 - Paid</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Store</td>
+      <td>If necessary, requests refund of the Pix transaction (similar to card refund).</td>
+      <td>2 - Paid</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Store</td>
+      <td>Receives refund confirmation notification.</td>
+      <td>11 - Refunded</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>Store</td>
+      <td>Queries the transaction status.</td>
+      <td>11 - Refunded</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="creating-a-transaction-with-qr-code-pix">Creating a transaction with QR code Pix</h3>
+
+<p>You can generate a Pix QR code through the API Pagador by simply perform the integration as specified below.</p>
+
+<p>Among the required request fields, two stand out: <code class="language-plaintext highlighter-rouge">Type</code>, which must be sent as “Pix”; and `Provider’, which must be “Cielo30” or “Bradesco2”. The response for the request will return the <em>base64</em> encoded QR Code Pix image, which must be made available to the buyer.</p>
+
+<p>See below the representation of the <strong>transactional flow</strong> in QR code Pix generation:
+<img src="https://braspag.github.io//images/braspag/pagador/fluxos/pix-1-geracaoqrcodepix.png" alt="Fluxo Geração QR Code Pix" /></p>
+
+<p>The buyer then performs the QR code reading through one of the Pix payment enabled applications and makes the payment. In this step, there is no participation of the store or Braspag, as shown below:
+<img src="https://braspag.github.io//images/braspag/pagador/fluxos/pix-2-pagamentodopix.png" alt="Fluxo Pagamento QR Code Pix" /></p>
+
+<p>Here are examples of a request and response for generating the QR code Pix:</p>
+
+<h4 id="request-9">Request</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2020102601"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Pagador"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w"> 
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Pix"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="w">
+   </span><span class="p">}</span><span class="w">    
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://(...)/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span> 
+   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2020102601"</span>,
+   <span class="s2">"Customer"</span>:<span class="o">{</span>
+      <span class="s2">"Name"</span>:<span class="s2">"Nome do Pagador"</span>,
+      <span class="s2">"Identity"</span>:<span class="s2">"CPF"</span>,
+      <span class="s2">"IdentityType"</span>:<span class="s2">"12345678909"</span>
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>:<span class="o">{</span> 
+      <span class="s2">"Type"</span>:<span class="s2">"Pix"</span>,
+      <span class="s2">"Provider"</span>:<span class="s2">"Cielo30"</span>,
+      <span class="s2">"Amount"</span>:100
+   <span class="o">}</span>    
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>MANDATORY?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Order ID number.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Customer’s name.</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>Customer’s CPF or CNPJ number.</td>
+      <td>Text</td>
+      <td>14</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Customer’s ID document type (CPF or CNPJ).</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method type. In this case, “Pix”.</td>
+      <td>Text</td>
+      <td>-</td>
+      <td>YES</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Name of payment method provider. In this case, “Cielo30” or “Bradesco2”.</td>
+      <td>Text</td>
+      <td>-</td>
+      <td>YES</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order amount, in cents.</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-10">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2020102601"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Pagador"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="err">(...)</span><span class="w">   
+      </span><span class="nl">"Paymentid"</span><span class="p">:</span><span class="s2">"1997be4d-694a-472e-98f0-e7f4b4c8f1e7"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Pix"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="s2">"86c200c7-7cdf-4375-92dd-1f62dfa846ad"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"QrcodeBase64Image"</span><span class="p">:</span><span class="s2">"rfhviy64ak+zse18cwcmtg==[...]"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"QrCodeString"</span><span class="p">:</span><span class="s2">"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="s2">"2020-10-15 18:53:20"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Status"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="s2">"Pix gerado com sucesso"</span><span class="p">,</span><span class="w">
+      </span><span class="err">(...)</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2020102601"</span>,
+   <span class="s2">"Customer"</span>:<span class="o">{</span>
+      <span class="s2">"Name"</span>:<span class="s2">"Nome do Pagador"</span>
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>:<span class="o">{</span>
+      <span class="o">(</span>...<span class="o">)</span>
+      <span class="s2">"PaymentId"</span>:<span class="s2">"1997be4d-694a-472e-98f0-e7f4b4c8f1e7"</span>,
+      <span class="s2">"Type"</span>:<span class="s2">"Pix"</span>,
+      <span class="s2">"Provider"</span>:<span class="s2">"Cielo30"</span>,
+      <span class="s2">"AcquirerTransactionId"</span>:<span class="s2">"86c200c7-7cdf-4375-92dd-1f62dfa846ad"</span>,
+         <span class="s2">"ProofOfSale"</span>:<span class="s2">"123456"</span>,
+      <span class="s2">"QrcodeBase64Image"</span>:<span class="s2">"rfhviy64ak+zse18cwcmtg==[...]"</span>,
+      <span class="s2">"QrCodeString"</span>:<span class="s2">"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C"</span>,
+      <span class="s2">"Amount"</span>:100,
+      <span class="s2">"ReceivedDate"</span>:<span class="s2">"2020-10-15 18:53:20"</span>,
+      <span class="s2">"Status"</span>:12,
+      <span class="s2">"ProviderReturnCode"</span>:<span class="s2">"0"</span>,
+      <span class="s2">"ProviderReturnMessage"</span>:<span class="s2">"Pix gerado com sucesso"</span>,
+      <span class="o">(</span>...<span class="o">)</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>FORMAT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentId</code></td>
+      <td>Order identifier field.</td>
+      <td>GUID</td>
+      <td>40</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.AcquirerTransactionId</code></td>
+      <td>Transaction identifier at the acquirer.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
+      <td>NSU Pix.</td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.QrcodeBase64Image</code></td>
+      <td>Base64 encoded QR code image.</td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.QrCodeString</code></td>
+      <td>Coded text for the buyer to “copy” and “paste” in the  internet banking correspondent field for payments made in mobile environment.</td>
+      <td>Text</td>
+      <td>Variable</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
+      <td>Transaction Status. If transaction is a success, the initial status is “12” (<em>Pending</em>). <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o">Click here</a> to view status list.</td>
+      <td>Number</td>
+      <td>-</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ProviderReturnCode</code></td>
+      <td>Code returned by the acquirer.</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ProviderReturnMessage</code></td>
+      <td>Message returned by the acquirer.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>“Pix generated successfully”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="requesting-a-pix-refund">Requesting a Pix Refund</h3>
+
+<p>If the merchant needs to “cancel” a Pix transfer, it is possible to perform an operation called a “refund”. It is important to note that the refund is not an instant operation, and can be complied with or not by the Pix provider. When a refund is accepted, the store receives a <a href="https://braspag.github.io//en/manual/braspag-pagador#notification-post">notification</a>.<br /></p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/pix-3-devolucaopix.png" alt="Fluxo Cancelamento Pix" /></p>
+
+<h4 id="request-10">Request</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://(...)/sales/{PaymentId}/void?Amount=xxx"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>MANDATORY?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>API store identifier.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public key for dual authentication in the API.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Store-defined request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Order identifier field.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>Amount to be cancelled/refunded, in cents. Check whether the contracted acquirer supports the cancellation or refund operation.</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-11">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reembolso solicitado com sucesso"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://(...)/sales/{PaymentId}"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+   <span class="s2">"Status"</span>: 12,
+   <span class="s2">"ReasonCode"</span>: 0,
+   <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+   <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"0"</span>,
+   <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Reembolso solicitado com sucesso"</span>,
+   <span class="s2">"Links"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+         <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+         <span class="s2">"Href"</span>: <span class="s2">"https://(...)/sales/{PaymentId}"</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>FORMAT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Transaction status.</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>Ex.: “1”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
+      <td>Acquirer’s return code.</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
+      <td>Acquirer’s return message.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric text</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="qr-code-transaction">QR Code Transaction</h2>
 
 <p>To create a QR code transaction you must submit a request using the POST method as shown below. This request will create the transaction, which will receive the <em>Pending</em> status in Braspag, and generate the QR code for the payment. The customer makes the payment through one of the supported applications and the transaction changes status (e.g.: to <em>Pago</em> when paid, <em>Não pago</em> when not paid, or <em>Não autorizado</em> for unauthorized transactions).
 The example below covers the minimum required fields to be submitted for authorization:</p>
 
-<h3 id="request-9">Request</h3>
+<h3 id="request-11">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3681,7 +4129,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h3 id="response-10">Response</h3>
+<h3 id="response-12">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20191023"</span><span class="p">,</span><span class="w">
@@ -3825,7 +4273,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>The <code class="language-plaintext highlighter-rouge">Payment.FineRate</code> and <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code> parameters must not be used together. The same rule applies to the <code class="language-plaintext highlighter-rouge">Payment.InterestRate</code> and <code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code> parameters. They are all marked with an “*” in the “MANDATORY” column,</p>
 
-<h4 id="request-10">Request</h4>
+<h4 id="request-12">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4145,7 +4593,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
@@ -4476,7 +4924,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>To create a sale, you must send an HTTP message through the POST method to the <em>Payment</em> resource, according to the example:</p>
 
-<h4 id="request-11">Request</h4>
+<h4 id="request-13">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4731,7 +5179,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-14">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051109"</span><span class="p">,</span><span class="w">
@@ -4876,7 +5324,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>A transaction with a voucher card is similar to a debit card transaction; only without the authentication process. Currently, only the <em>Alelo</em> and <em>Ticket</em> providers are supported in this modality.</p>
 
-<h4 id="request-12">Request</h4>
+<h4 id="request-14">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5064,7 +5512,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-13">Response</h4>
+<h4 id="response-15">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -5248,7 +5696,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>The <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> and <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code> parameters, marked with an “*” in the “MANDATORY” column, must not be used together.</p>
 
-<h4 id="request-13">Request</h4>
+<h4 id="request-15">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5466,7 +5914,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-14">Response</h4>
+<h4 id="response-16">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -5618,7 +6066,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>Contact our support team to determine in how many days you wish your boletos generated via Recurrence to expire.</p>
 
-<h4 id="request-14">Request</h4>
+<h4 id="request-16">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5756,7 +6204,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-15">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste001"</span><span class="p">,</span><span class="w">
@@ -5953,7 +6401,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>To schedule the first transaction in the recurrence series, pass the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> parameter as “false” and add the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code> parameter.</p>
 
-<h4 id="request-15">Request</h4>
+<h4 id="request-17">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -6147,7 +6595,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-18">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -6289,7 +6737,7 @@ The example below covers the minimum required fields to be submitted for authori
 <p>To change customer data in an existing recurrence, simply make a PUT call to the specified endpoint.
 In <strong>response</strong> to your request, the API will return an <a href="https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code">HTTP Status</a> code, informing whether the operation was successful or not.</p>
 
-<h4 id="request-16">Request</h4>
+<h4 id="request-18">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -6548,7 +6996,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-17">Response</h4>
+<h4 id="response-19">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6559,7 +7007,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <p>To change the end date of the existing recurrence, just make a PUT call as in the example.</p>
 
-<h4 id="request-17">Request</h4>
+<h4 id="request-19">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -6625,7 +7073,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-18">Response</h4>
+<h4 id="response-20">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6636,7 +7084,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <p>To change the range of an existing recurrence, just make a PUT call as shown in the example.</p>
 
-<h4 id="request-18">Request</h4>
+<h4 id="request-20">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -6702,7 +7150,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6719,7 +7167,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <p>3- If the newly entered day comes before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the coming recurrence.<br />E.g.: Today is May 5, and the next recurrence is September 25. When I upgrade to day 3, the next recurrence date will be September 3.</p>
 
-<h4 id="request-19">Request</h4>
+<h4 id="request-21">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -6785,7 +7233,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-22">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6796,7 +7244,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <p>To modify the transaction value of an existing recurrence, simply make a PUT call as shown in the example.</p>
 
-<h4 id="request-20">Request</h4>
+<h4 id="request-22">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -6863,7 +7311,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-23">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6876,7 +7324,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <aside class="warning">This change only affects the payment date of the exact next recurrence. All the following dates will remain unchanged.</aside>
 
-<h4 id="request-21">Request</h4>
+<h4 id="request-23">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -6942,7 +7390,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-22">Response</h4>
+<h4 id="response-24">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6963,7 +7411,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <aside class="warning">CAUTION: This change affects all Payment node data. In order to keep the previous data, you must enter the fields that will remain unchanged with their currently saved values.</aside>
 
-<h4 id="request-22">Request</h4>
+<h4 id="request-24">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -7169,7 +7617,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h4 id="response-23">Response</h4>
+<h4 id="response-25">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7182,7 +7630,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>To deactivate a recurring request, simply make a PUT call as shown in the example.</p>
 
-<h4 id="request-23">Request</h4>
+<h4 id="request-25">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -7237,7 +7685,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h4 id="response-24">Response</h4>
+<h4 id="response-26">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7250,7 +7698,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>To reactivate a recurring request, simply make a PUT call as shown in the example.</p>
 
-<h4 id="request-24">Request</h4>
+<h4 id="request-26">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -7305,7 +7753,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h4 id="response-25">Response</h4>
+<h4 id="response-27">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7322,7 +7770,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>&lt;aside class=”notice&gt;Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.&lt;/aside&gt;</p>
 
-<h3 id="response-26">Response</h3>
+<h3 id="response-28">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -7459,7 +7907,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <h2 id="saving-a-card-during-an-authorization">Saving a Card During an Authorization</h2>
 
-<h4 id="request-25">Request</h4>
+<h4 id="request-27">Request</h4>
 
 <p>To save a credit card used in a transaction, simply send the <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> parameter as <em>true</em> in the standard authorization request. The card number to be used can be validated through the technique exaplained in <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051">this article</a>, in Portuguese.</p>
 
@@ -7699,7 +8147,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h5 id="response-27">Response</h5>
+<h5 id="response-29">Response</h5>
 
 <p>The <code class="language-plaintext highlighter-rouge">CreditCard.CardToken</code> parameter will return the token to be saved for future transactions with the same card.</p>
 
@@ -7885,7 +8333,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>The <code class="language-plaintext highlighter-rouge">CreditCard</code> node within the <code class="language-plaintext highlighter-rouge">Payment</code> node will change as shown in the example.</p>
 
-<h4 id="request-26">Request</h4>
+<h4 id="request-28">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -8087,7 +8535,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h5 id="response-28">Response</h5>
+<h5 id="response-30">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -8260,7 +8708,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>This is an example of how to use the previously saved <em>alias</em> to create a transaction. For security reasons, an alias does not include the Security Code. Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to <em>recurring</em>, you can submit transactions without CVV.</p>
 
-<h4 id="request-27">Request</h4>
+<h4 id="request-29">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -8469,7 +8917,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h5 id="response-29">Response</h5>
+<h5 id="response-31">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -8704,7 +9152,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>During the Cybersource deployment, additional information can be stored through MDDs (Merchand Defined Data). MDDs are fields numbered 0 through N used to store unique merchant information. <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral">This article</a> (in Portuguese) has details on how to fill these fields.</p>
 
-<h3 id="request-28">Request</h3>
+<h3 id="request-30">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -9714,7 +10162,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <aside class="warning">The fields of the "FraudAnalysis.Travel" node become mandatory if your business segment is the airline segment.</aside>
 
-<h3 id="response-30">Response</h3>
+<h3 id="response-32">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -10826,7 +11274,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>In order to query a credit card transaction via PaymentID, you must send an HTTP message through the GET method to the <em>Payment</em> resource, as in the example:</p>
 
-<h4 id="request-29">Request</h4>
+<h4 id="request-31">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -10881,7 +11329,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h4 id="response-31">Response</h4>
+<h4 id="response-33">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -11573,7 +12021,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>In order to query a registered boleto transaction via PaymentID, you must send an HTTP message through the GET method to the <em>Payment</em> resource, as in the example:</p>
 
-<h4 id="request-30">Request</h4>
+<h4 id="request-32">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -11628,7 +12076,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h4 id="response-32">Response</h4>
+<h4 id="response-34">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -12104,7 +12552,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>In order to query a sale by the store identifier, you must send an HTTP message through the GET method to the <em>/sales</em> resource, as in the example:</p>
 
-<h3 id="request-31">Request</h3>
+<h3 id="request-33">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId = {merchantOrderId}</span></aside>
 
@@ -12159,7 +12607,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h3 id="response-33">Response</h3>
+<h3 id="response-35">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -12219,7 +12667,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>In order to query a recurring order, you must send an HTTP message through the GET method as in the example:</p>
 
-<h3 id="request-32">Request</h3>
+<h3 id="request-34">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -12274,7 +12722,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h3 id="response-34">Response</h3>
+<h3 id="response-36">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
