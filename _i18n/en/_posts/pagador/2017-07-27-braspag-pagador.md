@@ -26,7 +26,7 @@ Below is the representation of a standard **transactional flow**, followed by a 
 * **Gateway:** Connects e-commerces with payment services (acquirer, *boleto* bill, issuer), making it easier for the merchants to manage payment providers.
 * **Acquirer:** Connects the transaction with the payment networks (brands) and settles the transaction for the merchants.
 * **Card network (or brand):** Communicates with the issuer of the transaction card and settles the transaction for the acquirers.
-* **Issuer:** Gives credit and stores the buyer's money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.
+* **Issuer:** Gives credit and stores the shopper's money. In the transaction, either approves or denies it for reasons of balance, card validity or fraud. Settles the transaction for the brand.
 
 ## Attributes of the Solution
 
@@ -1080,7 +1080,7 @@ An authorization that is not captured by the deadline is automatically released 
 
 ### Authenticating a Transaction 
 
-With the authentication process, a risk analysis can be carried out taking more of user's and buyer's data into consideration, which helps the validation process of an online purchase.
+With the authentication process, a risk analysis can be carried out taking more of user's and shopper's data into consideration, which helps the validation process of an online purchase.
 
 Through Pagador, when a transaction is submitted to the authentication process, the bearer is redirected to the issuer's environment to confirm their information. If correctly validated, the risk of chargeback (dispute of a purchase made by credit or debit card) shifts to the issuer, which means the merchant is not held accountable for it.
 
@@ -2015,7 +2015,7 @@ The life cycle of a Pix transaction:
 | SEQUENCE | RESPONSIBLE | DESCRIPTION | TRANSACTION STATUS |
 |--------------|------------|------------|------------|
 | 1 | Store | Generates the QR Code. | 12 - Pending |
-| 2 | Buyer | Pays QR Code. | 2 - Paid |
+| 2 | Shopper | Pays QR Code. | 2 - Paid |
 | 3 | Store | Receives payment confirmation notification. | 2 - Paid |
 | 4 | Store | Queries the transaction status. | 2 - Paid |
 | 5 | Store | Releases order. | 2 - Paid |
@@ -2027,12 +2027,12 @@ The life cycle of a Pix transaction:
 
 You can generate a Pix QR code through the API Pagador by simply perform the integration as specified below.
 
-Among the required request fields, two stand out: `Type`, which must be sent as "Pix"; and `Provider', which must be "Cielo30" or "Bradesco2". The response for the request will return the *base64* encoded QR Code Pix image, which must be made available to the buyer.
+Among the required request fields, two stand out: `Type`, which must be sent as "Pix"; and `Provider', which must be "Cielo30" or "Bradesco2". The response for the request will return the *base64* encoded QR Code Pix image, which must be made available to the shopper.
 
 See below the representation of the **transactional flow** in QR code Pix generation:
 ![Fluxo Geração QR Code Pix]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/pix-1-geracaoqrcodepix.png)
 
-The buyer then performs the QR code reading through one of the Pix payment enabled applications and makes the payment. In this step, there is no participation of the store or Braspag, as shown below:
+The shopper then performs the QR code reading through one of the Pix payment enabled applications and makes the payment. In this step, there is no participation of the store or Braspag, as shown below:
 ![Fluxo Pagamento QR Code Pix]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/pix-2-pagamentodopix.png)
 
 Here are examples of a request and response for generating the QR code Pix:
@@ -2152,7 +2152,7 @@ Here are examples of a request and response for generating the QR code Pix:
 | `Payment.AcquirerTransactionId` | Transaction identifier at the acquirer.| GUID | 36 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `Payment.ProofOfSale` | NSU Pix. | Text | 20 | Alphanumeric text|
 | `Payment.QrcodeBase64Image` | Base64 encoded QR code image. | Text | - |Text | 
-| `Payment.QrCodeString`| Coded text for the buyer to "copy" and "paste" in the  internet banking correspondent field for payments made in mobile environment.|Text|Variable | Alphanumeric text|
+| `Payment.QrCodeString`| Coded text for the shopper to "copy" and "paste" in the  internet banking correspondent field for payments made in mobile environment.|Text|Variable | Alphanumeric text|
 | `Payment.Status` | Transaction Status. If transaction is a success, the initial status is "12" (*Pending*). [Click here](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o) to view status list.| Number| - | 12 |
 | `Payment.ProviderReturnCode` | Code returned by the acquirer. | Text | 32 | 0 |
 | `Payment.ProviderReturnMessage` | Message returned by the acquirer. | Text | 512 | "Pix generated successfully" |
@@ -2865,7 +2865,7 @@ To create a sale, you must send an HTTP message through the POST method to the *
 |Property|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
 |`PaymentId`|Order identifier field.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Url`|URL to which the buyer will be redirected for electronic transfer authentication.|Text|256|Authentication URL|
+|`Url`|URL to which the shopper will be redirected for electronic transfer authentication.|Text|256|Authentication URL|
 |`Status`|Transaction status.|Byte|2|E.g.: 1|
 
 ## E-Wallet (Digital Wallet)
@@ -4406,7 +4406,7 @@ To use Renova Fácil, the service must be enabled at CIELO. No extra information
 
 # Saving and Reusing Cards
 
-With [Cartão Protegido](https://braspag.github.io//en/manual/cartao-protegido-api-rest), you can safely save your client's credit card in accordance with the PCI standards. The card information is saved as a token (excluding the card CVV), making transaction process easier by replacing its data in a future transaction from the same buyer, while keeping the integrity of the saved cards. 
+With [Cartão Protegido](https://braspag.github.io//en/manual/cartao-protegido-api-rest), you can safely save your client's credit card in accordance with the PCI standards. The card information is saved as a token (excluding the card CVV), making transaction process easier by replacing its data in a future transaction from the same shopper, while keeping the integrity of the saved cards. 
 
 <aside class="warning">ATTENTION: For safety reasons, it's only possible to save cards that pass the Luhn Algorithm checksum formula, also known as "mod10".</aside>
 
@@ -5616,19 +5616,19 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Indicates if the transaction will be captured after the fraud analysis.<br/> Possible values: "true" / "false" (default)<br/> Note: When sent as "true" and the fraud analysis returns it as low risk ("*Accept*") the previously authorized transaction will be captured.<br/>Note2: When sent as "true" and the fraud analysis returns it as "*Review*" the transaction will be authorized. It will be captured after Braspag receives notification of the status change to low risk ("*Accept*").<br/> Note: To use this parameter, the sequence of the risk analysis flow (`FraudAnalysis.Sequence`) must be "AuthorizeFirst".|Boolean|---|No|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Indicates if the transaction will be captured after the fraud analysis. <br/> Possible values: "true" / "false" (default).<br/> Note: When sent as "true" and the fraud analysis returns it as of high risk ("*Reject*") the previously authorized transaction will be canceled.<br/>Note2: When sent as "true" and the fraud analysis returns it as "*Review*" the transaction will remain authorized. It will be cancelled after Braspag receives notification of the status change to high risk ("*Reject*").<br/> Note: To use this parameter, the sequence of the risk analysis flow (`FraudAnalysis.Sequence`) must be "AuthorizeFirst".|Boolean|---|No|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Order total value in cents.<br/> E.g.: 123456 = R $ 1,234.56|Number|15|Yes|
-|`Payment.FraudAnalysis.FingerPrintId`|Identifier used to crosscheck information obtained from the buyer's device. This same identifier must be used to generate the value to be assigned to the `session_id` field of the script, which will be included in the checkout page. <br/> Note: This identifier can be any value or order number, but must be unique for 48 hours.|Text|100|Yes|
-|`Payment.FraudAnalysis.Browser.HostName`|Host name entered by the buyer's browser and identified through the HTTP header.|Text|60|No|
-|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Identifies if the buyer's browser accepts cookies. <br/> Possible values: "true" / "false". (default)|Boolean|---|Yes|
-|`Payment.FraudAnalysis.Browser.Email`|Email registered in the buyer's browser. May differ from store registration email (`Customer.Email`).|Text|100|No|
-|`Payment.FraudAnalysis.Browser.Type`|Name of browser used by buyer and identified via HTTP header.<br/> E.g.: Google Chrome, Mozilla Firefox, Safari, etc.|Text|40|No|
-|`Payment.FraudAnalysis.Browser.IpAddress`|Buyer's IP address. IPv4 or IPv6 format.|Text|45|Yes|
-|`Payment.FraudAnalysis.Cart.IsGift`|Indicates if the order placed by the buyer is a gift.|Boolean|---|No|
-|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Indicates if the buyer's order can be returned to the store.<br/> Possible values: "true" / "false" (default).|Boolean|---|No|
+|`Payment.FraudAnalysis.FingerPrintId`|Identifier used to crosscheck information obtained from the shopper's device. This same identifier must be used to generate the value to be assigned to the `session_id` field of the script, which will be included in the checkout page. <br/> Note: This identifier can be any value or order number, but must be unique for 48 hours.|Text|100|Yes|
+|`Payment.FraudAnalysis.Browser.HostName`|Host name entered by the shopper's browser and identified through the HTTP header.|Text|60|No|
+|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Identifies if the shopper's browser accepts cookies. <br/> Possible values: "true" / "false". (default)|Boolean|---|Yes|
+|`Payment.FraudAnalysis.Browser.Email`|Email registered in the shopper's browser. May differ from store registration email (`Customer.Email`).|Text|100|No|
+|`Payment.FraudAnalysis.Browser.Type`|Name of browser used by the shopper and identified via HTTP header.<br/> E.g.: Google Chrome, Mozilla Firefox, Safari, etc.|Text|40|No|
+|`Payment.FraudAnalysis.Browser.IpAddress`|Shopper's IP address. IPv4 or IPv6 format.|Text|45|Yes|
+|`Payment.FraudAnalysis.Cart.IsGift`|Indicates if the order placed by the shopper is a gift.|Boolean|---|No|
+|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Indicates if the shopper's order can be returned to the store.<br/> Possible values: "true" / "false" (default).|Boolean|---|No|
 |`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Identifies the evaluation of the billing and delivery addresses for different cities, states or countries.<br/> [Value List - Payment.Fraudanalysis.Cart.Items {n} .GiftCategory]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].giftcategory)|Text|9|No|
-|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Importance level, in the fraud analysis, of buyer's IP address and email address.<br/> [Value List - Payment.Fraudanalysis.Cart.Items {n }.HostHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge)|Text|6|No|
-|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Importance level, in the fraud analysis, of the meaningless buyer's data checks. <br/> [List of Values - Cart.Items {n}.NonSensicalHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge)|Text|6|No|
-|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Importance level, in the fraud analysis, of the checks on buyer's data containing obscenity.  <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n} .ObscenitiesHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].obscenitieshedge)|Text|6|No|
-|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Importance level, in the fraud analysis, of the checks on buyer's phone numbers.  <br/> [List of Values - Payment.Fraudanalysis.Cart.Items {n} .PhoneHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].phonehedge)|Text|6|No|
+|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Importance level, in the fraud analysis, of shopper's IP address and email address.<br/> [Value List - Payment.Fraudanalysis.Cart.Items {n }.HostHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge)|Text|6|No|
+|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Importance level, in the fraud analysis, of the meaningless shopper's data checks. <br/> [List of Values - Cart.Items {n}.NonSensicalHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge)|Text|6|No|
+|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Importance level, in the fraud analysis, of the checks on shopper's data containing obscenity.  <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n} .ObscenitiesHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].obscenitieshedge)|Text|6|No|
+|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Importance level, in the fraud analysis, of the checks on shopper's phone numbers.  <br/> [List of Values - Payment.Fraudanalysis.Cart.Items {n} .PhoneHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].phonehedge)|Text|6|No|
 |`Payment.FraudAnalysis.Cart.Items.Name`|Product Name|Text|255|Yes|
 |`Payment.FraudAnalysis.Cart.Items.Quantity`|Product quantity.|Number|15|Yes|
 |`Payment.FraudAnalysis.Cart.Items.Sku`|SKU (Stock Keeping Unit) of the product.|Text|255|Yes|
@@ -5636,7 +5636,7 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.FraudAnalysis.Cart.Items.Risk`|Product risk level associated with the amount of chargebacks. <br/> [List of Values - Payment.Fraudanalysis.CartI.tems {n}.Risk]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].risk)|Text|6|No|
 |`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Importance level, in the fraud analysis, of time of the day the order was placed. <br/> [List of Payments - Payment.Fraudanalysis.Cart.Items {n }.TimeHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].timehedge)|Text|6|No|
 |`Payment.FraudAnalysis.Cart.Items.Type`|Product category. <br/> [Value List - Payment.Fraudanalysis.Cart.Items {n}.Type]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type)|Text|19|No|
-|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Importance level, in the fraud analysis, of buyer's purchase frequency within the previous 15 minutes.<br/> [List of Values - Payment.Fraudanalysis.Cart.Items { n}.VelocityHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].velocityhedge)|Text|6|No|
+|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Importance level, in the fraud analysis, of shopper's purchase frequency within the previous 15 minutes.<br/> [List of Values - Payment.Fraudanalysis.Cart.Items { n}.VelocityHedge]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].velocityhedge)|Text|6|No|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Id`|ID of additional information to be sent. <br/> [Tabela de MDDs]({{site.baseurl_root}}manual/braspag-pagador#tabela-de-mdds)|Número|2|Sim|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Value of additional information to be sent. <br/> [MDDs table]({{site.baseurl_root}}manual/braspag-pagador#tabela-de-mdds)|Text|255|Yes|
 |`Payment.FraudAnalysis.Shipping.Addressee`|Full name of the responsible for receiving the product at the shipping address.|Text|120|No|
@@ -6061,12 +6061,12 @@ During the Cybersource deployment, additional information can be stored through 
 |Property|Description|Type|
 |:-|:-|:-|
 |`MerchantOrderId`|Order ID number.|Text|
-|`Customer.Name`|Buyer's full name.|Text|
-|`Customer.Identity`|Buyer's identification number.|Text|
-|`Customer.IdentityType`|Buyer's ID type.|Text|
-|`Customer.Email`|Buyer's email.|Text|
-|`Customer.Birthdate`|Buyer's date of birth.|Date|
-|`Customer.Phone`|Buyer's phone number.|Text|
+|`Customer.Name`|Shopper's full name.|Text|
+|`Customer.Identity`|Shopper's identification number.|Text|
+|`Customer.IdentityType`|Shopper's ID type.|Text|
+|`Customer.Email`|Shopper's email.|Text|
+|`Customer.Birthdate`|Shopper's date of birth.|Date|
+|`Customer.Phone`|Shopper's phone number.|Text|
 |`Customer.Address.Street`|Billing address street.|Text|
 |`Customer.Address.Number`|Billing address number.|Text|
 |`Customer.Address.Complement`|Billing address additional information.|Text|
@@ -6117,27 +6117,27 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Indicates if transaction will be captured after the fraud analysis.|Boolean|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Indicates if the transaction will be canceled after the fraud analysis.|Boolean|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Total order value in cents.|Number|
-|`Payment.FraudAnalysis.FingerPrintId`|Identifier used to crosscheck information obtained from the buyer's device.|Text|
-|`Payment.FraudAnalysis.Browser.HostName`|Host name entered by the buyer's browser and identified through the HTTP header.|Text|
-|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Identifies if the buyer's browser accepts cookies.|Boolean|
-|`Payment.FraudAnalysis.Browser.Email`|Email registered in the buyer's browser. May differ from the store registration email (`Customer.Email`).|Text|
-|`Payment.FraudAnalysis.Browser.Type`|Name of browser used by buyer and identified through the HTTP header.|Text|
-|`Payment.FraudAnalysis.Browser.IpAddress`|Buyer's IP address. IPv4 or IPv6 format.|Text|
-|`Payment.FraudAnalysis.Cart.IsGift`|Indicates if the order placed by the buyer is a gift.|Boolean|
-|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Indicates if the order placed by the buyer can be returned to the store.|Boolean|
+|`Payment.FraudAnalysis.FingerPrintId`|Identifier used to crosscheck information obtained from the shopper's device.|Text|
+|`Payment.FraudAnalysis.Browser.HostName`|Host name entered by the shopper's browser and identified through the HTTP header.|Text|
+|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Identifies if the shopper's browser accepts cookies.|Boolean|
+|`Payment.FraudAnalysis.Browser.Email`|Email registered in the shopper's browser. May differ from the store registration email (`Customer.Email`).|Text|
+|`Payment.FraudAnalysis.Browser.Type`|Name of browser used by shopper and identified through the HTTP header.|Text|
+|`Payment.FraudAnalysis.Browser.IpAddress`|Shopper's IP address. IPv4 or IPv6 format.|Text|
+|`Payment.FraudAnalysis.Cart.IsGift`|Indicates if the order placed by the shopper is a gift.|Boolean|
+|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Indicates if the order placed by the shopper can be returned to the store.|Boolean|
 |`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Identifies the evaluation of the billing and delivery addresses for different cities, states or countries.|Text|
-|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Importance level, in the fraud analysis, of the buyer's IP and email addresses.|Text|
-|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Importance level, in the fraud analysis, of the meaningless buyer's data checks.|Text|
-|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Importance level, in the fraud analysis, of the buyer's data checks with obscenity.|Text|
-|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Importance level, in the fraud analysis, of the buyer's phone number checks.|Text|
+|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Importance level, in the fraud analysis, of the shopper's IP and email addresses.|Text|
+|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Importance level, in the fraud analysis, of the meaningless shopper's data checks.|Text|
+|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Importance level, in the fraud analysis, of the shopper's data checks with obscenity.|Text|
+|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Importance level, in the fraud analysis, of the shopper's phone number checks.|Text|
 |`Payment.FraudAnalysis.Cart.Items.Name`|Product name.|Text|
 |`Payment.FraudAnalysis.Cart.Items.Quantity`|Product quantity.|Number|
 |`Payment.FraudAnalysis.Cart.Items.Sku`|SKU (Stock Keeping Unit) of the product.|Text|
 |`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Unit price of the product.|Number|
 |`Payment.FraudAnalysis.Cart.Items.Risk`|Product risk level associated with the amount of chargebacks.|Text|
-|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Importance level, in the fraud analysis, of time of the day in which the buyer placed the order.|Text|
+|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Importance level, in the fraud analysis, of time of the day in which the shopper placed the order.|Text|
 |`Payment.FraudAnalysis.Cart.Items.Type`|Product category.|Text|
-|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Importance level, in the fraud analysis, of buyer's purchase frequency within the previous 15 minutes.|Text|
+|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Importance level, in the fraud analysis, of shopper's purchase frequency within the previous 15 minutes.|Text|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Id`|ID of the additional information to be sent.|Number|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Value of the additional information to be sent.|Text|
 |`Payment.FraudAnalysis.Shipping.Addressee`|Full name of the responsible for receiving the product at the shipping address.|Text|
@@ -6156,15 +6156,15 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.FraudAnalysis.Id`|Anti-fraud analysis transaction ID Braspag|GUID|
 |`Payment.FraudAnalysis.Status`|Braspag anti-fraud analysis transaction status.<br/> [List of Values - Payment.FraudAnalysis.Status]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status).|Number|
 |`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Cybersouce return code [  <br/> List of Values - Payment.FraudAnalysis.FraudAnalysisReasonCode]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode).|Number|
-|`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Codes indicate incompatibilities between buyer's billing and delivery addresses. <br/> Codes are concatenated using a ^ character. E.g.: COR-BA^MM-BIN. <br/> [List of Payments - Payment. FraudAnalysis.ReplyData.AddressInfoCode]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode).|Text|
+|`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Codes indicate incompatibilities between shopper's billing and delivery addresses. <br/> Codes are concatenated using a ^ character. E.g.: COR-BA^MM-BIN. <br/> [List of Payments - Payment. FraudAnalysis.ReplyData.AddressInfoCode]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode).|Text|
 |`Payment.FraudAnalysis.ReplyData.FactorCode`|Codes that affected the analysis score. <br/> Codes are concatenated using the ^ character. E.g.: B^D^R^Z. <br/>[List of Values - ProviderAnalysisResult.AfsReply.FactorCode]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode).|Text|
 |`Payment.FraudAnalysis.ReplyData.Score`|Score from the fraud analysis. Value between 0 and 100.|Number|
 |`Payment.FraudAnalysis.ReplyData.BinCountry`|Card BIN country code used in the analysis. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Text|
 |`Payment.FraudAnalysis.ReplyData.CardIssuer`|Name of the bank or credit card issuer.|Text|
 |`Payment.FraudAnalysis.ReplyData.CardScheme`|Card brand.|Text|
-|`Payment.FraudAnalysis.ReplyData.HostSeverity`|Buyer's email domain risk level, from 0 to 5, where 0 is undetermined risk and 5 represents the highest risk.|Number|
+|`Payment.FraudAnalysis.ReplyData.HostSeverity`|Shopper's email domain risk level, from 0 to 5, where 0 is undetermined risk and 5 represents the highest risk.|Number|
 |`Payment.FraudAnalysis.ReplyData.InternetInfoCode`|Codes that indicate problems with the email address, IP address, or billing address. <br/> Codes are concatenated using the ^ character. E.g.: FREE-EM^RISK-EM <br/> [List of Payments - Payment.FraudAnalysis.ReplyData.InternetInfoCode]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode).|Text|
-|`Payment.FraudAnalysis.ReplyData.IpRoutingMethod`|Buyer's routing method obtained from the IP address. <br/> [Value List - Payment.FraudAnalysis.ReplyData.IpRoutingMethod]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod).|Text|
+|`Payment.FraudAnalysis.ReplyData.IpRoutingMethod`|Shopper's routing method obtained from the IP address. <br/> [Value List - Payment.FraudAnalysis.ReplyData.IpRoutingMethod]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod).|Text|
 |`Payment.FraudAnalysis.ReplyData.ScoreModelUsed`|Name of the score model used in the analysis. In case you have no template defined, the default template from Cybersource is used.|Text|
 |`Payment.FraudAnalysis.ReplyData.CasePriority`|Defines the priority level of merchant rules or profiles. The priority level ranges from 1 (highest) to 5 (lowest) and the default value is 3; and this will be assigned if you have not set the priority of rules or profiles. This field is only returned if the store subscribes to *Enhanced Case Management*.|Number|
 |`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`|Transaction ID in Cybersource.|Text|
@@ -6205,7 +6205,7 @@ Two variables must be filled in the Javascript URL: the `org_id` and the` sessio
 |Variable|Description|
 |:-|:-|
 |`org_id`|for Sandbox = "1snn5n9w"  <br/> for Production = "k8vif92e"|
-|`session_id`|`ProviderMerchantId`(Your store identifier at Cybersource. Contact Braspag in case you don't have one.) <br/> `FraudAnalysis.FingerPrintId` (Identifier used to crosscheck information obtained from the buyer's device.) <br/><br/>Note: This identifier can have any value or be the order number, but it must be unique for 48 hours.|
+|`session_id`|`ProviderMerchantId`(Your store identifier at Cybersource. Contact Braspag in case you don't have one.) <br/> `FraudAnalysis.FingerPrintId` (Identifier used to crosscheck information obtained from the shopper's device.) <br/><br/>Note: This identifier can have any value or be the order number, but it must be unique for 48 hours.|
 
 #### Applying the Script
 
@@ -7551,7 +7551,7 @@ Security Code (CVV) and validity information can be random, preserving its size 
 |202|Transaction declined because card has expired or expiration date does not match. Correct action: Request another card or other payment method.|
 |231|Transaction declined because card is invalid. Possible action: Request another card or other payment method.|
 |234|Cybersource store configuration issue possible. Action: Please contact support to fix the configuration issue.|
-|400|Fraud score exceeds threshold. Possible action: Review buyer's transaction.|
+|400|Fraud score exceeds threshold. Possible action: Review shopper's transaction.|
 |480|The transaction has been marked for review by the Decision Manager (DM).|
 |481|The transaction was rejected by the Decision Manager (DM).|
 
@@ -7576,21 +7576,21 @@ Security Code (CVV) and validity information can be random, preserving its size 
 
 |Value|Description|
 |:-|:-|
-|A|Excessive address change. Buyer has changed billing address two or more times in the last six months.|
+|A|Excessive address change. Shopper has changed billing address two or more times in the last six months.|
 |B|BIN of the card or risk authorization. Risk factors related to credit card BIN and/or card authorization checks.|
-|C|High number of credit cards. Buyer has used more than six credit card numbers in the last six months.|
-|D|Impact of email address. Buyer uses a free email provider or the email address is risky.|
-|E|Positive list. Buyer is on your positive list.|
+|C|High number of credit cards. Shopper has used more than six credit card numbers in the last six months.|
+|D|Impact of email address. Shopper uses a free email provider or the email address is risky.|
+|E|Positive list. Shopper is on your positive list.|
 |F|Negative list. The account number, address, email address or IP address for this purpose appears in your negative list.|
-|G|Geolocation inconsistencies. Buyer's email address or domain, phone number, billing address, shipping address, or IP address is suspicious.|
-|H|Excessive name changes. Buyer has changed billing address two or more times in the past six months.|
+|G|Geolocation inconsistencies. Shopper's email address or domain, phone number, billing address, shipping address, or IP address is suspicious.|
+|H|Excessive name changes. Shopper has changed billing address two or more times in the past six months.|
 |I|Internet inconsistencies. IP address and email domain are not consistent with billing address.|
-|N|Meaningless input. Buyer's name and address fields contain meaningless words or language.|
-|O|Obscenities. Buyer's data contains obscene words.|
+|N|Meaningless input. Shopper's name and address fields contain meaningless words or language.|
+|O|Obscenities. Shopper's data contains obscene words.|
 |P|Identity morphing. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.|
-|Q|Phone inconsistencies. Buyer's phone number is suspicious.|
-|R|Risky order. Transaction, buyer and merchant show high risk correlated information.|
-|T|Time coverage. Buyer is attempting a late purchase.|
+|Q|Phone inconsistencies. Shopper's phone number is suspicious.|
+|R|Risky order. Transaction, shopper and merchant show high risk correlated information.|
+|T|Time coverage. Shopper is attempting a late purchase.|
 |U|Unverifiable address. Billing or shipping address cannot be verified.|
 |V|Card has been used many times in the past 15 minutes.|
 |W|Marked as suspicious. The billing or shipping address is similar to an address previously marked as suspicious.|
@@ -7601,16 +7601,16 @@ Security Code (CVV) and validity information can be random, preserving its size 
 
 |Value|Description|
 |:-|:-|
-|FREE-EM|Buyer's email address is from a free email provider.|
-|INTL-IPCO|Buyer's email address country is outside the US.|
-|INV-EM|Buyer's email address is invalid.|
-|MM-EMBCO|Buyer's email address domain is not consistent with billing address country.|
-|MM-IPBC|Buyer's email address is not consistent with city of billing address.|
-|MM-IPBCO|Buyer's email address is not consistent with billing address country.|
-|MM-IPBST|Buyer's IP address is not consistent with the state in the billing address. However, this information code cannot be returned when the inconsistency is between immediately adjacent states.|
-|MM-IPEM|Buyer's email address is not consistent with IP address.|
-|RISK-EM|Buyer's email domain (for example, *mail.example.com*) is associated with high risk.|
-|UNV-NID|Buyer's IP address is from an anonymous proxy. These entities completely hide IP address information.|
+|FREE-EM|Shopper's email address is from a free email provider.|
+|INTL-IPCO|Shopper's email address country is outside the US.|
+|INV-EM|Shopper's email address is invalid.|
+|MM-EMBCO|Shopper's email address domain is not consistent with billing address country.|
+|MM-IPBC|Shopper's email address is not consistent with city of billing address.|
+|MM-IPBCO|Shopper's email address is not consistent with billing address country.|
+|MM-IPBST|Shopper's IP address is not consistent with the state in the billing address. However, this information code cannot be returned when the inconsistency is between immediately adjacent states.|
+|MM-IPEM|Shopper's email address is not consistent with IP address.|
+|RISK-EM|Shopper's email domain (for example, *mail.example.com*) is associated with high risk.|
+|UNV-NID|Shopper's IP address is from an anonymous proxy. These entities completely hide IP address information.|
 |UNV-RISK|IP address is from risk place.|
 |UNV-EMBCO|Email address country does not match billing address country.|
 
@@ -7618,16 +7618,16 @@ Security Code (CVV) and validity information can be random, preserving its size 
 
 |Value|Description|
 |:-|:-|
-|Anonymizer|IP addresses are hidden because the buyer is extremely cautious, either absolute privacy or fraudulent.|
+|Anonymizer|IP addresses are hidden because the shopper is extremely cautious, either absolute privacy or fraudulent.|
 |AOL, AOL dialup, AOL POP and AOL proxy|AOL members. In most cases, the country can be identified, but the state and city cannot.|
-|Proxy cache|Proxy used through an internet accelerator or service content distribution. Buyer may be located in a country other than IP address.|
-|Fixed|The IP address is near or in the same place as the buyer.|
-|International proxy|Proxy that contains traffic from various countries. The buyer may be located in a country other than that indicated by the IP address. In many cases, corporate networks are routing international office traffic through a central hub, often corporate headquarters.|
-|Mobile gateway|Gateway for connecting mobile devices to the internet. Many carriers, especially in Europe, serve more than one country and traffic occurs through centralized network hubs. Buyer may be located in a country other than IP address.|
+|Proxy cache|Proxy used through an internet accelerator or service content distribution. Shopper may be located in a country other than IP address.|
+|Fixed|The IP address is near or in the same place as the shopper.|
+|International proxy|Proxy that contains traffic from various countries. The shopper may be located in a country other than that indicated by the IP address. In many cases, corporate networks are routing international office traffic through a central hub, often corporate headquarters.|
+|Mobile gateway|Gateway for connecting mobile devices to the internet. Many carriers, especially in Europe, serve more than one country and traffic occurs through centralized network hubs. Shopper may be located in a country other than IP address.|
 |POP|Buyer dialing at a regional ISP probably near IP address location, but possibly across geographic boundaries.|
-|Regional proxy|Proxy that contains multi-state traffic within a single country. The buyer may be located in a country other than that indicated by the IP address. In many cases, corporate networks are routing international office traffic through a central hub, often corporate headquarters.|
-|Satellite|Satellite connections. If uplink and downlink are registered, the routing method is considered standard because the sender is known. However, if the downlink is not registered, the buyer may be anywhere within the standard satellite beam, which may span one continent or more.|
-|SuperPOP|The buyer is dialing from a multi-state or multinational ISP that is unlikely to find the IP address location. Buyer may be dialing across geographic boundaries.|
+|Regional proxy|Proxy that contains multi-state traffic within a single country. The shopper may be located in a country other than that indicated by the IP address. In many cases, corporate networks are routing international office traffic through a central hub, often corporate headquarters.|
+|Satellite|Satellite connections. If uplink and downlink are registered, the routing method is considered standard because the sender is known. However, if the downlink is not registered, the shopper may be anywhere within the standard satellite beam, which may span one continent or more.|
+|SuperPOP|The shopper is dialing from a multi-state or multinational ISP that is unlikely to find the IP address location. Shopper may be dialing across geographic boundaries.|
 |No value returned|Routing type is unknown.|
 
 ## Value List - Payment.Chargebacks [n].Status
