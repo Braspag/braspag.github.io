@@ -2003,6 +2003,229 @@ In the third step, the store system sends the transaction confirmation with the 
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
 
+## Pix
+
+In Pix, the transmission of the payment order and the availability of funds to the receiving user takes place in real time, 24 hours a day and without the need for intermediates. Thus, it is a type of payment method that enables fast payments with lower transaction costs.
+
+<aside class="notice">Pix specifications may undergo changes and adaptations until the official release date of the feature by Braspag.</aside>
+<aside class="warning">Pix is currently available for Cielo 3.0 and Bradesco acquirers. First, you need to contact these suppliers in order to authorize this type of payment method.</aside>
+
+The life cycle of a Pix transaction:
+
+| SEQUENCE | RESPONSIBLE | DESCRIPTION | TRANSACTION STATUS |
+|--------------|------------|------------|------------|
+| 1 | Store | Generates the QR Code. | 12 - Pending |
+| 2 | Buyer | Pays QR Code. | 2 - Paid |
+| 3 | Store | Receives payment confirmation notification. | 2 - Paid |
+| 4 | Store | Queries the transaction status. | 2 - Paid |
+| 5 | Store | Releases order. | 2 - Paid |
+| 6 | Store | If necessary, requests refund of the Pix transaction (similar to card refund). | 2 - Paid |
+| 7 | Store | Receives refund confirmation notification. | 11 - Refunded |
+| * | Store | Queries the transaction status. | 11 - Refunded |
+
+### Creating a transaction with QR code Pix
+
+You can generate a Pix QR code through the API Pagador by simply perform the integration as specified below.
+
+Among the required request fields, two stand out: `Type`, which must be sent as "Pix"; and `Provider', which must be "Cielo30" or "Bradesco2". The response for the request will return the *base64* encoded QR Code Pix image, which must be made available to the buyer.
+
+See below the representation of the **transactional flow** in QR code Pix generation:
+![Fluxo Geração QR Code Pix]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/pix-1-geracaoqrcodepix.png)
+
+The buyer then performs the QR code reading through one of the Pix payment enabled applications and makes the payment. In this step, there is no participation of the store or Braspag, as shown below:
+![Fluxo Pagamento QR Code Pix]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/pix-2-pagamentodopix.png)
+
+Here are examples of a request and response for generating the QR code Pix:
+
+#### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{ 
+   "MerchantOrderId":"2020102601",
+   "Customer":{
+      "Name":"Nome do Pagador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF"
+   },
+   "Payment":{ 
+      "Type":"Pix",
+      "Provider":"Cielo30",
+      "Amount":100
+   }    
+}
+```
+
+```shell
+--request POST "https://(...)/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{ 
+   "MerchantOrderId":"2020102601",
+   "Customer":{
+      "Name":"Nome do Pagador",
+      "Identity":"CPF",
+      "IdentityType":"12345678909"
+   },
+   "Payment":{ 
+      "Type":"Pix",
+      "Provider":"Cielo30",
+      "Amount":100
+   }    
+}
+--verbose
+```
+
+| PROPERTY | DESCRIPTION| TYPE | SIZE | MANDATORY?|
+| --- | --- | --- | --- | --- |
+| `MerchantOrderId` | Order ID number. | Text | 50 | Yes |
+| `Customer.Name`| Customer's name. | Text | 255 | Yes |
+| `Customer.Identity` | Customer's CPF or CNPJ number. | Text | 14 | Yes |
+| `Customer.IdentityType` | Customer’s ID document type (CPF or CNPJ). | Text | 255 | Yes |
+| `Payment.Type` | Payment method type. In this case, "Pix". | Text | - | YES |
+| `Payment.Provider` | Name of payment method provider. In this case, "Cielo30" or "Bradesco2". | Text | - | YES |
+| `Payment.Amount`| Order amount, in cents. | Number | 15 | Yes |
+
+#### Response
+
+```json
+{
+   "MerchantOrderId":"2020102601",
+   "Customer":{
+      "Name":"Nome do Pagador"
+   },
+   "Payment":{
+      (...)   
+      "Paymentid":"1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
+      "Type":"Pix",
+      "Provider":"Cielo30",
+      "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
+         "ProofOfSale":"123456",
+      "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==[...]",
+      "QrCodeString":"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C",
+      "Amount":100,
+      "ReceivedDate":"2020-10-15 18:53:20",
+      "Status":12,
+      "ProviderReturnCode":"0",
+      "ProviderReturnMessage":"Pix gerado com sucesso",
+      (...)
+   }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+   "MerchantOrderId":"2020102601",
+   "Customer":{
+      "Name":"Nome do Pagador"
+   },
+   "Payment":{
+      (...)
+      "PaymentId":"1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
+      "Type":"Pix",
+      "Provider":"Cielo30",
+      "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
+         "ProofOfSale":"123456",
+      "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==[...]",
+      "QrCodeString":"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C",
+      "Amount":100,
+      "ReceivedDate":"2020-10-15 18:53:20",
+      "Status":12,
+      "ProviderReturnCode":"0",
+      "ProviderReturnMessage":"Pix gerado com sucesso",
+      (...)
+   }
+}
+--verbose
+```
+
+| PROPERTY | DESCRIPTION| TYPE | SIZE | FORMAT|
+| --- | --- | --- | --- | --- |
+| `Payment.PaymentId` | Order identifier field. | GUID | 40 | Text |
+| `Payment.AcquirerTransactionId` | Transaction identifier at the acquirer.| GUID | 36 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `Payment.ProofOfSale` | NSU Pix. | Text | 20 | Alphanumeric text|
+| `Payment.QrcodeBase64Image` | Base64 encoded QR code image. | Text | - |Text | 
+| `Payment.QrCodeString`| Coded text for the buyer to "copy" and "paste" in the  internet banking correspondent field for payments made in mobile environment.|Text|Variable | Alphanumeric text|
+| `Payment.Status` | Transaction Status. If transaction is a success, the initial status is "12" (*Pending*). [Click here](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o) to view status list.| Number| - | 12 |
+| `Payment.ProviderReturnCode` | Code returned by the acquirer. | Text | 32 | 0 |
+| `Payment.ProviderReturnMessage` | Message returned by the acquirer. | Text | 512 | "Pix generated successfully" |
+
+### Requesting a Pix Refund
+
+If the merchant needs to "cancel" a Pix transfer, it is possible to perform an operation called a "refund". It is important to note that the refund is not an instant operation, and can be complied with or not by the Pix provider. When a refund is accepted, the store receives a [notification](https://braspag.github.io//en/manual/braspag-pagador#notification-post).<br/>
+
+![Fluxo Cancelamento Pix]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/pix-3-devolucaopix.png)
+
+#### Request
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
+
+```shell
+--request PUT "https://(...)/sales/{PaymentId}/void?Amount=xxx"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+| PROPERTY | DESCRIPTION| TYPE | SIZE | MANDATORY?|
+|-----------|---------|----|-------|-----------|
+| `MerchantId`| API store identifier. | GUID | 36|Yes |
+| `MerchantKey`| Public key for dual authentication in the API. | Text |40|Yes |
+| `RequestId`| Store-defined request identifier, used when the merchant uses different servers for each GET/POST/PUT. | GUID| 36 | No |
+| `PaymentId`| Order identifier field. | GUID | 36|Yes |
+| `Amount` | Amount to be cancelled/refunded, in cents. Check whether the contracted acquirer supports the cancellation or refund operation.| Number | 15| No |
+
+#### Response
+
+```json
+{
+   "Status": 12,
+   "ReasonCode": 0,
+   "ReasonMessage": "Successful",
+   "ProviderReturnCode": "0",
+   "ProviderReturnMessage": "Reembolso solicitado com sucesso",
+   "Links": [
+      {
+         "Method": "GET",
+         "Rel": "self",
+         "Href": "https://(...)/sales/{PaymentId}"
+      }
+   ]
+}
+```
+
+```shell
+{
+   "Status": 12,
+   "ReasonCode": 0,
+   "ReasonMessage": "Successful",
+   "ProviderReturnCode": "0",
+   "ProviderReturnMessage": "Reembolso solicitado com sucesso",
+   "Links": [
+      {
+         "Method": "GET",
+         "Rel": "self",
+         "Href": "https://(...)/sales/{PaymentId}"
+      }
+   ]
+}
+```
+
+| PROPERTY | DESCRIPTION| TYPE | SIZE | FORMAT|
+|-----------|---------|----|-------|-------|
+|`Status` | Transaction status. | Byte | 2 | Ex.: "1" |
+| `ReasonCode`| Acquirer's return code. | Text | 32 | Alphanumeric text|
+| `ReasonMessage` | Acquirer's return message. | Text | 512 | Alphanumeric text|
+
 ## QR Code Transaction
 
 To create a QR code transaction you must submit a request using the POST method as shown below. This request will create the transaction, which will receive the *Pending* status in Braspag, and generate the QR code for the payment. The customer makes the payment through one of the supported applications and the transaction changes status (e.g.: to *Pago* when paid, *Não pago* when not paid, or *Não autorizado* for unauthorized transactions).
