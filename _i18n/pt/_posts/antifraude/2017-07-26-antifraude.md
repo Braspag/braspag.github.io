@@ -516,6 +516,21 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ## Consultando uma Transação Cybersource
 
+### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+
+**Parâmetros no Cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+### Response
+
 ``` json
 {
    "TransactionId": "1eae3d39-a723-e811-80c3-0003ff21d83f",
@@ -682,21 +697,6 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
   }
 }
 ```
-
-### Request
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
-
-**Parâmetros no Cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
-
-### Response
 
 **Parâmetros no Cabeçalho (Header)**
 
