@@ -19,7 +19,7 @@ O Split de Pagamentos se divide em **Transacional** e **Agenda Financeira / Conc
 
 ## Transacional
 
-As operações transacionais serão responsáveis pela criação de novas transações e manipulação, permitindo que sejam capturas, canceladas ou estornadas de acordo com seus prazos.  
+As operações transacionais serão responsáveis pela criação de novas transações e manipulação, permitindo que sejam capturadas, canceladas ou estornadas de acordo com seus prazos.  
 Possuímos duas maneiras de integração com as API transacionais, são elas:  
 
 >[**Pagador Braspag**](https://braspag.github.io//manual/split-de-pagamentos-pagador)  
