@@ -161,7 +161,7 @@ grant_type=client_credentials
 
 > O MerchantId é o mesmo utilizado na integração com a API Cielo E-Commerce. O ClientSecret deve ser obtido junto à Braspag.
 
-O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar deverá um novo token toda vez que a validade expirar.  
+O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo E-commerce ou à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.  
 
 # Integração
 
