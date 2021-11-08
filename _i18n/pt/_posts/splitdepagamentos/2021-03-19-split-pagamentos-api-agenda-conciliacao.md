@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Split de Pagamentos - Agenda Financeira / Conciliação
+title: Split de Pagamentos - Agenda Financeira/Conciliação
 description: Manual de Integração API Split de Pagamentos
 search: true
 toc_footers: false
@@ -13,26 +13,7 @@ tags:
 
 # Introdução
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma à API do Split de Pagamentos, descrevendo os serviços disponíveis com exemplos de requisição e resposta.  
-
-O Split de Pagamentos se divide em **Transacional** e **Agenda Financeira / Conciliação**.  
-
-## Transacional
-
-As operações transacionais serão responsáveis pela criação de novas transações e manipulação, permitindo que sejam capturadas, canceladas ou estornadas de acordo com seus prazos.  
-Possuímos duas maneiras de integração com as API transacionais, são elas:  
-
->[**Pagador Braspag**](https://braspag.github.io//manual/split-de-pagamentos-pagador)  
->[**Cielo 3.0**](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce)
-
-## Agenda Financeira / Conciliação
-
-As operações de gerenciamento do Split de Pagamentos serão exploradas nessa documentação. Elas lhe permitem acessar serviços como:  
-
-* Agenda Financeira
-* Chargeback (Divisão)
-* Liquidação (Trava)
-* Antecipação (Liberação)
+A conciliação permite acessar informações de agenda financeira, para que você tenha controle de todos os eventos relacionados às suas vendas e de seus subordinados.
 
 ## Ambientes
 
@@ -51,7 +32,7 @@ Para executar uma operação:
 |**API Split**|https://splitsandbox.braspag.com.br/| Para requisições de agenda financeira, chargeback, liquidação e antecipação.|
 |**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/| Para requisição de autenticação.|
 
-**Nota:** Solicite suas credenciais para o ambiente de teste em nosso [Portal de Suporte](https://suporte.braspag.com.br) ou pelo telefone **3003-6554**.
+> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br).
 
 ### Produção
 
@@ -60,7 +41,7 @@ Para executar uma operação:
 |**API Split**|https://split.braspag.com.br/| Para requisições de agenda financeira, chargeback, liquidação e antecipação.|
 |**Braspag OAUTH2 Server**|https://auth.braspag.com.br/| Para requisição de autenticação.|
 
-<aside class="notice">Credenciais de acesso são utilizadas para autenticar todas as requisições feitas para os endpoints da API.</aside>
+<aside class="notice">Credenciais de acesso (recebidas durante o onboarding) são utilizadas para autenticar todas as requisições feitas para os endpoints da API.</aside>
 <aside class="warning">Por segurança, essas credenciais não devem ser indevidamente compartilhadas ou expostas.</aside>
 
 ## Autenticação
@@ -69,7 +50,7 @@ O Split de Pagamentos utiliza como segurança o protocolo [OAuth 2.0](https://oa
 
 Para obter um token de acesso:
 
-1. Concatene o ClientId e ClientSecret: `ClientId:ClientSecret`.  
+1. Concatene o MerchantId e ClientSecret: `MerchantId:ClientSecret`.  
 2. Codifique o resultado da concatenação em Base64.  
 3. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
 
@@ -96,9 +77,9 @@ grant_type=client_credentials
 }
 ```
 
-**Nota:** O ClientId é o identificador dentro da Braspag, conhecido também como MerchantId. O ClientSecret é a chave utilizada na autenticação.
+<aside class="notice">O MerchantId é o identificador dentro da Braspag. O ClientSecret é a chave utilizada na autenticação.</aside>
 
-O token retornado (`access_token`) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos, sendo necessário obter um novo token toda vez que ele expirar.  
+O token retornado (`access_token`) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O `access_token` possui uma validade de 20 minutos, e é necessário gerar um novo token toda vez que a validade expirar.  
 
 # Agenda Financeira
 
