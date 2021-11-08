@@ -12,7 +12,7 @@
 
     <title>
         
-        Split de Pagamentos - Agenda Financeira / Conciliação &middot; Braspag Developers - Manuais
+        Split de Pagamentos - Agenda Financeira/Conciliação &middot; Braspag Developers - Manuais
         
     </title>
 
@@ -95,7 +95,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/split-pagamentos-api-agenda-conciliacao">Split de Pagamentos - Agenda Financeira / Conciliação</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/split-pagamentos-api-agenda-conciliacao">Split de Pagamentos - Agenda Financeira/Conciliação</a></li>
                                     
                                 
                             
@@ -107,30 +107,7 @@
             <div class="post">
   <h1 id="introdução">Introdução</h1>
 
-<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma à API do Split de Pagamentos, descrevendo os serviços disponíveis com exemplos de requisição e resposta.</p>
-
-<p>O Split de Pagamentos se divide em <strong>Transacional</strong> e <strong>Agenda Financeira / Conciliação</strong>.</p>
-
-<h2 id="transacional">Transacional</h2>
-
-<p>As operações transacionais serão responsáveis pela criação de novas transações e manipulação, permitindo que sejam capturadas, canceladas ou estornadas de acordo com seus prazos.<br />
-Possuímos duas maneiras de integração com as API transacionais, são elas:</p>
-
-<blockquote>
-  <p><a href="https://braspag.github.io//manual/split-de-pagamentos-pagador"><strong>Pagador Braspag</strong></a><br />
-<a href="https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce"><strong>Cielo 3.0</strong></a></p>
-</blockquote>
-
-<h2 id="agenda-financeira--conciliação">Agenda Financeira / Conciliação</h2>
-
-<p>As operações de gerenciamento do Split de Pagamentos serão exploradas nessa documentação. Elas lhe permitem acessar serviços como:</p>
-
-<ul>
-  <li>Agenda Financeira</li>
-  <li>Chargeback (Divisão)</li>
-  <li>Liquidação (Trava)</li>
-  <li>Antecipação (Liberação)</li>
-</ul>
+<p>A conciliação permite acessar informações de agenda financeira, para que você tenha controle de todos os eventos relacionados às suas vendas e de seus subordinados.</p>
 
 <h2 id="ambientes">Ambientes</h2>
 
@@ -168,7 +145,9 @@ No ambiente Sandbox, podem ser realizados a homologação e os testes de sua int
   </tbody>
 </table>
 
-<p><strong>Nota:</strong> Solicite suas credenciais para o ambiente de teste em nosso <a href="https://suporte.braspag.com.br">Portal de Suporte</a> ou pelo telefone <strong>3003-6554</strong>.</p>
+<blockquote>
+  <p>Solicite suas credenciais para o ambiente de teste com o nosso <a href="https://suporte.braspag.com.br">Suporte</a>.</p>
+</blockquote>
 
 <h3 id="produção">Produção</h3>
 
@@ -194,7 +173,7 @@ No ambiente Sandbox, podem ser realizados a homologação e os testes de sua int
   </tbody>
 </table>
 
-<aside class="notice">Credenciais de acesso são utilizadas para autenticar todas as requisições feitas para os endpoints da API.</aside>
+<aside class="notice">Credenciais de acesso (recebidas durante o onboarding) são utilizadas para autenticar todas as requisições feitas para os endpoints da API.</aside>
 <aside class="warning">Por segurança, essas credenciais não devem ser indevidamente compartilhadas ou expostas.</aside>
 
 <h2 id="autenticação">Autenticação</h2>
@@ -204,7 +183,7 @@ No ambiente Sandbox, podem ser realizados a homologação e os testes de sua int
 <p>Para obter um token de acesso:</p>
 
 <ol>
-  <li>Concatene o ClientId e ClientSecret: <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>.</li>
+  <li>Concatene o MerchantId e ClientSecret: <code class="language-plaintext highlighter-rouge">MerchantId:ClientSecret</code>.</li>
   <li>Codifique o resultado da concatenação em Base64.</li>
   <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
 </ol>
@@ -230,9 +209,9 @@ No ambiente Sandbox, podem ser realizados a homologação e os testes de sua int
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Nota:</strong> O ClientId é o identificador dentro da Braspag, conhecido também como MerchantId. O ClientSecret é a chave utilizada na autenticação.</p>
+<aside class="notice">O MerchantId é o identificador dentro da Braspag. O ClientSecret é a chave utilizada na autenticação.</aside>
 
-<p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos, sendo necessário obter um novo token toda vez que ele expirar.</p>
+<p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos, e é necessário gerar um novo token toda vez que a validade expirar.</p>
 
 <h1 id="agenda-financeira">Agenda Financeira</h1>
 
