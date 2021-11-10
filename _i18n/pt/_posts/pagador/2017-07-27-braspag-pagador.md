@@ -3009,6 +3009,8 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
       "Type": "DebitCard",
       "Amount": 10,
       "Installments": 1,
+      "Authenticate": false,
+      "ReturnUrl": "http://www.braspag.com.br"
       "DebitCard": {
          "CardNumber": "****4903",
          "Holder": "TesteBraspag",
@@ -3063,6 +3065,8 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
       "Type": "DebitCard",
       "Amount": 10,
       "Installments": 1,
+      "Authenticate":false,
+      "ReturnUrl": "http://www.braspag.com.br"
       "DebitCard": {
          "CardNumber": "****4903",
          "Holder": "TesteBraspag",
@@ -3114,7 +3118,8 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
         "Currency": "BRL",
         "Country": "BRA",
         "Provider": "Alelo",
-        "ReturnUrl": "http://www.braspag.com.br",
+        "Authenticate": false,
+        "ReturnUrl": "http://www.braspag.com.br"
         "ReasonCode": 0,
         "ReasonMessage": "Successful",
         "Status": 2,
@@ -3152,7 +3157,8 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
         "Currency": "BRL",
         "Country": "BRA",
         "Provider": "Alelo",
-        "ReturnUrl": "http://www.braspag.com.br",
+        "Authenticate": false,
+        "ReturnUrl": "http://www.braspag.com.br"
         "ReasonCode": 0,
         "ReasonMessage": "Successful",
         "Status": 2,
