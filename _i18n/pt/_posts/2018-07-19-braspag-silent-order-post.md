@@ -117,7 +117,7 @@ Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um e
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
-|`mid`|Identificador da loja no Pagador.|GUID |36 |Sim|
+|`MerchantId`|Identificador da loja no Pagador.|GUID |36 |Sim|
 |`Authorization`|Bearer [AccessToken OAuth2]|Texto |36 |Sim|
 
 ### Resposta
@@ -290,16 +290,16 @@ O estabelecimento realiza um envio de requisição utilizando o VERBO HTTP **POS
 
 | Ambiente | URL base + endpoint|
 | --- | --- |
-| Sandbox | https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_{mid}_**|
-| Produção | https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_{mid}_**|
+| Sandbox | https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_{MerchantID}_**|
+| Produção | https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_{MerchantID}_**|
 
-No lugar de **_{mid}_** preencha o `MerchantID` de sua loja na plataforma Pagador da Braspag, no seguinte formato: 
+No lugar de **_{MerchantID}_** preencha o `MerchantID` de sua loja na plataforma Pagador da Braspag, no seguinte formato: 
 
 "https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=**_00000000-0000-0000-0000-000000000000_**"
 
 ### Requisição
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/accesstoken?merchantid={mid}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/accesstoken?merchantid={MerchantID}</span></aside>
 
 ```shell
 --request POST "https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000"
@@ -310,7 +310,7 @@ No lugar de **_{mid}_** preencha o `MerchantID` de sua loja na plataforma Pagado
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
-|`mid`|Identificador da loja no Pagador.|Guid |36 |Sim|
+|`MerchantID`|Identificador da loja no Pagador.|Guid |36 |Sim|
 
 ### Resposta
 
