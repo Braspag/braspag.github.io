@@ -2495,7 +2495,10 @@ Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizad
       "FineAmount": 1000,
       "DaysToInterest": 1,
       "InterestRate": 5.00000,
-      "InterestAmount": 500
+      "InterestAmount": 500,
+      "DiscountAmount": 100,
+      "DiscountLimitDate": "2017-12-31",
+      "DiscountRate": 5.00000
    }
 }
 ```
@@ -2539,7 +2542,10 @@ Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizad
       "FineAmount": 1000,
       "DaysToInterest": 1,
       "InterestRate": 5.00000,
-      "InterestAmount": 500
+      "InterestAmount": 500,
+      "DiscountAmount": 100,
+      "DiscountLimitDate": "2017-12-31",
+      "DiscountRate": 5.00000
    }
 }
 --verbose
@@ -2578,6 +2584,9 @@ Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizad
 |`Payment.DaysToInterest`|Opcional e somente para o provedor Bradesco2. Quantidade de dias após o vencimento para início da cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex.: 3.|Número |15 |Não|
 |`Payment.InterestRate`|Opcional e somente para o provedor Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `InterestAmount`. Ex.: 10.12345.|Número |15 |Não*|
 |`Payment.InterestAmount`|Opcional e somente para o provedor Bradesco2. Valor absoluto de juros diários após o vencimento, em centavos. Não utilizar em conjunto com `InterestRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
+|`Payment.DiscountAmount`|Opcional e somente para o provedor Bradesco2.  Valor do desconto até a data limite estipulada pelo Payment.DiscountLimitDate. Em valor absoluto em centavos. Não utilizar em conjunto com "Payment.DiscountRate". Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
+|`Payment.DiscountLimitDate`|Opcional e somente para o provedor Bradesco2. Data limite para conceder o desconto|Date|AAAA-MM-DD|Não*|
+|`Payment.DiscountRate`|Opcional e somente para o provedor Bradesco2. Valor de desconto após o vencimento em percentual, com base no valor do boleto (%). Não utilizar em conjunto com "Payment.DiscountAmount".|Número |15 |Não* |
 
 #### Resposta
 
