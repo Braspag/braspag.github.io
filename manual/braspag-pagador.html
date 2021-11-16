@@ -13374,7 +13374,8 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <p>É esperado o retorno da loja com a seguinte resposta: <code class="language-plaintext highlighter-rouge">HTTP Status Code 200 OK</code>.</p>
 
-<p>Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio do Post de Notificação.</p>
+<aside class="notice">Caso não seja retornada a resposta acima, haverão mais três tentativas de envio do Post de Notificação.</aside>
+<aside class="warning">Cada tentativa terá o espaço de 2 horas entre cada uma elas.</aside>
 
 <h1 id="anexos">ANEXOS</h1>
 
