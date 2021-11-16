@@ -7266,8 +7266,6 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 <aside class="notice">Caso não seja retornada a resposta acima, haverão mais três tentativas de envio do Post de Notificação.</aside>
 <aside class="warning">Cada tentativa terá o espaço de 2 horas entre cada uma elas.</aside>
 
-
-
 # ANEXOS
 
 ## Lista de Providers
