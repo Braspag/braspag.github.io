@@ -7263,7 +7263,10 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 
 É esperado o retorno da loja com a seguinte resposta: `HTTP Status Code 200 OK`.
 
-Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio do Post de Notificação.
+<aside class="notice">Caso não seja retornada a resposta acima, haverão mais três tentativas de envio do Post de Notificação.</aside>
+<aside class="warning">Cada tentativa terá o espaço de 2 horas entre cada uma elas.</aside>
+
+
 
 # ANEXOS
 
