@@ -367,9 +367,8 @@ x-www-form-urlencoded
 #### Para Uma Transação Específica
 
 Para consultar a agenda de uma transação específica, basta informar o identificador da transação (`PaymentId`) na requisição.<br/>
-Neste caso, poderão ser utilizados os filtros `MerchantIds` e `EventStatus`.
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/transactions/{PaymentId}</span></aside>
 
 ```shell
 x-www-form-urlencoded
@@ -378,7 +377,7 @@ x-www-form-urlencoded
 
 | PARÂMETRO | DESCRIÇÃO    | TIPO    | TAMANHO |
 |---------|---------|---------|---------|
-| `Transactions[].PaymentId`| Identificador da transação.| Guid| 36 |
+| `PaymentId`| Identificador da transação.| Guid| 36 |
 
 #### Resposta
 
