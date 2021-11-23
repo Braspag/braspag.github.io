@@ -2957,6 +2957,7 @@ O Pagador possui suporte para as principais carteiras digitais disponíveis no m
 * [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/)
 * [*Visa Checkout*](https://vaidevisa.visa.com.br/site/visa-checkout/)
 * [*Masterpass*](https://masterpass.com/pt-br/)
+* *PayPal*
 
 <aside class="warning">Quando o nó “Wallet” é enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
 <aside class="warning">Quando o nó "Wallet" é enviado na requisição, para o cartão de débito é necessário o envio do nó “DebitCard” contendo a “ReturnUrl”.</aside>
