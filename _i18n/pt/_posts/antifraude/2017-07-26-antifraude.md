@@ -182,7 +182,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
     "BrowserCookiesAccepted":true,
     "BrowserEmail":"emailbrowsercomprador@dominio.com.br",
     "BrowserType":"Chrome 58 on Windows 10",
-    "BrowserFingerprint":"braspag123456789"
+    "BrowserFingerprint":"123456789"
   },
   "CartItems": [
     {
