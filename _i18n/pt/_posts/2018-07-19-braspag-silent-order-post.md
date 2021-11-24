@@ -52,7 +52,7 @@ Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), realize
 2. Codifique o resultado da concatenação em base64.
 3. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
 
-Solicite à equipe de suporte a criação do "ClientID" e do "ClientSecret" de sua loja para utilização nos ambientes SANDBOX e de PRODUÇÃO.
+> Solicite à equipe de suporte a criação do "ClientID" e do "ClientSecret" de sua loja para utilização nos ambientes SANDBOX e de PRODUÇÃO. No chamado, informe que deseja realizar a integração do Silent Order Post e forneça seu "MerchantId".
 
 ### Requisição
 
