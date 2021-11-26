@@ -19,7 +19,7 @@ A API do Split permite consultar as **unidades de recebíveis** para vendas que 
 
 # Ambiente
 
-Na API Split, você pode usar o ambiente **Sandbox** para homologação e testes da sua integração.
+Na API do Split, você pode usar o ambiente **Sandbox** para homologação e testes da sua integração.
 
 Para executar uma operação:
 
