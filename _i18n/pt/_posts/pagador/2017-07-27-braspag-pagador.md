@@ -5443,7 +5443,7 @@ Este fluxo é similar ao primeiro, com a diferença da captura automática no lu
 
 ![Antifraude 1b]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/fluxo-trans1b-pt.png)
 
-## Fluxo AnalyseFrist
+## Fluxo AnalyseFirst
 
 Para maiores detalhes sobre o fluxo em que acontece a **análise antes da autorização**, consulte o [Manual do Antifraude](https://braspag.github.io//manual/antifraude?json#realizando-uma-an%C3%A1lise-de-fraude).
 
