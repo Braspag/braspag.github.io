@@ -91,8 +91,8 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `Product`                      | Produto que deve ser considerado na consulta (CreditCard, DebitCard ou BankSlip). Por padrão, são retornadas informações de todas as bandeiras na qual o solicitante possui recebíveis.                                                                    | String  | Não        |
 | `MerchantId`                   | Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro| Guid   | Não|  
 | `Anticipation`                 | Flag para informar se deseja consultar apenas informações referentes à antecipação    | Boolean    | Não        |  
-​| `IncludeAllSubordinates`       | Determina se serão incluídas informações dos subordinados que realizaram o *optin* para o master consultar as informações.| Boolean | Não |  
-​|`PageIndex`                     |Índice da paginação. Necessário para percorrer as páginas do resultado                 | Inteiro     | Não        |
+| `IncludeAllSubordinates`       | Determina se serão incluídas informações dos subordinados que realizaram o *optin* para o master consultar as informações.| Boolean | Não |  
+|`PageIndex`                     |Índice da paginação. Necessário para percorrer as páginas do resultado                 | Inteiro     | Não        |
 
 *É obrigatório consultar pelo menos um intervalo de datas, com no máximo 31 dias entre a data inicial e a data final.
 
