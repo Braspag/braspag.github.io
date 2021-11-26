@@ -235,8 +235,8 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 
 # ANEXO
 
-## Bandeiras
+## Bandeiras para consulta
 
-|Bandeira|
+|Bandeiras|
 |---|
 |Visa, Master, Amex, Elo, Diners, Discover, Hipercard e Sorocred.|
