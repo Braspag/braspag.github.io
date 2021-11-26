@@ -5,9 +5,10 @@ description: Manual de Integração API Split de Pagamentos
 search: true
 toc_footers: false
 categories: manual
-sort_order: 8
+sort_order: 6
 hub_visible: false
 tags:
+  - 6. Soluções para Marketplace
 ---
 
 # Conciliação no Split de Pagamentos
@@ -239,4 +240,3 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 |Bandeira|
 |---|
 |Visa, Master, Amex, Elo, Diners, Discover, Hipercard e Sorocred.|
-
