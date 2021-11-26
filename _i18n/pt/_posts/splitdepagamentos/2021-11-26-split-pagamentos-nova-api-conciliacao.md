@@ -219,8 +219,8 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `Items[].ReceivableAmount` | Número           | Valor em centavos, podendo ser negativo. Ex R$1,00 = 100                  |
 | `Items[].AnticipatedAmount`| Número           | Valor em centavos antecipado líquido da Unidade de Recebível.             |
 | `Items[].Settlements`      | Array[Settlement] | Lista de objeto contendo informações de liquidação dos recebíveis.        |
-| `Items[].Settlements[].ReceivableSettlementType`                           | String  | Tipo de liquidação. Valores previstos: <br>0-Braspag<br>1-ChangeOfOwnership<br>2-LienFiduciaryAssignment<br>3-LienOthers<br>4-JudicialBlockade  |
-| `Items[].Settlements[].SettlementStatus`                                   | String  | Status da liquidação. Valores previstos: <br>1-Scheduled<br>2-pending<br>3-Settled<br>4-Error                        |
+| `Items[].Settlements[].ReceivableSettlementType`                           | String  | Tipo de liquidação. Valores previstos: <br>0-Braspag<br>1-ChangeOfOwnership<br>2-LienFiduciaryAssignment<br>3-LienOthers<br>4-JudicialBlockade<br>Veja a descrição na tabela [Tipos de liquidação].  |
+| `Items[].Settlements[].SettlementStatus`                                   | String  | Status da liquidação. Valores previstos: <br>1-Scheduled<br>2-pending<br>3-Settled<br>4-Error<br>Veja a descrição na tabela [Status da liquidação].                  |
 | `Items[].Settlements[].Anticipated`                                        | Boolean    | Flag para indicar informações referentes à antecipação.                                 |
 | `Items[].Settlements[].Amount`                                             | String  | Valor líquido a ser liquidado.                                                                            |
 | `Items[].Settlements[].Instruction`                                        | Objeto  | Objeto contendo as informações de liquidação efetivada ou prevista. Retorno obrigatório quando `ReceivableSettlementType` for diferente de ChangeOfOwnership (troca de titularidade).|
@@ -245,3 +245,22 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 |Bandeiras|
 |---|
 |Visa, Master, Amex, Elo, Diners, Discover, Hipercard e Sorocred.|
+
+## Tipos de Liquidação
+
+|Valor                | Descrição |
+|---------------------|-----------|
+| 0-Braspag           | Liquidação padrão. Definida no cadastro do estabelecimento como domicílio padrão para liquidação.
+| 1-ChangeOfOwnership | Troca de titularidade. Caso tenha ocorrido negociação do contrato. |
+| 2-LienFiduciaryAssignment | Caso a liquidação seja resultado de aplicação de efeito de contrato do tipo "Ônus - Cessão Fiduciária"|
+| 3-LienOthers        | Caso a liquidação seja resultado de aplicação de efeito de contrato do tipo "Ônus - Outros" |
+| 4-JudicialBlockade  | Caso a liquidação seja resultado de aplicação de efeito de contrato do tipo "Bloqueio judicial".|
+
+## Status da Liquidação
+
+| Valor       | Descrição |
+|-------------|-----------|
+| 1-Scheduled | Agendado. |
+| 2-Pending   | Pendente. |
+| 3-Settled   | Liquidado.|
+| 4-Error     | Erro.     |
