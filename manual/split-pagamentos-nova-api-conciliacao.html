@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Split de Pagamentos - Conciliação &middot; Braspag Developers - Manuais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/manual/split-pagamentos-nova-api-conciliacao" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
+</head>
+
+    <body>
+        
+            <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://suporte.braspag.com.br/hc/pt-br" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao">Split de Pagamentos - Conciliação</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="conciliação-no-split-de-pagamentos">Conciliação no Split de Pagamentos</h1>
+
+<p>A API do Split permite consultar as <strong>unidades de recebíveis</strong> para vendas que passaram pelo Split de Pagamentos.</p>
+
+<blockquote>
+  <p>Em breve a consulta de transações e de agenda também estarão disponíveis.</p>
+</blockquote>
+
+<h1 id="ambiente">Ambiente</h1>
+
+<p>Na API Split, você pode usar o ambiente <strong>Sandbox</strong> para homologação e testes da sua integração.</p>
+
+<p>Para executar uma operação:</p>
+
+<ol>
+  <li>Combine a <strong>base</strong> da URL do ambiente com o <strong><em>endpoint</em></strong> da operação desejada. Ex.: https://split.braspag.com.br/<em>oauth2/token</em>.</li>
+  <li>Envie a requisição para a URL utilizando o método HTTP (GET, POST ou PUT) adequado à operação.</li>
+</ol>
+
+<h2 id="sandbox">Sandbox</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>URL Base</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Braspag OAUTH2 Server</strong></td>
+      <td>https://authsandbox.braspag.com.br/</td>
+      <td>Para requisição de autenticação.</td>
+    </tr>
+    <tr>
+      <td><strong>API Split</strong></td>
+      <td>https://splitsandbox.braspag.com.br</td>
+      <td>Para requisições de consulta de unidade de recebíveis.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Solicite suas credenciais para o ambiente de teste com o nosso <a href="https://suporte.braspag.com.br">Suporte</a>.</p>
+</blockquote>
+
+<aside class="warning">Por segurança, essas credenciais não devem ser indevidamente compartilhadas ou expostas.</aside>
+
+<h1 id="autenticação">Autenticação</h1>
+
+<p>O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/">OAuth 2.0</a>. Primeiro, você deverá obter um token de acesso, utilizando suas credenciais.</p>
+
+<p>Para obter um token de acesso:</p>
+
+<ol>
+  <li>Concatene o <code class="language-plaintext highlighter-rouge">MerchantId</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code>: <code class="language-plaintext highlighter-rouge">MerchantId:ClientSecret</code>;</li>
+  <li>Codifique o resultado da concatenação em Base64;</li>
+  <li>Faça uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
+</ol>
+
+<p>Veja um exemplo de requisição de autenticação:</p>
+
+<h2 id="requisição">Requisição</h2>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/oauth2/token</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
+<span class="nt">--header</span> <span class="s2">"Authorization: Basic {base64}"</span>  
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>  
+<span class="nv">grant_type</span><span class="o">=</span>client_credentials
+</code></pre></div></div>
+
+<h2 id="resposta">Resposta</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<aside class="notice">O `MerchantId` é o identificador dentro da Braspag. O `ClientSecret` é a chave utilizada na autenticação.</aside>
+
+<p>Você deverá enviar token de acesso retornado pela API de autenticação (<code class="language-plaintext highlighter-rouge">access_token</code>) em toda requisição à API Split como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos, e é necessário gerar um novo token toda vez que a validade expirar.</p>
+
+<h1 id="consulta-de-unidade-de-recebíveis">Consulta de Unidade de Recebíveis</h1>
+
+<p>A API Split permite consultar as <strong>unidades de recebíveis</strong> de acordo com alguns parâmetros, como intervalo de data prevista de liquidação, intervalo de data de liquidação efetiva, bandeira, produto, MerchantId, antecipação, todos os subordinados e número da página.</p>
+
+<h2 id="requisição-1">Requisição</h2>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/v1/receivables</span></aside>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">InitialForecastedDate</code></td>
+      <td>Intervalo de data prevista de liquidação inicial para busca.</td>
+      <td>Data</td>
+      <td>Não*</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FinalForecastedDate</code></td>
+      <td>Intervalo de data prevista de liquidação final para busca.</td>
+      <td>Data</td>
+      <td>Não*</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">InitialSettlementDate</code></td>
+      <td>Intervalo de data de liquidação efetiva inicial para busca.</td>
+      <td>Data</td>
+      <td>Não*</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FinalSettlementDate</code></td>
+      <td>Intervalo data de liquidação efetiva final para busca.</td>
+      <td>Data</td>
+      <td>Não*</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Brand</code></td>
+      <td>Bandeira que deve ser considerada na consulta (Exemplo: Visa). Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui recebíveis.</td>
+      <td>String</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Product</code></td>
+      <td>Produto que deve ser considerado na consulta (CreditCard, DebitCard ou BankSlip). Por padrão, são retornadas informações de todas as bandeiras na qual o solicitante possui recebíveis.</td>
+      <td>String</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro</td>
+      <td>Guid</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Anticipation</code></td>
+      <td>Flag para informar se deseja consultar apenas informações referentes à antecipação</td>
+      <td>Boolean</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>​</td>
+      <td><code class="language-plaintext highlighter-rouge">IncludeAllSubordinates</code></td>
+      <td>Determina se serão incluídas informações dos subordinados que realizaram o <em>optin</em> para o master consultar as informações.</td>
+      <td>Boolean</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>​</td>
+      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
+      <td>Índice da paginação. Necessário para percorrer as páginas do resultado</td>
+      <td>Inteiro</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*É obrigatório consultar pelo menos um intervalo de datas, com no máximo 31 dias entre a data inicial e a data final.</p>
+
+<h2 id="resposta-1">Resposta</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ForecastDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-16"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReceivableAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AnticipatedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Settlements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"ReceivableSettlementType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Braspag"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"SettlementStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scheduled"</span><span class="p">,</span><span class="w">                 
+                    </span><span class="nl">"Anticipated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4055</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Instruction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"Ispb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"353535"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AccountDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"BankAccountDocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nl">"BankAccountHolderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Beneficiario"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"ReceivableSettlementType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Braspag"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"SettlementStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scheduled"</span><span class="p">,</span><span class="w">                   
+                    </span><span class="nl">"Anticipated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Instruction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"Ispb"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"353535"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AccountDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nl">"BankAccountDocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"BankAccountHolderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Beneficiario"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"ReceivableSettlementType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Braspag"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Anticipated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"SettlementDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-10"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"AnticipationDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"GrossAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AnticipatedFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"SettlementStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Settled"</span><span class="p">,</span><span class="w">        
+                    </span><span class="nl">"Instruction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"Ispb"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"353535"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AccountDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"BankAccountDocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"BankAccountHolderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Beneficiario"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"ReceivableSettlementType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChangeOfOwnership"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ChangeOfOwnershipDetails"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nl">"BeneficiaryDocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Protocol"</span><span class="p">:</span><span class="s2">"0c486baa-872a-4dcd-a514-b5258cbc564d"</span><span class="w"> 
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"ReceivableSettlementType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LienFiduciaryAssignment"</span><span class="p">,</span><span class="w"> 
+                    </span><span class="nl">"Anticipated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"SettlementDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-10"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"AnticipationDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"GrossAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AnticipatedFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"SettlementStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Settled"</span><span class="p">,</span><span class="w">         
+                    </span><span class="nl">"Instruction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"Ispb"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"353535"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AccountDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nl">"BankAccountDocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"BankAccountHolderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Beneficiario"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
+      <td>Inteiro</td>
+      <td>Página atual.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
+      <td>Inteiro</td>
+      <td>Quantidade de itens máximo por página.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PageCount</code></td>
+      <td>Inteiro</td>
+      <td>Quantidade de páginas.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items</code></td>
+      <td>Array[Receivable]</td>
+      <td>Lista de objetos contendo informações dos recebíveis.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].DocumentNumber</code></td>
+      <td>String</td>
+      <td>Página atual</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ForecastDate</code></td>
+      <td>Data</td>
+      <td>Data prevista de liquidação. Formato YYYY-DD-MM. Ex: 2021-11-01.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Product</code></td>
+      <td>String</td>
+      <td>Produto. Tipos possíveis: “CreditCard”, “DebitCard”, “BankSlip” (boleto).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Brand</code></td>
+      <td>String</td>
+      <td>Bandeira do cartão ou banco emissor do boleto.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ReceivableAmount</code></td>
+      <td>Decimal</td>
+      <td>Valor em centavos, podendo ser negativo. Ex R$1,00 = 100</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].AnticipatedAmount</code></td>
+      <td>Decimal</td>
+      <td>Valor em centavos antecipado líquido da Unidade de Recebível.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements</code></td>
+      <td>Array[Settlement]</td>
+      <td>Lista de objeto contendo informações de liquidação dos recebíveis.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].ReceivableSettlementType</code></td>
+      <td>String</td>
+      <td>Tipo de liquidação. Valores previstos: <br />0-Braspag<br />1-ChangeOfOwnership<br />2-LienFiduciaryAssignment<br />3-LienOthers<br />4-JudicialBlockade</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].SettlementStatus</code></td>
+      <td>String</td>
+      <td>Status da liquidação. Valores previstos: <br />1-Scheduled<br />2-pending<br />3-Settled<br />4-Error</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Anticipated</code></td>
+      <td>Boolean</td>
+      <td>Flag para indicar informações referentes à antecipação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Amount</code></td>
+      <td>String</td>
+      <td>Valor líquido a ser liquidado.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction</code></td>
+      <td>Objeto</td>
+      <td>Objeto contendo as informações de liquidação efetivada ou prevista. Retorno obrigatório quando <code class="language-plaintext highlighter-rouge">ReceivableSettlementType</code> for diferente de ChangeOfOwnership (troca de titularidade).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction.Ispb</code></td>
+      <td>String</td>
+      <td>Código Ispb do banco.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction.AgencyDigit</code></td>
+      <td>String</td>
+      <td>Digito da agência bancária.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction.AccountNumber</code></td>
+      <td>String</td>
+      <td>Número da conta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction.AccountDigit</code></td>
+      <td>String</td>
+      <td>Dígito da conta</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction.AccountType</code></td>
+      <td>String</td>
+      <td>Tipo de conta. Valores possíveis:<br />1-CheckingAccount<br />2-SavingsAccount<br />3-PaymentAccount<br />4-DepositAccount<br />5-GuaranteedAccount<br />6-InvestmentAccount</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction.BankAccountDocumentNumber</code></td>
+      <td>String</td>
+      <td>Número de documento do titular da conta (CPF ou CNPJ).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction.BankAccountHolderName</code></td>
+      <td>String</td>
+      <td>Nome do titular da conta</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].AnticipationDetails</code></td>
+      <td>Objeto</td>
+      <td>Detalhes da antecipação. Obrigatório caso Anticipated= true.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].AnticipationDetails.GrossAmount</code></td>
+      <td>Decimal</td>
+      <td>Valor em centavos do total bruto resultado das antecipações em centavos.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].AnticipationDetails.AnticipatedFee</code></td>
+      <td>Decimal</td>
+      <td>Valor em centavos do total da taxa descontado referente as antecipações.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].ChangeOfOwnershipDetails</code></td>
+      <td>Objeto</td>
+      <td>Detalhes da troca de titularidade. Obrigatório caso  ReceivableSettlementType = ChangeOfOwnership</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].ChangeOfOwnershipDetails.BeneficiaryDocumentNumber</code></td>
+      <td>String</td>
+      <td>Número do documento do titular que vai receber o valor cedido na troca de titularidade.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].ChangeOfOwnershipDetails.Protocol</code></td>
+      <td>GUID</td>
+      <td>Identificador do efeito de protocolo recebido da registradora que informou a troca de titularidade.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="anexo">ANEXO</h1>
+
+<h2 id="bandeiras">Bandeiras</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bandeira</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td>Master</td>
+    </tr>
+    <tr>
+      <td>Amex</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td>Aura</td>
+    </tr>
+    <tr>
+      <td>Jcb</td>
+    </tr>
+    <tr>
+      <td>Diners</td>
+    </tr>
+    <tr>
+      <td>Discover</td>
+    </tr>
+    <tr>
+      <td>Hipercard</td>
+    </tr>
+    <tr>
+      <td>Hiper</td>
+    </tr>
+    <tr>
+      <td>Naranja</td>
+    </tr>
+    <tr>
+      <td>Nevada</td>
+    </tr>
+    <tr>
+      <td>Cabal</td>
+    </tr>
+    <tr>
+      <td>Credz</td>
+    </tr>
+    <tr>
+      <td>CredSystem</td>
+    </tr>
+    <tr>
+      <td>Banese</td>
+    </tr>
+    <tr>
+      <td>Riachuelo</td>
+    </tr>
+    <tr>
+      <td>Carnet</td>
+    </tr>
+    <tr>
+      <td>BancoDoBrasil</td>
+    </tr>
+    <tr>
+      <td>Sorocred</td>
+    </tr>
+    <tr>
+      <td>Santander</td>
+    </tr>
+    <tr>
+      <td>Itau</td>
+    </tr>
+    <tr>
+      <td>Caixa</td>
+    </tr>
+    <tr>
+      <td>Original</td>
+    </tr>
+    <tr>
+      <td>CitiBank</td>
+    </tr>
+    <tr>
+      <td>Simulado</td>
+    </tr>
+    <tr>
+      <td>Bradesco</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://suporte.braspag.com.br/hc/pt-br">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io/">
+        <img src="https://braspag.github.io//assets/images/logo.png" alt="Braspag Developers - Manuais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/Braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://braspag.github.io//assets/js/jquery.highlight.js"></script>
+        <script src="https://braspag.github.io//assets/js/lunr.js"></script>
+        <script src="https://braspag.github.io//assets/js/search.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2191438,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
