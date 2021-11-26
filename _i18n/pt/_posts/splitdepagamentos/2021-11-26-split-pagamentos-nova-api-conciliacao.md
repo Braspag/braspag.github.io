@@ -95,7 +95,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `IncludeAllSubordinates`       | Determina se serão incluídas informações dos subordinados que realizaram o *optin* para o master consultar as informações.| Boolean | Não |  
 |`PageIndex`                     |Índice da paginação. Necessário para percorrer as páginas do resultado                 | Inteiro     | Não        |
 
-*O intervalo de datas para utilização da conciliação de URs devem seguir as seguintes regras:
+***O intervalo de datas para utilização da conciliação de URs deve seguir as seguintes regras:**
 
 * O intervalo entre a data inicial e final deve ser no máximo de 31 dias;
 * A data atual não pode estar entre o intervalo da busca;
