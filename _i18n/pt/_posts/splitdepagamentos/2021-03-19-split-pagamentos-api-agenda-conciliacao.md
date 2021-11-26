@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Split de Pagamentos - Agenda Financeira/Conciliação
+title: Split de Pagamentos - Conciliação - legado
 description: Manual de Integração API Split de Pagamentos
 search: true
 toc_footers: false
