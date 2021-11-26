@@ -206,7 +206,6 @@
       <th>Descrição</th>
       <th>Tipo</th>
       <th>Obrigatório</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -215,66 +214,56 @@
       <td>Intervalo de data prevista de liquidação inicial para busca.</td>
       <td>Data</td>
       <td>Não*</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FinalForecastedDate</code></td>
       <td>Intervalo de data prevista de liquidação final para busca.</td>
       <td>Data</td>
       <td>Não*</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">InitialSettlementDate</code></td>
       <td>Intervalo de data de liquidação efetiva inicial para busca.</td>
       <td>Data</td>
       <td>Não*</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FinalSettlementDate</code></td>
       <td>Intervalo data de liquidação efetiva final para busca.</td>
       <td>Data</td>
       <td>Não*</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Brand</code></td>
       <td>Bandeira que deve ser considerada na consulta (Exemplo: Visa). Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui recebíveis.</td>
       <td>String</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Product</code></td>
       <td>Produto que deve ser considerado na consulta (CreditCard, DebitCard ou BankSlip). Por padrão, são retornadas informações de todas as bandeiras na qual o solicitante possui recebíveis.</td>
       <td>String</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro</td>
       <td>Guid</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Anticipation</code></td>
       <td>Flag para informar se deseja consultar apenas informações referentes à antecipação</td>
       <td>Boolean</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>​</td>
       <td><code class="language-plaintext highlighter-rouge">IncludeAllSubordinates</code></td>
       <td>Determina se serão incluídas informações dos subordinados que realizaram o <em>optin</em> para o master consultar as informações.</td>
       <td>Boolean</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>​</td>
       <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
       <td>Índice da paginação. Necessário para percorrer as páginas do resultado</td>
       <td>Inteiro</td>
