@@ -206,7 +206,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `PageSize`    | Inteiro                | Quantidade de itens máximo por página.                |
 | `PageCount`   | Inteiro                | Quantidade de páginas.                                |
 | `Items`       | Array[Receivable]  | Lista de objetos contendo informações dos recebíveis. |
-| `Items[].DocumentNumber`   | String            | Página atual                                                              |
+| `Items[].DocumentNumber`   | String            | Número de documento (CPF ou CNPJ) do proprietário da unidade de recebível |
 | `Items[].ForecastDate`     | Data              | Data prevista de liquidação. Formato YYYY-DD-MM. Ex: 2021-11-01.          |
 | `Items[].Product`          | String            | Produto. Tipos possíveis: "CreditCard", "DebitCard", "BankSlip" (boleto). |
 | `Items[].Brand`            | String            | Bandeira do cartão ou banco emissor do boleto.                            |
@@ -219,7 +219,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `Items[].Settlements[].Amount`                                             | String  | Valor líquido a ser liquidado.                                                                            |
 | `Items[].Settlements[].Instruction`                                        | Objeto  | Objeto contendo as informações de liquidação efetivada ou prevista. Retorno obrigatório quando `ReceivableSettlementType` for diferente de ChangeOfOwnership (troca de titularidade).|
 | `Items[].Settlements[].Instruction.Ispb`                                   | String  | Código Ispb do banco.                                                                                     |
-| `Items[].Settlements[].Instruction.AgencyDigit`                            | String  | Digito da agência bancária.                                                                               |
+| `Items[].Settlements[].Instruction.AgencyDigit`                            | String  | Dígito da agência bancária.                                                                               |
 | `Items[].Settlements[].Instruction.AccountNumber`                          | String  | Número da conta.                                                                                          |
 | `Items[].Settlements[].Instruction.AccountDigit`                           | String  | Dígito da conta                                                                                           |
 | `Items[].Settlements[].Instruction.AccountType`                            | String  | Tipo de conta. Valores possíveis:<br>1-CheckingAccount<br>2-SavingsAccount<br>3-PaymentAccount<br>4-DepositAccount<br>5-GuaranteedAccount<br>6-InvestmentAccount |
