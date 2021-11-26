@@ -238,30 +238,5 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 
 |Bandeira|
 |---|
-|Visa|
-|Master|
-|Amex|
-|Elo|
-|Aura|
-|Jcb|
-|Diners|
-|Discover|
-|Hipercard|
-|Hiper|
-|Naranja|
-|Nevada|
-|Cabal|
-|Credz|
-|CredSystem|
-|Banese|
-|Riachuelo|
-|Carnet|
-|BancoDoBrasil|
-|Sorocred|
-|Santander|
-|Itau|
-|Caixa|
-|Original|
-|CitiBank|
-|Simulado|
-|Bradesco|
+|Visa, Master, Amex, Elo, Diners, Discover, Hipercard e Sorocred.|
+
