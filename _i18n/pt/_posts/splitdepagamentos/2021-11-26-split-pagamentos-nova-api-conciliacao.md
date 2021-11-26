@@ -23,7 +23,7 @@ Na API do Split, você pode usar o ambiente **Sandbox** para homologação e tes
 
 Para executar uma operação:
 
-1. Combine a **base** da URL do ambiente com o **_endpoint_** da operação desejada. Ex.: https://split.braspag.com.br/*oauth2/token*.
+1. Combine a **base** da URL do ambiente com o **_endpoint_** da operação desejada. Ex.: https://authsandbox.braspag.com.br/oauth2/token*.
 2. Envie a requisição para a URL utilizando o método HTTP (GET, POST ou PUT) adequado à operação.
 
 ## Sandbox
