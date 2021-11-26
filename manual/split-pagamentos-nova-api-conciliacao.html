@@ -451,12 +451,12 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].ReceivableSettlementType</code></td>
       <td>String</td>
-      <td>Tipo de liquidação. Valores previstos: <br />0-Braspag<br />1-ChangeOfOwnership<br />2-LienFiduciaryAssignment<br />3-LienOthers<br />4-JudicialBlockade</td>
+      <td>Tipo de liquidação. Valores previstos: <br />0-Braspag<br />1-ChangeOfOwnership<br />2-LienFiduciaryAssignment<br />3-LienOthers<br />4-JudicialBlockade<br />Veja a descrição na tabela [Tipos de liquidação].</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].SettlementStatus</code></td>
       <td>String</td>
-      <td>Status da liquidação. Valores previstos: <br />1-Scheduled<br />2-pending<br />3-Settled<br />4-Error</td>
+      <td>Status da liquidação. Valores previstos: <br />1-Scheduled<br />2-pending<br />3-Settled<br />4-Error<br />Veja a descrição na tabela [Status da liquidação].</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Anticipated</code></td>
@@ -554,6 +554,68 @@
   <tbody>
     <tr>
       <td>Visa, Master, Amex, Elo, Diners, Discover, Hipercard e Sorocred.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tipos-de-liquidação">Tipos de Liquidação</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0-Braspag</td>
+      <td>Liquidação padrão. Definida no cadastro do estabelecimento como domicílio padrão para liquidação.</td>
+    </tr>
+    <tr>
+      <td>1-ChangeOfOwnership</td>
+      <td>Troca de titularidade. Caso tenha ocorrido negociação do contrato.</td>
+    </tr>
+    <tr>
+      <td>2-LienFiduciaryAssignment</td>
+      <td>Caso a liquidação seja resultado de aplicação de efeito de contrato do tipo “Ônus - Cessão Fiduciária”</td>
+    </tr>
+    <tr>
+      <td>3-LienOthers</td>
+      <td>Caso a liquidação seja resultado de aplicação de efeito de contrato do tipo “Ônus - Outros”</td>
+    </tr>
+    <tr>
+      <td>4-JudicialBlockade</td>
+      <td>Caso a liquidação seja resultado de aplicação de efeito de contrato do tipo “Bloqueio judicial”.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="status-da-liquidação">Status da Liquidação</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1-Scheduled</td>
+      <td>Agendado.</td>
+    </tr>
+    <tr>
+      <td>2-Pending</td>
+      <td>Pendente.</td>
+    </tr>
+    <tr>
+      <td>3-Settled</td>
+      <td>Liquidado.</td>
+    </tr>
+    <tr>
+      <td>4-Error</td>
+      <td>Erro.</td>
     </tr>
   </tbody>
 </table>
