@@ -216,8 +216,8 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `Items[].ForecastDate`     | Data              | Data prevista de liquidação. Formato YYYY-DD-MM. Ex: 2021-11-01.          |
 | `Items[].Product`          | String            | Produto. Tipos possíveis: "CreditCard", "DebitCard", "BankSlip" (boleto). |
 | `Items[].Brand`            | String            | Bandeira do cartão ou banco emissor do boleto.                            |
-| `Items[].ReceivableAmount` | Decimal           | Valor em centavos, podendo ser negativo. Ex R$1,00 = 100                  |
-| `Items[].AnticipatedAmount`| Decimal           | Valor em centavos antecipado líquido da Unidade de Recebível.             |
+| `Items[].ReceivableAmount` | Número           | Valor em centavos, podendo ser negativo. Ex R$1,00 = 100                  |
+| `Items[].AnticipatedAmount`| Número           | Valor em centavos antecipado líquido da Unidade de Recebível.             |
 | `Items[].Settlements`      | Array[Settlement] | Lista de objeto contendo informações de liquidação dos recebíveis.        |
 | `Items[].Settlements[].ReceivableSettlementType`                           | String  | Tipo de liquidação. Valores previstos: <br>0-Braspag<br>1-ChangeOfOwnership<br>2-LienFiduciaryAssignment<br>3-LienOthers<br>4-JudicialBlockade  |
 | `Items[].Settlements[].SettlementStatus`                                   | String  | Status da liquidação. Valores previstos: <br>1-Scheduled<br>2-pending<br>3-Settled<br>4-Error                        |
@@ -232,8 +232,8 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `Items[].Settlements[].Instruction.BankAccountDocumentNumber`              | String  | Número de documento do titular da conta (CPF ou CNPJ).                                                    |
 | `Items[].Settlements[].Instruction.BankAccountHolderName`                  | String  | Nome do titular da conta                                                                                  |
 | `Items[].Settlements[].AnticipationDetails`                                | Objeto  | Detalhes da antecipação. Obrigatório caso Anticipated= true.                                              |
-| `Items[].Settlements[].AnticipationDetails.GrossAmount`                    | Decimal | Valor em centavos do total bruto resultado das antecipações em centavos.                                  |
-| `Items[].Settlements[].AnticipationDetails.AnticipatedFee`                 | Decimal | Valor em centavos do total da taxa descontado referente as antecipações.                                  |
+| `Items[].Settlements[].AnticipationDetails.GrossAmount`                    | Número | Valor em centavos do total bruto resultado das antecipações em centavos.                                  |
+| `Items[].Settlements[].AnticipationDetails.AnticipatedFee`                 | Número | Valor em centavos do total da taxa descontado referente as antecipações.                                  |
 | `Items[].Settlements[].ChangeOfOwnershipDetails`                           | Objeto  | Detalhes da troca de titularidade. Obrigatório caso  ReceivableSettlementType = ChangeOfOwnership                   |
 | `Items[].Settlements[].ChangeOfOwnershipDetails.BeneficiaryDocumentNumber` | String  | Número do documento do titular que vai receber o valor cedido na troca de titularidade.                   |
 | `Items[].Settlements[].ChangeOfOwnershipDetails.Protocol`                  | GUID    | Identificador do efeito de protocolo recebido da registradora que informou a troca de titularidade.       |
