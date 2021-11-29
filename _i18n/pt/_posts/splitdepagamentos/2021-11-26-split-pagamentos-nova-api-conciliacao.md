@@ -98,7 +98,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 ***O intervalo de datas para utilização da conciliação de URs deve seguir as seguintes regras:**
 
 * É obrigatório passar pelo menos um intervalo de datas;
-* O intervalo entre a data inicial e final deve ser no máximo de 31 dias;
+* O intervalo entre a data inicial e final deve ser de no máximo 31 dias;
 * A data atual não pode estar entre o intervalo da busca;
 * A data inicial precisa ser um dia útil;
 * A data final precisa ser no máximo D-1 dia útil em relação a data atual.
