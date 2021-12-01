@@ -89,7 +89,7 @@ How to obtain the Base64 value:
 }
 ```
 
-|Response Properties|Description|
+|Properties|Description|
 |---|---|
 |`access_token`|The requested authentication token, that will be used in the next step.|
 |`token_type`|Indicates the token type value.|
@@ -115,7 +115,7 @@ After obtaining AccessToken OAuth2, you should send a new request (POST) to the 
 --verbose
 ```
 
-|Proprierties|Description|Type|Size|Mandatory?|
+|Properties|Description|Type|Size|Mandatory?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Merchant identifier at Pagador.|GUID |36 |Yes|
 |`Authorization`|Bearer [AccessToken OAuth2]|Text |36 |Yes|
@@ -145,7 +145,7 @@ As a response, you will receive a JSON ("HTTP 201 Created") with the SOP AccessT
 }
 ```
 
-|Proprierties|Description|Type|Size|Format|
+|Properties|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
 |`MerchantId`|Merchant identifier at Pagador. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`AccessToken`|AccessToken SOP. For safety reasons, this token will allow the merchant to save only one card within the deadline determined in the response, through the attribute *Expires In*. The default is 20 minutes. Whatever happens first will invalidate the token to prevent it from being used again.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
