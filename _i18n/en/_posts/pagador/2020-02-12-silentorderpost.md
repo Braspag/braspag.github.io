@@ -33,63 +33,128 @@ It is ideal for retailers who demand a high degree of security without losing th
 
 # Integration
 
-## 1. Getting AccessToken
+## 1. Getting Access Token OAuth2
 
-When the shopper accesses the checkout, the merchant must generate AccessToken from the Braspag Authentication API (oAuth). On success, the API will return an AccessToken that must be populated in the script to load on the page.
+When the shopper accesses the checkout, the merchant must generate the AccessToken from Braspag Authentication API (oAuth). On success, the API will return an AccessToken that must be populated in the script to load on the page.
 
-To request AccessToken, the establishment must POST to the following endpoint in the server-to-server template:
+To request AccessToken, send a request (POST) to the following endpoint in the server-to-server template:
 
-| Endpoint | Environment |
-| --- | --- |
-| https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid} | Sandbox |
-| https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid} | Production |
+|Environment | base URL + endpoint | Authorization |
+|---|---|---|
+| **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | "Basic *{base64}*"|
+| **PRODUCTION** | https://auth.braspag.com.br/oauth2/token |"Basic *{base64}*"|
 
-In place of **{mid}** you must fill in the MerchantID of your store in Braspag's Pagador platform.
+How to obtain the Base64 value:
 
-Example: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000
+1. Concatenate "ClientId" and "ClientSecret" (`ClientId:ClientSecret`). 
+2. Code the result in base64.
+3. Send a request to the authorization server with the alphanumeric code you just created.
+
+> To request your "ClientID" and "ClientSecret", please contact our [Support](https://suporte.braspag.com.br/hc/pt-br):
+* MerchantId;
+* Describe that you need the credentials "ClientID" e o "ClientSecret" to use Silent Order Post.
 
 ### Request
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/accesstoken?merchantid={mid}</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
+
+``` shell
+--request POST "https://authsandbox.braspag.com.br/oauth2/token"
+--header "Authorization: Basic {base64}"
+--header "Content-Type: application/x-www-form-urlencoded" 
+--data-binary "grant_type=client_credentials"
+```
+
+|Parameters|Format|Where to send|
+|---|---|---|
+|`Authorization`|"Basic *{base64}*"|Header.|
+|`Content-Type`|"application/x-www-form-urlencoded"|Header.|
+|`grant_type`|"client_credentials"|Body.|
+
+### Response
+
+``` json
+{
+  "access_token": "faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw",
+  "token_type": "bearer",
+  "expires_in": 599
+}
+```
 
 ```shell
-curl
---request POST "https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000"
+{
+  "access_token": "faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw",
+  "token_type": "bearer",
+  "expires_in": 599
+}
+```
+
+|Response Properties|Description|
+|---|---|
+|`access_token`|The requested authentication token, that will be used in the next step.|
+|`token_type`|Indicates the token type value.|
+|`expires_in`|Access Token expiration, in seconds. When the token expires, you must request a new one.|
+
+## 2. Getting the SOP AccessToken**
+
+After obtaining AccessToken OAuth2, you should send a new request (POST) to the following URL:
+
+| Environment | base URL + endpoint|
+| --- | --- |
+| Sandbox | https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken|
+| Production | https://transaction.pagador.com.br/post/api/public/v2/accesstoken|
+
+### Request
+
+```shell
+--request POST "https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"
 --header "Content-Type: application/json"
+--header "MerchantId: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+--header "Authorization: Bearer faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"
 --data-binary
 --verbose
 ```
 
-|Property|Description|Type|Size|Required|
+|Proprierties|Description|Type|Size|Mandatory?|
 |-----------|---------|----|-------|-----------|
-|`mid`|Payer Store Identifier|GUID|36|Yes|
+|`MerchantId`|Merchant identifier at Pagador.|GUID |36 |Yes|
+|`Authorization`|Bearer [AccessToken OAuth2]|Text |36 |Yes|
 
 ### Response
 
-In response, the establishment will receive a json (HTTP 201 Created) containing among other information the ticket (AccessToken)
+As a response, you will receive a JSON ("HTTP 201 Created") with the SOP AccessToken and some other data. 
+
+```json
+{
+    "MerchantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
+    "Issued": "2021-05-05T08:50:04",
+    "ExpiresIn": "2021-05-05T09:10:04"
+}
+```
 
 ```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-    "MerchantId": "B898E624-EF0F-455C-9509-3FAE12FB1F81",
+    "MerchantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
     "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
-    "Issued": "2019-12-09T17:47:14",
-    "ExpiresIn": "2019-12-09T18:07:14"
+    "Issued": "2021-05-05T08:50:04",
+    "ExpiresIn": "2021-05-05T09:10:04"
 }
 ```
 
-|Property|Description|Type|Size|Format|
+|Proprierties|Description|Type|Size|Format|
 |-----------|---------|----|-------|-------|
-|`MerchantId`|Pagador Store Identifier|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`AccessToken`|Access Token. For security reasons, this ticket will give the merchant permission to save only 1 card within the time limit stipulated in the response via the ExpiresIn attribute (by default 20 minutes). Whatever happens first will invalidate this same ticket for future use.|Text|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
-|`Issued`|Date and time of generation|Text|--|AAAA-MM-DDTHH:MM:SS|
-|`ExpiresIn`|Expiration Date and Time|Text|-|YYYY-MM-DDTHH:MM:SS|
+|`MerchantId`|Merchant identifier at Pagador. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AccessToken`|AccessToken SOP. For safety reasons, this token will allow the merchant to save only one card within the deadline determined in the response, through the attribute *Expires In*. The default is 20 minutes. Whatever happens first will invalidate the token to prevent it from being used again.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`Issued`|Token creation date and hour. |Texto|--|AAAA-MM-DDTHH:MM:SS|
+|`ExpiresIn`|Token expiration date and hour. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 
-<aside class="notice">For security reasons, registration of a valid IP of the establishment in Braspag will be required. Otherwise the request will not be authorized (HTTP 401 NotAuthorized). Please identify which will be the outgoing IP that will access the API and then request the registration through the Braspag service channel: https://suporte.braspag.com.br/hc/en</aside>
+<aside class="warning">To see the legacy authentication process, which used the MerchantId and shopper IP address to create the `AccessToken` utilizando MerchantID e IP do comprador, [click here](#anexo).</aside>
 
-## 2. Implementing the script
+## 3. Implementing the script
 
 ### Mapping Classes
 
@@ -156,7 +221,7 @@ To download the code, click [here](https://github.com/Braspag/braspag.github.io/
 
 ![Checkout Page]({{ site.baseurl_root }}/images/consulta-bin.jpg)
 
-## 3. Authorizing with PaymentToken
+## 4. Authorizing with PaymentToken
 
 After obtaining PaymentToken through the script, the authorization process is performed by sending PaymentToken in place of card data.
 
@@ -215,3 +280,63 @@ curl
 ### Response
 
 See https://braspag.github.io/manual/braspag-pagador
+
+# ANNEX
+
+## Legacy Authentication
+
+### Getting AccessToken**
+
+When the shopper accesses the checkout, the merchant must generate AccessToken from the Braspag Authentication API (oAuth). On success, the API will return an AccessToken that must be populated in the script to load on the page.
+
+To request AccessToken, the establishment must POST to the following endpoint in the server-to-server template:
+
+| Endpoint | Environment |
+| --- | --- |
+| https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid} | Sandbox |
+| https://transaction.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid} | Production |
+
+In place of **{mid}** you must fill in the MerchantID of your store in Braspag's Pagador platform.
+
+Example: https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000
+
+#### Request
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/v1/accesstoken?merchantid={mid}</span></aside>
+
+```shell
+curl
+--request POST "https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000"
+--header "Content-Type: application/json"
+--data-binary
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|-----------|---------|----|-------|-----------|
+|`mid`|Payer Store Identifier|GUID|36|Yes|
+
+#### Response
+
+In response, the establishment will receive a json (HTTP 201 Created) containing among other information the ticket (AccessToken)
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantId": "B898E624-EF0F-455C-9509-3FAE12FB1F81",
+    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
+    "Issued": "2019-12-09T17:47:14",
+    "ExpiresIn": "2019-12-09T18:07:14"
+}
+```
+
+|Property|Description|Type|Size|Format|
+|-----------|---------|----|-------|-------|
+|`MerchantId`|Pagador Store Identifier|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AccessToken`|Access Token. For security reasons, this ticket will give the merchant permission to save only 1 card within the time limit stipulated in the response via the ExpiresIn attribute (by default 20 minutes). Whatever happens first will invalidate this same ticket for future use.|Text|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`Issued`|Date and time of generation|Text|--|AAAA-MM-DDTHH:MM:SS|
+|`ExpiresIn`|Expiration Date and Time|Text|-|YYYY-MM-DDTHH:MM:SS|
+
+<aside class="notice">For security reasons, registration of a valid IP of the establishment in Braspag will be required. Otherwise the request will not be authorized (HTTP 401 NotAuthorized). Please identify which will be the outgoing IP that will access the API and then request the registration through the Braspag service channel: https://suporte.braspag.com.br/hc/en</aside>
