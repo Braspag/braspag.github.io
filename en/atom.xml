@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-12-01T19:40:39+00:00</updated>
+    <updated>2021-12-01T19:52:01+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -1899,7 +1899,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Response Properties&lt;/th&gt;
+      &lt;th&gt;Properties&lt;/th&gt;
       &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -1955,7 +1955,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Proprierties&lt;/th&gt;
+      &lt;th&gt;Properties&lt;/th&gt;
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
@@ -2006,7 +2006,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Proprierties&lt;/th&gt;
+      &lt;th&gt;Properties&lt;/th&gt;
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
