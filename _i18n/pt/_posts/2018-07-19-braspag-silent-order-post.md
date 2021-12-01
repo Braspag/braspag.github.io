@@ -152,7 +152,7 @@ Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo
 |`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 
-<aside class="warning">Para consultar sobre o processo legado de autenticação, com geração do `AccessToken` utilizando MerchantID e IP do comprador, [clique aqui](#anexo).</aside>
+<aside class="warning">Consulte sobre o [processo legado de autenticação](https://braspag.github.io//manualp/braspag-silent-order-post#autentica%C3%A7%C3%A3o-legada), com geração do `AccessToken` utilizando MerchantID e IP do comprador.</aside>
 
 ## 3. Implementando o Script
 
