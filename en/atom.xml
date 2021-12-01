@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-12-01T19:25:27+00:00</updated>
+    <updated>2021-12-01T19:40:39+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -2045,7 +2045,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;To see the legacy authentication process, which used the MerchantId and shopper IP address to create the `AccessToken` utilizando MerchantID e IP do comprador, [click here](#anexo).&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;To see the legacy authentication process, which used the MerchantId and shopper IP address to create the `AccessToken`, [click here](https://braspag.github.io//en/manual/silentorderpost#legacy-authentication).&lt;/aside&gt;
 
 &lt;h2 id=&quot;3-implementing-the-script&quot;&gt;3. Implementing the script&lt;/h2&gt;
 
