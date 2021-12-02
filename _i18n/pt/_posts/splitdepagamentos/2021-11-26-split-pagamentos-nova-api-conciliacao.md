@@ -101,7 +101,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 * O intervalo entre a data inicial e final deve ser de no máximo 31 dias;
 * A data atual não pode estar entre o intervalo da busca;
 * A data inicial precisa ser um dia útil;
-* A data final precisa ser no máximo D-1 dia útil em relação a data atual.
+* A data final precisa ser no máximo D-1 dia útil em relação a data atual ou maior que a data atual.
 
 ## Resposta
 
@@ -191,7 +191,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
                     },
                     "SettlementStatus": "Settled",         
                     "Instruction": {
-                        "Ispb": 1,
+                        "Ispb": "1",
                         "AgencyNumber": "00001",
                         "AgencyDigit": "1",
                         "AccountNumber": "353535",
@@ -209,9 +209,9 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 
 | Propriedade   | Tipo               | Descrição                                             |
 |---------------|--------------------|-------------------------------------------------------|
-| `PageIndex`   | Inteiro                | Página atual.                                         |
-| `PageSize`    | Inteiro                | Quantidade de itens máximo por página.                |
-| `PageCount`   | Inteiro                | Quantidade de páginas.                                |
+| `PageIndex`   | Número                | Página atual.                                         |
+| `PageSize`    | Número                | Quantidade de itens máximo por página.                |
+| `PageCount`   | Número                | Quantidade de páginas.                                |
 | `Items`       | Array[Receivable]  | Lista de objetos contendo informações dos recebíveis. |
 | `Items[].DocumentNumber`   | String            | Número de documento (CPF ou CNPJ) do proprietário da unidade de recebível |
 | `Items[].ForecastDate`     | Data              | Data prevista de liquidação. Formato YYYY-DD-MM. Ex: 2021-11-01.          |
@@ -238,6 +238,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `Items[].Settlements[].ChangeOfOwnershipDetails`                           | Objeto  | Detalhes da troca de titularidade. Obrigatório caso  ReceivableSettlementType = ChangeOfOwnership                   |
 | `Items[].Settlements[].ChangeOfOwnershipDetails.BeneficiaryDocumentNumber` | String  | Número do documento do titular que vai receber o valor cedido na troca de titularidade.                   |
 | `Items[].Settlements[].ChangeOfOwnershipDetails.Protocol`                  | GUID    | Identificador do efeito de protocolo recebido da registradora que informou a troca de titularidade.       |
+| `Items[].Settlements[].SettlementDate`                                     | Data    | Data de liquidação.|
 
 # ANEXOS
 
@@ -245,7 +246,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 
 |Bandeiras|
 |---|
-|Visa, Master, Amex, Elo, Diners, Discover, Hipercard e Sorocred.|
+|Visa, Master, Amex, Elo, Diners, Discover e Hipercard.|
 
 ## Tipos de Liquidação
 
