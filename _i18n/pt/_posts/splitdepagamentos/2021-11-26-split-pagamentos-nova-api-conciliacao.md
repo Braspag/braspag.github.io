@@ -141,7 +141,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
                     "Anticipated": false,
                     "Amount": 100,
                     "Instruction": {
-                        "Ispb": 1,
+                        "Ispb": "1",
                         "AgencyNumber": "00001",
                         "AgencyDigit": "1",
                         "AccountNumber": "353535",
@@ -162,7 +162,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
                     },
                     "SettlementStatus": "Settled",        
                     "Instruction": {
-                        "Ispb": 1,
+                        "Ispb": "1",
                         "AgencyNumber": "00001",
                         "AgencyDigit": "1",
                         "AccountNumber": "353535",
