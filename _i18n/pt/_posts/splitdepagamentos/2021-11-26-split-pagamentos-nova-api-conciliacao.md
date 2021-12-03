@@ -47,7 +47,7 @@ Para fins de liquidação são geradas as Unidade de Recebíveis (URs), composta
 
 Veja a seguir um exemplo do fluxo transacional no Split de Pagamentos:
 
-![Fluxo Transacional Split]({{ site.baseurl_root }}/images/braspag/split/fluxo-transacional-split.png)
+![Fluxo Transacional Split]({{ site.baseurl_root }}/images/braspag/split/fluxo-transacional-split-pq.png)
 
 O exemplo mostra uma transação que foi aprovada e capturada. No entanto, uma transação está sujeita a diversos eventos, tais como:
 
