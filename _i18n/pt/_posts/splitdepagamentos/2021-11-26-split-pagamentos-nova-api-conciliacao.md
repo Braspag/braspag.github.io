@@ -17,6 +17,89 @@ A API do Split permite consultar as **unidades de recebíveis** para vendas que 
 
 > Em breve a consulta de transações e de agenda também estarão disponíveis.
 
+# Glossário
+
+Para que você possa aproveitar melhor todos os recursos disponíveis em nossa API, é importante conhecer alguns termos envolvidos no processo de conciliação:
+
+|TERMO|DEFINIÇÃO|
+|---|---|
+|Transação|É o evento que representa uma venda.|
+|Evento transacional|São eventos que podem ocorrer no processo de uma transação, como a transação, cancelamento, estorno e chargeback.|
+|Agenda|A agenda apresenta uma previsão de data para execução do pagamento ou cobrança dos eventos de agenda.|
+|Evento de agenda| É aquilo que discrimina o valor que vai ser creditado ou debitado na agenda. São eventos de agenda: créditos de transação, débitos de taxa de antifraude, débitos de estorno e chargeback, entre outros.|
+|Arranjo de pagamento|É a combinação entre o **produto** (cartão de crédito, cartão de débito ou boleto) e a **bandeira**.|
+|Chargeback|Ocorre quando o portador do cartão contesta uma compra junto ao emissor.|
+|Unidade de Recebível (UR)|É a soma de todos os valores que um CPF ou CNPJ tem a receber em determinado dia por arranjo de pagamento.|
+
+# Fluxo da transação até a liquidação
+
+A captura de uma transação é a confirmação de que aquela venda foi realizada com sucesso. Assim, após a captura, uma agenda é gerada para cada evento transacional e para cada um de seus participantes (master e subordinados).
+
+A agenda apresenta a previsão de liquidação de eventos de crédito e débito. A agenda é atualizada de acordo com os eventos transacionais.
+
+Para fins de liquidação são geradas as Unidade de Recebíveis (URs), compostas pelo CPF/CNPJ do recebedor, arranjo de pagamento e data da previsão de liquidação.
+
+![Exemplo Fluxo Conciliação]({{ site.baseurl_root }}/images/braspag/split/exemplo-api-conciliacao.png)
+
+> A partir das URs, é possível consultar a agenda que foi gerada para aquele dia e identificar as transações que originaram o valor da UR.
+
+## Transação
+
+Veja a seguir um exemplo do fluxo transacional no Split de Pagamentos:
+
+![Fluxo Transacional Split]({{ site.baseurl_root }}/images/braspag/split/fluxo-transacional-split.png)
+
+O exemplo mostra uma transação que foi aprovada e capturada. No entanto, uma transação está sujeita a diversos eventos, tais como:
+
+* Cancelamento;
+* Estorno;
+* Chargeback.
+
+Os eventos que ocorrem com uma transação irão afetar a previsão de pagamento e o valor liquidado. 
+
+A tabela a seguir apresenta três transações com diferentes arranjos de pagamento. 
+
+![Exemplo Transação]({{ site.baseurl_root }}/images/braspag/split/exemplo-transacao.png)
+
+## Agenda
+
+A Agenda apresenta a previsão diária de créditos e débitos para cada participante da transação (master e subordinados), levando em conta o regime de pagamento para cada tipo de meio de pagamento:
+
+* Crédito: em até 31 dias.
+* Crédito parcelado: primeira parcela em 31 dias e demais a cada 30 dias.
+* Débito: em até dois dias úteis.
+* Boleto: em até dois dias úteis após a confirmação do pagamento.
+
+> O pagamento ocorre somente em dia de expediente bancário. Os prazos do regime de pagamento podem sofrer alterações por questões operacionais da adquirente ou da Braspag.
+
+Considere uma transação de crédito no valor de R$90,00 dividida em três parcelas. O exemplo a seguir apresenta qual seria o ciclo dessa transação, da data de captura até a data de previsão de liquidação da última parcela.
+
+![Exemplo Agenda]({{ site.baseurl_root }}/images/braspag/split/exemplo-agenda.png)
+
+<aside class="notice">As consultas de transações e de agenda estarão disponíveis em breve.</aside>
+
+## Unidades de Recebíveis
+
+As Unidades de Recebíveis (URs) estão em vigor desde 07/06/2021, com a resolução nº 4.734/2019 do Conselho Monetário Nacional (CNM) e a Circular nº 3.952/2019 do Banco Central do Brasil. Com isso, as credenciadoras e subcredenciadoras, como a Braspag, precisam registrar as URs dos estabelecimentos em uma entidade registradora que será responsável por disponibilizar as informações dos recebíveis entre instituições financeiras.
+
+Cada UR é composta por:
+
+* CPF ou CNPJ do recebedor;
+* Arranjo de pagamento e 
+* Data da liquidação.
+
+Considere que uma loja teve três transações no dia **31 de maio**:
+
+![Exemplo Transação]({{ site.baseurl_root }}/images/braspag/split/exemplo-transacao.png)
+
+Os valores correspondentes a essas transações serão agrupados em Unidades de Recebíveis, respeitando as regras dos regimes de pagamento. Veja a seguir como as URs oriundas dos valores da tabela seriam compostas*:
+
+![Exemplo UR]({{ site.baseurl_root }}/images/braspag/split/exemplo-ur.png)
+
+*O exemplo da tabela não considerou débitos referentes a taxas.
+
+As próximas seções deste manual apresentarão as instruções para acessar o ambiente de teste e fazer as requisições de autenticação e consulta de URs.
+
 # Ambiente
 
 Na API do Split, você pode usar o ambiente **Sandbox** para homologação e testes da sua integração.
