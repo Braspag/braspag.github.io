@@ -57,7 +57,7 @@ O exemplo mostra uma transação que foi aprovada e capturada. No entanto, uma t
 
 Os eventos que ocorrem com uma transação irão afetar a previsão de pagamento e o valor liquidado. 
 
-A tabela a seguir apresenta três transações com diferentes arranjos de pagamento. 
+A tabela a seguir apresenta três transações com diferentes arranjos de pagamento. Essas transações serão usadas como exemplo nas seções Agenda e Unidades de Recebíveis.
 
 ![Exemplo Transação]({{ site.baseurl_root }}/images/braspag/split/exemplo-transacao.png)
 
