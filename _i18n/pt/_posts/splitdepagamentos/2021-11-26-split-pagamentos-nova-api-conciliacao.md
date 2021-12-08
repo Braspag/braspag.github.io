@@ -195,12 +195,10 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
     "PageCount": 5,
     "Items": [
         {
-            "ReceivableId": "d1ece5e7-f996-40eb-8825-8e3f7decba41",
             "DocumentNumber": "000000000000",
             "ForecastDate": "2021-11-16",
             "Product": "CreditCard",
             "Brand": "Visa",
-            "TotalAmount": 15055,
             "ReceivableAmount": 0,
             "AnticipatedAmount": 450,
             "Settlements": [
@@ -211,7 +209,6 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
                     "Amount": 4055,
                     "Instruction": {
                         "Ispb": "1",
-                        "CompeCode": "001",
                         "AgencyNumber": "00001",
                         "AgencyDigit": "1",
                         "AccountNumber": "353535",
@@ -228,7 +225,6 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
                     "Amount": 100,
                     "Instruction": {
                         "Ispb": "1",
-                        "CompeCode": "001",
                         "AgencyNumber": "00001",
                         "AgencyDigit": "1",
                         "AccountNumber": "353535",
@@ -250,7 +246,6 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
                     "SettlementStatus": "Settled",        
                     "Instruction": {
                         "Ispb": "1",
-                        "CompeCode": "001",
                         "AgencyNumber": "00001",
                         "AgencyDigit": "1",
                         "AccountNumber": "353535",
@@ -280,7 +275,6 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
                     "SettlementStatus": "Settled",         
                     "Instruction": {
                         "Ispb": "1",
-                        "CompeCode": "001",
                         "AgencyNumber": "00001",
                         "AgencyDigit": "1",
                         "AccountNumber": "353535",
@@ -302,12 +296,10 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `PageSize`    | Número                | Quantidade de itens máximo por página.                |
 | `PageCount`   | Número                | Quantidade de páginas.                                |
 | `Items`       | Array[Receivable]  | Lista de objetos contendo informações dos recebíveis. |
-| `Items[].ReceivableId`     | GUID              | Identificador único da UR.                |
 | `Items[].DocumentNumber`   | String            | Número de documento (CPF ou CNPJ) do proprietário da unidade de recebível |
 | `Items[].ForecastDate`     | Data              | Data prevista de liquidação. Formato YYYY-DD-MM. Ex: 2021-11-01.          |
 | `Items[].Product`          | String            | Produto. Tipos possíveis: "CreditCard", "DebitCard", "BankSlip" (boleto). |
 | `Items[].Brand`            | String            | Bandeira do cartão ou banco emissor do boleto.                            |
-| `Items[].TotalAmount`      | Número           | Valor total das liquidações da UR. Ex.: R$1,00 = 100.                     |
 | `Items[].ReceivableAmount` | Número           | Valor em centavos, podendo ser negativo. Ex.: R$1,00 = 100.               |
 | `Items[].AnticipatedAmount`| Número           | Valor em centavos antecipado líquido da Unidade de Recebível.             |
 | `Items[].Settlements`      | Array[Settlement] | Lista de objeto contendo informações de liquidação dos recebíveis.       |
@@ -317,7 +309,6 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `Items[].Settlements[].Amount`                                             | String  | Valor líquido a ser liquidado.                                                                            |
 | `Items[].Settlements[].Instruction`                                        | Objeto  | Objeto contendo as informações de liquidação efetivada ou prevista. Retorno obrigatório quando `ReceivableSettlementType` for diferente de ChangeOfOwnership (troca de titularidade).|
 | `Items[].Settlements[].Instruction.Ispb`                                   | String  | Código Ispb do banco.                                                                                     |
-| `Items[].Settlements[].Instruction.CompeCode`                              | String  | Código COMPE do banco.|
 | `Items[].Settlements[].Instruction.AgencyDigit`                            | String  | Dígito da agência bancária.                                                                               |
 | `Items[].Settlements[].Instruction.AccountNumber`                          | String  | Número da conta.                                                                                          |
 | `Items[].Settlements[].Instruction.AccountDigit`                           | String  | Dígito da conta                                                                                           |
