@@ -7289,7 +7289,7 @@ As listas a seguir se referem a provedores na integração REST:
 |FirstData|Visa, Master, Elo, Hipercard, Cabal, Amex|Provider para transações em guaranis (PYG), pesos argentinos (ARG) e reais (BRL) na plataforma de e-commerce First Data.|
 |Sub1|Visa, Master, Diners, Amex, Discover, Cabal, Naranja e Nevada|Provider para transações em pesos argentinos (ARG) na plataforma legado Sub1 First Data.|
 |Banorte|Visa, Master, Carnet|Provider para transações em pesos mexicanos (MXN) na plataforma de e-commerce Banorte.|
-|Credibanco|Visa, Master, Diners, Amex, Credential|Provider para transações em pesos colombianos (COP) na plataforma de e-commerce Credibanco.|
+|Credibanco2|Visa, Master, Diners, Amex, Credential|Provider para transações em pesos colombianos (COP) na plataforma de e-commerce Credibanco.|
 |Transbank2|Visa, Master, Diners, Amex|Provider para transações em pesos chilenos (CLP) na plataforma de e-commerce Transbank.|
 |Banese|Banese|Provider para transações com a bandeira BaneseCard.|
 |BrasilCard|BrasilCard|Provider para transações com a bandeira BrasilCard.|
