@@ -65,10 +65,10 @@ A tabela a seguir apresenta três transações com diferentes arranjos de pagame
 
 A Agenda apresenta a previsão diária de créditos e débitos para cada participante da transação (master e subordinados), levando em conta o regime de pagamento para cada tipo de meio de pagamento:
 
-* Crédito: em até 31 dias.
-* Crédito parcelado: primeira parcela em 31 dias e demais a cada 30 dias.
-* Débito: em até dois dias úteis.
-* Boleto: em até dois dias úteis após a confirmação do pagamento.
+* **Crédito:** em até 31 dias.
+* **Crédito parcelado:** primeira parcela em 31 dias e demais a cada 30 dias.
+* **Débito:** em até dois dias úteis.
+* **Boleto:** em até dois dias úteis após a confirmação do pagamento.
 
 > O pagamento ocorre somente em dia de expediente bancário. Os prazos do regime de pagamento podem sofrer alterações por questões operacionais da adquirente ou da Braspag.
 
