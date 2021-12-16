@@ -31,13 +31,13 @@ Para que você possa aproveitar melhor todos os recursos disponíveis em nossa A
 |Chargeback|Ocorre quando o portador do cartão contesta uma compra junto ao emissor.|
 |Unidade de Recebível (UR)|É a soma de todos os valores que um CPF ou CNPJ tem a receber em determinado dia por arranjo de pagamento.|
 
-# Fluxo da transação até a liquidação
+# Fluxo da transação até o pagamento
 
 A captura de uma transação é a confirmação de que aquela venda foi realizada com sucesso. Assim, após a captura, uma agenda é gerada para cada evento transacional e para cada um de seus participantes (master e subordinados).
 
-A agenda apresenta a previsão de liquidação de eventos de crédito e débito. A agenda é atualizada de acordo com os eventos transacionais.
+A agenda apresenta a previsão de pagamento de eventos de crédito e débito. A agenda é atualizada de acordo com os eventos transacionais.
 
-Para fins de liquidação são geradas as Unidade de Recebíveis (URs), compostas pelo CPF/CNPJ do recebedor, arranjo de pagamento e data da previsão de liquidação.
+Para fins de pagamento (liquidação) são geradas as Unidade de Recebíveis (URs), compostas pelo CPF/CNPJ do recebedor, arranjo de pagamento e data da previsão de pagamento.
 
 ![Exemplo Fluxo Conciliação]({{ site.baseurl_root }}/images/braspag/split/exemplo-api-conciliacao.png)
 
@@ -55,7 +55,7 @@ O exemplo mostra uma transação que foi aprovada e capturada. No entanto, uma t
 * Estorno;
 * Chargeback.
 
-Os eventos que ocorrem com uma transação irão afetar a previsão de pagamento e o valor liquidado. 
+Os eventos que ocorrem com uma transação irão afetar a previsão de pagamento e o valor pago. 
 
 A tabela a seguir apresenta três transações com diferentes arranjos de pagamento. Essas transações serão usadas como exemplo nas seções Agenda e Unidades de Recebíveis.
 
@@ -72,7 +72,7 @@ A Agenda apresenta a previsão diária de créditos e débitos para cada partici
 
 > O pagamento ocorre somente em dia de expediente bancário. Os prazos do regime de pagamento podem sofrer alterações por questões operacionais da adquirente ou da Braspag.
 
-Considere uma transação de crédito no valor de R$90,00 dividida em três parcelas. O exemplo a seguir apresenta qual seria o ciclo dessa transação, da data de captura até a data de previsão de liquidação da última parcela.
+Considere uma transação de crédito no valor de R$90,00 dividida em três parcelas. O exemplo a seguir apresenta qual seria o ciclo dessa transação, da data de captura até a data de previsão de pagamento da última parcela.
 
 ![Exemplo Agenda]({{ site.baseurl_root }}/images/braspag/split/exemplo-agenda.png)
 
@@ -86,7 +86,7 @@ Cada UR é composta por:
 
 * CPF ou CNPJ do recebedor;
 * Arranjo de pagamento e 
-* Data da liquidação.
+* Data de pagamento.
 
 Considere que uma loja teve três transações no dia **31 de maio**:
 
@@ -159,7 +159,7 @@ Você deverá enviar token de acesso retornado pela API de autenticação (`acce
 
 # Consulta de Unidade de Recebíveis
 
-A API Split permite consultar as **unidades de recebíveis** de acordo com alguns parâmetros, como intervalo de data prevista de liquidação, intervalo de data de liquidação efetiva, bandeira, produto, MerchantId, antecipação, todos os subordinados e número da página.
+A API Split permite consultar as **unidades de recebíveis** de acordo com alguns parâmetros, como intervalo de data prevista de pagamento, intervalo de data de pagamento efetivo, bandeira, produto, MerchantId, antecipação, todos os subordinados e número da página.
 
 ## Requisição
 
@@ -167,10 +167,10 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 
 | Parâmetro                      | Descrição                                                                             | Tipo    | Obrigatório|  
 |--------------------------------|---------------------------------------------------------------------------------------|---------|------------|  
-| `InitialForecastedDate`        | Intervalo de data prevista de liquidação inicial para busca.                          | Data    | Não*       |  
-| `FinalForecastedDate`          | Intervalo de data prevista de liquidação final para busca.                            | Data    | Não*       | 
-| `InitialSettlementDate`        | Intervalo de data de liquidação efetiva inicial para busca.                           | Data    | Não*       |  
-| `FinalSettlementDate`          | Intervalo data de liquidação efetiva final para busca.                                | Data    | Não*       | 
+| `InitialForecastedDate`        | Intervalo de data previsto de pagamento inicial para busca.                          | Data    | Não*       |  
+| `FinalForecastedDate`          | Intervalo de data previsto de pagamento final para busca.                            | Data    | Não*       | 
+| `InitialSettlementDate`        | Intervalo de data de pagamento efetivo inicial para busca.                           | Data    | Não*       |  
+| `FinalSettlementDate`          | Intervalo data de pagamento efetivo final para busca.                                | Data    | Não*       | 
 | `Brand`                        | Bandeira que deve ser considerada na consulta (Exemplo: Visa). Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui recebíveis. *Consulte as bandeiras aceitas na tabela [Bandeiras](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#bandeiras)*                      | String  | Não        |  
 | `Product`                      | Produto que deve ser considerado na consulta (CreditCard, DebitCard ou BankSlip). Por padrão, são retornadas informações de todas as bandeiras na qual o solicitante possui recebíveis.                                                                    | String  | Não        |
 | `MerchantId`                   | Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro| Guid   | Não|  
@@ -297,17 +297,17 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `PageCount`   | Número                | Quantidade de páginas.                                |
 | `Items`       | Array[Receivable]  | Lista de objetos contendo informações dos recebíveis. |
 | `Items[].DocumentNumber`   | String            | Número de documento (CPF ou CNPJ) do proprietário da unidade de recebível |
-| `Items[].ForecastDate`     | Data              | Data prevista de liquidação. Formato YYYY-DD-MM. Ex: 2021-11-01.          |
+| `Items[].ForecastDate`     | Data              | Data prevista de pagamento. Formato YYYY-DD-MM. Ex: 2021-11-01.          |
 | `Items[].Product`          | String            | Produto. Tipos possíveis: "CreditCard", "DebitCard", "BankSlip" (boleto). |
 | `Items[].Brand`            | String            | Bandeira do cartão ou banco emissor do boleto.                            |
 | `Items[].ReceivableAmount` | Número           | Valor em centavos, podendo ser negativo. Ex.: R$1,00 = 100.               |
 | `Items[].AnticipatedAmount`| Número           | Valor em centavos antecipado líquido da Unidade de Recebível.             |
-| `Items[].Settlements`      | Array[Settlement] | Lista de objeto contendo informações de liquidação dos recebíveis.       |
-| `Items[].Settlements[].ReceivableSettlementType`                           | String  | Tipo de liquidação. Valores previstos: <br>0-Braspag<br>1-ChangeOfOwnership<br>2-LienFiduciaryAssignment<br>3-LienOthers<br>4-JudicialBlockade<br>Veja a descrição na tabela [Tipos de liquidação](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#tipos-de-liquida%C3%A7%C3%A3o).  |
-| `Items[].Settlements[].SettlementStatus`                                   | String  | Status da liquidação. Valores previstos: <br>1-Scheduled<br>2-pending<br>3-Settled<br>4-Error<br>Veja a descrição na tabela [Status da liquidação](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#status-da-liquida%C3%A7%C3%A3o).                  |
+| `Items[].Settlements`      | Array[Settlement] | Lista de objeto contendo informações de pagamento dos recebíveis.       |
+| `Items[].Settlements[].ReceivableSettlementType`                           | String  | Tipo de pagamento. Valores previstos: <br>0-Braspag<br>1-ChangeOfOwnership<br>2-LienFiduciaryAssignment<br>3-LienOthers<br>4-JudicialBlockade<br>Veja a descrição na tabela [Tipos de pagamento](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#tipos-de-liquida%C3%A7%C3%A3o).  |
+| `Items[].Settlements[].SettlementStatus`                                   | String  | Status do pagamento. Valores previstos: <br>1-Scheduled<br>2-pending<br>3-Settled<br>4-Error<br>Veja a descrição na tabela [Status do Pagamento](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#status-da-liquida%C3%A7%C3%A3o).                  |
 | `Items[].Settlements[].Anticipated`                                        | Boolean    | Flag para indicar informações referentes à antecipação.                                 |
-| `Items[].Settlements[].Amount`                                             | String  | Valor líquido a ser liquidado.                                                                            |
-| `Items[].Settlements[].Instruction`                                        | Objeto  | Objeto contendo as informações de liquidação efetivada ou prevista. Retorno obrigatório quando `ReceivableSettlementType` for diferente de ChangeOfOwnership (troca de titularidade).|
+| `Items[].Settlements[].Amount`                                             | String  | Valor líquido a ser pago.                                                                            |
+| `Items[].Settlements[].Instruction`                                        | Objeto  | Objeto contendo as informações de pagamento efetivado ou previsto. Retorno obrigatório quando `ReceivableSettlementType` for diferente de ChangeOfOwnership (troca de titularidade).|
 | `Items[].Settlements[].Instruction.Ispb`                                   | String  | Código Ispb do banco.                                                                                     |
 | `Items[].Settlements[].Instruction.AgencyDigit`                            | String  | Dígito da agência bancária.                                                                               |
 | `Items[].Settlements[].Instruction.AccountNumber`                          | String  | Número da conta.                                                                                          |
@@ -321,7 +321,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `Items[].Settlements[].ChangeOfOwnershipDetails`                           | Objeto  | Detalhes da troca de titularidade. Obrigatório caso  ReceivableSettlementType = ChangeOfOwnership                   |
 | `Items[].Settlements[].ChangeOfOwnershipDetails.BeneficiaryDocumentNumber` | String  | Número do documento do titular que vai receber o valor cedido na troca de titularidade.                   |
 | `Items[].Settlements[].ChangeOfOwnershipDetails.Protocol`                  | GUID    | Identificador do efeito de protocolo recebido da registradora que informou a troca de titularidade.       |
-| `Items[].Settlements[].SettlementDate`                                     | Data    | Data de liquidação.|
+| `Items[].Settlements[].SettlementDate`                                     | Data    | Data de pagamento.|
 
 # ANEXOS
 
@@ -331,21 +331,21 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 |---|
 |Visa, Master, Amex, Elo, Diners, Discover e Hipercard.|
 
-## Tipos de Liquidação
+## Tipos de Pagamento
 
 |Valor                | Descrição |
 |---------------------|-----------|
-| 0-Braspag           | Liquidação padrão. Definida no cadastro do estabelecimento como domicílio padrão para liquidação.
+| 0-Braspag           | Pagamento padrão. Definido no cadastro do estabelecimento como domicílio padrão para pagamento.
 | 1-ChangeOfOwnership | Troca de titularidade. Caso tenha ocorrido negociação do contrato. |
-| 2-LienFiduciaryAssignment | Caso a liquidação seja resultado de aplicação de efeito de contrato do tipo "Ônus - Cessão Fiduciária"|
-| 3-LienOthers        | Caso a liquidação seja resultado de aplicação de efeito de contrato do tipo "Ônus - Outros" |
-| 4-JudicialBlockade  | Caso a liquidação seja resultado de aplicação de efeito de contrato do tipo "Bloqueio judicial".|
+| 2-LienFiduciaryAssignment | Caso o pagamento seja resultado de aplicação de efeito de contrato do tipo "Ônus - Cessão Fiduciária"|
+| 3-LienOthers        | Caso o pagamento seja resultado de aplicação de efeito de contrato do tipo "Ônus - Outros" |
+| 4-JudicialBlockade  | Caso o pagamento seja resultado de aplicação de efeito de contrato do tipo "Bloqueio judicial".|
 
-## Status da Liquidação
+## Status do Pagamento
 
 | Valor       | Descrição |
 |-------------|-----------|
 | 1-Scheduled | Agendado. |
 | 2-Pending   | Pendente. |
-| 3-Settled   | Liquidado.|
+| 3-Settled   | Pago.|
 | 4-Error     | Erro.     |
