@@ -156,13 +156,13 @@
   </tbody>
 </table>
 
-<h1 id="fluxo-da-transação-até-a-liquidação">Fluxo da transação até a liquidação</h1>
+<h1 id="fluxo-da-transação-até-o-pagamento">Fluxo da transação até o pagamento</h1>
 
 <p>A captura de uma transação é a confirmação de que aquela venda foi realizada com sucesso. Assim, após a captura, uma agenda é gerada para cada evento transacional e para cada um de seus participantes (master e subordinados).</p>
 
-<p>A agenda apresenta a previsão de liquidação de eventos de crédito e débito. A agenda é atualizada de acordo com os eventos transacionais.</p>
+<p>A agenda apresenta a previsão de pagamento de eventos de crédito e débito. A agenda é atualizada de acordo com os eventos transacionais.</p>
 
-<p>Para fins de liquidação são geradas as Unidade de Recebíveis (URs), compostas pelo CPF/CNPJ do recebedor, arranjo de pagamento e data da previsão de liquidação.</p>
+<p>Para fins de pagamento (liquidação) são geradas as Unidade de Recebíveis (URs), compostas pelo CPF/CNPJ do recebedor, arranjo de pagamento e data da previsão de pagamento.</p>
 
 <p><img src="https://braspag.github.io//images/braspag/split/exemplo-api-conciliacao.png" alt="Exemplo Fluxo Conciliação" /></p>
 
@@ -184,7 +184,7 @@
   <li>Chargeback.</li>
 </ul>
 
-<p>Os eventos que ocorrem com uma transação irão afetar a previsão de pagamento e o valor liquidado.</p>
+<p>Os eventos que ocorrem com uma transação irão afetar a previsão de pagamento e o valor pago.</p>
 
 <p>A tabela a seguir apresenta três transações com diferentes arranjos de pagamento. Essas transações serão usadas como exemplo nas seções Agenda e Unidades de Recebíveis.</p>
 
@@ -205,7 +205,7 @@
   <p>O pagamento ocorre somente em dia de expediente bancário. Os prazos do regime de pagamento podem sofrer alterações por questões operacionais da adquirente ou da Braspag.</p>
 </blockquote>
 
-<p>Considere uma transação de crédito no valor de R$90,00 dividida em três parcelas. O exemplo a seguir apresenta qual seria o ciclo dessa transação, da data de captura até a data de previsão de liquidação da última parcela.</p>
+<p>Considere uma transação de crédito no valor de R$90,00 dividida em três parcelas. O exemplo a seguir apresenta qual seria o ciclo dessa transação, da data de captura até a data de previsão de pagamento da última parcela.</p>
 
 <p><img src="https://braspag.github.io//images/braspag/split/exemplo-agenda.png" alt="Exemplo Agenda" /></p>
 
@@ -220,7 +220,7 @@
 <ul>
   <li>CPF ou CNPJ do recebedor;</li>
   <li>Arranjo de pagamento e</li>
-  <li>Data da liquidação.</li>
+  <li>Data de pagamento.</li>
 </ul>
 
 <p>Considere que uma loja teve três transações no dia <strong>31 de maio</strong>:</p>
@@ -315,7 +315,7 @@
 
 <h1 id="consulta-de-unidade-de-recebíveis">Consulta de Unidade de Recebíveis</h1>
 
-<p>A API Split permite consultar as <strong>unidades de recebíveis</strong> de acordo com alguns parâmetros, como intervalo de data prevista de liquidação, intervalo de data de liquidação efetiva, bandeira, produto, MerchantId, antecipação, todos os subordinados e número da página.</p>
+<p>A API Split permite consultar as <strong>unidades de recebíveis</strong> de acordo com alguns parâmetros, como intervalo de data prevista de pagamento, intervalo de data de pagamento efetivo, bandeira, produto, MerchantId, antecipação, todos os subordinados e número da página.</p>
 
 <h2 id="requisição-1">Requisição</h2>
 
@@ -333,25 +333,25 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">InitialForecastedDate</code></td>
-      <td>Intervalo de data prevista de liquidação inicial para busca.</td>
+      <td>Intervalo de data previsto de pagamento inicial para busca.</td>
       <td>Data</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FinalForecastedDate</code></td>
-      <td>Intervalo de data prevista de liquidação final para busca.</td>
+      <td>Intervalo de data previsto de pagamento final para busca.</td>
       <td>Data</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">InitialSettlementDate</code></td>
-      <td>Intervalo de data de liquidação efetiva inicial para busca.</td>
+      <td>Intervalo de data de pagamento efetivo inicial para busca.</td>
       <td>Data</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FinalSettlementDate</code></td>
-      <td>Intervalo data de liquidação efetiva final para busca.</td>
+      <td>Intervalo data de pagamento efetivo final para busca.</td>
       <td>Data</td>
       <td>Não*</td>
     </tr>
@@ -544,7 +544,7 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].ForecastDate</code></td>
       <td>Data</td>
-      <td>Data prevista de liquidação. Formato YYYY-DD-MM. Ex: 2021-11-01.</td>
+      <td>Data prevista de pagamento. Formato YYYY-DD-MM. Ex: 2021-11-01.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Product</code></td>
@@ -569,17 +569,17 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements</code></td>
       <td>Array[Settlement]</td>
-      <td>Lista de objeto contendo informações de liquidação dos recebíveis.</td>
+      <td>Lista de objeto contendo informações de pagamento dos recebíveis.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].ReceivableSettlementType</code></td>
       <td>String</td>
-      <td>Tipo de liquidação. Valores previstos: <br />0-Braspag<br />1-ChangeOfOwnership<br />2-LienFiduciaryAssignment<br />3-LienOthers<br />4-JudicialBlockade<br />Veja a descrição na tabela <a href="https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#tipos-de-liquida%C3%A7%C3%A3o">Tipos de liquidação</a>.</td>
+      <td>Tipo de pagamento. Valores previstos: <br />0-Braspag<br />1-ChangeOfOwnership<br />2-LienFiduciaryAssignment<br />3-LienOthers<br />4-JudicialBlockade<br />Veja a descrição na tabela <a href="https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#tipos-de-liquida%C3%A7%C3%A3o">Tipos de pagamento</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].SettlementStatus</code></td>
       <td>String</td>
-      <td>Status da liquidação. Valores previstos: <br />1-Scheduled<br />2-pending<br />3-Settled<br />4-Error<br />Veja a descrição na tabela <a href="https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#status-da-liquida%C3%A7%C3%A3o">Status da liquidação</a>.</td>
+      <td>Status do pagamento. Valores previstos: <br />1-Scheduled<br />2-pending<br />3-Settled<br />4-Error<br />Veja a descrição na tabela <a href="https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#status-da-liquida%C3%A7%C3%A3o">Status do Pagamento</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Anticipated</code></td>
@@ -589,12 +589,12 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Amount</code></td>
       <td>String</td>
-      <td>Valor líquido a ser liquidado.</td>
+      <td>Valor líquido a ser pago.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction</code></td>
       <td>Objeto</td>
-      <td>Objeto contendo as informações de liquidação efetivada ou prevista. Retorno obrigatório quando <code class="language-plaintext highlighter-rouge">ReceivableSettlementType</code> for diferente de ChangeOfOwnership (troca de titularidade).</td>
+      <td>Objeto contendo as informações de pagamento efetivado ou previsto. Retorno obrigatório quando <code class="language-plaintext highlighter-rouge">ReceivableSettlementType</code> for diferente de ChangeOfOwnership (troca de titularidade).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction.Ispb</code></td>
@@ -664,7 +664,7 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].SettlementDate</code></td>
       <td>Data</td>
-      <td>Data de liquidação.</td>
+      <td>Data de pagamento.</td>
     </tr>
   </tbody>
 </table>
@@ -686,7 +686,7 @@
   </tbody>
 </table>
 
-<h2 id="tipos-de-liquidação">Tipos de Liquidação</h2>
+<h2 id="tipos-de-pagamento">Tipos de Pagamento</h2>
 
 <table>
   <thead>
@@ -698,7 +698,7 @@
   <tbody>
     <tr>
       <td>0-Braspag</td>
-      <td>Liquidação padrão. Definida no cadastro do estabelecimento como domicílio padrão para liquidação.</td>
+      <td>Pagamento padrão. Definido no cadastro do estabelecimento como domicílio padrão para pagamento.</td>
     </tr>
     <tr>
       <td>1-ChangeOfOwnership</td>
@@ -706,20 +706,20 @@
     </tr>
     <tr>
       <td>2-LienFiduciaryAssignment</td>
-      <td>Caso a liquidação seja resultado de aplicação de efeito de contrato do tipo “Ônus - Cessão Fiduciária”</td>
+      <td>Caso o pagamento seja resultado de aplicação de efeito de contrato do tipo “Ônus - Cessão Fiduciária”</td>
     </tr>
     <tr>
       <td>3-LienOthers</td>
-      <td>Caso a liquidação seja resultado de aplicação de efeito de contrato do tipo “Ônus - Outros”</td>
+      <td>Caso o pagamento seja resultado de aplicação de efeito de contrato do tipo “Ônus - Outros”</td>
     </tr>
     <tr>
       <td>4-JudicialBlockade</td>
-      <td>Caso a liquidação seja resultado de aplicação de efeito de contrato do tipo “Bloqueio judicial”.</td>
+      <td>Caso o pagamento seja resultado de aplicação de efeito de contrato do tipo “Bloqueio judicial”.</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="status-da-liquidação">Status da Liquidação</h2>
+<h2 id="status-do-pagamento">Status do Pagamento</h2>
 
 <table>
   <thead>
@@ -739,7 +739,7 @@
     </tr>
     <tr>
       <td>3-Settled</td>
-      <td>Liquidado.</td>
+      <td>Pago.</td>
     </tr>
     <tr>
       <td>4-Error</td>
