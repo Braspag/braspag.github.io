@@ -642,6 +642,9 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa"
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
       },
       [...]
    }
@@ -700,6 +703,9 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa"
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
       },
       [...]
    }
@@ -718,6 +724,8 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`DebitCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
+|`DebitCard.CardOnFile.Usage`|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e já utilizado em outra transação.<br><br>**Aplicável somente para Cielo30.**|Texto|-|Não|
+|`DebitCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` seja "Used".<br>"Recurring" - Compra recorrente programada, ex.: assinaturas.<br>"Unscheduled" - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br>"Installments" - Parcelamento através da recorrência.<br><br>**Aplicável somente para Cielo30.**|Texto|-|Condicional|
 
 #### Resposta
 
@@ -757,6 +765,9 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
           "ExpirationDate": "12/2021",
           "SaveCard": false,
           "Brand": "Visa"
+          "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
        }
     },
     "AuthenticationUrl": "https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f",
@@ -816,6 +827,9 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
        "ExpirationDate": "12/2021",
        "SaveCard": false,
        "Brand": "Visa"
+       "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
     },
     "AuthenticationUrl": "https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f",
     "AcquirerTransactionId": "10069930690009D366FA",
@@ -904,6 +918,9 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
             "ExpirationDate":"12/2021",
             "SecurityCode":"123",
             "Brand":"Elo"
+            "CardOnFile":{
+              "Usage": "Used",
+              "Reason":"Unscheduled"
         },
         [...]
     }
@@ -959,6 +976,9 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Elo"
+         "CardOnFile":{
+           "Usage": "Used",
+           "Reason":"Unscheduled"         
       },
       [...]
    }
@@ -976,6 +996,8 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`DebitCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`DebitCard.Brand`|Bandeira do cartão. Para este tipo de transação, sempre "Elo".|Texto|10|Sim|
+|`DebitCard.CardOnFile.Usage`|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e já utilizado em outra transação.<br><br>**Aplicável somente para Cielo30.**|Texto|-|Não|
+|`DebitCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` seja "Used".<br>"Recurring" - Compra recorrente programada, ex.: assinaturas.<br>"Unscheduled" - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br>"Installments" - Parcelamento através da recorrência.<br><br>**Aplicável somente para Cielo30.**|Texto|-|Condicional|
 
 #### Resposta
 
@@ -989,6 +1011,9 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
       "ExpirationDate": "12/2021",
       "SaveCard": false,
       "Brand": "Elo"
+      "CardOnFile":{
+        "Usage": "Used",
+        "Reason":"Unscheduled"
     },
     "AcquirerTransactionId": "10069930690009D366FA",
     "PaymentId": "21423fa4-6bcf-448a-97e0-e683fa2581ba",
@@ -1021,6 +1046,9 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
       "ExpirationDate": "12/2021",
       "SaveCard": false,
       "Brand": "Elo"
+      "CardOnFile":{
+        "Usage": "Used",
+        "Reason":"Unscheduled"
     },
     "AcquirerTransactionId": "10069930690009D366FA",
     "PaymentId": "21423fa4-6bcf-448a-97e0-e683fa2581ba",
