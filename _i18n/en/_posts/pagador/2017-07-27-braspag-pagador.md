@@ -633,6 +633,9 @@ A debit card transaction creation is similar to that of a credit card, except fo
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa"
+         "CardOnFile":{
+            "Usage":"Used",
+            "Reason":"Unscheduled"
       },
       [...]
    }
@@ -691,6 +694,9 @@ A debit card transaction creation is similar to that of a credit card, except fo
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Visa"
+         "CardOnFile":{
+            "Usage":"Used",
+            "Reason":"Unscheduled"
       },
       [...]
    }
@@ -709,6 +715,8 @@ A debit card transaction creation is similar to that of a credit card, except fo
 |`DebitCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format.|Text|7|Yes|
 |`DebitCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
 |`DebitCard.Brand`|Card brand.|Text|10|Yes|
+|`DebitCard.CardOnFile.Usage`|"First" if the card has been stored and it is your first use.<br>"Used" if the card has been stored and it has been used previously in another transaction.<br><br>**Applicable to `Provider` Cielo30 only.**|Text|-|No|
+|`DebitCard.CardOnFile.Reason`|Indicates the purpose of the card storage, in case the `Usage` field is "Used".<br><br>"Recurring" - Scheduled recurring purchase (e.g.: subscription services).<br>"Unscheduled" - Unscheduled recurring purchase (e.g.: services apps).<br>"Installments" - Installment through recurrence. <br><br> **Applicable to `Provider` Cielo30 only.**|Text|-|Conditional|
 
 #### Response
 
@@ -722,6 +730,9 @@ A debit card transaction creation is similar to that of a credit card, except fo
       "ExpirationDate":"12/2021",
       "SaveCard":"false",
       "Brand":"Visa",
+      "CardOnFile":{
+            "Usage":"Used",
+            "Reason":"Unscheduled"
     },
     "AuthenticationUrl": "https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f",
     "AcquirerTransactionId": "10069930690009D366FA",
@@ -755,6 +766,9 @@ A debit card transaction creation is similar to that of a credit card, except fo
       "ExpirationDate":"12/2021",
       "SaveCard":"false",
       "Brand":"Visa",
+      "CardOnFile":{
+            "Usage":"Used",
+            "Reason":"Unscheduled"
     },
     "AuthenticationUrl": "https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f",
     "AcquirerTransactionId": "10069930690009D366FA",
@@ -843,6 +857,9 @@ It is possible to process a debit card without having to submit your customer to
             "ExpirationDate":"12/2021",
             "SecurityCode":"123",
             "Brand":"Elo"
+            "CardOnFile":{
+              "Usage":"Used",
+              "Reason":"Unscheduled"
         },
         [...]
     }
@@ -901,6 +918,9 @@ It is possible to process a debit card without having to submit your customer to
          "ExpirationDate":"12/2021",
          "SecurityCode":"123",
          "Brand":"Elo"
+         "CardOnFile":{
+            "Usage":"Used",
+            "Reason":"Unscheduled"
       },
       [...]
    }
@@ -918,6 +938,8 @@ It is possible to process a debit card without having to submit your customer to
 |`DebitCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format.|Text|7|Yes|
 |`DebitCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
 |`DebitCard.Brand`|Card brand. For this type, always use "Elo".|Text|10|Yes|
+|`DebitCard.CardOnFile.Usage`|"First" if the card has been stored and it is your first use.<br>"Used" if the card has been stored and it has been used previously in another transaction.<br><br>**Applicable to `Provider` Cielo30 only.**|Text|-|No|
+|`DebitCard.CardOnFile.Reason`|Indicates the purpose of the card storage, in case the `Usage` field is "Used".<br><br>"Recurring" - Scheduled recurring purchase (e.g.: subscription services).<br>"Unscheduled" - Unscheduled recurring purchase (e.g.: services apps).<br>"Installments" - Installment through recurrence. <br><br> **Applicable to `Provider` Cielo30 only.**|Text|-|Conditional|
 
 #### Response
 
@@ -931,6 +953,9 @@ It is possible to process a debit card without having to submit your customer to
       "ExpirationDate": "12/2021",
       "SaveCard": false,
       "Brand": "Elo"
+      "CardOnFile":{
+        "Usage":"Used",
+        "Reason":"Unscheduled"
     },
     "AcquirerTransactionId": "10069930690009D366FA",
     "PaymentId": "21423fa4-6bcf-448a-97e0-e683fa2581ba",
@@ -963,6 +988,9 @@ It is possible to process a debit card without having to submit your customer to
       "ExpirationDate": "12/2021",
       "SaveCard": false,
       "Brand": "Elo"
+      "CardOnFile":{
+         "Usage":"Used",
+         "Reason":"Unscheduled"
     },
     "AcquirerTransactionId": "10069930690009D366FA",
     "PaymentId": "21423fa4-6bcf-448a-97e0-e683fa2581ba",
