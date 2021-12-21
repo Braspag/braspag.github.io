@@ -9,6 +9,9 @@ sort_order: 6
 hub_visible: false
 tags:
   - 6. Soluções para Marketplace
+language_tabs:
+  json: JSON
+  
 ---
 
 # Conciliação no Split de Pagamentos
@@ -171,7 +174,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `FinalForecastedDate`          | Intervalo de data previsto de pagamento final para busca.                            | Data    | Não*       | 
 | `InitialSettlementDate`        | Intervalo de data de pagamento efetivo inicial para busca.                           | Data    | Não*       |  
 | `FinalSettlementDate`          | Intervalo data de pagamento efetivo final para busca.                                | Data    | Não*       | 
-| `Brand`                        | Bandeira que deve ser considerada na consulta (Exemplo: Visa). Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui recebíveis. *Consulte as bandeiras aceitas na tabela [Bandeiras](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#bandeiras)*                      | String  | Não        |  
+| `Brand`                        | Bandeira que deve ser considerada na consulta. Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui recebíveis. Valores possíveis:<br>Visa;<br>Master;<br>Amex;<br>Elo;<br>Diners;<br>Discover;<br>Hipercard.| String  | Não        | 
 | `Product`                      | Produto que deve ser considerado na consulta (CreditCard, DebitCard ou BankSlip). Por padrão, são retornadas informações de todas as bandeiras na qual o solicitante possui recebíveis.                                                                    | String  | Não        |
 | `MerchantId`                   | Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro| Guid   | Não|  
 | `Anticipation`                 | Flag para informar se deseja consultar apenas informações referentes à antecipação    | Boolean    | Não        |  
@@ -194,11 +197,13 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
     "PageSize": 100,
     "PageCount": 5,
     "Items": [
-        {
+        {   
+            "ReceivableId": "d1ece5e7-f996-40eb-8825-8e3f7decba41",
             "DocumentNumber": "000000000000",
             "ForecastDate": "2021-11-16",
             "Product": "CreditCard",
             "Brand": "Visa",
+            "TotalAmount": 15055,
             "ReceivableAmount": 0,
             "AnticipatedAmount": 450,
             "Settlements": [
@@ -209,6 +214,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
                     "Amount": 4055,
                     "Instruction": {
                         "Ispb": "1",
+                        "CompeCode": "001",
                         "AgencyNumber": "00001",
                         "AgencyDigit": "1",
                         "AccountNumber": "353535",
@@ -224,7 +230,8 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
                     "Anticipated": false,
                     "Amount": 100,
                     "Instruction": {
-                        "Ispb": "1",
+                        "Ispb": 1,
+                        "CompeCode": "001",
                         "AgencyNumber": "00001",
                         "AgencyDigit": "1",
                         "AccountNumber": "353535",
@@ -245,7 +252,8 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
                     },
                     "SettlementStatus": "Settled",        
                     "Instruction": {
-                        "Ispb": "1",
+                        "Ispb": 1,
+                        "CompeCode": "001",
                         "AgencyNumber": "00001",
                         "AgencyDigit": "1",
                         "AccountNumber": "353535",
@@ -274,7 +282,8 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
                     },
                     "SettlementStatus": "Settled",         
                     "Instruction": {
-                        "Ispb": "1",
+                        "Ispb": 1,
+                        "CompeCode": "001",
                         "AgencyNumber": "00001",
                         "AgencyDigit": "1",
                         "AccountNumber": "353535",
@@ -296,19 +305,22 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `PageSize`    | Número                | Quantidade de itens máximo por página.                |
 | `PageCount`   | Número                | Quantidade de páginas.                                |
 | `Items`       | Array[Receivable]  | Lista de objetos contendo informações dos recebíveis. |
-| `Items[].DocumentNumber`   | String            | Número de documento (CPF ou CNPJ) do proprietário da unidade de recebível |
+| `Items[].ReceivableId`   | GUID           | Identificador único da UR.|
+| `Items[].DocumentNumber`   | String            | Número de documento (CPF ou CNPJ) do proprietário da unidade de recebível.|
 | `Items[].ForecastDate`     | Data              | Data prevista de pagamento. Formato YYYY-DD-MM. Ex: 2021-11-01.          |
-| `Items[].Product`          | String            | Produto. Tipos possíveis: "CreditCard", "DebitCard", "BankSlip" (boleto). |
-| `Items[].Brand`            | String            | Bandeira do cartão ou banco emissor do boleto.                            |
+| `Items[].Product`          | String            | Produto. Tipos possíveis: "CreditCard", "DebitCard", "BankSlip" (boleto).|
+| `Items[].Brand`            | String            | Bandeira do cartão ou banco emissor do boleto.                           |
+| `Items[].TotalAmount` | decimal           | Valor Total das liquidações da UR. Ex R$1,00 = 100.                           |
 | `Items[].ReceivableAmount` | Número           | Valor em centavos, podendo ser negativo. Ex.: R$1,00 = 100.               |
 | `Items[].AnticipatedAmount`| Número           | Valor em centavos antecipado líquido da Unidade de Recebível.             |
-| `Items[].Settlements`      | Array[Settlement] | Lista de objeto contendo informações de pagamento dos recebíveis.       |
+| `Items[].Settlements`      | Array[Settlement] | Lista de objeto contendo informações de pagamento dos recebíveis.        |
 | `Items[].Settlements[].ReceivableSettlementType`                           | String  | Tipo de pagamento. Valores previstos: <br>0-Braspag<br>1-ChangeOfOwnership<br>2-LienFiduciaryAssignment<br>3-LienOthers<br>4-JudicialBlockade<br>Veja a descrição na tabela [Tipos de pagamento](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#tipos-de-pagamento).  |
 | `Items[].Settlements[].SettlementStatus`                                   | String  | Status do pagamento. Valores previstos: <br>1-Scheduled<br>2-pending<br>3-Settled<br>4-Error<br>Veja a descrição na tabela [Status do Pagamento](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#status-do-pagamento).                  |
 | `Items[].Settlements[].Anticipated`                                        | Boolean    | Flag para indicar informações referentes à antecipação.                                 |
 | `Items[].Settlements[].Amount`                                             | String  | Valor líquido a ser pago.                                                                            |
 | `Items[].Settlements[].Instruction`                                        | Objeto  | Objeto contendo as informações de pagamento efetivado ou previsto. Retorno obrigatório quando `ReceivableSettlementType` for diferente de ChangeOfOwnership (troca de titularidade).|
 | `Items[].Settlements[].Instruction.Ispb`                                   | String  | Código Ispb do banco.                                                                                     |
+| `Items[].Settlements[].Instruction.CompeCode`                              | String  | Código COMPE do banco.|
 | `Items[].Settlements[].Instruction.AgencyDigit`                            | String  | Dígito da agência bancária.                                                                               |
 | `Items[].Settlements[].Instruction.AccountNumber`                          | String  | Número da conta.                                                                                          |
 | `Items[].Settlements[].Instruction.AccountDigit`                           | String  | Dígito da conta                                                                                           |
@@ -325,13 +337,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 
 # ANEXOS
 
-## Bandeiras para consulta
-
-|Bandeiras|
-|---|
-|Visa, Master, Amex, Elo, Diners, Discover e Hipercard.|
-
-## Tipos de Pagamento
+## Tipos de pagamento
 
 |Valor                | Descrição |
 |---------------------|-----------|
@@ -341,7 +347,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | 3-LienOthers        | Caso o pagamento seja resultado de aplicação de efeito de contrato do tipo "Ônus - Outros" |
 | 4-JudicialBlockade  | Caso o pagamento seja resultado de aplicação de efeito de contrato do tipo "Bloqueio judicial".|
 
-## Status do Pagamento
+## Status do pagamento
 
 | Valor       | Descrição |
 |-------------|-----------|
