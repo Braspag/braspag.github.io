@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2021-12-21T14:21:25+00:00</updated>
+    <updated>2021-12-21T14:22:51+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -15879,14 +15879,14 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;“First” if the card has been stored and it is your first use.&lt;br /&gt;“Used” if the card has been stored and it has been used previously in another transaction.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 only.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;“First” if the card has been stored and it is your first use.&lt;br /&gt;“Used” if the card has been stored and it has been used previously in another transaction.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo only.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Indicates the purpose of the card storage, in case the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Usage&lt;/code&gt; field is “Used”.&lt;br /&gt;“Recurring” - Scheduled recurring purchase (e.g.: subscription services).&lt;br /&gt;“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).&lt;br /&gt;“Installments” - Installment through recurrence. &lt;br /&gt; &lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 only.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Indicates the purpose of the card storage, in case the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Usage&lt;/code&gt; field is “Used”.&lt;br /&gt;“Recurring” - Scheduled recurring purchase (e.g.: subscription services).&lt;br /&gt;“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).&lt;br /&gt;“Installments” - Installment through recurrence. &lt;br /&gt; &lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo only.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Conditional&lt;/td&gt;
@@ -16404,14 +16404,14 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DebitCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;“First” if the card has been stored and it is your first use.&lt;br /&gt;“Used” if the card has been stored and it has been used previously in another transaction.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 only.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;“First” if the card has been stored and it is your first use.&lt;br /&gt;“Used” if the card has been stored and it has been used previously in another transaction.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo only.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DebitCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Indicates the purpose of the card storage, in case the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Usage&lt;/code&gt; field is “Used”.&lt;br /&gt;“Recurring” - Scheduled recurring purchase (e.g.: subscription services).&lt;br /&gt;“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).&lt;br /&gt;“Installments” - Installment through recurrence. &lt;br /&gt; &lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 only.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Indicates the purpose of the card storage, in case the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Usage&lt;/code&gt; field is “Used”.&lt;br /&gt;“Recurring” - Scheduled recurring purchase (e.g.: subscription services).&lt;br /&gt;“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).&lt;br /&gt;“Installments” - Installment through recurrence. &lt;br /&gt; &lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo only.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Conditional&lt;/td&gt;
@@ -16777,14 +16777,14 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DebitCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;“First” if the card has been stored and it is your first use.&lt;br /&gt;“Used” if the card has been stored and it has been used previously in another transaction.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 only.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;“First” if the card has been stored and it is your first use.&lt;br /&gt;“Used” if the card has been stored and it has been used previously in another transaction.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo only.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DebitCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Indicates the purpose of the card storage, in case the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Usage&lt;/code&gt; field is “Used”.&lt;br /&gt;“Recurring” - Scheduled recurring purchase (e.g.: subscription services).&lt;br /&gt;“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).&lt;br /&gt;“Installments” - Installment through recurrence. &lt;br /&gt; &lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 only.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Indicates the purpose of the card storage, in case the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Usage&lt;/code&gt; field is “Used”.&lt;br /&gt;“Recurring” - Scheduled recurring purchase (e.g.: subscription services).&lt;br /&gt;“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).&lt;br /&gt;“Installments” - Installment through recurrence. &lt;br /&gt; &lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo only.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Conditional&lt;/td&gt;
