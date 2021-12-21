@@ -48,7 +48,18 @@
 
     <body>
         
-            <div class="content-container no-dark-box">
+            <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        });
         
             <div id="submenu">
                 <div class="submenu-container">
@@ -357,7 +368,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Brand</code></td>
-      <td>Bandeira que deve ser considerada na consulta (Exemplo: Visa). Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui recebíveis. <em>Consulte as bandeiras aceitas na tabela <a href="https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#bandeiras">Bandeiras</a></em></td>
+      <td>Bandeira que deve ser considerada na consulta. Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui recebíveis. Valores possíveis:<br />Visa;<br />Master;<br />Amex;<br />Elo;<br />Diners;<br />Discover;<br />Hipercard.</td>
       <td>String</td>
       <td>Não</td>
     </tr>
@@ -411,11 +422,13 @@
     </span><span class="nl">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
+        </span><span class="p">{</span><span class="w">   
+            </span><span class="nl">"ReceivableId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d1ece5e7-f996-40eb-8825-8e3f7decba41"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"ForecastDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-16"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TotalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15055</span><span class="p">,</span><span class="w">
             </span><span class="nl">"ReceivableAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="nl">"AnticipatedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Settlements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -426,6 +439,7 @@
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4055</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Instruction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="nl">"Ispb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"CompeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"353535"</span><span class="p">,</span><span class="w">
@@ -441,7 +455,8 @@
                     </span><span class="nl">"Anticipated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Instruction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"Ispb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Ispb"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"CompeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"353535"</span><span class="p">,</span><span class="w">
@@ -462,7 +477,8 @@
                     </span><span class="p">},</span><span class="w">
                     </span><span class="nl">"SettlementStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Settled"</span><span class="p">,</span><span class="w">        
                     </span><span class="nl">"Instruction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"Ispb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Ispb"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"CompeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"353535"</span><span class="p">,</span><span class="w">
@@ -491,7 +507,8 @@
                     </span><span class="p">},</span><span class="w">
                     </span><span class="nl">"SettlementStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Settled"</span><span class="p">,</span><span class="w">         
                     </span><span class="nl">"Instruction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"Ispb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Ispb"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"CompeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"353535"</span><span class="p">,</span><span class="w">
@@ -537,9 +554,14 @@
       <td>Lista de objetos contendo informações dos recebíveis.</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ReceivableId</code></td>
+      <td>GUID</td>
+      <td>Identificador único da UR.</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].DocumentNumber</code></td>
       <td>String</td>
-      <td>Número de documento (CPF ou CNPJ) do proprietário da unidade de recebível</td>
+      <td>Número de documento (CPF ou CNPJ) do proprietário da unidade de recebível.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].ForecastDate</code></td>
@@ -555,6 +577,11 @@
       <td><code class="language-plaintext highlighter-rouge">Items[].Brand</code></td>
       <td>String</td>
       <td>Bandeira do cartão ou banco emissor do boleto.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].TotalAmount</code></td>
+      <td>decimal</td>
+      <td>Valor Total das liquidações da UR. Ex R$1,00 = 100.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].ReceivableAmount</code></td>
@@ -600,6 +627,11 @@
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction.Ispb</code></td>
       <td>String</td>
       <td>Código Ispb do banco.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction.CompeCode</code></td>
+      <td>String</td>
+      <td>Código COMPE do banco.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Settlements[].Instruction.AgencyDigit</code></td>
@@ -671,22 +703,7 @@
 
 <h1 id="anexos">ANEXOS</h1>
 
-<h2 id="bandeiras-para-consulta">Bandeiras para consulta</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Bandeiras</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Visa, Master, Amex, Elo, Diners, Discover e Hipercard.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tipos-de-pagamento">Tipos de Pagamento</h2>
+<h2 id="tipos-de-pagamento">Tipos de pagamento</h2>
 
 <table>
   <thead>
@@ -719,7 +736,7 @@
   </tbody>
 </table>
 
-<h2 id="status-do-pagamento">Status do Pagamento</h2>
+<h2 id="status-do-pagamento">Status do pagamento</h2>
 
 <table>
   <thead>
@@ -849,6 +866,50 @@
         <script src="https://braspag.github.io//assets/js/search.js"></script>
         
 
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://braspag.github.io//assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json", ]);
+            });
+        </script>
         
 
         <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
