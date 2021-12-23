@@ -324,11 +324,327 @@
 
 <p>Você deverá enviar token de acesso retornado pela API de autenticação (<code class="language-plaintext highlighter-rouge">access_token</code>) em toda requisição à API Split como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos, e é necessário gerar um novo token toda vez que a validade expirar.</p>
 
+<h1 id="consulta-de-agenda">Consulta de Agenda</h1>
+
+<p>A API Split permite consultar a agenda de acordo com os parâmetros data prevista de pagamento, data de lançamento na agenda, bandeira, produto, MerchantId, ReceivableId e índice paginação.</p>
+
+<h2 id="requisição-1">Requisição</h2>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/v1/ReconciliationSchedules</span></aside>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">InitialForecastedDate</code></td>
+      <td>Data inicial prevista de pagamento para busca.</td>
+      <td>Date</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FinalForecastedDate</code></td>
+      <td>Data final prevista de pagamento para busca.</td>
+      <td>Date</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">InitialScheduleDate</code></td>
+      <td>Data inicial de lançamento de informação na agenda.</td>
+      <td>Date</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FinalScheduleDate</code></td>
+      <td>Data final de lançamento de informação na agenda.</td>
+      <td>Date</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Brand</code></td>
+      <td>Bandeira  que deve ser considerada na consulta. Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui agenda.</td>
+      <td>String</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Product</code></td>
+      <td>Produto que deve ser considerado na consulta (“CreditCard” para cartão de crédito, “DebitCard” para cartão de débito ou “BankSlip” para boleto). Por padrão, são retornadas informações de todos os produtos na qual o solicitante possui agenda.</td>
+      <td>String</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro.</td>
+      <td>Guid</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReceivableId</code></td>
+      <td>Id do Receivable que deseja consultar as informações. Serão retornadas informações referentes ao identificador do recebível.</td>
+      <td>Guid</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
+      <td>Índice da paginação. É necessário para percorrer as páginas do resultado.</td>
+      <td>Número</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*É obrigatório passar pelo menos um intervalo de datas, com no máximo 31 dias entre a data inicial e a data final.</p>
+
+<aside class="notice">Ao passar o parâmetro `ReceivableId`, não será necessário passar nenhum outro parâmetro.</aside>
+
+<h2 id="resposta-1">Resposta</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">   
+    </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-16"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ForecastedNetAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ItemSchedules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"ScheduleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b3f1253e-0c42-442b-9280-358814d2e0fa"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d910543a-d8e7-4af5-82ea-69c6ef3c53c6"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"MerchantType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"master"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Razão Social Ltda"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome Fantasia da Minha Loja"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"ScheduleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ScheduleTransactionEvent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"InstalmentNetAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"PaymentDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26052f1c-78c7-4199-9768-0548cf99de66"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"CaptureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-01"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AuthorizationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-01 00:00:00"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AffiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12356ABCDE"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99999999999"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ForecastedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-16"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ForecastedNetAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ItemSchedules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"ScheduleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33f1253e-0c42-442b-9280-358814d2e0fb"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"MerchantDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d910543a-d8e7-4af5-82ea-69c6ef3c53c7"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"MerchantType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinate"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Razão Social Ltda"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome Fantasia da Minha Loja"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"ScheduleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ScheduleTransactionEvent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"InstalmentNetAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"PaymentDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26052f1c-78c7-4199-9768-0548cf99de66"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"CaptureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-01"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AuthorizationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-01 00:00:00"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"AffiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12356ABCDE"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PageCount</code></td>
+      <td>Número</td>
+      <td>Quantidade de páginas.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
+      <td>Número</td>
+      <td>Página atual.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
+      <td>Número</td>
+      <td>Quantidade máxima de itens por página.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items</code></td>
+      <td>Array[ScheduleReport]</td>
+      <td>Lista de objetos contendo informações de agenda, separada por produto e bandeira.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].DocumentNumber</code></td>
+      <td>string</td>
+      <td>Número do documento (CPF/CNPJ) do lojista.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ForecastedDate</code></td>
+      <td>Date</td>
+      <td>Data prevista de pagamento. Formato YYYY-dd-MM. Ex: 2021-11-01.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Product</code></td>
+      <td>String</td>
+      <td>Produto. Tipos possíveis: “CreditCard” para cartão de crédito, “DebitCard” para cartão de débito ou “BankSlip” para boleto.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Brand</code></td>
+      <td>String</td>
+      <td>Bandeira do cartão ou banco emissor do boleto. Tipos possíveis: <em>Visa, Master, Amex, Elo, Diners, Discover e Hipercard.</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ForecastedNetAmount</code></td>
+      <td>Número</td>
+      <td>Valor em centavos, podendo ser negativo. Ex R$1,00 = 100,  referente ao somatório dos valores líquidos de agenda.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules</code></td>
+      <td>Array[Schedule]</td>
+      <td>Lista de objeto contendo informações de cada agenda individual.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].ScheduleId</code></td>
+      <td>GUID</td>
+      <td>Id de identificação do evento da agenda.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].MerchantDetails</code></td>
+      <td>MerchantDetails</td>
+      <td>Objeto contendo os detalhes da loja envolvida na agenda.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].MerchantDetails.MasterMerchantId</code></td>
+      <td>GUID</td>
+      <td>Id do Master. Retornado quando o Merchant for um subordinado.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].MerchantDetails.MerchantId</code></td>
+      <td>GUID</td>
+      <td>Id da loja.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].MerchantDetails.MerchantType</code></td>
+      <td>String</td>
+      <td>Tipo da loja. Valores possíveis: <em>Master</em> ou <em>Subordinate</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].MerchantDetails.CorporateName</code></td>
+      <td>String</td>
+      <td>Razão social da loja.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].MerchantDetails.FancyName</code></td>
+      <td>String</td>
+      <td>Nome fantasia da loja.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].MerchantDetails.DocumentType</code></td>
+      <td>String</td>
+      <td>Tipo de documento da loja. Tipos possíveis: <em>CNPJ</em> ou <em>CPF</em>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].ScheduleType</code></td>
+      <td>String</td>
+      <td>Tipo de Evento da Agenda. Valores possíveis:<br /><strong>Crédito:</strong><br /><em>Credit<br />FeeCredit<br />RefundCredit<br />ChargebackCredit<br />AntiFraudFeeCredit<br />AdjustmentCredit<br />ChargebackReversalCredit<br />AnticipationCredit<br />AnticipationCommissionCredit<br />AnticipatedInstallmentsCredit<br />RefundReversalCredit<br />ReversalFeeCredit<br />BankSlipFeeCredit<br />BalanceCompensationCredit<br />ReversalAntiFraudFeeCredit<br />ReversalBankSlipFeeCredit<br />ScheduleBalanceCredit</em><br /><strong>Débito:</strong><br /><em>Debit<br />FeeDebit<br />RefundDebit<br />ChargebackDebit<br />AntiFraudFeeDebit<br />AdjustmentDebit<br />ChargebackReversalDebit<br />AnticipationCommissionDebit<br />AnticipatedInstallmentsDebit<br />RefundReversalDebit<br />ReversalPayoutDebit<br />ReversalFeeDebit<br />BankSlipFeeDebit<br />BalanceCompensationDebit<br />ReversalAntiFraudFeeDebit<br />ReversalBankSlipFeeDebit<br />AnticipationDebit<br />CompensationBetweenSamePaymentArrangementDebit<br />ScheduleBalanceDebit</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].ScheduleTransactionEvent</code></td>
+      <td>string</td>
+      <td>Tipo do evento transacional de agenda. Valores possíveis :<br /><em>Adjustment<br />Anticipation<br />Antifraud<br />Chargeback<br />ChargebackReversal<br />DebitBalanceAccounts<br />Refund<br />RefundReversal<br />Transaction<br />TransactionReversal</em><br /></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].InstallmentNumber</code></td>
+      <td>Número</td>
+      <td>Número da parcela agendada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].InstalmentNetAmount</code></td>
+      <td>Número</td>
+      <td>Valor líquido da parcela, podendo ser negativo. Ex: -R$100 =-100.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].PaymentDetails</code></td>
+      <td>PaymentDetails</td>
+      <td>Objeto contendo detalhes do pagamento (transação ou pedido) ao qual a agenda se refere.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].PaymentDetails.PaymentId</code></td>
+      <td>GUID</td>
+      <td>Id do pagamento (transação) devolvido pelo split.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].PaymentDetails.Installments</code></td>
+      <td>Número</td>
+      <td>Número total de parcelas da transação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].PaymentDetails.CaptureDate</code></td>
+      <td>Data</td>
+      <td>Data em que a transação foi capturada, isto é, o dia em que o dinheiro foi debitado do cartão/conta do comprador; ou em que o pagamento do boleto foi confirmado. Ex: 2021-01-01.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].PaymentDetails.AuthorizationDate</code></td>
+      <td>DateTime</td>
+      <td>Data e hora em que a transação foi autorizada. Significa o momento em que a operadora do cartão reservou o saldo do cartão do comprador, mas esse valor não necessariamente foi debitado (o débito acontece na captura como explicado no campo anterior). Ex: 2021-01-01 00:00:00.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].PaymentDetails.Nsu</code></td>
+      <td>String</td>
+      <td>Número sequencial único retornado pela adquirente após a autorização da transação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].PaymentDetails.AffiliationCode</code></td>
+      <td>String</td>
+      <td>Número de filiação da loja junto à adquirente.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].PaymentDetails.OrderId</code></td>
+      <td>String</td>
+      <td>Número do pedido da loja.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="consulta-de-unidade-de-recebíveis">Consulta de Unidade de Recebíveis</h1>
 
 <p>A API Split permite consultar as <strong>unidades de recebíveis</strong> de acordo com alguns parâmetros, como intervalo de data prevista de pagamento, intervalo de data de pagamento efetivo, bandeira, produto, MerchantId, antecipação, todos os subordinados e número da página.</p>
 
-<h2 id="requisição-1">Requisição</h2>
+<h2 id="requisição-2">Requisição</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/v1/receivables</span></aside>
 
@@ -415,7 +731,7 @@
   <li>A data final precisa ser no máximo D-1 dia útil em relação a data atual ou maior que a data atual.</li>
 </ul>
 
-<h2 id="resposta-1">Resposta</h2>
+<h2 id="resposta-2">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
