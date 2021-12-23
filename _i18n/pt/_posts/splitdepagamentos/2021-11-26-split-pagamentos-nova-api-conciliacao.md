@@ -160,6 +160,139 @@ grant_type=client_credentials
 
 Você deverá enviar token de acesso retornado pela API de autenticação (`access_token`) em toda requisição à API Split como uma chave de autorização. O `access_token` possui uma validade de 20 minutos, e é necessário gerar um novo token toda vez que a validade expirar.
 
+# Consulta de Agenda
+
+A API Split permite consultar a agenda de acordo com os parâmetros data prevista de pagamento, data de lançamento na agenda, bandeira, produto, MerchantId, ReceivableId e índice paginação.
+
+## Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/v1/ReconciliationSchedules</span></aside>
+
+| Parâmetro               | Descrição | Tipo | Obrigatório |
+|---|---|---|---|  
+| `InitialForecastedDate` | Data inicial prevista de pagamento para busca. | Date   | Não*        |
+| `FinalForecastedDate`   | Data final prevista de pagamento para busca.   | Date   | Não*        |
+| `InitialScheduleDate`   | Data inicial de lançamento de informação na agenda.    | Date   | Não*        |
+| `FinalScheduleDate`     | Data final de lançamento de informação na agenda.    | Date   | Não*        |
+ `Brand`                  | Bandeira  que deve ser considerada na consulta. Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui agenda. | String | Não         |
+| `Product`               | Produto que deve ser considerado na consulta ("CreditCard" para cartão de crédito, "DebitCard" para cartão de débito ou "BankSlip" para boleto). Por padrão, são retornadas informações de todos os produtos na qual o solicitante possui agenda. | String | Não         |
+| `MerchantId`            | Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro. | Guid   | Não         |
+|`ReceivableId`            | Id do Receivable que deseja consultar as informações. Serão retornadas informações referentes ao identificador do recebível.| Guid   | Não         |
+| `PageIndex`             | Índice da paginação. É necessário para percorrer as páginas do resultado. | Número | Não         |
+
+*É obrigatório passar pelo menos um intervalo de datas, com no máximo 31 dias entre a data inicial e a data final.
+
+<aside class="notice">Ao passar o parâmetro `ReceivableId`, não será necessário passar nenhum outro parâmetro.</aside>
+
+## Resposta
+
+```json
+{   
+    "PageCount": 1,
+    "PageIndex": 1,
+    "PageSize": 50,
+    "Items": [
+        {
+            "DocumentNumber": "000000000000",
+            "ForecastedDate": "2021-11-16",
+            "Product": "CreditCard",
+            "Brand": "Visa",
+            "ForecastedNetAmount": 500,
+            "ItemSchedules": [
+                {
+                    "ScheduleId": "b3f1253e-0c42-442b-9280-358814d2e0fa",
+                    "MerchantDetails": {
+                        "MerchantId": "d910543a-d8e7-4af5-82ea-69c6ef3c53c6",
+                        "MerchantType": "master",
+                        "CorporateName": "Razão Social Ltda",
+                        "FancyName": "Nome Fantasia da Minha Loja",
+                        "DocumentType": "CPF"
+                    },
+                    "ScheduleType": "Credit",
+                    "ScheduleTransactionEvent": "Transaction",
+                    "InstallmentNumber": 1,
+                    "InstalmentNetAmount": -100,
+                    "PaymentDetails": {
+                        "PaymentId": "26052f1c-78c7-4199-9768-0548cf99de66",
+                        "Installments": 10,
+                        "CaptureDate": "2021-01-01",
+                        "AuthorizationDate": "2021-01-01 00:00:00",
+                        "Nsu": "123456",
+                        "AffiliationCode": "1234567890",
+                        "OrderId": "12356ABCDE"
+                    }
+                }
+            ]
+        },
+        {
+            "DocumentNumber": "99999999999",
+            "ForecastedDate": "2021-11-16",
+            "Product": "CreditCard",
+            "Brand": "Visa",
+            "ForecastedNetAmount": 500,
+            "ItemSchedules": [
+                {
+                    "ScheduleId": "33f1253e-0c42-442b-9280-358814d2e0fb",
+                    "MerchantDetails": {
+                        "MerchantId": "d910543a-d8e7-4af5-82ea-69c6ef3c53c7",
+                        "MerchantType": "Subordinate",
+                        "CorporateName": "Razão Social Ltda",
+                        "FancyName": "Nome Fantasia da Minha Loja",
+                        "DocumentType": "CPF"
+                    },
+                    "ScheduleType": "Credit",
+                    "ScheduleTransactionEvent": "Transaction",
+                    "InstallmentNumber": 1,
+                    "InstalmentNetAmount": -100,
+                    "PaymentDetails": {
+                        "PaymentId": "26052f1c-78c7-4199-9768-0548cf99de66",
+                        "Installments": 10,
+                        "CaptureDate": "2021-01-01",
+                        "AuthorizationDate": "2021-01-01 00:00:00",
+                        "Nsu": "123456",
+                        "AffiliationCode": "1234567890",
+                        "OrderId": "12356ABCDE"
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+
+| Propriedade  | Tipo      | Descrição |
+|---|---|---|
+| `PageCount`  | Número    | Quantidade de páginas.  |
+| `PageIndex`  | Número    | Página atual. |
+| `PageSize`   | Número    | Quantidade máxima de itens por página.  |
+| `Items`      | Array[ScheduleReport] | Lista de objetos contendo informações de agenda, separada por produto e bandeira.  |
+| `Items[].DocumentNumber`   | string     | Número do documento (CPF/CNPJ) do lojista.   |
+| `Items[].ForecastedDate`   | Date   | Data prevista de pagamento. Formato YYYY-dd-MM. Ex: 2021-11-01.   |
+| `Items[].Product`   | String   | Produto. Tipos possíveis: "CreditCard" para cartão de crédito, "DebitCard" para cartão de débito ou "BankSlip" para boleto. |
+| `Items[].Brand`     | String   | Bandeira do cartão ou banco emissor do boleto. Tipos possíveis: *Visa, Master, Amex, Elo, Diners, Discover e Hipercard.*  |
+| `Items[].ForecastedNetAmount`  | Número   | Valor em centavos, podendo ser negativo. Ex R$1,00 = 100,  referente ao somatório dos valores líquidos de agenda.  |
+| `Items[].ItemSchedules`   | Array[Schedule]  | Lista de objeto contendo informações de cada agenda individual. |
+| `Items[].ItemSchedules[].ScheduleId`                       | GUID                  | Id de identificação do evento da agenda.  |
+| `Items[].ItemSchedules[].MerchantDetails`                  | MerchantDetails       | Objeto contendo os detalhes da loja envolvida na agenda.  |
+| `Items[].ItemSchedules[].MerchantDetails.MasterMerchantId` | GUID                  | Id do Master. Retornado quando o Merchant for um subordinado. |
+| `Items[].ItemSchedules[].MerchantDetails.MerchantId`       | GUID                  | Id da loja.  |
+| `Items[].ItemSchedules[].MerchantDetails.MerchantType`     | String                | Tipo da loja. Valores possíveis: *Master* ou *Subordinate* |
+| `Items[].ItemSchedules[].MerchantDetails.CorporateName`    | String                | Razão social da loja.  |
+| `Items[].ItemSchedules[].MerchantDetails.FancyName`        | String                | Nome fantasia da loja. |
+| `Items[].ItemSchedules[].MerchantDetails.DocumentType`     | String                | Tipo de documento da loja. Tipos possíveis: *CNPJ* ou *CPF*.   |
+| `Items[].ItemSchedules[].ScheduleType`                     | String                | Tipo de Evento da Agenda. Valores possíveis:<br><br>**Crédito:**<br><br>*Credit<br>FeeCredit<br>RefundCredit<br>ChargebackCredit<br>AntiFraudFeeCredit<br>AdjustmentCredit<br>ChargebackReversalCredit<br>AnticipationCredit<br>AnticipationCommissionCredit<br>AnticipatedInstallmentsCredit<br>RefundReversalCredit<br>ReversalFeeCredit<br>BankSlipFeeCredit<br>BalanceCompensationCredit<br>ReversalAntiFraudFeeCredit<br>ReversalBankSlipFeeCredit<br>ScheduleBalanceCredit*<br><br>**Débito:**<br><br>*Debit<br>FeeDebit<br>RefundDebit<br>ChargebackDebit<br>AntiFraudFeeDebit<br>AdjustmentDebit<br>ChargebackReversalDebit<br>AnticipationCommissionDebit<br>AnticipatedInstallmentsDebit<br>RefundReversalDebit<br>ReversalPayoutDebit<br>ReversalFeeDebit<br>BankSlipFeeDebit<br>BalanceCompensationDebit<br>ReversalAntiFraudFeeDebit<br>ReversalBankSlipFeeDebit<br>AnticipationDebit<br>CompensationBetweenSamePaymentArrangementDebit<br>ScheduleBalanceDebit* |  
+| `Items[].ItemSchedules[].ScheduleTransactionEvent`         | string                | Tipo do evento transacional de agenda. Valores possíveis :<br>*Adjustment<br>Anticipation<br>Antifraud<br>Chargeback<br>ChargebackReversal<br>DebitBalanceAccounts<br>Refund<br>RefundReversal<br>Transaction<br>TransactionReversal*<br>|
+| `Items[].ItemSchedules[].InstallmentNumber`                | Número                | Número da parcela agendada.  |
+| `Items[].ItemSchedules[].InstalmentNetAmount`              | Número                | Valor líquido da parcela, podendo ser negativo. Ex: -R$100 =-100.   |
+| `Items[].ItemSchedules[].PaymentDetails`                   | PaymentDetails        | Objeto contendo detalhes do pagamento (transação ou pedido) ao qual a agenda se refere.  |
+| `Items[].ItemSchedules[].PaymentDetails.PaymentId`         | GUID                  | Id do pagamento (transação) devolvido pelo split.  |
+| `Items[].ItemSchedules[].PaymentDetails.Installments`      | Número                | Número total de parcelas da transação.   |
+| `Items[].ItemSchedules[].PaymentDetails.CaptureDate`       | Data                  | Data em que a transação foi capturada, isto é, o dia em que o dinheiro foi debitado do cartão/conta do comprador; ou em que o pagamento do boleto foi confirmado. Ex: 2021-01-01.   |
+| `Items[].ItemSchedules[].PaymentDetails.AuthorizationDate` | DateTime              | Data e hora em que a transação foi autorizada. Significa o momento em que a operadora do cartão reservou o saldo do cartão do comprador, mas esse valor não necessariamente foi debitado (o débito acontece na captura como explicado no campo anterior). Ex: 2021-01-01 00:00:00.  |
+| `Items[].ItemSchedules[].PaymentDetails.Nsu`               | String                | Número sequencial único retornado pela adquirente após a autorização da transação.  |
+| `Items[].ItemSchedules[].PaymentDetails.AffiliationCode`   | String                | Número de filiação da loja junto à adquirente.  |
+| `Items[].ItemSchedules[].PaymentDetails.OrderId`           | String                | Número do pedido da loja. |
+
 # Consulta de Unidade de Recebíveis
 
 A API Split permite consultar as **unidades de recebíveis** de acordo com alguns parâmetros, como intervalo de data prevista de pagamento, intervalo de data de pagamento efetivo, bandeira, produto, MerchantId, antecipação, todos os subordinados e número da página.
