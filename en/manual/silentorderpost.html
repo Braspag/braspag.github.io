@@ -457,28 +457,32 @@
   </thead>
   <tbody>
     <tr>
-      <td>accessToken</td>
+      <td><code class="language-plaintext highlighter-rouge">accessToken</code></td>
       <td>Access Token obtained via Braspag Authentication API</td>
     </tr>
     <tr>
-      <td>environment</td>
+      <td><code class="language-plaintext highlighter-rouge">environment</code></td>
       <td><strong>sandbox</strong> or <strong>production</strong></td>
     </tr>
     <tr>
-      <td>language</td>
+      <td><code class="language-plaintext highlighter-rouge">language</code></td>
       <td><strong>PT</strong> or <strong>EN</strong> or <strong>ES</strong></td>
     </tr>
     <tr>
-      <td>enableBinQuery</td>
+      <td><code class="language-plaintext highlighter-rouge">enableBinQuery</code></td>
       <td><strong>true</strong> if you want to enable BIN Query (returns card characteristics). <strong>false</strong> otherwise.</td>
     </tr>
     <tr>
-      <td>enableVerifyCard</td>
+      <td><code class="language-plaintext highlighter-rouge">enableVerifyCard</code></td>
       <td><strong>true</strong> if you want to enable ZeroAuth (returns if the card is valid or not). <strong>false</strong> otherwise.</td>
     </tr>
     <tr>
-      <td>enableTokenize</td>
+      <td><code class="language-plaintext highlighter-rouge">enableTokenize</code></td>
       <td><strong>true</strong> if you want to save the card directly on your vault in the Cartão Protegido (retorn a ‘cardToken’ instead of a ‘paymentToken’). <strong>false</strong> otherwise.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cvvRequired</code></td>
+      <td>“false” (unables CVV as mandatory) / “true” (CVV is mandatory).</td>
     </tr>
   </tbody>
 </table>
@@ -490,56 +494,99 @@
     <tr>
       <th>Property</th>
       <th>Description</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>PaymentToken</td>
+      <td><code class="language-plaintext highlighter-rouge">PaymentToken</code></td>
       <td>Payment Token in the Format of a GUID (36)</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>CardToken</td>
+      <td><code class="language-plaintext highlighter-rouge">CardToken</code></td>
       <td>Permanent token to be used on a payment request on a GUID format (36) Obs.: Only works if ‘enableTokenize’ is <strong>true</strong></td>
+      <td> </td>
     </tr>
     <tr>
-      <td>brand</td>
+      <td><code class="language-plaintext highlighter-rouge">brand</code></td>
       <td>Returned when enableBinQuery option is <strong>true</strong>. Card Brand Name (Visa, Master, Bond, Amex, Diners, JCB, Hipercard)</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>forerignCard</td>
+      <td><code class="language-plaintext highlighter-rouge">forerignCard</code></td>
       <td>Returned when enableBinQuery option is <strong>true</strong>. The field returns <strong>true</strong> if it is a card issued outside Brazil. <strong>false</strong> otherwise</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>binQueryReturnCode</td>
+      <td><code class="language-plaintext highlighter-rouge">binQueryReturnCode</code></td>
       <td>Returned when enableBinQuery option is <strong>true</strong>. “00” if BIN parsing is successful.</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>binQueryReturnMessage</td>
+      <td><code class="language-plaintext highlighter-rouge">binQueryReturnMessage</code></td>
       <td>Returned when enableBinQuery option is <strong>true</strong>. E.g. “Authorized Transaction” if BIN analysis succeeds</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>VerifyCardStatus</td>
+      <td><code class="language-plaintext highlighter-rouge">VerifyCardStatus</code></td>
       <td>Returned when enableVerifyCard option is <strong>true</strong>. Invalid Card 0; 1-Valid Card; 99-Unknown Situation</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>VerifyCardReturnCode</td>
+      <td><code class="language-plaintext highlighter-rouge">VerifyCardReturnCode</code></td>
       <td>Returned when enableVerifyCard option is <strong>true</strong>. Zero Auth query code returned by the provider.</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>BinQueryReturnMessage</td>
+      <td><code class="language-plaintext highlighter-rouge">BinQueryReturnMessage</code></td>
       <td>Returned when enableBinQuery option is <strong>true</strong>. This is the same code returned by the provider during a standard authorization. E.g.: Cielo30 provider code “00” means validation success</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>BinQueryReturnMessage</td>
+      <td><code class="language-plaintext highlighter-rouge">BinQueryReturnMessage</code></td>
       <td>Returned when enableBinQuery option is <strong>true</strong>. E.g. “Authorized Transaction”</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>CardBin</td>
+      <td><code class="language-plaintext highlighter-rouge">CardBin</code></td>
       <td>Returned when enableBinQuery option is <strong>true</strong>. E.g. “455187”</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>CardLast4Digits</td>
+      <td><code class="language-plaintext highlighter-rouge">CardLast4Digits</code></td>
       <td>Returned when enableBinQuery option is <strong>true</strong>. E.g. “0181”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Issuer</code></td>
+      <td>Returns the card issuer.</td>
+      <td>Returned when <em>enableBinQuery</em> is “true”. Available for Cielo 3.0 only.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">IssuerCode</code></td>
+      <td>Returns the card issuer code.</td>
+      <td>Returned when <em>enableBinQuery</em> is “true”. Available for Cielo 3.0 only.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardType</code></td>
+      <td>Returns the card type, E.g.: Credit, Debit, Multiple, Voucher etc.</td>
+      <td>Returned when <em>enableBinQuery</em> is “true”. Available for Cielo 3.0 only.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VerifyCardReturnCode</code></td>
+      <td>It is the same code returned by the provider during a standard authorization. E.g.: code “00” for provider Cielo30 means succesful validation.</td>
+      <td>Returned when <em>enableBinQuery</em> is “true”. Available for Cielo 3.0 only.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VerifyCardReturnMessage</code></td>
+      <td>E.g.: “Transacao Autorizada”/”Authorized Transaction”.</td>
+      <td>Returned when <em>enableBinQuery</em> is “true”. Available for Cielo 3.0 only.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VerifyCardStatus</code></td>
+      <td>“0”- Invalid Card; “1”- Valid Card; “99”- Unknown Situation.</td>
+      <td>Returned when <em>enableBinQuery</em> is “true”.</td>
     </tr>
   </tbody>
 </table>
