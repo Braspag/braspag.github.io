@@ -525,7 +525,7 @@ Exemplo:
 |`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o nome do arquivo não foi enviado|
 |`Message.ModelState.ContestationRequest.Files[n].Content`|Mensagem informando que o conteúdo do arquivo não foi enviado|
 
-## Contestando um chargeback enviando o arquivo de contestação com extensão diferente de jpeg, pfg ou png
+## Contestando um chargeback enviando o arquivo de contestação com extensão diferente de jpeg, jpg, png ou pdf
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
 
