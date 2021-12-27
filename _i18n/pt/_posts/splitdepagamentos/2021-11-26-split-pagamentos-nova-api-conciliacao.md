@@ -18,7 +18,7 @@ language_tabs:
 
 A API do Split permite consultar as **unidades de recebíveis** para vendas que passaram pelo Split de Pagamentos. 
 
-> Em breve a consulta de transações e de agenda também estarão disponíveis.
+> Em breve a consulta de transações também estará disponível.
 
 # Glossário
 
