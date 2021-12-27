@@ -177,29 +177,36 @@ The establishment shall parameterize the form elements with the following classe
 
 |Property|Description|
 |-----------|---------|
-|accessToken|Access Token obtained via Braspag Authentication API|
-|environment|**sandbox** or **production**|
-|language|**PT** or **EN** or **ES**|
-|enableBinQuery|**true** if you want to enable BIN Query (returns card characteristics). **false** otherwise.|
-|enableVerifyCard|**true** if you want to enable ZeroAuth (returns if the card is valid or not). **false** otherwise.|
-|enableTokenize| **true** if you want to save the card directly on your vault in the Cartão Protegido (retorn a 'cardToken' instead of a 'paymentToken'). **false** otherwise. |
+|`accessToken`|Access Token obtained via Braspag Authentication API|
+|`environment`|**sandbox** or **production**|
+|`language`|**PT** or **EN** or **ES**|
+|`enableBinQuery`|**true** if you want to enable BIN Query (returns card characteristics). **false** otherwise.|
+|`enableVerifyCard`|**true** if you want to enable ZeroAuth (returns if the card is valid or not). **false** otherwise.|
+|`enableTokenize`| **true** if you want to save the card directly on your vault in the Cartão Protegido (retorn a 'cardToken' instead of a 'paymentToken'). **false** otherwise.|
+|`cvvRequired`| "false" (unables CVV as mandatory) / "true" (CVV is mandatory). |
 
 **SCRIPT RESPONSE**
 
 |Property|Description|
 |-----------|---------|
-|PaymentToken|Payment Token in the Format of a GUID (36)|
-|CardToken| Permanent token to be used on a payment request on a GUID format (36) Obs.: Only works if 'enableTokenize' is **true**|
-|brand|Returned when enableBinQuery option is **true**. Card Brand Name (Visa, Master, Bond, Amex, Diners, JCB, Hipercard)|
-|forerignCard|Returned when enableBinQuery option is **true**. The field returns **true** if it is a card issued outside Brazil. **false** otherwise|
-|binQueryReturnCode|Returned when enableBinQuery option is **true**. "00" if BIN parsing is successful.|
-|binQueryReturnMessage|Returned when enableBinQuery option is **true**. E.g. “Authorized Transaction” if BIN analysis succeeds|
-|VerifyCardStatus|Returned when enableVerifyCard option is **true**. Invalid Card 0; 1-Valid Card; 99-Unknown Situation|
-|VerifyCardReturnCode|Returned when enableVerifyCard option is **true**. Zero Auth query code returned by the provider.|
-|BinQueryReturnMessage|Returned when enableBinQuery option is **true**. This is the same code returned by the provider during a standard authorization. E.g.: Cielo30 provider code "00" means validation success|
-|BinQueryReturnMessage|Returned when enableBinQuery option is **true**. E.g. “Authorized Transaction”|
-|CardBin|Returned when enableBinQuery option is **true**. E.g. “455187”|
-|CardLast4Digits|Returned when enableBinQuery option is **true**. E.g. “0181”|
+|`PaymentToken`|Payment Token in the Format of a GUID (36)|
+|`CardToken`| Permanent token to be used on a payment request on a GUID format (36) Obs.: Only works if 'enableTokenize' is **true**|
+|`brand`|Returned when enableBinQuery option is **true**. Card Brand Name (Visa, Master, Bond, Amex, Diners, JCB, Hipercard)|
+|`forerignCard`|Returned when enableBinQuery option is **true**. The field returns **true** if it is a card issued outside Brazil. **false** otherwise|
+|`binQueryReturnCode`|Returned when enableBinQuery option is **true**. "00" if BIN parsing is successful.|
+|`binQueryReturnMessage`|Returned when enableBinQuery option is **true**. E.g. “Authorized Transaction” if BIN analysis succeeds|
+|`VerifyCardStatus`|Returned when enableVerifyCard option is **true**. Invalid Card 0; 1-Valid Card; 99-Unknown Situation|
+|`VerifyCardReturnCode`|Returned when enableVerifyCard option is **true**. Zero Auth query code returned by the provider.|
+|`BinQueryReturnMessage`|Returned when enableBinQuery option is **true**. This is the same code returned by the provider during a standard authorization. E.g.: Cielo30 provider code "00" means validation success|
+|`BinQueryReturnMessage`|Returned when enableBinQuery option is **true**. E.g. “Authorized Transaction”|
+|`CardBin`|Returned when enableBinQuery option is **true**. E.g. “455187”|
+|`CardLast4Digits`|Returned when enableBinQuery option is **true**. E.g. “0181”|
+|`Issuer`| Returns the card issuer. |Returned when *enableBinQuery* is "true". Available for Cielo 3.0 only. |
+|`IssuerCode`| Returns the card issuer code. |Returned when *enableBinQuery* is "true". Available for Cielo 3.0 only. |
+|`CardType`| Returns the card type, E.g.: Credit, Debit, Multiple, Voucher etc. |Returned when *enableBinQuery* is "true". Available for Cielo 3.0 only. |
+|`VerifyCardReturnCode`| It is the same code returned by the provider during a standard authorization. E.g.: code "00" for provider Cielo30 means succesful validation. |Returned when *enableBinQuery* is "true". Available for Cielo 3.0 only.  |
+|`VerifyCardReturnMessage`| E.g.: “Transacao Autorizada”/"Authorized Transaction". |Returned when *enableBinQuery* is "true". Available for Cielo 3.0 only.  |
+|`VerifyCardStatus`| "0"- Invalid Card; "1"- Valid Card; "99"- Unknown Situation. |Returned when *enableBinQuery* is "true".|
 
 ### Implementing Events
 
