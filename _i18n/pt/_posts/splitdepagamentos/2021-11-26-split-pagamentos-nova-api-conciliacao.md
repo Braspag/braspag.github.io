@@ -97,7 +97,7 @@ Considere que uma loja teve três transações no dia **31 de maio**:
 
 Os valores correspondentes a essas transações serão agrupados em Unidades de Recebíveis, respeitando as regras dos regimes de pagamento. Veja a seguir como as URs oriundas dos valores da tabela seriam compostas*:
 
-![Exemplo UR]({{ site.baseurl_root }}/images/braspag/split/exemplo-ur.png)
+![Exemplo UR]({{ site.baseurl_root }}/images/braspag/split/exemplo-ur-v2.png)
 
 *O exemplo da tabela não considerou débitos referentes a taxas.
 
