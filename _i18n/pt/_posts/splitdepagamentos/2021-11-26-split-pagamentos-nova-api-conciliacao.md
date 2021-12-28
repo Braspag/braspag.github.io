@@ -451,7 +451,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `Items[].Settlements[].SettlementStatus`                                   | String  | Status do pagamento. Valores previstos: <br>1-Scheduled<br>2-pending<br>3-Settled<br>4-Error<br>Veja a descrição na tabela [Status do Pagamento](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#status-do-pagamento).                  |
 | `Items[].Settlements[].Anticipated`                                        | Boolean    | Flag para indicar informações referentes à antecipação.                                 |
 | `Items[].Settlements[].Amount`                                             | String  | Valor líquido a ser pago.                                                                            |
-| `Items[].Settlements[].Instruction`                                        | Objeto  | Objeto contendo as informações de pagamento efetivado ou previsto. Retorno obrigatório quando `ReceivableSettlementType` for diferente de ChangeOfOwnership (troca de titularidade).|
+| `Items[].Settlements[].Instruction`                                        | Instruction  | Objeto contendo as informações de pagamento efetivado ou previsto. Retorno obrigatório quando `ReceivableSettlementType` for diferente de ChangeOfOwnership (troca de titularidade).|
 | `Items[].Settlements[].Instruction.Ispb`                                   | String  | Código Ispb do banco.                                                                                     |
 | `Items[].Settlements[].Instruction.CompeCode`                              | String  | Código COMPE do banco.|
 | `Items[].Settlements[].Instruction.AgencyDigit`                            | String  | Dígito da agência bancária.                                                                               |
@@ -460,10 +460,10 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `Items[].Settlements[].Instruction.AccountType`                            | String  | Tipo de conta. Valores possíveis:<br>1-CheckingAccount<br>2-SavingsAccount<br>3-PaymentAccount<br>4-DepositAccount<br>5-GuaranteedAccount<br>6-InvestmentAccount |
 | `Items[].Settlements[].Instruction.BankAccountDocumentNumber`              | String  | Número de documento do titular da conta (CPF ou CNPJ).                                                    |
 | `Items[].Settlements[].Instruction.BankAccountHolderName`                  | String  | Nome do titular da conta                                                                                  |
-| `Items[].Settlements[].AnticipationDetails`                                | Objeto  | Detalhes da antecipação. Obrigatório caso Anticipated= true.                                              |
+| `Items[].Settlements[].AnticipationDetails`                                | AnticipationDetails  | Detalhes da antecipação. Obrigatório caso Anticipated= true.                                              |
 | `Items[].Settlements[].AnticipationDetails.GrossAmount`                    | Número | Valor em centavos do total bruto resultado das antecipações em centavos.                                  |
 | `Items[].Settlements[].AnticipationDetails.AnticipatedFee`                 | Número | Valor em centavos do total da taxa descontado referente as antecipações.                                  |
-| `Items[].Settlements[].ChangeOfOwnershipDetails`                           | Objeto  | Detalhes da troca de titularidade. Obrigatório caso  ReceivableSettlementType = ChangeOfOwnership                   |
+| `Items[].Settlements[].ChangeOfOwnershipDetails`                           | ChangeOfOwnershipDetails  | Detalhes da troca de titularidade. Obrigatório caso  ReceivableSettlementType = ChangeOfOwnership                   |
 | `Items[].Settlements[].ChangeOfOwnershipDetails.BeneficiaryDocumentNumber` | String  | Número do documento do titular que vai receber o valor cedido na troca de titularidade.                   |
 | `Items[].Settlements[].ChangeOfOwnershipDetails.Protocol`                  | GUID    | Identificador do efeito de protocolo recebido da registradora que informou a troca de titularidade.       |
 | `Items[].Settlements[].SettlementDate`                                     | Data    | Data de pagamento.|
