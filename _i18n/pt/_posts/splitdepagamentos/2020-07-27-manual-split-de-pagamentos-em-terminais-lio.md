@@ -367,4 +367,4 @@ Os cancelamentos serão processados automaticamente pelo Split de Pagamentos.
 
 ## Agenda Financeira
 
-Utilize as informações publicadas em [Split de Pagamentos - Agenda Financeira](https://braspag.github.io//manual/split-pagamentos-api-agenda-conciliacao){:target="_blank"} para consultar as previsões e realizações de liquidação das transações.
+Utilize as informações publicadas em [Split de Pagamentos - Agenda Financeira](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao) para consultar as previsões e realizações de liquidação das transações.
