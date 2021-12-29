@@ -16,7 +16,7 @@ language_tabs:
 
 # Conciliação no Split de Pagamentos
 
-A API do Split permite consultar as **unidades de recebíveis** para vendas que passaram pelo Split de Pagamentos. 
+A API do Split permite consultar a **agenda** e as **unidades de recebíveis** para vendas que passaram pelo Split de Pagamentos. 
 
 > Em breve a consulta de transações também estará disponível.
 
