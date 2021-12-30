@@ -583,9 +583,14 @@
       <td>Tipo de Evento da Agenda. Valores possíveis:<br /><strong>Crédito:</strong><br /><em>Credit<br />FeeCredit<br />RefundCredit<br />ChargebackCredit<br />AntiFraudFeeCredit<br />AdjustmentCredit<br />ChargebackReversalCredit<br />AnticipationCredit<br />AnticipationCommissionCredit<br />AnticipatedInstallmentsCredit<br />RefundReversalCredit<br />ReversalFeeCredit<br />BankSlipFeeCredit<br />BalanceCompensationCredit<br />ReversalAntiFraudFeeCredit<br />ReversalBankSlipFeeCredit<br />ScheduleBalanceCredit</em><br /><strong>Débito:</strong><br /><em>Debit<br />FeeDebit<br />RefundDebit<br />ChargebackDebit<br />AntiFraudFeeDebit<br />AdjustmentDebit<br />ChargebackReversalDebit<br />AnticipationCommissionDebit<br />AnticipatedInstallmentsDebit<br />RefundReversalDebit<br />ReversalPayoutDebit<br />ReversalFeeDebit<br />BankSlipFeeDebit<br />BalanceCompensationDebit<br />ReversalAntiFraudFeeDebit<br />ReversalBankSlipFeeDebit<br />AnticipationDebit<br />CompensationBetweenSamePaymentArrangementDebit<br />ScheduleBalanceDebit</em></td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].ScheduleTransactionEvent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].TransactionalEventType</code></td>
       <td>string</td>
       <td>Tipo do evento transacional de agenda. Valores possíveis :<br /><em>Adjustment<br />Anticipation<br />Antifraud<br />Chargeback<br />ChargebackReversal<br />DebitBalanceAccounts<br />Refund<br />RefundReversal<br />Transaction<br />TransactionReversal</em><br /></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].TransactionalEventId</code></td>
+      <td>GUID</td>
+      <td>Id do Evento transacional.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].InstallmentNumber</code></td>
