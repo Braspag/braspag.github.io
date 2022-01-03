@@ -13,13 +13,13 @@ tags:
 
 # Visão geral
 
-[imagem 1 fluxo geral]
+![FluxoGeralSplit](https://developercielo.github.io/images/split/split1-fluxo-geral.png)
 
 O **Split de Pagamentos é um serviço de subadquirência para marketplaces e outros modelos de negócio que precisam dividir o valor de uma venda entre diferentes participantes. Funciona tanto para e-commerce quanto para mundo físico.
 
 O Split de Pagamentos atua em todo o fluxo de venda e pagamento:
 
-[imagem 2 subadquirência]
+![SplitSubadquirencia](https://developercielo.github.io/images/split/split2-subadquirencia.png)
 
 ## Quais modelos de negócios podem usar o Split de Pagamentos?
 
@@ -51,7 +51,7 @@ Com o Split de Pagamentos da Braspag, você tem acesso a um pacote de soluções
 
 Os possíveis participantes de uma venda são: master, subordinado e Split de Pagamentos.
 
-|PARTICIPANTES|	DESCRIÇÃO|
+|PARTICIPANTES|DESCRIÇÃO|
 |---|---|
 |**Master**| É o responsável pelo carrinho.<br>Possui acordos com subordinados que fornecem os produtos presentes no carrinho.<br>Define as taxas a serem descontadas sobre a venda de cada subordinado.<br>Pode participar de uma venda fornecendo seus próprios produtos.|
 |Subordinado| É o fornecedor dos produtos que compõem o carrinho.<br>Recebe parte do valor da venda, descontadas as taxas acordadas com o master.|
@@ -97,7 +97,7 @@ A Braspag acordará um MDR e/ou uma Tarifa Fixa com o master, que serão descont
 
 O master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa com cada Subordinado. Se desejar, pode embutir o MDR e/ou Tarifa acordados junto à Braspag.
 
-[imagem 3 exemplo MDR ou tarifa fixa]
+![SplitTaxas](https://developercielo.github.io/images/split/split3-taxas.png)
  
 * A Tarifa Fixa acordada entre o master e a Braspag não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto à Braspag. 
 * O MDR entra no cálculo de divisão da transação, considerando o valor total da transação, já que o MDR deve estar embutido no MDR acordado entre o master e seus subordinados.
@@ -113,6 +113,8 @@ O master é responsável por acordar as taxas a serem cobradas dos seus subordin
 ### Exemplo da divisão e taxas
 
 Uma transação de R$100,00, realizada por um master com participação do subordinado A.
+
+![SplitEx1](https://developercielo.github.io/images/split/split4-exemplo1-taxas.png)
  
 Neste exemplo, foram assumidos os seguintes acordos:
 
@@ -161,23 +163,23 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 
 Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br).
 
-|API	|URL	|DESCRIÇÃO|
+|API|URL|DESCRIÇÃO|
 |---|---|---|
-|Braspag OAUTH2 Server|	https://authsandbox.braspag.com.br/| Autenticação.|
+|Braspag OAUTH2 Server|https://authsandbox.braspag.com.br/| Autenticação.|
 |API Cielo E-commerce	|https://apisandbox.cieloecommerce.cielo.com.br/|	Envio das requisições de transações de crédito, débito e boleto, com ou sem o nó da divisão.|
-|API Cielo E-commerce (Consultas)	|https://apiquerysandbox.cieloecommerce.cielo.com.br/|	Consulta de transações.|
-|API Split	|https://splitsandbox.braspag.com.br/|	Divisão da transação e desconto de taxas no momento pós-transacional.|
+|API Cielo E-commerce (Consultas)|https://apiquerysandbox.cieloecommerce.cielo.com.br/| Consulta de transações.|
+|API Split |https://splitsandbox.braspag.com.br/| Divisão da transação e desconto de taxas no momento pós-transacional.|
 
 ## Produção
 
 Você receberá as credenciais para o ambiente de produção durante o onboarding.
 
-|API|	URL	|DESCRIÇÃO|
+|API|URL|DESCRIÇÃO|
 |---|---|---|
-|Braspag OAUTH2 Server|	https://auth.braspag.com.br/|	Autenticação.|
-|API Cielo E-commerce|	https://api.cieloecommerce.cielo.com.br/ | Envio das requisições de transações de crédito, débito e boleto, com ou sem o nó da divisão.|
-|API Cielo E-commerce (Consultas)|	https://apiquery.cieloecommerce.cielo.com.br/ | Consulta de transações.|
-|API Split|	https://split.braspag.com.br/	|Divisão da transação e desconto de taxas no momento pós-transacional.|
+|Braspag OAUTH2 Server|https://auth.braspag.com.br/|Autenticação.|
+|API Cielo E-commerce|https://api.cieloecommerce.cielo.com.br/|Envio das requisições de transações de crédito, débito e boleto, com ou sem o nó da divisão.|
+|API Cielo E-commerce (Consultas)|https://apiquery.cieloecommerce.cielo.com.br/| Consulta de transações.|
+|API Split|https://split.braspag.com.br/|Divisão da transação e desconto de taxas no momento pós-transacional.|
 
 # Autenticação
 
@@ -189,7 +191,7 @@ Para obter um token de acesso:
 2. Codifique o resultado da concatenação em Base64;  
 3. Realize uma requisição ao servidor de autorização.
 
-[imagem fluxo autenticação bpauth]
+![SplitBPAuth](https://developercielo.github.io/images/split/split5-auth.png)
 
 #### Requisição  
 
@@ -226,7 +228,7 @@ A autorização de uma transação no Split de Pagamentos deve ser realizada atr
 
 Veja um exemplo do fluxo transacional padrão no Split de Pagamentos.
 
-[imagem fluxo transacional padrão split]
+![FluxoSplitPadrao](https://developercielo.github.io/images/split/split6-fluxo-transacional-padrao.png)
 
 A próxima seção apresentará exemplos de transações de crédito, débito e boleto. É importante lembrar que nas respostas das requisições das transações, o Split retornará a divisão do valor da venda, MDR e taxa fixa, mas o desconto das taxas será feito posteriormente, na agenda financeira.
 
@@ -519,7 +521,7 @@ O **total a receber** pela Braspag será **R$2,10**.
 
 O valor total a receber pelo master está representado na figura a seguir.
 
-[imagem exemplo 2 - trans. crédito sem o nó]
+![SplitEx2](https://developercielo.github.io/images/split/split7-exemplo2-sem-no.png)
 
 ##### Requisição
 
@@ -827,7 +829,7 @@ O **total a receber** pela Braspag será **R$2,10**.
 
 As divisões e o valor total a receber de cada participante estão na figura a seguir.
 
-[imagem exemplo 3 com nó sub A e sub B na divisão]
+![SplitEx3](https://developercielo.github.io/images/split/split8-exemplo3-com-no.png)
 
 ##### Requisição
 
@@ -1642,7 +1644,7 @@ Além da geração do `CardToken`, é possível associar um nome (um identificad
 
 Na transação com Cartão Protegido, a solicitação de tokenização é feita na própria requisição de autorização.
 
-[imagem fluxo-cp]
+![FluxoSplitCP](https://developercielo.github.io/images/split/split9-fluxo-transacional-cp.png)
 
 ### Salvando um Cartão Durante uma Autorização
 
@@ -2761,10 +2763,10 @@ Em uma transação do Split, existem configurações opcionais para que o master
 
 Os descontos das taxas (MDR e tarifa fixa) do Split podem ser feitos de duas formas: sobre a comissão ou venda do master.
 
-|TIPO	|DESCRIÇÃO|
+|TIPO|DESCRIÇÃO|
 |---|---|
-|`Commission`	|O desconto será feito sobre o valor de comissão que o master tem a receber na transação. É o padrão adotado pelo Split.|
-|`Sale`      	|O desconto será feito sobre o valor de venda que o master tem a receber na transação.|
+|`Commission`|O desconto será feito sobre o valor de comissão que o master tem a receber na transação. É o padrão adotado pelo Split.|
+|`Sale`|O desconto será feito sobre o valor de venda que o master tem a receber na transação.|
 
 > Para que a opção de desconto da parte da venda seja possível, o master deve possuir venda na transação.
 
@@ -2821,7 +2823,7 @@ O **total a receber** pela Braspag será **R$2,30**.
 
 As divisões e o valor total a receber de cada participante estão na figura a seguir.
 
-[imagem exemplo sub A, sub e master na venda - tipo de desconto]
+![SplitEx4](https://developercielo.github.io/images/split/split10-exemplo4-tipo-de-desconto.png)
 
 ##### Desconto sendo aplicado sobre a comissão
 
@@ -3232,7 +3234,6 @@ Veja uma requisição no modelo Split Pós-transacional com o desconto aplicado 
 }
 ```
 
-
 # Antifraude
 
 O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.
@@ -3251,7 +3252,7 @@ A integração com o antifraude se dá através do próprio fluxo transacional, 
 
 Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.
 
-[imagem fluxo split com AF]
+![FluxoSplitAF](https://developercielo.github.io/images/split/split11-fluxo-transacional-af.png)
 
 Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.FraudAnalysis`. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos `Customer.DeliveryAddress` e/ou `Customer.BillingAddress`.
 
@@ -3320,7 +3321,7 @@ Para receber a notificação de alteração de status da transação (ex.: confi
 
 Veja o fluxo percorrido pelo Post de Notificação:
 
-[imagem Fluxo Post de Notificação]
+![SplitPostNotificacao](https://developercielo.github.io/images/split/split12-post-notificacao.png)
 
 Os parâmetros serão enviados à URL cadastrada, conforme o próximo exemplo.
 
