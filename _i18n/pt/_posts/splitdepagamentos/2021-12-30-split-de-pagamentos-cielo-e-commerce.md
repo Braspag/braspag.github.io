@@ -166,7 +166,7 @@ Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https:/
 |API|URL|DESCRIÇÃO|
 |---|---|---|
 |Braspag OAUTH2 Server|https://authsandbox.braspag.com.br/| Autenticação.|
-|API Cielo E-commerce	|https://apisandbox.cieloecommerce.cielo.com.br/|	Envio das requisições de transações de crédito, débito e boleto, com ou sem o nó da divisão.|
+|API Cielo E-commerce|https://apisandbox.cieloecommerce.cielo.com.br/|Envio das requisições de transações de crédito, débito e boleto, com ou sem o nó da divisão.|
 |API Cielo E-commerce (Consultas)|https://apiquerysandbox.cieloecommerce.cielo.com.br/| Consulta de transações.|
 |API Split |https://splitsandbox.braspag.com.br/| Divisão da transação e desconto de taxas no momento pós-transacional.|
 
