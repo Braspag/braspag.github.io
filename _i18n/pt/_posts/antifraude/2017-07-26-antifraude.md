@@ -22,7 +22,7 @@ A plataforma foi construída utilizando o Cartão Protegido, um dos principais p
 
 A API do Antifraude trabalha com dois provedores, Cybersource e ACI Worldwide.
 
-> Consulte as requisições e tabelas anexas correspondentes ao seu provedor de antifraude.
+> Consulte as requisições e [tabelas anexas correspondentes ao seu provedor de antifraude](https://braspag.github.io//manual/antifraude#tabelas).
 
 # Objetivo
 
@@ -2000,21 +2000,29 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |Cybersource|Cybersource|
 |ACI Wordwide|ReDShield|
 
-## Tabela 2 - Card.Brand
+## Tabela 2 - SplitingPaymentMethod
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|None|Pagamento com um cartão apenas|ReDShield|
+|CardSplit|Pagamento com mais de um cartão|ReDShield|
+|MixedPaymentMethodSplit|Pagamento com mais de um meio de pagamento|ReDShield|
+
+## Tabela 3 - Card.Brand
 
 |Valor|Provider|Observação|
 |:-|:-|:-|
-|Amex|Cybersource|-|
-|Diners|Cybersource|-|
-|Discover|Cybersource|-|
-|JCB|Cybersource|-|
-|Master|Cybersource|-|
-|Dankort|Cybersource|-|
-|Cartebleue|Cybersource|-|
-|Maestro|Cybersource|-|
-|Visa|Cybersource|-|
-|Elo|Cybersource|-|
-|Hipercard|Cybersource|Será enviado para a Cybersource como Private Label|
+|Amex|Cybersource, ACI Wordwide|-|
+|Diners|Cybersource, ACI Wordwide|-|
+|Discover|Cybersource, ACI Wordwide|-|
+|JCB|Cybersource, ACI Wordwide|-|
+|Master|Cybersource, ACI Wordwide|-|
+|Dankort|Cybersource, ACI Wordwide|-|
+|Cartebleue|Cybersource, ACI Wordwide|-|
+|Maestro|Cybersource, ACI Wordwide|-|
+|Visa|Cybersource, ACI Wordwide|-|
+|Elo|Cybersource, ACI Wordwide|-|
+|Hipercard|Cybersource, ACI Wordwide|Será enviado para a Cybersource como Private Label|
 |Aura|Cybersource|Será enviado para a Cybersource como Private Label|
 |Hiper|Cybersource|Será enviado para a Cybersource como Private Label|
 |Naranja|Cybersource|Será enviado para a Cybersource como Private Label|
@@ -2027,35 +2035,57 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |Carnet|Cybersource|Será enviado para a Cybersource como Private Label|
 |Other|Cybersource|Será enviado para a Cybersource como Private Label|
 
-## Tabela 3 - ShippingMethod
+## Tabela 4 - ShippingMethod
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |SameDay|Meio de entrega no mesmo dia|Cybersource|
-|NextDay|Meio de entrega no próximo dia|Cybersource|
-|TwoDay|Meio de entrega em dois dias|Cybersource|
-|ThreeDay|Meio de entrega em três dias|Cybersource|
-|LowCost|Meio de entrega de baixo custo|Cybersource|
-|Pickup|Retirada na loja|Cybersource|
-|Other|Outro meio de entrega|Cybersource|
-|None|Sem meio de entrega, pois é um serviço ou assinatura|Cybersource|
+|SameDay|Meio de entrega no mesmo dia|ACI Worldwide, Cybersource|
+|NextDay|Meio de entrega no próximo dia|ACI Worldwide, Cybersource|
+|TwoDay|Meio de entrega em dois dias|ACI Worldwide, Cybersource|
+|ThreeDay|Meio de entrega em três dias|ACI Worldwide, Cybersource|
+|LowCost|Meio de entrega de baixo custo|ACI Worldwide, Cybersource|
+|Pickup|Retirada na loja|ACI Worldwide, Cybersource|
+|CarrierDesignatedByCustomer|Meio de entrega designada pelo comprador|ACI Worldwide|
+|International|Meio de entrega internacional|ACI Worldwide|
+|Military|Meio de entrega militar|ACI Worldwide|
+|Other|Outro meio de entrega|ACI Worldwide, Cybersource|
+|None|Sem meio de entrega, pois é um serviço ou assinatura|ACI Worldwide, Cybersource|
 
-## Tabela 4 - Airline.JourneyType
+## Tabela 5 - Customer.Gender
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|Male|Masculino|ACI Worldwide|
+|Female|Feminino|ACI Worldwide|
+
+## Tabela 6 - Customer.Status
+
+|Valor|Descrição|Provider|
+|:-|:-|:-|
+|New|Identifica quando o comprador é novo na loja, nunca fez uma compra|ACI Worldwide|
+|Existing|Identifica quando o comprador é existente na loja, já realizou uma compra|ACI Worldwide|
+
+## Tabela 7 - Airline.JourneyType
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |OneWayTrip|Viagem somente de ida|Cybersource|
 |RoundTrip|Viagem de ida e volta|Cybersource|
 
-## Tabela 5 - Airline.Passengers[n].PassengerType
+## Tabela 8 - Airline.Passengers[n].PassengerType
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
-|Adult|Adulto|Cybersource|
-|Child|Criança|Cybersource|
-|Infant|Infantil|Cybersource|
+|Adult|Adulto|ACI Worldwide, Cybersource|
+|Child|Criança|ACI Worldwide, Cybersource|
+|Infant|Infantil|ACI Worldwide, Cybersource|
+|Youth|Adolescente|ACI Worldwide|
+|Student|Estudante|ACI Worldwide|
+|SeniorCitizen|Idoso|ACI Worldwide|
+|Military|Militar|ACI Worldwide|
 
-## Tabela 6 - Airline.Passengers[n].Status
+## Tabela 9 - Airline.Passengers[n].Status
 
 |Valor|Provider|
 |:-|:-|
@@ -2063,7 +2093,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |Gold|Cybersource|
 |Platinum|Cybersource|
 
-## Tabela 7 - CartItem[n].Risk
+## Tabela 10 - CartItem[n].Risk
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2071,7 +2101,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |Normal|Produto associado com a quantidade normal de chargebacks|Cybersource|
 |High|Produto associado com muito chargebacks|Cybersource|
 
-## Tabela 8 - CartItem[n].AddressRiskVerify
+## Tabela 11 - CartItem[n].AddressRiskVerify
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2079,7 +2109,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |No|Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)|Cybersource|
 |Off|Diferenças entre os endereços de cobrança e entrega não afetam a pontuação|Cybersource|
 
-## Tabela 9 - CartItem[n].HostHedge
+## Tabela 12 - CartItem[n].HostHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2088,7 +2118,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |High|Alta|Cybersource|
 |Off|Não irá afetar o score da análise de fraude|Cybersource|
 
-## Tabela 10 - CartItem[n].NonSensicalHedge
+## Tabela 13 - CartItem[n].NonSensicalHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2097,7 +2127,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |High|Alta|Cybersource|
 |Off|Não irá afetar o score da análise de fraude|Cybersource|
 
-## Tabela 11 - CartItem[n].ObscenitiesHedge
+## Tabela 14 - CartItem[n].ObscenitiesHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2106,7 +2136,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |High|Alta|Cybersource|
 |Off|Não irá afetar o score da análise de fraude|Cybersource|
 
-## Tabela 12 - CartItem[n].TimeHedge
+## Tabela 15 - CartItem[n].TimeHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2115,7 +2145,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |High|Alta|Cybersource|
 |Off|Não irá afetar o score da análise de fraude|Cybersource|
 
-## Tabela 13 - CartItem[n].PhoneHedge
+## Tabela 16 - CartItem[n].PhoneHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2124,7 +2154,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |High|Alta|Cybersource|
 |Off|Não irá afetar o score da análise de fraude|Cybersource|
 
-## Tabela 14 - CartItem[n].VelocityHedge
+## Tabela 17 - CartItem[n].VelocityHedge
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2133,7 +2163,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |High|Alta|Cybersource|
 |Off|Não irá afetar o score da análise de fraude|Cybersource|
 
-## Tabela 15 - Invoice.Tender
+## Tabela 18 - Invoice.Tender
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2146,27 +2176,34 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |PrivateLabel|Pagamento com cartão de crédito privado|Cybersource|
 |Other|Pagamentos com outros métodos|Cybersource|
 
-## Tabela 16 - Status
+## Tabela 19 - Status
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
-|Accept|Transação aceita após análise de fraude|Cybersource|
-|Review|Transação em revisão após análise de fraude|Cybersource|
-|Reject|Transação rejeitada após análise de fraude|Cybersource|
+|Accept|Transação aceita após análise de fraude|ACI Worldwide, Cybersource|
+|Review|Transação em revisão após análise de fraude|ACI Worldwide, Cybersource|
+|Reject|Transação rejeitada após análise de fraude|ACI Worldwide, Cybersource|
 |Pendent|Transação pendente, pois ao enviar a mesma para análise de fraude ocorreu um timeout na resposta entre Braspag e Cybersource|Cybersource|
-|Unfinished|Transação não finalizada por algum motivo de validação de contrato ou erro interno <br/> Uma transação analisada na Cybersource, no response da análise o campo `ProviderAnalysisResult.ProviderStatus` for igual a **REJECT** e o campo `ProviderAnalysisResult.ProviderCode` diferente de **481**, o status da transação será **Unfinished**|Cybersource|
-|ProviderError|Transação com erro no provedor ao ser enviada para análise|Cybersource|
+|Unfinished|Transação não finalizada por algum motivo de validação de contrato ou erro interno <br/> Uma transação analisada na Cybersource, no response da análise o campo `ProviderAnalysisResult.ProviderStatus` for igual a **REJECT** e o campo `ProviderAnalysisResult.ProviderCode` diferente de **481**, o status da transação será **Unfinished**|ACI Worldwide, Cybersource|
+|ProviderError|Transação com erro no provedor ao ser enviada para análise|ACI Worldwide, Cybersource|
 
-## Tabela 17 - ProviderStatus
+## Tabela 20 - ProviderStatus
 
 |Valor|Descrição|Provider|De-Para com o campo `Status` (Status da transação no Antifraude Gateway Braspag)|
 |:-|:-|:-|:-|
-|ACCEPT|Transação aceita no provedor|Cybersource|Accept|
+|APPROVE|Transação aprovada no provedor|ACI Worldwide|Accept|
+|ACCEPT|Transação aceita no provedor|ACI Worldwide, Cybersource|Accept|
+|PEND|Transação em revisão no provedor|ACI Worldwide|Review|
+|CHALLENGE|Transação em revisão no provedor|ACI Worldwide|Review|
 |REVIEW|Transação em revisão no provedor|Cybersource|Review|
+|CANCEL|Transação rejeitada no provedor|ACI Worldwide|Reject|
+|DENY|Transação rejeitada no provedor|ACI Worldwide|Reject|
 |REJECT|Transação rejeitada no provedor|Cybesource|Reject|
-|ERROR|Transação com erro no provedor|Cybersource|ProviderError|
+|ENETLP|Transação com erro no provedor|ACI Worldwide|ProviderError|
+|ENORSP|Transação com erro no provedor|ACI Worldwide|ProviderError|
+|ERROR|Transação com erro no provedor|ACI Worldwide, Cybersource|ProviderError|
 
-## Tabela 18 - ProviderAnalysisResult.ProviderCode
+## Tabela 21 - ProviderAnalysisResult.ProviderCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2183,7 +2220,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |480|A transação foi marcada como revisão pelo DM (Decision Manager)|Cybersource|
 |481|A transação foi rejeitada pelo DM (Decision Manager)|Cybersource|
 
-## Tabela 19 - ProviderAnalysisResult.AfsReply.AddressInfoCode
+## Tabela 22 - ProviderAnalysisResult.AfsReply.AddressInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2200,7 +2237,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |MM-Z|Os endereços de cobrança e entrega usam códidos postais diferentes|Cybersource|
 |UNV-ADDR|O endereço é inverificável|Cybersource|
 
-## Tabela 20 - ProviderAnalysisResult.AfsReply.AfsFactorCode
+## Tabela 23 - ProviderAnalysisResult.AfsReply.AfsFactorCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2225,14 +2262,14 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |Y|O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam|Cybersource|
 |Z|Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias|Cybersource|
 
-## Tabela 21 - ProviderAnalysisResult.AfsReply.CardAccountType
+## Tabela 24 - ProviderAnalysisResult.AfsReply.CardAccountType
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
 |CN|Cartão privado|Cybersource|
 |CP|Cartão corporativo|Cybersource|
 
-## Tabela 22 - ProviderAnalysisResult.AfsReply.HotListInfoCode
+## Tabela 25 - ProviderAnalysisResult.AfsReply.HotListInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2283,7 +2320,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |REV-SCO|O país do endereço de entrega está na lista de revisão|Cybersource|
 |REV-SZC|O código postal do endereço de entrega está na lista de revisão|Cybersource|
 
-## Tabela 23 - ProviderAnalysisResult.AfsReply.IdentityInfoCode
+## Tabela 26 - ProviderAnalysisResult.AfsReply.IdentityInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2294,7 +2331,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |MORPH-P|O mesmo número de telefone tem sido usado várias vezes com identidades de múltiplos compradores|Cybersource|
 |MORPH-S|O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de múltiplos compradores|Cybersource|
 
-## Tabela 24 - ProviderAnalysisResult.AfsReply.InternetInfoCode
+## Tabela 27 - ProviderAnalysisResult.AfsReply.InternetInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2311,7 +2348,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |UNV-RISK|O endereço IP é de origem de risco|Cybersource|
 |UNV-EMBCO|O país do endereço de e-mail não corresponde ao país do endereço de cobrança|Cybersource|
 
-## Tabela 25 - ProviderAnalysisResult.AfsReply.PhoneInfoCode
+## Tabela 28 - ProviderAnalysisResult.AfsReply.PhoneInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2323,7 +2360,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |UNV-OC|O código de área e/ou o prefixo de telefone são/é inválido|Cybersource|
 |UNV-PH|O número do telefone é inválido|Cybersource|
 
-## Tabela 26 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode
+## Tabela 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2348,7 +2385,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |RISK-TIP|O verdadeiro endereço IP é arriscado|Cybersource|
 |RISK-TS|O dia e a hora da ordem associada ao endereço de entrega é arriscado|Cybersource|
 
-## Tabela 27 - ProviderAnalysisResult.AfsReply.VelocityInfoCode
+## Tabela 30 - ProviderAnalysisResult.AfsReply.VelocityInfoCode
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2379,7 +2416,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |VELI-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo médio|Cybersource|
 |VELL-TIP|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo longo|Cybersource|
 
-## Tabela 28 - ProviderAnalysisResult.AfsReply.IpRoutingMethod
+## Tabela 31 - ProviderAnalysisResult.AfsReply.IpRoutingMethod
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2395,7 +2432,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |SuperPOP|O comprador está discando em um ISP multi-estatal ou multinacional que provavelmente não é provável a localização do endereço de IP. O comprador pode estar discando através de limites geográficos|Cybersource|
 |No value returned|O tipo de roteamento é desconhecido|Cybersource|
 
-## Tabela 29 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision
+## Tabela 32 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision
 
 |Valor|Provider|
 |:-|:-|
@@ -2404,7 +2441,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |REJECT|Cybersource|
 |ERROR|Cybersource|
 
-## Tabela 30 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation
+## Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
@@ -2413,7 +2450,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |N|A regra não pode ser avaliada porque os dados são insuficientes|Cybersource|
 |E|A regra não pode ser avaliada porque ocorreu um erro|Cybersource|
 
-## Tabela 31 - MerchantDefinedData (Cybersource)
+## Tabela 34 - MerchantDefinedData (Cybersource)
 
 > Nível de Relevância <br/> 1 - Relevante <br/> 2 - Muito Relevante <br/> 3 - Extremamente Relevante <br/><br/>
 > Conforme nível de relevância dos campos e possibilidade de desenho da estratégia de risco de acordo com a necessidade do seu negócio, na validação das transações de testes os mesmos serão cobrados caso não sejam enviaos. Com isso, solicitamos uma análise prévia da documentação e sinalização dos campos que não serão possíveis de serem enviados.<br/><br/>
@@ -2508,7 +2545,22 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |85 a 89|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|-|-|-|
 |90 a 100|Reservados|-|-|-|
 
-## Tabela 32 - CartItem[n].Category
+## Tabela 35 - MerchantDefinedData (ACI Worldwide)
+
+|Key|Value|Tipo|Tamanho|
+|:-|:-|:-|:-|
+|1 a 3|Reservado|-|-|
+|4 a 8|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|var|256|
+|9 a 13|Reservado|-|-|
+|14|Segment|MCC (Merchant Category Code) da sua loja|int|-|
+|15 a 20|Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio|var|30|
+|21|Reservado|-|-|
+|22|Campo livre e definido junto ao provedor de antifraude, conforme as regras de negócio|var|30|
+|23|Reservado|-|-|
+|24|Campo livre e definido junto ao provedor de antifraude, conforme a regras de negócio|var|30|
+|25|Reservado|-|-|
+
+## Tabela 36 - CartItem[n].Category
 
 Valor|Descrição|Provider|
 |:-|:-|:-|
