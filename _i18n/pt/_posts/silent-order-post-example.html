@@ -11,6 +11,7 @@
                 accessToken: document.getElementById("accessToken").value,
                 onSuccess: function(e){			
                     var paymentToken = e.PaymentToken;
+		    var cardToken = e.CardToken;
                     var brand = e.Brand;
                     var foreignCard = e.ForeignCard;
                     var binQueryReturnCode = e.BinQueryReturnCode;
@@ -18,6 +19,7 @@
 
                     document.getElementById("txt_brand").value = brand;
                     document.getElementById("txt_paymenttoken").value = paymentToken;
+		    document.getElementById("txt_cardtoken").value = cardToken;
                     document.getElementById("txt_foreignCard").value = foreignCard;
                     document.getElementById("txt_binQueryReturnCode").value = binQueryReturnCode;
                     document.getElementById("txt_binQueryReturnMessage").value = binQueryReturnMessage;
@@ -42,6 +44,7 @@
                 },
                 environment: "sandbox",
                 language: "pt",
+		cvvRequired: true,
                 enableBinQuery: true,
 		enableVerifyCard: true,
 		enableTokenize: false,
@@ -61,6 +64,7 @@
             <tr><td>CVV: </td><td><input type="text" class="bp-sop-cardcvv" maxlength="3" size="5" value="123"/><td></tr>
             <tr><td><input type="button" onClick="sendCardData();" value="Submeter" /><td></tr>
             <tr><td>paymentToken: </td><td><input type="text" size="36" id="txt_paymenttoken" /><td></tr>
+	    <tr><td>cardToken: </td><td><input type="text" size="36" id="txt_cardtoken" /><td></tr>
             <tr><td>brand: </td><td><input type="text" size="36" id="txt_brand" /><td></tr>
             <tr><td>foreignCard: </td><td><input type="text" size="36" id="txt_foreignCard" /><td></tr>
             <tr><td>binQueryReturnCode: </td><td><input type="text" size="36" id="txt_binQueryReturnCode" /><td></tr>
