@@ -7360,7 +7360,7 @@ As listas a seguir se referem a provedores na integração REST:
 
 |Provider|
 |--------|
-|Braspag, Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica|
+|Braspag, Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2|
 
 ### Providers para Transferência Eletrônica (Débito Online)
 
