@@ -147,7 +147,7 @@
 <p>A API do Antifraude trabalha com dois provedores, Cybersource e ACI Worldwide.</p>
 
 <blockquote>
-  <p>Consulte as requisições e tabelas anexas correspondentes ao seu provedor de antifraude.</p>
+  <p>Consulte as requisições e <a href="https://braspag.github.io//manual/antifraude#tabelas">tabelas anexas correspondentes ao seu provedor de antifraude</a>.</p>
 </blockquote>
 
 <h1 id="objetivo">Objetivo</h1>
@@ -5785,7 +5785,36 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-2---cardbrand">Tabela 2 - Card.Brand</h2>
+<h2 id="tabela-2---splitingpaymentmethod">Tabela 2 - SplitingPaymentMethod</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">Pagamento com um cartão apenas</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CardSplit</td>
+      <td style="text-align: left">Pagamento com mais de um cartão</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MixedPaymentMethodSplit</td>
+      <td style="text-align: left">Pagamento com mais de um meio de pagamento</td>
+      <td style="text-align: left">ReDShield</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-3---cardbrand">Tabela 3 - Card.Brand</h2>
 
 <table>
   <thead>
@@ -5798,57 +5827,57 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   <tbody>
     <tr>
       <td style="text-align: left">Amex</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Cybersource, ACI Wordwide</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
       <td style="text-align: left">Diners</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Cybersource, ACI Wordwide</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
       <td style="text-align: left">Discover</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Cybersource, ACI Wordwide</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
       <td style="text-align: left">JCB</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Cybersource, ACI Wordwide</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
       <td style="text-align: left">Master</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Cybersource, ACI Wordwide</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
       <td style="text-align: left">Dankort</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Cybersource, ACI Wordwide</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
       <td style="text-align: left">Cartebleue</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Cybersource, ACI Wordwide</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
       <td style="text-align: left">Maestro</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Cybersource, ACI Wordwide</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
       <td style="text-align: left">Visa</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Cybersource, ACI Wordwide</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
       <td style="text-align: left">Elo</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Cybersource, ACI Wordwide</td>
       <td style="text-align: left">-</td>
     </tr>
     <tr>
       <td style="text-align: left">Hipercard</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Cybersource, ACI Wordwide</td>
       <td style="text-align: left">Será enviado para a Cybersource como Private Label</td>
     </tr>
     <tr>
@@ -5909,7 +5938,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-3---shippingmethod">Tabela 3 - ShippingMethod</h2>
+<h2 id="tabela-4---shippingmethod">Tabela 4 - ShippingMethod</h2>
 
 <table>
   <thead>
@@ -5926,44 +5955,112 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
+      <td style="text-align: left">SameDay</td>
+      <td style="text-align: left">Meio de entrega no mesmo dia</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
+    </tr>
+    <tr>
       <td style="text-align: left">NextDay</td>
       <td style="text-align: left">Meio de entrega no próximo dia</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">TwoDay</td>
       <td style="text-align: left">Meio de entrega em dois dias</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">ThreeDay</td>
       <td style="text-align: left">Meio de entrega em três dias</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">LowCost</td>
       <td style="text-align: left">Meio de entrega de baixo custo</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Pickup</td>
       <td style="text-align: left">Retirada na loja</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CarrierDesignatedByCustomer</td>
+      <td style="text-align: left">Meio de entrega designada pelo comprador</td>
+      <td style="text-align: left">ACI Worldwide</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">International</td>
+      <td style="text-align: left">Meio de entrega internacional</td>
+      <td style="text-align: left">ACI Worldwide</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Military</td>
+      <td style="text-align: left">Meio de entrega militar</td>
+      <td style="text-align: left">ACI Worldwide</td>
     </tr>
     <tr>
       <td style="text-align: left">Other</td>
       <td style="text-align: left">Outro meio de entrega</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">None</td>
       <td style="text-align: left">Sem meio de entrega, pois é um serviço ou assinatura</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="tabela-4---airlinejourneytype">Tabela 4 - Airline.JourneyType</h2>
+<h2 id="tabela-5---customergender">Tabela 5 - Customer.Gender</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Male</td>
+      <td style="text-align: left">Masculino</td>
+      <td style="text-align: left">ACI Worldwide</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Female</td>
+      <td style="text-align: left">Feminino</td>
+      <td style="text-align: left">ACI Worldwide</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-6---customerstatus">Tabela 6 - Customer.Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">New</td>
+      <td style="text-align: left">Identifica quando o comprador é novo na loja, nunca fez uma compra</td>
+      <td style="text-align: left">ACI Worldwide</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Existing</td>
+      <td style="text-align: left">Identifica quando o comprador é existente na loja, já realizou uma compra</td>
+      <td style="text-align: left">ACI Worldwide</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-7---airlinejourneytype">Tabela 7 - Airline.JourneyType</h2>
 
 <table>
   <thead>
@@ -5987,7 +6084,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-5---airlinepassengersnpassengertype">Tabela 5 - Airline.Passengers[n].PassengerType</h2>
+<h2 id="tabela-8---airlinepassengersnpassengertype">Tabela 8 - Airline.Passengers[n].PassengerType</h2>
 
 <table>
   <thead>
@@ -6001,22 +6098,42 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
     <tr>
       <td style="text-align: left">Adult</td>
       <td style="text-align: left">Adulto</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Child</td>
       <td style="text-align: left">Criança</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Infant</td>
       <td style="text-align: left">Infantil</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Youth</td>
+      <td style="text-align: left">Adolescente</td>
+      <td style="text-align: left">ACI Worldwide</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Student</td>
+      <td style="text-align: left">Estudante</td>
+      <td style="text-align: left">ACI Worldwide</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SeniorCitizen</td>
+      <td style="text-align: left">Idoso</td>
+      <td style="text-align: left">ACI Worldwide</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Military</td>
+      <td style="text-align: left">Militar</td>
+      <td style="text-align: left">ACI Worldwide</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="tabela-6---airlinepassengersnstatus">Tabela 6 - Airline.Passengers[n].Status</h2>
+<h2 id="tabela-9---airlinepassengersnstatus">Tabela 9 - Airline.Passengers[n].Status</h2>
 
 <table>
   <thead>
@@ -6041,7 +6158,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-7---cartitemnrisk">Tabela 7 - CartItem[n].Risk</h2>
+<h2 id="tabela-10---cartitemnrisk">Tabela 10 - CartItem[n].Risk</h2>
 
 <table>
   <thead>
@@ -6070,7 +6187,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-8---cartitemnaddressriskverify">Tabela 8 - CartItem[n].AddressRiskVerify</h2>
+<h2 id="tabela-11---cartitemnaddressriskverify">Tabela 11 - CartItem[n].AddressRiskVerify</h2>
 
 <table>
   <thead>
@@ -6099,7 +6216,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-9---cartitemnhosthedge">Tabela 9 - CartItem[n].HostHedge</h2>
+<h2 id="tabela-12---cartitemnhosthedge">Tabela 12 - CartItem[n].HostHedge</h2>
 
 <table>
   <thead>
@@ -6133,7 +6250,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-10---cartitemnnonsensicalhedge">Tabela 10 - CartItem[n].NonSensicalHedge</h2>
+<h2 id="tabela-13---cartitemnnonsensicalhedge">Tabela 13 - CartItem[n].NonSensicalHedge</h2>
 
 <table>
   <thead>
@@ -6167,7 +6284,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-11---cartitemnobscenitieshedge">Tabela 11 - CartItem[n].ObscenitiesHedge</h2>
+<h2 id="tabela-14---cartitemnobscenitieshedge">Tabela 14 - CartItem[n].ObscenitiesHedge</h2>
 
 <table>
   <thead>
@@ -6201,7 +6318,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-12---cartitemntimehedge">Tabela 12 - CartItem[n].TimeHedge</h2>
+<h2 id="tabela-15---cartitemntimehedge">Tabela 15 - CartItem[n].TimeHedge</h2>
 
 <table>
   <thead>
@@ -6235,7 +6352,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-13---cartitemnphonehedge">Tabela 13 - CartItem[n].PhoneHedge</h2>
+<h2 id="tabela-16---cartitemnphonehedge">Tabela 16 - CartItem[n].PhoneHedge</h2>
 
 <table>
   <thead>
@@ -6269,7 +6386,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-14---cartitemnvelocityhedge">Tabela 14 - CartItem[n].VelocityHedge</h2>
+<h2 id="tabela-17---cartitemnvelocityhedge">Tabela 17 - CartItem[n].VelocityHedge</h2>
 
 <table>
   <thead>
@@ -6303,7 +6420,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-15---invoicetender">Tabela 15 - Invoice.Tender</h2>
+<h2 id="tabela-18---invoicetender">Tabela 18 - Invoice.Tender</h2>
 
 <table>
   <thead>
@@ -6357,7 +6474,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-16---status">Tabela 16 - Status</h2>
+<h2 id="tabela-19---status">Tabela 19 - Status</h2>
 
 <table>
   <thead>
@@ -6371,17 +6488,17 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
     <tr>
       <td style="text-align: left">Accept</td>
       <td style="text-align: left">Transação aceita após análise de fraude</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Review</td>
       <td style="text-align: left">Transação em revisão após análise de fraude</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Reject</td>
       <td style="text-align: left">Transação rejeitada após análise de fraude</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Pendent</td>
@@ -6391,17 +6508,17 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
     <tr>
       <td style="text-align: left">Unfinished</td>
       <td style="text-align: left">Transação não finalizada por algum motivo de validação de contrato ou erro interno <br /> Uma transação analisada na Cybersource, no response da análise o campo <code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code> for igual a <strong>REJECT</strong> e o campo <code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ProviderCode</code> diferente de <strong>481</strong>, o status da transação será <strong>Unfinished</strong></td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">ProviderError</td>
       <td style="text-align: left">Transação com erro no provedor ao ser enviada para análise</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="tabela-17---providerstatus">Tabela 17 - ProviderStatus</h2>
+<h2 id="tabela-20---providerstatus">Tabela 20 - ProviderStatus</h2>
 
 <table>
   <thead>
@@ -6414,10 +6531,28 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </thead>
   <tbody>
     <tr>
+      <td style="text-align: left">APPROVE</td>
+      <td style="text-align: left">Transação aprovada no provedor</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">Accept</td>
+    </tr>
+    <tr>
       <td style="text-align: left">ACCEPT</td>
       <td style="text-align: left">Transação aceita no provedor</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
       <td style="text-align: left">Accept</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PEND</td>
+      <td style="text-align: left">Transação em revisão no provedor</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">Review</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CHALLENGE</td>
+      <td style="text-align: left">Transação em revisão no provedor</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">Review</td>
     </tr>
     <tr>
       <td style="text-align: left">REVIEW</td>
@@ -6426,21 +6561,45 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
       <td style="text-align: left">Review</td>
     </tr>
     <tr>
+      <td style="text-align: left">CANCEL</td>
+      <td style="text-align: left">Transação rejeitada no provedor</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">Reject</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DENY</td>
+      <td style="text-align: left">Transação rejeitada no provedor</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">Reject</td>
+    </tr>
+    <tr>
       <td style="text-align: left">REJECT</td>
       <td style="text-align: left">Transação rejeitada no provedor</td>
       <td style="text-align: left">Cybesource</td>
       <td style="text-align: left">Reject</td>
     </tr>
     <tr>
+      <td style="text-align: left">ENETLP</td>
+      <td style="text-align: left">Transação com erro no provedor</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">ProviderError</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ENORSP</td>
+      <td style="text-align: left">Transação com erro no provedor</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">ProviderError</td>
+    </tr>
+    <tr>
       <td style="text-align: left">ERROR</td>
       <td style="text-align: left">Transação com erro no provedor</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
       <td style="text-align: left">ProviderError</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="tabela-18---provideranalysisresultprovidercode">Tabela 18 - ProviderAnalysisResult.ProviderCode</h2>
+<h2 id="tabela-21---provideranalysisresultprovidercode">Tabela 21 - ProviderAnalysisResult.ProviderCode</h2>
 
 <table>
   <thead>
@@ -6514,7 +6673,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-19---provideranalysisresultafsreplyaddressinfocode">Tabela 19 - ProviderAnalysisResult.AfsReply.AddressInfoCode</h2>
+<h2 id="tabela-22---provideranalysisresultafsreplyaddressinfocode">Tabela 22 - ProviderAnalysisResult.AfsReply.AddressInfoCode</h2>
 
 <table>
   <thead>
@@ -6588,7 +6747,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-20---provideranalysisresultafsreplyafsfactorcode">Tabela 20 - ProviderAnalysisResult.AfsReply.AfsFactorCode</h2>
+<h2 id="tabela-23---provideranalysisresultafsreplyafsfactorcode">Tabela 23 - ProviderAnalysisResult.AfsReply.AfsFactorCode</h2>
 
 <table>
   <thead>
@@ -6702,7 +6861,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-21---provideranalysisresultafsreplycardaccounttype">Tabela 21 - ProviderAnalysisResult.AfsReply.CardAccountType</h2>
+<h2 id="tabela-24---provideranalysisresultafsreplycardaccounttype">Tabela 24 - ProviderAnalysisResult.AfsReply.CardAccountType</h2>
 
 <table>
   <thead>
@@ -6726,7 +6885,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-22---provideranalysisresultafsreplyhotlistinfocode">Tabela 22 - ProviderAnalysisResult.AfsReply.HotListInfoCode</h2>
+<h2 id="tabela-25---provideranalysisresultafsreplyhotlistinfocode">Tabela 25 - ProviderAnalysisResult.AfsReply.HotListInfoCode</h2>
 
 <table>
   <thead>
@@ -6970,7 +7129,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-23---provideranalysisresultafsreplyidentityinfocode">Tabela 23 - ProviderAnalysisResult.AfsReply.IdentityInfoCode</h2>
+<h2 id="tabela-26---provideranalysisresultafsreplyidentityinfocode">Tabela 26 - ProviderAnalysisResult.AfsReply.IdentityInfoCode</h2>
 
 <table>
   <thead>
@@ -7014,7 +7173,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-24---provideranalysisresultafsreplyinternetinfocode">Tabela 24 - ProviderAnalysisResult.AfsReply.InternetInfoCode</h2>
+<h2 id="tabela-27---provideranalysisresultafsreplyinternetinfocode">Tabela 27 - ProviderAnalysisResult.AfsReply.InternetInfoCode</h2>
 
 <table>
   <thead>
@@ -7088,7 +7247,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-25---provideranalysisresultafsreplyphoneinfocode">Tabela 25 - ProviderAnalysisResult.AfsReply.PhoneInfoCode</h2>
+<h2 id="tabela-28---provideranalysisresultafsreplyphoneinfocode">Tabela 28 - ProviderAnalysisResult.AfsReply.PhoneInfoCode</h2>
 
 <table>
   <thead>
@@ -7137,7 +7296,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-26---provideranalysisresultafsreplysuspiciousinfocode">Tabela 26 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</h2>
+<h2 id="tabela-29---provideranalysisresultafsreplysuspiciousinfocode">Tabela 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</h2>
 
 <table>
   <thead>
@@ -7251,7 +7410,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-27---provideranalysisresultafsreplyvelocityinfocode">Tabela 27 - ProviderAnalysisResult.AfsReply.VelocityInfoCode</h2>
+<h2 id="tabela-30---provideranalysisresultafsreplyvelocityinfocode">Tabela 30 - ProviderAnalysisResult.AfsReply.VelocityInfoCode</h2>
 
 <table>
   <thead>
@@ -7395,7 +7554,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-28---provideranalysisresultafsreplyiproutingmethod">Tabela 28 - ProviderAnalysisResult.AfsReply.IpRoutingMethod</h2>
+<h2 id="tabela-31---provideranalysisresultafsreplyiproutingmethod">Tabela 31 - ProviderAnalysisResult.AfsReply.IpRoutingMethod</h2>
 
 <table>
   <thead>
@@ -7464,7 +7623,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-29---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggeredndecision">Tabela 29 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision</h2>
+<h2 id="tabela-32---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggeredndecision">Tabela 32 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision</h2>
 
 <table>
   <thead>
@@ -7493,7 +7652,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-30---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggerednevaluation">Tabela 30 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation</h2>
+<h2 id="tabela-33---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggerednevaluation">Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation</h2>
 
 <table>
   <thead>
@@ -7527,7 +7686,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   </tbody>
 </table>
 
-<h2 id="tabela-31---merchantdefineddata-cybersource">Tabela 31 - MerchantDefinedData (Cybersource)</h2>
+<h2 id="tabela-34---merchantdefineddata-cybersource">Tabela 34 - MerchantDefinedData (Cybersource)</h2>
 
 <blockquote>
   <p>Nível de Relevância <br /> 1 - Relevante <br /> 2 - Muito Relevante <br /> 3 - Extremamente Relevante <br /><br />
@@ -8151,7 +8310,93 @@ No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o
   </tbody>
 </table>
 
-<h2 id="tabela-32---cartitemncategory">Tabela 32 - CartItem[n].Category</h2>
+<h2 id="tabela-35---merchantdefineddata-aci-worldwide">Tabela 35 - MerchantDefinedData (ACI Worldwide)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Tipo</th>
+      <th style="text-align: left">Tamanho</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1 a 3</td>
+      <td style="text-align: left">Reservado</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4 a 8</td>
+      <td style="text-align: left">Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio</td>
+      <td style="text-align: left">var</td>
+      <td style="text-align: left">256</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9 a 13</td>
+      <td style="text-align: left">Reservado</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">Segment</td>
+      <td style="text-align: left">MCC (Merchant Category Code) da sua loja</td>
+      <td style="text-align: left">int</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">15 a 20</td>
+      <td style="text-align: left">Campos livres e definidos junto ao provedor de antifraude, conforme as regras de negócio</td>
+      <td style="text-align: left">var</td>
+      <td style="text-align: left">30</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">21</td>
+      <td style="text-align: left">Reservado</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">22</td>
+      <td style="text-align: left">Campo livre e definido junto ao provedor de antifraude, conforme as regras de negócio</td>
+      <td style="text-align: left">var</td>
+      <td style="text-align: left">30</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">23</td>
+      <td style="text-align: left">Reservado</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">24</td>
+      <td style="text-align: left">Campo livre e definido junto ao provedor de antifraude, conforme a regras de negócio</td>
+      <td style="text-align: left">var</td>
+      <td style="text-align: left">30</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">Reservado</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-36---cartitemncategory">Tabela 36 - CartItem[n].Category</h2>
 
 <table>
   <thead>
