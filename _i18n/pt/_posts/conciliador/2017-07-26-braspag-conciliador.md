@@ -20,9 +20,9 @@ O Agiliza é a mais completa solução para o controle das transações feitas c
 
 ## Importação de Vendas
 
-Ao importar suas vendas, você fornece para a Braspag as vendas processadas em seu sistema de pedidos. Se você for um cliente que processa suas transações com o Pagador Braspag (nosso gateway de pagamentos) ou com o gateway E-commerce Cielo, a importação é feita automaticamente.
+Ao importar suas vendas, você fornece para a Braspag as vendas processadas em seu sistema de pedidos. Se você processa suas transações com o Pagador Braspag (nosso gateway de pagamentos) ou com a API Cielo E-commerce, a importação é feita automaticamente.
 
-Se você não é cliente do Pagador Braspag ou da API E-commerce Cielo, é necessário configurar a importação do Arquivo de Vendas da sua loja para o Agiliza. Você pode fazer essa configuração através da integração com a nossa API ou manualmente via portal do cliente Agiliza.
+Se você não é cliente do Pagador Braspag ou da API Cielo E-commerce, é necessário configurar a importação do Arquivo de Vendas da sua loja para o Agiliza. Você pode fazer essa configuração através da integração com a nossa API ou manualmente via portal do cliente Agiliza.
 
 ## Processamento do Extrato
 
@@ -56,7 +56,7 @@ O Agiliza hoje suporta as principais credenciadoras do mercado:
 * Sorocred
 * BMG Granito
 * Mercado Pago
-
+<br>
 Cada credenciadora possui layouts e eventos específicos em seu extrato. As especificidades de cada credenciadora podem ser conferidas em **Informações sobre as adquirentes**, tanto para [CSV](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes49) quanto para [XML](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes).
 
 ## Arquivo de Saída
@@ -77,9 +77,9 @@ Por último, uma vez que todas as vendas importadas foram conciliadas corretamen
 |**Estorno**            | É um evento no extrato da credenciadora. Ocorre quando o lojista precisa desfazer uma transação já realizada. Esta operação pode ocorrer por cobrança indevida ao portador, insatisfação e devolução do produto/serviço adquirido, dentre outros. Diferente do cancelamento, o estorno ocorre quando a solicitação de desfazimento de uma venda ocorre em no dia seguinte à venda (D+1 da venda). Com isso, o comprador terá um registro da venda e um registro do cancelamento da venda na sua fatura e o lojista também terá os dois eventos no seu extrato.|
 |**Eventos**            | São os registros do extrato da credenciadora que indicam toda a movimentação de uma transação desde a sua criação. Há eventos de diversos tipos, variando para cada credenciadora. No entanto, existem alguns padrões, como: antecipações, vendas, ajustes, chargebacks e pagamentos.|
 |**Extrato**            | Arquivo posicional que as credenciadoras enviam para o Agiliza com as informações das vendas de um cliente. Nós recebemos o extrato diariamente e, em geral, ele é dividido pelo tipo de evento: um arquivo para vendas, outro arquivo para pagamentos e assim sucessivamente. A ausência do arquivo de um tipo de evento específico pode acarretar falha no processamento de um cliente.|
-|**Filial**             | Costuma ser uma loja secundária, ligada à loja principal (matriz). A matriz pode acompanhar a conciliação de suas lojas em dois formatos:<br>**Visão geral**: a matriz visualiza os dados de conciliação de todas as filiais em um único relatório.<br>**Visão por filial**: a matriz acessa cada filial (loja) no Agiliza e emite um relatório individual para cada uma.<br>**Importante**: qualquer loja que utilize o Pagador para importação das vendas deverá ter pelo menos uma filial, para fazer o link entre a loja no Pagador e a loja no Agiliza, ainda que não haja distinção entre as afiliações.|
+|**Filial**             | Costuma ser uma loja secundária, ligada à loja principal (matriz). A matriz pode acompanhar a conciliação de suas lojas em dois formatos:<br><br>**Visão geral**: a matriz visualiza os dados de conciliação de todas as filiais em um único relatório.<br>**Visão por filial**: a matriz acessa cada filial (loja) no Agiliza e emite um relatório individual para cada uma.<br><br>*Importante: qualquer loja que utilize o Pagador para importação das vendas deverá ter pelo menos uma filial, para fazer o link entre a loja no Pagador e a loja no Agiliza, ainda que não haja distinção entre as afiliações*.|
 |**Número do Pedido**   | É o dado enviado à credenciadora durante a criação da venda para identificar essa venda. Este número é utilizado para controle dos pedidos pela loja. A política para unicidade deste número fica a critério de cada lojista, podendo ser único, único apenas no dia corrente, ou com livre repetição.|
-|**Número Sequencial Único (NSU)**| é o identificador de uma transação, que conecta uma venda com o CNPJ da loja. O NSU é gerado tanto no mundo físico quanto no e-commerce.|
+|**Número Sequencial Único (NSU)**| É o identificador de uma transação, que conecta uma venda com o CNPJ da loja. O NSU é gerado tanto no mundo físico quanto no e-commerce.|
 |**Produto**            | É o tipo de meio de pagamento utilizado em uma compra.|
 |**Recebimento**        | É a liquidação/pagamento. É um evento no extrato da credenciadora. Indica que um pedido já processado foi devidamente pago à loja, em sua conta corrente indicada. Cada credenciadora possui prazos para liquidação próprios.|
 |**Registradora**       | As registradoras são entidades autorizadas pelo Banco Central do Brasil, responsáveis pela organização, segurança e visibilidade dos recebíveis de cartões. As informações compiladas pelas registradoras são reportadas ao Banco Central.|
@@ -151,7 +151,9 @@ O gravame  é um registro que informa que um recebível foi dado como garantia e
 
 # Funcionamento do Agiliza
 
-O processo de conciliação de transações consiste no cruzamento dos dados enviados pela credenciadora com os dados das vendas informados pela loja. A Braspag recebe todos os eventos relativos a cada transação, como pagamentos, parcelamentos, estornos, chargebacks e antecipações, entre outros. Fazemos a conciliação tanto da venda como um todo, quanto dos eventos.  Uma transação pode estar conciliada, porém ter um ou mais eventos não conciliados. É preciso ter atenção à conciliação de todo o ciclo de vida de uma transação.
+O processo de conciliação de transações consiste no cruzamento dos dados enviados pela credenciadora com os dados das vendas informados pela loja. A Braspag recebe todos os eventos relativos a cada transação, como pagamentos, parcelamentos, estornos, chargebacks e antecipações, entre outros. Fazemos a conciliação tanto da venda como um todo, quanto dos eventos.
+
+> Uma transação pode estar conciliada, porém ter um ou mais eventos não conciliados. É preciso ter atenção à conciliação de todo o ciclo de vida de uma transação.
 
 Assim, montamos a sua agenda financeira, com tudo o que sua loja vendeu, recebeu e irá receber, ao longo do tempo.
 
@@ -190,7 +192,7 @@ Veja abaixo a lista com todos os eventos que podem ser exibidos no seu extrato.
 * Débitos de valores retidos;
 * Pagamentos de vendas antecipadas;
 * Débitos de antecipação de vendas.
-
+<br>
 Agora, acompanhe o detalhamento dos principais eventos do seu extrato.
 
 ### Vendas
@@ -257,7 +259,7 @@ O layout está disponível em [Manual de Arquivos de Vendas Externas](https://re
 * Valor da Venda;
 * Quantidade de parcelas;
 * NSU/DOC.
-
+<br>
 Campos que identificam a transação não são obrigatórios completos, porém existem alguns campos que permitem o cruzamento de uma venda com o registro que virá no extrato da credenciadora.
 
 #### Importação via API Agiliza
