@@ -127,13 +127,13 @@
             <div class="post">
   <h1 id="visão-geral">Visão geral</h1>
 
-<p><img src="https://developercielo.github.io/images/split/split1-fluxo-geral.png" alt="FluxoGeralSplit" /></p>
+<p>![FluxoSplit]((https://braspag.github.io//images/braspag/split/split1-fluxo-geral.png)</p>
 
 <p>O **Split de Pagamentos é um serviço de subadquirência para marketplaces e outros modelos de negócio que precisam dividir o valor de uma venda entre diferentes participantes. Funciona tanto para e-commerce quanto para mundo físico.</p>
 
 <p>O Split de Pagamentos atua em todo o fluxo de venda e pagamento:</p>
 
-<p><img src="https://developercielo.github.io/images/split/split2-subadquirencia.png" alt="SplitSubadquirencia" /></p>
+<p>![SplitSubadquirenciaGeral]((https://braspag.github.io//images/braspag/split/split2-subadquirencia.png)</p>
 
 <h2 id="quais-modelos-de-negócios-podem-usar-o-split-de-pagamentos">Quais modelos de negócios podem usar o Split de Pagamentos?</h2>
 
@@ -244,7 +244,7 @@
 
 <p>O master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa com cada Subordinado. Se desejar, pode embutir o MDR e/ou Tarifa acordados junto à Braspag.</p>
 
-<p><img src="https://developercielo.github.io/images/split/split3-taxas.png" alt="SplitTaxas" /></p>
+<p>![SplitExTaxas]((https://braspag.github.io//images/braspag/split/split3-taxas.png)</p>
 
 <ul>
   <li>A Tarifa Fixa acordada entre o master e a Braspag não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto à Braspag.</li>
@@ -267,7 +267,7 @@
 
 <p>Uma transação de R$100,00, realizada por um master com participação do subordinado A.</p>
 
-<p><img src="https://developercielo.github.io/images/split/split4-exemplo1-taxas.png" alt="SplitEx1" /></p>
+<p>![SplitExemplo1]((https://braspag.github.io//images/braspag/split/split4-exemplo1-taxas.png)</p>
 
 <p>Neste exemplo, foram assumidos os seguintes acordos:</p>
 
@@ -406,7 +406,7 @@
   <li>Realize uma requisição ao servidor de autorização.</li>
 </ol>
 
-<p><img src="https://developercielo.github.io/images/split/split5-auth.png" alt="SplitBPAuth" /></p>
+<p>![SplitAuth]((https://braspag.github.io//images/braspag/split/split5-auth.png)</p>
 
 <h4 id="requisição">Requisição</h4>
 
@@ -443,7 +443,7 @@
 
 <p>Veja um exemplo do fluxo transacional padrão no Split de Pagamentos.</p>
 
-<p><img src="https://developercielo.github.io/images/split/split6-fluxo-transacional-padrao.png" alt="FluxoSplitPadrao" /></p>
+<p>![FluxoTransacionalSplit]((https://braspag.github.io//images/braspag/split/split6-fluxo-transacional-padrao.png)</p>
 
 <p>A próxima seção apresentará exemplos de transações de crédito, débito e boleto. É importante lembrar que nas respostas das requisições das transações, o Split retornará a divisão do valor da venda, MDR e taxa fixa, mas o desconto das taxas será feito posteriormente, na agenda financeira.</p>
 
@@ -909,7 +909,7 @@ master. Posteriormente, é permitido que o master envie novas regras de divisão
 
 <p>O valor total a receber pelo master está representado na figura a seguir.</p>
 
-<p><img src="https://developercielo.github.io/images/split/split7-exemplo2-sem-no.png" alt="SplitEx2" /></p>
+<p>![SplitEx2]((https://braspag.github.io//images/braspag/split/split7-exemplo2-sem-no.png)</p>
 
 <h5 id="requisição-2">Requisição</h5>
 
@@ -1223,7 +1223,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 
 <p>As divisões e o valor total a receber de cada participante estão na figura a seguir.</p>
 
-<p><img src="https://developercielo.github.io/images/split/split8-exemplo3-com-no.png" alt="SplitEx3" /></p>
+<p>![SplitEx3]((https://braspag.github.io//images/braspag/split/split8-exemplo3-com-no.png)</p>
 
 <h5 id="requisição-3">Requisição</h5>
 
@@ -2382,7 +2382,7 @@ tipo de meio de pagamento.</p>
 
 <p>Na transação com Cartão Protegido, a solicitação de tokenização é feita na própria requisição de autorização.</p>
 
-<p><img src="https://developercielo.github.io/images/split/split9-fluxo-transacional-cp.png" alt="FluxoSplitCP" /></p>
+<p>![FluxoSplitCP]((https://braspag.github.io//images/braspag/split/split9-fluxo-transacional-cp.png)</p>
 
 <h3 id="salvando-um-cartão-durante-uma-autorização">Salvando um Cartão Durante uma Autorização</h3>
 
@@ -3923,7 +3923,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <p>As divisões e o valor total a receber de cada participante estão na figura a seguir.</p>
 
-<p><img src="https://developercielo.github.io/images/split/split10-exemplo4-tipo-de-desconto.png" alt="SplitEx4" /></p>
+<p>![SplitEx4]((https://braspag.github.io//images/braspag/split/split10-exemplo4-tipo-de-desconto.png)</p>
 
 <h5 id="desconto-sendo-aplicado-sobre-a-comissão">Desconto sendo aplicado sobre a comissão</h5>
 
@@ -4350,7 +4350,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <p>Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.</p>
 
-<p><img src="https://developercielo.github.io/images/split/split11-fluxo-transacional-af.png" alt="FluxoSplitAF" /></p>
+<p>![FluxoSplitAF]((https://braspag.github.io//images/braspag/split/split11-fluxo-transacional-af.png)</p>
 
 <p>Para utilizar o sistema de antifraude, é necessário incluir o bloco <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code>. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos <code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress</code> e/ou <code class="language-plaintext highlighter-rouge">Customer.BillingAddress</code>.</p>
 
@@ -4823,7 +4823,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <p>Veja o fluxo percorrido pelo Post de Notificação:</p>
 
-<p><img src="https://developercielo.github.io/images/split/split12-post-notificacao.png" alt="SplitPostNotificacao" /></p>
+<p>![SplitPostNotificacao]((https://braspag.github.io//images/braspag/split/split12-post-notificacao.png)</p>
 
 <p>Os parâmetros serão enviados à URL cadastrada, conforme o próximo exemplo.</p>
 
