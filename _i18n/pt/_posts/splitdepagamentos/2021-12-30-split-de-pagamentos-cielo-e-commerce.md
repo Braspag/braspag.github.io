@@ -73,10 +73,10 @@ Para cada transação, você poderá informar como será a divisão entre cada p
 
 Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores para cada envolvido na transação. O **Regime de Pagamento** é o prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
 
->* **Crédito**: em até 31 dias.<br>
->* **Crédito Parcelado**: 1ª parcela em até 31 dias, demais a cada 30 dias.<br>
->* **Débito**: em até 2 dias úteis.<br>
->* **Boleto**: em até 2 dias úteis após a confirmação do pagamento.
+>**Crédito**: em até 31 dias.<br>
+>**Crédito Parcelado**: 1ª parcela em até 31 dias, demais a cada 30 dias.<br>
+>**Débito**: em até 2 dias úteis.<br>
+>**Boleto**: em até 2 dias úteis após a confirmação do pagamento.
 
 <br/>Na divisão de uma transação, você deve informar:
 
@@ -122,8 +122,8 @@ Uma transação de R$100,00, realizada por um master com participação do subor
  
 Neste exemplo, foram assumidos os seguintes acordos:
 
->* **Taxa Braspag**: 2% de MDR + R$0,10 de Tarifa Fixa.<br>
->* **Taxa Master**: 4% de MDR (embutindo os 2% de MDR da Braspag) + R$0,30 de Tarifa Fixa.
+>**Taxa Braspag**: 2% de MDR + R$0,10 de Tarifa Fixa.<br>
+>**Taxa Master**: 4% de MDR (embutindo os 2% de MDR da Braspag) + R$0,30 de Tarifa Fixa.
 
 Após a divisão, cada participante terá sua agenda sensibilizada com os seguintes eventos:
 
