@@ -3074,7 +3074,7 @@ A escolha do tipo de desconto das taxas pode ser feita:
 * **Pré-configurada**. Para pré-configurar, entre em contato com o [Suporte](https://suporte.braspag.com.br/hc/pt-br), que irá criar, remover ou atualizar a
 pré-configuração. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
 
-No caso de uma transação criada com um tipo de desconto das taxas, esse tipo será usado em todas as requisições posteriores. É possível mudar o tipo de desconto através da redivisão
+<br/>No caso de uma transação criada com um tipo de desconto das taxas, esse tipo será usado em todas as requisições posteriores. É possível mudar o tipo de desconto através da redivisão
 (pelo Split Pós-Transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.
 
 > Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.
@@ -3096,27 +3096,27 @@ Após a divisão, cada participante terá sua agenda sensibilizada com os seguin
 * Crédito de R$42,75 (R$45,00 da transação menos R$2,25 de MDR);
 * Débito de R$0,30 de Tarifa Fixa.
 
-O **total a receber** pelo subordinado A será **R$42,45**.
+<br/>O **total a receber** pelo subordinado A será **R$42,45**.
 
 **Subordinado B:**
 
 * Crédito de R$28,80 (R$30,00 da transação menos R$1,20 de MDR);
 * Débito de R$0,15 de Tarifa Fixa.
 
-O **total a receber** pelo subordinado B será **R$28,65**.
+<br/>O **total a receber** pelo subordinado B será **R$28,65**.
 
 **Master:**
 
 * Crédito de R$ 26,90 (R$25,00 da transação somados com R$2,25 de MDR e R$0,30 de Tarifa Fixa do subordinado A, e com R$1,20 de MDR e R$0,15 de Tarifa Fixa do subordinado B; menos R$2,00 de MDR da Braspag);
 * Débito de R$0,30 (Tarifa Fixa acordada com a Braspag).
 
-O **total a receber** pelo master será **R$26,60**.
+<br/>O **total a receber** pelo master será **R$26,60**.
  
 **Braspag:**
 
 * Crédito de R$2,30 (MDR aplicado sobre o valor total da transação mais R$0,30 de Tarifa Fixa acordada com o master).
 
-O **total a receber** pela Braspag será **R$2,30**.
+<br/>O **total a receber** pela Braspag será **R$2,30**.
 
 As divisões e o valor total a receber de cada participante estão na figura a seguir.
 
