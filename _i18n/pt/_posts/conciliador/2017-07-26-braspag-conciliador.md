@@ -56,7 +56,7 @@ O Agiliza hoje suporta as principais credenciadoras do mercado:
 * Sorocred
 * BMG Granito
 * Mercado Pago
-
+<br/>
 > Cada credenciadora possui layouts e eventos específicos em seu extrato. As especificidades de cada credenciadora podem ser conferidas em **Informações sobre as adquirentes**, tanto para [CSV](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes49) quanto para [XML](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes).
 
 ## Arquivo de Saída
@@ -193,7 +193,7 @@ Veja abaixo a lista com todos os eventos que podem ser exibidos no seu extrato.
 * Pagamentos de vendas antecipadas;
 * Débitos de antecipação de vendas.
 
-Agora, acompanhe o detalhamento dos principais eventos do seu extrato.
+<br/>Agora, acompanhe o detalhamento dos principais eventos do seu extrato.
 
 ### Vendas
 
@@ -260,7 +260,7 @@ O layout está disponível em [Manual de Arquivos de Vendas Externas](https://re
 * Quantidade de parcelas;
 * NSU/DOC.
 
-Campos que identificam a transação não são obrigatórios completos, porém existem alguns campos que permitem o cruzamento de uma venda com o registro que virá no extrato da credenciadora.
+<br/>Campos que identificam a transação não são obrigatórios completos, porém existem alguns campos que permitem o cruzamento de uma venda com o registro que virá no extrato da credenciadora.
 
 #### Importação via API Agiliza
 
