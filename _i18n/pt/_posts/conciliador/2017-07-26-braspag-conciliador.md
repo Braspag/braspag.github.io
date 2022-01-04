@@ -60,7 +60,7 @@ O Agiliza hoje suporta as principais credenciadoras do mercado:
 Cada credenciadora possui layouts e eventos específicos em seu extrato. As especificidades de cada credenciadora podem ser conferidas em **Informações sobre as adquirentes**, tanto para [CSV](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes49) quanto para [XML](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes).
 
 ## Arquivo de Saída
-  
+
 Por último, uma vez que todas as vendas importadas foram conciliadas corretamente com base no extrato da credenciadora, é possível gerar um arquivo de saída, em layout próprio da Braspag, para ser importado em ERPs ou quaisquer outros sistemas de gestão de vendas. Assim, é possível ter todo o ciclo de vida de uma transação atualizado diariamente, melhorando o controle financeiro da sua empresa. 
 
 # Glossário
@@ -210,7 +210,7 @@ Quando uma venda é realizada, via maquininha de cartão (POS), e-commerce, TEF 
 ### Antecipações
 
 No processo de antecipação, o lojista solicita à credenciadora para antecipar os recebíveis que ele possui em sua agenda financeira. Por exemplo, caso você tenha uma venda que foi parcelada em 10 vezes, e você já recebeu o pagamento da primeira parcela, você poderá solicitar a antecipação do pagamento das nove parcelas restantes, pagando uma taxa para a realização desta operação.
- 
+
 ### Ajustes
 
 Ajustes são eventos que ocorrem numa venda já finalizada. Dentre os ajustes possíveis, temos:
@@ -220,18 +220,19 @@ Ajustes são eventos que ocorrem numa venda já finalizada. Dentre os ajustes po
 * **Reagendamento**: quando uma venda tem previsão de pagamento para uma data e, por algum motivo, será necessário mudar esta previsão.
 
 ### Aceleração
- 
+
 Aceleração de parcela ocorre quando é realizada uma manutenção no plano parcelado, como cancelamento, chargeback ou alteração na quantidade de parcelas da venda. A mesma movimentação ocorre para os débitos de antecipação. Como exemplo, quando uma venda parcelada sofre chargeback, a credenciadora irá acelerar todas as parcelas ainda pendentes antes de realizar o chargeback. Isto impede que exista um furo na agenda financeira do cliente. Não está disponível para todas as credenciadoras.
 
 ### Tarifa e Taxa
 
 A tarifa é uma variação da taxa. Ambos são valores acordados entre o lojista e a credenciadora que serão cobrados a cada transação, e podem diferir entre crédito, débito e boleto, compra à vista ou parcelada e bandeira. A taxa é uma porcentagem, enquanto a tarifa é um valor fixo. Se a credenciadora oferece a tarifa, todas as transações terão o desconto de um valor fixo; se for a taxa, a cobrança será de uma porcentagem.
-  
+
 ### Mensalidade
 
 Corresponde ao aluguel e manutenção da maquininha (POS) cobrado pela credenciadora e é considerado um ajuste. No Agiliza, a mensalidade é recorrente e tem data determinada para acontecer.
 
-### Valor Retido 
+### Valor Retido
+
 Se um estabelecimento antecipa todo o valor que tem para receber é possível que, devido a estornos e chargebacks, fique com valor de crédito inferior aos débitos agendados. Para evitar essa situação, chamada de debit balance, a credenciadora pode reter um valor em uma operação de antecipação.
 
 ## Importação das Vendas
