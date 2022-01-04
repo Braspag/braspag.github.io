@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de Arquivos
+title: Manual Agiliza
 description: Integração Técnica
 search: true
 categories: manual
@@ -16,7 +16,7 @@ O Agiliza é a ferramenta de conciliação da Braspag criada para que você poss
 
 O Agiliza é a mais completa solução para o controle das transações feitas com cartão de crédito, débito e voucher, independente se o canal é e-commerce, call center ou mundo físico. O Agiliza funciona baseado em três pilares principais: importação de vendas, processamento do extrato e arquivo de saída.
 
-![FluxoAgiliza](({{ site.baseurl_root }}/images/braspag/conciliador/agiliza1-fluxo-geral.png)
+![FluxoAgiliza]({{ site.baseurl_root }}/images/braspag/conciliador/agiliza1-fluxo-geral.png)
 
 ## Importação de Vendas
 
@@ -118,7 +118,7 @@ São instituições financeiras e não financeiras que podem comprar os recebív
 
 ### URs: as Unidades de Recebíveis
 
-![FluxoAgiliza](({{ site.baseurl_root }}/images/braspag/conciliador/agiliza2-ur.png)
+![FluxoAgiliza]({{ site.baseurl_root }}/images/braspag/conciliador/agiliza2-ur.png)
 
 As URs são os valores que uma loja tem a receber por suas vendas. As URs são o resultado do agrupamento das seguintes informações:
 
