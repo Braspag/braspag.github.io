@@ -48,7 +48,20 @@
 
     <body>
         
-            <div class="content-container no-dark-box">
+            <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        });
         
             <div id="submenu">
                 <div class="submenu-container">
@@ -127,13 +140,13 @@
             <div class="post">
   <h1 id="visão-geral">Visão geral</h1>
 
-<p>![FluxoSplit]((https://braspag.github.io//images/braspag/split/split1-fluxo-geral.png)</p>
+<p><img src="https://braspag.github.io//images/braspag/split/split1-fluxo-geral.png" alt="FluxoSplit" /></p>
 
 <p>O **Split de Pagamentos é um serviço de subadquirência para marketplaces e outros modelos de negócio que precisam dividir o valor de uma venda entre diferentes participantes. Funciona tanto para e-commerce quanto para mundo físico.</p>
 
 <p>O Split de Pagamentos atua em todo o fluxo de venda e pagamento:</p>
 
-<p>![SplitSubadquirenciaGeral]((https://braspag.github.io//images/braspag/split/split2-subadquirencia.png)</p>
+<p><img src="https://braspag.github.io//images/braspag/split/split2-subadquirencia.png" alt="SplitSubadquirenciaGeral" /></p>
 
 <h2 id="quais-modelos-de-negócios-podem-usar-o-split-de-pagamentos">Quais modelos de negócios podem usar o Split de Pagamentos?</h2>
 
@@ -244,7 +257,7 @@
 
 <p>O master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa com cada Subordinado. Se desejar, pode embutir o MDR e/ou Tarifa acordados junto à Braspag.</p>
 
-<p>![SplitExTaxas]((https://braspag.github.io//images/braspag/split/split3-taxas.png)</p>
+<p><img src="https://braspag.github.io//images/braspag/split/split3-taxas.png" alt="SplitExTaxas" /></p>
 
 <ul>
   <li>A Tarifa Fixa acordada entre o master e a Braspag não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto à Braspag.</li>
@@ -267,7 +280,7 @@
 
 <p>Uma transação de R$100,00, realizada por um master com participação do subordinado A.</p>
 
-<p>![SplitExemplo1]((https://braspag.github.io//images/braspag/split/split4-exemplo1-taxas.png)</p>
+<p><img src="https://braspag.github.io//images/braspag/split/split4-exemplo1-taxas.png" alt="SplitExemplo1" /></p>
 
 <p>Neste exemplo, foram assumidos os seguintes acordos:</p>
 
@@ -406,7 +419,7 @@
   <li>Realize uma requisição ao servidor de autorização.</li>
 </ol>
 
-<p>![SplitAuth]((https://braspag.github.io//images/braspag/split/split5-auth.png)</p>
+<p><img src="https://braspag.github.io//images/braspag/split/split5-auth.png" alt="SplitAuth" /></p>
 
 <h4 id="requisição">Requisição</h4>
 
@@ -443,7 +456,7 @@
 
 <p>Veja um exemplo do fluxo transacional padrão no Split de Pagamentos.</p>
 
-<p>![FluxoTransacionalSplit]((https://braspag.github.io//images/braspag/split/split6-fluxo-transacional-padrao.png)</p>
+<p><img src="https://braspag.github.io//images/braspag/split/split6-fluxo-transacional-padrao.png" alt="FluxoTransacionalSplit" /></p>
 
 <p>A próxima seção apresentará exemplos de transações de crédito, débito e boleto. É importante lembrar que nas respostas das requisições das transações, o Split retornará a divisão do valor da venda, MDR e taxa fixa, mas o desconto das taxas será feito posteriormente, na agenda financeira.</p>
 
@@ -909,7 +922,7 @@ master. Posteriormente, é permitido que o master envie novas regras de divisão
 
 <p>O valor total a receber pelo master está representado na figura a seguir.</p>
 
-<p>![SplitEx2]((https://braspag.github.io//images/braspag/split/split7-exemplo2-sem-no.png)</p>
+<p><img src="https://braspag.github.io//images/braspag/split/split7-exemplo2-sem-no.png" alt="SplitEx2" /></p>
 
 <h5 id="requisição-2">Requisição</h5>
 
@@ -1223,7 +1236,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 
 <p>As divisões e o valor total a receber de cada participante estão na figura a seguir.</p>
 
-<p>![SplitEx3]((https://braspag.github.io//images/braspag/split/split8-exemplo3-com-no.png)</p>
+<p><img src="https://braspag.github.io//images/braspag/split/split8-exemplo3-com-no.png" alt="SplitEx3" /></p>
 
 <h5 id="requisição-3">Requisição</h5>
 
@@ -2382,7 +2395,7 @@ tipo de meio de pagamento.</p>
 
 <p>Na transação com Cartão Protegido, a solicitação de tokenização é feita na própria requisição de autorização.</p>
 
-<p>![FluxoSplitCP]((https://braspag.github.io//images/braspag/split/split9-fluxo-transacional-cp.png)</p>
+<p><img src="https://braspag.github.io//images/braspag/split/split9-fluxo-transacional-cp.png" alt="FluxoSplitCP" /></p>
 
 <h3 id="salvando-um-cartão-durante-uma-autorização">Salvando um Cartão Durante uma Autorização</h3>
 
@@ -3923,7 +3936,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <p>As divisões e o valor total a receber de cada participante estão na figura a seguir.</p>
 
-<p>![SplitEx4]((https://braspag.github.io//images/braspag/split/split10-exemplo4-tipo-de-desconto.png)</p>
+<p><img src="https://braspag.github.io//images/braspag/split/split10-exemplo4-tipo-de-desconto.png" alt="SplitEx4" /></p>
 
 <h5 id="desconto-sendo-aplicado-sobre-a-comissão">Desconto sendo aplicado sobre a comissão</h5>
 
@@ -4350,7 +4363,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <p>Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.</p>
 
-<p>![FluxoSplitAF]((https://braspag.github.io//images/braspag/split/split11-fluxo-transacional-af.png)</p>
+<p><img src="https://braspag.github.io//images/braspag/split/split11-fluxo-transacional-af.png" alt="FluxoSplitAF" /></p>
 
 <p>Para utilizar o sistema de antifraude, é necessário incluir o bloco <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code>. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos <code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress</code> e/ou <code class="language-plaintext highlighter-rouge">Customer.BillingAddress</code>.</p>
 
@@ -4823,7 +4836,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <p>Veja o fluxo percorrido pelo Post de Notificação:</p>
 
-<p>![SplitPostNotificacao]((https://braspag.github.io//images/braspag/split/split12-post-notificacao.png)</p>
+<p><img src="https://braspag.github.io//images/braspag/split/split12-post-notificacao.png" alt="SplitPostNotificacao" /></p>
 
 <p>Os parâmetros serão enviados à URL cadastrada, conforme o próximo exemplo.</p>
 
@@ -5809,6 +5822,52 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
         <script src="https://braspag.github.io//assets/js/search.js"></script>
         
 
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+        langs += "<a data-language-name='shell'>cURL</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://braspag.github.io//assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json",  "shell", ]);
+            });
+        </script>
         
 
         <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
