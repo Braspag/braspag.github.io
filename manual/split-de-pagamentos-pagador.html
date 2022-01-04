@@ -105,115 +105,186 @@
             </div>
 
             <div class="post">
-  <h1 id="introdução">Introdução</h1>
+  <h1 id="visão-geral">Visão Geral</h1>
 
-<p>O <strong>Split de Pagamentos</strong> permite a divisão de uma transação entre diferentes participantes de uma venda.</p>
+<p>![FluxoSplit]((https://braspag.github.io//images/braspag/split/split1-fluxo-geral.png)</p>
 
-<p>Muito utilizado em marketplaces, onde <strong>o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes</strong>.</p>
+<p>O **Split de Pagamentos é um serviço de subadquirência para marketplaces e outros modelos de negócio que precisam dividir o valor de uma venda entre diferentes participantes. Funciona tanto para e-commerce quanto para mundo físico.</p>
+
+<p>O Split de Pagamentos atua em todo o fluxo de venda e pagamento:</p>
+
+<p>![SplitSubadquirenciaGeral]((https://braspag.github.io//images/braspag/split/split2-subadquirencia.png)</p>
+
+<h2 id="quais-modelos-de-negócios-podem-usar-o-split-de-pagamentos">Quais modelos de negócios podem usar o Split de Pagamentos?</h2>
+
+<ul>
+  <li><strong>Marketplaces</strong>, que permitem que uma pessoa possa comprar produtos de vendedores diferentes em uma única compra (mesmo carrinho);</li>
+  <li><strong>Franquias</strong>, que permitem que um produto comprado pelo e-commerce da marca, por exemplo, seja oriundo do estoque de uma unidade franqueada;</li>
+  <li><strong>Mundo físico</strong>, que permite que uma venda paga pela máquina de cartão seja dividida entre diferentes fornecedores;</li>
+  <li>Além de serviços de entrega, consultores porta a porta, agências de turismo, aplicativos e ticketeiras, entre outros.</li>
+</ul>
+
+<h2 id="principais-benefícios">Principais Benefícios</h2>
+
+<ul>
+  <li>Comercializar produtos de diferentes vendedores em uma única compra;</li>
+  <li>Participar ou não da venda;</li>
+  <li>Ter um comissionamento flexível;</li>
+  <li>Ter controle de todo o fluxo da venda, da captura até a liquidação e conciliação;</li>
+  <li>Antecipar seus recebíveis.</li>
+</ul>
+
+<h2 id="segurança-para-as-suas-transações">Segurança para as suas transações</h2>
+
+<p>Com o Split de Pagamentos da Braspag, você tem acesso a um pacote de soluções para a segurança do comprador, do seu e-commerce e dos seus vendedores:</p>
+<ul>
+  <li><strong>VerifyCard</strong>: composto pelo Zero Auth, que identifica se um cartão é válido, e pelo Consulta BIN, que retorna características do cartão, como tipo e bandeira;</li>
+  <li><strong>Autenticação 3DS 2.0</strong>: é um modelo de autenticação que permite determinar se um comprador é, de fato, o portador do cartão;</li>
+  <li><strong>Antifraude</strong>*: permite a análise de fraude de cada transação em parceria com a Cybersource;</li>
+  <li><strong>Cartão Protegido</strong>: permite o armazenamento seguro de cartões de crédito e débito, de acordo com as normas do PCI, e contribui para melhorar a taxa de conversão do seu e-commerce;</li>
+  <li><strong>Silent Order Post</strong>: possibilita o envio de dados do pagamento do cliente de forma segura, armazenando os dados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2. O Silent Order Post é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.</li>
+</ul>
+
+<blockquote>
+  <p>O Antifraude está sujeito à uma taxa por transação analisada. Consulte a área <a href="https://suporte.braspag.com.br/hc/pt-br">Comercial da Braspag</a> para saber mais.</p>
+</blockquote>
+
+<h1 id="como-funciona">Como funciona</h1>
+
+<p>Os possíveis participantes de uma venda são: master, subordinado e Split de Pagamentos.</p>
 
 <table>
   <thead>
     <tr>
-      <th><strong>Participantes</strong></th>
-      <th><strong>Descrição</strong></th>
+      <th>PARTICIPANTES</th>
+      <th>DESCRIÇÃO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>Master</strong></td>
-      <td>É o responsável pelo carrinho. <br /> Possui acordos com <strong>Subordinados</strong> que fornecem os produtos presentes no carrinho.<br /> Define as taxas a serem descontadas sobre a venda de cada <strong>Subordinado</strong>.<br /> Pode participar de uma venda fornecendo seus próprios produtos.</td>
+      <td>É o responsável pelo carrinho.<br />Possui acordos com subordinados que fornecem os produtos presentes no carrinho.<br />Define as taxas a serem descontadas sobre a venda de cada subordinado.<br />Pode participar de uma venda fornecendo seus próprios produtos.</td>
     </tr>
     <tr>
-      <td><strong>Subordinado</strong></td>
-      <td>Fornecedor dos produtos que compõem o carrinho.<br />Recebe parte do valor da venda, descontadas as taxas acordadas com o <strong>Master</strong>.</td>
+      <td>Subordinado</td>
+      <td>É o fornecedor dos produtos que compõem o carrinho.<br />Recebe parte do valor da venda, descontadas as taxas acordadas com o master.</td>
     </tr>
     <tr>
-      <td><strong>Braspag</strong></td>
-      <td>É a responsável pelo fluxo transacional, funcionando como subadquirente.<br /> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo <strong>Master</strong>.<br /> Responsável pela liquidação dos pagamentos para os <strong>Subordinados</strong> e <strong>Master</strong>.</td>
+      <td>Split de Pagamentos</td>
+      <td>É responsável pelo fluxo transacional, funcionando como uma subadquirente.<br />Define as taxas a serem descontadas sobre o valor total da venda realizada pelo master.<br />É responsável pela liquidação dos pagamentos para os subordinados e master.</td>
     </tr>
   </tbody>
 </table>
 
-<p>No Split de Pagamentos o responsável pelo fluxo transacional é a Braspag.</p>
-
-<p>O Master se integra à Braspag para transacionar e, para cada transação, informa como será a divisão entre cada participante, podendo ser no momento de captura (Split transacional) ou em um momento posterior (Split pós-transacional), desde que seja dentro de um limite de tempo pré-estabelecido.</p>
-
-<p>Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento*), para cada envolvido na transação. O <strong>Regime de Pagamento</strong> é o prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.</p>
+<p>Ao contratar o Split de Pagamentos, você (usuário master) receberá as credenciais para integração com as nossas APIs (<code class="language-plaintext highlighter-rouge">MerchantId</code>, <code class="language-plaintext highlighter-rouge">MerchantKey</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>), além do seu login no portal Backoffice Split.</p>
 
 <blockquote>
-  <p><strong>Crédito</strong>: em até 31 dias. <br />
-<strong>Crédito Parcelado</strong>: 1º parcela em até 31 dias, demais a cada 30.<br />
-<strong>Débito</strong>: em até 2 dias úteis.</p>
+  <p>Nesta documentação, mostramos o passo a passo da integração via API. Para saber como usar o Backoffice Split, consulte os <a href="https://suporte.braspag.com.br/hc/pt-br">artigos na nossa página de Suporte</a>.</p>
 </blockquote>
 
-<p>Para utilizar o Split de Pagamentos, o Master deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Master quanto seus Subordinados possuirão um identificador único, conhecido como <strong>MerchantId (MID)</strong>, que deverá ser utlizado ao informar as regras de divisão de uma transação.</p>
+<p>Antes de começar a transacionar, você precisa cadastrar os seus subordinados. Para isso, leia a documentação Cadastro de Subordinados.</p>
+
+<p>Como master, o primeiro passo é fazer a sua integração com a API Cielo E-commerce 3.0.</p>
+
+<p>Para cada transação, você poderá informar como será a divisão entre cada participante, podendo ser no momento de captura (Split transacional) ou em um momento posterior (Split pós-transacional).</p>
+
+<p>Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores para cada envolvido na transação. O <strong>Regime de Pagamento</strong> é o prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.</p>
+
+<ul>
+  <li><strong>Crédito</strong>: em até 31 dias.</li>
+  <li><strong>Crédito Parcelado</strong>: 1ª parcela em até 31 dias, demais a cada 30 dias.</li>
+  <li><strong>Débito</strong>: em até 2 dias úteis.</li>
+  <li><strong>Boleto</strong>: em até 2 dias úteis após a confirmação do pagamento.</li>
+</ul>
 
 <p>Na divisão de uma transação, você deve informar:</p>
 
 <ul>
-  <li>Os <strong>identificadores dos Subordinados</strong>;</li>
-  <li>Os <strong>valores de participação de cada Subordinado</strong>. O somatório deverá ser igual ao valor total da transação;</li>
-  <li>As <strong>Taxas</strong> a serem aplicadas sobre o valor de cada Subordinado, destinadas ao Master. Estas deverão ser acordadas previamente entre o Master e o Subordinado.</li>
+  <li>Os <strong>identificadores (MerchantId) dos subordinados e do master</strong>, caso também participe da venda;</li>
+  <li>Os <strong>valores correspondentes a cada participante</strong>. O somatório deverá ser igual ao valor total da transação;</li>
+  <li>As <strong>taxas</strong> a serem aplicadas sobre o valor de cada subordinado destinadas ao master. Essas taxas deverão ser acordadas previamente entre master e subordinado.</li>
 </ul>
 
-<p>O Master também pode ser um participante da divisão; para isso, basta informar seu identificador. Nessa situação, o Master passa a ter também o papel de Subordinado e ter seus próprios produtos no carrinho.</p>
+<p>Quando o master participa da divisão, passa a ter também o papel de subordinado e a ter seus próprios produtos no carrinho.</p>
 
 <h2 id="taxas">Taxas</h2>
 
-<p>As taxas acordadas entre os participantes, podendo ser um <strong>MDR(%)</strong> e/ou uma <strong>Taxa Fixa(R$)</strong>, devem ser definidas no momento do cadastro do Master e dos seus Subordinados junto à Braspag.</p>
+<p>As taxas acordadas entre os participantes podem ser um MDR (%) e/ou uma Tarifa Fixa (R$), e devem ser definidas no momento do cadastro do master e dos seus subordinados junto à Braspag.</p>
 
-<p>As taxas podem ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.</p>
+<p>As taxas podem ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, o Split vai considerar as taxas cadastradas e acordadas previamente entre os participantes.</p>
 
 <blockquote>
-  <p><strong>MDR (<em>Merchant Discount Rate</em>):</strong> percentual a ser descontado do valor de uma transação, definido por produto (crédito/débito), bandeira e faixa de parcelamento. <br />
-<strong>Fee:</strong> taxa fixa. Valor em centavos a ser cobrado por transação capturada.</p>
+  <p><strong>MDR (Merchant Discount Rate)</strong>: percentual a ser descontado do valor de uma transação, definido por produto (crédito/débito/boleto), bandeira e faixa de parcelamento.<br />
+<strong>Tarifa fixa</strong>: também chamada de fee transacional. Valor em centavos a ser cobrado por transação capturada. É descontado no momento da “montagem” da agenda financeira.</p>
 </blockquote>
 
 <h3 id="braspag">Braspag</h3>
 
-<p>A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Master a serem descontadas do valor total de cada transação.</p>
+<p>A Braspag acordará um MDR e/ou uma Tarifa Fixa com o master, que serão descontadas do valor total de cada transação.</p>
 
-<p>O Master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag.</p>
+<p>O master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa com cada Subordinado. Se desejar, pode embutir o MDR e/ou Tarifa acordados junto à Braspag.</p>
 
-<p>O desconto da Tarifa Fixa, acordada entre o Master e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Master tem para receber junto à Braspag. O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Master e seus Subordinados.</p>
+<p>![SplitExTaxas]((https://braspag.github.io//images/braspag/split/split3-taxas.png)</p>
+
+<ul>
+  <li>A Tarifa Fixa acordada entre o master e a Braspag não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto à Braspag.</li>
+  <li>O MDR entra no cálculo de divisão da transação, considerando o valor total da transação, já que o MDR deve estar embutido no MDR acordado entre o master e seus subordinados.</li>
+</ul>
 
 <blockquote>
-  <p><strong>Custo Master:</strong> MDR Braspag (%) + Tarifa Fixa Braspag (R$)</p>
+  <p><strong>Taxa Braspag</strong>: MDR Braspag (%) + Tarifa Fixa Braspag (R$)</p>
 </blockquote>
 
 <h3 id="master">Master</h3>
 
-<p>O Master é responsável por acordar as taxas a serem cobradas dos seus Subordinados, definindo um MDR maior ou igual ao MDR definido entre a Braspag e o Master, e uma Tarifa Fixa, que é opcional.</p>
+<p>O master é responsável por acordar as taxas a serem cobradas dos seus subordinados, definindo um MDR maior ou igual ao MDR definido com a Braspag, e uma Tarifa Fixa, que é opcional.</p>
 
 <blockquote>
-  <p><strong>Custo Subordinado:</strong> MDR Master (%) + Tarifa Fixa (R$), onde o MDR Master (%) considera o MDR Braspag (%).</p>
+  <p>Taxa Master: MDR Master (%) + Tarifa Fixa (R$), na qual o MDR Master (%) pode embutir o MDR Braspag (%).</p>
 </blockquote>
 
-<h3 id="exemplo">Exemplo</h3>
+<h3 id="exemplo-da-divisão-e-taxas">Exemplo da divisão e taxas</h3>
 
-<p>Uma transação de <strong>R$100,00</strong>, realizada por um <strong>Master</strong> com participação do <strong>Subordinado 01</strong>.</p>
+<p>Uma transação de R$100,00, realizada por um master com participação do subordinado A.</p>
 
-<p><img src="https://developercielo.github.io/images/split/split001.png" alt="SplitSample001" /></p>
+<p>![SplitExemplo1]((https://braspag.github.io//images/braspag/split/split4-exemplo1-taxas.png)</p>
 
 <p>Neste exemplo, foram assumidos os seguintes acordos:</p>
 
-<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.<br />
-<strong>Taxa Master</strong>: 3,5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.</p>
+<ul>
+  <li><strong>Taxa Braspag</strong>: 2% de MDR + R$0,10 de Tarifa Fixa.</li>
+  <li><strong>Taxa Master</strong>: 4% de MDR (embutindo os 2% de MDR da Braspag) + R$0,30 de Tarifa Fixa.</li>
+</ul>
 
-<p>Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:</p>
+<p>Após a divisão, cada participante terá sua agenda sensibilizada com os seguintes eventos:</p>
 
-<p><strong>Subordinado</strong>:<br />
-Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Master]</p>
+<p><strong>Subordinado:</strong></p>
 
-<p><strong>Master</strong>:<br />
-Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag]
-Débito: R$0,10 [Tarifa Fixa acordada com a Braspag]</p>
+<ul>
+  <li>Crédito de R$96,00 (R$100,00 da transação menos R$4,00 de MDR);</li>
+  <li>Débito de R$0,30 de Tarifa Fixa.</li>
+</ul>
 
-<p><strong>Braspag (Facilitador)</strong>:<br />
-Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
-Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
+<p>O total a receber pelo subordinado será R$95,70.</p>
 
-<h2 id="bandeiras">Bandeiras</h2>
+<p><strong>Master:</strong></p>
+
+<ul>
+  <li>Crédito de R$2,30 (R$4,00 de MDR mais R$0,30 de Tarifa Fixa do subordinado, menos R$2,00 de MDR da Braspag);</li>
+  <li>Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</li>
+</ul>
+
+<p>O total a receber pelo Master será R$2,20.</p>
+
+<p><strong>Braspag:</strong></p>
+
+<ul>
+  <li>Crédito de R$2,10 (R$2,00 de MDR aplicado sobre o valor total da transação mais R$0,10 de Tarifa Fixa acordada com o Master).</li>
+</ul>
+
+<p>O total a receber pela Braspag será R$2,10.</p>
+
+<h3 id="bandeiras">Bandeiras</h3>
 
 <p>As bandeiras suportadas pelo Split são:</p>
 
@@ -237,12 +308,37 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
   <p>Solicite suas credenciais para o ambiente de teste com o nosso <a href="https://suporte.braspag.com.br/hc/pt-br">Suporte</a>.</p>
 </blockquote>
 
-<ul>
-  <li><strong>API Transacional Pagador</strong>: https://apisandbox.braspag.com.br/</li>
-  <li><strong>API para Serviços de Consultas Pagador</strong>: https://apiquerysandbox.braspag.com.br/</li>
-  <li><strong>API Split</strong>: https://splitsandbox.braspag.com.br/</li>
-  <li><strong>Braspag OAUTH2 Server</strong>: https://authsandbox.braspag.com.br/</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>URL</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Braspag OAUTH2 Server</strong></td>
+      <td>https://authsandbox.braspag.com.br/</td>
+      <td>Autenticação.</td>
+    </tr>
+    <tr>
+      <td><strong>API Transacional Pagador</strong></td>
+      <td>https://apisandbox.braspag.com.br/</td>
+      <td>Envio das requisições de transações de crédito, débito e boleto, com ou sem o nó da divisão.</td>
+    </tr>
+    <tr>
+      <td><strong>API para Serviços de Consultas Pagador</strong></td>
+      <td>https://apiquerysandbox.braspag.com.br/</td>
+      <td>Consulta de transações.</td>
+    </tr>
+    <tr>
+      <td><strong>API Split</strong></td>
+      <td>https://splitsandbox.braspag.com.br/</td>
+      <td>Divisão da transação e desconto de taxas no momento pós-transacional.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="produção">Produção</h2>
 
@@ -250,18 +346,55 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
   <p>Você receberá as credenciais para o ambiente de produção durante o onboarding.</p>
 </blockquote>
 
-<ul>
-  <li><strong>API Transacional Pagador</strong>: https://api.braspag.com.br/</li>
-  <li><strong>API para Serviços de Consultas Pagador</strong>: https://apiquery.braspag.com.br/</li>
-  <li><strong>API Split</strong>: https://split.braspag.com.br/</li>
-  <li><strong>Braspag OAUTH2 Server</strong>: https://auth.braspag.com.br/</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>URL</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Braspag OAUTH2 Server</strong></td>
+      <td>https://auth.braspag.com.br/</td>
+      <td>Autenticação.</td>
+    </tr>
+    <tr>
+      <td><strong>API Transacional Pagador</strong></td>
+      <td>https://api.braspag.com.br/</td>
+      <td>Envio das requisições de transações de crédito, débito e boleto, com ou sem o nó da divisão.</td>
+    </tr>
+    <tr>
+      <td><strong>API para Serviços de Consultas Pagador</strong></td>
+      <td>https://apiquery.braspag.com.br/</td>
+      <td>Consulta de transações.</td>
+    </tr>
+    <tr>
+      <td><strong>API Split</strong></td>
+      <td>https://split.braspag.com.br/</td>
+      <td>Divisão da transação e desconto de taxas no momento pós-transacional.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="integração">Integração</h1>
 
 <h2 id="autorização">Autorização</h2>
 
 <p>Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro <code class="language-plaintext highlighter-rouge">Payment.DoSplit</code> como true e adicionar o nó <code class="language-plaintext highlighter-rouge">Payment.SplitPayments</code>.</p>
+
+<h2 id="fluxo-transacional-padrão">Fluxo transacional padrão</h2>
+
+<p>Veja um exemplo do fluxo transacional padrão no Split de Pagamentos.</p>
+
+<p>![FluxoTransacionalSplit]((https://braspag.github.io//images/braspag/split/split6-fluxo-transacional-padrao.png)</p>
+
+<p>A próxima seção apresentará exemplos de transações de crédito, débito e boleto. É importante lembrar que nas respostas das requisições das transações, o Split retornará a divisão do valor da venda, MDR e taxa fixa, mas o desconto das taxas será feito posteriormente, na agenda financeira.</p>
+
+<blockquote>
+  <p>Em todos os exemplos a seguir a divisão da transação segue o modelo de Split Transacional, ou seja, a divisão é solicitada no momento da captura.</p>
+</blockquote>
 
 <h3 id="transação-de-crédito">Transação de Crédito</h3>
 
@@ -358,7 +491,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="response">Response</h4>
+<h4 id="resposta">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23082019"</span><span class="p">,</span><span class="w">
@@ -549,7 +682,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 
 <p>Ao informar um tipo de pagamento referente ao Split, a API do Pagador automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag.</p>
 
-<p>Caso a transação enviada seja marcada para captura automática, é necessário enviar o nó contendo as regras de divisão; caso contrário a transação será dividida entre a Braspag e o Master. Posteriormente é permitido que o Master envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.</p>
+<p>Caso a transação enviada seja marcada para captura automática, é necessário enviar o nó contendo as regras de divisão; caso contrário a transação será dividida entre a Braspag e o master. Posteriormente é permitido que o master envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.</p>
 
 <table>
   <thead>
@@ -754,13 +887,38 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
   </tbody>
 </table>
 
-<h4 id="exemplo-sem-o-nó-da-divisão">Exemplo sem o nó da divisão</h4>
+<h4 id="transação-de-crédito-sem-o-nó-da-divisão">Transação de crédito sem o nó da divisão</h4>
 
-<p>Transação no valor de <strong>R$100,00</strong>, com captura automática, sem o nó contendo as regras de divisão.</p>
+<p>Veja uma requisição de transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.</p>
 
-<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.</p>
+<blockquote>
+  <p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.</p>
+</blockquote>
 
-<p><strong>Requisição</strong></p>
+<p>Neste caso, o master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.</p>
+
+<p><strong>Master:</strong></p>
+
+<ul>
+  <li>Crédito de R$98,00 (R$100,00 da transação menos R$2,00 de MDR da Braspag);</li>
+  <li>Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</li>
+</ul>
+
+<p>O <strong>total a receber</strong> pelo master será <strong>R$97,90</strong>.</p>
+
+<p><strong>Braspag:</strong></p>
+
+<ul>
+  <li>Crédito: R$2,10 (MDR aplicado sobre o valor total da transação mais R$0,10 (Tarifa Fixa acordada com o Master).</li>
+</ul>
+
+<p>O <strong>total a receber</strong> pela Braspag será <strong>R$2,10</strong>.</p>
+
+<p>O valor total a receber pelo master está representado na figura a seguir.</p>
+
+<p>![SplitEx2]((https://braspag.github.io//images/braspag/split/split7-exemplo2-sem-no.png)</p>
+
+<h5 id="requisição-1">Requisição</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -832,7 +990,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Resposta</strong></p>
+<h5 id="resposta-1">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -999,19 +1157,56 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Neste caso, o Master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o Master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.</p>
-
-<p><img src="https://developercielo.github.io/images/split/split002.png" alt="SplitSample002" /></p>
-
 <h4 id="exemplo-com-o-nó-da-divisão">Exemplo com o nó da divisão</h4>
 
 <p>Transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão.</p>
 
-<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.<br />
-<strong>Taxa Master com o Subordinado 01</strong>: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.<br />
-<strong>Taxa Master com o Subordinado 02</strong>: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.</p>
+<p>A próxima requisição corresponde a uma transação no valor de R$100,00 com o nó contendo as regras de divisão. Neste exemplo foram assumidas as seguintes taxas:</p>
 
-<p><strong>Requisição</strong></p>
+<blockquote>
+  <p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.<br />
+<strong>Taxa Master com o Subordinado A</strong>: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.<br />
+<strong>Taxa Master com o Subordinado B</strong>: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.</p>
+</blockquote>
+
+<p><strong>Subordinado A:</strong></p>
+
+<ul>
+  <li>Crédito de R$57,00 (R$60,00 da transação menos R$3,00 de MDR);</li>
+  <li>Débito de R$0,30 de Tarifa Fixa.</li>
+</ul>
+
+<p>O <strong>total a receber</strong> pelo subordinado A será <strong>R$56,70</strong>.</p>
+
+<p><strong>Subordinado B:</strong></p>
+
+<ul>
+  <li>Crédito de R$38,40 (R$40,00 da transação menos R$1,60 de MDR);</li>
+  <li>Débito de R$0,15 de Tarifa Fixa.</li>
+</ul>
+
+<p>O total a receber pelo subordinado B será <strong>R$38,25</strong>.</p>
+
+<p><strong>Master:</strong></p>
+
+<p>Crédito de R$3,05 (R$3,00 de MDR + R$0,30 de Tarifa Fixa do subordinado A, somados com R$1,60 de MDR + R$0,15 de Tarifa Fixa do subordinado B, menos R$2,00 de MDR Braspag);
+Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
+
+<p>O <strong>total a receber</strong> pelo Master será <strong>R$2,95</strong>.</p>
+
+<p><strong>Braspag:</strong></p>
+
+<ul>
+  <li>Crédito de R$2,10 (R$2,00 de MDR aplicado sobre o valor total da transação mais R$0,10 de Tarifa Fixa acordada com o Master).</li>
+</ul>
+
+<p>O <strong>total a receber</strong> pela Braspag será <strong>R$2,10</strong>.</p>
+
+<p>As divisões e o valor total a receber de cada participante estão na figura a seguir.</p>
+
+<p>![SplitEx3]((https://braspag.github.io//images/braspag/split/split8-exemplo3-com-no.png)</p>
+
+<h5 id="requisição-2">Requisição</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1101,7 +1296,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Resposta</strong></p>
+<h5 id="resposta-2">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1290,10 +1485,6 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Abaixo, como ficaram as divisões e como foram sensibilizadas as agendas de cada participante.</p>
-
-<p><img src="https://developercielo.github.io/images/split/split003.png" alt="SplitSample003" /></p>
-
 <h3 id="transação-de-débito">Transação de Débito</h3>
 
 <p>Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:</p>
@@ -1307,62 +1498,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
   <p>Para saber mais sobre a integração 3DS 2.0, acesse o <a href="https://braspag.github.io//manualp/emv3ds">Manual de Autenticação 3DS 2.0</a>.</p>
 </blockquote>
 
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo/Tamanho</th>
-      <th>Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Define se o comprador será direcionado ao emissor para autenticação do cartão.</td>
-      <td>Booleano (“true” / “false”)</td>
-      <td>Sim, caso a autenticação seja validada.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.ReturnUrl</code></td>
-      <td>URL de retorno aplicável somente se a versão for “1”.</td>
-      <td>Alfanumérico / 1024 posições</td>
-      <td>Sim.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Cavv</code></td>
-      <td>Assinatura retornada nos cenários de sucesso na autenticação.</td>
-      <td>Texto</td>
-      <td>Sim, caso a autenticação seja validada.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Xid</code></td>
-      <td>XID retornado no processo de autenticação.</td>
-      <td>Texto</td>
-      <td>Sim, quando a versão do 3DS for “1”.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Eci</code></td>
-      <td><em>Electronic Commerce Indicator</em> retornado no processo de autenticação.</td>
-      <td>Numérico / 1 posição</td>
-      <td>Sim.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Version</code></td>
-      <td>Versão do 3DS utilizado no processo de autenticação.</td>
-      <td>Alfanumérico / 1 posição</td>
-      <td>Sim, quando a versão do 3DS for “2”.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.ReferenceID</code></td>
-      <td>RequestID retornado no processo de autenticação.</td>
-      <td>GUID / 36 posições</td>
-      <td>Sim, quando a versão do 3DS for “2”.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="requisição-1">Requisição</h4>
+<h4 id="requisição-3">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1419,7 +1555,62 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta">Resposta</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo/Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Define se o comprador será direcionado ao emissor para autenticação do cartão.</td>
+      <td>Booleano (“true” / “false”)</td>
+      <td>Sim, caso a autenticação seja validada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.ReturnUrl</code></td>
+      <td>URL de retorno aplicável somente se a versão for “1”.</td>
+      <td>Alfanumérico / 1024 posições</td>
+      <td>Sim.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Cavv</code></td>
+      <td>Assinatura retornada nos cenários de sucesso na autenticação.</td>
+      <td>Texto</td>
+      <td>Sim, caso a autenticação seja validada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Xid</code></td>
+      <td>XID retornado no processo de autenticação.</td>
+      <td>Texto</td>
+      <td>Sim, quando a versão do 3DS for “1”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Eci</code></td>
+      <td><em>Electronic Commerce Indicator</em> retornado no processo de autenticação.</td>
+      <td>Numérico / 1 posição</td>
+      <td>Sim.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Version</code></td>
+      <td>Versão do 3DS utilizado no processo de autenticação.</td>
+      <td>Alfanumérico / 1 posição</td>
+      <td>Sim, quando a versão do 3DS for “2”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.ReferenceID</code></td>
+      <td>RequestID retornado no processo de autenticação.</td>
+      <td>GUID / 36 posições</td>
+      <td>Sim, quando a versão do 3DS for “2”.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-3">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1516,6 +1707,369 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<h3 id="transação-de-boleto">Transação de Boleto</h3>
+
+<p><strong>Boleto Registrado</strong></p>
+
+<p>Desde 21 de julho de 2018, todos os boletos emitidos no e-commerce, obrigatoriamente, têm que ser registrados. O registro dos boletos é feito na Nova Plataforma de Cobrança, criada
+pela Febraban em conjunto com os bancos, para promover maior controle e segurança às transações de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários.</p>
+
+<p>Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. A seguir temos um exemplo de como criar um pedido com este
+tipo de meio de pagamento.</p>
+
+<h4 id="requisição-4">Requisição</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span><span class="w">
+</span><span class="p">{</span><span class="w">  
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">  
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"Sao Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">  
+     </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Braspag"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BancoDoBrasil"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"BoletoNumber"</span><span class="p">:</span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Assignor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa Teste"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Demonstrative"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desmonstrative Teste"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-31"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12346578909"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificador da loja na Braspag</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+      <td>Chave Publica para Autenticação Dupla na Braspag</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Numero de identificação do Pedido</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Texto</td>
+      <td>60(*)</td>
+      <td>Sim</td>
+      <td>Nome do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do RG, CPF ou CNPJ do Cliente</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
+      <td>Texto</td>
+      <td>60(*)</td>
+      <td>Sim</td>
+      <td>Endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Texto</td>
+      <td>60(*)</td>
+      <td>Sim</td>
+      <td>Número endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>Texto</td>
+      <td>60(*)</td>
+      <td>Não</td>
+      <td>Complemento do endereço de contato do Comprador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>Texto</td>
+      <td>8</td>
+      <td>Sim</td>
+      <td>CEP do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
+      <td>Texto</td>
+      <td>60(*)</td>
+      <td>Sim</td>
+      <td>Bairro do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
+      <td>Texto</td>
+      <td>18(*)</td>
+      <td>Sim</td>
+      <td>Cidade do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Estado do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Sim</td>
+      <td>Pais do endereço de contato do comprador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Nome da provedora de Meio de Pagamento de Boleto <code class="language-plaintext highlighter-rouge">Braspag</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Bank</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Nome do Banco que o boleto será emitido <code class="language-plaintext highlighter-rouge">BancoDoBrasil</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Tipo do Meio de Pagamento. No caso <code class="language-plaintext highlighter-rouge">Boleto</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor do Pedido (deve ser enviado em centavos)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
+      <td>Texto</td>
+      <td>9(**)</td>
+      <td>Não</td>
+      <td>Número do Boleto (“Nosso Número”). Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Assignor</code></td>
+      <td>Texto</td>
+      <td>200</td>
+      <td>Não</td>
+      <td>Nome do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
+      <td>Texto</td>
+      <td>N/A</td>
+      <td>Não</td>
+      <td>Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExpirationDate</code></td>
+      <td>Date</td>
+      <td>AAAA-MM-DD</td>
+      <td>Não</td>
+      <td>Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Identification</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Não</td>
+      <td>CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
+      <td>Texto</td>
+      <td>450</td>
+      <td>Não</td>
+      <td>Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.<br /> 
+(**) Caracteres especiais e acentuações são removidos automaticamente.</p>
+</blockquote>
+
+<h4 id="resposta-4">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sao Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-31"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Demonstrative"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desmonstrative Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/d605c399-96b2-4bb9-ae75-33824ec01be9"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BoletoNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000155"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BarCodeNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DigitableLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Assignor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ESTRADA TENENTE MARQUES, 1818, SALA 6 B"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12346578909"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BancoDoBrasil"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d605c399-96b2-4bb9-ae75-33824ec01be9"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-03 12:05:37"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Braspag"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transação criada com sucesso"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/d605c399-96b2-4bb9-ae75-33824ec01be9"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Campo Identificador do Pedido.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ExpirationDate</code></td>
+      <td>Data de expiração.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>2014-12-25</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Url</code></td>
+      <td>URL do Boleto gerado</td>
+      <td>string</td>
+      <td>256</td>
+      <td>https://…/pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BoletoNumber</code></td>
+      <td>“NossoNumero” gerado.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>2017091101</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BarCodeNumber</code></td>
+      <td>Representação numérica do código de barras.</td>
+      <td>Texto</td>
+      <td>44</td>
+      <td>00091628800000157000494250100000001200656560</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DigitableLine</code></td>
+      <td>Linha digitável.</td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>00090.49420 50100.000004 12006.565605 1 62880000015700</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address</code></td>
+      <td>Endereço do Loja cadastrada no banco</td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Av. Teste, 160</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status da Transação.</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>Ex. 1</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="modelos-de-split">Modelos de Split</h2>
 
 <p>O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:</p>
@@ -1528,14 +2082,16 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
     </tr>
     <tr>
       <td><strong>Split Transacional</strong></td>
-      <td>O <strong>Master</strong> envia as regras de divisão na autorização (captura automática) ou no momento de captura.</td>
+      <td>O <strong>master</strong> envia as regras de divisão na autorização (captura automática) ou no momento de captura.</td>
     </tr>
     <tr>
       <td><strong>Split Pós-Transacional</strong></td>
-      <td>O <strong>Master</strong> envia as regras de divisão após a captura da transação.</td>
+      <td>O <strong>master</strong> envia as regras de divisão após a captura da transação, até 01h00 do dia posterior à captura.</td>
     </tr>
   </tbody>
 </table>
+
+<p>O nó referente ao split (divisão), tanto no contrato de requisição quanto de resposta, é o mesmo para os dois modelos.</p>
 
 <blockquote>
   <p>No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso as regras de divisão sejam informadas no momento de uma autorização sem captura automática, elas serão desconsideradas.</p>
@@ -1543,9 +2099,9 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 
 <h3 id="split-transacional">Split Transacional</h3>
 
-<p>No Split Transacional é necessário que o Master envie um “nó” adicional na integração da API do Pagador, como apresentado em exemplos anteriores, informando as regras de divisão da transação.</p>
+<p>No Split Transacional é necessário que o master envie um “nó” adicional na integração da API do Pagador, como apresentado em exemplos anteriores, informando as regras de divisão da transação.</p>
 
-<h4 id="requisição-2">Requisição</h4>
+<h4 id="requisição-5">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1572,28 +2128,28 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
-      <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong>.</td>
+      <td><strong>MerchantId</strong> (Identificador) do <strong>subordinado</strong>.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Amount</code></td>
-      <td>Parte do valor total da transação referente a participação do <strong>Subordinado</strong>, em centavos.</td>
+      <td>Parte do valor total da transação referente a participação do <strong>subordinado</strong>, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
-      <td><strong>MDR(%)</strong> do <strong>Master</strong> a ser descontado do valor referente a participação do <strong>Subordinado</strong></td>
+      <td><strong>MDR(%)</strong> do <strong>Master</strong> a ser descontado do valor referente a participação do <strong>subordinado</strong></td>
       <td>Decimal</td>
       <td>-</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Fee</code></td>
-      <td><strong>Tarifa Fixa(R$)</strong> a ser descontada do valor referente a participação do <strong>Subordinado</strong>, em centavos.</td>
+      <td><strong>Tarifa Fixa(R$)</strong> a ser descontada do valor referente a participação do <strong>subordinado</strong>, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Não</td>
@@ -1601,9 +2157,9 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
   </tbody>
 </table>
 
-<h4 id="resposta-1">Resposta</h4>
+<h4 id="resposta-5">Resposta</h4>
 
-<p>Como resposta, A API retornará um nó contendo as regras de divisão enviadas e os valores a serem recebidos pelo Master e seus Subordinados:</p>
+<p>Como resposta, A API retornará um nó contendo as regras de divisão enviadas e os valores a serem recebidos pelo master e seus subordinados:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1655,7 +2211,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
   </tbody>
 </table>
 
-<h3 id="pós-transacional">Pós-Transacional</h3>
+<h3 id="split-pós-transacional">Split Pós-Transacional</h3>
 
 <p>Neste modelo, o Master poderá enviar as regras de divisão da transação após a captura.</p>
 
@@ -1683,7 +2239,7 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 </span><span class="err">grant_type=client_credentials</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-2">Resposta</h4>
+<h4 id="resposta-6">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs"</span><span class="p">,</span><span class="w">
@@ -1693,8 +2249,8 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Master]</p>
 </span></code></pre></div></div>
 
 <blockquote>
-  <p>O ClientSecret deve ser obtido junto à Braspag. <br />
-O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar deverá um novo token toda vez que a validade expirar.</p>
+  <p>O <code class="language-plaintext highlighter-rouge">ClientSecret</code> deve ser obtido junto à Braspag. <br />
+O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar deverá um novo token toda vez que a validade expirar.</p>
 </blockquote>
 
 <h4 id="requisição-de-split-pós-transacional">Requisição de Split Pós-Transacional</h4>
@@ -1722,7 +2278,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-3">Resposta</h4>
+<h4 id="resposta-7">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c96bf94c-b213-44a7-9ea3-0ee2865dc57e"</span><span class="p">,</span><span class="w">
@@ -1767,10 +2323,8 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>O nó referente ao split no Split Pós-transacional, tanto no contrato de requisição quanto de resposta, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.</p>
-
 <blockquote>
-  <p>O Master poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é até 01h00 do dia posterior à captura, se estiver enquadrado no regime de pagamento padrão.</p>
+  <p>O master poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é até 01h00 do dia posterior à captura, se estiver enquadrado no regime de pagamento padrão.</p>
 </blockquote>
 
 <h2 id="salvando-e-reutilizando-cartões">Salvando e Reutilizando Cartões</h2>
@@ -1781,11 +2335,17 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <aside class="warning">Por questões de segurança, o Cartão Protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
+<h3 id="fluxo-da-transação-com-cartão-protegido">Fluxo da transação com Cartão Protegido</h3>
+
+<p>Na transação com Cartão Protegido, a solicitação de tokenização é feita na própria requisição de autorização.</p>
+
+<p>![FluxoSplitCP]((https://braspag.github.io//images/braspag/split/split9-fluxo-transacional-cp.png)</p>
+
 <h3 id="salvando-um-cartão-durante-uma-autorização">Salvando um Cartão Durante uma Autorização</h3>
 
 <p>Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> como “true” na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051">neste artigo</a>.</p>
 
-<h4 id="requisição-3">Requisição</h4>
+<h4 id="requisição-6">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1997,7 +2557,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </tbody>
 </table>
 
-<h4 id="resposta-4">Resposta</h4>
+<h4 id="resposta-8">Resposta</h4>
 
 <p>O parâmetro <code class="language-plaintext highlighter-rouge">CreditCard.CardToken</code> retornará o token a ser salvo para transações futuras com o mesmo cartão.</p>
 
@@ -2183,7 +2743,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> será alterado conforme exemplo a seguir:</p>
 
-<h4 id="requisição-4">Requisição</h4>
+<h4 id="requisição-7">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2359,7 +2919,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </tbody>
 </table>
 
-<h4 id="resposta-5">Resposta</h4>
+<h4 id="resposta-9">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -2530,11 +3090,11 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h3 id="criando-uma-transação-com-alias">Criando uma Transação com Alias</h3>
 
-<p>Este é um exemplo de como utilizar o <em>Alias</em>, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">canais de atendimento</a>.</p>
+<p>Este é um exemplo de como utilizar o <em>Alias</em>, previamente salvo, para criar uma transação. Por questões de segurança, um <em>Alias</em> não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">canais de atendimento</a>.</p>
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> será alterado, conforme exemplo a seguir:</p>
 
-<h4 id="requisição-5">Requisição</h4>
+<h4 id="requisição-8">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2717,7 +3277,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </tbody>
 </table>
 
-<h4 id="resposta-6">Resposta</h4>
+<h4 id="resposta-10">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -2888,9 +3448,9 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h2 id="consulta">Consulta</h2>
 
-<p>Para consultar uma transação, utilize o próprio serviço de consulta da API Braspag, informando o <code class="language-plaintext highlighter-rouge">PaymentId</code> da transação. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o <a href="https://braspag.github.io//manual/split-de-pagamentos-pagador#post-de-notifica%C3%A7%C3%A3o">Post de Notificação</a>.</p>
+<p>Para consultar uma transação, use o serviço de consulta da API do Pagador, informando o <code class="language-plaintext highlighter-rouge">PaymentId</code> da transação. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o <a href="https://braspag.github.io//manual/split-de-pagamentos-pagador#post-de-notifica%C3%A7%C3%A3o">Post de Notificação</a>.</p>
 
-<h3 id="requisição-6">Requisição</h3>
+<h3 id="requisição-9">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -2945,7 +3505,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </tbody>
 </table>
 
-<h3 id="resposta-7">Resposta</h3>
+<h3 id="resposta-11">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -3656,13 +4216,13 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h2 id="captura">Captura</h2>
 
-<p>Ao capturar uma transação do Split de Pagamentos, o Master precisa informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Master.</p>
+<p>Ao capturar uma transação do Split de Pagamentos, o master precisa informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio master.</p>
 
 <h3 id="captura-total">Captura Total</h3>
 
 <p>Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.</p>
 
-<h4 id="requisição-7">Requisição</h4>
+<h4 id="requisição-10">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
@@ -3688,7 +4248,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-8">Resposta</h4>
+<h4 id="resposta-12">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -3753,13 +4313,13 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h3 id="captura-parcial">Captura Parcial</h3>
 
-<p>Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Master.</p>
+<p>Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio master.</p>
 
-<h4 id="requisição-8">Requisição</h4>
+<h4 id="requisição-11">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
-<p>O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação realizada no valor de R$100,00.</p>
+<p>O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação realizada no valor de R$100,00, sendo que R$ 50,00 serão capturados do subordinado A e R$ 30,00 serão capturados do subordinado B.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">
@@ -3783,7 +4343,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-9">Resposta</h4>
+<h4 id="resposta-13">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -3846,7 +4406,9 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Master.</p>
+<blockquote>
+  <p>Como explicitado anteriormente, se a requisição de captura total ou parcial não informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio master.</p>
+</blockquote>
 
 <p><strong>Request</strong></p>
 
@@ -3895,17 +4457,21 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h2 id="cancelamento">Cancelamento</h2>
 
-<p>Ao cancelar uma transação do Split de Pagamentos o Master deve informar, para um cancelamento parcial, qual o valor que deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e, consequentemente, o valor total de cada Subordinado.</p>
+<p>Ao cancelar uma transação do Split de Pagamentos o master deve informar, para um cancelamento parcial, qual o valor que deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e, consequentemente, o valor total de cada subordinado.</p>
+
+<blockquote>
+  <p>O prazo de estorno de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.</p>
+</blockquote>
 
 <h3 id="cancelamento-total">Cancelamento Total</h3>
 
-<p>No cancelamento total de uma transação, será cancelado o valor total da transação e, consequentemente, o valor total de cada Subordinado e as comissões de todos os participantes.</p>
+<p>No cancelamento total de uma transação, será cancelado o valor total da transação e, consequentemente, o valor total de cada subordinado e as comissões de todos os participantes.</p>
 
-<h4 id="requisição-9">Requisição</h4>
+<h4 id="requisição-12">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void</span></aside>
 
-<h4 id="resposta-10">Resposta</h4>
+<h4 id="resposta-14">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -3957,9 +4523,9 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h3 id="cancelamento-parcial">Cancelamento Parcial</h3>
 
-<p>No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial.</p>
+<p>No cancelamento parcial, o somatório dos valores cancelados definidos para cada subordinado deve ser igual ao valor do cancelamento parcial.</p>
 
-<h4 id="requisição-10">Requisição</h4>
+<h4 id="requisição-13">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void?amount={amount}</span></aside>
 
@@ -4009,7 +4575,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   </tbody>
 </table>
 
-<h4 id="resposta-11">Resposta</h4>
+<h4 id="resposta-15">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4064,7 +4630,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Não é obrigatório informar todos os Subordinados no cancelamento parcial. Você pode informar apenas os subordinados para os quais deseja cancelar totalmente ou cancelar parte do valor destinado a cada um na transação, conforme exemplo a seguir:</p>
+<p>Não é obrigatório informar todos os subordinados no cancelamento parcial. Você pode informar apenas os subordinados para os quais deseja cancelar totalmente ou cancelar parte do valor destinado a cada um na transação, conforme exemplo a seguir:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
@@ -4077,61 +4643,112 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span></code></pre></div></div>
 
 <blockquote>
-  <p>Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Master tem a receber.</p>
+  <p>Ao cancelar parcialmente parte de um valor destinado a um subordinado, a Tarifa Fixa que o master tem a receber também é cancelada proporcionalmente.</p>
 </blockquote>
 
 <h2 id="opções-de-configuração-da-transação">Opções de Configuração da Transação</h2>
 
 <p>Em uma transação do Split, existem configurações opcionais que podem ser utilizadas para controlar alguns aspectos.</p>
 
-<h3 id="origem-do-desconto-das-taxas">Origem do Desconto das Taxas</h3>
+<h3 id="tipo-do-desconto-das-taxas">Tipo do Desconto das Taxas</h3>
 
-<p>Por padrão, as taxas e tarifas fixas do Split são descontadas do valor de comissão do Master, porém é possível que o desconto seja feito da parte da venda do Master.</p>
-
-<blockquote>
-  <p>Para que a opção de desconto da parte da venda seja possível, o Master deve possuir venda na transação.</p>
-</blockquote>
-
-<p>A opção pode ser utilizada no momento da divisão transacional e pós-transacional. Também é possível deixar pré-configurada a opção a ser utilizada. Para utilizar a pré-configuração, é necessário entrar em contato com o <a href="https://suporte.braspag.com.br/hc/pt-br">Suporte</a>, que irá que irá criar, remover ou atualizar a pré-configuração. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.</p>
-
-<p>No caso de uma transação criada com uma forma de desconto, este desconto será utilizado em todas as requisições posteriores. É possível mudar a forma de desconto através da redivisão (divisão pós-transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.</p>
-
-<blockquote>
-  <p>Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.</p>
-</blockquote>
-
-<h4 id="tipos-de-desconto-possíveis">Tipos de Desconto Possíveis</h4>
+<p>Os descontos das taxas (MDR e tarifa fixa) do Split podem ser feitos de duas formas: sobre a comissão ou venda do master.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Tipo</th>
-      <th>Descrição</th>
+      <th>TIPO</th>
+      <th>DESCRIÇÃO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Commission</code></td>
-      <td>Com esta opção, o desconto será feito sobre o valor de comissão que o Master tem a receber na transação.</td>
+      <td>O desconto será feito sobre o valor de comissão que o master tem a receber na transação. É o padrão adotado pelo Split.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Sale</code></td>
-      <td>Com esta opção, o desconto será feito sobre o valor de venda que o Master tem a receber na transação.</td>
+      <td>O desconto será feito sobre o valor de venda que o master tem a receber na transação.</td>
     </tr>
   </tbody>
 </table>
 
+<blockquote>
+  <p>Para que a opção de desconto da parte da venda seja possível, o master deve possuir venda na transação.</p>
+</blockquote>
+
+<p>A escolha do tipo de desconto das taxas pode ser feita:</p>
+
+<ul>
+  <li>No momento do <strong>Split Transacional</strong> ou Pós-Transacional**;</li>
+  <li>No momento do <strong>Split Pós-Transacional</strong> ou</li>
+  <li><strong>Pré-configurada</strong>. Para pré-configurar, entre em contato com o <a href="https://suporte.braspag.com.br/hc/pt-br">Suporte</a>, que irá criar, remover ou atualizar a
+pré-configuração. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.</li>
+</ul>
+
+<p>No caso de uma transação criada com um tipo de desconto das taxas, esse tipo será usado em todas as requisições posteriores. É possível mudar o tipo de desconto através da redivisão
+(pelo Split Pós-Transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.</p>
+
+<blockquote>
+  <p>Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.</p>
+</blockquote>
+
 <h4 id="no-momento-transacional">No Momento Transacional</h4>
 
-<p>Transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão e o Master participando da venda.</p>
+<p>A seguir vamos apresentar exemplos de uma transação com o desconto aplicado sobre a comissão e com o desconto aplicado sobre a venda.</p>
 
-<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
-<strong>Taxa Master com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
-<strong>Taxa Master com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
+<p>A transação tem valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão e o master participando da venda.</p>
 
-<h5 id="desconto-sendo-aplicado-sobre-a-comissão">Desconto sendo aplicado sobre a comissão.</h5>
+<blockquote>
+  <p><strong>Taxa Braspag:</strong> 2% de MDR + R$0,30 de Tarifa Fixa.<br />
+<strong>Taxa Master com o Subordinado A:</strong> 5% de MDR, já embutindo os 2% do MDR Braspag + R$0,30 de Tarifa Fixa.<br /> 
+<strong>Taxa Master com o Subordinado B:</strong> 4% MDR, já embutindo os 2% do MDR Braspag + R$ 0,15 de Tarifa Fixa.</p>
+</blockquote>
 
-<p><strong>Requisição</strong></p>
+<p>Após a divisão, cada participante terá sua agenda sensibilizada com os seguintes eventos:</p>
+
+<p><strong>Subordinado A:</strong></p>
+
+<ul>
+  <li>Crédito de R$42,75 (R$45,00 da transação menos R$2,25 de MDR);</li>
+  <li>Débito de R$0,30 de Tarifa Fixa.</li>
+</ul>
+
+<p>O <strong>total a receber</strong> pelo subordinado A será <strong>R$42,45</strong>.</p>
+
+<p><strong>Subordinado B:</strong></p>
+
+<ul>
+  <li>Crédito de R$28,80 (R$30,00 da transação menos R$1,20 de MDR);</li>
+  <li>Débito de R$0,15 de Tarifa Fixa.</li>
+</ul>
+
+<p>O <strong>total a receber</strong> pelo subordinado B será <strong>R$28,65</strong>.</p>
+
+<p><strong>Master:</strong></p>
+
+<ul>
+  <li>Crédito de R$ 26,90 (R$25,00 da transação somados com R$2,25 de MDR e R$0,30 de Tarifa Fixa do subordinado A, e com R$1,20 de MDR e R$0,15 de Tarifa Fixa do subordinado B; menos R$2,00 de MDR da Braspag);</li>
+  <li>Débito de R$0,30 (Tarifa Fixa acordada com a Braspag).</li>
+</ul>
+
+<p>O <strong>total a receber</strong> pelo master será <strong>R$26,60</strong>.</p>
+
+<p><strong>Braspag:</strong></p>
+
+<ul>
+  <li>Crédito de R$2,30 (MDR aplicado sobre o valor total da transação mais R$0,30 de Tarifa Fixa acordada com o master).</li>
+</ul>
+
+<p>O <strong>total a receber</strong> pela Braspag será <strong>R$2,30</strong>.</p>
+
+<p>As divisões e o valor total a receber de cada participante estão na figura a seguir.</p>
+
+<p>![SplitEx4]((https://braspag.github.io//images/braspag/split/split10-exemplo4-tipo-de-desconto.png)</p>
+
+<h5 id="desconto-sendo-aplicado-sobre-a-comissão">Desconto sendo aplicado sobre a comissão</h5>
+
+<h6 id="requisição-14">Requisição</h6>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4186,7 +4803,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Resposta</strong></p>
+<h6 id="resposta-16">Resposta</h6>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201904150001"</span><span class="p">,</span><span class="w">
@@ -4324,7 +4941,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <p>Com a mesma transação:</p>
 
-<p><strong>Requisição</strong></p>
+<h6 id="requisição-15">Requisição</h6>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4379,7 +4996,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Resposta</strong></p>
+<h6 id="resposta-17">Resposta</h6>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201904150001"</span><span class="p">,</span><span class="w">
@@ -4515,7 +5132,9 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <h4 id="no-momento-pós-transacional">No Momento Pós-Transacional</h4>
 
-<h5 id="requisição-11">Requisição</h5>
+<p>Veja uma requisição no modelo Split Pós-transacional com o desconto aplicado sobre a venda.</p>
+
+<h5 id="requisição-16">Requisição</h5>
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
 
@@ -4536,7 +5155,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="resposta-12">Resposta</h5>
+<h5 id="resposta-18">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c96bf94c-b213-44a7-9ea3-0ee2865dc57e"</span><span class="p">,</span><span class="w">
@@ -4578,380 +5197,29 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h1 id="boleto-braspag">Boleto Braspag</h1>
-
-<h2 id="boleto-registrado">Boleto Registrado</h2>
-
-<p>Com o objetivo de promover maior controle e segurança ao transacional de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários, a Febraban em conjunto com os Bancos lançou a Nova Plataforma de Cobrança.</p>
-
-<p>A partir de 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigatoriamente, terão de ser registrados. <a href="https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos">Clique aqui</a> para acessar o comunicado completo.</p>
-
-<h2 id="criando-uma-transação-de-boleto">Criando uma Transação de Boleto</h2>
-
-<p>Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. Abaixo temos um exemplo de como criar um pedido com este meio de pagamento.</p>
-
-<h3 id="request">Request</h3>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span><span class="w">
-</span><span class="p">{</span><span class="w">  
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">  
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
-            </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"Sao Paulo"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">  
-     </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Braspag"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BancoDoBrasil"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"BoletoNumber"</span><span class="p">:</span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Assignor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa Teste"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Demonstrative"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desmonstrative Teste"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-31"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12346578909"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-      <td>Identificador da loja na Braspag</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Sim</td>
-      <td>Chave Publica para Autenticação Dupla na Braspag</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-      <td>Numero de identificação do Pedido</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Texto</td>
-      <td>60(*)</td>
-      <td>Sim</td>
-      <td>Nome do comprador</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Texto</td>
-      <td>14</td>
-      <td>Sim</td>
-      <td>Número do RG, CPF ou CNPJ do Cliente</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Sim</td>
-      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Texto</td>
-      <td>60(*)</td>
-      <td>Sim</td>
-      <td>Endereço de contato do comprador</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Texto</td>
-      <td>60(*)</td>
-      <td>Sim</td>
-      <td>Número endereço de contato do comprador</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Texto</td>
-      <td>60(*)</td>
-      <td>Não</td>
-      <td>Complemento do endereço de contato do Comprador</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Texto</td>
-      <td>8</td>
-      <td>Sim</td>
-      <td>CEP do endereço de contato do comprador</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Texto</td>
-      <td>60(*)</td>
-      <td>Sim</td>
-      <td>Bairro do endereço de contato do comprador</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Texto</td>
-      <td>18(*)</td>
-      <td>Sim</td>
-      <td>Cidade do endereço de contato do comprador</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Texto</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Estado do endereço de contato do comprador</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Texto</td>
-      <td>35</td>
-      <td>Sim</td>
-      <td>Pais do endereço de contato do comprador</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Nome da provedora de Meio de Pagamento de Boleto <code class="language-plaintext highlighter-rouge">Braspag</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Bank</code></td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Nome do Banco que o boleto será emitido <code class="language-plaintext highlighter-rouge">BancoDoBrasil</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do Meio de Pagamento. No caso <code class="language-plaintext highlighter-rouge">Boleto</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Valor do Pedido (deve ser enviado em centavos)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
-      <td>Texto</td>
-      <td>9(**)</td>
-      <td>Não</td>
-      <td>Número do Boleto (“Nosso Número”). Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Assignor</code></td>
-      <td>Texto</td>
-      <td>200</td>
-      <td>Não</td>
-      <td>Nome do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
-      <td>Texto</td>
-      <td>N/A</td>
-      <td>Não</td>
-      <td>Texto de Demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ExpirationDate</code></td>
-      <td>Date</td>
-      <td>AAAA-MM-DD</td>
-      <td>Não</td>
-      <td>Dias para vencer o boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Identification</code></td>
-      <td>Texto</td>
-      <td>14</td>
-      <td>Não</td>
-      <td>CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
-      <td>Texto</td>
-      <td>450</td>
-      <td>Não</td>
-      <td>Instruções do Boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.<br />
-(**) Caracteres especiais e acentuações são removidos automaticamente.</p>
-</blockquote>
-
-<h3 id="response-1">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sao Paulo"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-31"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Demonstrative"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desmonstrative Teste"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/d605c399-96b2-4bb9-ae75-33824ec01be9"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"BoletoNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000155"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"BarCodeNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DigitableLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Assignor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa Teste"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ESTRADA TENENTE MARQUES, 1818, SALA 6 B"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12346578909"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IsRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BancoDoBrasil"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d605c399-96b2-4bb9-ae75-33824ec01be9"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-03 12:05:37"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Braspag"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transação criada com sucesso"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/d605c399-96b2-4bb9-ae75-33824ec01be9"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Formato</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ExpirationDate</code></td>
-      <td>Data de expiração.</td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>2014-12-25</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Url</code></td>
-      <td>URL do Boleto gerado</td>
-      <td>string</td>
-      <td>256</td>
-      <td>https://…/pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BoletoNumber</code></td>
-      <td>“NossoNumero” gerado.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>2017091101</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BarCodeNumber</code></td>
-      <td>Representação numérica do código de barras.</td>
-      <td>Texto</td>
-      <td>44</td>
-      <td>00091628800000157000494250100000001200656560</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DigitableLine</code></td>
-      <td>Linha digitável.</td>
-      <td>Texto</td>
-      <td>256</td>
-      <td>00090.49420 50100.000004 12006.565605 1 62880000015700</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Address</code></td>
-      <td>Endereço do Loja cadastrada no banco</td>
-      <td>Texto</td>
-      <td>256</td>
-      <td>Av. Teste, 160</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
-      <td>Byte</td>
-      <td>2</td>
-      <td>Ex. 1</td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="antifraude">Antifraude</h1>
 
 <p>O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.</p>
 
 <blockquote>
-  <p>No modelo de negócio do Split, todo chargeback é repassado ao Marketplace, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.</p>
+  <p>No modelo de negócio do Split, todo chargeback é repassado ao master, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.</p>
 </blockquote>
 
-<h2 id="fluxo-transacional">Fluxo transacional</h2>
+<h2 id="fluxo-transacional-com-antifraude">Fluxo transacional com Antifraude</h2>
+
+<p>A integração com o antifraude se dá através do próprio fluxo transacional, na mesma requisição da transação.</p>
+
+<ol>
+  <li>O comprador faz um pedido com o master;</li>
+  <li>O master envia a requisição de autorização da transação com o nó <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code>;</li>
+  <li>O Split faz a autorização da transação e solicita a análise de fraude;</li>
+  <li>O Split retorna ao master a autorização da transação e o resultado da análise de fraude (que aceita ou rejeita a transação);</li>
+  <li>Se a transação foi autorizada pelo Split e aceita pela análise de fraude, o master confirma o pagamento ao comprador.</li>
+</ol>
+
+<p>Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.</p>
+
+<p>![FluxoSplitAF]((https://braspag.github.io//images/braspag/split/split11-fluxo-transacional-af.png)</p>
 
 <p>É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização.</p>
 
@@ -5006,9 +5274,9 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 <p>Se não for especificado o contrário durante a autorização, o Split processará sua transação pelo fluxo <code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> <em>AnalyseFirst</em>, <code class="language-plaintext highlighter-rouge">FraudAnalysis.SequenceCriteria</code> <em>OnSuccess</em>, <code class="language-plaintext highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code> <em>false</em> e <code class="language-plaintext highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> <em>false</em>.</p>
 
-<p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós “FraudAnalysis”, “Cart”, “MerchantDefinedFields” e “Travel (somente para venda de passagens aéreas)”.</p>
+<p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós <code class="language-plaintext highlighter-rouge">FraudAnalysis</code>, <code class="language-plaintext highlighter-rouge">Cart</code>, <code class="language-plaintext highlighter-rouge">MerchantDefinedFields</code> e <code class="language-plaintext highlighter-rouge">Travel</code> (somente para venda de passagens aéreas).</p>
 
-<h3 id="requisição-12">Requisição</h3>
+<h3 id="requisição-17">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5792,7 +6060,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
   <p>Os campos do nó <code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel</code> se tornam obrigatórios caso o segmento do seu negócio seja aéreas.</p>
 </blockquote>
 
-<h3 id="resposta-13">Resposta</h3>
+<h3 id="resposta-19">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -8077,11 +8345,11 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
 
 <h1 id="post-de-notificação">Post de Notificação</h1>
 
-<p>Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), deve-se ter configurado o campo “URL Status Pagamento” durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
+<p>Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), deve-se ter configurado o campo “URL de Notificação” durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
 
 <p>Veja o fluxo percorrido pelo post de notificação:</p>
 
-<p><img src="https://braspag.github.io/images/fluxo-trans5-pt.png" alt="Post de Notificação" /></p>
+<p>![SplitPostNotificacao]((https://braspag.github.io//images/braspag/split/split12-post-notificacao.png)</p>
 
 <aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
@@ -8920,6 +9188,50 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="outros-códigos-de-retorno">Outros códigos de retorno</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código Resposta</th>
+      <th>Definição</th>
+      <th>Significado</th>
+      <th>Ação</th>
+      <th>Permite Retentativa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>79</td>
+      <td>TRANSAÇÃO MASTERCARD NÃO PERMITIDA PARA O CARTÃO</td>
+      <td>Transação não autorizada. Não é possível processar a transação devido a erro relacionado ao cartão do portador. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Entre em contato com o seu banco.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Transação não autorizada. Divergência na data de transação/pagamento.</td>
+      <td>Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>TRANSAÇÃO MASTERCARD NÃO AUTORIZADA. LIGUE PARA O EMISSOR</td>
+      <td>Transação não autorizada devido a regras do emissor. Oriente o portador a entrar em contato com o banco emissor.</td>
+      <td>Entre em contato com o seu banco.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>TRANSAÇÃO MASTERCARD SUSPEITA DE FRAUDE</td>
+      <td>Transação não autorizada. Suspeita de fraude pelo banco emissor.</td>
+      <td>Entre em contato com o seu banco.</td>
+      <td>Não</td>
     </tr>
   </tbody>
 </table>
