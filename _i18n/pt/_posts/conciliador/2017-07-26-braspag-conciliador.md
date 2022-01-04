@@ -9,9 +9,280 @@ tags:
 language_tabs:
   xml: XML
 ---
-# Agiliza Braspag
 
-Para acessar a documentação oficial da API do Agiliza Braspag, [clique aqui](https://documenter.getpostman.com/view/2956778/T1Dv8EVZ?version=latest).
+# Visão Geral
+
+O Agiliza é a ferramenta de conciliação da Braspag criada para que você possa conferir o fluxo financeiro das vendas do seu estabelecimento. Nele, é possível cruzar o seu registro de vendas com o os valores pagos pela credenciadora dos pagamentos das transações de cartão de crédito, débito e voucher.
+
+O Agiliza é a mais completa solução para o controle das transações feitas com cartão de crédito, débito e voucher, independente se o canal é e-commerce, call center ou mundo físico. O Agiliza funciona baseado em três pilares principais: importação de vendas, processamento do extrato e arquivo de saída.
+
+![FluxoAgiliza](({{ site.baseurl_root }}/images/braspag/conciliador/agiliza1-fluxo-geral.png)
+
+## Importação de Vendas
+
+Ao importar suas vendas, você fornece para a Braspag as vendas processadas em seu sistema de pedidos. Se você for um cliente que processa suas transações com o Pagador Braspag (nosso gateway de pagamentos) ou com o gateway E-commerce Cielo, a importação é feita automaticamente.
+
+Se você não é cliente do Pagador Braspag ou da API E-commerce Cielo, é necessário configurar a importação do Arquivo de Vendas da sua loja para o Agiliza. Você pode fazer essa configuração através da integração com a nossa API ou manualmente via portal do cliente Agiliza.
+
+## Processamento do Extrato
+
+A sua credenciadora enviará para o Agiliza os extratos das vendas da sua loja. Após receber o seu arquivo de vendas e o extrato da credenciadora, o Agiliza começará o processo de conciliação.
+
+Conciliar uma transação é o processo de identificação de uma venda registrada pela sua loja dentro do extrato da credenciadora, o que indica o processamento correto da transação dentro da credenciadora e serve para conferência do que a sua loja receberá em sua conta corrente, bem como todos os eventos possíveis para aquela venda, como antecipações, estornos e chargebacks, entre outros.
+
+O Agiliza hoje suporta as principais credenciadoras do mercado:
+
+* Cielo
+* Rede
+* Getnet
+* Brasilcard MG
+* DM Card
+* BIN
+* FortBrasil
+* GlobalPayments
+* LinxPay
+* PagSeguro
+* Policard
+* SafraPay
+* Sipag
+* Sodexo
+* Stone
+* Ticket
+* Tricard
+* VR
+* Valecard
+* Verocheque
+* Vero
+* Sorocred
+* BMG Granito
+* Mercado Pago
+
+Cada credenciadora possui layouts e eventos específicos em seu extrato. As especificidades de cada credenciadora podem ser conferidas em **Informações sobre as adquirentes**, tanto para [CSV](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes49) quanto para [XML](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes).
+
+## Arquivo de Saída
+  
+Por último, uma vez que todas as vendas importadas foram conciliadas corretamente com base no extrato da credenciadora, é possível gerar um arquivo de saída, em layout próprio da Braspag, para ser importado em ERPs ou quaisquer outros sistemas de gestão de vendas. Assim, é possível ter todo o ciclo de vida de uma transação atualizado diariamente, melhorando o controle financeiro da sua empresa. 
+
+# Glossário
+
+|TERMO                  |DEFINIÇÃO|
+|---|---|
+|**Aceleração**         | Existia até maio de 2021, antes do Registro de Recebíveis. Se você consultar um extrato anterior a esse período, é possível existir o evento aceleração em seu extrato. A aceleração é um procedimento feito para adiantamento de parcelas futuras oriundas de um estorno, chargeback ou antecipação.|
+|**Afiliação**          |Código responsável pela identificação de uma loja (cliente Agiliza) com a credenciadora. Durante a criação de uma venda, ainda no fluxo transacional (Pagador ou outro processador de pagamentos), esse dado é enviado como credencial da loja. Esta credencial também é usada também como chave do extrato e para identificar a loja, cruzando o dado transacional com o dado do extrato.|
+|**Ajuste**             | É qualquer evento no extrato de cobranças "não previstas" pelo lojista. Ela pode ter relação com as vendas da loja ou não; por exemplo, tanto estorno quanto chargebacks são também ajustes. Ajustes não relacionados à venda podem ser aluguel de POS, cobranças específicas da credenciadora ou serviços solicitados on demand. Não há conciliação nestes casos, apenas o impacto desses valores dentro da agenda financeira da loja.|
+|**Antecipação**        | É um evento no extrato da credenciadora. Esta operação indica que o lojista solicitou o recebimento antecipado de um valor ainda a receber de uma venda. Por exemplo, quando uma loja vende um produto por R$100,00 parcelado em 10 vezes sem juros, ela vai receber mensalmente a liquidação de cada parcela paga daquele pedido. Contudo, o lojista pode solicitar à credenciadora o recebimento do valor integral daquele pedido em troca de uma taxa acordada entre eles. Quando isso acontece, a previsão de pagamento das parcelas pendentes é acelerada e a liquidação ocorre integralmente no pagamento da antecipação.|
+|**Cancelamento**       | É um evento no extrato da credenciadora, mas que não gera evento no Agiliza. Ocorre quando o lojista precisa desfazer uma transação já realizada. Esta operação pode ocorrer por cobrança indevida ao portador, insatisfação e devolução do produto/serviço adquirido, dentre outros. O cancelamento ocorre no mesmo dia da venda, o que faz com que aquele pedido não apareça no extrato e que o portador do cartão não seja sensibilizado em sua fatura, porque não houve captura. |
+|**Chargeback**         | É um evento no extrato da credenciadora. Ocorre quando o portador do cartão usado numa venda contesta essa venda direto com o banco. Essa contestação é investigada e, caso o lojista não consiga garantir que aquela transação foi gerada a partir do portador, a transação sofrerá o chargeback, no qual o lojista é responsável por devolver o valor da transação ao portador.|
+|**Credenciadora**      | Antes chamada de adquirente, a credenciadora é uma instituição de pagamento que realiza a captura, o processamento e a liquidação das transações e o registro dos recebíveis de uma loja perante a registradora.|
+|**Estorno**            | É um evento no extrato da credenciadora. Ocorre quando o lojista precisa desfazer uma transação já realizada. Esta operação pode ocorrer por cobrança indevida ao portador, insatisfação e devolução do produto/serviço adquirido, dentre outros. Diferente do cancelamento, o estorno ocorre quando a solicitação de desfazimento de uma venda ocorre em no dia seguinte à venda (D+1 da venda). Com isso, o comprador terá um registro da venda e um registro do cancelamento da venda na sua fatura e o lojista também terá os dois eventos no seu extrato.|
+|**Eventos**            | São os registros do extrato da credenciadora que indicam toda a movimentação de uma transação desde a sua criação. Há eventos de diversos tipos, variando para cada credenciadora. No entanto, existem alguns padrões, como: antecipações, vendas, ajustes, chargebacks e pagamentos.|
+|**Extrato**            | Arquivo posicional que as credenciadoras enviam para o Agiliza com as informações das vendas de um cliente. Nós recebemos o extrato diariamente e, em geral, ele é dividido pelo tipo de evento: um arquivo para vendas, outro arquivo para pagamentos e assim sucessivamente. A ausência do arquivo de um tipo de evento específico pode acarretar falha no processamento de um cliente.|
+|**Filial**             | Costuma ser uma loja secundária, ligada à loja principal (matriz). A matriz pode acompanhar a conciliação de suas lojas em dois formatos:<br>**Visão geral**: a matriz visualiza os dados de conciliação de todas as filiais em um único relatório.<br>**Visão por filial**: a matriz acessa cada filial (loja) no Agiliza e emite um relatório individual para cada uma.<br>**Importante**: qualquer loja que utilize o Pagador para importação das vendas deverá ter pelo menos uma filial, para fazer o link entre a loja no Pagador e a loja no Agiliza, ainda que não haja distinção entre as afiliações.|
+|**Número do Pedido**   | É o dado enviado à credenciadora durante a criação da venda para identificar essa venda. Este número é utilizado para controle dos pedidos pela loja. A política para unicidade deste número fica a critério de cada lojista, podendo ser único, único apenas no dia corrente, ou com livre repetição.|
+|**Número Sequencial Único (NSU)**| é o identificador de uma transação, que conecta uma venda com o CNPJ da loja. O NSU é gerado tanto no mundo físico quanto no e-commerce.|
+|**Produto**            | É o tipo de meio de pagamento utilizado em uma compra.|
+|**Recebimento**        | É a liquidação/pagamento. É um evento no extrato da credenciadora. Indica que um pedido já processado foi devidamente pago à loja, em sua conta corrente indicada. Cada credenciadora possui prazos para liquidação próprios.|
+|**Registradora**       | As registradoras são entidades autorizadas pelo Banco Central do Brasil, responsáveis pela organização, segurança e visibilidade dos recebíveis de cartões. As informações compiladas pelas registradoras são reportadas ao Banco Central.|
+|**Registro de recebíveis**| É uma norma que estabelece diretrizes sobre registro e antecipação de recebíveis de cartão. Dessa forma, desde 07 de junho, credenciadoras e subcredenciadoras passaram a registrar as transações de cartões junto às Registradoras.|
+|**Rollback de processamento**| É o procedimento conhecido no Agiliza para desfazer o processamento já realizado de um extrato da credenciadora. Pode ser usado em caso de inconsistências dos extratos recebidos. Isto é necessário para não criar furos na sua agenda financeira.|
+|**Transação**          | É o processo que ocorre entre o pedido e a confirmação da venda. A transação abrange o pedido, a autorização e a captura. Quando confirmada, a transação irá gerar a venda criada pela loja na credenciadora e registrada na registradora, utilizando um gateway de pagamento (como o Pagador Braspag), subcredenciadora ou integração direta. |
+|**TransactionId (TId)**| É o identificador único de uma venda de uma loja na credenciadora. Ele é retornado na resposta da requisição de venda enviada à credenciadora e deve ser armazenado para futuras operações com a venda criada. É a chave mais forte para cruzamento das informações de uma venda no extrato com a informação da venda presente no gateway, ERP ou qualquer outra ferramenta de gestão de pedidos, além de ser utilizada como chave para pedidos futuros de estorno.|
+|**Unidade de Recebíveis (UR)**| É um ativo financeiro proveniente das vendas a serem recebidas pelos clientes. A UR é caracterizada pelo seguinte conjunto de informações: data de liquidação + produto/bandeira + credenciadora (ou subcredenciadora) + CPF ou CNPJ do recebedor.|
+|**Valor Bruto da Venda**| É o valor total de uma venda processada com uma credenciadora, sem o desconto das taxas.|
+|**Valor Líquido da Venda**| É o valor que será recebido pelo lojista por uma venda processada com uma credenciadora, já descontadas as taxas contratuais entre loja e credenciadora.|
+|**Venda/Previsão de Pagamento**| É um evento no extrato da credenciadora. Indica que o pedido de um comprador foi aprovado pelas instituições financeiras participantes do processo de captura (credenciadora, bandeira e emissor), gerando uma previsão para que aquele pedido seja pago para a loja que o vendeu, baseado nas regras de liquidação específicas de cada credenciadora.|
+
+# Registro de Recebíveis
+
+O **Registro de Recebíveis** trouxe uma mudança na forma como os valores que uma loja tem a receber são liquidados e antecipados. Com isso, a conciliação financeira passa a ser feita entre as suas vendas e os valores de recebíveis registrados para o seu CPF ou CNPJ.
+
+## O que é o Registro de Recebíveis?
+
+O Registro de Recebíveis está em vigor desde 07/06/2021, com a resolução [nº 4.734/2019 do Conselho Monetário Nacional (CNM)](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o&numero=4734) e a [Circular nº 3.952/2019 do Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Circular&numero=3952).
+
+Com isso, as credenciadoras e subcredenciadoras precisam registrar os recebíveis de cartão dos estabelecimentos em uma entidade registradora, que é responsável por disponibilizar as informações dos recebíveis entre financiadores.
+
+O objetivo do registro é dar mais transparência e segurança para as operações de crédito e de antecipação de recebíveis. A UR registrada garante o valor que o estabelecimento tem disponível para negociação e permite, por exemplo, um contrato com uma instituição financeira com a qual não tenha relacionamento.
+
+### Qual é o papel das credenciadoras e subcredenciadoras?
+
+As instituições credenciadoras devem registrar as agendas de recebíveis e os contratos de recebíveis negociados de seus usuários nas registradoras.
+
+### Quem são as registradoras?
+
+São as entidades responsáveis pela organização, segurança e visibilidade dos recebíveis de cartões. As registradoras compõem o sistema de registro e disponibilizam as informações dos recebíveis para financiadores e credenciadoras, mediante autorização do usuário final recebedor (*opt-in*).
+
+### Financiadores
+
+São instituições financeiras e não financeiras que podem comprar os recebíveis.
+
+### URs: as Unidades de Recebíveis
+
+![FluxoAgiliza](({{ site.baseurl_root }}/images/braspag/conciliador/agiliza2-ur.png)
+
+As URs são os valores que uma loja tem a receber por suas vendas. As URs são o resultado do agrupamento das seguintes informações:
+
+* Data de liquidação;
+* Arranjo de pagamento, que é a combinação entre o produto (crédito e débito) e a bandeira;
+* Credenciadora (ou subcredenciadora);
+* CPF ou CNPJ do recebedor.
+
+## O que mudou com o Registro de Recebíveis?
+
+As principais novidades são a forma como sua loja visualiza o valor que tem para receber e a antecipação de recebíveis.
+
+Antes, era possível acompanhar o ciclo de uma transação desde a captura até a liquidação. Hoje, as antecipações e gravames não são acompanhados individualmente até a liquidação, porque os valores que uma loja tem para receber são agrupados nas Unidades de Recebíveis.
+
+Também antes do registro, a antecipação de recebíveis era feita pela antecipação de parcelas que seriam liquidadas no futuro. Mas desde o início do Registro de Recebíveis a antecipação é feita por valores (URs) que uma loja tem a receber. Além disso, é possível antecipar recebíveis com qualquer credenciadora.
+
+## Como visualizar os seus recebíveis 
+
+### Gravame
+
+O gravame  é um registro que informa que um recebível foi dado como garantia em algum contrato ou negociação, por exemplo, a contratação de linhas de crédito num banco. O valor gravamado impede que o mesmo recebível seja dado em garantia em mais de uma operação. A liquidação do gravame é feita na conta do estabelecimento.
+
+**Crédito de gravame**: é o valor dado como garantia pelo estabelecimento comercial e que será liquidado conforme a instrução do banco com o qual negociou.
+
+**Débito de gravame**: é o lançamento na agenda do estabelecimento que corresponde a um saldo que estava livre de negociação e que agora foi negociado. Sinaliza que o valor não será liquidado pela credenciadora, mas sim pela instituição com a qual os recebíveis foram negociados.
+
+### Cessão
+
+É a negociação de antecipação de recebíveis por troca de titularidade, ou seja, a UR de um estabelecimento passa a pertencer ao financiador. Com isso, a liquidação será feita no domicílio bancário do financiador.
+
+# Funcionamento do Agiliza
+
+O processo de conciliação de transações consiste no cruzamento dos dados enviados pela credenciadora com os dados das vendas informados pela loja. A Braspag recebe todos os eventos relativos a cada transação, como pagamentos, parcelamentos, estornos, chargebacks e antecipações, entre outros. Fazemos a conciliação tanto da venda como um todo, quanto dos eventos.  Uma transação pode estar conciliada, porém ter um ou mais eventos não conciliados. É preciso ter atenção à conciliação de todo o ciclo de vida de uma transação.
+
+Assim, montamos a sua agenda financeira, com tudo o que sua loja vendeu, recebeu e irá receber, ao longo do tempo.
+
+## Tipos de eventos de um extrato
+
+Veja abaixo a lista com todos os eventos que podem ser exibidos no seu extrato.
+ 
+* Pagamentos em transações;
+* Pagamentos em lote;
+* Ajuste;
+* Tarifa de serviços;
+* Desagendamentos;
+* Estornos;
+* Chargebacks;
+* Acelerações;
+* Débito de cessão;
+* Débito de gravame;
+* Cessão fumaça;
+* Crédito de cessão;
+* Crédito de gravame;
+* Débito compensação de valores;
+* Crédito compensação de valores;
+* Estorno débito de cessão;
+* Estorno crédito de cessão;
+* Estorno débito de gravame;
+* Estorno crédito de gravame;
+* Débito devido a compensação de cancelamento de transação em operação;
+* Crédito devido a compensação de cancelamento de transação em operação;
+* Débito de penhora;
+* Crédito de penhora;
+* Estorno de débito de penhora;
+* Estorno de crédito de penhora;
+* Débito devido a compensação de cancelamento em operação;
+* Crédito devido a compensação de cancelamento em operação;
+* Pagamentos de valores retidos;
+* Débitos de valores retidos;
+* Pagamentos de vendas antecipadas;
+* Débitos de antecipação de vendas.
+
+Agora, acompanhe o detalhamento dos principais eventos do seu extrato.
+
+### Vendas
+
+Quando uma venda é realizada, via maquininha de cartão (POS), e-commerce, TEF ou outro canal, essa venda será informada no extrato da credenciadora com uma previsão de pagamento. Os dados gerais de uma venda serão informados, tais como:
+
+* Valor bruto; 
+* Valor líquido (já descontada a taxa da credenciadora); 
+* Identificadores da venda (utilizados para cruzarmos a venda do lojista com o registro da credenciadora); 
+* Parcelas; 
+* Data prevista para realização de cada um dos eventos financeiros daquela venda.
+
+### Recebimento
+
+É o evento que ocorre na data em que o pagamento de uma venda ou parcela de uma venda é creditado na conta do lojista, também conhecido como realização de pagamento. Normalmente é a confirmação de uma previsão já existente.
+
+### Antecipações
+
+No processo de antecipação, o lojista solicita à credenciadora para antecipar os recebíveis que ele possui em sua agenda financeira. Por exemplo, caso você tenha uma venda que foi parcelada em 10 vezes, e você já recebeu o pagamento da primeira parcela, você poderá solicitar a antecipação do pagamento das nove parcelas restantes, pagando uma taxa para a realização desta operação.
+ 
+### Ajustes
+
+Ajustes são eventos que ocorrem numa venda já finalizada. Dentre os ajustes possíveis, temos:
+
+* **Estornos**: quando o lojista solicita a devolução ao comprador de uma venda já realizada;
+* **Chargebacks**: quando o comprador não reconhece uma cobrança em seu cartão e a contesta diretamente no seu banco;
+* **Reagendamento**: quando uma venda tem previsão de pagamento para uma data e, por algum motivo, será necessário mudar esta previsão.
+
+### Aceleração
+ 
+Aceleração de parcela ocorre quando é realizada uma manutenção no plano parcelado, como cancelamento, chargeback ou alteração na quantidade de parcelas da venda. A mesma movimentação ocorre para os débitos de antecipação. Como exemplo, quando uma venda parcelada sofre chargeback, a credenciadora irá acelerar todas as parcelas ainda pendentes antes de realizar o chargeback. Isto impede que exista um furo na agenda financeira do cliente. Não está disponível para todas as credenciadoras.
+
+### Tarifa e Taxa
+
+A tarifa é uma variação da taxa. Ambos são valores acordados entre o lojista e a credenciadora que serão cobrados a cada transação, e podem diferir entre crédito, débito e boleto, compra à vista ou parcelada e bandeira. A taxa é uma porcentagem, enquanto a tarifa é um valor fixo. Se a credenciadora oferece a tarifa, todas as transações terão o desconto de um valor fixo; se for a taxa, a cobrança será de uma porcentagem.
+  
+### Mensalidade
+
+Corresponde ao aluguel e manutenção da maquininha (POS) cobrado pela credenciadora e é considerado um ajuste. No Agiliza, a mensalidade é recorrente e tem data determinada para acontecer.
+
+### Valor Retido 
+Se um estabelecimento antecipa todo o valor que tem para receber é possível que, devido a estornos e chargebacks, fique com valor de crédito inferior aos débitos agendados. Para evitar essa situação, chamada de debit balance, a credenciadora pode reter um valor em uma operação de antecipação.
+
+## Importação das Vendas
+
+Para que a conciliação funcione corretamente, é importante que as suas vendas sejam carregadas para o Agiliza.
+
+### Cliente Braspag e Cielo
+
+Se você é cliente do gateway de pagamento **Pagador Braspag** ou usa a **API Cielo E-commerce** ou possui as maquininhas da Cielo (mundo físico), as suas vendas são importadas automaticamente pelo Agiliza mediante aceite do termo de concessão, durante a contratação do serviço. Neste manual, você pode ir direto para os tópicos sobre o arquivo de fluxo de caixa (arquivo de saída) em [XML](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml) ou [CSV](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv).
+
+### Cliente de outros gateways e credenciadoras
+
+Se você é cliente de outros gateways ou possui a maquininha (POS) de outras credenciadoras (que não sejam Cielo), você deverá fazer a importação das suas vendas. O carregamento das vendas para o Agiliza pode ser feito na [Edição de Loja](https://reconciliation.braspag.com.br/WebSite/Login.aspx?ReturnUrl=%2fWebSite%2fBackOffice%2fEditMerchant.aspx) no portal do cliente Agiliza, por integração com a API Agiliza, transferência via SFTP ou transferência via webservice SOAP.
+
+#### Importação via portal do cliente Agiliza
+
+O layout está disponível em [Manual de Arquivos de Vendas Externas](https://reconciliation.braspag.com.br/WebSite/Login.aspx?ReturnUrl=%2fWebSite%2fBackOffice%2fEditMerchant.aspx) e o formato deste arquivo deve ser CSV. Atente-se para os dados obrigatórios neste tipo de integração. Alguns campos que sempre devem ser enviados:
+
+* Afiliação;
+* Credenciadora (adquirente);
+* Identificador da Filial;
+* Valor da Venda;
+* Quantidade de parcelas;
+* NSU/DOC.
+
+Campos que identificam a transação não são obrigatórios completos, porém existem alguns campos que permitem o cruzamento de uma venda com o registro que virá no extrato da credenciadora.
+
+#### Importação via API Agiliza
+
+Para saber mais sobre a importação via API, disponibilizamos o manual de integração no Postman. Veja mais no tópico API do Agiliza.
+
+#### Outras formas de importação
+
+Você também pode fazer a transferência do arquivo de vendas via:
+* [Transferência automática: configuração de SFTP]( https://braspag.github.io//manual/braspag-conciliador#transfer%C3%AAncia-autom%C3%A1tica-configura%C3%A7%C3%A3o-de-sftp);
+* [Transferência de arquivos automática via webservice](https://braspag.github.io//manual/braspag-conciliador#transfer%C3%AAncia-de-arquivos-autom%C3%A1tica-via-webservice:).
+
+## Arquivo de saída
+
+É o arquivo conciliado, também chamado de arquivo de fluxo de caixa, que contém todas as vendas, pagamentos, estornos e cancelamentos, enfim, todos os movimentos que uma loja possui para determinada data.
+
+O arquivo de saída é um meio de integração, e você poderá fazer o upload do arquivo conciliado para o seu ERP ou sistema de gestão para gerar um "contas a receber" e realizar as baixas das contas que receber dentro do seu sistema.
+
+Nesse manual, você pode consultar a configuração de dois formatos de arquivo de saída, XML e CSV:
+
+* [Arquivos Fluxo de Caixa 2.0 – XML](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-xml);
+* [Arquivos Fluxo de Caixa 2.0 – CSV](https://braspag.github.io//manual/braspag-conciliador#arquivos-fluxo-de-caixa-2.0-csv).
+
+# API do Agiliza
+
+Para fazer a integração com a API do Agiliza Braspag, [veja a documentação no Postman](https://documenter.getpostman.com/view/2956778/T1Dv8EVZ?version=latest).
 
 # Arquivos de vendas Externas - CSV
 
