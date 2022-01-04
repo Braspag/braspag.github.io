@@ -126,9 +126,9 @@
 
 <h2 id="importação-de-vendas">Importação de Vendas</h2>
 
-<p>Ao importar suas vendas, você fornece para a Braspag as vendas processadas em seu sistema de pedidos. Se você for um cliente que processa suas transações com o Pagador Braspag (nosso gateway de pagamentos) ou com o gateway E-commerce Cielo, a importação é feita automaticamente.</p>
+<p>Ao importar suas vendas, você fornece para a Braspag as vendas processadas em seu sistema de pedidos. Se você processa suas transações com o Pagador Braspag (nosso gateway de pagamentos) ou com a API Cielo E-commerce, a importação é feita automaticamente.</p>
 
-<p>Se você não é cliente do Pagador Braspag ou da API E-commerce Cielo, é necessário configurar a importação do Arquivo de Vendas da sua loja para o Agiliza. Você pode fazer essa configuração através da integração com a nossa API ou manualmente via portal do cliente Agiliza.</p>
+<p>Se você não é cliente do Pagador Braspag ou da API Cielo E-commerce, é necessário configurar a importação do Arquivo de Vendas da sua loja para o Agiliza. Você pode fazer essa configuração através da integração com a nossa API ou manualmente via portal do cliente Agiliza.</p>
 
 <h2 id="processamento-do-extrato">Processamento do Extrato</h2>
 
@@ -162,10 +162,9 @@
   <li>Vero</li>
   <li>Sorocred</li>
   <li>BMG Granito</li>
-  <li>Mercado Pago</li>
+  <li>Mercado Pago
+Cada credenciadora possui layouts e eventos específicos em seu extrato. As especificidades de cada credenciadora podem ser conferidas em <strong>Informações sobre as adquirentes</strong>, tanto para <a href="https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes49">CSV</a> quanto para <a href="https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes">XML</a>.</li>
 </ul>
-
-<p>Cada credenciadora possui layouts e eventos específicos em seu extrato. As especificidades de cada credenciadora podem ser conferidas em <strong>Informações sobre as adquirentes</strong>, tanto para <a href="https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes49">CSV</a> quanto para <a href="https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes">XML</a>.</p>
 
 <h2 id="arquivo-de-saída">Arquivo de Saída</h2>
 
@@ -223,7 +222,7 @@
     </tr>
     <tr>
       <td><strong>Filial</strong></td>
-      <td>Costuma ser uma loja secundária, ligada à loja principal (matriz). A matriz pode acompanhar a conciliação de suas lojas em dois formatos:<br /><strong>Visão geral</strong>: a matriz visualiza os dados de conciliação de todas as filiais em um único relatório.<br /><strong>Visão por filial</strong>: a matriz acessa cada filial (loja) no Agiliza e emite um relatório individual para cada uma.<br /><strong>Importante</strong>: qualquer loja que utilize o Pagador para importação das vendas deverá ter pelo menos uma filial, para fazer o link entre a loja no Pagador e a loja no Agiliza, ainda que não haja distinção entre as afiliações.</td>
+      <td>Costuma ser uma loja secundária, ligada à loja principal (matriz). A matriz pode acompanhar a conciliação de suas lojas em dois formatos:<br /><strong>Visão geral</strong>: a matriz visualiza os dados de conciliação de todas as filiais em um único relatório.<br /><strong>Visão por filial</strong>: a matriz acessa cada filial (loja) no Agiliza e emite um relatório individual para cada uma.<br /><em>Importante: qualquer loja que utilize o Pagador para importação das vendas deverá ter pelo menos uma filial, para fazer o link entre a loja no Pagador e a loja no Agiliza, ainda que não haja distinção entre as afiliações</em>.</td>
     </tr>
     <tr>
       <td><strong>Número do Pedido</strong></td>
@@ -231,7 +230,7 @@
     </tr>
     <tr>
       <td><strong>Número Sequencial Único (NSU)</strong></td>
-      <td>é o identificador de uma transação, que conecta uma venda com o CNPJ da loja. O NSU é gerado tanto no mundo físico quanto no e-commerce.</td>
+      <td>É o identificador de uma transação, que conecta uma venda com o CNPJ da loja. O NSU é gerado tanto no mundo físico quanto no e-commerce.</td>
     </tr>
     <tr>
       <td><strong>Produto</strong></td>
@@ -341,7 +340,11 @@
 
 <h1 id="funcionamento-do-agiliza">Funcionamento do Agiliza</h1>
 
-<p>O processo de conciliação de transações consiste no cruzamento dos dados enviados pela credenciadora com os dados das vendas informados pela loja. A Braspag recebe todos os eventos relativos a cada transação, como pagamentos, parcelamentos, estornos, chargebacks e antecipações, entre outros. Fazemos a conciliação tanto da venda como um todo, quanto dos eventos.  Uma transação pode estar conciliada, porém ter um ou mais eventos não conciliados. É preciso ter atenção à conciliação de todo o ciclo de vida de uma transação.</p>
+<p>O processo de conciliação de transações consiste no cruzamento dos dados enviados pela credenciadora com os dados das vendas informados pela loja. A Braspag recebe todos os eventos relativos a cada transação, como pagamentos, parcelamentos, estornos, chargebacks e antecipações, entre outros. Fazemos a conciliação tanto da venda como um todo, quanto dos eventos.</p>
+
+<blockquote>
+  <p>Uma transação pode estar conciliada, porém ter um ou mais eventos não conciliados. É preciso ter atenção à conciliação de todo o ciclo de vida de uma transação.</p>
+</blockquote>
 
 <p>Assim, montamos a sua agenda financeira, com tudo o que sua loja vendeu, recebeu e irá receber, ao longo do tempo.</p>
 
@@ -380,10 +383,9 @@
   <li>Pagamentos de valores retidos;</li>
   <li>Débitos de valores retidos;</li>
   <li>Pagamentos de vendas antecipadas;</li>
-  <li>Débitos de antecipação de vendas.</li>
+  <li>Débitos de antecipação de vendas.
+Agora, acompanhe o detalhamento dos principais eventos do seu extrato.</li>
 </ul>
-
-<p>Agora, acompanhe o detalhamento dos principais eventos do seu extrato.</p>
 
 <h3 id="vendas">Vendas</h3>
 
@@ -453,10 +455,9 @@
   <li>Identificador da Filial;</li>
   <li>Valor da Venda;</li>
   <li>Quantidade de parcelas;</li>
-  <li>NSU/DOC.</li>
+  <li>NSU/DOC.
+Campos que identificam a transação não são obrigatórios completos, porém existem alguns campos que permitem o cruzamento de uma venda com o registro que virá no extrato da credenciadora.</li>
 </ul>
-
-<p>Campos que identificam a transação não são obrigatórios completos, porém existem alguns campos que permitem o cruzamento de uma venda com o registro que virá no extrato da credenciadora.</p>
 
 <h4 id="importação-via-api-agiliza">Importação via API Agiliza</h4>
 
