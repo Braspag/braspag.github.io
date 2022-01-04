@@ -8,17 +8,21 @@ categories: manual
 sort_order: 2
 hub_visible: false
 tags:
+  - 6. Soluções para Marketplace
+language_tabs:
+  json: JSON
+  shell: cURL
 ---
 
-# Visão Geral
+# Visão geral
 
-![FluxoSplit](({{ site.baseurl_root }}/images/braspag/split/split1-fluxo-geral.png)
+![FluxoSplit]({{ site.baseurl_root }}/images/braspag/split/split1-fluxo-geral.png)
 
 O **Split de Pagamentos é um serviço de subadquirência para marketplaces e outros modelos de negócio que precisam dividir o valor de uma venda entre diferentes participantes. Funciona tanto para e-commerce quanto para mundo físico.
 
 O Split de Pagamentos atua em todo o fluxo de venda e pagamento:
 
-![SplitSubadquirenciaGeral](({{ site.baseurl_root }}/images/braspag/split/split2-subadquirencia.png)
+![SplitSubadquirenciaGeral]({{ site.baseurl_root }}/images/braspag/split/split2-subadquirencia.png)
 
 ## Quais modelos de negócios podem usar o Split de Pagamentos?
 
@@ -96,7 +100,7 @@ A Braspag acordará um MDR e/ou uma Tarifa Fixa com o master, que serão descont
 
 O master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa com cada Subordinado. Se desejar, pode embutir o MDR e/ou Tarifa acordados junto à Braspag.
 
-![SplitExTaxas](({{ site.baseurl_root }}/images/braspag/split/split3-taxas.png)
+![SplitExTaxas]({{ site.baseurl_root }}/images/braspag/split/split3-taxas.png)
  
 * A Tarifa Fixa acordada entre o master e a Braspag não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto à Braspag. 
 * O MDR entra no cálculo de divisão da transação, considerando o valor total da transação, já que o MDR deve estar embutido no MDR acordado entre o master e seus subordinados.
@@ -113,7 +117,7 @@ O master é responsável por acordar as taxas a serem cobradas dos seus subordin
 
 Uma transação de R$100,00, realizada por um master com participação do subordinado A.
 
-![SplitExemplo1](({{ site.baseurl_root }}/images/braspag/split/split4-exemplo1-taxas.png)
+![SplitExemplo1]({{ site.baseurl_root }}/images/braspag/split/split4-exemplo1-taxas.png)
  
 Neste exemplo, foram assumidos os seguintes acordos:
 
@@ -190,7 +194,7 @@ Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro `Pa
 
 Veja um exemplo do fluxo transacional padrão no Split de Pagamentos.
 
-![FluxoTransacionalSplit](({{ site.baseurl_root }}/images/braspag/split/split6-fluxo-transacional-padrao.png)
+![FluxoTransacionalSplit]({{ site.baseurl_root }}/images/braspag/split/split6-fluxo-transacional-padrao.png)
 
 A próxima seção apresentará exemplos de transações de crédito, débito e boleto. É importante lembrar que nas respostas das requisições das transações, o Split retornará a divisão do valor da venda, MDR e taxa fixa, mas o desconto das taxas será feito posteriormente, na agenda financeira.
 
@@ -539,7 +543,7 @@ O **total a receber** pela Braspag será **R$2,10**.
 
 O valor total a receber pelo master está representado na figura a seguir.
 
-![SplitEx2](({{ site.baseurl_root }}/images/braspag/split/split7-exemplo2-sem-no.png)
+![SplitEx2]({{ site.baseurl_root }}/images/braspag/split/split7-exemplo2-sem-no.png)
 
 ##### Requisição
 
@@ -821,7 +825,7 @@ O **total a receber** pela Braspag será **R$2,10**.
 
 As divisões e o valor total a receber de cada participante estão na figura a seguir.
 
-![SplitEx3](({{ site.baseurl_root }}/images/braspag/split/split8-exemplo3-com-no.png)
+![SplitEx3]({{ site.baseurl_root }}/images/braspag/split/split8-exemplo3-com-no.png)
 
 ##### Requisição
 
@@ -1624,7 +1628,7 @@ Além da geração do `CardToken`, é possível associar um nome (um identificad
 
 Na transação com Cartão Protegido, a solicitação de tokenização é feita na própria requisição de autorização.
 
-![FluxoSplitCP](({{ site.baseurl_root }}/images/braspag/split/split9-fluxo-transacional-cp.png)
+![FluxoSplitCP]({{ site.baseurl_root }}/images/braspag/split/split9-fluxo-transacional-cp.png)
 
 ### Salvando um Cartão Durante uma Autorização
 
@@ -3120,7 +3124,7 @@ O **total a receber** pela Braspag será **R$2,30**.
 
 As divisões e o valor total a receber de cada participante estão na figura a seguir.
 
-![SplitEx4](({{ site.baseurl_root }}/images/braspag/split/split10-exemplo4-tipo-de-desconto.png)
+![SplitEx4]({{ site.baseurl_root }}/images/braspag/split/split10-exemplo4-tipo-de-desconto.png)
 
 ##### Desconto sendo aplicado sobre a comissão
 
@@ -3597,7 +3601,7 @@ A integração com o antifraude se dá através do próprio fluxo transacional, 
 
 Caso a análise de fraude recomende rejeitar a transação, o fluxo é interrompido.
 
-![FluxoSplitAF](({{ site.baseurl_root }}/images/braspag/split/split11-fluxo-transacional-af.png)
+![FluxoSplitAF]({{ site.baseurl_root }}/images/braspag/split/split11-fluxo-transacional-af.png)
 
 É possível verificar se uma transação possui risco de ser uma fraude ou não durante uma autorização.
 
@@ -4545,7 +4549,7 @@ Para receber a notificação de alteração de status da transação (ex.: confi
 
 Veja o fluxo percorrido pelo post de notificação:
 
-![SplitPostNotificacao](({{ site.baseurl_root }}/images/braspag/split/split12-post-notificacao.png)
+![SplitPostNotificacao]({{ site.baseurl_root }}/images/braspag/split/split12-post-notificacao.png)
 
 <aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
