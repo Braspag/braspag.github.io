@@ -56,8 +56,8 @@ O Agiliza hoje suporta as principais credenciadoras do mercado:
 * Sorocred
 * BMG Granito
 * Mercado Pago
-<br>
-Cada credenciadora possui layouts e eventos específicos em seu extrato. As especificidades de cada credenciadora podem ser conferidas em **Informações sobre as adquirentes**, tanto para [CSV](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes49) quanto para [XML](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes).
+
+> Cada credenciadora possui layouts e eventos específicos em seu extrato. As especificidades de cada credenciadora podem ser conferidas em **Informações sobre as adquirentes**, tanto para [CSV](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes49) quanto para [XML](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes).
 
 ## Arquivo de Saída
 
@@ -192,7 +192,7 @@ Veja abaixo a lista com todos os eventos que podem ser exibidos no seu extrato.
 * Débitos de valores retidos;
 * Pagamentos de vendas antecipadas;
 * Débitos de antecipação de vendas.
-<br>
+
 Agora, acompanhe o detalhamento dos principais eventos do seu extrato.
 
 ### Vendas
@@ -259,7 +259,7 @@ O layout está disponível em [Manual de Arquivos de Vendas Externas](https://re
 * Valor da Venda;
 * Quantidade de parcelas;
 * NSU/DOC.
-<br>
+
 Campos que identificam a transação não são obrigatórios completos, porém existem alguns campos que permitem o cruzamento de uma venda com o registro que virá no extrato da credenciadora.
 
 #### Importação via API Agiliza
@@ -269,6 +269,7 @@ Para saber mais sobre a importação via API, disponibilizamos o manual de integ
 #### Outras formas de importação
 
 Você também pode fazer a transferência do arquivo de vendas via:
+
 * [Transferência automática: configuração de SFTP]( https://braspag.github.io//manual/braspag-conciliador#transfer%C3%AAncia-autom%C3%A1tica-configura%C3%A7%C3%A3o-de-sftp);
 * [Transferência de arquivos automática via webservice](https://braspag.github.io//manual/braspag-conciliador#transfer%C3%AAncia-de-arquivos-autom%C3%A1tica-via-webservice:).
 
