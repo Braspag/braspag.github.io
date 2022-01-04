@@ -180,29 +180,6 @@ As bandeiras suportadas pelo Split são:
 |**API para Serviços de Consultas Pagador**|https://apiquery.braspag.com.br/| Consulta de transações.|
 |**API Split**|https://split.braspag.com.br/|Divisão da transação e desconto de taxas no momento pós-transacional.|
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Integração
 
 ## Autorização  
@@ -1301,11 +1278,6 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
     }
 }
 ```
-
-
-
-
-
 
 ### Transação de Boleto
 
