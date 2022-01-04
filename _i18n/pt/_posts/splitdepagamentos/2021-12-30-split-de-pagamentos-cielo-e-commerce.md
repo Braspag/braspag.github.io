@@ -19,7 +19,7 @@ language_tabs:
 
 ![FluxoSplit]({{ site.baseurl_root }}/images/braspag/split/split1-fluxo-geral.png)
 
-O **Split de Pagamentos é um serviço de subadquirência para marketplaces e outros modelos de negócio que precisam dividir o valor de uma venda entre diferentes participantes. Funciona tanto para e-commerce quanto para mundo físico.
+O **Split de Pagamentos** é um serviço de subadquirência para marketplaces e outros modelos de negócio que precisam dividir o valor de uma venda entre diferentes participantes. Funciona tanto para e-commerce quanto para mundo físico.
 
 O Split de Pagamentos atua em todo o fluxo de venda e pagamento:
 
@@ -48,7 +48,7 @@ Com o Split de Pagamentos da Braspag, você tem acesso a um pacote de soluções
 * **Antifraude***: permite a análise de fraude de cada transação em parceria com a Cybersource;
 * **Cartão Protegido**: permite o armazenamento seguro de cartões de crédito e débito, de acordo com as normas do PCI, e contribui para melhorar a taxa de conversão do seu e-commerce;
 * **Silent Order Post**: possibilita o envio de dados do pagamento do cliente de forma segura, armazenando os dados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2. O Silent Order Post é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.
-
+<br/>
 > O Antifraude está sujeito à uma taxa por transação analisada. Consulte a área [Comercial da Braspag](https://suporte.braspag.com.br/hc/pt-br) para saber mais.
 
 # Como funciona
@@ -58,8 +58,8 @@ Os possíveis participantes de uma venda são: master, subordinado e Split de Pa
 |PARTICIPANTES|DESCRIÇÃO|
 |---|---|
 |**Master**| É o responsável pelo carrinho.<br>Possui acordos com subordinados que fornecem os produtos presentes no carrinho.<br>Define as taxas a serem descontadas sobre a venda de cada subordinado.<br>Pode participar de uma venda fornecendo seus próprios produtos.|
-|Subordinado| É o fornecedor dos produtos que compõem o carrinho.<br>Recebe parte do valor da venda, descontadas as taxas acordadas com o master.|
-|Split de Pagamentos| É responsável pelo fluxo transacional, funcionando como uma subadquirente.<br>Define as taxas a serem descontadas sobre o valor total da venda realizada pelo master.<br>É responsável pela liquidação dos pagamentos para os subordinados e master.|
+|**Subordinado**| É o fornecedor dos produtos que compõem o carrinho.<br>Recebe parte do valor da venda, descontadas as taxas acordadas com o master.|
+|**Split de Pagamentos**| É responsável pelo fluxo transacional, funcionando como uma subadquirente.<br>Define as taxas a serem descontadas sobre o valor total da venda realizada pelo master.<br>É responsável pela liquidação dos pagamentos para os subordinados e master.|
 
 Ao contratar o Split de Pagamentos, você (usuário master) receberá as credenciais para integração com as nossas APIs (`MerchantId`, `MerchantKey` e `ClientSecret`), além do seu login no portal Backoffice Split.
 
@@ -73,12 +73,12 @@ Para cada transação, você poderá informar como será a divisão entre cada p
 
 Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores para cada envolvido na transação. O **Regime de Pagamento** é o prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
 
-* **Crédito**: em até 31 dias.
-* **Crédito Parcelado**: 1ª parcela em até 31 dias, demais a cada 30 dias.
-* **Débito**: em até 2 dias úteis.
-* **Boleto**: em até 2 dias úteis após a confirmação do pagamento.
+>* **Crédito**: em até 31 dias.<br>
+>* **Crédito Parcelado**: 1ª parcela em até 31 dias, demais a cada 30 dias.<br>
+>* **Débito**: em até 2 dias úteis.<br>
+>* **Boleto**: em até 2 dias úteis após a confirmação do pagamento.
 
-Na divisão de uma transação, você deve informar:
+<br/>Na divisão de uma transação, você deve informar:
 
 * Os **identificadores (MerchantId) dos subordinados e do master**, caso também participe da venda;
 * Os **valores correspondentes a cada participante**. O somatório deverá ser igual ao valor total da transação;
@@ -122,8 +122,8 @@ Uma transação de R$100,00, realizada por um master com participação do subor
  
 Neste exemplo, foram assumidos os seguintes acordos:
 
-* **Taxa Braspag**: 2% de MDR + R$0,10 de Tarifa Fixa. 
-* **Taxa Master**: 4% de MDR (embutindo os 2% de MDR da Braspag) + R$0,30 de Tarifa Fixa.
+>* **Taxa Braspag**: 2% de MDR + R$0,10 de Tarifa Fixa.<br>
+>* **Taxa Master**: 4% de MDR (embutindo os 2% de MDR da Braspag) + R$0,30 de Tarifa Fixa.
 
 Após a divisão, cada participante terá sua agenda sensibilizada com os seguintes eventos:
 
@@ -132,20 +132,20 @@ Após a divisão, cada participante terá sua agenda sensibilizada com os seguin
 * Crédito de R$96,00 (R$100,00 da transação menos R$4,00 de MDR); 
 * Débito de R$0,30 de Tarifa Fixa.
 
-O total a receber pelo subordinado será R$95,70.
+<br/>O **total a receber** pelo subordinado será **R$95,70**.
 
 **Master:**
 
 * Crédito de R$2,30 (R$4,00 de MDR mais R$0,30 de Tarifa Fixa do subordinado, menos R$2,00 de MDR da Braspag);
 * Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).
 
-O total a receber pelo Master será R$2,20.
+<br/>O **total a receber** pelo master será **R$2,20**.
 
 **Braspag:**
 
 * Crédito de R$2,10 (R$2,00 de MDR aplicado sobre o valor total da transação mais R$0,10 de Tarifa Fixa acordada com o Master).
 
-O total a receber pela Braspag será R$2,10.
+<br/>O **total a receber** pela Braspag será **R$2,10**.
 
 ### Bandeiras
 
@@ -515,13 +515,13 @@ Neste caso, o master recebe o valor da transação descontado o MDR acordado com
 * Crédito de R$98,00 (R$100,00 da transação menos R$2,00 de MDR da Braspag);
 * Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).
 
-O **total a receber** pelo master será **R$97,90**.
+<br/>O **total a receber** pelo master será **R$97,90**.
  
 **Braspag:**
 
 * Crédito: R$2,10 (MDR aplicado sobre o valor total da transação mais R$0,10 (Tarifa Fixa acordada com o Master).
 
-O **total a receber** pela Braspag será **R$2,10**.
+<br/>O **total a receber** pela Braspag será **R$2,10**.
 
 O valor total a receber pelo master está representado na figura a seguir.
 
@@ -2781,7 +2781,7 @@ A escolha do tipo de desconto das taxas pode ser feita:
 * **Pré-configurada**. Para pré-configurar, entre em contato com o [Suporte](https://suporte.braspag.com.br/hc/pt-br), que irá criar, remover ou atualizar a
 pré-configuração. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
 
-No caso de uma transação criada com um tipo de desconto das taxas, esse tipo será usado em todas as requisições posteriores. É possível mudar o tipo de desconto através da redivisão
+<br/>No caso de uma transação criada com um tipo de desconto das taxas, esse tipo será usado em todas as requisições posteriores. É possível mudar o tipo de desconto através da redivisão
 (pelo Split Pós-Transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.
 
 > Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.
@@ -2803,27 +2803,27 @@ Após a divisão, cada participante terá sua agenda sensibilizada com os seguin
 * Crédito de R$42,75 (R$45,00 da transação menos R$2,25 de MDR);
 * Débito de R$0,30 de Tarifa Fixa.
 
-O **total a receber** pelo subordinado A será **R$42,45**.
+<br/>O **total a receber** pelo subordinado A será **R$42,45**.
 
 **Subordinado B:**
 
 * Crédito de R$28,80 (R$30,00 da transação menos R$1,20 de MDR);
 * Débito de R$0,15 de Tarifa Fixa.
 
-O **total a receber** pelo subordinado B será **R$28,65**.
+<br/>O **total a receber** pelo subordinado B será **R$28,65**.
 
 **Master:**
 
 * Crédito de R$ 26,90 (R$25,00 da transação somados com R$2,25 de MDR e R$0,30 de Tarifa Fixa do subordinado A, e com R$1,20 de MDR e R$0,15 de Tarifa Fixa do subordinado B; menos R$2,00 de MDR da Braspag);
 * Débito de R$0,30 (Tarifa Fixa acordada com a Braspag).
 
-O **total a receber** pelo master será **R$26,60**.
+<br/>O **total a receber** pelo master será **R$26,60**.
  
 **Braspag:**
 
 * Crédito de R$2,30 (MDR aplicado sobre o valor total da transação mais R$0,30 de Tarifa Fixa acordada com o master).
 
-O **total a receber** pela Braspag será **R$2,30**.
+<br/>O **total a receber** pela Braspag será **R$2,30**.
 
 As divisões e o valor total a receber de cada participante estão na figura a seguir.
 
