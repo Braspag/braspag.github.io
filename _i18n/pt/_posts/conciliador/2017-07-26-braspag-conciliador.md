@@ -264,7 +264,7 @@ Campos que identificam a transação não são obrigatórios completos, porém e
 
 #### Importação via API Agiliza
 
-Para saber mais sobre a importação via API, disponibilizamos o manual de integração no Postman. Veja mais no tópico API do Agiliza.
+Para saber mais sobre a importação via API, disponibilizamos o manual de integração no Postman. Veja mais em [API do Agiliza](https://braspag.github.io//manual/braspag-conciliador#api-do-agiliza).
 
 #### Outras formas de importação
 
