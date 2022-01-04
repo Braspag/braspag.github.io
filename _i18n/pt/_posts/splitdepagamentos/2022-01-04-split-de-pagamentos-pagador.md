@@ -18,7 +18,7 @@ language_tabs:
 
 ![FluxoSplit]({{ site.baseurl_root }}/images/braspag/split/split1-fluxo-geral.png)
 
-O **Split de Pagamentos é um serviço de subadquirência para marketplaces e outros modelos de negócio que precisam dividir o valor de uma venda entre diferentes participantes. Funciona tanto para e-commerce quanto para mundo físico.
+O **Split de Pagamentos** é um serviço de subadquirência para marketplaces e outros modelos de negócio que precisam dividir o valor de uma venda entre diferentes participantes. Funciona tanto para e-commerce quanto para mundo físico.
 
 O Split de Pagamentos atua em todo o fluxo de venda e pagamento:
 
@@ -47,7 +47,7 @@ Com o Split de Pagamentos da Braspag, você tem acesso a um pacote de soluções
 * **Antifraude***: permite a análise de fraude de cada transação em parceria com a Cybersource;
 * **Cartão Protegido**: permite o armazenamento seguro de cartões de crédito e débito, de acordo com as normas do PCI, e contribui para melhorar a taxa de conversão do seu e-commerce;
 * **Silent Order Post**: possibilita o envio de dados do pagamento do cliente de forma segura, armazenando os dados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2. O Silent Order Post é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.
-
+<br/>
 > O Antifraude está sujeito à uma taxa por transação analisada. Consulte a área [Comercial da Braspag](https://suporte.braspag.com.br/hc/pt-br) para saber mais.
 
 # Como funciona
@@ -72,10 +72,10 @@ Para cada transação, você poderá informar como será a divisão entre cada p
 
 Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores para cada envolvido na transação. O **Regime de Pagamento** é o prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
 
-* **Crédito**: em até 31 dias.
-* **Crédito Parcelado**: 1ª parcela em até 31 dias, demais a cada 30 dias.
-* **Débito**: em até 2 dias úteis.
-* **Boleto**: em até 2 dias úteis após a confirmação do pagamento.
+>**Crédito**: em até 31 dias.<br>
+>**Crédito Parcelado**: 1ª parcela em até 31 dias, demais a cada 30 dias.<br>
+>**Débito**: em até 2 dias úteis.<br>
+>**Boleto**: em até 2 dias úteis após a confirmação do pagamento.
 
 Na divisão de uma transação, você deve informar:
 
@@ -83,7 +83,7 @@ Na divisão de uma transação, você deve informar:
 * Os **valores correspondentes a cada participante**. O somatório deverá ser igual ao valor total da transação;
 * As **taxas** a serem aplicadas sobre o valor de cada subordinado destinadas ao master. Essas taxas deverão ser acordadas previamente entre master e subordinado.
 
-Quando o master participa da divisão, passa a ter também o papel de subordinado e a ter seus próprios produtos no carrinho.
+<br/>Quando o master participa da divisão, passa a ter também o papel de subordinado e a ter seus próprios produtos no carrinho.
 
 ## Taxas
 
@@ -121,8 +121,8 @@ Uma transação de R$100,00, realizada por um master com participação do subor
  
 Neste exemplo, foram assumidos os seguintes acordos:
 
-* **Taxa Braspag**: 2% de MDR + R$0,10 de Tarifa Fixa. 
-* **Taxa Master**: 4% de MDR (embutindo os 2% de MDR da Braspag) + R$0,30 de Tarifa Fixa.
+>**Taxa Braspag**: 2% de MDR + R$0,10 de Tarifa Fixa.<br>
+>**Taxa Master**: 4% de MDR (embutindo os 2% de MDR da Braspag) + R$0,30 de Tarifa Fixa.
 
 Após a divisão, cada participante terá sua agenda sensibilizada com os seguintes eventos:
 
@@ -131,20 +131,20 @@ Após a divisão, cada participante terá sua agenda sensibilizada com os seguin
 * Crédito de R$96,00 (R$100,00 da transação menos R$4,00 de MDR); 
 * Débito de R$0,30 de Tarifa Fixa.
 
-O total a receber pelo subordinado será R$95,70.
+<br/>O **total a receber** pelo subordinado será **R$95,70**.
 
 **Master:**
 
 * Crédito de R$2,30 (R$4,00 de MDR mais R$0,30 de Tarifa Fixa do subordinado, menos R$2,00 de MDR da Braspag);
 * Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).
 
-O total a receber pelo Master será R$2,20.
+<br/>O **total a receber** pelo master será **R$2,20**.
 
 **Braspag:**
 
 * Crédito de R$2,10 (R$2,00 de MDR aplicado sobre o valor total da transação mais R$0,10 de Tarifa Fixa acordada com o Master).
 
-O total a receber pela Braspag será R$2,10.
+<br/>O **total a receber** pela Braspag será **R$2,10**.
 
 ### Bandeiras
 
@@ -522,28 +522,26 @@ Caso a transação enviada seja marcada para captura automática, é necessário
 
 #### Transação de crédito sem o nó da divisão  
 
-Veja uma requisição de transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.
+Neste caso, o master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
+
+![SplitEx2]({{ site.baseurl_root }}/images/braspag/split/split7-exemplo2-sem-no.png)
 
 > **Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.
-
-Neste caso, o master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
 
 **Master:**
 
 * Crédito de R$98,00 (R$100,00 da transação menos R$2,00 de MDR da Braspag);
 * Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).
 
-O **total a receber** pelo master será **R$97,90**.
+<br/>O **total a receber** pelo master será **R$97,90**.
  
 **Braspag:**
 
 * Crédito: R$2,10 (MDR aplicado sobre o valor total da transação mais R$0,10 (Tarifa Fixa acordada com o Master).
 
-O **total a receber** pela Braspag será **R$2,10**.
+<br/>O **total a receber** pela Braspag será **R$2,10**.
 
-O valor total a receber pelo master está representado na figura a seguir.
-
-![SplitEx2]({{ site.baseurl_root }}/images/braspag/split/split7-exemplo2-sem-no.png)
+Veja a requisição dessa transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.
 
 ##### Requisição
 
@@ -788,9 +786,9 @@ O valor total a receber pelo master está representado na figura a seguir.
 
 #### Exemplo com o nó da divisão  
 
-Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
+![SplitEx3]({{ site.baseurl_root }}/images/braspag/split/split8-exemplo3-com-no.png)
 
-A próxima requisição corresponde a uma transação no valor de R$100,00 com o nó contendo as regras de divisão. Neste exemplo foram assumidas as seguintes taxas:
+O próximo exemplo corresponde a uma transação no valor de R$100,00 com o nó contendo as regras de divisão. Neste exemplo foram assumidas as seguintes taxas:
 
 >**Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.<br>
 >**Taxa Master com o Subordinado A**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.<br>
@@ -801,31 +799,29 @@ A próxima requisição corresponde a uma transação no valor de R$100,00 com o
 * Crédito de R$57,00 (R$60,00 da transação menos R$3,00 de MDR);
 * Débito de R$0,30 de Tarifa Fixa.
 
-O **total a receber** pelo subordinado A será **R$56,70**.
+<br/>O **total a receber** pelo subordinado A será **R$56,70**.
 
 **Subordinado B:**
 
 * Crédito de R$38,40 (R$40,00 da transação menos R$1,60 de MDR);
 * Débito de R$0,15 de Tarifa Fixa.
 
-O total a receber pelo subordinado B será **R$38,25**.
+<br/>O total a receber pelo subordinado B será **R$38,25**.
 
 **Master:**
 
 Crédito de R$3,05 (R$3,00 de MDR + R$0,30 de Tarifa Fixa do subordinado A, somados com R$1,60 de MDR + R$0,15 de Tarifa Fixa do subordinado B, menos R$2,00 de MDR Braspag);
 Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).
 
-O **total a receber** pelo Master será **R$2,95**.
+<br/>O **total a receber** pelo Master será **R$2,95**.
 
 **Braspag:**
 
 * Crédito de R$2,10 (R$2,00 de MDR aplicado sobre o valor total da transação mais R$0,10 de Tarifa Fixa acordada com o Master).
 
-O **total a receber** pela Braspag será **R$2,10**.
+<br/>O **total a receber** pela Braspag será **R$2,10**.
 
-As divisões e o valor total a receber de cada participante estão na figura a seguir.
-
-![SplitEx3]({{ site.baseurl_root }}/images/braspag/split/split8-exemplo3-com-no.png)
+Veja a requisição dessa transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 
 ##### Requisição
 
