@@ -1802,7 +1802,7 @@ O modelo do Javascript é o seguinte:
 
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
-```js
+```
 <!-- HEAD -->
 <head>
     <script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"></script>
