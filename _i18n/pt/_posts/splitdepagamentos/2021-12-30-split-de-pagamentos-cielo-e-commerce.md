@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Split de Pagamentos - 3.0 Cielo
+title: Split de Pagamentos - Cielo E-commerce
 description: Manual de Integração do Split de Pagamentos
 search: true
 translated: true
