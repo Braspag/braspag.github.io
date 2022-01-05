@@ -28,7 +28,6 @@ Para executar uma operação, combine a URL base do ambiente com a URL da opera�
 
 > [Faça o download do tutorial]({{ site.baseurl }}/attachment/merchantid-merchantkey-cielo.pdf) para saber como gerar seu **MerchantId** e **MerchantKey** no [portal da Cielo](https://www.cielo.com.br/).
 
-
 # Análise de Fraude
 
 A API e-commerce Cielo oferece um serviço de análise de risco de fraudes em transações online. A Cielo se integra a empresas de analise de risco, como CyberSource, que realizam uma validação dos dados transacionais e do histórico de compras do portador do cartão. Essa análise retorna fatores de risco e permite que o lojista tome a decisão se dará continuidade a venda
