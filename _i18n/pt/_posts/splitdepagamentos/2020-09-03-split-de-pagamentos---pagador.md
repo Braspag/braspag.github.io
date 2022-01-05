@@ -8,7 +8,6 @@ categories: manual
 sort_order: 2
 hub_visible: false
 tags:
-  - 6. Soluções para Marketplace
 ---
 
 # Introdução
