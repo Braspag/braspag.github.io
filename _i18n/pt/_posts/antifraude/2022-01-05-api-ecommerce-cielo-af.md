@@ -844,11 +844,11 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O `org_id` e o
 
 O modelo do Javascript é o seguinte:
 
-![Exemplo Código]({{ site.baseurl_root }}/images/af/exemploscriptdfp.png)
+![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
 As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
 
-![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfp.png)
+![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfpaf.png)
 
 <aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
 
