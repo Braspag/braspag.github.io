@@ -79,7 +79,7 @@ Considere uma transação de crédito no valor de R$90,00 dividida em três parc
 
 ![Exemplo Agenda]({{ site.baseurl_root }}/images/braspag/split/exemplo-agenda.png)
 
-<aside class="notice">As consultas de transações e de agenda estarão disponíveis em breve.</aside>
+<aside class="notice">A consulta de eventos transacionais estará disponível em breve.</aside>
 
 ## Unidades de Recebíveis
 
