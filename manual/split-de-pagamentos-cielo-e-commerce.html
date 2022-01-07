@@ -4617,7 +4617,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
       <td>Boleano</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Parâmetro para capturar a transação. Caso o valor seja <code class="language-plaintext highlighter-rouge">False</code> a transação será apenas autorizada. Se for <code class="language-plaintext highlighter-rouge">True</code>, a captura será realizada automaticamente após a autorização.</td>
+      <td>Parâmetro para capturar a transação. Caso o valor seja <code class="language-plaintext highlighter-rouge">False</code> a transação será apenas autorizada. Se for <code class="language-plaintext highlighter-rouge">True</code>, a captura será realizada automaticamente após a autorização.<br />Caso use o fluxo <em>AuthorizeFirst</em>, é obrigatório enviar o campo <code class="language-plaintext highlighter-rouge">PaymentCapture</code> como <code class="language-plaintext highlighter-rouge">False</code>.</td>
       <td> </td>
     </tr>
     <tr>
@@ -4717,6 +4717,14 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
       <td>Possíveis valores: <code class="language-plaintext highlighter-rouge">Cybersource</code></td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Indica se a transação após a análise de fraude será capturada <br /> Possíveis valores: true / false (default) <br /> Obs.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br /> Obs2.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Braspag receber a notificação da alteração de status e esta for baixo risco (Accept) <br /> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente <em>AuthorizeFirst</em></td>
+      <td> </td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
       <td>Inteiro</td>
       <td>15</td>
@@ -4743,7 +4751,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.BrowserFingerPrint</code></td>
       <td>Texto</td>
-      <td>6010</td>
+      <td>88</td>
       <td>Sim</td>
       <td>Impressão digital de dispositivos e geolocalização real do IP do comprador <a href="https://braspag.github.io//manual/antifraude#cybersource">Configuração do Fingerprint</a></td>
       <td> </td>
