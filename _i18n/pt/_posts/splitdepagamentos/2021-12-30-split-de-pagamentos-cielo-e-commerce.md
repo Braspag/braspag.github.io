@@ -3291,7 +3291,7 @@ Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.F
 |`Payment`|-|-|Sim|Campos refente ao pagamento e antifraude|
 |`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. Possíveis Valores: `SplittedCreditCard` ou `SplittedDebitCard`|
 |`Payment.Amount`|Inteiro|15|Sim|Valor do pedido em centavos. Ex.: r$ 1.559,85 = 155985|
-|`Payment.Capture`|Boleano|-|Sim|Parâmetro para capturar a transação. Caso o valor seja `False` a transação será apenas autorizada. Se for `True`, a captura será realizada automaticamente após a autorização.|
+|`Payment.Capture`|Boleano|-|Sim|Parâmetro para capturar a transação. Caso o valor seja `False` a transação será apenas autorizada. Se for `True`, a captura será realizada automaticamente após a autorização.<br>Caso use o fluxo *AuthorizeFirst*, é obrigatório enviar o campo `PaymentCapture` como `False`.|
 |`Payment.ServiceTaxAmount`|Inteiro|15|Não|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço  |Obs.: Esse valor não é adicionado ao valor da autorização|
 |`Payment.Installments`|Inteiro|2|Sim|Número de parcelas do pedido|
 |`Payment.SoftDescriptor`|Texto|13|Sim|Texto que será impresso na fatura do cartão de crédito do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
@@ -3304,10 +3304,11 @@ Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.F
 |`Payment.SaveCard`|Boleano|-|Não|Parâmetro para salvar os dados do cartão como token. Caso seja passado com o valor `True`, O parâmetro `CardToken` será retornado no `Response` sendo seu valor o token gerado que poderá ser utilizado em futuras transações.|
 |`Payment.FraudAnalysis`|-|-|-|Nó contendo as informações para Análise de Fraude|
 |`Payment.FraudAnalysis.Provider`|Texto|12|Sim|Identifica o provedor da solução de análise de fraude  |Possíveis valores: `Cybersource`|
+|`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|-|Não|Indica se a transação após a análise de fraude será capturada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Braspag receber a notificação da alteração de status e esta for baixo risco (Accept) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Inteiro|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação  |Ex.: Valor do pedido sem a taxa de entrega|
 |`Payment.FraudAnalisys.Browser`|-|-|Sim|-|
 |`Payment.FraudAnalysis.Browser.IpAddress`|Texto|255|Sim|Ip do comprador|
-|`Payment.FraudAnalysis.Browser.BrowserFingerPrint`|Texto|6010|Sim|Impressão digital de dispositivos e geolocalização real do IP do comprador [Configuração do Fingerprint](https://braspag.github.io//manual/antifraude#cybersource)|
+|`Payment.FraudAnalysis.Browser.BrowserFingerPrint`|Texto|88|Sim|Impressão digital de dispositivos e geolocalização real do IP do comprador [Configuração do Fingerprint](https://braspag.github.io//manual/antifraude#cybersource)|
 |`Payment.FraudAnalysis.Cart`|Lista|-|Não|Nó contendo as informações do carrinho de compras para análise de fraude|
 |`Payment.FraudAnalysis.Cart.Items[].Name`|Texto|50|Não|Nome do produto|
 |`Payment.FraudAnalysis.Cart.Items[].Sku`|Texto|12|Não|Sku do produto|
