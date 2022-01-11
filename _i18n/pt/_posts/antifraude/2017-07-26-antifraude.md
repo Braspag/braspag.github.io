@@ -2004,9 +2004,9 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
-|None|Pagamento com um cartão apenas|ReDShield|
-|CardSplit|Pagamento com mais de um cartão|ReDShield|
-|MixedPaymentMethodSplit|Pagamento com mais de um meio de pagamento|ReDShield|
+|None|Pagamento com um cartão apenas|ACI Wordwide|
+|CardSplit|Pagamento com mais de um cartão|ACI Wordwide|
+|MixedPaymentMethodSplit|Pagamento com mais de um meio de pagamento|ACI Wordwide|
 
 ## Tabela 3 - Card.Brand
 
