@@ -2562,7 +2562,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 
 ## Tabela 36 - CartItem[n].Category
 
-Valor|Descrição|Provider|
+|Valor|Descrição|Provider|
 |:-|:-|:-|
 |AdultContent|Conteúdo adulto|Cybersource|
 |Coupon|Cupom aplicado para todo o pedido|Cybersource|
