@@ -103,24 +103,32 @@ Os valores correspondentes a essas transações serão agrupados em Unidades de 
 
 As próximas seções deste manual apresentarão as instruções para acessar o ambiente de teste e fazer as requisições de autenticação e consulta de URs.
 
-# Ambiente
-
-Na API do Split, você pode usar o ambiente **Sandbox** para homologação e testes da sua integração.
+# Ambientes
 
 Para executar uma operação:
 
-1. Combine a **base** da URL do ambiente com o **_endpoint_** da operação desejada. Ex.: https://authsandbox.braspag.com.br/oauth2/token*.
-2. Envie a requisição para a URL utilizando o método HTTP (GET, POST ou PUT) adequado à operação.
+1. Combine a **base** da URL do ambiente com o **_endpoint_** da operação desejada. Ex.: https://split.braspag.com.br/*oauth2/token*.
+2. Envie a requisição para a URL utilizando o método HTTP (GET ou POST) adequado à operação.
 
 ## Sandbox
+
+Na API Split, você pode usar o ambiente **Sandbox** para homologação e testes da sua integração.
 
 |Tipo|URL Base|Descrição|
 |---|---|---|
 |**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/| Para requisição de autenticação.|
-|**API Split**|https://splitsandbox.braspag.com.br| Para requisições de consulta de unidade de recebíveis.|
+|**API Split**|https://splitsandbox.braspag.com.br| Para requisições de consulta de agenda e unidade de recebíveis.|
 
 > Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br).
 
+## Produção
+
+|Tipo|URL Base|Descrição|
+|----|--------|---------|
+|**Braspag OAUTH2 Server**|https://auth.braspag.com.br/| Para requisição de autenticação.|
+|**API Split**|https://split.braspag.com.br/| Para requisições de consulta de agenda e unidade de recebíveis.|
+
+<aside class="notice">As credenciais de acesso (recebidas durante o onboarding) são utilizadas para autenticar todas as requisições feitas para os endpoints da API.</aside>
 <aside class="warning">Por segurança, essas credenciais não devem ser indevidamente compartilhadas ou expostas.</aside>
 
 # Autenticação
