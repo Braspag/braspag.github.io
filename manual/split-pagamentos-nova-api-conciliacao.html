@@ -246,18 +246,18 @@
 
 <p>As próximas seções deste manual apresentarão as instruções para acessar o ambiente de teste e fazer as requisições de autenticação e consulta de URs.</p>
 
-<h1 id="ambiente">Ambiente</h1>
-
-<p>Na API do Split, você pode usar o ambiente <strong>Sandbox</strong> para homologação e testes da sua integração.</p>
+<h1 id="ambientes">Ambientes</h1>
 
 <p>Para executar uma operação:</p>
 
 <ol>
-  <li>Combine a <strong>base</strong> da URL do ambiente com o <strong><em>endpoint</em></strong> da operação desejada. Ex.: https://authsandbox.braspag.com.br/oauth2/token*.</li>
-  <li>Envie a requisição para a URL utilizando o método HTTP (GET, POST ou PUT) adequado à operação.</li>
+  <li>Combine a <strong>base</strong> da URL do ambiente com o <strong><em>endpoint</em></strong> da operação desejada. Ex.: https://split.braspag.com.br/<em>oauth2/token</em>.</li>
+  <li>Envie a requisição para a URL utilizando o método HTTP (GET ou POST) adequado à operação.</li>
 </ol>
 
 <h2 id="sandbox">Sandbox</h2>
+
+<p>Na API Split, você pode usar o ambiente <strong>Sandbox</strong> para homologação e testes da sua integração.</p>
 
 <table>
   <thead>
@@ -276,7 +276,7 @@
     <tr>
       <td><strong>API Split</strong></td>
       <td>https://splitsandbox.braspag.com.br</td>
-      <td>Para requisições de consulta de unidade de recebíveis.</td>
+      <td>Para requisições de consulta de agenda e unidade de recebíveis.</td>
     </tr>
   </tbody>
 </table>
@@ -285,6 +285,31 @@
   <p>Solicite suas credenciais para o ambiente de teste com o nosso <a href="https://suporte.braspag.com.br">Suporte</a>.</p>
 </blockquote>
 
+<h2 id="produção">Produção</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>URL Base</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Braspag OAUTH2 Server</strong></td>
+      <td>https://auth.braspag.com.br/</td>
+      <td>Para requisição de autenticação.</td>
+    </tr>
+    <tr>
+      <td><strong>API Split</strong></td>
+      <td>https://split.braspag.com.br/</td>
+      <td>Para requisições de consulta de agenda e unidade de recebíveis.</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">As credenciais de acesso (recebidas durante o onboarding) são utilizadas para autenticar todas as requisições feitas para os endpoints da API.</aside>
 <aside class="warning">Por segurança, essas credenciais não devem ser indevidamente compartilhadas ou expostas.</aside>
 
 <h1 id="autenticação">Autenticação</h1>
