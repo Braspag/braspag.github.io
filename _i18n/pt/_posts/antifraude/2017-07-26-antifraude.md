@@ -9,8 +9,7 @@ tags:
   - 4. Gestão de Risco
 language_tabs:
   json: JSON
-  js: JS
-
+  
 ---
 
 # Antifraude
@@ -1802,19 +1801,7 @@ O modelo do Javascript é o seguinte:
 
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
-```js
-<!-- HEAD -->
-<head>
-    <script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"></script>
-</head>
-
-<!-- BODY -->
-<body>
-    <nonscript>
-        <iframe style="width: 100px; height: 100px; border: 0; psition:absolute; top: -5000px;" src="https://h.online-metrix.net/fp/tags?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"></iframe>
-    </nonscript>
-</body>
-```
+> [Clique aqui](https://github.com/Braspag/braspag.github.io/blob/e9d4e1ef177dc60e00ab2269ed733976d69646f6/_i18n/pt/_posts/antifraude/javascript-fingerprint-cybersource.js) para acessar e copiar o modelo JavaScript.
 
 As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
 
