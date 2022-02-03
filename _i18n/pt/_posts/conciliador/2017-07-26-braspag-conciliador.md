@@ -149,6 +149,10 @@ O gravame  é um registro que informa que um recebível foi dado como garantia e
 
 É a negociação de antecipação de recebíveis por troca de titularidade, ou seja, a UR de um estabelecimento passa a pertencer ao financiador. Com isso, a liquidação será feita no domicílio bancário do financiador.
 
+### Cessão fumaça
+
+É uma cessão a constituir. Quando a loja não possui agenda futura de URs, a cessão será baseada no histórico de URs da loja e as URs que a vier a construir estarão comprometidas com essa cessão.
+
 # Funcionamento do Agiliza
 
 O processo de conciliação de transações consiste no cruzamento dos dados enviados pela credenciadora com os dados das vendas informados pela loja. A Braspag recebe todos os eventos relativos a cada transação, como pagamentos, parcelamentos, estornos, chargebacks e antecipações, entre outros. Fazemos a conciliação tanto da venda como um todo, quanto dos eventos.
