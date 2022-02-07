@@ -7718,11 +7718,11 @@ Os status das transações serão conforme a utilização de cada cartão.
 |Não Autorizado|0000000000000006|99|Time Out|
 |Não Autorizado|0000000000000007|77|Cartão Cancelado|
 |Não Autorizado|0000000000000008|70|Problemas com o Cartão de Crédito|
-|Autorização Aleatória|0000000000000009|4 / 99|Operation Successful / Time Out|
+|Autorização Aleatória|0000000000000009|4 a 99|Operation Successful / Time Out|
 
 As informações de código de segurança (CVV) e validade podem ser aleatórias, mantendo o seu formato - "3 dígitos" (CVV) e "MM/YYYY" (Validade). Não utilize pontos ou separadores entre os números do cartão utilizado.
 
-**Nota**: Se o objetivo for testar uma transação no Pagador salvando o número do cartão, é recomendado usar um gerador de cartões para atender a regra do mod10 (Algoritimo de Luhn), que é empregada nos ambientes Sandbox e de Produção do Cartão Protegido.
+> **Nota**: Se o objetivo for testar uma transação no Pagador salvando o número do cartão, é recomendado usar um gerador de cartões para atender a regra do mod10 (Algoritimo de Luhn), que é empregada nos ambientes Sandbox e de Produção do Cartão Protegido.
 
 ## Lista de Valores - Payment.FraudAnalysis.Cart.Items[n].GiftCategory
 
