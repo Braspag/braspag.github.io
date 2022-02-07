@@ -12,7 +12,7 @@
 
     <title>
         
-        Split de Pagamentos - Cadastro de Sellers &middot; Braspag Developers - Manuais
+        Split de Pagamentos - Cadastro de Subordinados &middot; Braspag Developers - Manuais
         
     </title>
 
@@ -34,11 +34,11 @@
 
     
         
-            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers" />
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados" />
         
     
         
-            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/manual/manual-api-de-cadastro-de-sellers" />
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/manual/manual-api-de-cadastro-de-subordinados" />
         
     
 
@@ -95,7 +95,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers">Split de Pagamentos - Cadastro de Sellers</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados">Split de Pagamentos - Cadastro de Subordinados</a></li>
                                     
                                 
                             
@@ -107,19 +107,22 @@
             <div class="post">
   <h1 id="introdução">Introdução</h1>
 
-<p>O <strong>Split de Pagamentos</strong> fornece uma API de Onboarding para possibilitar ao Master o gerenciamento de seus subordinados na plataforma.
-O Master deverá coletar as informações do subordinado, para utilizar no processo de Onboarding.</p>
+<p>O <strong>Split de Pagamentos</strong> fornece uma <strong>API de onboarding</strong> para possibilitar ao master o gerenciamento de seus subordinados na plataforma. O master deverá coletar as informações do subordinado para usar no processo de onboarding.</p>
 
-<p>Assim como o Master, os subordinados também irão passar pelo processo de KYC (Know Your Customer) do Split de Pagamentos, com objetivo de identificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.</p>
+<blockquote>
+  <p>O cadastro de subordinados também pode ser feito pelo backoffice Split. <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360055405011-Cadastro-de-subordinados-do-Split-via-Backoffice">Saiba mais neste artigo</a>.</p>
+</blockquote>
+
+<p>Assim como o master, os subordinados também irão passar pelo processo de KYC (Know Your Customer) do Split de Pagamentos, com objetivo de identificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.</p>
 
 <p>O processo de KYC é uma medida obrigatória exigida pelas instituições reguladoras de pagamento.</p>
 
-<p>O Onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:</p>
+<p>O onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:</p>
 
 <ol>
-  <li>O Master solicita o cadastro do subordinado.</li>
-  <li>O subordinado será criado com status “Em análise” e estará bloqueado para participar da transação, até que o processo de KYC seja finalizado.</li>
-  <li>Ao final da análise, o Master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.</li>
+  <li>O master solicita o cadastro do subordinado;</li>
+  <li>O subordinado será criado com status “Em análise” e estará bloqueado para participar da transação, até que o processo de KYC seja finalizado;</li>
+  <li>Ao final da análise, o master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.</li>
 </ol>
 
 <h1 id="ambientes">Ambientes</h1>
@@ -134,22 +137,23 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 
 <h1 id="cadastro-de-subordinados">Cadastro de Subordinados</h1>
 
-<p>A solicitação de cadastro deve ser realizada através de uma requisição pelo <strong>Master</strong> informando os dados do subordinado.</p>
+<p>A solicitação de cadastro deve ser realizada através de uma requisição pelo <strong>master</strong> informando os dados do subordinado.</p>
 
-<p>Para a definição de acordos entre o Master e seus subordinados, o <strong>Split de Pagamentos</strong> dispõe de duas possibilidades:</p>
+<p>Para a definição de acordos entre o master e seus subordinados, o <strong>Split de Pagamentos</strong> dispõe de duas possibilidades:</p>
 
 <ol>
   <li>É possível definir a porcentagem do MDR (Merchant Discount Rate) cobrado por transação por Arranjos de Pagamento e intervalo de parcelas.</li>
-  <li>Caso o Master não queira definir a porcetagem do MDR para cada Arranjo de Pagamento e intervalor de parcelas, o <strong>Split de Pagamentos</strong> irá replicar os mesmos acordos do Master com a Subadquirente, para o Master com o Subordinado. Dessa forma, o Master deverá informar apenas um MDR único, que erá aplicado para todos os acordos.
-<strong>Exemplo:</strong></li>
+  <li>Caso o master não queira definir a porcentagem do MDR para cada Arranjo de Pagamento e intervalo de parcelas, o <strong>Split de Pagamentos</strong> irá replicar os mesmos acordos do master com a Subadquirente (Braspag), para o master com o Subordinado. Dessa forma, o master deverá informar apenas um MDR único, que será aplicado para todos os acordos.</li>
 </ol>
 
-<p><strong>MDR do Master com Subordinado: 4%</strong></p>
+<p><strong>Exemplo:</strong></p>
+
+<p><strong>MDR do master com subordinado igual a 4%</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th>ACORDO SUBADQUIRENTE - MASTER</th>
+      <th>ACORDO SUBADQUIRENTE e MASTER</th>
       <th>Visa</th>
       <th>Master</th>
       <th>Elo</th>
@@ -164,9 +168,9 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>2.00%</td>
       <td>2.00%</td>
       <td>2.00%</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
     </tr>
     <tr>
       <td>Crédito a Vista</td>
@@ -201,7 +205,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 <table>
   <thead>
     <tr>
-      <th>ACORDO MASTER - SUBORDINADO</th>
+      <th>ACORDO MASTER e SUBORDINADO</th>
       <th>Visa</th>
       <th>Master</th>
       <th>Elo</th>
@@ -216,9 +220,9 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
       <td>4.00%</td>
       <td>4.00%</td>
       <td>4.00%</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
     </tr>
     <tr>
       <td>Crédito a Vista</td>
@@ -250,11 +254,11 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
   </tbody>
 </table>
 
-<h2 id="requisição">Requisição</h2>
+<h2 id="informando-a-porcentagem-do-mdr-por-arranjos-de-pagamento-e-intervalo-de-parcelas">Informando a porcentagem do MDR por Arranjos de Pagamento e intervalo de parcelas</h2>
+
+<h3 id="requisição">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
-
-<h2 id="informando-a-porcentagem-do-mdr-por-arranjos-de-pagamento--e-intervalo-de-parcelas">Informando a porcentagem do MDR por Arranjos de Pagamento  e intervalo de parcelas</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -628,7 +632,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
   </tbody>
 </table>
 
-<h2 id="resposta">Resposta</h2>
+<h3 id="resposta">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1041,6 +1045,10 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 
 <h2 id="informando-a-porcentagem-do-mdr-único-aplicado-para-todos-os-acordos">Informando a porcentagem do MDR único aplicado para todos os acordos</h2>
 
+<h3 id="requisição-1">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
+
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
@@ -1350,7 +1358,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
   </tbody>
 </table>
 
-<h2 id="resposta-1">Resposta</h2>
+<h3 id="resposta-1">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1763,7 +1771,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 
 <h1 id="consulta-de-subordinados">Consulta de Subordinados</h1>
 
-<p>A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado específico através de sua identificação.</p>
+<p>A API de onboarding do Split de Pagamentos permite a consulta de um subordinado específico através do <code class="language-plaintext highlighter-rouge">MerchantId</code> do subordinado.</p>
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/subordinates/{subordinate-merchant-id}</span></aside>
 
@@ -2196,7 +2204,7 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 
 <h1 id="notificação">Notificação</h1>
 
-<p>Ao final do processo de KYC, o Master receberá a notificação com o resultado da análise. Será feito uma requisição com os cabeçalhos na URL de notificação informados na criação do subordinado.</p>
+<p>Ao final do processo de KYC, o master receberá a notificação com o resultado da análise.</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{url-notificacao-master}</span></aside>
 
@@ -2208,47 +2216,21 @@ O Master deverá coletar as informações do subordinado, para utilizar no proce
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-      <td>Identificação do subordinado</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Analysis.Status</code></td>
-      <td>String</td>
-      <td>-</td>
-      <td>Sim</td>
-      <td>Status da análise do processo de KYC. Os Status válidos são <code class="language-plaintext highlighter-rouge">Approved</code>, <code class="language-plaintext highlighter-rouge">ApprovedWithRestriction</code> e <code class="language-plaintext highlighter-rouge">Rejected</code></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Analysis.Score</code></td>
-      <td>Int</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Score da análise do processo de KYC. Range de 1 a 100</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Analysis.DenialReason</code></td>
-      <td>String</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Motivo de reprovação do subordinado</td>
-    </tr>
-  </tbody>
-</table>
+<p>| Propriedade                 | Tipo    | Tamanho | Obrigatório | Descrição                                                                                                                                                                                                                            |
+|—————————–|———|———|————-|————————————————————————————————————————————————————————————————————————————–|
+| <code class="language-plaintext highlighter-rouge">MerchantId</code>                | Guid    | 36      | Sim         | Identificação do subordinado                                                                                                                                                                                                         |
+| <code class="language-plaintext highlighter-rouge">Analysis.Status</code>           | String  | -       | Sim         | Status da análise do processo de KYC. Os Status válidos são <code class="language-plaintext highlighter-rouge">Approved</code>, <code class="language-plaintext highlighter-rouge">ApprovedWithRestriction</code> e <code class="language-plaintext highlighter-rouge">Rejected</code>                                                                                                                       |
+| <code class="language-plaintext highlighter-rouge">Analysis.Score</code>            | Int     | -       | Não         | Score da análise do processo de KYC. Range de 1 a 100                                                                                                                                                                                |
+| <code class="language-plaintext highlighter-rouge">Analysis.DenialReason</code>     | String  | -       | Não         | Motivo de reprovação do subordinado                                                                                                                                                                                                  |
+<strong>Criação de usuário para o subordinado</strong></p>
+
+<p>Se o master permitir, o subordinado também pode ter um usuário para acessar o backoffice do Split. Para isso, o master precisa enviar para o <a href="https://suporte.braspag.com.br/hc/pt-br">suporte Braspag</a> alguns dados do subordinado:</p>
+
+<ul>
+  <li>O MerchantId do subordinado;</li>
+  <li>O e-mail do subordinado e</li>
+  <li>O nome de usuário do subordinado.</li>
+</ul>
 
 </div>
 
