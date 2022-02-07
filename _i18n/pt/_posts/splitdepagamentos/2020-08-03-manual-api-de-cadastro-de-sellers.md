@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Split de Pagamentos - Cadastro de Sellers
+title: Split de Pagamentos - Cadastro de Subordinados
 description: Split de Pagamentos - Onboarding
 search: true
 toc_footers: false
@@ -13,18 +13,19 @@ tags:
 
 # Introdução
 
-O **Split de Pagamentos** fornece uma API de Onboarding para possibilitar ao Master o gerenciamento de seus subordinados na plataforma.
-O Master deverá coletar as informações do subordinado, para utilizar no processo de Onboarding.
+O **Split de Pagamentos** fornece uma **API de onboarding** para possibilitar ao master o gerenciamento de seus subordinados na plataforma. O master deverá coletar as informações do subordinado para usar no processo de onboarding.
 
-Assim como o Master, os subordinados também irão passar pelo processo de KYC (Know Your Customer) do Split de Pagamentos, com objetivo de identificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.
+> O cadastro de subordinados também pode ser feito pelo backoffice Split. [Saiba mais neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360055405011-Cadastro-de-subordinados-do-Split-via-Backoffice).
+
+Assim como o master, os subordinados também irão passar pelo processo de KYC (Know Your Customer) do Split de Pagamentos, com objetivo de identificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.
 
 O processo de KYC é uma medida obrigatória exigida pelas instituições reguladoras de pagamento.
 
-O Onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
+O onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
 
-1. O Master solicita o cadastro do subordinado.
-2. O subordinado será criado com status "Em análise" e estará bloqueado para participar da transação, até que o processo de KYC seja finalizado.
-3. Ao final da análise, o Master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.
+1. O master solicita o cadastro do subordinado;
+2. O subordinado será criado com status "Em análise" e estará bloqueado para participar da transação, até que o processo de KYC seja finalizado;
+3. Ao final da análise, o master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.
 
 # Ambientes
 
@@ -38,35 +39,36 @@ O Onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
 
 # Cadastro de Subordinados
 
-A solicitação de cadastro deve ser realizada através de uma requisição pelo **Master** informando os dados do subordinado.
+A solicitação de cadastro deve ser realizada através de uma requisição pelo **master** informando os dados do subordinado.
 
-Para a definição de acordos entre o Master e seus subordinados, o **Split de Pagamentos** dispõe de duas possibilidades:
+Para a definição de acordos entre o master e seus subordinados, o **Split de Pagamentos** dispõe de duas possibilidades:
 
 1. É possível definir a porcentagem do MDR (Merchant Discount Rate) cobrado por transação por Arranjos de Pagamento e intervalo de parcelas.
-2. Caso o Master não queira definir a porcetagem do MDR para cada Arranjo de Pagamento e intervalor de parcelas, o **Split de Pagamentos** irá replicar os mesmos acordos do Master com a Subadquirente, para o Master com o Subordinado. Dessa forma, o Master deverá informar apenas um MDR único, que erá aplicado para todos os acordos.
+2. Caso o master não queira definir a porcentagem do MDR para cada Arranjo de Pagamento e intervalo de parcelas, o **Split de Pagamentos** irá replicar os mesmos acordos do master com a Subadquirente (Braspag), para o master com o Subordinado. Dessa forma, o master deverá informar apenas um MDR único, que será aplicado para todos os acordos.
+
 **Exemplo:**
 
-**MDR do Master com Subordinado: 4%**
+**MDR do master com subordinado igual a 4%**
 
-| ACORDO SUBADQUIRENTE - MASTER | Visa  | Master | Elo   | Diners | Amex  | Hiper  |
-|-------------------------------|--------------------------------------------------|
-| Débito                        | 2.00% | 2.00%  | 2.00% |        |       |        |  
-| Crédito a Vista               | 2.50% | 2.50%  | 2.50% | 2.50%  | 2.50% |  2.50% |
-| Crédito 2x a 6x               | 3.00% | 3.00%  | 3.00% | 3.00%  | 3.00% |  3.00% |
-| Crédito 7x a 12x              | 3.50% | 3.50%  | 3.50% | 3.50%  | 3.50% |  3.50% |
+| ACORDO SUBADQUIRENTE e MASTER | Visa  | Master | Elo   | Diners  | Amex  | Hiper  |
+|-------------------------------|----------------------------------------------------|
+| Débito                        | 2.00% | 2.00%  | 2.00% |    -    |   -   |    -    |  
+| Crédito a Vista               | 2.50% | 2.50%  | 2.50% | 2.50%   | 2.50% |  2.50%  |
+| Crédito 2x a 6x               | 3.00% | 3.00%  | 3.00% | 3.00%   | 3.00% |  3.00%  |
+| Crédito 7x a 12x              | 3.50% | 3.50%  | 3.50% | 3.50%   | 3.50% |  3.50%  |
 
-| ACORDO MASTER - SUBORDINADO  | Visa  | Master | Elo   | Diners | Amex  | Hiper  |
-|------------------------------|--------------------------------------------------|
-| Débito                       | 4.00% | 4.00%  | 4.00% |        |       |        |  
-| Crédito a Vista              | 4.00% | 4.00%  | 4.00% | 4.00%  | 4.00% |  4.00% |
-| Crédito 2x a 6x              | 4.00% | 4.00%  | 4.00% | 4.00%  | 4.00% |  4.00% |
-| Crédito 7x a 12x             | 4.00% | 4.00%  | 4.00% | 4.00%  | 4.00% |  4.00% |
+| ACORDO MASTER e SUBORDINADO  | Visa  | Master | Elo   | Diners  | Amex   | Hiper  |
+|------------------------------|----------------------------------------------------|
+| Débito                       | 4.00% | 4.00%  | 4.00% |    -    |   -    |    -   |  
+| Crédito a Vista              | 4.00% | 4.00%  | 4.00% | 4.00%   | 4.00%  |  4.00% |
+| Crédito 2x a 6x              | 4.00% | 4.00%  | 4.00% | 4.00%   | 4.00%  |  4.00% |
+| Crédito 7x a 12x             | 4.00% | 4.00%  | 4.00% | 4.00%   | 4.00%  |  4.00% |
 
-## Requisição
+## Informando a porcentagem do MDR por Arranjos de Pagamento e intervalo de parcelas
+
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
-
-## Informando a porcentagem do MDR por Arranjos de Pagamento  e intervalo de parcelas
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -202,7 +204,7 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 | `Attachments[].File.FileType`                                   | String  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 | `Attachments[].File.Data`                                       | String  | -       | Não         | Documento convertido para **Base64**                                                                                                                                                                                                 |
 
-## Resposta
+### Resposta
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -353,6 +355,10 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 
 ## Informando a porcentagem do MDR único aplicado para todos os acordos
 
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
+
 ```json
 --header "Authorization: Bearer {access_token}"
 {
@@ -448,7 +454,7 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 | `Attachments[].File.FileType`                                   | String  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 | `Attachments[].File.Data`                                       | String  | -       | Não         | Documento convertido para **Base64**                                                                                                                                                                                                 |
 
-## Resposta
+### Resposta
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -599,7 +605,7 @@ Para a definição de acordos entre o Master e seus subordinados, o **Split de P
 
 # Consulta de Subordinados
 
-A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado específico através de sua identificação.
+A API de onboarding do Split de Pagamentos permite a consulta de um subordinado específico através do `MerchantId` do subordinado.
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">{split-onboarding-api}/api/subordinates/{subordinate-merchant-id}</span></aside>
 
@@ -758,7 +764,7 @@ A API de Onboarding do Split de Pagamentos permite a consulta de um subordinado 
 
 # Notificação
 
-Ao final do processo de KYC, o Master receberá a notificação com o resultado da análise. Será feito uma requisição com os cabeçalhos na URL de notificação informados na criação do subordinado.
+Ao final do processo de KYC, o master receberá a notificação com o resultado da análise.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{url-notificacao-master}</span></aside>
 
@@ -777,3 +783,10 @@ Ao final do processo de KYC, o Master receberá a notificação com o resultado 
 | `Analysis.Status`           | String  | -       | Sim         | Status da análise do processo de KYC. Os Status válidos são `Approved`, `ApprovedWithRestriction` e `Rejected`                                                                                                                       |
 | `Analysis.Score`            | Int     | -       | Não         | Score da análise do processo de KYC. Range de 1 a 100                                                                                                                                                                                |
 | `Analysis.DenialReason`     | String  | -       | Não         | Motivo de reprovação do subordinado                                                                                                                                                                                                  |
+**Criação de usuário para o subordinado**
+
+Se o master permitir, o subordinado também pode ter um usuário para acessar o backoffice do Split. Para isso, o master precisa enviar para o [suporte Braspag](https://suporte.braspag.com.br/hc/pt-br) alguns dados do subordinado:
+
+* O MerchantId do subordinado;
+* O e-mail do subordinado e
+* O nome de usuário do subordinado.
