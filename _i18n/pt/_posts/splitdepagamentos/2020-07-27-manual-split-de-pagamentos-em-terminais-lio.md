@@ -15,7 +15,7 @@ tags:
 
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
-Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pagamentos](https://www.braspag.com.br/split-de-pagamentos/).
+Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pagamentos](https://www.braspag.com.br/split-de-pagamentos/){:target="_blank"}.
 
 # Configuração
 
@@ -45,7 +45,7 @@ Com isso, no momento da configuração de um terminal, é necessário informar o
 
 # Autenticação
 
-O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/), no qual é necessário primeiramente obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API do Split.
+O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, no qual é necessário primeiramente obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API do Split.
 
 Para obter um token de acesso:
 
@@ -98,7 +98,8 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
       "Nsu":123456,
       "AuthorizationCode":"654321",
       "TerminalLogicNumber":"12345678",
-      "AuthorizationDate":"2018-05-30 12:09:00"
+      "AuthorizationDate":"2021-05-30 12:09:00",
+      "CaptureDate":"2021-12-30"
    },
    "SplitPayments":[  
       {  
@@ -130,8 +131,9 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 | `PaymentDetails.AffiliationCode`        | Código do estabelecimento Cielo configurado na LIO e utilizado na transação.                            | String  | 10      | Sim         |
 | `PaymentDetails.Nsu`                    | Número Sequencial Único da transação.                                                                   | String  | max(10) | Sim         |
 | `PaymentDetails.AuthorizationCode`      | Código de Autorização da transação.                                                                     | String  | max(10) | Sim         |
-| `PaymentDetails.TerminalLogicNumber`    | Número lógico do terminal LIO onde ocorreu a transação.                                                 | String  | max(10) | Sim         |
-| `PaymentDetails.AuthorizationDate`      | Data de autorização da transação [yyyy-MM-dd hh:mm:ss].                                                 | Datetime| -       | Sim         |
+| `PaymentDetails.TerminalLogicNumber`    | Número lógico do terminal LIO onde ocorreu a transação sem o dígito verificador.                        | String  | max(10) | Sim         |
+| `PaymentDetails.AuthorizationDate`      | Data de autorização da transação em horário local (Brasil) [yyyy-MM-dd hh:mm:ss]                        | Datetime| -       | Sim         |
+| `PaymentDetails.CaptureDate`            |Data de captura da transação [yyyy-MM-dd].                                                               |Date     | -       |Sim|
 | `SplitPayments`                         | Nó contendo a informação de divisão da transação.                                                       | -       | -       | Não         |
 | `SplitPayments.SubordinateMerchantId`   | **MerchantId** (identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
 | `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do **Subordinado**, em centavos.             | Inteiro | -       | Sim         |
@@ -368,4 +370,4 @@ Os cancelamentos serão processados automaticamente pelo Split de Pagamentos.
 
 ## Agenda Financeira
 
-Utilize as informações publicadas em [Split de Pagamentos - Conciliação](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao) para consultar a agenda e as unidades de recebíveis.
+Utilize as informações publicadas em [Split de Pagamentos - Conciliação](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao){:target="_blank"} para consultar a agenda e as unidades de recebíveis.
