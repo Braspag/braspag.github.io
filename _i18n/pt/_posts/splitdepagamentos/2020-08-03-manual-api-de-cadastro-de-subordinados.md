@@ -802,49 +802,49 @@ Caso ache necessário, o master pode permitir o acesso do subordinado ao backoff
 
 |Código de Compensação	|Banco|
 |---|---|
-|001|	Banco do Brasil|
-|003|	Amazônia - BASA|
-|004|	BNB|
+|001|Banco do Brasil|
+|003|Amazônia - BASA|
+|004|BNB|
 |021|Est. ES - Banestes|
-|025|	Alfa|
-|033|	Santander|
-|041|	Est. RS - Banrisul|
-|047|	Est. SE - Banese|
-|069|	Banco Crefisa|
-|070|	BRB - Banco de Brasília|
-|077|	Banco Inter|
-|084|	CC Uniprime Norte do Paraná|
-|085|	CC Cecred|
-|094|	Banco Finaxis|
-|097|	CC Centralcredi|
-|099|	CC Uniprime Central|
-|104|	Caixa Econômica Federal|
-|107|	BBM|
-|133|	CRESOL CONFEDERAÇÃO|
-|136|	CC Unicred do Brasil|
-|197|	STONE PAGAMENTOS S.A|
-|212|	Banco Original|
-|218|	Banco BS2|
-|237|	Bradesco|
-|246|	ABC - Brasil|
-|260|	NU PAGAMENTOS S.A (NUBANK)|
-|301|	Bpp Instituição De Pagamentos S.A|
-|318|	BCO BMG S.A.|
-|323|	Mercado Pago|
-|336|	Banco C6 S.A|
-|341|	Itaú Unibanco|
-|376|	J. P. Morgan|
-|389|	Mercantil do Brasil|
-|422|	Safra|
-|600|	Luso Brasileiro|
-|604|	Indl. do Brasil|
-|623|	BANCO PAN|
-|637|	Sofisa|
-|654|	Banco Digimais|
-|655|	Votorantim|
-|743|	Semear|
-|745|	Citibank S. A.|
-|748|	Sicredi|
-|755|	Bank of America Merrill Lynch|
-|756|	Bancoob - Banco Cooperativo do Brasil|
-|757|	BCO KEB HANA DO BRASIL S.A.|
+|025|Alfa|
+|033|Santander|
+|041|Est. RS - Banrisul|
+|047|Est. SE - Banese|
+|069|Banco Crefisa|
+|070|BRB - Banco de Brasília|
+|077|Banco Inter|
+|084|CC Uniprime Norte do Paraná|
+|085|CC Cecred|
+|094|Banco Finaxis|
+|097|CC Centralcredi|
+|099|CC Uniprime Central|
+|104|Caixa Econômica Federal|
+|107|BBM|
+|133|CRESOL CONFEDERAÇÃO|
+|136|CC Unicred do Brasil|
+|197|STONE PAGAMENTOS S.A|
+|212|Banco Original|
+|218|Banco BS2|
+|237|Bradesco|
+|246|ABC - Brasil|
+|260|NU PAGAMENTOS S.A (NUBANK)|
+|301|Bpp Instituição De Pagamentos S.A|
+|318|BCO BMG S.A.|
+|323|Mercado Pago|
+|336|Banco C6 S.A|
+|341|Itaú Unibanco|
+|376|J. P. Morgan|
+|389|Mercantil do Brasil|
+|422|Safra|
+|600|Luso Brasileiro|
+|604|Indl. do Brasil|
+|623|BANCO PAN|
+|637|Sofisa|
+|654|Banco Digimais|
+|655|Votorantim|
+|743|Semear|
+|745|Citibank S. A.|
+|748|Sicredi|
+|755|Bank of America Merrill Lynch|
+|756|Bancoob - Banco Cooperativo do Brasil|
+|757|BCO KEB HANA DO BRASIL S.A.|
