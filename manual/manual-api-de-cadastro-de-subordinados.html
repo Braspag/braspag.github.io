@@ -2216,15 +2216,51 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>| Propriedade                 | Tipo    | Tamanho | Obrigatório | Descrição                                                                                                                                                                                                                            |
-|—————————–|———|———|————-|————————————————————————————————————————————————————————————————————————————–|
-| <code class="language-plaintext highlighter-rouge">MerchantId</code>                | Guid    | 36      | Sim         | Identificação do subordinado                                                                                                                                                                                                         |
-| <code class="language-plaintext highlighter-rouge">Analysis.Status</code>           | String  | -       | Sim         | Status da análise do processo de KYC. Os Status válidos são <code class="language-plaintext highlighter-rouge">Approved</code>, <code class="language-plaintext highlighter-rouge">ApprovedWithRestriction</code> e <code class="language-plaintext highlighter-rouge">Rejected</code>                                                                                                                       |
-| <code class="language-plaintext highlighter-rouge">Analysis.Score</code>            | Int     | -       | Não         | Score da análise do processo de KYC. Range de 1 a 100                                                                                                                                                                                |
-| <code class="language-plaintext highlighter-rouge">Analysis.DenialReason</code>     | String  | -       | Não         | Motivo de reprovação do subordinado                                                                                                                                                                                                  |
-<strong>Criação de usuário para o subordinado</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Analysis.Status</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Status da análise do processo de KYC. Os Status válidos são <code class="language-plaintext highlighter-rouge">Approved</code>, <code class="language-plaintext highlighter-rouge">ApprovedWithRestriction</code> e <code class="language-plaintext highlighter-rouge">Rejected</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Analysis.Score</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Score da análise do processo de KYC. Range de 1 a 100</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Analysis.DenialReason</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Motivo de reprovação do subordinado</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Se o master permitir, o subordinado também pode ter um usuário para acessar o backoffice do Split. Para isso, o master precisa enviar para o <a href="https://suporte.braspag.com.br/hc/pt-br">suporte Braspag</a> alguns dados do subordinado:</p>
+<p><strong>Criação de usuário para o subordinado</strong></p>
+
+<p>Caso ache necessário, o master pode permitir o acesso do subordinado ao backoffice do Split. Para isso, o master precisa enviar para o <a href="https://suporte.braspag.com.br/hc/pt-br">suporte Braspag</a>:</p>
 
 <ul>
   <li>O MerchantId do subordinado;</li>
