@@ -291,9 +291,11 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao subor
 
 ## Consulta
 
-É possível consultar todos os dados de uma transação e o resultado da divisão.
+É possível consultar todos os dados de uma transação e o resultado da divisão pelo método e endpoint a seguir.
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions/{Id}</span></aside>
+
+Veja um exemplo de consulta com o Id *e718dc1e-fe8e-497e-9019-6aa48dee6306*:
 
 ### Requisição
 
