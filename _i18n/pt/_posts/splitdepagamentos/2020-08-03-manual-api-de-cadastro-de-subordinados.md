@@ -782,10 +782,11 @@ Ao final do processo de KYC, o master receberá a notificação com o resultado 
 | `MerchantId`                | Guid    | 36      | Sim         | Identificação do subordinado                                                                                                                                                                                                         |
 | `Analysis.Status`           | String  | -       | Sim         | Status da análise do processo de KYC. Os Status válidos são `Approved`, `ApprovedWithRestriction` e `Rejected`                                                                                                                       |
 | `Analysis.Score`            | Int     | -       | Não         | Score da análise do processo de KYC. Range de 1 a 100                                                                                                                                                                                |
-| `Analysis.DenialReason`     | String  | -       | Não         | Motivo de reprovação do subordinado                                                                                                                                                                                                  |
+| `Analysis.DenialReason`     | String  | -       | Não         | Motivo de reprovação do subordinado                |
+
 **Criação de usuário para o subordinado**
 
-Se o master permitir, o subordinado também pode ter um usuário para acessar o backoffice do Split. Para isso, o master precisa enviar para o [suporte Braspag](https://suporte.braspag.com.br/hc/pt-br) alguns dados do subordinado:
+Caso ache necessário, o master pode permitir o acesso do subordinado ao backoffice do Split. Para isso, o master precisa enviar para o [suporte Braspag](https://suporte.braspag.com.br/hc/pt-br):
 
 * O MerchantId do subordinado;
 * O e-mail do subordinado e
