@@ -109,7 +109,7 @@
 
 <p>O <strong>Split de Pagamentos</strong> permite a divisão de uma transação entre diferentes participantes de uma venda.</p>
 
-<p>Para maiores detalhes e informações sobre a plataforma, consulte <a href="https://www.braspag.com.br/split-de-pagamentos/">Split de Pagamentos</a>.</p>
+<p>Para maiores detalhes e informações sobre a plataforma, consulte <a href="https://www.braspag.com.br/split-de-pagamentos/" target="_blank">Split de Pagamentos</a>.</p>
 
 <h1 id="configuração">Configuração</h1>
 
@@ -175,7 +175,7 @@
 
 <h1 id="autenticação">Autenticação</h1>
 
-<p>O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/">OAUTH2</a>, no qual é necessário primeiramente obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API do Split.</p>
+<p>O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/" target="_blank">OAUTH2</a>, no qual é necessário primeiramente obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API do Split.</p>
 
 <p>Para obter um token de acesso:</p>
 
@@ -229,7 +229,8 @@
       </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="mi">123456</span><span class="p">,</span><span class="w">
       </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"654321"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"TerminalLogicNumber"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AuthorizationDate"</span><span class="p">:</span><span class="s2">"2018-05-30 12:09:00"</span><span class="w">
+      </span><span class="nl">"AuthorizationDate"</span><span class="p">:</span><span class="s2">"2021-05-30 12:09:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CaptureDate"</span><span class="p">:</span><span class="s2">"2021-12-30"</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">  
       </span><span class="p">{</span><span class="w">  
@@ -314,15 +315,22 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentDetails.TerminalLogicNumber</code></td>
-      <td>Número lógico do terminal LIO onde ocorreu a transação.</td>
+      <td>Número lógico do terminal LIO onde ocorreu a transação sem o dígito verificador.</td>
       <td>String</td>
       <td>max(10)</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentDetails.AuthorizationDate</code></td>
-      <td>Data de autorização da transação [yyyy-MM-dd hh:mm:ss].</td>
+      <td>Data de autorização da transação em horário local (Brasil) [yyyy-MM-dd hh:mm:ss]</td>
       <td>Datetime</td>
+      <td>-</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentDetails.CaptureDate</code></td>
+      <td>Data de captura da transação [yyyy-MM-dd].</td>
+      <td>Date</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
@@ -620,7 +628,7 @@
 
 <h2 id="agenda-financeira">Agenda Financeira</h2>
 
-<p>Utilize as informações publicadas em <a href="https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao">Split de Pagamentos - Conciliação</a> para consultar a agenda e as unidades de recebíveis.</p>
+<p>Utilize as informações publicadas em <a href="https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao" target="_blank">Split de Pagamentos - Conciliação</a> para consultar a agenda e as unidades de recebíveis.</p>
 
 </div>
 
