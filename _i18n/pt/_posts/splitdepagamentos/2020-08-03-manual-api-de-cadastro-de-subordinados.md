@@ -15,7 +15,7 @@ tags:
 
 O **Split de Pagamentos** fornece uma **API de onboarding** para possibilitar ao master o gerenciamento de seus subordinados na plataforma. O master deverá coletar as informações do subordinado para usar no processo de onboarding.
 
-> O cadastro de subordinados também pode ser feito pelo backoffice Split. [Saiba mais neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360055405011-Cadastro-de-subordinados-do-Split-via-Backoffice).
+> O cadastro de subordinados também pode ser feito pelo backoffice Split. [Saiba mais neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360055405011-Cadastro-de-subordinados-do-Split-via-Backoffice){:target="_blank"}.
 
 Assim como o master, os subordinados também irão passar pelo processo de KYC (Know Your Customer) do Split de Pagamentos, com objetivo de identificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.
 
