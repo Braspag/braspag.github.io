@@ -788,7 +788,7 @@ Ao final do processo de KYC, o master receberá a notificação com o resultado 
 | `Analysis.Score`            | Int     | -       | Não         | Score da análise do processo de KYC. Range de 1 a 100                                                                                                                                                                                |
 | `Analysis.DenialReason`     | String  | -       | Não         | Motivo de reprovação do subordinado                |
 
-**Criação de usuário para o subordinado**
+# Criação de usuário para o subordinado
 
 Caso ache necessário, o master pode permitir o acesso do subordinado ao backoffice do Split. Para isso, o master precisa enviar para o [suporte Braspag](https://suporte.braspag.com.br/hc/pt-br):
 
