@@ -800,7 +800,7 @@ Caso ache necessário, o master pode permitir o acesso do subordinado ao backoff
 
 ## Lista de Códigos de Compensação
 
-|Código de Compensação	|Banco|
+|Código de Compensação|Banco|
 |---|---|
 |001|Banco do Brasil|
 |003|Amazônia - BASA|
