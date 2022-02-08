@@ -15,43 +15,45 @@ tags:
 
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
-Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pagamentos](https://www.braspag.com.br/split-de-pagamentos/){:target="_blank"}.
+Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pagamentos](https://www.braspag.com.br/split-de-pagamentos/).
 
 # Configuração
 
-Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, onde será necessário configurar o estabelecimento comercial da Braspag, (Facilitador) pelo qual serão realizadas as transações destinadas ao Split.  
+Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, e será necessário configurar o estabelecimento comercial da Braspag (Subadquirência) pelo qual serão realizadas as transações destinadas ao Split.  
 
-Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um Subordinado, indicando onde o mesmo estará presente fisicamente.
+Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um subordinado.
 
-Com isso, no momento da configuração de um terminal, é necessário informar o seu numero lógico para que seja possível a correta configuração e operação da plataforma.
+Com isso, no momento da configuração de um terminal, é necessário informar o número de identificação do terminal LIO (número lógico) para que seja possível a correta configuração e operação da plataforma.
 
 > Para que seja possível operar com o Split utilizando terminais LIO, entre em contato com a equipe comercial Cielo/Braspag.
 
 # Ambientes
 
-As operações transacionais de e-Commerce continuam sendo realizadas pela [API Cielo 3.0](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce){:target="_blank"} ou [API Pagador Braspag](https://braspag.github.io//manual/split-de-pagamentos-pagador){:target="_blank"}, sendo necessárias poucas alterações para utlização do Split de Pagamentos.
-
 ## Sandbox
 
-* **API Split**: https://splitsandbox.braspag.com.br/
-* **Braspag OAUTH2 Server**: https://authsandbox.braspag.com.br/
+| API | URL | Descrição  |
+|---|---|---|
+|**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/| Autenticação |
+|**API Split**|https://splitsandbox.braspag.com.br/ | Divisão da transação e desconto de taxas no momento pós-transacional.|
 
 ## Produção
 
-* **API Split**: https://split.braspag.com.br/
-* **Braspag OAUTH2 Server**: https://auth.braspag.com.br/
+| API | URL | Descrição  |
+|---|---|---|
+|**Braspag OAUTH2 Server**|https://auth.braspag.com.br/| Autenticação |
+|**API Split**|https://split.braspag.com.br/ | Divisão da transação e desconto de taxas no momento pós-transacional.|
 
 # Autenticação
 
-O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/), onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split.
+O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/), no qual é necessário primeiramente obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API do Split.
 
 Para obter um token de acesso:
 
-1. Concatene o ClientId e ClientSecret: `ClientId:ClientSecret`.  
-2. Codifique o resultado da concatenação em Base64.  
-3. Realize uma requisição ao servidor de autorização:  
+1. Concatene o MerchantId e ClientSecret: `MerchantId:ClientSecret`; 
+2. Codifique o resultado da concatenação em Base64;  
+3. Realize uma requisição ao servidor de autorização.  
 
-**Request**  
+## Requisição  
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
@@ -62,7 +64,7 @@ x-www-form-urlencoded
 grant_type=client_credentials
 ```
 
-**Response**
+## Resposta
 
 ```json
 {
@@ -72,15 +74,15 @@ grant_type=client_credentials
 }
 ```
 
-> O ClientId é o identificador dentro da Braspag, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
+> O MerchantId é o identificador dentro da Braspag, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
 
-O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.  
+O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar. 
 
 # Integração
 
 ## Criando uma transação  
 
-**Request**
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions</span></aside>
 
@@ -131,15 +133,12 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 | `PaymentDetails.TerminalLogicNumber`    | Número lógico do terminal LIO onde ocorreu a transação.                                                 | String  | max(10) | Sim         |
 | `PaymentDetails.AuthorizationDate`      | Data de autorização da transação [yyyy-MM-dd hh:mm:ss].                                                 | Datetime| -       | Sim         |
 | `SplitPayments`                         | Nó contendo a informação de divisão da transação.                                                       | -       | -       | Não         |
-
-| Propriedade                             | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
-|-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
-| `SplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
+| `SplitPayments.SubordinateMerchantId`   | **MerchantId** (identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
 | `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do **Subordinado**, em centavos.             | Inteiro | -       | Sim         |
-| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Marketplace** a ser descontado do valor referente a participação do **Subordinado**.    | Decimal | -       | Não         |
+| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Master** a ser descontado do valor referente a participação do **Subordinado**.    | Decimal | -       | Não         |
 | `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos. | Inteiro | -       | Não         |
 
-**Response**
+### Resposta
 
 ```json
 {  
@@ -199,20 +198,18 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 | Propriedade                                  | Descrição                                                                                   | Tipo   | Tamanho | Obrigatório |
 |----------------------------------------------|---------------------------------------------------------------------------------------------|--------|---------|-------------|
 | `Id`                                         | Identificador da transação.                                                                 | Guid   | 36      | Sim         |
-| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
-| `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
+| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (identificador) do **Subordinado** ou **Master**.                       | Guid   | 36      | Sim         |
+| `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Master**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
 ### Transação existente
 
-Durante o processo transacional na LIO, poderá ocorrer alguma falha impedindo que a LIO consiga invocar o Split para criação da transação. 
+Durante o processo de criação da transação no Split realizada pela LIO, pode ocorrer alguma falha impedindo a criação da transação.
 
-Caso isso ocorra e a transação não seja criada no Split no dia em que a mesma ocorreu, a plataforma automaticamente criará esta transação e direcionará todo o valor da transação para o Subordinado ao qual está associado o terminal LIO.
+Caso a transação não seja criada no Split ao ser autorizada pela Cielo, o sistema de conciliação do Split irá gerar automaticamente a transação ao receber a confirmação por parte da Cielo. Após a criação automática, se houver uma nova tentativa de criação dessa mesma transação, a API irá retornar o status "409 - Conflict" e os dados da transação, informando que ela já existe.  
 
-Caso tente-se criar a transação no Split de Pagamentos após a plataforma já tê-la criado, o Split retornará um erro (Http Staus Code 409 - Conflict) juntamente com os dados transacionais, caso o Marketplace seja o dono da transação. Com isso, o Marketplace pode redividir a transação de acordo com suas regras através do [Split de Pagamentos - Pós Transacional](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#p%C3%B3s-transacional){:target="_blank"}.  
+#### Requisição
 
-**Request**
-
-Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao Subordinado 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.
+Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao subordinado 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions</span></aside>
 
@@ -251,9 +248,9 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao Subor
 }
 ```
 
-**Response**
+#### Resposta
 
-> HTTP Staus Code: 409 - Conflict
+> HTTP Status Code: 409 - Conflict
 
 ```json
 {  
@@ -294,9 +291,11 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao Subor
 
 ## Consulta
 
+É possível consultar todos os dados de uma transação e o resultado da divisão.
+
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions/{Id}</span></aside>
 
-**Request**
+### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions/e718dc1e-fe8e-497e-9019-6aa48dee6306</span></aside>
 
@@ -304,7 +303,7 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao Subor
 --header "Authorization: Bearer {access_token}"  
 ```
 
-**Response**
+### Resposta
 
 ```json
 {  
@@ -361,10 +360,10 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao Subor
 }
 ```
 
-### Cancelamento
+## Cancelamento
 
 Os cancelamentos serão processados automaticamente pelo Split de Pagamentos.
 
 ## Agenda Financeira
 
-Utilize as informações publicadas em [Split de Pagamentos - Agenda Financeira](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao) para consultar as previsões e realizações de liquidação das transações.
+Utilize as informações publicadas em [Split de Pagamentos - Conciliação](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao) para consultar a agenda e as unidades de recebíveis.
