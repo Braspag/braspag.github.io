@@ -154,7 +154,8 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
       "Nsu": "123456",
       "AuthorizationCode":"654321",
       "TerminalLogicNumber":"12345678",
-      "AuthorizationDate":"2018-05-30 12:09:00"
+      "AuthorizationDate":"2021-12-30 12:09:00",
+      "CaptureDate":"2021-12-30"
    },
    "SplitPayments":[  
       {  
@@ -227,7 +228,8 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao subor
       "Nsu": "123456",
       "AuthorizationCode":"654321",
       "TerminalLogicNumber":"12345678",
-      "AuthorizationDate":"2018-05-30 12:09:00"
+      "AuthorizationDate":"2021-12-30 12:09:00",
+      "CaptureDate":"2021-12-30"
    },
    "SplitPayments":[  
       {  
@@ -266,7 +268,8 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao subor
       "Nsu":123456,
       "AuthorizationCode":"654321",
       "TerminalLogicNumber":"12345678",
-      "AuthorizationDate":"2018-05-30 12:09:00"
+      "AuthorizationDate":"2018-05-30 12:09:00",
+      "CaptureDate":"2021-12-30"
    },
    "SplitPayments":[  
       {  
@@ -321,7 +324,8 @@ Veja um exemplo de consulta com o Id *e718dc1e-fe8e-497e-9019-6aa48dee6306*:
       "Nsu":1234567891,
       "AuthorizationCode":"123456",
       "TerminalLogicNumber":"78350767",
-      "AuthorizationDate":"2018-05-30 12:09:00"
+      "AuthorizationDate":"2021-12-30 12:09:00",
+      "CaptureDate":"2021-12-30"
    },
    "SplitPayments":[  
       {  
