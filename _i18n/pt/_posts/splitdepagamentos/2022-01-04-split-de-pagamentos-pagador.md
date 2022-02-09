@@ -200,9 +200,9 @@ A próxima seção apresentará exemplos de transações de crédito, débito e 
 
 > Em todos os exemplos a seguir a divisão da transação segue o modelo de Split Transacional, ou seja, a divisão é solicitada no momento da captura.
 
-### Transação de Crédito
+## Transação de Crédito
 
-#### Requisição
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -296,7 +296,7 @@ A próxima seção apresentará exemplos de transações de crédito, débito e 
 }
 ```
 
-#### Resposta
+### Resposta
 
 ```json
 {
@@ -520,7 +520,7 @@ Caso a transação enviada seja marcada para captura automática, é necessário
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
 
-#### Transação de crédito sem o nó da divisão  
+### Transação de crédito sem o nó da divisão  
 
 Neste caso, o master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
 
@@ -543,7 +543,7 @@ Neste caso, o master recebe o valor da transação descontado o MDR acordado com
 
 Veja a requisição dessa transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.
 
-##### Requisição
+#### Requisição
 
 ```json
 {
@@ -616,7 +616,7 @@ Veja a requisição dessa transação no valor de R$100,00, com captura automát
 }
 ```
 
-##### Resposta
+#### Resposta
 
 ```json
 {
@@ -784,7 +784,7 @@ Veja a requisição dessa transação no valor de R$100,00, com captura automát
 }
 ```
 
-#### Exemplo com o nó da divisão  
+### Exemplo com o nó da divisão  
 
 ![SplitEx3]({{ site.baseurl_root }}/images/braspag/split/split8-exemplo3-com-no.png)
 
@@ -823,7 +823,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).
 
 Veja a requisição dessa transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 
-##### Requisição
+#### Requisição
 
 ```json
 {
@@ -914,7 +914,7 @@ Veja a requisição dessa transação no valor de **R$100,00** com o nó contend
 }
 ```
 
-##### Resposta
+#### Resposta
 
 ```json
 {
@@ -1104,7 +1104,7 @@ Veja a requisição dessa transação no valor de **R$100,00** com o nó contend
 }
 ```
 
-### Transação de Débito
+## Transação de Débito
 
 Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:
 
@@ -1113,7 +1113,7 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 
 > Para saber mais sobre a integração 3DS 2.0, acesse o [Manual de Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).
 
-#### Requisição
+### Requisição
 
 ```json
 {
@@ -1181,7 +1181,7 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 |`Payment.ExternalAuthentication.Version`| Versão do 3DS utilizado no processo de autenticação. | Alfanumérico / 1 posição | Sim, quando a versão do 3DS for "2".|
 |`Payment.ExternalAuthentication.ReferenceID`| RequestID retornado no processo de autenticação. | GUID / 36 posições | Sim, quando a versão do 3DS for "2". |
 
-#### Resposta
+### Resposta
 
 ```json
 {
@@ -1279,7 +1279,7 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 }
 ```
 
-### Transação de Boleto
+## Transação de Boleto
 
 **Boleto Registrado** 
 
@@ -1289,7 +1289,7 @@ pela Febraban em conjunto com os bancos, para promover maior controle e seguran�
 Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. A seguir temos um exemplo de como criar um pedido com este
 tipo de meio de pagamento.
 
-#### Requisição
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1361,7 +1361,7 @@ tipo de meio de pagamento.
 >(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.<BR> 
 >(**) Caracteres especiais e acentuações são removidos automaticamente.
 
-#### Resposta
+### Resposta
 
 ```json
 {
