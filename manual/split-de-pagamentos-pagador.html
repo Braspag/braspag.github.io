@@ -410,9 +410,9 @@
   <p>Em todos os exemplos a seguir a divisão da transação segue o modelo de Split Transacional, ou seja, a divisão é solicitada no momento da captura.</p>
 </blockquote>
 
-<h3 id="transação-de-crédito">Transação de Crédito</h3>
+<h2 id="transação-de-crédito">Transação de Crédito</h2>
 
-<h4 id="requisição">Requisição</h4>
+<h3 id="requisição">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -505,7 +505,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta">Resposta</h4>
+<h3 id="resposta">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23082019"</span><span class="p">,</span><span class="w">
@@ -901,7 +901,7 @@
   </tbody>
 </table>
 
-<h4 id="transação-de-crédito-sem-o-nó-da-divisão">Transação de crédito sem o nó da divisão</h4>
+<h3 id="transação-de-crédito-sem-o-nó-da-divisão">Transação de crédito sem o nó da divisão</h3>
 
 <p>Neste caso, o master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.</p>
 
@@ -930,7 +930,7 @@
 
 <p>Veja a requisição dessa transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.</p>
 
-<h5 id="requisição-1">Requisição</h5>
+<h4 id="requisição-1">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1002,7 +1002,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="resposta-1">Resposta</h5>
+<h4 id="resposta-1">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1169,7 +1169,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="exemplo-com-o-nó-da-divisão">Exemplo com o nó da divisão</h4>
+<h3 id="exemplo-com-o-nó-da-divisão">Exemplo com o nó da divisão</h3>
 
 <p><img src="https://braspag.github.io//images/braspag/split/split8-exemplo3-com-no.png" alt="SplitEx3" /></p>
 
@@ -1216,7 +1216,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 
 <p>Veja a requisição dessa transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão.</p>
 
-<h5 id="requisição-2">Requisição</h5>
+<h4 id="requisição-2">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1306,7 +1306,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="resposta-2">Resposta</h5>
+<h4 id="resposta-2">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1495,7 +1495,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="transação-de-débito">Transação de Débito</h3>
+<h2 id="transação-de-débito">Transação de Débito</h2>
 
 <p>Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:</p>
 
@@ -1508,7 +1508,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
   <p>Para saber mais sobre a integração 3DS 2.0, acesse o <a href="https://braspag.github.io//manualp/emv3ds">Manual de Autenticação 3DS 2.0</a>.</p>
 </blockquote>
 
-<h4 id="requisição-3">Requisição</h4>
+<h3 id="requisição-3">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1620,7 +1620,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
   </tbody>
 </table>
 
-<h4 id="resposta-3">Resposta</h4>
+<h3 id="resposta-3">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1717,7 +1717,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="transação-de-boleto">Transação de Boleto</h3>
+<h2 id="transação-de-boleto">Transação de Boleto</h2>
 
 <p><strong>Boleto Registrado</strong></p>
 
@@ -1727,7 +1727,7 @@ pela Febraban em conjunto com os bancos, para promover maior controle e seguran�
 <p>Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. A seguir temos um exemplo de como criar um pedido com este
 tipo de meio de pagamento.</p>
 
-<h4 id="requisição-4">Requisição</h4>
+<h3 id="requisição-4">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1955,7 +1955,7 @@ tipo de meio de pagamento.</p>
 (**) Caracteres especiais e acentuações são removidos automaticamente.</p>
 </blockquote>
 
-<h4 id="resposta-4">Resposta</h4>
+<h3 id="resposta-4">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
