@@ -465,7 +465,7 @@
   <p>Em todos os exemplos a seguir a divisão da transação segue o modelo de Split Transacional, ou seja, a divisão é solicitada no momento da captura.</p>
 </blockquote>
 
-<h3 id="transação-de-crédito">Transação de crédito</h3>
+<h2 id="transação-de-crédito">Transação de crédito</h2>
 
 <p>Ao informar um tipo de pagamento referente ao Split, a API Cielo E-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo 
 transacional através da Braspag.</p>
@@ -475,11 +475,11 @@ master. Posteriormente, é permitido que o master envie novas regras de divisão
 
 <p>Veja a seguir exemplos de requisições e respostas para transações de crédito.</p>
 
-<h4 id="transação-de-crédito-com-todos-os-campos-possíveis">Transação de crédito com todos os campos possíveis</h4>
+<h3 id="transação-de-crédito-com-todos-os-campos-possíveis">Transação de crédito com todos os campos possíveis</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
-<h5 id="requisição-1">Requisição</h5>
+<h4 id="requisição-1">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">  
@@ -538,7 +538,7 @@ master. Posteriormente, é permitido que o master envie novas regras de divisão
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="resposta-1">Resposta</h5>
+<h4 id="resposta-1">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23082019"</span><span class="p">,</span><span class="w">
@@ -894,7 +894,7 @@ master. Posteriormente, é permitido que o master envie novas regras de divisão
   </tbody>
 </table>
 
-<h4 id="transação-de-crédito-sem-o-nó-da-divisão">Transação de crédito sem o nó da divisão</h4>
+<h3 id="transação-de-crédito-sem-o-nó-da-divisão">Transação de crédito sem o nó da divisão</h3>
 
 <p>Veja uma requisição de transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.</p>
 
@@ -925,7 +925,7 @@ master. Posteriormente, é permitido que o master envie novas regras de divisão
 
 <p><img src="https://braspag.github.io//images/braspag/split/split7-exemplo2-sem-no.png" alt="SplitEx2" /></p>
 
-<h5 id="requisição-2">Requisição</h5>
+<h4 id="requisição-2">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1009,7 +1009,7 @@ master. Posteriormente, é permitido que o master envie novas regras de divisão
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="resposta-2">Resposta</h5>
+<h4 id="resposta-2">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22082019v3"</span><span class="p">,</span><span class="w">
@@ -1192,7 +1192,7 @@ master. Posteriormente, é permitido que o master envie novas regras de divisão
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="transação-de-crédito-com-o-nó-da-divisão">Transação de crédito com o nó da divisão</h4>
+<h3 id="transação-de-crédito-com-o-nó-da-divisão">Transação de crédito com o nó da divisão</h3>
 
 <p>A próxima requisição corresponde a uma transação no valor de R$100,00 com o nó contendo as regras de divisão. Neste exemplo foram assumidas as seguintes taxas:</p>
 
@@ -1239,7 +1239,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 
 <p><img src="https://braspag.github.io//images/braspag/split/split8-exemplo3-com-no.png" alt="SplitEx3" /></p>
 
-<h5 id="requisição-3">Requisição</h5>
+<h4 id="requisição-3">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1341,7 +1341,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="resposta-3">Resposta</h5>
+<h4 id="resposta-3">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22082019v5"</span><span class="p">,</span><span class="w">
@@ -1546,7 +1546,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="transação-de-débito">Transação de Débito</h3>
+<h2 id="transação-de-débito">Transação de Débito</h2>
 
 <p>Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:</p>
 
@@ -1559,7 +1559,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
   <p>Para saber mais sobre a integração 3DS 2.0, acesse o <a href="https://braspag.github.io//manualp/emv3ds">Manual de Autenticação 3DS 2.0</a>.</p>
 </blockquote>
 
-<h4 id="requisição-4">Requisição</h4>
+<h3 id="requisição-4">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1683,7 +1683,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
   </tbody>
 </table>
 
-<h4 id="resposta-4">Resposta</h4>
+<h3 id="resposta-4">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22082019v5"</span><span class="p">,</span><span class="w">
@@ -1785,9 +1785,9 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="transação-de-boleto">Transação de Boleto</h3>
+<h2 id="transação-de-boleto">Transação de Boleto</h2>
 
-<h4 id="boleto-registrado">Boleto Registrado</h4>
+<h3 id="boleto-registrado">Boleto Registrado</h3>
 
 <p>Desde 21 de julho de 2018, todos os boletos emitidos no e-commerce, obrigatoriamente, têm que ser registrados. O registro dos boletos é feito na Nova Plataforma de Cobrança, criada
 pela Febraban em conjunto com os bancos, para promover maior controle e segurança às transações de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários.</p>
@@ -1795,7 +1795,7 @@ pela Febraban em conjunto com os bancos, para promover maior controle e seguran�
 <p>Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. A seguir temos um exemplo de como criar um pedido com este
 tipo de meio de pagamento.</p>
 
-<h5 id="requisição-5">Requisição</h5>
+<h4 id="requisição-5">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -2006,7 +2006,7 @@ tipo de meio de pagamento.</p>
   <p>(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.</p>
 </blockquote>
 
-<h5 id="resposta-5">Resposta</h5>
+<h4 id="resposta-5">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
