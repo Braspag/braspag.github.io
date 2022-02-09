@@ -238,7 +238,7 @@ A próxima seção apresentará exemplos de transações de crédito, débito e 
 
 > Em todos os exemplos a seguir a divisão da transação segue o modelo de Split Transacional, ou seja, a divisão é solicitada no momento da captura.
 
-### Transação de crédito
+## Transação de crédito
 
 Ao informar um tipo de pagamento referente ao Split, a API Cielo E-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo 
 transacional através da Braspag.
@@ -248,11 +248,11 @@ master. Posteriormente, é permitido que o master envie novas regras de divisão
 
 Veja a seguir exemplos de requisições e respostas para transações de crédito.
 
-#### Transação de crédito com todos os campos possíveis
+### Transação de crédito com todos os campos possíveis
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
-##### Requisição
+#### Requisição
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -312,7 +312,7 @@ Veja a seguir exemplos de requisições e respostas para transações de crédit
 }
 ```
 
-##### Resposta
+#### Resposta
 
 ```json
 {
@@ -502,7 +502,7 @@ Veja a seguir exemplos de requisições e respostas para transações de crédit
 |`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
 
-#### Transação de crédito sem o nó da divisão 
+### Transação de crédito sem o nó da divisão 
 
 Veja uma requisição de transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.
 
@@ -527,7 +527,7 @@ O valor total a receber pelo master está representado na figura a seguir.
 
 ![SplitEx2]({{ site.baseurl_root }}/images/braspag/split/split7-exemplo2-sem-no.png)
 
-##### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -612,7 +612,7 @@ O valor total a receber pelo master está representado na figura a seguir.
 }
 ```
 
-##### Resposta
+#### Resposta
 
 ```json
 {
@@ -796,7 +796,7 @@ O valor total a receber pelo master está representado na figura a seguir.
 }
 ```
 
-#### Transação de crédito com o nó da divisão  
+### Transação de crédito com o nó da divisão  
 
 A próxima requisição corresponde a uma transação no valor de R$100,00 com o nó contendo as regras de divisão. Neste exemplo foram assumidas as seguintes taxas:
 
@@ -835,7 +835,7 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 
 ![SplitEx3]({{ site.baseurl_root }}/images/braspag/split/split8-exemplo3-com-no.png)
 
-##### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -938,7 +938,7 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 }
 ```
 
-##### Resposta
+#### Resposta
 
 ```json
 {
@@ -1144,7 +1144,7 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 }
 ```
 
-### Transação de Débito  
+## Transação de Débito  
 
 Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:
 
@@ -1153,7 +1153,7 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 
 >Para saber mais sobre a integração 3DS 2.0, acesse o [Manual de Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).
 
-#### Requisição
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1233,7 +1233,7 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 |`Payment.ExternalAuthentication.Version`| Versão do 3DS utilizado no processo de autenticação. | Alfanumérico / 1 posição | Sim, quando a versão do 3DS for "2".|
 |`Payment.ExternalAuthentication.ReferenceID`| RequestID retornado no processo de autenticação. | GUID / 36 posições | Sim, quando a versão do 3DS for "2". |
 
-#### Resposta
+### Resposta
 
 ```json
 {
@@ -1336,9 +1336,9 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 }
 ```
 
-### Transação de Boleto
+## Transação de Boleto
 
-#### Boleto Registrado
+### Boleto Registrado
 
 Desde 21 de julho de 2018, todos os boletos emitidos no e-commerce, obrigatoriamente, têm que ser registrados. O registro dos boletos é feito na Nova Plataforma de Cobrança, criada
 pela Febraban em conjunto com os bancos, para promover maior controle e segurança às transações de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários.
@@ -1346,7 +1346,7 @@ pela Febraban em conjunto com os bancos, para promover maior controle e seguran�
 Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. A seguir temos um exemplo de como criar um pedido com este
 tipo de meio de pagamento.
 
-##### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1413,7 +1413,7 @@ tipo de meio de pagamento.
 
 >(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.  
 
-##### Resposta
+#### Resposta
 
 ```json
 {
