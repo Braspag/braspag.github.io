@@ -48,8 +48,6 @@ Para executar uma operação, combine a URL base do ambiente com o endpoint da o
 
 # Autenticação
 
-## Tokens de acesso
-
 A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, **Sandbox** e **Produção**.
 
 ## Como obter o token de acesso
@@ -74,14 +72,14 @@ O token retornado (`access_token`) deverá ser utilizado em toda requisição à
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no Cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/x-www-form-urlencoded|
 |`Authorization`|Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|
 
-**Parâmetros no Corpo (Body)**
+**Parâmetros no Corpo (body)**
 
 |Key|Value|
 |:-|:-|
@@ -98,7 +96,7 @@ O token retornado (`access_token`) deverá ser utilizado em toda requisição à
 }
 ```
 
-**Parâmetros no Corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|
 |:-|:-|
@@ -106,11 +104,11 @@ O token retornado (`access_token`) deverá ser utilizado em toda requisição à
 |`token_type`|Indica o valor do tipo de token.|
 |`expires_in`|Expiração do token de acesso, em segundos. <br/>Após expirar, é necessário obter um novo.|
 
-# Realizando uma Análise de Fraude
+# Realizando uma análise de fraude
 
 Ao receber os dados do pedido, a API da Braspag encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real, a Braspag recebe uma recomendação do provedor, podendo então tomar uma ação baseada no risco de fraude identificado pela análise.
 
-## Fluxos da Análise de Fraude
+## Fluxos da análise de fraude
 
 Veja a representação do **fluxo transacional** quando o serviço do Antifraude é solicitado no modelo `AnalyseFirst`, em que a análise de risco acontece antes da autorização da transação:
 
@@ -118,7 +116,7 @@ Veja a representação do **fluxo transacional** quando o serviço do Antifraude
 
 Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a análise de risco acontece depois da autorização da transação, consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude).
 
-## Analisando uma Transação na Cybersource
+## Analisando uma transação na Cybersource
 
 ### Requisição
 
@@ -263,7 +261,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 }
 ```
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (Header)**
 
 |Key|Value|
 |:-|:-|
@@ -272,7 +270,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-**Parâmetros no Corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
@@ -408,14 +406,14 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 }
 ```
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|201 Created|
 
-**Parâmetros no Corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
@@ -470,7 +468,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|int|
 |`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
 
-## Analisando uma Transação na ACI Worldwide
+## Analisando uma transação na ACI Worldwide
 
 ### Requisição
 
@@ -618,7 +616,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
@@ -627,7 +625,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-**Parâmetros no corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
@@ -757,14 +755,14 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|201 Created|
 
-**Parâmetros no corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
@@ -779,7 +777,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Id do pedido na ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Id único e exclusivo da requisição da ReDShield|string|
 
-## Indicando Erros de Integração
+## Indicando erros de integração
 
 ``` json
 {
@@ -801,14 +799,14 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ### Resposta
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
-**Parâmetros no Corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|
 |:-|:-|
@@ -818,13 +816,13 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 # Consultas
 
-## Consultando uma Transação Cybersource
+## Consultando uma transação Cybersource
 
 ### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
@@ -1002,14 +1000,14 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 }
 ```
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-**Parâmetros no Corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
@@ -1154,7 +1152,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 31 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}manual/antifraude#tabela-31-merchantdefineddata-(cybersource))|int|não|-|
 |`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 31 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}manual/antifraude#tabela-31-merchantdefineddata-(cybersource))|var|não|-|
 
-## Consultando uma Transação na ACI Worldwide
+## Consultando uma transação na ACI Worldwide
 
 ### Requisição
 
@@ -1322,7 +1320,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 }
 ```
 
-**Parâmetros no cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
@@ -1333,14 +1331,14 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ### Resposta
 
-**Parâmetros no cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-**Parâmetros no corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
@@ -1448,13 +1446,13 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}manual/antifraude#tabela-36-merchantdefineddata-(redshield))|int|não|-|
 |`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}manual/antifraude#tabela-36-merchantdefineddata-(redshield))|var|não|-|
 
-## Consultando uma Transação Inexistente 
+## Consultando uma transação Inexistente 
 
 ### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
@@ -1465,7 +1463,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ### Resposta
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
@@ -1508,14 +1506,14 @@ Esta sessão descreve o serviço de POST de Notificação, que envia uma notific
 
 ## Resposta
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-# Associar Transação
+# Associar transação
 
 Esta sessão descreve como associar uma transação do Pagador Braspag ou outra solução de autorização à uma transação do Antifraude Gateway Braspag.
 
@@ -1538,7 +1536,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 }
 ```
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
@@ -1547,7 +1545,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-**Parâmetros no Corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
@@ -1555,7 +1553,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ### Resposta
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 * Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway
 
@@ -1585,7 +1583,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`Content-Type`|application/json|
 |`Status`|409 Conflict|
 
-## Antifraude e Outra Solução de Autorização
+## Antifraude e outra solução de autorização
 
 ### Requisição
 
@@ -1600,7 +1598,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 }
 ```
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
@@ -1609,7 +1607,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-**Parâmetros no Corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
@@ -1620,7 +1618,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ### Resposta
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 * Quando a transação de outra solução de autorização for associada corretamente com a transação do Antifraude Gateway
 
@@ -1650,7 +1648,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`Content-Type`|application/json|
 |`Status`|409 Conflict|
 
-# Update de Status Cybersource
+# Update de status Cybersource
 
 Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject) ou aceita (accept) para rejeita (reject).
 
@@ -1665,7 +1663,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 }
 ```
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
@@ -1674,7 +1672,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-**Parâmetros no Corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
@@ -1695,14 +1693,14 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 }
 ```
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-**Parâmetros no Corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|
 |:-|:-|
@@ -1712,7 +1710,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 
 * Quando a transação não for encontrada na base de dados.
 <br/><br/>
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
@@ -1721,7 +1719,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 
 * Quando a transação não estiver elegivel para alteração de status.
 <br/><br/>
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
@@ -1730,7 +1728,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 
 * Quando o novo status enviado for diferente de Accept ou Reject.
 <br/><br/>
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
@@ -1753,14 +1751,14 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 }
 ```
 
-**Parâmetros no Cabeçalho (Header)**
+**Parâmetros no cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
-**Parâmetros no Corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|
 |:-|:-|
@@ -1801,7 +1799,7 @@ As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao
 <aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
 <br />
 
-**Integração em Aplicativos Mobile**
+**Integração em aplicativos mobile**
 
 > Baixe as últimas versões dos SDKs: [Android](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20Android%20SDK%206.0-138_.zip) e [IOS](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20iOS%20SDK%206.0-91_.zip).   
 > Material de apoio [baixe aqui](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf).
