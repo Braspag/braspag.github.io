@@ -5,8 +5,8 @@ description: Manual de Integração API Split de Pagamentos
 search: true
 toc_footers: false
 categories: manual
-sort_order: 8
-hub_visible: false
+sort_order: 7
+hub_visible: true
 tags:
   - 6. Soluções para Marketplace
 ---
