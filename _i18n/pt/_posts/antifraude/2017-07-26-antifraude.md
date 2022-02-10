@@ -16,7 +16,7 @@ language_tabs:
 
 O **Antifraude** é uma plataforma desenvolvida pelo time de risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores e tecnologias distintos. Ele é, portanto, responsável por realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.
 
-A plataforma é baseada em arquitetura REST, com troca de dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo [OAuth 2](https://oauth.net/2/), com padrões amplamente utilizados pelo mercado e suportados pelas comunidades técnicas.
+A plataforma é baseada em arquitetura REST, com troca de dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo [OAuth 2](https://oauth.net/2/){:target="_blank"}, com padrões amplamente utilizados pelo mercado e suportados pelas comunidades técnicas.
 
 A plataforma foi construída utilizando o Cartão Protegido, um dos principais produtos da Braspag, para a tokenização de cartões e análises de fraude através dos tokens.
 
@@ -50,11 +50,9 @@ Para executar uma operação, combine a URL base do ambiente com o endpoint da o
 
 ## Tokens de Acesso
 
-A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
+A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, **Sandbox** e **Produção**.
 
-Esta sessão descreve o fluxo necessário para que uma aplicação cliente obtenha tokens de acesso válidos para uso na plataforma.
-
-## Como Obter o Token de Acesso 
+## Como Obter o Token de Acesso
 
 O token de acesso é obtido através do fluxo oauth **client_credentials**. A comunicação se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **API Antifraude Gateway** na seguinte ordem:
 
@@ -79,7 +77,7 @@ Exemplo:
 * String a ser codificada em Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
 * Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
@@ -97,7 +95,7 @@ Exemplo:
 |`scope`|AntifraudGatewayApp|
 |`grant_type`|client_credentials|
 
-### Response
+### Resposta
 
 ``` json
 {
@@ -128,6 +126,8 @@ Veja a representação do **fluxo transacional** quando o serviço do Antifraude
 Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a análise de risco acontece depois da autorização da transação, consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude).
 
 ## Analisando uma Transação na Cybersource
+
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
@@ -270,8 +270,6 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 }
 ```
 
-### Request
-
 **Parâmetros no Cabeçalho (Header)**
 
 |Key|Value|
@@ -377,6 +375,8 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 31 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}manual/antifraude#tabela-31-merchantdefineddata-(cybersource))|int|não|-|
 |`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 31 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}manual/antifraude#tabela-31-merchantdefineddata-(cybersource))|var|não|-|
 
+### Resposta
+
 ``` json
 {
    "TransactionId": "1eae3d39-a723-e811-80c3-0003ff21d83f",
@@ -414,8 +414,6 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
    ]
 }
 ```
-
-### Response
 
 **Parâmetros no Cabeçalho (Header)**
 
@@ -480,6 +478,8 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
 
 ## Analisando uma Transação na ACI Worldwide
+
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
@@ -625,8 +625,6 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 }
 ```
 
-### Request
-
 **Parâmetros no cabeçalho (Header)**
 
 |Key|Value|
@@ -734,7 +732,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}manual/antifraude#tabela-36-merchantdefineddata-(redshield))|int|não|-|
 |`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}manual/antifraude#tabela-36-merchantdefineddata-(redshield))|var|não|-|
 
-### Response
+### Resposta
 
 ``` json
 {
@@ -808,7 +806,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 }
 ```
 
-### Response
+### Resposta
 
 **Parâmetros no Cabeçalho (Header)**
 
@@ -829,7 +827,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ## Consultando uma Transação Cybersource
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
@@ -842,7 +840,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-### Response
+### Resposta
 
 ``` json
 {
@@ -1165,7 +1163,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ## Consultando uma Transação na ACI Worldwide
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
@@ -1340,7 +1338,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-### Response
+### Resposta
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -1459,9 +1457,9 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ## Consultando uma Transação Inexistente 
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+### Requisição
 
-### Request
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
 **Parâmetros no Cabeçalho (Header)**
 
@@ -1472,7 +1470,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-### Response
+### Resposta
 
 **Parâmetros no Cabeçalho (Header)**
 
@@ -1493,7 +1491,7 @@ Esta sessão descreve o serviço de POST de Notificação, que envia uma notific
 
 * Após a loja receber a notificação de mudança de status, deverá realizar um GET através da URL https://{antifraude endpoint}/analysis/v2/{Id}, enviando o Id da transação que foi recebido na notficação da mudança de status para obter o novo status da transação.
 
-## Request
+## Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{url loja}</span></aside>
 
@@ -1515,7 +1513,7 @@ Esta sessão descreve o serviço de POST de Notificação, que envia uma notific
 |:-|:-|:-:|
 |`Id`|Id da transação no Antifraude Gateway Braspag|guid|
 
-## Response
+## Resposta
 
 **Parâmetros no Cabeçalho (Header)**
 
@@ -1537,9 +1535,9 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ## Antifraude e Pagador
 
-<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
+### Requisição
 
-### Request
+<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
 ``` json
 {
@@ -1562,7 +1560,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |:-|:-|:-:|:-:|-:|
 |`BraspagTransactionId`|Id da transação no Pagador Braspag|guid|sim|-|
 
-### Response
+### Resposta
 
 **Parâmetros no Cabeçalho (Header)**
 
@@ -1596,9 +1594,9 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ## Antifraude e Outra Solução de Autorização
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">transaction/{id}</span></aside>
+### Requisição
 
-### Request
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">transaction/{id}</span></aside>
 
 ``` json
 {
@@ -1627,7 +1625,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`AuthorizationCode`|Código de autorização da transação na adquirente|string|sim|10|
 |`SaleDate`|Data da autorização da transação da transação na adquirente|datetime|sim|-|
 
-### Response
+### Resposta
 
 **Parâmetros no Cabeçalho (Header)**
 
@@ -1663,7 +1661,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject) ou aceita (accept) para rejeita (reject).
 
-## Request
+## Requisição
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
 
@@ -1690,7 +1688,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 |`Status`|Novo status da transação. Accept ou Reject|string|sim|-|
 |`Comments`|Comentário associado a mudança de status|string|não|255|
 
-## Response
+## Resposta
 
 * Quando a transação for recebida para processamento
 
@@ -1801,7 +1799,7 @@ O modelo do Javascript é o seguinte:
 
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
-> [Clique aqui](https://github.com/Braspag/braspag.github.io/blob/e9d4e1ef177dc60e00ab2269ed733976d69646f6/_i18n/pt/_posts/antifraude/javascript-fingerprint-cybersource.js) para acessar e copiar o modelo JavaScript.
+> [Acesse o nosso Github](https://github.com/Braspag/braspag.github.io/blob/e9d4e1ef177dc60e00ab2269ed733976d69646f6/_i18n/pt/_posts/antifraude/javascript-fingerprint-cybersource.js){:target="_blank"} para visualizar e copiar o modelo JavaScript.
 
 As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
 
