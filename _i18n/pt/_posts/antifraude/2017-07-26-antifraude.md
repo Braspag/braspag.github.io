@@ -30,52 +30,47 @@ O objetivo desta documentação é orientar o desenvolvedor sobre como integrar 
 
 Para executar uma operação, combine a URL base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
 
-# Hosts
+# Ambientes
 
-## API BraspagAuth
+## Sandbox
 
-|Ambiente|URL base|
-|:-|:-|
-|`Sandbox`|https://authsandbox.braspag.com.br/|
-|`Produção`|https://auth.braspag.com.br/|
+|Ambiente|URL base|Descrição|
+|:-|:-|:-|
+|**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/ | Autenticação.|
+|**API Risk**|https://risksandbox.braspag.com.br/ | Análise de fraude, consulta, associar transação e update de status. |
 
-## API Antifraude Gateway
+## Produção
 
-|Ambiente|URL base|
-|:-|:-|
-|`Sandbox`|https://risksandbox.braspag.com.br/|
-|`Produção`|https://risk.braspag.com.br/|
+|Ambiente|URL base|Descrição|
+|:-|:-|:-|
+|**Braspag OAUTH2 Server**|https://auth.braspag.com.br/ | Autenticação.|
+|**API Risk**|https://risk.braspag.com.br/ | Análise de fraude, consulta, associar transação e update de status. |
 
 # Autenticação
 
-## Tokens de Acesso
+## Tokens de acesso
 
 A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, **Sandbox** e **Produção**.
 
-## Como Obter o Token de Acesso
+## Como obter o token de acesso
 
-O token de acesso é obtido através do fluxo oauth **client_credentials**. A comunicação se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **API Antifraude Gateway** na seguinte ordem:
+Durante o onboarding, você receberá as credenciais `ClientId` e `ClientSecret`.
 
-1. A **Aplicação Cliente**, informa à API **BraspagAuth** sua credencial.
+> Caso não tenha recebido a credencial, solicite ao [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}.
 
-2. O **BraspagAuth** valida a credencial recebida. Se for válida, retorna o token de acesso para a **Aplicação Cliente**.
+1.	Concatene as credenciais no formato `ClientId:ClientSecret`;
+2.	Converta o resultado em base 64, gerando uma string;
 
-3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **API Antifraude Gateway Braspag**.
+> **Exemplo:**<br/>
+> * client_id: **braspagtestes**<br/>
+> * client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
+> * String a ser codificada em Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
+> * Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**<br/>
 
-4. Se o token de acesso for válido, a requisição é processada e os dados são retornados para a **Aplicação Cliente**.
+3.	Envie a string em base 64 na requisição de Autenticação (POST);
+4.	A API de Autenticação irá validar a string e retornará o `access_token` (token de acesso). 
 
-> Caso não tenha recebido a credencial, solicite-a abrindo um ticket através da nossa ferramenta de suporte, em
-[Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br).
-
-## Como Obter o Token
-
-Uma vez em posse da credencial, será necessário "codificá-la" em Base64, utilizando a convenção **client_id:client_secret**, e enviar o resultado no cabeçalho através do campo **Authorization**.
-
-Exemplo:
-* client_id: **braspagtestes**
-* client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
-* String a ser codificada em Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
-* Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**
+> O token retornado (`access_token`) deverá ser utilizado em toda requisição à API do Antifraude Gateway como uma chave de autorização. O `access_token` possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.
 
 ### Requisição
 
@@ -109,7 +104,7 @@ Exemplo:
 
 |Parâmetro|Descrição|
 |:-|:-|
-|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway.|
+|`access_token`|O token de acesso solicitado.|
 |`token_type`|Indica o valor do tipo de token.|
 |`expires_in`|Expiração do token de acesso, em segundos. <br/>Após expirar, é necessário obter um novo.|
 
