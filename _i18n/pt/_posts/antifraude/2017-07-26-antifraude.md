@@ -54,12 +54,10 @@ A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.
 
 ## Como obter o token de acesso
 
-Durante o onboarding, você receberá as credenciais `ClientId` e `ClientSecret`.
+Durante o onboarding, você receberá as credenciais `ClientId` e `ClientSecret`. Caso não tenha recebido a credencial, solicite ao [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}.
 
-> Caso não tenha recebido a credencial, solicite ao [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}.
-
-1. Concatene as credenciais no formato `ClientId:ClientSecret`;
-2. Converta o resultado em base 64, gerando uma string;
+**1.** Concatene as credenciais no formato `ClientId:ClientSecret`;<br/>
+**2.** Converta o resultado em base 64, gerando uma string;
 
 > **Exemplo:**<br/>
 > * client_id: **braspagtestes**<br/>
@@ -67,10 +65,10 @@ Durante o onboarding, você receberá as credenciais `ClientId` e `ClientSecret`
 > * String a ser codificada em Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
 > * Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**<br/>
 
-3. Envie a string em base 64 na requisição de Autenticação (POST);
-4. A API de Autenticação irá validar a string e retornará o `access_token` (token de acesso). 
+**3.** Envie a string em base 64 na requisição de Autenticação (POST);<br/>
+**4.** A API de Autenticação irá validar a string e retornará o `access_token` (token de acesso). 
 
-> O token retornado (`access_token`) deverá ser utilizado em toda requisição à API do Antifraude Gateway como uma chave de autorização. O `access_token` possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.
+O token retornado (`access_token`) deverá ser utilizado em toda requisição à API do Antifraude Gateway como uma chave de autorização. O `access_token` possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.
 
 ### Requisição
 
