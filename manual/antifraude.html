@@ -208,8 +208,6 @@
 
 <h1 id="autenticação">Autenticação</h1>
 
-<h2 id="tokens-de-acesso">Tokens de acesso</h2>
-
 <p>A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, <strong>Sandbox</strong> e <strong>Produção</strong>.</p>
 
 <h2 id="como-obter-o-token-de-acesso">Como obter o token de acesso</h2>
@@ -238,7 +236,7 @@
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no Cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -259,7 +257,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no Corpo (Body)</strong></p>
+<p><strong>Parâmetros no Corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -289,7 +287,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no Corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -314,11 +312,11 @@
   </tbody>
 </table>
 
-<h1 id="realizando-uma-análise-de-fraude">Realizando uma Análise de Fraude</h1>
+<h1 id="realizando-uma-análise-de-fraude">Realizando uma análise de fraude</h1>
 
 <p>Ao receber os dados do pedido, a API da Braspag encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real, a Braspag recebe uma recomendação do provedor, podendo então tomar uma ação baseada no risco de fraude identificado pela análise.</p>
 
-<h2 id="fluxos-da-análise-de-fraude">Fluxos da Análise de Fraude</h2>
+<h2 id="fluxos-da-análise-de-fraude">Fluxos da análise de fraude</h2>
 
 <p>Veja a representação do <strong>fluxo transacional</strong> quando o serviço do Antifraude é solicitado no modelo <code class="language-plaintext highlighter-rouge">AnalyseFirst</code>, em que a análise de risco acontece antes da autorização da transação:</p>
 
@@ -326,7 +324,7 @@
 
 <p>Para saber mais sobre o modelo <code class="language-plaintext highlighter-rouge">AuthorizeFirst</code> da análise de fraude, em que a análise de risco acontece depois da autorização da transação, consulte o <a href="https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude">Manual do Pagador</a>.</p>
 
-<h2 id="analisando-uma-transação-na-cybersource">Analisando uma Transação na Cybersource</h2>
+<h2 id="analisando-uma-transação-na-cybersource">Analisando uma transação na Cybersource</h2>
 
 <h3 id="requisição-1">Requisição</h3>
 
@@ -470,7 +468,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
 <table>
   <thead>
@@ -499,7 +497,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no Corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -1191,7 +1189,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -1212,7 +1210,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no Corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -1476,7 +1474,7 @@
   </tbody>
 </table>
 
-<h2 id="analisando-uma-transação-na-aci-worldwide">Analisando uma Transação na ACI Worldwide</h2>
+<h2 id="analisando-uma-transação-na-aci-worldwide">Analisando uma transação na ACI Worldwide</h2>
 
 <h3 id="requisição-2">Requisição</h3>
 
@@ -1623,7 +1621,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -1652,7 +1650,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -2350,7 +2348,7 @@
 
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -2371,7 +2369,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -2435,7 +2433,7 @@
   </tbody>
 </table>
 
-<h2 id="indicando-erros-de-integração">Indicando Erros de Integração</h2>
+<h2 id="indicando-erros-de-integração">Indicando erros de integração</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
@@ -2456,7 +2454,7 @@
 
 <h3 id="resposta-3">Resposta</h3>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -2477,7 +2475,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no Corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -2504,13 +2502,13 @@
 
 <h1 id="consultas">Consultas</h1>
 
-<h2 id="consultando-uma-transação-cybersource">Consultando uma Transação Cybersource</h2>
+<h2 id="consultando-uma-transação-cybersource">Consultando uma transação Cybersource</h2>
 
 <h3 id="requisição-3">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -2707,7 +2705,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -2728,7 +2726,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no Corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -3724,7 +3722,7 @@
   </tbody>
 </table>
 
-<h2 id="consultando-uma-transação-na-aci-worldwide">Consultando uma Transação na ACI Worldwide</h2>
+<h2 id="consultando-uma-transação-na-aci-worldwide">Consultando uma transação na ACI Worldwide</h2>
 
 <h3 id="requisição-4">Requisição</h3>
 
@@ -3891,7 +3889,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -3922,7 +3920,7 @@
 
 <h3 id="resposta-5">Resposta</h3>
 
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -3943,7 +3941,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -4680,13 +4678,13 @@
   </tbody>
 </table>
 
-<h2 id="consultando-uma-transação-inexistente">Consultando uma Transação Inexistente</h2>
+<h2 id="consultando-uma-transação-inexistente">Consultando uma transação Inexistente</h2>
 
 <h3 id="requisição-5">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -4717,7 +4715,7 @@
 
 <h3 id="resposta-6">Resposta</h3>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -4804,7 +4802,7 @@
 
 <h2 id="resposta-7">Resposta</h2>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -4825,7 +4823,7 @@
   </tbody>
 </table>
 
-<h1 id="associar-transação">Associar Transação</h1>
+<h1 id="associar-transação">Associar transação</h1>
 
 <p>Esta sessão descreve como associar uma transação do Pagador Braspag ou outra solução de autorização à uma transação do Antifraude Gateway Braspag.</p>
 
@@ -4849,7 +4847,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -4878,7 +4876,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no Corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -4903,7 +4901,7 @@
 
 <h3 id="resposta-8">Resposta</h3>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <ul>
   <li>Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway</li>
@@ -4997,7 +4995,7 @@
   </tbody>
 </table>
 
-<h2 id="antifraude-e-outra-solução-de-autorização">Antifraude e Outra Solução de Autorização</h2>
+<h2 id="antifraude-e-outra-solução-de-autorização">Antifraude e outra solução de autorização</h2>
 
 <h3 id="requisição-8">Requisição</h3>
 
@@ -5011,7 +5009,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -5040,7 +5038,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no Corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -5086,7 +5084,7 @@
 
 <h3 id="resposta-9">Resposta</h3>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <ul>
   <li>Quando a transação de outra solução de autorização for associada corretamente com a transação do Antifraude Gateway</li>
@@ -5180,7 +5178,7 @@
   </tbody>
 </table>
 
-<h1 id="update-de-status-cybersource">Update de Status Cybersource</h1>
+<h1 id="update-de-status-cybersource">Update de status Cybersource</h1>
 
 <p>Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject) ou aceita (accept) para rejeita (reject).</p>
 
@@ -5194,7 +5192,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -5223,7 +5221,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no Corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -5268,7 +5266,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -5289,7 +5287,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no Corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -5321,7 +5319,7 @@
 <ul>
   <li>Quando a transação não for encontrada na base de dados.
 <br /><br />
-<strong>Parâmetros no Cabeçalho (Header)</strong></li>
+<strong>Parâmetros no cabeçalho (header)</strong></li>
 </ul>
 
 <table>
@@ -5346,7 +5344,7 @@
 <ul>
   <li>Quando a transação não estiver elegivel para alteração de status.
 <br /><br />
-<strong>Parâmetros no Cabeçalho (Header)</strong></li>
+<strong>Parâmetros no cabeçalho (header)</strong></li>
 </ul>
 
 <table>
@@ -5371,7 +5369,7 @@
 <ul>
   <li>Quando o novo status enviado for diferente de Accept ou Reject.
 <br /><br />
-<strong>Parâmetros no Cabeçalho (Header)</strong></li>
+<strong>Parâmetros no cabeçalho (header)</strong></li>
 </ul>
 
 <table>
@@ -5410,7 +5408,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
 <table>
   <thead>
@@ -5431,7 +5429,7 @@
   </tbody>
 </table>
 
-<p><strong>Parâmetros no Corpo (Body)</strong></p>
+<p><strong>Parâmetros no corpo (body)</strong></p>
 
 <table>
   <thead>
@@ -5502,7 +5500,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
 <aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
 <p><br /></p>
 
-<p><strong>Integração em Aplicativos Mobile</strong></p>
+<p><strong>Integração em aplicativos mobile</strong></p>
 
 <blockquote>
   <p>Baixe as últimas versões dos SDKs: <a href="https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20Android%20SDK%206.0-138_.zip">Android</a> e <a href="https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20iOS%20SDK%206.0-91_.zip">IOS</a>. <br />
