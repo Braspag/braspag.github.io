@@ -140,7 +140,7 @@
 
 <p>O <strong>Antifraude</strong> é uma plataforma desenvolvida pelo time de risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores e tecnologias distintos. Ele é, portanto, responsável por realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.</p>
 
-<p>A plataforma é baseada em arquitetura REST, com troca de dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo <a href="https://oauth.net/2/">OAuth 2</a>, com padrões amplamente utilizados pelo mercado e suportados pelas comunidades técnicas.</p>
+<p>A plataforma é baseada em arquitetura REST, com troca de dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo <a href="https://oauth.net/2/" target="_blank">OAuth 2</a>, com padrões amplamente utilizados pelo mercado e suportados pelas comunidades técnicas.</p>
 
 <p>A plataforma foi construída utilizando o Cartão Protegido, um dos principais produtos da Braspag, para a tokenização de cartões e análises de fraude através dos tokens.</p>
 
@@ -204,9 +204,7 @@
 
 <h2 id="tokens-de-acesso">Tokens de Acesso</h2>
 
-<p>A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: <strong>Sandbox</strong> e <strong>Produção</strong>.</p>
-
-<p>Esta sessão descreve o fluxo necessário para que uma aplicação cliente obtenha tokens de acesso válidos para uso na plataforma.</p>
+<p>A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, <strong>Sandbox</strong> e <strong>Produção</strong>.</p>
 
 <h2 id="como-obter-o-token-de-acesso">Como Obter o Token de Acesso</h2>
 
@@ -244,7 +242,7 @@
   <li>Resultado após a codificação: <strong>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</strong></li>
 </ul>
 
-<h3 id="request">Request</h3>
+<h3 id="requisição">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
@@ -290,7 +288,7 @@
   </tbody>
 </table>
 
-<h3 id="response">Response</h3>
+<h3 id="resposta">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
@@ -337,6 +335,8 @@
 <p>Para saber mais sobre o modelo <code class="language-plaintext highlighter-rouge">AuthorizeFirst</code> da análise de fraude, em que a análise de risco acontece depois da autorização da transação, consulte o <a href="https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude">Manual do Pagador</a>.</p>
 
 <h2 id="analisando-uma-transação-na-cybersource">Analisando uma Transação na Cybersource</h2>
+
+<h3 id="requisição-1">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
@@ -477,8 +477,6 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<h3 id="request-1">Request</h3>
 
 <p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
 
@@ -1162,6 +1160,8 @@
   </tbody>
 </table>
 
+<h3 id="resposta-1">Resposta</h3>
+
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1eae3d39-a723-e811-80c3-0003ff21d83f"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
@@ -1198,8 +1198,6 @@
    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<h3 id="response-1">Response</h3>
 
 <p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
 
@@ -1488,6 +1486,8 @@
 
 <h2 id="analisando-uma-transação-na-aci-worldwide">Analisando uma Transação na ACI Worldwide</h2>
 
+<h3 id="requisição-2">Requisição</h3>
+
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -1630,8 +1630,6 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<h3 id="request-2">Request</h3>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -2329,7 +2327,7 @@
   </tbody>
 </table>
 
-<h3 id="response-2">Response</h3>
+<h3 id="resposta-2">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdf8f357-a723-e811-80c3-0003ff21d83f"</span><span class="p">,</span><span class="w">
@@ -2464,7 +2462,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="response-3">Response</h3>
+<h3 id="resposta-3">Resposta</h3>
 
 <p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
 
@@ -2516,7 +2514,7 @@
 
 <h2 id="consultando-uma-transação-cybersource">Consultando uma Transação Cybersource</h2>
 
-<h3 id="request-3">Request</h3>
+<h3 id="requisição-3">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
@@ -2549,7 +2547,7 @@
   </tbody>
 </table>
 
-<h3 id="response-4">Response</h3>
+<h3 id="resposta-4">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1eae3d39-a723-e811-80c3-0003ff21d83f"</span><span class="p">,</span><span class="w">
@@ -3736,7 +3734,7 @@
 
 <h2 id="consultando-uma-transação-na-aci-worldwide">Consultando uma Transação na ACI Worldwide</h2>
 
-<h3 id="request-4">Request</h3>
+<h3 id="requisição-4">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
@@ -3930,7 +3928,7 @@
   </tbody>
 </table>
 
-<h3 id="response-5">Response</h3>
+<h3 id="resposta-5">Resposta</h3>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -4692,9 +4690,9 @@
 
 <h2 id="consultando-uma-transação-inexistente">Consultando uma Transação Inexistente</h2>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+<h3 id="requisição-5">Requisição</h3>
 
-<h3 id="request-5">Request</h3>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
 <p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
 
@@ -4725,7 +4723,7 @@
   </tbody>
 </table>
 
-<h3 id="response-6">Response</h3>
+<h3 id="resposta-6">Resposta</h3>
 
 <p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
 
@@ -4767,7 +4765,7 @@
   </li>
 </ul>
 
-<h2 id="request-6">Request</h2>
+<h2 id="requisição-6">Requisição</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{url loja}</span></aside>
 
@@ -4812,7 +4810,7 @@
   </tbody>
 </table>
 
-<h2 id="response-7">Response</h2>
+<h2 id="resposta-7">Resposta</h2>
 
 <p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
 
@@ -4850,9 +4848,9 @@
 
 <h2 id="antifraude-e-pagador">Antifraude e Pagador</h2>
 
-<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
+<h3 id="requisição-7">Requisição</h3>
 
-<h3 id="request-7">Request</h3>
+<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
@@ -4911,7 +4909,7 @@
   </tbody>
 </table>
 
-<h3 id="response-8">Response</h3>
+<h3 id="resposta-8">Resposta</h3>
 
 <p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
 
@@ -5009,9 +5007,9 @@
 
 <h2 id="antifraude-e-outra-solução-de-autorização">Antifraude e Outra Solução de Autorização</h2>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">transaction/{id}</span></aside>
+<h3 id="requisição-8">Requisição</h3>
 
-<h3 id="request-8">Request</h3>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">transaction/{id}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910111216AB8"</span><span class="p">,</span><span class="w">
@@ -5094,7 +5092,7 @@
   </tbody>
 </table>
 
-<h3 id="response-9">Response</h3>
+<h3 id="resposta-9">Resposta</h3>
 
 <p><strong>Parâmetros no Cabeçalho (Header)</strong></p>
 
@@ -5194,7 +5192,7 @@
 
 <p>Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject) ou aceita (accept) para rejeita (reject).</p>
 
-<h2 id="request-9">Request</h2>
+<h2 id="requisição-9">Requisição</h2>
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
 
@@ -5263,7 +5261,7 @@
   </tbody>
 </table>
 
-<h2 id="response-10">Response</h2>
+<h2 id="resposta-10">Resposta</h2>
 
 <ul>
   <li>Quando a transação for recebida para processamento</li>
@@ -5502,7 +5500,7 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class=
 <p><img src="https://braspag.github.io//images/braspag/af/exemploscriptdfp.png" alt="Exemplo Código" /></p>
 
 <blockquote>
-  <p><a href="https://github.com/Braspag/braspag.github.io/blob/e9d4e1ef177dc60e00ab2269ed733976d69646f6/_i18n/pt/_posts/antifraude/javascript-fingerprint-cybersource.js">Clique aqui</a> para acessar e copiar o modelo JavaScript.</p>
+  <p><a href="https://github.com/Braspag/braspag.github.io/blob/e9d4e1ef177dc60e00ab2269ed733976d69646f6/_i18n/pt/_posts/antifraude/javascript-fingerprint-cybersource.js" target="_blank">Acesse o nosso Github</a> para visualizar e copiar o modelo JavaScript.</p>
 </blockquote>
 
 <p>As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:</p>
