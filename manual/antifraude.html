@@ -156,91 +156,93 @@
 
 <p>Para executar uma operação, combine a URL base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.</p>
 
-<h1 id="hosts">Hosts</h1>
+<h1 id="ambientes">Ambientes</h1>
 
-<h2 id="api-braspagauth">API BraspagAuth</h2>
+<h2 id="sandbox">Sandbox</h2>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Ambiente</th>
       <th style="text-align: left">URL base</th>
+      <th style="text-align: left">Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Sandbox</code></td>
+      <td style="text-align: left"><strong>Braspag OAUTH2 Server</strong></td>
       <td style="text-align: left">https://authsandbox.braspag.com.br/</td>
+      <td style="text-align: left">Autenticação.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Produção</code></td>
-      <td style="text-align: left">https://auth.braspag.com.br/</td>
+      <td style="text-align: left"><strong>API Risk</strong></td>
+      <td style="text-align: left">https://risksandbox.braspag.com.br/</td>
+      <td style="text-align: left">Análise de fraude, consulta, associar transação e update de status.</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="api-antifraude-gateway">API Antifraude Gateway</h2>
+<h2 id="produção">Produção</h2>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Ambiente</th>
       <th style="text-align: left">URL base</th>
+      <th style="text-align: left">Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Sandbox</code></td>
-      <td style="text-align: left">https://risksandbox.braspag.com.br/</td>
+      <td style="text-align: left"><strong>Braspag OAUTH2 Server</strong></td>
+      <td style="text-align: left">https://auth.braspag.com.br/</td>
+      <td style="text-align: left">Autenticação.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Produção</code></td>
+      <td style="text-align: left"><strong>API Risk</strong></td>
       <td style="text-align: left">https://risk.braspag.com.br/</td>
+      <td style="text-align: left">Análise de fraude, consulta, associar transação e update de status.</td>
     </tr>
   </tbody>
 </table>
 
 <h1 id="autenticação">Autenticação</h1>
 
-<h2 id="tokens-de-acesso">Tokens de Acesso</h2>
+<h2 id="tokens-de-acesso">Tokens de acesso</h2>
 
 <p>A API Antifraude Gateway Braspag utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, <strong>Sandbox</strong> e <strong>Produção</strong>.</p>
 
-<h2 id="como-obter-o-token-de-acesso">Como Obter o Token de Acesso</h2>
+<h2 id="como-obter-o-token-de-acesso">Como obter o token de acesso</h2>
 
-<p>O token de acesso é obtido através do fluxo oauth <strong>client_credentials</strong>. A comunicação se dá entre a <strong>Aplicação Cliente</strong>, a <strong>API BraspagAuth</strong> e a <strong>API Antifraude Gateway</strong> na seguinte ordem:</p>
+<p>Durante o onboarding, você receberá as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>.</p>
+
+<blockquote>
+  <p>Caso não tenha recebido a credencial, solicite ao <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Suporte Braspag</a>.</p>
+</blockquote>
 
 <ol>
-  <li>
-    <p>A <strong>Aplicação Cliente</strong>, informa à API <strong>BraspagAuth</strong> sua credencial.</p>
-  </li>
-  <li>
-    <p>O <strong>BraspagAuth</strong> valida a credencial recebida. Se for válida, retorna o token de acesso para a <strong>Aplicação Cliente</strong>.</p>
-  </li>
-  <li>
-    <p>A <strong>Aplicação Cliente</strong> informa o token de acesso no cabeçalho das requisições HTTP feitas à <strong>API Antifraude Gateway Braspag</strong>.</p>
-  </li>
-  <li>
-    <p>Se o token de acesso for válido, a requisição é processada e os dados são retornados para a <strong>Aplicação Cliente</strong>.</p>
-  </li>
+  <li>Concatene as credenciais no formato <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>;</li>
+  <li>Converta o resultado em base 64, gerando uma string;</li>
 </ol>
 
 <blockquote>
-  <p>Caso não tenha recebido a credencial, solicite-a abrindo um ticket através da nossa ferramenta de suporte, em
-<a href="https://suporte.braspag.com.br/hc/pt-br">Suporte Braspag</a>.</p>
+  <p><strong>Exemplo:</strong><br /></p>
+  <ul>
+    <li>client_id: <strong>braspagtestes</strong><br /></li>
+    <li>client_secret: <strong>1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong><br /></li>
+    <li>String a ser codificada em Base64: <strong>braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong><br /></li>
+    <li>Resultado após a codificação: <strong>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</strong><br /></li>
+  </ul>
 </blockquote>
 
-<h2 id="como-obter-o-token">Como Obter o Token</h2>
+<ol>
+  <li>Envie a string em base 64 na requisição de Autenticação (POST);</li>
+  <li>A API de Autenticação irá validar a string e retornará o <code class="language-plaintext highlighter-rouge">access_token</code> (token de acesso).</li>
+</ol>
 
-<p>Uma vez em posse da credencial, será necessário “codificá-la” em Base64, utilizando a convenção <strong>client_id:client_secret</strong>, e enviar o resultado no cabeçalho através do campo <strong>Authorization</strong>.</p>
-
-<p>Exemplo:</p>
-<ul>
-  <li>client_id: <strong>braspagtestes</strong></li>
-  <li>client_secret: <strong>1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong></li>
-  <li>String a ser codificada em Base64: <strong>braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong></li>
-  <li>Resultado após a codificação: <strong>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</strong></li>
-</ul>
+<blockquote>
+  <p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API do Antifraude Gateway como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.</p>
+</blockquote>
 
 <h3 id="requisição">Requisição</h3>
 
@@ -309,7 +311,7 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">access_token</code></td>
-      <td style="text-align: left">O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a API Antifraude Gateway.</td>
+      <td style="text-align: left">O token de acesso solicitado.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">token_type</code></td>
