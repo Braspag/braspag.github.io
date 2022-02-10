@@ -32,7 +32,7 @@ Para executar uma operação:
 |**API Split**|https://splitsandbox.braspag.com.br/| Para requisições de agenda financeira, chargeback, liquidação e antecipação.|
 |**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/| Para requisição de autenticação.|
 
-> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br).
+> <p>&#9888;</p> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br).
 
 ### Produção
 
