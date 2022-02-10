@@ -214,16 +214,10 @@
 
 <h2 id="como-obter-o-token-de-acesso">Como obter o token de acesso</h2>
 
-<p>Durante o onboarding, você receberá as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>.</p>
+<p>Durante o onboarding, você receberá as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>. Caso não tenha recebido a credencial, solicite ao <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Suporte Braspag</a>.</p>
 
-<blockquote>
-  <p>Caso não tenha recebido a credencial, solicite ao <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Suporte Braspag</a>.</p>
-</blockquote>
-
-<ol>
-  <li>Concatene as credenciais no formato <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>;</li>
-  <li>Converta o resultado em base 64, gerando uma string;</li>
-</ol>
+<p><strong>1.</strong> Concatene as credenciais no formato <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>;<br />
+<strong>2.</strong> Converta o resultado em base 64, gerando uma string;</p>
 
 <blockquote>
   <p><strong>Exemplo:</strong><br /></p>
@@ -235,14 +229,10 @@
   </ul>
 </blockquote>
 
-<ol>
-  <li>Envie a string em base 64 na requisição de Autenticação (POST);</li>
-  <li>A API de Autenticação irá validar a string e retornará o <code class="language-plaintext highlighter-rouge">access_token</code> (token de acesso).</li>
-</ol>
+<p><strong>3.</strong> Envie a string em base 64 na requisição de Autenticação (POST);<br />
+<strong>4.</strong> A API de Autenticação irá validar a string e retornará o <code class="language-plaintext highlighter-rouge">access_token</code> (token de acesso).</p>
 
-<blockquote>
-  <p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API do Antifraude Gateway como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.</p>
-</blockquote>
+<p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API do Antifraude Gateway como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.</p>
 
 <h3 id="requisição">Requisição</h3>
 
