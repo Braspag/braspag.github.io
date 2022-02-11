@@ -230,7 +230,11 @@
 <p><strong>3.</strong> Envie a string em base 64 na requisição de Autenticação (POST);<br />
 <strong>4.</strong> A API de Autenticação irá validar a string e retornará o <code class="language-plaintext highlighter-rouge">access_token</code> (token de acesso).</p>
 
-<p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API do Antifraude Gateway como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.</p>
+<p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API do Antifraude Gateway como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos e é necessário gerar um novo toda vez que a validade expirar.</p>
+
+<p>Veja na imagem o esquema da autenticação e envio do <code class="language-plaintext highlighter-rouge">access_token</code> na requisição de análise de fraude.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/af/af-autenticacao-bpauth.png" alt="Fluxo de Autenticação" /></p>
 
 <h3 id="requisição">Requisição</h3>
 
