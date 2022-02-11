@@ -3826,6 +3826,7 @@ Para programar a primeira transação da série de recorrências, passe o parâm
 |`Payment.RecurrentPayment.StartDate`|Data para início da recorrência.|Texto |10 |Não|
 |`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
 |`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não|
+|`Payment.RecurrentPayment.DailyInterval`|Padrão da recorrência em dias. Não utilizar em conjunto com `Interval`.|Número|2|Não*|
 |`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
 |`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
