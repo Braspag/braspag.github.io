@@ -66,7 +66,11 @@ Durante o onboarding, você receberá as credenciais `ClientId` e `ClientSecret`
 **3.** Envie a string em base 64 na requisição de Autenticação (POST);<br/>
 **4.** A API de Autenticação irá validar a string e retornará o `access_token` (token de acesso). 
 
-O token retornado (`access_token`) deverá ser utilizado em toda requisição à API do Antifraude Gateway como uma chave de autorização. O `access_token` possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.
+O token retornado (`access_token`) deverá ser utilizado em toda requisição à API do Antifraude Gateway como uma chave de autorização. O `access_token` possui uma validade de 20 minutos e é necessário gerar um novo toda vez que a validade expirar.
+
+Veja na imagem o esquema da autenticação e envio do `access_token` na requisição de análise de fraude.
+
+![Fluxo de Autenticação]({{ site.baseurl_root }}/images/braspag/af/af-autenticacao-bpauth.png)
 
 ### Requisição
 
