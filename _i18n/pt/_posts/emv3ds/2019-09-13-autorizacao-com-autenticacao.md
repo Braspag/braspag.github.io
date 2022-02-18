@@ -19,7 +19,7 @@ language_tabs:
 Após a autenticação do emissor do cartão ser concluída, submete-se a transação ao processo de autorização, enviando os dados de autenticação no modelo de "autenticação externa" (nó `ExternalAuthentication`).
 Este procedimento é válido também para estabelecimentos que realizaram a autenticação fora da Cielo (MPI Externo).
 
-Para maiores detalhes sobre o processo de autenticação 3DS 2.0, [acesse aqui](https://braspag.github.io//manualp/emv3ds) o manual da solução.
+Para maiores detalhes sobre o processo de autenticação 3DS 2.0, [acesse o manual da solução](https://braspag.github.io//manualp/emv3ds){:target="_blank"}.
 
 Veja abaixo um exemplo de envio de dados de autenticação da requisição de autorização da API Pagador, utilizando o método POST:
 
