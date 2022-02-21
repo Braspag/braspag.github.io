@@ -859,7 +859,7 @@ A tabela abaixo é valida para:
 
 ## Categorias de Evento
 
-|Identificador|	Descrição|
+|Identificador| Descrição|
 |:-----------:|---|
 |1| Ajuste|
 |2| POS|
@@ -1449,7 +1449,7 @@ A tabela abaixo é valida para:
 
 ## Categorias de Evento
 
-|Identificador|	Descrição|
+|Identificador| Descrição|
 |:-----------:|---|
 |1| Ajuste|
 |2| POS|
