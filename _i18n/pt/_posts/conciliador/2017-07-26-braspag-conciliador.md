@@ -98,7 +98,7 @@ O **Registro de Recebíveis** trouxe uma mudança na forma como os valores que u
 
 ## O que é o Registro de Recebíveis?
 
-O Registro de Recebíveis está em vigor desde 07/06/2021, com a resolução [nº 4.734/2019 do Conselho Monetário Nacional (CNM)](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o&numero=4734) e a [Circular nº 3.952/2019 do Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Circular&numero=3952).
+O Registro de Recebíveis está em vigor desde 07/06/2021, com a resolução [nº 4.734/2019 do Conselho Monetário Nacional (CNM)](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o&numero=4734){:target="_blank"} e a [Circular nº 3.952/2019 do Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Circular&numero=3952){:target="_blank"}.
 
 Com isso, as credenciadoras e subcredenciadoras precisam registrar os recebíveis de cartão dos estabelecimentos em uma entidade registradora, que é responsável por disponibilizar as informações dos recebíveis entre financiadores.
 
@@ -290,7 +290,7 @@ Nesse manual, você pode consultar a configuração de dois formatos de arquivo 
 
 # API do Agiliza
 
-Para fazer a integração com a API do Agiliza Braspag, [veja a documentação no Postman](https://documenter.getpostman.com/view/2956778/T1Dv8EVZ?version=latest).
+Para fazer a integração com a API do Agiliza Braspag, [veja a documentação no Postman](https://documenter.getpostman.com/view/2956778/T1Dv8EVZ?version=latest){:target="_blank"}.
 
 # Arquivos de vendas Externas - CSV
 
@@ -401,7 +401,7 @@ Porém para que seja possível a realização da automação, esse processo exig
 
 ### Transferência de arquivos automática via Webservice:
 
-> URL: https://reconciliation.braspag.com.br/WebServices/ReconciliationFilesWebservice.asmx
+> URL: [https://reconciliation.braspag.com.br/WebServices/ReconciliationFilesWebservice.asmx](https://reconciliation.braspag.com.br/WebServices/ReconciliationFilesWebservice.asmx){:target="_blank"}
 
 **Método:** SendTransactionFile
 
@@ -422,7 +422,7 @@ Para gerar o conteúdo do FileContent, é preciso primeiro saber codificar um da
 **Referência:**
 Caso o cliente queira codificar/decodificar um conteúdo como teste, ele pode acessar este site:
 
-> http://www.base64decode.org/
+> [http://www.base64decode.org/](http://www.base64decode.org/){:target="_blank"}
 
 #### Request
 
@@ -473,9 +473,9 @@ Este manual tem como objetivo orientar o desenvolvimento do Arquivo de Fluxo de 
 1. Um Identificador Único Global ou GUID (do inglês, Globally Unique IDentifier) é um tipo especial de identificador utilizado em aplicações de software para providenciar um número de referência padrão mundial. Como, por exemplo, em uma definição de referência interna para um tipo de ponto de acesso em uma aplicação de software ou para a criação de chaves únicas em um banco de dados. O número total de chaves únicas (2128 ou ~3.4×1038) é tão grande que a probabilidade do mesmo número se repetir é muito pequena. Considerando que o Universo Observável contém 5x1022 estrelas, cada estrela poderia ter ~6.8×1015 dos seus próprios GUIDs. Caso seu sistema não reconheça o formato GUID, poderá trata-lo como texto.
 
 2. O formato ISO 8601 é o formato de data padrão existente na recomendação oficial para Schemas XML
-(http://www.w3.org/TR/xmlschema-2/#dateTime). Ele consiste na representação da data no formato yyyy-MM-dd. Caso o campo também tenha a informação de hora, a data vem seguida da letra “T” para separa-la da hora, no formato HH:mm:ss:mmmmmmm, seguida finalmente pela diferença de fuso horário. Para mais informações da ISO 8601 podem ser consultadas em:
+[http://www.w3.org/TR/xmlschema-2/#dateTime](http://www.w3.org/TR/xmlschema-2/#dateTime){:target="_blank"}.  Ele consiste na representação da data no formato yyyy-MM-dd. Caso o campo também tenha a informação de hora, a data vem seguida da letra “T” para separa-la da hora, no formato HH:mm:ss:mmmmmmm, seguida finalmente pela diferença de fuso horário. Para mais informações da ISO 8601 podem ser consultadas em:
 
-> http://en.wikipedia.org/wiki/ISO_8601.   
+> [http://en.wikipedia.org/wiki/ISO_8601](http://en.wikipedia.org/wiki/ISO_8601){:target="_blank"}.   
 
 ## Informações sobre as adquirentes
 
@@ -597,7 +597,7 @@ Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato elet
 
 1. As informações da adquirente são os dados da venda que o Conciliador recebe dos extratos eletrônicos, o meio de integração da adquirente com os sistemas externos. São a segunda parte da conciliação. O Identificador Único da Transação pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL:   
 
-> https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?AcquirerTransactionId=[I D]   
+> https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?AcquirerTransactionId=[ID]   
 
 Onde o texto [ID] deve ser substituído pelo identificador informado no registro.   
 
@@ -859,34 +859,53 @@ A tabela abaixo é valida para:
 
 ## Categorias de Evento
 
-| Código/Identificador | Descrição                           |
-|----------------------|-------------------------------------|
-| 1                    | Ajuste                              |
-| 2                    | POS                                 |
-| 3                    | Captura                             |
-| 4                    | Pagamento                           |
-| 5                    | Pgto. Lote                          |
-| 6                    | Aceleração                          |
-| 8                    | Estorno                             |
-| 9                    | Chargeback                          |
-| 10                   | Antecipação                         |
-| 11                   | Antecip. Lote                       |
-| 13                   | Reagendamento                       |
-| 14                   | Custo de Operação de Antecipação    |
-| 15                   | Valor Retido                        |
-| 16                   | Pagamento de Valor Retido           |
-| 17                   | Débito de Valor Retido              |
-| 19                   | Arredondamento de Parcelas          |
-| 20                   | Estorno Antecipado                  |
-| 21                   | Ajuste Indefinido                   |
-| 22                   | Débito Acumulado                    |
-| 25                   | Pagamento de Aceleração Antecipada  |
-| 26                   | Débito de Antecipação de Aceleração |
-| 29                   | Antecipação de Chargeback           |
-| 30                   | Antecipação de Aluguel de POS       |
-| 31                   | Antecipação de Ajustes Lote         |
-| 32                   | Antecipação de Estornos Lote        |
-| 33                   | Antecipação de Chargeback Lote      |
+|Identificador|	Descrição|
+|:-----------:|---|
+|1| Ajuste|
+|2| POS|
+|3| Captura|
+|4| Pagamento|
+|5| Pgto. Lote|
+|6| Aceleração|
+|7| Desagendamento|
+|8| Estorno|
+|9| Chargeback|
+|10| Antecipação|
+|11| Antecip. Lote|
+|12| Ajuste Lote|
+|13| Reagendamento|
+|14| Custo de Operação de Antecipação|
+|15| Valor Retido|
+|16| Pagamento de Valor Retido|
+|17| Débito de Valor Retido|
+|18| Ajustes Antecipados|
+|19| Arredondamento de Parcelas|
+|20| Estorno Antecipado|
+|21| Ajuste Indefinido|
+|22| Débito Acumulado|
+|23| Pagamento de Vendas Antecipadas|
+|24| Débito de Antecipação de Vendas|
+|25| Pagamento de Aceleração Antecipada|
+|26| Débito de Antecipação de Aceleração|
+|27| Credit Voucher|
+|28| Antecipação de Credit Voucher|
+|29| Antecipação de Chargeback|
+|30| Antecipação de Aluguel de POS|
+|31| Antecipação de Ajustes Lote|
+|32| Antecipação de Estornos Lote|
+|33| Antecipação de Chargeback Lote|
+|34| Débito de Cessão|
+|35| Débito de Gravame|
+|36| Cessão fumaça|
+|37| Crédito de Cessão|
+|38| Débito/crédito compensação de valores|
+|39| Estorno débito/crédito de cessão|
+|40| Estorno débito/crédito de gravame|
+|41| Débito/crédito compensação cancelamento de transação em operação|
+|42| Débito/crédito de penhora|
+|43| Estorno de crédito/débito de penhora|
+|44| Débito/crédito compensação cancelamento em operação|
+|45| Crédito de Gravame|
 
 ## Webservice Conciliador    
 
@@ -980,7 +999,7 @@ O Webservice está disponível através da URL:
 | ErrorReport.Message   | Mensagem de erro correspondente ao código informado                                            | 39 - Erro interno do sistema.<br>44 - Acesso não autorizado, IP não cadastrado<br>46 - Usuário incorreto, e/ou não tem acesso a loja. |
 | FileContent           | Para requisições com Sucess="true", será enviado o conteúdo binário codificado na base64 UTF-8 | QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==                                                                                              |
 
-## Apêndice:
+## Apêndice
 
 ### Utilizando o arquivo de Schema Definition (XSD)   
 
@@ -1160,7 +1179,7 @@ Onde o texto [ID] deve ser substituído pelo identificador informado no registro
 
 1. As informações da adquirente são os dados da venda que o Conciliador recebe dos extratos eletrônicos, o meio de integração da adquirente com os sistemas externos. São a segunda parte da conciliação. O Identificador Único da Transação pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL:   
 
-> https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?AcquirerTransactionId=[I D]   
+> https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?AcquirerTransactionId=[ID]   
 
 Onde o texto [ID] deve ser substituído pelo identificador informado no registro.   
 
@@ -1430,34 +1449,53 @@ A tabela abaixo é valida para:
 
 ## Categorias de Evento
 
-| Código/Identificador | Descrição                           |
-|----------------------|-------------------------------------|
-| 1                    | Ajuste                              |
-| 2                    | POS                                 |
-| 3                    | Captura                             |
-| 4                    | Pagamento                           |
-| 5                    | Pgto. Lote                          |
-| 6                    | Aceleração                          |
-| 8                    | Estorno                             |
-| 9                    | Chargeback                          |
-| 10                   | Antecipação                         |
-| 11                   | Antecip. Lote                       |
-| 13                   | Reagendamento                       |
-| 14                   | Custo de Operação de Antecipação    |
-| 15                   | Valor Retido                        |
-| 16                   | Pagamento de Valor Retido           |
-| 17                   | Débito de Valor Retido              |
-| 19                   | Arredondamento de Parcelas          |
-| 20                   | Estorno Antecipado                  |
-| 21                   | Ajuste Indefinido                   |
-| 22                   | Débito Acumulado                    |
-| 25                   | Pagamento de Aceleração Antecipada  |
-| 26                   | Débito de Antecipação de Aceleração |
-| 29                   | Antecipação de Chargeback           |
-| 30                   | Antecipação de Aluguel de POS       |
-| 31                   | Antecipação de Ajustes Lote         |
-| 32                   | Antecipação de Estornos Lote        |
-| 33                   | Antecipação de Chargeback Lote      |
+|Identificador|	Descrição|
+|:-----------:|---|
+|1| Ajuste|
+|2| POS|
+|3| Captura|
+|4| Pagamento|
+|5| Pgto. Lote|
+|6| Aceleração|
+|7| Desagendamento|
+|8| Estorno|
+|9| Chargeback|
+|10| Antecipação|
+|11| Antecip. Lote|
+|12| Ajuste Lote|
+|13| Reagendamento|
+|14| Custo de Operação de Antecipação|
+|15| Valor Retido|
+|16| Pagamento de Valor Retido|
+|17| Débito de Valor Retido|
+|18| Ajustes Antecipados|
+|19| Arredondamento de Parcelas|
+|20| Estorno Antecipado|
+|21| Ajuste Indefinido|
+|22| Débito Acumulado|
+|23| Pagamento de Vendas Antecipadas|
+|24| Débito de Antecipação de Vendas|
+|25| Pagamento de Aceleração Antecipada|
+|26| Débito de Antecipação de Aceleração|
+|27| Credit Voucher|
+|28| Antecipação de Credit Voucher|
+|29| Antecipação de Chargeback|
+|30| Antecipação de Aluguel de POS|
+|31| Antecipação de Ajustes Lote|
+|32| Antecipação de Estornos Lote|
+|33| Antecipação de Chargeback Lote|
+|34| Débito de Cessão|
+|35| Débito de Gravame|
+|36| Cessão fumaça|
+|37| Crédito de Cessão|
+|38| Débito/crédito compensação de valores|
+|39| Estorno débito/crédito de cessão|
+|40| Estorno débito/crédito de gravame|
+|41| Débito/crédito compensação cancelamento de transação em operação|
+|42| Débito/crédito de penhora|
+|43| Estorno de crédito/débito de penhora|
+|44| Débito/crédito compensação cancelamento em operação|
+|45| Crédito de Gravame|
 
 ## Webservice Conciliador    
 
