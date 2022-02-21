@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Termos de Uso Pagador
+title: Contrato Braspag
 description:
 search: true
 toc_footers: true
