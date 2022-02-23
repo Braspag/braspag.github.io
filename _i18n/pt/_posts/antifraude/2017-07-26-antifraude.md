@@ -14,7 +14,7 @@ language_tabs:
 
 # Antifraude
 
-O **Antifraude** é uma plataforma desenvolvida pelo time de risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores e tecnologias distintos. Ele é, portanto, responsável por realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.
+O Antifraude é uma plataforma desenvolvida pelo time de risco da Braspag para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores e tecnologias distintos. Ele é, portanto, responsável por realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.
 
 A plataforma é baseada em arquitetura REST, com troca de dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo [OAuth 2](https://oauth.net/2/){:target="_blank"}, com padrões amplamente utilizados pelo mercado e suportados pelas comunidades técnicas.
 
