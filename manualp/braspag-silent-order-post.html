@@ -437,6 +437,10 @@
       <td>Código de segurança do cartão de crédito/débito</td>
       <td>“bp-sop-cardcvvc”</td>
     </tr>
+    <tr>
+      <td>Modalidade do cartão a ser verificada (“debitCard” ou “creditCard”). <em>Campo opcional</em>.</td>
+      <td>“bp-sop-cardtype”</td>
+    </tr>
   </tbody>
 </table>
 
@@ -479,6 +483,10 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">cvvRequired</code></td>
       <td>“false” (desliga a obrigatoriedade de envio do CVV) / “true” (caso contrário).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cardType</code></td>
+      <td>Use “creditCard” ou “debitCard” para forçar a verificação da modalidade do cartão. Importante para validar cartões múltiplos. Se nada for enviado, o emissor considerará apenas a modalidade “Crédito”.</td>
     </tr>
   </tbody>
 </table>
