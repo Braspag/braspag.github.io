@@ -4,7 +4,6 @@ title: Manual de Integração E-commerce Cielo com Antifraude Braspag
 description: Manual integração técnica de Antifraude via API
 search: true
 translated: true
-toc_footers: true
 categories: manual
 sort_order: 2
 tags:
