@@ -168,6 +168,7 @@ O estabelecimento deverá parametrizar os elementos de formulário com as seguin
 |Número do cartão de crédito/débito|"bp-sop-cardnumber" |
 |Data de validade do cartão de crédito/débito|"bp-sop-cardexpirationdate" |
 |Código de segurança do cartão de crédito/débito|"bp-sop-cardcvvc"|
+|Modalidade do cartão a ser verificada ("debitCard" ou "creditCard"). *Campo opcional*. | "bp-sop-cardtype"|
 
 ### Definindo Parâmetros
 
@@ -182,6 +183,7 @@ O estabelecimento deverá parametrizar os elementos de formulário com as seguin
 |`enableVerifyCard`| "true" (habilita o *ZeroAuth*, retornando se o cartão é válido ou não) / "false" (caso contrário). |
 |`enableTokenize`| "true" (salva o cartão diretamente no Cartão Protegido, retornando um *cardToken* ao invés de um *paymentToken*) / "false" (caso contrário). |
 |`cvvRequired`| "false" (desliga a obrigatoriedade de envio do CVV) / "true" (caso contrário). |
+|`cardType` | Use "creditCard" ou "debitCard" para forçar a verificação da modalidade do cartão. Importante para validar cartões múltiplos. Se nada for enviado, o emissor considerará apenas a modalidade "Crédito".|
 
 **RETORNOS DO SCRIPT**
 
