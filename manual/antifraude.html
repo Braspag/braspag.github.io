@@ -5466,10 +5466,10 @@
   <li>IP do dispositivo do comprador;</li>
   <li>Versão do navegador;</li>
   <li>Sistema operacional;</li>
-  <li>Compatibilidade entre idioma e país.</li>
+  <li>Compatibilidade entre idioma e país.
+<br />
+O Fingerprint faz a identificação do dispositivo usado por sessão de navegação e persiste por aproximadamente 24 horas. Se a página for fechada e o comprador retornar ao site abrindo uma nova página, ou se fechar o aplicativo e abrir novamente, você deverá gerar uma nova sessão e uma nova identificação de sessão.</li>
 </ul>
-
-<p>O Fingerprint faz a identificação do dispositivo usado por sessão de navegação e persiste por aproximadamente 24 horas. Se a página for fechada e o comprador retornar ao site abrindo uma nova página, ou se fechar o aplicativo e abrir novamente, você deverá gerar uma nova sessão e uma nova identificação de sessão.</p>
 
 <p>O Fingerprint é importante para a análise de fraude porque, muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e aumentam a segurança da sua loja.</p>
 
@@ -5477,9 +5477,9 @@
 
 <h3 id="quem-cria-o-fingerprint">Quem cria o Fingerprint?</h3>
 
-<p>Para análises via Cybersource, o Fingerprint é criado antes da requisição de análise de fraude pela Threatmetrix, empresa que faz a identificação do dispositivo.</p>
+<p>Para análises via Cybersource, o Fingerprint é criado antes da requisição de análise de fraude pela <strong>Threatmetrix</strong>, empresa que faz a identificação do dispositivo.</p>
 
-<p>Para estabelecer a comunicação entre a sua página de checkout e a Threatmetrix e enviar os dados do comprador, você precisa inserir um código do Fingerprint em seu e-commerce; leia mais sobre isso em Como configurar o Fingerprint na Cybersource?</p>
+<p>Para estabelecer a comunicação entre a sua página de checkout e a Threatmetrix e enviar os dados do comprador, você precisa inserir um código do Fingerprint em seu e-commerce; leia mais sobre isso em <a href="https://braspag.github.io//manual/antifraude#como-configurar-o-fingerprint-na-cybersource?">Como configurar o Fingerprint na Cybersource?</a></p>
 
 <h3 id="fluxo-do-fingerprint-com-a-cybersource">Fluxo do Fingerprint com a Cybersource</h3>
 
@@ -5517,7 +5517,7 @@
 
 <p>O Fingerprint consiste na implementação de um script na sua página de checkout (front-end), na parte onde o comprador preenche os dados cadastrais.</p>
 
-<p>A configuração do Fingerprint será diferente para cada tipo de aplicação cliente (web, Android ou iOS), mas as variáveis usadas são as mesmas; veja a seguir a tabela com as variáveis do Fingerprint.</p>
+<p>A configuração do Fingerprint será diferente para cada tipo de aplicação cliente (<a href="https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-web">web</a>, <a href="https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-android">Android</a> ou <a href="https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-ios">iOS</a>), mas as variáveis usadas são as mesmas; veja a seguir a tabela com as variáveis do Fingerprint.</p>
 
 <h4 id="variáveis-do-fingerprint">Variáveis do Fingerprint</h4>
 
@@ -5543,7 +5543,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderMerchantId</code></td>
-      <td>Identificador da sua loja ou operação, fornecido pela Braspag, no formato braspag_nomedaloja. <strong>É diferente do MerchantId</strong>.</td>
+      <td>Identificador da sua loja ou operação, fornecido pela Braspag, no formato braspag_nomedaloja.<br /><strong>É diferente do MerchantId</strong>.</td>
       <td>Fornecido pela Braspag após a contratação.</td>
       <td>String</td>
       <td>30</td>
@@ -5583,14 +5583,14 @@
 <p><img src="https://braspag.github.io//images/braspag/af/url-threatmetrix.png" alt="URL Threatmetrix" /></p>
 
 <blockquote>
-  <p>O modelo da URL da Threatmetrix é https://h.online-metrix.net/fp/tags.js?org_id=OrgId&amp;session_id=ProviderMerchantIdProviderIdentifier</p>
+  <p>O modelo da URL da Threatmetrix é <strong>https://h.online-metrix.net/fp/tags.js?org_id=OrgId&amp;session_id=ProviderMerchantIdProviderIdentifier</strong></p>
 </blockquote>
 
 <p>Na URL, substitua os valores <code class="language-plaintext highlighter-rouge">OrgId</code>, <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> e <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> conforme a orientação da tabela de Variáveis da URL Threatmetrix.</p>
 
 <h4 id="2-adicione-as-tags-ao-script">2. Adicione as tags ao script</h4>
 
-<p>Insira a URL preenchida no Passo 1 nas tags <code class="language-plaintext highlighter-rouge">script</code> e <code class="language-plaintext highlighter-rouge">noscript</code> do modelo JavaScript.</p>
+<p>Insira a URL preenchida no passo 1 nas tags <code class="language-plaintext highlighter-rouge">script</code> e <code class="language-plaintext highlighter-rouge">noscript</code> do modelo JavaScript.</p>
 
 <p>O modelo do JavaScript está representado na imagem a seguir.</p>
 
@@ -5609,7 +5609,7 @@
 
 <h4 id="3-aplique-o-modelo-javascript">3. Aplique o modelo JavaScript</h4>
 
-<p>Insira o Javascript com as tags (Passo 2) no código front-end da sua página de checkout.</p>
+<p>Insira o Javascript com as tags (passo 2) no código front-end da sua página de checkout.</p>
 
 <p>Você deve colocar o código no checkout, na parte de preenchimento dos dados cadastrais. Assim, os dados que compõem o Fingerprint serão coletados enquanto o comprador preenche o formulário.</p>
 
@@ -5621,7 +5621,7 @@
 
 <h4 id="1-adicione-o-sdk-ao-seu-projeto">1. Adicione o SDK ao seu projeto</h4>
 
-<p>Faça o download do [SDK ThreatMetrix Android SDK 6.0-138<em>](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20Android%20SDK%206.0-138</em>.zip).</p>
+<p>Faça o download do <a href="https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20Android%20SDK%206.0-138_.zip">SDK Android</a>.</p>
 
 <p>Em seguida, adicione o SDK ao seu projeto.</p>
 
@@ -5631,18 +5631,18 @@
 
 <ul>
   <li>TMXProfiling-6.0-138.aar</li>
-  <li>MXProfilingConnections-6.0-138.aar</li>
+  <li>MXProfilingConnections-6.0-138.aar
+<br />
+Saiba mais sobre a criação de bibliotecas no Android na documentação <a href="https://developer.android.com/studio/projects/android-library" target="_blank">Android for Developers</a>.</li>
 </ul>
-
-<p>Saiba mais sobre a criação de bibliotecas no Android na documentação <a href="https://developer.android.com/studio/projects/android-library" target="_blank">Android for Developers</a>.</p>
 
 <h4 id="3-inclua-as-permissões">3. Inclua as permissões</h4>
 
 <p>No Manifest, você deverá incluir as seguintes permissões:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-
-</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">
+&lt;br/&gt;
+</code></p>
 
 <h4 id="4-importe-as-bibliotecas">4. Importe as bibliotecas</h4>
 
@@ -5660,9 +5660,9 @@
 
 <p>Você deverá parametrizar o SDK com os parâmetros a seguir:</p>
 
-<p>TMXConfig config = new TMXConfig()</p>
+<p><code class="language-plaintext highlighter-rouge">TMXConfig config = new TMXConfig()</code></p>
 
-<p>.setOrgId(“OrgId”)
+<p><code class="language-plaintext highlighter-rouge">.setOrgId("OrgId")</code>
 <br />
 <br />
 No valor <strong>“OrgId”</strong>, indique o valor correspondente ao ambiente na Threatmetrix:</p>
@@ -5672,15 +5672,15 @@ No valor <strong>“OrgId”</strong>, indique o valor correspondente ao ambient
   <li>Produção: “k8vif92e”.</li>
 </ul>
 
-<p>.setFPServer(“h.online-metrix.net”)</p>
+<p><code class="language-plaintext highlighter-rouge">.setFPServer("h.online-metrix.net")</code></p>
 
-<p>.setContext(getApplicationContext());</p>
+<p><code class="language-plaintext highlighter-rouge">.setContext(getApplicationContext());</code></p>
 
-<p>.setTimeout(20, TimeUnit.SECONDS)</p>
+<p><code class="language-plaintext highlighter-rouge">.setTimeout(20, TimeUnit.SECONDS)</code></p>
 
-<p>TMXProfilingConnections to TMX SDK.</p>
+<p><code class="language-plaintext highlighter-rouge">TMXProfilingConnections to TMX SDK.</code></p>
 
-<p>TMXProfiling.getInstance().init(config);</p>
+<p><code class="language-plaintext highlighter-rouge">TMXProfiling.getInstance().init(config);</code></p>
 
 <h4 id="6-crie-a-variável-de-identificação-da-sessão">6. Crie a variável de identificação da sessão</h4>
 
@@ -5690,8 +5690,9 @@ No valor <strong>“OrgId”</strong>, indique o valor correspondente ao ambient
 
 <p><strong>Exemplo:</strong></p>
 
-<p><code class="language-plaintext highlighter-rouge">MyVariable</code> = <code class="language-plaintext highlighter-rouge">braspag_XXXX</code> + <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code></p>
-
+<p><code class="language-plaintext highlighter-rouge">MyVariable</code> = <code class="language-plaintext highlighter-rouge">braspag_XXXX</code> + <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>
+<br />
+<br /></p>
 <blockquote>
   <p>Na requisição de análise de fraude, envie no campo <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> apenas o valor <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>. Se o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> gerado pelo seu e-commerce for “202201080949”, no campo <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> envie o valor “202201080949”.</p>
 </blockquote>
@@ -5702,22 +5703,21 @@ No valor <strong>“OrgId”</strong>, indique o valor correspondente ao ambient
 
 <p>Implemente Profiling com EndNotifier.</p>
 
-<p>TMXProfilingOptions options = new TMXProfilingOptions().setCustomAttributes(null);</p>
+<p><code class="language-plaintext highlighter-rouge">TMXProfilingOptions options = new TMXProfilingOptions().setCustomAttributes(null);options.setSessionID(MyVariable)</code></p>
 
-<p>options.setSessionID(MyVariable)</p>
+<p><code class="language-plaintext highlighter-rouge">TMXProfilingHandle profilingHandle = TMXProfiling.getInstance().profile(options,new CompletionNotifier());</code></p>
 
-<p>TMXProfilingHandle profilingHandle = TMXProfiling.getInstance().profile(options,</p>
+<p><code class="language-plaintext highlighter-rouge">class CompletionNotifier implements TMXEndNotifier</code></p>
 
-<p>new CompletionNotifier());</p>
-
-<p>class CompletionNotifier implements TMXEndNotifier</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-   @Override public void complete(TMXProfilingHandle.Result result)
-    { // Once Profile is done. Check the status code in the results dictionary, and use the      session Id in the API.
-    }
-}
-</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">{</code>
+<br />
+<code class="language-plaintext highlighter-rouge">Override public void complete(TMXProfilingHandle.Result result)</code>
+<br />
+<code class="language-plaintext highlighter-rouge">{ // Once Profile is done. Check the status code in the results dictionary, and use the session Id in the API.</code>
+<br />
+<code class="language-plaintext highlighter-rouge">}</code>
+<br />
+<code class="language-plaintext highlighter-rouge">}</code></p>
 
 <p>Faça o download do <a href="https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf">material de apoio da Cybersource</a>.</p>
 
@@ -5725,7 +5725,7 @@ No valor <strong>“OrgId”</strong>, indique o valor correspondente ao ambient
 
 <h4 id="1-adicione-o-sdk-ao-seu-projeto-1">1. Adicione o SDK ao seu projeto</h4>
 
-<p>Faça o download do [SDK ThreatMetrix iOS SDK 6.0<em>](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20iOS%20SDK%206.0-91</em>.zip).</p>
+<p>Faça o download do <a href="https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20iOS%20SDK%206.0-91_.zip">SDK iOS</a>.</p>
 
 <p>Em seguida, adicione o SDK ao seu projeto.</p>
 
@@ -5743,9 +5743,9 @@ No valor <strong>“OrgId”</strong>, indique o valor correspondente ao ambient
 
 <p>Parametrize o SDK com os parâmetros a seguir:</p>
 
-<p>self.profile.configure(configData:[</p>
+<p><code class="language-plaintext highlighter-rouge">self.profile.configure(configData:[</code></p>
 
-<p>RLTMXOrgID : “OrgID”,
+<p><code class="language-plaintext highlighter-rouge">RLTMXOrgID : "OrgID",</code>
 <br />
 <br />
 No valor “OrgID”, indique o valor correspondente ao ambiente na Threatmetrix:</p>
@@ -5755,15 +5755,15 @@ No valor “OrgID”, indique o valor correspondente ao ambiente na Threatmetrix
   <li>Produção: “k8vif92e”.</li>
 </ul>
 
-<p>RLTMXFingerprintServer : “h.online-metrix.net”,</p>
+<p><code class="language-plaintext highlighter-rouge">RLTMXFingerprintServer : "h.online-metrix.net",</code></p>
 
-<p>RLTMXProfileTimeout : self.profileTimeout,</p>
+<p><code class="language-plaintext highlighter-rouge">RLTMXProfileTimeout : self.profileTimeout,</code></p>
 
-<p>RLTMXLocationServices : true,</p>
+<p><code class="language-plaintext highlighter-rouge">RLTMXLocationServices : true,</code></p>
 
-<p>RLTMXProfilingConnectionsInstance : profilingConnections,</p>
+<p><code class="language-plaintext highlighter-rouge">RLTMXProfilingConnectionsInstance : profilingConnections,</code></p>
 
-<p>])</p>
+<p><code class="language-plaintext highlighter-rouge">])</code></p>
 
 <h4 id="4-crie-a-variável-de-identificação-da-sessão">4. Crie a variável de identificação da sessão</h4>
 
@@ -5775,8 +5775,9 @@ No valor “OrgID”, indique o valor correspondente ao ambiente na Threatmetrix
 
 <p><code class="language-plaintext highlighter-rouge">MyVariable</code> = <code class="language-plaintext highlighter-rouge">braspag_XXXX</code> + <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code></p>
 
-<p><code class="language-plaintext highlighter-rouge">self.profile.sessionID</code> = @”<code class="language-plaintext highlighter-rouge">MyVariable</code>”</p>
-
+<p><code class="language-plaintext highlighter-rouge">self.profile.sessionID</code> = @”<code class="language-plaintext highlighter-rouge">MyVariable</code>”
+<br />
+<br /></p>
 <blockquote>
   <p>Na requisição de análise de fraude, envie no campo <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> apenas o valor <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>. Se o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> gerado pelo seu e-commerce for “202201080949”, no campo <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> envie o valor “202201080949”.</p>
 </blockquote>
@@ -5787,11 +5788,11 @@ No valor “OrgID”, indique o valor correspondente ao ambiente na Threatmetrix
 
 <p>Adicione a função doProfileRequest() à sua aplicação e especifique as seguintes opções:</p>
 
-<p>let profileHandle: RLTMXProfileHandle =</p>
+<p><code class="language-plaintext highlighter-rouge">let profileHandle: RLTMXProfileHandle =</code></p>
 
-<p>self.profile.profileDevice(profileOptions:[RLTMXCustomAttributes: [],</p>
+<p><code class="language-plaintext highlighter-rouge">self.profile.profileDevice(profileOptions:[RLTMXCustomAttributes: [],</code></p>
 
-<p>RLTMXSessionID: [MyVariable], callbackBlock:{(result: [AnyHashable : Any]?) -&gt; Void in</p>
+<p><code class="language-plaintext highlighter-rouge">RLTMXSessionID: [MyVariable], callbackBlock:{(result: [AnyHashable : Any]?) -&gt; Void in</code></p>
 
 <p>Faça o download do <a href="https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf">material de apoio da Cybersource</a>.</p>
 
