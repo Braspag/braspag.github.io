@@ -1782,12 +1782,12 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 * Sistema operacional;
 * Compatibilidade entre idioma e país.
 <br/>
-<br/>
+<br>
 O Fingerprint faz a identificação do dispositivo usado por sessão de navegação e persiste por aproximadamente 24 horas. Se a página for fechada e o comprador retornar ao site abrindo uma nova página, ou se fechar o aplicativo e abrir novamente, você deverá gerar uma nova sessão e uma nova identificação de sessão.
-
+<br/>
 O Fingerprint é importante para a análise de fraude porque, muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e aumentam a segurança da sua loja.
 
-**Importante**: Para atender aos requisitos da Lei Geral de Proteção de Dados (LGPD), você deve incluir na política de cookies do seu e-commerce a informação sobre coleta de dados do dispositivo do comprador.
+**Importante**: Para atender aos requisitos da Lei Geral de Proteção de Dados (LGPD), inclua a informação sobre coleta de dados do dispositivo do comprador na política de cookies do seu e-commerce.
 
 ### Quem cria o Fingerprint?
 
@@ -1837,7 +1837,7 @@ A tabela a seguir apresenta as variáveis para configuração do Fingerprint com
 |---|---|---|---|---|
 |`org_id`| Indica o ambiente na Threatmetrix: Sandbox ou Produção.|Sandbox = 1snn5n9w<br>Produção = k8vif92e|String|08|
 |`ProviderMerchantId`| Identificador da sua loja ou operação, fornecido pela Braspag, no formato braspag_nomedaloja.<br>**É diferente do MerchantId**. |Fornecido pela Braspag após a contratação.|String|30|
-|`ProviderIdentifier`| Variável que você deve gerar para identificar a sessão. Recomendamos usar um GUID. É o valor que será enviado no campo `Customer.BrowserFingerprint`.|Personalizado|GUID ou String, na qual são aceitos inteiro, letra maiúscula ou minúscula, hífen e *"_"* (underscore).|88|
+|`ProviderIdentifier`| Variável que você deve gerar para identificar a sessão. Recomendamos usar um GUID. É o valor que será enviado no campo `Customer.BrowserFingerprint`.|Personalizado|GUID ou String, na qual são aceitos inteiro, letra maiúscula ou minúscula, hífen e \_\ (*underscore*).|88|
 |`session_id` (para web)| Concatenação das variáveis `ProviderMerchantId` e `ProviderIdentifier`.| Personalizado| `ProviderMerchantIdProviderIdentifier` |118|
 |`MyVariable` (para mobile)|Concatenação das variáveis `ProviderMerchantId` e `ProviderIdentifier`.| Personalizado | `ProviderMerchantIdProviderIdentifier`|118|
 
@@ -1900,9 +1900,9 @@ Saiba mais sobre a criação de bibliotecas no Android na documentação [Androi
 
 No Manifest, você deverá incluir as seguintes permissões:
 
-`<uses-permission android:name="android.permission.INTERNET">`
+\`\<uses-permission android:name="android.permission.INTERNET">\`
 
-`</uses-permission>`
+\`\</uses-permission>\`
 
 #### 4. Importe as bibliotecas
 
