@@ -1804,17 +1804,17 @@ Veja a representação do fluxo de criação do Fingerprint e requisição de an
  
 **Etapa de criação do Fingerprint**
 
-1.	O comprador preenche os dados solicitados na página de checkout da loja (website ou aplicativo);
-2.	A página de checkout da loja, já configurada com o código do Fingerprint, coleta os dados do comprador e envia para a Threatmetrix solicitando a identificação do dispositivo (criação do Fingerprint);
-3.	A Threatmetrix cria o Fingerprint do dispositivo do comprador.
+1. O comprador preenche os dados solicitados na página de checkout da loja (website ou aplicativo);
+2. A página de checkout da loja, já configurada com o código do Fingerprint, coleta os dados do comprador e envia para a Threatmetrix solicitando a identificação do dispositivo (criação do Fingerprint);
+3. A Threatmetrix cria o Fingerprint do dispositivo do comprador.
 
 **Etapa de análise de fraude**
 
-1.	A loja envia a requisição de análise de fraude com o campo `Customer.BrowserFingerprint` para o Antifraude Gateway;
-2.	O Antifraude Gateway valida a requisição e solicita a análise de fraude para a Cybersource;
-3.	A Cybersource consulta o Fingerprint na Threatmetrix, realiza a análise de fraude e envia a recomendação (Accept/Reject/Review) para o Antifraude Gateway;
-4.	O Antifraude Gateway retorna o resultado da análise de fraude para a loja;
-5.	A loja retorna o status da transação (aprovada ou não aprovada) ao comprador.
+1. A loja envia a requisição de análise de fraude com o campo `Customer.BrowserFingerprint` para o Antifraude Gateway;
+2. O Antifraude Gateway valida a requisição e solicita a análise de fraude para a Cybersource;
+3. A Cybersource consulta o Fingerprint na Threatmetrix, realiza a análise de fraude e envia a recomendação (Accept/Reject/Review) para o Antifraude Gateway;
+4. O Antifraude Gateway retorna o resultado da análise de fraude para a loja;
+5. A loja retorna o status da transação (aprovada ou não aprovada) ao comprador.
 
 ### Onde enviar o Fingerprint?
 
@@ -1844,7 +1844,7 @@ A tabela a seguir apresenta as variáveis para configuração do Fingerprint com
 
 Você deverá inserir um script em JavaScript no código front-end da sua página de checkout.
 
-#### 1.	Preencha a URL da Threatmetrix
+#### 1. Preencha a URL da Threatmetrix
 
 A URL da Threatmetrix será inserida no script e por isso deve ser corretamente preenchida.
 
