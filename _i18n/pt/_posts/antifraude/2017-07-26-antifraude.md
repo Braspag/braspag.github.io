@@ -1781,7 +1781,7 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 * Versão do navegador;
 * Sistema operacional;
 * Compatibilidade entre idioma e país.
-
+<br/>
 O Fingerprint faz a identificação do dispositivo usado por sessão de navegação e persiste por aproximadamente 24 horas. Se a página for fechada e o comprador retornar ao site abrindo uma nova página, ou se fechar o aplicativo e abrir novamente, você deverá gerar uma nova sessão e uma nova identificação de sessão.
 
 O Fingerprint é importante para a análise de fraude porque, muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e aumentam a segurança da sua loja.
@@ -1790,9 +1790,9 @@ O Fingerprint é importante para a análise de fraude porque, muitas vezes, some
 
 ### Quem cria o Fingerprint?
 
-Para análises via Cybersource, o Fingerprint é criado antes da requisição de análise de fraude pela Threatmetrix, empresa que faz a identificação do dispositivo.
+Para análises via Cybersource, o Fingerprint é criado antes da requisição de análise de fraude pela **Threatmetrix**, empresa que faz a identificação do dispositivo.
 
-Para estabelecer a comunicação entre a sua página de checkout e a Threatmetrix e enviar os dados do comprador, você precisa inserir um código do Fingerprint em seu e-commerce; leia mais sobre isso em Como configurar o Fingerprint na Cybersource?
+Para estabelecer a comunicação entre a sua página de checkout e a Threatmetrix e enviar os dados do comprador, você precisa inserir um código do Fingerprint em seu e-commerce; leia mais sobre isso em [Como configurar o Fingerprint na Cybersource?](https://braspag.github.io//manual/antifraude#como-configurar-o-fingerprint-na-cybersource?)
 
 ### Fluxo do Fingerprint com a Cybersource
 
@@ -1826,7 +1826,7 @@ Note que o valor desse campo não é o Fingerprint em si, mas sim uma indicaçã
 
 O Fingerprint consiste na implementação de um script na sua página de checkout (front-end), na parte onde o comprador preenche os dados cadastrais.
 
-A configuração do Fingerprint será diferente para cada tipo de aplicação cliente (web, Android ou iOS), mas as variáveis usadas são as mesmas; veja a seguir a tabela com as variáveis do Fingerprint.
+A configuração do Fingerprint será diferente para cada tipo de aplicação cliente ([web](https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-web), [Android](https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-android) ou [iOS](https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-ios)), mas as variáveis usadas são as mesmas; veja a seguir a tabela com as variáveis do Fingerprint.
 
 #### Variáveis do Fingerprint
 
@@ -1835,7 +1835,7 @@ A tabela a seguir apresenta as variáveis para configuração do Fingerprint com
 |VARIÁVEL|DESCRIÇÃO|VALOR|FORMATO|TAMANHO|
 |---|---|---|---|---|
 |`org_id`| Indica o ambiente na Threatmetrix: Sandbox ou Produção.|Sandbox = 1snn5n9w<br>Produção = k8vif92e|String|08|
-|`ProviderMerchantId`| Identificador da sua loja ou operação, fornecido pela Braspag, no formato braspag_nomedaloja. **É diferente do MerchantId**. |Fornecido pela Braspag após a contratação.|String|30|
+|`ProviderMerchantId`| Identificador da sua loja ou operação, fornecido pela Braspag, no formato braspag_nomedaloja.<br>**É diferente do MerchantId**. |Fornecido pela Braspag após a contratação.|String|30|
 |`ProviderIdentifier`| Variável que você deve gerar para identificar a sessão. Recomendamos usar um GUID. É o valor que será enviado no campo `Customer.BrowserFingerprint`.|Personalizado|GUID ou String, na qual são aceitos inteiro, letra maiúscula ou minúscula, hífen e "_" (_underscore_).|88|
 |`session_id` (para web)| Concatenação das variáveis `ProviderMerchantId` e `ProviderIdentifier`.| Personalizado| `ProviderMerchantIdProviderIdentifier` |118|
 |`MyVariable` (para mobile)|Concatenação das variáveis `ProviderMerchantId` e `ProviderIdentifier`.| Personalizado | `ProviderMerchantIdProviderIdentifier`|118|
@@ -1850,13 +1850,13 @@ A URL da Threatmetrix será inserida no script e por isso deve ser corretamente 
 
 ![URL Threatmetrix]({{ site.baseurl_root }}/images/braspag/af/url-threatmetrix.png)
 
-> O modelo da URL da Threatmetrix é https://h.online-metrix.net/fp/tags.js?org_id=OrgId&session_id=ProviderMerchantIdProviderIdentifier
+> O modelo da URL da Threatmetrix é **https://h.online-metrix.net/fp/tags.js?org_id=OrgId&session_id=ProviderMerchantIdProviderIdentifier**
 
 Na URL, substitua os valores `OrgId`, `ProviderMerchantId` e `ProviderIdentifier` conforme a orientação da tabela de Variáveis da URL Threatmetrix.
 
 #### 2. Adicione as tags ao script
 
-Insira a URL preenchida no Passo 1 nas tags `script` e `noscript` do modelo JavaScript.
+Insira a URL preenchida no passo 1 nas tags `script` e `noscript` do modelo JavaScript.
 
 O modelo do JavaScript está representado na imagem a seguir.
 
@@ -1871,7 +1871,7 @@ O modelo do JavaScript está representado na imagem a seguir.
 
 #### 3. Aplique o modelo JavaScript
 
-Insira o Javascript com as tags (Passo 2) no código front-end da sua página de checkout.
+Insira o Javascript com as tags (passo 2) no código front-end da sua página de checkout.
 
 Você deve colocar o código no checkout, na parte de preenchimento dos dados cadastrais. Assim, os dados que compõem o Fingerprint serão coletados enquanto o comprador preenche o formulário.
 
@@ -1881,7 +1881,7 @@ Você deve colocar o código no checkout, na parte de preenchimento dos dados ca
 
 #### 1. Adicione o SDK ao seu projeto
 
-Faça o download do [SDK ThreatMetrix Android SDK 6.0-138_](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20Android%20SDK%206.0-138_.zip).
+Faça o download do [SDK Android](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20Android%20SDK%206.0-138_.zip).
 
 Em seguida, adicione o SDK ao seu projeto.
 
@@ -1891,17 +1891,16 @@ Adicione as bibliotecas e dependências ao projeto:
 
 * TMXProfiling-6.0-138.aar 
 * MXProfilingConnections-6.0-138.aar
-
+<br/>
 Saiba mais sobre a criação de bibliotecas no Android na documentação [Android for Developers](https://developer.android.com/studio/projects/android-library){:target="_blank"}.
 
 #### 3. Inclua as permissões
 
 No Manifest, você deverá incluir as seguintes permissões:
 
-```
-<uses-permission android:name="android.permission.INTERNET">
-</uses-permission>
-```
+`<uses-permission android:name="android.permission.INTERNET">`
+<br/>
+`</uses-permission>`
 
 #### 4. Importe as bibliotecas
 
@@ -1917,9 +1916,9 @@ Importe as seguintes bibliotecas:
 
 Você deverá parametrizar o SDK com os parâmetros a seguir:
 
-TMXConfig config = new TMXConfig()
+`TMXConfig config = new TMXConfig()`
 
-.setOrgId("OrgId")
+`.setOrgId("OrgId")`
 <br/>
 <br/>
 No valor **“OrgId”**, indique o valor correspondente ao ambiente na Threatmetrix:
@@ -1927,15 +1926,15 @@ No valor **“OrgId”**, indique o valor correspondente ao ambiente na Threatme
 * Sandbox: “1snn5n9w”;
 * Produção: “k8vif92e”.
 
-.setFPServer("h.online-metrix.net")
+`.setFPServer("h.online-metrix.net")`
 
-.setContext(getApplicationContext());
+`.setContext(getApplicationContext());`
 
-.setTimeout(20, TimeUnit.SECONDS)
+`.setTimeout(20, TimeUnit.SECONDS)`
 
-TMXProfilingConnections to TMX SDK.
+`TMXProfilingConnections to TMX SDK.`
 
-TMXProfiling.getInstance().init(config);
+`TMXProfiling.getInstance().init(config);`
 
 #### 6. Crie a variável de identificação da sessão
 
@@ -1946,7 +1945,8 @@ O valor `ProviderMerchantId` deve ser concatenado com a variável `ProviderIdent
 **Exemplo:**
 
 `MyVariable` = `braspag_XXXX` + `ProviderIdentifier`
-    
+<br/>
+<br/>
 > Na requisição de análise de fraude, envie no campo `Customer.BrowserFingerprint` apenas o valor `ProviderIdentifier`. Se o `ProviderIdentifier` gerado pelo seu e-commerce for “202201080949”, no campo `Customer.BrowserFingerprint` envie o valor "202201080949".
 
 <aside class="notice">Recomendamos que a variável `ProviderIdentifier` seja um GUID.</aside>
@@ -1955,23 +1955,21 @@ O valor `ProviderMerchantId` deve ser concatenado com a variável `ProviderIdent
 
 Implemente Profiling com EndNotifier.
 
-TMXProfilingOptions options = new TMXProfilingOptions().setCustomAttributes(null);
+`TMXProfilingOptions options = new TMXProfilingOptions().setCustomAttributes(null);options.setSessionID(MyVariable)`
 
-options.setSessionID(MyVariable)
+`TMXProfilingHandle profilingHandle = TMXProfiling.getInstance().profile(options,new CompletionNotifier());`
 
-TMXProfilingHandle profilingHandle = TMXProfiling.getInstance().profile(options,
+`class CompletionNotifier implements TMXEndNotifier`
 
-new CompletionNotifier());
-
-class CompletionNotifier implements TMXEndNotifier
-
-```
-{
-   @Override public void complete(TMXProfilingHandle.Result result)
-    { // Once Profile is done. Check the status code in the results dictionary, and use the      session Id in the API.
-    }
-}
-```
+`{`
+<br/>
+`Override public void complete(TMXProfilingHandle.Result result)`
+<br/>
+`{ // Once Profile is done. Check the status code in the results dictionary, and use the session Id in the API.`
+<br/>
+`}`
+<br/>
+`}`
 
 Faça o download do [material de apoio da Cybersource](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf).
 
@@ -1979,7 +1977,7 @@ Faça o download do [material de apoio da Cybersource](https://github.com/Braspa
 
 #### 1. Adicione o SDK ao seu projeto
 
-Faça o download do [SDK ThreatMetrix iOS SDK 6.0_](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20iOS%20SDK%206.0-91_.zip).
+Faça o download do [SDK iOS](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20iOS%20SDK%206.0-91_.zip).
 
 Em seguida, adicione o SDK ao seu projeto.
 
@@ -1995,9 +1993,9 @@ Adicione as seguintes bibliotecas e dependências ao seu projeto:
 
 Parametrize o SDK com os parâmetros a seguir:
 
-self.profile.configure(configData:[
+`self.profile.configure(configData:[`
 
-RLTMXOrgID : "OrgID",
+`RLTMXOrgID : "OrgID",`
 <br/>
 <br/>
 No valor “OrgID”, indique o valor correspondente ao ambiente na Threatmetrix:
@@ -2005,15 +2003,15 @@ No valor “OrgID”, indique o valor correspondente ao ambiente na Threatmetrix
 * Sandbox: “1snn5n9w”;
 * Produção: “k8vif92e”.
 
-RLTMXFingerprintServer : "h.online-metrix.net",
+`RLTMXFingerprintServer : "h.online-metrix.net",`
 
-RLTMXProfileTimeout : self.profileTimeout,
+`RLTMXProfileTimeout : self.profileTimeout,`
 
-RLTMXLocationServices : true,
+`RLTMXLocationServices : true,`
 
-RLTMXProfilingConnectionsInstance : profilingConnections,
+`RLTMXProfilingConnectionsInstance : profilingConnections,`
 
-])
+`])`
 
 #### 4. Crie a variável de identificação da sessão
 
@@ -2026,7 +2024,8 @@ O valor `ProviderMerchantId` deve ser concatenado com a variável `ProviderIdent
 `MyVariable` = `braspag_XXXX` + `ProviderIdentifier`
 
 `self.profile.sessionID` = @"`MyVariable`"
-    
+<br/>
+<br/>
 > Na requisição de análise de fraude, envie no campo `Customer.BrowserFingerprint` apenas o valor `ProviderIdentifier`. Se o `ProviderIdentifier` gerado pelo seu e-commerce for “202201080949”, no campo `Customer.BrowserFingerprint` envie o valor "202201080949".
 
 <aside class="notice">Recomendamos que a variável `ProviderIdentifier` seja um GUID.</aside>
@@ -2035,11 +2034,11 @@ O valor `ProviderMerchantId` deve ser concatenado com a variável `ProviderIdent
 
 Adicione a função doProfileRequest() à sua aplicação e especifique as seguintes opções:
 
-let profileHandle: RLTMXProfileHandle =
+`let profileHandle: RLTMXProfileHandle =`
 
-self.profile.profileDevice(profileOptions:[RLTMXCustomAttributes: [],
+`self.profile.profileDevice(profileOptions:[RLTMXCustomAttributes: [],`
 
-RLTMXSessionID: [MyVariable], callbackBlock:{(result: [AnyHashable : Any]?) -> Void in
+`RLTMXSessionID: [MyVariable], callbackBlock:{(result: [AnyHashable : Any]?) -> Void in`
 
 Faça o download do [material de apoio da Cybersource](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf).
 
