@@ -1837,7 +1837,7 @@ A tabela a seguir apresenta as variáveis para configuração do Fingerprint com
 |---|---|---|---|---|
 |`org_id`| Indica o ambiente na Threatmetrix: Sandbox ou Produção.|Sandbox = 1snn5n9w<br>Produção = k8vif92e|String|08|
 |`ProviderMerchantId`| Identificador da sua loja ou operação, fornecido pela Braspag, no formato braspag_nomedaloja.<br>**É diferente do MerchantId**. |Fornecido pela Braspag após a contratação.|String|30|
-|`ProviderIdentifier`| Variável que você deve gerar para identificar a sessão. Recomendamos usar um GUID. É o valor que será enviado no campo `Customer.BrowserFingerprint`.|Personalizado|GUID ou String, na qual são aceitos inteiro, letra maiúscula ou minúscula, hífen e \_\ (*underscore*).|88|
+|`ProviderIdentifier`| Variável que você deve gerar para identificar a sessão. Recomendamos usar um GUID. É o valor que será enviado no campo `Customer.BrowserFingerprint`.|Personalizado|GUID ou String, na qual são aceitos inteiro, letra maiúscula ou minúscula, hífen e "\_" (*underscore*).|88|
 |`session_id` (para web)| Concatenação das variáveis `ProviderMerchantId` e `ProviderIdentifier`.| Personalizado| `ProviderMerchantIdProviderIdentifier` |118|
 |`MyVariable` (para mobile)|Concatenação das variáveis `ProviderMerchantId` e `ProviderIdentifier`.| Personalizado | `ProviderMerchantIdProviderIdentifier`|118|
 
@@ -1900,9 +1900,9 @@ Saiba mais sobre a criação de bibliotecas no Android na documentação [Androi
 
 No Manifest, você deverá incluir as seguintes permissões:
 
-\`\<uses-permission android:name="android.permission.INTERNET">\`
+`\<uses-permission android:name="android.permission.INTERNET">`
 
-\`\</uses-permission>\`
+`\</uses-permission>\`
 
 #### 4. Importe as bibliotecas
 
