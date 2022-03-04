@@ -1900,9 +1900,7 @@ Saiba mais sobre a criação de bibliotecas no Android na documentação [Androi
 
 No Manifest, você deverá incluir as seguintes permissões:
 
-`\<uses-permission android:name="android.permission.INTERNET">`
-
-`\</uses-permission>\`
+![Permissões Manifest]({{ site.baseurl_root }}/images/braspag/af/manifest-android.png)
 
 #### 4. Importe as bibliotecas
 
