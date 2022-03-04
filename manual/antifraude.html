@@ -5468,13 +5468,12 @@
   <li>Sistema operacional;</li>
   <li>Compatibilidade entre idioma e país.
 <br />
+O Fingerprint faz a identificação do dispositivo usado por sessão de navegação e persiste por aproximadamente 24 horas. Se a página for fechada e o comprador retornar ao site abrindo uma nova página, ou se fechar o aplicativo e abrir novamente, você deverá gerar uma nova sessão e uma nova identificação de sessão.
 <br />
-O Fingerprint faz a identificação do dispositivo usado por sessão de navegação e persiste por aproximadamente 24 horas. Se a página for fechada e o comprador retornar ao site abrindo uma nova página, ou se fechar o aplicativo e abrir novamente, você deverá gerar uma nova sessão e uma nova identificação de sessão.</li>
+O Fingerprint é importante para a análise de fraude porque, muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e aumentam a segurança da sua loja.</li>
 </ul>
 
-<p>O Fingerprint é importante para a análise de fraude porque, muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e aumentam a segurança da sua loja.</p>
-
-<p><strong>Importante</strong>: Para atender aos requisitos da Lei Geral de Proteção de Dados (LGPD), você deve incluir na política de cookies do seu e-commerce a informação sobre coleta de dados do dispositivo do comprador.</p>
+<p><strong>Importante</strong>: Para atender aos requisitos da Lei Geral de Proteção de Dados (LGPD), inclua a informação sobre coleta de dados do dispositivo do comprador na política de cookies do seu e-commerce.</p>
 
 <h3 id="quem-cria-o-fingerprint">Quem cria o Fingerprint?</h3>
 
@@ -5553,7 +5552,7 @@ O Fingerprint faz a identificação do dispositivo usado por sessão de navegaç
       <td><code class="language-plaintext highlighter-rouge">ProviderIdentifier</code></td>
       <td>Variável que você deve gerar para identificar a sessão. Recomendamos usar um GUID. É o valor que será enviado no campo <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code>.</td>
       <td>Personalizado</td>
-      <td>GUID ou String, na qual são aceitos inteiro, letra maiúscula ou minúscula, hífen e <em>“_”</em> (underscore).</td>
+      <td>GUID ou String, na qual são aceitos inteiro, letra maiúscula ou minúscula, hífen e _\ (<em>underscore</em>).</td>
       <td>88</td>
     </tr>
     <tr>
@@ -5642,9 +5641,9 @@ Saiba mais sobre a criação de bibliotecas no Android na documentação <a href
 
 <p>No Manifest, você deverá incluir as seguintes permissões:</p>
 
-<p>``</p>
+<p>`\`</p>
 
-<p>``</p>
+<p>`\`</p>
 
 <h4 id="4-importe-as-bibliotecas">4. Importe as bibliotecas</h4>
 
