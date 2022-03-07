@@ -1902,6 +1902,10 @@ No Manifest, você deverá incluir as seguintes permissões:
 
 ![Permissões Manifest]({{ site.baseurl_root }}/images/braspag/af/manifest-android.png)
 
+&lt;uses-permission android:name="android.permission.INTERNET"&gt;
+
+&lt;/uses-permission&gt;
+
 #### 4. Importe as bibliotecas
 
 Importe as seguintes bibliotecas:
