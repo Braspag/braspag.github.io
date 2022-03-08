@@ -1934,8 +1934,6 @@ No valor **“OrgId”**, indique o valor correspondente ao ambiente na Threatme
 
 `.setTimeout(20, TimeUnit.SECONDS)`
 
-`TMXProfilingConnections to TMX SDK.`
-
 `TMXProfiling.getInstance().init(config);`
 
 #### 6. Crie a variável de identificação da sessão
