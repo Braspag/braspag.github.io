@@ -2980,12 +2980,12 @@ Entre em contato com o provedor de sua preferência para maiores informações s
 
 O Pagador possui suporte para as principais carteiras digitais disponíveis no mercado, listadas a seguir:
 
-* [*Apple Pay*](https://www.apple.com/br/apple-pay/)
-* [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)
-* [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/)
-* [*Visa Checkout*](https://vaidevisa.visa.com.br/site/visa-checkout/)
-* [*Masterpass*](https://masterpass.com/pt-br/)
-* *PayPal*
+* [*Apple Pay*](https://www.apple.com/br/apple-pay/){:target="_blank"}
+* [*Samsung Pay*](https://www.samsung.com.br/samsungpay/){:target="_blank"}
+* [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/){:target="_blank"}
+* [*Visa Checkout*](https://vaidevisa.visa.com.br/site/visa-checkout/){:target="_blank"}
+* [*Masterpass*](https://masterpass.com/pt-br/){:target="_blank"}
+* [*PayPal*](https://www.paypal.com/br/business){:target="_blank"}
 
 <aside class="warning">Quando o nó “Wallet” é enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
 <aside class="warning">Quando o nó "Wallet" é enviado na requisição, para o cartão de débito é necessário o envio do nó “DebitCard” contendo a “ReturnUrl”.</aside>
