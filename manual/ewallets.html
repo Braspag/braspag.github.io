@@ -151,12 +151,12 @@
 <p>O Pagador possui suporte para as seguintes carteiras digitais:</p>
 
 <ul>
-  <li><a href="https://www.apple.com/br/apple-pay/"><em>Apple Pay</em></a></li>
-  <li><a href="https://www.samsung.com.br/samsungpay/"><em>Samsung Pay</em></a></li>
-  <li><a href="https://pay.google.com/intl/pt-BR_br/about/"><em>Google Pay</em></a></li>
-  <li><a href="https://vaidevisa.visa.com.br/site/visa-checkout/"><em>Visa Checkout</em></a></li>
-  <li><a href="https://masterpass.com/pt-br/"><em>Masterpass</em></a></li>
-  <li><em>Paypal</em> (em breve mais informações).</li>
+  <li><a href="https://www.apple.com/br/apple-pay/" target="_blank"><em>Apple Pay</em></a></li>
+  <li><a href="https://www.samsung.com.br/samsungpay/" target="_blank"><em>Samsung Pay</em></a></li>
+  <li><a href="https://pay.google.com/intl/pt-BR_br/about/" target="_blank"><em>Google Pay</em></a></li>
+  <li><a href="https://vaidevisa.visa.com.br/site/visa-checkout/" target="_blank"><em>Visa Checkout</em></a></li>
+  <li><a href="https://masterpass.com/pt-br/" target="_blank"><em>Masterpass</em></a></li>
+  <li>[<em>Paypal</em>]((https://www.paypal.com/br/business){:target=”_blank”}</li>
 </ul>
 
 <aside class="warning">Quando o nó “Wallet” é enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
@@ -2219,6 +2219,441 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="paypal">PayPal</h1>
+
+<p>Para usar essa wallet, faça a contratação diretamente com o <a href="https://www.paypal.com/br/business" target="_blank">PayPal</a>, selecionando a <strong>Braspag</strong> como <strong>service provider</strong>.</p>
+
+<p>No PayPal, há a opção de captura automática ou pré-autorização.</p>
+
+<p>Você deve integrar o PayPal com a API do Pagador em seu backend. Se desejar, também poderá incluir o botão do PayPal para exibí-lo em sua página de checkout.</p>
+
+<h2 id="integrando-com-a-braspag">Integrando com a Braspag</h2>
+
+<p>Integre os métodos de autorização e captura da Braspag enviando a requisição no método POST para a API do Pagador.</p>
+
+<p>Na requisição da transação, envie o campo <code class="language-plaintext highlighter-rouge">Provider</code> com o valor “PayPal” e o campo <code class="language-plaintext highlighter-rouge">Type</code> com o valor “Wallet”.</p>
+
+<h3 id="requisição-5">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>json
+ {
+        "MerchantOrderId": "mwrzdV42BrvDshqJoIClljPWJ",
+        "Customer": {
+                "Name": "Teste bsales",
+                "Identity": "12345678909",
+                "IdentityType": "CPF",
+        "Address": {
+                "Street": "Alameda Xingu",
+                "Number": "512",
+                "Complement": "27 andar",
+                "ZipCode": "12345987",
+                "City": "São Paulo",
+                "State": "SP",
+                "Country": "BRA",
+                "District": "Alphaville"
+         }
+},
+    "Payment": {
+            "Capture": true,
+            "ReturnUrl": "http://httpbin.org/get",
+            "Provider": "PayPal",
+            "Type": "Wallet",
+            "Amount": 57000,
+            "Currency": "BRL",
+"
+}
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Nome do comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>Número do CPF ou CNPJ do cliente.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ).</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
+      <td>Endereço de contato do comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Número do endereço de contato do comprador.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>Complemento do endereço de contato do comprador.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>CEP do endereço de contato do comprador.</td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
+      <td>Cidade do endereço de contato do comprador.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
+      <td>Estado do endereço de contato do comprador.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
+      <td>País do endereço de contato do comprador.</td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
+      <td>Bairro do endereço de contato do comprador.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Status de cadastro do comprador na loja (“NEW” / “EXISTING”).</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Indica se a autorização deve ser com captura automática (“true”) ou não (“false”). Verifique junto à adquirente a disponibilidade desta funcionalidade.</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não. Obs.: quando o campo <code class="language-plaintext highlighter-rouge">Payment.Capture</code> não é enviado, a transação não será capturada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td>URL para onde o usuário será redirecionado após o fim do pagamento.</td>
+      <td>Texto</td>
+      <td>1024</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome do provedor do meio de pagamento. Nesse caso, “PayPal”.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento. Neste caso, “Wallet”.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
+      <td>Moeda em que o pagamento será feito (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP).</td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Não são campos obrigatórios, mas recomendamos enviar.</p>
+
+<h3 id="resposta-5">Resposta</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>json
+{
+"MerchantOrderId": "mwrzdV42BrvDshqJoIClljPWJ",
+"Customer": {
+  "Name": "Teste bsales",
+  "Identity": "12345678909",
+  "IdentityType": "CPF",
+  "Address": {
+    "Street": "Alameda Xingu",
+    "Number": "512",
+    "Complement": "27 andar",
+    "ZipCode": "12345987",
+    "City": "São Paulo",
+    "State": "SP",
+    "Country": "BRA",
+    "District": "Alphaville"
+}
+},
+"Payment": {
+  "SentOrderId": "mwrzdV42BrvDshqJoIClljPWJ",
+  "AcquirerTransactionId": "2X794637K7381181L",
+  "Capture": true,
+  "RedirectUrl": "https://www.sandbox.paypal.com/checkoutnow?token=2X794637K7381181L",
+  "PaymentId": "7529c7d1-7e95-480c-8604-067e45eb7425",
+  "Type": "Wallet",
+  "Amount": 57000,
+  "ReceivedDate": "2021-12-20 16:33:20",
+  "Currency": "BRL",
+  "Country": "BRA",
+  "Provider": "PayPal",
+  "ReturnUrl": "http://httpbin.org/get",
+  "ReasonCode": 0,
+  "ReasonMessage": "Successful",
+  "Status": 12,
+  "ProviderReturnCode": "201",
+  "ProviderReturnMessage": "CREATED",
+  "Links": [{
+  "Method": "GET",
+  "Rel": "self",
+  "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/7529c7d1-7e95-480c-8604-067e45eb7425"
+      }]
+   }
+}
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.SentOrderID</code></td>
+      <td>Número do pedido enviado para a adquirente*</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.AcquirerTransactionId</code></td>
+      <td>Id da transação no provedor de meio de pagamento.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RedirectUrl</code></td>
+      <td>URL para onde o usuário será redirecionado após o fim do pagamento.</td>
+      <td>Texto</td>
+      <td>1024</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentId</code></td>
+      <td>Campo identificador do pedido.</td>
+      <td>GUID</td>
+      <td>40</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
+      <td>Data de recebimento da transação</td>
+      <td>DataHora</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:MM:SS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
+      <td>País em que o pagamento será feito.</td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>BRA</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td>URL para onde o usuário será redirecionado após o fim do pagamento.</td>
+      <td>Texto</td>
+      <td>1024</td>
+      <td>Ex.: “https://www.loja.com.br”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReasonCode</code></td>
+      <td>URL para onde o usuário será redirecionado após o fim do pagamento.</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Texto alfanuméric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReasonMessage</code></td>
+      <td>Mensagem de retorno da operação.</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
+      <td>Status da transação. Em caso de sucesso, o status inicial é “12” (Pendente). Veja a [lista de status].</td>
+      <td>Número</td>
+      <td>-</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ProviderReturnCode</code></td>
+      <td>Código retornado pela adquirente ou emissor.</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Ex.: 57</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ProviderReturnMessage</code></td>
+      <td>Mensagem retornada pela adquirente ou emissor.</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Ex.: Transação Aprovada</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="warning">*IMPORTANTE: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
+
+<h2 id="incluindo-o-botão-do-paypal">Incluindo o botão do PayPal</h2>
+
+<p>Nossos clientes também podem se integrar com o botão PayPal na pagina de checkout; para esse modelo, a integração deve ser feita utilizando o script do Paypal em conjunto com a integração da API do Pagador.</p>
+
+<p>Para a integração será necessário insir um script em HTML na sua página de checkout. Esse script irá inserir o botão do PayPal e irá disponibilizar duas funções que precisam ser desenvolvidas para conectar com a Braspag:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">createOrder</code>: executa a etapa de autorização da transação (e deve ser integrado no backend com o método de autorização do Pagador);</li>
+  <li><code class="language-plaintext highlighter-rouge">onApprove</code>: realiza a captura do valor da transação.</li>
+</ul>
+
+<p>No script, substitua a url demo da função <code class="language-plaintext highlighter-rouge">onApprove</code> (/demo/checkout/api/paypal/order/’) por <strong>paypal/{transactionId}/manualapprove</strong>.</p>
+
+<p>Substitua os demais campos de acordo com seu backend para consumir o método de autorização da Braspag. Veja na imagem um exemplo de como ficará o código.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/script-paypal.png" alt="Script Paypal" /></p>
+
+<p>Leia e copie o script completo na <a href="https://developer.paypal.com/demo/checkout/#/pattern/server" target="_blank">página de integração de botões do PayPal</a>.</p>
+
+<h1 id="anexo">ANEXO</h1>
+
+<h2 id="lista-de-status-da-transação">Lista de Status da Transação</h2>
+
+<p>Lista de status retornados pela API:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Status do Pagamento</th>
+      <th>Meio de pagamento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>NotFinished</td>
+      <td>Todos</td>
+      <td>Falha ao processar o pagamento.</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Authorized</td>
+      <td>Todos</td>
+      <td>Meio de pagamento apto a ser capturado ou pago (boleto).</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>PaymentConfirmed</td>
+      <td>Todos</td>
+      <td>Pagamento confirmado e finalizado.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Denied</td>
+      <td>Cartões de crédito e débito (transferência eletrônica) e e-wallets.</td>
+      <td>Pagamento negado por autorizador.</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Voided</td>
+      <td>Todos</td>
+      <td>Pagamento cancelado.</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Refunded</td>
+      <td>Cartões de crédito e débito e e-wallets.</td>
+      <td>Pagamento cancelado/estornado.</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Pending</td>
+      <td>Cartões de crédito e débito (transferência eletrônica) e e-wallets.</td>
+      <td>Esperando retorno da instituição financeira.</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Aborted</td>
+      <td>Todos</td>
+      <td>Pagamento cancelado por falha no processamento.</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Scheduled</td>
+      <td>Cartão de crédito e e-wallets.</td>
+      <td>Recorrência agendada.</td>
     </tr>
   </tbody>
 </table>
