@@ -4100,7 +4100,9 @@ Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT c
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
 ```json
-"Interval":"Annual"
+{
+  "Interval":"Annual"
+}
 ```
 
 ```shell
