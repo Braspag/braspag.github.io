@@ -4100,7 +4100,7 @@ Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT c
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
 ```json
-"SemiAnnual"
+"Interval":"Annual"
 ```
 
 ```shell
@@ -4110,7 +4110,7 @@ Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT c
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-"SemiAnnual"
+"Interval":"Annual"
 --verbose
 ```
 
