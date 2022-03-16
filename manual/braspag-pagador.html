@@ -2094,7 +2094,7 @@
 
 <h4 id="requisição-3">Requisição</h4>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture?amount=xxxx</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 
@@ -2149,7 +2149,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
-      <td>Valor a ser capturado, em centavos. Verificar se a adquirente utilizada suporta uma captura parcial.</td>
+      <td>Valor a ser capturado, em centavos. Verificar se a adquirente utilizada suporta uma captura parcial. Caso não seja especificado um valor, a captura será total.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
