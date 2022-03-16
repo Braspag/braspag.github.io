@@ -2241,34 +2241,33 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>json
- {
-        "MerchantOrderId": "mwrzdV42BrvDshqJoIClljPWJ",
-        "Customer": {
-                "Name": "Teste bsales",
-                "Identity": "12345678909",
-                "IdentityType": "CPF",
-        "Address": {
-                "Street": "Alameda Xingu",
-                "Number": "512",
-                "Complement": "27 andar",
-                "ZipCode": "12345987",
-                "City": "São Paulo",
-                "State": "SP",
-                "Country": "BRA",
-                "District": "Alphaville"
-         }
-},
-    "Payment": {
-            "Capture": true,
-            "ReturnUrl": "http://httpbin.org/get",
-            "Provider": "PayPal",
-            "Type": "Wallet",
-            "Amount": 57000,
-            "Currency": "BRL",
-"
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mwrzdV42BrvDshqJoIClljPWJ"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste bsales"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+</span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://httpbin.org/get"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PayPal"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wallet"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">57000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"
 }
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -2421,50 +2420,49 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
 
 <h3 id="resposta-5">Resposta</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>json
-{
-"MerchantOrderId": "mwrzdV42BrvDshqJoIClljPWJ",
-"Customer": {
-  "Name": "Teste bsales",
-  "Identity": "12345678909",
-  "IdentityType": "CPF",
-  "Address": {
-    "Street": "Alameda Xingu",
-    "Number": "512",
-    "Complement": "27 andar",
-    "ZipCode": "12345987",
-    "City": "São Paulo",
-    "State": "SP",
-    "Country": "BRA",
-    "District": "Alphaville"
-}
-},
-"Payment": {
-  "SentOrderId": "mwrzdV42BrvDshqJoIClljPWJ",
-  "AcquirerTransactionId": "2X794637K7381181L",
-  "Capture": true,
-  "RedirectUrl": "https://www.sandbox.paypal.com/checkoutnow?token=2X794637K7381181L",
-  "PaymentId": "7529c7d1-7e95-480c-8604-067e45eb7425",
-  "Type": "Wallet",
-  "Amount": 57000,
-  "ReceivedDate": "2021-12-20 16:33:20",
-  "Currency": "BRL",
-  "Country": "BRA",
-  "Provider": "PayPal",
-  "ReturnUrl": "http://httpbin.org/get",
-  "ReasonCode": 0,
-  "ReasonMessage": "Successful",
-  "Status": 12,
-  "ProviderReturnCode": "201",
-  "ProviderReturnMessage": "CREATED",
-  "Links": [{
-  "Method": "GET",
-  "Rel": "self",
-  "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/7529c7d1-7e95-480c-8604-067e45eb7425"
-      }]
-   }
-}
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mwrzdV42BrvDshqJoIClljPWJ"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste bsales"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"SentOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mwrzdV42BrvDshqJoIClljPWJ"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2X794637K7381181L"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"RedirectUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.sandbox.paypal.com/checkoutnow?token=2X794637K7381181L"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7529c7d1-7e95-480c-8604-067e45eb7425"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wallet"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">57000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20 16:33:20"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PayPal"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://httpbin.org/get"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREATED"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+  </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/7529c7d1-7e95-480c-8604-067e45eb7425"</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
