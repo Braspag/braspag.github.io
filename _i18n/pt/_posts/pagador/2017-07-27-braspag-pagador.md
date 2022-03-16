@@ -1089,7 +1089,7 @@ Transações que não são capturadas até a [data limite](https://suporte.brasp
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture?amount=xxxx</span></aside>
 
 ```json
 
@@ -1111,7 +1111,7 @@ Transações que não são capturadas até a [data limite](https://suporte.brasp
 |`MerchantKey`|Chave pública para autenticação dupla na API. | Texto | 40 | Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`PaymentId`|Campo identificador do pedido. | GUID | 36 | Sim (envio no *endpoint*)|
-|`Amount`|Valor a ser capturado, em centavos. Verificar se a adquirente utilizada suporta uma captura parcial. | Número | 15 | Não|
+|`Amount`|Valor a ser capturado, em centavos. Verificar se a adquirente utilizada suporta uma captura parcial. Caso não seja especificado um valor, a captura será total.| Número | 15 | Não|
 |`ServiceTaxAmount`|Aplicável para companhias aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização. | Número | 15 | Não|
 
 #### Resposta
