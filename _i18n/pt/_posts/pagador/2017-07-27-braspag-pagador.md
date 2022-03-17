@@ -7387,9 +7387,9 @@ Lista de status retornados pela API:
 |1|Authorized|Todos|Meio de pagamento apto a ser capturado ou pago (boleto).|
 |2|PaymentConfirmed|Todos|Pagamento confirmado e finalizado.|
 |3|Denied|Cartões de crédito e débito (transferência eletrônica) e e-wallets.|Pagamento negado por autorizador.|
-|10|Voided|Todos|Pagamento cancelado.|
+|10|Voided|Todos, exceto boleto.|Pagamento cancelado.|
 |11|Refunded|Cartões de crédito e débito e e-wallets.|Pagamento cancelado/estornado.|
-|12|Pending|Cartões de crédito e débito (transferência eletrônica) e e-wallets.|Esperando retorno da instituição financeira.|
+|12|Pending|Cartões de crédito e débito (transferência eletrônica), e-wallets e pix.|Esperando retorno da instituição financeira.|
 |13|Aborted|Todos|Pagamento cancelado por falha no processamento.|
 |20|Scheduled|Cartão de crédito e e-wallets.|Recorrência agendada.|
 
