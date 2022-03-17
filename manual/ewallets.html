@@ -2490,7 +2490,7 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RedirectUrl</code></td>
-      <td>URL para onde o usuário será redirecionado após o fim do pagamento.</td>
+      <td>É a URL que direciona o usuário para a tela do PayPal (caso você não use o botão do PayPal).</td>
       <td>Texto</td>
       <td>1024</td>
       <td>Texto alfanumérico</td>
@@ -2625,7 +2625,7 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
     <tr>
       <td>10</td>
       <td>Voided</td>
-      <td>Todos</td>
+      <td>Todos, exceto boleto.</td>
       <td>Pagamento cancelado.</td>
     </tr>
     <tr>
@@ -2637,7 +2637,7 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
     <tr>
       <td>12</td>
       <td>Pending</td>
-      <td>Cartões de crédito e débito (transferência eletrônica) e e-wallets.</td>
+      <td>Cartões de crédito e débito (transferência eletrônica), e-wallets e pix.</td>
       <td>Esperando retorno da instituição financeira.</td>
     </tr>
     <tr>
