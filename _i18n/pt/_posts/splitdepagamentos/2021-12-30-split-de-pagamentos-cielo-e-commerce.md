@@ -312,7 +312,7 @@ O valor total a receber pelo master está representado na figura a seguir.
             "SecurityCode": "693",
             "Brand": "Visa",
             "SaveCard": "false"
-        },
+   },
 }
 ```
 
