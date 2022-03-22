@@ -248,260 +248,6 @@ master. Posteriormente, é permitido que o master envie novas regras de divisão
 
 Veja a seguir exemplos de requisições e respostas para transações de crédito.
 
-### Transação de crédito com todos os campos possíveis
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
-
-#### Requisição
-
-```json
---header "Authorization: Bearer {access_token}"
-{  
-   "merchantorderid":"23082019",
-   "customer": {
-        "Name": "Comprador Accept",
-        "email": "comprador@teste.com.br",
-        "Identity": "12750233713",
-        "identitytype": "CPF",
-        "Mobile": "5521996660078"
-    },
-    "payment": {
-        "type": "splittedcreditcard",
-        "amount": 10000,
-        "capture": true,
-        "installments": 1,
-        "softdescriptor": "teste",
-        "CreditCard": {
-            "cardNumber": "4481530710186111",
-            "holder": "Oswaldo Soares",
-            "ExpirationDate": "12/2019",
-            "SecurityCode": "693",
-            "Brand": "Visa",
-            "SaveCard": "false"
-        },
-        "fraudanalysis": {
-            "provider": "cybersource", 
-            "Shipping": {
-                "Addressee": "Comprador Accept"
-            },
-            "browser": {
-                "ipaddress": "179.221.103.151",
-                "browserfingerprint": "22082019"
-            },
-            "totalorderamount": 10000,
-            "cart": {
-                "isgift": false,
-                "returnsaccepted": true,
-                "items": [
-                    {
-                        "name": "Produto teste",
-                        "quantity": 1,
-                        "sku": 563,
-                        "unitprice": 10000
-                    }
-                ]
-            },
-            "MerchantDefinedFields": [
-                {
-                    "Id": 1,
-                    "Value": "Guest"
-                }
-            ]
-        }
-   }
-}
-```
-
-#### Resposta
-
-```json
-{
-    "MerchantOrderId": "23082019",
-    "Customer": {
-        "Name": "Comprador Accept",
-        "Identity": "12750233713",
-        "IdentityType": "CPF",
-        "Email": "comprador@teste.com.br",
-        "Mobile": "5521996660078"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": 0,
-        "Capture": true,
-        "Authenticate": false,
-        "Recurrent": false,
-        "CreditCard": {
-            "CardNumber": "448153******6111",
-            "Holder": "Oswaldo Soares",
-            "ExpirationDate": "12/2019",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "Tid": "0823032122562",
-        "ProofOfSale": "20190823032122562",
-        "AuthorizationCode": "329269",
-        "SoftDescriptor": "teste",
-        "Provider": "Simulado",
-        "FraudAnalysis": {
-            "Id": "f74824ce-d2c5-e911-a40a-0003ff21cf74",
-            "Status": 1,
-            "StatusDescription": "Accept",
-            "ReplyData": {
-                "FactorCode": "F^H^P",
-                "Score": 44,
-                "HostSeverity": 1,
-                "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-HIST",
-                "InternetInfoCode": "INTL-IPCO^RISK-EM",
-                "IpCity": "goiania",
-                "IpCountry": "br",
-                "IpRoutingMethod": "fixed",
-                "IpState": "goias",
-                "ScoreModelUsed": "default",
-                "VelocityInfoCode": "VEL-NAME^VELI-TIP^VELL-TIP",
-                "CasePriority": 3,
-                "FingerPrint": {
-                    "CookiesEnabledField": "true",
-                    "FlashEnabledField": "false",
-                    "HashField": "d04c4463c5e84fb5ba1993a0482a6c24",
-                    "ImagesEnabledField": "true",
-                    "JavascriptEnabledField": "true",
-                    "TrueIpAddressField": "200.142.125.158",
-                    "TrueIpAddressCityField": "rio de janeiro",
-                    "TrueIpAddressCountryField": "BR",
-                    "SmartIdField": "d04c4463c5e84fb5ba1993a0482a6c24",
-                    "SmartIdConfidenceLevelField": "100.00",
-                    "ScreenResolutionField": "1366x768",
-                    "BrowserLanguageField": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
-                },
-                "ProviderTransactionId": "5665844815656968804011"
-            },
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "OnSuccess",
-            "TotalOrderAmount": 10000,
-            "TransactionAmount": 0,
-            "MerchantDefinedFields": [
-                {
-                    "Id": "1",
-                    "Value": "Guest"
-                }
-            ],
-            "Cart": {
-                "IsGift": false,
-                "ReturnsAccepted": true,
-                "Items": [
-                    {
-                        "Type": 0,
-                        "Name": "Produto teste",
-                        "Risk": 0,
-                        "Sku": "563",
-                        "OriginalPrice": 0,
-                        "UnitPrice": 100,
-                        "Quantity": 1,
-                        "HostHedge": 0,
-                        "NonSensicalHedge": 0,
-                        "ObscenitiesHedge": 0,
-                        "PhoneHedge": 0,
-                        "TimeHedge": 0,
-                        "VelocityHedge": 0,
-                        "GiftCategory": 0,
-                        "Weight": 0,
-                        "CartType": 0
-                    }
-                ]
-            },
-            "Browser": {
-                "CookiesAccepted": false,
-                "IpAddress": "179.221.103.151",
-                "BrowserFingerPrint": "23082019"
-            },
-            "Shipping": {
-                "Addressee": "Comprador Accept",
-                "Method": 0
-            },
-            "FraudAnalysisReasonCode": 100,
-            "Provider": "Cybersource",
-            "IsRetryTransaction": false
-        },
-        "SplitPayments": [
-            {
-                "SubordinateMerchantId": "247d032d-f917-4a52-8e7a-d850945f065e",
-                "Amount": 10000,
-                "Fares": {
-                    "Mdr": 2.50,
-                    "Fee": 0
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "247d032d-f917-4a52-8e7a-d850945f065e",
-                        "Amount": 10000
-                    }
-                ]
-            }
-        ],
-        "IsQrCode": false,
-        "Amount": 10000,
-        "ReceivedDate": "2019-08-23 15:21:12",
-        "CapturedAmount": 10000,
-        "CapturedDate": "2019-08-23 15:21:22",
-        "Status": 2,
-        "IsSplitted": true,
-        "ReturnMessage": "Operation Successful",
-        "ReturnCode": "6",
-        "PaymentId": "ffba7a99-94cb-4397-be83-d125c2933ed5",
-        "Type": "SplittedCreditCard",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "PUT",
-                "Rel": "split",
-                "Href": "https://splitsandbox.braspag.com.br/api/transactions/ffba7a99-94cb-4397-be83-d125c2933ed5/split"
-            },
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/ffba7a99-94cb-4397-be83-d125c2933ed5"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/ffba7a99-94cb-4397-be83-d125c2933ed5/void"
-            }
-        ]
-    }
-}
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|-----------|----|-------|-----------|---------|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
-|`Customer.Email`|Texto|255|Não|Email do comprador|
-|`Customer.Name`|Texto|255|Sim|Nome do comprador|
-|`Customer.Identity`|Texto |14 |Não|Número do RG, CPF ou CNPJ do Cliente| 
-|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
-|`Customer.Mobile`|Texto|14|Não*|Celular do comprador|
-|`Customer.Phone`|Texto|14|Não*|Telefone do comprador|
-|`Customer.DeliveryAddress.Street`|Texto|255|Não*|Endereço do comprador|
-|`Customer.DeliveryAddress.Number`|Texto|15|Não*|Número do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.Complement`|Texto|50|Não*|Complemento do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não*|CEP do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.City`|Texto|50|Não*|Cidade do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.State`|Texto|2|Não*|Estado do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.Country`|Texto|35|Não*|Pais do endereço de entrega do pedido|
-|`Customer.DeliveryAddress.District`|Texto |50|Não*|Bairro do Comprador. |
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
-|`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
-|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
-|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do comprador|
-|`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
-|`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
-|`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
-
 ### Transação de crédito sem o nó da divisão 
 
 Veja uma requisição de transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.
@@ -567,50 +313,39 @@ O valor total a receber pelo master está representado na figura a seguir.
             "Brand": "Visa",
             "SaveCard": "false"
         },
-        "fraudanalysis": {
-            "provider": "cybersource", 
-            "Shipping": {
-                "Addressee": "Comprador Accept"
-            },
-            "browser": {
-                "ipaddress": "179.221.103.151",
-                "browserfingerprint": "22082019v1"
-            },
-            "totalorderamount": 10000,
-            "cart": {
-                "isgift": false,
-                "returnsaccepted": true,
-                "items": [
-                    {
-                        "name": "Produto teste",
-                        "quantity": 1,
-                        "sku": 563,
-                        "unitprice": 10000
-                    }
-                ]
-            },
-            "MerchantDefinedFields": [
-                {
-                    "Id": 1,
-                    "Value": "Guest"
-                },
-                {
-                    "Id": 2,
-                    "Value": "146"
-                },
-                {
-                    "Id": 3,
-                    "Value": "1"
-                },
-                {
-                    "Id": 4,
-                    "Value": "Web"
-                }
-            ]
-        }
-   }
 }
 ```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
+|`Customer.Email`|Texto|255|Não|Email do comprador|
+|`Customer.Name`|Texto|255|Sim|Nome do comprador|
+|`Customer.Identity`|Texto |14 |Não|Número do RG, CPF ou CNPJ do Cliente| 
+|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
+|`Customer.Mobile`|Texto|14|Não*|Celular do comprador|
+|`Customer.Phone`|Texto|14|Não*|Telefone do comprador|
+|`Customer.DeliveryAddress.Street`|Texto|255|Não*|Endereço do comprador|
+|`Customer.DeliveryAddress.Number`|Texto|15|Não*|Número do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.Complement`|Texto|50**|Não*|Complemento do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não*|CEP do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.City`|Texto|50|Não*|Cidade do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.State`|Texto|2|Não*|Estado do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.Country`|Texto|35|Não*|Pais do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.District`|Texto |50|Não*|Bairro do Comprador. |
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
+|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
+|`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
+|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
+|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do comprador|
+|`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
+|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
+|`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
+|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
+|`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
+
+<aside class="warning">**Em uma transação com análise de fraude os campos podem ter tamanhos diferentes, como é o caso do campo `Customer.DeliveryAddress.Complement`. Nesse caso, consulte a requisição do capítulo Antifraude neste mesmo manual.</aside>
 
 #### Resposta
 
@@ -654,97 +389,6 @@ O valor total a receber pelo master está representado na figura a seguir.
         "AuthorizationCode": "023609",
         "SoftDescriptor": "teste",
         "Provider": "Simulado",
-        "FraudAnalysis": {
-            "Id": "eddf8cda-d3c5-e911-a40a-0003ff21cf74",
-            "Status": 1,
-            "StatusDescription": "Accept",
-            "ReplyData": {
-                "AddressInfoCode": "COR-SA",
-                "FactorCode": "F^H",
-                "Score": 92,
-                "HostSeverity": 1,
-                "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-HIST^NEG-SA",
-                "IpCity": "goiania",
-                "IpCountry": "br",
-                "IpRoutingMethod": "fixed",
-                "IpState": "goias",
-                "ScoreModelUsed": "default_lac",
-                "VelocityInfoCode": "VEL-NAME^VELI-TIP^VELL-TIP^VELS-CC^VELS-EM",
-                "CasePriority": 3,
-                "FingerPrint": {
-                    "CookiesEnabledField": "true",
-                    "FlashEnabledField": "false",
-                    "HashField": "d04c4463c5e84fb5ba1993a0482a6c24",
-                    "ImagesEnabledField": "true",
-                    "JavascriptEnabledField": "true",
-                    "TrueIpAddressField": "200.142.125.158",
-                    "TrueIpAddressCityField": "rio de janeiro",
-                    "TrueIpAddressCountryField": "BR",
-                    "SmartIdField": "d04c4463c5e84fb5ba1993a0482a6c24",
-                    "SmartIdConfidenceLevelField": "100.00",
-                    "ScreenResolutionField": "1366x768",
-                    "BrowserLanguageField": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
-                },
-                "ProviderTransactionId": "5665849323716897904012"
-            },
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "OnSuccess",
-            "TotalOrderAmount": 10000,
-            "TransactionAmount": 0,
-            "MerchantDefinedFields": [
-                {
-                    "Id": "1",
-                    "Value": "Guest"
-                },
-                {
-                    "Id": "2",
-                    "Value": "146"
-                },
-                {
-                    "Id": "3",
-                    "Value": "1"
-                },
-                {
-                    "Id": "4",
-                    "Value": "Web"
-                }
-            ],
-            "Cart": {
-                "IsGift": false,
-                "ReturnsAccepted": true,
-                "Items": [
-                    {
-                        "Type": 0,
-                        "Name": "Produto teste",
-                        "Risk": 0,
-                        "Sku": "563",
-                        "OriginalPrice": 0,
-                        "UnitPrice": 100,
-                        "Quantity": 1,
-                        "HostHedge": 0,
-                        "NonSensicalHedge": 0,
-                        "ObscenitiesHedge": 0,
-                        "PhoneHedge": 0,
-                        "TimeHedge": 0,
-                        "VelocityHedge": 0,
-                        "GiftCategory": 0,
-                        "Weight": 0,
-                        "CartType": 0
-                    }
-                ]
-            },
-            "Browser": {
-                "CookiesAccepted": false,
-                "IpAddress": "179.221.103.151",
-                "BrowserFingerPrint": "22082019v3"
-            },
-            "Shipping": {
-                "Addressee": "Comprador Accept",
-                "Method": 0
-            },
-            "FraudAnalysisReasonCode": 100,
-            "Provider": "Cybersource",
-            "IsRetryTransaction": false
         },
         "SplitPayments": [
             {
@@ -875,47 +519,6 @@ As divisões e o valor total a receber de cada participante estão na figura a s
             "Brand": "Visa",
             "SaveCard": "false"
         },
-        "fraudanalysis": {
-            "provider": "cybersource", 
-            "Shipping": {
-                "Addressee": "Comprador Accept"
-            },
-            "browser": {
-                "ipaddress": "179.221.103.151",
-                "browserfingerprint": "22082019v4"
-            },
-            "totalorderamount": 10000,
-            "cart": {
-                "isgift": false,
-                "returnsaccepted": true,
-                "items": [
-                    {
-                        "name": "Produto teste",
-                        "quantity": 1,
-                        "sku": 563,
-                        "unitprice": 10000
-                    }
-                ]
-            },
-            "MerchantDefinedFields": [
-                {
-                    "Id": 1,
-                    "Value": "Guest"
-                },
-                {
-                    "Id": 2,
-                    "Value": "146"
-                },
-                {
-                    "Id": 3,
-                    "Value": "1"
-                },
-                {
-                    "Id": 4,
-                    "Value": "Web"
-                }
-            ]
-        },
       "splitpayments":[  
          {  
             "subordinatemerchantid":"f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
@@ -937,6 +540,37 @@ As divisões e o valor total a receber de cada participante estão na figura a s
    }
 }
 ```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|-----------|----|-------|-----------|---------|
+|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
+|`Customer.Email`|Texto|255|Não|Email do comprador|
+|`Customer.Name`|Texto|255|Sim|Nome do comprador|
+|`Customer.Identity`|Texto |14 |Não|Número do RG, CPF ou CNPJ do Cliente| 
+|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
+|`Customer.Mobile`|Texto|14|Não*|Celular do comprador|
+|`Customer.Phone`|Texto|14|Não*|Telefone do comprador|
+|`Customer.DeliveryAddress.Street`|Texto|255|Não*|Endereço do comprador|
+|`Customer.DeliveryAddress.Number`|Texto|15|Não*|Número do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.Complement`|Texto|50**|Não*|Complemento do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não*|CEP do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.City`|Texto|50|Não*|Cidade do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.State`|Texto|2|Não*|Estado do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.Country`|Texto|35|Não*|Pais do endereço de entrega do pedido|
+|`Customer.DeliveryAddress.District`|Texto |50|Não*|Bairro do Comprador. |
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos)|
+|`Payment.Installments`|Número|2|Sim|Número de Parcelas|
+|`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que indica se a autorização deve ser com captura automática (true) ou não (false). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade|
+|`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador. Na fatura, o sofdescriptor pode ser encurtado de acordo com as regras da adquirente e bandeira.|
+|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do comprador|
+|`CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão|
+|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão|
+|`CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
+|`CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão|
+|`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
+
+<aside class="warning">**Em uma transação com análise de fraude os campos podem ter tamanhos diferentes, como é o caso do campo `Customer.DeliveryAddress.Complement`. Nesse caso, consulte a requisição do capítulo Antifraude neste mesmo manual.</aside>
 
 #### Resposta
 
@@ -980,98 +614,6 @@ As divisões e o valor total a receber de cada participante estão na figura a s
         "AuthorizationCode": "664803",
         "SoftDescriptor": "teste",
         "Provider": "Simulado",
-        "FraudAnalysis": {
-            "Id": "d61abb4d-d5c5-e911-a40a-0003ff21cf74",
-            "Status": 1,
-            "StatusDescription": "Accept",
-            "ReplyData": {
-                "AddressInfoCode": "COR-SA",
-                "FactorCode": "F^H",
-                "Score": 92,
-                "HostSeverity": 1,
-                "HotListInfoCode": "NEG-AFCB^NEG-CC^NEG-EM^NEG-HIST^NEG-SA",
-                "IpCity": "goiania",
-                "IpCountry": "br",
-                "IpRoutingMethod": "fixed",
-                "IpState": "goias",
-                "ScoreModelUsed": "default_lac",
-                "VelocityInfoCode": "VEL-NAME^VELI-FP^VELI-TIP^VELL-FP^VELL-TIP^VELS-CC^VELS-EM^VELS-FP^VELS-TIP",
-                "CasePriority": 3,
-                "FingerPrint": {
-                    "CookiesEnabledField": "true",
-                    "FlashEnabledField": "false",
-                    "HashField": "d04c4463c5e84fb5ba1993a0482a6c24",
-                    "ImagesEnabledField": "true",
-                    "JavascriptEnabledField": "true",
-                    "TrueIpAddressField": "200.142.125.158",
-                    "TrueIpAddressCityField": "rio de janeiro",
-                    "TrueIpAddressCountryField": "BR",
-                    "SmartIdField": "d04c4463c5e84fb5ba1993a0482a6c24",
-                    "SmartIdConfidenceLevelField": "100.00",
-                    "ScreenResolutionField": "1366x768",
-                    "BrowserLanguageField": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
-                },
-                "ProviderTransactionId": "5665855625556351904011"
-            },
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "OnSuccess",
-            "TotalOrderAmount": 10000,
-            "TransactionAmount": 0,
-            "MerchantDefinedFields": [
-                {
-                    "Id": "1",
-                    "Value": "Guest"
-                },
-                {
-                    "Id": "2",
-                    "Value": "146"
-                },
-                {
-                    "Id": "3",
-                    "Value": "1"
-                },
-                {
-                    "Id": "4",
-                    "Value": "Web"
-                }
-            ],
-            "Cart": {
-                "IsGift": false,
-                "ReturnsAccepted": true,
-                "Items": [
-                    {
-                        "Type": 0,
-                        "Name": "Produto teste",
-                        "Risk": 0,
-                        "Sku": "563",
-                        "OriginalPrice": 0,
-                        "UnitPrice": 100,
-                        "Quantity": 1,
-                        "HostHedge": 0,
-                        "NonSensicalHedge": 0,
-                        "ObscenitiesHedge": 0,
-                        "PhoneHedge": 0,
-                        "TimeHedge": 0,
-                        "VelocityHedge": 0,
-                        "GiftCategory": 0,
-                        "Weight": 0,
-                        "CartType": 0
-                    }
-                ]
-            },
-            "Browser": {
-                "CookiesAccepted": false,
-                "IpAddress": "179.221.103.151",
-                "BrowserFingerPrint": "22082019v5"
-            },
-            "Shipping": {
-                "Addressee": "Comprador Accept",
-                "Method": 0
-            },
-            "FraudAnalysisReasonCode": 100,
-            "Provider": "Cybersource",
-            "IsRetryTransaction": false
-        },
         "SplitPayments": [
             {
                 "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
