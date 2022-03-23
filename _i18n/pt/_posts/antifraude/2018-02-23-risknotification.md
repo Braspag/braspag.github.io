@@ -14,7 +14,7 @@ language_tabs:
 
 # Visão Geral
 
-Risk Notification API foi desenvolvida pelo time de Risco da Braspag para os que clientes possam consultar alertas de fraudes, chargebacks, realizar envio de arquivos para contestação de chargebacks e acatar chargebacks.
+A API Risk Notification foi desenvolvida pelo time de Risco da Braspag para os que clientes possam consultar alertas de fraudes, chargebacks, realizar envio de arquivos para contestação de chargebacks e acatar chargebacks.
 
 A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo [OAuth 2](https://oauth.net/2/), onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.
 
