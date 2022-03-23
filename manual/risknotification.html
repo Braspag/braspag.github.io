@@ -1760,47 +1760,87 @@
   <tbody>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">StartDate</code></td>
-      <td style="text-align: left">Data início da consulta</td>
+      <td style="text-align: left">Data início da consulta.</td>
       <td style="text-align: center">sim</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EndDate</code></td>
-      <td style="text-align: left">Data fim da consulta</td>
+      <td style="text-align: left">Data fim da consulta.</td>
       <td style="text-align: center">sim</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
-      <td style="text-align: left">Número da página desejada</td>
+      <td style="text-align: left">Número da página desejada.</td>
       <td style="text-align: center">sim</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">PageSize</code></td>
-      <td style="text-align: left">Quantidade de itens desejado na página. Máximo 250 itens.</td>
+      <td style="text-align: left">Quantidade de itens desejados na página. Máximo 250 itens.</td>
       <td style="text-align: center">sim</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantIds</code></td>
-      <td style="text-align: left">Id(s) da(s) loja(s) a ser utilizado na consulta <br /> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) MerchantId(s) associado(s) ao ClientId</td>
+      <td style="text-align: left">Id(s) da(s) loja(s) a ser utilizado na consulta <br /> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) MerchantId(s) associado(s) ao ClientId.</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCodes</code></td>
-      <td style="text-align: left">Número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente a ser utilizado na consulta <br /> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente associado(s) ao ClientId</td>
+      <td style="text-align: left">Número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente a ser utilizado na consulta <br /> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente associado(s) ao ClientId.</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
-      <td style="text-align: left">Número do caso do chargeback</td>
+      <td style="text-align: left">Número do caso do chargeback.</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
-      <td style="text-align: left">Identificador da transação na adquirente (TID)</td>
+      <td style="text-align: left">Identificador da transação na adquirente (TID).</td>
       <td style="text-align: center">não</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
-      <td style="text-align: left">Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)</td>
+      <td style="text-align: left">Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId).</td>
+      <td style="text-align: center">não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">BrandIds</code></td>
+      <td style="text-align: left">Bandeira do cartão.</td>
+      <td style="text-align: center">não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
+      <td style="text-align: left">Código do motivo do chargeback.</td>
+      <td style="text-align: center">não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ChargebackTypes</code></td>
+      <td style="text-align: left">Tipo de chargeback.</td>
+      <td style="text-align: center">não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">SaleDate</code></td>
+      <td style="text-align: left">Data de autorização da transação. Formato: YYYY-MM-DD.</td>
+      <td style="text-align: center">não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
+      <td style="text-align: left">É o NSU (número sequencial único) da transação na adquirente.</td>
+      <td style="text-align: center">não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td style="text-align: left">Número do pedido.</td>
+      <td style="text-align: center">não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td style="text-align: left">Código de autorização da transação na adquirente.</td>
+      <td style="text-align: center">não</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Status do chargeback na Braspag.</td>
       <td style="text-align: center">não</td>
     </tr>
   </tbody>
