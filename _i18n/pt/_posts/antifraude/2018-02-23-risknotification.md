@@ -673,15 +673,23 @@ Exemplo:
 
 |Parâmetro|Descrição|Obrigatório|
 |:-|:-|:-:|
-|`StartDate`|Data início da consulta|sim|
-|`EndDate`|Data fim da consulta|sim|
-|`PageIndex`|Número da página desejada|sim|
-|`PageSize`|Quantidade de itens desejado na página. Máximo 250 itens.|sim|
-|`MerchantIds`|Id(s) da(s) loja(s) a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) MerchantId(s) associado(s) ao ClientId|não|
-|`EstablishmentCodes`|Número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente associado(s) ao ClientId|não|
-|`CaseNumber`|Número do caso do chargeback|não|
-|`AcquirerTransactionId`|Identificador da transação na adquirente (TID)|não|
-|`BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|não|
+|`StartDate`|Data início da consulta.|sim|
+|`EndDate`|Data fim da consulta.|sim|
+|`PageIndex`|Número da página desejada.|sim|
+|`PageSize`|Quantidade de itens desejados na página. Máximo 250 itens.|sim|
+|`MerchantIds`|Id(s) da(s) loja(s) a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) MerchantId(s) associado(s) ao ClientId.|não|
+|`EstablishmentCodes`|Número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente associado(s) ao ClientId.|não|
+|`CaseNumber`|Número do caso do chargeback.|não|
+|`AcquirerTransactionId`|Identificador da transação na adquirente (TID).|não|
+|`BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId).|não|
+|`BrandIds`| Bandeira do cartão.|não|
+|`ReasonCode`| Código do motivo do chargeback.|não|
+|`ChargebackTypes`| Tipo de chargeback.|não|
+|`SaleDate`| Data de autorização da transação. Formato: YYYY-MM-DD.|não|
+|`ProofOfSale`|É o NSU (número sequencial único) da transação na adquirente.|não|
+|`MerchantOrderId`| Número do pedido.|não|
+|`AuthorizationCode`| Código de autorização da transação na adquirente.|não|
+|`Status`|Status do chargeback na Braspag.|não|
 
 ## Response
 
