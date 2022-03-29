@@ -5476,7 +5476,7 @@ Este fluxo é similar ao primeiro, com a diferença da captura automática no lu
 
 ## Fluxo AnalyseFirst
 
-Para maiores detalhes sobre o fluxo em que acontece a **análise antes da autorização**, consulte o [Manual do Antifraude](https://braspag.github.io//manual/antifraude?json#realizando-uma-an%C3%A1lise-de-fraude).
+Para maiores detalhes sobre o fluxo em que acontece a **análise antes da autorização**, consulte o [Manual do Antifraude](https://braspag.github.io//manual/antifraude?json#realizando-uma-an%C3%A1lise-de-fraude){:target="_blank"}.
 
 ## AuthorizeFirst x AnalyseFirst
 
@@ -5502,7 +5502,7 @@ Caso não seja especificado durante a autorização, a Braspag irá processar su
 
 Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós `FraudAnalysis`, `Cart`, `MerchantDefinedFields` e `Travel` (este somente para venda de passagens aéreas).
 
-Durante implantação do Cybersource, informações adicionais podem ser armazenadas através de MDDs (Merchand Defined Data), que são campos numerados de 0 a N utilizados para armazenar informações exclusivas do merchant. Confira [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral) com detalhes sobre o preenchimento desses campos.
+Durante implantação do Cybersource, informações adicionais podem ser armazenadas através de MDDs (Merchand Defined Data), que são campos numerados de 0 a N utilizados para armazenar informações exclusivas do merchant. Confira [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral){:target="_blank"} com detalhes sobre o preenchimento desses campos.
 
 ### Requisição
 
@@ -5853,7 +5853,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`Customer.Address.ZipCode`|CEP do endereço de cobrança.|Texto|9|Sim|
 |`Customer.Address.City`|Cidade do endereço de cobrança.|Texto|50|Sim|
 |`Customer.Address.State`|Estado do endereço de cobrança.|Texto|2|Sim|
-|`Customer.Address.Country`|País do endereço de cobrança.<br/>Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Texto|2|Sim|
+|`Customer.Address.Country`|País do endereço de cobrança.<br/>Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}.|Texto|2|Sim|
 |`Customer.Address.District`|Bairro do endereço de cobrança.|Texto|45|Sim|
 |`Customer.DeliveryAddress.Street`|Logradouro do endereço de entrega.|Texto|54|Não|
 |`Customer.DeliveryAddress.Number`|Número do endereço de entrega.|Texto|5|Não|
@@ -5861,7 +5861,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`Customer.DeliveryAddress.ZipCode`|CEP do endereço de entrega.|Texto|9|Não|
 |`Customer.DeliveryAddress.City`|Cidade do endereço de entrega.|Texto|50|Não|
 |`Customer.DeliveryAddress.State`|Estado do endereço de entrega.|Texto|2|Não|
-|`Customer.DeliveryAddress.Country`|País do endereço de entrega.<br/>Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Texto|2|Não|
+|`Customer.DeliveryAddress.Country`|País do endereço de entrega.<br/>Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}.|Texto|2|Não|
 |`Customer.DeliveryAddress.District`|Bairro do endereço de entrega.|Texto|45|Não|
 |`Payment.Provider`|Nome do provedor da autorização.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.<br/>Obs.: Somente o tipo "CreditCard" funciona com análise de fraude.|Texto|100|Sim|
@@ -5930,8 +5930,8 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`Payment.FraudAnalysis.Travel.Passengers.Rating`|Tipo do passageiro. <br/> [Lista de Valores - Rating](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating).|Texto|13|Não|
 |`Payment.FraudAnalysis.Travel.Passengers.Email`|E-mail do passageiro.|Texto|255|Não|
 |`Payment.FraudAnalysis.Travel.Passengers.Phone`|Telefone do passageiro. <br/> Ex.: 552121114700.|Texto|15|Não|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm).|Texto|3|Não|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Código do aeroporto de chegada.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm).|Texto|3|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}.|Texto|3|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Código do aeroporto de chegada.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}.|Texto|3|Não|
 
 <aside class="warning">Os campos do nó "FraudAnalysis.Travel" se tornam obrigatórios caso o segmento do seu negócio seja o aéreo.</aside>
 
@@ -6439,7 +6439,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. <br/> Os códigos são concatenados usando o caractere "^". Ex.: COR-BA^MM-BIN. <br/> [Lista de Valores - AddressInfoCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode).|Texto|
 |`Payment.FraudAnalysis.ReplyData.FactorCode`|Códigos que afetaram a pontuação da análise. <br/> Os códigos são concatenados usando o caractere "^". Ex.: B^D^R^Z. <br/>[Lista de Valores - FactorCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode).|Texto|
 |`Payment.FraudAnalysis.ReplyData.Score`|Score da análise de fraude. Valor entre 0 e 100.|Número|
-|`Payment.FraudAnalysis.ReplyData.BinCountry`|Código do país do BIN do cartão usado na análise.<br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Texto|
+|`Payment.FraudAnalysis.ReplyData.BinCountry`|Código do país do BIN do cartão usado na análise.<br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}.|Texto|
 |`Payment.FraudAnalysis.ReplyData.CardIssuer`|Nome do banco ou entidade emissora do cartão de crédito.|Texto|
 |`Payment.FraudAnalysis.ReplyData.CardScheme`|Bandeira do cartão.|Texto|
 |`Payment.FraudAnalysis.ReplyData.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto.|Número|
@@ -6467,7 +6467,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 Importante componente da análise de fraude, o *fingerprint* é um script que deve ser inserido no seu site para capturar dados importantes do dispositivo utilizado pelo comprador, como IP da máquina, versão do browser e sistema operacional utilizados.
 Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo fingerprint complementam a análise e garantem que sua loja esteja mais protegida.
 
-Abaixo seguem as descrições de como integrar e configurar o fingerprint em sua página de checkout e mobile. Para maiores detalhes, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360000212987-Detalhamento-da-implanta%C3%A7%C3%A3o-do-DeviceFingerPrint).
+Abaixo seguem as descrições de como integrar e configurar o fingerprint em sua página de checkout e mobile. Para maiores detalhes, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360000212987-Detalhamento-da-implanta%C3%A7%C3%A3o-do-DeviceFingerPrint){:target="_blank"}.
 
 ### Integração em Checkout
 
