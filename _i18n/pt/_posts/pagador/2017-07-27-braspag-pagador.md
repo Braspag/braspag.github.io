@@ -23,7 +23,7 @@ O objetivo desta documentação é orientar o desenvolvedor sobre como integrar 
 
 A solução [API Pagador](https://suporte.braspag.com.br/hc/pt-br/articles/360013153791-O-que-%C3%A9-o-Pagador-) foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: *ASP, ASP.Net, Java, PHP, Ruby* e *Python*.
 
-Conheça alguns dos atributos que se destacam na plataforma Braspag eCommerce:
+Conheça alguns dos atributos que se destacam na plataforma Braspag e-commerce:
 
 * **Ausência de aplicativos proprietários**: não é necessário instalar aplicativos no ambiente da loja virtual em nenhuma hipótese.
 * **Simplicidade**: o protocolo utilizado é puramente o HTTPS.
