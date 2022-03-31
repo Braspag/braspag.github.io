@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Silent Order Post</title>
+	<script src="./script.js"></script>
+	<script src="https://transactionsandbox.pagador.com.br/post/Scripts/silentorderpost-1.0.min.js"></script>
+	<script src="https://transactionsandbox.pagador.com.br/post/Scripts/silentorderpost-1.0.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="./style.css">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+</head>
+
+<body>
+
+	<nav class="navbar-container">
+		<div class="navbar-content">
+			<span class="navbar-span">Silent Order Post</span>
+		</div>
+		<div class="navbar-content">
+			<img src="https://authbackoffice.braspag.com.br/img/top-logo.02e5b2bc.svg" alt="" width="88" height="25"
+				class="d-inline-block align-text-top">
+		</div>
+		<div class="navbar-content">
+			<span></span>
+		</div>
+	</nav>
+
+	<div id="main" class="container">
+
+		<form class="bg-white p-4 form-table">
+			<div class="mb-3 table-name">
+				<span>Selecione o ambiente</span>
+			</div>
+
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="flexRadioEnvironment" id="flexRadioSandbox" value="sandbox" onchange="setEnvironment(this);">
+				<label class="form-check-label" for="flexRadioEnviroment">Sandbox</label>
+			</div>
+
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="flexRadioEnvironment" id="flexRadioProduction"
+					value="production" onchange="setEnvironment(this);">
+				<label class="form-check-label" for="flexRadioEnvironment">Produção</label>
+			</div>
+		</form>
+
+		<form class="bg-white p-4 form-table">
+
+			<div class="mb-3 table-name t000">
+				<span>Dados de autenticação</span>
+			</div>
+
+			<div class="mb-3">
+				<label for="Mid" class="form-label">MerchantId</label>
+				<input class="form-control" type="text" name="Mid" Id="Mid">
+			</div>
+
+			<div class="mb-3">
+				<label for="oauth-access-token" class="form-label">Authorization (exemplo: Bearer xxxxxx)</label>
+				<textarea class="form-control" id="oauth-access-token" name="oauth-access-token" rows="4">Bearer </textarea>
+			</div>
+
+			<div class="mb-3">
+				<button class="btn btn-primary" type="button" id="tokenButton" value="Get AccessToken"
+					onclick="hideResults(); getAccessToken();">Get AccessToken</button>
+			</div>
+
+			<div class="mb-3">
+				<label for="Mid" class="form-label">AccessToken</label>
+				<input class="form-control" type="text" id="AccessToken" disabled>
+			</div>
+		</form >
+
+		<form class="bg-white p-4 form-table">
+
+			<div class="mb-3 table-name">
+				<span>Selecione as opções</span>
+			</div>
+
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="verifyCard" name="verifyCard">
+				<label class="form-check-label" for="verifyCard">
+					VerifyCard
+				</label>
+			</div>
+
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="binQuery" name="binQuery">
+				<label class="form-check-label" for="binQuery">
+					BinQuery
+				</label>
+			</div>
+
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="tokenize" name="tokenize">
+				<label class="form-check-label" for="tokenize">
+					Tokenização
+				</label>
+			</div>
+		</form>
+
+		<form class="bg-white p-4 form-table">
+
+			<div class="mb-3 table-name">
+				<span>Dados do cartão</span>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<label for="CardNumber" class="form-label">Número do cartão</label>
+					<input class="form-control bp-sop-cardnumber" type="text" name="CardNumber" value="4111111111111111">
+					<label id="bp-sop-cardnumber" class="validation-messages"></label>
+				</div>
+				<div class="col">
+					<label for="CardExpirationDate" class="form-label">Expiração do Cartão</label>
+					<input class="form-control bp-sop-cardexpirationdate" type="text" name="CardExpirationDate" value="02/2025">
+					<label id="bp-sop-cardexpirationdate" class="validation-messages"></label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label for="CardHolderName" class="form-label">Nome do Portador</label>
+					<input class="form-control bp-sop-cardholdername" type="text" name="CardHolderName" value="Cliente de Teste">
+					<label id="bp-sop-cardholdername" class="validation-messages"></label>
+				</div>
+				<div class="col">
+					<label for="CardCvv" class="form-label">Código de segurança</label>
+					<input class="form-control bp-sop-cardcvv" type="text" name="CardCvv" value="123">
+					<label id="bp-sop-cardcvv" class="validation-messages"></label>
+				</div>
+			</div>
+
+			<div class="col">
+				<label for="cardtype" class="form-label">Tipo de cartão</label>
+				<input class="form-control bp-sop-cardtype" type="text" name="cardtype" value="CreditCard" placeholder="DebitCard ou CreditCard">
+				<label id="bp-sop-cardtype" class="validation-messages"></label>
+			</div>
+
+			<button class="btn btn-primary col" type="button" id="sumbitButton" value="Finalizar"
+				onclick="hideResults(); sendCardData();">Finalizar</button>
+		</form>
+
+		<div class="bg-white p-4">
+			<div class="row ">
+				<label class="form-label">Erro</label>
+				<div id="error" class=""></div>
+
+			</div>
+			<div class="row">
+				<label class="form-label">Raw message</label>
+				<div id="raw-message" class=""></div>
+			</div>
+		</div>
+
+		<div type="hidden" class="display-none" id="payment-token" style="display: none;"></div>
+		<div type="hidden" class="display-none" id="card-token" style="display: none;"></div>
+		<div type="hidden" class="display-none" id="accessToken" style="display: none;"></div>
+
+</body>
+
+</html>

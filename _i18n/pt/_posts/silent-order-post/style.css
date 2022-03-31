@@ -1,0 +1,59 @@
+body {
+  background-color: #F8F8F8;
+  font-family: 'Nunito', sans-serif;
+}
+
+.bg-white {
+  background-color: #FFFFFF;
+}
+
+
+.form-table {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  box-shadow: 0 3px 0 0 rgb(0 0 0 / 6%);
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+}
+
+.form-label {
+  color: #565656;
+  font: normal normal 700 16px/1.86 Nunito,Arial,Helvetica,sans-serif;
+}
+
+.table-name {
+  font-weight: 700;
+  color: #036b91;
+  font-size: 18px;
+}
+
+.navbar-container {
+  background-color: #1aa9de;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 4%); 
+  height: 50px;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+.navbar-content {
+  width: 8.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-span {
+  color: #FFFFFF;
+  font-weight: 700;
+}
