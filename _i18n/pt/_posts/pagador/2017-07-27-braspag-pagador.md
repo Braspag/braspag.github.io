@@ -6434,17 +6434,17 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.|Texto|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Código do aeroporto de chegada.|Texto|
 |`Payment.FraudAnalysis.Id`|Id da transação no *Antifraude* Braspag.|GUID|
-|`Payment.FraudAnalysis.Status`|Status da transação no *Antifraude* Braspag. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status).|Número|
-|`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Código de retorno da Cybersouce. <br/> [Lista de Valores - FraudAnalysisReasonCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode).|Número|
-|`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. <br/> Os códigos são concatenados usando o caractere "^". Ex.: COR-BA^MM-BIN. <br/> [Lista de Valores - AddressInfoCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode).|Texto|
-|`Payment.FraudAnalysis.ReplyData.FactorCode`|Códigos que afetaram a pontuação da análise. <br/> Os códigos são concatenados usando o caractere "^". Ex.: B^D^R^Z. <br/>[Lista de Valores - FactorCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode).|Texto|
+|`Payment.FraudAnalysis.Status`|Status da transação no *Antifraude* Braspag. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status){:target="_blank"}.|Número|
+|`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Código de retorno da Cybersouce. <br/> [Lista de Valores - FraudAnalysisReasonCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode){:target="_blank"}.|Número|
+|`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. <br/> Os códigos são concatenados usando o caractere "^". Ex.: COR-BA^MM-BIN. <br/> [Lista de Valores - AddressInfoCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode){:target="_blank"}.|Texto|
+|`Payment.FraudAnalysis.ReplyData.FactorCode`|Códigos que afetaram a pontuação da análise. <br/> Os códigos são concatenados usando o caractere "^". Ex.: B^D^R^Z. <br/>[Lista de Valores - FactorCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode){:target="_blank"}.|Texto|
 |`Payment.FraudAnalysis.ReplyData.Score`|Score da análise de fraude. Valor entre 0 e 100.|Número|
 |`Payment.FraudAnalysis.ReplyData.BinCountry`|Código do país do BIN do cartão usado na análise.<br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}.|Texto|
 |`Payment.FraudAnalysis.ReplyData.CardIssuer`|Nome do banco ou entidade emissora do cartão de crédito.|Texto|
 |`Payment.FraudAnalysis.ReplyData.CardScheme`|Bandeira do cartão.|Texto|
 |`Payment.FraudAnalysis.ReplyData.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto.|Número|
-|`Payment.FraudAnalysis.ReplyData.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, endereço IP ou endereço de cobrança. <br/> Os códigos são concatenados usando o caractere "^". Ex.: FREE-EM^RISK-EM <br/> [Lista de Valores - InternetInfoCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode).|Texto|
-|`Payment.FraudAnalysis.ReplyData.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP. <br/> [Lista de Valores - IpRoutingMethod](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod).|Texto|
+|`Payment.FraudAnalysis.ReplyData.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, endereço IP ou endereço de cobrança. <br/> Os códigos são concatenados usando o caractere "^". Ex.: FREE-EM^RISK-EM <br/> [Lista de Valores - InternetInfoCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode){:target="_blank"}.|Texto|
+|`Payment.FraudAnalysis.ReplyData.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP. <br/> [Lista de Valores - IpRoutingMethod](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod){:target="_blank"}.|Texto|
 |`Payment.FraudAnalysis.ReplyData.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado.|Texto|
 |`Payment.FraudAnalysis.ReplyData.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia entre 1 (maior) e 5 (menor). O valor padrão é 3, e é atribuído caso não se tenha definido a prioridade das regras ou perfis. Este campo será retornado somente se a loja for assinante do *Enhanced Case Management*.|Número|
 |`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`|Id da transação na Cybersource.|Texto|
@@ -6458,7 +6458,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`Payment.ECI`|*Electronic Commerce Indicator*. Código gerado em uma transação de crédito com autenticação externa.|Texto|
 |`Payment.ReasonCode`|Código de retorno da operação.|Texto|
 |`Payment.ReasonMessage`|Mensagem de retorno da operação.|Texto|
-|`Payment.Status`|Status da transação no Pagador. <br/> [Lista de Status da Transação](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação).|Número|
+|`Payment.Status`|Status da transação no Pagador. <br/> [Lista de Status da Transação](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação){:target="_blank"}.|Número|
 |`Payment.ProviderReturnCode`|Código retornado pela adquirente ou emissor.|Texto|
 |`Payment.ProviderReturnMessage`|Mensagem retornada pela adquirente ou emissor.|Texto|
 
