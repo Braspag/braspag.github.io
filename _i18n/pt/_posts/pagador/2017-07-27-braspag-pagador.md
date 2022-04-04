@@ -7351,7 +7351,7 @@ As listas a seguir se referem a provedores na integração REST:
 
 |Providers|
 |--------|
-|Simulado, Cielo30 (Cielo 3.0), Rede2, Getnet, FirstData, GlobalPayments|
+|Simulado, Cielo30 (Cielo 3.0), Rede2, Getnet, FirstData, GlobalPayments e Safra2.|
 
 ### Providers para Consulta BIN via VerifyCard
 
