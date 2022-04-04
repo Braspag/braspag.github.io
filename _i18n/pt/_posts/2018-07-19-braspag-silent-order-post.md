@@ -218,10 +218,9 @@ O script fornecido pela Braspag oferece os três seguintes eventos para manipula
 
 ### Exemplo
 
-Para baixar o código, clique [aqui](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html).
-Exemplo de uma parametrização na página de checkout:
+Compartilhamos no nosso GitHub um [exemplo prático](https://github.com/Braspag/silent-order-post/blob/main/index.html){:target="_blank"} de como você deve mapear as classes e integrar o Silent Order Post ao seu checkout.
 
-![Pagina Checkout]({{ site.baseurl_root }}/images/consulta-bin.jpg)
+Para ver uma aplicação integrada ao Silent Order Post, acesse nossa [aplicação de exemplo](https://braspag.github.io/silent-order-post/){:target="_blank"}.
 
 ## 4. Autorizando com PaymentToken
 
