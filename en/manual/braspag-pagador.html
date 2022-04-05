@@ -3725,8 +3725,9 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
    </span><span class="p">},</span><span class="w">
    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w"> 
       </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Pix"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="w">
+      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Bradesco2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"QrCodeExpiration"</span><span class="p">:</span><span class="mi">86400</span><span class="w">
    </span><span class="p">}</span><span class="w">    
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -3741,13 +3742,14 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
    <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2020102601"</span>,
    <span class="s2">"Customer"</span>:<span class="o">{</span>
       <span class="s2">"Name"</span>:<span class="s2">"Nome do Pagador"</span>,
-      <span class="s2">"Identity"</span>:<span class="s2">"CPF"</span>,
-      <span class="s2">"IdentityType"</span>:<span class="s2">"12345678909"</span>
+      <span class="s2">"Identity"</span>:<span class="s2">"12345678909"</span>,
+      <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>
    <span class="o">}</span>,
    <span class="s2">"Payment"</span>:<span class="o">{</span> 
       <span class="s2">"Type"</span>:<span class="s2">"Pix"</span>,
-      <span class="s2">"Provider"</span>:<span class="s2">"Cielo30"</span>,
-      <span class="s2">"Amount"</span>:100
+      <span class="s2">"Provider"</span>:<span class="s2">"Bradesco2"</span>,
+      <span class="s2">"Amount"</span>:100,
+      <span class="s2">"QrCodeExpiration"</span>:86400
    <span class="o">}</span>    
 <span class="o">}</span>
 <span class="nt">--verbose</span>
@@ -3797,14 +3799,14 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
       <td>Payment method type. In this case, “Pix”.</td>
       <td>Text</td>
       <td>-</td>
-      <td>YES</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Name of payment method provider. In this case, “Cielo30” or “Bradesco2”.</td>
       <td>Text</td>
       <td>-</td>
-      <td>YES</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
@@ -3812,6 +3814,13 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.QrCodeExpiration</code></td>
+      <td>QRCode expiration time, in seconds. <strong>Available for provider Bradesco only</strong>. Ex: 24 horas = 86400.</td>
+      <td>Number</td>
+      <td>3600</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
@@ -3821,17 +3830,20 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2020102601"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Pagador"</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Luis Henrique"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21844718933"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
       </span><span class="err">(...)</span><span class="w">   
       </span><span class="nl">"Paymentid"</span><span class="p">:</span><span class="s2">"1997be4d-694a-472e-98f0-e7f4b4c8f1e7"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Pix"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Bradesco2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="s2">"86c200c7-7cdf-4375-92dd-1f62dfa846ad"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"QrcodeBase64Image"</span><span class="p">:</span><span class="s2">"rfhviy64ak+zse18cwcmtg==[...]"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"QrCodeString"</span><span class="p">:</span><span class="s2">"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"QrCodeExpiration"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="s2">"2020-10-15 18:53:20"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Status"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -3848,17 +3860,20 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 <span class="o">{</span>
    <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2020102601"</span>,
    <span class="s2">"Customer"</span>:<span class="o">{</span>
-      <span class="s2">"Name"</span>:<span class="s2">"Nome do Pagador"</span>
+        <span class="s2">"Name"</span>: <span class="s2">"Luis Henrique"</span>,
+        <span class="s2">"Identity"</span>: <span class="s2">"21844718933"</span>,
+        <span class="s2">"IdentityType"</span>: <span class="s2">"CPF"</span>
    <span class="o">}</span>,
    <span class="s2">"Payment"</span>:<span class="o">{</span>
-      <span class="o">(</span>...<span class="o">)</span>
-      <span class="s2">"PaymentId"</span>:<span class="s2">"1997be4d-694a-472e-98f0-e7f4b4c8f1e7"</span>,
+      <span class="o">(</span>...<span class="o">)</span>   
+      <span class="s2">"Paymentid"</span>:<span class="s2">"1997be4d-694a-472e-98f0-e7f4b4c8f1e7"</span>,
       <span class="s2">"Type"</span>:<span class="s2">"Pix"</span>,
-      <span class="s2">"Provider"</span>:<span class="s2">"Cielo30"</span>,
+      <span class="s2">"Provider"</span>:<span class="s2">"Bradesco2"</span>,
       <span class="s2">"AcquirerTransactionId"</span>:<span class="s2">"86c200c7-7cdf-4375-92dd-1f62dfa846ad"</span>,
          <span class="s2">"ProofOfSale"</span>:<span class="s2">"123456"</span>,
       <span class="s2">"QrcodeBase64Image"</span>:<span class="s2">"rfhviy64ak+zse18cwcmtg==[...]"</span>,
       <span class="s2">"QrCodeString"</span>:<span class="s2">"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C"</span>,
+      <span class="s2">"QrCodeExpiration"</span>: 86400,
       <span class="s2">"Amount"</span>:100,
       <span class="s2">"ReceivedDate"</span>:<span class="s2">"2020-10-15 18:53:20"</span>,
       <span class="s2">"Status"</span>:12,

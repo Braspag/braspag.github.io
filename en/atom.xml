@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2022-04-05T20:50:09+00:00</updated>
+    <updated>2022-04-05T20:55:06+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -18683,8 +18683,9 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pix&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bradesco2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;QrCodeExpiration&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;86400&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -18699,13 +18700,14 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
    &lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2020102601&quot;&lt;/span&gt;,
    &lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Pagador&quot;&lt;/span&gt;,
-      &lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CPF&quot;&lt;/span&gt;,
-      &lt;span class=&quot;s2&quot;&gt;&quot;IdentityType&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12345678909&quot;&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12345678909&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;IdentityType&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CPF&quot;&lt;/span&gt;
    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
    &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
       &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Pix&quot;&lt;/span&gt;,
-      &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;,
-      &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;:100
+      &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Bradesco2&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;:100,
+      &lt;span class=&quot;s2&quot;&gt;&quot;QrCodeExpiration&quot;&lt;/span&gt;:86400
    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;    
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
@@ -18755,14 +18757,14 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
       &lt;td&gt;Payment method type. In this case, “Pix”.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Name of payment method provider. In this case, “Cielo30” or “Bradesco2”.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;YES&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
@@ -18770,6 +18772,13 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.QrCodeExpiration&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;QRCode expiration time, in seconds. &lt;strong&gt;Available for provider Bradesco only&lt;/strong&gt;. Ex: 24 horas = 86400.&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;3600&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -18779,17 +18788,20 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2020102601&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Pagador&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Luis Henrique&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Identity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;21844718933&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;IdentityType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CPF&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Paymentid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1997be4d-694a-472e-98f0-e7f4b4c8f1e7&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Pix&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bradesco2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;AcquirerTransactionId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;86c200c7-7cdf-4375-92dd-1f62dfa846ad&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;QrcodeBase64Image&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;rfhviy64ak+zse18cwcmtg==[...]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;QrCodeString&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;QrCodeExpiration&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;86400&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ReceivedDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2020-10-15 18:53:20&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -18806,17 +18818,20 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
    &lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2020102601&quot;&lt;/span&gt;,
    &lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Pagador&quot;&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Luis Henrique&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;Identity&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;21844718933&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;IdentityType&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;CPF&quot;&lt;/span&gt;
    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
    &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;1997be4d-694a-472e-98f0-e7f4b4c8f1e7&quot;&lt;/span&gt;,
+      &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;   
+      &lt;span class=&quot;s2&quot;&gt;&quot;Paymentid&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;1997be4d-694a-472e-98f0-e7f4b4c8f1e7&quot;&lt;/span&gt;,
       &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Pix&quot;&lt;/span&gt;,
-      &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Bradesco2&quot;&lt;/span&gt;,
       &lt;span class=&quot;s2&quot;&gt;&quot;AcquirerTransactionId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;86c200c7-7cdf-4375-92dd-1f62dfa846ad&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;,
       &lt;span class=&quot;s2&quot;&gt;&quot;QrcodeBase64Image&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;rfhviy64ak+zse18cwcmtg==[...]&quot;&lt;/span&gt;,
       &lt;span class=&quot;s2&quot;&gt;&quot;QrCodeString&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;QrCodeExpiration&quot;&lt;/span&gt;: 86400,
       &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;:100,
       &lt;span class=&quot;s2&quot;&gt;&quot;ReceivedDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2020-10-15 18:53:20&quot;&lt;/span&gt;,
       &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;:12,
