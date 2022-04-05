@@ -2079,8 +2079,9 @@ Here are examples of a request and response for generating the QR code Pix:
    },
    "Payment":{ 
       "Type":"Pix",
-      "Provider":"Cielo30",
-      "Amount":100
+      "Provider":"Bradesco2",
+      "Amount":100,
+      "QrCodeExpiration":86400
    }    
 }
 ```
@@ -2096,13 +2097,14 @@ Here are examples of a request and response for generating the QR code Pix:
    "MerchantOrderId":"2020102601",
    "Customer":{
       "Name":"Nome do Pagador",
-      "Identity":"CPF",
-      "IdentityType":"12345678909"
+      "Identity":"12345678909",
+      "IdentityType":"CPF"
    },
    "Payment":{ 
       "Type":"Pix",
-      "Provider":"Cielo30",
-      "Amount":100
+      "Provider":"Bradesco2",
+      "Amount":100,
+      "QrCodeExpiration":86400
    }    
 }
 --verbose
@@ -2114,9 +2116,10 @@ Here are examples of a request and response for generating the QR code Pix:
 | `Customer.Name`| Customer's name. | Text | 255 | Yes |
 | `Customer.Identity` | Customer's CPF or CNPJ number. | Text | 14 | Yes |
 | `Customer.IdentityType` | Customer’s ID document type (CPF or CNPJ). | Text | 255 | Yes |
-| `Payment.Type` | Payment method type. In this case, "Pix". | Text | - | YES |
-| `Payment.Provider` | Name of payment method provider. In this case, "Cielo30" or "Bradesco2". | Text | - | YES |
+| `Payment.Type` | Payment method type. In this case, "Pix". | Text | - | Yes |
+| `Payment.Provider` | Name of payment method provider. In this case, "Cielo30" or "Bradesco2". | Text | - | Yes |
 | `Payment.Amount`| Order amount, in cents. | Number | 15 | Yes |
+| `Payment.QrCodeExpiration` | QRCode expiration time, in seconds. **Available for provider Bradesco only**. Ex: 24 horas = 86400.| Number | 3600 | No |
 
 #### Response
 
@@ -2124,17 +2127,20 @@ Here are examples of a request and response for generating the QR code Pix:
 {
    "MerchantOrderId":"2020102601",
    "Customer":{
-      "Name":"Nome do Pagador"
+        "Name": "Luis Henrique",
+        "Identity": "21844718933",
+        "IdentityType": "CPF"
    },
    "Payment":{
       (...)   
       "Paymentid":"1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
       "Type":"Pix",
-      "Provider":"Cielo30",
+      "Provider":"Bradesco2",
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
          "ProofOfSale":"123456",
       "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==[...]",
       "QrCodeString":"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C",
+      "QrCodeExpiration": 86400,
       "Amount":100,
       "ReceivedDate":"2020-10-15 18:53:20",
       "Status":12,
@@ -2152,17 +2158,20 @@ Here are examples of a request and response for generating the QR code Pix:
 {
    "MerchantOrderId":"2020102601",
    "Customer":{
-      "Name":"Nome do Pagador"
+        "Name": "Luis Henrique",
+        "Identity": "21844718933",
+        "IdentityType": "CPF"
    },
    "Payment":{
-      (...)
-      "PaymentId":"1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
+      (...)   
+      "Paymentid":"1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
       "Type":"Pix",
-      "Provider":"Cielo30",
+      "Provider":"Bradesco2",
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
          "ProofOfSale":"123456",
       "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==[...]",
       "QrCodeString":"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C",
+      "QrCodeExpiration": 86400,
       "Amount":100,
       "ReceivedDate":"2020-10-15 18:53:20",
       "Status":12,
