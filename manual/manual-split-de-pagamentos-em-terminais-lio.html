@@ -48,7 +48,20 @@
 
     <body>
         
-            <div class="content-container no-dark-box">
+            <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        });
         
             <div id="submenu">
                 <div class="submenu-container">
@@ -212,9 +225,9 @@
 
 <h1 id="integração">Integração</h1>
 
-<h2 id="criando-uma-transação">Criando uma transação</h2>
+<h1 id="criando-uma-transação">Criando uma transação</h1>
 
-<h3 id="requisição-1">Requisição</h3>
+<h2 id="requisição-1">Requisição</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions</span></aside>
 
@@ -372,7 +385,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-1">Resposta</h3>
+<h2 id="resposta-1">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"e718dc1e-fe8e-497e-9019-6aa48dee6306"</span><span class="p">,</span><span class="w">
@@ -464,13 +477,13 @@
   </tbody>
 </table>
 
-<h3 id="transação-existente">Transação existente</h3>
+<h2 id="transação-existente">Transação existente</h2>
 
 <p>Durante o processo de criação da transação no Split realizada pela LIO, pode ocorrer alguma falha impedindo a criação da transação.</p>
 
 <p>Caso a transação não seja criada no Split ao ser autorizada pela Cielo, o sistema de conciliação do Split irá gerar automaticamente a transação ao receber a confirmação por parte da Cielo. Após a criação automática, se houver uma nova tentativa de criação dessa mesma transação, a API irá retornar o status “409 - Conflict” e os dados da transação, informando que ela já existe.</p>
 
-<h4 id="requisição-2">Requisição</h4>
+<h3 id="requisição-2">Requisição</h3>
 
 <p>Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao subordinado 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.</p>
 
@@ -511,7 +524,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-2">Resposta</h4>
+<h3 id="resposta-2">Resposta</h3>
 
 <blockquote>
   <p>HTTP Status Code: 409 - Conflict</p>
@@ -554,7 +567,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="consulta">Consulta</h2>
+<h1 id="consulta">Consulta</h1>
 
 <p>É possível consultar todos os dados de uma transação e o resultado da divisão pelo método e endpoint a seguir.</p>
 
@@ -562,14 +575,15 @@
 
 <p>Veja um exemplo de consulta com o Id <em>e718dc1e-fe8e-497e-9019-6aa48dee6306</em>:</p>
 
-<h3 id="requisição-3">Requisição</h3>
+<h2 id="requisição-3">Requisição</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions/e718dc1e-fe8e-497e-9019-6aa48dee6306</span></aside>
 
-<pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
+<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
+</code></pre></div></div>
 
-<h3 id="resposta-3">Resposta</h3>
+<h2 id="resposta-3">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"e718dc1e-fe8e-497e-9019-6aa48dee6306"</span><span class="p">,</span><span class="w">
@@ -626,11 +640,196 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="cancelamento">Cancelamento</h2>
+<h1 id="consulta-de-transações-pendentes">Consulta de transações pendentes</h1>
+
+<p>Este tipo de consulta é indicado para buscar as informações de <strong>transações pendentes de criação</strong> que apresentaram erro pelo canal físico da Cielo e que, consequentemente, ocasionaram algum problema na operação de divisão da transação (split).</p>
+
+<h2 id="requisição-4">Requisição</h2>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/v1/pending-creation-transactions</span></aside>
+
+<table>
+  <thead>
+    <tr>
+      <th>Filtro</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">InitialCaptureDate</code></td>
+      <td>Data de Captura inicial da transação para busca.</td>
+      <td>Data</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FinalCaptureDate</code></td>
+      <td>Data de Captura final da transação para busca.</td>
+      <td>Data</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">InitialCreatedDate</code></td>
+      <td>Data de Criação inicial da transação para busca.</td>
+      <td>DateTime</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FinalCreatedDate</code></td>
+      <td>Data de Criação final da transação para busca.</td>
+      <td>DateTime</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
+      <td>Índice da paginação. Necessário para percorrer as páginas do resultado</td>
+      <td>Inteiro</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*É obrigatório passar pelo menos um intervalo de datas.</p>
+
+<h2 id="resposta-4">Resposta</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TotalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">39980</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"AffiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567891"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="mi">140997</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000140996"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"TerminalLogicNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10031168"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"AuthorizationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-29T00:10:38"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"CaptureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3700</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amex"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"AffiliationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010101019"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="mi">423999</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000140997"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"TerminalLogicNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42006558"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"AuthorizationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-20T11:11:48"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"CaptureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-20"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PageCount</code></td>
+      <td>Inteiro</td>
+      <td>Quantidade de páginas.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
+      <td>Inteiro</td>
+      <td>Página atual.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
+      <td>Inteiro</td>
+      <td>Quantidade máxima de itens por página.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TotalItems</code></td>
+      <td>Inteiro</td>
+      <td>Total de itens do retorno da consulta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items</code></td>
+      <td>Array[Payments]</td>
+      <td>Lista de objetos contendo informações das transações de pagamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Amount</code></td>
+      <td>Inteiro</td>
+      <td>Valor vendido para o portador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Installments</code></td>
+      <td>Inteiro</td>
+      <td>Número de parcelas de pagamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Brand</code></td>
+      <td>String</td>
+      <td>Bandeira do cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].Product</code></td>
+      <td>String</td>
+      <td>Produto. Tipos possíveis: “CreditCard”, “DebitCard”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails</code></td>
+      <td>PaymentDetails</td>
+      <td>Objeto contendo as informações de detalhes de pagamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails.AffiliationCode</code></td>
+      <td>string</td>
+      <td>Código de afiliação do multiEC.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails.Nsu</code></td>
+      <td>String</td>
+      <td>Número Sequencial Único do cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails.AuthorizationCode</code></td>
+      <td>String</td>
+      <td>Código de autorização.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails.TerminalLogicNumber</code></td>
+      <td>String</td>
+      <td>Número do terminal lógico. Obrigatoriamente 8 caracteres. Excluindo o dígito do terminal.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails.AuthorizationDate</code></td>
+      <td>DateTime</td>
+      <td>Data de autorização do pagamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails.CaptureDate</code></td>
+      <td>Data</td>
+      <td>Data de captura do pagamento.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="cancelamento">Cancelamento</h1>
 
 <p>Os cancelamentos serão processados automaticamente pelo Split de Pagamentos.</p>
 
-<h2 id="agenda-financeira">Agenda Financeira</h2>
+<h1 id="agenda-financeira">Agenda Financeira</h1>
 
 <p>Utilize as informações publicadas em <a href="https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao" target="_blank">Split de Pagamentos - Conciliação</a> para consultar a agenda e as unidades de recebíveis.</p>
 
@@ -735,6 +934,52 @@
         <script src="https://braspag.github.io//assets/js/search.js"></script>
         
 
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+        langs += "<a data-language-name='shell'>cURL</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://braspag.github.io//assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json",  "shell", ]);
+            });
+        </script>
         
 
         <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
