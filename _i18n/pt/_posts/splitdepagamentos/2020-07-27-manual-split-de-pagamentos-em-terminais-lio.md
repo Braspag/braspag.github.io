@@ -9,6 +9,9 @@ sort_order: 4
 hub_visible: false
 tags:
   - 6. Soluções para Marketplace
+language_tabs:
+  json: JSON
+  shell: cURL
 ---
 
 # Introdução
@@ -80,9 +83,9 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 # Integração
 
-## Criando uma transação  
+# Criando uma transação  
 
-### Requisição
+## Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions</span></aside>
 
@@ -140,7 +143,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 | `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Master** a ser descontado do valor referente a participação do **Subordinado**.    | Decimal | -       | Não         |
 | `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos. | Inteiro | -       | Não         |
 
-### Resposta
+## Resposta
 
 ```json
 {  
@@ -204,13 +207,13 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 | `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (identificador) do **Subordinado** ou **Master**.                       | Guid   | 36      | Sim         |
 | `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Master**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
-### Transação existente
+## Transação existente
 
 Durante o processo de criação da transação no Split realizada pela LIO, pode ocorrer alguma falha impedindo a criação da transação.
 
 Caso a transação não seja criada no Split ao ser autorizada pela Cielo, o sistema de conciliação do Split irá gerar automaticamente a transação ao receber a confirmação por parte da Cielo. Após a criação automática, se houver uma nova tentativa de criação dessa mesma transação, a API irá retornar o status "409 - Conflict" e os dados da transação, informando que ela já existe.  
 
-#### Requisição
+### Requisição
 
 Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao subordinado 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.
 
@@ -252,7 +255,7 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao subor
 }
 ```
 
-#### Resposta
+### Resposta
 
 > HTTP Status Code: 409 - Conflict
 
@@ -294,7 +297,7 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao subor
 }
 ```
 
-## Consulta
+# Consulta
 
 É possível consultar todos os dados de uma transação e o resultado da divisão pelo método e endpoint a seguir.
 
@@ -302,15 +305,16 @@ Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao subor
 
 Veja um exemplo de consulta com o Id *e718dc1e-fe8e-497e-9019-6aa48dee6306*:
 
-### Requisição
+## Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions/e718dc1e-fe8e-497e-9019-6aa48dee6306</span></aside>
 
-```x-www-form-urlencoded
+```shell
+x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
-### Resposta
+## Resposta
 
 ```json
 {  
@@ -368,10 +372,88 @@ Veja um exemplo de consulta com o Id *e718dc1e-fe8e-497e-9019-6aa48dee6306*:
 }
 ```
 
-## Cancelamento
+# Consulta de transações pendentes
+
+Este tipo de consulta é indicado para buscar as informações de **transações pendentes de criação** que apresentaram erro pelo canal físico da Cielo e que, consequentemente, ocasionaram algum problema na operação de divisão da transação (split).
+
+## Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/v1/pending-creation-transactions</span></aside>
+
+| Filtro            | Descrição                                             | Tipo    | Obrigatório|  
+|-------------------|-------------------------------------------------------|---------|---------|  
+| `InitialCaptureDate`| Data de Captura inicial da transação para busca.    |Data     | Não*|  
+| `FinalCaptureDate`| Data de Captura final da transação para busca.        |Data     | Não*| 
+| `InitialCreatedDate`| Data de Criação inicial da transação para busca.    |DateTime | Não*|  
+| `FinalCreatedDate`| Data de Criação final da transação para busca.        |DateTime | Não*| 
+| `PageIndex`       |Índice da paginação. Necessário para percorrer as páginas do resultado| Inteiro| Não|
+
+*É obrigatório passar pelo menos um intervalo de datas.
+
+## Resposta
+
+```json
+{
+    "PageCount": 1,
+    "PageIndex": 1,
+    "PageSize": 2,
+    "TotalItems": 5,
+    "Items": [
+        {
+            "Amount": 39980,
+            "Installments": 2,
+            "Brand": "Master",
+            "Product": "CreditCard",
+            "PaymentDetails": {
+                "AffiliationCode": "1234567891",
+                "Nsu": 140997,
+                "AuthorizationCode": "000140996",
+                "TerminalLogicNumber": "10031168",
+                "AuthorizationDate": "2021-05-29T00:10:38",
+                "CaptureDate": "2021-05-30"
+            }
+        },
+        {
+            "Amount": 3700,
+            "Installments": 1,
+            "Brand": "Amex",
+            "Product": "DebitCard",
+            "PaymentDetails": {
+                "AffiliationCode": "1010101019",
+                "Nsu": 423999,
+                "AuthorizationCode": "000140997",
+                "TerminalLogicNumber": "42006558",
+                "AuthorizationDate": "2021-05-20T11:11:48",
+                "CaptureDate": "2021-05-20"
+            }
+        }
+    ]
+}
+```
+
+| Propriedade   | Tipo               | Descrição                                             |
+|---------------|--------------------|-------------------------------------------------------|
+| `PageCount`   | Inteiro            | Quantidade de páginas.                                |
+| `PageIndex`   | Inteiro            | Página atual.                                         |
+| `PageSize`    | Inteiro            | Quantidade máxima de itens por página.                |
+| `TotalItems`  | Inteiro            | Total de itens do retorno da consulta.                |
+| `Items`       | Array[Payments]    | Lista de objetos contendo informações das transações de pagamento. |
+| `Items[].Amount`   | Inteiro       | Valor vendido para o portador.                        |
+| `Items[].Installments`   | Inteiro | Número de parcelas de pagamento.                      |
+| `Items[].Brand`          | String  | Bandeira do cartão.                                   |  
+| `Items[].Product`        | String  | Produto. Tipos possíveis: "CreditCard", "DebitCard".  | 
+| `Items[].PaymentDetails` | PaymentDetails| Objeto contendo as informações de detalhes de pagamento. |      
+| `Items[].PaymentDetails.AffiliationCode`   | string  |  Código de afiliação do multiEC.    |
+| `Items[].PaymentDetails.Nsu`  | String  | Número Sequencial Único do cartão.               |                                                                     
+| `Items[].PaymentDetails.AuthorizationCode`  | String  | Código de autorização.             |
+| `Items[].PaymentDetails.TerminalLogicNumber`| String  | Número do terminal lógico. Obrigatoriamente 8 caracteres. Excluindo o dígito do terminal.|
+| `Items[].PaymentDetails.AuthorizationDate`  | DateTime| Data de autorização do pagamento.  |
+| `Items[].PaymentDetails.CaptureDate`        | Data    | Data de captura do pagamento.       |
+
+# Cancelamento
 
 Os cancelamentos serão processados automaticamente pelo Split de Pagamentos.
 
-## Agenda Financeira
+# Agenda Financeira
 
 Utilize as informações publicadas em [Split de Pagamentos - Conciliação](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao){:target="_blank"} para consultar a agenda e as unidades de recebíveis.
