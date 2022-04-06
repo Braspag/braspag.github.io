@@ -55,8 +55,6 @@
                     
                     <li><a data-language-name='json'>JSON</a></li>
                     
-                    <li><a data-language-name='shell'>cURL</a></li>
-                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -579,9 +577,8 @@
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions/e718dc1e-fe8e-497e-9019-6aa48dee6306</span></aside>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
-<span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
-</code></pre></div></div>
+<pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
+</code></pre>
 
 <h2 id="resposta-3">Resposta</h2>
 
@@ -968,8 +965,6 @@
         
         langs += "<a data-language-name='json'>JSON</a>";
         
-        langs += "<a data-language-name='shell'>cURL</a>";
-        
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
         </script>
@@ -977,7 +972,7 @@
         <script src="https://braspag.github.io//assets/js/lang.js"></script>
         <script>
             $(function() {
-                setupLanguages([  "json",  "shell", ]);
+                setupLanguages([  "json", ]);
             });
         </script>
         
