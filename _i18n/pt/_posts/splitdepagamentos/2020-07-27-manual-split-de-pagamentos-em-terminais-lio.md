@@ -11,7 +11,6 @@ tags:
   - 6. Soluções para Marketplace
 language_tabs:
   json: JSON
-  shell: cURL
 ---
 
 # Introdução
@@ -309,8 +308,7 @@ Veja um exemplo de consulta com o Id *e718dc1e-fe8e-497e-9019-6aa48dee6306*:
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/transactions/e718dc1e-fe8e-497e-9019-6aa48dee6306</span></aside>
 
-```shell
-x-www-form-urlencoded
+```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
