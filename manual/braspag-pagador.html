@@ -13350,13 +13350,13 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <h1 id="post-de-notificação">Post de Notificação</h1>
 
-<p>Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), deve-se ter configurado o campo “URL de Notificação” durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
+<p>Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), configure o campo “URL de Notificação” durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
 
 <p>Veja o fluxo percorrido pelo post de notificação:</p>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/fluxo-trans5-pt.png" alt="Post de Notificação" /></p>
 
-<aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
+<aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, é necessário fazer a consulta (sondagem) das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
 <p>Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exemplo abaixo.</p>
 
@@ -13451,8 +13451,8 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <p>É esperado o retorno da loja com a seguinte resposta: <code class="language-plaintext highlighter-rouge">HTTP Status Code 200 OK</code>.</p>
 
-<aside class="notice">Caso não seja retornada a resposta acima, haverão mais três tentativas de envio do Post de Notificação.</aside>
-<aside class="warning">Cada tentativa terá o espaço de 2 horas entre cada uma elas.</aside>
+<aside class="notice">Caso não seja retornada a resposta acima, haverá mais três tentativas de envio do Post de Notificação.</aside>
+<aside class="warning">Cada tentativa terá o espaço de 2 horas entre cada uma delas.</aside>
 
 <h1 id="anexos">ANEXOS</h1>
 
