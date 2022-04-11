@@ -7263,13 +7263,13 @@ Para consultar um pedido de recorrência, é necessário o envio de mensagem HTT
 
 # Post de Notificação
 
-Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), deve-se ter configurado o campo "URL de Notificação" durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).
+Para receber a notificação de alteração de status da transação (ex.: confirmação de pagamento ou devolução), configure o campo "URL de Notificação" durante o cadastro de sua loja na Braspag. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).
 
 Veja o fluxo percorrido pelo post de notificação:
 
 ![Post de Notificação]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/fluxo-trans5-pt.png)
 
-<aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, faz-se necessária a sondagem das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
+<aside class="warning">Como existe a possibilidade de ocorrerem intermitências entre as APIs de envio e de recebimento, é necessário fazer a consulta (sondagem) das transações pendentes (não pagas) que ainda não tenham sido atualizadas no dia.</aside>
 
 Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exemplo abaixo.
 
@@ -7304,8 +7304,8 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 
 É esperado o retorno da loja com a seguinte resposta: `HTTP Status Code 200 OK`.
 
-<aside class="notice">Caso não seja retornada a resposta acima, haverão mais três tentativas de envio do Post de Notificação.</aside>
-<aside class="warning">Cada tentativa terá o espaço de 2 horas entre cada uma elas.</aside>
+<aside class="notice">Caso não seja retornada a resposta acima, haverá mais três tentativas de envio do Post de Notificação.</aside>
+<aside class="warning">Cada tentativa terá o espaço de 2 horas entre cada uma delas.</aside>
 
 # ANEXOS
 
