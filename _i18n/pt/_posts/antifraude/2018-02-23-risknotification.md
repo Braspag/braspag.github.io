@@ -26,7 +26,7 @@ O objetivo desta documentação é orientar o desenvolvedor sobre como integrar 
 
 Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
 
-# Hosts
+# Ambientes
 
 ## BraspagAuth API
 
@@ -46,54 +46,45 @@ Para executar uma operação, combine o endpoint base do ambiente com o endpoint
 
 ## Tokens de Acesso
 
-A Risk Notification API utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, que são: **Sandbox** e **Produção**.
+A Risk Notification API utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, **Sandbox** e **Produção**.
 
-Esta sessão descreve o fluxo necessário para que aplicações cliente obtenham tokens de acesso válidos para uso na API.
+## Como obter o token de acesso
 
-## Obtenção do token de acesso  
+Durante o onboarding, você receberá as credenciais `ClientId` e `ClientSecret`. Caso não tenha recebido a credencial, solicite ao [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"} enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.
 
-O token de acesso é obtido através do fluxo oauth **client_credentials**. O diagrama abaixo, ilustra, em ordem cronológica, a comunicação que se dá entre a **Aplicação Cliente**, a **API BraspagAuth** e a **Risk Notification API**.
+**1.** Concatene as credenciais no formato `ClientId:ClientSecret`;<br/>
+**2.** Converta o resultado em base 64, gerando uma string;
 
-1. A **Aplicação Cliente**, informa à API **BraspagAuth** sua credencial.
+> **Exemplo:**<br/>
+> * client_id: **braspagtestes**<br/>
+> * client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
+> * String a ser codificada em Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
+> * Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**<br/>
 
-2. O **BraspagAuth** valida a credencial recebida. Se for válida, retorna o token de acesso para a **Aplicação Cliente**.
+**3.** Envie a string em base 64 na requisição de Autenticação (POST);<br/>
+**4.** A API de Autenticação irá validar a string e retornará o `access_token` (token de acesso). 
 
-3. A **Aplicação Cliente** informa o token de acesso no cabeçalho das requisições HTTP feitas à **Risk Notification API**.
+O token retornado (`access_token`) deverá ser utilizado em toda requisição à Risk Notification API como uma chave de autorização. O `access_token` possui uma validade de 20 minutos e é necessário gerar um novo toda vez que a validade expirar.
 
-4. Se o token de acesso for válido, a requisição é processada e os dados são retornados para a **Aplicação Cliente**.
-
-> Solicite uma credencial abrindo um ticket através da nossa ferramenta de suporte, enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.
-[Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br)
-
-## Como obter o token
-
-Uma vez em posse da credencial, será necessário "codificá-la" em Base64, utilizando a convenção **client_id:client_secret**, e enviar o resultado no cabeçalho através do campo **Authorization**.
-
-Exemplo:
-* client_id: **braspagtestes**
-* client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
-* String a ser codificada em Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
-* Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**
-
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-**Parâmetros no cabeçalho (Header)**
+**Parâmetros no Cabeçalho (header)**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/x-www-form-urlencoded|
 |`Authorization`|Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|
 
-**Parâmetros no corpo (Body)**
+**Parâmetros no Corpo (body)**
 
 |Key|Value|
 |:-|:-|
-|`scope`|Chargeback|
+|`scope`|AntifraudGatewayApp|
 |`grant_type`|client_credentials|
 
-### Response
+### Resposta
 
 ``` json
 {
@@ -103,13 +94,13 @@ Exemplo:
 }
 ```
 
-**Parâmetros no corpo (Body)**
+**Parâmetros no corpo (body)**
 
 |Parâmetro|Descrição|
 |:-|:-|
-|`access_token`|O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, no caso a Risk Notification API|
-|`token_type`|Indica o valor do tipo de token|
-|`expires_in`|Expiração do o token de acesso, em segundos <br/>O token quando expirar, é necessário obter um novo|
+|`access_token`|O token de acesso solicitado.|
+|`token_type`|Indica o valor do tipo de token.|
+|`expires_in`|Expiração do token de acesso, em segundos. <br/>Após expirar, é necessário obter um novo.|
 
 # Simulando Chargeback 
 
