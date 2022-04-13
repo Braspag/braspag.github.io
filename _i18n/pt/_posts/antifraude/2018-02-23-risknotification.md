@@ -18,7 +18,7 @@ A API Risk Notification foi desenvolvida pelo time de Risco da Braspag para os q
 
 A API é baseada em arquitetura REST, que trocam dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo [OAuth 2](https://oauth.net/2/), onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.
 
-> Clientes Cielo E-commerce que desejam usar a API de Chargeback precisam contratar este serviço com a Braspag. Para isso, solicite para o canal de chargeback do seu segmento (por e-mail) ou para seu gestor comercial.
+> Clientes Cielo E-commerce que desejam usar a Risk Notification API precisam contratar este serviço com a Braspag. Para isso, solicite para o canal de chargeback do seu segmento (por e-mail) ou para seu gestor comercial.
 
 # Objetivo
 
