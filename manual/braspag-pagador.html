@@ -140,7 +140,7 @@
             <div class="post">
   <h1 id="introdução-à-api-do-pagador">Introdução à API do Pagador</h1>
 
-<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e resposta.</p>
+<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar sua plataforma de e-commerce com a <strong>API do Pagador</strong>, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e resposta.</p>
 
 <h2 id="principais-benefícios">Principais Benefícios</h2>
 
@@ -7958,13 +7958,15 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <h2 id="transação-com-renova-fácil">Transação com Renova Fácil</h2>
 
-<p>O <em>Renova Fácil</em> é um serviço desenvolvido pela Cielo em conjunto com os emissores cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.</p>
+<p>O <em>Renova Fácil</em> é um serviço desenvolvido pela Cielo em conjunto com os emissores cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito e débito.</p>
 
 <p>Através da identificação de cartões vencidos no momento da transação, é feita a autorização com um novo cartão, que é então retornado para armazenagem.</p>
 
 <aside class="notice">Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.</aside>
 
-<p>Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado na Cielo. Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá um nó a mais conforme exemplo abaixo:</p>
+<p>Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado na Cielo. Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá o nó <code class="language-plaintext highlighter-rouge">NewCard</code>, tanto para transação de crédito quanto para transação de débito.</p>
+
+<p>Veja a seguir o exemplo de resposta de uma transação de crédito.</p>
 
 <h3 id="resposta-28">Resposta</h3>
 
