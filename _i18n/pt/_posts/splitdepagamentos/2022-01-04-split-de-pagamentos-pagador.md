@@ -3077,7 +3077,7 @@ Diferente dos pagamentos com cartão de crédito ou boleto tradicionais, os paga
 
 A recorrência é muito usada para assinaturas de revistas, mensalidades, licenças de software, entre outros. Além da integração técnica, é necessário que seu estabelecimento comercial esteja habilitado na adquirente para receber pagamentos recorrentes.
 
-O lojista conta com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas e intervalo entre tentativas. Para saber mais detalhes, leia nosso artigo sobre [Recorrência] (https://suporte.braspag.com.br/hc/pt-br/articles/360013311991){:target="_blank"}.
+O lojista conta com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas e intervalo entre tentativas. Para saber mais detalhes, leia nosso artigo sobre [Recorrência](https://suporte.braspag.com.br/hc/pt-br/articles/360013311991){:target="_blank"}.
 
 <aside class="notice">Vendas recorrentes com cartão de crédito não exigem CVV.</aside>
 
