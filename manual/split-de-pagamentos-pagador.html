@@ -410,7 +410,7 @@
   <p>Em todos os exemplos a seguir a divisão da transação segue o modelo de Split Transacional, ou seja, a divisão é solicitada no momento da captura.</p>
 </blockquote>
 
-<h1 id="transação-de-crédito">Transação de Crédito</h1>
+<h2 id="transação-de-crédito">Transação de Crédito</h2>
 
 <p>Ao informar um tipo de pagamento referente ao Split, a API do Pagador automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag.</p>
 
@@ -420,7 +420,7 @@
   <p>Para transações <strong>com análise de fraude</strong>, siga a requisição do capítulo <strong>[Antifraude]</strong>(https://braspag.github.io//manual/split-de-pagamentos-pagador#antifraude) deste manual.</p>
 </blockquote>
 
-<h2 id="transação-de-crédito-sem-o-nó-da-divisão">Transação de crédito sem o nó da divisão</h2>
+<h3 id="transação-de-crédito-sem-o-nó-da-divisão">Transação de crédito sem o nó da divisão</h3>
 
 <p>Neste caso, o master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.</p>
 
@@ -449,7 +449,7 @@
 
 <p>Veja a requisição dessa transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.</p>
 
-<h3 id="requisição">Requisição</h3>
+<h4 id="requisição">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -687,7 +687,7 @@
 
 <aside class="warning">**Em uma transação com análise de fraude os campos podem ter tamanhos diferentes, como é o caso do campo `Customer.DeliveryAddress.Complement`. Nesse caso, consulte a requisição do capítulo Antifraude neste mesmo manual.</aside>
 
-<h3 id="resposta">Resposta</h3>
+<h4 id="resposta">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -764,7 +764,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="transação-de-crédito-com-o-nó-da-divisão">Transação de crédito com o nó da divisão</h2>
+<h3 id="transação-de-crédito-com-o-nó-da-divisão">Transação de crédito com o nó da divisão</h3>
 
 <p><img src="https://braspag.github.io//images/braspag/split/split8-exemplo3-com-no.png" alt="SplitEx3" /></p>
 
@@ -811,7 +811,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 
 <p>Veja a requisição dessa transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão.</p>
 
-<h3 id="requisição-1">Requisição</h3>
+<h4 id="requisição-1">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1065,7 +1065,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 
 <aside class="warning">**Em uma transação com análise de fraude os campos podem ter tamanhos diferentes, como é o caso do campo `Customer.DeliveryAddress.Complement`. Nesse caso, consulte a requisição do capítulo Antifraude neste mesmo manual.</aside>
 
-<h3 id="resposta-1">Resposta</h3>
+<h4 id="resposta-1">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1164,7 +1164,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h1 id="transação-de-débito">Transação de Débito</h1>
+<h2 id="transação-de-débito">Transação de Débito</h2>
 
 <p>Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:</p>
 
@@ -1177,7 +1177,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
   <p>Para saber mais sobre a integração 3DS 2.0, acesse o <a href="https://braspag.github.io//manualp/emv3ds">Manual de Autenticação 3DS 2.0</a>.</p>
 </blockquote>
 
-<h2 id="requisição-2">Requisição</h2>
+<h3 id="requisição-2">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1289,7 +1289,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
   </tbody>
 </table>
 
-<h2 id="resposta-2">Resposta</h2>
+<h3 id="resposta-2">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1386,7 +1386,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h1 id="transação-de-boleto">Transação de Boleto</h1>
+<h2 id="transação-de-boleto">Transação de Boleto</h2>
 
 <p><strong>Boleto Registrado</strong></p>
 
@@ -1396,7 +1396,7 @@ pela Febraban em conjunto com os bancos, para promover maior controle e seguran�
 <p>Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. A seguir temos um exemplo de como criar um pedido com este
 tipo de meio de pagamento.</p>
 
-<h2 id="requisição-3">Requisição</h2>
+<h3 id="requisição-3">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1624,7 +1624,7 @@ tipo de meio de pagamento.</p>
 (**) Caracteres especiais e acentuações são removidos automaticamente.</p>
 </blockquote>
 
-<h2 id="resposta-3">Resposta</h2>
+<h3 id="resposta-3">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
@@ -3125,11 +3125,13 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h1 id="consulta">Consulta</h1>
+<h1 id="consulta-captura-e-cancelamento">Consulta, Captura e Cancelamento</h1>
+
+<h2 id="consulta">Consulta</h2>
 
 <p>Para consultar uma transação, use o serviço de consulta da API do Pagador, informando o <code class="language-plaintext highlighter-rouge">PaymentId</code> da transação. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o <a href="https://braspag.github.io//manual/split-de-pagamentos-pagador#post-de-notifica%C3%A7%C3%A3o">Post de Notificação</a>.</p>
 
-<h2 id="requisição-8">Requisição</h2>
+<h3 id="requisição-8">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -3184,7 +3186,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h2 id="resposta-10">Resposta</h2>
+<h3 id="resposta-10">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -3893,15 +3895,15 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h1 id="captura">Captura</h1>
+<h2 id="captura">Captura</h2>
 
 <p>Ao capturar uma transação do Split de Pagamentos, o master precisa informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio master.</p>
 
-<h2 id="captura-total">Captura Total</h2>
+<h3 id="captura-total">Captura Total</h3>
 
 <p>Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.</p>
 
-<h3 id="requisição-9">Requisição</h3>
+<h4 id="requisição-9">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
@@ -3927,7 +3929,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="resposta-11">Resposta</h3>
+<h4 id="resposta-11">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -3990,11 +3992,11 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="captura-parcial">Captura Parcial</h2>
+<h3 id="captura-parcial">Captura Parcial</h3>
 
 <p>Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio master.</p>
 
-<h3 id="requisição-10">Requisição</h3>
+<h4 id="requisição-10">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
@@ -4022,7 +4024,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="resposta-12">Resposta</h3>
+<h4 id="resposta-12">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4134,7 +4136,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h1 id="cancelamento">Cancelamento</h1>
+<h2 id="cancelamento">Cancelamento</h2>
 
 <p>Ao cancelar uma transação do Split de Pagamentos o master deve informar, para um cancelamento parcial, qual o valor que deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e, consequentemente, o valor total de cada subordinado.</p>
 
@@ -4142,15 +4144,15 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   <p>O prazo de estorno de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.</p>
 </blockquote>
 
-<h2 id="cancelamento-total">Cancelamento Total</h2>
+<h3 id="cancelamento-total">Cancelamento Total</h3>
 
 <p>No cancelamento total de uma transação, será cancelado o valor total da transação e, consequentemente, o valor total de cada subordinado e as comissões de todos os participantes.</p>
 
-<h3 id="requisição-11">Requisição</h3>
+<h4 id="requisição-11">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void</span></aside>
 
-<h3 id="resposta-13">Resposta</h3>
+<h4 id="resposta-13">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -4200,11 +4202,11 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="cancelamento-parcial">Cancelamento Parcial</h2>
+<h3 id="cancelamento-parcial">Cancelamento Parcial</h3>
 
 <p>No cancelamento parcial, o somatório dos valores cancelados definidos para cada subordinado deve ser igual ao valor do cancelamento parcial.</p>
 
-<h3 id="requisição-12">Requisição</h3>
+<h4 id="requisição-12">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void?amount={amount}</span></aside>
 
@@ -4254,7 +4256,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h3 id="resposta-14">Resposta</h3>
+<h4 id="resposta-14">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
