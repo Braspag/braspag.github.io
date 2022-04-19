@@ -394,11 +394,11 @@
 
 <h1 id="integração">Integração</h1>
 
-<h2 id="autorização">Autorização</h2>
+<h1 id="autorização">Autorização</h1>
 
 <p>Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro <code class="language-plaintext highlighter-rouge">Payment.DoSplit</code> como true e adicionar o nó <code class="language-plaintext highlighter-rouge">Payment.SplitPayments</code>.</p>
 
-<h2 id="fluxo-transacional-padrão">Fluxo transacional padrão</h2>
+<h1 id="fluxo-transacional-padrão">Fluxo transacional padrão</h1>
 
 <p>Veja um exemplo do fluxo transacional padrão no Split de Pagamentos.</p>
 
@@ -410,7 +410,7 @@
   <p>Em todos os exemplos a seguir a divisão da transação segue o modelo de Split Transacional, ou seja, a divisão é solicitada no momento da captura.</p>
 </blockquote>
 
-<h2 id="transação-de-crédito">Transação de Crédito</h2>
+<h1 id="transação-de-crédito">Transação de Crédito</h1>
 
 <p>Ao informar um tipo de pagamento referente ao Split, a API do Pagador automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag.</p>
 
@@ -420,7 +420,7 @@
   <p>Para transações <strong>com análise de fraude</strong>, siga a requisição do capítulo <strong>[Antifraude]</strong>(https://braspag.github.io//manual/split-de-pagamentos-pagador#antifraude) deste manual.</p>
 </blockquote>
 
-<h3 id="transação-de-crédito-sem-o-nó-da-divisão">Transação de crédito sem o nó da divisão</h3>
+<h2 id="transação-de-crédito-sem-o-nó-da-divisão">Transação de crédito sem o nó da divisão</h2>
 
 <p>Neste caso, o master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.</p>
 
@@ -449,7 +449,7 @@
 
 <p>Veja a requisição dessa transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.</p>
 
-<h4 id="requisição">Requisição</h4>
+<h3 id="requisição">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -687,7 +687,7 @@
 
 <aside class="warning">**Em uma transação com análise de fraude os campos podem ter tamanhos diferentes, como é o caso do campo `Customer.DeliveryAddress.Complement`. Nesse caso, consulte a requisição do capítulo Antifraude neste mesmo manual.</aside>
 
-<h4 id="resposta">Resposta</h4>
+<h3 id="resposta">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -764,7 +764,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="transação-de-crédito-com-o-nó-da-divisão">Transação de crédito com o nó da divisão</h3>
+<h2 id="transação-de-crédito-com-o-nó-da-divisão">Transação de crédito com o nó da divisão</h2>
 
 <p><img src="https://braspag.github.io//images/braspag/split/split8-exemplo3-com-no.png" alt="SplitEx3" /></p>
 
@@ -811,7 +811,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 
 <p>Veja a requisição dessa transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão.</p>
 
-<h4 id="requisição-1">Requisição</h4>
+<h3 id="requisição-1">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1065,7 +1065,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 
 <aside class="warning">**Em uma transação com análise de fraude os campos podem ter tamanhos diferentes, como é o caso do campo `Customer.DeliveryAddress.Complement`. Nesse caso, consulte a requisição do capítulo Antifraude neste mesmo manual.</aside>
 
-<h4 id="resposta-1">Resposta</h4>
+<h3 id="resposta-1">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1164,7 +1164,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="transação-de-débito">Transação de Débito</h2>
+<h1 id="transação-de-débito">Transação de Débito</h1>
 
 <p>Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:</p>
 
@@ -1177,7 +1177,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
   <p>Para saber mais sobre a integração 3DS 2.0, acesse o <a href="https://braspag.github.io//manualp/emv3ds">Manual de Autenticação 3DS 2.0</a>.</p>
 </blockquote>
 
-<h3 id="requisição-2">Requisição</h3>
+<h2 id="requisição-2">Requisição</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1289,7 +1289,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
   </tbody>
 </table>
 
-<h3 id="resposta-2">Resposta</h3>
+<h2 id="resposta-2">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30082019"</span><span class="p">,</span><span class="w">
@@ -1386,7 +1386,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="transação-de-boleto">Transação de Boleto</h2>
+<h1 id="transação-de-boleto">Transação de Boleto</h1>
 
 <p><strong>Boleto Registrado</strong></p>
 
@@ -1396,7 +1396,7 @@ pela Febraban em conjunto com os bancos, para promover maior controle e seguran�
 <p>Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. A seguir temos um exemplo de como criar um pedido com este
 tipo de meio de pagamento.</p>
 
-<h3 id="requisição-3">Requisição</h3>
+<h2 id="requisição-3">Requisição</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1577,7 +1577,7 @@ tipo de meio de pagamento.</p>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
       <td>Texto</td>
-      <td>9(**)</td>
+      <td>9 (**)</td>
       <td>Não</td>
       <td>Número do Boleto (“Nosso Número”). Caso preenchido, sobrepõe o valor configurado no meio de pagamento</td>
     </tr>
@@ -1624,7 +1624,7 @@ tipo de meio de pagamento.</p>
 (**) Caracteres especiais e acentuações são removidos automaticamente.</p>
 </blockquote>
 
-<h3 id="resposta-3">Resposta</h3>
+<h2 id="resposta-3">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
@@ -1749,7 +1749,7 @@ tipo de meio de pagamento.</p>
   </tbody>
 </table>
 
-<h2 id="modelos-de-split">Modelos de Split</h2>
+<h1 id="modelos-de-split">Modelos de Split</h1>
 
 <p>O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:</p>
 
@@ -1776,11 +1776,11 @@ tipo de meio de pagamento.</p>
   <p>No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso as regras de divisão sejam informadas no momento de uma autorização sem captura automática, elas serão desconsideradas.</p>
 </blockquote>
 
-<h3 id="split-transacional">Split Transacional</h3>
+<h2 id="split-transacional">Split Transacional</h2>
 
 <p>No Split Transacional é necessário que o master envie um “nó” adicional na integração da API do Pagador, como apresentado em exemplos anteriores, informando as regras de divisão da transação.</p>
 
-<h4 id="requisição-4">Requisição</h4>
+<h3 id="requisição-4">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"SplitPayments"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1836,7 +1836,7 @@ tipo de meio de pagamento.</p>
   </tbody>
 </table>
 
-<h4 id="resposta-4">Resposta</h4>
+<h3 id="resposta-4">Resposta</h3>
 
 <p>Como resposta, A API retornará um nó contendo as regras de divisão enviadas e os valores a serem recebidos pelo master e seus subordinados:</p>
 
@@ -1890,7 +1890,7 @@ tipo de meio de pagamento.</p>
   </tbody>
 </table>
 
-<h3 id="split-pós-transacional">Split Pós-Transacional</h3>
+<h2 id="split-pós-transacional">Split Pós-Transacional</h2>
 
 <p>Neste modelo, o Master poderá enviar as regras de divisão da transação após a captura.</p>
 
@@ -1908,7 +1908,7 @@ tipo de meio de pagamento.</p>
   <li>Realize uma requisição ao servidor de autorização:</li>
 </ol>
 
-<h4 id="requisição-de-autenticação">Requisição de autenticação</h4>
+<h3 id="requisição-de-autenticação">Requisição de autenticação</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
@@ -1918,7 +1918,7 @@ tipo de meio de pagamento.</p>
 </span><span class="err">grant_type=client_credentials</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-5">Resposta</h4>
+<h3 id="resposta-5">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs"</span><span class="p">,</span><span class="w">
@@ -1932,7 +1932,7 @@ tipo de meio de pagamento.</p>
 O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar deverá um novo token toda vez que a validade expirar.</p>
 </blockquote>
 
-<h4 id="requisição-de-split-pós-transacional">Requisição de Split Pós-Transacional</h4>
+<h3 id="requisição-de-split-pós-transacional">Requisição de Split Pós-Transacional</h3>
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
 
@@ -1957,7 +1957,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-6">Resposta</h4>
+<h3 id="resposta-6">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c96bf94c-b213-44a7-9ea3-0ee2865dc57e"</span><span class="p">,</span><span class="w">
@@ -2006,7 +2006,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   <p>O master poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é até 01h00 do dia posterior à captura, se estiver enquadrado no regime de pagamento padrão.</p>
 </blockquote>
 
-<h2 id="salvando-e-reutilizando-cartões">Salvando e Reutilizando Cartões</h2>
+<h1 id="salvando-e-reutilizando-cartões">Salvando e Reutilizando Cartões</h1>
 
 <p>Ao contratar o <a href="https://braspag.github.io//manual/cartao-protegido-api-rest">Cartão Protegido</a>, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.</p>
 
@@ -2014,17 +2014,17 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 
 <aside class="warning">Por questões de segurança, o Cartão Protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
-<h3 id="fluxo-da-transação-com-cartão-protegido">Fluxo da transação com Cartão Protegido</h3>
+<h2 id="fluxo-da-transação-com-cartão-protegido">Fluxo da transação com Cartão Protegido</h2>
 
 <p>Na transação com Cartão Protegido, a solicitação de tokenização é feita na própria requisição de autorização.</p>
 
 <p><img src="https://braspag.github.io//images/braspag/split/split9-fluxo-transacional-cp.png" alt="FluxoSplitCP" /></p>
 
-<h3 id="salvando-um-cartão-durante-uma-autorização">Salvando um Cartão Durante uma Autorização</h3>
+<h2 id="salvando-um-cartão-durante-uma-autorização">Salvando um Cartão Durante uma Autorização</h2>
 
 <p>Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> como “true” na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051">neste artigo</a>.</p>
 
-<h4 id="requisição-5">Requisição</h4>
+<h3 id="requisição-5">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2236,7 +2236,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h4 id="resposta-7">Resposta</h4>
+<h3 id="resposta-7">Resposta</h3>
 
 <p>O parâmetro <code class="language-plaintext highlighter-rouge">CreditCard.CardToken</code> retornará o token a ser salvo para transações futuras com o mesmo cartão.</p>
 
@@ -2416,13 +2416,13 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h3 id="criando-uma-transação-com-cardtoken">Criando uma Transação com CardToken</h3>
+<h2 id="criando-uma-transação-com-cardtoken">Criando uma Transação com CardToken</h2>
 
 <p>Este é um exemplo de como utilizar o <code class="language-plaintext highlighter-rouge">CardToken</code>, previamente salvo, para criar uma transação. Por questões de segurança, um <code class="language-plaintext highlighter-rouge">CardToken</code> não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato como nosso <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">Suporte</a>.</p>
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> será alterado conforme exemplo a seguir:</p>
 
-<h4 id="requisição-6">Requisição</h4>
+<h3 id="requisição-6">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2598,7 +2598,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h4 id="resposta-8">Resposta</h4>
+<h3 id="resposta-8">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -2767,13 +2767,13 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h3 id="criando-uma-transação-com-alias">Criando uma Transação com Alias</h3>
+<h2 id="criando-uma-transação-com-alias">Criando uma Transação com Alias</h2>
 
 <p>Este é um exemplo de como utilizar o <em>Alias</em>, previamente salvo, para criar uma transação. Por questões de segurança, um <em>Alias</em> não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">canais de atendimento</a>.</p>
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> será alterado, conforme exemplo a seguir:</p>
 
-<h4 id="requisição-7">Requisição</h4>
+<h3 id="requisição-7">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -2956,7 +2956,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h4 id="resposta-9">Resposta</h4>
+<h3 id="resposta-9">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -3125,11 +3125,11 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h2 id="consulta">Consulta</h2>
+<h1 id="consulta">Consulta</h1>
 
 <p>Para consultar uma transação, use o serviço de consulta da API do Pagador, informando o <code class="language-plaintext highlighter-rouge">PaymentId</code> da transação. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o <a href="https://braspag.github.io//manual/split-de-pagamentos-pagador#post-de-notifica%C3%A7%C3%A3o">Post de Notificação</a>.</p>
 
-<h3 id="requisição-8">Requisição</h3>
+<h2 id="requisição-8">Requisição</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -3184,7 +3184,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h3 id="resposta-10">Resposta</h3>
+<h2 id="resposta-10">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -3893,15 +3893,15 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h2 id="captura">Captura</h2>
+<h1 id="captura">Captura</h1>
 
 <p>Ao capturar uma transação do Split de Pagamentos, o master precisa informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio master.</p>
 
-<h3 id="captura-total">Captura Total</h3>
+<h2 id="captura-total">Captura Total</h2>
 
 <p>Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.</p>
 
-<h4 id="requisição-9">Requisição</h4>
+<h3 id="requisição-9">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
@@ -3927,7 +3927,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-11">Resposta</h4>
+<h3 id="resposta-11">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -3990,11 +3990,11 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="captura-parcial">Captura Parcial</h3>
+<h2 id="captura-parcial">Captura Parcial</h2>
 
 <p>Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio master.</p>
 
-<h4 id="requisição-10">Requisição</h4>
+<h3 id="requisição-10">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
@@ -4022,7 +4022,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-12">Resposta</h4>
+<h3 id="resposta-12">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4089,11 +4089,11 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   <p>Como explicitado anteriormente, se a requisição de captura total ou parcial não informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio master.</p>
 </blockquote>
 
-<p><strong>Request</strong></p>
+<p><strong>Requisição</strong></p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture/capture?amount=8000</span></aside>
 
-<p><strong>Response</strong></p>
+<p><strong>Resposta</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4134,7 +4134,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="cancelamento">Cancelamento</h2>
+<h1 id="cancelamento">Cancelamento</h1>
 
 <p>Ao cancelar uma transação do Split de Pagamentos o master deve informar, para um cancelamento parcial, qual o valor que deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e, consequentemente, o valor total de cada subordinado.</p>
 
@@ -4142,15 +4142,15 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   <p>O prazo de estorno de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.</p>
 </blockquote>
 
-<h3 id="cancelamento-total">Cancelamento Total</h3>
+<h2 id="cancelamento-total">Cancelamento Total</h2>
 
 <p>No cancelamento total de uma transação, será cancelado o valor total da transação e, consequentemente, o valor total de cada subordinado e as comissões de todos os participantes.</p>
 
-<h4 id="requisição-11">Requisição</h4>
+<h3 id="requisição-11">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void</span></aside>
 
-<h4 id="resposta-13">Resposta</h4>
+<h3 id="resposta-13">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -4200,11 +4200,11 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="cancelamento-parcial">Cancelamento Parcial</h3>
+<h2 id="cancelamento-parcial">Cancelamento Parcial</h2>
 
 <p>No cancelamento parcial, o somatório dos valores cancelados definidos para cada subordinado deve ser igual ao valor do cancelamento parcial.</p>
 
-<h4 id="requisição-12">Requisição</h4>
+<h3 id="requisição-12">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void?amount={amount}</span></aside>
 
@@ -4254,7 +4254,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   </tbody>
 </table>
 
-<h4 id="resposta-14">Resposta</h4>
+<h3 id="resposta-14">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4325,11 +4325,11 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
   <p>Ao cancelar parcialmente parte de um valor destinado a um subordinado, a Tarifa Fixa que o master tem a receber também é cancelada proporcionalmente.</p>
 </blockquote>
 
-<h2 id="opções-de-configuração-da-transação">Opções de Configuração da Transação</h2>
+<h1 id="opções-de-configuração-da-transação">Opções de Configuração da Transação</h1>
 
 <p>Em uma transação do Split, existem configurações opcionais que podem ser utilizadas para controlar alguns aspectos.</p>
 
-<h3 id="tipo-do-desconto-das-taxas">Tipo do Desconto das Taxas</h3>
+<h2 id="tipo-do-desconto-das-taxas">Tipo do Desconto das Taxas</h2>
 
 <p>Os descontos das taxas (MDR e tarifa fixa) do Split podem ser feitos de duas formas: sobre a comissão ou venda do master.</p>
 
@@ -4372,7 +4372,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
   <p>Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.</p>
 </blockquote>
 
-<h4 id="no-momento-transacional">No Momento Transacional</h4>
+<h3 id="no-momento-transacional">No Momento Transacional</h3>
 
 <p>A seguir vamos apresentar exemplos de uma transação com o desconto aplicado sobre a comissão e com o desconto aplicado sobre a venda.</p>
 
@@ -4425,9 +4425,9 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <p><img src="https://braspag.github.io//images/braspag/split/split10-exemplo4-tipo-de-desconto.png" alt="SplitEx4" /></p>
 
-<h5 id="desconto-sendo-aplicado-sobre-a-comissão">Desconto sendo aplicado sobre a comissão</h5>
+<h4 id="desconto-sendo-aplicado-sobre-a-comissão">Desconto sendo aplicado sobre a comissão</h4>
 
-<h6 id="requisição-13">Requisição</h6>
+<h5 id="requisição-13">Requisição</h5>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4482,7 +4482,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h6 id="resposta-15">Resposta</h6>
+<h5 id="resposta-15">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201904150001"</span><span class="p">,</span><span class="w">
@@ -4616,11 +4616,11 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="desconto-sendo-aplicado-sobre-a-venda">Desconto sendo aplicado sobre a venda</h5>
+<h4 id="desconto-sendo-aplicado-sobre-a-venda">Desconto sendo aplicado sobre a venda</h4>
 
 <p>Com a mesma transação:</p>
 
-<h6 id="requisição-14">Requisição</h6>
+<h5 id="requisição-14">Requisição</h5>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4675,7 +4675,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h6 id="resposta-16">Resposta</h6>
+<h5 id="resposta-16">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201904150001"</span><span class="p">,</span><span class="w">
@@ -4809,11 +4809,11 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="no-momento-pós-transacional">No Momento Pós-Transacional</h4>
+<h3 id="no-momento-pós-transacional">No Momento Pós-Transacional</h3>
 
 <p>Veja uma requisição no modelo Split Pós-transacional com o desconto aplicado sobre a venda.</p>
 
-<h5 id="requisição-15">Requisição</h5>
+<h4 id="requisição-15">Requisição</h4>
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
 
@@ -4834,7 +4834,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="resposta-17">Resposta</h5>
+<h4 id="resposta-17">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c96bf94c-b213-44a7-9ea3-0ee2865dc57e"</span><span class="p">,</span><span class="w">
@@ -4875,6 +4875,2412 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<h1 id="recorrência">Recorrência</h1>
+
+<p>Diferente dos pagamentos com cartão de crédito ou boleto tradicionais, os pagamentos recorrentes se repetem automaticamente por períodos e em intervalos determinados, cobrando sempre o mesmo valor de um mesmo cartão ou conta.</p>
+
+<p>A recorrência é muito usada para assinaturas de revistas, mensalidades, licenças de software, entre outros. Além da integração técnica, é necessário que seu estabelecimento comercial esteja habilitado na adquirente para receber pagamentos recorrentes.</p>
+
+<p>O lojista conta com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas e intervalo entre tentativas. Para saber mais detalhes, leia nosso artigo sobre [Recorrência] (https://suporte.braspag.com.br/hc/pt-br/articles/360013311991){:target=”_blank”}.</p>
+
+<aside class="notice">Vendas recorrentes com cartão de crédito não exigem CVV.</aside>
+
+<aside class="warning">Por questões de segurança, a recorrência só é possível para cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
+
+<p><strong>Para submeter uma transação recorrente</strong>, envie a requisição conforme as orientações desta seção. A solicitação de <strong>split de uma transação com recorrência</strong> deve acontecer no momento <strong>pós-transacional</strong>.</p>
+
+<aside class="warning">Não é possível solicitar o split de uma transação recorrente no momento transacional.</aside>
+
+<h2 id="autorização-de-recorrência">Autorização de Recorrência</h2>
+
+<h3 id="autorizando-recorrência-com-cartão-de-crédito">Autorizando Recorrência com Cartão de Crédito</h3>
+
+<p>Adicione o nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> ao nó <code class="language-plaintext highlighter-rouge">Payment</code> para agendar as recorrências futuras ao autorizar uma transação pela primeira vez na série de recorrências.</p>
+
+<p>Os parâmetros <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> e <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code>, marcados com um “*” na coluna “OBRIGATÓRIO”, não devem ser utilizados em conjunto.</p>
+
+<h4 id="requisição-16">Requisição</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"comprador@braspag.com.br"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IpAddress"</span><span class="p">:</span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"DeliveryAddress"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"5412217070050381"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"AuthorizeNow"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="s2">"2019-12-31"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Interval"</span><span class="p">:</span><span class="s2">"Monthly"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>  
+   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2017051001"</span>,
+   <span class="s2">"Customer"</span>:<span class="o">{</span>  
+      <span class="s2">"Name"</span>:<span class="s2">"Nome do Comprador"</span>,
+      <span class="s2">"Identity"</span>:<span class="s2">"12345678909"</span>,
+      <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>,
+      <span class="s2">"Email"</span>:<span class="s2">"comprador@braspag.com.br"</span>,
+      <span class="s2">"Birthdate"</span>:<span class="s2">"1991-01-02"</span>,
+      <span class="s2">"IpAddress"</span>:<span class="s2">"127.0.0.1"</span>,
+      <span class="s2">"Address"</span>:<span class="o">{</span>  
+         <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
+         <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
+         <span class="s2">"Complement"</span>:<span class="s2">"27 andar"</span>,
+         <span class="s2">"ZipCode"</span>:<span class="s2">"12345987"</span>,
+         <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
+         <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
+         <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+         <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
+      <span class="o">}</span>,
+      <span class="s2">"DeliveryAddress"</span>:<span class="o">{</span>  
+         <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
+         <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
+         <span class="s2">"Complement"</span>:<span class="s2">"27 andar"</span>,
+         <span class="s2">"ZipCode"</span>:<span class="s2">"12345987"</span>,
+         <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
+         <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
+         <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+         <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
+      <span class="o">}</span>
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>: <span class="o">{</span>
+      <span class="s2">"Provider"</span>:<span class="s2">"Simulado"</span>,
+      <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
+      <span class="s2">"Amount"</span>: 10000,
+      <span class="s2">"Installments"</span>: 1,
+      <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+         <span class="s2">"CardNumber"</span>:<span class="s2">"5412217070050381"</span>,
+         <span class="s2">"Holder"</span>:<span class="s2">"Nome do Portador"</span>,
+         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
+         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
+         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+      <span class="o">}</span>,
+      <span class="s2">"RecurrentPayment"</span>: <span class="o">{</span>
+         <span class="s2">"AuthorizeNow"</span>:<span class="s2">"true"</span>,
+         <span class="s2">"EndDate"</span>:<span class="s2">"2019-12-31"</span>,
+         <span class="s2">"Interval"</span>:<span class="s2">"Monthly"</span>
+      <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome do provedor do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
+      <td>Data para término da recorrência.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
+      <td>Intervalo da recorrência. Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">DailyInterval</code>.<br />Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code></td>
+      <td>Padrão da recorrência em dias. Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">Interval</code>.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
+      <td>“true” - autoriza no momento da requisição. “false” - para agendamento futuro.</td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Número do cartão do comprador.</td>
+      <td>Texto</td>
+      <td>16</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.</td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Data de validade impresso no cartão, no formato MM/AAAA.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão.</td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Bandeira do cartão.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-18">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5646418"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0511045646418"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100024"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"067f73ce-62fb-4d76-871d-0bcbb88fbd22"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11 16:56:46"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"808d3631-47ca-43b4-97f5-bd29ab06c271"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"NextRecurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-11"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-31"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+      </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+  <span class="o">[</span>...]
+  <span class="s2">"Payment"</span>: <span class="o">{</span>
+    <span class="s2">"ServiceTaxAmount"</span>: 0,
+    <span class="s2">"Installments"</span>: 1,
+    <span class="s2">"Interest"</span>: <span class="s2">"ByMerchant"</span>,
+    <span class="s2">"Capture"</span>: <span class="nb">true</span>,
+    <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+    <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+    <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+      <span class="s2">"CardNumber"</span>: <span class="s2">"455187******0181"</span>,
+      <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
+      <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
+      <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+      <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+    <span class="o">}</span>,
+    <span class="s2">"ProofOfSale"</span>: <span class="s2">"5646418"</span>,
+    <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"0511045646418"</span>,
+    <span class="s2">"AuthorizationCode"</span>: <span class="s2">"100024"</span>,
+    <span class="s2">"PaymentId"</span>: <span class="s2">"067f73ce-62fb-4d76-871d-0bcbb88fbd22"</span>,
+    <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+    <span class="s2">"Amount"</span>: 10000,
+    <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-05-11 16:56:46"</span>,
+    <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+    <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+    <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+    <span class="s2">"ReasonCode"</span>: 0,
+    <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+    <span class="s2">"Status"</span>: 1,
+    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"4"</span>,
+    <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
+    <span class="s2">"RecurrentPayment"</span>: <span class="o">{</span>
+      <span class="s2">"RecurrentPaymentId"</span>: <span class="s2">"808d3631-47ca-43b4-97f5-bd29ab06c271"</span>,
+      <span class="s2">"ReasonCode"</span>: 0,
+      <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+      <span class="s2">"NextRecurrency"</span>: <span class="s2">"2017-06-11"</span>,
+      <span class="s2">"EndDate"</span>: <span class="s2">"2019-12-31"</span>,
+      <span class="s2">"Interval"</span>: <span class="s2">"Monthly"</span>,
+      <span class="o">[</span>...]
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>ID que representa a recorrência, utilizada para consultas e alterações futuras.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NextRecurrency</code></td>
+      <td>Data de quando acontecerá a próxima recorrência.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>2019-12-11 (YYYY-MM-DD)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EndDate</code></td>
+      <td>Data do fim da recorrência.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>2019-12-31 (YYYY-MM-DD)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
+      <td>Intervalo entre as recorrências.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizeNow</code></td>
+      <td>Define se a primeira recorrência já irá ser autorizada ou não.</td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>“true” ou “false”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="autorizando-recorrência-com-boleto-bancário">Autorizando Recorrência com Boleto Bancário</h3>
+
+<p>O pedido de requisição de uma transação recorrente com boleto bancário é o mesmo da criação de um boleto tradicional. Adicione o nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> ao nó <code class="language-plaintext highlighter-rouge">Payment</code> para agendar as recorrências futuras ao autorizar uma transação pela primeira vez na série de recorrências.</p>
+
+<p>A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente adicionado do valor que estiver configurado no meio de pagamento na Braspag.</p>
+
+<p>Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias. Vencimento do boleto criado automaticamente: 06/01/2021.</p>
+
+<p>Entre em contato com o <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new" target="_blank">time de suporte</a> para definir em quantos dias você quer que seus boletos gerados via recorrência vençam.</p>
+
+<h4 id="requisição-17">Requisição</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"AuthorizeNow"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-31"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>  
+   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2017091101"</span>,
+   <span class="s2">"Customer"</span>:<span class="o">{</span>  
+      <span class="s2">"Name"</span>:<span class="s2">"Nome do Comprador"</span>,
+      <span class="s2">"Identity"</span>:<span class="s2">"12345678909"</span>,
+      <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>,
+      <span class="s2">"Address"</span>:<span class="o">{</span>  
+         <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
+         <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
+         <span class="s2">"Complement"</span>:<span class="s2">"27 andar"</span>,
+         <span class="s2">"ZipCode"</span>:<span class="s2">"12345987"</span>,
+         <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
+         <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
+         <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+         <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
+      <span class="o">}</span>
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>: <span class="o">{</span>
+      <span class="s2">"Provider"</span>:<span class="s2">"Simulado"</span>,
+      <span class="s2">"Type"</span>:<span class="s2">"Boleto"</span>,
+      <span class="s2">"Amount"</span>:1000,
+      <span class="s2">"Instructions"</span>:<span class="s2">"Aceitar somente até a data de vencimento."</span>,
+      <span class="s2">"RecurrentPayment"</span>:<span class="o">{</span>
+         <span class="s2">"AuthorizeNow"</span>:true,
+         <span class="s2">"StartDate"</span>:<span class="s2">"2020-01-01"</span>,
+         <span class="s2">"EndDate"</span>:<span class="s2">"2020-12-31"</span>,
+         <span class="s2">"Interval"</span>:<span class="s2">"Monthly"</span>
+      <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome do provedor do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code></td>
+      <td>Data para início da recorrência.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
+      <td>Data para término da recorrência.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
+      <td>Intervalo da recorrência.<br />Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
+      <td>“true” - autoriza no momento da requisição. “false” - para agendamento futuro.</td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-19">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste001"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455914"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-15"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/58e4bde3-1abc-4aef-a58a-741f4c53940d"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"BoletoNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100031-0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"BarCodeNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00096834800000129001234270000010003105678900"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DigitableLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00091.23423 40000.010004 31056.789008 6 83480000012900"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N/A, 1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IsRecurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58e4bde3-1abc-4aef-a58a-741f4c53940d"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01 00:00:01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a08a622b-71f2-4553-9345-5f3c4fbbacb0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"NextRecurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-01"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-31"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Link"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recurrentPayment"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/a08a622b-71f2-4553-9345-5f3c4fbbacb0"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nl">"AuthorizeNow"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/58e4bde3-1abc-4aef-a58a-741f4c53940d"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+   <span class="s2">"MerchantOrderId"</span>: <span class="s2">"teste001"</span>,
+   <span class="s2">"Customer"</span>: <span class="o">{</span>
+      <span class="s2">"Name"</span>: <span class="s2">"Nome do Comprador"</span>,
+      <span class="s2">"Identity"</span>: <span class="s2">"12345678909"</span>,
+      <span class="s2">"IdentityType"</span>: <span class="s2">"CPF"</span>,
+      <span class="s2">"Address"</span>: <span class="o">{</span>
+         <span class="s2">"Street"</span>: <span class="s2">"Alameda Xingu"</span>,
+         <span class="s2">"Number"</span>: <span class="s2">"512"</span>,
+         <span class="s2">"Complement"</span>: <span class="s2">"27 andar"</span>,
+         <span class="s2">"ZipCode"</span>: <span class="s2">"06455914"</span>,
+         <span class="s2">"City"</span>: <span class="s2">"São Paulo"</span>,
+         <span class="s2">"State"</span>: <span class="s2">"SP"</span>,
+         <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+         <span class="s2">"District"</span>: <span class="s2">"Alphaville"</span>
+      <span class="o">}</span>
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>: <span class="o">{</span>
+      <span class="s2">"Instructions"</span>: <span class="s2">"Aceitar somente até a data de vencimento."</span>,
+      <span class="s2">"ExpirationDate"</span>: <span class="s2">"2020-08-15"</span>,
+      <span class="s2">"Url"</span>: <span class="s2">"https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/58e4bde3-1abc-4aef-a58a-741f4c53940d"</span>,
+      <span class="s2">"BoletoNumber"</span>: <span class="s2">"100031-0"</span>,
+      <span class="s2">"BarCodeNumber"</span>: <span class="s2">"00096834800000129001234270000010003105678900"</span>,
+      <span class="s2">"DigitableLine"</span>: <span class="s2">"00091.23423 40000.010004 31056.789008 6 83480000012900"</span>,
+      <span class="s2">"Address"</span>: <span class="s2">"N/A, 1"</span>,
+      <span class="s2">"IsRecurring"</span>: <span class="nb">false</span>,
+      <span class="s2">"PaymentId"</span>: <span class="s2">"58e4bde3-1abc-4aef-a58a-741f4c53940d"</span>,
+      <span class="s2">"Type"</span>: <span class="s2">"Boleto"</span>,
+      <span class="s2">"Amount"</span>: 1000,
+      <span class="s2">"ReceivedDate"</span>: <span class="s2">"2020-01-01 00:00:01"</span>,
+      <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+      <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+      <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+      <span class="s2">"ReasonCode"</span>: 0,
+      <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+      <span class="s2">"Status"</span>: 1,
+      <span class="s2">"RecurrentPayment"</span>: <span class="o">{</span>
+         <span class="s2">"RecurrentPaymentId"</span>: <span class="s2">"a08a622b-71f2-4553-9345-5f3c4fbbacb0"</span>,
+         <span class="s2">"ReasonCode"</span>: 0,
+         <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+         <span class="s2">"NextRecurrency"</span>: <span class="s2">"2020-02-01"</span>,
+         <span class="s2">"StartDate"</span>: <span class="s2">"2020-01-01"</span>,
+         <span class="s2">"EndDate"</span>: <span class="s2">"2020-12-31"</span>,
+         <span class="s2">"Interval"</span>: <span class="s2">"Monthly"</span>,
+         <span class="s2">"Link"</span>: <span class="o">{</span>
+            <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+            <span class="s2">"Rel"</span>: <span class="s2">"recurrentPayment"</span>,
+            <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/RecurrentPayment/a08a622b-71f2-4553-9345-5f3c4fbbacb0"</span>
+         <span class="o">}</span>,
+         <span class="s2">"AuthorizeNow"</span>: <span class="nb">true</span>,
+         <span class="o">}</span>,
+         <span class="s2">"Links"</span>: <span class="o">[</span>
+            <span class="o">{</span>
+               <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+               <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+               <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/58e4bde3-1abc-4aef-a58a-741f4c53940d"</span>
+            <span class="o">}</span>
+         <span class="o">]</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Campo identificador da próxima recorrência.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NextRecurrency</code></td>
+      <td>Data da próxima recorrência.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>05/2019 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StartDate</code></td>
+      <td>Data do início da recorrência.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>05/2019 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EndDate</code></td>
+      <td>Data do fim da recorrência.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>05/2019 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
+      <td>Intervalo entre as recorrências.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizeNow</code></td>
+      <td>Define se a primeira recorrência já irá ser autorizada ou não.</td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>true ou false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="agendamento-de-recorrência">Agendamento de Recorrência</h2>
+
+<h3 id="agendando-uma-autorização">Agendando uma Autorização</h3>
+
+<p>Diferente da recorrência anterior, este exemplo não autoriza imediatamente, mas agenda uma autorização futura.</p>
+
+<p>Para programar a primeira transação da série de recorrências, passe o parâmetro <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> como “false” e adicione o parâmetro <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code>.</p>
+
+<h4 id="requisição-18">Requisição</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"5412217070050381"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"RecurrentPayment"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"AuthorizeNow"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"StartDate"</span><span class="p">:</span><span class="s2">"2017-12-31"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="s2">"2019-12-31"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Interval"</span><span class="p">:</span><span class="s2">"Monthly"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>  
+   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2017091101"</span>,
+   <span class="s2">"Customer"</span>:<span class="o">{</span>  
+      <span class="s2">"Name"</span>:<span class="s2">"Nome do Comprador"</span>,
+      <span class="s2">"Identity"</span>:<span class="s2">"12345678909"</span>,
+      <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>,
+      <span class="s2">"Address"</span>:<span class="o">{</span>  
+         <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
+         <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
+         <span class="s2">"Complement"</span>:<span class="s2">"27 andar"</span>,
+         <span class="s2">"ZipCode"</span>:<span class="s2">"12345987"</span>,
+         <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
+         <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
+         <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+         <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
+      <span class="o">}</span>
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>:<span class="o">{</span>
+      <span class="s2">"Provider"</span>:<span class="s2">"Simulado"</span>,
+      <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
+      <span class="s2">"Amount"</span>:10000,
+      <span class="s2">"Installments"</span>:1,
+      <span class="s2">"CreditCard"</span>:<span class="o">{</span>
+         <span class="s2">"CardNumber"</span>:<span class="s2">"5412217070050381"</span>,
+         <span class="s2">"Holder"</span>:<span class="s2">"Nome do Portador"</span>,
+         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
+         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
+         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+      <span class="o">}</span>,
+      <span class="s2">"RecurrentPayment"</span>:<span class="o">{</span>
+         <span class="s2">"AuthorizeNow"</span>:false,
+         <span class="s2">"StartDate"</span>:<span class="s2">"2017-12-31"</span>,
+         <span class="s2">"EndDate"</span>:<span class="s2">"2019-12-31"</span>,
+         <span class="s2">"Interval"</span>:<span class="s2">"Monthly"</span>
+      <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome do provedor do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code></td>
+      <td>Data para início da recorrência.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
+      <td>Data para término da recorrência.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
+      <td>Intervalo da recorrência.<br />Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code></td>
+      <td>Padrão da recorrência em dias. Não utilizar em conjunto com <code class="language-plaintext highlighter-rouge">Interval</code>.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
+      <td>“true” - autoriza no momento da requisição. “false” - para agendamento futuro.</td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Número do cartão do comprador.</td>
+      <td>Texto</td>
+      <td>16</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.</td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Data de validade impressa no cartão, no formato MM/AAAA.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão.</td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Bandeira do cartão.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-20">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undefined"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32703035-7dfb-4369-ac53-34c7ff7b84e8"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"NextRecurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-31"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-31"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-31"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+      </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="nl">"AuthorizeNow"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+  <span class="o">[</span>...]
+  <span class="s2">"Payment"</span>: <span class="o">{</span>
+    <span class="s2">"ServiceTaxAmount"</span>: 0,
+    <span class="s2">"Installments"</span>: 1,
+    <span class="s2">"Interest"</span>: <span class="s2">"ByMerchant"</span>,
+    <span class="s2">"Capture"</span>: <span class="nb">true</span>,
+    <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+    <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+    <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+      <span class="s2">"CardNumber"</span>: <span class="s2">"455187******0181"</span>,
+      <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
+      <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
+      <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+      <span class="s2">"Brand"</span>: <span class="s2">"Undefined"</span>
+    <span class="o">}</span>,
+    <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+    <span class="s2">"Amount"</span>: 10000,
+    <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+    <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+    <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+    <span class="s2">"Status"</span>: 20,
+    <span class="s2">"RecurrentPayment"</span>: <span class="o">{</span>
+      <span class="s2">"RecurrentPaymentId"</span>: <span class="s2">"32703035-7dfb-4369-ac53-34c7ff7b84e8"</span>,
+      <span class="s2">"ReasonCode"</span>: 0,
+      <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+      <span class="s2">"NextRecurrency"</span>: <span class="s2">"2017-12-31"</span>,
+      <span class="s2">"StartDate"</span>: <span class="s2">"2017-12-31"</span>,
+      <span class="s2">"EndDate"</span>: <span class="s2">"2019-12-31"</span>,
+      <span class="s2">"Interval"</span>: <span class="s2">"Monthly"</span>,
+      <span class="o">[</span>...]
+      <span class="s2">"AuthorizeNow"</span>: <span class="nb">false</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Campo identificador da próxima recorrência.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NextRecurrency</code></td>
+      <td>Data da próxima recorrência.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>05/2019 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StartDate</code></td>
+      <td>Data do início da recorrência.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>05/2019 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EndDate</code></td>
+      <td>Data do fim da recorrência.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>05/2019 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
+      <td>Intervalo entre as recorrências.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizeNow</code></td>
+      <td>Define se a primeira recorrência já irá ser autorizada ou não.</td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>true ou false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="alteração-de-dados">Alteração de Dados</h2>
+
+<h3 id="alterando-dados-do-comprador">Alterando Dados do Comprador</h3>
+
+<p>Para alterar os dados do comprador de uma recorrência existente, basta fazer uma chamada PUT para o endpoint especificado.<br />Em <strong>resposta</strong>, a API irá retornar o código do <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code" target="_blank">Status HTTP</a>, informando se a operação foi realizada com sucesso ou não.</p>
+
+<h4 id="requisição-19">Requisição</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Outro nome do Comprador"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"outrocomprador@braspag.com.br"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="s2">"1999-12-12"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Avenida Brigadeiro Faria Lima"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"1500"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"05426200"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"DeliveryAddress"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Avenida Brigadeiro Faria Lima"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"1500"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"05426200"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Customer"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>   
+   <span class="s2">"Name"</span>:<span class="s2">"Outro nome do Comprador"</span>,
+   <span class="s2">"Email"</span>:<span class="s2">"outrocomprador@braspag.com.br"</span>,
+   <span class="s2">"Birthdate"</span>:<span class="s2">"1999-12-12"</span>,
+   <span class="s2">"Identity"</span>:<span class="s2">"0987654321"</span>,
+   <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>,
+   <span class="s2">"Address"</span>:<span class="o">{</span>  
+   <span class="s2">"Street"</span>:<span class="s2">"Avenida Brigadeiro Faria Lima"</span>,
+      <span class="s2">"Number"</span>:<span class="s2">"1500"</span>,
+      <span class="s2">"Complement"</span>:<span class="s2">"AP 201"</span>,
+      <span class="s2">"ZipCode"</span>:<span class="s2">"05426200"</span>,
+      <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
+      <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
+      <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+      <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
+   <span class="o">}</span>,
+   <span class="s2">"DeliveryAddress"</span>:<span class="o">{</span>  
+      <span class="s2">"Street"</span>:<span class="s2">"Avenida Brigadeiro Faria Lima"</span>,
+      <span class="s2">"Number"</span>:<span class="s2">"1500"</span>,
+      <span class="s2">"Complement"</span>:<span class="s2">"AP 201"</span>,
+      <span class="s2">"ZipCode"</span>:<span class="s2">"05426200"</span>,
+      <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
+      <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
+      <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+      <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na API.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Número de identificação da recorrência.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Name</code></td>
+      <td>Nome do comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Email</code></td>
+      <td>Email do comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Birthdate</code></td>
+      <td>Data de nascimento do comprador.</td>
+      <td>Date</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Identity</code></td>
+      <td>Número do RG, CPF ou CNPJ do cliente.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">IdentityType</code></td>
+      <td>Tipo do documento de identificação do comprador (CFP/CNPJ).</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
+      <td>Endereço do comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
+      <td>Número do endereço do comprador.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
+      <td>Complemento do endereço do comprador.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
+      <td>CEP do endereço do comprador.</td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
+      <td>Cidade do endereço do comprador.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
+      <td>Estado do endereço do comprador.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Country</code></td>
+      <td>País do endereço do comprador.</td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.District</code></td>
+      <td>Bairro do endereço do comprador.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.Street</code></td>
+      <td>Endereço de entrega do comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.Number</code></td>
+      <td>Número do endereço de entrega do comprador.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.Complement</code></td>
+      <td>Complemento do endereço de entrega do comprador.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.ZipCode</code></td>
+      <td>CEP do endereço de entrega do comprador.</td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.City</code></td>
+      <td>Cidade do endereço de entrega do comprador.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.State</code></td>
+      <td>Estado do endereço de entrega do comprador.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.Country</code></td>
+      <td>País do endereço de entrega do comprador.</td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.District</code></td>
+      <td>Bairro do endereço de entrega do comprador.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-21">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Consulte o anexo <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code" target="_blank">HTTP Status Code</a> para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
+
+<h3 id="alterando-a-data-final-da-recorrência">Alterando a Data Final da Recorrência</h3>
+
+<p>Para alterar a data final da recorrência já existente, basta fazer um PUT conforme o exemplo.</p>
+
+<h4 id="requisição-20">Requisição</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"2021-01-09"</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="s2">"2021-01-09"</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na API.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Número de identificação da recorrência.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EndDate</code></td>
+      <td>Data para término da recorrência.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-22">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Consulte o anexo <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code" target="_blank">HTTP Status Code</a> para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
+
+<h3 id="alterando-o-intervalo-da-recorrência">Alterando o Intervalo da Recorrência</h3>
+
+<p>Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT conforme o exemplo:</p>
+
+<h4 id="requisição-21">Requisição</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Interval"</span><span class="p">:</span><span class="s2">"Annual"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Interval"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="s2">"Interval"</span>:<span class="s2">"Annual"</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na API.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Número de identificação da recorrência.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
+      <td>Intervalo da recorrência. <br />Monthly / Bimonthly / Quarterly / SemiAnnual / Annual.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-23">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Consulte o anexo <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code" target="_blank">HTTP Status Code</a> para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
+
+<h3 id="alterando-o-dia-da-recorrência">Alterando o Dia da Recorrência</h3>
+
+<p>Ao efetuar a alteração do dia da recorrência, devem ser levadas em consideração as seguintes regras utilizadas para execução da atualização na API:</p>
+
+<p>1- Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência.<br />Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 10, a data da próxima recorrência será dia 10/05.
+<br /><br />2- Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, mas este só terá efeito depois que a próxima recorrência for executada com sucesso. <br />Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 03, a data da próxima recorrência permanecerá dia 25/05. Após sua execução, a recorrência seguinte será agendada para o dia 03/06.
+<br /><br />3- Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência.<br />Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado para o dia 03, a data da próxima recorrência será 03/09.</p>
+
+<p><br />Para modificar o dia de vencimento de uma recorrência já existente, basta fazer um PUT conforme o exemplo:</p>
+
+<h4 id="requisição-22">Requisição</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">16</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+16
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na API.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Número de identificação da recorrência.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrencyDay</code></td>
+      <td>Dia da recorrência.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-24">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Consulte o anexo <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code" target="_blank">HTTP Status Code</a> para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
+
+<h3 id="alterando-o-valor-da-transação-da-recorrência">Alterando o Valor da Transação da Recorrência</h3>
+
+<p>Para modificar o valor da transação de uma recorrência já existente, basta fazer um PUT conforme o exemplo.</p>
+
+<aside class="warning">Essa alteração só afeta a data de pagamento da recorrência seguinte.</aside>
+
+<h4 id="requisição-23">Requisição</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">156</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Amount"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+156
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na API.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Número de identificação da recorrência.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>Valor do pedido, em centavos. Ex.: 156 equivale a R$ 1,56.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-25">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Consulte o anexo <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code" target="_blank">HTTP Status Code</a> para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
+
+<h3 id="alterando-a-data-do-próximo-pagamento">Alterando a Data do Próximo Pagamento</h3>
+
+<p>Para alterar somente a data do pagamento seguinte, basta fazer um PUT conforme o exemplo abaixo.</p>
+
+<aside class="warning">Esta operação modifica somente a data do pagamento seguinte, ou seja, as recorrências futuras permanecerão com as características originais.</aside>
+
+<h4 id="requisição-24">Requisição</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"2017-06-15"</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="s2">"2016-06-15"</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na API.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Número de identificação da recorrência.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NextPaymentDate</code></td>
+      <td>Data de pagamento da próxima recorrência.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-26">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Consulte o anexo <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code" target="_blank">HTTP Status Code</a> para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
+
+<h3 id="alterando-os-dados-de-pagamento-da-recorrência">Alterando os Dados de Pagamento da Recorrência</h3>
+
+<p>Durante o ciclo de vida de uma recorrência, é possível alterar:</p>
+
+<ul>
+  <li>Adquirente (ex.: de Rede para Cielo);</li>
+  <li>Cartão (em caso de cartão vencido);</li>
+  <li>Meio de pagamento (de cartão para boleto e vice-e-versa).</li>
+</ul>
+
+<p><br />Para alterar os dados de pagamento, basta fazer um PUT conforme o exemplo.</p>
+
+<aside class="warning">ATENÇÃO: Essa alteração afeta a todos os dados do nó "Payment". Para manter os dados anteriores, você deve informar esses campos utilizando os valores já salvos a serem mantidos.</aside>
+
+<h4 id="requisição-25">Requisição</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Amount"</span><span class="p">:</span><span class="s2">"20000"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Mensagem"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"5412217070050381"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"05/2019"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D8888888"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOJA9999999"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#Braspag2018@NOMEDALOJA#"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Payment"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>  
+   <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
+   <span class="s2">"Amount"</span>:<span class="s2">"20000"</span>,
+   <span class="s2">"Installments"</span>:3,
+   <span class="s2">"Country"</span>:<span class="s2">"USA"</span>,
+   <span class="s2">"Currency"</span>:<span class="s2">"USD"</span>,
+   <span class="s2">"SoftDescriptor"</span>:<span class="s2">"Mensagem"</span>,
+   <span class="s2">"Provider"</span>:<span class="s2">"Simulado"</span>,
+   <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
+      <span class="s2">"Brand"</span>:<span class="s2">"Master"</span>,
+      <span class="s2">"Holder"</span>:<span class="s2">"Nome do Portador"</span>,
+      <span class="s2">"CardNumber"</span>:<span class="s2">"5412217070050381"</span>,
+      <span class="s2">"ExpirationDate"</span>:<span class="s2">"05/2019"</span>
+   <span class="o">}</span>,
+   <span class="s2">"Credentials"</span>: <span class="o">{</span>
+      <span class="s2">"Code"</span>: <span class="s2">"9999999"</span>,
+      <span class="s2">"Key"</span>: <span class="s2">"D8888888"</span>,
+      <span class="s2">"Password"</span>: <span class="s2">"LOJA9999999"</span>,
+      <span class="s2">"Username"</span>: <span class="s2">"#Braspag2018@NOMEDALOJA#"</span>,
+      <span class="s2">"Signature"</span>: <span class="s2">"001"</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na API.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Número de identificação da recorrência.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Provider</code></td>
+      <td>Nome do provedor do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Type</code></td>
+      <td>Tipo do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Installments</code></td>
+      <td>Número de parcelas.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
+      <td>Texto que será impresso na fatura do portador.</td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Número do cartão do comprador.</td>
+      <td>Texto</td>
+      <td>16</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.</td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Data de validade impressa no cartão.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão.</td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Bandeira do cartão.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Credentials.Code</code></td>
+      <td>Afiliação gerada pela adquirente.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Credentials.Key</code></td>
+      <td>Chave de afiliação/token gerado pela adquirente.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Credentials.Username</code></td>
+      <td>Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Credentials.Password</code></td>
+      <td>Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Credentials.Signature</code></td>
+      <td>Enviar o <em>TerminalID</em> da adquirente <strong>Global Payments</strong> Ex.: 001. Para <strong>Safra</strong>, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula “;”. Ex.: NomedaLoja;São Paulo;SP.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-27">Resposta</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Consulte o anexo <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code" target="_blank">HTTP Status Code</a> para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
+
+<h2 id="desabilitação-de-pedido">Desabilitação de Pedido</h2>
+
+<h3 id="desabilitando-um-pedido-recorrente">Desabilitando um Pedido Recorrente</h3>
+
+<p>Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:</p>
+
+<h4 id="requisição-26">Requisição</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na API.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Número de identificação da recorrência.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-28">Resposta</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Consulte o anexo <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code" target="_blank">HTTP Status Code</a> para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
+
+<h2 id="reabilitação-de-pedido">Reabilitação de Pedido</h2>
+
+<h3 id="reabilitando-um-pedido-recorrente">Reabilitando um Pedido Recorrente</h3>
+
+<p>Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:</p>
+
+<h4 id="requisição-27">Requisição</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na API.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Número de identificação da recorrência.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-29">Resposta</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Consulte o anexo <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code" target="_blank">HTTP Status Code</a> para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
+
+<h2 id="transação-com-renova-fácil">Transação com Renova Fácil</h2>
+
+<p>O <em>Renova Fácil</em> é um serviço desenvolvido pela Cielo em conjunto com os emissores cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito e débito.</p>
+
+<p>Através da identificação de cartões vencidos no momento da transação, é feita a autorização com um novo cartão, que é então retornado para armazenagem.</p>
+
+<aside class="notice">Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.</aside>
+
+<p>Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado na Cielo. Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá o nó <code class="language-plaintext highlighter-rouge">NewCard</code>, tanto para transação de crédito quanto para transação de débito.</p>
+
+<p>Veja a seguir o exemplo de resposta de uma transação de crédito.</p>
+
+<h3 id="resposta-30">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0183"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2016"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0512105630844"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"NewCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4551870000512353"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05/2020"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-12 10:56:30"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CardExpired"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Card Expired"</span><span class="p">,</span><span class="w">
+      </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+   <span class="o">[</span>...]
+   <span class="s2">"Payment"</span>: <span class="o">{</span>
+      <span class="s2">"ServiceTaxAmount"</span>: 0,
+      <span class="s2">"Installments"</span>: 1,
+      <span class="s2">"Interest"</span>: <span class="s2">"ByMerchant"</span>,
+      <span class="s2">"Capture"</span>: <span class="nb">true</span>,
+      <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+      <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+      <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+         <span class="s2">"CardNumber"</span>: <span class="s2">"455187******0183"</span>,
+         <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
+         <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2016"</span>,
+         <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+         <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+      <span class="o">}</span>,
+      <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"0512105630844"</span>,
+      <span class="s2">"NewCard"</span>: <span class="o">{</span>
+         <span class="s2">"CardNumber"</span>: <span class="s2">"4551870000512353"</span>,
+         <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
+         <span class="s2">"ExpirationDate"</span>: <span class="s2">"05/2020"</span>,
+         <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+         <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+      <span class="o">}</span>,
+      <span class="s2">"PaymentId"</span>: <span class="s2">"ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84"</span>,
+      <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+      <span class="s2">"Amount"</span>: 10000,
+      <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-05-12 10:56:30"</span>,
+      <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+      <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+      <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+      <span class="s2">"ReasonCode"</span>: 15,
+      <span class="s2">"ReasonMessage"</span>: <span class="s2">"CardExpired"</span>,
+      <span class="s2">"Status"</span>: 3,
+      <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"57"</span>,
+      <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Card Expired"</span>,
+      <span class="o">[</span>...]
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.CardNumber</code></td>
+      <td>Novo número do cartão do comprador.</td>
+      <td>Texto</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.Holder</code></td>
+      <td>Nome do portador impresso no novo cartão.</td>
+      <td>Texto</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.ExpirationDate</code></td>
+      <td>Data de validade impressa no novo cartão.</td>
+      <td>Texto</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do novo cartão.</td>
+      <td>Texto</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.Brand</code></td>
+      <td>Bandeira do novo cartão.</td>
+      <td>Texto</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">Para simular o retorno do node "NewCard" em Sandbox utilize um cartão com final 3 e o "ExpirationDate" vencido.</aside>
+
+<h3 id="resposta-para-clientes-cartão-protegido-e-renova-fácil">Resposta para clientes Cartão Protegido e Renova Fácil</h3>
+
+<p>Para clientes Cartão Protegido e Renova Fácil, o nó <code class="language-plaintext highlighter-rouge">NewCard</code> irá retornar o número mascarado do cartão e um novo token do cartão atualizado. Dessa forma o lojista pode submeter uma nova cobrança, usando o retorno do Renova Fácil de uma forma segura.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="s2">"19077eb8-5d84-352f-10cd-6a4280b8c089"</span><span class="w">
+         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0512105630844"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"NewCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******4731"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2028"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"be7fg5a8-3ac8-59bc-dgf2-344516e20b68"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-12 10:56:30"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CardExpired"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Card Expired"</span><span class="p">,</span><span class="w">
+      </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+   <span class="o">[</span>...]
+   <span class="s2">"Payment"</span>: <span class="o">{</span>
+      <span class="s2">"ServiceTaxAmount"</span>: 0,
+      <span class="s2">"Installments"</span>: 1,
+      <span class="s2">"Interest"</span>: <span class="s2">"ByMerchant"</span>,
+      <span class="s2">"Capture"</span>: <span class="nb">true</span>,
+      <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+      <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+      <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+         <span class="s2">"CardToken"</span>:<span class="s2">"19077eb8-5d84-352f-10cd-6a4280b8c089"</span>
+         <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+         <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+      <span class="o">}</span>,
+      <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"0512105630844"</span>,
+      <span class="s2">"NewCard"</span>: <span class="o">{</span>
+         <span class="s2">"CardNumber"</span>: <span class="s2">"455187******4731"</span>,
+         <span class="s2">"Holder"</span>: <span class="s2">"Nome do Portador"</span>,
+         <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2028"</span>,
+         <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+         <span class="s2">"CardToken"</span>: <span class="s2">"be7fg5a8-3ac8-59bc-dgf2-344516e20b68"</span>,
+         <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+      <span class="o">}</span>,
+      <span class="s2">"PaymentId"</span>: <span class="s2">"ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84"</span>,
+      <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+      <span class="s2">"Amount"</span>: 10000,
+      <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-05-12 10:56:30"</span>,
+      <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+      <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+      <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+      <span class="s2">"ReasonCode"</span>: 15,
+      <span class="s2">"ReasonMessage"</span>: <span class="s2">"CardExpired"</span>,
+      <span class="s2">"Status"</span>: 3,
+      <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"57"</span>,
+      <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Card Expired"</span>,
+      <span class="o">[</span>...]
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.CardNumber</code></td>
+      <td>BIN e 4 últimos dígitios do novo número do cartão do comprador.</td>
+      <td>Texto</td>
+      <td>16</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.Holder</code></td>
+      <td>Nome do portador impresso no novo cartão.</td>
+      <td>Texto</td>
+      <td>25</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.ExpirationDate</code></td>
+      <td>Data de validade impressa no novo cartão.</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do novo cartão.</td>
+      <td>Texto</td>
+      <td>4</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.CardToken</code></td>
+      <td>Token no <em>Cartão Protegido</em> que representa os dados do cartão. OBS.: Se a origem da transação for do <em>Silent Order Post</em> então o retorno será <code class="language-plaintext highlighter-rouge">NewCard.PaymentToken</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NewCard.Brand</code></td>
+      <td>Bandeira do novo cartão.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="antifraude">Antifraude</h1>
 
@@ -4955,7 +7361,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós <code class="language-plaintext highlighter-rouge">FraudAnalysis</code>, <code class="language-plaintext highlighter-rouge">Cart</code>, <code class="language-plaintext highlighter-rouge">MerchantDefinedFields</code> e <code class="language-plaintext highlighter-rouge">Travel</code> (somente para venda de passagens aéreas).</p>
 
-<h3 id="requisição-16">Requisição</h3>
+<h3 id="requisição-28">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5718,7 +8124,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
   <p>Os campos do nó <code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel</code> se tornam obrigatórios caso o segmento do seu negócio seja aéreas.</p>
 </blockquote>
 
-<h3 id="resposta-18">Resposta</h3>
+<h3 id="resposta-31">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
