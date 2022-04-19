@@ -200,7 +200,7 @@ A próxima seção apresentará exemplos de transações de crédito, débito e 
 
 > Em todos os exemplos a seguir a divisão da transação segue o modelo de Split Transacional, ou seja, a divisão é solicitada no momento da captura.
 
-# Transação de Crédito
+## Transação de Crédito
 
 Ao informar um tipo de pagamento referente ao Split, a API do Pagador automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag.
 
@@ -208,7 +208,7 @@ Caso a transação enviada seja marcada para captura automática, é necessário
 
 > Para transações **com análise de fraude**, siga a requisição do capítulo **[Antifraude]**(https://braspag.github.io//manual/split-de-pagamentos-pagador#antifraude) deste manual.
 
-## Transação de crédito sem o nó da divisão  
+### Transação de crédito sem o nó da divisão  
 
 Neste caso, o master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
 
@@ -231,7 +231,7 @@ Neste caso, o master recebe o valor da transação descontado o MDR acordado com
 
 Veja a requisição dessa transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.
 
-### Requisição
+#### Requisição
 
 ```json
 {
@@ -297,7 +297,7 @@ Veja a requisição dessa transação no valor de R$100,00, com captura automát
 
 <aside class="warning">**Em uma transação com análise de fraude os campos podem ter tamanhos diferentes, como é o caso do campo `Customer.DeliveryAddress.Complement`. Nesse caso, consulte a requisição do capítulo Antifraude neste mesmo manual.</aside>
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -375,7 +375,7 @@ Veja a requisição dessa transação no valor de R$100,00, com captura automát
 }
 ```
 
-## Transação de crédito com o nó da divisão  
+### Transação de crédito com o nó da divisão  
 
 ![SplitEx3]({{ site.baseurl_root }}/images/braspag/split/split8-exemplo3-com-no.png)
 
@@ -414,7 +414,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).
 
 Veja a requisição dessa transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 
-### Requisição
+#### Requisição
 
 ```json
 {
@@ -496,7 +496,7 @@ Veja a requisição dessa transação no valor de **R$100,00** com o nó contend
 
 <aside class="warning">**Em uma transação com análise de fraude os campos podem ter tamanhos diferentes, como é o caso do campo `Customer.DeliveryAddress.Complement`. Nesse caso, consulte a requisição do capítulo Antifraude neste mesmo manual.</aside>
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -596,7 +596,7 @@ Veja a requisição dessa transação no valor de **R$100,00** com o nó contend
 }
 ```
 
-# Transação de Débito
+## Transação de Débito
 
 Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:
 
@@ -605,7 +605,7 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 
 > Para saber mais sobre a integração 3DS 2.0, acesse o [Manual de Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).
 
-## Requisição
+### Requisição
 
 ```json
 {
@@ -673,7 +673,7 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 |`Payment.ExternalAuthentication.Version`| Versão do 3DS utilizado no processo de autenticação. | Alfanumérico / 1 posição | Sim, quando a versão do 3DS for "2".|
 |`Payment.ExternalAuthentication.ReferenceID`| RequestID retornado no processo de autenticação. | GUID / 36 posições | Sim, quando a versão do 3DS for "2". |
 
-## Resposta
+### Resposta
 
 ```json
 {
@@ -771,7 +771,7 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 }
 ```
 
-# Transação de Boleto
+## Transação de Boleto
 
 **Boleto Registrado** 
 
@@ -781,7 +781,7 @@ pela Febraban em conjunto com os bancos, para promover maior controle e seguran�
 Para gerar um boleto, inclusive em ambiente Sandbox, é necessário fornecer dados do comprador como CPF ou CNPJ e endereço. A seguir temos um exemplo de como criar um pedido com este
 tipo de meio de pagamento.
 
-## Requisição
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -853,7 +853,7 @@ tipo de meio de pagamento.
 >(*) São aceitos como caracteres válidos: números, letras de A a Z (MAIÚSCULAS) e caracteres especiais de conjunção (hífen “-“ e apóstrofo “‘”). Quando utilizados, não pode haver espaços entre as letras. Exemplos corretos: D’EL-REI / D’ALCORTIVO / SANT’ANA. Exemplos incorretos: D’EL - REI / um espaço em branco entre palavras.<BR> 
 >(**) Caracteres especiais e acentuações são removidos automaticamente.
 
-## Resposta
+### Resposta
 
 ```json
 {
@@ -1827,11 +1827,13 @@ O nó `CreditCard` dentro do nó `Payment` será alterado, conforme exemplo a se
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
 
-# Consulta
+# Consulta, Captura e Cancelamento
+
+## Consulta
 
 Para consultar uma transação, use o serviço de consulta da API do Pagador, informando o `PaymentId` da transação. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o [Post de Notificação](https://braspag.github.io//manual/split-de-pagamentos-pagador#post-de-notifica%C3%A7%C3%A3o).
 
-## Requisição
+### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -1852,7 +1854,7 @@ Para consultar uma transação, use o serviço de consulta da API do Pagador, in
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`PaymentId`|Número de identificação do pagamento. |Texto |36 |Sim (envio no *endpoint*)|
 
-## Resposta
+### Resposta
 
 ```json
 {
@@ -2132,15 +2134,15 @@ Para consultar uma transação, use o serviço de consulta da API do Pagador, in
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|---|
 |`CreditCard.SaveCard`|Identifica se o cartão será salvo para gerar o token (*CardToken*).|Booleano|---|true / false (default)|
 
-# Captura
+## Captura
 
 Ao capturar uma transação do Split de Pagamentos, o master precisa informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio master.
 
-## Captura Total
+### Captura Total
 
 Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
@@ -2167,7 +2169,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 }
 ```
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -2231,11 +2233,11 @@ Na captura total de uma transação, o somatório dos valores de participação 
 }
 ```
 
-## Captura Parcial
+### Captura Parcial
 
 Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio master.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
@@ -2264,7 +2266,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 }
 ```
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -2376,21 +2378,21 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 }
 ```
 
-# Cancelamento
+## Cancelamento
 
 Ao cancelar uma transação do Split de Pagamentos o master deve informar, para um cancelamento parcial, qual o valor que deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e, consequentemente, o valor total de cada subordinado.
 
 > O prazo de estorno de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.
 
-## Cancelamento Total
+### Cancelamento Total
 
 No cancelamento total de uma transação, será cancelado o valor total da transação e, consequentemente, o valor total de cada subordinado e as comissões de todos os participantes.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void</span></aside>
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -2441,11 +2443,11 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 }
 ```
 
-## Cancelamento Parcial
+### Cancelamento Parcial
 
 No cancelamento parcial, o somatório dos valores cancelados definidos para cada subordinado deve ser igual ao valor do cancelamento parcial.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">v2/sales/{PaymentId}/void?amount={amount}</span></aside>
 
@@ -2473,7 +2475,7 @@ No exemplo a seguir, a requisição informa o cancelamento do valor de R$25,00 d
 | `VoidSplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
 | `VoidedAmount.Amount`                       | Total ou parte do valor destinado ao **Subordinado** a ser cancelado, em centavos.                      | Inteiro | -       | Sim         |
 
-### Resposta
+#### Resposta
 
 ```json
 {
