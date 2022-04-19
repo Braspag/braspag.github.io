@@ -4506,7 +4506,7 @@ Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o
 |`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão.|Texto|4|
 |`NewCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão. OBS.: Se a origem da transação for do *Silent Order Post* então o retorno será `NewCard.PaymentToken`|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`NewCard.Brand`|Bandeira do novo cartão.|Texto|10|
-  
+
 # Antifraude
 
 O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.
