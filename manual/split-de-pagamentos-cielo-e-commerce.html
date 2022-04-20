@@ -4441,7 +4441,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <p>O pedido de requisição de uma transação recorrente com boleto bancário é o mesmo da criação de um boleto tradicional. Adicione o nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> ao nó <code class="language-plaintext highlighter-rouge">Payment</code> para agendar as recorrências futuras ao autorizar uma transação pela primeira vez na série de recorrências.</p>
 
-<p>A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente adicionado do valor que estiver configurado no meio de pagamento na Braspag.</p>
+<p>A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente adicionado do valor que estiver configurado no meio de pagamento.</p>
 
 <p>Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias. Vencimento do boleto criado automaticamente: 06/01/2021.</p>
 
@@ -5132,7 +5132,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Outro nome do Comprador"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"outrocomprador@braspag.com.br"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"outrocomprador@email.com.br"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="s2">"1999-12-12"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
@@ -5848,7 +5848,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
       </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D8888888"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOJA9999999"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#Braspag2018@NOMEDALOJA#"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#Username@NOMEDALOJA#"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5878,7 +5878,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
       <span class="s2">"Code"</span>: <span class="s2">"9999999"</span>,
       <span class="s2">"Key"</span>: <span class="s2">"D8888888"</span>,
       <span class="s2">"Password"</span>: <span class="s2">"LOJA9999999"</span>,
-      <span class="s2">"Username"</span>: <span class="s2">"#Braspag2018@NOMEDALOJA#"</span>,
+      <span class="s2">"Username"</span>: <span class="s2">"#Username@NOMEDALOJA#"</span>,
       <span class="s2">"Signature"</span>: <span class="s2">"001"</span>
    <span class="o">}</span>
 <span class="o">}</span>
