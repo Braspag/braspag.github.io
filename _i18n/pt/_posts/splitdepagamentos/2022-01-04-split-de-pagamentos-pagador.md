@@ -267,6 +267,8 @@ Veja a requisição dessa transação no valor de R$100,00, com captura automát
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
+|`MerchantId`|GUID|36|Sim (envio no *header*)|Identificador da loja na Braspag.|
+|`MerchantKey`|Texto|40|Sim (envio no *header*)|Chave pública para autenticação dupla na Braspag.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
 |`Customer.Email`|Texto|255|Não|Email do comprador|
 |`Customer.Name`|Texto|255|Sim|Nome do comprador|
@@ -466,6 +468,8 @@ Veja a requisição dessa transação no valor de **R$100,00** com o nó contend
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |-----------|----|-------|-----------|---------|
+|`MerchantId`|GUID|36|Sim (envio no *header*)|Identificador da loja na Braspag.|
+|`MerchantKey`|Texto|40|Sim (envio no *header*)|Chave pública para autenticação dupla na Braspag.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido|
 |`Customer.Email`|Texto|255|Não|Email do comprador|
 |`Customer.Name`|Texto|255|Sim|Nome do comprador|
@@ -4704,6 +4708,8 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 
 |Campo|Tipo|Tamanho|Obrigatório|Descrição|
 |:-|:-|:-|:-|:-|
+|`MerchantId`|GUID|36|Sim (envio no *header*)|Identificador da loja na Braspag.|
+|`MerchantKey`|Texto|40|Sim (envio no *header*)|Chave pública para autenticação dupla na Braspag.|
 |`MerchantOrderId`|Texto|50|Sim|Número do pedido da loja|
 |`Customer.Name`|Texto|120|Sim|Nome completo do comprador|
 |`Customer.Identity`|Texto|16|Sim|Número do documento de identificação do comprador|
