@@ -224,11 +224,11 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 # Integração
 
-## Autorização
+# Autorização
 
 A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce, seguindo as mesmas requisições do [Manual de Integração API Cielo E-commerce](https://developercielo.github.io/manual/cielo-ecommerce).
 
-## Fluxo transacional padrão
+# Fluxo transacional padrão
 
 Veja um exemplo do fluxo transacional padrão no Split de Pagamentos.
 
@@ -238,7 +238,7 @@ A próxima seção apresentará exemplos de transações de crédito, débito e 
 
 > Em todos os exemplos a seguir a divisão da transação segue o modelo de Split Transacional, ou seja, a divisão é solicitada no momento da captura.
 
-## Transação de crédito
+## Transação de Crédito
 
 Ao informar um tipo de pagamento referente ao Split, a API Cielo E-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo 
 transacional através da Braspag.
@@ -1022,7 +1022,7 @@ tipo de meio de pagamento.
 |`Address`|Endereço do Loja cadastrada no banco |Texto |256 |Av. Teste, 160 |
 |`Status`|Status da Transação. |Byte | 2 | Ex. 1 |
 
-## Modelos de Split
+# Modelos de Split
 
 O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
 
@@ -1035,11 +1035,11 @@ O nó referente ao split (divisão)), tanto no contrato de requisição quanto d
 
 > No Split de Pagamentos, a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso as regras de divisão sejam informadas no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.
 
-### Split Transacional
+## Split Transacional
 
 No Split Transacional é necessário que o master envie um "nó" adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
 
-#### Requisição
+### Requisição
 
 ```json
 "SplitPayments":[
@@ -1061,7 +1061,7 @@ No Split Transacional é necessário que o master envie um "nó" adicional na in
 | `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Master** a ser descontado do valor referente a participação do **Subordinado**     | Decimal | -       | Não         |
 | `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos. | Inteiro | -       | Não         |
 
-#### Resposta
+### Resposta
 
 Como resposta, A API Cielo E-Commerce retornará um nó contendo as regras de divisão enviadas e os valores a serem recebidos pelo master e seus subordinados:
 
@@ -1093,13 +1093,13 @@ Como resposta, A API Cielo E-Commerce retornará um nó contendo as regras de di
 | `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Master**.                       | Guid   | 36      | Sim         |
 | `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Master**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
-### Split Pós-Transacional
+## Split Pós-Transacional
 
 Neste modelo, o master poderá enviar as regras de divisão da transação após a captura.
 
 > Para transações de crédito e débito o prazo para envio da requisição de Split Pós-Transacional é até 01h00 do dia posterior à captura.
 
-#### Requisição  
+### Requisição  
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
 
@@ -1125,7 +1125,7 @@ Neste modelo, o master poderá enviar as regras de divisão da transação após
 ]
 ```
 
-#### Resposta
+### Resposta
 
 ```json
 {
@@ -1178,7 +1178,7 @@ Neste modelo, o master poderá enviar as regras de divisão da transação após
 
 > O master poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é até 01h00 do dia posterior à captura, se estiver enquadrado no regime de pagamento padrão. 
 
-## Salvando e Reutilizando Cartões
+# Salvando e Reutilizando Cartões
 
 Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
 
@@ -1186,17 +1186,17 @@ Além da geração do `CardToken`, é possível associar um nome (um identificad
 
 <aside class="warning">Por questões de segurança, o Cartão Protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
-### Fluxo da transação com Cartão Protegido
+## Fluxo da transação com Cartão Protegido
 
 Na transação com Cartão Protegido, a solicitação de tokenização é feita na própria requisição de autorização.
 
 ![FluxoSplitCP]({{ site.baseurl_root }}/images/braspag/split/split9-fluxo-transacional-cp.png)
 
-### Salvando um Cartão Durante uma Autorização
+## Salvando um Cartão Durante uma Autorização
 
 Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. A numeração do cartão usado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
 
-#### Requisição
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1334,7 +1334,7 @@ Para salvar um cartão de crédito utilizado em uma transação, basta enviar o 
 |`CreditCard.SaveCard`|"true" - para salvar o cartão. / "false" - para não salvar o cartão.|Booleano|10|Não (default "false") |
 |`CreditCard.Alias`|Alias (apelido) do cartão de crédito.|Texto|64|Não |
 
-#### Resposta
+### Resposta
 
 O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transações futuras com o mesmo cartão.
 
@@ -1411,13 +1411,13 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
 |`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`CreditCard.Alias`| Alias (apelido) do cartão de crédito. | Texto | 64 | Texto alfanumérico
 
-### Criando uma Transação com CardToken
+## Criando uma Transação com CardToken
 
 Este é um exemplo de como utilizar o `CardToken`, previamente salvo, para criar uma transação. Por questões de segurança, um `CardToken` não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
 
 O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir:
 
-#### Requisição
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1543,7 +1543,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
 
-#### Resposta
+### Resposta
 
 ```json
 {  
@@ -1608,13 +1608,13 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação.|Byte|2|Ex.: 1|
 
-### Criando uma Transação com Alias
+## Criando uma Transação com Alias
 
 Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
 
 O nó `CreditCard` dentro do nó `Payment` será alterado, conforme exemplo a seguir:
 
-#### Requisição
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -1741,7 +1741,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado, conforme exemplo a se
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
 |`CreditCard.Alias`| Alias (apelido) do cartão de crédito. | Texto | 64 | Não
 
-#### Resposta
+### Resposta
 
 ```json
 {  
@@ -1805,6 +1805,8 @@ O nó `CreditCard` dentro do nó `Payment` será alterado, conforme exemplo a se
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
 |`Status`|Status da transação.|Byte|2|Ex.: 1|
+
+# Consulta, Captura e Cancelamento
 
 ## Consulta
 
@@ -2301,11 +2303,11 @@ Não é obrigatório informar todos os subordinados no cancelamento parcial. Voc
 
 > Ao cancelar parcialmente parte de um valor destinado a um subordinado, a Tarifa Fixa que o master tem a receber também é cancelada proporcionalmente.
 
-## Opções de Configuração da Transação
+# Opções de Configuração da Transação
 
 Em uma transação do Split, existem configurações opcionais para que o master possa definir de qual parte as taxas serão descontadas.
 
-### Tipo do Desconto das Taxas
+## Tipo do Desconto das Taxas
 
 Os descontos das taxas (MDR e tarifa fixa) do Split podem ser feitos de duas formas: sobre a comissão ou venda do master.
 
@@ -2328,7 +2330,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 > Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.
 
-#### No Momento Transacional
+### No Momento Transacional
 
 A seguir vamos apresentar exemplos de uma transação com o desconto aplicado sobre a comissão e com o desconto aplicado sobre a venda.
 
@@ -2371,9 +2373,9 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 
 ![SplitEx4]({{ site.baseurl_root }}/images/braspag/split/split10-exemplo4-tipo-de-desconto.png)
 
-##### Desconto sendo aplicado sobre a comissão
+#### Desconto sendo aplicado sobre a comissão
 
-###### Requisição
+##### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -2426,7 +2428,7 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 }
 ```
 
-###### Resposta
+##### Resposta
 
 ```json
 {
@@ -2541,9 +2543,9 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 }
 ```
 
-##### Desconto sendo aplicado sobre a venda
+#### Desconto sendo aplicado sobre a venda
 
-###### Requisição
+##### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -2596,7 +2598,7 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 }
 ```
 
-###### Resposta
+##### Resposta
 
 ```json
 {
@@ -2711,11 +2713,11 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 }
 ```
 
-#### No Momento Pós-Transacional
+### No Momento Pós-Transacional
 
 Veja uma requisição no modelo Split Pós-transacional com o desconto aplicado sobre a venda.
 
-##### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
 
@@ -2737,7 +2739,7 @@ Veja uma requisição no modelo Split Pós-transacional com o desconto aplicado 
 ]
 ```
 
-##### Resposta
+#### Resposta
 
 ```json
 {
@@ -2779,6 +2781,1482 @@ Veja uma requisição no modelo Split Pós-transacional com o desconto aplicado 
     ]
 }
 ```
+
+# Recorrência
+
+Diferente dos pagamentos com cartão de crédito ou boleto tradicionais, os pagamentos recorrentes se repetem automaticamente por períodos e em intervalos determinados, cobrando sempre o mesmo valor de um mesmo cartão ou conta.
+
+É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Além da integração técnica, é necessário que seu estabelecimento comercial esteja habilitado na adquirente para receber pagamentos recorrentes.
+
+O lojista conta com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas e intervalo entre tentativas.
+
+<aside class="notice">Vendas recorrentes com cartão de crédito não exigem CVV.</aside>
+
+<aside class="warning">A recorrência não está disponível para transações de e-wallets devido à necessidade de utilização de chaves temporárias para realizar operações de crédito.</aside>
+
+<aside class="warning">Por questões de segurança, a recorrência só é possível para cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
+
+## Autorização de Recorrência
+
+### Autorizando Recorrência com Cartão de Crédito
+
+Adicione o nó `RecurrentPayment` ao nó `Payment` para agendar as recorrências futuras ao autorizar uma transação pela primeira vez na série de recorrências.
+
+Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.DailyInterval`, marcados com um "\*" na coluna "OBRIGATÓRIO", não devem ser utilizados em conjunto.
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@cielo.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount": 10000,
+      "Installments": 1,
+      "CreditCard": {
+         "CardNumber":"5412217070050381",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "RecurrentPayment": {
+         "AuthorizeNow":"true",
+         "EndDate":"2019-12-31",
+         "Interval":"Monthly"
+      }
+   }
+}
+```
+
+```shell
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2017051001",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@cielo.com.br",
+      "Birthdate":"1991-01-02",
+      "IpAddress":"127.0.0.1",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount": 10000,
+      "Installments": 1,
+      "CreditCard": {
+         "CardNumber":"5412217070050381",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "RecurrentPayment": {
+         "AuthorizeNow":"true",
+         "EndDate":"2019-12-31",
+         "Interval":"Monthly"
+      }
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|----|-------|-----------|---------|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
+|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência. Não utilizar em conjunto com `DailyInterval`.<br><br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não*|
+|`Payment.RecurrentPayment.DailyInterval`|Padrão da recorrência em dias. Não utilizar em conjunto com `Interval`.|Número|2|Não*|
+|`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+
+#### Resposta
+
+```json
+{
+  [...]
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "455187******0181",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2021",
+      "SaveCard": false,
+      "Brand": "Visa"
+    },
+    "ProofOfSale": "5646418",
+    "AcquirerTransactionId": "0511045646418",
+    "AuthorizationCode": "100024",
+    "PaymentId": "067f73ce-62fb-4d76-871d-0bcbb88fbd22",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 16:56:46",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Simulado",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 1,
+    "ProviderReturnCode": "4",
+    "ProviderReturnMessage": "Operation Successful",
+    "RecurrentPayment": {
+      "RecurrentPaymentId": "808d3631-47ca-43b4-97f5-bd29ab06c271",
+      "ReasonCode": 0,
+      "ReasonMessage": "Successful",
+      "NextRecurrency": "2017-06-11",
+      "EndDate": "2019-12-31",
+      "Interval": "Monthly",
+      [...]
+    }
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  [...]
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "455187******0181",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2021",
+      "SaveCard": false,
+      "Brand": "Visa"
+    },
+    "ProofOfSale": "5646418",
+    "AcquirerTransactionId": "0511045646418",
+    "AuthorizationCode": "100024",
+    "PaymentId": "067f73ce-62fb-4d76-871d-0bcbb88fbd22",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2017-05-11 16:56:46",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Simulado",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "Status": 1,
+    "ProviderReturnCode": "4",
+    "ProviderReturnMessage": "Operation Successful",
+    "RecurrentPayment": {
+      "RecurrentPaymentId": "808d3631-47ca-43b4-97f5-bd29ab06c271",
+      "ReasonCode": 0,
+      "ReasonMessage": "Successful",
+      "NextRecurrency": "2017-06-11",
+      "EndDate": "2019-12-31",
+      "Interval": "Monthly",
+      [...]
+    }
+  }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`RecurrentPaymentId`|ID que representa a recorrência, utilizada para consultas e alterações futuras. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`NextRecurrency`|Data de quando acontecerá a próxima recorrência. |Texto |10|2019-12-11 (YYYY-MM-DD) |
+|`EndDate`|Data do fim da recorrência. |Texto |10|2019-12-31 (YYYY-MM-DD) |
+|`Interval`|Intervalo entre as recorrências. |Texto |10 |Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
+|`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |Booleano |--- |"true" ou "false" |
+
+### Autorizando Recorrência com Boleto Bancário
+
+O pedido de requisição de uma transação recorrente com boleto bancário é o mesmo da criação de um boleto tradicional. Adicione o nó `RecurrentPayment` ao nó `Payment` para agendar as recorrências futuras ao autorizar uma transação pela primeira vez na série de recorrências.
+
+A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente adicionado do valor que estiver configurado no meio de pagamento na Braspag.
+
+Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias. Vencimento do boleto criado automaticamente: 06/01/2021.
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2017091101",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider": "Simulado",
+      "Type": "Boleto",
+      "Amount": 1000,
+      "Instructions": "Aceitar somente até a data de vencimento.",
+      "RecurrentPayment": {
+         "AuthorizeNow": true,
+         "StartDate": "2020-01-01",
+         "EndDate": "2020-12-31",
+         "Interval": "Monthly"
+      }
+   }
+}
+```
+
+```shell
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2017091101",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment": {
+      "Provider":"Simulado",
+      "Type":"Boleto",
+      "Amount":1000,
+      "Instructions":"Aceitar somente até a data de vencimento.",
+      "RecurrentPayment":{
+         "AuthorizeNow":true,
+         "StartDate":"2020-01-01",
+         "EndDate":"2020-12-31",
+         "Interval":"Monthly"
+      }
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|----|-------|-----------|---------|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.RecurrentPayment.StartDate`|Data para início da recorrência.|Texto |10 |Não|
+|`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
+|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não|
+|`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
+
+#### Resposta
+
+```json
+{
+   "MerchantOrderId": "teste001",
+   "Customer": {
+      "Name": "Nome do Comprador",
+      "Identity": "12345678909",
+      "IdentityType": "CPF",
+      "Address": {
+         "Street": "Alameda Xingu",
+         "Number": "512",
+         "Complement": "27 andar",
+         "ZipCode": "06455914",
+         "City": "São Paulo",
+         "State": "SP",
+         "Country": "BRA",
+         "District": "Alphaville"
+      }
+   },
+   "Payment": {
+      "Instructions": "Aceitar somente até a data de vencimento.",
+      "ExpirationDate": "2020-08-15",
+      "Url": "https://apisandbox.cieloecommerce.cielo.com.br/post/pagador/reenvia.asp/a5f3181d-c2e2-4df9-a5b4-d8f6edf6bd51",
+      "BoletoNumber": "100031-0",
+      "BarCodeNumber": "00096834800000129001234270000010003105678900",
+      "DigitableLine": "00091.23423 40000.010004 31056.789008 6 83480000012900",
+      "Address": "N/A, 1",
+      "IsRecurring": false,
+      "PaymentId": "58e4bde3-1abc-4aef-a58a-741f4c53940d",
+      "Type": "Boleto",
+      "Amount": 1000,
+      "ReceivedDate": "2020-01-01 00:00:01",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Provider": "Simulado",
+      "ReasonCode": 0,
+      "ReasonMessage": "Successful",
+      "Status": 1,
+      "RecurrentPayment": {
+         "RecurrentPaymentId": "a08a622b-71f2-4553-9345-5f3c4fbbacb0",
+         "ReasonCode": 0,
+         "ReasonMessage": "Successful",
+         "NextRecurrency": "2020-02-01",
+         "StartDate": "2020-01-01",
+         "EndDate": "2020-12-31",
+         "Interval": "Monthly",
+         "Link": {
+            "Method": "GET",
+            "Rel": "recurrentPayment",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"
+         },
+         "AuthorizeNow": true,
+         },
+         "Links": [
+            {
+               "Method": "GET",
+               "Rel": "self",
+               "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            }
+         ]
+   }
+}
+```
+
+```shell
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+   "MerchantOrderId": "teste001",
+   "Customer": {
+      "Name": "Nome do Comprador",
+      "Identity": "12345678909",
+      "IdentityType": "CPF",
+      "Address": {
+         "Street": "Alameda Xingu",
+         "Number": "512",
+         "Complement": "27 andar",
+         "ZipCode": "06455914",
+         "City": "São Paulo",
+         "State": "SP",
+         "Country": "BRA",
+         "District": "Alphaville"
+      }
+   },
+   "Payment": {
+      "Instructions": "Aceitar somente até a data de vencimento.",
+      "ExpirationDate": "2020-08-15",
+      "Url": "https://apisandbox.cieloecommerce.cielo.com.br/post/pagador/reenvia.asp/a5f3181d-c2e2-4df9-a5b4-d8f6edf6bd51",
+      "BoletoNumber": "100031-0",
+      "BarCodeNumber": "00096834800000129001234270000010003105678900",
+      "DigitableLine": "00091.23423 40000.010004 31056.789008 6 83480000012900",
+      "Address": "N/A, 1",
+      "IsRecurring": false,
+      "PaymentId": "58e4bde3-1abc-4aef-a58a-741f4c53940d",
+      "Type": "Boleto",
+      "Amount": 1000,
+      "ReceivedDate": "2020-01-01 00:00:01",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Provider": "Simulado",
+      "ReasonCode": 0,
+      "ReasonMessage": "Successful",
+      "Status": 1,
+      "RecurrentPayment": {
+         "RecurrentPaymentId": "a08a622b-71f2-4553-9345-5f3c4fbbacb0",
+         "ReasonCode": 0,
+         "ReasonMessage": "Successful",
+         "NextRecurrency": "2020-02-01",
+         "StartDate": "2020-01-01",
+         "EndDate": "2020-12-31",
+         "Interval": "Monthly",
+         "Link": {
+            "Method": "GET",
+            "Rel": "recurrentPayment",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"
+         },
+         "AuthorizeNow": true,
+         },
+         "Links": [
+            {
+               "Method": "GET",
+               "Rel": "self",
+               "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            }
+         ]
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`RecurrentPaymentId`|Campo identificador da próxima recorrência. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`NextRecurrency`|Data da próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`StartDate`|Data do início da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`Interval`|Intervalo entre as recorrências. |Texto |10 |Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
+|`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |Booleano |--- |true ou false |
+
+## Agendamento de Recorrência
+
+### Agendando uma Autorização
+
+Diferente da recorrência anterior, este exemplo não autoriza imediatamente, mas agenda uma autorização futura.
+
+Para programar a primeira transação da série de recorrências, passe o parâmetro `Payment.RecurrentPayment.AuthorizeNow` como "false" e adicione o parâmetro `Payment.RecurrentPayment.StartDate`.
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2017091101",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment":{
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Installments":1,
+      "CreditCard":{
+         "CardNumber":"5412217070050381",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "RecurrentPayment":{
+         "AuthorizeNow":false,
+         "StartDate":"2017-12-31",
+         "EndDate":"2019-12-31",
+         "Interval":"Monthly"
+      }
+   }
+}
+```
+
+```shell
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2017091101",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment":{
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Installments":1,
+      "CreditCard":{
+         "CardNumber":"5412217070050381",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "RecurrentPayment":{
+         "AuthorizeNow":false,
+         "StartDate":"2017-12-31",
+         "EndDate":"2019-12-31",
+         "Interval":"Monthly"
+      }
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|----|-------|-----------|---------|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.RecurrentPayment.StartDate`|Data para início da recorrência.|Texto |10 |Não|
+|`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
+|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não|
+|`Payment.RecurrentPayment.DailyInterval`|Padrão da recorrência em dias. Não utilizar em conjunto com `Interval`.|Número|2|Não*|
+|`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+
+#### Resposta
+
+```json
+
+{
+  [...]
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "455187******0181",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2021",
+      "SaveCard": false,
+      "Brand": "Undefined"
+    },
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Simulado",
+    "Status": 20,
+    "RecurrentPayment": {
+      "RecurrentPaymentId": "32703035-7dfb-4369-ac53-34c7ff7b84e8",
+      "ReasonCode": 0,
+      "ReasonMessage": "Successful",
+      "NextRecurrency": "2017-12-31",
+      "StartDate": "2017-12-31",
+      "EndDate": "2019-12-31",
+      "Interval": "Monthly",
+      [...]
+      "AuthorizeNow": false
+    }
+  }
+}
+
+```
+
+```shell
+
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  [...]
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "455187******0181",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2021",
+      "SaveCard": false,
+      "Brand": "Undefined"
+    },
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Simulado",
+    "Status": 20,
+    "RecurrentPayment": {
+      "RecurrentPaymentId": "32703035-7dfb-4369-ac53-34c7ff7b84e8",
+      "ReasonCode": 0,
+      "ReasonMessage": "Successful",
+      "NextRecurrency": "2017-12-31",
+      "StartDate": "2017-12-31",
+      "EndDate": "2019-12-31",
+      "Interval": "Monthly",
+      [...]
+      "AuthorizeNow": false
+    }
+  }
+}
+
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`RecurrentPaymentId`|Campo identificador da próxima recorrência. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+|`NextRecurrency`|Data da próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`StartDate`|Data do início da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
+|`Interval`|Intervalo entre as recorrências. |Texto |10 |Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
+|`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |Booleano |--- |true ou false |
+
+## Alteração de Dados
+
+### Alterando Dados do Comprador
+
+Para alterar os dados do comprador de uma recorrência existente, basta fazer uma chamada PUT para o endpoint especificado.<br>Em **resposta**, a API irá retornar o código do [Status HTTP](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code){:target="_blank"}, informando se a operação foi realizada com sucesso ou não.
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
+
+```json
+{  
+   "Name":"Outro nome do Comprador",
+   "Email":"outrocomprador@braspag.com.br",
+   "Birthdate":"1999-12-12",
+   "Identity":"0987654321",
+   "IdentityType":"CPF",
+   "Address":{
+      "Street":"Avenida Brigadeiro Faria Lima",
+      "Number":"1500",
+      "Complement":"AP 201",
+      "ZipCode":"05426200",
+      "City":"São Paulo",
+      "State":"SP",
+      "Country":"BRA",
+      "District":"Alphaville"
+      },
+   "DeliveryAddress":{  
+      "Street":"Avenida Brigadeiro Faria Lima",
+      "Number":"1500",
+      "Complement":"AP 201",
+      "ZipCode":"05426200",
+      "City":"São Paulo",
+      "State":"SP",
+      "Country":"BRA",
+      "District":"Alphaville"
+      }
+   }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{   
+   "Name":"Outro nome do Comprador",
+   "Email":"outrocomprador@braspag.com.br",
+   "Birthdate":"1999-12-12",
+   "Identity":"0987654321",
+   "IdentityType":"CPF",
+   "Address":{  
+   "Street":"Avenida Brigadeiro Faria Lima",
+      "Number":"1500",
+      "Complement":"AP 201",
+      "ZipCode":"05426200",
+      "City":"São Paulo",
+      "State":"SP",
+      "Country":"BRA",
+      "District":"Alphaville"
+   },
+   "DeliveryAddress":{  
+      "Street":"Avenida Brigadeiro Faria Lima",
+      "Number":"1500",
+      "Complement":"AP 201",
+      "ZipCode":"05426200",
+      "City":"São Paulo",
+      "State":"SP",
+      "Country":"BRA",
+      "District":"Alphaville"
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
+|`Name`|Nome do comprador. |Texto |255|Sim|
+|`Email`|Email do comprador. |Texto |255|Não|
+|`Birthdate`|Data de nascimento do comprador. |Date |10 |Não|
+|`Identity`|Número do RG, CPF ou CNPJ do cliente. |Texto |14 |Não|
+|`IdentityType`|Tipo do documento de identificação do comprador (CFP/CNPJ).|Texto|255|Não|
+|`Address.Street`|Endereço do comprador. |Texto |255 |Não|
+|`Address.Number`|Número do endereço do comprador. |Texto |15 |Não|
+|`Address.Complement`|Complemento do endereço do comprador.|Texto |50 |Não|
+|`Address.ZipCode`|CEP do endereço do comprador. |Texto |9 |Não|
+|`Address.City`|Cidade do endereço do comprador. |Texto |50 |Não|
+|`Address.State`|Estado do endereço do comprador. |Texto |2 |Não|
+|`Address.Country`|País do endereço do comprador. |Texto |35 |Não|
+|`Address.District`|Bairro do endereço do comprador. |Texto |50 |Não|
+|`DeliveryAddress.Street`|Endereço de entrega do comprador. |Texto |255 |Não|
+|`DeliveryAddress.Number`|Número do endereço de entrega do comprador. |Texto |15 |Não|
+|`DeliveryAddress.Complement`|Complemento do endereço de entrega do comprador. |Texto |50 |Não|
+|`DeliveryAddress.ZipCode`|CEP do endereço de entrega do comprador. |Texto |9 |Não|
+|`DeliveryAddress.City`|Cidade do endereço de entrega do comprador. |Texto |50 |Não|
+|`DeliveryAddress.State`|Estado do endereço de entrega do comprador. |Texto |2 |Não|
+|`DeliveryAddress.Country`|País do endereço de entrega do comprador. |Texto |35 |Não|
+|`DeliveryAddress.District`|Bairro do endereço de entrega do comprador. |Texto |50 |Não|
+
+#### Resposta
+
+```json
+
+
+```
+
+```shell
+HTTP Status 200
+```
+
+Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code){:target="_blank"} para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+
+### Alterando a Data Final da Recorrência
+
+Para alterar a data final da recorrência já existente, basta fazer um PUT conforme o exemplo.
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
+
+```json
+"2021-01-09"
+```
+
+```shell
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/EndDate"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+"2021-01-09"
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
+|`EndDate`|Data para término da recorrência.|Texto |10 |Sim|
+
+#### Resposta
+
+```json
+
+
+```
+
+```shell
+HTTP Status 200
+```
+
+Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code){:target="_blank"} para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+
+### Alterando o Intervalo da Recorrência
+
+Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT conforme o exemplo:
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
+
+```json
+{
+  "Interval":"Annual"
+}
+```
+
+```shell
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Interval"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+"Interval":"Annual"
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
+|`Interval`|Intervalo da recorrência. <br>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual.|Texto |10 |Sim|
+
+#### Resposta
+
+```json
+
+
+```
+
+```shell
+HTTP Status 200
+```
+
+Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code){:target="_blank"} para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+
+### Alterando o Dia da Recorrência
+
+Ao efetuar a alteração do dia da recorrência, devem ser levadas em consideração as seguintes regras utilizadas para execução da atualização na API:
+
+1- Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência.<br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 10, a data da próxima recorrência será dia 10/05.
+<br/><br/>2- Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, mas este só terá efeito depois que a próxima recorrência for executada com sucesso. <br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 03, a data da próxima recorrência permanecerá dia 25/05. Após sua execução, a recorrência seguinte será agendada para o dia 03/06.
+<br/><br/>3- Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência.<br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado para o dia 03, a data da próxima recorrência será 03/09.
+
+<br/>Para modificar o dia de vencimento de uma recorrência já existente, basta fazer um PUT conforme o exemplo:
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
+
+```json
+16
+```
+
+```shell
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+16
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
+|`RecurrencyDay`|Dia da recorrência.|Número |2 |Sim|
+
+#### Resposta
+
+```json
+
+
+```
+
+```shell
+HTTP Status 200
+```
+
+Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code){:target="_blank"} para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+
+### Alterando o Valor da Transação da Recorrência
+
+Para modificar o valor da transação de uma recorrência já existente, basta fazer um PUT conforme o exemplo.
+
+<aside class="warning">Essa alteração só afeta a data de pagamento da recorrência seguinte.</aside>
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
+
+```json
+156
+```
+
+```shell
+--request POST "https://apisandbox.cieloecommerce.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Amount"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+156
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API.|GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não (envio no *header*)|
+|`RecurrentPaymentId`|Número de identificação da recorrência.|Texto |50 |Sim (envio no *endpoint*)|
+|`Amount`|Valor do pedido, em centavos. Ex.: 156 equivale a R$ 1,56.|Número|15|Sim|
+
+#### Resposta
+
+```json
+
+
+```
+
+```shell
+HTTP Status 200
+```
+
+Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code){:target="_blank"} para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+
+### Alterando a Data do Próximo Pagamento
+
+Para alterar somente a data do pagamento seguinte, basta fazer um PUT conforme o exemplo abaixo.
+
+<aside class="warning">Esta operação modifica somente a data do pagamento seguinte, ou seja, as recorrências futuras permanecerão com as características originais.</aside>
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
+
+```json
+"2017-06-15"
+```
+
+```shell
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+"2016-06-15"
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
+|`NextPaymentDate`|Data de pagamento da próxima recorrência.|Texto |10 |Sim|
+
+#### Resposta
+
+```json
+
+
+```
+
+```shell
+HTTP Status 200
+```
+
+Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code){:target="_blank"} para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+
+### Alterando os Dados de Pagamento da Recorrência
+
+Durante o ciclo de vida de uma recorrência, é possível alterar:
+
+* Adquirente (ex.: de Rede para Cielo);
+* Cartão (em caso de cartão vencido);
+* Meio de pagamento (de cartão para boleto e vice-e-versa).
+
+<br/>Para alterar os dados de pagamento, basta fazer um PUT conforme o exemplo.
+
+<aside class="warning">ATENÇÃO: Essa alteração afeta a todos os dados do nó "Payment". Para manter os dados anteriores, você deve informar esses campos utilizando os valores já salvos a serem mantidos.</aside>
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
+
+```json
+{  
+   "Type":"CreditCard",
+   "Amount":"20000",
+   "Installments":3,
+   "Country":"USA",
+   "Currency":"USD",
+   "SoftDescriptor":"Mensagem",
+   "Provider":"Simulado",
+   "CreditCard":{  
+      "Brand":"Master",
+      "Holder":"Nome do Portador",
+      "CardNumber":"5412217070050381",
+      "ExpirationDate":"05/2019"
+   },
+   "Credentials": {
+      "Code": "9999999",
+      "Key": "D8888888",
+      "Password": "LOJA9999999",
+      "Username": "#Braspag2018@NOMEDALOJA#",
+      "Signature": "001"
+   }
+}
+```
+
+```shell
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Payment"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "Type":"CreditCard",
+   "Amount":"20000",
+   "Installments":3,
+   "Country":"USA",
+   "Currency":"USD",
+   "SoftDescriptor":"Mensagem",
+   "Provider":"Simulado",
+   "CreditCard":{  
+      "Brand":"Master",
+      "Holder":"Nome do Portador",
+      "CardNumber":"5412217070050381",
+      "ExpirationDate":"05/2019"
+   },
+   "Credentials": {
+      "Code": "9999999",
+      "Key": "D8888888",
+      "Password": "LOJA9999999",
+      "Username": "#Braspag2018@NOMEDALOJA#",
+      "Signature": "001"
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
+|`Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
+|`Type`|Tipo do meio de pagamento. |Texto |100|Sim|
+|`Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
+|`Installments`|Número de parcelas.|Número |2 |Sim|
+|`SoftDescriptor`|Texto que será impresso na fatura do portador.|Texto |13|Não|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto |16|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto |25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impressa no cartão.|Texto |7 |Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto |4 |Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
+|`Credentials.Code`|Afiliação gerada pela adquirente.|Texto|100|Sim|
+|`Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|Texto|100|Sim|
+|`Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
+|`Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
+|`Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP.|Texto|--|Não|
+
+#### Resposta
+
+```shell
+HTTP Status 200
+```
+
+Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code){:target="_blank"} para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+
+## Desabilitação de Pedido
+
+### Desabilitando um Pedido Recorrente
+
+Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
+
+```shell
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
+
+#### Resposta
+
+```shell
+HTTP Status 200
+```
+
+Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code){:target="_blank"} para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+
+## Reabilitação de Pedido
+
+### Reabilitando um Pedido Recorrente
+
+Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
+
+```shell
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
+
+#### Resposta
+
+```shell
+HTTP Status 200
+```
+
+Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code){:target="_blank"} para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+
+## Transação com Renova Fácil
+
+O *Renova Fácil* é um serviço desenvolvido pela Cielo em conjunto com os emissores cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito e débito.
+
+Através da identificação de cartões vencidos no momento da transação, é feita a autorização com um novo cartão, que é então retornado para armazenagem.
+
+<aside class="notice">Emissores participantes: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.</aside>
+
+Para utilizar o Renova Fácil, é necessário que o serviço esteja habilitado na Cielo. Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá o nó `NewCard`, tanto para transação de crédito quanto para transação de débito.
+
+Veja a seguir o exemplo de resposta de uma transação de crédito.
+
+### Resposta
+
+```json
+{{
+  "MerchantOrderId": "2014113245231706",
+  "Customer": {
+    "Name": "Comprador  Renova facil"
+  },
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": 0,
+    "Capture": false,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "123412******1231",
+      "Holder": "Teste Holder",
+      "ExpirationDate": "12/2030",
+      "SaveCard": false,
+      "Brand": "Visa"
+    },
+    "Tid": "10447480685P4611AQ9B",
+    "ProofOfSale": "087001",
+    "SoftDescriptor": "123456789ABCD",
+    "Provider": "Cielo",
+    "Eci": "0",
+    "NewCard": {
+       "CardNumber": "40000000000000000",
+       "ExpirationDate": "10/2020",
+       "SaveCard": false,
+        "Brand": "Visa"
+    },
+    "VelocityAnalysis": {
+      "Id": "94f06657-c715-45d2-a563-63f7dbb19e08",
+      "ResultMessage": "Accept",
+      "Score": 0
+    },
+    "PaymentId": "94f06657-c715-45d2-a563-63f7dbb19e08",
+    "Type": "CreditCard",
+    "Amount": 1500,
+    "ReceivedDate": "2016-12-26 14:14:21",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ReturnCode": "KA",
+    "ReturnMessage": "Autorizacao negada",
+    "Status": 3,
+    "RecurrentPayment": {
+      "ReasonCode": 7,
+      "ReasonMessage": "Denied",
+      "EndDate": "2019-12-01",
+      "Interval": 6,
+      "AuthorizeNow": true
+    },
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquery.cieloecommerce.cielo.com.br/1/sales/94f06657-c715-45d2-a563-63f7dbb19e08"
+      }
+    ]
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  "MerchantOrderId": "2014113245231706",
+  "Customer": {
+    "Name": "Comprador  Renova facil"
+  },
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": 0,
+    "Capture": false,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "123412******1231",
+      "Holder": "Teste Holder",
+      "ExpirationDate": "12/2030",
+      "SaveCard": false,
+      "Brand": "Visa"
+    },
+    "Tid": "10447480685P4611AQ9B",
+    "ProofOfSale": "087001",
+    "SoftDescriptor": "123456789ABCD",
+    "Provider": "Cielo",
+    "Eci": "0",
+    "NewCard": {
+       "CardNumber": "40000000000000000",
+       "ExpirationDate": "10/2020",
+       "SaveCard": false,
+        "Brand": "Visa"
+    },
+    "VelocityAnalysis": {
+      "Id": "94f06657-c715-45d2-a563-63f7dbb19e08",
+      "ResultMessage": "Accept",
+      "Score": 0
+    },
+    "PaymentId": "94f06657-c715-45d2-a563-63f7dbb19e08",
+    "Type": "CreditCard",
+    "Amount": 1500,
+    "ReceivedDate": "2016-12-26 14:14:21",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ReturnCode": "KA",
+    "ReturnMessage": "Autorizacao negada",
+    "Status": 3,
+    "RecurrentPayment": {
+      "ReasonCode": 7,
+      "ReasonMessage": "Denied",
+      "EndDate": "2019-12-01",
+      "Interval": 6,
+      "AuthorizeNow": true
+    },
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquery.cieloecommerce.cielo.com.br/1/sales/94f06657-c715-45d2-a563-63f7dbb19e08"
+      }
+    ]
+  }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|
+|-----------|---------|----|-------|
+|`NewCard.CardNumber`|Novo número do cartão do comprador.|Texto|16|
+|`NewCard.Holder`|Nome do portador impresso no novo cartão.|Texto|25|
+|`NewCard.ExpirationDate`|Data de validade impressa no novo cartão.|Texto|7|
+|`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão.|Texto|4|
+|`NewCard.Brand`|Bandeira do novo cartão.|Texto|10 |
+
+<aside class="notice">Para simular o retorno do node "NewCard" em Sandbox utilize um cartão com final 3 e o "ExpirationDate" vencido.</aside>
+
+### Resposta para clientes Cartão Protegido e Renova Fácil
+
+Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o número mascarado do cartão e um novo token do cartão atualizado. Dessa forma o lojista pode submeter uma nova cobrança, usando o retorno do Renova Fácil de uma forma segura.
+
+```json
+{
+   [...]
+   "Payment": {
+      "ServiceTaxAmount": 0,
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "CreditCard": {
+         "CardToken":"19077eb8-5d84-352f-10cd-6a4280b8c089"
+         "SaveCard": false,
+         "Brand": "Visa"
+      },
+      "AcquirerTransactionId": "0512105630844",
+      "NewCard": {
+         "CardNumber": "455187******4731",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2028",
+         "SaveCard": false,
+         "CardToken": "be7fg5a8-3ac8-59bc-dgf2-344516e20b68",
+         "Brand": "Visa"
+      },
+      "PaymentId": "ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "ReceivedDate": "2017-05-12 10:56:30",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Provider": "Simulado",
+      "ReasonCode": 15,
+      "ReasonMessage": "CardExpired",
+      "Status": 3,
+      "ProviderReturnCode": "57",
+      "ProviderReturnMessage": "Card Expired",
+      [...]
+   }
+}
+```
+
+```shell
+{
+   [...]
+   "Payment": {
+      "ServiceTaxAmount": 0,
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "Authenticate": false,
+      "Recurrent": false,
+      "CreditCard": {
+         "CardToken":"19077eb8-5d84-352f-10cd-6a4280b8c089"
+         "SaveCard": false,
+         "Brand": "Visa"
+      },
+      "AcquirerTransactionId": "0512105630844",
+      "NewCard": {
+         "CardNumber": "455187******4731",
+         "Holder": "Nome do Portador",
+         "ExpirationDate": "12/2028",
+         "SaveCard": false,
+         "CardToken": "be7fg5a8-3ac8-59bc-dgf2-344516e20b68",
+         "Brand": "Visa"
+      },
+      "PaymentId": "ca81c3c9-2dfa-4e6e-9c77-37e33a77ac84",
+      "Type": "CreditCard",
+      "Amount": 10000,
+      "ReceivedDate": "2017-05-12 10:56:30",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Provider": "Simulado",
+      "ReasonCode": 15,
+      "ReasonMessage": "CardExpired",
+      "Status": 3,
+      "ProviderReturnCode": "57",
+      "ProviderReturnMessage": "Card Expired",
+      [...]
+   }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|
+|-----------|---------|----|-------|
+|`NewCard.CardNumber`|BIN e 4 últimos dígitios do novo número do cartão do comprador.|Texto|16|
+|`NewCard.Holder`|Nome do portador impresso no novo cartão.|Texto|25|
+|`NewCard.ExpirationDate`|Data de validade impressa no novo cartão.|Texto|7|
+|`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão.|Texto|4|
+|`NewCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão. OBS.: Se a origem da transação for do *Silent Order Post* então o retorno será `NewCard.PaymentToken`|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`NewCard.Brand`|Bandeira do novo cartão.|Texto|10|
 
 # Antifraude
 
