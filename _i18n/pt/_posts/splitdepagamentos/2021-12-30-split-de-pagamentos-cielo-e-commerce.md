@@ -4008,7 +4008,7 @@ Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 HTTP Status 200
 ```
 
-Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code){:target="_blank"} para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ## Transação com Renova Fácil
 
@@ -4025,10 +4025,10 @@ Veja a seguir o exemplo de resposta de uma transação de crédito.
 ### Resposta
 
 ```json
-{{
+{
   "MerchantOrderId": "2014113245231706",
   "Customer": {
-    "Name": "Comprador  Renova facil"
+    "Name": "Comprador Renova facil"
   },
   "Payment": {
     "ServiceTaxAmount": 0,
