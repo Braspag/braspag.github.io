@@ -3042,7 +3042,7 @@ Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.D
 
 O pedido de requisição de uma transação recorrente com boleto bancário é o mesmo da criação de um boleto tradicional. Adicione o nó `RecurrentPayment` ao nó `Payment` para agendar as recorrências futuras ao autorizar uma transação pela primeira vez na série de recorrências.
 
-A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente adicionado do valor que estiver configurado no meio de pagamento na Braspag.
+A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente adicionado do valor que estiver configurado no meio de pagamento.
 
 Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias. Vencimento do boleto criado automaticamente: 06/01/2021.
 
@@ -3500,7 +3500,7 @@ Para alterar os dados do comprador de uma recorrência existente, basta fazer um
 ```json
 {  
    "Name":"Outro nome do Comprador",
-   "Email":"outrocomprador@braspag.com.br",
+   "Email":"outrocomprador@email.com.br",
    "Birthdate":"1999-12-12",
    "Identity":"0987654321",
    "IdentityType":"CPF",
@@ -3872,7 +3872,7 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
       "Code": "9999999",
       "Key": "D8888888",
       "Password": "LOJA9999999",
-      "Username": "#Braspag2018@NOMEDALOJA#",
+      "Username": "#Username@NOMEDALOJA#",
       "Signature": "001"
    }
 }
@@ -3903,7 +3903,7 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
       "Code": "9999999",
       "Key": "D8888888",
       "Password": "LOJA9999999",
-      "Username": "#Braspag2018@NOMEDALOJA#",
+      "Username": "#Username@NOMEDALOJA#",
       "Signature": "001"
    }
 }
