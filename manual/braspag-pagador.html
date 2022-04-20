@@ -13733,13 +13733,13 @@ As listas a seguir se referem a provedores na integração REST:</p>
       <td>0</td>
       <td>NotFinished</td>
       <td>Todos</td>
-      <td>Falha ao processar o pagamento.</td>
+      <td><strong>Falha ao processar o pagamento</strong>.<br />Possíveis causas: dados incorretos, erro na requisição, <em>timeout</em> da adquirente, alguma instabilidade no processamento.<br />Em caso de transação de débito, o comprador pode ter abandonado a compra.</td>
     </tr>
     <tr>
       <td>1</td>
       <td>Authorized</td>
       <td>Todos</td>
-      <td>Meio de pagamento apto a ser capturado ou pago (boleto).</td>
+      <td><strong>Meio de pagamento apto a ser capturado ou pago (boleto)</strong>.<br />Para transação de boleto, significa que o boleto foi gerado com sucesso.<br />Para transação com cartão, significa que houve a aprovação pelo banco emissor. Contudo, isso não significa que a transação foi concluída - para isso, é necessário uma segunda etapa, a captura da transação ou a efetivação do pagamento.</td>
     </tr>
     <tr>
       <td>2</td>
@@ -13751,37 +13751,37 @@ As listas a seguir se referem a provedores na integração REST:</p>
       <td>3</td>
       <td>Denied</td>
       <td>Cartões de crédito e débito (transferência eletrônica) e e-wallets.</td>
-      <td>Pagamento negado por autorizador.</td>
+      <td><strong>Pagamento negado por autorizador</strong>. <br />Possíveis causas: limite insuficiente, falta de pagamento do cartão, bandeira indisponível, bloqueio por fraude, entre outros.<br />Para saber o real motivo da negação é necessário olhar o código de retorno gerado durante a transação.</td>
     </tr>
     <tr>
       <td>10</td>
       <td>Voided</td>
       <td>Todos, exceto boleto.</td>
-      <td>Pagamento cancelado.</td>
+      <td><strong>Pagamento cancelado</strong>.<br />É a <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360003150692-Qual-a-diferen%C3%A7a-entre-cancelamento-e-estorno-" target="_blank">suspensão da transação</a>, isentando de taxa ou valores cobrados. As transações pré-autorizadas podem ser canceladas mesmo após às 23h59 da data de autorização. Já as transações capturadas podem ser canceladas até às 23h59 do mesmo dia da autorização, após esse horário o valor será estornado.</td>
     </tr>
     <tr>
       <td>11</td>
       <td>Refunded</td>
       <td>Cartões de crédito e débito e e-wallets.</td>
-      <td>Pagamento cancelado/estornado.</td>
+      <td><strong>Pagamento cancelado/estornado</strong>.<br />Significa que foi solicitado o cancelamento da transação, podendo ocorrer a partir das 0h00 do dia após a criação da transação. Independentemente do valor, só é possível realizar uma solicitação de estorno por transação. Isso pode acontecer por conta de dados incorretos ou por solicitação do comprador.</td>
     </tr>
     <tr>
       <td>12</td>
       <td>Pending</td>
       <td>Cartões de crédito e débito (transferência eletrônica), e-wallets e pix.</td>
-      <td>Esperando retorno da instituição financeira.</td>
+      <td><strong>Esperando retorno da instituição financeira</strong>. <br />Significa que a transação foi enviada para a Braspag em processo de pré-autorização, esperando uma resposta do banco emissor para validá-la.</td>
     </tr>
     <tr>
       <td>13</td>
       <td>Aborted</td>
       <td>Todos</td>
-      <td>Pagamento cancelado por falha no processamento.</td>
+      <td><strong>Pagamento cancelado por falha no processamento</strong>.<br />Significa que a transação foi cancelada por falha de processamento. Também pode ser abortada, caso o Antifraude negue a transação antes da autorização.</td>
     </tr>
     <tr>
       <td>20</td>
       <td>Scheduled</td>
       <td>Cartão de crédito e e-wallets.</td>
-      <td>Recorrência agendada.</td>
+      <td><strong>Recorrência agendada</strong>.<br />Significa que a transação terá uma recorrência agendada, ou seja, o valor da compra será recolhido no dia em que foi agendado pela loja.</td>
     </tr>
   </tbody>
 </table>
