@@ -4758,7 +4758,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.FraudAnalysis.Provider`|Texto|10|Sim|Provedor de AntiFraude <br/> Possíveis valores: Cybersource|
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será capturada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Braspag receber a notificação da alteração de status e esta for baixo risco (Accept) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Número|15|Sim|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|
-|`Payment.FraudAnalysis.FingerPrintId`|Texto|88|Sim|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas <br/> [Como configurar o Devicefingerprint]({{ site.baseurl_root }}manual/antifraude#configuração-do-fingerprint)|
+|`Payment.FraudAnalysis.FingerPrintId`|Texto|88|Sim|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas <br/> [Saiba como configurar o Fingerprint](https://braspag.github.io/manual/antifraude#fingerprint-com-a-cybersource){:target="_blank"}no manual do Antifraude|
 |`Payment.FraudAnalysis.Browser.HostName`|Texto|60|Não|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|
 |`Payment.FraudAnalysis.Browser.CookiesAccepted`|Booleano|---|Sim|Identifica se o browser do comprador aceita cookies <br/> Possíveis valores: true / false (default)|
 |`Payment.FraudAnalysis.Browser.Email`|Texto|100|Não|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|
@@ -5115,6 +5115,12 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.ProviderReturnCode`|Texto|Código retornado pela adquirente ou banco|
 |`Payment.ProviderReturnMessage`|Texto|Mensagem retornada pela adquirente ou banco|
 
+## Integração em checkout - Fingerprint
+
+É necessário integrar o Fingerprint no seu checkout para permitir a **identificação digital do dispositivo do comprador**. O Fingerprint consiste na implementação de um script na sua página de checkout (front-end), na parte onde o comprador preenche os dados cadastrais.
+
+Confira no manual do Antifraude [como configurar o Fingerprint](https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource){:target="_blank"} para web e mobile e qual valor será enviado no campo `Payment.FraudAnalysis.FingerPrintId`.
+
 ## Tabelas
 
 ### Tabela 1 - Payment.FraudAnalysis.Cart.Items[n].GiftCategory
@@ -5441,36 +5447,6 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |11|Refunded|Cartão de crédito e Débito|Pagamento Cancelado/Estornado|
 |12|Pending|Cartão de Crédito e Débito  (Transferência eletrônica) |Esperando retorno da instituição financeira|
 |13|Aborted|Todos|Pagamento cancelado por falha no processamento|
-
-### Integração em checkout
-
-Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
-
-<aside class="warning">Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
-
-**Variáveis**
-Existem duas variáveis a serem preenchidas na URL do Javascript. O `org_id` e o `session_id`. O `org_id` é um valor predefinido conforme tabela abaixo, já o `session_id` é composto pela concatenação dos parâmetros `ProviderMerchantId` e `FraudAnalysis.FingerPrintId`, conforme exemplo abaixo:
-
-|Variável|Descrição|
-|:-|:-|
-|`org_id`|para Sandbox = 1snn5n9w <br/> para Produção = k8vif92e|
-|`session_id`|`ProviderMerchantId` = Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag <br/> `FraudAnalysis.FingerPrintId` = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
-
-**Aplicação**
-
-O modelo do Javascript é o seguinte:
-
-![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
-
-As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
-
-![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfp.png)
-
-<aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
-
-#### Integração em aplicativos mobile
-
-> Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.
 
 # Post de Notificação
 
