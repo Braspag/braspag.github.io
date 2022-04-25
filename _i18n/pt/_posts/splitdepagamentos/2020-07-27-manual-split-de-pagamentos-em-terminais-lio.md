@@ -5,7 +5,7 @@ description: Manual de Integração do Split de Pagamentos em Terminais LIO
 search: true
 toc_footers: false
 categories: manual
-sort_order: 4
+sort_order: 3
 hub_visible: false
 tags:
   - 6. Soluções para Marketplace
