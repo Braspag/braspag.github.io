@@ -378,13 +378,13 @@ Este tipo de consulta é indicado para buscar as informações de **transações
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/v1/pending-creation-transactions</span></aside>
 
-| Filtro            | Descrição                                             | Tipo    | Obrigatório|  
-|-------------------|-------------------------------------------------------|---------|---------|  
-| `InitialCaptureDate`| Data de Captura inicial da transação para busca.    |Data     | Não*|  
-| `FinalCaptureDate`| Data de Captura final da transação para busca.        |Data     | Não*| 
-| `InitialCreatedDate`| Data de Criação inicial da transação para busca.    |DateTime | Não*|  
-| `FinalCreatedDate`| Data de Criação final da transação para busca.        |DateTime | Não*| 
-| `PageIndex`       |Índice da paginação. Necessário para percorrer as páginas do resultado| Inteiro| Não|
+| Filtro            | Descrição                                             | Tipo    | Tamanho | Obrigatório|  
+|-------------------|-------------------------------------------------------|---------|---------|------------| 
+| `InitialCaptureDate`| Data de Captura inicial da transação para busca.    |Data     |    10   | Não*       |  
+| `FinalCaptureDate`| Data de Captura final da transação para busca.        |Data     |    10   | Não*       | 
+| `InitialCreatedDate`| Data de Criação inicial da transação para busca.    |DateTime |    19   | Não*       |  
+| `FinalCreatedDate`| Data de Criação final da transação para busca.        |DateTime |    19   | Não*       | 
+| `PageIndex`       |Índice da paginação. Necessário para percorrer as páginas do resultado| Inteiro| - | Não|
 
 *É obrigatório passar pelo menos um intervalo de datas.
 
@@ -429,24 +429,24 @@ Este tipo de consulta é indicado para buscar as informações de **transações
 }
 ```
 
-| Propriedade   | Tipo               | Descrição                                             |
-|---------------|--------------------|-------------------------------------------------------|
-| `PageCount`   | Inteiro            | Quantidade de páginas.                                |
-| `PageIndex`   | Inteiro            | Página atual.                                         |
-| `PageSize`    | Inteiro            | Quantidade máxima de itens por página.                |
-| `TotalItems`  | Inteiro            | Total de itens do retorno da consulta.                |
-| `Items`       | Array[Payments]    | Lista de objetos contendo informações das transações de pagamento. |
-| `Items[].Amount`   | Inteiro       | Valor vendido para o portador.                        |
-| `Items[].Installments`   | Inteiro | Número de parcelas de pagamento.                      |
-| `Items[].Brand`          | String  | Bandeira do cartão.                                   |  
-| `Items[].Product`        | String  | Produto. Tipos possíveis: "CreditCard", "DebitCard".  | 
-| `Items[].PaymentDetails` | PaymentDetails| Objeto contendo as informações de detalhes de pagamento. |      
-| `Items[].PaymentDetails.AffiliationCode`   | string  |  Código de afiliação do multiEC.    |
-| `Items[].PaymentDetails.Nsu`  | String  | Número Sequencial Único do cartão.               |                                                                     
-| `Items[].PaymentDetails.AuthorizationCode`  | String  | Código de autorização.             |
-| `Items[].PaymentDetails.TerminalLogicNumber`| String  | Número do terminal lógico. Obrigatoriamente 8 caracteres. Excluindo o dígito do terminal.|
-| `Items[].PaymentDetails.AuthorizationDate`  | DateTime| Data de autorização do pagamento.  |
-| `Items[].PaymentDetails.CaptureDate`        | Data    | Data de captura do pagamento.       |
+| Propriedade   | Tamanho            |Tipo               | Descrição                                             |
+|---------------|--------------------|--------------------|-------------------------------------------------------|
+| `PageCount`   | - | Inteiro            | Quantidade de páginas.                                |
+| `PageIndex`   | - | Inteiro            | Página atual.                                         |
+| `PageSize`    | - | Inteiro            | Quantidade máxima de itens por página.                |
+| `TotalItems`  | - | Inteiro            | Total de itens do retorno da consulta.                |
+| `Items`       | - | Array[Payments]    | Lista de objetos contendo informações das transações de pagamento. |
+| `Items[].Amount`   | 25 | Inteiro       | Valor vendido para o portador.                        |
+| `Items[].Installments`   | 4 | Inteiro | Número de parcelas de pagamento.                      |
+| `Items[].Brand`          | 12 | String  | Bandeira do cartão.                                   |  
+| `Items[].Product`        | 9 | String  | Produto. Tipos possíveis: "CreditCard", "DebitCard".  | 
+| `Items[].PaymentDetails` | - | PaymentDetails| Objeto contendo as informações de detalhes de pagamento. |      
+| `Items[].PaymentDetails.AffiliationCode`   | 20 | string  |  Código de afiliação do multiEC.    |
+| `Items[].PaymentDetails.Nsu`  | 15 | String  | Número Sequencial Único do cartão.               |                                                                     
+| `Items[].PaymentDetails.AuthorizationCode`  | 10 | String  | Código de autorização.             |
+| `Items[].PaymentDetails.TerminalLogicNumber`| 15 | String  | Número do terminal lógico. Obrigatoriamente 8 caracteres. Excluindo o dígito do terminal.|
+| `Items[].PaymentDetails.AuthorizationDate`  | 19 | DateTime| Data de autorização do pagamento.  |
+| `Items[].PaymentDetails.CaptureDate`        | 10 | Data    | Data de captura do pagamento.       |
 
 # Cancelamento
 
