@@ -651,6 +651,7 @@
       <th>Filtro</th>
       <th>Descrição</th>
       <th>Tipo</th>
+      <th>Tamanho</th>
       <th>Obrigatório</th>
     </tr>
   </thead>
@@ -659,30 +660,35 @@
       <td><code class="language-plaintext highlighter-rouge">InitialCaptureDate</code></td>
       <td>Data de Captura inicial da transação para busca.</td>
       <td>Data</td>
+      <td>10</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FinalCaptureDate</code></td>
       <td>Data de Captura final da transação para busca.</td>
       <td>Data</td>
+      <td>10</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">InitialCreatedDate</code></td>
       <td>Data de Criação inicial da transação para busca.</td>
       <td>DateTime</td>
+      <td>19</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FinalCreatedDate</code></td>
       <td>Data de Criação final da transação para busca.</td>
       <td>DateTime</td>
+      <td>19</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
       <td>Índice da paginação. Necessário para percorrer as páginas do resultado</td>
       <td>Inteiro</td>
+      <td>-</td>
       <td>Não</td>
     </tr>
   </tbody>
@@ -734,6 +740,7 @@
   <thead>
     <tr>
       <th>Propriedade</th>
+      <th>Tamanho</th>
       <th>Tipo</th>
       <th>Descrição</th>
     </tr>
@@ -741,81 +748,97 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PageCount</code></td>
+      <td>-</td>
       <td>Inteiro</td>
       <td>Quantidade de páginas.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
+      <td>-</td>
       <td>Inteiro</td>
       <td>Página atual.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
+      <td>-</td>
       <td>Inteiro</td>
       <td>Quantidade máxima de itens por página.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TotalItems</code></td>
+      <td>-</td>
       <td>Inteiro</td>
       <td>Total de itens do retorno da consulta.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items</code></td>
+      <td>-</td>
       <td>Array[Payments]</td>
       <td>Lista de objetos contendo informações das transações de pagamento.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Amount</code></td>
+      <td>25</td>
       <td>Inteiro</td>
       <td>Valor vendido para o portador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Installments</code></td>
+      <td>4</td>
       <td>Inteiro</td>
       <td>Número de parcelas de pagamento.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Brand</code></td>
+      <td>12</td>
       <td>String</td>
       <td>Bandeira do cartão.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].Product</code></td>
+      <td>9</td>
       <td>String</td>
       <td>Produto. Tipos possíveis: “CreditCard”, “DebitCard”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails</code></td>
+      <td>-</td>
       <td>PaymentDetails</td>
       <td>Objeto contendo as informações de detalhes de pagamento.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails.AffiliationCode</code></td>
+      <td>20</td>
       <td>string</td>
       <td>Código de afiliação do multiEC.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails.Nsu</code></td>
+      <td>15</td>
       <td>String</td>
       <td>Número Sequencial Único do cartão.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails.AuthorizationCode</code></td>
+      <td>10</td>
       <td>String</td>
       <td>Código de autorização.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails.TerminalLogicNumber</code></td>
+      <td>15</td>
       <td>String</td>
       <td>Número do terminal lógico. Obrigatoriamente 8 caracteres. Excluindo o dígito do terminal.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails.AuthorizationDate</code></td>
+      <td>19</td>
       <td>DateTime</td>
       <td>Data de autorização do pagamento.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].PaymentDetails.CaptureDate</code></td>
+      <td>10</td>
       <td>Data</td>
       <td>Data de captura do pagamento.</td>
     </tr>
