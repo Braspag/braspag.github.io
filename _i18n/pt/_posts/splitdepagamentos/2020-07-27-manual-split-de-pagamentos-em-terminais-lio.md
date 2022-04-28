@@ -438,15 +438,17 @@ Este tipo de consulta é indicado para buscar as informações de **transações
 | `Items`       | - | Array[Payments]    | Lista de objetos contendo informações das transações de pagamento. |
 | `Items[].Amount`   | 25 | Inteiro       | Valor vendido para o portador.                        |
 | `Items[].Installments`   | 4 | Inteiro | Número de parcelas de pagamento.                      |
-| `Items[].Brand`          | 12 | String  | Bandeira do cartão.                                   |  
-| `Items[].Product`        | 9 | String  | Produto. Tipos possíveis: "CreditCard", "DebitCard".  | 
+| `Items[].Brand`          | 12* | String  | Bandeira do cartão.                                   |  
+| `Items[].Product`        | 9* | String  | Produto. Tipos possíveis: "CreditCard", "DebitCard".  | 
 | `Items[].PaymentDetails` | - | PaymentDetails| Objeto contendo as informações de detalhes de pagamento. |      
-| `Items[].PaymentDetails.AffiliationCode`   | 20 | string  |  Código de afiliação do multiEC.    |
-| `Items[].PaymentDetails.Nsu`  | 15 | String  | Número Sequencial Único do cartão.               |                                                                     
-| `Items[].PaymentDetails.AuthorizationCode`  | 10 | String  | Código de autorização.             |
+| `Items[].PaymentDetails.AffiliationCode`   | 20* | string  |  Código de afiliação do multiEC.    |
+| `Items[].PaymentDetails.Nsu`  | 15* | String  | Número Sequencial Único do cartão.               |                                                                     
+| `Items[].PaymentDetails.AuthorizationCode`  | 10* | String  | Código de autorização.             |
 | `Items[].PaymentDetails.TerminalLogicNumber`| 15 | String  | Número do terminal lógico. Obrigatoriamente 8 caracteres. Excluindo o dígito do terminal.|
 | `Items[].PaymentDetails.AuthorizationDate`  | 19 | DateTime| Data de autorização do pagamento.  |
 | `Items[].PaymentDetails.CaptureDate`        | 10 | Data    | Data de captura do pagamento.       |
+
+*Tamanho máximo.
 
 # Cancelamento
 
