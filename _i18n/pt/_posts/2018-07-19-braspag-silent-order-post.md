@@ -214,13 +214,7 @@ O script fornecido pela Braspag oferece os três seguintes eventos para manipula
 |**onError**| Evento em caso de erro. Será retornado o código e a descrição do erro. |
 |**onInvalid**| Evento em caso de fornecimento de dados incorretos. Serão retornados detalhes de campos com erro. As mensagens retornadas no resultado da validação são disponibilizadas nas seguintes linguagens: português (default), inglês e espanhol. |
 
-<aside class="warning">Por questões de segurança, o PaymentToken poderá ser usado para uma única autorização. Após seu processamento, ele será invalidado.</aside>
-
-### Exemplo
-
-Compartilhamos no nosso GitHub um [exemplo prático](https://github.com/Braspag/silent-order-post/blob/main/index.html){:target="_blank"} de como você deve mapear as classes e integrar o Silent Order Post ao seu checkout.
-
-Para ver uma aplicação integrada ao Silent Order Post, acesse nossa [aplicação de exemplo](https://braspag.github.io/silent-order-post/){:target="_blank"}.
+<aside class="warning">Por questões de segurança, o PaymentToken poderá ser usado para uma única autorização e/ou dentro do período de 20 minutos. Após seu processamento, ele será invalidado.</aside>
 
 ## 4. Autorizando com PaymentToken
 
@@ -280,6 +274,12 @@ Para maiores detalhes sobre a implementação, acesse o [Manual da API do Pagado
 ### Response
 
 Consulte o [Manual da API do Pagador](https://braspag.github.io//manual/braspag-pagador) para exemplos de resposta a requisições de autorização.
+
+## Exemplo de Integração
+
+Compartilhamos no nosso GitHub um [exemplo prático](https://github.com/Braspag/silent-order-post){:target="_blank"} de como você deve mapear as classes e integrar o Silent Order Post ao seu checkout.
+
+Para ver uma aplicação pronta e integrada integrada ao Silent Order Post, acesse nossa [integração de exemplo](https://braspag.github.io/silent-order-post/){:target="_blank"}.
 
 # ANEXO
 
