@@ -11,7 +11,11 @@ tags:
   
 ---
 
-# Introdução
+# Sobre essa documentação
+
+Essa documentação apresenta a integração com a v2 da API de Onboarding para o cadastro de subordinados pelo master no Split de Pagamentos. A versão anterior (v1) da API pode ser consultada [aqui](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados){:target="_blank"}.
+
+# Visão geral
 
 O **Split de Pagamentos** fornece uma **API de Onboarding** para possibilitar ao master o gerenciamento de seus subordinados na plataforma. O master deverá coletar as informações do subordinado para usar no processo de onboarding.
 
@@ -22,7 +26,7 @@ Assim como o master, os subordinados também irão passar pelo processo de Know 
 O processo de KYC é uma medida obrigatória exigida pelas instituições reguladoras de pagamento.
 
 O onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
-p
+
 1. O master solicita o cadastro do subordinado;
 2. O subordinado será criado com status "Em análise" e estará bloqueado para participar da transação até que o processo de KYC seja finalizado;
 3. Ao final da análise, o master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.
