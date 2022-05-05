@@ -482,7 +482,6 @@ Veja as propriedades na [requisição padrão](link para a requisição por CNPJ
 
 ## Resposta
 
-
 {
     "Id": "cf419fe2-2ae2-46a1-b1af-2a0574e8a4da",
     "Type": "Subordinate",
