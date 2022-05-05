@@ -164,7 +164,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 | `MailAddress` | String | 50 | Sim | Endereço de e-mail. |
 | `Website` | String | 200 | Não | Endereço do website .|
 | `BirthdayDate`* | Date | 10 | Sim*, quando `DocumentType` for "CPF". | Data de nascimento (apenas para cadastro de pessoa física - CPF). Formato: yyyy-MM-dd |
-| `BusinessActivityId`* | Int | - | Sim*, quando `DocumentType` for "CPF". | Ramo de atividade que o subordinado atua. (apenas para cadastro de pessoa física - CPF). Veja a [Lista de Ramos de Atividades](link do anexo). |
+| `BusinessActivityId`* | Int | - | Sim*, quando `DocumentType` for "CPF". | Ramo de atividade que o subordinado atua. (apenas para cadastro de pessoa física - CPF). Veja a [Lista de Ramos de Atividades]. |
 * Não é obrigatório quando `DocumentType` for "CNPJ".
 
 **Propriedades da Conta Bancária**
