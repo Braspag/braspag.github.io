@@ -486,6 +486,7 @@ Veja as propriedades na **requisição padrão**.
 
 ## Resposta
 
+```json
 {
     "Id": "cf419fe2-2ae2-46a1-b1af-2a0574e8a4da",
     "Type": "Subordinate",
@@ -674,6 +675,7 @@ Veja as propriedades na **requisição padrão**.
         }
     ]
 }
+```
 
 ### MDR único para todos os acordos
 
