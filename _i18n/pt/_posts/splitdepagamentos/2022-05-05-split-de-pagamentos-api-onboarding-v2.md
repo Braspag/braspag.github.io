@@ -164,7 +164,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 | `MailAddress` | String | 50 | Sim | Endereço de e-mail. |
 | `Website` | String | 200 | Não | Endereço do website .|
 | `BirthdayDate`* | Date | 10 | Sim*, quando `DocumentType` for "CPF". | Data de nascimento (apenas para cadastro de pessoa física - CPF). Formato: yyyy-MM-dd |
-| `BusinessActivityId`* | Int | - | Sim*, quando `DocumentType` for "CPF". | Ramo de atividade que o subordinado atua. (apenas para cadastro de pessoa física - CPF). Veja a [Lista de Ramos de Atividades]. |
+| `BusinessActivityId`* | Int | - | Sim*, quando `DocumentType` for "CPF". | Ramo de atividade que o subordinado atua. (apenas para cadastro de pessoa física - CPF). Veja a **Lista de Ramos de Atividades**. |
 * Não é obrigatório quando `DocumentType` for "CNPJ".
 
 **Propriedades da Conta Bancária**
@@ -478,7 +478,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 }
 ```
 
-Veja as propriedades na [requisição padrão](link para a requisição por CNPJ).
+Veja as propriedades na **requisição padrão**.
 
 ## Resposta
 
@@ -671,8 +671,6 @@ Veja as propriedades na [requisição padrão](link para a requisição por CNPJ
     ]
 }
 
-Veja as propriedades na [resposta da requisição padrão](link para a resposta da requisição por CNPJ).
-
 ### MDR único para todos os acordos
 
 Quando o MDR é único para todos os acordos, envie apenas os campos `Agreements[].Percent` (porcentagem do MDR) e `Agreements[].Fee` (taxa fixa) no nó `Agreements`.
@@ -732,7 +730,7 @@ Quando o MDR é único para todos os acordos, envie apenas os campos `Agreements
 }
 ```
 
-Veja as propriedades na [requisição padrão](link para a requisição por CNPJ).
+Veja as propriedades na **requisição padrão**.
 
 #### Resposta
 
@@ -1047,7 +1045,7 @@ Veja a seguir o exemplo de requisição de cadastro de subordinado com CPF com a
 }
 ```
 
-Veja as propriedades na [requisição padrão](link para a requisição por CNPJ).
+Veja as propriedades na **requisição padrão**.
 
 #### Resposta
 
