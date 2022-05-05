@@ -1244,7 +1244,7 @@ Veja as propriedades na [requisição padrão](link para a requisição por CNPJ
 
 # Consulta de Subordinado
 
-Para realizar a consulta de subordinado, use o endpoint disponível na documentação sobre a [API de Onboarding Split v1](link para a v1).
+Para realizar a consulta de subordinado, use o endpoint disponível na documentação sobre a [API de Onboarding Split v1](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#consulta-de-subordinados){:target="_blank"}.
 
 # Notificação de KYC
 
@@ -1271,6 +1271,8 @@ Quando houver alteração no status da análise de KYC, a Braspag enviará uma n
 | `MasterMerchantId` | Guid | 36 | Identificação do master. |
 | `Data.SubordinateMerchantId` | Guid | 36 | Identificação do subordinado. |
 | `Data.Status` | Int | - | Status da análise do processo de KYC. Os status válidos são:<br>_Approved = 2_,<br>_ApprovedWithRestriction = 3_ e<br>_Rejected = 4_ |
+
+<aside class="notice">Caso você tenha configurado headers personalizados durante o cadastro da sua URL de notificação na Braspag, a notificação também retornará os headers personalizados.</aside>
 
 > É esperado que a loja retorne a seguinte resposta: `HTTP Status Code 200 OK`. Caso essa resposta não seja retornada, haverá mais duas tentativas de envio do Post de Notificação.
 
