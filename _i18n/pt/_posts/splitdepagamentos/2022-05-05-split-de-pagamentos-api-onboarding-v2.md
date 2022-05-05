@@ -1284,7 +1284,7 @@ Quando houver alteração no status da análise de KYC, a Braspag enviará uma n
 
 Caso ache necessário, o master pode permitir o acesso do subordinado ao backoffice do Split. Para isso, o master precisa enviar para o [suporte Braspag](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}:
 
-* O MerchantId do subordinado;
+* O `MerchantId` do subordinado;
 * O e-mail do subordinado e
 * O nome de usuário do subordinado.
 
