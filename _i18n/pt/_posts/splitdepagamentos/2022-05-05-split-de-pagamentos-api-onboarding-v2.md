@@ -5,11 +5,11 @@ description: Split de Pagamentos - Onboarding
 search: true
 toc_footers: false
 categories: manual
-sort_order: 
+sort_order: 4
 hub_visible: false
-language_tabs:
-  json: JSON
-  ---
+tags:
+  
+---
 
 # Introdução
 
