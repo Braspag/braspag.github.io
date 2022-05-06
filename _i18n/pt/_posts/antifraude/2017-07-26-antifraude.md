@@ -325,7 +325,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`Customer.BrowserHostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|string|não|60|
 |`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies <br/> Possíveis valores: true / false (default)|bool|-|-|
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|string|não|100|
-|`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP <br/> Ex.: Google Chrome, Mozilla Firefox, Safari, etc|string|não|40|
+|`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP <br/> Ex.: Google Chrome, Mozilla Firefox, Safari etc.|string|não|40|
 |`Customer.BrowserFingerprint`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br/> [Configuração do Fingerprint]({{ site.baseurl_root }}/manual/antifraude#cybersource)|string|sim|88|
 |`CartItem[n].ProductName`|Nome do produto|string|sim|255|
 |`CartItem[n].Category`|Categoria do produto <br/> [Tabela 32 - CartItem{n}.Category]({{ site.baseurl_root }}manual/antifraude#tabela-32-cartitem[n].category)|enum|-|-|
@@ -339,7 +339,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Tabela 11 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}manual/antifraude#tabela-11-cartitem[n].obscenitieshedge)|enum|-|-|
 |`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Tabela 12 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}manual/antifraude#tabela-12-cartitem[n].timehedge)|enum|-|-|
 |`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Tabela 13 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}manual/antifraude#tabela-17-cartitem[n].phonehedge)|enum|-|-|
-|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Tabela 14 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}manual/antifraude#tabela-18-cartitem[n].velocityhedge)|enum|-|-|
+|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentro dos 15 minutos anteriores <br/> [Tabela 14 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}manual/antifraude#tabela-18-cartitem[n].velocityhedge)|enum|-|-|
 |`Bank.Name`|Nome do banco do comprador|string|não|40|
 |`Bank.Code`|Código do banco do comprador|string|não|15|
 |`Bank.Agency`|Agência do banco do comprador|string|não|15|
@@ -2705,7 +2705,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |16|Código PNR da reserva <br/> Quando houver uma alteração da reserva para este PNR, com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente|string|3|Aérea|
 |17|Identifica se houve antecipação de reserva <br/> Possíveis valores: SIM ou NAO <br/> Se sim, fundamental o envio também do campo 16 - Código PNR da reserva|string|3|Aéreo|
 |18|Categoria do veículo alugado <br/> Possíveis valores: <br/> 1 - Básico <br/> 2 - Esportivo <br/> 3 - Prime <br/> 4 - Utilitário <br/> 5 - Blindado|string|3|Turismo|
-|19|Identifica se o pacote refere-se a cruzeiro <br/> Possíveis valores: SIM ou NAO|string|2|Turismo|
+|19|Identifica se o pacote se à cruzeiro <br/> Possíveis valores: SIM ou NAO|string|2|Turismo|
 |20|Decisão da análise de fraude referente a última compra <br/> Possíveis valores: ACEITA ou REJEITADA|string|3|Todos|
 |21|Valor do frete <br/> Ex.: 10599 = r$ 105,99|long|1|Varejo ou Cosméticos|
 |22|Código da loja onde o produto será retirado <br/> Este campo deverá ser enviado quando o campo 9 for enviado igual a SIM|string|3|Varejo ou Cosméticos|
@@ -2796,7 +2796,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |AdultContent|Conteúdo adulto|Cybersource|
 |Coupon|Cupom aplicado para todo o pedido|Cybersource|
 |Default|Valor default para o tipo do produto. Quando não enviado nenhum outro valor, assume-se o a categoria senda esta|Cybersource|
-|EletronicGood|Produto eletônico diferente de software|Cybersource|
+|EletronicGood|Produto eletrônico diferente de software|Cybersource|
 |EletronicSoftware|Softwares distribuídos eletronicamente via download|Cybersource|
 |GiftCertificate|Vale presente|Cybersource|
 |HandlingOnly|Taxa que você cobra do seu cliente para cobrir os seus custos administrativos de venda. Ex.: Taxa de conveniência / Taxa de instalação|Cybersource|
