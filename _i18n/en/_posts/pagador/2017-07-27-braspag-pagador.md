@@ -351,7 +351,7 @@ Here are request and answer examples of how to create a credit transaction:
 |`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Sub-merchant's telephone number.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
 |`Payment.PaymentFacilitator.SubEstablishment.Identity`|Sub-merchant's CNPJ or CPF.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
 |`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Sub-merchant's country code based on ISO 3166.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
-|`CreditCard.CardNumber`|Customer's card number.|Text|16|Yes|
+|`CreditCard.CardNumber`|Customer's card number.|Text|19|Yes|
 |`CreditCard.Holder`|Name of cardholder printed on the card.|Text|25|Yes|
 |`CreditCard.ExpirationDate`|Expiration date printed on the card.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
@@ -1258,7 +1258,7 @@ In a standard authentication, as the merchant does not have a direct connection 
 |`Payment.Installments`|Number of installments.|Number|2|Yes|
 |`Payment.Authenticate`|Defines whether the customer will be directed to the issuer for card authentication. For authenticated transactions, the value must be "true". Please check with the acquirer about the availability of this feature.|Boolean|---|No (default "false")|
 |`Payment.ReturnUrl`|URL to which the user will be redirected after authentication ends.|Text|1024|Yes (when `Autenticate` is "true")|
-|`CreditCard.CardNumber`|Customer's card number.|Text|16|Yes|
+|`CreditCard.CardNumber`|Customer's card number.|Text|19|Yes|
 |`CreditCard.Holder`|Name of cardholder printed on the card.|Text|25|Yes|
 |`CreditCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
@@ -3290,7 +3290,7 @@ The `Payment.RecurrentPayment.Interval` and `Payment.RecurrentPayment.DailyInter
 |`Payment.RecurrentPayment.Interval`|Recurrence interval. Must not be used together with `DailyInterval`.<br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|Text|10|No*|
 |`Payment.RecurrentPayment.DailyInterval`|Pattern of recurrence in days. Must not be used together with `Interval`.|Number|2|No*|
 |`Payment.RecurrentPayment.AuthorizeNow`|"true" - authorizes right at request. / "false" - for future scheduling.|Boolean|---|Yes|
-|`CreditCard.CardNumber`|Customer’s card number.|Text|16|Yes|
+|`CreditCard.CardNumber`|Customer’s card number.|Text|19|Yes|
 |`CreditCard.Holder`|Name of cardholder printed on the card.|Text|25|Yes|
 |`CreditCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
@@ -3749,7 +3749,7 @@ To schedule the first transaction in the recurrence series, pass the `Payment.Re
 |`Payment.RecurrentPayment.EndDate`|Recurrence end date.|Text|10|No|
 |`Payment.RecurrentPayment.Interval`|Recurrence Interval.<br>Monthly (Default) / Bimonthly / Quarterly / SemiAnnual / Annual.|Text|10|No|
 |`Payment.RecurrentPayment.AuthorizeNow`|"true" - authorizes right at request. / "false" - for future scheduling.|Boolean|---|Yes|
-|`CreditCard.CardNumber`|Customer’s card number.|Text|16|Yes|
+|`CreditCard.CardNumber`|Customer’s card number.|Text|19|Yes|
 |`CreditCard.Holder`|Name of cardholder printed on the card.|Text|25|Yes|
 |`CreditCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
@@ -4248,7 +4248,7 @@ To change the payment details, simply make a PUT call as shown in the example.
 |`Amount`|Order amount in cents.|Number|15|Yes|
 |`Installments`|Number of installments.|Number|2|Yes|
 |`SoftDescriptor`|Text to be printed on the credit card invoice.|Text|13|No|
-|`CreditCard.CardNumber`|Card number.|Text|16|Yes|
+|`CreditCard.CardNumber`|Card number.|Text|19|Yes|
 |`CreditCard.Holder`|Card holder name.|Text|25|Yes|
 |`CreditCard.ExpirationDate`|Expiration date printed on the card.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
@@ -4608,7 +4608,7 @@ To save a credit card used in a transaction, simply send the `Payment.SaveCard` 
 |`Payment.Type`|Payment method type.|Text|100|Yes|
 |`Payment.Amount`|Order amount in cents.|Number|15|Yes|
 |`Payment.Installments`|Number of installments.|Number|2|Yes|
-|`CreditCard.CardNumber`|Customer’s card number.|Text|16|Yes|
+|`CreditCard.CardNumber`|Customer’s card number.|Text|19|Yes|
 |`CreditCard.Holder`|Name of cardholder printed on the card.|Text|25|Yes|
 |`CreditCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
@@ -5640,7 +5640,7 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.Credentials.Username`|User generated by the **Getnet** acquirer.<br/> Note: The field must be submitted if the transaction is directed to Getnet.|Text|50|No|
 |`Payment.Credentials.Password`|Password generated with the Acquirer Getnet <br/> Note: The field must be submitted if the transaction is directed to Getnet.|Text|50|No|
 |`Payment.Credentials.Signature`|Terminal ID with the **Global Payments** acquirer.<br/> Note: This field must be submitted if the transaction is directed to Global Payments.|Text|3|No|
-|`Payment.CreditCard.CardNumber`|Credit card number.|Text|16|Yes|
+|`Payment.CreditCard.CardNumber`|Credit card number.|Text|19|Yes|
 |`Payment.CreditCard.Holder`|Holder name printed on credit card. Note: Size regulation may vary depending on the acquirer.|Text|25|Yes|
 |`Payment.CreditCard.ExpirationDate`|Credit card expiration date.|Text|7|Yes|
 |`Payment.CreditCard.SecurityCode`|Security code printed on the back of the credit card.|Text|4|Yes|
@@ -6572,7 +6572,7 @@ In order to query a credit card transaction via PaymentID, you must send an HTTP
 |`Payment.Status`|Transaction status.|Byte|2|E.g.: "1"|
 |`Payment.Provider`|Provider used.|Texto|32|"Simulado"|
 |`Payment.ProviderDescription`|Name of the acquirer.|Texto|512|"Simulado"|
-|`CreditCard.CardNumber`|Customer’s card number.|Text|16|---|
+|`CreditCard.CardNumber`|Customer’s card number.|Text|19|---|
 |`CreditCard.Holder`|Name of the cardholder printed on the card.|Text|25|---|
 |`CreditCard.ExpirationDate`|Expiration date printed on the card.|Text|7|---|
 |`CreditCard.Brand`|Card brand.|Text|10|---|
