@@ -288,7 +288,7 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 |`Nsu`|Número sequencial único da transação na adquirente <br/> Obs.: Este campo pode ser enviado caso a análise antifraude ocorra após a transação. E se não possuir integração com o Pagador Braspag, você tem a opção de enviar este campo, acompanhado dos campos `Tid`, `AuthorizationCode` e `SaleDate` em vez do campo `BraspagTransactionId`|string|não|10|
 |`AuthorizationCode`|Código de autorização da transação na adquirente <br/> Obs.: Este campo pode ser enviado caso a análise antifraude ocorra após a transação. E se não possuir integração com o Pagador Braspag, você tem a opção de enviar este campo, acompanhado dos campos `Tid`, `Nsu` e `SaleDate` em vez do campo `BraspagTransactionId`|string|não|10|
 |`SaleDate`|Data da autorização da transação na adquirente <br/> Obs.: Este campo pode ser enviado caso a análise antifraude ocorra após a transação. E se não possuir integração com o Pagador Braspag, você tem a opção de enviar este campo, acompanhado dos campos `Tid`, `Nsu` e `AuthorizationCode` em vez do campo `BraspagTransactionId`|datetime|não|-|
-|`Card.Number`|Número do cartão de crédito|string|sim|20|
+|`Card.Number`|Número do cartão de crédito|string|sim|19|
 |`Card.Holder`|Nome do portador impresso no cartão de crédito|string|sim|50|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
 |`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 2 - Card.Brand]({{ site.baseurl_root }}manual/antifraude#tabela-2-card.brand)|enum|sim|-|
