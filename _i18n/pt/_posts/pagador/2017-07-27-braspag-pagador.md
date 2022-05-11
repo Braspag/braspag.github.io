@@ -6544,6 +6544,7 @@ Para consultar uma transação de cartão de crédito, cartão de débito ou Pix
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
 ```shell
+curl
 --request GET "https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
