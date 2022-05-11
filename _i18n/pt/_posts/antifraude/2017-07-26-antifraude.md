@@ -34,7 +34,6 @@ O **Antifraude Gateway** da Braspag é uma API REST que permite a gestão de ris
 * Integração simplificada;
 * Facilidade: as principais plataformas de e-commerce já estão integradas à Braspag.
 
-
 ## Provedores de antifraude
 
 Os provedores de antifraude oferecem ferramentas baseadas em rede neural, bancos de dados não relacionais, recomendações baseadas em histórico de transações, comportamento e repetições por intervalo de tempo, entre outras funções que compõem o modelo de análise de fraude.
@@ -47,11 +46,11 @@ A Cybersource é uma empresa do grupo Visa, que atua desde 1994 com gerenciament
 
 Saiba mais sobre os planos da Cybersource na tabela a seguir.
 
-|PLANOS	|DESCRIÇÃO|
+| PLANOS | DESCRIÇÃO |
 |---|---|
-|Hierarquia	| Modelos de risco padronizados pelo segmento de mercado do e-commerce.|
-|Advanced	| Permite proposição de melhorias nas regras de risco e consultoria mensal com a Cybersource e Braspag. |
-|Enterprise	| Conta com um analista de risco dedicado da CyberSource, que irá propor proativamente ajustes no conjunto de regras do negócio a fim de melhorar a conversão e reduzir índices de chargeback.|
+| Hierarquia | Modelos de risco padronizados pelo segmento de mercado do e-commerce.|
+| Advanced | Permite proposição de melhorias nas regras de risco e consultoria mensal com a Cybersource e Braspag. |
+| Enterprise | Conta com um analista de risco dedicado da CyberSource, que irá propor proativamente ajustes no conjunto de regras do negócio a fim de melhorar a conversão e reduzir índices de chargeback.|
 
 ### ACI Worldwide
 
