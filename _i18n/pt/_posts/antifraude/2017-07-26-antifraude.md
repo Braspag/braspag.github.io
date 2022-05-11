@@ -12,23 +12,52 @@ language_tabs:
   
 ---
 
-# Antifraude
+# Sobre essa documentação 
 
-O **Antifraude** é uma plataforma desenvolvida pelo time de risco da **Braspag** para facilitar a integração dos clientes que desejam realizar análises de fraude com provedores e tecnologias distintos. Ele é, portanto, responsável por realizar a interconexão entre o cliente que utiliza JSON na mensageria e o provedor que utiliza XML na mensageria, por exemplo.
+Este manual apresenta a integração com a API do **Antifraude Gateway Braspag** para **chamadas apartadas de análise de fraude**. Para integração de chamada conjunta com outros serviços, veja o manual do serviço de interesse: [Pagador](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude){:target="_blank"}, [API Cielo E-commerce](https://braspag.github.io//manual/api-ecommerce-cielo-af){:target="_blank"}, [Split Cielo E-commerce](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#antifraude){:target="_blank"} ou [Split Pagador](https://braspag.github.io//manual/split-de-pagamentos-pagador#antifraude){:target="_blank"}.
 
-A plataforma é baseada em arquitetura REST, com troca de dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo [OAuth 2](https://oauth.net/2/){:target="_blank"}, com padrões amplamente utilizados pelo mercado e suportados pelas comunidades técnicas.
+# Visão Geral
 
-A plataforma foi construída utilizando o Cartão Protegido, um dos principais produtos da Braspag, para a tokenização de cartões e análises de fraude através dos tokens.
+O **Antifraude Gateway** da Braspag é uma API REST que permite a gestão de risco do seu e-commerce pela análise dos melhores provedores de antifraude do mundo.
 
-A API do Antifraude trabalha com dois provedores, Cybersource e ACI Worldwide.
+## Por que ter uma análise de fraude?
 
-> Consulte as requisições e [tabelas anexas correspondentes ao seu provedor de antifraude](https://braspag.github.io//manual/antifraude#tabelas).
+* Consiga a melhor conversão controlando o índice de chargeback;
+* Identifique transações fraudulentas;
+* Aumente a segurança pela análise de histórico  de transações do Antifraude;
+* Evite multas das bandeiras por aumento no índice de chargeback.
 
-# Objetivo
+## Benefícios do Antifraude Gateway
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Antifraude Gateway Braspag, gateway de provedores de soluções de antifraude de mercado, descrevendo as operações disponíveis com exemplos de requisições e respostas.
+* O Antifraude Gateway Braspag é um facilitador do processo de análise de fraude do seu e-commerce, permitindo:
+* Acesso aos melhores provedores de antifraude do mercado, sem o ônus de uma integração direta; 
+* Integração simplificada;
+* Facilidade: as principais plataformas de e-commerce já estão integradas à Braspag.
 
-Para executar uma operação, combine a URL base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
+
+## Provedores de antifraude
+
+Os provedores de antifraude oferecem ferramentas baseadas em rede neural, bancos de dados não relacionais, recomendações baseadas em histórico de transações, comportamento e repetições por intervalo de tempo, entre outras funções que compõem o modelo de análise de fraude.
+
+Na contratação do Antifraude Gateway, você escolhe com qual(is) provedor(es) deseja analisar suas transações e o plano. 
+
+### Cybersource
+
+A Cybersource é uma empresa do grupo Visa, que atua desde 1994 com gerenciamento de fraude.
+
+Saiba mais sobre os planos da Cybersource na tabela a seguir.
+
+|PLANOS	|DESCRIÇÃO|
+|---|---|
+|Hierarquia	| Modelos de risco padronizados pelo segmento de mercado do e-commerce.|
+|Advanced	| Permite proposição de melhorias nas regras de risco e consultoria mensal com a Cybersource e Braspag. |
+|Enterprise	| Conta com um analista de risco dedicado da CyberSource, que irá propor proativamente ajustes no conjunto de regras do negócio a fim de melhorar a conversão e reduzir índices de chargeback.|
+
+### ACI Worldwide
+
+A ACI WORLDWIDE, fundada em 1975, é uma empresa global de software de missão crítica que fornece soluções de controle e prevenção à fraude bem como gestão e processamento de pagamentos em tempo real para corporações.
+
+Neste manual, consulte as requisições e [tabelas anexas correspondentes ao seu provedor de antifraude](https://braspag.github.io//manual/antifraude#tabelas).
 
 # Ambientes
 
