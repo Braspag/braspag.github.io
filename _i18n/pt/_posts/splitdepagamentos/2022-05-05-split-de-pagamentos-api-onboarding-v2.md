@@ -13,11 +13,11 @@ tags:
 
 # Sobre essa documentação
 
-Essa documentação apresenta a integração com a v2 da API de Onboarding para o cadastro de subordinados pelo master no Split de Pagamentos. A versão anterior (v1) da API pode ser consultada [aqui](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados){:target="_blank"}.
+Essa documentação apresenta a integração com a API de Onboarding 2.0 para o cadastro de subordinados pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada [aqui](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados){:target="_blank"}.
 
 # Visão geral
 
-O **Split de Pagamentos** fornece uma **API de Onboarding** para possibilitar ao master o gerenciamento de seus subordinados na plataforma. O master deverá coletar as informações do subordinado para usar no processo de onboarding.
+A **API de Onboarding Split 2.0** do **Split de Pagamentos** permite que o master gerencie seus subordinados na plataforma. O master deverá coletar as informações do subordinado para usar no processo de onboarding.
 
 > O cadastro de subordinados também pode ser feito pelo backoffice Split. [Saiba mais neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360055405011-Cadastro-de-subordinados-do-Split-via-Backoffice){:target="_blank"}.
 
@@ -38,18 +38,18 @@ O onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
 |API|URL|Descrição|
 |---|---|---|
 |**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/|Autenticação.|
-|**API de Onboarding Split**|https://splitonboardingapisandbox.braspag.com.br|Cadastro de subordinados e notificação de KYC.|
+|**API de Onboarding Split 2.0**|https://splitonboardingapisandbox.braspag.com.br|Cadastro de subordinados e notificação de KYC.|
 
 ## Produção
 
 |API|URL|Descrição|
 |---|---|---|
 |**Braspag OAUTH2 Server**|https://auth.braspag.com.br/|Autenticação.|
-|**API de Onboarding Split**|https://splitonboardingapi.braspag.com.br|Cadastro de subordinados e notificação de KYC.|
+|**API de Onboarding Split 2.0**|https://splitonboardingapi.braspag.com.br|Cadastro de subordinados e notificação de KYC.|
 
 # Autenticação
 
-O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/), no qual é necessário primeiro obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API de Onboarding Split.
+O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/), no qual é necessário primeiro obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API de Onboarding Split 2.0.
 
 Para obter um token de acesso:
 
@@ -82,7 +82,7 @@ grant_type=client_credentials
 
 > O `MerchantId` é o mesmo utilizado na integração com a API Cielo E-Commerce ou com a API do Pagador. O `ClientSecret` deve ser obtido junto à Braspag.
 
-Use o token retornado (access_token) em toda requisição à API de Onboarding Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.  
+Use o token retornado (access_token) em toda requisição à API de Onboarding Split 2.0 como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.  
 
 # Cadastro de Subordinados
 
@@ -1248,7 +1248,7 @@ Veja as propriedades na **requisição padrão**.
 
 # Consulta de Subordinado
 
-Para realizar a consulta de subordinado, use o endpoint disponível na documentação sobre a [API de Onboarding Split v1](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#consulta-de-subordinados){:target="_blank"}.
+Para realizar a consulta de subordinado, use o endpoint disponível na documentação sobre a [API de Onboarding Split 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#consulta-de-subordinados){:target="_blank"}.
 
 # Notificação de KYC
 
