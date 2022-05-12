@@ -11551,62 +11551,9 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
   </tbody>
 </table>
 
-<h2 id="configurando-o-fingerprint">Configurando o Fingerprint</h2>
+<h2 id="fingerprint-com-a-cybersource">Fingerprint com a Cybersource</h2>
 
-<p>Importante componente da análise de fraude, o <em>fingerprint</em> é um script que deve ser inserido no seu site para capturar dados importantes do dispositivo utilizado pelo comprador, como IP da máquina, versão do browser e sistema operacional utilizados.
-Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo fingerprint complementam a análise e garantem que sua loja esteja mais protegida.</p>
-
-<p>Abaixo seguem as descrições de como integrar e configurar o fingerprint em sua página de checkout e mobile. Para maiores detalhes, consulte <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360000212987-Detalhamento-da-implanta%C3%A7%C3%A3o-do-DeviceFingerPrint" target="_blank">este artigo</a>.</p>
-
-<h3 id="integração-em-checkout">Integração em Checkout</h3>
-
-<p>Ao integrar a tecnologia fingerprint em sua página de checkout, é necessária a adição de duas tags no código fonte de sua página:</p>
-
-<ul>
-  <li>a tag <em>script</em> dentro da tag <em>head</em> para uma performance correta;</li>
-  <li>a tag <em>noscript</em> dentro da tag <em>body</em>, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.</li>
-</ul>
-
-<aside class="warning">ATENÇÃO: Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
-
-<h4 id="preenchendo-a-url">Preenchendo a URL</h4>
-
-<p>Existem duas variáveis a serem preenchidas na URL do Javascript: o <code class="language-plaintext highlighter-rouge">org_id</code> e o <code class="language-plaintext highlighter-rouge">session_id</code>. <br />O <code class="language-plaintext highlighter-rouge">org_id</code> é um valor predefinido, já o <code class="language-plaintext highlighter-rouge">session_id</code> é composto pela concatenação dos parâmetros <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> e <code class="language-plaintext highlighter-rouge">FraudAnalysis.FingerPrintId</code>, conforme exemplificado abaixo:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Variável</th>
-      <th>Valores</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">org_id</code></td>
-      <td>para Sandbox = “1snn5n9w” <br /> para Produção = “k8vif92e”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">session_id</code></td>
-      <td><code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> (Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag.) <br /> <code class="language-plaintext highlighter-rouge">FraudAnalysis.FingerPrintId</code> (Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.) <br /><br /> Obs.: Este identificador pode ser qualquer valor ou então o número do pedido, devendo ser único durante 48 horas.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="aplicando-o-script">Aplicando o Script</h4>
-
-<p>Este é um modelo do script:</p>
-
-<p><img src="https://braspag.github.io//images/braspag/af/exemploscriptdfp.png" alt="Exemplo Código" /></p>
-
-<p>As variáveis, após devidamente preenchidas, fornecem uma URL semelhante ao exemplo abaixo:</p>
-
-<p><img src="https://braspag.github.io/images/braspag/af/urldfp-pt-menor.png" alt="Exemplo Url" /></p>
-
-<aside class="notice">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis pelos seus respectivos valores.</aside>
-
-<h3 id="integração-em-aplicativos-mobile">Integração em Aplicativos Mobile</h3>
-
-<aside class="notice">Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.</aside>
+<p>O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo. Para configurar o Fingerprint com a Cybersource, consulte o manual do <a href="https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource" target="_blank">Antifraude Gateway</a>.</p>
 
 <h1 id="consultas">Consultas</h1>
 
