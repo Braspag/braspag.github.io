@@ -6473,46 +6473,9 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`Payment.ProviderReturnCode`|Código retornado pela adquirente ou emissor.|Texto|
 |`Payment.ProviderReturnMessage`|Mensagem retornada pela adquirente ou emissor.|Texto|
 
-## Configurando o Fingerprint
+## Fingerprint com a Cybersource
 
-Importante componente da análise de fraude, o *fingerprint* é um script que deve ser inserido no seu site para capturar dados importantes do dispositivo utilizado pelo comprador, como IP da máquina, versão do browser e sistema operacional utilizados.
-Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo fingerprint complementam a análise e garantem que sua loja esteja mais protegida.
-
-Abaixo seguem as descrições de como integrar e configurar o fingerprint em sua página de checkout e mobile. Para maiores detalhes, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360000212987-Detalhamento-da-implanta%C3%A7%C3%A3o-do-DeviceFingerPrint){:target="_blank"}.
-
-### Integração em Checkout
-
-Ao integrar a tecnologia fingerprint em sua página de checkout, é necessária a adição de duas tags no código fonte de sua página:
-
-* a tag *script* dentro da tag *head* para uma performance correta;
-* a tag *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
-
-<aside class="warning">ATENÇÃO: Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
-
-#### Preenchendo a URL
-
-Existem duas variáveis a serem preenchidas na URL do Javascript: o `org_id` e o `session_id`. <br/>O `org_id` é um valor predefinido, já o `session_id` é composto pela concatenação dos parâmetros `ProviderMerchantId` e `FraudAnalysis.FingerPrintId`, conforme exemplificado abaixo:
-
-|Variável|Valores|
-|---|---|
-|`org_id`|para Sandbox = "1snn5n9w" <br/> para Produção = "k8vif92e"|
-|`session_id`|`ProviderMerchantId` (Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Braspag.) <br/> `FraudAnalysis.FingerPrintId` (Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.) <br/><br/> Obs.: Este identificador pode ser qualquer valor ou então o número do pedido, devendo ser único durante 48 horas.|
-
-#### Aplicando o Script
-
-Este é um modelo do script:
-
-![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
-
-As variáveis, após devidamente preenchidas, fornecem uma URL semelhante ao exemplo abaixo:
-
-![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfp-pt-menor.png)
-
-<aside class="notice">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis pelos seus respectivos valores.</aside>
-
-### Integração em Aplicativos Mobile
-
-<aside class="notice">Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.</aside>
+O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo. Para configurar o Fingerprint com a Cybersource, consulte o manual do [Antifraude Gateway](https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource){:target="_blank"}.
 
 # Consultas
 
