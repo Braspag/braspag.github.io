@@ -3456,7 +3456,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <h5 id="requisição-8">Requisição</h5>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
   </span><span class="nl">"Id"</span><span class="p">:</span><span class="s2">"1b05456446c116374005602dcbaf8db8879515a0"</span><span class="p">,</span><span class="w">
@@ -3465,7 +3465,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">" https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/confirm"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">" https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/confirm"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
