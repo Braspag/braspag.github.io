@@ -1968,7 +1968,7 @@ Segue um exemplo de confirmação da transação com a moeda escolhida pelo comp
 
 ##### Requisição
 
-<aside class="request"><span class="method post">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
+<aside class="request"><span class="method post">PUT</span><span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
 
 ```json
 {  
