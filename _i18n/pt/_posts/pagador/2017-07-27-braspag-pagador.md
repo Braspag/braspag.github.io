@@ -1968,7 +1968,7 @@ Segue um exemplo de confirmação da transação com a moeda escolhida pelo comp
 
 ##### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
 
 ```json
 {  
@@ -1979,7 +1979,7 @@ Segue um exemplo de confirmação da transação com a moeda escolhida pelo comp
 ```
 
 ```shell
---request POST " https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/confirm"
+--request PUT " https://apisandbox.braspag.com.br/v2/sales/{PaymentId}/confirm"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
