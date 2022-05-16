@@ -1274,7 +1274,7 @@ Quando houver alteração no status da análise de KYC, a Braspag enviará uma n
 | `ChangeType` | Int | - | Identificador do tipo de notificação. Para a notificação de KYC, o `ChangeType` é igual a "20".|
 | `MasterMerchantId` | Guid | 36 | Identificação do master. |
 | `Data.SubordinateMerchantId` | Guid | 36 | Identificação do subordinado. |
-| `Data.Status` | Int | - | Status da análise do processo de KYC. Os status válidos são:<br>_Approved = 2_,<br>_ApprovedWithRestriction = 3_ e<br>_Rejected = 4_ |
+| `Data.Status` | Int | - | Status da análise do processo de KYC. Os status válidos são:<br>UnderAnalysis = 1;<br>_Approved = 2_;<br>_ApprovedWithRestriction = 3_ e<br>_Rejected = 4_ |
 
 <aside class="notice">Caso você tenha configurado headers personalizados durante o cadastro da sua URL de notificação na Braspag, a notificação também retornará os headers personalizados.</aside>
 
