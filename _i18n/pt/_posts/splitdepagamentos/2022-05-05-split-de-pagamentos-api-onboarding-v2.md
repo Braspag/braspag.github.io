@@ -1294,7 +1294,7 @@ Caso ache necessário, o master pode permitir o acesso do subordinado ao backoff
 
 | `Data.Status` | Nome do Status | Descrição |
 |---|---|---|
-| 1 | Em Análise | Análise de KYC em andamento. | 
+| 1 | UnderAnalysis | Análise de KYC em andamento. | 
 | 2 | Approved | Subordinado aprovado na análise de KYC. |
 | 3 | ApprovedWithRestriction | Subordinado aprovado com restrições na análise de KYC. |
 | 4 | Rejected | Subordinado não aprovado na análise de KYC. |
