@@ -351,7 +351,7 @@
 
 <h1 id="consulta-de-agenda">Consulta de Agenda</h1>
 
-<p>A API Split permite consultar a agenda de acordo com os parâmetros data prevista de pagamento, data de lançamento na agenda, bandeira, produto, MerchantId, ReceivableId e índice paginação.</p>
+<p>A API Split permite consultar a agenda de acordo com os parâmetros data prevista de pagamento, data de lançamento na agenda, bandeira, produto, <code class="language-plaintext highlighter-rouge">MerchantId</code>, <code class="language-plaintext highlighter-rouge">ReceivableId</code> e índice paginação.</p>
 
 <h2 id="requisição-1">Requisição</h2>
 
@@ -367,6 +367,18 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
+      <td>Número de documento (CPF ou CNPJ) do participante.</td>
+      <td>String</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TransactionId</code></td>
+      <td>Número da transação.</td>
+      <td>Guid</td>
+      <td>Não</td>
+    </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">InitialForecastedDate</code></td>
       <td>Data inicial prevista de pagamento para busca.</td>
@@ -410,6 +422,12 @@
       <td>Não</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">ScheduleEvent</code></td>
+      <td>Ids dos Eventos de Agenda que se deseja consultar (ver eventos no anexo Eventos de Agenda).</td>
+      <td>Int (Array)</td>
+      <td>Não</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivableId</code></td>
       <td>Id do Receivable que deseja consultar as informações. Serão retornadas informações referentes ao identificador do recebível.</td>
       <td>Guid</td>
@@ -434,6 +452,8 @@
     </span><span class="nl">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TotalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TotalItemSchedules"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000"</span><span class="p">,</span><span class="w">
@@ -452,7 +472,8 @@
                         </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="nl">"ScheduleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ScheduleTransactionEvent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"TransactionalEventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"TransactionalEventId"</span><span class="p">:</span><span class="s2">"9dcda2a1-7be7-4493-be13-6f438e950ba1"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"InstalmentNetAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"PaymentDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -484,7 +505,8 @@
                         </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="nl">"ScheduleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"ScheduleTransactionEvent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"TransactionalEventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"TransactionalEventId"</span><span class="p">:</span><span class="s2">"9dcda2a1-7be7-4493-be13-6f438e950ba1"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"InstalmentNetAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"PaymentDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -526,6 +548,16 @@
       <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
       <td>Número</td>
       <td>Quantidade máxima de itens por página.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TotalItems</code></td>
+      <td>Número</td>
+      <td>Quantidade total de URs para o filtro solicitado.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TotalItemSchedules</code></td>
+      <td>Número</td>
+      <td>Quantidade total de <code class="language-plaintext highlighter-rouge">ItemSchedules</code> para o filtro solicitado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items</code></td>
@@ -1048,6 +1080,199 @@
 </table>
 
 <h1 id="anexos">ANEXOS</h1>
+
+<h2 id="eventos-de-agenda">Eventos de Agenda</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Evento Da Agenda</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Unknown</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Credit</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Debit</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>FeeCredit</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>FeeDebit</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>RefundCredit</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>RefundDebit</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>ChargebackCredit</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>ChargebackDebit</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>UndoChargebackCredit</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>UndoChargebackDebit</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>AntiFraudFeeCredit</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>AntiFraudFeeDebit</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>AntiFraudFeeWithReviewCredit</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>AntiFraudFeeWithReviewDebit</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>AdjustmentCredit</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>AdjustmentDebit</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>ChargebackReversalCredit</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>ChargebackReversalDebit</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>AnticipationCredit</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>AnticipationCommissionCredit</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>AnticipatedInstallmentsCredit</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>AnticipationCommissionDebit</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>AnticipatedInstallmentsDebit</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>RefundReversalCredit</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>RefundReversalDebit</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>ReversalPayoutCredit</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>ReversalPayoutDebit</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>ReversalFeeCredit</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>ReversalFeeDebit</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>BankSlipFeeCredit</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>BankSlipFeeDebit</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>BalanceCompensationCredit</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>BalanceCompensationDebit</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>MasterBalanceCompensationCredit</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>MasterBalanceCompensationDebit</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>ReversalAntiFraudFeeCredit</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>ReversalAntiFraudFeeDebit</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>ReversalBankSlipFeeCredit</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>ReversalBankSlipFeeDebit</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>AnticipationDebit</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>CompensationBetweenSamePaymentArrangementDebit</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>ScheduleBalanceCredit</td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>ScheduleBalanceDebit</td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>CompensationBetweenDifferentArrangementsDebit</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="tipos-de-pagamento">Tipos de pagamento</h2>
 
