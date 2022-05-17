@@ -187,7 +187,7 @@ A API Split permite consultar a agenda de acordo com os parâmetros data previst
  `Brand`                  | Bandeira  que deve ser considerada na consulta. Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui agenda. | String | Não         |
 | `Product`               | Produto que deve ser considerado na consulta ("CreditCard" para cartão de crédito, "DebitCard" para cartão de débito ou "BankSlip" para boleto). Por padrão, são retornadas informações de todos os produtos na qual o solicitante possui agenda. | String | Não         |
 | `MerchantId`           | Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro. |Guid| Não |
-| `ScheduleEvent`            | Ids dos Eventos de Agenda que se deseja consultar (ver eventos no anexo Eventos de Agenda).| Int (Array)   | Não         |
+| `ScheduleEvent`            | Ids dos Eventos de Agenda que se deseja consultar - consulte os Ids no anexo [Eventos de Agenda](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#eventos-de-agenda).| Int (Array)   | Não         |
 |`ReceivableId`            | Id do Receivable que deseja consultar as informações. Serão retornadas informações referentes ao identificador do recebível.| Guid  | Não|
 | `PageIndex`             | Índice da paginação. É necessário para percorrer as páginas do resultado. | Número | Não         |
 
