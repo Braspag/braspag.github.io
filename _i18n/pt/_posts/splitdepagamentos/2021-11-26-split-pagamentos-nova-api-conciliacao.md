@@ -170,22 +170,25 @@ Você deverá enviar token de acesso retornado pela API de autenticação (`acce
 
 # Consulta de Agenda
 
-A API Split permite consultar a agenda de acordo com os parâmetros data prevista de pagamento, data de lançamento na agenda, bandeira, produto, MerchantId, ReceivableId e índice paginação.
+A API Split permite consultar a agenda de acordo com os parâmetros data prevista de pagamento, data de lançamento na agenda, bandeira, produto, `MerchantId`, `ReceivableId` e índice paginação.
 
 ## Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedule-api/v1/ReconciliationSchedules</span></aside>
 
 | Parâmetro               | Descrição | Tipo | Obrigatório |
-|---|---|---|---|  
+|---|---|---|---|
+| `DocumentNumber` | Número de documento (CPF ou CNPJ) do participante. | String   | Não        |
+| `TransactionId` | Número da transação. | Guid   | Não        |
 | `InitialForecastedDate` | Data inicial prevista de pagamento para busca. | Date   | Não*        |
 | `FinalForecastedDate`   | Data final prevista de pagamento para busca.   | Date   | Não*        |
 | `InitialScheduleDate`   | Data inicial de lançamento de informação na agenda.    | Date   | Não*        |
 | `FinalScheduleDate`     | Data final de lançamento de informação na agenda.    | Date   | Não*        |
  `Brand`                  | Bandeira  que deve ser considerada na consulta. Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui agenda. | String | Não         |
 | `Product`               | Produto que deve ser considerado na consulta ("CreditCard" para cartão de crédito, "DebitCard" para cartão de débito ou "BankSlip" para boleto). Por padrão, são retornadas informações de todos os produtos na qual o solicitante possui agenda. | String | Não         |
-| `MerchantId`            | Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro. | Guid   | Não         |
-|`ReceivableId`            | Id do Receivable que deseja consultar as informações. Serão retornadas informações referentes ao identificador do recebível.| Guid   | Não         |
+| `MerchantId`           | Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro. |Guid| Não |
+| `ScheduleEvent`            | Ids dos Eventos de Agenda que se deseja consultar (ver eventos no anexo Eventos de Agenda).| Int (Array)   | Não         |
+|`ReceivableId`            | Id do Receivable que deseja consultar as informações. Serão retornadas informações referentes ao identificador do recebível.| Guid  | Não|
 | `PageIndex`             | Índice da paginação. É necessário para percorrer as páginas do resultado. | Número | Não         |
 
 *É obrigatório passar pelo menos um intervalo de datas, com no máximo 31 dias entre a data inicial e a data final.
@@ -199,6 +202,8 @@ A API Split permite consultar a agenda de acordo com os parâmetros data previst
     "PageCount": 1,
     "PageIndex": 1,
     "PageSize": 50,
+    "TotalItems": 2,
+    "TotalItemSchedules": 2,
     "Items": [
         {
             "DocumentNumber": "000000000000",
@@ -217,7 +222,8 @@ A API Split permite consultar a agenda de acordo com os parâmetros data previst
                         "DocumentType": "CPF"
                     },
                     "ScheduleType": "Credit",
-                    "ScheduleTransactionEvent": "Transaction",
+                    "TransactionalEventType": "Transaction",
+                    "TransactionalEventId":"9dcda2a1-7be7-4493-be13-6f438e950ba1",
                     "InstallmentNumber": 1,
                     "InstalmentNetAmount": -100,
                     "PaymentDetails": {
@@ -249,7 +255,8 @@ A API Split permite consultar a agenda de acordo com os parâmetros data previst
                         "DocumentType": "CPF"
                     },
                     "ScheduleType": "Credit",
-                    "ScheduleTransactionEvent": "Transaction",
+                    "TransactionalEventType": "Transaction",
+                    "TransactionalEventId":"9dcda2a1-7be7-4493-be13-6f438e950ba1",
                     "InstallmentNumber": 1,
                     "InstalmentNetAmount": -100,
                     "PaymentDetails": {
@@ -273,6 +280,8 @@ A API Split permite consultar a agenda de acordo com os parâmetros data previst
 | `PageCount`  | Número    | Quantidade de páginas.  |
 | `PageIndex`  | Número    | Página atual. |
 | `PageSize`   | Número    | Quantidade máxima de itens por página.  |
+| `TotalItems` | Número    | Quantidade total de URs para o filtro solicitado.  |
+| `TotalItemSchedules`       | Número  | Quantidade total de `ItemSchedules` para o filtro solicitado.|  
 | `Items`      | Array[ScheduleReport] | Lista de objetos contendo informações de agenda, separada por produto e bandeira.  |
 | `Items[].DocumentNumber`   | string     | Número do documento (CPF/CNPJ) do lojista.   |
 | `Items[].ForecastedDate`   | Date   | Data prevista de pagamento. Formato YYYY-dd-MM. Ex: 2021-11-01.   |
@@ -478,6 +487,56 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `Items[].Settlements[].SettlementDate`                                     | Data    | Data de pagamento.|
 
 # ANEXOS
+
+## Eventos de Agenda
+
+|Id| Evento Da Agenda|
+|---|---|
+|0| Unknown|
+|1| Credit|
+|2| Debit|
+|3| FeeCredit|
+|4| FeeDebit|
+|5| RefundCredit|
+|6| RefundDebit|
+|7| ChargebackCredit|
+|8| ChargebackDebit|
+|9| UndoChargebackCredit|
+|10| UndoChargebackDebit|
+|11| AntiFraudFeeCredit|
+|12| AntiFraudFeeDebit|
+|13| AntiFraudFeeWithReviewCredit|
+|14| AntiFraudFeeWithReviewDebit|
+|15| AdjustmentCredit|
+|16| AdjustmentDebit|
+|17| ChargebackReversalCredit|
+|18| ChargebackReversalDebit|
+|19| AnticipationCredit|
+|20| AnticipationCommissionCredit|
+|21| AnticipatedInstallmentsCredit|
+|22| AnticipationCommissionDebit|
+|23| AnticipatedInstallmentsDebit|
+|24| RefundReversalCredit|
+|25| RefundReversalDebit|
+|26| ReversalPayoutCredit|
+|27| ReversalPayoutDebit|
+|28| ReversalFeeCredit|
+|29| ReversalFeeDebit|
+|30| BankSlipFeeCredit|
+|31| BankSlipFeeDebit|
+|32| BalanceCompensationCredit|
+|33| BalanceCompensationDebit|
+|34| MasterBalanceCompensationCredit|
+|35| MasterBalanceCompensationDebit|
+|36| ReversalAntiFraudFeeCredit|
+|37| ReversalAntiFraudFeeDebit|
+|38| ReversalBankSlipFeeCredit|
+|39| ReversalBankSlipFeeDebit|
+|40| AnticipationDebit|
+|41| CompensationBetweenSamePaymentArrangementDebit|
+|42| ScheduleBalanceCredit|
+|43| ScheduleBalanceDebit|
+|44| CompensationBetweenDifferentArrangementsDebit|
 
 ## Tipos de pagamento
 
