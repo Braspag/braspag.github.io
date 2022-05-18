@@ -777,6 +777,259 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Identificação do merchant (Subordinate)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Type</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Tipo de merchant criado (Subordinate)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MasterMerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Identificação do Master</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CorporateName</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Razão social</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FancyName</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Nome fantasia</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Tipo do documento. Os tipos válidos são <em>Cpf</em>, <em>Cnpj</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Número do documento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BirthdayDate</code></td>
+      <td>Date</td>
+      <td>10</td>
+      <td>Data de nascimento (apenas para cadastro de pessoa física - CPF)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Website</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Endereço do website</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ContactName</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Nome do contato responsável</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MailAddress</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Endereço de e-mail</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ContactPhone</code></td>
+      <td>String</td>
+      <td>11</td>
+      <td>Número do telefone do contato responsável</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Blocked</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Analysis.Status</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Status da análise do processo de KYC. Os Status válidos são <em>UnderAnalysis</em>, <em>Approved</em>, <em>ApprovedWithRestriction</em> e <em>Rejected</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>CEP</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Rua do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Número do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
+      <td>String</td>
+      <td>80</td>
+      <td>Complemento do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Neighborhood</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Bairro</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Cidade</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
+      <td>String</td>
+      <td>2</td>
+      <td>Sigla do estado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccount.Bank</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Identificação da conta bancária</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccount.Bank</code></td>
+      <td>String</td>
+      <td>3</td>
+      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Tipo de conta bancária. Os tipos válidos são <em>CheckingAccount</em> (Conta corrente) e <em>SavingsAccount</em> (Conta poupança)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccount.Number</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Número da conta</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyNumber</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Número da agência</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Dígito da agência</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Número do documento da conta</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Tipo do documento. Os tipos válidos são Cpf, Cnpj</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccount.VerifierDigit</code></td>
+      <td>Char</td>
+      <td>1</td>
+      <td>Dígito verificador da conta</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BankAccount.Operation</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Operação da conta</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Agreements[].Fee</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Taxa fixa por transação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Agreements[].AntiFraudFee</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Taxa do anti-fraude</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Agreements[].AntiFraudFeeWithReview</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Taxa do anti-fraude taxa com revisão manual</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].PaymentArrangement.Product</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].InitialInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].FinalInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].Percent</code></td>
+      <td>Decimal</td>
+      <td>-</td>
+      <td>Porcentagem da taxa de desconto do subordinado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Links</code></td>
+      <td>-</td>
+      <td>-</td>
+      <td>Links para navegação</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="exemplos-dos-acordos-de-taxas">Exemplos dos Acordos de Taxas</h2>
 
 <h3 id="acordo-de-taxas-não-informado-no-cadastro">Acordo de taxas não informado no cadastro</h3>
