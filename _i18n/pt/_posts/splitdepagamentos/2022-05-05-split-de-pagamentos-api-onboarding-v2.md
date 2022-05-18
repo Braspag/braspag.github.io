@@ -427,6 +427,49 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 }
 ```
 
+| PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
+|-|-|-|-|-|
+| `Id` | Guid | 36 | Identificação do merchant (Subordinate) |
+| `Type` | String | 15 | Tipo de merchant criado (Subordinate) |
+| `MasterMerchantId` | Guid | 36 | Identificação do Master |
+| `CorporateName` | String | 100 | Razão social |
+| `FancyName` | String | 50 | Nome fantasia |
+| `DocumentType` | String | - | Tipo do documento. Os tipos válidos são _Cpf_, _Cnpj_ |
+| `DocumentNumber` | String | 14 | Número do documento |
+| `BirthdayDate` | Date | 10 | Data de nascimento (apenas para cadastro de pessoa física - CPF) |
+| `Website` | String | 200 | Endereço do website |
+| `ContactName` | String | 100 | Nome do contato responsável |
+| `MailAddress` | String | 50 | Endereço de e-mail |
+| `ContactPhone` | String | 11 | Número do telefone do contato responsável |
+| `Blocked` | Boolean | - | Flag para indicar se o subordinado está bloqueado para participar da transação |
+| `Analysis.Status` | String| - | Status da análise do processo de KYC. Os Status válidos são _UnderAnalysis_, _Approved_, _ApprovedWithRestriction_ e _Rejected_ |
+| `Address.ZipCode` | String | 9 | CEP |
+| `Address.Street` | String | 100 | Rua do endereço |
+| `Address.Number` | String | 15 | Número do endereço |
+| `Address.Complement` | String | 80 | Complemento do endereço |
+| `Address.Neighborhood` | String | 50 | Bairro |
+| `Address.City` | String | 50 | Cidade |
+| `Address.State` | String | 2 | Sigla do estado |
+| `BankAccount.Bank` | Int | - | Identificação da conta bancária |
+| `BankAccount.Bank` | String | 3 | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
+| `BankAccount.BankAccountType` | String | - | Tipo de conta bancária. Os tipos válidos são _CheckingAccount_ (Conta corrente) e _SavingsAccount_ (Conta poupança) |
+| `BankAccount.Number` | String | 10 | Número da conta |
+| `BankAccount.AgencyNumber` | String | 15 | Número da agência |
+| `BankAccount.AgencyDigit` | Char | 1 | Dígito da agência |
+| `BankAccount.DocumentNumber` | String | 14 | Número do documento da conta |
+| `BankAccount.DocumentType` | String | - | Tipo do documento. Os tipos válidos são Cpf, Cnpj |
+| `BankAccount.VerifierDigit` | Char | 1 | Dígito verificador da conta |
+| `BankAccount.Operation` | String | 10 | Operação da conta |
+| `Agreements[].Fee` | Int | - | Taxa fixa por transação |
+| `Agreements[].AntiFraudFee` | Int | - | Taxa do anti-fraude |
+| `Agreements[].AntiFraudFeeWithReview` | Int | - | Taxa do anti-fraude taxa com revisão manual |
+| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Product` | String | - | Produto do arranjo de pagamento da taxa de desconto do subordinado |
+| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand` | String | - | Bandeira do arranjo de pagamento da taxa de desconto do subordinado |
+| `Agreements[].MerchantDiscountRates[].InitialInstallmentNumber` | Int | - | Número inicial do intervalo de parcelas da taxa de desconto do subordinado |
+| `Agreements[].MerchantDiscountRates[].FinalInstallmentNumber` | Int | - | Número final do intervalo de parcelas da taxa de desconto do subordinado | 
+| `Agreements[].MerchantDiscountRates[].Percent` | Decimal | - | Porcentagem da taxa de desconto do subordinado |
+| `Links` | - | - | Links para navegação |
+
 ## Exemplos dos Acordos de Taxas
 
 ### Acordo de taxas não informado no cadastro
