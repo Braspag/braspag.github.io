@@ -186,15 +186,13 @@ O token retornado (`access_token`) deverá ser utilizado em toda requisição à
 
 # Notificação de chargeback
 
-Ao integrar o seu e-commerce à Risk Notification API, você poderá receber a notificação de chargeback pelo Post de Notificação (webhook) caso seja cliente do Pagador Braspag ou da API E-commerce 3.0 da Cielo. Se você usa outra solução de pagamentos, a notificação é enviada por e-mail.
+Ao integrar o seu e-commerce à Risk Notification API, você poderá receber a notificação de chargeback pelo Post de Notificação (webhook) caso seja cliente do Pagador Braspag ou da API E-commerce 3.0 da Cielo.
 
 * **Post de Notificação do Pagador Braspag**: o retorno **ChangeType “7”** indica a ocorrência de chargeback. Saiba mais sobre o [Post de Notificação no manual do Pagador](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o){:target="_blank"}.
 
 *E-commerces integrados ao Pagador Braspag e afiliados à qualquer adquirente diferente de Cielo, também podem consultar o chargeback direto com a adquirente.*  
 
-* **Post de Notificação da API E-commerce 3.0 da Cielo**: o retorno **ChangeType “7”** indica a ocorrência de chargeback. Saiba mais sobre o [Post de Notificação no manual da API E-commerce 3.0](https://developercielo.github.io/manual/'?shell#post-de-notifica%C3%A7%C3%A3o){:target="_blank"}.
-
-* **E-mail**: configure o e-mail no qual deseja receber as notificações durante a integração com a API Risk Notification. Certifique-se de permitir as mensagens da Braspag e manter a caixa de entrada com espaço suficiente.
+* **Post de Notificação da API E-commerce 3.0 da Cielo**: o retorno **ChangeType “7”** indica a ocorrência de chargeback. Saiba mais sobre o [Post de Notificação no manual da API E-commerce 3.0](https://developercielo.github.io/manual/cielo-ecommerce#endpoint-de-notifica%C3%A7%C3%A3o){:target="_blank"}.
 
 A notificação de chargeback informa apenas o `PaymentId` da transação. Ao receber uma notificação de chargeback, você deve fazer uma [Consulta](https://braspag.github.io//manual/risknotification#consultas) na Risk Notification API para visualizar mais informações como: valor, número do pedido e motivo do chargeback, entre outras.
 
