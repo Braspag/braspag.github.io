@@ -725,7 +725,7 @@ Veja as propriedades na [requisição padrão](https://braspag.github.io//manual
 
 Esta seção detalha a integração da API de Onboarding Split 1.0, que será descontinuada em breve.
 
-> Para novas integrações, veja a seção [Cadastro de Subordinados 2.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-2.0).<br>
+> Para novas integrações, veja a seção [Cadastro de Subordinados 2.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-2.0){:target="_blank"}.<br>
 > Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instruções [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387){:target="_blank"}.
 
 A solicitação de cadastro deve ser realizada através de uma requisição pelo **master** informando os dados do subordinado.
