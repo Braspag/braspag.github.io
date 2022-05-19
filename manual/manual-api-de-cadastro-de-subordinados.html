@@ -300,23 +300,105 @@
 
 <p><strong>Propriedades do Subordinado</strong></p>
 
-<p>| PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
-|—|—|—|—|—|
-| <code class="language-plaintext highlighter-rouge">Type</code> | String | 15 | Sim | Tipo de merchant a ser criado (Subordinate). |
-| <code class="language-plaintext highlighter-rouge">MasterMerchantId</code> | Guid | 36 | Sim | Identificação do master. |
-| <code class="language-plaintext highlighter-rouge">ContactName</code> | String | 100 | Sim | Nome do contato responsável. |
-| <code class="language-plaintext highlighter-rouge">ContactPhone</code> | String | 11 | Sim | Número do telefone do contato responsável (apenas números). |
-| <code class="language-plaintext highlighter-rouge">CorporateName</code> | String | 100 | Sim | Razão social. |
-| <code class="language-plaintext highlighter-rouge">DocumentNumber</code> | String | 14 | Sim | Número do documento (apenas números). |
-| <code class="language-plaintext highlighter-rouge">DocumentType</code> | String | - | Sim | Tipo do documento. Os tipos válidos são “CPF” ou “CNPJ”. |
-| <code class="language-plaintext highlighter-rouge">FancyName</code> | String | 50 | Sim | Nome fantasia. |
-| <code class="language-plaintext highlighter-rouge">MailAddress</code> | String | 50 | Sim | Endereço de e-mail. |
-| <code class="language-plaintext highlighter-rouge">Website</code> | String | 200 | Não | Endereço do website .|
-| <code class="language-plaintext highlighter-rouge">BirthdayDate</code>* | Date | 10 | Sim<em>, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”. | Data de nascimento (apenas para cadastro de pessoa física - CPF). Formato: yyyy-MM-dd |
-| <code class="language-plaintext highlighter-rouge">BusinessActivityId</code></em> | Int | - | Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”. | Ramo de atividade que o subordinado atua. (apenas para cadastro de pessoa física - CPF). Veja a <strong>Lista de Ramos de Atividades</strong>. |</p>
-<ul>
-  <li>Não é obrigatório quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CNPJ”.</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Type</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Tipo de merchant a ser criado (Subordinate).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MasterMerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do master.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ContactName</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Nome do contato responsável.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ContactPhone</code></td>
+      <td>String</td>
+      <td>11</td>
+      <td>Sim</td>
+      <td>Número do telefone do contato responsável (apenas números).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CorporateName</code></td>
+      <td>String</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Razão social.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Número do documento (apenas números).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Tipo do documento. Os tipos válidos são “CPF” ou “CNPJ”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FancyName</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Nome fantasia.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MailAddress</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Endereço de e-mail.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Website</code></td>
+      <td>String</td>
+      <td>200</td>
+      <td>Não</td>
+      <td>Endereço do website .</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BirthdayDate</code>*</td>
+      <td>Date</td>
+      <td>10</td>
+      <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
+      <td>Data de nascimento (apenas para cadastro de pessoa física - CPF). Formato: yyyy-MM-dd</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BusinessActivityId</code>*</td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
+      <td>Ramo de atividade que o subordinado atua. (apenas para cadastro de pessoa física - CPF). Veja a <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-ramos-de-atividades"><strong>Lista de Ramos de Atividades</strong></a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Não é obrigatório quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CNPJ”.</p>
 
 <p><strong>Propriedades da Conta Bancária</strong></p>
 
