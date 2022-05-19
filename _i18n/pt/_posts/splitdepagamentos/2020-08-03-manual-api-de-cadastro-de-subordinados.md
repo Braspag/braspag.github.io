@@ -92,6 +92,8 @@ Use o token retornado (access_token) em toda requisição à API de Onboarding S
 
 ## Cadastro de Subordinados 2.0
 
+Siga as instruções dessa seção para novas integrações.
+
 O **master** deverá solicitar o **cadastro de subordinado** enviando uma requisição com os **dados do subordinado**:
 
 * Dados de identificação e contato;
@@ -211,7 +213,7 @@ Para a definição de acordos de taxas entre o master e seus subordinados, o **S
 2. Definição de porcentagem do MDR cobrado por transação por Arranjos de Pagamento e intervalo de parcelas;
 3. Aplicação de MDR único, aplicado para todos os acordos. Caso o master não queira definir a porcentagem do MDR para cada Arranjo de Pagamento e intervalo de parcelas, o **Split de Pagamentos** irá replicar os mesmos acordos do master com a Subadquirente (Braspag), para o master com o subordinado.
 
-Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: **Acordo de Taxas não informado no cadastro**, **MDR por arranjo de pagamento e intervalo de parcelas** e **MDR único para todos os acordos**.
+Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: [**Acordo de Taxas não informado no cadastro**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#acordo-de-taxas-n%C3%A3o-informado-no-cadastro), [**MDR por arranjo de pagamento e intervalo de parcelas**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-por-arranjo-de-pagamento-e-intervalo-de-parcelas) e [**MDR único para todos os acordos**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-%C3%BAnico-para-todos-os-acordos).
 
 > **ATENÇÃO**: Se não houver cobrança de MDR, basta não enviar o nó `Agreements`.<br>
 > O campo `Agreements[].Percent` só deve ser enviado em caso de cadastro de subordinado com MDR único.
