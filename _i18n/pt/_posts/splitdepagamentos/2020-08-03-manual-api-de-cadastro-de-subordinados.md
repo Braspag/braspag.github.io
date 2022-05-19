@@ -716,7 +716,7 @@ Quando o MDR é único para todos os acordos, envie apenas os campos `Agreements
 
 Veja as propriedades na **requisição padrão**.
 
-## Cadastro de subordinado 1.0 (deprecated)
+## Cadastro de subordinados 1.0 (deprecated)
 
 A solicitação de cadastro deve ser realizada através de uma requisição pelo **master** informando os dados do subordinado.
 
