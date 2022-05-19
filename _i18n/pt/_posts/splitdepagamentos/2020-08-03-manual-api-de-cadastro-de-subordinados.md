@@ -13,7 +13,7 @@ tags:
 
 # Sobre essa documentação
 
-Essa documentação apresenta a integração com a API de Onboarding Split 2.0 para o cadastro de subordinados pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico [Cadastro de Subordinados 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-1.0-(deprecated)).
+Essa documentação apresenta a integração com a API de Onboarding Split 2.0 para o cadastro de subordinados pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico [Cadastro de Subordinados 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-1.0-(deprecated)){:target="_blank"}.
 
 Na API de Onboarding 2.0, depois que o master cadastrar o subordinado, a Braspag irá submeter o subordinado à análise de Know Your Customer (KYC) de forma automática e irá notificar o master com o resultado desse processo, de acordo com as configurações de notificação.
 
