@@ -536,7 +536,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 }
 ```
 
-Veja as propriedades na **requisição padrão**.
+Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10).
 
 #### MDR por arranjo de pagamento e intervalo de parcelas
 
@@ -658,6 +658,8 @@ Veja a seguir o exemplo de requisição de cadastro de subordinado com CPF com a
 }
 ```
 
+Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10).
+
 #### MDR único para todos os acordos
 
 Quando o MDR é único para todos os acordos, envie apenas os campos `Agreements[].Percent` (porcentagem do MDR) e `Agreements[].Fee` (taxa fixa) no nó `Agreements`.
@@ -717,7 +719,7 @@ Quando o MDR é único para todos os acordos, envie apenas os campos `Agreements
 }
 ```
 
-Veja as propriedades na **requisição padrão**.
+Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10).
 
 ## Cadastro de subordinados 1.0 (deprecated)
 
