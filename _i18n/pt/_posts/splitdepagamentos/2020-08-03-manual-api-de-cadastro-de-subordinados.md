@@ -721,7 +721,7 @@ Quando o MDR é único para todos os acordos, envie apenas os campos `Agreements
 
 Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10).
 
-## Cadastro de subordinados 1.0 (deprecated)
+## Cadastro de subordinados 1.0 - DEPRECATED
 
 Esta seção detalha a integração da API de Onboarding Split 1.0, que será descontinuada em breve.
 
