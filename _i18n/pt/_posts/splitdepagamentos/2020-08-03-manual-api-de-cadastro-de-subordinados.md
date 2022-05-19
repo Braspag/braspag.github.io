@@ -743,7 +743,9 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 | Crédito 2x a 6x              | 4.00% | 4.00%  | 4.00% | 4.00%   | 4.00%  |  4.00% |
 | Crédito 7x a 12x             | 4.00% | 4.00%  | 4.00% | 4.00%   | 4.00%  |  4.00% |
 
-## Informando a porcentagem do MDR por Arranjos de Pagamento e intervalo de parcelas
+### Informando a porcentagem do MDR por Arranjos de Pagamento e intervalo de parcelas
+
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
 
@@ -882,7 +884,7 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 | `Attachments[].File.FileType`                                   | String  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 | `Attachments[].File.Data`                                       | String  | -       | Não         | Documento convertido para **Base64**   |
 
-### Resposta
+#### Resposta
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -1032,9 +1034,9 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 | `Attachments[].File.Name`                                       | String  | 50      | Não         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
 | `Attachments[].File.FileType`                                   | String  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 
-## Informando a porcentagem do MDR único aplicado para todos os acordos
+### Informando a porcentagem do MDR único aplicado para todos os acordos
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/subordinates</span></aside>
 
@@ -1134,7 +1136,7 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 | `Attachments[].File.FileType`                                   | String  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 | `Attachments[].File.Data`                                       | String  | -       | Não         | Documento convertido para **Base64** |
 
-### Resposta
+#### Resposta
 
 ```json
 --header "Authorization: Bearer {access_token}"
