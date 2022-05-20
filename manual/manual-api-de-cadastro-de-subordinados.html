@@ -323,7 +323,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Tipo de merchant a ser criado (Subordinate).</td>
@@ -337,70 +337,70 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Nome do contato responsável.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactPhone</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>11</td>
       <td>Sim</td>
       <td>Número do telefone do contato responsável (apenas números).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CorporateName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Razão social.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do documento (apenas números).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo do documento. Os tipos válidos são “CPF” ou “CNPJ”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FancyName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Nome fantasia.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MailAddress</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Endereço de e-mail.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Website</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>200</td>
       <td>Não</td>
       <td>Endereço do website .</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BirthdayDate</code>*</td>
-      <td>Date</td>
+      <td>Data</td>
       <td>10</td>
       <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
       <td>Data de nascimento (apenas para cadastro de pessoa física - CPF). Formato: yyyy-MM-dd</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BusinessActivityId</code>*</td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
       <td>Ramo de atividade que o subordinado atua. (apenas para cadastro de pessoa física - CPF). Veja a <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-ramos-de-atividades"><strong>Lista de Ramos de Atividades</strong></a>.</td>
@@ -425,63 +425,63 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Bank</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>3</td>
       <td>Sim</td>
       <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo de conta bancária. Os tipos válidos são “CheckingAccount” (conta corrente) e “SavingsAccount” (conta poupança).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
       <td>Número da conta do subordinado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Operation</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Não</td>
       <td>Operação da conta do subordinado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.VerifierDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
       <td>Dígito verificador da conta do subordinado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Número da agência do subordinado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
       <td>Dígito da agência do subordinado. Caso a agência não tenha dígito, informar o valor “x”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do documento da conta (apenas números) do subordinado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo do documento. Os tipos válidos são “CPF” ou “CNPJ”.</td>
@@ -504,49 +504,49 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Logradouro do endereço do subordinado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Número do endereço do subordinado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>80</td>
       <td>Não</td>
       <td>Complemento do endereço do subordinado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Neighborhood</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Bairro do subordinado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Cidade do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>2</td>
       <td>Sim</td>
       <td>Sigla do estado (UF) do subordinado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>9</td>
       <td>Sim</td>
       <td>CEP (apenas números) do subordinado.</td>
@@ -591,35 +591,35 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].Fee</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="language-plaintext highlighter-rouge">Fee</code> : 100</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].PaymentArrangement.Product</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são “CreditCard” e “DebitCard”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <em>Visa</em>, <em>Master</em>, <em>Amex</em>, <em>Elo</em>, <em>Diners</em>, <em>Discover</em> e <em>Hipercard</em>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].InitialInstallmentNumber</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].FinalInstallmentNumber</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong>.</td>
@@ -654,28 +654,28 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].AttachmentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
       <td>Tipo do documento anexo do subordinado. Os tipos válidos são “ProofOfBankDomicile” (comprovante de domicílio bancário), “ModelOfAdhesionTerm” (modelo de termo de adesão) e “ProofBusinessActivity” (comprovante do ramo de atividade).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Name</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
       <td>Nome do arquivo do documento anexo do subordinado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.FileType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
       <td>Tipo do arquivo do documento anexo do subordinado. Os tipos de arquivos válidos são “pdf”, “png” e “jpg”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Data</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
       <td>Documento convertido para <strong>Base64</strong>.</td>
@@ -897,7 +897,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Type</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Tipo de merchant criado (Subordinate)</td>
     </tr>
@@ -909,211 +909,211 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CorporateName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Razão social</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FancyName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Nome fantasia</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Tipo do documento. Os tipos válidos são <em>Cpf</em>, <em>Cnpj</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Número do documento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BirthdayDate</code></td>
-      <td>Date</td>
+      <td>Data</td>
       <td>10</td>
       <td>Data de nascimento (apenas para cadastro de pessoa física - CPF)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Website</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>200</td>
       <td>Endereço do website</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Nome do contato responsável</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MailAddress</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Endereço de e-mail</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactPhone</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>11</td>
       <td>Número do telefone do contato responsável</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Blocked</code></td>
-      <td>Boolean</td>
+      <td>Booleano</td>
       <td>-</td>
       <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Analysis.Status</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Status da análise do processo de KYC. Os Status válidos são <em>UnderAnalysis</em>, <em>Approved</em>, <em>ApprovedWithRestriction</em> e <em>Rejected</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>9</td>
       <td>CEP</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Rua do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Número do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>80</td>
       <td>Complemento do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Neighborhood</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Bairro</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Cidade</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>2</td>
       <td>Sigla do estado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Bank</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Identificação da conta bancária</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Bank</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>3</td>
       <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Tipo de conta bancária. Os tipos válidos são <em>CheckingAccount</em> (Conta corrente) e <em>SavingsAccount</em> (Conta poupança)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Número da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Número da agência</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Dígito da agência</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Número do documento da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Tipo do documento. Os tipos válidos são Cpf, Cnpj</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.VerifierDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Dígito verificador da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Operation</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Operação da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].Fee</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Taxa fixa por transação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].AntiFraudFee</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Taxa do anti-fraude</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].AntiFraudFeeWithReview</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Taxa do anti-fraude taxa com revisão manual</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].PaymentArrangement.Product</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Produto do arranjo de pagamento da taxa de desconto do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].InitialInstallmentNumber</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].FinalInstallmentNumber</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Número final do intervalo de parcelas da taxa de desconto do subordinado</td>
     </tr>
@@ -1670,28 +1670,28 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CorporateName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Razão social</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FancyName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Nome fantasia</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do documento (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo do documento. Os tipos válidos são <code class="language-plaintext highlighter-rouge">Cpf</code>, <code class="language-plaintext highlighter-rouge">Cnpj</code></td>
@@ -1705,182 +1705,182 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantCategoryCode</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
       <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Nome do contato responsável</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactPhone</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>11</td>
       <td>Sim</td>
       <td>Número do telefone do contato responsável (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MailAddress</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Endereço de e-mail</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Website</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>200</td>
       <td>Não</td>
       <td>Endereço do website</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Bank</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>3</td>
       <td>Sim</td>
       <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo de conta bancária. Os tipos válidos são <code class="language-plaintext highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="language-plaintext highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
       <td>Número da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Operation</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Não</td>
       <td>Operação da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.VerifierDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
       <td>Dígito verificador da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Número da agência</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
       <td>Dígito da agência. Caso a agência não tenha dígito, informar o valor x</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do documento da conta (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo do documento. Os tipos válidos são <code class="language-plaintext highlighter-rouge">Cpf</code>, <code class="language-plaintext highlighter-rouge">Cnpj</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Rua do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Número do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>80</td>
       <td>Não</td>
       <td>Complemento do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Neighborhood</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Bairro</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Cidade</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>2</td>
       <td>Sim</td>
       <td>Sigla do estado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>9</td>
       <td>Sim</td>
       <td>CEP (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.Fee</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="language-plaintext highlighter-rouge">"Fee" : 100</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="language-plaintext highlighter-rouge">CreditCard</code> e <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code>, <code class="language-plaintext highlighter-rouge">Discover</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
@@ -1894,49 +1894,49 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Url</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>200</td>
       <td>Sim</td>
       <td>Url de notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Key</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Value</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].AttachmentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Name</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Não</td>
       <td>Nome do arquivo do documento em anexo do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.FileType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Data</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Documento convertido para <strong>Base64</strong></td>
@@ -2060,42 +2060,42 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MasterMerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificação do master do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificação do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CorporateName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Razão social</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FancyName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Nome fantasia</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do documento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo do documento. Os tipos válidos são <code class="language-plaintext highlighter-rouge">Cpf</code>, <code class="language-plaintext highlighter-rouge">Cnpj</code></td>
@@ -2109,21 +2109,21 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantCategoryCode</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
       <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Nome do contato responsável</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactPhone</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>11</td>
       <td>Sim</td>
       <td>Número do telefone do contato responsável (Apenas números)</td>
@@ -2137,175 +2137,175 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Website</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>200</td>
       <td>Não</td>
       <td>Endereço do website</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Blocked</code></td>
-      <td>Boolean</td>
+      <td>Booleano</td>
       <td>-</td>
       <td>Sim</td>
       <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Analysis.Status</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Status da análise do processo de KYC. Os Status válidos são <code class="language-plaintext highlighter-rouge">Approved</code>, <code class="language-plaintext highlighter-rouge">ApprovedWithRestriction</code> e <code class="language-plaintext highlighter-rouge">Rejected</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Bank</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>3</td>
       <td>Sim</td>
       <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo de conta bancária. Os tipos válidos são <code class="language-plaintext highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="language-plaintext highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
       <td>Número da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Operation</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Não</td>
       <td>Operação da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.VerifierDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
       <td>Dígito verificador da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Número da agência</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
       <td>Dígito da agência. Caso a agência não tenha dígito, informar o valor x</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do documento da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo do documento. Os tipos válidos são <code class="language-plaintext highlighter-rouge">Cpf</code>, <code class="language-plaintext highlighter-rouge">Cnpj</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Rua do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Número do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>80</td>
       <td>Não</td>
       <td>Complemento do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Neighborhood</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Bairro</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Cidade</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>2</td>
       <td>Sim</td>
       <td>Sigla do estado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>9</td>
       <td>Sim</td>
       <td>CEP</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.Fee</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="language-plaintext highlighter-rouge">"Fee" : 100</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].MerchantDiscountRateId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificação da taxa de desconto do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="language-plaintext highlighter-rouge">CreditCard</code> e <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code>, <code class="language-plaintext highlighter-rouge">Discover</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
@@ -2319,42 +2319,42 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Url</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>200</td>
       <td>Sim</td>
       <td>Url de notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Key</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Value</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].AttachmentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Name</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Não</td>
       <td>Nome do arquivo do documento em anexo do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.FileType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
@@ -2438,28 +2438,28 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CorporateName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Razão social</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FancyName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Nome fantasia</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do documento (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo do documento. Os tipos válidos são <code class="language-plaintext highlighter-rouge">Cpf</code>, <code class="language-plaintext highlighter-rouge">Cnpj</code></td>
@@ -2473,154 +2473,154 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantCategoryCode</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
       <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Nome do contato responsável</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactPhone</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>11</td>
       <td>Sim</td>
       <td>Número do telefone do contato responsável (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MailAddress</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Endereço de e-mail</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Website</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>200</td>
       <td>Não</td>
       <td>Endereço do website</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Bank</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>3</td>
       <td>Sim</td>
       <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo de conta bancária. Os tipos válidos são <code class="language-plaintext highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="language-plaintext highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
       <td>Número da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Operation</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Não</td>
       <td>Operação da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.VerifierDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
       <td>Dígito verificador da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Número da agência</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
       <td>Dígito da agência. Caso a agência não tenha dígito, informar o valor x</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do documento da conta (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo do documento. Os tipos válidos são <code class="language-plaintext highlighter-rouge">Cpf</code>, <code class="language-plaintext highlighter-rouge">Cnpj</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Rua do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Número do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>80</td>
       <td>Não</td>
       <td>Complemento do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Neighborhood</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Bairro</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Cidade</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>2</td>
       <td>Sim</td>
       <td>Sigla do estado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>9</td>
       <td>Sim</td>
       <td>CEP (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.Fee</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="language-plaintext highlighter-rouge">"Fee" : 100</code></td>
@@ -2634,49 +2634,49 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Url</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>200</td>
       <td>Sim</td>
       <td>Url de notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Key</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Value</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].AttachmentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Name</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Não</td>
       <td>Nome do arquivo do documento em anexo do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.FileType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Data</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Documento convertido para <strong>Base64</strong></td>
@@ -2800,42 +2800,42 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MasterMerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificação do master do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificação do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CorporateName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Razão social</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FancyName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Nome fantasia</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do documento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo do documento. Os tipos válidos são <code class="language-plaintext highlighter-rouge">Cpf</code>, <code class="language-plaintext highlighter-rouge">Cnpj</code></td>
@@ -2849,7 +2849,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantCategoryCode</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
       <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços.</td>
@@ -2863,189 +2863,189 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactPhone</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>11</td>
       <td>Sim</td>
       <td>Número do telefone do contato responsável (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MailAddress</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Endereço de e-mail</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Website</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>200</td>
       <td>Não</td>
       <td>Endereço do website</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Blocked</code></td>
-      <td>Boolean</td>
+      <td>Booleano</td>
       <td>-</td>
       <td>Sim</td>
       <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Analysis.Status</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Status da análise do processo de KYC. Os Status válidos são <code class="language-plaintext highlighter-rouge">Approved</code>, <code class="language-plaintext highlighter-rouge">ApprovedWithRestriction</code> e <code class="language-plaintext highlighter-rouge">Rejected</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Bank</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>3</td>
       <td>Sim</td>
       <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo de conta bancária. Os tipos válidos são <code class="language-plaintext highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="language-plaintext highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
       <td>Número da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Operation</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Não</td>
       <td>Operação da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.VerifierDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
       <td>Dígito verificador da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Número da agência</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
       <td>Dígito da agência. Caso a agência não tenha dígito, informar o valor x</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do documento da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo do documento. Os tipos válidos são <code class="language-plaintext highlighter-rouge">Cpf</code>, <code class="language-plaintext highlighter-rouge">Cnpj</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Rua do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Número do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>80</td>
       <td>Não</td>
       <td>Complemento do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Neighborhood</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Bairro</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Cidade</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>2</td>
       <td>Sim</td>
       <td>Sigla do estado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>9</td>
       <td>Sim</td>
       <td>CEP</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.Fee</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="language-plaintext highlighter-rouge">"Fee" : 100</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].MerchantDiscountRateId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificação da taxa de desconto do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="language-plaintext highlighter-rouge">CreditCard</code> e <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code>, <code class="language-plaintext highlighter-rouge">Discover</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
@@ -3059,42 +3059,42 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Url</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>200</td>
       <td>Sim</td>
       <td>Url de notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Key</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Value</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].AttachmentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Name</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Não</td>
       <td>Nome do arquivo do documento em anexo do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.FileType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
@@ -3228,259 +3228,259 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MasterMerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificação do master do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificação do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CorporateName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Razão social</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">FancyName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Nome fantasia</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do documento</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo do documento. Os tipos válidos são <code class="language-plaintext highlighter-rouge">Cpf</code>, <code class="language-plaintext highlighter-rouge">Cnpj</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantCategoryCode</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
       <td>(MCC) número registrado na ISO 18245 para serviços financeiros de varejo, utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactName</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Nome do contato responsável</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ContactPhone</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>11</td>
       <td>Sim</td>
       <td>Número do telefone do contato responsável (Apenas números)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MailAddress</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Endereço de e-mail</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Website</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>200</td>
       <td>Não</td>
       <td>Endereço do website</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Blocked</code></td>
-      <td>Boolean</td>
+      <td>Booleano</td>
       <td>-</td>
       <td>Sim</td>
       <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Analysis.Status</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Status da análise do processo de KYC. Os Status válidos são <code class="language-plaintext highlighter-rouge">Approved</code>, <code class="language-plaintext highlighter-rouge">ApprovedWithRestriction</code> e <code class="language-plaintext highlighter-rouge">Rejected</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Analysis.Score</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Não</td>
       <td>Score da análise do processo de KYC. Range de 1 a 100</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Analysis.DenialReason</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Motivo de reprovação do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Bank</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>3</td>
       <td>Sim</td>
       <td>Código de compensação do banco. <a href="https://www.bcb.gov.br/Fis/CODCOMPE/Tabela.pdf" target="_blank">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo de conta bancária. Os tipos válidos são <code class="language-plaintext highlighter-rouge">CheckingAccount</code> (Conta corrente) e <code class="language-plaintext highlighter-rouge">SavingsAccount</code> (Conta poupança)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
       <td>Número da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Operation</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>10</td>
       <td>Não</td>
       <td>Operação da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.VerifierDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
       <td>Dígito verificador da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Número da agência</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyDigit</code></td>
-      <td>Char</td>
+      <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
       <td>Dígito da agência. Caso a agência não tenha dígito, informar o valor x</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentNumber</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
       <td>Número do documento da conta</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Tipo do documento. Os tipos válidos são <code class="language-plaintext highlighter-rouge">Cpf</code>, <code class="language-plaintext highlighter-rouge">Cnpj</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Rua do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
       <td>Número do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>80</td>
       <td>Não</td>
       <td>Complemento do endereço</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Neighborhood</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Bairro</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
       <td>Cidade</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>2</td>
       <td>Sim</td>
       <td>Sigla do estado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>9</td>
       <td>Sim</td>
       <td>CEP</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.Fee</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <code class="language-plaintext highlighter-rouge">"Fee" : 100</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].MerchantDiscountRateId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
       <td>Identificação da taxa de desconto do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="language-plaintext highlighter-rouge">CreditCard</code> e <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
       <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code>, <code class="language-plaintext highlighter-rouge">Discover</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Sim</td>
       <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
@@ -3494,42 +3494,42 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Url</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>200</td>
       <td>Sim</td>
       <td>Url de notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Key</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Headers[].Value</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
       <td>Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].AttachmentType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Name</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>50</td>
       <td>Não</td>
       <td>Nome do arquivo do documento em anexo do subordinado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.FileType</code></td>
-      <td>String</td>
+      <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
@@ -3567,25 +3567,25 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ChangeType</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Identificador do tipo de notificação. Para a notificação de KYC, o <code class="language-plaintext highlighter-rouge">ChangeType</code> é igual a “20”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MasterMerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Identificação do master.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Data.SubordinateMerchantId</code></td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Identificação do subordinado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Data.Status</code></td>
-      <td>Int</td>
+      <td>Número</td>
       <td>-</td>
       <td>Status da análise do processo de KYC. Os status válidos são:<br />UnderAnalysis = 1;<br /><em>Approved = 2</em>;<br /><em>ApprovedWithRestriction = 3</em> e<br /><em>Rejected = 4</em></td>
     </tr>
