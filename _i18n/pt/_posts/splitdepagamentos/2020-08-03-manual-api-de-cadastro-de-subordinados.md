@@ -168,7 +168,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
 | `Type` | Texto | 15 | Sim | Tipo de merchant a ser criado (Subordinate). |
-| `MasterMerchantId` | Guid | 36 | Sim | Identificação do master. |
+| `MasterMerchantId` | GUID | 36 | Sim | Identificação do master. |
 | `ContactName` | Texto | 100 | Sim | Nome do contato responsável. |
 | `ContactPhone` | Texto | 11 | Sim | Número do telefone do contato responsável (apenas números). |
 | `CorporateName` | Texto | 100 | Sim | Razão social. |
@@ -440,9 +440,9 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 
 | PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
 |---|---|---|---|
-| `Id` | Guid | 36 | Identificação do merchant (Subordinate) |
+| `Id` | GUID | 36 | Identificação do merchant (Subordinate) |
 | `Type` | Texto | 15 | Tipo de merchant criado (Subordinate) |
-| `MasterMerchantId` | Guid | 36 | Identificação do Master |
+| `MasterMerchantId` | GUID | 36 | Identificação do Master |
 | `CorporateName` | Texto | 100 | Razão social |
 | `FancyName` | Texto | 50 | Nome fantasia |
 | `DocumentType` | Texto | - | Tipo do documento. Os tipos válidos são _Cpf_, _Cnpj_ |
