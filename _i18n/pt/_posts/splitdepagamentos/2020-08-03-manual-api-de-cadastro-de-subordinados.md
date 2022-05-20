@@ -41,15 +41,17 @@ O onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
 
 |API|URL|Descrição|
 |---|---|---|
-|**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/|Autenticação.|
-|**API de Onboarding Split 2.0**|https://splitonboardingapisandbox.braspag.com.br|Cadastro de subordinados e notificação de KYC.|
+|**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/| Autenticação.|
+|**API de Onboarding Split 2.0**|https://splitonboardingapisandbox.braspag.com.br| Cadastro de subordinados.|
+|**API de Onboarding Split 1.0** |https://splitonboardingsandbox.braspag.com.br | Consulta de subordinados.|
 
 ## Produção
 
 |API|URL|Descrição|
 |---|---|---|
-|**Braspag OAUTH2 Server**|https://auth.braspag.com.br/|Autenticação.|
-|**API de Onboarding Split 2.0**|https://splitonboardingapi.braspag.com.br|Cadastro de subordinados e notificação de KYC.|
+|**Braspag OAUTH2 Server**|https://auth.braspag.com.br/| Autenticação.|
+|**API de Onboarding Split 2.0**|https://splitonboardingapi.braspag.com.br| Cadastro de subordinados.|
+|**API de Onboarding Split 1.0** |https://splitonboarding.braspag.com.br | Consulta de subordinados.|
 
 # Autenticação
 
