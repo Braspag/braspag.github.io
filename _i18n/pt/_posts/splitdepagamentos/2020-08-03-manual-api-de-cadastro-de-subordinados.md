@@ -163,7 +163,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 }
 ```
 
-**Propriedades do Subordinado**
+#### Propriedades do Subordinado
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
@@ -182,7 +182,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 
 *Não é obrigatório quando `DocumentType` for "CNPJ".
 
-**Propriedades da Conta Bancária**
+#### Propriedades da Conta Bancária
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
@@ -196,7 +196,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 | `BankAccount.DocumentNumber` | Texto | 14 | Sim | Número do documento da conta (apenas números) do subordinado. |
 | `BankAccount.DocumentType` | Texto | - | Sim | Tipo do documento. Os tipos válidos são "CPF" ou "CNPJ". |
 
-**Propriedades do Endereço**
+#### Propriedades do Endereço
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
@@ -208,7 +208,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 | `Address.State` | Texto | 2 | Sim | Sigla do estado (UF) do subordinado.|
 | `Address.ZipCode` | Texto | 9 | Sim | CEP (apenas números) do subordinado. |
 
-**Propriedades do Acordo de Taxas**
+#### Propriedades do Acordo de Taxas
 
 Para a definição de acordos de taxas entre o master e seus subordinados, o **Split de Pagamentos** dispõe de três possibilidades:
 
@@ -231,7 +231,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `Agreements[].MerchantDiscountRates[].FinalInstallmentNumber` | Número | - | Sim | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**. | 
 | `Agreements[].MerchantDiscountRates[].Percent` | Decimal | - | Sim | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais. |
 
-**Propriedades dos Anexos**
+#### Propriedades dos Anexos
 
 > **Cadastro de subordinado pelo CPF:** é obrigatório enviar pelo menos um arquivo comprovando o ramo de atividade (`AttachmentType` igual a "ProofBusinessActivity");<br>
 > **Cadastro de subordinado pelo CNPJ:** o envio de anexos é opcional.
