@@ -461,7 +461,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `Address.Neighborhood` | Texto | 50 | Bairro |
 | `Address.City` | Texto | 50 | Cidade |
 | `Address.State` | Texto | 2 | Sigla do estado |
-| `BankAccount.Bank` | Número | - | Identificação da conta bancária |
+| `BankAccount.Id` | Número | - | Identificação da conta bancária |
 | `BankAccount.Bank` | Texto | 3 | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
 | `BankAccount.BankAccountType` | Texto | - | Tipo de conta bancária. Os tipos válidos são _CheckingAccount_ (Conta corrente) e _SavingsAccount_ (Conta poupança) |
 | `BankAccount.Number` | Texto | 10 | Número da conta |
