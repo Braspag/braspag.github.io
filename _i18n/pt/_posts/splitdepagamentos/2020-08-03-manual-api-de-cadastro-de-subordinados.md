@@ -163,7 +163,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 }
 ```
 
-#### Propriedades do Subordinado
+#### Propriedades do subordinado
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
@@ -182,7 +182,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 
 *Não é obrigatório quando `DocumentType` for "CNPJ".
 
-#### Propriedades da Conta Bancária
+#### Propriedades da conta bancária
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
@@ -196,7 +196,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 | `BankAccount.DocumentNumber` | Texto | 14 | Sim | Número do documento da conta (apenas números) do subordinado. |
 | `BankAccount.DocumentType` | Texto | - | Sim | Tipo do documento. Os tipos válidos são "CPF" ou "CNPJ". |
 
-#### Propriedades do Endereço
+#### Propriedades do endereço
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
@@ -208,7 +208,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 | `Address.State` | Texto | 2 | Sim | Sigla do estado (UF) do subordinado.|
 | `Address.ZipCode` | Texto | 9 | Sim | CEP (apenas números) do subordinado. |
 
-#### Propriedades do Acordo de Taxas
+#### Propriedades do acordo de taxas
 
 Para a definição de acordos de taxas entre o master e seus subordinados, o **Split de Pagamentos** dispõe de três possibilidades:
 
@@ -231,7 +231,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `Agreements[].MerchantDiscountRates[].FinalInstallmentNumber` | Número | - | Sim | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**. | 
 | `Agreements[].MerchantDiscountRates[].Percent` | Decimal | - | Sim | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais. |
 
-#### Propriedades dos Anexos
+#### Propriedades dos anexos
 
 > **Cadastro de subordinado pelo CPF:** é obrigatório enviar pelo menos um arquivo comprovando o ramo de atividade (`AttachmentType` igual a "ProofBusinessActivity");<br>
 > **Cadastro de subordinado pelo CNPJ:** o envio de anexos é opcional.
@@ -438,6 +438,8 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 }
 ```
 
+#### Propriedades do subordinado
+
 | PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
 |---|---|---|---|
 | `Id` | GUID | 36 | Identificação do merchant (Subordinate) |
@@ -454,6 +456,11 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `ContactPhone` | Texto | 11 | Número do telefone do contato responsável |
 | `Blocked` | Booleano | - | Flag para indicar se o subordinado está bloqueado para participar da transação |
 | `Analysis.Status` | Texto| - | Status da análise do processo de KYC. Os Status válidos são _UnderAnalysis_, _Approved_, _ApprovedWithRestriction_ e _Rejected_ |
+
+#### Propriedades do endereço
+
+| PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
+|---|---|---|---|
 | `Address.ZipCode` | Texto | 9 | CEP |
 | `Address.Street` | Texto | 100 | Rua do endereço |
 | `Address.Number` | Texto | 15 | Número do endereço |
@@ -461,6 +468,11 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `Address.Neighborhood` | Texto | 50 | Bairro |
 | `Address.City` | Texto | 50 | Cidade |
 | `Address.State` | Texto | 2 | Sigla do estado |
+
+#### Propriedades da conta bancária
+
+| PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
+|---|---|---|---|
 | `BankAccount.Id` | Número | - | Identificação da conta bancária |
 | `BankAccount.Bank` | Texto | 3 | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
 | `BankAccount.BankAccountType` | Texto | - | Tipo de conta bancária. Os tipos válidos são _CheckingAccount_ (Conta corrente) e _SavingsAccount_ (Conta poupança) |
@@ -471,6 +483,11 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `BankAccount.DocumentType` | Texto | - | Tipo do documento. Os tipos válidos são Cpf, Cnpj |
 | `BankAccount.VerifierDigit` | Texto | 1 | Dígito verificador da conta |
 | `BankAccount.Operation` | Texto | 10 | Operação da conta |
+
+#### Propriedades do Acordo
+
+| PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
+|---|---|---|---|
 | `Agreements[].Fee` | Número | - | Taxa fixa por transação |
 | `Agreements[].AntiFraudFee` | Número | - | Taxa do anti-fraude |
 | `Agreements[].AntiFraudFeeWithReview` | Número | - | Taxa do anti-fraude taxa com revisão manual |
