@@ -210,13 +210,13 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 
 #### Propriedades do acordo de taxas
 
-Para a definição de acordos de taxas entre o master e seus subordinados, o **Split de Pagamentos** dispõe de três possibilidades:
+No **Split de Pagamentos** há possibilidades de acordos de taxas entre o master e seus subordinados:
 
-1. Cadastro do subordinado sem informar o acordo de taxas (taxas zeradas). Quando as taxas não são definidas no cadastro do subordinado, será necessário informar as taxas de divisão de pagamento no momento da captura da transação ou da emissão do boleto;
-2. Definição de porcentagem do MDR cobrado por transação por Arranjos de Pagamento e intervalo de parcelas;
-3. Aplicação de MDR único, aplicado para todos os acordos. Caso o master não queira definir a porcentagem do MDR para cada Arranjo de Pagamento e intervalo de parcelas, o **Split de Pagamentos** irá replicar os mesmos acordos do master com a Subadquirente (Braspag), para o master com o subordinado.
+1. **Não cadastrar taxa**: quando as taxas não são definidas no momento do cadastro do subordinado, você deverá informá-las a **cada transação**, no momento da captura da transação ou da emissão do boleto;
+2. **Taxa global**: configure uma única taxa para todos os acordos (MDR único). O **Split de Pagamentos** irá replicar os mesmos acordos do master com a Braspag (subadquirente), para o master com o subordinado;
+3. **Taxa por meio de pagamento**: você deverá definir as taxas cobradas por transação por arranjos de pagamento e intervalo de parcelas.
 
-Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: [**Acordo de Taxas não informado no cadastro**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#acordo-de-taxas-n%C3%A3o-informado-no-cadastro), [**MDR por arranjo de pagamento e intervalo de parcelas**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-por-arranjo-de-pagamento-e-intervalo-de-parcelas) e [**MDR único para todos os acordos**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-%C3%BAnico-para-todos-os-acordos).
+Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: [**Não cadastrar taxa**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#acordo-de-taxas-n%C3%A3o-informado-no-cadastro), [**Taxa global**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-%C3%BAnico-para-todos-os-acordos) e [**Taxa por meio de pagamento**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-por-arranjo-de-pagamento-e-intervalo-de-parcelas). 
 
 > **ATENÇÃO**: Se não houver cobrança de MDR, basta não enviar o nó `Agreements`.<br>
 > O campo `Agreements[].Percent` só deve ser enviado em caso de cadastro de subordinado com MDR único.
@@ -500,7 +500,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 
 ### Exemplos dos Acordos de Taxas
 
-#### Acordo de taxas não informado no cadastro
+#### Não informar taxas
 
 Quando não haverá cobrança de MDR, siga a requisição padrão excluindo o nó `Agreements`.
 
@@ -557,7 +557,68 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 
 Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10).
 
-#### MDR por arranjo de pagamento e intervalo de parcelas
+#### Taxa global
+
+Quando o MDR é único para todos os acordos, envie apenas os campos `Agreements[].Percent` (porcentagem do MDR) e `Agreements[].Fee` (taxa fixa) no nó `Agreements`.
+
+**Requisição**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/merchants</span></aside>
+
+```json
+{
+    "Type": "Subordinate",
+    "MasterMerchantId": "f88cc14d-c796-4939-957e-de4dddcb2257",
+    "ContactName": "Nome do Contato do Subordinado",
+    "ContactPhone": "11987654321",
+    "CorporateName": "Subordinado Corporativo Ltda",
+    "DocumentNumber": "96462142000140",
+    "DocumentType": "CNPJ",
+    "FancyName": "Subordinado Nome Fantasia",
+    "MailAddress": "addres@email.mail.com",
+    "Website": "https://www.website.com.br",
+    "BankAccount": {
+        "Bank": "001",
+        "BankAccountType": "CheckingAccount",
+        "Number": "0002",
+        "Operation": "2",
+        "VerifierDigit": "2",
+        "AgencyNumber": "0002",
+        "AgencyDigit": "2",
+        "DocumentNumber": "96462142000140",
+        "DocumentType": "CNPJ"
+    },
+    "Address": {
+        "Street": "Rua Teste",
+        "Number": "50",
+        "Complement": "AP 255",
+        "Neighborhood": "Centro",
+        "City": "São Paulo",
+        "State": "SP",
+        "ZipCode": "12345687"
+    },
+    "Agreements": [
+        {
+            "Percent": 2.0,
+            "Fee": 100
+        }
+    ],
+    "Attachments": [
+        {
+            "AttachmentType": "ProofOfBankDomicile",
+            "File": {
+                "Name": "comprovante",
+                "FileType": "png",
+                "Data": "iVBORw0KGgoAAAANSUhEUgAAAH4AAAAsCAMAAACUu/xGAAAAq1BMVEUAAABlZVJlZVKsrJthYU+zs6Grq5ylpZazs6FlZVJfX01lZVJlZVKsrJurq5urq5xlZVKtrZ1lZVJlZVKvr52zs6GysqCoqJeqqpmzs6Grq5xlZVJgYE6zs6Gnp5mrq5yiopRjY1CRkX2rq5yzs6FlZVKRkX2goJKKineRkX2Pj3yrq5yIiHWRkX2RkX2RkX1lZVKRkX2rq5yzs6GoqJdfX02goJKHh3SHh3VrpzVsAAAAMHRSTlMAQIDHx3+Ax0Ag7qBgIA9AEFCPMLOgMO7bYKBQ24+zYNuzkY9wcAXu0oiocPFBMHYlVbK0AAAD3UlEQVRYw6SW7Y6qMBCGB0IkLfKdnB9ocFmjru7HERL03P+VnXY6bdmWjcF9f2inxjydvjMDcHy99zP693oEpTpQYjBR7W4VmzA81GoZCDn/ycrValVmYOJcKBWL1/4HnUEpupLGxOI47iQmDkfc4GEBEFyNQkClzYDKQQs3VmJBufu6G7zRWNMeUzEHUnLVWs/gy9vg4NNB4wUIPOG2h7e8NcV0HRt7QPDxfzTd4ptleB5F6ro3NtsIc7UnjMKKXyuN30ZS+PuLRMW7PN+l2vlhAZ6yqCZmcrm05stfOrwVpvEBaJWStIOpVk/gC8Rb62tjRj25Fx/fEsgqE27cluKB8GR9hDFzeX44CFbmJb9/Cn8w1ldA5tO9VD/gc8FpveTbxfi1LXWOl10Z80c0Yx7/jpyyjRtd9zuxU8ZL8FEYJjZFpg6yIfOpKsf1FJ+EUkzddKkabQ+o0zCcwMN/vZm+uLh4UmW7nptTCBVq5nUF4Y0CgBaNVip18jsPn370909cfX708/gusF3fkQfrKZHXHh45Wi8meRefvfVCfwGOZ9zx8TZ9TjWY2M6vVf4jm8e3WYrDJ1Vj4N3FHwVd6vKFCxefBMFmq7ub6UI7TMZw0SEv8ryPDVaoxPiWufhL/02zY0cm3ZH1VgxIIYa1U/nIibH/EZjjp4M/9w/x9FijbyuqdzOVH+BbWQJxHMupd4pjINhDPKVH1lslBl9g6OKb73j0wmoBHrMj691nsJ0QLn4l0/09nrIm6wv7nGdQqwjGucvPJSWjN4z8aXyBlkfK+i2gmDI/HENGjXA9uPhsUJ22p2OQFg3daaFx0/9qnWBRbOl9hHlvOw3OW/xs4Hf4rcnYzj+OeFOIHj4dtG7/2y+b3IhBGAqjUiQWQ9JI/ErDpop6gcei9z9ZIXHIhLaLSGRW8zYxIuaTZccxqsGfHDXvH4cf37Z4e3ihxVOTp5bf4E8N2u+3PWB2SP7tXsfsFl80rtOeZX/gvz6//7tmnFFzD2mkxnFgL710ToHH1eCcm/LU2aA9m027v+kBH8ipyHbACxAMWaV5I4v2ZgAzIxkUGXIqkn3xrhw4wVe8hoMmOwBmYJMiJy+lHPriNcSyrvgEgUS2h/vl1BcvSqgcZsPbbABrhgdgvhgvS6hIYsPP8MwTVR5SLZA4573xHMpCV7xGZBFmxyProfR64yNCgKh4hygjXIuvpdcbPyEayA2vsEpRHcgl6gtzr8A9ho0RlgQnBPoK4tV45gBfGQZ6KQBDqzRcjdeAqQwHUfYp+SohcQdc1/Ukm4Gw4dV6vqTkM+uQpRv8E2VPF/sPp9xSb2qlGH4AAAAASUVORK5CYII="
+            }
+        }
+    ]
+}
+```
+
+Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10).
+
+#### Taxa por meio de pagamento
 
 Nesse caso, você deverá informar os campos referentes à taxa fixa, produto, bandeira, intervalo de parcelas e porcentagem do MDR.
 
@@ -667,67 +728,6 @@ Veja a seguir o exemplo de requisição de cadastro de subordinado com CPF com a
     "Attachments": [
         {
             "AttachmentType": "ProofBusinessActivity",
-            "File": {
-                "Name": "comprovante",
-                "FileType": "png",
-                "Data": "iVBORw0KGgoAAAANSUhEUgAAAH4AAAAsCAMAAACUu/xGAAAAq1BMVEUAAABlZVJlZVKsrJthYU+zs6Grq5ylpZazs6FlZVJfX01lZVJlZVKsrJurq5urq5xlZVKtrZ1lZVJlZVKvr52zs6GysqCoqJeqqpmzs6Grq5xlZVJgYE6zs6Gnp5mrq5yiopRjY1CRkX2rq5yzs6FlZVKRkX2goJKKineRkX2Pj3yrq5yIiHWRkX2RkX2RkX1lZVKRkX2rq5yzs6GoqJdfX02goJKHh3SHh3VrpzVsAAAAMHRSTlMAQIDHx3+Ax0Ag7qBgIA9AEFCPMLOgMO7bYKBQ24+zYNuzkY9wcAXu0oiocPFBMHYlVbK0AAAD3UlEQVRYw6SW7Y6qMBCGB0IkLfKdnB9ocFmjru7HERL03P+VnXY6bdmWjcF9f2inxjydvjMDcHy99zP693oEpTpQYjBR7W4VmzA81GoZCDn/ycrValVmYOJcKBWL1/4HnUEpupLGxOI47iQmDkfc4GEBEFyNQkClzYDKQQs3VmJBufu6G7zRWNMeUzEHUnLVWs/gy9vg4NNB4wUIPOG2h7e8NcV0HRt7QPDxfzTd4ptleB5F6ro3NtsIc7UnjMKKXyuN30ZS+PuLRMW7PN+l2vlhAZ6yqCZmcrm05stfOrwVpvEBaJWStIOpVk/gC8Rb62tjRj25Fx/fEsgqE27cluKB8GR9hDFzeX44CFbmJb9/Cn8w1ldA5tO9VD/gc8FpveTbxfi1LXWOl10Z80c0Yx7/jpyyjRtd9zuxU8ZL8FEYJjZFpg6yIfOpKsf1FJ+EUkzddKkabQ+o0zCcwMN/vZm+uLh4UmW7nptTCBVq5nUF4Y0CgBaNVip18jsPn370909cfX708/gusF3fkQfrKZHXHh45Wi8meRefvfVCfwGOZ9zx8TZ9TjWY2M6vVf4jm8e3WYrDJ1Vj4N3FHwVd6vKFCxefBMFmq7ub6UI7TMZw0SEv8ryPDVaoxPiWufhL/02zY0cm3ZH1VgxIIYa1U/nIibH/EZjjp4M/9w/x9FijbyuqdzOVH+BbWQJxHMupd4pjINhDPKVH1lslBl9g6OKb73j0wmoBHrMj691nsJ0QLn4l0/09nrIm6wv7nGdQqwjGucvPJSWjN4z8aXyBlkfK+i2gmDI/HENGjXA9uPhsUJ22p2OQFg3daaFx0/9qnWBRbOl9hHlvOw3OW/xs4Hf4rcnYzj+OeFOIHj4dtG7/2y+b3IhBGAqjUiQWQ9JI/ErDpop6gcei9z9ZIXHIhLaLSGRW8zYxIuaTZccxqsGfHDXvH4cf37Z4e3ihxVOTp5bf4E8N2u+3PWB2SP7tXsfsFl80rtOeZX/gvz6//7tmnFFzD2mkxnFgL710ToHH1eCcm/LU2aA9m027v+kBH8ipyHbACxAMWaV5I4v2ZgAzIxkUGXIqkn3xrhw4wVe8hoMmOwBmYJMiJy+lHPriNcSyrvgEgUS2h/vl1BcvSqgcZsPbbABrhgdgvhgvS6hIYsPP8MwTVR5SLZA4573xHMpCV7xGZBFmxyProfR64yNCgKh4hygjXIuvpdcbPyEayA2vsEpRHcgl6gtzr8A9ho0RlgQnBPoK4tV45gBfGQZ6KQBDqzRcjdeAqQwHUfYp+SohcQdc1/Ukm4Gw4dV6vqTkM+uQpRv8E2VPF/sPp9xSb2qlGH4AAAAASUVORK5CYII="
-            }
-        }
-    ]
-}
-```
-
-Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10).
-
-#### MDR único para todos os acordos
-
-Quando o MDR é único para todos os acordos, envie apenas os campos `Agreements[].Percent` (porcentagem do MDR) e `Agreements[].Fee` (taxa fixa) no nó `Agreements`.
-
-**Requisição**
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/merchants</span></aside>
-
-```json
-{
-    "Type": "Subordinate",
-    "MasterMerchantId": "f88cc14d-c796-4939-957e-de4dddcb2257",
-    "ContactName": "Nome do Contato do Subordinado",
-    "ContactPhone": "11987654321",
-    "CorporateName": "Subordinado Corporativo Ltda",
-    "DocumentNumber": "96462142000140",
-    "DocumentType": "CNPJ",
-    "FancyName": "Subordinado Nome Fantasia",
-    "MailAddress": "addres@email.mail.com",
-    "Website": "https://www.website.com.br",
-    "BankAccount": {
-        "Bank": "001",
-        "BankAccountType": "CheckingAccount",
-        "Number": "0002",
-        "Operation": "2",
-        "VerifierDigit": "2",
-        "AgencyNumber": "0002",
-        "AgencyDigit": "2",
-        "DocumentNumber": "96462142000140",
-        "DocumentType": "CNPJ"
-    },
-    "Address": {
-        "Street": "Rua Teste",
-        "Number": "50",
-        "Complement": "AP 255",
-        "Neighborhood": "Centro",
-        "City": "São Paulo",
-        "State": "SP",
-        "ZipCode": "12345687"
-    },
-    "Agreements": [
-        {
-            "Percent": 2.0,
-            "Fee": 100
-        }
-    ],
-    "Attachments": [
-        {
-            "AttachmentType": "ProofOfBankDomicile",
             "File": {
                 "Name": "comprovante",
                 "FileType": "png",
