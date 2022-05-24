@@ -484,7 +484,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `BankAccount.VerifierDigit` | Texto | 1 | Dígito verificador da conta |
 | `BankAccount.Operation` | Texto | 10 | Operação da conta |
 
-#### Propriedades do Acordo
+#### Propriedades do acordo de taxas
 
 | PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
 |---|---|---|---|
