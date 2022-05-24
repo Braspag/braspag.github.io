@@ -308,7 +308,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="propriedades-do-subordinado">Propriedades do Subordinado</h4>
+<h4 id="propriedades-do-subordinado">Propriedades do subordinado</h4>
 
 <table>
   <thead>
@@ -410,7 +410,7 @@
 
 <p>*Não é obrigatório quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CNPJ”.</p>
 
-<h4 id="propriedades-da-conta-bancária">Propriedades da Conta Bancária</h4>
+<h4 id="propriedades-da-conta-bancária">Propriedades da conta bancária</h4>
 
 <table>
   <thead>
@@ -489,7 +489,7 @@
   </tbody>
 </table>
 
-<h4 id="propriedades-do-endereço">Propriedades do Endereço</h4>
+<h4 id="propriedades-do-endereço">Propriedades do endereço</h4>
 
 <table>
   <thead>
@@ -554,7 +554,7 @@
   </tbody>
 </table>
 
-<h4 id="propriedades-do-acordo-de-taxas">Propriedades do Acordo de Taxas</h4>
+<h4 id="propriedades-do-acordo-de-taxas">Propriedades do acordo de taxas</h4>
 
 <p>Para a definição de acordos de taxas entre o master e seus subordinados, o <strong>Split de Pagamentos</strong> dispõe de três possibilidades:</p>
 
@@ -634,7 +634,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
   </tbody>
 </table>
 
-<h4 id="propriedades-dos-anexos">Propriedades dos Anexos</h4>
+<h4 id="propriedades-dos-anexos">Propriedades dos anexos</h4>
 
 <blockquote>
   <p><strong>Cadastro de subordinado pelo CPF:</strong> é obrigatório enviar pelo menos um arquivo comprovando o ramo de atividade (<code class="language-plaintext highlighter-rouge">AttachmentType</code> igual a “ProofBusinessActivity”);<br />
@@ -879,6 +879,8 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<h4 id="propriedades-do-subordinado-1">Propriedades do subordinado</h4>
+
 <table>
   <thead>
     <tr>
@@ -973,6 +975,21 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
       <td>-</td>
       <td>Status da análise do processo de KYC. Os Status válidos são <em>UnderAnalysis</em>, <em>Approved</em>, <em>ApprovedWithRestriction</em> e <em>Rejected</em></td>
     </tr>
+  </tbody>
+</table>
+
+<h4 id="propriedades-do-endereço-1">Propriedades do endereço</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
       <td>Texto</td>
@@ -1015,6 +1032,21 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
       <td>2</td>
       <td>Sigla do estado</td>
     </tr>
+  </tbody>
+</table>
+
+<h4 id="propriedades-da-conta-bancária-1">Propriedades da conta bancária</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Id</code></td>
       <td>Número</td>
@@ -1075,6 +1107,21 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
       <td>10</td>
       <td>Operação da conta</td>
     </tr>
+  </tbody>
+</table>
+
+<h4 id="propriedades-do-acordo">Propriedades do Acordo</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].Fee</code></td>
       <td>Número</td>
