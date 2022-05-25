@@ -107,9 +107,7 @@
             <div class="post">
   <h1 id="sobre-essa-documentação">Sobre essa documentação</h1>
 
-<p>Essa documentação apresenta a integração com a API de Onboarding Split 2.0 para o cadastro de subordinados pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-1.0-deprecated" target="_blank">Cadastro de Subordinados 1.0</a>.</p>
-
-<p>Na API de Onboarding 2.0, depois que o master cadastrar o subordinado, a Braspag irá submeter o subordinado à análise de Know Your Customer (KYC) de forma automática e irá notificar o master com o resultado desse processo, de acordo com as configurações de notificação.</p>
+<p>Essa documentação apresenta a integração com a <strong>API de Onboarding Split 2.0</strong> para o cadastro de subordinados pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-1.0-deprecated" target="_blank">Cadastro de Subordinados 1.0</a>.</p>
 
 <blockquote>
   <p>Se você já possui integração com a API de Onboarding Split 1.0, <strong>a migração para a API de Onboarding Split 2.0 será obrigatória para novos cadastros</strong> de subordinados a partir de agosto de 2022. Consulte as instruções para migração no <a href="https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387" target="_blank">artigo da nossa página de suporte</a>.</p>
@@ -118,6 +116,8 @@
 <h1 id="visão-geral">Visão geral</h1>
 
 <p>A <strong>API de Onboarding Split 2.0</strong> do <strong>Split de Pagamentos</strong> permite que o master gerencie seus subordinados na plataforma. O master deverá coletar as informações do subordinado para usar no processo de onboarding.</p>
+
+<p>Na API de Onboarding 2.0 o master cadastra o subordinado e, em seguida, a Braspag submete o subordinado à análise de Know Your Customer (KYC) de forma automática e notifica o master com o resultado desse processo, de acordo com as configurações de notificação.</p>
 
 <blockquote>
   <p>O cadastro de subordinados também pode ser feito pelo backoffice Split. <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360055405011-Cadastro-de-subordinados-do-Split-via-Backoffice" target="_blank">Saiba mais neste artigo</a>.</p>
@@ -556,15 +556,15 @@
 
 <h4 id="propriedades-do-acordo-de-taxas">Propriedades do acordo de taxas</h4>
 
-<p>Para a definição de acordos de taxas entre o master e seus subordinados, o <strong>Split de Pagamentos</strong> dispõe de três possibilidades:</p>
+<p>No <strong>Split de Pagamentos</strong> há possibilidades de acordos de taxas entre o master e seus subordinados:</p>
 
 <ol>
-  <li>Cadastro do subordinado sem informar o acordo de taxas (taxas zeradas). Quando as taxas não são definidas no cadastro do subordinado, será necessário informar as taxas de divisão de pagamento no momento da captura da transação ou da emissão do boleto;</li>
-  <li>Definição de porcentagem do MDR cobrado por transação por Arranjos de Pagamento e intervalo de parcelas;</li>
-  <li>Aplicação de MDR único, aplicado para todos os acordos. Caso o master não queira definir a porcentagem do MDR para cada Arranjo de Pagamento e intervalo de parcelas, o <strong>Split de Pagamentos</strong> irá replicar os mesmos acordos do master com a Subadquirente (Braspag), para o master com o subordinado.</li>
+  <li><strong>Não cadastrar taxa</strong>: quando as taxas não são definidas no momento do cadastro do subordinado, você deverá informá-las a <strong>cada transação</strong>, no momento da captura da transação ou da emissão do boleto;</li>
+  <li><strong>Taxa global</strong>: configure uma única taxa para todos os acordos (MDR único). O <strong>Split de Pagamentos</strong> irá replicar os mesmos acordos do master com a Braspag (subadquirente), para o master com o subordinado;</li>
+  <li><strong>Taxa por meio de pagamento</strong>: você deverá definir as taxas cobradas por transação por arranjos de pagamento e intervalo de parcelas.</li>
 </ol>
 
-<p>Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#acordo-de-taxas-n%C3%A3o-informado-no-cadastro"><strong>Acordo de Taxas não informado no cadastro</strong></a>, <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-por-arranjo-de-pagamento-e-intervalo-de-parcelas"><strong>MDR por arranjo de pagamento e intervalo de parcelas</strong></a> e <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-%C3%BAnico-para-todos-os-acordos"><strong>MDR único para todos os acordos</strong></a>.</p>
+<p>Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#acordo-de-taxas-n%C3%A3o-informado-no-cadastro"><strong>Não cadastrar taxa</strong></a>, <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-%C3%BAnico-para-todos-os-acordos"><strong>Taxa global</strong></a> e <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-por-arranjo-de-pagamento-e-intervalo-de-parcelas"><strong>Taxa por meio de pagamento</strong></a>.</p>
 
 <blockquote>
   <p><strong>ATENÇÃO</strong>: Se não houver cobrança de MDR, basta não enviar o nó <code class="language-plaintext highlighter-rouge">Agreements</code>.<br />
@@ -1110,7 +1110,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
   </tbody>
 </table>
 
-<h4 id="propriedades-do-acordo">Propriedades do Acordo</h4>
+<h4 id="propriedades-do-acordo-de-taxas-1">Propriedades do acordo de taxas</h4>
 
 <table>
   <thead>
@@ -1181,7 +1181,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 
 <h3 id="exemplos-dos-acordos-de-taxas">Exemplos dos Acordos de Taxas</h3>
 
-<h4 id="acordo-de-taxas-não-informado-no-cadastro">Acordo de taxas não informado no cadastro</h4>
+<h4 id="não-informar-taxas">Não informar taxas</h4>
 
 <p>Quando não haverá cobrança de MDR, siga a requisição padrão excluindo o nó <code class="language-plaintext highlighter-rouge">Agreements</code>.</p>
 
@@ -1237,7 +1237,67 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 
 <p>Veja as propriedades na <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10">requisição padrão</a>.</p>
 
-<h4 id="mdr-por-arranjo-de-pagamento-e-intervalo-de-parcelas">MDR por arranjo de pagamento e intervalo de parcelas</h4>
+<h4 id="taxa-global">Taxa global</h4>
+
+<p>Quando o MDR é único para todos os acordos, envie apenas os campos <code class="language-plaintext highlighter-rouge">Agreements[].Percent</code> (porcentagem do MDR) e <code class="language-plaintext highlighter-rouge">Agreements[].Fee</code> (taxa fixa) no nó <code class="language-plaintext highlighter-rouge">Agreements</code>.</p>
+
+<p><strong>Requisição</strong></p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/merchants</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinate"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f88cc14d-c796-4939-957e-de4dddcb2257"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BankAccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Operation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"VerifierDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNPJ"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AP 255"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345687"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Agreements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"AttachmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProofOfBankDomicile"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"File"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprovante"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iVBORw0KGgoAAAANSUhEUgAAAH4AAAAsCAMAAACUu/xGAAAAq1BMVEUAAABlZVJlZVKsrJthYU+zs6Grq5ylpZazs6FlZVJfX01lZVJlZVKsrJurq5urq5xlZVKtrZ1lZVJlZVKvr52zs6GysqCoqJeqqpmzs6Grq5xlZVJgYE6zs6Gnp5mrq5yiopRjY1CRkX2rq5yzs6FlZVKRkX2goJKKineRkX2Pj3yrq5yIiHWRkX2RkX2RkX1lZVKRkX2rq5yzs6GoqJdfX02goJKHh3SHh3VrpzVsAAAAMHRSTlMAQIDHx3+Ax0Ag7qBgIA9AEFCPMLOgMO7bYKBQ24+zYNuzkY9wcAXu0oiocPFBMHYlVbK0AAAD3UlEQVRYw6SW7Y6qMBCGB0IkLfKdnB9ocFmjru7HERL03P+VnXY6bdmWjcF9f2inxjydvjMDcHy99zP693oEpTpQYjBR7W4VmzA81GoZCDn/ycrValVmYOJcKBWL1/4HnUEpupLGxOI47iQmDkfc4GEBEFyNQkClzYDKQQs3VmJBufu6G7zRWNMeUzEHUnLVWs/gy9vg4NNB4wUIPOG2h7e8NcV0HRt7QPDxfzTd4ptleB5F6ro3NtsIc7UnjMKKXyuN30ZS+PuLRMW7PN+l2vlhAZ6yqCZmcrm05stfOrwVpvEBaJWStIOpVk/gC8Rb62tjRj25Fx/fEsgqE27cluKB8GR9hDFzeX44CFbmJb9/Cn8w1ldA5tO9VD/gc8FpveTbxfi1LXWOl10Z80c0Yx7/jpyyjRtd9zuxU8ZL8FEYJjZFpg6yIfOpKsf1FJ+EUkzddKkabQ+o0zCcwMN/vZm+uLh4UmW7nptTCBVq5nUF4Y0CgBaNVip18jsPn370909cfX708/gusF3fkQfrKZHXHh45Wi8meRefvfVCfwGOZ9zx8TZ9TjWY2M6vVf4jm8e3WYrDJ1Vj4N3FHwVd6vKFCxefBMFmq7ub6UI7TMZw0SEv8ryPDVaoxPiWufhL/02zY0cm3ZH1VgxIIYa1U/nIibH/EZjjp4M/9w/x9FijbyuqdzOVH+BbWQJxHMupd4pjINhDPKVH1lslBl9g6OKb73j0wmoBHrMj691nsJ0QLn4l0/09nrIm6wv7nGdQqwjGucvPJSWjN4z8aXyBlkfK+i2gmDI/HENGjXA9uPhsUJ22p2OQFg3daaFx0/9qnWBRbOl9hHlvOw3OW/xs4Hf4rcnYzj+OeFOIHj4dtG7/2y+b3IhBGAqjUiQWQ9JI/ErDpop6gcei9z9ZIXHIhLaLSGRW8zYxIuaTZccxqsGfHDXvH4cf37Z4e3ihxVOTp5bf4E8N2u+3PWB2SP7tXsfsFl80rtOeZX/gvz6//7tmnFFzD2mkxnFgL710ToHH1eCcm/LU2aA9m027v+kBH8ipyHbACxAMWaV5I4v2ZgAzIxkUGXIqkn3xrhw4wVe8hoMmOwBmYJMiJy+lHPriNcSyrvgEgUS2h/vl1BcvSqgcZsPbbABrhgdgvhgvS6hIYsPP8MwTVR5SLZA4573xHMpCV7xGZBFmxyProfR64yNCgKh4hygjXIuvpdcbPyEayA2vsEpRHcgl6gtzr8A9ho0RlgQnBPoK4tV45gBfGQZ6KQBDqzRcjdeAqQwHUfYp+SohcQdc1/Ukm4Gw4dV6vqTkM+uQpRv8E2VPF/sPp9xSb2qlGH4AAAAASUVORK5CYII="</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Veja as propriedades na <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10">requisição padrão</a>.</p>
+
+<h4 id="taxa-por-meio-de-pagamento">Taxa por meio de pagamento</h4>
 
 <p>Nesse caso, você deverá informar os campos referentes à taxa fixa, produto, bandeira, intervalo de parcelas e porcentagem do MDR.</p>
 
@@ -1408,66 +1468,6 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
     </span><span class="nl">"Attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"AttachmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProofBusinessActivity"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"File"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprovante"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iVBORw0KGgoAAAANSUhEUgAAAH4AAAAsCAMAAACUu/xGAAAAq1BMVEUAAABlZVJlZVKsrJthYU+zs6Grq5ylpZazs6FlZVJfX01lZVJlZVKsrJurq5urq5xlZVKtrZ1lZVJlZVKvr52zs6GysqCoqJeqqpmzs6Grq5xlZVJgYE6zs6Gnp5mrq5yiopRjY1CRkX2rq5yzs6FlZVKRkX2goJKKineRkX2Pj3yrq5yIiHWRkX2RkX2RkX1lZVKRkX2rq5yzs6GoqJdfX02goJKHh3SHh3VrpzVsAAAAMHRSTlMAQIDHx3+Ax0Ag7qBgIA9AEFCPMLOgMO7bYKBQ24+zYNuzkY9wcAXu0oiocPFBMHYlVbK0AAAD3UlEQVRYw6SW7Y6qMBCGB0IkLfKdnB9ocFmjru7HERL03P+VnXY6bdmWjcF9f2inxjydvjMDcHy99zP693oEpTpQYjBR7W4VmzA81GoZCDn/ycrValVmYOJcKBWL1/4HnUEpupLGxOI47iQmDkfc4GEBEFyNQkClzYDKQQs3VmJBufu6G7zRWNMeUzEHUnLVWs/gy9vg4NNB4wUIPOG2h7e8NcV0HRt7QPDxfzTd4ptleB5F6ro3NtsIc7UnjMKKXyuN30ZS+PuLRMW7PN+l2vlhAZ6yqCZmcrm05stfOrwVpvEBaJWStIOpVk/gC8Rb62tjRj25Fx/fEsgqE27cluKB8GR9hDFzeX44CFbmJb9/Cn8w1ldA5tO9VD/gc8FpveTbxfi1LXWOl10Z80c0Yx7/jpyyjRtd9zuxU8ZL8FEYJjZFpg6yIfOpKsf1FJ+EUkzddKkabQ+o0zCcwMN/vZm+uLh4UmW7nptTCBVq5nUF4Y0CgBaNVip18jsPn370909cfX708/gusF3fkQfrKZHXHh45Wi8meRefvfVCfwGOZ9zx8TZ9TjWY2M6vVf4jm8e3WYrDJ1Vj4N3FHwVd6vKFCxefBMFmq7ub6UI7TMZw0SEv8ryPDVaoxPiWufhL/02zY0cm3ZH1VgxIIYa1U/nIibH/EZjjp4M/9w/x9FijbyuqdzOVH+BbWQJxHMupd4pjINhDPKVH1lslBl9g6OKb73j0wmoBHrMj691nsJ0QLn4l0/09nrIm6wv7nGdQqwjGucvPJSWjN4z8aXyBlkfK+i2gmDI/HENGjXA9uPhsUJ22p2OQFg3daaFx0/9qnWBRbOl9hHlvOw3OW/xs4Hf4rcnYzj+OeFOIHj4dtG7/2y+b3IhBGAqjUiQWQ9JI/ErDpop6gcei9z9ZIXHIhLaLSGRW8zYxIuaTZccxqsGfHDXvH4cf37Z4e3ihxVOTp5bf4E8N2u+3PWB2SP7tXsfsFl80rtOeZX/gvz6//7tmnFFzD2mkxnFgL710ToHH1eCcm/LU2aA9m027v+kBH8ipyHbACxAMWaV5I4v2ZgAzIxkUGXIqkn3xrhw4wVe8hoMmOwBmYJMiJy+lHPriNcSyrvgEgUS2h/vl1BcvSqgcZsPbbABrhgdgvhgvS6hIYsPP8MwTVR5SLZA4573xHMpCV7xGZBFmxyProfR64yNCgKh4hygjXIuvpdcbPyEayA2vsEpRHcgl6gtzr8A9ho0RlgQnBPoK4tV45gBfGQZ6KQBDqzRcjdeAqQwHUfYp+SohcQdc1/Ukm4Gw4dV6vqTkM+uQpRv8E2VPF/sPp9xSb2qlGH4AAAAASUVORK5CYII="</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p>Veja as propriedades na <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10">requisição padrão</a>.</p>
-
-<h4 id="mdr-único-para-todos-os-acordos">MDR único para todos os acordos</h4>
-
-<p>Quando o MDR é único para todos os acordos, envie apenas os campos <code class="language-plaintext highlighter-rouge">Agreements[].Percent</code> (porcentagem do MDR) e <code class="language-plaintext highlighter-rouge">Agreements[].Fee</code> (taxa fixa) no nó <code class="language-plaintext highlighter-rouge">Agreements</code>.</p>
-
-<p><strong>Requisição</strong></p>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/merchants</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinate"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f88cc14d-c796-4939-957e-de4dddcb2257"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"BankAccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckingAccount"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Operation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"VerifierDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNPJ"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AP 255"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345687"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Agreements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"Attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"AttachmentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProofOfBankDomicile"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"File"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprovante"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="p">,</span><span class="w">
