@@ -498,7 +498,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `Agreements[].MerchantDiscountRates[].Percent` | Decimal | - | Porcentagem da taxa de desconto do subordinado |
 | `Links` | - | - | Links para navegação |
 
-### Exemplos dos Acordos de Taxas
+### Exemplos dos acordos de taxas
 
 #### Não informar taxas
 
