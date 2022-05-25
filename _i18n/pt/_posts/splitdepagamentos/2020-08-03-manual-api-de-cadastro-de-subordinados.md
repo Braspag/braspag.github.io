@@ -13,15 +13,15 @@ tags:
 
 # Sobre essa documentação
 
-Essa documentação apresenta a integração com a API de Onboarding Split 2.0 para o cadastro de subordinados pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico [Cadastro de Subordinados 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-1.0-deprecated){:target="_blank"}.
-
-Na API de Onboarding 2.0, depois que o master cadastrar o subordinado, a Braspag irá submeter o subordinado à análise de Know Your Customer (KYC) de forma automática e irá notificar o master com o resultado desse processo, de acordo com as configurações de notificação.
+Essa documentação apresenta a integração com a **API de Onboarding Split 2.0** para o cadastro de subordinados pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico [Cadastro de Subordinados 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-1.0-deprecated){:target="_blank"}.
 
 > Se você já possui integração com a API de Onboarding Split 1.0, **a migração para a API de Onboarding Split 2.0 será obrigatória para novos cadastros** de subordinados a partir de agosto de 2022. Consulte as instruções para migração no [artigo da nossa página de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387){:target="_blank"}.
 
 # Visão geral
 
 A **API de Onboarding Split 2.0** do **Split de Pagamentos** permite que o master gerencie seus subordinados na plataforma. O master deverá coletar as informações do subordinado para usar no processo de onboarding.
+
+Na API de Onboarding 2.0 o master cadastra o subordinado e, em seguida, a Braspag submete o subordinado à análise de Know Your Customer (KYC) de forma automática e notifica o master com o resultado desse processo, de acordo com as configurações de notificação.
 
 > O cadastro de subordinados também pode ser feito pelo backoffice Split. [Saiba mais neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360055405011-Cadastro-de-subordinados-do-Split-via-Backoffice){:target="_blank"}.
 
