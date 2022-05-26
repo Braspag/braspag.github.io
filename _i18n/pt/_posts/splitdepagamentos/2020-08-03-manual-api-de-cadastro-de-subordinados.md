@@ -740,7 +740,7 @@ Veja a seguir o exemplo de requisição de cadastro de subordinado com CPF com a
 
 Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10).
 
-## Cadastro de subordinados 1.0 - DEPRECATED
+## DEPRECATED - Cadastro de subordinados 1.0
 
 Esta seção detalha a integração da API de Onboarding Split 1.0, que será descontinuada em breve.
 
@@ -1317,7 +1317,7 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 
 # Consulta de Subordinados
 
-Você pode consultar um subordinado específico através do `MerchantId` do subordinado. Essa consulta é feita pela API de Onboarding Split 1.0.
+Você pode consultar um subordinado específico através do `MerchantId` do subordinado. Essa consulta é feita pela [API de Onboarding Split 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#ambientes).
 
 ## Requisição
 
