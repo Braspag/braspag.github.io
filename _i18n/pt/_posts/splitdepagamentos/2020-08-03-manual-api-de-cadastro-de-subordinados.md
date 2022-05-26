@@ -473,7 +473,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 
 | PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
 |---|---|---|---|
-| `BankAccount.Id` | Número | - | Identificação da conta bancária |
+| `BankAccount.BankId` | Número | - | Identificação do banco. |
 | `BankAccount.Bank` | Texto | 3 | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
 | `BankAccount.BankAccountType` | Texto | - | Tipo de conta bancária. Os tipos válidos são _CheckingAccount_ (Conta corrente) e _SavingsAccount_ (Conta poupança) |
 | `BankAccount.Number` | Texto | 10 | Número da conta |
