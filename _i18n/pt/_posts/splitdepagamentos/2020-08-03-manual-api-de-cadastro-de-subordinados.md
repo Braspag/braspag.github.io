@@ -1317,7 +1317,7 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 
 # Consulta de Subordinados
 
-A API de onboarding do Split de Pagamentos permite a consulta de um subordinado específico através do `MerchantId` do subordinado.
+Você pode consultar um subordinado específico através do `MerchantId` do subordinado. Essa consulta é feita pela API de Onboarding Split 1.0.
 
 ## Requisição
 
