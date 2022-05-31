@@ -81,7 +81,7 @@ O token retornado (`access_token`) deverá ser utilizado em toda requisição à
 
 |Key|Value|
 |:-|:-|
-|`scope`|AntifraudGatewayApp|
+|`scope`|ChargebackApiApp|
 |`grant_type`|client_credentials|
 
 ### Resposta
