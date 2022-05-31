@@ -201,9 +201,9 @@ Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador
 
 | Bandeira | ECI | Significado da Transação |
 | --- | --- | --- |
-| Visa | 06 | Autenticada pela bandeira – risco de chargeback passa a ser do emissor. |
-| Visa | 05 | Autenticada pelo emissor – risco de chargeback passa a ser do emissor. |
-| Visa | Diferente de 05 e 06 | Não autenticada – risco de chargeback permanece com o estabelecimento. |
+| Visa/Elo/Amex | 06 | Autenticada pela bandeira – risco de chargeback passa a ser do emissor. |
+| Visa/Elo/Amex  | 05 | Autenticada pelo emissor – risco de chargeback passa a ser do emissor. |
+| Visa/Elo/Amex  | Diferente de 05 e 06 | Não autenticada – risco de chargeback permanece com o estabelecimento. |
 | Mastercard | 01 | Autenticada pela bandeira – risco de chargeback passa a ser do emissor. |
 | Mastercard | 02 | Autenticada pelo emissor – risco de chargeback passa a ser do emissor. |
 | Mastercard | 04 | Não autenticada, transação caracterizada como *Data Only* – risco de chargeback permanece com o estabelecimento. |
