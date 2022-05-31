@@ -6487,21 +6487,22 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 
 ```json
 {  
-   "MerchantOrderId":"2017051002",
+   "MerchantOrderId":"123456",
    "Customer":{  
-      "Name":"Nome do Comprador",
+      "Name":"Comprador Teste",
       "Identity":"12345678910",
       "IdentityType":"CPF",
       "Email":"comprador@braspag.com.br",
       "Birthdate":"1991-01-02",
       "Phone": "5521976781114",
+      "mobile": "5511940028922",
       "Address":{  
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
          "ZipCode":"12345987",
          "City":"São Paulo",
-         "State":"SP",0
+         "State":"SP",
          "Country":"BR",
          "District":"Alphaville"
       },
@@ -6526,97 +6527,67 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
       "Interest":"ByMerchant",
       "Capture":true,
       "Authenticate":false,
-      "Recurrent":false,
+      "Recurrent":true,
       "SoftDescriptor":"Mensagem",
       "DoSplit":false,
       "CreditCard":{  
-         "CardNumber":"4551870000000181",
+         "CardNumber":"455184******0181",
          "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
+         "ExpirationDate":"12/2028",
+         "SecurityCode":"***",
          "Brand":"Visa",
-         "SaveCard":false
+         "SaveCard":"true"
       },
-      "Credentials":{  
-         "Code":"9999999",
-         "Key":"D8888888",
-         "Password":"LOJA9999999",
-         "Username":"#Braspag2018@NOMEDALOJA#",
-         "Signature":"001"
-      },
-      "ExtraDataCollection":[  
-         {  
-            "Name":"NomeDoCampo",
-            "Value":"ValorDoCampo"
-         }
-      ],
       "FraudAnalysis":{  
          "Sequence":"AnalyseFirst",
-         "SequenceCriteria":"Always",
+         "SequenceCriteria":"OnSuccess",
          "Provider":"RedShield",
          "CaptureOnLowRisk":false,
          "VoidOnHighRisk":false,
          "TotalOrderAmount":10000,
-         "FingerPrintId":"04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw==",
+         "FingerPrintId":"074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2",
          "Browser":{  
-            "CookiesAccepted":false,
-            "Email":"comprador@braspag.com.br",
-            "HostName":"Teste",
-            "IpAddress":"127.0.0.1",
-            "Type":"Chrome"
+            "CookiesAccepted":true,
+            "IpAddress":"127.0.0.1"
          },
          "Cart":{  
-            "IsGift":false,
+            "IsGift":true,
             "ReturnsAccepted":true,
             "Items":[  
                {  
-                  "GiftCategory":"Undefined",
-                  "HostHedge":"Off",
-                  "NonSensicalHedge":"Off",
-                  "ObscenitiesHedge":"Off",
-                  "PhoneHedge":"Off",
                   "Name":"ItemTeste1",
-                  "Quantity":1,
+                  "Quantity":2,
                   "Sku":"20170511",
-                  "UnitPrice":10000,
-                  "Risk":"High",
-                  "TimeHedge":"Normal",
-                  "Type":"AdultContent",
-                  "VelocityHedge":"High"
+                  "UnitPrice":20000
                },
                {  
-                  "GiftCategory":"Undefined",
-                  "HostHedge":"Off",
-                  "NonSensicalHedge":"Off",
-                  "ObscenitiesHedge":"Off",
-                  "PhoneHedge":"Off",
                   "Name":"ItemTeste2",
                   "Quantity":1,
                   "Sku":"20170512",
-                  "UnitPrice":10000,
-                  "Risk":"High",
-                  "TimeHedge":"Normal",
-                  "Type":"AdultContent",
-                  "VelocityHedge":"High"
+                  "UnitPrice":10000
                }
             ]
          },
          "MerchantDefinedFields":[  
             {  
-               "Id":2,
-               "Value":"100"
+               "Id":26,
+               "Value":"nomedousuario"
             },
             {  
-               "Id":4,
-               "Value":"Web"
+               "Id":27,
+               "Value":"120"
             },
             {  
-               "Id":9,
-               "Value":"SIM"
+               "Id":28,
+               "Value":"12"
+            },
+            {  
+               "Id":29,
+               "Value":"WEB"
             }
          ],
-         "Shipping":{  
-            "Addressee":"João das Couves",
+         "Shipping":{
+            "Addressee":"Nome do destinatario",
             "Method":"LowCost",
             "Phone":"551121840540"
          },
@@ -6646,21 +6617,16 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 ```
 
 ```shell
---request POST "https://apisandbox.braspag.com.br/v2/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
 {  
-   "MerchantOrderId":"2017051002",
+   "MerchantOrderId":"123456",
    "Customer":{  
-      "Name":"Nome do Comprador",
+      "Name":"Comprador Teste",
       "Identity":"12345678910",
       "IdentityType":"CPF",
       "Email":"comprador@braspag.com.br",
       "Birthdate":"1991-01-02",
       "Phone": "5521976781114",
+      "mobile": "5511940028922",
       "Address":{  
          "Street":"Alameda Xingu",
          "Number":"512",
@@ -6692,97 +6658,67 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
       "Interest":"ByMerchant",
       "Capture":true,
       "Authenticate":false,
-      "Recurrent":false,
+      "Recurrent":true,
       "SoftDescriptor":"Mensagem",
       "DoSplit":false,
       "CreditCard":{  
-         "CardNumber":"4551870000000181",
+         "CardNumber":"455184******0181",
          "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
+         "ExpirationDate":"12/2028",
+         "SecurityCode":"***",
          "Brand":"Visa",
-         "SaveCard":false
+         "SaveCard":"true"
       },
-      "Credentials":{  
-         "code":"9999999",
-         "key":"D8888888",
-         "password":"LOJA9999999",
-         "username":"#Braspag2018@NOMEDALOJA#",
-         "signature":"001"
-      },
-      "ExtraDataCollection":[  
-         {  
-            "Name":"NomeDoCampo",
-            "Value":"ValorDoCampo"
-         }
-      ],
       "FraudAnalysis":{  
          "Sequence":"AnalyseFirst",
-         "SequenceCriteria":"Always",
+         "SequenceCriteria":"OnSuccess",
          "Provider":"RedShield",
          "CaptureOnLowRisk":false,
          "VoidOnHighRisk":false,
          "TotalOrderAmount":10000,
-         "FingerPrintId":"04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw==",
+         "FingerPrintId":"074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2",
          "Browser":{  
-            "CookiesAccepted":false,
-            "Email":"comprador@braspag.com.br",
-            "HostName":"Teste",
-            "IpAddress":"127.0.0.1",
-            "Type":"Chrome"
+            "CookiesAccepted":true,
+            "IpAddress":"127.0.0.1"
          },
          "Cart":{  
-            "IsGift":false,
+            "IsGift":true,
             "ReturnsAccepted":true,
             "Items":[  
                {  
-                  "GiftCategory":"Undefined",
-                  "HostHedge":"Off",
-                  "NonSensicalHedge":"Off",
-                  "ObscenitiesHedge":"Off",
-                  "PhoneHedge":"Off",
                   "Name":"ItemTeste1",
-                  "Quantity":1,
+                  "Quantity":2,
                   "Sku":"20170511",
-                  "UnitPrice":10000,
-                  "Risk":"High",
-                  "TimeHedge":"Normal",
-                  "Type":"AdultContent",
-                  "VelocityHedge":"High"
+                  "UnitPrice":20000
                },
                {  
-                  "GiftCategory":"Undefined",
-                  "HostHedge":"Off",
-                  "NonSensicalHedge":"Off",
-                  "ObscenitiesHedge":"Off",
-                  "PhoneHedge":"Off",
                   "Name":"ItemTeste2",
                   "Quantity":1,
                   "Sku":"20170512",
-                  "UnitPrice":10000,
-                  "Risk":"High",
-                  "TimeHedge":"Normal",
-                  "Type":"AdultContent",
-                  "VelocityHedge":"High"
+                  "UnitPrice":10000
                }
             ]
          },
          "MerchantDefinedFields":[  
             {  
-               "Id":2,
-               "Value":"100"
+               "Id":26,
+               "Value":"nomedousuario"
             },
             {  
-               "Id":4,
-               "Value":"Web"
+               "Id":27,
+               "Value":"120"
             },
             {  
-               "Id":9,
-               "Value":"SIM"
+               "Id":28,
+               "Value":"12"
+            },
+            {  
+               "Id":29,
+               "Value":"WEB"
             }
          ],
-         "Shipping":{  
-            "Addressee":"João das Couves",
+         "Shipping":{
+            "Addressee":"Nome do destinatario",
             "Method":"LowCost",
             "Phone":"551121840540"
          },
@@ -6814,9 +6750,6 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
-|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
-|`RequestId`|Identificador do request definido pela loja.|GUID|36|Não (envio no *header*)|
 |`MerchantOrderId`|Número do pedido da loja.|Texto|50|Sim|
 |`Customer.Name`|Nome completo do comprador.|Texto|120|Sim|
 |`Customer.Identity`|Número do documento de identificação do comprador.|Texto|16|Sim|
@@ -6824,6 +6757,7 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 |`Customer.Email`|E-mail do comprador.|Texto|100|Sim|
 |`Customer.Birthdate`|Data de nascimento do comprador. <br/> Ex.: 1991-01-10.|Date|10|Sim|
 |`Customer.Phone`|Número do telefone do comprador. <br/> Ex.: 5521976781114.|Texto|15|Sim|
+|`Customer.Mobile`|Número do telefone celular do comprador. <br/> Ex.: 5521976781114.|Texto|15|Sim|
 |`Customer.Address.Street`|Logradouro do endereço de cobrança.|Texto|54|Sim|
 |`Customer.Address.Number`|Número do endereço de cobrança.|Texto|5|Sim|
 |`Customer.Address.Complement`|Complemento do endereço de cobrança.|Texto|14|Não|
@@ -6843,7 +6777,6 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 |`Payment.Provider`|Nome do provedor da autorização.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento.<br/>Obs.: Somente o tipo "CreditCard" funciona com análise de fraude.|Texto|100|Sim|
 |`Payment.Amount`|Valor da transação financeira, em centavos. <br/> Ex.: 150000 = R$ 1.500,00.|Número|15|Sim|
-|`Payment.ServiceTaxAmount`|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. <br/> Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
 |`Payment.Currency`|Moeda na qual o pagamento será feito. <br/> Possíveis valores: "BRL" / "USD" / "MXN" / "COP" / "CLP" / "ARS" / "PEN" / "EUR" / "PYN" / "UYU" / "VEB" / "VEF" / "GBP".|Texto|3|Não|
 |`Payment.Country`|País na qual o pagamento será realizado.|Texto|3|Não|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
@@ -6853,20 +6786,12 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 |`Payment.Recurrent`|Indica se a transação é do tipo recorrente. <br/> Possíveis valores: "true" / "false" (default). <br/> Obs1.: Este campo igual a "true" não irá criar uma recorrência; apenas permitirá a realização de uma transação sem a necessidade de envio do CVV, indicando para a adquirente que é a cobrança de uma transação de uma recorrência. <br/> Obs2.: Somente para transações **Cielo**. <br/> Obs3.: O campo `Payment.Authenticate` deve ser igual a "false" quando este for igual a "true".|Booleano|---|Não|
 |`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador. <br/> Obs.: O valor deste campo deve tornar fácil para o portador a identificação do estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback.|Texto|13|Não|
 |`Payment.DoSplit`|Indica se a transação será dividida entre vários participantes. <br/> Possíveis valores: "true" / "false" (default). <br/> Para utilizar a funcionalidade de split de pagamentos, é necessário a contratação da solução junto à Braspag.|Booleano|---|Não|
-|`Payment.ExtraDataCollection.Name`|Identificador do campo extra que será enviado.|Texto|50|Não|
-|`Payment.ExtraDataCollection.Value`|Valor do campo extra que será enviado.|Texto|1024|Não|
-|`Payment.Credentials.Code`|Afiliação gerada pela adquirente.|Texto|100|Sim|
-|`Payment.Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|Texto|100|Sim|
-|`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente **Getnet**. <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet.|Texto|50|Não|
-|`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente **Getnet**. <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet.|Texto|50|Não|
-|`Payment.Credentials.Signature`|Id do terminal no credenciamento com a adquirente **Global Payments**. <br/> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Global Payments.|Texto|3|Não|
 |`Payment.CreditCard.CardNumber`|Número do cartão de crédito.|Texto|19|Sim|
 |`Payment.CreditCard.Holder`|Nome do portador impresso no cartão de crédito. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
 |`Payment.CreditCard.ExpirationDate`|Data de validade do cartão de crédito.|Texto|7|Sim|
 |`Payment.CreditCard.SecurityCode`|Código de segurança no verso do cartão de crédito.|Texto|4|Sim|
 |`Payment.CreditCard.Brand`|Bandeira do cartão de crédito.|Texto|10|Sim |
 |`Payment.CreditCard.SaveCard`|Indica se os dados do cartão de crédito serão armazenados no *Cartão Protegido*.|Booleano|---|Não|
-|`Payment.CreditCard.Alias`|Alias (apelido) do cartão de crédito salvo no *Cartão Protegido*.|Texto|64|Não|
 |`Payment.FraudAnalysis.Sequence`|Tipo de fluxo da análise de fraude. <br/> Possíveis valores: "AnalyseFirst" / "AuthorizeFirst".|Texto|14|Sim|
 |`Payment.FraudAnalysis.SequenceCriteria`|Critério do fluxo da análise de fraude. <br/> Possíveis valores: "OnSuccess" / "Always".|Texto|9|Sim|
 |`Payment.FraudAnalysis.Provider`|Provedor de *Antifraude*. <br/> Valor possível para o provedor ACI Worldwide: "RedShield".|Texto|10|Sim|
@@ -6874,449 +6799,374 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Indica se a transação após a análise de fraude será cancelada. <br/> Possíveis valores: "true" / "false" (default). <br/> Obs1.: Quando enviado igual a "true" e o retorno da análise de fraude for de alto risco ("*Reject*"), a transação anteriormente autorizada será cancelada. <br/> Obs2.: Quando enviado igual a "true" e o retorno da análise de fraude for revisão ("*Review*"), a transação ficará autorizada, sendo cancelada após a Braspag receber notificação de alteração do status para alto risco ("*Reject*"). <br/> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (`FraudAnalysis.Sequence`) deve ser obrigatoriamente "AuthorizeFirst".|Booleano|---|Não|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Valor total do pedido, em centavos. <br/> Ex.: 123456 = R$ 1.234,56.|Número|15|Sim|
 |`Payment.FraudAnalysis.FingerPrintId`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|Texto|88|Sim|
-|`Payment.FraudAnalysis.Browser.HostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP.|Texto|60|Não|
 |`Payment.FraudAnalysis.Browser.CookiesAccepted`|Identifica se o browser do comprador aceita cookies. <br/> Possíveis valores: "true" / "false" (default).|Booleano|---|Sim|
-|`Payment.FraudAnalysis.Browser.Email`|E-mail registrado no browser do comprador. Pode ser diferente do e-mail de cadastro na loja (`Customer.Email`).|Texto|100|Não|
-|`Payment.FraudAnalysis.Browser.Type`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP. <br/> Ex.: "Google Chrome", "Mozilla Firefox", "Safari", etc.|Texto|40|Não|
 |`Payment.FraudAnalysis.Browser.IpAddress`|Endereço de IP do comprador. Formato IPv4 ou IPv6.|Texto|45|Sim|
 |`Payment.FraudAnalysis.Cart.IsGift`|Indica se o pedido realizado pelo comprador é para presente.|Booleano|---|Não|
 |`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido à loja. <br/> Possíveis valores: "true" / "false" (default).|Booleano|---|Não|
-|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Identifica a avaliação dos endereços de cobrança e entrega para diferentes cidades, estados ou países. <br/> [Lista de Valores - GiftCategory](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].giftcategory). |Texto|9|Não| 
-|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude. <br/> [Lista de Valores - HostHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge).|Texto|6|Não|
-|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude. <br/> [Lista de Valores - NonSensicalHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge).|Texto|6|Não|
-|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude. <br/> [Lista de Valores - ObscenitiesHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].obscenitieshedge).|Texto|6|Não|
-|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Nível de importância das verificações sobre os números de telefone do comprador na análise de fraude. <br/> [Lista de Valores - PhoneHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].phonehedge).|Texto|6|Não|
 |`Payment.FraudAnalysis.Cart.Items.Name`|Nome do produto.|Texto|255|Sim|
 |`Payment.FraudAnalysis.Cart.Items.Quantity`|Quantidade do produto.|Número|15|Sim|
 |`Payment.FraudAnalysis.Cart.Items.Sku`|SKU (*Stock Keeping Unit* - Unidade de Controle de Estoque) do produto.|Texto|255|Sim|
 |`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Preço unitário do produto, em centavos. <br/> Ex.: 10950 = R$ 109,50.|Número|15|Sim|
-|`Payment.FraudAnalysis.Cart.Items.Risk`|Nível de risco do produto associado a quantidade de chargebacks.|Texto|6|Não|
-|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Nível de importância, na análise de fraude, da hora do dia em que o comprador realizou o pedido. <br/> [Lista de Valores - TimeHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].timehedge).|Texto|6|Não|
-|`Payment.FraudAnalysis.Cart.Items.Type`|Categoria do produto. <br/> [Lista de Valores - Type](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type).|Texto|19|Não|
-|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Nível de importância, na análise de fraude, da frequência de compra do comprador dentro dos 15 minutos anteriores. <br/> [Lista de Valores - VelocityHedge](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].velocityhedge).|Texto|6|Não|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Id das informações adicionais a serem enviadas. <br/> [Tabela de MDDs](#tabela-de-mdds).|Número|2|Sim|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Valor das informações adicionais a serem enviadas. <br/> [Tabela de MDDs](#tabela-de-mdds).|Texto|255|Sim|
 |`Payment.FraudAnalysis.Shipping.Addressee`|Nome completo do responsável a receber o produto no endereço de entrega.|Texto|120|Não|
 |`Payment.FraudAnalysis.Shipping.Method`|Meio de entrega do pedido. <br/> [Lista de Valores - Method](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.method).|Texto|8|Não|
 |`Payment.FraudAnalysis.Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega. <br/> Ex.: 552121114700.|Texto|15|Não|
-|`Payment.FraudAnalysis.Travel.JourneyType`|Tipo de viagem. <br/> [Lista de Valores - JourneyType](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.journeytype).|Texto|32|Não|
-|`Payment.FraudAnalysis.Travel.DepartureTime`|Data e hora de partida. <br/> Ex.: 2018-03-31 19:16:38.|DateTime|---|Não|
-|`Payment.FraudAnalysis.Travel.Passengers.Name`|Nome completo do passageiro.|Texto|120|Não|
-|`Payment.FraudAnalysis.Travel.Passengers.Identity`|Número do documento do passageiro.|Texto|32|Não|
-|`Payment.FraudAnalysis.Travel.Passengers.Status`|Classificação da empresa aérea. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status).|Texto|15|Não|
-|`Payment.FraudAnalysis.Travel.Passengers.Rating`|Tipo do passageiro. <br/> [Lista de Valores - Rating](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating).|Texto|13|Não|
-|`Payment.FraudAnalysis.Travel.Passengers.Email`|E-mail do passageiro.|Texto|255|Não|
-|`Payment.FraudAnalysis.Travel.Passengers.Phone`|Telefone do passageiro. <br/> Ex.: 552121114700.|Texto|15|Não|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}.|Texto|3|Não|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Código do aeroporto de chegada.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}.|Texto|3|Não|
+|`Payment.FraudAnalysis.Travel.JourneyType`|Tipo de viagem. <br/> [Lista de Valores - JourneyType](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.journeytype).|Texto|32|Não*|
+|`Payment.FraudAnalysis.Travel.DepartureTime`|Data e hora de partida. <br/> Ex.: 2018-03-31 19:16:38.|DateTime|---|Não*|
+|`Payment.FraudAnalysis.Travel.Passengers.Name`|Nome completo do passageiro.|Texto|120|Não*|
+|`Payment.FraudAnalysis.Travel.Passengers.Identity`|Número do documento do passageiro.|Texto|32|Não*|
+|`Payment.FraudAnalysis.Travel.Passengers.Status`|Classificação da empresa aérea. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status).|Texto|15|Não*|
+|`Payment.FraudAnalysis.Travel.Passengers.Rating`|Tipo do passageiro. <br/> [Lista de Valores - Rating](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating).|Texto|13|Não*|
+|`Payment.FraudAnalysis.Travel.Passengers.Email`|E-mail do passageiro.|Texto|255|Não*|
+|`Payment.FraudAnalysis.Travel.Passengers.Phone`|Telefone do passageiro. <br/> Ex.: 552121114700.|Texto|15|Não*|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}.|Texto|3|Não*|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Código do aeroporto de chegada.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}.|Texto|3|Não*|
 
-<aside class="warning">Os campos do nó "FraudAnalysis.Travel" se tornam obrigatórios caso o segmento do seu negócio seja o aéreo.</aside>
+<aside class="warning">*Os campos do nó "FraudAnalysis.Travel" se tornam obrigatórios caso o segmento do seu negócio seja o aéreo.</aside>
 
-### Resposta
+# Resposta
 
 ```json
-{  
-   "MerchantOrderId":"2017051002",
-   "Customer":{  
-      "Name":"Nome do Comprador",
-      "Identity":"12345678910",
-      "IdentityType":"CPF",
-      "Email":"comprador@braspag.com.br",
-      "Birthdate":"1991-01-02",
-      "Phone": "5521976781114"
-      "Address":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      },
-      "DeliveryAddress":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      }
-   },
-   "Payment":{  
-      "Provider":"Simulado",
-      "Type":"CreditCard",
-      "Amount":10000,
-      "Currency":"BRL",
-      "Country":"BRA",
-      "Installments":1,
-      "Interest":"ByMerchant",
-      "Capture":true,
-      "Authenticate":false,
-      "Recurrent":false,
-      "SoftDescriptor":"Mensagem",
-      "DoSplit":false,
-      "CreditCard":{  
-         "CardNumber":"455187******0181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "SaveCard":false
-      },
-      "Credentials":{  
-         "code":"9999999",
-         "key":"D8888888",
-         "password":"LOJA9999999",
-         "username":"#Braspag2018@NOMEDALOJA#",
-         "signature":"001"
-      },
-      "ExtraDataCollection":[  
-         {  
-            "Name":"NomeDoCampo",
-            "Value":"ValorDoCampo"
-         }
-      ],
-      "FraudAnalysis":{  
-         "Sequence":"AnalyseFirst",
-         "SequenceCriteria":"Always",
-         "Provider":"RedShield",
-         "CaptureOnLowRisk":false,
-         "VoidOnHighRisk":false,
-         "TotalOrderAmount":10000,
-         "FingerPrintId":"04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw==",
-         "Browser":{  
-            "CookiesAccepted":false,
-            "Email":"comprador@braspag.com.br",
-            "HostName":"Teste",
-            "IpAddress":"127.0.0.1",
-            "Type":"Chrome"
-         },
-         "Cart":{  
-            "IsGift":false,
-            "ReturnsAccepted":true,
-            "Items":[  
-               {  
-                  "GiftCategory":"Undefined",
-                  "HostHedge":"Off",
-                  "NonSensicalHedge":"Off",
-                  "ObscenitiesHedge":"Off",
-                  "PhoneHedge":"Off",
-                  "Name":"ItemTeste1",
-                  "Quantity":1,
-                  "Sku":"20170511",
-                  "UnitPrice":10000,
-                  "Risk":"High",
-                  "TimeHedge":"Normal",
-                  "Type":"AdultContent",
-                  "VelocityHedge":"High"
-               },
-               {  
-                  "GiftCategory":"Undefined",
-                  "HostHedge":"Off",
-                  "NonSensicalHedge":"Off",
-                  "ObscenitiesHedge":"Off",
-                  "PhoneHedge":"Off",
-                  "Name":"ItemTeste2",
-                  "Quantity":1,
-                  "Sku":"20170512",
-                  "UnitPrice":10000,
-                  "Risk":"High",
-                  "TimeHedge":"Normal",
-                  "Type":"AdultContent",
-                  "VelocityHedge":"High"
-               }
-            ]
-         },
-         "MerchantDefinedFields":[  
-            {  
-               "Id":2,
-               "Value":"100"
-            },
-            {  
-               "Id":4,
-               "Value":"Web"
-            },
-            {  
-               "Id":9,
-               "Value":"SIM"
-            }
-         ],
-         "Shipping":{  
-            "Addressee":"João das Couves",
-            "Method":"LowCost",
-            "Phone":"551121840540"
-         },
-         "Travel":{  
-            "JourneyType":"OneWayTrip",
-            "DepartureTime":"2018-01-09 18:00",
-            "Passengers":[  
-               {  
-                  "Name":"Passenger Test",
-                  "Identity":"212424808",
-                  "Status":"Gold",
-                  "Rating":"Adult",
-                  "Email":"email@mail.com",
-                  "Phone":"5564991681074",
-                  "TravelLegs":[  
-                     {  
-                        "Origin":"AMS",
-                        "Destination":"GIG"
-                     }
-                  ]
-               }
-            ]
+{
+    "MerchantOrderId": "123456",
+    "Customer": {
+        "Name": "Comprador Teste",
+        "Identity": "12345678910",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Phone": "5521976781114",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BR",
+            "District": "Alphaville",
+            "AddressType": "NotInformed"
         },
-        "Id":"0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
-        "Status":1,
-        "FraudAnalysisReasonCode":100,
-        "ReplyData":{  
-            "AddressInfoCode":"COR-BA^MM-BIN",
-            "FactorCode":"B^D^R^Z",
-            "Score":42,
-            "BinCountry":"us",
-            "CardIssuer":"FIA CARD SERVICES, N.A.",
-            "CardScheme":"VisaCredit",
-            "HostSeverity":1,
-            "InternetInfoCode":"FREE-EM^RISK-EM",
-            "IpRoutingMethod":"Undefined",
-            "ScoreModelUsed":"default_lac",
-            "CasePriority":3,
-            "ProviderTransactionId":"5220688414326697303008"
-         }
-      },
-      "PaymentId": "c374099e-c474-4916-9f5c-f2598fec2925",
-      "ProofOfSale": "20170510053219433",
-      "AcquirerTransactionId": "0510053219433",
-      "AuthorizationCode": "936403",
-      "ReceivedDate": "2017-05-10 17:32:19",
-      "CapturedAmount": 10000,
-      "CapturedDate": "2017-05-10 17:32:19",
-      "ReasonCode": 0,
-      "ReasonMessage": "Successful",
-      "Status": 2,
-      "ProviderReturnCode": "6",
-      "ProviderReturnMessage": "Operation Successful",
-      "Links": [{
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
-      },
-      {
-        "Method": "PUT",
-        "Rel": "void",
-        "Href": "https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
-      }]
-   }
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BR",
+            "District": "Alphaville",
+            "AddressType": "NotInformed"
+        },
+        "Mobile": "5511940028922"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": true,
+        "CreditCard": {
+            "CardNumber": "455184******0181",
+            "Holder": "Nome do Portador",
+            "ExpirationDate": "12/2028",
+            "SaveCard": true,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "836045",
+        "AcquirerTransactionId": "0527060143139",
+        "AuthorizationCode": "095614",
+        "SoftDescriptor": "Mensagem",
+        "SentOrderId": "20220527180141FEC711",
+        "FraudAnalysis": {
+            "Sequence": "AnalyseFirst",
+            "SequenceCriteria": "OnSuccess",
+            "FingerPrintId": "074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2",
+            "Provider": "RedShield",
+            "CaptureOnLowRisk": false,
+            "VoidOnHighRisk": false,
+            "TotalOrderAmount": 10000,
+            "IsRetryTransaction": false,
+            "MerchantDefinedFields": [
+                {
+                    "Id": "26",
+                    "Value": "nomedousuario"
+                },
+                {
+                    "Id": "27",
+                    "Value": "120"
+                },
+                {
+                    "Id": "28",
+                    "Value": "12"
+                },
+                {
+                    "Id": "29",
+                    "Value": "WEB"
+                }
+            ],
+            "Cart": {
+                "IsGift": true,
+                "ReturnsAccepted": true,
+                "Items": [
+                    {
+                        "Name": "ItemTeste1",
+                        "Sku": "20170511",
+                        "UnitPrice": 20000,
+                        "Quantity": 2
+                    },
+                    {
+                        "Name": "ItemTeste2",
+                        "Sku": "20170512",
+                        "UnitPrice": 10000,
+                        "Quantity": 1
+                    }
+                ]
+            },
+            "Travel": {
+                "DepartureTime": "2018-01-09T18:00:00",
+                "JourneyType": "OneWayTrip",
+                "Passengers": [
+                    {
+                        "Name": "Passenger Test",
+                        "Identity": "212424808",
+                        "Status": "Gold",
+                        "Rating": "Adult",
+                        "Email": "email@mail.com",
+                        "Phone": "5564991681074",
+                        "TravelLegs": [
+                            {
+                                "Destination": "GIG",
+                                "Origin": "AMS"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Browser": {
+                "CookiesAccepted": true,
+                "IpAddress": "127.0.0.1"
+            },
+            "Shipping": {
+                "Addressee": "Nome do destinatario",
+                "Phone": "551121840540",
+                "Method": "LowCost"
+            },
+            "Id": "3c31b840-30f0-49a5-40c1-08da39ba639e",
+            "Status": 1,
+            "StatusDescription": "Accept",
+            "ReplyData": {
+                "FactorCode": "000.000.000",
+                "ProviderTransactionId": "153322379407",
+                "ReturnMessage": "Transaction succeeded",
+                "ProviderOrderId": "000591000001XAA20220527170142439",
+                "ReturnCode": "0100"
+            }
+        },
+        "DoSplit": false,
+        "PaymentId": "b705b792-e5c0-4386-9f44-b07a791fb972",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2022-05-27 18:01:41",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2022-05-27 18:01:43",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/b705b792-e5c0-4386-9f44-b07a791fb972"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/b705b792-e5c0-4386-9f44-b07a791fb972/void"
+            }
+        ]
+    }
 }
 ```
 
 ```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-   "MerchantOrderId":"2017051002",
-   "Customer":{  
-      "Name":"Nome do Comprador",
-      "Identity":"12345678910",
-      "IdentityType":"CPF",
-      "Email":"comprador@braspag.com.br",
-      "Birthdate":"1991-01-02",
-      "Phone": "5521976781114"
-      "Address":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      },
-      "DeliveryAddress":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      }
-   },
-   "Payment":{  
-      "Provider":"Simulado",
-      "Type":"CreditCard",
-      "Amount":10000,
-      "Currency":"BRL",
-      "Country":"BRA",
-      "Installments":1,
-      "Interest":"ByMerchant",
-      "Capture":true,
-      "Authenticate":false,
-      "Recurrent":false,
-      "SoftDescriptor":"Mensagem",
-      "DoSplit":false,
-      "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "SaveCard":false
-      },
-      "Credentials":{  
-         "code":"9999999",
-         "key":"D8888888",
-         "password":"LOJA9999999",
-         "username":"#Braspag2018@NOMEDALOJA#",
-         "signature":"001"
-      },
-      "ExtraDataCollection":[  
-         {  
-            "Name":"NomeDoCampo",
-            "Value":"ValorDoCampo"
-         }
-      ],
-      "FraudAnalysis":{  
-         "Sequence":"AnalyseFirst",
-         "SequenceCriteria":"Always",
-         "Provider":"RedShield",
-         "CaptureOnLowRisk":false,
-         "VoidOnHighRisk":false,
-         "TotalOrderAmount":10000,
-         "FingerPrintId":"04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw==",
-         "Browser":{  
-            "CookiesAccepted":false,
-            "Email":"comprador@braspag.com.br",
-            "HostName":"Teste",
-            "IpAddress":"127.0.0.1",
-            "Type":"Chrome"
-         },
-         "Cart":{  
-            "IsGift":false,
-            "ReturnsAccepted":true,
-            "Items":[  
-               {  
-                  "GiftCategory":"Undefined",
-                  "HostHedge":"Off",
-                  "NonSensicalHedge":"Off",
-                  "ObscenitiesHedge":"Off",
-                  "PhoneHedge":"Off",
-                  "Name":"ItemTeste1",
-                  "Quantity":1,
-                  "Sku":"20170511",
-                  "UnitPrice":10000,
-                  "Risk":"High",
-                  "TimeHedge":"Normal",
-                  "Type":"AdultContent",
-                  "VelocityHedge":"High"
-               },
-               {  
-                  "GiftCategory":"Undefined",
-                  "HostHedge":"Off",
-                  "NonSensicalHedge":"Off",
-                  "ObscenitiesHedge":"Off",
-                  "PhoneHedge":"Off",
-                  "Name":"ItemTeste2",
-                  "Quantity":1,
-                  "Sku":"20170512",
-                  "UnitPrice":10000,
-                  "Risk":"High",
-                  "TimeHedge":"Normal",
-                  "Type":"AdultContent",
-                  "VelocityHedge":"High"
-               }
-            ]
-         },
-         "MerchantDefinedFields":[  
-            {  
-               "Id":2,
-               "Value":"100"
-            },
-            {  
-               "Id":4,
-               "Value":"Web"
-            },
-            {  
-               "Id":9,
-               "Value":"SIM"
-            }
-         ],
-         "Shipping":{  
-            "Addressee":"João das Couves",
-            "Method":"LowCost",
-            "Phone":"551121840540"
-         },
-         "Travel":{  
-            "JourneyType":"OneWayTrip",
-            "DepartureTime":"2018-01-09 18:00",
-            "Passengers":[  
-               {  
-                  "Name":"Passenger Test",
-                  "Identity":"212424808",
-                  "Status":"Gold",
-                  "Rating":"Adult",
-                  "Email":"email@mail.com",
-                  "Phone":"5564991681074",
-                  "TravelLegs":[  
-                     {  
-                        "Origin":"AMS",
-                        "Destination":"GIG"
-                     }
-                  ]
-               }
-            ]
+{
+    "MerchantOrderId": "123456",
+    "Customer": {
+        "Name": "Comprador Teste",
+        "Identity": "12345678910",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Phone": "5521976781114",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BR",
+            "District": "Alphaville",
+            "AddressType": "NotInformed"
         },
-        "Id":"0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
-        "Status":1,
-        "FraudAnalysisReasonCode":100,
-        "ReplyData":{  
-            "AddressInfoCode":"COR-BA^MM-BIN",
-            "FactorCode":"B^D^R^Z",
-            "Score":42,
-            "BinCountry":"us",
-            "CardIssuer":"FIA CARD SERVICES, N.A.",
-            "CardScheme":"VisaCredit",
-            "HostSeverity":1,
-            "InternetInfoCode":"FREE-EM^RISK-EM",
-            "IpRoutingMethod":"Undefined",
-            "ScoreModelUsed":"default_lac",
-            "CasePriority":3,
-            "ProviderTransactionId":"5220688414326697303008"
-         }
-      },
-      "PaymentId": "c374099e-c474-4916-9f5c-f2598fec2925",
-      "ProofOfSale": "20170510053219433",
-      "AcquirerTransactionId": "0510053219433",
-      "AuthorizationCode": "936403",
-      "ReceivedDate": "2017-05-10 17:32:19",
-      "CapturedAmount": 10000,
-      "CapturedDate": "2017-05-10 17:32:19",
-      "ReasonCode": 0,
-      "ReasonMessage": "Successful",
-      "Status": 2,
-      "ProviderReturnCode": "6",
-      "ProviderReturnMessage": "Operation Successful",
-      "Links": [{
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"
-      },
-      {
-        "Method": "PUT",
-        "Rel": "void",
-        "Href": "https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"
-      }]
-   }
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BR",
+            "District": "Alphaville",
+            "AddressType": "NotInformed"
+        },
+        "Mobile": "5511940028922"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": true,
+        "CreditCard": {
+            "CardNumber": "455184******0181",
+            "Holder": "Nome do Portador",
+            "ExpirationDate": "12/2028",
+            "SaveCard": true,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "836045",
+        "AcquirerTransactionId": "0527060143139",
+        "AuthorizationCode": "095614",
+        "SoftDescriptor": "Mensagem",
+        "SentOrderId": "20220527180141FEC711",
+        "FraudAnalysis": {
+            "Sequence": "AnalyseFirst",
+            "SequenceCriteria": "OnSuccess",
+            "FingerPrintId": "074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2074c1ee676ed4998ab66491013c565e2",
+            "Provider": "RedShield",
+            "CaptureOnLowRisk": false,
+            "VoidOnHighRisk": false,
+            "TotalOrderAmount": 10000,
+            "IsRetryTransaction": false,
+            "MerchantDefinedFields": [
+                {
+                    "Id": "26",
+                    "Value": "nomedousuario"
+                },
+                {
+                    "Id": "27",
+                    "Value": "120"
+                },
+                {
+                    "Id": "28",
+                    "Value": "12"
+                },
+                {
+                    "Id": "29",
+                    "Value": "WEB"
+                }
+            ],
+            "Cart": {
+                "IsGift": true,
+                "ReturnsAccepted": true,
+                "Items": [
+                    {
+                        "Name": "ItemTeste1",
+                        "Sku": "20170511",
+                        "UnitPrice": 20000,
+                        "Quantity": 2
+                    },
+                    {
+                        "Name": "ItemTeste2",
+                        "Sku": "20170512",
+                        "UnitPrice": 10000,
+                        "Quantity": 1,
+                    }
+                ]
+            },
+            "Travel": {
+                "DepartureTime": "2018-01-09T18:00:00",
+                "JourneyType": "OneWayTrip",
+                "Passengers": [
+                    {
+                        "Name": "Passenger Test",
+                        "Identity": "212424808",
+                        "Status": "Gold",
+                        "Rating": "Adult",
+                        "Email": "email@mail.com",
+                        "Phone": "5564991681074",
+                        "TravelLegs": [
+                            {
+                                "Destination": "GIG",
+                                "Origin": "AMS"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Browser": {
+                "CookiesAccepted": true,
+                "IpAddress": "127.0.0.1"
+            },
+            "Shipping": {
+                "Addressee": "Nome do destinatario",
+                "Phone": "551121840540",
+                "Method": "LowCost"
+            },
+            "Id": "3c31b840-30f0-49a5-40c1-08da39ba639e",
+            "Status": 1,
+            "StatusDescription": "Accept",
+            "ReplyData": {
+                "FactorCode": "000.000.000",
+                "ProviderTransactionId": "153322379407",
+                "ReturnMessage": "Transaction succeeded",
+                "ProviderOrderId": "000591000001XAA20220527170142439",
+                "ReturnCode": "0100"
+            }
+        },
+        "DoSplit": false,
+        "PaymentId": "b705b792-e5c0-4386-9f44-b07a791fb972",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2022-05-27 18:01:41",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2022-05-27 18:01:43",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/b705b792-e5c0-4386-9f44-b07a791fb972"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/b705b792-e5c0-4386-9f44-b07a791fb972/void"
+            }
+        ]
+    }
 }
 ```
 
 |Propriedade|Descrição|Tipo|
-|:-|:-|:-|
+|---|---|---|
 |`MerchantOrderId`|Número do pedido da loja.|Texto|
 |`Customer.Name`|Nome completo do comprador.|Texto|
 |`Customer.Identity`|Número do documento de identificação do comprador.|Texto|
@@ -7332,6 +7182,7 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 |`Customer.Address.State`|Estado do endereço de cobrança.|Texto|
 |`Customer.Address.Country`|País do endereço de cobrança.|Texto|
 |`Customer.Address.District`|Bairro do endereço de cobrança.|Texto|
+|`Customer.Address.AddressType`|Tipo do endereço de cobrança.|Texto|
 |`Customer.DeliveryAddress.Street`|Logradouro do endereço de entrega.|Texto|
 |`Customer.DeliveryAddress.Number`|Número do endereço de entrega.|Texto|
 |`Customer.DeliveryAddress.Complement`|Complemento do endereço de entrega.|Texto|
@@ -7340,99 +7191,83 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 |`Customer.DeliveryAddress.State`|Estado do endereço de entrega.|Texto|
 |`Customer.DeliveryAddress.Country`|País do endereço de entrega.|Texto|
 |`Customer.DeliveryAddress.District`|Bairro do endereço de entrega.|Texto|
-|`Payment.Provider`|Nome do provedor da autorização.|Texto|
-|`Payment.Type`|Tipo do meio de pagamento.|Texto|
-|`Payment.Amount`|Valor da transação financeira, em centavos.|Número|
+|`Customer.DeliveryAddress.AddressType`|Tipo do endereço de entrega.|Texto|
+|`Customer.Mobile`|Número do telefone celular do comprador.|Texto|
 |`Payment.ServiceTaxAmount`|Montante do valor da autorização que deve ser destinado à taxa de serviço.|Número|
-|`Payment.Currency`|Moeda na qual o pagamento será feito.|Texto|
-|`Payment.Country`|País na qual o pagamento será realizado.|Texto|
 |`Payment.Installments`|Número de parcelas.|Número|
 |`Payment.Interest`|Tipo de parcelamento.|Texto|
 |`Payment.Capture`|Indica se a autorização deverá ser com captura automática.|Booleano|
 |`Payment.Authenticate`|Indica se a transação deve ser autenticada.|Booleano|
 |`Payment.Recurrent`|Indica se a transação é do tipo recorrente.|Booleano|
-|`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador.|Texto|
-|`Payment.DoSplit`|Indica se a transação será dividida entre vários participantes.|Booleano|
-|`Payment.ExtraDataCollection.Name`|Identificador do campo extra que será enviado.|Texto|
-|`Payment.ExtraDataCollection.Value`|Valor do campo extra que será enviado.|Texto|
-|`Payment.Credentials.Code`|Afiliação gerada pela adquirente.|Texto|
-|`Payment.Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|Texto|
-|`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente Getnet.|Texto|
-|`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente Getnet.|Texto|
-|`Payment.Credentials.Signature`|Id do terminal no credenciamento com a adquirente Global Payments.|Texto|
 |`Payment.CreditCard.CardNumber`|Número do cartão de crédito truncado.|Texto|
 |`Payment.CreditCard.Holder`|Nome do portador impresso no cartão de crédito.|Texto|
 |`Payment.CreditCard.ExpirationDate`|Data de validade do cartão de crédito.|Texto|
-|`Payment.CreditCard.SecurityCode`|Código de segurança no verso do cartão de crédito.|Texto|
-|`Payment.CreditCard.Brand`|Bandeira do cartão de crédito.|Texto|
 |`Payment.CreditCard.SaveCard`|Indica se os dados do cartão de crédito foram armazenados no *Cartão Protegido*.|Booleano|
-|`Payment.CreditCard.Alias`|Alias (apelido) do cartão de crédito salvo no *Cartão Protegido*.|Texto|
-|`Payment.CreditCard.CardToken`|Identificador do cartão de crédito salvo no *Cartão Protegido*.|GUID|
+|`Payment.CreditCard.Brand`|Bandeira do cartão de crédito.|Texto|
+|`Payment.ProofOfSale`|Número do comprovante de venda na adquirente (NSU - Número Sequencial Único).|Texto|
+|`Payment.AcquirerTransactionId`|Identificador da transação na adquirente.|Texto|
+|`Payment.AuthorizationCode`|Código de autorização na adquirente.|Texto|
+|`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador.|Texto|
+|`Payment.SentOrderId`| Número adicional ao MerchantOrderId gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos. |Texto|
 |`Payment.FraudAnalysis.Sequence`|Tipo de fluxo da análise de fraude.|Texto|
 |`Payment.FraudAnalysis.SequenceCriteria`|Critério do fluxo da análise de fraude.|Texto|
+|`Payment.FraudAnalysis.FingerPrintId`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.|Texto|
 |`Payment.FraudAnalysis.Provider`|Provedor de *Antifraude*.|Texto|
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Indica se a transação após a análise de fraude será capturada.|Booleano|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Indica se a transação após a análise de fraude será cancelada.|Booleano|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Valor total do pedido, em centavos.|Número|
-|`Payment.FraudAnalysis.FingerPrintId`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.|Texto|
-|`Payment.FraudAnalysis.Browser.HostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP.|Texto|
-|`Payment.FraudAnalysis.Browser.CookiesAccepted`|Identifica se o browser do comprador aceita cookies.|Booleano|
-|`Payment.FraudAnalysis.Browser.Email`|E-mail registrado no browser do comprador. Pode ser diferente do e-mail de cadastro na loja (`Customer.Email`).|Texto|
-|`Payment.FraudAnalysis.Browser.Type`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP.|Texto|
-|`Payment.FraudAnalysis.Browser.IpAddress`|Endereço de IP do comprador. Formato IPv4 ou IPv6.|Texto|
+|`Payment.FraudAnalysis.IsRetryTransaction`|Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900| Booleano|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Id das informações adicionais a serem enviadas.|Número|
+|`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Valor das informações adicionais a serem enviadas.|Texto|
 |`Payment.FraudAnalysis.Cart.IsGift`|Indica se o pedido realizado pelo comprador é para presente.|Booleano|
 |`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido à loja.|Booleano|
-|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Identifica a avaliação dos endereços de cobrança e entrega para diferentes cidades, estados ou países.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.Type`|Categoria do produto.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.Name`|Nome do produto.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.Risk`|Nível de risco do produto associado à quantidade de chargebacks.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.Sku`|SKU (*Stock Keeping Unit* - Unidade de Controle de Estoque) do produto.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Preço unitário do produto.|Número|
+|`Payment.FraudAnalysis.Cart.Items.Quantity`|Quantidade do produto.|Número|
 |`Payment.FraudAnalysis.Cart.Items.HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude.|Texto|
 |`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude.|Texto|
 |`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude.|Texto|
 |`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude.|Texto|
-|`Payment.FraudAnalysis.Cart.Items.Name`|Nome do produto.|Texto|
-|`Payment.FraudAnalysis.Cart.Items.Quantity`|Quantidade do produto.|Número|
-|`Payment.FraudAnalysis.Cart.Items.Sku`|SKU (*Stock Keeping Unit* - Unidade de Controle de Estoque) do produto.|Texto|
-|`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Preço unitário do produto.|Número|
-|`Payment.FraudAnalysis.Cart.Items.Risk`|Nível de risco do produto associado à quantidade de chargebacks.|Texto|
 |`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Nível de importância, na análise de fraude, da hora do dia em que o comprador realizou o pedido.|Texto|
-|`Payment.FraudAnalysis.Cart.Items.Type`|Categoria do produto.|Texto|
 |`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Nível de importância, na análise de fraude, da frequência de compra do comprador dentro dos 15 minutos anteriores.|Texto|
-|`Payment.FraudAnalysis.MerchantDefinedFields.Id`|Id das informações adicionais a serem enviadas.|Número|
-|`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Valor das informações adicionais a serem enviadas.|Texto|
-|`Payment.FraudAnalysis.Shipping.Addressee`|Nome completo do responsável a receber o produto no endereço de entrega.|Texto|
-|`Payment.FraudAnalysis.Shipping.Method`|Meio de entrega do pedido.|Texto|
-|`Payment.FraudAnalysis.Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega.|Número|
-|`Payment.FraudAnalysis.Travel.JourneyType`|Tipo de viagem.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Identifica a avaliação dos endereços de cobrança e entrega para diferentes cidades, estados ou países.|Texto|
+|`Payment.FraudAnalysis.Cart.Items.OriginalPrice`|Preço original do produto. Ex: 11490 = R$ 114,90. | Texto|
 |`Payment.FraudAnalysis.Travel.DepartureTime`|Data e hora de partida.|DateTime|
+|`Payment.FraudAnalysis.Travel.JourneyType`|Tipo de viagem.|Texto|
 |`Payment.FraudAnalysis.Travel.Passengers.Name`|Nome completo do passageiro.|Texto|
 |`Payment.FraudAnalysis.Travel.Passengers.Identity`|Número do documento do passageiro.|Texto|
 |`Payment.FraudAnalysis.Travel.Passengers.Status`|Classificação da empresa aérea.|Texto|
 |`Payment.FraudAnalysis.Travel.Passengers.Rating`|Tipo do passageiro.|Texto|
 |`Payment.FraudAnalysis.Travel.Passengers.Email`|E-mail do passageiro.|Texto|
 |`Payment.FraudAnalysis.Travel.Passengers.Phone`|Telefone do passageiro.|Número|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.|Texto|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Código do aeroporto de chegada.|Texto|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.|Texto|
+`Payment.FraudAnalysis.Browser.CookiesAccepted`|Identifica se o browser do comprador aceita cookies.|Booleano|
+|`Payment.FraudAnalysis.Browser.IpAddress`|Endereço de IP do comprador. Formato IPv4 ou IPv6.|Texto|
+|`Payment.FraudAnalysis.Shipping.Addressee`|Nome completo do responsável a receber o produto no endereço de entrega.|Texto|
+|`Payment.FraudAnalysis.Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega.|Número|
+|`Payment.FraudAnalysis.Shipping.Method`|Meio de entrega do pedido.|Texto|
 |`Payment.FraudAnalysis.Id`|Id da transação no *Antifraude* Braspag.|GUID|
 |`Payment.FraudAnalysis.Status`|Status da transação no *Antifraude* Braspag. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status){:target="_blank"}.|Número|
-|`Payment.FraudAnalysis.FraudAnalysisReasonCode`|Código de retorno da Cybersouce. <br/> [Lista de Valores - FraudAnalysisReasonCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode){:target="_blank"}.|Número|
-|`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. <br/> Os códigos são concatenados usando o caractere "^". Ex.: COR-BA^MM-BIN. <br/> [Lista de Valores - AddressInfoCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode){:target="_blank"}.|Texto|
+|`Payment.FraudAnalysis.StatusDescription`|Descrição do status| Texto|
 |`Payment.FraudAnalysis.ReplyData.FactorCode`|Códigos que afetaram a pontuação da análise. <br/> Os códigos são concatenados usando o caractere "^". Ex.: B^D^R^Z. <br/>[Lista de Valores - FactorCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode){:target="_blank"}.|Texto|
-|`Payment.FraudAnalysis.ReplyData.Score`|Score da análise de fraude. Valor entre 0 e 100.|Número|
-|`Payment.FraudAnalysis.ReplyData.BinCountry`|Código do país do BIN do cartão usado na análise.<br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}.|Texto|
-|`Payment.FraudAnalysis.ReplyData.CardIssuer`|Nome do banco ou entidade emissora do cartão de crédito.|Texto|
-|`Payment.FraudAnalysis.ReplyData.CardScheme`|Bandeira do cartão.|Texto|
-|`Payment.FraudAnalysis.ReplyData.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto.|Número|
-|`Payment.FraudAnalysis.ReplyData.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, endereço IP ou endereço de cobrança. <br/> Os códigos são concatenados usando o caractere "^". Ex.: FREE-EM^RISK-EM <br/> [Lista de Valores - InternetInfoCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode){:target="_blank"}.|Texto|
-|`Payment.FraudAnalysis.ReplyData.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP. <br/> [Lista de Valores - IpRoutingMethod](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod){:target="_blank"}.|Texto|
-|`Payment.FraudAnalysis.ReplyData.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado.|Texto|
-|`Payment.FraudAnalysis.ReplyData.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia entre 1 (maior) e 5 (menor). O valor padrão é 3, e é atribuído caso não se tenha definido a prioridade das regras ou perfis. Este campo será retornado somente se a loja for assinante do *Enhanced Case Management*.|Número|
-|`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`|Id da transação na Cybersource.|Texto|
+|`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`|Id da transação na ACI Worldwide.|Texto|
+|`Payment.FraudAnalysis.ReplyData.ReturnMessage`|Mensagem retornada pelo provedor de Antifraude|Texto|
+|`Payment.FraudAnalysis.ReplyData.ProviderOrderId`| Id do pedido na ACI Worldwide| Texto|
+|`Payment.FraudAnalysis.ReplyData.ReturnCode`| Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).| Texto|
+|`Payment.DoSplit`|Indica se a transação será dividida entre vários participantes.|Booleano|
 |`Payment.PaymentId`|Identificador da transação no Pagador Braspag.|GUID|
-|`Payment.AcquirerTransactionId`|Identificador da transação na adquirente.|Texto|
-|`Payment.ProofOfSale`|Número do comprovante de venda na adquirente (NSU - Número Sequencial Único).|Texto|
-|`Payment.AuthorizationCode`|Código de autorização na adquirente.|Texto|
+|`Payment.Type`|Tipo do meio de pagamento. Obs.: Somente o tipo “CreditCard” funciona com análise de fraude.| Texto|
+|`Payment.Amount`|Valor da transação financeira, em centavos. Ex.: 150000 = R$ 1.500,00.| Texto|
 |`Payment.ReceivedDate`|Data em que a transação foi recebida no Pagador Braspag. <br/> Ex.: 2018-01-16 16:38:19.|Datetime|
-|`Payment.CapturedDate`|Data em que a transação foi capturada na adquirente. <br/> Ex.: 2018-01-16 16:38:20.|Datetime|
 |`Payment.CapturedAmount`|Valor capturado da transação, em centavos. <br/> Ex.: 123456 = R$ 1.234,56.|Número|
-|`Payment.ECI`|*Electronic Commerce Indicator*. Código gerado em uma transação de crédito com autenticação externa.|Texto|
+|`Payment.CapturedDate`|Data em que a transação foi capturada na adquirente. <br/> Ex.: 2018-01-16 16:38:20.|Datetime|
+|`Payment.Currency`| Moeda na qual o pagamento será feito. Possíveis valores: “BRL” / “USD” / “MXN” / “COP” / “CLP” / “ARS” / “PEN” / “EUR” / “PYN” / “UYU” / “VEB” / “VEF” / “GBP”.|Não|
+|`Payment.Country`|País no qual o pagamento será realizado.| Texto|
+|`Payment.Provider`|Nome do provedor da autorização.|Texto|
 |`Payment.ReasonCode`|Código de retorno da operação.|Texto|
 |`Payment.ReasonMessage`|Mensagem de retorno da operação.|Texto|
 |`Payment.Status`|Status da transação no Pagador. <br/> [Lista de Status da Transação](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação){:target="_blank"}.|Número|
