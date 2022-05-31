@@ -6825,7 +6825,7 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 
 <aside class="warning">*Os campos do nó "FraudAnalysis.Travel" se tornam obrigatórios caso o segmento do seu negócio seja o aéreo.</aside>
 
-# Resposta
+### Resposta
 
 ```json
 {
@@ -7221,20 +7221,10 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 |`Payment.FraudAnalysis.MerchantDefinedFields.Value`|Valor das informações adicionais a serem enviadas.|Texto|
 |`Payment.FraudAnalysis.Cart.IsGift`|Indica se o pedido realizado pelo comprador é para presente.|Booleano|
 |`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido à loja.|Booleano|
-|`Payment.FraudAnalysis.Cart.Items.Type`|Categoria do produto.|Texto|
 |`Payment.FraudAnalysis.Cart.Items.Name`|Nome do produto.|Texto|
-|`Payment.FraudAnalysis.Cart.Items.Risk`|Nível de risco do produto associado à quantidade de chargebacks.|Texto|
 |`Payment.FraudAnalysis.Cart.Items.Sku`|SKU (*Stock Keeping Unit* - Unidade de Controle de Estoque) do produto.|Texto|
 |`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Preço unitário do produto.|Número|
 |`Payment.FraudAnalysis.Cart.Items.Quantity`|Quantidade do produto.|Número|
-|`Payment.FraudAnalysis.Cart.Items.HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude.|Texto|
-|`Payment.FraudAnalysis.Cart.Items.NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude.|Texto|
-|`Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude.|Texto|
-|`Payment.FraudAnalysis.Cart.Items.PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude.|Texto|
-|`Payment.FraudAnalysis.Cart.Items.TimeHedge`|Nível de importância, na análise de fraude, da hora do dia em que o comprador realizou o pedido.|Texto|
-|`Payment.FraudAnalysis.Cart.Items.VelocityHedge`|Nível de importância, na análise de fraude, da frequência de compra do comprador dentro dos 15 minutos anteriores.|Texto|
-|`Payment.FraudAnalysis.Cart.Items.GiftCategory`|Identifica a avaliação dos endereços de cobrança e entrega para diferentes cidades, estados ou países.|Texto|
-|`Payment.FraudAnalysis.Cart.Items.OriginalPrice`|Preço original do produto. Ex: 11490 = R$ 114,90. | Texto|
 |`Payment.FraudAnalysis.Travel.DepartureTime`|Data e hora de partida.|DateTime|
 |`Payment.FraudAnalysis.Travel.JourneyType`|Tipo de viagem.|Texto|
 |`Payment.FraudAnalysis.Travel.Passengers.Name`|Nome completo do passageiro.|Texto|
