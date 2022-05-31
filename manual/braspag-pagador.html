@@ -12346,7 +12346,7 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
 
 <aside class="warning">*Os campos do nó "FraudAnalysis.Travel" se tornam obrigatórios caso o segmento do seu negócio seja o aéreo.</aside>
 
-<h1 id="resposta-33">Resposta</h1>
+<h3 id="resposta-33">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
@@ -12964,18 +12964,8 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
       <td>Booleano</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Type</code></td>
-      <td>Categoria do produto.</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Name</code></td>
       <td>Nome do produto.</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Risk</code></td>
-      <td>Nível de risco do produto associado à quantidade de chargebacks.</td>
       <td>Texto</td>
     </tr>
     <tr>
@@ -12992,46 +12982,6 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Quantity</code></td>
       <td>Quantidade do produto.</td>
       <td>Número</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.HostHedge</code></td>
-      <td>Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude.</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.NonSensicalHedge</code></td>
-      <td>Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude.</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge</code></td>
-      <td>Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude.</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.PhoneHedge</code></td>
-      <td>Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude.</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.TimeHedge</code></td>
-      <td>Nível de importância, na análise de fraude, da hora do dia em que o comprador realizou o pedido.</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.VelocityHedge</code></td>
-      <td>Nível de importância, na análise de fraude, da frequência de compra do comprador dentro dos 15 minutos anteriores.</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.GiftCategory</code></td>
-      <td>Identifica a avaliação dos endereços de cobrança e entrega para diferentes cidades, estados ou países.</td>
-      <td>Texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.OriginalPrice</code></td>
-      <td>Preço original do produto. Ex: 11490 = R$ 114,90.</td>
-      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.DepartureTime</code></td>
