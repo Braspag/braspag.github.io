@@ -238,17 +238,17 @@
 
 <p>Uma transação analisada, não rejeitada pela regra, mas rejeitada pela quarentena, terá o retorno informando que foi rejeitada pela quarentena.</p>
 
-<h2 id="blacklist">Blacklist</h2>
+<h2 id="lista-negativa">Lista Negativa</h2>
 
-<p>Uma transação a ser analisada, e o número do cartão enviado para análise estiver na blacklist, a transação será rejeitada, independente de existir regra cadastrada para este tipo de variável ou não e as demais regras para outros tipos de variáveis serão ignoradas.</p>
+<p>Uma transação a ser analisada, e o número do cartão enviado para análise estiver na lista negativa, a transação será rejeitada, independente de existir regra cadastrada para este tipo de variável ou não e as demais regras para outros tipos de variáveis serão ignoradas.</p>
 
-<p>Uma transação analisada e rejeitada pela blacklist terá o retorno informando que foi rejeitada pela blacklist.</p>
+<p>Uma transação analisada e rejeitada pela lista negativa terá o retorno informando que foi rejeitada pela lista negativa.</p>
 
-<h2 id="whitelist">Whitelist</h2>
+<h2 id="lista-positiva">Lista Positiva</h2>
 
-<p>Uma transação a ser analisada, e o número do cartão enviado para análise estiver na whitelist, a transação será aceita, independente de existir regra cadastrada para este tipo de variável ou não e as demais regras para outros tipos de variáveis serão ignoradas.</p>
+<p>Uma transação a ser analisada, e o número do cartão enviado para análise estiver na lista positiva, a transação será aceita, independente de existir regra cadastrada para este tipo de variável ou não e as demais regras para outros tipos de variáveis serão ignoradas.</p>
 
-<p>Uma transação analisada e aceita pela whitelist terá o retorno informando que foi aceita pela whitelist.</p>
+<p>Uma transação analisada e aceita pela lista positiva terá o retorno informando que foi aceita pela lista positiva.</p>
 
 <h2 id="análise-com-emailage">Análise com Emailage</h2>
 
@@ -264,14 +264,14 @@
   <li>Telefone do comprador;</li>
   <li>Endereço de cobrança do comprador.
 &lt;/br&gt;
-Uma transação a ser analisada e ter passado nas análises de regras, quarentena e blacklist, os dados do comprador serão enviados para a Emailage. Na resposta da Emailage o score for de alto risco, o retorno terá que a transação foi rejeitada pela análise na Emailage.</li>
+Uma transação a ser analisada e ter passado nas análises de regras, quarentena e lista negativa, os dados do comprador serão enviados para a Emailage. Na resposta da Emailage o score for de alto risco, o retorno terá que a transação foi rejeitada pela análise na Emailage.</li>
 </ul>
 
 <p>Caracteriza-se alto risco quando o score retornado pela Emailage for acima de 900 e baixo risco menor que 10.</p>
 
 <h2 id="análise-com-credilink">Análise com Credilink</h2>
 
-<p>Uma transação a ser analisada e ter passado nas análises de regras, quarentena, blacklist e Emailage, este se estiver habilitado, os dados do comprador serão enviados para a Credilink. Após a análise na Credilink, não for encontrado nenhuma ocorrência, no retorno terá que a transação foi rejeitada pela na Credilink.</p>
+<p>Uma transação a ser analisada e ter passado nas análises de regras, quarentena, lista negativa e Emailage, este se estiver habilitado, os dados do comprador serão enviados para a Credilink. Após a análise na Credilink, não for encontrado nenhuma ocorrência, no retorno terá que a transação foi rejeitada pela na Credilink.</p>
 
 <p>Os dados abaixo são obrigatórios para análise na Credilink:</p>
 
@@ -899,12 +899,12 @@ Uma transação a ser analisada e ter passado nas análises de regras, quarenten
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AnalysisResult.AcceptByWhiteList</code></td>
-      <td style="text-align: left">Indica se a transação foi automaticamente aceita por algum valor de alguma whitelist referente a alguma variável</td>
+      <td style="text-align: left">Indica se a transação foi automaticamente aceita por algum valor de alguma lista positiva referente a alguma variável</td>
       <td style="text-align: center">bool</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AnalysisResult.RejectByBlackList</code></td>
-      <td style="text-align: left">Indica se a transação foi automaticamente rejeitada por algum valor de alguma blacklist referente a alguma variável</td>
+      <td style="text-align: left">Indica se a transação foi automaticamente rejeitada por algum valor de alguma lista negativa referente a alguma variável</td>
       <td style="text-align: center">bool</td>
     </tr>
     <tr>
@@ -1363,12 +1363,12 @@ Uma transação a ser analisada e ter passado nas análises de regras, quarenten
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AnalysisResult.AcceptByWhiteList</code></td>
-      <td style="text-align: left">Indica se a transação foi automaticamente aceita por algum valor de alguma whitelist referente a alguma variável</td>
+      <td style="text-align: left">Indica se a transação foi automaticamente aceita por algum valor de alguma lista positiva referente a alguma variável</td>
       <td style="text-align: center">bool</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AnalysisResult.RejectByBlackList</code></td>
-      <td style="text-align: left">Indica se a transação foi automaticamente rejeitada por algum valor de alguma blacklist referente a alguma variável</td>
+      <td style="text-align: left">Indica se a transação foi automaticamente rejeitada por algum valor de alguma lista negativa referente a alguma variável</td>
       <td style="text-align: center">bool</td>
     </tr>
     <tr>
@@ -1866,13 +1866,13 @@ Uma transação a ser analisada e ter passado nas análises de regras, quarenten
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AnalysisResult.AcceptByWhiteList</code></td>
-      <td style="text-align: left">Indica se a transação foi automaticamente aceita por algum valor de alguma whitelist referente a alguma variável</td>
+      <td style="text-align: left">Indica se a transação foi automaticamente aceita por algum valor de alguma lista positiva referente a alguma variável</td>
       <td style="text-align: center">bool</td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AnalysisResult.RejectByBlackList</code></td>
-      <td style="text-align: left">Indica se a transação foi automaticamente rejeitada por algum valor de alguma blacklist referente a alguma variável</td>
+      <td style="text-align: left">Indica se a transação foi automaticamente rejeitada por algum valor de alguma lista negativa referente a alguma variável</td>
       <td style="text-align: center">bool</td>
       <td> </td>
     </tr>
