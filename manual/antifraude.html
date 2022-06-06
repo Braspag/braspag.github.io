@@ -203,6 +203,71 @@
 
 <p>Neste manual, consulte as requisições e <a href="https://braspag.github.io//manual/antifraude#tabelas">tabelas anexas correspondentes ao seu provedor de antifraude</a>.</p>
 
+<h1 id="fluxos-da-análise-de-fraude">Fluxos da Análise de Fraude</h1>
+
+<p>O Antifraude Gateway encaminha os dados de uma transação para análise de um provedor de antifraude. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de repetição. A Braspag recebe uma recomendação do provedor em tempo real podendo então tomar uma ação baseada no risco de fraude identificado pela análise.
+Existem dois fluxos possíveis para a análise de fraude:</p>
+
+<ul>
+  <li><strong>AnalyseFirst:</strong> todas as transações são primeiro submetidas à análise do Antifraude e, se aceitas, seguem para o processo de autorização da adquirente.</li>
+  <li><strong>AuthorizeFirst:</strong> todas as transações são primeiro submetidas à autorização na adquirente e, se autorizadas, são enviadas para a análise do Antifraude.</li>
+</ul>
+
+<p><img src="https://braspag.github.io//images/braspag/af/fluxo-analysefirst-authorizefirst.png" alt="Fluxos AnalyseFirst e AuthorizeFirst" /></p>
+
+<p>*O status Review é retornado somente se estiver incluso no seu plano.</p>
+
+<h2 id="analysefirst">AnalyseFirst</h2>
+
+<ol>
+  <li>A loja solicita a análise de fraude ao Antifraude;</li>
+  <li>O Antifraude retorna o status Accept, Reject ou Review;</li>
+  <li>A loja envia a requisição da transação para o gateway de pagamentos;</li>
+  <li>O gateway de pagamentos solicita autorização da adquirente;</li>
+  <li>A adquirente autoriza a transação ou autoriza e captura;</li>
+  <li>O gateway de pagamentos retorna a resposta da autorização.</li>
+</ol>
+
+<h2 id="authorizefirst">AuthorizeFirst</h2>
+
+<ol>
+  <li>A loja envia a requisição da transação para o gateway de pagamentos;</li>
+  <li>O gateway de pagamentos solicita autorização da adquirente;</li>
+  <li>A adquirente autoriza a transação;</li>
+  <li>O gateway de pagamentos retorna a resposta da autorização;</li>
+  <li>A loja solicita a análise de fraude ao Antifraude;</li>
+  <li>O Antifraude retorna o status Accept, Reject ou Review.</li>
+</ol>
+
+<p>O fluxo escolhido deve ser determinado durante a integração, porque faz parte da arquitetura da aplicação.</p>
+
+<p>Se após a integração você desejar alterar o fluxo de análise de fraude solicite o suporte da Braspag, pois existem detalhes envolvidos em uma possível troca, principalmente em relação às regras de velocidade.</p>
+
+<h2 id="qual-fluxo-é-indicado-para-o-meu-e-commerce">Qual fluxo é indicado para o meu e-commerce?</h2>
+
+<ul>
+  <li>A escolha pode ser feita de acordo com as regras do seu negócio, levando em conta aspectos como o ticket médio e tipo de produto comercializado;</li>
+  <li>Você pode montar a sua aplicação com os dois fluxos e aplicar as regras de negócio de acordo com seus critérios de risco.</li>
+</ul>
+
+<p>Confira a seguir algumas características de cada fluxo, que podem auxiliar você na decisão do melhor modelo para o seu negócio:</p>
+
+<p><strong>AnalyzeFirst</strong></p>
+
+<ul>
+  <li>O Antifraude terá visibilidade das transações de cartão de crédito do e-commerce;</li>
+  <li>Evita sensibilização antecipada do limite do cartão de crédito, evitando atrito/má experiência do consumidor;</li>
+  <li>Favorece o aprendizado do motor do Antifraude;</li>
+  <li>Há custo de análise quando o cartão de crédito usado na transação não tem limite disponível.</li>
+</ul>
+
+<p><strong>AuthorizeFirst</strong></p>
+
+<ul>
+  <li>Evita o custo da análise em transações de cartão de crédito que não tem limite disponível;</li>
+  <li>O Antifraude não tem visibilidade das transações não autorizadas.</li>
+</ul>
+
 <h1 id="ambientes">Ambientes</h1>
 
 <h2 id="sandbox">Sandbox</h2>
@@ -367,7 +432,7 @@
 
 <p>Ao receber os dados do pedido, a API da Braspag encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real, a Braspag recebe uma recomendação do provedor, podendo então tomar uma ação baseada no risco de fraude identificado pela análise.</p>
 
-<h2 id="fluxos-da-análise-de-fraude">Fluxos da análise de fraude</h2>
+<h2 id="fluxos-da-análise-de-fraude-1">Fluxos da análise de fraude</h2>
 
 <p>Veja a representação do <strong>fluxo transacional</strong> quando o serviço do Antifraude é solicitado no modelo <code class="language-plaintext highlighter-rouge">AnalyseFirst</code>, em que a análise de risco acontece antes da autorização da transação:</p>
 
