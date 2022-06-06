@@ -58,6 +58,59 @@ A ACI WORLDWIDE, fundada em 1975, é uma empresa global de software de missão c
 
 Neste manual, consulte as requisições e [tabelas anexas correspondentes ao seu provedor de antifraude](https://braspag.github.io//manual/antifraude#tabelas).
 
+# Fluxos da Análise de Fraude
+
+O Antifraude Gateway encaminha os dados de uma transação para análise de um provedor de antifraude. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de repetição. A Braspag recebe uma recomendação do provedor em tempo real podendo então tomar uma ação baseada no risco de fraude identificado pela análise.
+Existem dois fluxos possíveis para a análise de fraude:
+
+* **AnalyseFirst:** todas as transações são primeiro submetidas à análise do Antifraude e, se aceitas, seguem para o processo de autorização da adquirente. 
+* **AuthorizeFirst:** todas as transações são primeiro submetidas à autorização na adquirente e, se autorizadas, são enviadas para a análise do Antifraude. 
+
+![Fluxos AnalyseFirst e AuthorizeFirst]({{ site.baseurl_root }}/images/braspag/af/fluxo-analysefirst-authorizefirst.png)
+
+*O status Review é retornado somente se estiver incluso no seu plano.
+
+## AnalyseFirst
+
+1.	A loja solicita a análise de fraude ao Antifraude;
+2.	O Antifraude retorna o status Accept, Reject ou Review;
+3.	A loja envia a requisição da transação para o gateway de pagamentos;
+4.	O gateway de pagamentos solicita autorização da adquirente;
+5.	A adquirente autoriza a transação ou autoriza e captura;
+6.	O gateway de pagamentos retorna a resposta da autorização.
+
+## AuthorizeFirst
+
+1.	A loja envia a requisição da transação para o gateway de pagamentos;
+2.	O gateway de pagamentos solicita autorização da adquirente;
+3.	A adquirente autoriza a transação;
+4.	O gateway de pagamentos retorna a resposta da autorização;
+5.	A loja solicita a análise de fraude ao Antifraude;
+6.	O Antifraude retorna o status Accept, Reject ou Review.
+
+O fluxo escolhido deve ser determinado durante a integração, porque faz parte da arquitetura da aplicação.
+
+Se após a integração você desejar alterar o fluxo de análise de fraude solicite o suporte da Braspag, pois existem detalhes envolvidos em uma possível troca, principalmente em relação às regras de velocidade.
+
+## Qual fluxo é indicado para o meu e-commerce?
+
+* A escolha pode ser feita de acordo com as regras do seu negócio, levando em conta aspectos como o ticket médio e tipo de produto comercializado;
+* Você pode montar a sua aplicação com os dois fluxos e aplicar as regras de negócio de acordo com seus critérios de risco.
+
+Confira a seguir algumas características de cada fluxo, que podem auxiliar você na decisão do melhor modelo para o seu negócio: 
+
+**AnalyzeFirst**
+
+* O Antifraude terá visibilidade das transações de cartão de crédito do e-commerce;
+* Evita sensibilização antecipada do limite do cartão de crédito, evitando atrito/má experiência do consumidor;
+* Favorece o aprendizado do motor do Antifraude;
+* Há custo de análise quando o cartão de crédito usado na transação não tem limite disponível.
+
+**AuthorizeFirst**
+
+* Evita o custo da análise em transações de cartão de crédito que não tem limite disponível;
+* O Antifraude não tem visibilidade das transações não autorizadas.
+
 # Ambientes
 
 ## Sandbox
