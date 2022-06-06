@@ -72,21 +72,21 @@ Existem dois fluxos possíveis para a análise de fraude:
 
 ## AnalyseFirst
 
-1.	A loja solicita a análise de fraude ao Antifraude;
-2.	O Antifraude retorna o status Accept, Reject ou Review;
-3.	A loja envia a requisição da transação para o gateway de pagamentos;
-4.	O gateway de pagamentos solicita autorização da adquirente;
-5.	A adquirente autoriza a transação ou autoriza e captura;
-6.	O gateway de pagamentos retorna a resposta da autorização.
+1. A loja solicita a análise de fraude ao Antifraude;
+2. O Antifraude retorna o status Accept, Reject ou Review;
+3. A loja envia a requisição da transação para o gateway de pagamentos;
+4. O gateway de pagamentos solicita autorização da adquirente;
+5. A adquirente autoriza a transação ou autoriza e captura;
+6. O gateway de pagamentos retorna a resposta da autorização.
 
 ## AuthorizeFirst
 
-1.	A loja envia a requisição da transação para o gateway de pagamentos;
-2.	O gateway de pagamentos solicita autorização da adquirente;
-3.	A adquirente autoriza a transação;
-4.	O gateway de pagamentos retorna a resposta da autorização;
-5.	A loja solicita a análise de fraude ao Antifraude;
-6.	O Antifraude retorna o status Accept, Reject ou Review.
+1. A loja envia a requisição da transação para o gateway de pagamentos;
+2. O gateway de pagamentos solicita autorização da adquirente;
+3. A adquirente autoriza a transação;
+4. O gateway de pagamentos retorna a resposta da autorização;
+5. A loja solicita a análise de fraude ao Antifraude;
+6. O Antifraude retorna o status Accept, Reject ou Review.
 
 O fluxo escolhido deve ser determinado durante a integração, porque faz parte da arquitetura da aplicação.
 
