@@ -1,0 +1,15 @@
+<html>		
+  <head>
+  <script type="text/javascript" src="https://resources.koin.com.br/scripts/koin.min.js">
+  </script>
+  	<script type="text/javascript">
+  	   window.onload = function() {
+  		GetKoinFraudID(function (guid) { 	
+  		document.getElementById('fraudId').innerHTML = guid;});
+  			}	
+  	</script>
+  </head>
+    <body>
+         FraudId: <span id="fraudId"></span>
+    </body>
+</html>
