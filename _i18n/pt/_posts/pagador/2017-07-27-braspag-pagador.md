@@ -2846,7 +2846,7 @@ A Koin necessita de algumas informações sobre o comprador para consultar as pa
 
 A sua página de checkout precisa **exibir** ou **oferecer acesso** aos **Termos e Condições da Koin** para que o comprador fique ciente sobre como funciona essa política de crédito. 
 
-O link para o Termos de Condições da Koin é: **[https://www.koin.com.br/termos-e-condicoes/]**(https://www.koin.com.br/termos-e-condicoes/){:target="_blank"}.
+O link para o Termos de Condições da Koin é: **[https://www.koin.com.br/termos-e-condicoes/](https://www.koin.com.br/termos-e-condicoes/){:target="_blank"}**.
 
 Você deve configurar o seu checkout de forma que a transação só possa prosseguir após o aceite dos termos.
 
