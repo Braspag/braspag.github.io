@@ -2808,16 +2808,16 @@ A Koin é uma empresa de meios de pagamento que oferece a solução **Boleto Par
 
 #### Ambientes e APIs
 
-Para a integração com a Koin, você irá usar os endpoints da **[API do Pagador]**(https://braspag.github.io//manual/braspag-pagador#ambientes-de-teste-e-produ%C3%A7%C3%A3o), e da **API de Consulta de Parcelas**. 
+Para a integração com a Koin, você irá usar os endpoints da **[API do Pagador](https://braspag.github.io//manual/braspag-pagador#ambientes-de-teste-e-produ%C3%A7%C3%A3o)**, e da **API de Consulta de Parcelas**. 
 
 **API de Consulta de Parcelas**
 
-**Sandbox**: https://paymentinstallmentoptionsapisandbox.braspag.com.br
+**Sandbox**: https://paymentinstallmentoptionsapisandbox.braspag.com.br</br>
 **Produção**: https://paymentinstallmentoptionsapi.braspag.com.br
 
 **API do Pagador**
 
-**Sandbox**: https://apisandbox.braspag.com.br
+**Sandbox**: https://apisandbox.braspag.com.br</br>
 **Produção**: https://api.braspag.com.br
 
 #### Integração
