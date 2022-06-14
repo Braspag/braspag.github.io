@@ -38,11 +38,11 @@ Veja a representação do **fluxo transacional** do **BNPL** da empresa **Koin**
 
 > Para ambos os fluxos é importante que você tenha uma URL de Notificação configurada em sua loja do Pagador, para que possamos informar que a transação teve seu status alterado. Saiba como configurar essa URL na documentação do [Post de Notificação](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o).
 
-## Koin
+# Koin
 
 A Koin é uma empresa de meios de pagamento que oferece a solução **Boleto Parcelado**. O Boleto Parcelado permite que os compradores realizem pagamentos em lojas virtuais usando a experiência do BNPL.
 
-### Ambientes e APIs
+# Ambientes e APIs
 
 Para a integração com a Koin, você irá usar os endpoints da **[API do Pagador](https://braspag.github.io//manual/braspag-pagador#ambientes-de-teste-e-produ%C3%A7%C3%A3o)**, e da **API de Consulta de Parcelas**. 
 
@@ -60,7 +60,7 @@ Para a integração com a Koin, você irá usar os endpoints da **[API do Pagado
 |API do Pagador (transacional)|https://api.braspag.com.br|
 |API de Consulta de Parcelas|https://paymentinstallmentoptionsapi.braspag.com.br|
 
-### Integração com a KOIN
+# Integração com a KOIN
 
 A integração com a Koin consiste em três passos:
 
@@ -68,7 +68,7 @@ A integração com a Koin consiste em três passos:
 2. Obtenção das parcelas;
 3. Solicitação da autorização.
 
-### Cenários de Teste
+## Cenários de Teste
 
 Confira os números de CPF disponíveis para os testes de solicitação, para que possa simular alguns tipos de retorno em ambiente sandbox:
 
@@ -78,11 +78,11 @@ Confira os números de CPF disponíveis para os testes de solicitação, para qu
 | 898.914.640-24<br>451.625.980-03<br>420.003.140-07<br>192.236.580-71<br>983.579.360-32 |         304.1          |   *Reprovado automaticamente* |                  
 | 546.723.960-02<br>133.588.530-71<br>943.303.990-40<br>121.190.460-18<br>585.587.770-12 |         312.23         |   *Análise Manual*            |
 
-### Passo 1 - Configurando o checkout
+## Passo 1 - Configurando o checkout
 
 A Koin necessita de algumas informações sobre o comprador para consultar as parcelas disponíveis e finalizar o pedido. Para isso, você deverá incluir em seu checkout os **Termos e Condições da Koin** e o script para obtenção do `FraudID`. 
 
-#### Termos e Condições Koin
+### Termos e Condições Koin
 
 A sua página de checkout precisa **exibir** ou **oferecer acesso** aos **Termos e Condições da Koin** para que o comprador fique ciente sobre como funciona essa política de crédito. 
 
@@ -90,7 +90,7 @@ O link para o Termos de Condições da Koin é: **[https://www.koin.com.br/termo
 
 Você deve configurar o seu checkout de forma que a transação só possa prosseguir após o aceite dos termos.
 
-#### Obtendo o FraudID
+### Obtendo o FraudID
 
 O `FraudID` é a identificação digital do dispositivo do comprador composto por uma série de dados coletados na página de checkout. O `FraudID` deverá ser informado na requisição de autorização à API do Pagador no campo `FingerprintId` (passo 3). Cada requisição de autorização deverá conter um `FraudID` diferente.
 
@@ -102,7 +102,7 @@ Para gerar o `FraudID`, você deve inserir um script em JavaScript com a URL da 
 
 > [Acesse o nosso GitHub](https://github.com/Braspag/braspag.github.io/blob/f28ec76a58a5ff58dba23e0e6cb90c0b132f60f5/_i18n/pt/_posts/pagador/script-js-koin.html){:target="_blank"} para visualizar e copiar o modelo JavaScript.
 
-### Passo 2 - Obtendo as Parcelas
+## Passo 2 - Obtendo as Parcelas
 
 Para que você possa exibir a opção de parcelamento em seu checkout é necessário que a sua aplicação faça uma requisição à **API de Consulta de Parcelas**. 
 
@@ -115,7 +115,7 @@ Caso qualquer um dos itens da requisição seja alterado pelo comprador será ne
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{API de Consulta de Parcelas}/v1/authorize</span></aside>
 
-#### Requisição
+### Requisição
 
 ```json
 {
@@ -143,7 +143,7 @@ Caso qualquer um dos itens da requisição seja alterado pelo comprador será ne
 |`Amount`|Valor do pedido, em centavos.|Número|15|Sim |
 |`AcceptedTerms`|Indica se houve o aceite dos termos de uso da Koin.|Booleano|-|Sim|
 
-#### Resposta
+### Resposta
 
 ```json
 {
@@ -199,7 +199,7 @@ Caso qualquer um dos itens da requisição seja alterado pelo comprador será ne
 
 > Após o comprador escolher a opção de parcelamento, envie o valor do `Options.Id` correspondente à opção escolhida na requisição de autorização no campo `InstallmentOptionId`, conforme detalharemos no passo 3.
 
-### Passo 3 - Solicitando Autorização
+## Passo 3 - Solicitando Autorização
 
 Após o aceite dos Termos e Condições, da obtenção do `FraudId` e da consulta das opções de parcelamento, chegou a hora de submeter os dados da transação para a criação da transação em si e para a solicitação de autorização da Koin.
 
@@ -220,7 +220,7 @@ Para submeter à autorização, envie a requisição da transação para a API d
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{API Pagador}/v2/sales</span></aside>
 
-#### Requisição
+### Requisição
 
 ```json
 {
@@ -307,7 +307,7 @@ Para submeter à autorização, envie a requisição da transação para a API d
 |`Cart.Quantity`|Quantidade comprada daquele produto.|Número|100|Sim|
 |`Cart.UnitPrice`|Preço unitário do produto (em centavos).|Número|100|Sim|
 
-#### Resposta
+### Resposta
 
 ```json
 {
@@ -390,11 +390,11 @@ Para submeter à autorização, envie a requisição da transação para a API d
 |`ReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento.|Texto|512|"Sua compra foi APROVADA! Obrigado por comprar com a KOIN."|
 |`Status`|Status da transação.|Byte|02|Ex.: 2|
 
-### Segmentos
+# Segmentos
 
 Visando aumentar a segurança e a conversão das aprovações de suas transações, a Koin disponibiliza formas de enviar mais detalhes da transação que você está submetendo para autorização. São diversas informações disponíveis sobre os produtos vendidos e/ou serviços prestados, como educação, aluguel de carros e hospedagem. Para cada um dos segmentos é necessário incluir as informações inerentes àquela transação.
 
-#### Exemplo Multisegmentos
+## Exemplo Multisegmentos
 
 <aside class="warning">Permitimos o envio de informações multisegmento numa mesma transação. Basta apontar os segmentos no nó `ProductTypes` e incluir as chaves relativas à cada segmento daquela autorização que está submentendo à Koin.</aside>
 
@@ -483,7 +483,7 @@ Utilize os nós concatenávies `ProductTypes` e `AdditionalData` para indicar os
 
 <aside class="warning">*É recomendável utilizar "UserAccountData" junto com o outro segmento toda vez que o usuário logado em seu sistema não for o mesmo que estiver efetuando a compra, por exemplo, uma pessoa comprando uma passagem no nome de outra pessoa.</aside>
 
-#### Dados do Usuário
+## Dados do Usuário
 
 ```json
 "UserAccountData": {
@@ -531,7 +531,7 @@ Utilize os nós concatenávies `ProductTypes` e `AdditionalData` para indicar os
 | UserAccountData.Address.Country       | País do endereço.                                                         | Texto |    50   | Não         |
 | UserAccountData.Address.AdressType    | Tipo do endereço: 1 = Residencial / 2 = Comercial.                        | Texto |     1   | Não         |
 
-#### Educação
+## Educação
 
 ```json
 "ClassData": {
@@ -621,7 +621,7 @@ Utilize os nós concatenávies `ProductTypes` e `AdditionalData` para indicar os
 | ClassData.Students.Number                    | Número da casa do aluno.                 | Texto | 10 | Sim             |
 | ClassData.Students.Complement                | Complemento do endereço do aluno.       | Texto | 200 | Não             |
 
-#### Aluguel de Carros
+## Aluguel de Carros
 
 ```json
 "CarRentalData": [
@@ -710,7 +710,7 @@ Utilize os nós concatenávies `ProductTypes` e `AdditionalData` para indicar os
 | CarRentalData.Drivers.DriverDocuments.Type   | Tipo do documento do condutor.                 | Texto | 14 | Sim              |
 | CarRentalData.Drivers.DriverDocuments.Number | Número do documento do condutor.               | Texto | 14 | Sim              |
 
-#### Linhas Aéreas
+## Linhas Aéreas
 
 ```json
 "AirlineData": {
@@ -781,7 +781,7 @@ Utilize os nós concatenávies `ProductTypes` e `AdditionalData` para indicar os
 | AirlineData.Passengers.PassengerDocuments.Type   | Tipo do documento do passageiro.          | Texto                      | 14      | Sim         |
 | AirlineData.Passengers.PassengerDocuments.Number | Número do documento do passageiro.        | Texto                      | 50      | Sim         |
 
-#### Hospedagem
+## Hospedagem
 
 ```json
     "LodgingData": {
@@ -870,7 +870,7 @@ Utilize os nós concatenávies `ProductTypes` e `AdditionalData` para indicar os
 | CarPendencies.InsuranceValue             | Somatória do valor do seguro.                  | Número                    | 12      | Sim         |
 | CarPendencies.PendenciesReferenceYear    | Ano de referência de cada pendência.           | Data (formato: YYYY)      | 4       | Sim         |
 
-#### Serviços no Destino
+## Serviços no Destino
 
 ```json
 "DestinationServiceData": {
@@ -935,7 +935,7 @@ Utilize os nós concatenávies `ProductTypes` e `AdditionalData` para indicar os
 | LodgingData.Lodger.LodgerDocument.Type   | Tipo de documento do hóspede.       | Texto                    | 14      | Sim         |
 | LodgingData.Lodger.LodgerDocument.Number | Número de documento hóspede.        | Texto                    | 14      | Sim         |
 
-#### Débitos Veiculares
+## Débitos Veiculares
 
 ```json
 "CarPenaltyFeeData": {
@@ -987,7 +987,7 @@ Utilize os nós concatenávies `ProductTypes` e `AdditionalData` para indicar os
 | CarPendencies.InsuranceValue          | Somatória do valor do seguro.                  | Número               | 12      | Sim         |
 | CarPendencies.PendenciesReferenceYear | Ano de referência de cada pendência.           | Data (formato: YYYY) | 4       | Sim         |
 
-#### Seguro de Celular
+## Seguro de Celular
 
 ```json
     "CellphoneInsuranceData": {
@@ -1011,13 +1011,13 @@ Utilize os nós concatenávies `ProductTypes` e `AdditionalData` para indicar os
 | ExpirationDate       | Data de expiração do seguro.            | Data (YYYY-MM-DD) | 10      | Sim         |
 | Type                 | Tipo do seguro (Ex.: Seguro anti-furto).| Texto             | 100     | Sim         |
 
-### Estorno
+## Estorno
 
 Para facilitar e automatizar eventuais estornos nós disponbilizamos a conexão com a funcionalidade de estorno direto ao comprador via API do Pagador. Para conseguir efetuar estornos parciais ou completos, envie a requisão a seguir:
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{{API Pagador}}/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
-#### Requisição
+### Requisição
 
 ```json
 {
@@ -1048,7 +1048,7 @@ Para facilitar e automatizar eventuais estornos nós disponbilizamos a conexão 
 | AdditionalData.BankData.Account      | Número da conta bancária.                                               | Texto  | 50      | Sim         |
 | AdditionalData.BankData.AcccountType | Tipo da Conta Bancária. Sendo: 1 = Conta Corrente e 2 = Conta Poupança. | Número | 1       | Sim         |
 
-#### Resposta
+### Resposta
 
 ```json
 {
