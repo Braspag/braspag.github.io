@@ -2781,9 +2781,7 @@ Segue uma lista de propriedades e suas especificações de tamanho, relativas a 
 
 ## Buy Now, Pay Later (BNPL)
 
-**O que é Buy Now, Pay Later?**
-
-**Buy Now, Pay Later (BNPL)**, é um tipo de financiamento de curto prazo, com ou sem taxas para o comprador, que considera uma avaliação de crédito instantânea permitindo o parcelamento de compras sem o uso de cartão de crédito. 
+**Buy Now, Pay Later (BNPL)** é um tipo de financiamento de curto prazo, com ou sem taxas para o comprador, que considera uma avaliação de crédito instantânea permitindo o parcelamento de compras sem o uso de cartão de crédito. 
 
 A Braspag oferece a integração com o provider Koin para o meio de pagamento BPNL. Para fazer essa integração, [consulte o nosso manual de BNPL](https://braspag.github.io//manual/manual-bnpl){:target="_blank"}.
 
