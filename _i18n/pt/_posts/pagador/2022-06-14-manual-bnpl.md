@@ -1011,13 +1011,13 @@ Utilize os nós concatenávies `ProductTypes` e `AdditionalData` para indicar os
 | ExpirationDate       | Data de expiração do seguro.            | Data (YYYY-MM-DD) | 10      | Sim         |
 | Type                 | Tipo do seguro (Ex.: Seguro anti-furto).| Texto             | 100     | Sim         |
 
-## Estorno
+# Estorno
 
 Para facilitar e automatizar eventuais estornos nós disponbilizamos a conexão com a funcionalidade de estorno direto ao comprador via API do Pagador. Para conseguir efetuar estornos parciais ou completos, envie a requisão a seguir:
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">{{API Pagador}}/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
-### Requisição
+## Requisição
 
 ```json
 {
@@ -1048,7 +1048,7 @@ Para facilitar e automatizar eventuais estornos nós disponbilizamos a conexão 
 | AdditionalData.BankData.Account      | Número da conta bancária.                                               | Texto  | 50      | Sim         |
 | AdditionalData.BankData.AcccountType | Tipo da Conta Bancária. Sendo: 1 = Conta Corrente e 2 = Conta Poupança. | Número | 1       | Sim         |
 
-### Resposta
+## Resposta
 
 ```json
 {
