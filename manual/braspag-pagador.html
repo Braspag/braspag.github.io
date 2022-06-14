@@ -5103,15 +5103,47 @@ Veja a representação do <strong>fluxo transacional</strong> do <strong>BNPL</s
 
 <p>Para a integração com a Koin, você irá usar os endpoints da <strong><a href="https://braspag.github.io//manual/braspag-pagador#ambientes-de-teste-e-produ%C3%A7%C3%A3o">API do Pagador</a></strong>, e da <strong>API de Consulta de Parcelas</strong>.</p>
 
-<p><strong>API de Consulta de Parcelas</strong></p>
+<p><strong>Sandbox</strong></p>
 
-<p><strong>Sandbox</strong>: https://paymentinstallmentoptionsapisandbox.braspag.com.br&lt;/br&gt;
-<strong>Produção</strong>: https://paymentinstallmentoptionsapi.braspag.com.br</p>
+<table>
+  <thead>
+    <tr>
+      <th>Base da URL</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>API do Pagador (transacional)</td>
+      <td>https://apisandbox.braspag.com.br</td>
+    </tr>
+    <tr>
+      <td>API de Consulta de Parcelas</td>
+      <td>https://paymentinstallmentoptionsapisandbox.braspag.com.br</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><strong>API do Pagador</strong></p>
+<p><strong>Produção</strong></p>
 
-<p><strong>Sandbox</strong>: https://apisandbox.braspag.com.br&lt;/br&gt;
-<strong>Produção</strong>: https://api.braspag.com.br</p>
+<table>
+  <thead>
+    <tr>
+      <th>Base da URL</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>API do Pagador (transacional)</td>
+      <td>https://api.braspag.com.br</td>
+    </tr>
+    <tr>
+      <td>API de Consulta de Parcelas</td>
+      <td>https://paymentinstallmentoptionsapi.braspag.com.br</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="integração">Integração</h4>
 
@@ -5195,7 +5227,7 @@ Uma opção é inserir em seu checkout um botão para exibição de parcelas, co
 
 <p>Caso qualquer um dos itens da requisição seja alterado pelo comprador será necessário realizar uma nova consulta.</p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/authorize</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{API de Consulta de Parcelas}/v1/authorize</span></aside>
 
 <h5 id="requisição-13">Requisição</h5>
 
@@ -5463,19 +5495,20 @@ Uma opção é inserir em seu checkout um botão para exibição de parcelas, co
 
 <ul>
   <li>Envie o valor do <code class="language-plaintext highlighter-rouge">FraudID</code> obtido no passo 1 no campo <code class="language-plaintext highlighter-rouge">FingerprintId</code>;</li>
-  <li>Envie o valor do <code class="language-plaintext highlighter-rouge">OptionsId</code> (obtido no passo 2) escolhido pelo comprador no campo <code class="language-plaintext highlighter-rouge">InstallmentOptionId</code>.</li>
-</ul>
-
-<blockquote>
-  <p><strong>Aplicando multas e descontos</strong>&lt;/br&gt;
+  <li>Envie o valor do <code class="language-plaintext highlighter-rouge">OptionsId</code> (obtido no passo 2) escolhido pelo comprador no campo <code class="language-plaintext highlighter-rouge">InstallmentOptionId</code>.
+<br />
+    <blockquote>
+      <p><strong>Aplicando multas e descontos</strong><br />
 Você pode informar valores de sua escolha para multas e descontos em campos opcionais. 
-<strong>Multas:</strong> envie o campo <code class="language-plaintext highlighter-rouge">Payment.FineRate</code> para multa sobre o valor da transação <strong>ou</strong> envie o campo <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code> para multa sobre o valor total. <em>Atenção: você deve enviar apenas um dos campos referentes à multa</em>.&lt;/br&gt;
-<strong>Descontos:</strong>envie o campo <code class="language-plaintext highlighter-rouge">Payment.DiscountRate</code> para desconto sobre o valor da transação <strong>ou</strong> envie o campo <code class="language-plaintext highlighter-rouge">Payment.DiscountAmount</code> para desconto sobre o valor total. <em>Atenção: você deve enviar apenas um dos campos referentes ao desconto</em>.&lt;/br&gt;</p>
-</blockquote>
+<strong>Multas:</strong> envie o campo <code class="language-plaintext highlighter-rouge">Payment.FineRate</code> para multa sobre o valor da transação <strong>ou</strong> envie o campo <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code> para multa sobre o valor total. <em>Atenção: você deve enviar apenas um dos campos referentes à multa</em>.<br />
+<strong>Descontos:</strong>envie o campo <code class="language-plaintext highlighter-rouge">Payment.DiscountRate</code> para desconto sobre o valor da transação <strong>ou</strong> envie o campo <code class="language-plaintext highlighter-rouge">Payment.DiscountAmount</code> para desconto sobre o valor total. <em>Atenção: você deve enviar apenas um dos campos referentes ao desconto</em>.<br /></p>
+    </blockquote>
+  </li>
+</ul>
 
 <p>Para submeter à autorização, envie a requisição da transação para a API do Pagador.</p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{API Pagador}/v2/sales</span></aside>
 
 <h5 id="requisição-14">Requisição</h5>
 
@@ -5882,17 +5915,50 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>ProductTypes</strong> disponíveis atualmente:
-|Nome do Segmento|Valor Esperado|
-|————|——————|
-|Dados do usuário|”UserAccountData”/*|
-|Educação|Class|
-|Aluguel de Carros|CarRental|
-|Passagens aéreas|Airline|
-|Hospedagem|Lodging|
-|Serviços no Destino|DestinationService|
-|Seguro de telefone|CellphoneInsurance|
-|Débitos Veiculares|CarPenaltyFee|</p>
+<p><strong>ProductTypes</strong> disponíveis atualmente:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome do Segmento</th>
+      <th>Valor Esperado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dados do usuário</td>
+      <td>“UserAccountData” *</td>
+    </tr>
+    <tr>
+      <td>Educação</td>
+      <td>Class</td>
+    </tr>
+    <tr>
+      <td>Aluguel de Carros</td>
+      <td>CarRental</td>
+    </tr>
+    <tr>
+      <td>Passagens aéreas</td>
+      <td>Airline</td>
+    </tr>
+    <tr>
+      <td>Hospedagem</td>
+      <td>Lodging</td>
+    </tr>
+    <tr>
+      <td>Serviços no Destino</td>
+      <td>DestinationService</td>
+    </tr>
+    <tr>
+      <td>Seguro de telefone</td>
+      <td>CellphoneInsurance</td>
+    </tr>
+    <tr>
+      <td>Débitos Veiculares</td>
+      <td>CarPenaltyFee</td>
+    </tr>
+  </tbody>
+</table>
 
 <aside class="warning">*É recomendável utilizar "UserAccountData" junto com o outro segmento toda vez que o usuário logado em seu sistema não for o mesmo que estiver efetuando a compra, por exemplo, uma pessoa comprando uma passagem no nome de outra pessoa.</aside>
 
