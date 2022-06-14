@@ -165,11 +165,11 @@ Veja a representação do <strong>fluxo transacional</strong> do <strong>BNPL</s
   <p>Para ambos os fluxos é importante que você tenha uma URL de Notificação configurada em sua loja do Pagador, para que possamos informar que a transação teve seu status alterado. Saiba como configurar essa URL na documentação do <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o">Post de Notificação</a>.</p>
 </blockquote>
 
-<h2 id="koin">Koin</h2>
+<h1 id="koin">Koin</h1>
 
 <p>A Koin é uma empresa de meios de pagamento que oferece a solução <strong>Boleto Parcelado</strong>. O Boleto Parcelado permite que os compradores realizem pagamentos em lojas virtuais usando a experiência do BNPL.</p>
 
-<h3 id="ambientes-e-apis">Ambientes e APIs</h3>
+<h1 id="ambientes-e-apis">Ambientes e APIs</h1>
 
 <p>Para a integração com a Koin, você irá usar os endpoints da <strong><a href="https://braspag.github.io//manual/braspag-pagador#ambientes-de-teste-e-produ%C3%A7%C3%A3o">API do Pagador</a></strong>, e da <strong>API de Consulta de Parcelas</strong>.</p>
 
@@ -215,7 +215,7 @@ Veja a representação do <strong>fluxo transacional</strong> do <strong>BNPL</s
   </tbody>
 </table>
 
-<h3 id="integração-com-a-koin">Integração com a KOIN</h3>
+<h1 id="integração-com-a-koin">Integração com a KOIN</h1>
 
 <p>A integração com a Koin consiste em três passos:</p>
 
@@ -225,7 +225,7 @@ Veja a representação do <strong>fluxo transacional</strong> do <strong>BNPL</s
   <li>Solicitação da autorização.</li>
 </ol>
 
-<h3 id="cenários-de-teste">Cenários de Teste</h3>
+<h2 id="cenários-de-teste">Cenários de Teste</h2>
 
 <p>Confira os números de CPF disponíveis para os testes de solicitação, para que possa simular alguns tipos de retorno em ambiente sandbox:</p>
 
@@ -256,11 +256,11 @@ Veja a representação do <strong>fluxo transacional</strong> do <strong>BNPL</s
   </tbody>
 </table>
 
-<h3 id="passo-1---configurando-o-checkout">Passo 1 - Configurando o checkout</h3>
+<h2 id="passo-1---configurando-o-checkout">Passo 1 - Configurando o checkout</h2>
 
 <p>A Koin necessita de algumas informações sobre o comprador para consultar as parcelas disponíveis e finalizar o pedido. Para isso, você deverá incluir em seu checkout os <strong>Termos e Condições da Koin</strong> e o script para obtenção do <code class="language-plaintext highlighter-rouge">FraudID</code>.</p>
 
-<h4 id="termos-e-condições-koin">Termos e Condições Koin</h4>
+<h3 id="termos-e-condições-koin">Termos e Condições Koin</h3>
 
 <p>A sua página de checkout precisa <strong>exibir</strong> ou <strong>oferecer acesso</strong> aos <strong>Termos e Condições da Koin</strong> para que o comprador fique ciente sobre como funciona essa política de crédito.</p>
 
@@ -268,7 +268,7 @@ Veja a representação do <strong>fluxo transacional</strong> do <strong>BNPL</s
 
 <p>Você deve configurar o seu checkout de forma que a transação só possa prosseguir após o aceite dos termos.</p>
 
-<h4 id="obtendo-o-fraudid">Obtendo o FraudID</h4>
+<h3 id="obtendo-o-fraudid">Obtendo o FraudID</h3>
 
 <p>O <code class="language-plaintext highlighter-rouge">FraudID</code> é a identificação digital do dispositivo do comprador composto por uma série de dados coletados na página de checkout. O <code class="language-plaintext highlighter-rouge">FraudID</code> deverá ser informado na requisição de autorização à API do Pagador no campo <code class="language-plaintext highlighter-rouge">FingerprintId</code> (passo 3). Cada requisição de autorização deverá conter um <code class="language-plaintext highlighter-rouge">FraudID</code> diferente.</p>
 
@@ -282,7 +282,7 @@ Veja a representação do <strong>fluxo transacional</strong> do <strong>BNPL</s
   <p><a href="https://github.com/Braspag/braspag.github.io/blob/f28ec76a58a5ff58dba23e0e6cb90c0b132f60f5/_i18n/pt/_posts/pagador/script-js-koin.html" target="_blank">Acesse o nosso GitHub</a> para visualizar e copiar o modelo JavaScript.</p>
 </blockquote>
 
-<h3 id="passo-2---obtendo-as-parcelas">Passo 2 - Obtendo as Parcelas</h3>
+<h2 id="passo-2---obtendo-as-parcelas">Passo 2 - Obtendo as Parcelas</h2>
 
 <p>Para que você possa exibir a opção de parcelamento em seu checkout é necessário que a sua aplicação faça uma requisição à <strong>API de Consulta de Parcelas</strong>.</p>
 
@@ -297,7 +297,7 @@ Uma opção é inserir em seu checkout um botão para exibição de parcelas, co
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{API de Consulta de Parcelas}/v1/authorize</span></aside>
 
-<h4 id="requisição">Requisição</h4>
+<h3 id="requisição">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"koin"</span><span class="p">,</span><span class="w">
@@ -389,7 +389,7 @@ Uma opção é inserir em seu checkout um botão para exibição de parcelas, co
   </tbody>
 </table>
 
-<h4 id="resposta">Resposta</h4>
+<h3 id="resposta">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12200"</span><span class="p">,</span><span class="w">
@@ -553,7 +553,7 @@ Uma opção é inserir em seu checkout um botão para exibição de parcelas, co
   <p>Após o comprador escolher a opção de parcelamento, envie o valor do <code class="language-plaintext highlighter-rouge">Options.Id</code> correspondente à opção escolhida na requisição de autorização no campo <code class="language-plaintext highlighter-rouge">InstallmentOptionId</code>, conforme detalharemos no passo 3.</p>
 </blockquote>
 
-<h3 id="passo-3---solicitando-autorização">Passo 3 - Solicitando Autorização</h3>
+<h2 id="passo-3---solicitando-autorização">Passo 3 - Solicitando Autorização</h2>
 
 <p>Após o aceite dos Termos e Condições, da obtenção do <code class="language-plaintext highlighter-rouge">FraudId</code> e da consulta das opções de parcelamento, chegou a hora de submeter os dados da transação para a criação da transação em si e para a solicitação de autorização da Koin.</p>
 
@@ -579,7 +579,7 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{API Pagador}/v2/sales</span></aside>
 
-<h4 id="requisição-1">Requisição</h4>
+<h3 id="requisição-1">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"401904531"</span><span class="p">,</span><span class="w">
@@ -790,7 +790,7 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
   </tbody>
 </table>
 
-<h4 id="resposta-1">Resposta</h4>
+<h3 id="resposta-1">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"401904531"</span><span class="p">,</span><span class="w">
@@ -907,11 +907,11 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
   </tbody>
 </table>
 
-<h3 id="segmentos">Segmentos</h3>
+<h1 id="segmentos">Segmentos</h1>
 
 <p>Visando aumentar a segurança e a conversão das aprovações de suas transações, a Koin disponibiliza formas de enviar mais detalhes da transação que você está submetendo para autorização. São diversas informações disponíveis sobre os produtos vendidos e/ou serviços prestados, como educação, aluguel de carros e hospedagem. Para cada um dos segmentos é necessário incluir as informações inerentes àquela transação.</p>
 
-<h4 id="exemplo-multisegmentos">Exemplo Multisegmentos</h4>
+<h2 id="exemplo-multisegmentos">Exemplo Multisegmentos</h2>
 
 <aside class="warning">Permitimos o envio de informações multisegmento numa mesma transação. Basta apontar os segmentos no nó `ProductTypes` e incluir as chaves relativas à cada segmento daquela autorização que está submentendo à Koin.</aside>
 
@@ -1031,7 +1031,7 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
 
 <aside class="warning">*É recomendável utilizar "UserAccountData" junto com o outro segmento toda vez que o usuário logado em seu sistema não for o mesmo que estiver efetuando a compra, por exemplo, uma pessoa comprando uma passagem no nome de outra pessoa.</aside>
 
-<h4 id="dados-do-usuário">Dados do Usuário</h4>
+<h2 id="dados-do-usuário">Dados do Usuário</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"UserAccountData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome Usuário Logado"</span><span class="p">,</span><span class="w">
@@ -1185,7 +1185,7 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
   </tbody>
 </table>
 
-<h4 id="educação">Educação</h4>
+<h2 id="educação">Educação</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"ClassData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"ClassDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1483,7 +1483,7 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
   </tbody>
 </table>
 
-<h4 id="aluguel-de-carros">Aluguel de Carros</h4>
+<h2 id="aluguel-de-carros">Aluguel de Carros</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"CarRentalData"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1750,7 +1750,7 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
   </tbody>
 </table>
 
-<h4 id="linhas-aéreas">Linhas Aéreas</h4>
+<h2 id="linhas-aéreas">Linhas Aéreas</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"AirlineData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"Legs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1933,7 +1933,7 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
   </tbody>
 </table>
 
-<h4 id="hospedagem">Hospedagem</h4>
+<h2 id="hospedagem">Hospedagem</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="nl">"LodgingData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"Lodgings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2200,7 +2200,7 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
   </tbody>
 </table>
 
-<h4 id="serviços-no-destino">Serviços no Destino</h4>
+<h2 id="serviços-no-destino">Serviços no Destino</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"DestinationServiceData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"DSDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2383,7 +2383,7 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
   </tbody>
 </table>
 
-<h4 id="débitos-veiculares">Débitos Veiculares</h4>
+<h2 id="débitos-veiculares">Débitos Veiculares</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"CarPenaltyFeeData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"CarData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2523,7 +2523,7 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
   </tbody>
 </table>
 
-<h4 id="seguro-de-celular">Seguro de Celular</h4>
+<h2 id="seguro-de-celular">Seguro de Celular</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="nl">"CellphoneInsuranceData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Imei"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789123456"</span><span class="p">,</span><span class="w">
@@ -2599,13 +2599,13 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
   </tbody>
 </table>
 
-<h3 id="estorno">Estorno</h3>
+<h2 id="estorno">Estorno</h2>
 
 <p>Para facilitar e automatizar eventuais estornos nós disponbilizamos a conexão com a funcionalidade de estorno direto ao comprador via API do Pagador. Para conseguir efetuar estornos parciais ou completos, envie a requisão a seguir:</p>
 
 <aside class="request"><span class="method post">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
-<h4 id="requisição-2">Requisição</h4>
+<h3 id="requisição-2">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desistencia da compra"</span><span class="p">,</span><span class="w">
@@ -2700,7 +2700,7 @@ Você pode informar valores de sua escolha para multas e descontos em campos opc
   </tbody>
 </table>
 
-<h4 id="resposta-2">Resposta</h4>
+<h3 id="resposta-2">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
