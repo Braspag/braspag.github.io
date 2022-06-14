@@ -2858,9 +2858,7 @@ Você deve configurar o seu checkout de forma que a transação só possa prosse
 
 O `FraudID` é a identificação digital do dispositivo do comprador composto por uma série de dados coletados na página de checkout. O `FraudID` deverá ser informado na requisição de autorização à API do Pagador no campo `FingerprintId` (passo 3). Cada requisição de autorização deverá conter um `FraudID` diferente.
 
-Os dados coletados para a identificação do dispositivo ajudam a compor a avaliação do comprador e a análise da política de crédito da Koin.
-
-A Koin usa as informações contidas no `FraudID` para analisar o comprador e oferecer a melhor condição de parcelamento
+A Koin usa as informações contidas no `FraudID` para analisar o comprador e oferecer a melhor condição de parcelamento.
 
 Para gerar o `FraudID`, você deve inserir um script em JavaScript com a URL da Koin:
 
@@ -2978,6 +2976,7 @@ Nessa etapa, você deverá enviar dois valores obtidos no passos anteriores:
 <br/>
 > **Aplicando multas e descontos**<br/>
 > Você pode informar valores de sua escolha para multas e descontos em campos opcionais. 
+> Você pode informar valores de sua escolha para multas e descontos em campos opcionais.<br/> 
 > **Multas:** envie o campo `Payment.FineRate` para multa sobre o valor da transação **ou** envie o campo `Payment.FineAmount` para multa sobre o valor total. *Atenção: você deve enviar apenas um dos campos referentes à multa*.<br/>
 > **Descontos:**envie o campo `Payment.DiscountRate` para desconto sobre o valor da transação **ou** envie o campo `Payment.DiscountAmount` para desconto sobre o valor total. *Atenção: você deve enviar apenas um dos campos referentes ao desconto*.<br/>
 
