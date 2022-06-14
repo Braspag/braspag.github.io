@@ -1,0 +1,2926 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Manual de Integração - BNPL &middot; Braspag Developers - Manuais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//manual/manual-bnpl" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/manual/manual-bnpl" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
+</head>
+
+    <body>
+        
+            <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        });
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://suporte.braspag.com.br/hc/pt-br" class="help">Ajuda</a>
+
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
+
+                                
+                                    
+                                    <a href="https://braspag.github.io//manual/manual-bnpl">
+                                    
+
+                                        <img alt="Português" src="https://braspag.github.io//assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://braspag.github.io//en/manual/manual-bnpl">
+                                    
+
+                                        <img alt="English" src="https://braspag.github.io//assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/manual-bnpl">Manual de Integração - BNPL</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="buy-now-pay-later-bnpl">Buy Now, Pay Later (BNPL)</h1>
+
+<p><strong>O que é Buy Now, Pay Later?</strong></p>
+
+<p><em>Buy Now, Pay Later</em>, mais conhecido pela sigla <strong>BNPL</strong>, é um tipo de financiamento de curto prazo, com ou sem taxas para o comprador, que considera uma avaliação de crédito instantânea permitindo o parcelamento de compras sem o uso de cartão de crédito. Esse meio de pagamento é uma oferta complementar que pode impulsionar a conversão de vendas e aumentar o ticket médio de estabelecimentos comerciais, oferecendo maior poder de compra aos consumidores.</p>
+
+<p><strong>Exemplos de aplicação do BNPL</strong></p>
+
+<ul>
+  <li>Oferecer ao comprador a opção do BNPL em seu checkout quando uma autorização de venda com cartão de crédito foi recusada;</li>
+  <li>Atender a parcela de clientes que não têm conta bancária ou acesso ao crédito convencional, uma vez que o BNPL independe de cartões ou bancos.
+<br />
+Veja a representação do <strong>fluxo transacional</strong> do <strong>BNPL</strong> da empresa <strong>Koin</strong> nos fluxos de Aprovação Imediata e Aprovação Posterior:</li>
+</ul>
+
+<h2 id="aprovação-imediata">Aprovação Imediata</h2>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/bnpl-koin-aprovacaoimediata.png" alt="Fluxo BPNL Koin Aprovação Imediata" /></p>
+
+<h2 id="aprovação-posterior">Aprovação Posterior</h2>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/bnpl-koin-aprovacaoposterior.png" alt="Fluxo BPNL Koin Aprovação Posterior" /></p>
+
+<blockquote>
+  <p>Para ambos os fluxos é importante que você tenha uma URL de Notificação configurada em sua loja do Pagador, para que possamos informar que a transação teve seu status alterado. Saiba como configurar essa URL na documentação do <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o">Post de Notificação</a>.</p>
+</blockquote>
+
+<h2 id="koin">Koin</h2>
+
+<p>A Koin é uma empresa de meios de pagamento que oferece a solução <strong>Boleto Parcelado</strong>. O Boleto Parcelado permite que os compradores realizem pagamentos em lojas virtuais usando a experiência do BNPL.</p>
+
+<h3 id="ambientes-e-apis">Ambientes e APIs</h3>
+
+<p>Para a integração com a Koin, você irá usar os endpoints da <strong><a href="https://braspag.github.io//manual/braspag-pagador#ambientes-de-teste-e-produ%C3%A7%C3%A3o">API do Pagador</a></strong>, e da <strong>API de Consulta de Parcelas</strong>.</p>
+
+<p><strong>Sandbox</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Base da URL</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>API do Pagador (transacional)</td>
+      <td>https://apisandbox.braspag.com.br</td>
+    </tr>
+    <tr>
+      <td>API de Consulta de Parcelas</td>
+      <td>https://paymentinstallmentoptionsapisandbox.braspag.com.br</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Produção</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Base da URL</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>API do Pagador (transacional)</td>
+      <td>https://api.braspag.com.br</td>
+    </tr>
+    <tr>
+      <td>API de Consulta de Parcelas</td>
+      <td>https://paymentinstallmentoptionsapi.braspag.com.br</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="integração-com-a-koin">Integração com a KOIN</h3>
+
+<p>A integração com a Koin consiste em três passos:</p>
+
+<ol>
+  <li>Configuração do checkout;</li>
+  <li>Obtenção das parcelas;</li>
+  <li>Solicitação da autorização.</li>
+</ol>
+
+<h3 id="cenários-de-teste">Cenários de Teste</h3>
+
+<p>Confira os números de CPF disponíveis para os testes de solicitação, para que possa simular alguns tipos de retorno em ambiente sandbox:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>CPF</strong></th>
+      <th style="text-align: center"><strong>ProviderReturnCode</strong></th>
+      <th style="text-align: center"><strong>ProviderReturnMessage</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">354.574.310-10<br />731.143.850-01<br />054.920.250-15<br />555.030.660-30<br />486.269.590-60</td>
+      <td style="text-align: center">200.3</td>
+      <td style="text-align: center"><em>Aprovado automaticamente</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">898.914.640-24<br />451.625.980-03<br />420.003.140-07<br />192.236.580-71<br />983.579.360-32</td>
+      <td style="text-align: center">304.1</td>
+      <td style="text-align: center"><em>Reprovado automaticamente</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">546.723.960-02<br />133.588.530-71<br />943.303.990-40<br />121.190.460-18<br />585.587.770-12</td>
+      <td style="text-align: center">312.23</td>
+      <td style="text-align: center"><em>Análise Manual</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="passo-1---configurando-o-checkout">Passo 1 - Configurando o checkout</h3>
+
+<p>A Koin necessita de algumas informações sobre o comprador para consultar as parcelas disponíveis e finalizar o pedido. Para isso, você deverá incluir em seu checkout os <strong>Termos e Condições da Koin</strong> e o script para obtenção do <code class="language-plaintext highlighter-rouge">FraudID</code>.</p>
+
+<h4 id="termos-e-condições-koin">Termos e Condições Koin</h4>
+
+<p>A sua página de checkout precisa <strong>exibir</strong> ou <strong>oferecer acesso</strong> aos <strong>Termos e Condições da Koin</strong> para que o comprador fique ciente sobre como funciona essa política de crédito.</p>
+
+<p>O link para o Termos de Condições da Koin é: <strong><a href="https://www.koin.com.br/termos-e-condicoes/" target="_blank">https://www.koin.com.br/termos-e-condicoes/</a></strong>.</p>
+
+<p>Você deve configurar o seu checkout de forma que a transação só possa prosseguir após o aceite dos termos.</p>
+
+<h4 id="obtendo-o-fraudid">Obtendo o FraudID</h4>
+
+<p>O <code class="language-plaintext highlighter-rouge">FraudID</code> é a identificação digital do dispositivo do comprador composto por uma série de dados coletados na página de checkout. O <code class="language-plaintext highlighter-rouge">FraudID</code> deverá ser informado na requisição de autorização à API do Pagador no campo <code class="language-plaintext highlighter-rouge">FingerprintId</code> (passo 3). Cada requisição de autorização deverá conter um <code class="language-plaintext highlighter-rouge">FraudID</code> diferente.</p>
+
+<p>A Koin usa as informações contidas no <code class="language-plaintext highlighter-rouge">FraudID</code> para analisar o comprador e oferecer a melhor condição de parcelamento.</p>
+
+<p>Para gerar o <code class="language-plaintext highlighter-rouge">FraudID</code>, você deve inserir um script em JavaScript com a URL da Koin:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/script-js-koin.png" alt="script-fraudid-koin" /></p>
+
+<blockquote>
+  <p><a href="https://github.com/Braspag/braspag.github.io/blob/f28ec76a58a5ff58dba23e0e6cb90c0b132f60f5/_i18n/pt/_posts/pagador/script-js-koin.html" target="_blank">Acesse o nosso GitHub</a> para visualizar e copiar o modelo JavaScript.</p>
+</blockquote>
+
+<h3 id="passo-2---obtendo-as-parcelas">Passo 2 - Obtendo as Parcelas</h3>
+
+<p>Para que você possa exibir a opção de parcelamento em seu checkout é necessário que a sua aplicação faça uma requisição à <strong>API de Consulta de Parcelas</strong>.</p>
+
+<p>A resposta da requisição apresentará as opções de parcelamento, identificadas pelo campo <code class="language-plaintext highlighter-rouge">Options.Id</code>. Cada opção irá apresentar o número de parcelas disponíveis, o valor de cada parcela, a data de vencimento da primeira parcela e taxas.</p>
+
+<blockquote>
+  <p><strong>Como o comprador vai visualizar as parcelas?</strong><br />
+Uma opção é inserir em seu checkout um botão para exibição de parcelas, como “Consultar parcelas”.</p>
+</blockquote>
+
+<p>Caso qualquer um dos itens da requisição seja alterado pelo comprador será necessário realizar uma nova consulta.</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{API de Consulta de Parcelas}/v1/authorize</span></aside>
+
+<h4 id="requisição">Requisição</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"koin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste@braspag.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05492025015"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"UseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-04-07"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10010</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AcceptedTerms"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na Braspag.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na Braspag.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome da provedora do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
+      <td>Email do comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IpAddress</code></td>
+      <td>Endereço de IP do comprador. Suporte a IPv4</td>
+      <td>Texto</td>
+      <td>45</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>Número do CPF ou CNPJ do cliente.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UseDate</code></td>
+      <td>Previsão de entrega do produto ou de utilização do serviço. Formato AAAA-MM-DD.</td>
+      <td>Data</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AcceptedTerms</code></td>
+      <td>Indica se houve o aceite dos termos de uso da Koin.</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12200"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autorizado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Q5a9i65h7pA34TdAoVcX1lZYvWXZghXvst/UpfjnankRA+drdpRTzDdzIrUKiEyN"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Installment"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"À Vista"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"OriginalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10010</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TotalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10010</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FirstExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-11"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CqEQjSgSB0w34TdAoVcX1lZYvWXZghXvst/UpfjnankRA+drdpRTzDdzIrUKiEyN"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Installment"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 x de R$ 51,40"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"OriginalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10010</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TotalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10280</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FirstExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-11"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5140</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rates"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.89</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Iof"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.53</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DailyIof"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0082</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AdditionalIof"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.38</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Cet"</span><span class="p">:</span><span class="w"> </span><span class="mf">70.07</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>Código retornado pelo provedor do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Ex.: “12200”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>“Autorizado”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status da transação.</td>
+      <td>Byte</td>
+      <td>02</td>
+      <td>Ex.: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Installments</code></td>
+      <td>Quantidade máxima de parcelas possíveis para o estabelecimento.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Ex.: 12</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.Id</code></td>
+      <td>Código que informará a opção de parcelamento no próximo passo, de geração do pedido. Cada opção de parcelamento retornada terá um código diferente e único.</td>
+      <td>Texto</td>
+      <td>65</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.Installment</code></td>
+      <td>Quantidade de Parcelas da opção.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Ex.: 12</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.Description</code></td>
+      <td>Descrição por extenso da quantidade de parcelas e do valor de cada uma delas.</td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>2 x de R$ 51,35</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.OriginalAmount</code></td>
+      <td>Valor original do pedido.</td>
+      <td>Número</td>
+      <td>10</td>
+      <td>10010</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.TotalAmount</code></td>
+      <td>Valor total do pedido.</td>
+      <td>Número</td>
+      <td>10</td>
+      <td>10280</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.FirstExpirationDate</code></td>
+      <td>Data de expiração do primeiro pagamento.</td>
+      <td>Data</td>
+      <td>10</td>
+      <td>AAAA-MM-DD</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.InstallmentAmount</code></td>
+      <td>Valor de cada parcela.</td>
+      <td>Número</td>
+      <td>10</td>
+      <td>5140</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.Rates</code></td>
+      <td>Valor das taxas cobradas pela operação.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>3.89</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.Iof</code></td>
+      <td>Imposto sobre Operações Financeiras.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>0.53</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.DailyIof</code></td>
+      <td>Valor do IOF diário.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>0.0082</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.AdditionalIof</code></td>
+      <td>Valor adicional do IOF.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>0.38</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Options.Cet</code></td>
+      <td>Custo Efetivo Total, isto é, encargos, tributos, taxas e despesas dessa transação.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>70.07</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Após o comprador escolher a opção de parcelamento, envie o valor do <code class="language-plaintext highlighter-rouge">Options.Id</code> correspondente à opção escolhida na requisição de autorização no campo <code class="language-plaintext highlighter-rouge">InstallmentOptionId</code>, conforme detalharemos no passo 3.</p>
+</blockquote>
+
+<h3 id="passo-3---solicitando-autorização">Passo 3 - Solicitando Autorização</h3>
+
+<p>Após o aceite dos Termos e Condições, da obtenção do <code class="language-plaintext highlighter-rouge">FraudId</code> e da consulta das opções de parcelamento, chegou a hora de submeter os dados da transação para a criação da transação em si e para a solicitação de autorização da Koin.</p>
+
+<p>Para essa autorização, o <code class="language-plaintext highlighter-rouge">Payment.Type</code> será “BuyNowPayLater” e o <code class="language-plaintext highlighter-rouge">Payment.Provider</code> será “Koin”.</p>
+
+<p>Nessa etapa, você deverá enviar dois valores obtidos no passos anteriores:</p>
+
+<ul>
+  <li>Envie o valor do <code class="language-plaintext highlighter-rouge">FraudID</code> obtido no passo 1 no campo <code class="language-plaintext highlighter-rouge">FingerprintId</code>;</li>
+  <li>Envie o valor do <code class="language-plaintext highlighter-rouge">OptionsId</code> (obtido no passo 2) escolhido pelo comprador no campo <code class="language-plaintext highlighter-rouge">InstallmentOptionId</code>.
+<br />
+    <blockquote>
+      <p><strong>Aplicando multas e descontos</strong><br />
+Você pode informar valores de sua escolha para multas e descontos em campos opcionais. 
+Você pode informar valores de sua escolha para multas e descontos em campos opcionais.<br /> 
+<strong>Multas:</strong> envie o campo <code class="language-plaintext highlighter-rouge">Payment.FineRate</code> para multa sobre o valor da transação <strong>ou</strong> envie o campo <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code> para multa sobre o valor total. <em>Atenção: você deve enviar apenas um dos campos referentes à multa</em>.<br />
+<strong>Descontos:</strong>envie o campo <code class="language-plaintext highlighter-rouge">Payment.DiscountRate</code> para desconto sobre o valor da transação <strong>ou</strong> envie o campo <code class="language-plaintext highlighter-rouge">Payment.DiscountAmount</code> para desconto sobre o valor total. <em>Atenção: você deve enviar apenas um dos campos referentes ao desconto</em>.<br /></p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>Para submeter à autorização, envie a requisição da transação para a API do Pagador.</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{API Pagador}/v2/sales</span></aside>
+
+<h4 id="requisição-1">Requisição</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"401904531"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cliente Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"054.920.250-15"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador@braspag.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PhoneAreaCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5521976781114"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Business"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Business"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BuyNowPayLater"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10280</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Koin"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FingerprintId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a6ce08d275bj4106396f2aa982fc2158254k"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"InstallmentOptionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CqEQjSgSB0w34TdAoVcX1lZYvWXZghXvst/UpfjnankRA+drdpRTzDdzIrUKiEyN"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FineRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FineAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DiscountRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MerchantIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.456.789/0001-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MerchantCorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BP Tests"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1098</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DeliveryEstimateDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-11-04"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234568"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tenis Preto Tamanho 42"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">9128</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na Braspag.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na Braspag.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Nome do tipo do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor total da transação (<code class="language-plaintext highlighter-rouge">Options.TotalAmount</code> do passo anterior) para ser submentido para a aprovação (em centavos).</td>
+      <td>Número</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Nome da provedora do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.MerchantIdentification</code></td>
+      <td>CNPJ da loja.</td>
+      <td>Texto</td>
+      <td>18</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.MerchantCorporateName</code></td>
+      <td>Nome fantasia da loja.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FingerprintId</code></td>
+      <td>‘FraudID’ obtido junto à Koin via JavaScript (Passo 1 desse manual).</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InstallmentOptionId</code></td>
+      <td>‘Options.ID’ escolhido como o plano a ser autorizado obtido na consulta (Passo 2 desse manual)</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FineRate</code></td>
+      <td>Valor da multa após o vencimento, em percentual, com base no valor da transação(%)<em>Não envie junto com <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code></em>.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FineAmount</code></td>
+      <td>Valor da multa após o vencimento sobre o valor total. <em>Não envie junto com <code class="language-plaintext highlighter-rouge">Payment.FineRate</code></em>.</td>
+      <td>Número</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DiscountRate</code></td>
+      <td>Valor do desconto, em percentual, com base no valor da transação(%). <em>Não envie junto com <code class="language-plaintext highlighter-rouge">Payment.DiscountAmount</code></em>.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DiscountAmount</code></td>
+      <td>Valor do desconto sobre o valor total. <em>Não envie junto com <code class="language-plaintext highlighter-rouge">Payment.DiscountRate</code></em>.</td>
+      <td>Número</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Amount</code></td>
+      <td>Valor estimado para a entrega (em centavos).</td>
+      <td>Número</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.DeliveryEstimateDate</code></td>
+      <td>Data estimado para a entrega. Formato: YYYY-MM-DD</td>
+      <td>Data</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Reference</code></td>
+      <td>SKU do produto ou serviço.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Description</code></td>
+      <td>Descrição do produto ou serviço.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Quantity</code></td>
+      <td>Quantidade comprada daquele produto.</td>
+      <td>Número</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cart.UnitPrice</code></td>
+      <td>Preço unitário do produto (em centavos).</td>
+      <td>Número</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-1">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"401904531"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cliente Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"054.920.250-15"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador@braspag.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PhoneAreaCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5521976781114"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Business"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Business"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"FingerprintId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a6ce08d275bj4106396f2aa982fc2158254k"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"InstallmentOptionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CqEQjSgSB0w34TdAoVcX1lZYvWXZghXvst/UpfjnankRA+drdpRTzDdzIrUKiEyN"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AcquirerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"977162"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1098</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DeliveryEstimateDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-11-04"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234568"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tenis Preto Tamanho 42"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">9128</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3c814db0-a10e-4363-ab2d-91df83c57304"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BuyNowPayLater"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10280</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-11 12:03:06"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Koin"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sua compra foi APROVADA! Obrigado por comprar com a KOIN."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/3c814db0-a10e-4363-ab2d-91df83c57304"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Campo identificador do pedido.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>Código retornado pelo provedor do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Ex.: “200”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>Mensagem retornada pelo provedor do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>“Sua compra foi APROVADA! Obrigado por comprar com a KOIN.”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status da transação.</td>
+      <td>Byte</td>
+      <td>02</td>
+      <td>Ex.: 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="segmentos">Segmentos</h3>
+
+<p>Visando aumentar a segurança e a conversão das aprovações de suas transações, a Koin disponibiliza formas de enviar mais detalhes da transação que você está submetendo para autorização. São diversas informações disponíveis sobre os produtos vendidos e/ou serviços prestados, como educação, aluguel de carros e hospedagem. Para cada um dos segmentos é necessário incluir as informações inerentes àquela transação.</p>
+
+<h4 id="exemplo-multisegmentos">Exemplo Multisegmentos</h4>
+
+<aside class="warning">Permitimos o envio de informações multisegmento numa mesma transação. Basta apontar os segmentos no nó `ProductTypes` e incluir as chaves relativas à cada segmento daquela autorização que está submentendo à Koin.</aside>
+
+<p>Utilize os nós concatenávies <code class="language-plaintext highlighter-rouge">ProductTypes</code> e <code class="language-plaintext highlighter-rouge">AdditionalData</code> para indicar os segmentos que irá submeter e que estão envolvidos nesse pedido de autorização.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017166516111329"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cliente Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"054.920.250-15"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"milton@braspag.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PhoneAreaCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5521976781114"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Business"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Business"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BuyNowPayLater"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Koin"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FingerprintId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a6ce08d275bj4106396f2aa982fc2158254k"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"InstallmentOptionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CqEQjSgSB0w34TdAoVcX1lZYvWXZghXvst/UpfjnankRA+drdpRTzDdzIrUKiEyN"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProductTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"Segmento1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Segmento2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Segmento3"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"OfferExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-11-07 12:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ShippingData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DeliveryEstimateDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-04"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234568"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tenis Preto Tamanho 42"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">9128</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Segmento1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+            </span><span class="nl">"Segmento2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+            </span><span class="nl">"Segmento3"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>ProductTypes</strong> disponíveis atualmente:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome do Segmento</th>
+      <th>Valor Esperado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dados do usuário</td>
+      <td>“UserAccountData” *</td>
+    </tr>
+    <tr>
+      <td>Educação</td>
+      <td>Class</td>
+    </tr>
+    <tr>
+      <td>Aluguel de Carros</td>
+      <td>CarRental</td>
+    </tr>
+    <tr>
+      <td>Passagens aéreas</td>
+      <td>Airline</td>
+    </tr>
+    <tr>
+      <td>Hospedagem</td>
+      <td>Lodging</td>
+    </tr>
+    <tr>
+      <td>Serviços no Destino</td>
+      <td>DestinationService</td>
+    </tr>
+    <tr>
+      <td>Seguro de telefone</td>
+      <td>CellphoneInsurance</td>
+    </tr>
+    <tr>
+      <td>Débitos Veiculares</td>
+      <td>CarPenaltyFee</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="warning">*É recomendável utilizar "UserAccountData" junto com o outro segmento toda vez que o usuário logado em seu sistema não for o mesmo que estiver efetuando a compra, por exemplo, uma pessoa comprando uma passagem no nome de outra pessoa.</aside>
+
+<h4 id="dados-do-usuário">Dados do Usuário</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"UserAccountData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome Usuário Logado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account_user@koin.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Document"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36264448800"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"AreaCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98588-8888"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PhoneType"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jd, Matarazzo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03813310"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua, Japichaua"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa casa"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>UserAccountData.Name</td>
+      <td>Nome do usuário logado na loja.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Email</td>
+      <td>E-mail do usuário logado na loja.</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Document.Key</td>
+      <td>Documento do usuário logado.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Document.Value</td>
+      <td>Número do CPF do usuário logado.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Phone.AreaCode</td>
+      <td>Código de área.</td>
+      <td>Número</td>
+      <td>-</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Phone.Number</td>
+      <td>Número de telefone.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Phone.PhoneType</td>
+      <td>Tipo de telefone do pagador: 2 = Residencial / 3= Comercial / 4= Celular.</td>
+      <td>Número</td>
+      <td>-</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Address.ZipCode</td>
+      <td>CEP do usuário logado.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Address.Street</td>
+      <td>Rua do endereço.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Address.Number</td>
+      <td>Número do endereço.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Address.Complement</td>
+      <td>Complemento do endereço.</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Address.District</td>
+      <td>Bairro do endereço.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Address.City</td>
+      <td>Cidade do endereço.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Address.State</td>
+      <td>Estado do endereço.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Address.Country</td>
+      <td>País do endereço.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>UserAccountData.Address.AdressType</td>
+      <td>Tipo do endereço: 1 = Residencial / 2 = Comercial.</td>
+      <td>Texto</td>
+      <td>1</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="educação">Educação</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"ClassData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ClassDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ClassName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Curso"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ClassFinanceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ClassSchoolName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome da Escola"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ClassCourseLoad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1800"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ClassSchoolCampus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Campus Mooca"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ClassSchoolCampusCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Campus Mooca"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ClassStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-27"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ClassEndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-27"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ClassIsPresential"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ClassPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ClassType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"SubCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Segment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Administração de Empre"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"ClassMonthlyFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000.99"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ClassScholarship"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Students"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"StudentName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome Completo do Aluno"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"StudentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"StudentRegistration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"StudentBondPayer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"StudentEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"caio.moniro@braspag.com.br"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"StudentPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552133665591"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"StudentBirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1988-07-27"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"StudentDocuments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00234638625"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"StudentRegisterDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1988-07-27"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"StudentAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03813310"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jd, Matarazzo"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua, Japichaua"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa casa"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ClassData.ClassDetails.ClassName</td>
+      <td>Nome do Curso.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassFinanceType</td>
+      <td>ClassData.ClassDetails.ClassFinanceType</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassSchoolName</td>
+      <td>Instituição de Ensino.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassCourseLoad</td>
+      <td>Carga Horária do Curso (em horas).</td>
+      <td>Número</td>
+      <td>20</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassSchoolCampus</td>
+      <td>Nome do campus/local do curso.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassSchoolCampusCity</td>
+      <td>Cidade do campus/local do curso.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassStartDate</td>
+      <td>Data de início do curso.</td>
+      <td>Data (formato: yyyy-MM-dd)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassEndDate</td>
+      <td>Data prevista para finalização do curso.</td>
+      <td>Data (formato: yyyy-MM-dd)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassIsPresential</td>
+      <td>Aulas são presenciais.</td>
+      <td>Texto (Y)</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassPeriod</td>
+      <td>Período do curso.</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassType.Category</td>
+      <td>Categoria do curso.</td>
+      <td>Número</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassType.SubCategory</td>
+      <td>Subcategoria do curso.</td>
+      <td>Número</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassType.Segment</td>
+      <td>Segmento do curso.</td>
+      <td>Número</td>
+      <td>100</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassMonthlyFee</td>
+      <td>Mensalidade do curso.</td>
+      <td>Decimal (0000.00)</td>
+      <td>7</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ClassData.ClassDetails.ClassScholarship</td>
+      <td>Porcentagem da bolsa.</td>
+      <td>Número</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.StudentName</td>
+      <td>Nome do aluno.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.StudentId</td>
+      <td>ID do estudande no MEC.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.StudentRegistration</td>
+      <td>RA do aluno (registro na instituição).</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.StudentBondPayer</td>
+      <td>Vínculo do aluno com o comprador.</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.StudentEmail</td>
+      <td>E-mail do aluno.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.StudentPhone</td>
+      <td>Telefone do aluno.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.StudentBirthDate</td>
+      <td>Data de nascimento do aluno.</td>
+      <td>Data yyyy-MM-dd</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.StudentDocuments.Type</td>
+      <td>Tipo de documento do aluno.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.StudentDocuments.Number</td>
+      <td>Número do documento do aluno.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.StudentRegisterDate</td>
+      <td>Data da matrícula do aluno.</td>
+      <td>Data yyyy-MM-dd</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.ZipCode</td>
+      <td>CEP do endereço do aluno.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.Country</td>
+      <td>País do endereço do aluno.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.State</td>
+      <td>Estado do endereço do aluno.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.City</td>
+      <td>Cidade do endereço do aluno.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.District</td>
+      <td>Bairro do endereço do aluno.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.Street</td>
+      <td>Rua do endereço do aluno.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.Number</td>
+      <td>Número da casa do aluno.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ClassData.Students.Complement</td>
+      <td>Complemento do endereço do aluno.</td>
+      <td>Texto</td>
+      <td>200</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="aluguel-de-carros">Aluguel de Carros</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"CarRentalData"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"CarRentalCompany"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unidas"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CarDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Volkswagen T-Cross Automática"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CarCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PickUpDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-25 16:30:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-27 16:30:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PickUpLocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01310-300"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Paulista"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2421"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bela Vista"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brasil"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"ReturnLocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01310-300"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Paulista"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2421"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bela Vista"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brasil"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Drivers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"DriverName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Condutor Principal"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"DriverEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email_condutor_principal@dominio.com.br"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"DriverBirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1988-07-27"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"DriverPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552133665591"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"DriverGender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"DriverDocuments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00132618605"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"DriverName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Segundo Condutor "</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"DriverEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email__segundo_condutor@dominio.com.br"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"DriverBirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1985-02-15"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"DriverPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552133665577"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"DriverGender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"DriverDocuments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00234638625"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CarRentalData.CarRentalCompany</td>
+      <td>Nome da locadora.</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.CarDescription</td>
+      <td>Descrição do veículo.</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.CarCategory</td>
+      <td>Categoria do veículo.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.PickUpDateTime</td>
+      <td>Data e hora da retirada do veículo.</td>
+      <td>Data (yyyy-MM-dd HH:mm:ss)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.ReturnDateTime</td>
+      <td>Data e hora da devolução do veículo.</td>
+      <td>Data (yyyy-MM-dd HH:mm:ss)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.PickUpLocation.ZipCode</td>
+      <td>CEP do endereço de retirada.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.PickUpLocation.Street</td>
+      <td>Rua do endereço de retirada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.PickUpLocation.Number</td>
+      <td>Número do endereço de retirada.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.PickUpLocation.Complement</td>
+      <td>Complemento do endereço de retirada.</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.PickUpLocation.District</td>
+      <td>Bairro do endereço de retirada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.PickUpLocation.City</td>
+      <td>Cidade do endereço de retirada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.PickUpLocation.State</td>
+      <td>Estado do endereço de retirada.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.PickUpLocation.Country</td>
+      <td>País do endereço de retirada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.ReturnLocation.ZipCode</td>
+      <td>CEP do endereço de devolução.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.ReturnLocation.Street</td>
+      <td>Rua do endereço de devolução.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.ReturnLocation.Number</td>
+      <td>Número do endereço de devolução.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.ReturnLocation.Complement</td>
+      <td>Complemento do endereço de devolução.</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.ReturnLocation.District</td>
+      <td>Bairro do endereço de devolução.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.ReturnLocation.City</td>
+      <td>Cidade do endereço de devolução.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.ReturnLocation.State</td>
+      <td>Estado do endereço de devolução.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.ReturnLocation.Country</td>
+      <td>País do endereço de devolução.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.Drivers.DriverName</td>
+      <td>Nome do condutor.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.Drivers.DriverEmail</td>
+      <td>E-mail do condutor.</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.Drivers.DriverBirthDate</td>
+      <td>Data de nascimento do condutor.</td>
+      <td>Data (formato: yyyy-MM-dd)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.Drivers.DriverPhone</td>
+      <td>Telefone do condutor.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.Drivers.DriverGender</td>
+      <td>Sexo do condutor (1= Feminino / 2= Masculino).</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.Drivers.DriverDocuments.Type</td>
+      <td>Tipo do documento do condutor.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarRentalData.Drivers.DriverDocuments.Number</td>
+      <td>Número do documento do condutor.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="linhas-aéreas">Linhas Aéreas</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"AirlineData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Legs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"LegNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CGH"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REC"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FlightNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1063"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DepartureTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-06 06:20:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"StopOverAllowed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"IdClass"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AirlineRefund"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Passengers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"PassengerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome Completo do Passageiro 1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"caio.monteiro@braspag.com.br"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552133665591"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerBirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1958-12-22"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerRating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gold"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerNationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brasil"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerDocuments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"396.469.778-80"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"PassengerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome Completo do Passageiro 2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"caio.monteiro2@braspag.com.br"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552133665599"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerBirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1988-12-22"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerRating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gold"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerNationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brasil"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PassengerDocuments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"463.109.140-14"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AirlineData.Legs.LegNumber</td>
+      <td>Identificação sequencial da leg.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Legs.Origin</td>
+      <td>Sigla do aeroporto de origem do voo.</td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Legs.Destination</td>
+      <td>Sigla do aeroporto de destino do voo.</td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Legs.FlightNumber</td>
+      <td>Numero do voo.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Legs.DepartureTime</td>
+      <td>Data e hora da partida do voo.</td>
+      <td>Data (yyyy-MM-dd HH:mm:ss)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Legs.IdClass</td>
+      <td>Id da classe da viagem.</td>
+      <td>Texto - F / J / Y / W</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Legs.StopOverAllowed</td>
+      <td><em>Stop Over</em> é permitido?</td>
+      <td>Texto - Y = Yes / N = No</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Legs.AirlineRefund</td>
+      <td>Indica se passagem é reembolsável.</td>
+      <td>Texto - Y = Yes / N = No</td>
+      <td>1</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Passengers.PassengerName</td>
+      <td>Nome do passageiro.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Passengers.PassengerEmail</td>
+      <td>E-mail do passageiro.</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Passengers.PassengerPhone</td>
+      <td>Telefone do passageiro.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Passengers.PassengerBirthDate</td>
+      <td>Data de nascimento do passageiro.</td>
+      <td>Data (yyyy-MM-dd HH:mm:ss)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Passengers.PassengerRating</td>
+      <td>Classificação do passageiro.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Passengers.PassengerStatus</td>
+      <td>Classificação do passageiro na companhia aérea.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Passengers.PassengerNationality</td>
+      <td>Nacionalidade do passageiro.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Passengers.PassengerDocuments.Type</td>
+      <td>Tipo do documento do passageiro.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AirlineData.Passengers.PassengerDocuments.Number</td>
+      <td>Número do documento do passageiro.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="hospedagem">Hospedagem</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="nl">"LodgingData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Lodgings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"LodgingName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pousada Porto Mar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CheckInDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-06"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CheckOutDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-13"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"LodgingRefund"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"LodgingAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01311-300"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Paulista"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1728"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7 andar"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bela Vista"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brasil"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"LodgingName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pousada Recanto do Mar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CheckInDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-06"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CheckOutDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-13"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"LodgingRefund"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"LodgingAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01311-300"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Paulista"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1728"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7 andar"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bela Vista"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brasil"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Lodgers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"LodgerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome Completo do Passageiro 1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"LodgerEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"caio.montediro@braspag.com.br"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"LodgerPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552133665591"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"LodgerDocuments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"396.469.778-80"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LodgingData.LodgingName</td>
+      <td>Nome do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.CheckInDate</td>
+      <td>Data de checkin.</td>
+      <td>Data (yyyy-MM-dd)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.CheckOutDate</td>
+      <td>Data de checkout.</td>
+      <td>Data(yyyy-MM-dd)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Duration</td>
+      <td>Duração da hospedagem (noites).</td>
+      <td>Texto</td>
+      <td>5</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>LodgingData.LodgingRefund</td>
+      <td>Indica se hospedagem é reembolsável.</td>
+      <td>Texto  - Y = Yes / N = No</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.ZipCode</td>
+      <td>CEP do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.Street</td>
+      <td>Rua do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.Number</td>
+      <td>Número do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.Complement</td>
+      <td>Complemento do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.District</td>
+      <td>Bairro do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.City</td>
+      <td>Cidade do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.State</td>
+      <td>Estado do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.Country</td>
+      <td>País do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Lodger.LodgerName</td>
+      <td>Nome do hóspede.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Lodger.LodgerEmail</td>
+      <td>E-mail do hóspede.</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Lodger.LodgerPhone</td>
+      <td>Telefone do hóspede.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Lodger.LodgerDocument.Type</td>
+      <td>Tipo de documento do hóspede.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Lodger.LodgerDocument.Number</td>
+      <td>Número de documento hóspede.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarData.CarOwnerDocument.Key</td>
+      <td>Documento do proprietário do veículo.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarData.CarOwnerDocument.Value</td>
+      <td>Número do documento do proprietário do veículo.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarData.CarMake</td>
+      <td>Marca do veículo.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarData.CarModel</td>
+      <td>Modelo do veículo.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarData.CarModelYear</td>
+      <td>Ano do modelo do veículo.</td>
+      <td>Data (formato: YYYY)</td>
+      <td>10</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarPendencies.PenaltyValue</td>
+      <td>Somatória do valor das multas.</td>
+      <td>Número</td>
+      <td>12</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarPendencies.LicensingValue</td>
+      <td>Somatória do valor do licenciamento.</td>
+      <td>Número</td>
+      <td>12</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarPendencies.IpvaValue</td>
+      <td>Somatória do valor das parcelas do IPVA.</td>
+      <td>Número</td>
+      <td>12</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarPendencies.InsuranceValue</td>
+      <td>Somatória do valor do seguro.</td>
+      <td>Número</td>
+      <td>12</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarPendencies.PendenciesReferenceYear</td>
+      <td>Ano de referência de cada pendência.</td>
+      <td>Data (formato: YYYY)</td>
+      <td>4</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="serviços-no-destino">Serviços no Destino</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"DestinationServiceData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"DSDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"DSId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DSType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DSName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P.172 INDISSIMA CLASICA, TRINAGULO DE ORO"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DSDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELHIJAIPURAGRA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DSDateStart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-27"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DSDateEnd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-27"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DSDuration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DSOrigin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELHI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DSDestination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGRA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DSPenaltyDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-10"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DSQtPax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"PaxDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"PaxName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome Completo do Passageiro"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaxBirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1988-07-27"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaxEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaxPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaxDocuments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00234638625"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"PaxAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03813310"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jd, Matarazzo"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua, Japichaua"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casa casa"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LodgingData.LodgingName</td>
+      <td>Nome do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.CheckInDate</td>
+      <td>Data do checkin.</td>
+      <td>Data (YYYY-MM-DD)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.CheckOutDate</td>
+      <td>Data do checkout.</td>
+      <td>Data (YYYY-MM-DD)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Duration</td>
+      <td>Duração da hospedagem (noites).</td>
+      <td>Texto</td>
+      <td>5</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>LodgingData.LodgingRefund</td>
+      <td>Indica se hospedagem é reembolsável.</td>
+      <td>Texto - Y = Yes / N = No</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.ZipCode</td>
+      <td>CEP do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.Street</td>
+      <td>Rua do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.Number</td>
+      <td>Número do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.Complement</td>
+      <td>Complemento do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.District</td>
+      <td>Bairro do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.City</td>
+      <td>Cidade do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.State</td>
+      <td>Estado do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Address.Country</td>
+      <td>País do hotel/pousada.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Lodger.LodgerName</td>
+      <td>Nome do hóspede.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Lodger.LodgerEmail</td>
+      <td>E-mail do hóspede.</td>
+      <td>Texto</td>
+      <td>300</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Lodger.LodgerPhone</td>
+      <td>Telefone do hóspede.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Lodger.LodgerDocument.Type</td>
+      <td>Tipo de documento do hóspede.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>LodgingData.Lodger.LodgerDocument.Number</td>
+      <td>Número de documento hóspede.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="débitos-veiculares">Débitos Veiculares</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"CarPenaltyFeeData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"CarData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"CarDocument"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"LicensePlate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Renavam"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345678910</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CarOwnerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dono do Carro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CarOwnerDocument"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"362.644.488-00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"CarMake"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Toyota"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CarModel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Corolla"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CarModelYear"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2008"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"CarPendencies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"PenaltyValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">09876</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"LicensingValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"IpvaValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"InsuranceValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PendenciesReferenceYear"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"PenaltyValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"LicensingValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"IpvaValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"InsuranceValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PendenciesReferenceYear"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CarData.LicensePlate</td>
+      <td>Placa do carro.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarData.Renavam</td>
+      <td>Número RENAVAM.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarData.CarOwnerName</td>
+      <td>Nome do proprietário do veículo.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarData.CarOwnerDocument.Key</td>
+      <td>Documento do proprietário do veículo.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarData.CarOwnerDocument.Value</td>
+      <td>Número do documento do proprietário do veículo.</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarData.CarMake</td>
+      <td>Marca do veículo.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarData.CarModel</td>
+      <td>Modelo do veículo.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarData.CarModelYear</td>
+      <td>Ano do modelo do veículo.</td>
+      <td>Data (formato: YYYY)</td>
+      <td>4</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CarPendencies.PenaltyValue</td>
+      <td>Somatória do valor das multas.</td>
+      <td>Número</td>
+      <td>12</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarPendencies.LicensingValue</td>
+      <td>Somatória do valor do licenciamento.</td>
+      <td>Número</td>
+      <td>12</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarPendencies.IpvaValue</td>
+      <td>Somatória do valor das parcelas do IPVA.</td>
+      <td>Número</td>
+      <td>12</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarPendencies.InsuranceValue</td>
+      <td>Somatória do valor do seguro.</td>
+      <td>Número</td>
+      <td>12</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CarPendencies.PendenciesReferenceYear</td>
+      <td>Ano de referência de cada pendência.</td>
+      <td>Data (formato: YYYY)</td>
+      <td>4</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="seguro-de-celular">Seguro de Celular</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="nl">"CellphoneInsuranceData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Imei"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789123456"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DeviceModel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Iphone XR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DeviceCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XR125152"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SubscriptionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-21"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"InsuranceInstallment"</span><span class="p">:</span><span class="w"> </span><span class="mf">315.4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-21"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seguro anti furto"</span><span class="w">
+    </span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IMEI</td>
+      <td>IMEI do celular segurado.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>DevideModel</td>
+      <td>Nome do modelo do celular.</td>
+      <td>Texto</td>
+      <td>80</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>DeviceCode</td>
+      <td>Código do celular.</td>
+      <td>Texto</td>
+      <td>80</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>SubscriptionDate</td>
+      <td>Data de aquisição do seguro.</td>
+      <td>Data (YYYY-MM-DD)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>InsuranceInstallment</td>
+      <td>valor da parcela do seguro.</td>
+      <td>Decimal</td>
+      <td>3</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>ExpirationDate</td>
+      <td>Data de expiração do seguro.</td>
+      <td>Data (YYYY-MM-DD)</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Tipo do seguro (Ex.: Seguro anti-furto).</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="estorno">Estorno</h3>
+
+<p>Para facilitar e automatizar eventuais estornos nós disponbilizamos a conexão com a funcionalidade de estorno direto ao comprador via API do Pagador. Para conseguir efetuar estornos parciais ou completos, envie a requisão a seguir:</p>
+
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
+
+<h4 id="requisição-2">Requisição</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desistencia da compra"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"NonCompliance"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ValuePenalty"</span><span class="p">:</span><span class="w"> </span><span class="mi">15000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BankData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"BankCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"BankName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banco do Brasil"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Agency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234-5"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"678901-2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Amount</td>
+      <td>Valor em centavos a ser cancelado/estornado.</td>
+      <td>Número</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Reason</td>
+      <td>Motivo do cancelamento.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AdditionalData.ValuePenalty</td>
+      <td>Valor da multa (este será o novo valor cobrado do cliente).</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AdditionalData.NonCompliance</td>
+      <td>Indica se houve cancelamento por inadimplência (Y = sim /N = não).</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AdditionalData.BankData.BankCode</td>
+      <td>Código do banco.</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AdditionalData.BankData.BankName</td>
+      <td>Nome do banco.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AdditionalData.BankData.Agency</td>
+      <td>Número de agência bancária.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AdditionalData.BankData.Account</td>
+      <td>Número da conta bancária.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>AdditionalData.BankData.AcccountType</td>
+      <td>Tipo da Conta Bancária. Sendo: 1 = Conta Corrente e 2 = Conta Poupança.</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-2">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12100"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Processamento realizado com sucesso."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/97289024-fbd7-438f-a76b-b5b22c7ef29e"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Status</td>
+      <td>Status da transação.</td>
+      <td>Byte</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>ReasonCode</td>
+      <td>Código de retorno da operação.</td>
+      <td>Texto</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td>ReasonMessage</td>
+      <td>Mensagem de retorno da operação.</td>
+      <td>Texto</td>
+      <td>512</td>
+    </tr>
+    <tr>
+      <td>ProviderReturnCode</td>
+      <td>Código retornado pela Koin.</td>
+      <td>Texto</td>
+      <td>255</td>
+    </tr>
+    <tr>
+      <td>ProviderReturnMessage</td>
+      <td>Mensagem retornada pela Koin.</td>
+      <td>Texto</td>
+      <td>512</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://suporte.braspag.com.br/hc/pt-br">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io/">
+        <img src="https://braspag.github.io//assets/images/logo.png" alt="Braspag Developers - Manuais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/Braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://braspag.github.io//assets/js/jquery.highlight.js"></script>
+        <script src="https://braspag.github.io//assets/js/lunr.js"></script>
+        <script src="https://braspag.github.io//assets/js/search.js"></script>
+        
+
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+        langs += "<a data-language-name='shell'>cURL</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://braspag.github.io//assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json",  "shell", ]);
+            });
+        </script>
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2191438,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
