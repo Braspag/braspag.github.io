@@ -5202,9 +5202,7 @@ Veja a representação do <strong>fluxo transacional</strong> do <strong>BNPL</s
 
 <p>O <code class="language-plaintext highlighter-rouge">FraudID</code> é a identificação digital do dispositivo do comprador composto por uma série de dados coletados na página de checkout. O <code class="language-plaintext highlighter-rouge">FraudID</code> deverá ser informado na requisição de autorização à API do Pagador no campo <code class="language-plaintext highlighter-rouge">FingerprintId</code> (passo 3). Cada requisição de autorização deverá conter um <code class="language-plaintext highlighter-rouge">FraudID</code> diferente.</p>
 
-<p>Os dados coletados para a identificação do dispositivo ajudam a compor a avaliação do comprador e a análise da política de crédito da Koin.</p>
-
-<p>A Koin usa as informações contidas no <code class="language-plaintext highlighter-rouge">FraudID</code> para analisar o comprador e oferecer a melhor condição de parcelamento</p>
+<p>A Koin usa as informações contidas no <code class="language-plaintext highlighter-rouge">FraudID</code> para analisar o comprador e oferecer a melhor condição de parcelamento.</p>
 
 <p>Para gerar o <code class="language-plaintext highlighter-rouge">FraudID</code>, você deve inserir um script em JavaScript com a URL da Koin:</p>
 
@@ -5500,6 +5498,7 @@ Uma opção é inserir em seu checkout um botão para exibição de parcelas, co
     <blockquote>
       <p><strong>Aplicando multas e descontos</strong><br />
 Você pode informar valores de sua escolha para multas e descontos em campos opcionais. 
+Você pode informar valores de sua escolha para multas e descontos em campos opcionais.<br /> 
 <strong>Multas:</strong> envie o campo <code class="language-plaintext highlighter-rouge">Payment.FineRate</code> para multa sobre o valor da transação <strong>ou</strong> envie o campo <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code> para multa sobre o valor total. <em>Atenção: você deve enviar apenas um dos campos referentes à multa</em>.<br />
 <strong>Descontos:</strong>envie o campo <code class="language-plaintext highlighter-rouge">Payment.DiscountRate</code> para desconto sobre o valor da transação <strong>ou</strong> envie o campo <code class="language-plaintext highlighter-rouge">Payment.DiscountAmount</code> para desconto sobre o valor total. <em>Atenção: você deve enviar apenas um dos campos referentes ao desconto</em>.<br /></p>
     </blockquote>
