@@ -2789,7 +2789,7 @@ Segue uma lista de propriedades e suas especificações de tamanho, relativas a 
 
 * Oferecer ao comprador a opção do BNPL em seu checkout quando uma autorização de venda com cartão de crédito foi recusada;
 * Atender a parcela de clientes que não têm conta bancária ou acesso ao crédito convencional, uma vez que o BNPL independe de cartões ou bancos.
-
+</br>
 Veja a representação do **fluxo transacional** do **BNPL** da empresa **Koin** nos fluxos de Aprovação Imediata e Aprovação Posterior:
 
 ### Aprovação Imediata
