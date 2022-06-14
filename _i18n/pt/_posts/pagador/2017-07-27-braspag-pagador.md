@@ -2810,15 +2810,19 @@ A Koin é uma empresa de meios de pagamento que oferece a solução **Boleto Par
 
 Para a integração com a Koin, você irá usar os endpoints da **[API do Pagador](https://braspag.github.io//manual/braspag-pagador#ambientes-de-teste-e-produ%C3%A7%C3%A3o)**, e da **API de Consulta de Parcelas**. 
 
-**API de Consulta de Parcelas**
+**Sandbox**
 
-**Sandbox**: https://paymentinstallmentoptionsapisandbox.braspag.com.br</br>
-**Produção**: https://paymentinstallmentoptionsapi.braspag.com.br
+|Base da URL|Descrição|
+|----|----|
+|API do Pagador (transacional)|https://apisandbox.braspag.com.br|
+|API de Consulta de Parcelas|https://paymentinstallmentoptionsapisandbox.braspag.com.br|
 
-**API do Pagador**
+**Produção**
 
-**Sandbox**: https://apisandbox.braspag.com.br</br>
-**Produção**: https://api.braspag.com.br
+|Base da URL|Descrição|
+|----|----|
+|API do Pagador (transacional)|https://api.braspag.com.br|
+|API de Consulta de Parcelas|https://paymentinstallmentoptionsapi.braspag.com.br|
 
 #### Integração
 
@@ -2875,7 +2879,7 @@ A resposta da requisição apresentará as opções de parcelamento, identificad
 
 Caso qualquer um dos itens da requisição seja alterado pelo comprador será necessário realizar uma nova consulta.
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{{API de Consulta de Parcelas}}/v1/authorize</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{API de Consulta de Parcelas}/v1/authorize</span></aside>
 
 ##### Requisição
 
@@ -2971,15 +2975,15 @@ Nessa etapa, você deverá enviar dois valores obtidos no passos anteriores:
 
 * Envie o valor do `FraudID` obtido no passo 1 no campo `FingerprintId`;
 * Envie o valor do `OptionsId` (obtido no passo 2) escolhido pelo comprador no campo `InstallmentOptionId`.
-
-> **Aplicando multas e descontos**</br>
+<br/>
+> **Aplicando multas e descontos**<br/>
 > Você pode informar valores de sua escolha para multas e descontos em campos opcionais. 
-> **Multas:** envie o campo `Payment.FineRate` para multa sobre o valor da transação **ou** envie o campo `Payment.FineAmount` para multa sobre o valor total. *Atenção: você deve enviar apenas um dos campos referentes à multa*.</br>
-> **Descontos:**envie o campo `Payment.DiscountRate` para desconto sobre o valor da transação **ou** envie o campo `Payment.DiscountAmount` para desconto sobre o valor total. *Atenção: você deve enviar apenas um dos campos referentes ao desconto*.</br>
+> **Multas:** envie o campo `Payment.FineRate` para multa sobre o valor da transação **ou** envie o campo `Payment.FineAmount` para multa sobre o valor total. *Atenção: você deve enviar apenas um dos campos referentes à multa*.<br/>
+> **Descontos:**envie o campo `Payment.DiscountRate` para desconto sobre o valor da transação **ou** envie o campo `Payment.DiscountAmount` para desconto sobre o valor total. *Atenção: você deve enviar apenas um dos campos referentes ao desconto*.<br/>
 
 Para submeter à autorização, envie a requisição da transação para a API do Pagador.
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{{API Pagador}}/v2/sales</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{API Pagador}/v2/sales</span></aside>
 
 ##### Requisição
 
@@ -3230,9 +3234,10 @@ Utilize os nós concatenávies `ProductTypes` e `AdditionalData` para indicar os
 ```
 
 **ProductTypes** disponíveis atualmente:
+
 |Nome do Segmento|Valor Esperado|
 |------------|------------------|
-|Dados do usuário|"UserAccountData"/*|
+|Dados do usuário|"UserAccountData" * |
 |Educação|Class|
 |Aluguel de Carros|CarRental|
 |Passagens aéreas|Airline|
