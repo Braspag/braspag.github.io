@@ -30,11 +30,11 @@ Veja a representação do **fluxo transacional** do **BNPL** da empresa **Koin**
 
 ## Aprovação Imediata
 
-![Fluxo BPNL Koin Aprovação Imediata]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/bnpl-koin-aprovacaoimediata.png)
+![Fluxo BPNL Koin Aprovação Imediata]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/bnpl-koin-aprovacaoimediata100.png)
 
 ## Aprovação Posterior
 
-![Fluxo BPNL Koin Aprovação Posterior]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/bnpl-koin-aprovacaoposterior.png)
+![Fluxo BPNL Koin Aprovação Posterior]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/bnpl-koin-aprovacaoposterior100.png)
 
 > Para ambos os fluxos é importante que você tenha uma URL de Notificação configurada em sua loja do Pagador, para que possamos informar que a transação teve seu status alterado. Saiba como configurar essa URL na documentação do [Post de Notificação](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o).
 
