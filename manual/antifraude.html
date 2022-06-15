@@ -428,17 +428,13 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
   </tbody>
 </table>
 
-<h1 id="realizando-uma-análise-de-fraude">Realizando uma análise de fraude</h1>
+<h1 id="integração-com-a-cybersource">Integração com a Cybersource</h1>
 
-<p>Ao receber os dados do pedido, a API da Braspag encaminha para o provedor analisá-los. Os provedores utilizam tecnologias como identificação de máquina, geolocalização de IP, análise de redes sociais, detecção de proxy e contadores de velocidade. Em tempo real, a Braspag recebe uma recomendação do provedor, podendo então tomar uma ação baseada no risco de fraude identificado pela análise.</p>
+<p>A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cybersource.</p>
 
-<h2 id="fluxos-da-análise-de-fraude-1">Fluxos da análise de fraude</h2>
-
-<p>Veja a representação do <strong>fluxo transacional</strong> quando o serviço do Antifraude é solicitado no modelo <code class="language-plaintext highlighter-rouge">AnalyseFirst</code>, em que a análise de risco acontece antes da autorização da transação:</p>
-
-<p><img src="https://braspag.github.io/images/fluxo-trans2-pt.png" alt="Antifraude 2" /></p>
-
-<p>Para saber mais sobre o modelo <code class="language-plaintext highlighter-rouge">AuthorizeFirst</code> da análise de fraude, em que a análise de risco acontece depois da autorização da transação, consulte o <a href="https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude">Manual do Pagador</a>.</p>
+<blockquote>
+  <p>Atenção: Você só deve enviar o campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> se o seu fluxo for <code class="language-plaintext highlighter-rouge">AuthorizeFirst</code> e estiver usando o Pagador Braspag. O campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> é o identificador da transação no Pagador. Saiba mais na <a href="https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude" target="_blank">documentação do Pagador</a>.</p>
+</blockquote>
 
 <h2 id="analisando-uma-transação-na-cybersource">Analisando uma transação na Cybersource</h2>
 
@@ -649,7 +645,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Currency</code></td>
-      <td style="text-align: left">Moeda. Maiores informações em <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 Currency Codes</a></td>
+      <td style="text-align: left">Moeda. Maiores informações em <a href="https://www.iso.org/iso-4217-currency-codes.html" target="_blank">ISO 4217 Currency Codes</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">3</td>
@@ -663,35 +659,35 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
-      <td style="text-align: left">Id da transação no Pagador da Braspag <br /> Obs.: Este campo pode ser enviado caso a análise antifraude ocorra após a transação. E se não possuir integração com o Pagador Braspag, você tem a opção de enviar os campos <code class="language-plaintext highlighter-rouge">Tdi</code>,<code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Id da transação no Pagador da Braspag. Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você pode enviar os campos <code class="language-plaintext highlighter-rouge">Tdi</code>,<code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: center">guid</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Tid</code></td>
-      <td style="text-align: left">Id da transação na adquirente <br /> Obs.: Este campo pode ser enviado caso a análise antifraude ocorra após a transação. E se não possuir integração com o Pagador Braspag, você tem a opção de enviar este campo, acompanhado dos campos <code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Id da transação na adquirente <br /> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o <code class="language-plaintext highlighter-rouge">Tid</code> acompanhado dos campos <code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">20</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Nsu</code></td>
-      <td style="text-align: left">Número sequencial único da transação na adquirente <br /> Obs.: Este campo pode ser enviado caso a análise antifraude ocorra após a transação. E se não possuir integração com o Pagador Braspag, você tem a opção de enviar este campo, acompanhado dos campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Número sequencial único da transação na adquirente <br /> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o <code class="language-plaintext highlighter-rouge">Nsu</code> acompanhado dos campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">10</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td style="text-align: left">Código de autorização da transação na adquirente <br /> Obs.: Este campo pode ser enviado caso a análise antifraude ocorra após a transação. E se não possuir integração com o Pagador Braspag, você tem a opção de enviar este campo, acompanhado dos campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Código de autorização da transação na adquirente <br /> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o <code class="language-plaintext highlighter-rouge">AuthorizationCode</code>, acompanhado dos campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">10</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">SaleDate</code></td>
-      <td style="text-align: left">Data da autorização da transação na adquirente <br /> Obs.: Este campo pode ser enviado caso a análise antifraude ocorra após a transação. E se não possuir integração com o Pagador Braspag, você tem a opção de enviar este campo, acompanhado dos campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code> e <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Data da autorização da transação na adquirente <br /> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar este campo, acompanhado dos campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code> e <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: center">datetime</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
@@ -719,7 +715,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Brand</code></td>
-      <td style="text-align: left">Bandeira do cartão de crédito <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-2-card.brand">Tabela 2 - Card.Brand</a></td>
+      <td style="text-align: left">Bandeira do cartão de crédito <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-3-card.brand">Tabela 3 - Card.Brand</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">-</td>
@@ -740,7 +736,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Alias</code></td>
-      <td style="text-align: left">Alias (apelido) do cartão de crédito salvo no Cartão Protegido</td>
+      <td style="text-align: left"><em>Alias</em> (apelido) do cartão de crédito salvo no Cartão Protegido</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">64</td>
@@ -789,7 +785,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.Country</code></td>
-      <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">2</td>
@@ -845,7 +841,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Country</code></td>
-      <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
@@ -880,7 +876,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.ShippingMethod</code></td>
-      <td style="text-align: left">Meio de entrega do pedido <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-3-shippingmethod">Tabela 3 - ShippingMethod</a></td>
+      <td style="text-align: left">Meio de entrega do pedido <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-4-shippingmethod">Tabela 4 - ShippingMethod</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -950,7 +946,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.BrowserEmail</code></td>
-      <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(<code class="language-plaintext highlighter-rouge">Customer.Email</code>)</td>
+      <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja (<code class="language-plaintext highlighter-rouge">Customer.Email</code>)</td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">100</td>
@@ -964,7 +960,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code></td>
-      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="language-plaintext highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br /> <a href="https://braspag.github.io//manual/antifraude#cybersource">Configuração do Fingerprint</a></td>
+      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="language-plaintext highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br /> Saiba mais em <a href="https://braspag.github.io/manual/antifraude#fingerprint-com-a-cybersource">Fingerprint com a Cybersource</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">sim</td>
       <td style="text-align: right">88</td>
@@ -978,14 +974,14 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].Category</code></td>
-      <td style="text-align: left">Categoria do produto <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-32-cartitem[n].category">Tabela 32 - CartItem{n}.Category</a></td>
+      <td style="text-align: left">Categoria do produto <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-36-cartitem[n].category">Tabela 36 - CartItem{n}.Category</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].Risk</code></td>
-      <td style="text-align: left">Nível de risco do produto associado a quantidade de chargebacks <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-7-cartitem[n].risk">Tabela 7 - CartItem{n}.Risk</a></td>
+      <td style="text-align: left">Nível de risco do produto associado a quantidade de chargebacks <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-10-cartitem[n].risk">Tabela 10 - CartItem{n}.Risk</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -1013,49 +1009,49 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].AddressRiskVerify</code></td>
-      <td style="text-align: left">Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-8-cartitem[n].addressriskverify">Tabela 8 - CartItem{n}.AddressRiskVerify</a></td>
+      <td style="text-align: left">Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-11-cartitem[n].addressriskverify">Tabela 11 - CartItem{n}.AddressRiskVerify</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].HostHedge</code></td>
-      <td style="text-align: left">Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-9-cartitem[n].hosthedge">Tabela 9 - CartItem{n}.HostHedge</a></td>
+      <td style="text-align: left">Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-12-cartitem[n].hosthedge">Tabela 12 - CartItem{n}.HostHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].NonSensicalHedge</code></td>
-      <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge">Tabela 10 - CartItem{n}.NonSensicalHedge</a></td>
+      <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-13-cartitem[n].nonsensicalhedge">Tabela 13 - CartItem{n}.NonSensicalHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].ObscenitiesHedge</code></td>
-      <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-11-cartitem[n].obscenitieshedge">Tabela 11 - CartItem{n}.ObscenitiesHedge</a></td>
+      <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-14-cartitem[n].obscenitieshedge">Tabela 11 - CartItem{n}.ObscenitiesHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].TimeHedge</code></td>
-      <td style="text-align: left">Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-12-cartitem[n].timehedge">Tabela 12 - CartItem{n}.TimeHedge</a></td>
+      <td style="text-align: left">Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-15-cartitem[n].timehedge">Tabela 15 - CartItem{n}.TimeHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].PhoneHedge</code></td>
-      <td style="text-align: left">Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-17-cartitem[n].phonehedge">Tabela 13 - CartItem{n}.PhoneHedge</a></td>
+      <td style="text-align: left">Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-16-cartitem[n].phonehedge">Tabela 16 - CartItem{n}.PhoneHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].VelocityHedge</code></td>
-      <td style="text-align: left">Nível de importância da frequência de compra do comprador na análise de fraude dentro dos 15 minutos anteriores <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-18-cartitem[n].velocityhedge">Tabela 14 - CartItem{n}.VelocityHedge</a></td>
+      <td style="text-align: left">Nível de importância da frequência de compra do comprador na análise de fraude dentro dos 15 minutos anteriores <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-17-cartitem[n].velocityhedge" target="_blank">Tabela 16 - CartItem{n}.VelocityHedge</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">-</td>
       <td style="text-align: right">-</td>
@@ -1097,7 +1093,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Bank.Country</code></td>
-      <td style="text-align: left">País onde está localizado o banco do comprador <br /> Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">País onde está localizado o banco do comprador <br /> Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">2</td>
@@ -1153,14 +1149,14 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Invoice.Tender</code></td>
-      <td style="text-align: left">Forma de pagamento utilizada pelo comprador <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-19-invoice.tender">Tabela 15 - Invoice.Tender</a></td>
+      <td style="text-align: left">Forma de pagamento utilizada pelo comprador <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-18-invoice.tender">Tabela 18 - Invoice.Tender</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.JourneyType</code></td>
-      <td style="text-align: left">Tipo de viagem <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-4-airline.journeytype">Tabela 4 - Airline.JourneyType</a></td>
+      <td style="text-align: left">Tipo de viagem <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-7-airline.journeytype">Tabela 7 - Airline.JourneyType</a></td>
       <td style="text-align: center">enun</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
@@ -1195,7 +1191,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].PassengerType</code></td>
-      <td style="text-align: left">Tipo do passageiro <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-5-airline.passengers[n].passengertype">Tabela 5 - Airline.Passengers{n}.PassengerType</a></td>
+      <td style="text-align: left">Tipo do passageiro <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-8-airline.passengers[n].passengertype">Tabela 8 - Airline.Passengers{n}.PassengerType</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
@@ -1216,21 +1212,21 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Status</code></td>
-      <td style="text-align: left">Classificação da empresa aérea <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-6-airline.passengers[n].status">Tabela 6 - Airline.Passengers{n}.Status</a></td>
+      <td style="text-align: left">Classificação da empresa aérea <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-9-airline.passengers[n].status">Tabela 9 - Airline.Passengers{n}.Status</a></td>
       <td style="text-align: center">enum</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureAirport</code></td>
-      <td style="text-align: left">Código do aeroporto de partida. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
+      <td style="text-align: left">Código do aeroporto de partida. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">3</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Legs[n].ArrivalAirport</code></td>
-      <td style="text-align: left">Código do aeroporto de chegada. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
+      <td style="text-align: left">Código do aeroporto de chegada. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">3</td>
@@ -1251,14 +1247,14 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantDefinedData[n].Key</code></td>
-      <td style="text-align: left">Chave do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-31-merchantdefineddata-(cybersource)">Tabela 31 - MerchantDefinedData(Cybersource)</a></td>
+      <td style="text-align: left">Chave do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-34-merchantdefineddata-(cybersource)">Tabela 34 - MerchantDefinedData(Cybersource)</a></td>
       <td style="text-align: center">int</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantDefinedData[n].Value</code></td>
-      <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-31-merchantdefineddata-(cybersource)">Tabela 31 - MerchantDefinedData(Cybersource)</a></td>
+      <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-34-merchantdefineddata-(cybersource)">Tabela 34 - MerchantDefinedData(Cybersource)</a></td>
       <td style="text-align: center">var</td>
       <td style="text-align: center">não</td>
       <td style="text-align: right">-</td>
