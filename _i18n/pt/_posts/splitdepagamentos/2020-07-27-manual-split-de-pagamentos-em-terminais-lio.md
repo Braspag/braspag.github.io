@@ -376,7 +376,7 @@ Este tipo de consulta é indicado para buscar as informações de **transações
 
 ## Requisição
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/v1/pending-creation-transactions</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/api/v1/pending-creation-transactions</span></aside>
 
 | Filtro            | Descrição                                             | Tipo    | Tamanho | Obrigatório|  
 |-------------------|-------------------------------------------------------|---------|---------|------------| 
