@@ -249,4 +249,4 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 | 4532117080573799 | 99 | BP900 | Falha na operação |
 | 4532117080573701 | 1 | 4 | Autorizado |
 
-Para testar os cenários de retorno da Consulta BIN em sandbox, acesse a [documentação da Cielo](https://developercielo.github.io/manual/'?json#consulta-bin-sandbox).
+Para testar os cenários de retorno da Consulta BIN em sandbox, acesse a [documentação da Cielo](https://developercielo.github.io/manual/cielo-ecommerce#consulta-bin-sandbox){:target="_blank"}.
