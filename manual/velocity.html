@@ -234,7 +234,7 @@
   <li>D-1 = 12h as 0h</li>
 </ul>
 
-<p>Com a quarentena configurada, a aplicação não irá realizar essa contagem retroativa por período, pois na análise é verificado se existe o valor da variável número de cartão em quarentena. Por exemplo: para a regra mostrada acima (<strong>Máximo de 5 Hits de Número do Cartão em 12 Hora(s)</strong>), o tempo de expiração se definido em 2 dias, a regra será analisada apenas para o período configurado, ou seja, 12 horas para traz e irá verificar durante 2 dias para traz se número do cartão se encontra em quarentena.</p>
+<p>Com a quarentena configurada, a aplicação não irá realizar essa contagem retroativa por período, pois na análise é verificado se existe o valor da variável número de cartão em quarentena. Por exemplo: para a regra mostrada acima (<strong>Máximo de 5 Hits de Número do Cartão em 12 Hora(s)</strong>), o tempo de expiração se definido em 2 dias, a regra será analisada apenas para o período configurado, ou seja, 12 horas para trás e irá verificar durante 2 dias para trás se número do cartão se encontra em quarentena.</p>
 
 <p>Uma transação analisada, não rejeitada pela regra, mas rejeitada pela quarentena, terá o retorno informando que foi rejeitada pela quarentena.</p>
 
@@ -263,7 +263,7 @@
   <li>Documento do comprador (CPF ou CNPJ);</li>
   <li>Telefone do comprador;</li>
   <li>Endereço de cobrança do comprador.
-&lt;/br&gt;
+<br />
 Uma transação a ser analisada e ter passado nas análises de regras, quarentena e lista negativa, os dados do comprador serão enviados para a Emailage. Na resposta da Emailage o score for de alto risco, o retorno terá que a transação foi rejeitada pela análise na Emailage.</li>
 </ul>
 
