@@ -883,11 +883,11 @@ A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cy
 |`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 31 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}manual/antifraude#tabela-31-merchantdefineddata-(cybersource))|int|não|-|
 |`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 31 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}manual/antifraude#tabela-31-merchantdefineddata-(cybersource))|var|não|-|
 
-# Update de status Cybersource
+## Update de status Cybersource
 
 Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject) ou aceita (accept) para rejeita (reject).
 
-## Requisição
+### Requisição
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
 
@@ -914,7 +914,7 @@ Esta sessão descreve como alterar o status de transações em revisão (review)
 |`Status`|Novo status da transação. Accept ou Reject|string|sim|-|
 |`Comments`|Comentário associado a mudança de status|string|não|255|
 
-## Resposta
+### Resposta
 
 * Quando a transação for recebida para processamento
 
