@@ -6,7 +6,6 @@ search: true
 categories: manual
 translated: true
 tags:
-  - 8. POS Virtual
 ---
 # POS Virtual
 
