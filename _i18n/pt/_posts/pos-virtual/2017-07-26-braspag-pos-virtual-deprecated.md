@@ -7,6 +7,9 @@ categories: manual
 translated: true
 tags:
 ---
+
+> <p>&#9888;</p> **ATENÇÃO: esse produto foi descontinuado para novas integrações**.
+
 # POS Virtual
 
 O POS Virtual é uma plataforma da Braspag destinada a lojistas que necessitam realizar vendas digitadas (ex.: operação de call center, empresas do segmento de turismo, etc), sem a necessidade do desenvolvimento de uma loja virtual. Você pode executar todo gerenciamento de suas vendas apenas acessando o Painel Administrativo Braspag.
