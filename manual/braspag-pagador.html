@@ -5843,9 +5843,9 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>Diferente dos pagamentos com cartão de crédito ou boleto tradicionais, os pagamentos recorrentes se repetem automaticamente por períodos e em intervalos determinados, cobrando sempre o mesmo valor de um mesmo cartão ou conta.</p>
 
-<p>É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Além da integração técnica, é necessário que o estabelecimento comercial do cliente esteja habilitado na adquirente para receber pagamentos recorrentes.</p>
+<p>É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. <strong>Além da integração técnica, é necessário que o seu estabelecimento comercial esteja habilitado na adquirente para receber pagamentos recorrentes</strong>.</p>
 
-<p>O lojista conta com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas e intervalo entre tentativas. Para saber mais detalhes, leia nosso artigo sobre <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360013311991">Recorrência</a>.</p>
+<p>A sua loja conta com recursos diferenciados para modelar a cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas e intervalo entre tentativas. Para saber mais detalhes, leia nosso artigo sobre <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360013311991" target="_blank">Recorrência</a>.</p>
 
 <aside class="notice">Vendas recorrentes com cartão de crédito não exigem CVV.</aside>
 
@@ -8245,21 +8245,31 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <h1 id="salvando-e-reutilizando-cartões">Salvando e Reutilizando Cartões</h1>
 
-<p>Ao contratar o <a href="https://braspag.github.io//manual/cartao-protegido-api-rest">Cartão Protegido</a>, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.</p>
+<p>Ao contratar o <a href="https://braspag.github.io//manual/cartao-protegido-api-rest" target="_blank">Cartão Protegido</a>, é possível salvar um cartão de forma segura e de acordo com as normas PCI. A Braspag salva e criptografa os dados do cartão (nome do portador, número, bandeira e data de validade) em um token, que chamamos de <code class="language-plaintext highlighter-rouge">CardToken</code>.</p>
+
+<p>O token viabiliza o envio e processamento de transações e garante a integridade dos cartões armazenados. Além disso, geramos um novo token a cada transação do mesmo comprador.</p>
 
 <p>Além da geração do <code class="language-plaintext highlighter-rouge">CardToken</code>, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o <code class="language-plaintext highlighter-rouge">Alias</code>.</p>
+
+<blockquote>
+  <p><strong>ATENÇÃO</strong>: O Cartão Protegido não salva o CVV do cartão. Sendo assim:<br /></p>
+  <ul>
+    <li>O comprador deverá preencher o CVV a cada transação; ou<br /></li>
+    <li>A sua loja pode realizar transações sem o CVV desde que esteja autorizada pela adquirente.</li>
+  </ul>
+</blockquote>
 
 <aside class="warning">Por questões de segurança, o cartão protegido só aceita salvar cartões que passem pela checagem do Algoritmo de Luhn, também conhecido como "mod10".</aside>
 
 <h2 id="salvando-um-cartão-durante-uma-autorização">Salvando um Cartão Durante uma Autorização</h2>
 
-<p>Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> como “true” na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051">neste artigo</a>.</p>
+<p>Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> como “true” na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051" target="_blank">neste artigo</a>.</p>
 
 <p>Abaixo veja a representação do <strong>fluxo transacional</strong> com a solicitação do token pela API do Pagador:</p>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/fluxo-trans4-pt.png" alt="Cartão Protegido - Pagador" /></p>
 
-<p>Consulte também os fluxos de tokenização direta com a <a href="https://braspag.github.io//manual/cartao-protegido-api-rest">API do Cartão Protegido</a>, com a opção dos serviços da <a href="https://braspag.github.io//manual/braspag-verify-card">API do VerifyCard</a>.</p>
+<p>Consulte também os fluxos de tokenização direta com a <a href="https://braspag.github.io//manual/cartao-protegido-api-rest" target="_blank">API do Cartão Protegido</a>, com a opção dos serviços da <a href="https://braspag.github.io//manual/braspag-verify-card" target="_blank">API do VerifyCard</a>.</p>
 
 <h3 id="requisição-27">Requisição</h3>
 
@@ -8681,9 +8691,17 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <h2 id="criando-uma-transação-com-cardtoken">Criando uma Transação com CardToken</h2>
 
-<p>Este é um exemplo de como utilizar o <code class="language-plaintext highlighter-rouge">CardToken</code>, previamente salvo, para criar uma transação. Por questões de segurança, um <code class="language-plaintext highlighter-rouge">CardToken</code> não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como <em>recorrente</em>, você poderá submeter transações sem o CVV.</p>
+<p>Este é um exemplo de como utilizar o <code class="language-plaintext highlighter-rouge">CardToken</code>, previamente salvo, para criar uma transação.</p>
 
-<p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> será alterado conforme exemplo a seguir:</p>
+<p>Por questões de segurança, um <code class="language-plaintext highlighter-rouge">CardToken</code> não armazena o Código de Segurança (CVV). Desta forma, a sua aplicação precisa solicitar esta informação ao portador para cada nova transação e enviar o CVV no campo <code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code>.</p>
+
+<p>Caso seu estabelecimento tenha autorização da adquirente para submeter transações sem o CVV, o campo <code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code> passa a ser opcional.</p>
+
+<blockquote>
+  <p>Para transacionar sem o CVV, solicite autorização à sua adquirente.</p>
+</blockquote>
+
+<p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> enviará o <code class="language-plaintext highlighter-rouge">CardToken</code> conforme exemplo a seguir:</p>
 
 <h3 id="requisição-28">Requisição</h3>
 
