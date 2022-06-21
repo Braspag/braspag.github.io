@@ -3244,7 +3244,7 @@ Diferente dos pagamentos com cartão de crédito ou boleto tradicionais, os paga
 
 A sua loja conta com recursos diferenciados para modelar a cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas e intervalo entre tentativas. Para saber mais detalhes, leia nosso artigo sobre [Recorrência](https://suporte.braspag.com.br/hc/pt-br/articles/360013311991){:target="_blank"}.
 
-<aside class="notice">Vendas recorrentes com cartão de crédito não exigem CVV.</aside>
+> Vendas recorrentes com cartão de crédito [não exigem CVV](https://suporte.braspag.com.br/hc/pt-br/articles/6758664323611){:target="_blank"}.
 
 <aside class="warning">A recorrência não está disponível para transações de e-wallets devido à necessidade de utilização de chaves temporárias para realizar operações de crédito.</aside>
 
@@ -4970,7 +4970,7 @@ Por questões de segurança, um `CardToken` não armazena o Código de Seguranç
 
 Caso seu estabelecimento tenha autorização da adquirente para submeter transações sem o CVV, o campo `CreditCard.SecurityCode` passa a ser opcional.
 
-> Para transacionar sem o CVV, solicite autorização à sua adquirente.
+> Para [transacionar sem o CVV](https://suporte.braspag.com.br/hc/pt-br/articles/6758664323611){:target="_blank"}, solicite autorização à sua adquirente.
 
 O nó `CreditCard` dentro do nó `Payment` enviará o `CardToken` conforme exemplo a seguir:
 
@@ -5227,7 +5227,15 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `CardToken` conforme exemp
 
 ## Criando uma Transação com Alias
 
-Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como *recorrente*, você poderá submeter transações sem o CVV.
+Este é um exemplo de como utilizar o `Alias`, previamente salvo, para criar uma transação. O `Alias` é um nome (identificador em formato de texto) associado ao cartão salvo.
+
+Por questões de segurança, um `Alias` não armazena o Código de Segurança (CVV). Desta forma, a sua aplicação precisa solicitar esta informação ao portador para cada nova transação e enviar o CVV no campo `CreditCard.SecurityCode`.
+
+Caso seu estabelecimento tenha autorização da adquirente para submeter transações sem o CVV, o campo `CreditCard.SecurityCode` passa a ser opcional.
+
+> Para [transacionar sem o CVV](https://suporte.braspag.com.br/hc/pt-br/articles/6758664323611){:target="_blank"}, solicite autorização à sua adquirente.
+
+O nó `CreditCard` dentro do nó `Payment` enviará o `Alias` conforme exemplo a seguir:
 
 ### Requisição
 
