@@ -7,7 +7,7 @@ toc_footers: true
 categories: tutorial
 sort_order: 4
 tags:
-  - 9. Documentos Adicionais
+  - 8. Documentos Adicionais
 ---
 
 # CONTRATO DE PRESTAÇÃO DE SERVIÇOS
