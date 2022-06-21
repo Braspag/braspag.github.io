@@ -5847,7 +5847,9 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>A sua loja conta com recursos diferenciados para modelar a cobrança de acordo com o seu negócio, tais como: parametrização e alteração de periodicidade, data de início e fim, quantidade de tentativas e intervalo entre tentativas. Para saber mais detalhes, leia nosso artigo sobre <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360013311991" target="_blank">Recorrência</a>.</p>
 
-<aside class="notice">Vendas recorrentes com cartão de crédito não exigem CVV.</aside>
+<blockquote>
+  <p>Vendas recorrentes com cartão de crédito <a href="https://suporte.braspag.com.br/hc/pt-br/articles/6758664323611" target="_blank">não exigem CVV</a>.</p>
+</blockquote>
 
 <aside class="warning">A recorrência não está disponível para transações de e-wallets devido à necessidade de utilização de chaves temporárias para realizar operações de crédito.</aside>
 
@@ -8698,7 +8700,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 <p>Caso seu estabelecimento tenha autorização da adquirente para submeter transações sem o CVV, o campo <code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code> passa a ser opcional.</p>
 
 <blockquote>
-  <p>Para transacionar sem o CVV, solicite autorização à sua adquirente.</p>
+  <p>Para <a href="https://suporte.braspag.com.br/hc/pt-br/articles/6758664323611" target="_blank">transacionar sem o CVV</a>, solicite autorização à sua adquirente.</p>
 </blockquote>
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> enviará o <code class="language-plaintext highlighter-rouge">CardToken</code> conforme exemplo a seguir:</p>
@@ -9076,7 +9078,17 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <h2 id="criando-uma-transação-com-alias">Criando uma Transação com Alias</h2>
 
-<p>Este é um exemplo de como utilizar o <em>Alias</em>, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não tem guardado o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Caso seu estabelecimento junto à adquirente esteja configurado como <em>recorrente</em>, você poderá submeter transações sem o CVV.</p>
+<p>Este é um exemplo de como utilizar o <code class="language-plaintext highlighter-rouge">Alias</code>, previamente salvo, para criar uma transação. O <code class="language-plaintext highlighter-rouge">Alias</code> é um nome (identificador em formato de texto) associado ao cartão salvo.</p>
+
+<p>Por questões de segurança, um <code class="language-plaintext highlighter-rouge">Alias</code> não armazena o Código de Segurança (CVV). Desta forma, a sua aplicação precisa solicitar esta informação ao portador para cada nova transação e enviar o CVV no campo <code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code>.</p>
+
+<p>Caso seu estabelecimento tenha autorização da adquirente para submeter transações sem o CVV, o campo <code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code> passa a ser opcional.</p>
+
+<blockquote>
+  <p>Para <a href="https://suporte.braspag.com.br/hc/pt-br/articles/6758664323611" target="_blank">transacionar sem o CVV</a>, solicite autorização à sua adquirente.</p>
+</blockquote>
+
+<p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> enviará o <code class="language-plaintext highlighter-rouge">Alias</code> conforme exemplo a seguir:</p>
 
 <h3 id="requisição-29">Requisição</h3>
 
