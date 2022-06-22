@@ -100,6 +100,26 @@ Para gerar o `FraudID`, você deve inserir um script em JavaScript com a URL da 
 
 ![script-fraudid-koin]({{ site.baseurl_root }}/images/braspag/pagador/script-js-koin.png)
 
+[[[
+```html
+<html>		
+  <head>
+  <script type="text/javascript" src="https://resources.koin.com.br/scripts/koin.min.js">
+  </script>
+  	<script type="text/javascript">
+  	   window.onload = function() {
+  		GetKoinFraudID(function (guid) { 	
+  		document.getElementById('fraudId').innerHTML = guid;});
+  			}	
+  	</script>
+  </head>
+    <body>
+         FraudId: <span id="fraudId"></span>
+    </body>
+</html>
+```
+]]]
+
 > [Acesse o nosso GitHub](https://github.com/Braspag/braspag.github.io/blob/f28ec76a58a5ff58dba23e0e6cb90c0b132f60f5/_i18n/pt/_posts/pagador/script-js-koin.html){:target="_blank"} para visualizar e copiar o modelo JavaScript.
 
 ## Passo 2 - Obtendo as Parcelas
