@@ -109,9 +109,9 @@ Para gerar o `FraudID`, você deve inserir um script em JavaScript com a URL da 
   </script>
         <script type="text/javascript">
            window.onload = function() {
-                GetKoinFraudID(function (guid) { 	
+                GetKoinFraudID(function (guid) {
                 document.getElementById('fraudId').innerHTML = guid;});
-                        }	
+                        }
         </script>
   </head>
     <body>
