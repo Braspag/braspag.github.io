@@ -109,7 +109,7 @@ Acesse nossa ferramenta de atendimento web [Zendesk](http://suporte.braspag.com.
 
 # Meios de Pagamento
 
-A API do Pagador trabalha com transações referentes às seguintes formas de pagamento: cartão de crédito, cartão de débito, boleto bancário, transferência eletrônica, e-wallet e voucher. O fluxo da transação depende dos serviços utilizados e das configurações escolhidas pela loja.
+A API do Pagador trabalha com transações referentes às seguintes formas de pagamento: cartão de crédito, cartão de débito, pix, QR Code, boleto bancário, transferência eletrônica, *Buy Now Pay Later* (BNPL), e-wallet e voucher. O fluxo da transação depende dos serviços utilizados e das configurações escolhidas pela loja.
 
 Veja abaixo a representação de um **fluxo transacional** padrão seguida de uma pequena descrição das principais partes envolvidas:
 
