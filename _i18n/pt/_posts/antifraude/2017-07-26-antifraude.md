@@ -550,6 +550,8 @@ A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cy
 
 ## Consultando uma transação Cybersource
 
+Para saber o status de uma transação na Cybersource, recomendamos que você configure o [Post de Notificação](https://braspag.github.io//manual/antifraude#post-de-notifica%C3%A7%C3%A3o) e também faça a consulta por sondagem, que apresentamos a seguir:
+
 ### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
@@ -744,33 +746,33 @@ A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cy
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
 |`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
-|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 16 - Status]({{ site.baseurl_root }}manual/antifraude#tabela-16-status)|enum|
+|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 19 - Status](https://braspag.github.io//manual/antifraude#tabela-19-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
-|`ProviderAnalysisResult.ProviderStatus`|Status da transação na Cybersource <br/> [Tabela 17 - ProviderStatus]({{ site.baseurl_root }}manual/antifraude#tabela-17-providerstatus)|enum|
-|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce <br/> [Tabela 18 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}manual/antifraude#tabela-18-provideranalysisresult.providercode)|int|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na Cybersource <br/> [Tabela 20 - ProviderStatus](https://braspag.github.io//manual/antifraude#tabela-20-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderCode`|Código de retorno da Cybersouce <br/> [Tabela 21 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io//manual/antifraude#tabela-21-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.ProviderRequestTransactionId`|Id do request da transação na Cybersource|string|
 |`ProviderAnalysisResult.Missing`|Campos faltantes na requisição enviada a Cybersource|string|
 |`ProviderAnalysisResult.Invalid`|Campos com valores inválidos enviado a Cybersource|string|
-|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br/> Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z <br/>[Tabela 19 - ProviderAnalysisResult.AfsReply.AddressInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-19-provideranalysisresult.afsreply.addressinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise <br/> Os códigos são concatenados usando o caracter ^. Ex.: F^P <br/>[Tabela 20 - ProviderAnalysisResult.AfsReply.AfsFactorCode]({{ site.baseurl_root }}manual/antifraude#tabela-20-provideranalysisresult.afsreply.afsfactorcode)|string|
+|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br/> Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z <br/>[Tabela 22 - ProviderAnalysisResult.AfsReply.AddressInfoCode](https://braspag.github.io//manual/antifraude#tabela-22-provideranalysisresult.afsreply.addressinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Códigos que afetaram a pontuação da análise <br/> Os códigos são concatenados usando o caracter ^. Ex.: F^P <br/>[Tabela 23 - ProviderAnalysisResult.AfsReply.AfsFactorCode](https://braspag.github.io//manual/antifraude#tabela-23-provideranalysisresult.afsreply.afsfactorcode)|string|
 |`ProviderAnalysisResult.AfsReply.AfsResult`|Score total calculado para o pedido|int|
 |`ProviderAnalysisResult.AfsReply.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`ProviderAnalysisResult.AfsReply.CardAccountType`|Tipo do cartão do comprador <br/>[Tabela 21 - ProviderAnalysisResult.AfsReply.CardAccountType]({{ site.baseurl_root }}manual/antifraude#tabela-21-provideranalysisresult.afsreply.cardaccounttype)|string|
+|`ProviderAnalysisResult.AfsReply.CardAccountType`|Tipo do cartão do comprador <br/>[Tabela 24 - ProviderAnalysisResult.AfsReply.CardAccountType](https://braspag.github.io//manual/antifraude#tabela-24-provideranalysisresult.afsreply.cardaccounttype)|string|
 |`ProviderAnalysisResult.AfsReply.CardIssuer`|Nome do banco ou entidade emissora do cartão|string|
 |`ProviderAnalysisResult.AfsReply.CardScheme`|Bandeira do cartão|string|
 |`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Horário local do comprador, calculado a partir da data da solicitação e do endereço de cobrança|string|
 |`ProviderAnalysisResult.AfsReply.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|int|
-|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br/> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br/>[Tabela 22 - ProviderAnalysisResult.AfsReply.HotListInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-22-provideranalysisresult.afsreply.hotlistinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 23 - ProviderAnalysisResult.AfsReply.IdentityInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-23-provideranalysisresult.afsreply.identityinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 24 - ProviderAnalysisResult.AfsReply.InternetInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-24-provideranalysisresult.afsreply.internetinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br/> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br/>[Tabela 25 - ProviderAnalysisResult.AfsReply.HotListInfoCode](https://braspag.github.io//manual/antifraude#tabela-25-provideranalysisresult.afsreply.hotlistinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Códigos que indicam mudanças de identidade excessivas <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 26 - ProviderAnalysisResult.AfsReply.IdentityInfoCode](https://braspag.github.io//manual/antifraude#tabela-26-provideranalysisresult.afsreply.identityinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br/> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br/> [Tabela 27 - ProviderAnalysisResult.AfsReply.InternetInfoCode](https://braspag.github.io//manual/antifraude#tabela-27-provideranalysisresult.afsreply.internetinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.IpCity`|Nome da cidade do comprador obtido a partir do endereço de IP|string|
 |`ProviderAnalysisResult.AfsReply.IpCountry`|Nome do país do comprador obtido a partir do endereço de IP|string|
-|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP <br/> [Tabela 28 - ProviderAnalysisResult.AfsReply.IpRoutingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-32-provideranalysisresult.afsreply.iproutingmethod)|string|
+|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Método de roteamento do comprador obtido a partir do endereço de IP <br/> [Tabela 31 - ProviderAnalysisResult.AfsReply.IpRoutingMethod](https://braspag.github.io//manual/antifraude#tabela-31-provideranalysisresult.afsreply.iproutingmethod)|string|
 |`ProviderAnalysisResult.AfsReply.IpState`|Nome do estado do comprador obtido a partir do endereço de IP|string|
-|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador <br/> Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC <br/> [Tabela 25 - ProviderAnalysisResult.AfsReply.PhoneInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-25-provideranalysisresult.afsreply.phoneinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.ReasonCode`|Código de retorno da Cybersouce <br/> [Tabela 18 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}manual/antifraude#tabela-18-provideranalysisresult.providercode)|int|
+|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador <br/> Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC <br/> [Tabela 28 - ProviderAnalysisResult.AfsReply.PhoneInfoCode](https://braspag.github.io//manual/antifraude#tabela-28-provideranalysisresult.afsreply.phoneinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.ReasonCode`|Código de retorno da Cybersouce <br/> [Tabela 21 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io//manual/antifraude#tabela-21-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|string|
-|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas <br/> Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS <br/> [Tabela 26 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-26-provideranalysisresult.afsreply.suspiciousinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas <br/> Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS <br/> [Tabela 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode](https://braspag.github.io//manual/antifraude#tabela-29-provideranalysisresult.afsreply.suspiciousinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras <br/> Os códigos são concatenados usando o caracter ^. Ex.: VELV-SA^VELI-CC^VELSIP <br/> [Tabela 27 - ProviderAnalysisResult.AfsReply.VelocityInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-27-provideranalysisresult.afsreply.velocityinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`|Linguagem do browser utilizado pelo comprador no momento da compra|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ScreenResolution`|Resolução da tela do comprador no momento da compra|string|
