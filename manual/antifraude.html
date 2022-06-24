@@ -1589,6 +1589,8 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
 
 <h2 id="consultando-uma-transação-cybersource">Consultando uma transação Cybersource</h2>
 
+<p>Para saber o status de uma transação na Cybersource, recomendamos que você configure o <a href="https://braspag.github.io//manual/antifraude#post-de-notifica%C3%A7%C3%A3o">Post de Notificação</a> e também faça a consulta por sondagem, que apresentamos a seguir:</p>
+
 <h3 id="requisição-2">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
@@ -1833,7 +1835,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-16-status">Tabela 16 - Status</a></td>
+      <td style="text-align: left">Status da transação no Antifraude Gateway Braspag <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-19-status">Tabela 19 - Status</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
@@ -1847,14 +1849,14 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code></td>
-      <td style="text-align: left">Status da transação na Cybersource <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-17-providerstatus">Tabela 17 - ProviderStatus</a></td>
+      <td style="text-align: left">Status da transação na Cybersource <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-20-providerstatus">Tabela 20 - ProviderStatus</a></td>
       <td style="text-align: center">enum</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ProviderCode</code></td>
-      <td style="text-align: left">Código de retorno da Cybersouce <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-18-provideranalysisresult.providercode">Tabela 18 - ProviderAnalysisResult.ProviderCode</a></td>
+      <td style="text-align: left">Código de retorno da Cybersouce <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-21-provideranalysisresult.providercode">Tabela 21 - ProviderAnalysisResult.ProviderCode</a></td>
       <td style="text-align: center">int</td>
       <td> </td>
       <td> </td>
@@ -1882,14 +1884,14 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.AfsReply.AddressInfoCode</code></td>
-      <td style="text-align: left">Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br /> Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z <br /><a href="https://braspag.github.io/manual/antifraude#tabela-19-provideranalysisresult.afsreply.addressinfocode">Tabela 19 - ProviderAnalysisResult.AfsReply.AddressInfoCode</a></td>
+      <td style="text-align: left">Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br /> Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z <br /><a href="https://braspag.github.io//manual/antifraude#tabela-22-provideranalysisresult.afsreply.addressinfocode">Tabela 22 - ProviderAnalysisResult.AfsReply.AddressInfoCode</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.AfsReply.AfsFactorCode</code></td>
-      <td style="text-align: left">Códigos que afetaram a pontuação da análise <br /> Os códigos são concatenados usando o caracter ^. Ex.: F^P <br /><a href="https://braspag.github.io/manual/antifraude#tabela-20-provideranalysisresult.afsreply.afsfactorcode">Tabela 20 - ProviderAnalysisResult.AfsReply.AfsFactorCode</a></td>
+      <td style="text-align: left">Códigos que afetaram a pontuação da análise <br /> Os códigos são concatenados usando o caracter ^. Ex.: F^P <br /><a href="https://braspag.github.io//manual/antifraude#tabela-23-provideranalysisresult.afsreply.afsfactorcode">Tabela 23 - ProviderAnalysisResult.AfsReply.AfsFactorCode</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
@@ -1910,7 +1912,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.AfsReply.CardAccountType</code></td>
-      <td style="text-align: left">Tipo do cartão do comprador <br /><a href="https://braspag.github.io/manual/antifraude#tabela-21-provideranalysisresult.afsreply.cardaccounttype">Tabela 21 - ProviderAnalysisResult.AfsReply.CardAccountType</a></td>
+      <td style="text-align: left">Tipo do cartão do comprador <br /><a href="https://braspag.github.io//manual/antifraude#tabela-24-provideranalysisresult.afsreply.cardaccounttype">Tabela 24 - ProviderAnalysisResult.AfsReply.CardAccountType</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
@@ -1945,21 +1947,21 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.AfsReply.HotListInfoCode</code></td>
-      <td style="text-align: left">Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br /> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br /><a href="https://braspag.github.io/manual/antifraude#tabela-22-provideranalysisresult.afsreply.hotlistinfocode">Tabela 22 - ProviderAnalysisResult.AfsReply.HotListInfoCode</a></td>
+      <td style="text-align: left">Códigos que indicam que os dados do comprador estão associados em listas de positivas ou negativas <br /> Os códigos são concatenados usando o caracter ^. Ex.: NEG-AFCB^NEG-CC <br /><a href="https://braspag.github.io//manual/antifraude#tabela-25-provideranalysisresult.afsreply.hotlistinfocode">Tabela 25 - ProviderAnalysisResult.AfsReply.HotListInfoCode</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.AfsReply.IdentityInfoCode</code></td>
-      <td style="text-align: left">Códigos que indicam mudanças de identidade excessivas <br /> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-23-provideranalysisresult.afsreply.identityinfocode">Tabela 23 - ProviderAnalysisResult.AfsReply.IdentityInfoCode</a></td>
+      <td style="text-align: left">Códigos que indicam mudanças de identidade excessivas <br /> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-26-provideranalysisresult.afsreply.identityinfocode">Tabela 26 - ProviderAnalysisResult.AfsReply.IdentityInfoCode</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.AfsReply.InternetInfoCode</code></td>
-      <td style="text-align: left">Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br /> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-24-provideranalysisresult.afsreply.internetinfocode">Tabela 24 - ProviderAnalysisResult.AfsReply.InternetInfoCode</a></td>
+      <td style="text-align: left">Códigos que indicam problemas com o endereço de e-mail, o endereço IP ou o endereço de cobrança <br /> Os códigos são concatenados usando o caracter ^. Ex.: COR-BA^MM-BIN <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-27-provideranalysisresult.afsreply.internetinfocode">Tabela 27 - ProviderAnalysisResult.AfsReply.InternetInfoCode</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
@@ -1980,7 +1982,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.AfsReply.IpRoutingMethod</code></td>
-      <td style="text-align: left">Método de roteamento do comprador obtido a partir do endereço de IP <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-32-provideranalysisresult.afsreply.iproutingmethod">Tabela 28 - ProviderAnalysisResult.AfsReply.IpRoutingMethod</a></td>
+      <td style="text-align: left">Método de roteamento do comprador obtido a partir do endereço de IP <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-31-provideranalysisresult.afsreply.iproutingmethod">Tabela 31 - ProviderAnalysisResult.AfsReply.IpRoutingMethod</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
@@ -1994,14 +1996,14 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.AfsReply.PhoneInfoCode</code></td>
-      <td style="text-align: left">Códigos que indicam um problema com o número de telefone do comprador <br /> Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-25-provideranalysisresult.afsreply.phoneinfocode">Tabela 25 - ProviderAnalysisResult.AfsReply.PhoneInfoCode</a></td>
+      <td style="text-align: left">Códigos que indicam um problema com o número de telefone do comprador <br /> Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-28-provideranalysisresult.afsreply.phoneinfocode">Tabela 28 - ProviderAnalysisResult.AfsReply.PhoneInfoCode</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.AfsReply.ReasonCode</code></td>
-      <td style="text-align: left">Código de retorno da Cybersouce <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-18-provideranalysisresult.providercode">Tabela 18 - ProviderAnalysisResult.ProviderCode</a></td>
+      <td style="text-align: left">Código de retorno da Cybersouce <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-21-provideranalysisresult.providercode">Tabela 21 - ProviderAnalysisResult.ProviderCode</a></td>
       <td style="text-align: center">int</td>
       <td> </td>
       <td> </td>
@@ -2015,7 +2017,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</code></td>
-      <td style="text-align: left">Códigos que indicam que o comprador forneceu potencialmente informações suspeitas <br /> Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-26-provideranalysisresult.afsreply.suspiciousinfocode">Tabela 26 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</a></td>
+      <td style="text-align: left">Códigos que indicam que o comprador forneceu potencialmente informações suspeitas <br /> Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS <br /> <a href="https://braspag.github.io//manual/antifraude#tabela-29-provideranalysisresult.afsreply.suspiciousinfocode">Tabela 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</a></td>
       <td style="text-align: center">string</td>
       <td> </td>
       <td> </td>
