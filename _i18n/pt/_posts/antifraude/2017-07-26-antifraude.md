@@ -850,18 +850,18 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`CartItem[n].Sku`|Sku do produto|string|
 |`CartItem[n].Quantity`|Quantidade do produto|int|
 |`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Tabela 11 - CartItem{n}.AddressRiskVerify](https://braspag.github.io//manual/antifraude#tabela-11-cartitem[n].addressriskverify)|enum|
-|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Tabela 9 - CartItem{n}.HostHedge]({{ site.baseurl_root }}manual/antifraude#tabela-9-cartitem[n].hosthedge)|enum|
-|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Tabela 10 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge)|enum|
-|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Tabela 11 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}manual/antifraude#tabela-11-cartitem[n].obscenitieshedge)|enum|
-|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Tabela 12 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}manual/antifraude#tabela-12-cartitem[n].timehedge)|enum|
-|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Tabela 13 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}manual/antifraude#tabela-17-cartitem[n].phonehedge)|enum|
-|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Tabela 14 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}manual/antifraude#tabela-18-cartitem[n].velocityhedge)|enum|
+|`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Tabela 12 - CartItem{n}.HostHedge](https://braspag.github.io//manual/antifraude#tabela-12-cartitem[n].hosthedge)|enum|
+|`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Tabela 13 - CartItem{n}.NonSensicalHedge](https://braspag.github.io//manual/antifraude#tabela-13-cartitem[n].nonsensicalhedge)|enum|
+|`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Tabela 14 - CartItem{n}.ObscenitiesHedge](https://braspag.github.io//manual/antifraude#tabela-14-cartitem[n].obscenitieshedge)|enum|
+|`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Tabela 15 - CartItem{n}.TimeHedge](https://braspag.github.io//manual/antifraude#tabela-15-cartitem[n].timehedge)|enum|
+|`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Tabela 16 - CartItem{n}.PhoneHedge](https://braspag.github.io//manual/antifraude#tabela-16-cartitem[n].phonehedge)|enum|
+|`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentros dos 15 minutos anteriores <br/> [Tabela 17 - CartItem{n}.VelocityHedge](https://braspag.github.io//manual/antifraude#tabela-17-cartitem[n].velocityhedge)|enum|
 |`Bank.Name`|Nome do banco do comprador|string|
 |`Bank.Code`|Código do banco do comprador|string|
 |`Bank.Agency`|Agência do banco do comprador|string|
 |`Bank.Address`|Endereço do banco do comprador|string|
 |`Bank.City`|Cidade onde está localizado o banco do comprador|string|
-|`Bank.Country`|País onde está localizado o banco do comprador <br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Bank.Country`|País onde está localizado o banco do comprador <br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
 |`Bank.SwiftCode`|Código identificador único do banco do comprador|string|
 |`FundTransfer.AccountName`|Nome vinculado a conta bancária|string|
 |`FundTransfer.AccountNumber`|Número da conta bancária do comprador|string|
@@ -869,22 +869,22 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|
 |`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|
 |`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|bool|
-|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Tabela 15 - Invoice.Tender]({{ site.baseurl_root }}manual/antifraude#tabela-19-invoice.tender)|enum|
-|`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 4 - Airline.JourneyType]({{ site.baseurl_root }}manual/antifraude#tabela-4-airline.journeytype)|enun|
+|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Tabela 18 - Invoice.Tender](https://braspag.github.io//manual/antifraude#tabela-18-invoice.tender)|enum|
+|`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 7 - Airline.JourneyType](https://braspag.github.io//manual/antifraude#tabela-7-airline.journeytype)|enun|
 |`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|
 |`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|
 |`Airline.Passengers[n].LastName`|Último nome do passageiro|string|
 |`Airline.Passengers[n].PassengerId`|Identificador do passageiro a quem a passagem foi emitida|string|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 5 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}manual/antifraude#tabela-5-airline.passengers[n].passengertype)|enum|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 8 - Airline.Passengers{n}.PassengerType](https://braspag.github.io//manual/antifraude#tabela-8-airline.passengers[n].passengertype)|enum|
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|
-|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 6 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}manual/antifraude#tabela-6-airline.passengers[n].status)|enum|
-|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
-|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
+|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 9 - Airline.Passengers{n}.Status]([{{ site.baseurl_root }}manual/antifraude#tabela-6-airline.passengers[n].status](https://braspag.github.io//manual/antifraude#tabela-9-airline.passengers[n].status))|enum|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 31 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}manual/antifraude#tabela-31-merchantdefineddata-(cybersource))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 31 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}manual/antifraude#tabela-31-merchantdefineddata-(cybersource))|var|não|-|
+|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 34 - MerchantDefinedData(Cybersource)](https://braspag.github.io//manual/antifraude#tabela-34-merchantdefineddata-(cybersource))|int|não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 34 - MerchantDefinedData(Cybersource)](https://braspag.github.io//manual/antifraude#tabela-34-merchantdefineddata-(cybersource))|var|não|-|
 
 ## Update de status Cybersource
 
