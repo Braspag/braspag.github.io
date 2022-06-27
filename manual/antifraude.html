@@ -2811,9 +2811,18 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
 
 <h2 id="update-de-status-cybersource">Update de status Cybersource</h2>
 
-<p>Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject) ou aceita (accept) para rejeita (reject).</p>
+<p>Em caso de revisão manual pelo próprio e-commerce, recomendamos que o resultado da revisão (novo status) seja enviado para a Cybersource a fim de refinar o processo de análise de fraude da sua loja.</p>
+
+<p>Siga o exemplo de requisição a seguir para alterar o status de transações:</p>
+
+<ul>
+  <li>De <em>Review</em> (em revisão) para <em>Accept</em> (aceita) ou <em>Reject</em> (rejeitada);</li>
+  <li>De <em>Accept</em> (aceita) para <em>Reject</em> (rejeitada).</li>
+</ul>
 
 <h3 id="requisição-3">Requisição</h3>
+
+<p>Para solicitar o update de status você deve gerar o token de acesso (access_token) e enviá-lo no header da requisição.</p>
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
 
