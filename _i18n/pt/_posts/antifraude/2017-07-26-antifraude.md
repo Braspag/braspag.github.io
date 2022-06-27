@@ -2103,7 +2103,7 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 |`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo ou domínio conforme especificado no manual.|
 |`FraudAnalysisRequestError`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tamanho especificado no manual.|
 
-# Consultando uma transação Inexistente 
+# Consultando uma transação inexistente 
 
 ## Requisição
 
