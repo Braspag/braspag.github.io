@@ -2139,9 +2139,9 @@ Esta sessão descreve o serviço de Post de Notificação, que envia uma notific
 **Importante**
 
 * No processo de onboarding da sua loja, solicite o cadastramento da URL de mudança de status da sua loja ao time de Implantação da Braspag;
-*	A URL cadastrada pela loja para receber a notificação da mudança de status deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja. Caso contrário, serão realizadas mais 3 tentativas de envio.
-*	A URL de mudança de status somente pode utilizar a porta 80 (padrão para HTTP) ou a porta 443 (padrão para HTTPS). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS;
-*	Após o recebimento da notificação de mudança de status, faça uma consulta, enviando o Id da transação recebido na notificação da mudança de status para obter o novo status da transação.
+* A URL cadastrada pela loja para receber a notificação da mudança de status deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja. Caso contrário, serão realizadas mais 3 tentativas de envio.
+* A URL de mudança de status somente pode utilizar a porta 80 (padrão para HTTP) ou a porta 443 (padrão para HTTPS). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS;
+* Após o recebimento da notificação de mudança de status, faça uma consulta, enviando o Id da transação recebido na notificação da mudança de status para obter o novo status da transação.
 
 **[Consulta na Cybersource](https://braspag.github.io//manual/antifraude#consultando-uma-transa%C3%A7%C3%A3o-cybersource)**
 **[Consulta na ACI Worldwide](https://braspag.github.io//manual/antifraude#consultando-uma-transa%C3%A7%C3%A3o-na-aci-worldwide)**
