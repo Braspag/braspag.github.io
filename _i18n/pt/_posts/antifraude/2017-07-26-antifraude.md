@@ -878,7 +878,7 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 8 - Airline.Passengers{n}.PassengerType](https://braspag.github.io//manual/antifraude#tabela-8-airline.passengers[n].passengertype)|enum|
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|
-|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 9 - Airline.Passengers{n}.Status]([{{ site.baseurl_root }}manual/antifraude#tabela-6-airline.passengers[n].status](https://braspag.github.io//manual/antifraude#tabela-9-airline.passengers[n].status))|enum|
+|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 9 - Airline.Passengers{n}.Status](https://braspag.github.io//manual/antifraude#tabela-9-airline.passengers[n].status)|enum|
 |`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|
 |`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|
 |`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|
