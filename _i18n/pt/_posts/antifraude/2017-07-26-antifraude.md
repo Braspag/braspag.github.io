@@ -845,7 +845,7 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|
 |`CartItem[n].ProductName`|Nome do produto|string|
 |`CartItem[n].Category`|Categoria do produto <br/> [Tabela 36 - CartItem{n}.Category](https://braspag.github.io//manual/antifraude#tabela-36-cartitem[n].category)|enum|
-|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 10 - CartItem{n}.Risk]([{{ site.baseurl_root }}manual/antifraude#tabela-7-cartitem[n].ris](https://braspag.github.io//manual/antifraude#tabela-10-cartitem[n].risk)k)|enum|
+|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 10 - CartItem{n}.Risk](https://braspag.github.io//manual/antifraude#tabela-10-cartitem[n].risk)|enum|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|
 |`CartItem[n].Sku`|Sku do produto|string|
 |`CartItem[n].Quantity`|Quantidade do produto|int|
