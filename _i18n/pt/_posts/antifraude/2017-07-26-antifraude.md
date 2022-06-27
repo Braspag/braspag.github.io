@@ -2145,7 +2145,8 @@ O Post de Notificação é um webhook que envia uma notificação para a URL cad
 * A URL de mudança de status somente pode utilizar a porta 80 (padrão para HTTP) ou a porta 443 (padrão para HTTPS). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS.
 <br/>
 <br/>
-> Após o recebimento da notificação de mudança de status, faça uma consulta enviando o Id da transação (recebido na notificação da mudança de status) para obter o novo status da transação:<br/>
+> **Após receber a notificação de mudança de status, faça uma consulta** enviando o Id da transação recebido para obter o novo status da transação:<br/>
+> <br/>
 > **[Consulta na Cybersource](https://braspag.github.io//manual/antifraude#consultando-uma-transa%C3%A7%C3%A3o-cybersource)**<br/>
 > **[Consulta na ACI Worldwide](https://braspag.github.io//manual/antifraude#consultando-uma-transa%C3%A7%C3%A3o-na-aci-worldwide)**
 
