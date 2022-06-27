@@ -1474,7 +1474,7 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 |`Billing.Neighborhood`|Bairro do endereço de cobrança|string|não|15|
 |`Billing.City`|Cidade do endereço de cobrança|string|não|20|
 |`Billing.State`|Estado do endereço de cobrança|string|não|2|
-|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
+|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|não|2|
 |`Billing.ZipCode`|Código postal do endereço de cobrança|string|não|9|
 |`Shipping.Street`|Logradouro do endereço de entrega|string|não|24|
 |`Shipping.Number`|Número do endereço de entrega|string|não|5|
@@ -1482,7 +1482,7 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 |`Shipping.Neighborhood`|Bairro do endereço de entrega|string|não|15|
 |`Shipping.City`|Cidade do endereço de entrega|string|não|20|
 |`Shipping.State`|Estado do endereço de entrega|string|não|2|
-|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|2|
+|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|não|2|
 |`Shipping.ZipCode`|Código postal do endereço de entrega|string|não|9|
 |`Shipping.Email`|E-mail do responsável a receber o produto no endereço de entrega|string|não|60|
 |`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|não|30|
@@ -1498,14 +1498,14 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 |`Customer.MiddleName`|Primeira letra do nome do comprador|string|não|1|
 |`Customer.LastName`|Último nome do comprador|string|sim|30|
 |`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|sim|-|
-|`Customer.Gender`|Sexo do comprador <br/> [Tabela 6 - Customer.Gender]({{ site.baseurl_root }}manual/antifraude#tabela-6-customer.gender)|string|não|6|
+|`Customer.Gender`|Sexo do comprador <br/> [Tabela 5 - Customer.Gender](https://braspag.github.io/manual/antifraude#tabela-5-customer.gender)|string|não|6|
 |`Customer.Email`|E-mail do comprador|string|não|60|
 |`Customer.Ip`|Endereço de IP do comprador|string|não|15|
 |`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|não|19|
 |`Customer.WorkPhone`|Número do telefone do comprador <br/> Ex.: 552121114701|string|não|19|
 |`Customer.Mobile`|Número do celular do comprador <br/> Ex.: 5521987654321|string|não|19|
-|`Customer.Status`|Status do comprador na loja <br/> [Tabela 7 - Customer.Status]({{ site.baseurl_root }}manual/antifraude#tabela-7-customer.status)|string|não|8|
-|`Customer.BrowserFingerPrint`|Impressão digital de dispositivos e geolocalização real do IP do comprador - [Configuração do Fingerprint]({{ site.baseurl_root }}/manual/antifraude#redshield44)|string|sim|6005|
+|`Customer.Status`|Status do comprador na loja <br/> [Tabela 6 - Customer.Status](https://braspag.github.io/manual/antifraude#tabela-6-customer.status)|string|não|8|
+|`Customer.BrowserFingerPrint`|Impressão digital de dispositivos e geolocalização real do IP do comprador - [Configuração do Fingerprint](https://braspag.github.io/manual/antifraude#fingerprint-com-a-aci-worldwide)|string|sim|6005|
 |`CartItem[n].ProductName`|Nome do produto|string|não|50|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|não|-|
 |`CartItem[n].OriginalPrice`|Preço original do produto <br/> Ex: 11490 = r$ 114,90|long|não|-|
@@ -1515,7 +1515,7 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 |`CartItem[n].GiftMessage`|Mensagem de presente|string|não|160|
 |`CartItem[n].Description`|Descrição do produto|string|não|76|
 |`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|não|160|
-|`CartItem[n].ShippingMethod`|Meio de entrega do produto <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
+|`CartItem[n].ShippingMethod`|Meio de entrega do produto <br/> [Tabela 4 - ShippingMethod](https://braspag.github.io/manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
 |`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|não|19|
 |`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo|bool|não|-|
 |`Airline.BookingType`|Tipo de agendamento da reserva|string|não|255|
@@ -1524,21 +1524,21 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 |`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|29|
 |`Airline.Passengers[n].MiddleName`|Nome do meio do passageiro|string|não|1|
 |`Airline.Passengers[n].LastName`|Último nome do passageiro|string|não|28|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}manual/antifraude#tabela-9-airline.passengers[n].passengertype)|enum|não|-|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 8 - Airline.Passengers{n}.PassengerType](https://braspag.github.io/manual/antifraude#tabela-8-airline.passengers[n].passengertype)|enum|não|-|
 |`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|19|
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|60|
 |`Airline.Passengers[n].LoyaltyMemberNumber`|Número de fidelidade do passageiro|string|não|255|
 |`Airline.Passengers[n].TicketNumber`|Número da passagem|string|não|20|
-|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
-|`Airline.Passengers[n].Legs[n].DepartureCountry`|Código do país do aeroporto de saída. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|3|
-|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|não|3|
-|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Código do país do aeroporto de chegada. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|não|3|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|não|3|
+|`Airline.Passengers[n].Legs[n].DepartureCountry`|Código do país do aeroporto de saída. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|não|3|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|não|3|
+|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Código do país do aeroporto de chegada. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|não|3|
 |`Airline.Passengers[n].Legs[n].AirlineCode`|Código da companhia aérea|string|não|3|
 |`Airline.Passengers[n].Legs[n].DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38 |datetime|não|-|
 |`Airline.Passengers[n].Legs[n].ClassOfService`|Classe de serviço|string|não|30|
 |`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}manual/antifraude#tabela-36-merchantdefineddata-(redshield))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 36 - MerchantDefinedData(ReDShield)]({{ site.baseurl_root }}manual/antifraude#tabela-36-merchantdefineddata-(redshield))|var|não|-|
+|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData (ACI Worldwide)](https://braspag.github.io/manual/antifraude#tabela-35-merchantdefineddata-(aci-worldwide))|int|não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData (ACI Worldwide)](https://braspag.github.io/manual/antifraude#tabela-35-merchantdefineddata-(aci-worldwide))|var|não|-|
 
 ### Resposta
 
