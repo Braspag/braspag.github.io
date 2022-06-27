@@ -888,9 +888,16 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 
 ## Update de status Cybersource
 
-Esta sessão descreve como alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject) ou aceita (accept) para rejeita (reject).
+Em caso de revisão manual pelo próprio e-commerce, recomendamos que o resultado da revisão (novo status) seja enviado para a Cybersource a fim de refinar o processo de análise de fraude da sua loja.
+
+Siga o exemplo de requisição a seguir para alterar o status de transações:
+
+* De *Review* (em revisão) para *Accept* (aceita) ou *Reject* (rejeitada);
+* De *Accept* (aceita) para *Reject* (rejeitada).
 
 ### Requisição
+
+Para solicitar o update de status você deve gerar o token de acesso (access_token) e enviá-lo no header da requisição.
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
 
