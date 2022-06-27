@@ -2179,14 +2179,13 @@ Esta sessão descreve o serviço de Post de Notificação, que envia uma notific
 
 # Associar transação
 
-Esta sessão descreve como associar uma transação do Pagador Braspag ou outra solução de autorização à uma transação do Antifraude Gateway Braspag.
+A associação de uma transação do Pagador Braspag ou de outra solução de autorização à uma transação do Antifraude Gateway Braspag pode ser feita quando o fluxo de análise de fraude é o **AuthorizeFirst**.
 
-> Você deverá realizar esta chamada quando estiver utilizando o fluxo abaixo: <br/>
-> 1 - Realiza análise através do Antifraude Gateway Braspag <br/>
-> 2 - Realiza a autorização através do Pagador Braspag ou outra solução de autorização <br/>
-> 3 - Chamada a este serviço para associar a transação do Pagador Braspag ou outra solução de autorização à transação do Antifraude Gateway Braspag
+> Você deverá realizar esta chamada quando: <br/>
+> 1. Realiza a análise de fraude através do Antifraude Gateway Braspag <br/>
+> 2. Realiza a autorização através do Pagador Braspag ou outra solução de autorização.
 
-Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a análise de risco acontece depois da solução do Pagador de autorização da transação, consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude).
+Para saber mais sobre o modelo **AuthorizeFirst** de análise de fraude, em que a análise de risco acontece depois da autorização da transação, consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude){:target="_blank"}.
 
 ## Antifraude e Pagador
 
@@ -2217,35 +2216,14 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 ### Resposta
 
-**Parâmetros no cabeçalho (header)**
+A resposta sempre irá apresentar no header o `Content-Type` com o valor "application/json" e o `Status`. Veja a seguir o status possível para cada cenário:
 
-* Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|200 OK|
-
-* Quando a transação do Pagador não for informada na requisição
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-* Quando a transação do Antifraude Gateway não for encontrada na base de dados
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|404 Not Found|
-
-* Quando a transação do Pagador já estiver associada a outra transação do Antifraude Gateway
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|409 Conflict|
+|Status|Descrição|
+|---|---|
+|200 OK | A transação do Pagador foi associada corretamente com a transação do Antifraude Gateway.|
+|400 Bad Request| A transação do Pagador não foi informada na requisição.|
+|404 Not Found|A transação do Antifraude Gateway não foi encontrada na base de dados.|
+|409 Conflict|A transação do Pagador já está associada à outra transação do Antifraude Gateway.|
 
 ## Antifraude e outra solução de autorização
 
@@ -2275,42 +2253,21 @@ Para saber mais sobre o modelo `AuthorizeFirst` da análise de fraude, em que a 
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
-|`Tid`|Id da transação na adquirente|string|sim|20|
-|`Nsu`|Número sequencial único da transação na adquirente|string|sim|10|
-|`AuthorizationCode`|Código de autorização da transação na adquirente|string|sim|10|
-|`SaleDate`|Data da autorização da transação da transação na adquirente|datetime|sim|-|
+|`Tid`|Id da transação na adquirente.|string|sim|20|
+|`Nsu`|Número sequencial único da transação na adquirente.|string|sim|10|
+|`AuthorizationCode`|Código de autorização da transação na adquirente.|string|sim|10|
+|`SaleDate`|Data da autorização da transação da transação na adquirente.|datetime|sim|-|
 
 ### Resposta
 
-**Parâmetros no cabeçalho (header)**
+A resposta sempre irá apresentar no header o `Content-Type` com o valor "application/json" e o `Status`. Veja a seguir o status possível para cada cenário:
 
-* Quando a transação de outra solução de autorização for associada corretamente com a transação do Antifraude Gateway
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|200 OK|
-
-* Quando um dos campos do contrato (Tid, Nsu, Código de autorização e Data da venda) não for informada na requisição
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-* Quando a transação do Antifraude Gateway não for encontrada na base de dados
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|404 Not Found|
-
-* Quando a transação de outra solução de autorização já estiver associada a outra transação do Antifraude Gateway
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|409 Conflict|
+|Status|Descrição|
+|---|---|
+|200 OK | A transação da outra solução de autorização (diferente do Pagador) foi associada corretamente com a transação do Antifraude Gateway.|
+|400 Bad Request| Um dos campos do contrato (Tid, Nsu, Código de autorização e Data da venda) não foi informado na requisição.|
+|404 Not Found|A transação do Antifraude Gateway não foi encontrada na base de dados.|
+|409 Conflict|A transação da outra solução de autorização já está associada à outra transação do Antifraude Gateway.|
 
 # Tabelas
 
