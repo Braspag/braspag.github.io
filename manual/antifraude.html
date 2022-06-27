@@ -5722,9 +5722,9 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
 
 <h1 id="post-de-notificação">Post de Notificação</h1>
 
-<p>Para saber o status de uma transação na Cybersource, recomendamos que você configure o Post de Notificação e também faça a consulta por sondagem.</p>
+<p>Para saber o status de uma transação, recomendamos que você configure o Post de Notificação para receber a notificação de mudança de status e também faça a consulta por sondagem para visualizar o status atual.</p>
 
-<p>Esta sessão descreve o serviço de Post de Notificação, que envia uma notificação para a sua loja, caso haja alguma alteração de status na transação:</p>
+<p>O Post de Notificação é um webhook que envia uma notificação para a URL cadastrada pela sua loja, caso haja alguma alteração de status na transação:</p>
 
 <ul>
   <li>De <em>Review</em> (em revisão) para <em>Accept</em> (aceita) ou <em>Reject</em> (rejeitada);</li>
@@ -5732,15 +5732,16 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
 <br />
 <br />
 <strong>Importante:</strong>
+<br />
 <br /></li>
-  <li>No processo de onboarding da sua loja, solicite o cadastramento da URL de mudança de status da sua loja ao time de Implantação da Braspag;</li>
-  <li>A URL cadastrada pela loja para receber a notificação da mudança de status deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja. Caso contrário, serão realizadas mais 3 tentativas de envio.</li>
-  <li>A URL de mudança de status somente pode utilizar a porta 80 (padrão para HTTP) ou a porta 443 (padrão para HTTPS). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS;</li>
-  <li>Após o recebimento da notificação de mudança de status, faça uma consulta, enviando o Id da transação recebido na notificação da mudança de status para obter o novo status da transação.
+  <li>No processo de onboarding, solicite o cadastramento da URL de mudança de status da sua loja ao time de Implantação da Braspag;</li>
+  <li>A URL cadastrada pela loja para receber a notificação da mudança de status deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja. Caso contrário, serão realizadas mais 3 tentativas de envio;</li>
+  <li>A URL de mudança de status somente pode utilizar a porta 80 (padrão para HTTP) ou a porta 443 (padrão para HTTPS). Recomendamos que a loja trabalhe sempre com SSL para esta URL, ou seja, sempre HTTPS.
 <br />
 <br />
     <blockquote>
-      <p><strong><a href="https://braspag.github.io//manual/antifraude#consultando-uma-transa%C3%A7%C3%A3o-cybersource">Consulta na Cybersource</a></strong><br />
+      <p>Após o recebimento da notificação de mudança de status, faça uma consulta enviando o Id da transação (recebido na notificação da mudança de status) para obter o novo status da transação:<br />
+<strong><a href="https://braspag.github.io//manual/antifraude#consultando-uma-transa%C3%A7%C3%A3o-cybersource">Consulta na Cybersource</a></strong><br />
 <strong><a href="https://braspag.github.io//manual/antifraude#consultando-uma-transa%C3%A7%C3%A3o-na-aci-worldwide">Consulta na ACI Worldwide</a></strong></p>
     </blockquote>
   </li>
