@@ -773,7 +773,7 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`ProviderAnalysisResult.AfsReply.ReasonCode`|Código de retorno da Cybersouce <br/> [Tabela 21 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io//manual/antifraude#tabela-21-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado|string|
 |`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Códigos que indicam que o comprador forneceu potencialmente informações suspeitas <br/> Os códigos são concatenados usando o caracter ^. Ex.: RISK-TB^RISK-TS <br/> [Tabela 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode](https://braspag.github.io//manual/antifraude#tabela-29-provideranalysisresult.afsreply.suspiciousinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras <br/> Os códigos são concatenados usando o caracter ^. Ex.: VELV-SA^VELI-CC^VELSIP <br/> [Tabela 27 - ProviderAnalysisResult.AfsReply.VelocityInfoCode]({{ site.baseurl_root }}manual/antifraude#tabela-27-provideranalysisresult.afsreply.velocityinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Códigos que indicam que o comprador tem uma alta frequência de compras <br/> Os códigos são concatenados usando o caracter ^. Ex.: VELV-SA^VELI-CC^VELSIP <br/> [Tabela 30 - ProviderAnalysisResult.AfsReply.VelocityInfoCode](https://braspag.github.io//manual/antifraude#tabela-30-provideranalysisresult.afsreply.velocityinfocode)|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`|Linguagem do browser utilizado pelo comprador no momento da compra|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ScreenResolution`|Resolução da tela do comprador no momento da compra|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.CookiesEnabled`|Flag identificando que o browser do comprador estava habilitado para armazenar cookies temporariamente no momento da compra|string|
@@ -790,16 +790,16 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.Name`|Quando modo verbose ativado, nome do perfil selecionado na análise. Se não tiver nenhum, o perfil padrão foi selecionado|string|
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.SelectedBy`|Quando modo verbose ativado, nome do seletor de regras que seleciona o perfil de regras|string|
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].RuleId`|Quando modo verbose ativado, id da regra|enum|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|Quando modo verbose ativado, decisão tomada pela regra <br/> [Tabela 29 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision]({{ site.baseurl_root }}manual/antifraude#tabela-29-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision)|enum|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|Quando modo verbose ativado, avaliação da regra <br/> [Tabela 30 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation]({{ site.baseurl_root }}manual/antifraude#tabela-34-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation)|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|Quando modo verbose ativado, decisão tomada pela regra <br/> [Tabela 30 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision](https://braspag.github.io//manual/antifraude#tabela-32-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision)|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|Quando modo verbose ativado, avaliação da regra <br/> [Tabela 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation](https://braspag.github.io//manual/antifraude#tabela-33-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation)|enum|
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name`|Quando modo verbose ativado, nome da regra|string|
 |`ProviderAnalysisResult.DecisionReply.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|string|
 |`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Códigos de informação disparados pela análise. Estes códigos foram gerados no momento da criação das regras|string|
 |`MerchantOrderId` |Número do pedido da loja|string|
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|
-|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|string|
-|`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}//manual/antifraude#tabela-1-provider)|enum|
+|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|string|
+|`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider](https://braspag.github.io//manual/antifraude#tabela-1-provider)|enum|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|
 |`Tid`|Id da transação na adquirente <br/>|string|
 |`Nsu`|Número sequencial único da transação na adquirente <br/>|string|
@@ -808,7 +808,7 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`Card.Number`|Número do cartão de crédito|string|
 |`Card.Holder`|Nome do cartão de crédito|string|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|
-|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 2 - Card.Brand]({{ site.baseurl_root }}manual/antifraude#tabela-2-card.brand)|enum|
+|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand](https://braspag.github.io//manual/antifraude#tabela-3-card.brand)|enum|
 |`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|
 |`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|
 |`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|
@@ -818,7 +818,7 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`Billing.Neighborhood`|Bairro do endereço de cobrança|string|
 |`Billing.City`|Cidade do endereço de cobrança|string|
 |`Billing.State`|Estado do endereço de cobrança|string|
-|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
 |`Billing.ZipCode`|Código postal do endereço de cobrança|string|
 |`Shipping.Street`|Logradouro do endereço de entrega|string|
 |`Shipping.Number`|Número do endereço de entrega|string|
@@ -826,12 +826,12 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`Shipping.Neighborhood`|Bairro do endereço de entrega|string|
 |`Shipping.City`|Cidade do endereço de entrega|string|
 |`Shipping.State`|Estado do endereço de entrega|string|
-|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
 |`Shipping.ZipCode`|Código postal do endereço de entrega|string|
 |`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|
 |`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|
 |`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|
-|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 3 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-3-shippingmethod)|enum|
+|`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod](https://braspag.github.io//manual/antifraude#tabela-4-shippingmethod)|enum|
 |`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|
 |`Customer.FirstName`|Primeiro nome do comprador|string|
 |`Customer.LastName`|Último nome do comprador|string|
@@ -844,12 +844,12 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|
 |`CartItem[n].ProductName`|Nome do produto|string|
-|`CartItem[n].Category`|Categoria do produto <br/> [Tabela 32 - CartItem{n}.Category]({{ site.baseurl_root }}manual/antifraude#tabela-32-cartitem[n].category)|enum|
-|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 7 - CartItem{n}.Risk]({{ site.baseurl_root }}manual/antifraude#tabela-7-cartitem[n].risk)|enum|
+|`CartItem[n].Category`|Categoria do produto <br/> [Tabela 36 - CartItem{n}.Category](https://braspag.github.io//manual/antifraude#tabela-36-cartitem[n].category)|enum|
+|`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 10 - CartItem{n}.Risk]([{{ site.baseurl_root }}manual/antifraude#tabela-7-cartitem[n].ris](https://braspag.github.io//manual/antifraude#tabela-10-cartitem[n].risk)k)|enum|
 |`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|
 |`CartItem[n].Sku`|Sku do produto|string|
 |`CartItem[n].Quantity`|Quantidade do produto|int|
-|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Tabela 8 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}manual/antifraude#tabela-8-cartitem[n].addressriskverify)|enum|
+|`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Tabela 11 - CartItem{n}.AddressRiskVerify](https://braspag.github.io//manual/antifraude#tabela-11-cartitem[n].addressriskverify)|enum|
 |`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Tabela 9 - CartItem{n}.HostHedge]({{ site.baseurl_root }}manual/antifraude#tabela-9-cartitem[n].hosthedge)|enum|
 |`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Tabela 10 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}manual/antifraude#tabela-14-cartitem[n].nonsensicalhedge)|enum|
 |`CartItem[n].ObscenitiesHedge`|Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude <br/> [Tabela 11 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}manual/antifraude#tabela-11-cartitem[n].obscenitieshedge)|enum|
