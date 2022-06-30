@@ -8080,7 +8080,7 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 |"4"|Mudança de status do pagamento recorrente (Ex.: desativação automática).|
 |"5"|Estorno negado (aplicável para **Rede**).|
 |"6"|Boleto registrado pago a menor.|
-|"7"|Notificação de chargeback. Para mais detalhes, consulte o manual de [Risk Notification](https://braspag.github.io//manual/risknotification).|
+|"7"|Notificação de chargeback. Exclusivo para clientes integrados à [Risk Notification API](https://braspag.github.io//manual/risknotification).|
 |"8"|Alerta de fraude.|
 
 ## Resposta Esperada
