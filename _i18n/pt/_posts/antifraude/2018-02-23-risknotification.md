@@ -663,7 +663,80 @@ Após a consulta, você deve decidir por [aceitar](https://braspag.github.io//ma
 
 # Consultas
 
-## Request
+## Consulta por TransactionId
+
+### Requisição
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback/GetByBraspagTransactionId/{{TransactionId}}</span></aside>
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+
+### Resposta
+
+```json
+{
+    "Id": "fd14e3fb-cf2a-4228-b690-1338660afc54",
+    "CreatedDate": "2022-06-24T20:45:55.2",
+    "Date": "2022-06-24T00:00:00",
+    "CaseNumber": "000001",
+    "Amount": 10000,
+    "ReasonCode": "28",
+    "ReasonMessage": "Consumidor nao reconhece a compra",
+    "Status": "Received",
+    "IsFraud": true,
+    "Transaction": {
+        "AcquirerType": "Cielo",
+        "EstablishmentCode": "1234567890",
+        "MerchantOrderId": "abc123efg",
+        "Tid": "1234567890BA2018XPTO",
+        "Nsu": "258654",
+        "AuthorizationCode": "T85245",
+        "SaleDate": "2022-06-06T00:00:00",
+        "PagadorMerchantId": "a1052460-92b2-49c3-a929-fc985df0ba2f",
+        "BraspagTransactionId": "bb33b5c5-82fe-4254-9f1d-b9c97297b0d5",
+        "Amount": 10000,
+        "RawData": "JOAO D SOUZA",
+        "MaskedCardNumber": "453906******8385",
+        "Brand": "Visa",
+        "AntifraudSourceApplication": "Gateway"
+    }
+}
+```
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`Id`|Id do chargeback na Chargeback API Braspag|guid|
+|`CreatedDate`|Data de criação do chargeback na Chargeback API Braspag <br/> Ex.: 2018-09-01 09:51:25|date|
+|`Date`|Data do chargeback <br/> Ex.: 2018-08-30|date|
+|`CaseNumber`|Número do caso relacionado ao chargeback|string|
+|`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
+|`ReasonCode`|Código do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
+|`ReasonMessage`|Descrição do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
+|`Status`|Status do chargegback na Braspag - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/risknotification#tabela-3-chargebacks[n].status)|string|
+|`IsFraud`|Identifica se o chargeback é de fraude|bool|
+|`Transaction.AcquirerType`|Identificador da adquirentre|string|
+|`Transaction.EstablishmentCode`|Número do estabelecimento ou afiliação na adquirente|string|
+|`Transaction.MerchantOrderId`|Número do pedido da loja|string|
+|`Transaction.Tid`|Id da transação na adquirente|string|
+|`Transaction.Nsu`|Número sequencial único da transação na adquirente|string|
+|`Transaction.AuthorizationCode`|Código de autorização da transação na adquirente|string|
+|`Transaction.SaleDate`|Data da autorização da transação na adquirente <br/> Ex.: 2018-08-15|date|
+|`Transaction.PagadorMerchantId`|Identificador da loja na plataforma Pagador Braspag ou Cielo 3.0|guid|
+|`Transaction.BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|guid|
+|`Transaction.Amount`|Valor da transação em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
+|`Transaction.RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem|string|
+|`Transaction.MaskedCardNumber`|Número do cartão de crédito mascarado|string|
+|`Transaction.Brand`|Bandeira do cartão de crédito|string|
+|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6 - Chargebacks{n}.Transaction.AntifraudSourceApplication]({{ site.baseurl_root }}manual/risknotification#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
+
+## Consulta por data ou página
+
+### Request
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback?StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
 
@@ -696,7 +769,7 @@ Após a consulta, você deve decidir por [aceitar](https://braspag.github.io//ma
 |`AuthorizationCode`| Código de autorização da transação na adquirente.|não|
 |`Status`|Status do chargeback na Braspag.|não|
 
-## Response
+### Response
 
 ```json
 {
