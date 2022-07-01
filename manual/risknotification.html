@@ -1718,7 +1718,200 @@
 
 <h1 id="consultas">Consultas</h1>
 
-<h2 id="request-11">Request</h2>
+<h2 id="consulta-por-transactionid">Consulta por TransactionId</h2>
+
+<h3 id="requisição-1">Requisição</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback/GetByBraspagTransactionId/</span></aside>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo da autorização</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-1">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fd14e3fb-cf2a-4228-b690-1338660afc54"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-06-24T20:45:55.2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-06-24T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumidor nao reconhece a compra"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"IsFraud"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"AcquirerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123efg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890BA2018XPTO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"258654"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T85245"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-06-06T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PagadorMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1052460-92b2-49c3-a929-fc985df0ba2f"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bb33b5c5-82fe-4254-9f1d-b9c97297b0d5"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"RawData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOAO D SOUZA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MaskedCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453906******8385"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AntifraudSourceApplication"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gateway"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: center">Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Id</code></td>
+      <td style="text-align: left">Id do chargeback na Chargeback API Braspag</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CreatedDate</code></td>
+      <td style="text-align: left">Data de criação do chargeback na Chargeback API Braspag <br /> Ex.: 2018-09-01 09:51:25</td>
+      <td style="text-align: center">date</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Date</code></td>
+      <td style="text-align: left">Data do chargeback <br /> Ex.: 2018-08-30</td>
+      <td style="text-align: center">date</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CaseNumber</code></td>
+      <td style="text-align: left">Número do caso relacionado ao chargeback</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Amount</code></td>
+      <td style="text-align: left">Valor do chargeback em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: center">long</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
+      <td style="text-align: left">Código do motivo do chargeback - <a href="https://braspag.github.io/manual/risknotification#tabela-7-reasoncode-e-reasonmessage">Tabela 7 - ReasonCode e ReasonMessage</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
+      <td style="text-align: left">Descrição do motivo do chargeback - <a href="https://braspag.github.io/manual/risknotification#tabela-7-reasoncode-e-reasonmessage">Tabela 7 - ReasonCode e ReasonMessage</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Status do chargegback na Braspag - <a href="https://braspag.github.io/manual/risknotification#tabela-3-chargebacks[n].status">Tabela 3 - Chargebacks{n}.Status</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">IsFraud</code></td>
+      <td style="text-align: left">Identifica se o chargeback é de fraude</td>
+      <td style="text-align: center">bool</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.AcquirerType</code></td>
+      <td style="text-align: left">Identificador da adquirentre</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.EstablishmentCode</code></td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.MerchantOrderId</code></td>
+      <td style="text-align: left">Número do pedido da loja</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.Tid</code></td>
+      <td style="text-align: left">Id da transação na adquirente</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.Nsu</code></td>
+      <td style="text-align: left">Número sequencial único da transação na adquirente</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.AuthorizationCode</code></td>
+      <td style="text-align: left">Código de autorização da transação na adquirente</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.SaleDate</code></td>
+      <td style="text-align: left">Data da autorização da transação na adquirente <br /> Ex.: 2018-08-15</td>
+      <td style="text-align: center">date</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.PagadorMerchantId</code></td>
+      <td style="text-align: left">Identificador da loja na plataforma Pagador Braspag ou Cielo 3.0</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.BraspagTransactionId</code></td>
+      <td style="text-align: left">Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.Amount</code></td>
+      <td style="text-align: left">Valor da transação em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td style="text-align: center">long</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.RawData</code></td>
+      <td style="text-align: left">Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.MaskedCardNumber</code></td>
+      <td style="text-align: left">Número do cartão de crédito mascarado</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.Brand</code></td>
+      <td style="text-align: left">Bandeira do cartão de crédito</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Transaction.AntifraudSourceApplication</code></td>
+      <td style="text-align: left">Origem da plataforma de antifraude - <a href="https://braspag.github.io/manual/risknotification#tabela-6-chargebacks[n].transaction.antifraudsourceapplication">Tabela 6 - Chargebacks{n}.Transaction.AntifraudSourceApplication</a></td>
+      <td style="text-align: center">string</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="consulta-por-data-ou-página">Consulta por data ou página</h2>
+
+<h3 id="request-11">Request</h3>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback?StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
 
@@ -1848,7 +2041,7 @@
   </tbody>
 </table>
 
-<h2 id="response-11">Response</h2>
+<h3 id="response-11">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
