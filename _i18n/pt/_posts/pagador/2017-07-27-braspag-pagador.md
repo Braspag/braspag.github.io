@@ -4303,7 +4303,6 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 
 * Adquirente (ex.: de Rede para Cielo);
 * Cartão (em caso de cartão vencido);
-* Meio de pagamento (de cartão para boleto e vice-e-versa).
 
 <br/>Para alterar os dados de pagamento, basta fazer um PUT conforme o exemplo.
 
