@@ -895,36 +895,53 @@ tipo de meio de pagamento.
 ```json
 --header "Content-Type: application/json"
 --header "Authorization: Bearer Token"
-
 {
-   "MerchantOrderId":"2017091101",
-   "Customer":{
-      "Name":"Nome do Comprador",
-      "Identity":"12345678909",
-      "IdentityType":"CPF",
-      "Address":{
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"Sao Paulo",
-         "State":"SP",
-         "Country":"BRA",
-         "District":"Alphaville"
-      }
-   },
-   "Payment":{
-      "Provider":"Braspag",
-      "Bank":"BancoDoBrasil",
-      "Type":"Boleto",
-      "Amount":10000,
-      "BoletoNumber":"2017091101",
-      "Assignor":"Empresa Teste",
-      "Demonstrative":"Desmonstrative Teste",
-      "ExpirationDate":"2017-12-31",
-      "Identification":"12346578909",
-      "Instructions":"Aceitar somente até a data de vencimento."
-   }
+    "MerchantOrderId": "2017091101",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "Sao Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
+        }
+    },
+    "Payment": {
+        "Provider": "Braspag",
+        "Bank": "BancoDoBrasil",
+        "Type": "Boleto",
+        "Amount": 10000,
+        "BoletoNumber": "2017091101",
+        "Assignor": "Empresa Teste",
+        "Demonstrative": "Desmonstrative Teste",
+        "ExpirationDate": "2017-12-31",
+        "Identification": "12346578909",
+        "Instructions": "Aceitar somente até a data de vencimento.",
+        "splitpayments": [
+            {
+                "subordinatemerchantid": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                "amount": 5000,
+                "fares": {
+                    "mdr": 5,
+                    "fee": 30
+                }
+            },
+            {
+                "subordinatemerchantid": "9140ca78-3955-44a5-bd44-793370afef94",
+                "amount": 5000,
+                "fares": {
+                    "mdr": 4,
+                    "fee": 15
+                }
+            }
+        ]
+    }
 }
 ```
 
@@ -1000,6 +1017,44 @@ tipo de meio de pagamento.
         "Type": "Boleto",
         "Currency": "BRL",
         "Country": "BRA",
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                "Amount": 6000,
+                "Fares": {
+                    "Mdr": 5.0,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                        "Amount": 5670
+                    },
+                    {
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                        "Amount": 330
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                "Amount": 4000,
+                "Fares": {
+                    "Mdr": 4.0,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+                        "Amount": 3825
+                    },
+                    {
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                        "Amount": 175
+                    }
+                ]
+            }
+        ],
         "Links": [
             {
                 "Method": "GET",
