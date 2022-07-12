@@ -206,7 +206,7 @@ Ao informar um tipo de pagamento referente ao Split, a API do Pagador automatica
 
 Caso a transação enviada seja marcada para captura automática, é necessário enviar o nó contendo as regras de divisão; caso contrário a transação será dividida entre a Braspag e o master. Posteriormente é permitido que o master envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.
 
-> Para transações **com análise de fraude**, siga a requisição do capítulo **[Antifraude]**(https://braspag.github.io//manual/split-de-pagamentos-pagador#antifraude) deste manual.
+> Para transações **com análise de fraude**, siga a requisição do capítulo [**Antifraude**](https://braspag.github.io//manual/split-de-pagamentos-pagador#antifraude) deste manual.
 
 ### Transação de crédito sem o nó da divisão  
 
