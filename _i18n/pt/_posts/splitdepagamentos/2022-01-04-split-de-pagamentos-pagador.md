@@ -793,36 +793,52 @@ tipo de meio de pagamento.
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
-{  
-    "MerchantOrderId":"2017091101",
-    "Customer":
-    {  
-        "Name":"Nome do Comprador",
-        "Identity":"12345678909",
-        "IdentityType":"CPF",
-        "Address":{  
-            "Street":"Alameda Xingu",
-            "Number":"512",
-            "Complement":"27 andar",
-            "ZipCode":"12345987",
-            "City":"Sao Paulo",
-            "State":"SP",
-            "Country":"BRA",
-            "District":"Alphaville"
+{
+    "MerchantOrderId": "2017091101",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "Sao Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville"
         }
     },
-    "Payment":
-    {  
-     "Provider":"Braspag",
-     "Bank": "BancoDoBrasil",
-     "Type":"Boleto",
-     "Amount":10000,
-     "BoletoNumber":"2017091101",
-     "Assignor": "Empresa Teste",
-     "Demonstrative": "Desmonstrative Teste",
-     "ExpirationDate": "2017-12-31",
-     "Identification": "12346578909",
-     "Instructions": "Aceitar somente até a data de vencimento."
+    "Payment": {
+        "Provider": "Braspag",
+        "Bank": "BancoDoBrasil",
+        "Type": "Boleto",
+        "Amount": 10000,
+        "BoletoNumber": "2017091101",
+        "Assignor": "Empresa Teste",
+        "Demonstrative": "Desmonstrative Teste",
+        "ExpirationDate": "2017-12-31",
+        "Identification": "12346578909",
+        "Instructions": "Aceitar somente até a data de vencimento.",
+        "splitpayments": [
+            {
+                "subordinatemerchantid": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                "amount": 5000,
+                "fares": {
+                    "mdr": 5,
+                    "fee": 30
+                }
+            },
+            {
+                "subordinatemerchantid": "9140ca78-3955-44a5-bd44-793370afef94",
+                "amount": 5000,
+                "fares": {
+                    "mdr": 4,
+                    "fee": 15
+                }
+            }
+        ]
     }
 }
 ```
@@ -879,34 +895,72 @@ tipo de meio de pagamento.
     },
     "Payment": {
         "Instructions": "Aceitar somente até a data de vencimento.",
-        "ExpirationDate": "2017-12-31",
+        "ExpirationDate": "2020-12-31",
         "Demonstrative": "Desmonstrative Teste",
-        "Url": "https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/d605c399-96b2-4bb9-ae75-33824ec01be9",
-        "BoletoNumber": "0000000155",
+        "Url": "https://transactionsandbox.pagador.com.br/post/pagador/reenvia.asp/4b97aa02-9bf2-4e06-8197-c099b861e226",
+        "BoletoNumber": "0000000248",
         "BarCodeNumber": "",
         "DigitableLine": "",
         "Assignor": "Empresa Teste",
-        "Address": "ESTRADA TENENTE MARQUES, 1818, SALA 6 B",
+        "Address": "N/A, 1",
         "Identification": "12346578909",
-        "IsRecurring": false,
-        "Bank": "BancoDoBrasil",
-        "PaymentId": "d605c399-96b2-4bb9-ae75-33824ec01be9",
-        "Type": "Boleto",
-        "Amount": 10000,
-        "ReceivedDate": "2019-12-03 12:05:37",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Braspag",
-        "ReasonCode": 0,
-        "ReasonMessage": "Successful",
-        "Status": 1,
         "ProviderReturnCode": "0",
         "ProviderReturnMessage": "Transação criada com sucesso",
+        "Bank": 4,
+        "Amount": 10000,
+        "ReceivedDate": "2020-03-08 08:19:27",
+        "Provider": "Braspag",
+        "Status": 1,
+        "IsSplitted": false,
+        "ReturnMessage": "Transação criada com sucesso",
+        "ReturnCode": "0",
+        "PaymentId": "4b97aa02-9bf2-4e06-8197-c099b861e226",
+        "Type": "Boleto",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                "Amount": 6000,
+                "Fares": {
+                    "Mdr": 5.0,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                        "Amount": 5670
+                    },
+                    {
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                        "Amount": 330
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "f2d6eb34-2c6b-4948-8fff-51facdd2a28f",
+                "Amount": 4000,
+                "Fares": {
+                    "Mdr": 4.0,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "9140ca78-3955-44a5-bd44-793370afef94",
+                        "Amount": 3825
+                    },
+                    {
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                        "Amount": 175
+                    }
+                ]
+            }
+        ],
         "Links": [
             {
                 "Method": "GET",
                 "Rel": "self",
-                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/d605c399-96b2-4bb9-ae75-33824ec01be9"
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4b97aa02-9bf2-4e06-8197-c099b861e226"
             }
         ]
     }
