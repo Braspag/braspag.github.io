@@ -667,7 +667,7 @@ Após a consulta, você deve decidir por [aceitar](https://braspag.github.io//ma
 
 ### Requisição
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback/GetByBraspagTransactionId/{{TransactionId}}</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback/GetByBraspagTransactionId/{TransactionId}</span></aside>
 
 **Parâmetros no cabeçalho (Header)**
 
