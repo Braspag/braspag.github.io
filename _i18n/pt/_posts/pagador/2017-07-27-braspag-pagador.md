@@ -448,6 +448,7 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
         }],
         "ReasonCode": 0,
         "ReasonMessage": "Successful",
+        "Payment.MerchantAdviceCode":"1",
         "Status": 2,
         "ProviderReturnCode": "6",
         "ProviderReturnMessage": "Operation Successful",
@@ -581,6 +582,7 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 |`Status`|Status da transação.|Byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
+|`Payment.MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido para bandeira Mastercard*.|Texto| 2 | Numérico|
 
 ### Criando uma Transação de Débito
 
@@ -782,6 +784,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
     "ReturnUrl": "http://www.braspag.com.br",
     "ReasonCode": 9,
     "ReasonMessage": "Waiting",
+    "Payment.MerchantAdviceCode":"1",
     "Status": 0,
     "ProviderReturnCode": "0",
     [...]
@@ -843,6 +846,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
     "ReturnUrl": "http://www.braspag.com.br",
     "ReasonCode": 9,
     "ReasonMessage": "Waiting",
+    "Payment.MerchantAdviceCode":"1",
     "Status": 0,
     "ProviderReturnCode": "0",
     [...]
@@ -861,6 +865,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|Ex.: 57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Ex.: Transação Aprovada|
+|`Payment.MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido para bandeira Mastercard*.|Texto| 2 | Numérico|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação.|Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
 ### Criando uma Transação de Débito sem Autenticação
@@ -1025,6 +1030,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
     "Provider": "Cielo30",
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
+    "Payment.MerchantAdviceCode":"1",
     "Status": 2,
     "ProviderReturnCode": "6",
     "ProviderReturnMessage": "Operation Successful",
@@ -1060,6 +1066,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
     "Provider": "Cielo30",
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
+    "Payment.MerchantAdviceCode":"1",
     "Status": 2,
     "ProviderReturnCode": "6",
     "ProviderReturnMessage": "Operation Successful",
@@ -1080,6 +1087,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|Ex.: 57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Ex.: Transação Aprovada|
+|`Payment.MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido para bandeira Mastercard*.|Texto| 2 | Numérico|
 
 ### Capturando uma Transação
 
@@ -1369,6 +1377,7 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
     "Provider": "Cielo",
     "ReasonCode": 9,
     "ReasonMessage": "Waiting",
+    "Payment.MerchantAdviceCode":"1",
     "Status": 0,
     "ProviderReturnCode": "0",
    [...]
@@ -1417,6 +1426,7 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
     "Provider": "Cielo",
     "ReasonCode": 9,
     "ReasonMessage": "Waiting",
+    "Payment.MerchantAdviceCode":"1",
     "Status": 0,
     "ProviderReturnCode": "0",
    [...]
@@ -1433,6 +1443,7 @@ Uma transação com autenticação padrão receberá, além do retorno padrão d
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
+|`Payment.MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido para bandeira Mastercard*.|Texto| 2 | Numérico|
 |`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|Ex.: 57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Ex.: Transação Aprovada|
