@@ -251,14 +251,14 @@
       <td>Código de segurança impresso no verso do cartão.</td>
       <td>Texto</td>
       <td>4</td>
-      <td>Sim</td>
+      <td>Sim (Não, se tiver autorização do adquirente)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Brand</code></td>
       <td>Bandeira do cartão.</td>
       <td>Texto</td>
       <td>10</td>
-      <td>Sim</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Type</code></td>
@@ -284,7 +284,10 @@
         </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Analise autorizada"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"CorporateCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banco da Praça"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IssuerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="w">
+        </span><span class="nl">"IssuerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CardBin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999999"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CardLast4Digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Prepaid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -304,7 +307,10 @@
         <span class="s2">"Message"</span>: <span class="s2">"Analise autorizada"</span>,
         <span class="s2">"CorporateCard"</span>: <span class="nb">false</span>,
         <span class="s2">"Issuer"</span>: <span class="s2">"Banco da Praça"</span>,
-        <span class="s2">"IssuerCode"</span>: <span class="s2">"000"</span>
+        <span class="s2">"IssuerCode"</span>: <span class="s2">"001"</span>,
+        <span class="s2">"CardBin"</span>: <span class="s2">"999999"</span>,
+        <span class="s2">"CardLast4Digits"</span>: <span class="s2">"9999"</span>,
+        <span class="s2">"Prepaid"</span>: <span class="nb">false</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -358,9 +364,9 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.ForeignCard</code></td>
       <td>Indica se é um cartão emitido fora do Brasil.</td>
-      <td>booleano</td>
-      <td>-</td>
-      <td>Ex.: “true” / “false”</td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Ex.: true/false</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.Code</code></td>
@@ -379,9 +385,9 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.CorporateCard</code></td>
       <td>Indica se o cartão é corporativo.</td>
-      <td>booleano</td>
+      <td>Booleano</td>
       <td>—</td>
-      <td>Ex.: “true” / “false”</td>
+      <td>Ex.: true/false</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BinData.Issuer</code></td>
@@ -395,6 +401,27 @@
       <td>Código do emissor do cartão.</td>
       <td>Número</td>
       <td>3</td>
+      <td>Ex.: “000” (sujeito a mapeamento do adquirente)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CardBin</code></td>
+      <td>Código do emissor do cartão.</td>
+      <td>Número</td>
+      <td>6</td>
+      <td>Ex.: “999999”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CardLast4Digits</code></td>
+      <td>Código do emissor do cartão.</td>
+      <td>Número</td>
+      <td>4</td>
+      <td>Ex.: “9999”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Prepaid</code></td>
+      <td>Indicaa se o cartão é pré-pago ou não</td>
+      <td>Booleano</td>
+      <td>—</td>
       <td>Ex.: “000” (sujeito a mapeamento do adquirente)</td>
     </tr>
   </tbody>
@@ -489,7 +516,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Type</code></td>
-      <td>Tipo do cartão a ser consultado (“CreditCard” / “DebitCard”). Este campo é particularmente importante devido aos cartões com funções múltiplas.</td>
+      <td>Tipo do cartão a ser consultado (“CreditCard”/”DebitCard”). Este campo é particularmente importante devido aos cartões com funções múltiplas.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
@@ -511,7 +538,10 @@
         </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Analise autorizada"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"CorporateCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banco da Praça"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IssuerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="w">
+        </span><span class="nl">"IssuerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CardBin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999999"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CardLast4Digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Prepaid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -531,7 +561,10 @@
         <span class="s2">"Message"</span>: <span class="s2">"Analise autorizada"</span>,
         <span class="s2">"CorporateCard"</span>: <span class="nb">false</span>,
         <span class="s2">"Issuer"</span>: <span class="s2">"Banco da Praça"</span>,
-        <span class="s2">"IssuerCode"</span>: <span class="s2">"000"</span>
+        <span class="s2">"IssuerCode"</span>: <span class="s2">"001"</span>,
+        <span class="s2">"CardBin"</span>: <span class="s2">"999999"</span>,
+        <span class="s2">"CardLast4Digits"</span>: <span class="s2">"9999"</span>,
+        <span class="s2">"Prepaid"</span>: <span class="nb">false</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -622,6 +655,27 @@
       <td>Código do emissor do cartão.</td>
       <td>Número</td>
       <td>3</td>
+      <td>Ex.: “000” (sujeito a mapeamento do adquirente)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CardBin</code></td>
+      <td>Código do emissor do cartão.</td>
+      <td>Número</td>
+      <td>6</td>
+      <td>Ex.: “999999”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CardLast4Digits</code></td>
+      <td>Código do emissor do cartão.</td>
+      <td>Número</td>
+      <td>4</td>
+      <td>Ex.: “9999”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Prepaid</code></td>
+      <td>Indicaa se o cartão é pré-pago ou não</td>
+      <td>Booleano</td>
+      <td>—</td>
       <td>Ex.: “000” (sujeito a mapeamento do adquirente)</td>
     </tr>
   </tbody>
