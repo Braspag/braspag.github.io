@@ -79,8 +79,8 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 |`Card.CardNumber`|Número do cartão do comprador para Zero Auth e Consulta BIN. Caso seja somente requisição de Consulta BIN, enviar somente o BIN (de 6 ou 9 dígitos).|Texto|16|Sim|
 |`Card.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
 |`Card.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
-|`Card.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
-|`Card.Brand`|Bandeira do cartão.|Texto|10|Sim |
+|`Card.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim (Não, se tiver autorização do adquirente)|
+|`Card.Brand`|Bandeira do cartão.|Texto|10|Não |
 |`Card.Type`|Tipo do cartão a ser consultado ("CreditCard" / "DebitCard"). Este campo é particularmente importante devido aos cartões com funções múltiplas.|Texto|10|Sim|
 
 ## Resposta
@@ -98,7 +98,10 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
         "Message": "Analise autorizada",
         "CorporateCard": false,
         "Issuer": "Banco da Praça",
-        "IssuerCode": "001"
+        "IssuerCode": "001",
+        "CardBin": "999999",
+        "CardLast4Digits": "9999",
+        "Prepaid": false
     }
 }
 ```
@@ -119,7 +122,10 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
         "Message": "Analise autorizada",
         "CorporateCard": false,
         "Issuer": "Banco da Praça",
-        "IssuerCode": "000"
+        "IssuerCode": "001",
+        "CardBin": "999999",
+        "CardLast4Digits": "9999",
+        "Prepaid": false
     }
 }
 ```
@@ -131,12 +137,15 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 |`ProviderReturnMessage`|Mensagem da consulta Zero Auth retornado pelo provedor. |Texto|512 |Ex.: "Transacao Autorizada"|
 |`BinData.Provider`|Provedor do serviço.|Texto|15 |Ex.: "Cielo30"|
 |`BinData.CardType`|Tipo do cartão retornado da Consulta BIN.|Texto|15 |Ex.: "Crédito" / "Débito" / "Múltiplo"|
-|`BinData.ForeignCard`|Indica se é um cartão emitido fora do Brasil.|booleano|- |Ex.: "true" / "false" |
+|`BinData.ForeignCard`|Indica se é um cartão emitido fora do Brasil.|Booleano|--- |Ex.: true/false |
 |`BinData.Code`|Código de retorno da Consulta BIN.|Número|2 |Ex.: "00" - consulta realizada com sucesso (para provedor Cielo30)|
 |`BinData.Message`|Mensagem de retorno da Consulta BIN.|Texto|512 |Ex.: "Analise autorizada" - consulta realizada com sucesso (para provedor Cielo30)  |
-|`BinData.CorporateCard`|Indica se o cartão é corporativo.|booleano|--- |Ex.: "true" / "false"|
+|`BinData.CorporateCard`|Indica se o cartão é corporativo.|Booleano|--- |Ex.: true/false|
 |`BinData.Issuer`|Nome do emissor do cartão.|Texto|512 |Ex.: "Banco da Praça" (sujeito a mapeamento do adquirente)|
 |`BinData.IssuerCode`|Código do emissor do cartão.|Número|3 |Ex.: "000" (sujeito a mapeamento do adquirente)|
+|`BinData.CardBin`|Código do emissor do cartão.|Número|6 |Ex.: "999999"|
+|`BinData.CardLast4Digits`|Código do emissor do cartão.|Número|4 |Ex.: "9999"|
+|`BinData.Prepaid`|Indicaa se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
 
 ## Consulta pelo Token do Cartão
 
@@ -182,7 +191,7 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 |`Card.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|Texto|16|Sim|
 |`Card.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`Card.Brand`|Bandeira do cartão.|Texto|10|Sim |
-|`Card.Type`|Tipo do cartão a ser consultado ("CreditCard" / "DebitCard"). Este campo é particularmente importante devido aos cartões com funções múltiplas.|Texto|10|Sim|
+|`Card.Type`|Tipo do cartão a ser consultado ("CreditCard"/"DebitCard"). Este campo é particularmente importante devido aos cartões com funções múltiplas.|Texto|10|Sim|
 
 ## Resposta
 
@@ -199,7 +208,10 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
         "Message": "Analise autorizada",
         "CorporateCard": false,
         "Issuer": "Banco da Praça",
-        "IssuerCode": "001"
+        "IssuerCode": "001",
+        "CardBin": "999999",
+        "CardLast4Digits": "9999",
+        "Prepaid": false
     }
 }
 ```
@@ -220,7 +232,10 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
         "Message": "Analise autorizada",
         "CorporateCard": false,
         "Issuer": "Banco da Praça",
-        "IssuerCode": "000"
+        "IssuerCode": "001",
+        "CardBin": "999999",
+        "CardLast4Digits": "9999",
+        "Prepaid": false
     }
 }
 ```
@@ -238,6 +253,9 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 |`BinData.CorporateCard`|Indica se o cartão é corporativo.|booleano|--- |Ex.: "true" / "false"|
 |`BinData.Issuer`|Nome do emissor do cartão.|Texto|512 |Ex.: "Banco da Praça" (sujeito a mapeamento do adquirente)|
 |`BinData.IssuerCode`|Código do emissor do cartão.|Número|3 |Ex.: "000" (sujeito a mapeamento do adquirente)|
+|`BinData.CardBin`|Código do emissor do cartão.|Número|6 |Ex.: "999999"|
+|`BinData.CardLast4Digits`|Código do emissor do cartão.|Número|4 |Ex.: "9999"|
+|`BinData.Prepaid`|Indicaa se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
 
 # Respostas Programadas
 
