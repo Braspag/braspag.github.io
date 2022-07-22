@@ -190,7 +190,7 @@ As bandeiras suportadas pelo Split são:
 
 Para submeter uma transação do Pagador ao Split, basta enviar o Parâmetro `Payment.DoSplit` como true e adicionar o nó `Payment.SplitPayments`.
 
-# Fluxo transacional padrão
+**Fluxo transacional padrão**
 
 Veja um exemplo do fluxo transacional padrão no Split de Pagamentos.
 
