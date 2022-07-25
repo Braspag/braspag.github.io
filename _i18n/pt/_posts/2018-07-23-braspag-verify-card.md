@@ -145,7 +145,7 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 |`BinData.IssuerCode`|Código do emissor do cartão.|Número|3 |Ex.: "000" (sujeito a mapeamento do adquirente)|
 |`BinData.CardBin`|Código do emissor do cartão.|Número|6 |Ex.: "999999"|
 |`BinData.CardLast4Digits`|Código do emissor do cartão.|Número|4 |Ex.: "9999"|
-|`BinData.Prepaid`|Indicaa se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
+|`BinData.Prepaid`|Indica se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
 
 ## Consulta pelo Token do Cartão
 
@@ -255,7 +255,7 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 |`BinData.IssuerCode`|Código do emissor do cartão.|Número|3 |Ex.: "000" (sujeito a mapeamento do adquirente)|
 |`BinData.CardBin`|Código do emissor do cartão.|Número|6 |Ex.: "999999"|
 |`BinData.CardLast4Digits`|Código do emissor do cartão.|Número|4 |Ex.: "9999"|
-|`BinData.Prepaid`|Indicaa se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
+|`BinData.Prepaid`|Indica se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
 
 # Respostas Programadas
 
