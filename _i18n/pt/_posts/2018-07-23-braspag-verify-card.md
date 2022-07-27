@@ -28,9 +28,16 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 
 ![VerifyCard com Cartão Protegido]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/fluxo-trans3b-pt.png)
 
-<br/>Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST para o serviço VerifyCard, de acordo com o exemplo a seguir:
+## Ambientes
 
-## Consulta pelo Número do Cartão
+|Amnbiente|Base da URL transacional|
+|---|---|
+|Sandbox|https://apisandbox.braspag.com.br/|
+|Produção|https://api.braspag.com.br/|
+
+<br/>Para consultar dados de um cartão, envie uma requisição utilizando o verbo HTTP POST para o serviço VerifyCard, de acordo com os exemplos deste manual. A consulta pode ser feita pelo número ou pelo token do cartão.
+
+# Consulta pelo Número do Cartão
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
@@ -147,7 +154,7 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 |`BinData.CardLast4Digits`|Código do emissor do cartão.|Número|4 |Ex.: "9999"|
 |`BinData.Prepaid`|Indica se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
 
-## Consulta pelo Token do Cartão
+# Consulta pelo Token do Cartão
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
