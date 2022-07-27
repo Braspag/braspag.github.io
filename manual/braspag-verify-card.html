@@ -152,9 +152,30 @@
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/fluxo-trans3b-pt.png" alt="VerifyCard com Cartão Protegido" /></p>
 
-<p><br />Para consultar dados de um cartão, é necessário enviar requisição utilizando o VERBO HTTP POST para o serviço VerifyCard, de acordo com o exemplo a seguir:</p>
+<h2 id="ambientes">Ambientes</h2>
 
-<h2 id="consulta-pelo-número-do-cartão">Consulta pelo Número do Cartão</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Amnbiente</th>
+      <th>Base da URL transacional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sandbox</td>
+      <td>https://apisandbox.braspag.com.br/</td>
+    </tr>
+    <tr>
+      <td>Produção</td>
+      <td>https://api.braspag.com.br/</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />Para consultar dados de um cartão, envie uma requisição utilizando o verbo HTTP POST para o serviço VerifyCard, de acordo com os exemplos deste manual. A consulta pode ser feita pelo número ou pelo token do cartão.</p>
+
+<h1 id="consulta-pelo-número-do-cartão">Consulta pelo Número do Cartão</h1>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
@@ -427,7 +448,7 @@
   </tbody>
 </table>
 
-<h2 id="consulta-pelo-token-do-cartão">Consulta pelo Token do Cartão</h2>
+<h1 id="consulta-pelo-token-do-cartão">Consulta pelo Token do Cartão</h1>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
