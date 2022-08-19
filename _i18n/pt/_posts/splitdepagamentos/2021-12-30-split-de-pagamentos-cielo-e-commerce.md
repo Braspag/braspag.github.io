@@ -686,6 +686,161 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 }
 ```
 
+### Transação de crédito com MCC do subordinado
+
+Alguns ramos de atividades exercidos pelos subordinado exigem o envio de informações especificas para a autorização da transação. Neste caso, o subordinado é considerado o **Participante Principal** da transação.
+
+Para casos que necessitam utilizar um ramo específico para autorização da transação,solicite análise ao Suporte Braspag para atuar com o **Subordinado Principal**.
+
+Após ter a funcionalidade habilitada, é necessário enviar a propriedade `MainSubordinateMerchantId` no nó `SplitTransaction`.
+
+> Esse tipo de transação só pode ter um subordinado.
+
+Confira um exemplo de requisição com **Subordinado Principal**:
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{
+    "MerchantOrderId": "30082019",
+    "Customer": {
+        "Name": "Comprador Accept",
+        "Email": "comprador@teste.com.br",
+        "Identity": "18160361106",
+        "IdentityType": "CPF",
+        "Mobile": "5521995760078"
+    },
+    "Payment": {
+        "Provider": "Simulado",
+        "Type": "SplittedCreditcard",
+        "DoSplit": "True",
+        "Amount": 10000,
+        "Capture": true,
+        "Installments": 1,
+        "Softdescriptor": "teste",
+        "CreditCard": {
+            "CardNumber": "4481530710186111",
+            "Holder": "Yamilet Taylor",
+            "ExpirationDate": "12/2019",
+            "SecurityCode": "693",
+            "Brand": "Visa",
+            "SaveCard": "false"
+        },
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "3320c690-11cf-4eb1-a89f-c3529424da0d",
+                "Amount": 10000,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                }
+            }
+        ],
+        "SplitTransaction":{
+           "MainSubordinateMerchantId": "3320c690-11cf-4eb1-a89f-c3529424da0d"
+       }
+    }
+}
+```
+
+|PROPRIEDADE|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
+|---|---|---|---|---|
+| `SplitTransaction.MainSubordinateMerchantId` | GUID | 36 | Não | Identificação do subordinado principal. É o mesmo valor do `SubordinateMerchantId`.|
+
+#### Resposta
+
+```json
+{
+    "MerchantOrderId": "30082019",
+    "Customer": {
+        "Name": "Comprador Accept",
+        "Identity": "18160361106",
+        "IdentityType": "CPF",
+        "Email": "comprador@teste.com.br",
+        "Mobile": "5521995760078"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "448153******6111",
+            "Holder": "Yamilet Taylor",
+            "ExpirationDate": "12/2019",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "20190830104950554",
+        "AcquirerTransactionId": "0830104950554",
+        "AuthorizationCode": "149867",
+        "SoftDescriptor": "teste",
+        },
+        "DoSplit": true,
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "3320c690-11cf-4eb1-a89f-c3529424da0d",
+                "Amount": 5000,
+                "Fares": {
+                    "Mdr": 5.0,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "3320c690-11cf-4eb1-a89f-c3529424da0d",
+                        "Amount": 4720
+                    },
+                    {
+                        "MerchantId": "f43fca07-48ec-46b5-8b93-ce79b75a8f63",
+                        "Amount": 280
+                    }
+                ]
+            }
+        ],
+        "SplitTransaction":{
+            "MainSubordinateMerchantId": "3320c690-11cf-4eb1-a89f-c3529424da0d"
+        },
+        "PaymentId": "f1333ea6-8cb9-420f-9674-d66031903080",
+        "Type": "SplittedCreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2019-08-30 10:49:40",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2019-08-30 10:49:50",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/f1333ea6-8cb9-420f-9674-d66031903080"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/f1333ea6-8cb9-420f-9674-d66031903080/void"
+            }
+        ]
+    }
+}
+```
+
+> **Observações:**<br/>
+> <br/>
+> * Para este tipo de transação, o subordinado não pode ser removido da transação através do Split Pós-transacional;<br/>
+> * A transação só pode ter um subordinado;<br/>
+> * Caso use autorização com captura posterior, o subordinado informado na captura deve ser o mesmo enviado na autorização como participante principal da transação;<br/>
+> * Cancelamentos podem ocorrer normalmente, desde que o participante principal continue participando da transação.
+
 ## Transação de Débito  
 
 Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:
