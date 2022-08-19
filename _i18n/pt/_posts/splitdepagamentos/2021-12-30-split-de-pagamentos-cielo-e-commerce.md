@@ -228,7 +228,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce, seguindo as mesmas requisições do [Manual de Integração API Cielo E-commerce](https://developercielo.github.io/manual/cielo-ecommerce).
 
-# Fluxo transacional padrão
+**Fluxo transacional padrão**
 
 Veja um exemplo do fluxo transacional padrão no Split de Pagamentos.
 
