@@ -600,6 +600,231 @@ Veja a requisição dessa transação no valor de **R$100,00** com o nó contend
 }
 ```
 
+### Transação de crédito com MCC do subordinado
+
+Alguns ramos de atividades exercidos pelos subordinado exigem o envio de informações especificas para a autorização da transação. Neste caso, o subordinado é considerado o **Participante Principal** da transação.
+
+Para casos que necessitam utilizar um ramo específico para autorização da transação,solicite análise ao Suporte Braspag para atuar com o **Subordinado Principal**.
+
+Após ter a funcionalidade habilitada, é necessário enviar a propriedade `MainSubordinateMerchantId` no nó `SplitTransaction`.
+
+> Esse tipo de transação só pode ter um subordinado.
+
+Confira um exemplo de requisição com **Subordinado Principal**:
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2017051002",
+   "Customer":{  
+      "Name":"Nome do Comprador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"comprador@braspag.com.br",
+      "Birthdate":"1991-01-02",
+      "Address":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Alameda Xingu",
+         "Number":"512",
+         "Complement":"27 andar",
+         "ZipCode":"12345987",
+         "City":"São Paulo",
+         "State":"SP",
+         "Country":"BRA",
+         "District":"Alphaville"
+      }
+   },
+   "Payment":{  
+      "Provider":"Simulado",
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"Mensagem",
+      "DoSplit":true,
+      "CreditCard":{  
+         "CardNumber":"4481530710186111",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Master",
+         "SaveCard":"true",
+         "Alias":"teste123",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
+      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"Nome do Comprador",
+            "Value":"Valor"
+         }
+      ],
+       "Splitpayments": [
+            {
+                "SubordinateMerchantId": "328C41CA-2478-44D3-AB2F-7A801639A8EA",
+                "Amount": 10000,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                }
+            }
+        ]
+        ,
+        "SplitTransaction":{
+            "MainSubordinateMerchantId": "328C41CA-2478-44D3-AB2F-7A801639A8EA"
+        }
+   }
+}
+```
+
+|PROPRIEDADE|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
+|---|---|---|---|---|
+| `SplitTransaction.MainSubordinateMerchantId` | GUID | 36 | Não | Identificação do subordinado principal. É o mesmo valor do `SubordinateMerchantId`.|
+
+#### Resposta
+
+```json
+{
+    "MerchantOrderId": "2017051002",
+    "Customer": {
+        "Name": "Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville",
+            "AddressType": "NotInformed"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "12345987",
+            "City": "São Paulo",
+            "State": "SP",
+            "Country": "BRA",
+            "District": "Alphaville",
+            "AddressType": "NotInformed"
+        }
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "448153******6111",
+            "Holder": "Nome do Portador",
+            "ExpirationDate": "12/2021",
+            "SaveCard": true,
+            "Alias": "teste123",
+            "Brand": "Visa",
+            "CardOnFile": {
+                "Usage": "Used",
+                "Reason": "Unscheduled"
+            }
+        },
+        "ProofOfSale": "420681",
+        "AcquirerTransactionId": "0708031257406",
+        "AuthorizationCode": "658591",
+        "SoftDescriptor": "Mensagem",
+        "SentOrderId": "20220708151256DB8D2D",
+        "DoSplit": true,
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "328c41ca-2478-44d3-ab2f-7a801639a8ea",
+                "Amount": 10000,
+                "Fares": {
+                    "Mdr": 5.0,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "328c41ca-2478-44d3-ab2f-7a801639a8ea",
+                        "Amount": 9470
+                    },
+                    {
+                        "MerchantId": "58e41291-6445-4a32-b801-c00f773ab00b",
+                        "Amount": 530
+                    }
+                ]
+            }
+        ],
+        "SplitTransaction": {
+            "MainSubordinateMerchantId": "328c41ca-2478-44d3-ab2f-7a801639a8ea"
+        },
+        "PaymentId": "db1d37cb-0f57-405c-bb68-12959d9aa3ab",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2022-07-08 15:12:56",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2022-07-08 15:12:57",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ExtraDataCollection": [
+            {
+                "Name": "Nome do Comprador",
+                "Value": "Valor"
+            }
+        ],
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 2,
+        "ProviderReturnCode": "6",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/db1d37cb-0f57-405c-bb68-12959d9aa3ab"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/db1d37cb-0f57-405c-bb68-12959d9aa3ab/void"
+            }
+        ]
+    }
+}
+```
+
+> **Observações:**<br/>
+> <br/>
+> * Para este tipo de transação, o subordinado não pode ser removido da transação através do Split Pós-transacional;<br/>
+> * A transação só pode ter um subordinado;<br/>
+> * Caso use autorização com captura posterior, o subordinado informado na captura deve ser o mesmo enviado na autorização como participante principal da transação;<br/>
+> * Cancelamentos podem ocorrer normalmente, desde que o participante principal continue participando da transação.
+
 ## Transação de Débito
 
 Uma transação com um cartão de débito é semelhante à de cartão de crédito, mas há duas diferenças:
@@ -983,6 +1208,7 @@ tipo de meio de pagamento.
 O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
 
 | Tipo                       | Descrição                                                                                          |
+|---|---|
 | **Split Transacional**     | O **master** envia as regras de divisão na autorização (captura automática) ou no momento de captura. |
 | **Split Pós-Transacional** | O **master** envia as regras de divisão após a captura da transação, até 01h00 do dia posterior à captura. |
 
