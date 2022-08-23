@@ -531,13 +531,12 @@
 <p>Ao integrar o seu e-commerce à Risk Notification API, você poderá receber a notificação de chargeback pelo Post de Notificação (webhook) caso seja cliente do Pagador Braspag ou da API E-commerce 3.0 da Cielo.</p>
 
 <ul>
-  <li><strong>Post de Notificação do Pagador Braspag</strong>: o retorno <strong>ChangeType “7”</strong> indica a ocorrência de chargeback. Saiba mais sobre o <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o" target="_blank">Post de Notificação no manual do Pagador</a>.</li>
-</ul>
-
-<p><em>E-commerces integrados ao Pagador Braspag e afiliados à qualquer adquirente diferente de Cielo, também podem consultar o chargeback direto com a adquirente.</em></p>
-
-<ul>
-  <li><strong>Post de Notificação da API E-commerce 3.0 da Cielo</strong>: o retorno <strong>ChangeType “7”</strong> indica a ocorrência de chargeback. Saiba mais sobre o <a href="https://developercielo.github.io/manual/cielo-ecommerce#endpoint-de-notifica%C3%A7%C3%A3o" target="_blank">Post de Notificação no manual da API E-commerce 3.0</a>.</li>
+  <li>
+    <p><strong>Post de Notificação do Pagador Braspag</strong>: o retorno <strong>ChangeType “7”</strong> indica a ocorrência de chargeback. Saiba mais sobre o <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o" target="_blank">Post de Notificação no manual do Pagador</a>.</p>
+  </li>
+  <li>
+    <p><strong>Post de Notificação da API E-commerce 3.0 da Cielo</strong>: o retorno <strong>ChangeType “7”</strong> indica a ocorrência de chargeback. Saiba mais sobre o <a href="https://developercielo.github.io/manual/cielo-ecommerce#endpoint-de-notifica%C3%A7%C3%A3o" target="_blank">Post de Notificação no manual da API E-commerce 3.0</a>.</p>
+  </li>
 </ul>
 
 <p>A notificação de chargeback informa apenas o <code class="language-plaintext highlighter-rouge">PaymentId</code> da transação. Ao receber uma notificação de chargeback, você deve fazer uma <a href="https://braspag.github.io//manual/risknotification#consultas">Consulta</a> na Risk Notification API para visualizar mais informações como: valor, número do pedido e motivo do chargeback, entre outras.</p>
