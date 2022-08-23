@@ -92,7 +92,7 @@ Você deve configurar o seu checkout de forma que a transação só possa prosse
 
 ### Obtendo o FraudID
 
-O `FraudID` é a identificação digital do dispositivo do comprador composto por uma série de dados coletados na página de checkout. O `FraudID` deverá ser informado na requisição de autorização à API do Pagador no campo `FingerprintId` (passo 3). Cada requisição de autorização deverá conter um `FraudID` diferente.
+O `FraudID` é a identificação digital do dispositivo do comprador, e é composto por uma série de dados coletados na página de checkout. O `FraudID` deverá ser informado na requisição de autorização à API do Pagador no campo `FingerprintId` (passo 3). Cada requisição de autorização deverá conter um `FraudID` diferente.
 
 A Koin usa as informações contidas no `FraudID` para analisar o comprador e oferecer a melhor condição de parcelamento.
 
