@@ -190,8 +190,6 @@ Ao integrar o seu e-commerce à Risk Notification API, você poderá receber a n
 
 * **Post de Notificação do Pagador Braspag**: o retorno **ChangeType “7”** indica a ocorrência de chargeback. Saiba mais sobre o [Post de Notificação no manual do Pagador](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o){:target="_blank"}.
 
-*E-commerces integrados ao Pagador Braspag e afiliados à qualquer adquirente diferente de Cielo, também podem consultar o chargeback direto com a adquirente.*  
-
 * **Post de Notificação da API E-commerce 3.0 da Cielo**: o retorno **ChangeType “7”** indica a ocorrência de chargeback. Saiba mais sobre o [Post de Notificação no manual da API E-commerce 3.0](https://developercielo.github.io/manual/cielo-ecommerce#endpoint-de-notifica%C3%A7%C3%A3o){:target="_blank"}.
 
 A notificação de chargeback informa apenas o `PaymentId` da transação. Ao receber uma notificação de chargeback, você deve fazer uma [Consulta](https://braspag.github.io//manual/risknotification#consultas) na Risk Notification API para visualizar mais informações como: valor, número do pedido e motivo do chargeback, entre outras.
