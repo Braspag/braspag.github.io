@@ -859,7 +859,7 @@ Após a consulta, você deve decidir por [aceitar](https://braspag.github.io//ma
 
 ## Tabela 1 - Chargebacks[n].NegativeValues
 
-Possíveis valores a serem inseridos na lista negativa na Cybersource.
+Valores que podem ser inseridos na lista negativa da Cybersource para retroalimentação de chargeback. Válidos apenas para clientes integrados à API Antifraude Gateway com a Cybersource como provedor de antifraude.
 
 |Valor|Descrição|
 |:-|:-|
