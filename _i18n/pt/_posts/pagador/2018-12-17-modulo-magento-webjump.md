@@ -31,9 +31,9 @@ Para saber quais os requisitos técnicos de infraestrutura para a instalação d
 2. Localize a raiz do projeto e execute os seguintes comandos:
 
 ```
-composer require webjump/magento2-module-braspagpagador
+composer require braspag/pagador-module-magento
 composer update
-bin/magento module:enable Webjump_BraspagPagador
+bin/magento module:enable Braspag_BraspagPagador
 bin/magento setup:upgrade
 bin/magento setup:di:compile
 ```
