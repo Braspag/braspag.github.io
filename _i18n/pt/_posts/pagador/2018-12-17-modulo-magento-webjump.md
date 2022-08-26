@@ -19,7 +19,9 @@ tags:
 
 Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Magento, consulte o [Guia de Instalação](https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html) na documentação oficial do Magento.
 
-<aside class="notice">A versão do Magento recomendada é a 2.4.0, mas são suportadas as versões a partir da 2.3.0.</aside>
+<aside class="notice">A versão recomendada do Magento é 2.4.3 ou superior.</aside>
+
+<aside class="warning">As versões Magento entre 2.3.0. e 2.4.2 não estão recebendo atualizações no módulo Braspag. </aside>
 
 ## Instalação do Módulo Base
 
