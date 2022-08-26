@@ -2622,7 +2622,7 @@ Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizad
 |`Payment.Provider`|Nome do provedor do meio de pagamento do boleto. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#providers-para-consulta-bin-via-verifycard) para acessar a lista de provedores.|Texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "Boleto".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.BoletoNumber`|Número do boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
+|`Payment.BoletoNumber`|Número do boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Número |Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Payment.Assignor`|Nome do cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento.|Texto |200|Não|
 |`Payment.Demonstrative`|Texto de demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Payment.ExpirationDate`|Data de vencimento do boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|Date |AAAA-MM-DD|Não|
@@ -2756,7 +2756,7 @@ Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizad
 |`PaymentId`|Campo identificador do pedido. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
 |`Url`|URL do boleto gerado. |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
-|`BoletoNumber`|"NossoNumero" gerado. |Texto|50 |2017091101 |
+|`BoletoNumber`|"NossoNumero" gerado. |Número|50 |2017091101 |
 |`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
 |`Address`|Endereço da loja cadastrada no banco emissor. |Texto |256 |Ex.: Av. Teste, 160 |
@@ -7826,7 +7826,7 @@ Para consultar uma transação de boleto registrado via PaymentID, é necessári
 |`Payment.Instructions`|Texto sobre alguma instrução específica para o boleto.|Texto|Veja as [Regras Específicas por Banco](#conciliação-de-boletos).|Ex.: "Não pagar após o vencimento"|
 |`Payment.Demonstrative`|Texto sobre alguma informação específica para o boleto.|Texto|Veja as [Regras Específicas por Banco](#conciliação-de-boletos).|Ex.: "Boleto referente ao pedido número 99999"|
 |`Payment.Url`|URL para apresentação do boleto.|Texto|-|Ex.: "https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX"|
-|`Payment.BoletoNumber`|Nosso número.|Texto|Veja as [Regras Específicas por Banco](#conciliação-de-boletos).|Ex.: "12345678"|
+|`Payment.BoletoNumber`|Nosso número.|Número|Veja as [Regras Específicas por Banco](#conciliação-de-boletos).|Ex.: "12345678"|
 |`Payment.BarCodeNumber`|Código de barras do boleto.|Texto|44|Ex.: "99999390276000001234864001834007775680099999"|
 |`Payment.DigitableLine`|Linha digitável do boleto.|Texto|54|Ex.: "99999.39027 60000.012348 64001.834007 7 75680000199999"|
 |`Payment.Assignor`|Nome do cedente do boleto.|Texto|200|Ex.: "RAZAO SOCIAL DA LOJA LTDA"|
