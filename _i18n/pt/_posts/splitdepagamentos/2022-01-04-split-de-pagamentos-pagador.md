@@ -699,7 +699,7 @@ Confira um exemplo de requisição com **Subordinado Principal**:
 |PROPRIEDADE|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
 |---|---|---|---|---|
 | `SplitTransaction.MainSubordinateMerchantId` | GUID | 36 | Não | Identificação do subordinado principal. É o mesmo valor do `SubordinateMerchantId`.|
-|  `Payment.Type` |	Texto	| 100	| Sim	| Tipo do meio de pagamento. Possíveis Valores: "CreditCard", "DebitCard", "SplittedCreditcard" ou "SplittedDebitcard".|
+|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. Possíveis Valores: "CreditCard", "DebitCard", "SplittedCreditcard" ou "SplittedDebitcard".|
 
 #### Resposta
 
