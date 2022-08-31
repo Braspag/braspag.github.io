@@ -1019,14 +1019,14 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 * IP do dispositivo do comprador;
 * Versão do navegador;
 * Sistema operacional;
-* Compatibilidade entre idioma e país.
+* Compatibilidade entre idioma e país.<br/>
 <br/>
-<br>
+
 O Fingerprint faz a identificação do dispositivo usado por sessão de navegação e persiste por aproximadamente 24 horas. Se a página for fechada e o comprador retornar ao site abrindo uma nova página, ou se fechar o aplicativo e abrir novamente, você deverá gerar uma nova sessão e uma nova identificação de sessão.
-<br/>
+
 O Fingerprint é importante para a análise de fraude porque, muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e aumentam a segurança da sua loja.
 
-**Importante**: Para atender aos requisitos da Lei Geral de Proteção de Dados (LGPD), inclua a informação sobre coleta de dados do dispositivo do comprador na política de cookies do seu e-commerce.
+<aside class="notice">IMPORTANTE: Para atender aos requisitos da Lei Geral de Proteção de Dados (LGPD), inclua a informação sobre coleta de dados do dispositivo do comprador na política de cookies do seu e-commerce.</aside>
 
 ### Quem cria o Fingerprint?
 
