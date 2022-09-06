@@ -152,7 +152,7 @@ Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo
 |`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 
-<aside class="warning">Consulte sobre o [processo legado de autenticação](https://braspag.github.io//manualp/braspag-silent-order-post#autentica%C3%A7%C3%A3o-legada), com geração do `AccessToken` utilizando MerchantID e IP do comprador.</aside>
+> Consulte sobre o [processo legado de autenticação](https://braspag.github.io//manualp/braspag-silent-order-post#autentica%C3%A7%C3%A3o-legada), com geração do `AccessToken` utilizando `MerchantId` e IP do comprador.
 
 ## 3. Implementando o Script
 
@@ -279,7 +279,7 @@ Consulte o [Manual da API do Pagador](https://braspag.github.io//manual/braspag-
 
 Compartilhamos no nosso GitHub um [exemplo prático](https://github.com/Braspag/silent-order-post){:target="_blank"} de como você deve mapear as classes e integrar o Silent Order Post ao seu checkout.
 
-Para ver uma aplicação pronta e integrada integrada ao Silent Order Post, acesse nossa [integração de exemplo](https://braspag.github.io/silent-order-post/){:target="_blank"}.
+Para ver uma aplicação pronta e integrada ao Silent Order Post, acesse nossa [integração de exemplo](https://braspag.github.io/silent-order-post/){:target="_blank"}.
 
 # ANEXO
 
