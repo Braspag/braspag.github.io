@@ -785,12 +785,10 @@
         </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">408</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 1 Hits de Identificação em 1 Hora(s). HitsQuantity: 1. HitsTimeRangeInSeconds: 3600. ExpirationBlockTimeInSeconds: 0"</span><span class="w">
+                </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">408</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra Identification. Name: Máximo de 2 Hits de Identificação em 1 Minuto(s). HitsQuantity: 2. HitsTimeRangeInSeconds: 60. ExpirationBlockTimeInSeconds: 60"</span><span class="w">
+                </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"AcceptByWhiteList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -856,11 +854,6 @@
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AnalysisResult.RejectReasons[n].RuleId</code></td>
       <td style="text-align: left">Id da regra disparada a qual a transação foi rejeitada</td>
       <td style="text-align: center">int</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AnalysisResult.RejectReasons[n].Message</code></td>
-      <td style="text-align: left">Descrição do bloqueio, contendo: <br /> Tipo de bloqueio - Ex.: Bloqueado pela regra Identification <br /> Nome da regra - Ex.: Máximo de 1 Hits de Identificação em 1 Hora(s) <br /> Quantidade de repetições no período analisado - Ex.: HitsQuantity: 1 <br /> Período analisado - HitsTimeRangeInSeconds: 3600 <br /> Tempo de expiração da quarentena - Ex.: ExpirationBlockTimeInSeconds: 0</td>
-      <td style="text-align: center">string</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AnalysisResult.AcceptByWhiteList</code></td>
