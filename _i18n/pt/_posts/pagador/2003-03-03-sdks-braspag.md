@@ -22,9 +22,7 @@ O Pagador oferece uma gama de Software Development Kits (SDKs), disponíveis no 
 
 |**SDK Silent Order Post**|
 |-|
-|[Android](https://github.com/Braspag/silent-order-post-android)|
 |[Dart](https://github.com/Braspag/braspag_silent_order_post_dart)|
-|[iOS](https://github.com/Braspag/silent_order_post_ios)|
 
 |**SDK VerifyCard**|
 |-|
