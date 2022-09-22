@@ -68,7 +68,7 @@ O token retornado (`access_token`) deverá ser utilizado em toda requisição à
 
 ### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{BraspagAuth API}oauth2/token</span></aside>
 
 **Parâmetros no Cabeçalho (header)**
 
@@ -106,7 +106,7 @@ O token retornado (`access_token`) deverá ser utilizado em toda requisição à
 
 > Através desta opção será possível você criar chargeback para as transações apenas no ambiente de sandbox. Para isso, realizar um POST de acordo com as orientações abaixo.
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">chargeback/test</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}chargeback/test</span></aside>
 
 ## Request
 
@@ -200,7 +200,7 @@ Após a consulta, você deve decidir por [aceitar](https://braspag.github.io//ma
 
 ## Aceitando um chargeback
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}acceptance/{CaseNumber}</span></aside>
 
 ### Request
 
@@ -336,7 +336,7 @@ Após a consulta, você deve decidir por [aceitar](https://braspag.github.io//ma
 
 ## Contestando um chargeback
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}v2/contestation/{CaseNumber}</span></aside>
 
 ``` json
 {
@@ -665,7 +665,7 @@ Após a consulta, você deve decidir por [aceitar](https://braspag.github.io//ma
 
 ### Requisição
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback/GetByBraspagTransactionId/{TransactionId}</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">{Risk Notification API}Chargeback/GetByBraspagTransactionId/{TransactionId}</span></aside>
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -736,7 +736,7 @@ Após a consulta, você deve decidir por [aceitar](https://braspag.github.io//ma
 
 ### Request
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback?StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">{Risk Notification API}Chargeback?StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
 
 **Parâmetros no cabeçalho (Header)**
 
