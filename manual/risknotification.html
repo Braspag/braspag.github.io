@@ -226,7 +226,7 @@
 
 <h3 id="requisição">Requisição</h3>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{BraspagAuth API}oauth2/token</span></aside>
 
 <p><strong>Parâmetros no Cabeçalho (header)</strong></p>
 
@@ -310,7 +310,7 @@
   <p>Através desta opção será possível você criar chargeback para as transações apenas no ambiente de sandbox. Para isso, realizar um POST de acordo com as orientações abaixo.</p>
 </blockquote>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">chargeback/test</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}chargeback/test</span></aside>
 
 <h2 id="request">Request</h2>
 
@@ -547,7 +547,7 @@
 
 <h2 id="aceitando-um-chargeback">Aceitando um chargeback</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}acceptance/{CaseNumber}</span></aside>
 
 <h3 id="request-1">Request</h3>
 
@@ -896,7 +896,7 @@
 
 <h2 id="contestando-um-chargeback">Contestando um chargeback</h2>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
+<aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}v2/contestation/{CaseNumber}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Files"</span><span class="p">:</span><span class="w">
@@ -1721,7 +1721,7 @@
 
 <h3 id="requisição-1">Requisição</h3>
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback/GetByBraspagTransactionId/{TransactionId}</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">{Risk Notification API}Chargeback/GetByBraspagTransactionId/{TransactionId}</span></aside>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
@@ -1912,7 +1912,7 @@
 
 <h3 id="request-11">Request</h3>
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">Chargeback?StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">{Risk Notification API}Chargeback?StartDate={StartDate}&amp;EndDate={EndDate}&amp;PageIndex={PageIndex}&amp;PageSize={PageSize}</span></aside>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
