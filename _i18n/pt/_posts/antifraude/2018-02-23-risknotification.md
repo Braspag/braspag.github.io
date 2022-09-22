@@ -661,11 +661,11 @@ Após a consulta, você deve decidir por [aceitar](https://braspag.github.io//ma
 
 # Consultas
 
-## Consulta por TransactionId
+## Consulta por PaymentId
 
 ### Requisição
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">{Risk Notification API}Chargeback/GetByBraspagTransactionId/{TransactionId}</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">{Risk Notification API}Chargeback/GetByBraspagTransactionId/{PaymentId}</span></aside>
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -757,7 +757,7 @@ Após a consulta, você deve decidir por [aceitar](https://braspag.github.io//ma
 |`EstablishmentCodes`|Número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente associado(s) ao ClientId.|não|
 |`CaseNumber`|Número do caso do chargeback.|não|
 |`AcquirerTransactionId`|Identificador da transação na adquirente (TID).|não|
-|`BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId).|não|
+|`BraspagTransactionId`|É o `PaymentId`, identificador da transação na plataforma Pagador Braspag ou Cielo 3.0.|não|
 |`BrandIds`| Bandeira do cartão.|não|
 |`ReasonCode`| Código do motivo do chargeback.|não|
 |`ChargebackTypes`| Tipo de chargeback.|não|
