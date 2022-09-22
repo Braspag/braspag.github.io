@@ -908,7 +908,7 @@ Possíveis valores do chargeback.
 
 ## Tabela 6 - Chargebacks[n].Transaction.AntifraudSourceApplication
 
-|Valor|Descrição|Provider|
+|Valor|Descrição|
 |:-|:-|
 |Gateway|Antifraude Gateway|
 |Legacy|Antifraude Legado|
