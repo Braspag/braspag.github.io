@@ -355,7 +355,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 
 <aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).</aside>
 
-<p>The parameters contained within the <code class="language-plaintext highlighter-rouge">Address</code> and <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> nodes are <strong>mandatory</strong> when the transaction is submitted to the <a href="https://braspag.github.io//en/manual/antifraude">Antifraude</a> or <strong>Velocity</strong> analysis. These parameters are marked with an * in the mandatory column of the table below.</p>
+<p>The parameters contained within the <code class="language-plaintext highlighter-rouge">Address</code> and <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> nodes are <strong>required</strong> when the transaction is submitted to the <a href="https://braspag.github.io//en/manual/antifraude">Antifraude</a> or <strong>Velocity</strong> analysis. These parameters are marked with an * in the mandatory column of the table below.</p>
 
 <p>Here are request and answer examples of how to create a credit transaction:</p>
 
@@ -779,7 +779,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>Indicates whether the transaction is of recurring type (“true”) or not (“false”). The “true” value will not set a new recurrence, it will only allow the execution of a transaction without the need to send CVV. <code class="language-plaintext highlighter-rouge">Authenticate</code> must be “false” when <code class="language-plaintext highlighter-rouge">Recurrent</code> is “true”. <strong>For Cielo transactions only.</strong></td>
+      <td>Indicates whether the transaction is of recurring type (“true”) or not (“false”). The “true” value will not set a new recurrence, it will only allow the execution of a transaction without the need to send CVV. <code class="language-plaintext highlighter-rouge">Authenticate</code> must be “false” when <code class="language-plaintext highlighter-rouge">Recurrent</code> is “true”. <strong>For Cielo, Cielo 30 and Rede2 transactions only.</strong></td>
       <td>Boolean</td>
       <td>—</td>
       <td>No (default “false”)</td>
