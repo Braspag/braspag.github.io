@@ -337,7 +337,7 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 |`Payment.Interest`|Tipo de parcelamento - Loja ("ByMerchant") ou Emissor ("ByIssuer").|Texto|10|Não|
 |`Payment.Capture`|Indica se a autorização deve ser com captura automática ("true") ou não ("false"). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.|Booleano|---|Não (default "false")|
 |`Payment.Authenticate`|Indica se a transação deve ser autenticada ("true") ou não ("false"). Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.|Booleano|---|Não (default "false")|
-|`Payment.Recurrent`|Indica se a transação é do tipo recorrente ("true") ou não ("false"). O valor "true" não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. `Authenticate` deve ser "false" quando `Recurrent` é "true". **Somente para transações Cielo.**|Booleano|---|Não (default "false")|
+|`Payment.Recurrent`|Indica se a transação é do tipo recorrente ("true") ou não ("false"). O valor "true" não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. `Authenticate` deve ser "false" quando `Recurrent` é "true". **Somente para transações Cielo, Cielo30 e Rede2.**|Booleano|---|Não (default "false")|
 |`Payment.SoftDescriptor`|Valor que será concatenado com o valor de cadastro na adquirente para identificação na fatura.|Texto|13|Não|
 |`Payment.DoSplit`|Indica se a transação será dividida entre várias contas ("true") ou não ("false").|Booleano|---|Não (default "false")|
 |`Payment.ExtraDataCollection.Name`|Nome do campo que será gravado como dado extra.|Texto|50|Não|
