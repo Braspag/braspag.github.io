@@ -132,7 +132,7 @@ If your store uses *Retry* or *Loadbalance* services, affiliations must be regis
 
 <aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).</aside>
 
-The parameters contained within the `Address` and `DeliveryAddress` nodes are **mandatory** when the transaction is submitted to the [Antifraude](https://braspag.github.io//en/manual/antifraude) or **Velocity** analysis. These parameters are marked with an * in the mandatory column of the table below.
+The parameters contained within the `Address` and `DeliveryAddress` nodes are **required** when the transaction is submitted to the [Antifraude](https://braspag.github.io//en/manual/antifraude) or **Velocity** analysis. These parameters are marked with an * in the mandatory column of the table below.
 
 Here are request and answer examples of how to create a credit transaction:
 
@@ -331,7 +331,7 @@ Here are request and answer examples of how to create a credit transaction:
 |`Payment.Interest`|Installment type - Store ("ByMerchant") or Issuer ("ByIssuer").|Text|10|No|
 |`Payment.Capture`|Indicates whether the authorization will use automatic capture ("true") or not ("false"). Please check with acquirer about the availability of this feature.|Boolean|---|No (default "false")|
 |`Payment.Authenticate`|Indicates whether the transaction will be authenticated ("true") or not ("false"). Please check with acquirer about the availability of this feature.|Boolean|---|No (default "false")|
-|`Payment.Recurrent`|Indicates whether the transaction is of recurring type ("true") or not ("false"). The "true" value will not set a new recurrence, it will only allow the execution of a transaction without the need to send CVV. `Authenticate` must be "false" when `Recurrent` is "true". **For Cielo transactions only.** |Boolean|---|No (default "false")|
+|`Payment.Recurrent`|Indicates whether the transaction is of recurring type ("true") or not ("false"). The "true" value will not set a new recurrence, it will only allow the execution of a transaction without the need to send CVV. `Authenticate` must be "false" when `Recurrent` is "true". **For Cielo, Cielo 30 and Rede2 transactions only.** |Boolean|---|No (default "false")|
 |`Payment.SoftDescriptor`|Text to be printed on bearer's invoice.|Text|13|No|
 |`Payment.DoSplit`|Indicates whether the transaction will be split between multiple accounts ("true") or not ("false").|Boolean|---|No (default "false")|
 |`Payment.ExtraDataCollection.Name`|Name of the extra data field.|Text|50|No|
