@@ -2133,7 +2133,7 @@ Here are examples of a request and response for generating the QR code Pix:
    },
    "Payment":{
       (...)   
-      "Paymentid":"1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
+      "PaymentId":"1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
       "Type":"Pix",
       "Provider":"Bradesco2",
       "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
