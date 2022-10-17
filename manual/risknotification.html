@@ -319,11 +319,9 @@
 
 <h1 id="autenticação">Autenticação</h1>
 
-<h2 id="tokens-de-acesso">Tokens de Acesso</h2>
-
 <p>A Risk Notification API utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, <strong>Sandbox</strong> e <strong>Produção</strong>.</p>
 
-<h2 id="como-obter-o-token-de-acesso">Como obter o token de acesso</h2>
+<h2 id="obtendo-o-token-de-acesso">Obtendo o token de acesso</h2>
 
 <p>Durante o onboarding, você receberá as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>. Caso não tenha recebido a credencial, solicite ao <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Suporte Braspag</a> enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.</p>
 
@@ -481,51 +479,14 @@
 </table>
 
 <blockquote>
-  <p><strong>Importante</strong>:<br />
-Para a simulação, você precisa criar um valor fictício para o CaseNumber no parâmetro <code class="language-plaintext highlighter-rouge">ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber</code>;<br />
-Na simulação de chargeback, use a data da transação em <code class="language-plaintext highlighter-rouge">ChargebackBrandGroups[n].Details[n].SaleDate</code>.</p>
+  <p><strong>Importante</strong>:<br /></p>
+  <ul>
+    <li>Para a simulação, você precisa criar um valor fictício para o CaseNumber no parâmetro <code class="language-plaintext highlighter-rouge">ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber</code>;<br /></li>
+    <li>Na simulação de chargeback, use a data da transação em <code class="language-plaintext highlighter-rouge">ChargebackBrandGroups[n].Details[n].SaleDate</code>.</li>
+  </ul>
 </blockquote>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}chargeback/test</span></aside>
-
-<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-      <td style="text-align: left">Tipo do conteúdo da requisição</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-      <td style="text-align: left">Tipo da autorização. Insira “Bearer” com B maiúsculo.</td>
-      <td style="text-align: left">sim</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
-      <td style="text-align: left">xxxxxxxxxx</td>
-      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="language-plaintext highlighter-rouge">MerchantId</code> deverá ser enviada</td>
-      <td style="text-align: left">condicional</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
-      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="language-plaintext highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
-      <td style="text-align: left">condicional</td>
-    </tr>
-  </tbody>
-</table>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"ChargebackBrandGroups"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
@@ -566,6 +527,47 @@ Na simulação de chargeback, use a data da transação em <code class="language
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+      <td style="text-align: left">Tipo do conteúdo da requisição</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+      <td style="text-align: left">Tipo da autorização. Insira “Bearer” com B maiúsculo.</td>
+      <td style="text-align: left">sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">EstablishmentCode</code></td>
+      <td style="text-align: left">xxxxxxxxxx</td>
+      <td style="text-align: left">Número do estabelecimento ou afiliação na adquirente <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="language-plaintext highlighter-rouge">MerchantId</code> deverá ser enviada</td>
+      <td style="text-align: left">condicional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm</td>
+      <td style="text-align: left">Id da loja na Braspag <br /> Obs.: Caso esta Key não seja enviada, obrigatoriamente a <code class="language-plaintext highlighter-rouge">EstablishmentCode</code> deverá ser enviada</td>
+      <td style="text-align: left">condicional</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (Body)</strong></p>
 
 <table>
   <thead>
