@@ -45,7 +45,7 @@ A Risk Notification API permite:
 
 Confira a seguir alguns conceitos básicos sobre chargebacks.
 
-|TERMO|	DEFINIÇÃO|
+|TERMO|DEFINIÇÃO|
 |---|---|
 | **Chargeback** | É a contestação de uma compra pelo portador do cartão diretamente com o emissor.|
 | **Fraude** | É o uso do cartão de crédito por terceiros não autorizados pelo portador do cartão.|
