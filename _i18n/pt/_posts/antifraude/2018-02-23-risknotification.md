@@ -71,11 +71,34 @@ Os motivos da ocorrência de chargeback são:
 
 > As transações que passam por autenticação 3DS são de responsabilidade do emissor e, por isso, não podem receber chargeback de fraude.
 
-# Objetivo
+# Notificação de chargeback
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a Risk Notification API, descrevendo as operações disponíveis com exemplos de requisições e respostas.
+Ao integrar o seu e-commerce à Risk Notification API, você pode optar por receber a notificação de chargeback pelo **Post de Notificação**.
 
-Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.
+O **Post de Notificação** é o webhook configurado na API que você usa para as suas transações (Pagador ou API E-commerce Cielo).
+
+Para receber as notificações, você deve informar uma URL de Notificação à nossa equipe de Suporte. Saiba mais no manual do [Pagador](https://braspag.github.io//manual/braspag-pagador){:target="_blank"} ou no manual da [API E-commerce Cielo](https://developercielo.github.io/manual/cielo-ecommerce){:target="_blank"}.
+
+* A ativação do Post de Notificação é opcional, mas recomendamos o uso dessa funcionalidade;
+* O endereço (URL) deve ser HTTPS;
+* É possível adicionar chaves nos cabeçalhos (headers) como medida de segurança.
+
+**Estrutura da notificação do webhook**
+
+Enviaremos uma notificação em JSON contendo o `PaymentId` e o `ChangeType` com o valor “7”, que indica a ocorrência de chargeback.
+
+```json
+{ 
+   "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
+   "ChangeType": "7" 
+}
+```
+
+A notificação de chargeback informa apenas que um chargeback ocorreu e envia o `PaymentId` da transação. Para saber mais detalhes como valor e motivo do chargeback, faça uma Consulta na Risk Notification API.
+
+Após a consulta, você deve decidir por aceitar ou disputar o chargeback, conforme ilustrado no diagrama a seguir:
+
+![Notificação de chargeback]({{ site.baseurl_root }}/images/braspag/af/risknotificationapi-notificacao.png)
 
 # Ambientes
 
@@ -234,18 +257,6 @@ O token retornado (`access_token`) deverá ser utilizado em toda requisição à
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
-
-# Notificação de chargeback
-
-Ao integrar o seu e-commerce à Risk Notification API, você poderá receber a notificação de chargeback pelo Post de Notificação (webhook) caso seja cliente do Pagador Braspag ou da API E-commerce 3.0 da Cielo.
-
-* **Post de Notificação do Pagador Braspag**: o retorno **ChangeType “7”** indica a ocorrência de chargeback. Saiba mais sobre o [Post de Notificação no manual do Pagador](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o){:target="_blank"}.
-
-* **Post de Notificação da API E-commerce 3.0 da Cielo**: o retorno **ChangeType “7”** indica a ocorrência de chargeback. Saiba mais sobre o [Post de Notificação no manual da API E-commerce 3.0](https://developercielo.github.io/manual/cielo-ecommerce#endpoint-de-notifica%C3%A7%C3%A3o){:target="_blank"}.
-
-A notificação de chargeback informa apenas o `PaymentId` da transação. Ao receber uma notificação de chargeback, você deve fazer uma [Consulta](https://braspag.github.io//manual/risknotification#consultas) na Risk Notification API para visualizar mais informações como: valor, número do pedido e motivo do chargeback, entre outras.
-
-Após a consulta, você deve decidir por [aceitar](https://braspag.github.io//manual/risknotification#aceita%C3%A7%C3%A3o) ou [contestar](https://braspag.github.io//manual/risknotification#contesta%C3%A7%C3%A3o) o chargeback.
 
 # Aceitação
 
