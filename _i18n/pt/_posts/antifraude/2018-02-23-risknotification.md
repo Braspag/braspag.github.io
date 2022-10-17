@@ -100,21 +100,25 @@ Após a consulta, você deve decidir por aceitar ou disputar o chargeback, confo
 
 ![Notificação de chargeback]({{ site.baseurl_root }}/images/braspag/af/risknotificationapi-notificacao.png)
 
+# Integração
+
 # Ambientes
 
-## BraspagAuth API
+## Sandbox
 
-|Ambiente|URL|
-|:-|:-|
-|`Sandbox`|https://authsandbox.braspag.com.br/|
-|`Produção`|https://auth.braspag.com.br/|
+|API	|URL BASE	|FUNÇÃO|
+|---|---|---|
+| Braspag OAUTH2 Server|	https://authsandbox.braspag.com.br/	| Autenticação. |
+| Risk Notification API | https://risknotificationsandbox.braspag.com.br/	| Consulta, aceitação e disputa de chargebacks. |
 
-## Risk Notification API
+## Produção
 
-|Ambiente|URL|
-|:-|:-|
-|`Sandbox`|https://risknotificationsandbox.braspag.com.br/|
-|`Produção`|https://risknotification.braspag.com.br/|
+|API	|URL BASE	|FUNÇÃO|
+|---|---|---|
+| Braspag OAUTH2 Server	| https://auth.braspag.com.br/ | Autenticação.|
+| Risk Notification API | https://risknotification.braspag.com.br/ | Consulta, aceitação e disputa de chargebacks.|
+
+> Para simular um chargeback, você deverá criar uma transação no ambiente sandbox da API do Pagador ou da API E-commerce Cielo; saiba mais em Simulando um Chargeback.
 
 # Autenticação
 
