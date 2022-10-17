@@ -220,12 +220,14 @@
 <ul>
   <li><strong>Fraude</strong>: o portador do cartão não reconhece a compra;</li>
   <li><strong>Desacordo comercial</strong>: o portador do cartão reconhece a compra, porém alega que algum termo da venda não foi cumprido (mercadoria não entregue ou com defeito, por exemplo);</li>
-  <li><strong>Erro de processamento</strong>: o portador do cartão identifica algum erro na cobrança (duplicidade, valor cobrado incorretamente, pagamento por outros meios etc.).</li>
+  <li><strong>Erro de processamento</strong>: o portador do cartão identifica algum erro na cobrança (duplicidade, valor cobrado incorretamente, pagamento por outros meios etc.).
+<br />
+<br />
+    <blockquote>
+      <p>As transações que passam por autenticação 3DS são de responsabilidade do emissor e, por isso, não podem receber chargeback de fraude.</p>
+    </blockquote>
+  </li>
 </ul>
-
-<blockquote>
-  <p>As transações que passam por autenticação 3DS são de responsabilidade do emissor e, por isso, não podem receber chargeback de fraude.</p>
-</blockquote>
 
 <h1 id="notificação-de-chargeback">Notificação de chargeback</h1>
 
@@ -239,7 +241,6 @@
   <li>A ativação do Post de Notificação é opcional, mas recomendamos o uso dessa funcionalidade;</li>
   <li>O endereço (URL) deve ser HTTPS;</li>
   <li>É possível adicionar chaves nos cabeçalhos (headers) como medida de segurança.
-<br />
 <br />
 <strong>Estrutura da notificação do webhook</strong></li>
 </ul>
@@ -311,7 +312,7 @@
 </table>
 
 <blockquote>
-  <p>Para simular um chargeback, você deverá criar uma transação no ambiente sandbox da API do Pagador ou da API E-commerce Cielo; saiba mais em Simulando um Chargeback.</p>
+  <p>Para simular um chargeback, você deverá criar uma transação no ambiente sandbox da API do Pagador ou da API E-commerce Cielo; saiba mais em <a href="https://braspag.github.io//manual/risknotification#simulando-um-chargeback" target="_blank">Simulando um Chargeback</a>.</p>
 </blockquote>
 
 <h1 id="autenticação">Autenticação</h1>
