@@ -80,10 +80,10 @@ O **Post de Notificação** é o webhook configurado na API que você usa para a
 
 Para receber as notificações, você deve informar uma URL de Notificação à nossa equipe de Suporte. Saiba mais no manual do [Pagador](https://braspag.github.io//manual/braspag-pagador){:target="_blank"} ou no manual da [API E-commerce Cielo](https://developercielo.github.io/manual/cielo-ecommerce){:target="_blank"}.
 
-* A ativação do Post de Notificação é opcional, mas recomendamos o uso dessa funcionalidade;
-* O endereço (URL) deve ser HTTPS;
-* É possível adicionar chaves nos cabeçalhos (headers) como medida de segurança.
-<br/>
+> * A ativação do Post de Notificação é opcional, mas recomendamos o uso dessa funcionalidade;<br/>
+> * O endereço (URL) deve ser HTTPS;<br/>
+> * É possível adicionar chaves nos cabeçalhos (headers) como medida de segurança.
+<br>
 **Estrutura da notificação do webhook**
 
 Enviaremos uma notificação em JSON contendo o `PaymentId` e o `ChangeType` com o valor “7”, que indica a ocorrência de chargeback.
