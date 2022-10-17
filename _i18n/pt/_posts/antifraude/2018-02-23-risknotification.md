@@ -253,6 +253,7 @@ Confira a correspondência entre os parâmetros das APIs transacionais e da Risk
     }]
 }
 ```
+
 **Parâmetros no cabeçalho (Header)**
 
 |Key|Value|Descrição|Obrigatório|
