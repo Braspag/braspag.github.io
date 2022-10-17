@@ -38,7 +38,7 @@ A Risk Notification API permite:
 * Consulta de detalhes sobre o chargeback;
 * Automatização do processo de notificação, aceitação e disputa;
 * Retroalimentação das ocorrências de chargeback para a análise de fraude na Cybersource*.
-
+<br>
 **Exclusivo para lojas integradas ao Antifraude Gateway Braspag com o provedor Cybersource.*
 
 ## Glossário
@@ -82,7 +82,8 @@ Para receber as notificações, você deve informar uma URL de Notificação à 
 * A ativação do Post de Notificação é opcional, mas recomendamos o uso dessa funcionalidade;
 * O endereço (URL) deve ser HTTPS;
 * É possível adicionar chaves nos cabeçalhos (headers) como medida de segurança.
-
+<br/>
+<br/>
 **Estrutura da notificação do webhook**
 
 Enviaremos uma notificação em JSON contendo o `PaymentId` e o `ChangeType` com o valor “7”, que indica a ocorrência de chargeback.
