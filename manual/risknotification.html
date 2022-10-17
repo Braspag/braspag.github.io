@@ -228,11 +228,35 @@
   <p>As transações que passam por autenticação 3DS são de responsabilidade do emissor e, por isso, não podem receber chargeback de fraude.</p>
 </blockquote>
 
-<h1 id="objetivo">Objetivo</h1>
+<h1 id="notificação-de-chargeback">Notificação de chargeback</h1>
 
-<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a Risk Notification API, descrevendo as operações disponíveis com exemplos de requisições e respostas.</p>
+<p>Ao integrar o seu e-commerce à Risk Notification API, você pode optar por receber a notificação de chargeback pelo <strong>Post de Notificação</strong>.</p>
 
-<p>Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.</p>
+<p>O <strong>Post de Notificação</strong> é o webhook configurado na API que você usa para as suas transações (Pagador ou API E-commerce Cielo).</p>
+
+<p>Para receber as notificações, você deve informar uma URL de Notificação à nossa equipe de Suporte. Saiba mais no manual do <a href="https://braspag.github.io//manual/braspag-pagador" target="_blank">Pagador</a> ou no manual da <a href="https://developercielo.github.io/manual/cielo-ecommerce" target="_blank">API E-commerce Cielo</a>.</p>
+
+<ul>
+  <li>A ativação do Post de Notificação é opcional, mas recomendamos o uso dessa funcionalidade;</li>
+  <li>O endereço (URL) deve ser HTTPS;</li>
+  <li>É possível adicionar chaves nos cabeçalhos (headers) como medida de segurança.</li>
+</ul>
+
+<p><strong>Estrutura da notificação do webhook</strong></p>
+
+<p>Enviaremos uma notificação em JSON contendo o <code class="language-plaintext highlighter-rouge">PaymentId</code> e o <code class="language-plaintext highlighter-rouge">ChangeType</code> com o valor “7”, que indica a ocorrência de chargeback.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
+   </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w"> 
+   </span><span class="nl">"ChangeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>A notificação de chargeback informa apenas que um chargeback ocorreu e envia o <code class="language-plaintext highlighter-rouge">PaymentId</code> da transação. Para saber mais detalhes como valor e motivo do chargeback, faça uma Consulta na Risk Notification API.</p>
+
+<p>Após a consulta, você deve decidir por aceitar ou disputar o chargeback, conforme ilustrado no diagrama a seguir:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/af/risknotificationapi-notificacao.png" alt="Notificação de chargeback" /></p>
 
 <h1 id="ambientes">Ambientes</h1>
 
@@ -607,23 +631,6 @@
     </tr>
   </tbody>
 </table>
-
-<h1 id="notificação-de-chargeback">Notificação de chargeback</h1>
-
-<p>Ao integrar o seu e-commerce à Risk Notification API, você poderá receber a notificação de chargeback pelo Post de Notificação (webhook) caso seja cliente do Pagador Braspag ou da API E-commerce 3.0 da Cielo.</p>
-
-<ul>
-  <li>
-    <p><strong>Post de Notificação do Pagador Braspag</strong>: o retorno <strong>ChangeType “7”</strong> indica a ocorrência de chargeback. Saiba mais sobre o <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o" target="_blank">Post de Notificação no manual do Pagador</a>.</p>
-  </li>
-  <li>
-    <p><strong>Post de Notificação da API E-commerce 3.0 da Cielo</strong>: o retorno <strong>ChangeType “7”</strong> indica a ocorrência de chargeback. Saiba mais sobre o <a href="https://developercielo.github.io/manual/cielo-ecommerce#endpoint-de-notifica%C3%A7%C3%A3o" target="_blank">Post de Notificação no manual da API E-commerce 3.0</a>.</p>
-  </li>
-</ul>
-
-<p>A notificação de chargeback informa apenas o <code class="language-plaintext highlighter-rouge">PaymentId</code> da transação. Ao receber uma notificação de chargeback, você deve fazer uma <a href="https://braspag.github.io//manual/risknotification#consultas">Consulta</a> na Risk Notification API para visualizar mais informações como: valor, número do pedido e motivo do chargeback, entre outras.</p>
-
-<p>Após a consulta, você deve decidir por <a href="https://braspag.github.io//manual/risknotification#aceita%C3%A7%C3%A3o">aceitar</a> ou <a href="https://braspag.github.io//manual/risknotification#contesta%C3%A7%C3%A3o">contestar</a> o chargeback.</p>
 
 <h1 id="aceitação">Aceitação</h1>
 
