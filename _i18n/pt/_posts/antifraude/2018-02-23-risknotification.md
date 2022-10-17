@@ -68,7 +68,8 @@ Os motivos da ocorrência de chargeback são:
 * **Fraude**: o portador do cartão não reconhece a compra;
 * **Desacordo comercial**: o portador do cartão reconhece a compra, porém alega que algum termo da venda não foi cumprido (mercadoria não entregue ou com defeito, por exemplo);
 * **Erro de processamento**: o portador do cartão identifica algum erro na cobrança (duplicidade, valor cobrado incorretamente, pagamento por outros meios etc.).
-
+<br/>
+<br/>
 > As transações que passam por autenticação 3DS são de responsabilidade do emissor e, por isso, não podem receber chargeback de fraude.
 
 # Notificação de chargeback
@@ -82,7 +83,6 @@ Para receber as notificações, você deve informar uma URL de Notificação à 
 * A ativação do Post de Notificação é opcional, mas recomendamos o uso dessa funcionalidade;
 * O endereço (URL) deve ser HTTPS;
 * É possível adicionar chaves nos cabeçalhos (headers) como medida de segurança.
-<br/>
 <br/>
 **Estrutura da notificação do webhook**
 
@@ -119,7 +119,7 @@ Após a consulta, você deve decidir por aceitar ou disputar o chargeback, confo
 |Braspag OAUTH2 Server|https://auth.braspag.com.br/|Autenticação.|
 |Risk Notification API|https://risknotification.braspag.com.br/|Consulta, aceitação e disputa de chargebacks.|
 
-> Para simular um chargeback, você deverá criar uma transação no ambiente sandbox da API do Pagador ou da API E-commerce Cielo; saiba mais em Simulando um Chargeback.
+> Para simular um chargeback, você deverá criar uma transação no ambiente sandbox da API do Pagador ou da API E-commerce Cielo; saiba mais em [Simulando um Chargeback](https://braspag.github.io//manual/risknotification#simulando-um-chargeback){:target="_blank"}.
 
 # Autenticação
 
