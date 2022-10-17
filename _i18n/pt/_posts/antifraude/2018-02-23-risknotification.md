@@ -181,20 +181,46 @@ O token retornado (`access_token`) deverá ser utilizado em toda requisição à
 |`token_type`|Indica o valor do tipo de token.|
 |`expires_in`|Expiração do token de acesso, em segundos. <br/>Após expirar, é necessário obter um novo.|
 
-# Simulando Chargeback 
+# Simulando um chargeback
 
-> Através desta opção será possível você criar chargeback para as transações apenas no ambiente de sandbox. Para isso, realizar um POST de acordo com as orientações abaixo.
+Você pode simular um chargeback para testar a consulta, aceitação e disputa de chargebacks.
+
+Para simular chargeback, o primeiro passo é criar uma transação de teste; em seguida, você poderá enviar a requisição de simulação de chargeback. Depois disso, o fluxo segue conforme um chargeback real:
+
+![Simular chargeback]({{ site.baseurl_root }}/images/braspag/af/risknotificationapi-simulacao.png)
+
+1. **Crie uma transação de teste** no ambiente sandbox da **API transacional** usada pela sua loja (API do Pagador ou API E-commerce Cielo);
+2. **Crie uma simulação de chargeback na Risk Notification API**, conforme requisição de simulação;
+3. A Risk Notification API informará a ocorrência de chargeback para a API transacional;
+4. A API transacional enviará um Post de Notificação com o ChangeType igual a “7”, informando o PaymentId da transação;
+5. Faça uma consulta na Risk Notification API usando o PaymentId. A consulta vai retornar o CaseNumber;
+6. Você pode decidir se irá testar o fluxo de aceitação ou disputa, seguindo as requisições padrões dessa documentação, em ambiente sandbox. Tanto para a requisição de aceitação quanto de disputa, você deverá informar o CaseNumber recebido na etapa 5.
+
+## Requisição
+
+Depois de criar uma transação de teste na API do Pagador ou API E-commerce Cielo, envie a requisição de simulação para criar um chargeback em ambiente sandbox.
+
+Confira a correspondência entre os parâmetros das APIs transacionais e da Risk Notification API:
+
+|API PAGADOR |API E-COMMERCE CIELO |SIMULAÇÃO NA RISK NOTIFICATION API|
+|---|---|---|
+|-|-| `ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber` |
+| `Payment.AcquirerTransactionId` | `Payment.Tid` | `ChargebackBrandGroups[n].Details[n].AcquirerTransactionId` |
+| `Payment.AuthorizationCode` | `Payment.AuthorizationCode` | `ChargebackBrandGroups[n].Details[n].AuthorizationCode` |
+| `Payment.ProofOfSale` | `Payment.ProofOfSale` | `ChargebackBrandGroups[n].Details[n].ProofOfSale` |
+
+> **Importante**:<br/>
+> Para a simulação, você precisa criar um valor fictício para o CaseNumber no parâmetro `ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber`;<br/>
+> Na simulação de chargeback, use a data da transação em `ChargebackBrandGroups[n].Details[n].SaleDate`.
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}chargeback/test</span></aside>
-
-## Request
 
 **Parâmetros no cabeçalho (Header)**
 
 |Key|Value|Descrição|Obrigatório|
 |:-|:-|:-|:-|
 |`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização. Insira "Bearer" com B maiúsculo.|sim|
 |`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|condicional|
 |`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|condicional|
 
@@ -256,7 +282,7 @@ O token retornado (`access_token`) deverá ser utilizado em toda requisição à
 |`ChargebackBrandGroups[n].Details[n].TransactionAmount`|Valor da transação em centavos <br/> Informar o mesmo valor informado no campo `Payment.Amount` na criação da transação <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`ChargebackBrandGroups[n].Details[n].ProofOfSale`|Comprovante de venda ou NSU <br/> Informar o mesmo valor recebido no campo `Payment.ProofOfSale` do response da criação da transação|string|sim|20|
 
-## Response
+## Resposta
 
 |Key|Value|
 |:-|:-|
