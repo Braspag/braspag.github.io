@@ -123,11 +123,9 @@ Após a consulta, você deve decidir por aceitar ou disputar o chargeback, confo
 
 # Autenticação
 
-## Tokens de Acesso
-
 A Risk Notification API utiliza o protocolo padrão de mercado OAuth 2.0 para autorização de acesso a seus recursos específicos por ambientes, **Sandbox** e **Produção**.
 
-## Como obter o token de acesso
+## Obtendo o token de acesso
 
 Durante o onboarding, você receberá as credenciais `ClientId` e `ClientSecret`. Caso não tenha recebido a credencial, solicite ao [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"} enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.
 
@@ -210,19 +208,10 @@ Confira a correspondência entre os parâmetros das APIs transacionais e da Risk
 | `Payment.ProofOfSale` | `Payment.ProofOfSale` | `ChargebackBrandGroups[n].Details[n].ProofOfSale` |
 
 > **Importante**:<br/>
-> Para a simulação, você precisa criar um valor fictício para o CaseNumber no parâmetro `ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber`;<br/>
-> Na simulação de chargeback, use a data da transação em `ChargebackBrandGroups[n].Details[n].SaleDate`.
+> * Para a simulação, você precisa criar um valor fictício para o CaseNumber no parâmetro `ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber`;<br/>
+> * Na simulação de chargeback, use a data da transação em `ChargebackBrandGroups[n].Details[n].SaleDate`.
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}chargeback/test</span></aside>
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo da autorização. Insira "Bearer" com B maiúsculo.|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|condicional|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|condicional|
 
 ``` json
 {
@@ -264,6 +253,16 @@ Confira a correspondência entre os parâmetros das APIs transacionais e da Risk
     }]
 }
 ```
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização. Insira "Bearer" com B maiúsculo.|sim|
+|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|condicional|
+|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|condicional|
+
+**Parâmetros no corpo (Body)**
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-|
