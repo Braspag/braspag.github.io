@@ -237,13 +237,14 @@
 
 <p>Para receber as notificações, você deve informar uma URL de Notificação à nossa equipe de Suporte. Saiba mais no manual do <a href="https://braspag.github.io//manual/braspag-pagador" target="_blank">Pagador</a> ou no manual da <a href="https://developercielo.github.io/manual/cielo-ecommerce" target="_blank">API E-commerce Cielo</a>.</p>
 
-<ul>
-  <li>A ativação do Post de Notificação é opcional, mas recomendamos o uso dessa funcionalidade;</li>
-  <li>O endereço (URL) deve ser HTTPS;</li>
-  <li>É possível adicionar chaves nos cabeçalhos (headers) como medida de segurança.
-<br />
+<blockquote>
+  <ul>
+    <li>A ativação do Post de Notificação é opcional, mas recomendamos o uso dessa funcionalidade;<br /></li>
+    <li>O endereço (URL) deve ser HTTPS;<br /></li>
+    <li>É possível adicionar chaves nos cabeçalhos (headers) como medida de segurança.
 <strong>Estrutura da notificação do webhook</strong></li>
-</ul>
+  </ul>
+</blockquote>
 
 <p>Enviaremos uma notificação em JSON contendo o <code class="language-plaintext highlighter-rouge">PaymentId</code> e o <code class="language-plaintext highlighter-rouge">ChangeType</code> com o valor “7”, que indica a ocorrência de chargeback.</p>
 
