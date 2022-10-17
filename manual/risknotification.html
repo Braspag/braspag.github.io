@@ -136,14 +136,96 @@
             </div>
 
             <div class="post">
-  <h1 id="visão-geral">Visão Geral</h1>
+  <h1 id="sobre-essa-documentação">Sobre essa documentação</h1>
 
-<p>A API Risk Notification foi desenvolvida pelo time de Risco da Braspag para os que clientes possam consultar alertas de fraudes, chargebacks, realizar envio de arquivos para contestação de chargebacks e acatar chargebacks.</p>
+<p>Esta documentação apresenta a integração com a Risk Notification API, trazendo exemplos de requisições e respostas sobre a notificação, consulta, aceitação e disputa de chargebacks.</p>
 
-<p>A API é baseada em arquitetura REST, que troca dados em formato JSON seguindo fluxos de autorização definidos pelo protocolo <a href="https://oauth.net/2/">OAuth 2</a>, onde todos os padrões são amplamente utilizados pelo mercado e suportado pelas comunidades técnicas.</p>
+<p>Se você tem interesse na ferramenta de análise de fraude da Braspag, acesse a documentação do <a href="https://braspag.github.io//manual/antifraude" target="_blank">Antifraude Gateway</a>.</p>
+
+<h1 id="visão-geral">Visão geral</h1>
+
+<p>Os chargebacks são comuns em qualquer operação de e-commerce e geram impactos na agenda financeira de uma loja. A Risk Notification API oferece uma forma fácil e simplificada de saber quando um chargeback ocorreu e por qual motivo; assim, a loja pode decidir se irá aceitar ou disputar o chargeback.</p>
+
+<h2 id="requisitos">Requisitos</h2>
+
+<p>Você pode integrar a Risk Notification API se a sua loja cria transações usando a API do Pagador (tendo a Cielo como adquirente) ou a API E-commerce Cielo.</p>
+
+<p>Para contratar a Risk Notification API, fale com o time Comercial da Braspag.</p>
 
 <blockquote>
-  <p>Clientes Cielo E-commerce que desejam usar a Risk Notification API precisam contratar este serviço com a Braspag. Para isso, solicite para o canal de chargeback do seu segmento (por e-mail) ou para seu gestor comercial.</p>
+  <p>Clientes da API Cielo E-commerce que desejam usar a Risk Notification API precisam contratar este serviço com a Braspag. Para isso, solicite para o canal de chargeback do seu segmento (por e-mail) ou para seu gestor comercial.</p>
+</blockquote>
+
+<h2 id="benefícios-da-risk-notification-api">Benefícios da Risk Notification API</h2>
+
+<p>A Risk Notification API permite:</p>
+
+<ul>
+  <li>Notificação da ocorrência de chargeback na API Transacional (Pagador ou API E-commerce Cielo);</li>
+  <li>Consulta de detalhes sobre o chargeback;</li>
+  <li>Automatização do processo de notificação, aceitação e disputa;</li>
+  <li>Retroalimentação das ocorrências de chargeback para a análise de fraude na Cybersource*.</li>
+</ul>
+
+<p><em>*Exclusivo para lojas integradas ao Antifraude Gateway Braspag com o provedor Cybersource.</em></p>
+
+<h2 id="glossário">Glossário</h2>
+
+<p>Confira a seguir alguns conceitos básicos sobre chargebacks.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>TERMO</th>
+      <th>DEFINIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Chargeback</strong></td>
+      <td>É a contestação de uma compra pelo portador do cartão diretamente com o emissor.</td>
+    </tr>
+    <tr>
+      <td><strong>Fraude</strong></td>
+      <td>É o uso do cartão de crédito por terceiros não autorizados pelo portador do cartão.</td>
+    </tr>
+    <tr>
+      <td><strong>Aceitação</strong></td>
+      <td>É o processo de aceite do chargeback pela loja.</td>
+    </tr>
+    <tr>
+      <td><strong>Disputa</strong></td>
+      <td>É o processo que ocorre quando a loja não concorda com o chargeback e apresenta sua defesa na credenciadora.</td>
+    </tr>
+    <tr>
+      <td><strong>Retroalimentação de chargeback</strong></td>
+      <td>Quando o motivo do chargeback é fraude, essa informação é levada à Cybersource para retroalimentação do motor de análise de fraude.<br /><em>Função exclusiva para clientes do Antifraude Gateway Braspag com o provider Cybersource.</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="o-que-é-chargeback">O que é chargeback?</h2>
+
+<p>É o processo no qual o portador do cartão contesta uma compra com o emissor do cartão. Essa contestação pode ser feita pelo portador do cartão até <strong>180 dias depois da data da compra</strong>.</p>
+
+<p>O chargeback pode ocorrer em transações de e-commerce ou mundo físico, e a loja tem o direito de [disputar] o chargeback em um fluxo regulamentado pelas bandeiras.</p>
+
+<blockquote>
+  <p>Conheça as orientações da Cielo para <a href="https://developercielo.github.io/manual/prevencao-fraudes" target="_blank"><strong>Prevenção de Fraudes e Chargeback</strong></a>.</p>
+</blockquote>
+
+<h2 id="por-que-ocorre-um-chargeback">Por que ocorre um chargeback?</h2>
+
+<p>Os motivos da ocorrência de chargeback são:</p>
+
+<ul>
+  <li><strong>Fraude</strong>: o portador do cartão não reconhece a compra;</li>
+  <li><strong>Desacordo comercial</strong>: o portador do cartão reconhece a compra, porém alega que algum termo da venda não foi cumprido (mercadoria não entregue ou com defeito, por exemplo);</li>
+  <li><strong>Erro de processamento</strong>: o portador do cartão identifica algum erro na cobrança (duplicidade, valor cobrado incorretamente, pagamento por outros meios etc.).</li>
+</ul>
+
+<blockquote>
+  <p>As transações que passam por autenticação 3DS são de responsabilidade do emissor e, por isso, não podem receber chargeback de fraude.</p>
 </blockquote>
 
 <h1 id="objetivo">Objetivo</h1>
