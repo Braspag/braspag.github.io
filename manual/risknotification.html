@@ -164,10 +164,9 @@
   <li>Notificação da ocorrência de chargeback na API Transacional (Pagador ou API E-commerce Cielo);</li>
   <li>Consulta de detalhes sobre o chargeback;</li>
   <li>Automatização do processo de notificação, aceitação e disputa;</li>
-  <li>Retroalimentação das ocorrências de chargeback para a análise de fraude na Cybersource*.</li>
+  <li>Retroalimentação das ocorrências de chargeback para a análise de fraude na Cybersource<em>.
+**Exclusivo para lojas integradas ao Antifraude Gateway Braspag com o provedor Cybersource.</em></li>
 </ul>
-
-<p><em>*Exclusivo para lojas integradas ao Antifraude Gateway Braspag com o provedor Cybersource.</em></p>
 
 <h2 id="glossário">Glossário</h2>
 
@@ -239,10 +238,11 @@
 <ul>
   <li>A ativação do Post de Notificação é opcional, mas recomendamos o uso dessa funcionalidade;</li>
   <li>O endereço (URL) deve ser HTTPS;</li>
-  <li>É possível adicionar chaves nos cabeçalhos (headers) como medida de segurança.</li>
+  <li>É possível adicionar chaves nos cabeçalhos (headers) como medida de segurança.
+<br />
+<br />
+<strong>Estrutura da notificação do webhook</strong></li>
 </ul>
-
-<p><strong>Estrutura da notificação do webhook</strong></p>
 
 <p>Enviaremos uma notificação em JSON contendo o <code class="language-plaintext highlighter-rouge">PaymentId</code> e o <code class="language-plaintext highlighter-rouge">ChangeType</code> com o valor “7”, que indica a ocorrência de chargeback.</p>
 
@@ -258,49 +258,61 @@
 
 <p><img src="https://braspag.github.io//images/braspag/af/risknotificationapi-notificacao.png" alt="Notificação de chargeback" /></p>
 
+<h1 id="integração">Integração</h1>
+
 <h1 id="ambientes">Ambientes</h1>
 
-<h2 id="braspagauth-api">BraspagAuth API</h2>
+<h2 id="sandbox">Sandbox</h2>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Ambiente</th>
-      <th style="text-align: left">URL</th>
+      <th>API</th>
+      <th>URL BASE</th>
+      <th>FUNÇÃO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Sandbox</code></td>
-      <td style="text-align: left">https://authsandbox.braspag.com.br/</td>
+      <td>Braspag OAUTH2 Server</td>
+      <td>https://authsandbox.braspag.com.br/</td>
+      <td>Autenticação.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Produção</code></td>
-      <td style="text-align: left">https://auth.braspag.com.br/</td>
+      <td>Risk Notification API</td>
+      <td>https://risknotificationsandbox.braspag.com.br/</td>
+      <td>Consulta, aceitação e disputa de chargebacks.</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="risk-notification-api">Risk Notification API</h2>
+<h2 id="produção">Produção</h2>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Ambiente</th>
-      <th style="text-align: left">URL</th>
+      <th>API</th>
+      <th>URL BASE</th>
+      <th>FUNÇÃO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Sandbox</code></td>
-      <td style="text-align: left">https://risknotificationsandbox.braspag.com.br/</td>
+      <td>Braspag OAUTH2 Server</td>
+      <td>https://auth.braspag.com.br/</td>
+      <td>Autenticação.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Produção</code></td>
-      <td style="text-align: left">https://risknotification.braspag.com.br/</td>
+      <td>Risk Notification API</td>
+      <td>https://risknotification.braspag.com.br/</td>
+      <td>Consulta, aceitação e disputa de chargebacks.</td>
     </tr>
   </tbody>
 </table>
+
+<blockquote>
+  <p>Para simular um chargeback, você deverá criar uma transação no ambiente sandbox da API do Pagador ou da API E-commerce Cielo; saiba mais em Simulando um Chargeback.</p>
+</blockquote>
 
 <h1 id="autenticação">Autenticação</h1>
 
