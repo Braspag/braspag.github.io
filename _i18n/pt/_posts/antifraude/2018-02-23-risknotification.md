@@ -83,7 +83,7 @@ Para receber as notificações, você deve informar uma URL de Notificação à 
 > * A ativação do Post de Notificação é opcional, mas recomendamos o uso dessa funcionalidade;<br/>
 > * O endereço (URL) deve ser HTTPS;<br/>
 > * É possível adicionar chaves nos cabeçalhos (headers) como medida de segurança.
-<br>
+
 **Estrutura da notificação do webhook**
 
 Enviaremos uma notificação em JSON contendo o `PaymentId` e o `ChangeType` com o valor “7”, que indica a ocorrência de chargeback.
@@ -289,9 +289,210 @@ Confira a correspondência entre os parâmetros das APIs transacionais e da Risk
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-# Aceitação
+# Consultando um chargeback
 
-## Aceitando um chargeback
+Após receber a notificação de chargeback, use o `PaymentId` para consultar mais detalhes do chargeback, como motivo e valor.
+
+Há dois tipos de consultas:
+
+* **Consulta por `PaymentId`**: você deve inserir o `PaymentId` recebido na notificação;
+* **Consulta por data ou página**: você deve buscar um intervalo de datas ou de páginas e localizar o `PaymentId` de interesse na lista de resultados.
+
+## Consulta por PaymentId
+
+### Requisição
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">{Risk Notification API}Chargeback/GetByBraspagTransactionId/{PaymentId}</span></aside>
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+
+### Resposta
+
+```json
+{
+    "Id": "fd14e3fb-cf2a-4228-b690-1338660afc54",
+    "CreatedDate": "2022-06-24T20:45:55.2",
+    "Date": "2022-06-24T00:00:00",
+    "CaseNumber": "000001",
+    "Amount": 10000,
+    "ReasonCode": "28",
+    "ReasonMessage": "Consumidor nao reconhece a compra",
+    "Status": "Received",
+    "IsFraud": true,
+    "Transaction": {
+        "AcquirerType": "Cielo",
+        "EstablishmentCode": "1234567890",
+        "MerchantOrderId": "abc123efg",
+        "Tid": "1234567890BA2018XPTO",
+        "Nsu": "258654",
+        "AuthorizationCode": "T85245",
+        "SaleDate": "2022-06-06T00:00:00",
+        "PagadorMerchantId": "a1052460-92b2-49c3-a929-fc985df0ba2f",
+        "BraspagTransactionId": "bb33b5c5-82fe-4254-9f1d-b9c97297b0d5",
+        "Amount": 10000,
+        "RawData": "JOAO D SOUZA",
+        "MaskedCardNumber": "453906******8385",
+        "Brand": "Visa",
+        "AntifraudSourceApplication": "Gateway"
+    }
+}
+```
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`Id`|Id do chargeback na Chargeback API Braspag|guid|
+|`CreatedDate`|Data de criação do chargeback na Chargeback API Braspag <br/> Ex.: 2018-09-01 09:51:25|date|
+|`Date`|Data do chargeback <br/> Ex.: 2018-08-30|date|
+|`CaseNumber`|Número do caso relacionado ao chargeback|string|
+|`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
+|`ReasonCode`|Código do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
+|`ReasonMessage`|Descrição do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
+|`Status`|Status do chargegback na Braspag - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/risknotification#tabela-3-chargebacks[n].status)|string|
+|`IsFraud`|Identifica se o chargeback é de fraude|bool|
+|`Transaction.AcquirerType`|Identificador da adquirentre|string|
+|`Transaction.EstablishmentCode`|Número do estabelecimento ou afiliação na adquirente|string|
+|`Transaction.MerchantOrderId`|Número do pedido da loja|string|
+|`Transaction.Tid`|Id da transação na adquirente|string|
+|`Transaction.Nsu`|Número sequencial único da transação na adquirente|string|
+|`Transaction.AuthorizationCode`|Código de autorização da transação na adquirente|string|
+|`Transaction.SaleDate`|Data da autorização da transação na adquirente <br/> Ex.: 2018-08-15|date|
+|`Transaction.PagadorMerchantId`|Identificador da loja na plataforma Pagador Braspag ou Cielo 3.0|guid|
+|`Transaction.BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|guid|
+|`Transaction.Amount`|Valor da transação em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
+|`Transaction.RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem|string|
+|`Transaction.MaskedCardNumber`|Número do cartão de crédito mascarado|string|
+|`Transaction.Brand`|Bandeira do cartão de crédito|string|
+|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6 - Chargebacks{n}.Transaction.AntifraudSourceApplication]({{ site.baseurl_root }}manual/risknotification#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
+
+## Consulta por data ou página
+
+### Requisição
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">{Risk Notification API}Chargeback?StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|Descrição|Obrigatório|
+|:-|:-|:-|:-|
+|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
+|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
+
+**Parâmetros na querystring**
+
+|Parâmetro|Descrição|Obrigatório|
+|:-|:-|:-:|
+|`StartDate`|Data início da consulta.|sim|
+|`EndDate`|Data fim da consulta.|sim|
+|`PageIndex`|Número da página desejada.|sim|
+|`PageSize`|Quantidade de itens desejados na página. Máximo 250 itens.|sim|
+|`MerchantIds`|Id(s) da(s) loja(s) a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) MerchantId(s) associado(s) ao ClientId.|não|
+|`EstablishmentCodes`|Número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente associado(s) ao ClientId.|não|
+|`CaseNumber`|Número do caso do chargeback.|não|
+|`AcquirerTransactionId`|Identificador da transação na adquirente (TID).|não|
+|`BraspagTransactionId`|É o `PaymentId`, identificador da transação na plataforma Pagador Braspag ou Cielo 3.0.|não|
+|`BrandIds`| Bandeira do cartão.|não|
+|`ReasonCode`| Código do motivo do chargeback.|não|
+|`ChargebackTypes`| Tipo de chargeback.|não|
+|`SaleDate`| Data de autorização da transação. Formato: YYYY-MM-DD.|não|
+|`ProofOfSale`|É o NSU (número sequencial único) da transação na adquirente.|não|
+|`MerchantOrderId`| Número do pedido.|não|
+|`AuthorizationCode`| Código de autorização da transação na adquirente.|não|
+|`Status`|Status do chargeback na Braspag.|não|
+
+### Resposta
+
+```json
+{
+    "PageIndex": 1,
+    "PageSize": 250,
+    "Total": 500,
+    "Chargebacks":
+    [
+        {
+            "Id": "fd14e3fb-cf2a-4228-b690-1338660afc54",
+            "CreatedDate": "2018-09-01 09:51:25",
+            "Date": "2018-08-30",
+            "CaseNumber": "000001",
+            "Amount": 10000,
+            "ReasonCode": "28",
+            "ReasonMessage": "Consumidor nao reconhece a compra",
+            "Status": "Received",
+            "Comment": "Cliente enviou documentos inválidos",
+            "IsFraud": true,
+            "Transaction":
+            {
+                "AcquirerType": "Cielo",
+                "EstablishmentCode": "1234567890",
+                "MerchantOrderId": "abc123efg",
+                "Tid": "1234567890BA2018XPTO",
+                "Nsu": "258654",
+                "AuthorizationCode": "T85245",
+                "SaleDate": "2018-08-15",
+                "PagadorMerchantId": "a1052460-92b2-49c3-a929-fc985df0ba2f",
+                "BraspagTransactionId": "bb33b5c5-82fe-4254-9f1d-b9c97297b0d5",
+                "Amount": 10000,
+                "RawData": "JOAO D COUVES",
+                "MaskedCardNumber": "453906******8385",
+                "Brand": "Visa",
+                "AntifraudMerchantId": "4b1b017a-a8b5-4e83-ae36-19c69f11845e",
+                "AntifraudTransactionId": "9f6ec028-b55d-4605-b655-164ce62aeaef",
+                "AntifraudSourceApplication": "Gateway",
+                "ProviderTransactionId": "5446494501496896403073",
+                "NegativeValues": [
+                    "CustomerDocumentNumber",
+                    "ShippingStreet"
+                ], 
+                "ProviderChargebackMarkingEvent": {
+                    "Id": "5446495589216876903021",
+                    "Status": "ACCEPT",
+                    "Code": "100",
+                }
+            }
+        }
+    ]
+}
+```
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`Id`|Id do chargeback na Chargeback API Braspag|guid|
+|`CreatedDate`|Data de criação do chargeback na Chargeback API Braspag <br/> Ex.: 2018-09-01 09:51:25|date|
+|`Date`|Data do chargeback <br/> Ex.: 2018-08-30|date|
+|`CaseNumber`|Número do caso relacionado ao chargeback|string|
+|`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
+|`ReasonCode`|Código do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
+|`ReasonMessage`|Descrição do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
+|`Status`|Status do chargegback na Braspag - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/risknotification#tabela-3-chargebacks[n].status)|string|
+|`Comment`|Comentário que deseja associar ao chargeback e que ficará visível no Backoffice Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|
+|`IsFraud`|Identifica se o chargeback é de fraude|bool|
+|`Transaction.AcquirerType`|Identificador da adquirentre|string|
+|`Transaction.EstablishmentCode`|Número do estabelecimento ou afiliação na adquirente|string|
+|`Transaction.MerchantOrderId`|Número do pedido da loja|string|
+|`Transaction.Tid`|Id da transação na adquirente|string|
+|`Transaction.Nsu`|Número sequencial único da transação na adquirente|string|
+|`Transaction.AuthorizationCode`|Código de autorização da transação na adquirente|string|
+|`Transaction.SaleDate`|Data da autorização da transação na adquirente <br/> Ex.: 2018-08-15|date|
+|`Transaction.PagadorMerchantId`|Identificador da loja na plataforma Pagador Braspag ou Cielo 3.0|guid|
+|`Transaction.BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|guid|
+|`Transaction.Amount`|Valor da transação em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
+|`Transaction.RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem|string|
+|`Transaction.MaskedCardNumber`|Número do cartão de crédito mascarado|string|
+|`Transaction.Brand`|Bandeira do cartão de crédito|string|
+|`Transaction.AntifraudMerchantId`|Identificador da loja na plataforma Antifraude Legado ou Antifraude Gateway|guid|
+|`Transaction.AntifraudTransactionId`|Identificador da transação na plataforma Antifraude Legado ou Antifraude Gateway|guid|
+|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6 - Chargebacks{n}.Transaction.AntifraudSourceApplication]({{ site.baseurl_root }}manual/risknotification#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
+|`Transaction.ProviderTransactionId`|Id da transação no provedor de antifraude|
+|`Transaction.NegativeValues`|Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br/> Os parâmetros são concatenados usando o caracter , <br/> Ex.: CustomerDocumentNumber, ShippingStreet <br> - [Tabela 1]({{ site.baseurl_root }}manual/risknotification#tabela-1-chargebacks[n].negativevalues)|string|
+|`Transaction.ProviderChargebackMarkingEvent.Id`|Id do evento de marcação da transação que sofreu o chargeback. Apenas Cybersource|string|
+|`Transaction.ProviderChargebackMarkingEvent.Status`|Status do evento de marcação da transação que chargeback. Apenas Cybersource - [Tabela 4 - Chargebacks{n}.Transaction.ProviderChargebackMarkingEvent.Status]({{ site.baseurl_root }}manual/risknotification#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status)|string|
+|`Transaction.ProviderChargebackMarkingEvent.Code`|Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - [Tabela 5 - Chargebacks{n}.Transaction.ProviderChargebackMarkingEvent.Code]({{ site.baseurl_root }}manual/risknotification#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code)|string|
+
+# Aceitando um chargeback
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}acceptance/{CaseNumber}</span></aside>
 
@@ -751,202 +952,6 @@ Confira a correspondência entre os parâmetros das APIs transacionais e da Risk
 |Parâmetro|Descrição|
 |:-|:-|
 |`Message`|Mensagem informando que todos os arquivos enviados somando seus tamanhos é superior a 7mb|
-
-# Consultas
-
-## Consulta por PaymentId
-
-### Requisição
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">{Risk Notification API}Chargeback/GetByBraspagTransactionId/{PaymentId}</span></aside>
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
-
-### Resposta
-
-```json
-{
-    "Id": "fd14e3fb-cf2a-4228-b690-1338660afc54",
-    "CreatedDate": "2022-06-24T20:45:55.2",
-    "Date": "2022-06-24T00:00:00",
-    "CaseNumber": "000001",
-    "Amount": 10000,
-    "ReasonCode": "28",
-    "ReasonMessage": "Consumidor nao reconhece a compra",
-    "Status": "Received",
-    "IsFraud": true,
-    "Transaction": {
-        "AcquirerType": "Cielo",
-        "EstablishmentCode": "1234567890",
-        "MerchantOrderId": "abc123efg",
-        "Tid": "1234567890BA2018XPTO",
-        "Nsu": "258654",
-        "AuthorizationCode": "T85245",
-        "SaleDate": "2022-06-06T00:00:00",
-        "PagadorMerchantId": "a1052460-92b2-49c3-a929-fc985df0ba2f",
-        "BraspagTransactionId": "bb33b5c5-82fe-4254-9f1d-b9c97297b0d5",
-        "Amount": 10000,
-        "RawData": "JOAO D SOUZA",
-        "MaskedCardNumber": "453906******8385",
-        "Brand": "Visa",
-        "AntifraudSourceApplication": "Gateway"
-    }
-}
-```
-
-|Parâmetro|Descrição|Tipo|
-|:-|:-|:-:|
-|`Id`|Id do chargeback na Chargeback API Braspag|guid|
-|`CreatedDate`|Data de criação do chargeback na Chargeback API Braspag <br/> Ex.: 2018-09-01 09:51:25|date|
-|`Date`|Data do chargeback <br/> Ex.: 2018-08-30|date|
-|`CaseNumber`|Número do caso relacionado ao chargeback|string|
-|`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`ReasonCode`|Código do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
-|`ReasonMessage`|Descrição do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
-|`Status`|Status do chargegback na Braspag - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/risknotification#tabela-3-chargebacks[n].status)|string|
-|`IsFraud`|Identifica se o chargeback é de fraude|bool|
-|`Transaction.AcquirerType`|Identificador da adquirentre|string|
-|`Transaction.EstablishmentCode`|Número do estabelecimento ou afiliação na adquirente|string|
-|`Transaction.MerchantOrderId`|Número do pedido da loja|string|
-|`Transaction.Tid`|Id da transação na adquirente|string|
-|`Transaction.Nsu`|Número sequencial único da transação na adquirente|string|
-|`Transaction.AuthorizationCode`|Código de autorização da transação na adquirente|string|
-|`Transaction.SaleDate`|Data da autorização da transação na adquirente <br/> Ex.: 2018-08-15|date|
-|`Transaction.PagadorMerchantId`|Identificador da loja na plataforma Pagador Braspag ou Cielo 3.0|guid|
-|`Transaction.BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|guid|
-|`Transaction.Amount`|Valor da transação em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`Transaction.RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem|string|
-|`Transaction.MaskedCardNumber`|Número do cartão de crédito mascarado|string|
-|`Transaction.Brand`|Bandeira do cartão de crédito|string|
-|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6 - Chargebacks{n}.Transaction.AntifraudSourceApplication]({{ site.baseurl_root }}manual/risknotification#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
-
-## Consulta por data ou página
-
-### Request
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">{Risk Notification API}Chargeback?StartDate={StartDate}&EndDate={EndDate}&PageIndex={PageIndex}&PageSize={PageSize}</span></aside>
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
-
-**Parâmetros na querystring**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`StartDate`|Data início da consulta.|sim|
-|`EndDate`|Data fim da consulta.|sim|
-|`PageIndex`|Número da página desejada.|sim|
-|`PageSize`|Quantidade de itens desejados na página. Máximo 250 itens.|sim|
-|`MerchantIds`|Id(s) da(s) loja(s) a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) MerchantId(s) associado(s) ao ClientId.|não|
-|`EstablishmentCodes`|Número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente associado(s) ao ClientId.|não|
-|`CaseNumber`|Número do caso do chargeback.|não|
-|`AcquirerTransactionId`|Identificador da transação na adquirente (TID).|não|
-|`BraspagTransactionId`|É o `PaymentId`, identificador da transação na plataforma Pagador Braspag ou Cielo 3.0.|não|
-|`BrandIds`| Bandeira do cartão.|não|
-|`ReasonCode`| Código do motivo do chargeback.|não|
-|`ChargebackTypes`| Tipo de chargeback.|não|
-|`SaleDate`| Data de autorização da transação. Formato: YYYY-MM-DD.|não|
-|`ProofOfSale`|É o NSU (número sequencial único) da transação na adquirente.|não|
-|`MerchantOrderId`| Número do pedido.|não|
-|`AuthorizationCode`| Código de autorização da transação na adquirente.|não|
-|`Status`|Status do chargeback na Braspag.|não|
-
-### Response
-
-```json
-{
-    "PageIndex": 1,
-    "PageSize": 250,
-    "Total": 500,
-    "Chargebacks":
-    [
-        {
-            "Id": "fd14e3fb-cf2a-4228-b690-1338660afc54",
-            "CreatedDate": "2018-09-01 09:51:25",
-            "Date": "2018-08-30",
-            "CaseNumber": "000001",
-            "Amount": 10000,
-            "ReasonCode": "28",
-            "ReasonMessage": "Consumidor nao reconhece a compra",
-            "Status": "Received",
-            "Comment": "Cliente enviou documentos inválidos",
-            "IsFraud": true,
-            "Transaction":
-            {
-                "AcquirerType": "Cielo",
-                "EstablishmentCode": "1234567890",
-                "MerchantOrderId": "abc123efg",
-                "Tid": "1234567890BA2018XPTO",
-                "Nsu": "258654",
-                "AuthorizationCode": "T85245",
-                "SaleDate": "2018-08-15",
-                "PagadorMerchantId": "a1052460-92b2-49c3-a929-fc985df0ba2f",
-                "BraspagTransactionId": "bb33b5c5-82fe-4254-9f1d-b9c97297b0d5",
-                "Amount": 10000,
-                "RawData": "JOAO D COUVES",
-                "MaskedCardNumber": "453906******8385",
-                "Brand": "Visa",
-                "AntifraudMerchantId": "4b1b017a-a8b5-4e83-ae36-19c69f11845e",
-                "AntifraudTransactionId": "9f6ec028-b55d-4605-b655-164ce62aeaef",
-                "AntifraudSourceApplication": "Gateway",
-                "ProviderTransactionId": "5446494501496896403073",
-                "NegativeValues": [
-                    "CustomerDocumentNumber",
-                    "ShippingStreet"
-                ], 
-                "ProviderChargebackMarkingEvent": {
-                    "Id": "5446495589216876903021",
-                    "Status": "ACCEPT",
-                    "Code": "100",
-                }
-            }
-        }
-    ]
-}
-```
-
-|Parâmetro|Descrição|Tipo|
-|:-|:-|:-:|
-|`Id`|Id do chargeback na Chargeback API Braspag|guid|
-|`CreatedDate`|Data de criação do chargeback na Chargeback API Braspag <br/> Ex.: 2018-09-01 09:51:25|date|
-|`Date`|Data do chargeback <br/> Ex.: 2018-08-30|date|
-|`CaseNumber`|Número do caso relacionado ao chargeback|string|
-|`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`ReasonCode`|Código do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
-|`ReasonMessage`|Descrição do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
-|`Status`|Status do chargegback na Braspag - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/risknotification#tabela-3-chargebacks[n].status)|string|
-|`Comment`|Comentário que deseja associar ao chargeback e que ficará visível no Backoffice Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|
-|`IsFraud`|Identifica se o chargeback é de fraude|bool|
-|`Transaction.AcquirerType`|Identificador da adquirentre|string|
-|`Transaction.EstablishmentCode`|Número do estabelecimento ou afiliação na adquirente|string|
-|`Transaction.MerchantOrderId`|Número do pedido da loja|string|
-|`Transaction.Tid`|Id da transação na adquirente|string|
-|`Transaction.Nsu`|Número sequencial único da transação na adquirente|string|
-|`Transaction.AuthorizationCode`|Código de autorização da transação na adquirente|string|
-|`Transaction.SaleDate`|Data da autorização da transação na adquirente <br/> Ex.: 2018-08-15|date|
-|`Transaction.PagadorMerchantId`|Identificador da loja na plataforma Pagador Braspag ou Cielo 3.0|guid|
-|`Transaction.BraspagTransactionId`|Id da transação na plataforma Pagador Braspag ou Cielo 3.0 (PaymentId)|guid|
-|`Transaction.Amount`|Valor da transação em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`Transaction.RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem|string|
-|`Transaction.MaskedCardNumber`|Número do cartão de crédito mascarado|string|
-|`Transaction.Brand`|Bandeira do cartão de crédito|string|
-|`Transaction.AntifraudMerchantId`|Identificador da loja na plataforma Antifraude Legado ou Antifraude Gateway|guid|
-|`Transaction.AntifraudTransactionId`|Identificador da transação na plataforma Antifraude Legado ou Antifraude Gateway|guid|
-|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6 - Chargebacks{n}.Transaction.AntifraudSourceApplication]({{ site.baseurl_root }}manual/risknotification#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
-|`Transaction.ProviderTransactionId`|Id da transação no provedor de antifraude|
-|`Transaction.NegativeValues`|Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br/> Os parâmetros são concatenados usando o caracter , <br/> Ex.: CustomerDocumentNumber, ShippingStreet <br> - [Tabela 1]({{ site.baseurl_root }}manual/risknotification#tabela-1-chargebacks[n].negativevalues)|string|
-|`Transaction.ProviderChargebackMarkingEvent.Id`|Id do evento de marcação da transação que sofreu o chargeback. Apenas Cybersource|string|
-|`Transaction.ProviderChargebackMarkingEvent.Status`|Status do evento de marcação da transação que chargeback. Apenas Cybersource - [Tabela 4 - Chargebacks{n}.Transaction.ProviderChargebackMarkingEvent.Status]({{ site.baseurl_root }}manual/risknotification#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status)|string|
-|`Transaction.ProviderChargebackMarkingEvent.Code`|Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - [Tabela 5 - Chargebacks{n}.Transaction.ProviderChargebackMarkingEvent.Code]({{ site.baseurl_root }}manual/risknotification#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code)|string|
 
 # Tabelas
 
