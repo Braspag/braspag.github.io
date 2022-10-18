@@ -1390,6 +1390,43 @@
 
 <h1 id="disputando-um-chargeback">Disputando um chargeback</h1>
 
+<p>Para disputar um chargeback via API, você deve enviar os documentos de defesa em até 7 dias corridos a partir da data do chargeback.</p>
+
+<p><strong>Quais documentos são enviados para disputa?</strong></p>
+
+<p>Depende do segmento de mercado e do motivo do chargeback. É possível enviar contratos e comprovantes de entrega assinados, comprovante de cancelamento ou reembolso da venda e cartões de embarque, entre outros.</p>
+
+<p>Confira nos anexos a lista completa de documentos de defesa por segmento.</p>
+
+<p><strong>Como enviar os documentos de disputa via API?</strong></p>
+
+<p>Você deve converter os arquivos dos documentos em imagem ou PDF para base64 e enviar o código base64 na requisição de Disputa.</p>
+
+<p><strong>Qual o tipo e tamanho máximo dos arquivos?</strong></p>
+
+<ul>
+  <li>As extensões permitidas são PDF, PNG, JPG ou JPEG convertidos em base64 (encoded);</li>
+  <li>A soma de todos os arquivos deve ter no máximo 7MB de tamanho.</li>
+</ul>
+
+<p>A Risk Notification API encaminhará a documentação para a Cielo, que submeterá a disputa para análise da bandeira e do emissor.</p>
+
+<blockquote>
+  <p><strong>Importante</strong>:<br /></p>
+  <ul>
+    <li>O envio da documentação para disputa não garante que não ocorrerá débito do chargeback na agenda financeira. Os documentos são o requisito mínimo estipulado pelas bandeiras para negociação;<br /></li>
+    <li>Quando o prazo para envio da disputa expira o chargeback é automaticamente considerado aceito.</li>
+  </ul>
+</blockquote>
+
+<p>Consulte sua agenda financeira para acompanhar o resultado da disputa.</p>
+
+<p>Confira no diagrama a seguir o fluxo da disputa de um chargeback:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/af/risknotificationapi-disputa.png" alt="Disputar chargeback" /></p>
+
+<h2 id="requisição-5">Requisição</h2>
+
 <aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}v2/contestation/{CaseNumber}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -1408,8 +1445,6 @@
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<h2 id="requisição-5">Requisição</h2>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
