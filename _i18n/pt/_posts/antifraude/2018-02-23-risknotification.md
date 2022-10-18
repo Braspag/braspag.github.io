@@ -496,7 +496,7 @@ Há dois tipos de consultas:
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}acceptance/{CaseNumber}</span></aside>
 
-### Request
+## Requisição
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -513,7 +513,7 @@ Há dois tipos de consultas:
 |:-|:-|:-:|
 |`CaseNumber`|Número do caso relacionado ao chargeback|sim|
 
-### Response
+## Resposta
 
 ``` json
 {
@@ -538,97 +538,7 @@ Há dois tipos de consultas:
 |`Status`|Status do chargeback - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/risknotification#tabela-3-chargebacks[n].status)|
 |`StatusDescription`|Descrição do status do chargeback|
 
-## Aceitando um chargeback inexistente
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|condicional|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|condicional|
-
-**Parâmetros na rota**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "ChargebackNotFounded",
-    "Message": "Chargeback not found"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|404 Not Found|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback não foi encontrado|
-|`Message`|Mensagem que o chargeback não foi encontrado|
-
-## Aceitando um chargeback aceito anteriormente
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">acceptance/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-
-**Parâmetros na rota**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso relacionado ao chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "ChargebackAlreadyUpdated",
-    "Message": "Chargeback already updated"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback foi aceito ou contestado anteriomente|
-|`Message`|Mensagem que o chargeback foi aceito ou contestado anteriormente|
-
-# Contestação
-
-## Contestando um chargeback
+# Disputando um chargeback
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}v2/contestation/{CaseNumber}</span></aside>
 
@@ -650,7 +560,7 @@ Há dois tipos de consultas:
 }
 ```
 
-### Request
+## Requisição
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -674,7 +584,7 @@ Há dois tipos de consultas:
 |`Files[n].FileName`|Nome do arquivo com extensão <br/> Obs.: Extensões permitidas: pdf, png, jpg ou jpeg <br/> Obs2.: A soma de todos arquivos deve ter no máximo 7mb de tamanho <br/> Obs3.: O prazo para realizar a contestação são de 7 dias corridos, ou seja, chargeback de 13/02/2019 é possível enviar a realizar a mesma até 19/02/2019|string|sim|100|
 |`Files[n].Content`|Conteúdo do arquivo em base64|string|sim|-|
 
-### Response
+## Resposta
 
 **Parâmetros no cabeçalho (Header)**
 
@@ -682,276 +592,6 @@ Há dois tipos de consultas:
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|200 OK|
-
-## Contestando um chargeback inexistente
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-
-**Parâmetros na rota**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "ChargebackNotFounded",
-    "Message": "Chargeback not found"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|404 Not Found|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback não foi encontrado|
-|`Message`|Mensagem que o chargeback não foi encontrado|
-
-## Contestando um chargeback contestado anteriormente
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-
-**Parâmetros na rota**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Code": "ChargebackAlreadyUpdated",
-    "Message": "Chargeback already updated"
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Key|Value|
-|:-|:-|
-|`Code`|Código que o chargeback foi contestado ou aceito anteriomente|
-|`Message`|Mensagem que o chargeback foi contestado ou aceito anteriormente|
-
-## Contestando um chargeback e não enviando o arquivo de contestação
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-
-**Parâmetros na rota**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Message": "The request is invalid.",
-    "ModelState": {
-        "contestationRequest.Files[0].FileName": [
-        "FileName can not be null or empty."
-    ],
-    "contestationRequest.Files[0].Content": [
-        "Content can not be null or empty."
-    ]}
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Parâmetro|Descrição|
-|:-|:-|
-|`Message`|Mensagem informando que a requisição é inválida|
-|`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o nome do arquivo não foi enviado|
-|`Message.ModelState.ContestationRequest.Files[n].Content`|Mensagem informando que o conteúdo do arquivo não foi enviado|
-
-## Contestando um chargeback enviando o arquivo de contestação com extensão diferente de jpeg, jpg, png ou pdf
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-
-**Parâmetros na rota**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Message": "The request is invalid.",
-    "ModelState": {
-    "contestationRequest.Files[0].FileName": [
-        "The file extension must be sent. The accepted extensions are: '.png', '.jpg', '.jpeg'"
-    ]}
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Parâmetro|Descrição|
-|:-|:-|
-|`Message`|Mensagem informando que a requisição é inválida|
-|`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o arquivo foi enviado com a extensão inválida|
-
-## Contestando um chargeback enviando arquivo(s) para contestação com tamanho maior que 7mb
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-
-**Parâmetros na rota**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Message": "File(s) file1.png, file2.png has length bigger than the size limit of 7MB."
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Parâmetro|Descrição|
-|:-|:-|
-|`Message`|Mensagem informando qual(is) arquivo(s) possuem tamanho superior a 7mb|
-
-## Contestando um chargeback enviando arquivos e a soma do tamanho de todos é maior que 7mb
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">v2/contestation/{CaseNumber}</span></aside>
-
-### Request
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|Descrição|Obrigatório|
-|:-|:-|:-|:-|
-|`Content-Type`|application/json|Tipo do conteúdo da requisição|sim|
-|`Authorization`|Bearer {access_token}|Tipo da autorização|sim|
-|`EstablishmentCode`|xxxxxxxxxx|Número do estabelecimento ou afiliação na adquirente <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `MerchantId` deverá ser enviada|sim|
-|`MerchantId`|mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm|Id da loja na Braspag <br/> Obs.: Caso esta Key não seja enviada, obrigatoriamente a `EstablishmentCode` deverá ser enviada|sim|
-
-**Parâmetros na rota**
-
-|Parâmetro|Descrição|Obrigatório|
-|:-|:-|:-:|
-|`CaseNumber`|Número do caso do chargeback|sim|
-
-### Response
-
-``` json
-{
-    "Message": "Files has length bigger than the size limit of 7MB.",
-}
-```
-
-**Parâmetros no cabeçalho (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parâmetros no body (Corpo)**
-
-|Parâmetro|Descrição|
-|:-|:-|
-|`Message`|Mensagem informando que todos os arquivos enviados somando seus tamanhos é superior a 7mb|
 
 # Tabelas
 
