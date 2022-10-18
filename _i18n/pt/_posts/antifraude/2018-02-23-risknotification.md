@@ -127,7 +127,7 @@ A Risk Notification API utiliza o protocolo padrão de mercado OAuth 2.0 para au
 
 ## Obtendo o token de acesso
 
-Durante o onboarding, você receberá as credenciais `ClientId` e `ClientSecret`. Caso não tenha recebido a credencial, solicite ao [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"} enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.
+Durante o onboarding, você receberá as credenciais `ClientId` e `ClientSecret`. Caso não tenha recebido a credencial, solicite ao [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}.
 
 **1.** Concatene as credenciais no formato `ClientId:ClientSecret`;<br/>
 **2.** Converta o resultado em base 64, gerando uma string;
@@ -789,65 +789,56 @@ Ocorre quando o arquivo enviado ou a soma dos arquivos enviados for superior à 
 
 # Tabelas
 
-## Tabela 1 - Chargebacks[n].NegativeValues
+## Tabela 1 - Lista Negativa da Cybersource
 
-Valores que podem ser inseridos na lista negativa da Cybersource para retroalimentação de chargeback. Válidos apenas para clientes integrados à API Antifraude Gateway com a Cybersource como provedor de antifraude.
+Valores que podem ser retornados na lista negativa da Cybersource para retroalimentação de chargeback. Esses valores são retornados na resposta da consulta, no campo `Chargebacks.Transaction.NegativeValues`.
 
-|Valor|Descrição|
+Válidos apenas para clientes integrados à API Antifraude Gateway com a Cybersource como provedor do Antifraude.
+
+|Retornos possíveis|Descrição|
 |:-|:-|
-|CustomerDocumentNumber|Número do documento do comprador, CPF ou CNPJ|
-|CustomerIpAddress|Endereço de IP do comprador|
-|CustomerPhone|Número de telefone do comprador|
-|ShippingStreet|Logradouro do endereço de entrega|
-|DeviceFingerprintSmartId|Fingerprint do dispositivo do comprador|
+|Endereço IP do cliente|Endereço de IP do comprador.|
+|Telefone|Número de telefone do comprador.|
+|Endereço de entrega|Logradouro do endereço de entrega.|
+|Fingerprint|Identificação do dispositivo do comprador.|
+|E-mail|E-mail do comprador.|
+|Cartão de crédito|Número mascarado do cartão de crédito do comprador.|
 
-## Tabela 2 - Result.ProcessingStatus
+## Tabela 2 - Status do chargeback
 
-Possíveis retornos do chargeback enviado.
+Possíveis valores do chargeback retornados no campo `Chargebacks.Status` na Consulta.
 
-|Valor|Descrição|
-|:-|:-|
-|AlreadyExist|Transação já marcada com chargeback anteriormente|
-|Remand|Chargeback deverá ser reenviado|
-|NotFound|Transação na encontrada na base de dados para os valores enviados nos campos do nó `Transaction`|
+|Status|Valor|Descrição|
+|:-|:-|:-|
+|1|Received|Chargeback recebido da adquirente|
+|2|AcceptedByMerchant|Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a disputa|
+|3|ContestedByMerchant|Chargeback disputado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback.|
 
-## Tabela 3 - Chargebacks[n].Status
+## Tabela 3 - Marcação de chargeback no provedor de Antifraude
 
-Possíveis valores do chargeback.
+Quando há tentativa de retroalimentação de chargeback na Cybersource, este provedor de Antifraude retorna se a marcação de chargeback foi aceita ou não.
 
-|Valor|Descrição|
-|:-|:-|
-|Received|Chargeback recebido da adquirente|
-|AcceptedByMerchant|Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a disputa|
-|ContestedByMerchant|Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback|
-
-## Tabela 4 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Status
+O resultado da marcação retorna na resposta da Consulta, no campo `Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Status`.
 
 |Valor|Descrição|Provider|
 |:-|:-|:-|
-|ACCEPT|Marcação de chargeback aceita no provedor|Cybersource|
-|REJECT|Marcação de chargeback rejeitada no provedor|Cybesource|
+|ACCEPT|Marcação de chargeback aceita no provedor.|Cybersource|
+|REJECT|Marcação de chargeback rejeitada no provedor.|Cybesource|
 
-## Tabela 5 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Code
+## Tabela 4 - API de Antifraude
 
-|Valor|Descrição|Provider|
-|:-|:-|:-|
-|100|Operação realizada com sucesso|Cybersource|
-|150|Erro interno <br/> Possível ação: Aguarde alguns minutos e tente reenviar a marcação de chargeback|Cybersource|
-|151|A marcação de chargeback foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br/> Possível ação: Aguarde alguns minutos e tente reenviar|Cybersource|
-|152|A marcação de chargeback foi recebida, mas ocorreu time-out <br/> Possível ação: Aguarde alguns minutos e tente reenviar|Cybersource|
-|234|Problema com a configuração da loja na Cybersource <br/> Possível ação: Entre em contato com o suporte para corrigir o problema de configuração|Cybersource|
-
-## Tabela 6 - Chargebacks[n].Transaction.AntifraudSourceApplication
+Indica qual é a API de Antifraude usada pela loja. Os valores são retornados na resposta da Consulta, no campo `Chargebacks[n].Transaction.AntifraudSourceApplication`.
 
 |Valor|Descrição|
 |:-|:-|
 |Gateway|Antifraude Gateway|
 |Legacy|Antifraude Legado|
 
-## Tabela 7 - ReasonCode e ReasonMessage
+## Tabela 5 - Motivo do chargeback
 
-|Código|Descrição|Bandeira|Fraude?|
+A tabela a seguir apresenta o `ReasonCode` e o `ReasonMessage` retornados na resposta da Consulta de Chargeback, e que compõem o motivo do chargeback.
+
+|REASON CODE|DESCRIÇÃO|Bandeira|Fraude?|
 |:-|:-|:-|:-|
 |137|Mercadoria / Serviço Cancelado|Visa|Não|
 |127|Dados inválidos|Visa|Não|
