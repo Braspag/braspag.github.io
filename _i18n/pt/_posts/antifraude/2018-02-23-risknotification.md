@@ -551,6 +551,37 @@ Confira no diagrama a seguir o fluxo da aceitação de um chargeback:
 
 # Disputando um chargeback
 
+Para disputar um chargeback via API, você deve enviar os documentos de defesa em até 7 dias corridos a partir da data do chargeback.
+
+**Quais documentos são enviados para disputa?**
+
+Depende do segmento de mercado e do motivo do chargeback. É possível enviar contratos e comprovantes de entrega assinados, comprovante de cancelamento ou reembolso da venda e cartões de embarque, entre outros.
+
+Confira nos anexos a lista completa de documentos de defesa por segmento.
+
+**Como enviar os documentos de disputa via API?**
+
+Você deve converter os arquivos dos documentos em imagem ou PDF para base64 e enviar o código base64 na requisição de Disputa.
+
+**Qual o tipo e tamanho máximo dos arquivos?**
+
+* As extensões permitidas são PDF, PNG, JPG ou JPEG convertidos em base64 (encoded);
+* A soma de todos os arquivos deve ter no máximo 7MB de tamanho.
+
+A Risk Notification API encaminhará a documentação para a Cielo, que submeterá a disputa para análise da bandeira e do emissor.
+
+> **Importante**:<br/>
+> * O envio da documentação para disputa não garante que não ocorrerá débito do chargeback na agenda financeira. Os documentos são o requisito mínimo estipulado pelas bandeiras para negociação;<br/>
+> * Quando o prazo para envio da disputa expira o chargeback é automaticamente considerado aceito.
+
+Consulte sua agenda financeira para acompanhar o resultado da disputa.
+
+Confira no diagrama a seguir o fluxo da disputa de um chargeback:
+
+![Disputar chargeback]({{ site.baseurl_root }}/images/braspag/af/risknotificationapi-disputa.png)
+
+## Requisição
+
 <aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}v2/contestation/{CaseNumber}</span></aside>
 
 ``` json
@@ -570,8 +601,6 @@ Confira no diagrama a seguir o fluxo da aceitação de um chargeback:
     }]
 }
 ```
-
-## Requisição
 
 **Parâmetros no cabeçalho (Header)**
 
