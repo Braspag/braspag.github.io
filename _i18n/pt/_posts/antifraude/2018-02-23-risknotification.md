@@ -633,6 +633,158 @@ Confira no diagrama a seguir o fluxo da disputa de um chargeback:
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
+# Erros de integração
+
+## Erros na aceitação ou disputa de chargeback
+
+Confira as respostas possíveis para os seguintes cenários de erros no envio da requisição de aceitação ou disputa:
+
+* **Chargeback inexistente**: o CaseNumber não existe;
+* **Chargeback repetido**: o CaseNumber já foi aceito ou disputado anteriormente.
+
+### Chargeback inexistente
+
+O CaseNumber não existe.
+
+```json
+{
+    "Code": "ChargebackNotFounded",
+    "Message": "Chargeback not found"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|KEY|VALUE|
+|---|---|
+|`Content-Type`|application/json|
+|`Status`|404 Not Found|
+
+**Parâmetros no body (Corpo)**
+
+|KEY|VALUE|
+|---|---|
+|`Code`|Código que o chargeback não foi encontrado.|
+|`Message`|Mensagem que o chargeback não foi encontrado.|
+
+### Chargeback repetido
+
+O `CaseNumber` já foi aceito ou disputado anteriormente.
+
+```json
+{
+    "Code": "ChargebackAlreadyUpdated",
+    "Message": "Chargeback already updated"
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|KEY|VALUE|
+|---|---|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|KEY|VALUE|
+|---|---|
+|`Code`|Código que o chargeback foi aceito ou contestado anteriormente.|
+|`Message`|Mensagem que o chargeback foi aceito ou contestado anteriormente.|
+
+## Erros na disputa de chargeback
+
+### Arquivo de disputa não enviado
+
+```json
+{
+    "Message": "The request is invalid.",
+    "ModelState": {
+        "contestationRequest.Files[0].FileName": [
+        "FileName can not be null or empty."
+    ],
+    "contestationRequest.Files[0].Content": [
+        "Content can not be null or empty."
+    ]}
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|KEY|VALUE|
+|---|---|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|PARÂMETRO|DESCRIÇÃO|
+|---|---|
+|`Message`|Mensagem informando que a requisição é inválida.|
+|`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o nome do arquivo não foi enviado.|
+|`Message.ModelState.ContestationRequest.Files[n].Content`|Mensagem informando que o conteúdo do arquivo não foi enviado.|
+
+### Arquivo com extensão inválida 
+
+O arquivo de contestação deve ter extensão JPEG, JPG, PNG ou PDF. Caso a extensão do arquivo enviado seja diferente das mencionadas, o retorno será o erro a seguir:
+
+```json
+{
+    "Message": "The request is invalid.",
+    "ModelState": {
+    "contestationRequest.Files[0].FileName": [
+        "The file extension must be sent. The accepted extensions are: '.png', '.jpg', '.jpeg'"
+    ]}
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|KEY|VALUE|
+|---|---|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|PARÂMETRO|DESCRIÇÃO|
+|---|---|
+|`Message`|Mensagem informando que a requisição é inválida.|
+|`Message.ModelState.ContestationRequest.Files[n].FileName`|Mensagem informando que o arquivo foi enviado com a extensão inválida.|
+
+### Arquivo com tamanho acima do permitido
+
+Ocorre quando o arquivo enviado ou a soma dos arquivos enviados for superior à 7MB.
+
+**Mensagem para arquivo superior à 7MB**
+
+```json
+{
+    "Message": "File(s) file1.png, file2.png has length bigger than the size limit of 7MB."
+}
+```
+
+**Mensagem para soma de arquivos superior à 7MB**
+
+```json
+{
+    "Message": "Files has length bigger than the size limit of 7MB.",
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|KEY|VALUE|
+|---|---|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parâmetros no body (Corpo)**
+
+|PARÂMETRO|DESCRIÇÃO|
+|---|---|
+|`Message`|Mensagem informando qual(is) arquivo(s) possuem tamanho superior a 7MB<br>ou<br>mensagem informando que a soma de tamanho de todos os arquivos enviados é superior a 7MB.|
+
 # Tabelas
 
 ## Tabela 1 - Chargebacks[n].NegativeValues
