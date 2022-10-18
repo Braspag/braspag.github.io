@@ -323,7 +323,7 @@
 
 <h2 id="obtendo-o-token-de-acesso">Obtendo o token de acesso</h2>
 
-<p>Durante o onboarding, você receberá as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>. Caso não tenha recebido a credencial, solicite ao <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Suporte Braspag</a> enviando o(s) IP(s) de saída dos seus servidores de homologação e produção.</p>
+<p>Durante o onboarding, você receberá as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>. Caso não tenha recebido a credencial, solicite ao <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Suporte Braspag</a>.</p>
 
 <p><strong>1.</strong> Concatene as credenciais no formato <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>;<br />
 <strong>2.</strong> Converta o resultado em base 64, gerando uma string;</p>
@@ -1847,96 +1847,83 @@ A Risk Notification API encaminhará a documentação para a Cielo, que submeter
 
 <h1 id="tabelas">Tabelas</h1>
 
-<h2 id="tabela-1---chargebacksnnegativevalues">Tabela 1 - Chargebacks[n].NegativeValues</h2>
+<h2 id="tabela-1---lista-negativa-da-cybersource">Tabela 1 - Lista Negativa da Cybersource</h2>
 
-<p>Valores que podem ser inseridos na lista negativa da Cybersource para retroalimentação de chargeback. Válidos apenas para clientes integrados à API Antifraude Gateway com a Cybersource como provedor de antifraude.</p>
+<p>Valores que podem ser retornados na lista negativa da Cybersource para retroalimentação de chargeback. Esses valores são retornados na resposta da consulta, no campo <code class="language-plaintext highlighter-rouge">Chargebacks.Transaction.NegativeValues</code>.</p>
+
+<p>Válidos apenas para clientes integrados à API Antifraude Gateway com a Cybersource como provedor do Antifraude.</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Retornos possíveis</th>
       <th style="text-align: left">Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">CustomerDocumentNumber</td>
-      <td style="text-align: left">Número do documento do comprador, CPF ou CNPJ</td>
+      <td style="text-align: left">Endereço IP do cliente</td>
+      <td style="text-align: left">Endereço de IP do comprador.</td>
     </tr>
     <tr>
-      <td style="text-align: left">CustomerIpAddress</td>
-      <td style="text-align: left">Endereço de IP do comprador</td>
+      <td style="text-align: left">Telefone</td>
+      <td style="text-align: left">Número de telefone do comprador.</td>
     </tr>
     <tr>
-      <td style="text-align: left">CustomerPhone</td>
-      <td style="text-align: left">Número de telefone do comprador</td>
+      <td style="text-align: left">Endereço de entrega</td>
+      <td style="text-align: left">Logradouro do endereço de entrega.</td>
     </tr>
     <tr>
-      <td style="text-align: left">ShippingStreet</td>
-      <td style="text-align: left">Logradouro do endereço de entrega</td>
+      <td style="text-align: left">Fingerprint</td>
+      <td style="text-align: left">Identificação do dispositivo do comprador.</td>
     </tr>
     <tr>
-      <td style="text-align: left">DeviceFingerprintSmartId</td>
-      <td style="text-align: left">Fingerprint do dispositivo do comprador</td>
+      <td style="text-align: left">E-mail</td>
+      <td style="text-align: left">E-mail do comprador.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Cartão de crédito</td>
+      <td style="text-align: left">Número mascarado do cartão de crédito do comprador.</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="tabela-2---resultprocessingstatus">Tabela 2 - Result.ProcessingStatus</h2>
+<h2 id="tabela-2---status-do-chargeback">Tabela 2 - Status do chargeback</h2>
 
-<p>Possíveis retornos do chargeback enviado.</p>
+<p>Possíveis valores do chargeback retornados no campo <code class="language-plaintext highlighter-rouge">Chargebacks.Status</code> na Consulta.</p>
 
 <table>
   <thead>
     <tr>
+      <th style="text-align: left">Status</th>
       <th style="text-align: left">Valor</th>
       <th style="text-align: left">Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">AlreadyExist</td>
-      <td style="text-align: left">Transação já marcada com chargeback anteriormente</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Remand</td>
-      <td style="text-align: left">Chargeback deverá ser reenviado</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">NotFound</td>
-      <td style="text-align: left">Transação na encontrada na base de dados para os valores enviados nos campos do nó <code class="language-plaintext highlighter-rouge">Transaction</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-3---chargebacksnstatus">Tabela 3 - Chargebacks[n].Status</h2>
-
-<p>Possíveis valores do chargeback.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
+      <td style="text-align: left">1</td>
       <td style="text-align: left">Received</td>
       <td style="text-align: left">Chargeback recebido da adquirente</td>
     </tr>
     <tr>
+      <td style="text-align: left">2</td>
       <td style="text-align: left">AcceptedByMerchant</td>
       <td style="text-align: left">Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a disputa</td>
     </tr>
     <tr>
+      <td style="text-align: left">3</td>
       <td style="text-align: left">ContestedByMerchant</td>
-      <td style="text-align: left">Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback</td>
+      <td style="text-align: left">Chargeback disputado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback.</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="tabela-4---chargebacksntransactionproviderchargebackmarkingeventstatus">Tabela 4 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Status</h2>
+<h2 id="tabela-3---marcação-de-chargeback-no-provedor-de-antifraude">Tabela 3 - Marcação de chargeback no provedor de Antifraude</h2>
+
+<p>Quando há tentativa de retroalimentação de chargeback na Cybersource, este provedor de Antifraude retorna se a marcação de chargeback foi aceita ou não.</p>
+
+<p>O resultado da marcação retorna na resposta da Consulta, no campo <code class="language-plaintext highlighter-rouge">Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Status</code>.</p>
 
 <table>
   <thead>
@@ -1949,57 +1936,20 @@ A Risk Notification API encaminhará a documentação para a Cielo, que submeter
   <tbody>
     <tr>
       <td style="text-align: left">ACCEPT</td>
-      <td style="text-align: left">Marcação de chargeback aceita no provedor</td>
+      <td style="text-align: left">Marcação de chargeback aceita no provedor.</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">REJECT</td>
-      <td style="text-align: left">Marcação de chargeback rejeitada no provedor</td>
+      <td style="text-align: left">Marcação de chargeback rejeitada no provedor.</td>
       <td style="text-align: left">Cybesource</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="tabela-5---chargebacksntransactionproviderchargebackmarkingeventcode">Tabela 5 - Chargebacks[n].Transaction.ProviderChargebackMarkingEvent.Code</h2>
+<h2 id="tabela-4---api-de-antifraude">Tabela 4 - API de Antifraude</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Valor</th>
-      <th style="text-align: left">Descrição</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">100</td>
-      <td style="text-align: left">Operação realizada com sucesso</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">150</td>
-      <td style="text-align: left">Erro interno <br /> Possível ação: Aguarde alguns minutos e tente reenviar a marcação de chargeback</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">151</td>
-      <td style="text-align: left">A marcação de chargeback foi recebida, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor <br /> Possível ação: Aguarde alguns minutos e tente reenviar</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">152</td>
-      <td style="text-align: left">A marcação de chargeback foi recebida, mas ocorreu time-out <br /> Possível ação: Aguarde alguns minutos e tente reenviar</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">234</td>
-      <td style="text-align: left">Problema com a configuração da loja na Cybersource <br /> Possível ação: Entre em contato com o suporte para corrigir o problema de configuração</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tabela-6---chargebacksntransactionantifraudsourceapplication">Tabela 6 - Chargebacks[n].Transaction.AntifraudSourceApplication</h2>
+<p>Indica qual é a API de Antifraude usada pela loja. Os valores são retornados na resposta da Consulta, no campo <code class="language-plaintext highlighter-rouge">Chargebacks[n].Transaction.AntifraudSourceApplication</code>.</p>
 
 <table>
   <thead>
@@ -2020,13 +1970,15 @@ A Risk Notification API encaminhará a documentação para a Cielo, que submeter
   </tbody>
 </table>
 
-<h2 id="tabela-7---reasoncode-e-reasonmessage">Tabela 7 - ReasonCode e ReasonMessage</h2>
+<h2 id="tabela-5---motivo-do-chargeback">Tabela 5 - Motivo do chargeback</h2>
+
+<p>A tabela a seguir apresenta o <code class="language-plaintext highlighter-rouge">ReasonCode</code> e o <code class="language-plaintext highlighter-rouge">ReasonMessage</code> retornados na resposta da Consulta de Chargeback, e que compõem o motivo do chargeback.</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Código</th>
-      <th style="text-align: left">Descrição</th>
+      <th style="text-align: left">REASON CODE</th>
+      <th style="text-align: left">DESCRIÇÃO</th>
       <th style="text-align: left">Bandeira</th>
       <th style="text-align: left">Fraude?</th>
     </tr>
