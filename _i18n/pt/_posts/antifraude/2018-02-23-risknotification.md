@@ -498,8 +498,8 @@ A funcionalidade de aceitar um chargeback está disponível para lojas que desej
 
 * Sinalizar para a Cielo que não disputarão o chargeback e, assim, antecipar em alguns dias o débito do chargeback;
 * Criar regras para aceitação automática de determinados tipos de chargeback, conforme `ReasonCode` e valor, por exemplo.
-
-A aceitação de um chargeback via API não é obrigatória, uma vez que quando o prazo para envio da disputa expira o chargeback é automaticamente considerado aceito.
+<br>
+<aside class="notice">A aceitação de um chargeback via API não é obrigatória, uma vez que quando o prazo para envio da disputa expira o chargeback é automaticamente considerado aceito.</aside>
 
 Confira no diagrama a seguir o fluxo da aceitação de um chargeback:
 
@@ -561,13 +561,13 @@ Confira nos anexos a lista completa de documentos de defesa por segmento.
 
 **Como enviar os documentos de disputa via API?**
 
-Você deve converter os arquivos dos documentos em imagem ou PDF para base64 e enviar o código base64 na requisição de Disputa.
+Você deve converter os arquivos dos documentos em imagem ou PDF para *base64* e enviar o código *base64* na requisição de [Disputa](https://braspag.github.io//manual/risknotification#disputando-um-chargeback).
 
 **Qual o tipo e tamanho máximo dos arquivos?**
 
 * As extensões permitidas são PDF, PNG, JPG ou JPEG convertidos em base64 (encoded);
 * A soma de todos os arquivos deve ter no máximo 7MB de tamanho.
-
+<br>
 A Risk Notification API encaminhará a documentação para a Cielo, que submeterá a disputa para análise da bandeira e do emissor.
 
 > **Importante**:<br/>
@@ -644,7 +644,7 @@ Confira as respostas possíveis para os seguintes cenários de erros no envio da
 
 ### Chargeback inexistente
 
-O CaseNumber não existe.
+Ocorre quando o `CaseNumber` informado não existe.
 
 ```json
 {
@@ -669,7 +669,7 @@ O CaseNumber não existe.
 
 ### Chargeback repetido
 
-O `CaseNumber` já foi aceito ou disputado anteriormente.
+Ocorre quando o `CaseNumber` informado já foi aceito ou disputado anteriormente.
 
 ```json
 {
@@ -695,6 +695,8 @@ O `CaseNumber` já foi aceito ou disputado anteriormente.
 ## Erros na disputa de chargeback
 
 ### Arquivo de disputa não enviado
+
+Ocorre quando a requisição de disputa é enviada sem o nome e/ou conteúdo do arquivo.
 
 ```json
 {
