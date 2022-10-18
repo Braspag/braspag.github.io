@@ -1264,8 +1264,7 @@
   <li>Sinalizar para a Cielo que não disputarão o chargeback e, assim, antecipar em alguns dias o débito do chargeback;</li>
   <li>Criar regras para aceitação automática de determinados tipos de chargeback, conforme <code class="language-plaintext highlighter-rouge">ReasonCode</code> e valor, por exemplo.</li>
 </ul>
-
-<p>A aceitação de um chargeback via API não é obrigatória, uma vez que quando o prazo para envio da disputa expira o chargeback é automaticamente considerado aceito.</p>
+<aside class="notice">A aceitação de um chargeback via API não é obrigatória, uma vez que quando o prazo para envio da disputa expira o chargeback é automaticamente considerado aceito.</aside>
 
 <p>Confira no diagrama a seguir o fluxo da aceitação de um chargeback:</p>
 
@@ -1400,16 +1399,15 @@
 
 <p><strong>Como enviar os documentos de disputa via API?</strong></p>
 
-<p>Você deve converter os arquivos dos documentos em imagem ou PDF para base64 e enviar o código base64 na requisição de Disputa.</p>
+<p>Você deve converter os arquivos dos documentos em imagem ou PDF para <em>base64</em> e enviar o código <em>base64</em> na requisição de <a href="https://braspag.github.io//manual/risknotification#disputando-um-chargeback">Disputa</a>.</p>
 
 <p><strong>Qual o tipo e tamanho máximo dos arquivos?</strong></p>
 
 <ul>
   <li>As extensões permitidas são PDF, PNG, JPG ou JPEG convertidos em base64 (encoded);</li>
-  <li>A soma de todos os arquivos deve ter no máximo 7MB de tamanho.</li>
+  <li>A soma de todos os arquivos deve ter no máximo 7MB de tamanho.
+A Risk Notification API encaminhará a documentação para a Cielo, que submeterá a disputa para análise da bandeira e do emissor.</li>
 </ul>
-
-<p>A Risk Notification API encaminhará a documentação para a Cielo, que submeterá a disputa para análise da bandeira e do emissor.</p>
 
 <blockquote>
   <p><strong>Importante</strong>:<br /></p>
@@ -1570,7 +1568,7 @@
 
 <h3 id="chargeback-inexistente">Chargeback inexistente</h3>
 
-<p>O CaseNumber não existe.</p>
+<p>Ocorre quando o <code class="language-plaintext highlighter-rouge">CaseNumber</code> informado não existe.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
@@ -1622,7 +1620,7 @@
 
 <h3 id="chargeback-repetido">Chargeback repetido</h3>
 
-<p>O <code class="language-plaintext highlighter-rouge">CaseNumber</code> já foi aceito ou disputado anteriormente.</p>
+<p>Ocorre quando o <code class="language-plaintext highlighter-rouge">CaseNumber</code> informado já foi aceito ou disputado anteriormente.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
@@ -1675,6 +1673,8 @@
 <h2 id="erros-na-disputa-de-chargeback">Erros na disputa de chargeback</h2>
 
 <h3 id="arquivo-de-disputa-não-enviado">Arquivo de disputa não enviado</h3>
+
+<p>Ocorre quando a requisição de disputa é enviada sem o nome e/ou conteúdo do arquivo.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
