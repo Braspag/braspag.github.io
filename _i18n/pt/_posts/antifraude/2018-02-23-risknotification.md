@@ -494,9 +494,20 @@ Há dois tipos de consultas:
 
 # Aceitando um chargeback
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}acceptance/{CaseNumber}</span></aside>
+A aceitação de um chargeback via API não é obrigatória, uma vez que quando o prazo para envio da disputa expira o chargeback é automaticamente considerado aceito.
+
+Essa funcionalidade está disponível para lojas que desejam:
+
+* Sinalizar para a Cielo que não disputarão o chargeback e, assim, antecipar em alguns dias o débito do chargeback;
+* Criar regras para aceitação automática de determinados tipos de chargeback, conforme `ReasonCode` e valor do chargeback, por exemplo.
+
+Confira no diagrama a seguir o fluxo da aceitação de um chargeback:
+
+![Aceitar chargeback]({{ site.baseurl_root }}/images/braspag/af/risknotificationapi-aceitacao.png)
 
 ## Requisição
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">{Risk Notification API}acceptance/{CaseNumber}</span></aside>
 
 **Parâmetros no cabeçalho (Header)**
 
