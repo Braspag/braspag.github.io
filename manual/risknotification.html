@@ -1557,6 +1557,294 @@
   </tbody>
 </table>
 
+<h1 id="erros-de-integração">Erros de integração</h1>
+
+<h2 id="erros-na-aceitação-ou-disputa-de-chargeback">Erros na aceitação ou disputa de chargeback</h2>
+
+<p>Confira as respostas possíveis para os seguintes cenários de erros no envio da requisição de aceitação ou disputa:</p>
+
+<ul>
+  <li><strong>Chargeback inexistente</strong>: o CaseNumber não existe;</li>
+  <li><strong>Chargeback repetido</strong>: o CaseNumber já foi aceito ou disputado anteriormente.</li>
+</ul>
+
+<h3 id="chargeback-inexistente">Chargeback inexistente</h3>
+
+<p>O CaseNumber não existe.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackNotFounded"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>404 Not Found</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Code</code></td>
+      <td>Código que o chargeback não foi encontrado.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td>Mensagem que o chargeback não foi encontrado.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="chargeback-repetido">Chargeback repetido</h3>
+
+<p>O <code class="language-plaintext highlighter-rouge">CaseNumber</code> já foi aceito ou disputado anteriormente.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChargebackAlreadyUpdated"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chargeback already updated"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Code</code></td>
+      <td>Código que o chargeback foi aceito ou contestado anteriormente.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td>Mensagem que o chargeback foi aceito ou contestado anteriormente.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="erros-na-disputa-de-chargeback">Erros na disputa de chargeback</h2>
+
+<h3 id="arquivo-de-disputa-não-enviado">Arquivo de disputa não enviado</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ModelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"contestationRequest.Files[0].FileName"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"FileName can not be null or empty."</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"contestationRequest.Files[0].Content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Content can not be null or empty."</span><span class="w">
+    </span><span class="p">]}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td>Mensagem informando que a requisição é inválida.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message.ModelState.ContestationRequest.Files[n].FileName</code></td>
+      <td>Mensagem informando que o nome do arquivo não foi enviado.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message.ModelState.ContestationRequest.Files[n].Content</code></td>
+      <td>Mensagem informando que o conteúdo do arquivo não foi enviado.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="arquivo-com-extensão-inválida">Arquivo com extensão inválida</h3>
+
+<p>O arquivo de contestação deve ter extensão JPEG, JPG, PNG ou PDF. Caso a extensão do arquivo enviado seja diferente das mencionadas, o retorno será o erro a seguir:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ModelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"contestationRequest.Files[0].FileName"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"The file extension must be sent. The accepted extensions are: '.png', '.jpg', '.jpeg'"</span><span class="w">
+    </span><span class="p">]}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td>Mensagem informando que a requisição é inválida.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message.ModelState.ContestationRequest.Files[n].FileName</code></td>
+      <td>Mensagem informando que o arquivo foi enviado com a extensão inválida.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="arquivo-com-tamanho-acima-do-permitido">Arquivo com tamanho acima do permitido</h3>
+
+<p>Ocorre quando o arquivo enviado ou a soma dos arquivos enviados for superior à 7MB.</p>
+
+<p><strong>Mensagem para arquivo superior à 7MB</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File(s) file1.png, file2.png has length bigger than the size limit of 7MB."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Mensagem para soma de arquivos superior à 7MB</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Files has length bigger than the size limit of 7MB."</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (Header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no body (Corpo)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td>Mensagem informando qual(is) arquivo(s) possuem tamanho superior a 7MB<br />ou<br />mensagem informando que a soma de tamanho de todos os arquivos enviados é superior a 7MB.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="tabelas">Tabelas</h1>
 
 <h2 id="tabela-1---chargebacksnnegativevalues">Tabela 1 - Chargebacks[n].NegativeValues</h2>
