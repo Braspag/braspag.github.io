@@ -24,9 +24,9 @@ Os chargebacks são comuns em qualquer operação de e-commerce e geram impactos
 
 ## Requisitos
 
-Você pode integrar a Risk Notification API se a sua loja cria transações usando a API do Pagador (tendo a Cielo como adquirente) ou a API E-commerce Cielo.
+Você pode integrar a Risk Notification API se a sua loja cria transações usando a [**API do Pagador**](https://www.braspag.com.br/pagamentos/){:target="_blank"}  (tendo a Cielo como adquirente) ou a [**API E-commerce Cielo**](https://www.cielo.com.br/e-commerce){:target="_blank"}.
 
-Para contratar a Risk Notification API, fale com o time Comercial da Braspag.
+Para contratar a Risk Notification API, fale com o time [Comercial da Braspag](https://www.braspag.com.br/contato/){:target="_blank"}.
 
 > Clientes da API Cielo E-commerce que desejam usar a Risk Notification API precisam contratar este serviço com a Braspag. Para isso, solicite para o canal de chargeback do seu segmento (por e-mail) ou para seu gestor comercial.
 
@@ -57,7 +57,7 @@ Confira a seguir alguns conceitos básicos sobre chargebacks.
 
 É o processo no qual o portador do cartão contesta uma compra com o emissor do cartão. Essa contestação pode ser feita pelo portador do cartão até **180 dias depois da data da compra**.
 
-O chargeback pode ocorrer em transações de e-commerce ou mundo físico, e a loja tem o direito de [disputar] o chargeback em um fluxo regulamentado pelas bandeiras.
+O chargeback pode ocorrer em transações de e-commerce ou mundo físico, e a loja tem o direito de [disputar](https://braspag.github.io//manual/risknotification#disputando-um-chargeback) o chargeback em um fluxo regulamentado pelas bandeiras.
 
 > Conheça as orientações da Cielo para [**Prevenção de Fraudes e Chargeback**](https://developercielo.github.io/manual/prevencao-fraudes){:target="_blank"}.
 
@@ -78,7 +78,8 @@ Ao integrar o seu e-commerce à Risk Notification API, você pode optar por rece
 
 O **Post de Notificação** é o webhook configurado na API que você usa para as suas transações (Pagador ou API E-commerce Cielo).
 
-Para receber as notificações, você deve informar uma URL de Notificação à nossa equipe de Suporte. Saiba mais no manual do [Pagador](https://braspag.github.io//manual/braspag-pagador){:target="_blank"} ou no manual da [API E-commerce Cielo](https://developercielo.github.io/manual/cielo-ecommerce){:target="_blank"}.
+Para receber as notificações, você deve informar uma URL de Notificação à nossa equipe de [Suporte](https://suporte.braspag.com.br/hc/pt-br)
+{:target="_blank"}. Saiba mais no manual do [Pagador](https://braspag.github.io//manual/braspag-pagador){:target="_blank"} ou no manual da [API E-commerce Cielo](https://developercielo.github.io/manual/cielo-ecommerce){:target="_blank"}.
 
 > * A ativação do Post de Notificação é opcional, mas recomendamos o uso dessa funcionalidade;<br/>
 > * O endereço (URL) deve ser HTTPS;<br/>
@@ -86,7 +87,7 @@ Para receber as notificações, você deve informar uma URL de Notificação à 
 
 **Estrutura da notificação do webhook**
 
-Enviaremos uma notificação em JSON contendo o `PaymentId` e o `ChangeType` com o valor “7”, que indica a ocorrência de chargeback.
+Enviaremos uma notificação em JSON contendo o `PaymentId` e o [`ChangeType`](https://braspag.github.io//manual/braspag-pagador#notifica%C3%A7%C3%A3o-enviada){:target="_blank"} com o valor “7”, que indica a ocorrência de chargeback.
 
 ```json
 { 
@@ -95,9 +96,9 @@ Enviaremos uma notificação em JSON contendo o `PaymentId` e o `ChangeType` com
 }
 ```
 
-A notificação de chargeback informa apenas que um chargeback ocorreu e envia o `PaymentId` da transação. Para saber mais detalhes como valor e motivo do chargeback, faça uma Consulta na Risk Notification API.
+A notificação de chargeback informa apenas que um chargeback ocorreu e envia o `PaymentId` da transação. Para saber mais detalhes como valor e motivo do chargeback, faça uma [Consulta](https://braspag.github.io//manual/risknotification#consultando-um-chargeback) na Risk Notification API.
 
-Após a consulta, você deve decidir por aceitar ou disputar o chargeback, conforme ilustrado no diagrama a seguir:
+Após a [consulta](https://braspag.github.io//manual/risknotification#consultando-um-chargeback), você deve decidir por [aceitar](https://braspag.github.io//manual/risknotification#aceitando-um-chargeback) ou [disputar](https://braspag.github.io//manual/risknotification#disputando-um-chargeback) o chargeback, conforme ilustrado no diagrama a seguir:
 
 ![Notificação de chargeback]({{ site.baseurl_root }}/images/braspag/af/risknotificationapi-notificacao.png)
 
@@ -187,7 +188,7 @@ Para simular chargeback, o primeiro passo é criar uma transação de teste; em 
 
 ![Simular chargeback]({{ site.baseurl_root }}/images/braspag/af/risknotificationapi-simulacao.png)
 
-1. **Crie uma transação de teste** no ambiente sandbox da **API transacional** usada pela sua loja (API do Pagador ou API E-commerce Cielo);
+1. **Crie uma transação de teste** no ambiente sandbox da **API transacional** usada pela sua loja ([API do Pagador](https://braspag.github.io//manual/braspag-pagador){:target="_blank"} ou [API E-commerce Cielo](https://developercielo.github.io/manual/cielo-ecommerce){:target="_blank"});
 2. **Crie uma simulação de chargeback na Risk Notification API**, conforme requisição de simulação;
 3. A Risk Notification API informará a ocorrência de chargeback para a API transacional;
 4. A API transacional enviará um Post de Notificação com o ChangeType igual a “7”, informando o PaymentId da transação;
@@ -269,7 +270,7 @@ Confira a correspondência entre os parâmetros das APIs transacionais e da Risk
 |:-|:-|:-|
 |`ChargebackBrandGroups[n].Brand`|Nome da bandeira <br/> Informar o mesmo valor informado no campo `Payment.CreditCard.Brand` na criação da transação|string|sim|32|
 |`ChargebackBrandGroups[n].Details[n].Acquirer`|Nome da adquirente <br/> Enviar fixo Cielo|string|sim|16|
-|`ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber`|Número do caso do chargeback <br/> Este valor será usado para realizar as operações de `Aceitação` e `Contestação`|string|sim|10|
+|`ChargebackBrandGroups[n].Details[n].AcquirerCaseNumber`|Número do caso do chargeback <br/> Este valor será usado para realizar as operações de [**Aceitação**](https://braspag.github.io//manual/risknotification#aceitando-um-chargeback) e [**Disputa**](https://braspag.github.io//manual/risknotification#disputando-um-chargeback)|string|sim|10|
 |`ChargebackBrandGroups[n].Details[n].AcquirerTransactionId`|Id da transação na adquirente <br/> Se transação criada a partir do Pagador Braspag, informar o mesmo valor recebido no campo `Payment.AcquirerTransactionId` do response <br/> Se transação criada a partir da API Cielo 3.0 ou API Split Braspag, informar o mesmo valor recebido no campo `Payment.Tid` do response|string|sim|20| 
 |`ChargebackBrandGroups[n].Details[n].Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`ChargebackBrandGroups[n].Details[n].AuthorizationCode`|Código de autorização da transação na adquirente <br/> Informar o mesmo valor recebido no campo `Payment.AuthorizationCode` do response da criação da transação|string|sim|8|
@@ -278,7 +279,7 @@ Confira a correspondência entre os parâmetros das APIs transacionais e da Risk
 |`ChargebackBrandGroups[n].Details[n].MaskedCardNumber`|Cartão mascarado <br/> Informar o mesmo valor recebido no campo `Payment.CreditCard.Number` do response da criação da transação|string|sim|16|
 |`ChargebackBrandGroups[n].Details[n].ReasonCode`|Código do motivo do chargeback <br/> Informar o código de acordo - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|sim|5|
 |`ChargebackBrandGroups[n].Details[n].ReasonMessage`|Mensagem do motivo do chargeback <br/> Informar a mensagem de acordo - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|sim|128|
-|`ChargebackBrandGroups[n].Details[n].SaleDate`|Data de autorização da transação <br/> Formato: YYYY-MM-DD|date|sim|10|
+|`ChargebackBrandGroups[n].Details[n].SaleDate`|Data de autorização da transação de teste. <br/> Formato: YYYY-MM-DD|date|sim|10|
 |`ChargebackBrandGroups[n].Details[n].TransactionAmount`|Valor da transação em centavos <br/> Informar o mesmo valor informado no campo `Payment.Amount` na criação da transação <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`ChargebackBrandGroups[n].Details[n].ProofOfSale`|Comprovante de venda ou NSU <br/> Informar o mesmo valor recebido no campo `Payment.ProofOfSale` do response da criação da transação|string|sim|20|
 
@@ -350,9 +351,9 @@ Há dois tipos de consultas:
 |`Date`|Data do chargeback <br/> Ex.: 2018-08-30|date|
 |`CaseNumber`|Número do caso relacionado ao chargeback|string|
 |`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`ReasonCode`|Código do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
-|`ReasonMessage`|Descrição do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
-|`Status`|Status do chargegback na Braspag - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/risknotification#tabela-3-chargebacks[n].status)|string|
+|`ReasonCode`|Código do motivo do chargeback - [Tabela 5 - Motivo do chargeback](https://braspag.github.io//manual/risknotification#tabela-5-motivo-do-chargeback)|string|
+|`ReasonMessage`|Descrição do motivo do chargeback - [Tabela 5 - Motivo do chargeback](https://braspag.github.io//manual/risknotification#tabela-5-motivo-do-chargeback)|string|
+|`Status`|Status do chargegback na Braspag - [Tabela 2 - Status do chargeback](https://braspag.github.io//manual/risknotification#tabela-2-status-do-chargeback)|string|
 |`IsFraud`|Identifica se o chargeback é de fraude|bool|
 |`Transaction.AcquirerType`|Identificador da adquirentre|string|
 |`Transaction.EstablishmentCode`|Número do estabelecimento ou afiliação na adquirente|string|
@@ -367,7 +368,7 @@ Há dois tipos de consultas:
 |`Transaction.RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem|string|
 |`Transaction.MaskedCardNumber`|Número do cartão de crédito mascarado|string|
 |`Transaction.Brand`|Bandeira do cartão de crédito|string|
-|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6 - Chargebacks{n}.Transaction.AntifraudSourceApplication]({{ site.baseurl_root }}manual/risknotification#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
+|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 4 - API de Antifraude](https://braspag.github.io//manual/risknotification#tabela-4-api-de-antifraude)|string|
 
 ## Consulta por data ou página
 
@@ -388,7 +389,7 @@ Há dois tipos de consultas:
 |:-|:-|:-:|
 |`StartDate`|Data início da consulta.|sim|
 |`EndDate`|Data fim da consulta.|sim|
-|`PageIndex`|Número da página desejada.|sim|
+|`PageIndex`|Número da página desejada. Numa primeira consulta, sempre use o valor "1".|sim|
 |`PageSize`|Quantidade de itens desejados na página. Máximo 250 itens.|sim|
 |`MerchantIds`|Id(s) da(s) loja(s) a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) MerchantId(s) associado(s) ao ClientId.|não|
 |`EstablishmentCodes`|Número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente a ser utilizado na consulta <br/> Obs.: Caso não seja enviado, a consulta será realizada levando em consideração o(s) número(s) do(s) estabelecimento(s) ou afiliação(ões) na adquirente associado(s) ao ClientId.|não|
@@ -402,7 +403,7 @@ Há dois tipos de consultas:
 |`ProofOfSale`|É o NSU (número sequencial único) da transação na adquirente.|não|
 |`MerchantOrderId`| Número do pedido.|não|
 |`AuthorizationCode`| Código de autorização da transação na adquirente.|não|
-|`Status`|Status do chargeback na Braspag.|não|
+|`Status`|Status do chargeback na Braspag. Esse parâmetro só será retornado após a aceitação ou disputa. [Tabela 2 - Status do chargeback](https://braspag.github.io//manual/risknotification#tabela-2-status-do-chargeback)|não|
 
 ### Resposta
 
@@ -460,17 +461,16 @@ Há dois tipos de consultas:
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
-|`Id`|Id do chargeback na Chargeback API Braspag|guid|
-|`CreatedDate`|Data de criação do chargeback na Chargeback API Braspag <br/> Ex.: 2018-09-01 09:51:25|date|
+|`Id`|Id do chargeback na Risk Notification API |guid|
+|`CreatedDate`|Data de criação do chargeback na Risk Notification API. <br/> Ex.: 2018-09-01 09:51:25|date|
 |`Date`|Data do chargeback <br/> Ex.: 2018-08-30|date|
 |`CaseNumber`|Número do caso relacionado ao chargeback|string|
 |`Amount`|Valor do chargeback em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
-|`ReasonCode`|Código do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
-|`ReasonMessage`|Descrição do motivo do chargeback - [Tabela 7 - ReasonCode e ReasonMessage]({{ site.baseurl_root }}manual/risknotification#tabela-7-reasoncode-e-reasonmessage)|string|
-|`Status`|Status do chargegback na Braspag - [Tabela 3 - Chargebacks{n}.Status]({{ site.baseurl_root }}manual/risknotification#tabela-3-chargebacks[n].status)|string|
-|`Comment`|Comentário que deseja associar ao chargeback e que ficará visível no Backoffice Braspag <br/> Se chargeback de transação Cybersource, este comentário ficará visível no backoffice da Cybersource|string|
+|`ReasonCode`|Código do motivo do chargeback - [Tabela 5 - Motivo do chargeback](https://braspag.github.io//manual/risknotification#tabela-5-motivo-do-chargeback)|string|
+|`ReasonMessage`|Descrição do motivo do chargeback - [Tabela 5 - Motivo do chargeback](https://braspag.github.io//manual/risknotification#tabela-5-motivo-do-chargeback)|string|
+|`Status`|Status do chargeback na Braspag - [Tabela 2 - Status do chargeback](https://braspag.github.io//manual/risknotification#tabela-2-status-do-chargeback)|string|
 |`IsFraud`|Identifica se o chargeback é de fraude|bool|
-|`Transaction.AcquirerType`|Identificador da adquirentre|string|
+|`Transaction.AcquirerType`|Identificador da adquirente|string|
 |`Transaction.EstablishmentCode`|Número do estabelecimento ou afiliação na adquirente|string|
 |`Transaction.MerchantOrderId`|Número do pedido da loja|string|
 |`Transaction.Tid`|Id da transação na adquirente|string|
@@ -485,12 +485,12 @@ Há dois tipos de consultas:
 |`Transaction.Brand`|Bandeira do cartão de crédito|string|
 |`Transaction.AntifraudMerchantId`|Identificador da loja na plataforma Antifraude Legado ou Antifraude Gateway|guid|
 |`Transaction.AntifraudTransactionId`|Identificador da transação na plataforma Antifraude Legado ou Antifraude Gateway|guid|
-|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 6 - Chargebacks{n}.Transaction.AntifraudSourceApplication]({{ site.baseurl_root }}manual/risknotification#tabela-6-chargebacks[n].transaction.antifraudsourceapplication)|string|
+|`Transaction.AntifraudSourceApplication`|Origem da plataforma de antifraude - [Tabela 4 - API de Antifraude](https://braspag.github.io//manual/risknotification#tabela-4-api-de-antifraude)|string|
 |`Transaction.ProviderTransactionId`|Id da transação no provedor de antifraude|
-|`Transaction.NegativeValues`|Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br/> Os parâmetros são concatenados usando o caracter , <br/> Ex.: CustomerDocumentNumber, ShippingStreet <br> - [Tabela 1]({{ site.baseurl_root }}manual/risknotification#tabela-1-chargebacks[n].negativevalues)|string|
-|`Transaction.ProviderChargebackMarkingEvent.Id`|Id do evento de marcação da transação que sofreu o chargeback. Apenas Cybersource|string|
-|`Transaction.ProviderChargebackMarkingEvent.Status`|Status do evento de marcação da transação que chargeback. Apenas Cybersource - [Tabela 4 - Chargebacks{n}.Transaction.ProviderChargebackMarkingEvent.Status]({{ site.baseurl_root }}manual/risknotification#tabela-4-chargebacks[n].transaction.providerchargebackmarkingevent.status)|string|
-|`Transaction.ProviderChargebackMarkingEvent.Code`|Código de retorno do evento de marcação da transação que sofreu chargeback. Apenas Cybersouce - [Tabela 5 - Chargebacks{n}.Transaction.ProviderChargebackMarkingEvent.Code]({{ site.baseurl_root }}manual/risknotification#tabela-5-chargebacks[n].transaction.providerchargebackmarkingevent.code)|string|
+|`Transaction.NegativeValues`|Parâmetros que foram incluídos na lista negativa quando transação de antifraude for Cybersource <br/> Os parâmetros são concatenados usando o caracter , <br/> Ex.: CustomerDocumentNumber, ShippingStreet <br> - [Tabela 1 - Lista Negativa da Cybersource](https://braspag.github.io//manual/risknotification#tabela-1-lista-negativa-da-cybersource)|string|
+|`Transaction.ProviderChargebackMarkingEvent.Id`|Id do evento de marcação da transação que sofreu o chargeback. Apenas Cybersource. Indica se a marcação/retroalimentação de chargeback na Cybersource foi aceita ou não. Valores possíveis: "Accept" para aceita ou "Reject" para rejeitada. |string|
+|`Transaction.ProviderChargebackMarkingEvent.Status`|Status do evento de marcação da transação que chargeback. Apenas Cybersource - [Tabela 3 - Marcação de chargeback no provedor de Antifraude](https://braspag.github.io//manual/risknotification#tabela-3-marca%C3%A7%C3%A3o-de-chargeback-no-provedor-de-antifraude)|string|
+|`Transaction.ProviderChargebackMarkingEvent.Code`|Código que indica os detalhes do status da marcação/retroalimentação de chargeback. Apenas Cybersouce. [Tabela 3 - Marcação de chargeback no provedor de Antifraude](https://braspag.github.io//manual/risknotification#tabela-3-marca%C3%A7%C3%A3o-de-chargeback-no-provedor-de-antifraude)|string|
 
 # Aceitando um chargeback
 
