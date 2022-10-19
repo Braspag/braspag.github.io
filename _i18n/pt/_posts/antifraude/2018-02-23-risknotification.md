@@ -970,9 +970,7 @@ A tabela a seguir apresenta o `ReasonCode` e o `ReasonMessage` retornados na res
 |4835|Cartão Inválido ou Vencido|Hipercard|Não|
 |4846|Código Correto da Moeda da Transação Não Fornecido|Hipercard|Não|
 
-# Matriz
-
-## Matriz 1 - Documentos
+# Documentos para disputa
 
 |Segmento/Motivo|Documentos Padrão|Portador não Reconhece a Transação|Mercadoria não Recebida|Serviços não Prestados|Mercadoria com Defeito/Não Confere|Crédito Não Processado|Processamento Duplicado/Pagamentos por Outros Meios|
 |---|---|---|---|---|---|---|---|
