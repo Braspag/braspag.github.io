@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2022-10-20T20:27:52+00:00</updated>
+    <updated>2022-10-21T11:56:28+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -29032,29 +29032,82 @@ The following lists refer to providers for the REST integration:&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;HTTP Status Code&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;HTTP CODE&lt;/th&gt;
+      &lt;th&gt;Mensage&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;200&lt;/td&gt;
-      &lt;td&gt;OK.&lt;/td&gt;
+      &lt;td&gt;Ok&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;201&lt;/td&gt;
+      &lt;td&gt;Created&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;202&lt;/td&gt;
+      &lt;td&gt;Accepted&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;400&lt;/td&gt;
-      &lt;td&gt;Bad Request.&lt;/td&gt;
+      &lt;td&gt;Bad Request&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;401&lt;/td&gt;
+      &lt;td&gt;Unauthorized&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;403&lt;/td&gt;
+      &lt;td&gt;Forbidden&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;404&lt;/td&gt;
-      &lt;td&gt;Resource Not Found.&lt;/td&gt;
+      &lt;td&gt;Not Found&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;405&lt;/td&gt;
+      &lt;td&gt;Method Not Allowed&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;500&lt;/td&gt;
-      &lt;td&gt;Internal Server Error.&lt;/td&gt;
+      &lt;td&gt;Internal Server Error&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;502&lt;/td&gt;
+      &lt;td&gt;Bad Gateway&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;503&lt;/td&gt;
+      &lt;td&gt;Service Unavailable&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;p&gt;See some example scenarios for when each HTTP code may return:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Successful responses&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;200 Ok&lt;/strong&gt;: the request succeeded. E.g.: when creating an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AccessToken&lt;/code&gt;;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;201 Created&lt;/strong&gt;: the request succeeded and the transaction was created (for all payment methods: boleto, credit, debit, electronic transfer and e-wallet).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Client error responses&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;400 Bad Request&lt;/strong&gt;: the request is not valid. E.g: malformed JSON request syntax;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;401 Unauthorized&lt;/strong&gt;: authentication error. E.g.: wrong &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;403 Forbidden&lt;/strong&gt;: non-authorized due to IP restriction in the e-commerce;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;404 Not Found&lt;/strong&gt;: The server can not find the requested resource. E.g.: wrong endpoint; for order search: the order does not exist, or was created by another merchant or the order is older than three months;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;405 Method Not Allowed&lt;/strong&gt;: wrong HTTP method (POST, PUT, GET, PATCH, DELETE).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Server error responses&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;500 Internal Server Error, 502 Bad Gateway ou 503 Service Unavailable&lt;/strong&gt;: these errors responses can return due to some internal fail at Braspag, such as unavailable payment method or low speed. If you get any of these responses, we recommend contacting our Support for further information.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;recurrence-status-list&quot;&gt;Recurrence Status List&lt;/h2&gt;
 

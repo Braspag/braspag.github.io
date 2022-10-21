@@ -14074,29 +14074,82 @@ The following lists refer to providers for the REST integration:</p>
 <table>
   <thead>
     <tr>
-      <th>HTTP Status Code</th>
-      <th>Description</th>
+      <th>HTTP CODE</th>
+      <th>Mensage</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>200</td>
-      <td>OK.</td>
+      <td>Ok</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+    </tr>
+    <tr>
+      <td>202</td>
+      <td>Accepted</td>
     </tr>
     <tr>
       <td>400</td>
-      <td>Bad Request.</td>
+      <td>Bad Request</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
     </tr>
     <tr>
       <td>404</td>
-      <td>Resource Not Found.</td>
+      <td>Not Found</td>
+    </tr>
+    <tr>
+      <td>405</td>
+      <td>Method Not Allowed</td>
     </tr>
     <tr>
       <td>500</td>
-      <td>Internal Server Error.</td>
+      <td>Internal Server Error</td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td>Bad Gateway</td>
+    </tr>
+    <tr>
+      <td>503</td>
+      <td>Service Unavailable</td>
     </tr>
   </tbody>
 </table>
+
+<p>See some example scenarios for when each HTTP code may return:</p>
+
+<p><strong>Successful responses</strong></p>
+
+<ul>
+  <li><strong>200 Ok</strong>: the request succeeded. E.g.: when creating an <code class="language-plaintext highlighter-rouge">AccessToken</code>;</li>
+  <li><strong>201 Created</strong>: the request succeeded and the transaction was created (for all payment methods: boleto, credit, debit, electronic transfer and e-wallet).</li>
+</ul>
+
+<p><strong>Client error responses</strong></p>
+
+<ul>
+  <li><strong>400 Bad Request</strong>: the request is not valid. E.g: malformed JSON request syntax;</li>
+  <li><strong>401 Unauthorized</strong>: authentication error. E.g.: wrong <code class="language-plaintext highlighter-rouge">MerchantKey</code>;</li>
+  <li><strong>403 Forbidden</strong>: non-authorized due to IP restriction in the e-commerce;</li>
+  <li><strong>404 Not Found</strong>: The server can not find the requested resource. E.g.: wrong endpoint; for order search: the order does not exist, or was created by another merchant or the order is older than three months;</li>
+  <li><strong>405 Method Not Allowed</strong>: wrong HTTP method (POST, PUT, GET, PATCH, DELETE).</li>
+</ul>
+
+<p><strong>Server error responses</strong></p>
+
+<ul>
+  <li><strong>500 Internal Server Error, 502 Bad Gateway ou 503 Service Unavailable</strong>: these errors responses can return due to some internal fail at Braspag, such as unavailable payment method or low speed. If you get any of these responses, we recommend contacting our Support for further information.</li>
+</ul>
 
 <h2 id="recurrence-status-list">Recurrence Status List</h2>
 
