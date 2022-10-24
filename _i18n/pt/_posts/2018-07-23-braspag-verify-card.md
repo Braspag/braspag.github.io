@@ -30,14 +30,14 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 
 ## Ambientes
 
-|Amnbiente|Base da URL transacional|
+|Ambiente|Base da URL transacional|
 |---|---|
 |Sandbox|https://apisandbox.braspag.com.br/|
 |Produção|https://api.braspag.com.br/|
 
 <br/>Para consultar dados de um cartão, envie uma requisição utilizando o verbo HTTP POST para o serviço VerifyCard, de acordo com os exemplos deste manual. A consulta pode ser feita pelo número ou pelo token do cartão.
 
-# Consulta pelo Número do Cartão
+# Consulta pelo número do cartão
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
@@ -154,7 +154,7 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 |`BinData.CardLast4Digits`|Código do emissor do cartão.|Número|4 |Ex.: "9999"|
 |`BinData.Prepaid`|Indica se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
 
-# Consulta pelo Token do Cartão
+# Consulta pelo token do cartão
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
@@ -264,7 +264,7 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 |`BinData.CardLast4Digits`|Código do emissor do cartão.|Número|4 |Ex.: "9999"|
 |`BinData.Prepaid`|Indica se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
 
-# Respostas Programadas
+# Respostas programadas
 
 É possível testar os retornos do VerifyCard (Zero Auth) em ambiente sandbox usando o provider "Simulado". Para isso, você pode usar os cartões de teste da tabela a seguir para simular os cenários de consulta autorizada, não autorizada e falha na operação.
 
