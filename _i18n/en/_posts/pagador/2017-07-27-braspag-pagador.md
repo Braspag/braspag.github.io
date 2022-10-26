@@ -347,10 +347,10 @@ Here are request and answer examples of how to create a credit transaction:
 |`Payment.PaymentFacilitator.SubEstablishment.Address`|Sub-merchant's address.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
 |`Payment.PaymentFacilitator.SubEstablishment.City`|Sub-merchant's city.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
 |`Payment.PaymentFacilitator.SubEstablishment.State`|Sub-merchant's state.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Sub-merchant's postal code.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Sub-merchant's telephone number.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.Identity`|Sub-merchant's CNPJ or CPF.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Sub-merchant's country code based on ISO 3166.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Sub-merchant's postal code.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Sub-merchant's telephone number.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.Identity`|Sub-merchant's CNPJ or CPF.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Sub-merchant's country code based on ISO 3166.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
 |`CreditCard.CardNumber`|Customer's card number.|Text|19|Yes|
 |`CreditCard.Holder`|Name of cardholder printed on the card.|Text|25|Yes|
 |`CreditCard.ExpirationDate`|Expiration date printed on the card.|Text|7|Yes|
