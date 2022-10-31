@@ -2188,6 +2188,7 @@ Here are examples of a request and response for generating the QR code Pix:
 | `Payment.PaymentId` | Order identifier field. | GUID | 40 | Text |
 | `Payment.AcquirerTransactionId` | Transaction identifier at the acquirer.| GUID | 36 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `Payment.ProofOfSale` | NSU Pix. | Text | 20 | Alphanumeric text|
+| `Payment.SentOrderId` | Number sent to Pix issuer representing the order number. The `Payment.SentOrderId` is used for financial reconciliation. | Number | 8 | 10045146 |
 | `Payment.QrcodeBase64Image` | Base64 encoded QR code image. | Text | - |Text | 
 | `Payment.QrCodeString`| Coded text for the shopper to "copy" and "paste" in the  internet banking correspondent field for payments made in mobile environment.|Text|Variable | Alphanumeric text|
 | `Payment.Status` | Transaction Status. If transaction is a success, the initial status is "12" (*Pending*). [Click here](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o) to view status list.| Number| - | 12 |
