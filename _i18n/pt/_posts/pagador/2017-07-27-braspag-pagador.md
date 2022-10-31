@@ -347,9 +347,9 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 |`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|Texto|50|Não|
 |`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|Texto|50|Não|
 |`Payment.Credentials.Signature`|Envio do *TerminalID* da adquirente **Global Payments**, ex.: "001". Para **Safra** colocar o nome do estabelecimento, cidade e o estado concatenados com ponto-e-vírgula (;), ex.: "NomedaLoja;São Paulo;SP".|Texto|--|Não|
-|`Payment.PaymentFacilitator.EstablishmentCode`|Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).<br><br>**Aplicável para Cielo30 e Rede2.**|Número|11|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).<br><br>**Aplicável para Cielo30 e Rede2.**|Número|15|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|MCC do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Número|4|Sim para facilitadores|
+|`Payment.PaymentFacilitator.EstablishmentCode`|Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|11|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|15|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|MCC do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|4|Sim para facilitadores|
 |`Payment.PaymentFacilitator.SubEstablishment.Address`|Endereço do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|22|Sim para facilitadores|
 |`Payment.PaymentFacilitator.SubEstablishment.City`|Cidade do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|13|Sim para facilitadores|
 |`Payment.PaymentFacilitator.SubEstablishment.State`|Estado do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|2|Sim para facilitadores|
