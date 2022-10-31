@@ -347,16 +347,16 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 |`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|Texto|50|Não|
 |`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|Texto|50|Não|
 |`Payment.Credentials.Signature`|Envio do *TerminalID* da adquirente **Global Payments**, ex.: "001". Para **Safra** colocar o nome do estabelecimento, cidade e o estado concatenados com ponto-e-vírgula (;), ex.: "NomedaLoja;São Paulo;SP".|Texto|--|Não|
-|`Payment.PaymentFacilitator.EstablishmentCode`|Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|11|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|15|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|MCC do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|4|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.Address`|Endereço do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|22|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.City`|Cidade do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|13|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.State`|Estado do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|2|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Código postal do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|9|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Número de telefone do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|13|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.Identity`|CNPJ ou CPF do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|14|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Código do país do sub-merchant com base no ISO 3166.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|3|Sim para facilitadores|
+|`Payment.PaymentFacilitator.EstablishmentCode`|Código do estabelecimento do facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras).<br><br>**Aplicável para Cielo30 e Rede2.**|Texto*|11|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador).<br><br>**Aplicável para Cielo30 e Rede2.**|Texto*|15|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|MCC do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto*|4|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.Address`|Endereço do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto*|22|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.City`|Cidade do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto*|13|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.State`|Estado do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto*|2|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Código postal do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto*|9|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Número de telefone do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto*|13|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.Identity`|CNPJ ou CPF do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto*|14|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Código do país do sub-merchant com base no ISO 3166.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto*|3|Sim para facilitadores|
 |`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|19|Sim|
 |`CreditCard.Holder`|Nome do portador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
 |`CreditCard.ExpirationDate`|Data de validade impressa no cartão.|Texto|7|Sim|
@@ -366,6 +366,8 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 |`CreditCard.Alias`|Nome atribuído pelo lojista ao cartão salvo como *CardToken*.|Texto|64|Não|
 |`CreditCard.CardOnFile.Usage`|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e já utilizado em outra transação.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|-|Não|
 |`CreditCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` seja "Used".<br>"Recurring" - Compra recorrente programada, ex.: assinaturas.<br>"Unscheduled" - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br>"Installments" - Parcelamento através da recorrência.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|-|Condicional|
+
+**Não use acentos. Acentos são considerados "duplo char" e podem atrapalhar na contagem de final de caracteres*
 
 #### Resposta
 
