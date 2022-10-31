@@ -367,7 +367,7 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 |`CreditCard.CardOnFile.Usage`|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e já utilizado em outra transação.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|-|Não|
 |`CreditCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` seja "Used".<br>"Recurring" - Compra recorrente programada, ex.: assinaturas.<br>"Unscheduled" - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br>"Installments" - Parcelamento através da recorrência.<br><br>**Aplicável para Cielo30 e Rede2.**|Texto|-|Condicional|
 
-**Não use acentos. Acentos são considerados "duplo char" e podem atrapalhar na contagem de final de caracteres*
+**Não use acentos. Acentos são considerados "duplo char" e podem atrapalhar na contagem de final de caracteres.*
 
 #### Resposta
 
