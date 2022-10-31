@@ -2269,7 +2269,7 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 | `Payment.PaymentId` | Campo identificador do pedido. | GUID | 40 | Texto |
 | `Payment.AcquirerTransactionId` | Id da transação no provedor de meio de pagamento.| GUID | 36 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `Payment.ProofOfSale` | NSU Pix. |Texto|20|Texto alfanumérico|
-| `Payment.SentOrderId` | Número único enviado ao emissor Pix gerado para representar o pedido. | Número | 8 | 10045146 |
+| `Payment.SentOrderId` | Número único enviado ao emissor Pix para representar o número do pedido. Utilizado para realizar a conciliação financeira. | Número | 8 | 10045146 |
 | `Payment.QrcodeBase64Image` | Código em base64 da imagem do QR code. | Texto | - | Texto |
 | `Payment.QrCodeString`|Texto codificado para o comprador "copiar" e "colar" no campo do internet banking em pagamentos feitos no ambiente mobile.|Texto|Variável|Texto alfanumérico|
 | `Payment.Status` | Status da transação. Em caso de sucesso, o status inicial é “12” (*Pendente*). [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o) para ver lista de status.| Número | - | 12 |
