@@ -820,35 +820,35 @@
       <td>Afiliação gerada pela adquirente.</td>
       <td>Texto</td>
       <td>100</td>
-      <td>Sim</td>
+      <td>Condicional**</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Key</code></td>
       <td>Chave de afiliação/token gerado pela adquirente.</td>
       <td>Texto</td>
       <td>100</td>
-      <td>Sim</td>
+      <td>Condicional**</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Username</code></td>
       <td>Usuário gerado no credenciamento com a adquirente <strong>Getnet</strong> (envio obrigatório se a transação é direcionada para Getnet).</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Condicional**</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Password</code></td>
       <td>Senha gerada no credenciamento com a adquirente <strong>Getnet</strong> (envio obrigatório se a transação é direcionada para Getnet).</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Condicional**</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Signature</code></td>
       <td>Envio do <em>TerminalID</em> da adquirente <strong>Global Payments</strong>, ex.: “001”. Para <strong>Safra</strong> colocar o nome do estabelecimento, cidade e o estado concatenados com ponto-e-vírgula (;), ex.: “NomedaLoja;São Paulo;SP”.</td>
       <td>Texto</td>
       <td>–</td>
-      <td>Não</td>
+      <td>Condicional**</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.EstablishmentCode</code></td>
@@ -986,7 +986,8 @@
   </tbody>
 </table>
 
-<p><em>*Evite utilizar acentos pois eles são considerados como dois caracteres.</em></p>
+<p><em>*Evite utilizar acentos pois eles são considerados como dois caracteres.</em>
+<em>**Obrigatório caso não estejam pré configurados nos meios de pagamento do MerchantID utilizado.</em></p>
 
 <h4 id="resposta">Resposta</h4>
 
