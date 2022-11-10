@@ -388,7 +388,7 @@ Essa agenda é composta por eventos de Crédito e Débito que são gerados de ac
       <td>Data de pagamento prevista inicial a ser consultada.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>CurrentDate</td>
     </tr>
     <tr>
@@ -396,7 +396,7 @@ Essa agenda é composta por eventos de Crédito e Débito que são gerados de ac
       <td>Data de pagamento prevista final a ser consultada.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>InitialForecastedDate</td>
     </tr>
     <tr>
@@ -404,7 +404,7 @@ Essa agenda é composta por eventos de Crédito e Débito que são gerados de ac
       <td>Data de pagamento inicial a ser consultada.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>-</td>
     </tr>
     <tr>
@@ -412,8 +412,24 @@ Essa agenda é composta por eventos de Crédito e Débito que são gerados de ac
       <td>Data de pagamento final a ser consultada.</td>
       <td>Data</td>
       <td>YYYY-MM-DD</td>
-      <td>Não</td>
+      <td>Não*</td>
       <td>InitialPaymentDate</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">InitialScheduleDate</code></td>
+      <td>Data inicial de lançamento de informação na agenda.</td>
+      <td>Data</td>
+      <td>YYYY-MM-DD</td>
+      <td>Não*</td>
+      <td>Data inicial</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FinalScheduleDate</code></td>
+      <td>Data final de lançamento de informação na agenda.</td>
+      <td>Data</td>
+      <td>YYYY-MM-DD</td>
+      <td>Não*</td>
+      <td>Data final</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
@@ -457,6 +473,8 @@ Essa agenda é composta por eventos de Crédito e Débito que são gerados de ac
     </tr>
   </tbody>
 </table>
+
+<p>*É obrigatório passar pelo menos um intervalo de datas, com no máximo 31 dias entre a data inicial e a data final.</p>
 
 <h3 id="requisições">Requisições</h3>
 
