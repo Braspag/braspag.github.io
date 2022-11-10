@@ -137,15 +137,19 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 
 | Parâmetro               | Descrição                                                                           | Tipo    | Formato    | Obrigatório | Valor Padrão          |
 |-------------------------|-------------------------------------------------------------------------------------|---------|------------|-------------|-----------------------|
-| `InitialForecastedDate` | Data de pagamento prevista inicial a ser consultada.                                | Data    | YYYY-MM-DD | Não         | CurrentDate           |
-| `FinalForecastedDate`   | Data de pagamento prevista final a ser consultada.                                  | Data    | YYYY-MM-DD | Não         | InitialForecastedDate |
-| `InitialPaymentDate`    | Data de pagamento inicial a ser consultada.                                         | Data    | YYYY-MM-DD | Não         | -                     |
-| `FinalPaymentDate`      | Data de pagamento final a ser consultada.                                           | Data    | YYYY-MM-DD | Não         | InitialPaymentDate    |
+| `InitialForecastedDate` | Data de pagamento prevista inicial a ser consultada.                                | Data    | YYYY-MM-DD | Não*         | CurrentDate           |
+| `FinalForecastedDate`   | Data de pagamento prevista final a ser consultada.                                  | Data    | YYYY-MM-DD | Não*         | InitialForecastedDate |
+| `InitialPaymentDate`    | Data de pagamento inicial a ser consultada.                                         | Data    | YYYY-MM-DD | Não*         | -                     |
+| `FinalPaymentDate`      | Data de pagamento final a ser consultada.                                           | Data    | YYYY-MM-DD | Não*         | InitialPaymentDate    |
+| `InitialScheduleDate` | Data inicial de lançamento de informação na agenda. | Data | YYYY-MM-DD | Não* | Data inicial |
+| `FinalScheduleDate` | Data final de lançamento de informação na agenda. | Data | YYYY-MM-DD | Não* | Data final |
 | `PageIndex`             | Página a ser consultada.                                                            | Inteiro | -          | Não         | 1                     |
 | `PageSize`              | Tamanho da página. Valores possíveis: 25, 50, 100.                                  | Inteiro | -          | Não         | 25                    |
 | `EventStatus`    |Status do evento [Scheduled - Pending - Settled - Error - WaitingForAdjustmentDebit - Anticipated].|String| -      | Não         | Todos                 |
 | `IncludeAllSubordinates`| Inclui todos os subordinados na consulta.                                           | Boolean | -          | Não         | false                 | 
 | `MerchantIds`           | Lojas a serem consideradas na consulta.                                             | Guid    | -          | Não         | -                     |
+
+*É obrigatório passar pelo menos um intervalo de datas, com no máximo 31 dias entre a data inicial e a data final.
 
 ### Requisições
 
