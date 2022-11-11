@@ -8548,7 +8548,7 @@ Os status das transações serão conforme a utilização de cada cartão.
 
 |Status da Transação|Cartões para realização dos testes|Código de Retorno|Mensagem de Retorno|
 |-------------------|----------------------------------|-----------------|-------------------|
-|Autorizado|0000000000000000 / 0000000000000001 / 0000000000000004|4|Operação realizada com sucesso|
+|Autorizado|0000000000000000 / 0000000000000001 / 0000000000000004|6|Operação realizada com sucesso|
 |Não Autorizado|0000000000000002|05|Não Autorizada|
 |Não Autorizado|0000000000000003|57|Cartão Expirado|
 |Não Autorizado|0000000000000005|78|Cartão Bloqueado|
