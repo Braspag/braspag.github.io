@@ -38,6 +38,8 @@ bin/magento setup:upgrade
 bin/magento setup:di:compile
 ```
 
+> Você também pode fazer o download do conector direto no nosso [GitHub](https://github.com/Braspag/pagador-module-magento){:target="_blank"}.
+
 ## Instalação para Integração com a Unirgy Marketplace
 
 A instalação descrita nos próximos passos só é necessária caso o módulo **Marketplace Unirgy** seja adquirido. 
