@@ -2735,7 +2735,7 @@ To create a sale, you must send an HTTP message through the POST method to the *
   },
     "Payment":
     {
-        "Provider":"Bradesco",
+        "Provider":"Simulado",
         "Type":"ElectronicTransfer",
         "Amount":10000,
         "ReturnUrl":"http://www.braspag.com.br",
@@ -2780,7 +2780,7 @@ To create a sale, you must send an HTTP message through the POST method to the *
     },
     "Payment":
     {
-        "Provider":"Bradesco",
+        "Provider":"Simulado",
         "Type":"ElectronicTransfer",
         "Amount":10000,
         "ReturnUrl":"http://www.braspag.com.br",
@@ -7102,7 +7102,7 @@ The following lists refer to providers for the REST integration:
 
 |Provider|
 |--------|
-|Bradesco, BancoDoBrasil, SafetyPay, Itau, PayMeeRedirectCheckout, PayMeeSemiTransparent|
+|SafetyPay, PayMeeRedirectCheckout, PayMeeSemiTransparent|
 
 ## Transaction Status List
 
