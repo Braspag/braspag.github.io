@@ -3207,7 +3207,7 @@ Para criar uma venda, é necessário o envio de mensagem HTTP através do métod
       }
    },
    "Payment":{  
-      "Provider":"Bradesco",
+      "Provider":"Simulado",
       "Type":"EletronicTransfer",
       "Amount":10000,
       "ReturnUrl":"http://www.braspag.com.br",
@@ -3248,7 +3248,7 @@ Para criar uma venda, é necessário o envio de mensagem HTTP através do métod
        }
     },
     "Payment":{  
-       "Provider":"Bradesco",
+       "Provider":"Simulado",
        "Type":"EletronicTransfer",
        "Amount":10000,
        "ReturnUrl":"http://www.braspag.com.br",
@@ -8550,9 +8550,9 @@ As listas a seguir se referem a provedores na integração REST:
 
 |Provider|
 |--------|
-|Bradesco, BancoDoBrasil, SafetyPay, Itau, PayMeeRedirectCheckout, PayMeeSemiTransparent|
+|SafetyPay, PayMeeRedirectCheckout, PayMeeSemiTransparent|
 
-### Providers para PIX
+### Providers para Pix
 
 |Provider|
 |--------|
