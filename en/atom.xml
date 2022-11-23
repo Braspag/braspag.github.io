@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2022-11-22T17:29:48+00:00</updated>
+    <updated>2022-11-23T12:36:38+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -15098,7 +15098,7 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
         <id>https://braspag.github.io//en/manual/braspag-pagador</id>
         <content type="html">&lt;h1 id=&quot;introduction-to-the-pagador-api&quot;&gt;Introduction to the Pagador API&lt;/h1&gt;
 
-&lt;p&gt;The purpose of this documentation is to guide the developer on how to integrate with the &lt;strong&gt;Pagador API&lt;/strong&gt;, Braspag’s payment gateway, describing all available services using request and response examples&lt;/p&gt;
+&lt;p&gt;The purpose of this documentation is to guide the developer on how to integrate with the Pagador API, Braspag’s payment gateway, describing all available services using request and response examples&lt;/p&gt;
 
 &lt;p&gt;Below is the representation of a standard &lt;strong&gt;transactional flow&lt;/strong&gt;, followed by a short description of the main parties involved:&lt;/p&gt;
 
