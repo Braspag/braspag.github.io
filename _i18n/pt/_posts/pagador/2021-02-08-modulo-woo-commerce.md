@@ -5,7 +5,7 @@ description: Como Integrar sua Loja WooCommerce com o Módulo de Pagamentos Bras
 toc_footers: false
 categories: tutorial
 translated: true
-sort_order: 3
+sort_order: 4
 tags:
     - 2. Módulos e SDKs
  
