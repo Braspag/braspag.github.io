@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title:  Módulo Magento 2.0
-description: Como Integrar sua Loja Magento com o Módulo de Pagamentos Braspag na Webjump
+description: Como Integrar sua Loja Magento com o Módulo de Pagamentos Braspag
 toc_footers: false
 categories: tutorial
 translated: true
