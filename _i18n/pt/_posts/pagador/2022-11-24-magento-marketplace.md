@@ -5,13 +5,13 @@ description: Como Integrar sua Loja Magento com o Módulo de Pagamentos Braspag 
 toc_footers: false
 categories: tutorial
 translated: true
-sort_order: 5
+sort_order: 2
 tags:
     - 2. Módulos e SDKs
 
 ---
 
-# Integração do Módulo Magento 2.0
+# Integração do Módulo Magento 2.0 para Marketplace
 
 # Instalação
 
