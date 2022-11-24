@@ -5,7 +5,7 @@ description: Como Integrar sua Loja Shopify com o Módulo de Pagamentos Braspag
 toc_footers: false
 categories: tutorial
 translated: true
-sort_order: 2
+sort_order: 3
 tags:
   - 2. Módulos e SDKs
 
