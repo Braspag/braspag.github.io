@@ -209,7 +209,7 @@
   <p>A análise de fraude está disponível apenas para transações de cartão de crédito!</p>
 </blockquote>
 
-<h2 id="integração">Integração</h2>
+<h1 id="integração">Integração</h1>
 
 <table>
   <thead>
@@ -260,7 +260,7 @@
 
 <p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós “FraudAnalysis”, “Cart”, “MerchantDefinedFields” e “Travel (somente para venda de passagens aéreas)”.</p>
 
-<h3 id="requisição">Requisição</h3>
+<h2 id="requisição">Requisição</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1017,7 +1017,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta">Resposta</h3>
+<h2 id="resposta">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -1330,9 +1330,13 @@
   </tbody>
 </table>
 
-<h2 id="tabelas">Tabelas</h2>
+<h3 id="configurando-o-fingerprint">Configurando o Fingerprint</h3>
 
-<h3 id="tabela-1---paymentfraudanalysiscartitemsngiftcategory">Tabela 1 - Payment.FraudAnalysis.Cart.Items[n].GiftCategory</h3>
+<p>O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo. Para configurar o Fingerprint com a Cybersource, consulte o manual do <a href="https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource" target="_blank">Antifraude Gateway</a>.</p>
+
+<h1 id="tabelas">Tabelas</h1>
+
+<h2 id="tabela-1---paymentfraudanalysiscartitemsngiftcategory">Tabela 1 - Payment.FraudAnalysis.Cart.Items[n].GiftCategory</h2>
 
 <table>
   <thead>
@@ -1357,7 +1361,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-2---paymentfraudanalysiscartitemsnhosthedge">Tabela 2 - Payment.FraudAnalysis.Cart.Items[n].HostHedge</h3>
+<h2 id="tabela-2---paymentfraudanalysiscartitemsnhosthedge">Tabela 2 - Payment.FraudAnalysis.Cart.Items[n].HostHedge</h2>
 
 <table>
   <thead>
@@ -1386,7 +1390,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-3---paymentfraudanalysiscartitemsnnonsensicalhedge">Tabela 3 - Payment.FraudAnalysis.Cart.Items[n].NonSensicalHedge</h3>
+<h2 id="tabela-3---paymentfraudanalysiscartitemsnnonsensicalhedge">Tabela 3 - Payment.FraudAnalysis.Cart.Items[n].NonSensicalHedge</h2>
 
 <table>
   <thead>
@@ -1415,7 +1419,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-4---paymentfraudanalysiscartitemsnobscenitieshedge">Tabela 4 - Payment.FraudAnalysis.Cart.Items[n].ObscenitiesHedge</h3>
+<h2 id="tabela-4---paymentfraudanalysiscartitemsnobscenitieshedge">Tabela 4 - Payment.FraudAnalysis.Cart.Items[n].ObscenitiesHedge</h2>
 
 <table>
   <thead>
@@ -1444,7 +1448,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-5---paymentfraudanalysiscartitemsnphonehedge">Tabela 5 - Payment.FraudAnalysis.Cart.Items[n].PhoneHedge</h3>
+<h2 id="tabela-5---paymentfraudanalysiscartitemsnphonehedge">Tabela 5 - Payment.FraudAnalysis.Cart.Items[n].PhoneHedge</h2>
 
 <table>
   <thead>
@@ -1473,7 +1477,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-7---paymentfraudanalysiscartitemsntimehedge">Tabela 7 - Payment.FraudAnalysis.Cart.Items[n].TimeHedge</h3>
+<h2 id="tabela-7---paymentfraudanalysiscartitemsntimehedge">Tabela 7 - Payment.FraudAnalysis.Cart.Items[n].TimeHedge</h2>
 
 <table>
   <thead>
@@ -1502,7 +1506,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-8---paymentfraudanalysiscartitemsntype">Tabela 8 - Payment.FraudAnalysis.Cart.Items[n].Type</h3>
+<h2 id="tabela-8---paymentfraudanalysiscartitemsntype">Tabela 8 - Payment.FraudAnalysis.Cart.Items[n].Type</h2>
 
 <table>
   <thead>
@@ -1559,7 +1563,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-9---paymentfraudanalysiscartitemsnvelocityhedge">Tabela 9 - Payment.FraudAnalysis.Cart.Items[n].VelocityHedge</h3>
+<h2 id="tabela-9---paymentfraudanalysiscartitemsnvelocityhedge">Tabela 9 - Payment.FraudAnalysis.Cart.Items[n].VelocityHedge</h2>
 
 <table>
   <thead>
@@ -1588,7 +1592,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-10---paymentfraudanalysisshippingmethod">Tabela 10 - Payment.FraudAnalysis.Shipping.Method</h3>
+<h2 id="tabela-10---paymentfraudanalysisshippingmethod">Tabela 10 - Payment.FraudAnalysis.Shipping.Method</h2>
 
 <table>
   <thead>
@@ -1633,7 +1637,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-11---paymentfraudanalysistraveljourneytype">Tabela 11 - Payment.FraudAnalysis.Travel.JourneyType</h3>
+<h2 id="tabela-11---paymentfraudanalysistraveljourneytype">Tabela 11 - Payment.FraudAnalysis.Travel.JourneyType</h2>
 
 <table>
   <thead>
@@ -1654,7 +1658,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-12---paymentfraudanalysistravelpassengersnstatus">Tabela 12 - Payment.FraudAnalysis.Travel.Passengers[n].Status</h3>
+<h2 id="tabela-12---paymentfraudanalysistravelpassengersnstatus">Tabela 12 - Payment.FraudAnalysis.Travel.Passengers[n].Status</h2>
 
 <table>
   <thead>
@@ -1675,7 +1679,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-13---paymentfraudanalysistravelpassengersnrating">Tabela 13 - Payment.FraudAnalysis.Travel.Passengers[n].Rating</h3>
+<h2 id="tabela-13---paymentfraudanalysistravelpassengersnrating">Tabela 13 - Payment.FraudAnalysis.Travel.Passengers[n].Rating</h2>
 
 <table>
   <thead>
@@ -1700,7 +1704,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-14---paymentfraudanalysisstatus">Tabela 14 - Payment.FraudAnalysis.Status</h3>
+<h2 id="tabela-14---paymentfraudanalysisstatus">Tabela 14 - Payment.FraudAnalysis.Status</h2>
 
 <table>
   <thead>
@@ -1737,7 +1741,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-15---paymentfraudanalysisfraudanalysisreasoncode">Tabela 15 - Payment.FraudAnalysis.FraudAnalysisReasonCode</h3>
+<h2 id="tabela-15---paymentfraudanalysisfraudanalysisreasoncode">Tabela 15 - Payment.FraudAnalysis.FraudAnalysisReasonCode</h2>
 
 <table>
   <thead>
@@ -1798,7 +1802,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-16---paymentfraudanalysisreplydataaddressinfocode">Tabela 16 - Payment.FraudAnalysis.ReplyData.AddressInfoCode</h3>
+<h2 id="tabela-16---paymentfraudanalysisreplydataaddressinfocode">Tabela 16 - Payment.FraudAnalysis.ReplyData.AddressInfoCode</h2>
 
 <table>
   <thead>
@@ -1859,7 +1863,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-17---paymentfraudanalysisreplydatafactorcode">Tabela 17 - Payment.FraudAnalysis.ReplyData.FactorCode</h3>
+<h2 id="tabela-17---paymentfraudanalysisreplydatafactorcode">Tabela 17 - Payment.FraudAnalysis.ReplyData.FactorCode</h2>
 
 <table>
   <thead>
@@ -1952,7 +1956,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-18---paymentfraudanalysisreplydatainternetinfocode">Tabela 18 - Payment.FraudAnalysis.ReplyData.InternetInfoCode</h3>
+<h2 id="tabela-18---paymentfraudanalysisreplydatainternetinfocode">Tabela 18 - Payment.FraudAnalysis.ReplyData.InternetInfoCode</h2>
 
 <table>
   <thead>
@@ -2013,7 +2017,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-19---paymentfraudanalysisreplydataiproutingmethod">Tabela 19 - Payment.FraudAnalysis.ReplyData.IpRoutingMethod</h3>
+<h2 id="tabela-19---paymentfraudanalysisreplydataiproutingmethod">Tabela 19 - Payment.FraudAnalysis.ReplyData.IpRoutingMethod</h2>
 
 <table>
   <thead>
@@ -2070,7 +2074,7 @@
   </tbody>
 </table>
 
-<h3 id="tabela-20---paymentfraudanalysismerchantdefinedfields">Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields</h3>
+<h2 id="tabela-20---paymentfraudanalysismerchantdefinedfields">Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields</h2>
 
 <blockquote>
   <p>Nível de Relevância <br /> 1 - Relevante <br /> 2 - Muito Relevante <br /> 3 - Extremamente Relevante <br /><br />
@@ -2693,66 +2697,6 @@ No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o
     </tr>
   </tbody>
 </table>
-
-<h2 id="configuração-do-fingerprint">Configuração do Fingerprint</h2>
-
-<p>Importante componente da análise de fraude, o Fingerprint é um Javascript que deve ser inserido no seu site para capturar dados importantes como: IP do comprador, versão do browser, sistema operacional etc.
-Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e garantem que sua loja está mais protegida.</p>
-
-<p>Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.</p>
-
-<h3 id="integração-em-checkout">Integração em checkout</h3>
-
-<p>Será necessário adicionar duas tags, a <em>script</em> dentro da tag <em>head</em> para uma performance correta e a <em>noscript</em> dentro da tag <em>body</em>, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.</p>
-
-<aside class="warning">Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
-
-<p><strong>Variáveis</strong></p>
-
-<p>Existem duas variáveis a serem preenchidas na URL do Javascript. O <code class="language-plaintext highlighter-rouge">org_id</code> e o <code class="language-plaintext highlighter-rouge">session_id</code>. O <code class="language-plaintext highlighter-rouge">org_id</code> é um valor predefinido conforme tabela abaixo, já o <code class="language-plaintext highlighter-rouge">session_id</code> é composto pela concatenação dos parâmetros <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> e <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.BrowserFingerprint</code>, conforme exemplo abaixo:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Variável</th>
-      <th style="text-align: left">Descrição</th>
-      <th>SuperMID</th>
-      <th>Advanced ou Enterprise</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">org_id</code></td>
-      <td style="text-align: left">para Sandbox = 1snn5n9w <br /> para Produção = k8vif92e</td>
-      <td>-</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">session_id</code></td>
-      <td style="text-align: left">SuperMID, utilizar o valaor padrão <code class="language-plaintext highlighter-rouge">cielo_webservice</code> <br /> Advanced ou Enterprise, solicitar junto a Cielo <br /> <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> = Identificador da sua loja na Cybersource (Caso não tenha uma ID próprio, use cielo_webservice)<br /> <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.BrowserFingerprint</code> = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Aplicação</strong></p>
-
-<p>O modelo do Javascript é o seguinte:</p>
-
-<p><img src="https://braspag.github.io//images/braspag/af/exemploscriptdfp.png" alt="Exemplo Código" /></p>
-
-<p>As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:</p>
-
-<p><img src="https://braspag.github.io/images/braspag/af/urldfpaf.png" alt="Exemplo Url" /></p>
-
-<aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
-
-<h3 id="integração-em-aplicativos-mobile">Integração em aplicativos mobile</h3>
-
-<blockquote>
-  <p>Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.</p>
-</blockquote>
 
 </div>
 
