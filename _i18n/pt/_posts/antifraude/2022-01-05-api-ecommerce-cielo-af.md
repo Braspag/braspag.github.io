@@ -43,7 +43,7 @@ Para utilizar a análise de risco, é necessario que o serviço seja ativado jun
 
 > A análise de fraude está disponível apenas para transações de cartão de crédito!
 
-## Integração
+# Integração
 
 |Tipo de Integração|Descrição|Parâmetros necessários|
 |-|-|-|
@@ -57,7 +57,7 @@ Para utilizar a análise de risco, é necessario que o serviço seja ativado jun
 
 Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós "FraudAnalysis", "Cart", "MerchantDefinedFields" e "Travel (somente para venda de passagens aéreas)".
 
-### Requisição
+## Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -294,7 +294,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|3|Não|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Não|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
 
-### Resposta
+## Resposta
 
 ```json
 {
@@ -503,9 +503,13 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.FraudAnalysis.ReplyData.CasePriority`|Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia de 1 (maior) a 5 (menor) e o valor padrão é 3, e este será atribuído caso não tenha definido a prioridade das regras ou perfis. Este campo somente será retornado se a loja for assinante do Enhanced Case Management|Número|-|
 |`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`|Id da transação na Cybersource|Texto|64|
 
-## Tabelas
+### Configurando o Fingerprint
 
-### Tabela 1 - Payment.FraudAnalysis.Cart.Items[n].GiftCategory
+O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo. Para configurar o Fingerprint com a Cybersource, consulte o manual do [Antifraude Gateway](https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource){:target="_blank"}.
+
+# Tabelas
+
+## Tabela 1 - Payment.FraudAnalysis.Cart.Items[n].GiftCategory
 
 |Valor|Descrição|
 |:-|:-|
@@ -513,7 +517,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |No|Em caso de divergência entre endereços de cobrança e entrega, atribui risco alto ao pedido (default)|
 |Off|Diferenças entre os endereços de cobrança e entrega não afetam a pontuação|
 
-### Tabela 2 - Payment.FraudAnalysis.Cart.Items[n].HostHedge
+## Tabela 2 - Payment.FraudAnalysis.Cart.Items[n].HostHedge
 
 |Valor|Descrição|
 |:-|:-|
@@ -522,7 +526,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |High|Alta|
 |Off|Não irá afetar o score da análise de fraude|
 
-### Tabela 3 - Payment.FraudAnalysis.Cart.Items[n].NonSensicalHedge
+## Tabela 3 - Payment.FraudAnalysis.Cart.Items[n].NonSensicalHedge
 
 |Valor|Descrição|
 |:-|:-|
@@ -531,7 +535,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |High|Alta|
 |Off|Não irá afetar o score da análise de fraude|
 
-### Tabela 4 - Payment.FraudAnalysis.Cart.Items[n].ObscenitiesHedge
+## Tabela 4 - Payment.FraudAnalysis.Cart.Items[n].ObscenitiesHedge
 
 |Valor|Descrição|
 |:-|:-|
@@ -540,7 +544,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |High|Alta|
 |Off|Não irá afetar o score da análise de fraude|
 
-### Tabela 5 - Payment.FraudAnalysis.Cart.Items[n].PhoneHedge
+## Tabela 5 - Payment.FraudAnalysis.Cart.Items[n].PhoneHedge
 
 |Valor|Descrição|
 |:-|:-|
@@ -549,7 +553,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |High|Alta|
 |Off|Não irá afetar o score da análise de fraude|
 
-### Tabela 7 - Payment.FraudAnalysis.Cart.Items[n].TimeHedge
+## Tabela 7 - Payment.FraudAnalysis.Cart.Items[n].TimeHedge
 
 |Valor|Descrição|
 |:-|:-|
@@ -558,7 +562,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |High|Alta|
 |Off|Não irá afetar o score da análise de fraude|
 
-### Tabela 8 - Payment.FraudAnalysis.Cart.Items[n].Type
+## Tabela 8 - Payment.FraudAnalysis.Cart.Items[n].Type
 
 |Valor|Descrição|
 |:-|:-|
@@ -574,7 +578,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |ShippingOnly|Valor do frete|
 |Subscription|Assinatura. Ex.: Streaming de vídeos / Assinatura de notícias|
 
-### Tabela 9 - Payment.FraudAnalysis.Cart.Items[n].VelocityHedge
+## Tabela 9 - Payment.FraudAnalysis.Cart.Items[n].VelocityHedge
 
 |Valor|Descrição|
 |:-|:-|
@@ -583,7 +587,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |High|Alta|
 |Off|Não irá afetar o score da análise de fraude|
 
-### Tabela 10 - Payment.FraudAnalysis.Shipping.Method
+## Tabela 10 - Payment.FraudAnalysis.Shipping.Method
 
 |Valor|Descrição|
 |:-|:-|
@@ -596,14 +600,14 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |Other|Outro meio de entrega|
 |None|Sem meio de entrega, pois é um serviço ou assinatura|
 
-### Tabela 11 - Payment.FraudAnalysis.Travel.JourneyType
+## Tabela 11 - Payment.FraudAnalysis.Travel.JourneyType
 
 |Valor|Descrição|
 |:-|:-|
 |OneWayTrip|Viagem somente de ida|
 |RoundTrip|Viagem de ida e volta|
 
-### Tabela 12 - Payment.FraudAnalysis.Travel.Passengers[n].Status
+## Tabela 12 - Payment.FraudAnalysis.Travel.Passengers[n].Status
 
 |Valor|
 |:-|
@@ -611,7 +615,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |Gold|
 |Platinum|
 
-### Tabela 13 - Payment.FraudAnalysis.Travel.Passengers[n].Rating
+## Tabela 13 - Payment.FraudAnalysis.Travel.Passengers[n].Rating
 
 |Valor|Descrição|
 |:-|:-|
@@ -619,7 +623,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |Child|Criança|
 |Infant|Infantil|
 
-### Tabela 14 - Payment.FraudAnalysis.Status
+## Tabela 14 - Payment.FraudAnalysis.Status
 
 |Código|Descrição|
 |:-|:-|
@@ -630,7 +634,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |4|Aborted|
 |5|Unfinished|
 
-### Tabela 15 - Payment.FraudAnalysis.FraudAnalysisReasonCode
+## Tabela 15 - Payment.FraudAnalysis.FraudAnalysisReasonCode
 
 |Valor|Descrição|
 |:-|:-|
@@ -647,7 +651,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |480|A transação foi marcada como revisão pelo DM (Decision Manager)|
 |481|A transação foi rejeitada pelo DM (Decision Manager)|
 
-### Tabela 16 - Payment.FraudAnalysis.ReplyData.AddressInfoCode
+## Tabela 16 - Payment.FraudAnalysis.ReplyData.AddressInfoCode
 
 |Valor|Descrição
 |:-|:-|
@@ -664,7 +668,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |MM-Z|Os endereços de cobrança e entrega usam códidos postais diferentes|
 |UNV-ADDR|O endereço é inverificável|
 
-### Tabela 17 - Payment.FraudAnalysis.ReplyData.FactorCode
+## Tabela 17 - Payment.FraudAnalysis.ReplyData.FactorCode
 
 |Valor|Descrição|
 |:-|:-|
@@ -689,7 +693,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |Y|O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam|
 |Z|Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias|
 
-### Tabela 18 - Payment.FraudAnalysis.ReplyData.InternetInfoCode
+## Tabela 18 - Payment.FraudAnalysis.ReplyData.InternetInfoCode
 
 |Valor|Descrição|
 |:-|:-|
@@ -706,7 +710,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |UNV-RISK|O endereço IP é de origem de risco|
 |UNV-EMBCO|O país do endereço de e-mail não corresponde ao país do endereço de cobrança|
 
-### Tabela 19 - Payment.FraudAnalysis.ReplyData.IpRoutingMethod
+## Tabela 19 - Payment.FraudAnalysis.ReplyData.IpRoutingMethod
 
 |Valor|Descrição|
 |:-|:-|
@@ -722,7 +726,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |SuperPOP|O comprador está discando em um ISP multi-estatal ou multinacional que provavelmente não é provável a localização do endereço de IP. O comprador pode estar discando através de limites geográficos|
 |No value returned|O tipo de roteamento é desconhecido|
 
-### Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields
+## Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields
 
 > Nível de Relevância <br/> 1 - Relevante <br/> 2 - Muito Relevante <br/> 3 - Extremamente Relevante <br/><br/>
 > Conforme nível de relevância dos campos e possibilidade de desenho da estratégia de risco de acordo com a necessidade do seu negócio, na validação das transações de testes os mesmos serão cobrados caso não sejam enviaos. Com isso, solicitamos uma análise prévia da documentação e sinalização dos campos que não serão possíveis de serem enviados.<br/><br/>
@@ -816,41 +820,3 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |84|Nome da plataforma integrada a API 3.0 <br/> Caso seja uma integração direta entre a loja e Cielo, enviar valor igual a PROPRIA|Texto|3|Todos|
 |85 a 89|Campos livres e definidos junto ao provedor de AntiFraude, conforme as regras de negócio|-|-|-|
 |90 a 100|Reservados|-|-|-|
-
-## Configuração do Fingerprint
-
-Importante componente da análise de fraude, o Fingerprint é um Javascript que deve ser inserido no seu site para capturar dados importantes como: IP do comprador, versão do browser, sistema operacional etc.
-Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e garantem que sua loja está mais protegida.
-
-Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
-
-### Integração em checkout
-
-Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
-
-<aside class="warning">Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
-
-**Variáveis**
-
-Existem duas variáveis a serem preenchidas na URL do Javascript. O `org_id` e o `session_id`. O `org_id` é um valor predefinido conforme tabela abaixo, já o `session_id` é composto pela concatenação dos parâmetros `ProviderMerchantId` e `Payment.FraudAnalysis.Browser.BrowserFingerprint`, conforme exemplo abaixo:
-
-|Variável|Descrição|SuperMID|Advanced ou Enterprise|
-|:-|:-|
-|`org_id`|para Sandbox = 1snn5n9w <br/> para Produção = k8vif92e|-|-|
-|`session_id`|SuperMID, utilizar o valaor padrão `cielo_webservice` <br/> Advanced ou Enterprise, solicitar junto a Cielo <br/> `ProviderMerchantId` = Identificador da sua loja na Cybersource (Caso não tenha uma ID próprio, use cielo_webservice)<br/> `Payment.FraudAnalysis.Browser.BrowserFingerprint` = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
-
-**Aplicação**
-
-O modelo do Javascript é o seguinte:
-
-![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
-
-As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
-
-![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfpaf.png)
-
-<aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
-
-### Integração em aplicativos mobile
-
-> Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.
