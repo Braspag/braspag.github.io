@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="en">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        POS User Manual &middot; Braspag Developers - Manuais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//en/assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//en/assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//en/manual/braspag-pos-virtual-deprecated" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/en/manual/braspag-pos-virtual-deprecated" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//en/atom.xml">
+</head>
+
+    <body>
+        
+            <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://suporte.braspag.com.br/hc/pt-br" class="help">Help</a>
+
+                            
+                            <div class="lang">
+                                <span>Languages</span>
+
+                                
+                                    
+                                    <a href="https://braspag.github.io//manual/braspag-pos-virtual-deprecated">
+                                    
+
+                                        <img alt="Português" src="https://braspag.github.io//en/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://braspag.github.io//en/manual/braspag-pos-virtual-deprecated">
+                                    
+
+                                        <img alt="English" src="https://braspag.github.io//en/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://braspag.github.io//en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//en/manual/braspag-pos-virtual-deprecated">POS User Manual</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <blockquote>
+  <p>⚠ <strong>WARNING: this product has been deprecated and is no longer available for new integrations.</strong>.</p>
+</blockquote>
+
+<h1 id="virtual-pos">Virtual POS</h1>
+
+<p>Virtual POS is a Braspag platform for merchants who need to perform sales digitally (e.g.: call center operation, companies in the tourism segmentation etc), without having to develop a virtual store. You can fully manage your sales through the Braspag Administrative Panel.</p>
+
+<h1 id="creating-a-group">Creating a Group</h1>
+
+<p>It is mandatory to create at least one group before initiating the sales using virtual POS. The group determines the operator’s access level.</p>
+
+<p>To create a group, access <code class="language-plaintext highlighter-rouge">Configuration</code> &gt; <code class="language-plaintext highlighter-rouge">Groups</code>, and fill the fields accordingly:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/criargrupos.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nome</td>
+      <td>Group name.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Permissões</td>
+      <td>Select the kinds of permission this group will have.</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>List of permissions:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Permission</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Change the next recurrency date.</td>
+    </tr>
+    <tr>
+      <td>Change the recurrency end date.</td>
+    </tr>
+    <tr>
+      <td>Change the day of recurrency.</td>
+    </tr>
+    <tr>
+      <td>Change the interval of recurrency.</td>
+    </tr>
+    <tr>
+      <td>Change the recurrency payment amount.</td>
+    </tr>
+    <tr>
+      <td>Enable or disable a recurrency.</td>
+    </tr>
+    <tr>
+      <td>Cancel transaction created by user.</td>
+    </tr>
+    <tr>
+      <td>Cancel transaction created by user using report interface.</td>
+    </tr>
+    <tr>
+      <td>Cancel all transactions.</td>
+    </tr>
+    <tr>
+      <td>Capture a transaction created by user.</td>
+    </tr>
+    <tr>
+      <td>Capture a transaction created by user using report interface.</td>
+    </tr>
+    <tr>
+      <td>Create an order.</td>
+    </tr>
+    <tr>
+      <td>Refund a transaction using report interface.</td>
+    </tr>
+    <tr>
+      <td>View recurrency orders.</td>
+    </tr>
+    <tr>
+      <td>View transactions created by user.</td>
+    </tr>
+    <tr>
+      <td>View recurrent transactions.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="creating-operators">Creating Operators</h1>
+
+<p>It is possible to create “operator” users through the “manager” user. An “operator” has permission to make orders.</p>
+
+<p>Access <code class="language-plaintext highlighter-rouge">Configurações</code> &gt; <code class="language-plaintext highlighter-rouge">Operadores</code>, and fill in the form below. As soon as the information is submitted, an e-mail will be sent to the registered address.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/cadastraroperador.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Usuário</td>
+      <td>Username used to access POS.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Nome</td>
+      <td>Operator’s name.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>E-mail</td>
+      <td>Operator’s e-mail address.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Grupo</td>
+      <td>Operator’s group.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Stores</td>
+      <td>Stores the operator will perform orders for.</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="placing-an-order">Placing an Order</h1>
+
+<p>For placing a new order, the operator has to access the order form: <code class="language-plaintext highlighter-rouge">POS Virtual</code> -&gt; <code class="language-plaintext highlighter-rouge">Realizar Venda</code>.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/menucriarpedido.png" alt="" /></p>
+
+<h2 id="step-by-step">Step by Step</h2>
+
+<p>The new order creation form is divided into blocks, composed of mandatory and non-mandatory fields.</p>
+
+<p>Some blocks may optionally be displayed in your screen. You can configure your form to display the ones you need for your business.</p>
+
+<p>Below, you will find details about the available blocks of fields, along with its mandatoriety.</p>
+
+<h3 id="order">Order</h3>
+
+<p>This group requires the information about the order.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/camposdadosdopedido.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Order Number</td>
+      <td>merchant’s order number</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Nome</td>
+      <td>Customer’s Name</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>CPF/CNPJ</td>
+      <td>Customer’s CPF/CNPJ. In case of foreigner customer, fill zeros</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>E-mail</td>
+      <td>Customer’s E-mail</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="delivery-address">Delivery Address</h3>
+
+<p>This group requires the informations about the delivery address</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/camposdadosendereco.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Street</td>
+      <td>Customer’s delivery address street name</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Number</td>
+      <td>Customer’s delivery address street building number</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Complement</td>
+      <td>Customer’s delivery address complement</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td>Customer’s delivery address city</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td>Customer’s delivery address state</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td>Customer’s delivery address district</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Zip Code</td>
+      <td>Customer’s delivery address zip code</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Country</td>
+      <td>Customer’s delivery address country</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="recurrency">Recurrency</h3>
+
+<p>This part defines recurrency configuration to an order. There are three possibilities:</p>
+
+<ul>
+  <li>Just schedule the further payments</li>
+  <li>Charge now and schedule the further payments to the same day</li>
+  <li>Charge now and schedule the further payments to the other day</li>
+</ul>
+
+<p><em>Option 1: Just schedule the further payments</em></p>
+
+<p>In this option, the recurrency will be scheduled accordint to the informations provided below. In this case, the customer will be charged just when the first recurrency occurs (start date).</p>
+
+<p>If the end date is not informed, the recurrency will never end.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia1.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Interval</td>
+      <td>Interval of recurrency. Default: Monthly</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Start Date</td>
+      <td>Recurrency start date</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>End date</td>
+      <td>recurrency end date</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Option 2: Charge now and schedule the further payments to the same day</em></p>
+
+<p>In this option, the recurrency payment will be created and the first chage will occur immediately. The further recurrences always will occur in the same day of first charge.</p>
+
+<p>If the end date is not informed, the recurrency will never end.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia2.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Interval</td>
+      <td>Interval of recurrency. Default: Monthly</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Start Date</td>
+      <td>Recurrency start date. Fixed value</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Recurrence Day</td>
+      <td>The day that occurs further charges. Fixed Value.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>End date</td>
+      <td>recurrency end date</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Option 3: Charge now and schedule the further payments to the other day</em></p>
+
+<p>In this option, the recurrency payment will be created and the first chage will occur immediately. The further recurrences always will occur in the day selected in the form.</p>
+
+<p>If the end date is not informed, the recurrency will never end.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/dadosdarecorrencia3.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Intervalo</td>
+      <td>Interval of recurrency. Default: Monthly</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Start Date</td>
+      <td>Recurrency start date. Fixed value</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Recurrence Day</td>
+      <td>The day that occurs further charges</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>End date</td>
+      <td>recurrency end date</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="billing-address">Billing Address</h3>
+
+<p>This group requires the informations about the billing address</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/camposdadosenderecocobranca.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Street</td>
+      <td>Customer’s billing address street name</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Number</td>
+      <td>Customer’s billing address street building number</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Complement</td>
+      <td>Customer’s billing address complement</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td>Customer’s billing address city</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td>Customer’s billing address state</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td>Customer’s billing address district</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Zip Code</td>
+      <td>Customer’s billing address zip code</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Country</td>
+      <td>Customer’s billing address country</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="payment-data">Payment Data</h3>
+
+<p>This group requires the informations about the payment data</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/dadospagamento.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment Method</td>
+      <td>The brand of credit card</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Card holder</td>
+      <td>Card Holder name</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Card Number</td>
+      <td>Credit card number</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Card Security Code</td>
+      <td>Card Security Code</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Expiration Date</td>
+      <td>Card expiration date</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Amount</td>
+      <td>Transaction’s amount</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Installments</td>
+      <td>Installment number. In case of recurrency transaction, this field will not be showed.</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="submit-or-clean">Submit or Clean</h2>
+
+<p>The Submit button will submit the order to authorization process.</p>
+
+<p>If you configured the option “automatic capture”, the order will be authorized and captured immediately. Else, the transaction will be captured only if you access the report and capture manually.</p>
+
+<p>The Clean button will clean the filled information.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/btnpagarlimpar.png" alt="" /></p>
+
+<h1 id="order-report">Order Report</h1>
+
+<p>Access the Virtual POS &gt; Transactions to see the orders performed previously</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/listapedidos.png" alt="" /></p>
+
+<p>Abote the order list, there are two labels about amounts. One represents the captured Amount, and other, the partial amount to be captured.</p>
+
+<ul>
+  <li>Captured amoun - the total amount already captured</li>
+  <li>Amount to be captured - total amount that could be captured</li>
+</ul>
+
+<p>The action column has links to take an one of actions:</p>
+
+<h2 id="capture">Capture</h2>
+
+<p>This action will be available to the Virtual POS if you not choosed to make automatic capture. 
+All the orders just authorized must be captured here. When the capture process is successfully completed, the order status will change from “Not Paid” to “Paid”.</p>
+
+<h3 id="partial-capture">Partial Capture</h3>
+
+<p>This action must be used when you need to partially capture the amount. Ex.</p>
+
+<ul>
+  <li>Authorized amount: R$ 100,00</li>
+  <li>Partial Capture of R$ 50,00</li>
+</ul>
+
+<p>The Virtual POS will show a field to input the partial amount.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/capturar.png" alt="" /></p>
+
+<aside class="notice">Note: the partial capture must be used just once. The remaining amount after a partial capture will be released automatically.</aside>
+
+<h3 id="total-capture">Total Capture</h3>
+
+<p>This action must be used when you need to capture all the amount. Ex.</p>
+
+<ul>
+  <li>Authorized amount: R$ 100,00</li>
+  <li>Total Capture of R$ 100,00</li>
+</ul>
+
+<aside class="notice">If you are using automatic capture configuration, this option will not be available. </aside>
+
+<h2 id="void">Void</h2>
+
+<p>This action is destinated to void a transaction.</p>
+
+<p>You need to confirm the action, as show below.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/cancelar.png" alt="" /></p>
+
+<h2 id="print">Print</h2>
+
+<p>This action will show you a print version of an order.</p>
+
+<p>See the example below.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/posvirtual/imprimir.png" alt="" /></p>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Need Help?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Need Help?</h2>
+        <p>If you did not find the information you need, <a href="https://suporte.braspag.com.br/hc/en-us">please contact us</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Toggle left column" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io//en">
+        <img src="https://braspag.github.io//en/assets/images/logo.png" alt="Braspag Developers - Manuais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contact" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/Braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//en/assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//en/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//en/assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//en/assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//en/assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://braspag.github.io//en/assets/js/jquery.highlight.js"></script>
+        <script src="https://braspag.github.io//en/assets/js/lunr.js"></script>
+        <script src="https://braspag.github.io//en/assets/js/search.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2191438,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
