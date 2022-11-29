@@ -1103,6 +1103,7 @@ O modelo do JavaScript está representado na imagem a seguir.
 ![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
 Insira na tag `head`:
+
 ```
 <head>
     <script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"></script>
@@ -1110,6 +1111,7 @@ Insira na tag `head`:
 ```
   
 Insira na tag `body`:
+
 ```
 <body>
     <noscript>
