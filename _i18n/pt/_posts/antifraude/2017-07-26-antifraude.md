@@ -1105,6 +1105,10 @@ O modelo do JavaScript está representado na imagem a seguir.
 Insira na tag `head`:
 
 ```
+code block <tag>
+```
+
+```
 *<*head*>*
     *<*script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"*>**<*/script*>*
 *<*/head*>*
@@ -1113,11 +1117,11 @@ Insira na tag `head`:
 Insira na tag `body`:
 
 ```
-<*body*>
+"<*body*>
     <*noscript*>
         <*iframe style="width: 100px; height: 100px; border: 0; psition:absolute; top: -5000px;" src="https://h.online-metrix.net/fp/tags?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"></iframe*>
     <*/noscript*>
-<*/body*>
+<*/body*>"
 ```
 
 > [Acesse o nosso GitHub](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/antifraude/javascript-fingerprint-cybersource.js){:target="_blank"} para visualizar e copiar o modelo JavaScript.
