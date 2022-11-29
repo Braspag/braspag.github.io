@@ -1115,7 +1115,7 @@ O modelo do JavaScript está representado na imagem a seguir.
     </noscript>
 </body>
 ```
- 
+
 > [Acesse o nosso GitHub](https://github.com/Braspag/braspag.github.io/blob/e9d4e1ef177dc60e00ab2269ed733976d69646f6/_i18n/pt/_posts/antifraude/javascript-fingerprint-cybersource.js){:target="_blank"} para visualizar e copiar o modelo JavaScript.
 
 * Insira a tag `script` dentro da tag `head` para uma performance correta;
