@@ -1104,11 +1104,9 @@ O modelo do JavaScript está representado na imagem a seguir.
 
 Insira na tag `head`:
 
-```sh
-<head>
-    `<script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"></script>`
-</head>
-```
+    <head>
+        `<script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"></script>`
+    </head>
 
 Insira na tag `body`:
 
