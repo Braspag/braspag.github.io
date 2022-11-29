@@ -1109,7 +1109,7 @@ Insira na tag `head`:
     <script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"></script>
 </head>
 ```
-  
+
 Insira na tag `body`:
 
 ```
