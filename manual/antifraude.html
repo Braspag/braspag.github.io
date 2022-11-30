@@ -3236,18 +3236,24 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
 </blockquote>
 
 <ul>
-  <li>Insira a tag <code class="language-plaintext highlighter-rouge">script</code> dentro da tag <code class="language-plaintext highlighter-rouge">head</code> para uma performance correta;</li>
+  <li>Insira a tag <code class="language-plaintext highlighter-rouge">script</code> dentro da tag <code class="language-plaintext highlighter-rouge">head</code> para uma performance correta:</li>
 </ul>
 
-<p>&lt;<code class="language-plaintext highlighter-rouge">head</code>&gt;
-&lt;<code class="language-plaintext highlighter-rouge">script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderIdentifier"&amp;gt;&amp;lt;/script</code>&gt;
+<p>&lt;<code class="language-plaintext highlighter-rouge">head</code>&gt;<br />
+&lt;<code class="language-plaintext highlighter-rouge">script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderIdentifier"&amp;gt;&amp;lt;/script</code>&gt;<br />
 &lt;<code class="language-plaintext highlighter-rouge">/head</code>&gt;</p>
 
 <ul>
   <li>Insira a tag <code class="language-plaintext highlighter-rouge">noscript</code> dentro da tag <code class="language-plaintext highlighter-rouge">body</code>, para que a coleta dos dados do dispositivo seja realizada mesmo se o JavaScript do browser estiver desabilitado. A tag <code class="language-plaintext highlighter-rouge">noscript</code> é uma redundância para colaborar com a coleta dos dados.</li>
 </ul>
 
-<aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis pelos respectivos valores.</aside>
+<p>&lt;<code class="language-plaintext highlighter-rouge">body</code>&gt;<br />
+&lt;<code class="language-plaintext highlighter-rouge">noscript</code>&gt;<br />
+&lt;<code class="language-plaintext highlighter-rouge">iframe style="width: 100px; height: 100px; border: 0; psition:absolute; top: -5000px;" src="https://h.online-metrix.net/fp/tags?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderIdentifier"</code>&gt;&lt;<code class="language-plaintext highlighter-rouge">/iframe</code>&gt;<br />
+&lt;<code class="language-plaintext highlighter-rouge">/noscript</code>&gt;<br />
+&lt;<code class="language-plaintext highlighter-rouge">/body</code>&gt;</p>
+
+<aside class="warning">Certifique-se de copiar todos os dados corretamente e substitur as variáveis pelos respectivos valores.</aside>
 
 <h4 id="3-aplique-o-modelo-javascript">3. Aplique o modelo JavaScript</h4>
 
