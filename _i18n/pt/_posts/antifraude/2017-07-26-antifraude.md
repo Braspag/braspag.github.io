@@ -1104,15 +1104,21 @@ O modelo do JavaScript está representado na imagem a seguir.
 
 > [Acesse o nosso GitHub](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/antifraude/javascript-fingerprint-cybersource.js){:target="_blank"} para visualizar e copiar o modelo JavaScript.
 
-* Insira a tag `script` dentro da tag `head` para uma performance correta;
+* Insira a tag `script` dentro da tag `head` para uma performance correta:
 
-&lt;`head`&gt;
-&lt;`script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"&gt;&lt;/script`&gt;
+&lt;`head`&gt;<br>
+&lt;`script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"&gt;&lt;/script`&gt;<br>
 &lt;`/head`&gt;
 
 * Insira a tag `noscript` dentro da tag `body`, para que a coleta dos dados do dispositivo seja realizada mesmo se o JavaScript do browser estiver desabilitado. A tag `noscript` é uma redundância para colaborar com a coleta dos dados.
 
-<aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis pelos respectivos valores.</aside>
+&lt;`body`&gt;<br>
+&lt;`noscript`&gt;<br>
+&lt;`iframe style="width: 100px; height: 100px; border: 0; psition:absolute; top: -5000px;" src="https://h.online-metrix.net/fp/tags?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"`&gt;&lt;`/iframe`&gt;<br>
+&lt;`/noscript`&gt;<br>
+&lt;`/body`&gt;
+
+<aside class="warning">Certifique-se de copiar todos os dados corretamente e substitur as variáveis pelos respectivos valores.</aside>
 
 #### 3. Aplique o modelo JavaScript
 
