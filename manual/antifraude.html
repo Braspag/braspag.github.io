@@ -3237,6 +3237,14 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
 
 <ul>
   <li>Insira a tag <code class="language-plaintext highlighter-rouge">script</code> dentro da tag <code class="language-plaintext highlighter-rouge">head</code> para uma performance correta;</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&amp;lt;head&amp;gt;
+    &amp;lt;script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderIdentifier"&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;/head&amp;gt;
+</code></pre></div></div>
+
+<ul>
   <li>Insira a tag <code class="language-plaintext highlighter-rouge">noscript</code> dentro da tag <code class="language-plaintext highlighter-rouge">body</code>, para que a coleta dos dados do dispositivo seja realizada mesmo se o JavaScript do browser estiver desabilitado. A tag <code class="language-plaintext highlighter-rouge">noscript</code> é uma redundância para colaborar com a coleta dos dados.</li>
 </ul>
 
@@ -3276,9 +3284,9 @@ Saiba mais sobre a criação de bibliotecas no Android na documentação <a href
 
 <p>No Manifest, você deverá incluir as seguintes permissões:</p>
 
-<p>&lt;uses-permission android:name=”android.permission.INTERNET”&gt;</p>
+<p><code class="language-plaintext highlighter-rouge">&amp;lt;uses-permission android:name="android.permission.INTERNET"&amp;gt;</code></p>
 
-<p>&lt;/uses-permission&gt;</p>
+<p><code class="language-plaintext highlighter-rouge">&amp;lt;/uses-permission&amp;gt;</code></p>
 
 <h4 id="4-importe-as-bibliotecas">4. Importe as bibliotecas</h4>
 
