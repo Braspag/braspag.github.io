@@ -16,7 +16,7 @@ language_tabs:
 
 # Visão geral - API E-commerce Cielo com Antifraude Braspag
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a **API E-commerce Cielo** com a funcionalidade antifraude Braspag. Para que o antifraude funcione em conjunto com a API E-Commerce, é necessária a contratação através de: 3003-6554 ou [Site da Braspag](https://www.braspag.com.br/contato/)
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a **API E-commerce Cielo** com a funcionalidade antifraude Braspag. Para que o antifraude funcione em conjunto com a API E-Commerce, é necessária a contratação através do telefone 3003-6554 ou [Site da Braspag](https://www.braspag.com.br/contato/){:target="_blank"}.
 
 |                 | SandBox                                             | Produção                                      |
 |:----------------|:---------------------------------------------------:|:---------------------------------------------:|
@@ -25,7 +25,7 @@ O objetivo desta documentação é orientar o desenvolvedor sobre como integrar 
 
 Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.
 
-> [Faça o download do tutorial]({{ site.baseurl }}/attachment/merchantid-merchantkey-cielo.pdf) para saber como gerar seu **MerchantId** e **MerchantKey** no [portal da Cielo](https://www.cielo.com.br/).
+> [Faça o download do tutorial](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/merchantid-merchantkey-cielo.pdf) para saber como gerar seu **MerchantId** e **MerchantKey** no [portal da Cielo](https://www.cielo.com.br/){:target="_blank"}.
 
 # Análise de Fraude
 
