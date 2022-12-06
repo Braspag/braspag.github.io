@@ -2970,7 +2970,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
-      <td>Amount to be canceled/refunded, in cents. Check if your acquirer supports the canceling or refunding operations.</td>
+      <td>Amount to be canceled/refunded, in cents. <strong>Note</strong>: 1. Check if your acquirer supports the cancelling or refunding of operations.<br />2. If the value for <code class="language-plaintext highlighter-rouge">Amount</code> is “0” (zero), or if <code class="language-plaintext highlighter-rouge">Amount</code> is not sent, the refund will consider the total captured amount.</td>
       <td>Number</td>
       <td>15</td>
       <td>No (through endpoint)</td>
