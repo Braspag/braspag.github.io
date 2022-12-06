@@ -1719,7 +1719,7 @@ Para cancelar uma transação de cartão de crédito, é necessário o envio de 
 |`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não (envio no *header*)|
 |`PaymentId`|Campo identificador do pedido.|GUID |36 |Sim (envio no *endpoint*)|
-|`Amount`|Valor, em centavos, a ser cancelado/estornado. Obs.: Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.|Número |15 |Não (envio no *endpoint*)|
+|`Amount`|Valor, em centavos, a ser cancelado/estornado. Obs.:<br>1.Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.<br>2.Caso o valor de `Amount` seja informado como "0" (zero), ou esse parâmetro não seja enviado, será considerado um estorno total do valor capturado.|Número |15 |Não (envio no *endpoint*)|
 
 #### Resposta
 
