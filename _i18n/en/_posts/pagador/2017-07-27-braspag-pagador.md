@@ -1652,7 +1652,7 @@ To cancel a credit card transaction, you must send an HTTP message through the P
 |`MerchantKey`|Public key for dual authentication in the API.|Text|40|Sim (through header)|
 |`RequestId`|Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.|GUID|36|No (through header)|
 |`PaymentId`|Order identifier field.|GUID|36|Yes (through endpoint)|
-|`Amount`|Amount to be canceled/refunded, in cents. Check if your acquirer supports the canceling or refunding operations.|Number|15|No (through endpoint)|
+|`Amount`|Amount to be canceled/refunded, in cents. **Note**: 1. Check if your acquirer supports the cancelling or refunding of operations.<br>2. If the value for `Amount` is "0" (zero), or if `Amount` is not sent, the refund will consider the total captured amount.|Number|15|No (through endpoint)|
 
 #### Response
 
