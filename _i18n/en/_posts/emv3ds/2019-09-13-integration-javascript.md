@@ -185,12 +185,12 @@ Once the class is mapped in a given field, the script is able to retrieve the va
 |---|---|---|---|
 |bpmpi_billto_customerid|Identifies the shopper CPF/CNPJ|Numeric [11 to 14 positions]<br>99999999999999|No|
 |bpmpi_billto_contactname|Billing Address Contact Name|Alphanumeric [up to 120]|Yes|
-|bpmpi_billTo_phonenumber|Billing Address Contact Phone|Numeric [up to 15 positions], in the format: 5511999999999|Yes|
-|bpmpi_billTo_email|Billing Address Contact Email|Alphanumeric [up to 255], in the format [name@example.com] (mailto: name@example.com)|Yes|
-|bpmpi_billTo_street1|Address and Billing Address Number|Alphanumeric [up to 60]|Yes|
-|bpmpi_billTo_street2|Billing Address Supplement and Neighborhood|Alphanumeric [up to 60]|Yes|
-|bpmpi_billTo_city|Billing Address City|Alphanumeric [up to 50]|Yes|
-|bpmpi_billTo_state|Billing Address State Acronym|Text [2 positions]|Yes|
+|bpmpi_billto_phonenumber|Billing Address Contact Phone|Numeric [up to 15 positions], in the format: 5511999999999|Yes|
+|bpmpi_billto_email|Billing Address Contact Email|Alphanumeric [up to 255], in the format [name@example.com] (mailto: name@example.com)|Yes|
+|bpmpi_billto_street1|Address and Billing Address Number|Alphanumeric [up to 60]|Yes|
+|bpmpi_billto_street2|Billing Address Supplement and Neighborhood|Alphanumeric [up to 60]|Yes|
+|bpmpi_billto_city|Billing Address City|Alphanumeric [up to 50]|Yes|
+|bpmpi_billto_state|Billing Address State Acronym|Text [2 positions]|Yes|
 |bpmpi_billto_zipcode|Billing Address Zip Code|Alphanumeric [up to 8 positions], in the format: 99999999|Yes|
 |country|Billing Address Country|Text [2 positions] E.g: BR|Yes|
 
