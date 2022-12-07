@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2022-12-07T20:25:13+00:00</updated>
+    <updated>2022-12-07T20:28:44+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -5302,37 +5302,37 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_billTo_phonenumber&lt;/td&gt;
+      &lt;td&gt;bpmpi_billto_phonenumber&lt;/td&gt;
       &lt;td&gt;Billing Address Contact Phone&lt;/td&gt;
       &lt;td&gt;Numeric [up to 15 positions], in the format: 5511999999999&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_billTo_email&lt;/td&gt;
+      &lt;td&gt;bpmpi_billto_email&lt;/td&gt;
       &lt;td&gt;Billing Address Contact Email&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 255], in the format [name@example.com] (mailto: name@example.com)&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_billTo_street1&lt;/td&gt;
+      &lt;td&gt;bpmpi_billto_street1&lt;/td&gt;
       &lt;td&gt;Address and Billing Address Number&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 60]&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_billTo_street2&lt;/td&gt;
+      &lt;td&gt;bpmpi_billto_street2&lt;/td&gt;
       &lt;td&gt;Billing Address Supplement and Neighborhood&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 60]&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_billTo_city&lt;/td&gt;
+      &lt;td&gt;bpmpi_billto_city&lt;/td&gt;
       &lt;td&gt;Billing Address City&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 50]&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_billTo_state&lt;/td&gt;
+      &lt;td&gt;bpmpi_billto_state&lt;/td&gt;
       &lt;td&gt;Billing Address State Acronym&lt;/td&gt;
       &lt;td&gt;Text [2 positions]&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
