@@ -185,12 +185,12 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | --- | --- | --- | --- |
 | bpmpi_billto_customerid | Identifica o CPF/CNPJ do comprador | Numérico [11 a 14 posições]<br>99999999999999 | Não |
 | bpmpi_billto_contactname| Nome do contato do endereço de cobrança | Alfanumérico [até 120] | Sim |
-| bpmpi_billTo_phonenumber | Telefone de contato do endereço de cobrança | Numérico [até 15 posições], no formato: 5511999999999 | Sim |
-| bpmpi_billTo_email | E-mail do contato do endereço de cobrança | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Sim |
-| bpmpi_billTo_street1 | Logradouro e Número do endereço de cobrança | Alfanumérico [até 60] | Sim |
-| bpmpi_billTo_street2 | Complemento e bairro do endereço de cobrança | Alfanumérico [até 60] | Sim |
-| bpmpi_billTo_city | Cidade do endereço de cobrança | Alfanumérico [até 50] | Sim |
-| bpmpi_billTo_state | Sigla do estado do endereço de cobrança | Texto [2 posições] | Sim |
+| bpmpi_billto_phonenumber | Telefone de contato do endereço de cobrança | Numérico [até 15 posições], no formato: 5511999999999 | Sim |
+| bpmpi_billto_email | E-mail do contato do endereço de cobrança | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Sim |
+| bpmpi_billto_street1 | Logradouro e Número do endereço de cobrança | Alfanumérico [até 60] | Sim |
+| bpmpi_billto_street2 | Complemento e bairro do endereço de cobrança | Alfanumérico [até 60] | Sim |
+| bpmpi_billto_city | Cidade do endereço de cobrança | Alfanumérico [até 50] | Sim |
+| bpmpi_billto_state | Sigla do estado do endereço de cobrança | Texto [2 posições] | Sim |
 | bpmpi_billto_zipcode | CEP do endereço de cobrança | Alfanumérico [até 8 posições], no formato: 99999999 | Sim |
 | bpmpi_billto_country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Sim |
 
