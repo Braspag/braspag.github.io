@@ -140,19 +140,140 @@
             <div class="post">
   <h1 id="verifycard">VerifyCard</h1>
 
-<p>O <strong>VerifyCard</strong> é composto por dois serviços: <em>Zero Auth</em> e <em>Consulta BIN</em>.</p>
+<p>O <strong>VerifyCard</strong> é composto por dois serviços: <strong>Zero Auth</strong> e <strong>Consulta BIN</strong>.</p>
 
-<p>O <strong>Zero Auth</strong> é um serviço que identifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor R$ 0,00.<br />A <strong>Consulta BIN</strong> é um serviço disponível para clientes Cielo 3.0 que retorna, a partir do BIN (6 primeiros dígitos do cartão), características tais como bandeira e tipo do cartão.</p>
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/verifycard.png" alt="VerifyCard" /></p>
 
-<p>Os dois serviços podem ser consumidos simultaneamente através do VerifyCard. Também é possível condicionar o processo de autorização automaticamente a um retorno de sucesso do ZeroAuth. Para habilitar este último fluxo, entre em contato com nosso time de suporte.</p>
+<p>O <strong>Zero Auth</strong> é um serviço que identifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor R$ 0,00.</p>
 
-<p>A funcionalidade VerifyCard pode ser utilizada em conjunto com o serviço de tokenização do cartão. Neste caso, a API do VerifyCard primeiramente recebe a requisição do serviço Zero Auth e faz a validação com a adquirente, que responde se o cartão é válido ou não. A API do VerifyCard envia então este retorno à loja, que poderá escolher fazer ou não a requisição de tokenização do cartão para a API do Cartão Protegido.</p>
+<p>O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre o teste.</p>
 
-<p>Abaixo veja a representação desse <strong>fluxo transacional</strong>, utilizando-se o <strong>VerifyCard</strong> em conjunto com o <strong>Cartão Protegido</strong>:</p>
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/zeroauth.png" alt="Fluxo ZeroAuth" /></p>
+
+<p>Já o Consulta BIN é um serviço disponível exclusivamente para clientes Cielo que retorna informações do cartão a partir do BIN (seis primeiros dígitos do cartão):</p>
+
+<ul>
+  <li><strong>Bandeira do cartão</strong>: nome da bandeira;</li>
+  <li><strong>Tipo de cartão</strong>: crédito, débito ou múltiplo (crédito e débito);</li>
+  <li><strong>Nacionalidade do cartão</strong>: internacional ou nacional;</li>
+  <li><strong>Cartão corporativo</strong>: se o cartão é corporativo ou não;</li>
+  <li><strong>Banco emissor</strong>: código e nome do emissor;</li>
+  <li><strong>Cartão pré-pago</strong>: se o cartão é pré-pago ou não.</li>
+</ul>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/consultabin.png" alt="Consulta BIN" /></p>
+
+<h2 id="benefícios-do-verifycard">Benefícios do VerifyCard</h2>
+
+<p>Os retornos do VerifyCard sobre a validade e informações do cartão permitem que a sua loja crie personalizações na sua aplicação e/ou checkout. Veja exemplos de uso:</p>
+
+<ul>
+  <li><strong>Solicitar autorização apenas se o cartão estiver válido</strong>: você pode criar uma condição em sua aplicação para apenas enviar a solicitação de autorização se houver retorno de sucesso no ZeroAuth;</li>
+</ul>
+
+<aside class="notice"> Para habilitar este fluxo, entre em contato com nosso time de suporte.</aside>
+
+<ul>
+  <li><strong>Solicitar a tokenização apenas se o cartão estiver válido</strong>: você pode criar uma condição em sua aplicação para apenas solicitar a tokenização de um cartão se ele estiver válido. Saiba mais no tópico Usando o VerifyCard com Cartão Protegido;</li>
+  <li><strong>Evitar erros relacionados ao tipo do cartão ou bandeira</strong>: se o seu checkout exige a seleção manual da bandeira ou tipo do cartão, você desenvolver uma mensagem de alerta para quando, por exemplo, a pessoa está usando um cartão de débito quando na verdade deveria usar um de crédito;</li>
+  <li><strong>Oferecer a recuperação do carrinho</strong>: você pode desenvolver um fluxo no seu checkout para que, caso o cartão informado o seja múltiplo (crédito e débito), a sua loja pode reter os dados do cartão e, caso a transação de crédito falhe, oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão;</li>
+  <li><strong>Alertar sobre cartões internacionais ou pré-pagos</strong>: se a sua loja não deseja receber pagamentos internacionais ou de cartões pré-pagos, por exemplo, você pode configurar o seu checkout para informar ao consumidor que a loja não aceita o cartão informado.</li>
+</ul>
+
+<h2 id="usando-o-verifycard-com-o-cartão-protegido">Usando o VerifyCard com o Cartão Protegido</h2>
+
+<p>O VerifyCard pode ser utilizada em conjunto com o serviço de tokenização do cartão (Cartão Protegido).</p>
+
+<p>Neste caso, a API do VerifyCard primeiro recebe a requisição do serviço Zero Auth e faz a validação com a adquirente, que responde se o cartão é válido ou não. A API do VerifyCard envia então este retorno à loja, que poderá escolher fazer ou não a requisição de tokenização do cartão para a API do Cartão Protegido.</p>
+
+<p>Abaixo veja a representação desse <strong>fluxo transacional</strong>, usando o <strong>VerifyCard</strong> em conjunto com o <strong>Cartão Protegido</strong>:</p>
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/fluxo-trans3b-pt.png" alt="VerifyCard com Cartão Protegido" /></p>
 
-<h2 id="ambientes">Ambientes</h2>
+<h2 id="verifycard-em-sandbox">VerifyCard em sandbox</h2>
+
+<h3 id="respostas-programadas-zero-auth">Respostas programadas Zero Auth</h3>
+
+<p>É possível testar os retornos do VerifyCard (Zero Auth) em ambiente sandbox usando o provider “Simulado”. Para isso, você pode usar os cartões de teste da tabela a seguir para simular os cenários de consulta autorizada, não autorizada e falha na operação.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Número do cartão</th>
+      <th>Status</th>
+      <th>Retorno</th>
+      <th>Mensagem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4532117080573788</td>
+      <td>0</td>
+      <td>70</td>
+      <td>Não autorizado</td>
+    </tr>
+    <tr>
+      <td>4532117080573799</td>
+      <td>99</td>
+      <td>BP900</td>
+      <td>Falha na operação</td>
+    </tr>
+    <tr>
+      <td>4532117080573701</td>
+      <td>1</td>
+      <td>4</td>
+      <td>Autorizado</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="respostas-programadas-consulta-bin">Respostas Programadas Consulta BIN</h3>
+
+<p>Na simulação da Consulta BIN em ambiente sandbox, cada um dos seis primeiros dígitos vai reger um resultado simulado. É possível montar uma numeração de cartão para teste e observar o retorno esperado de acordo com diferentes cenários.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dígito</th>
+      <th>O que indica</th>
+      <th>Retorno</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1º dígito</td>
+      <td>Bandeira.</td>
+      <td>Se for ‘<strong>3</strong>’ retorna “<strong>AMEX</strong>“<br />Se for ‘<strong>5</strong>’ retorna “<strong>MASTERCARD</strong>“<br />Se for ‘<strong>6</strong>’ retorna “<strong>DISCOVER</strong>“<br />Qualquer outro número retorna “<strong>VISA</strong>”.</td>
+    </tr>
+    <tr>
+      <td>2º dígito</td>
+      <td>Tipo do cartão.</td>
+      <td>Se for ‘<strong>3</strong>’ retorna “<strong>Débito</strong>“<br />Se for ‘<strong>5</strong>’ retorna “<strong>Crédito</strong>“<br />Se for ‘<strong>7</strong>’ retorna “<strong>Crédito</strong>” e retorna o campo <code class="language-plaintext highlighter-rouge">Prepaid</code>como “<strong>true</strong>“<br />Qualquer outro número retorna”<strong>Múltiplo</strong>”.</td>
+    </tr>
+    <tr>
+      <td>3º dígito</td>
+      <td>Nacionalidade do cartão.</td>
+      <td>Se for ‘<strong>1</strong>’ retorna “<strong>true</strong>” (cartão nacional)<br />Qualquer número diferente de ‘<strong>1</strong>’ retorna “<strong>false</strong>” (cartão internacional).</td>
+    </tr>
+    <tr>
+      <td>4º dígito</td>
+      <td>Se o cartão é corporativo ou não.</td>
+      <td>Se for ‘<strong>1</strong>’ retorna “<strong>true</strong>” (é cartão corporativo)<br />Qualquer número diferente de ‘<strong>1</strong>’ retorna “<strong>false</strong>” (não é cartão corporativo).</td>
+    </tr>
+    <tr>
+      <td>5º dígito</td>
+      <td>Retorno da análise.</td>
+      <td>Se for ‘<strong>2</strong>’ retorna “<strong>01 - Bandeira não suportada</strong>“<br />Se for ‘<strong>3</strong>’ retorna “<strong>02 - Voucher - Não suportado na consulta de bins</strong>“<br />Qualquer outro número retorna “<strong>00 - Analise autorizada</strong>”</td>
+    </tr>
+    <tr>
+      <td>6º dígito</td>
+      <td>Banco emissor.</td>
+      <td>Se for ‘<strong>1</strong>’ retorna “<strong>104</strong>” e “<strong>Caixa</strong>“<br />Se for ‘<strong>2</strong>’ retorna “<strong>001</strong>” e “<strong>Banco do Brasil</strong>“<br />Qualquer outro número retorna “<strong>237</strong>” e “<strong>Bradesco</strong>”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="ambientes">Ambientes</h1>
 
 <table>
   <thead>
@@ -173,9 +294,15 @@
   </tbody>
 </table>
 
-<p><br />Para consultar dados de um cartão, envie uma requisição utilizando o verbo HTTP POST para o serviço VerifyCard, de acordo com os exemplos deste manual. A consulta pode ser feita pelo número ou pelo token do cartão.</p>
+<h1 id="integração">Integração</h1>
 
-<h1 id="consulta-pelo-número-do-cartão">Consulta pelo número do cartão</h1>
+<p>Para consultar um cartão, envie uma requisição utilizando o verbo HTTP POST para o serviço VerifyCard, de acordo com os exemplos deste manual. A consulta do VerifyCard pode ser feita pelo número ou pelo token do cartão.</p>
+
+<p>Na requisição ao VerifyCard, você enviará o <code class="language-plaintext highlighter-rouge">Provider</code> junto com os dados do cartão (número ou cartão tokenizado).</p>
+
+<p>Na resposta, a verificação do ZeroAuth será exibida nas propriedades <code class="language-plaintext highlighter-rouge">Status</code>, <code class="language-plaintext highlighter-rouge">ProviderReturnCode</code> e <code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code>. O retorno da Consulta BIN estará nas propriedades do nó <code class="language-plaintext highlighter-rouge">BinData</code>.</p>
+
+<h1 id="verifycard-pelo-número-do-cartão">VerifyCard pelo número do cartão</h1>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
@@ -448,7 +575,7 @@
   </tbody>
 </table>
 
-<h1 id="consulta-pelo-token-do-cartão">Consulta pelo token do cartão</h1>
+<h1 id="verifycard-pelo-token-do-cartão">VerifyCard pelo token do cartão</h1>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
@@ -701,43 +828,6 @@
     </tr>
   </tbody>
 </table>
-
-<h1 id="respostas-programadas">Respostas programadas</h1>
-
-<p>É possível testar os retornos do VerifyCard (Zero Auth) em ambiente sandbox usando o provider “Simulado”. Para isso, você pode usar os cartões de teste da tabela a seguir para simular os cenários de consulta autorizada, não autorizada e falha na operação.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Número do cartão</th>
-      <th>Status</th>
-      <th>Retorno</th>
-      <th>Mensagem</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>4532117080573788</td>
-      <td>0</td>
-      <td>70</td>
-      <td>Não autorizado</td>
-    </tr>
-    <tr>
-      <td>4532117080573799</td>
-      <td>99</td>
-      <td>BP900</td>
-      <td>Falha na operação</td>
-    </tr>
-    <tr>
-      <td>4532117080573701</td>
-      <td>1</td>
-      <td>4</td>
-      <td>Autorizado</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Para testar os cenários de retorno da Consulta BIN em sandbox, acesse a <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-bin-sandbox" target="_blank">documentação da Cielo</a>.</p>
 
 </div>
 
