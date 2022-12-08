@@ -16,28 +16,91 @@ language_tabs:
 
 # VerifyCard
 
-O **VerifyCard** é composto por dois serviços: *Zero Auth* e *Consulta BIN*.
- 
-O **Zero Auth** é um serviço que identifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor R$ 0,00.<br/>A **Consulta BIN** é um serviço disponível para clientes Cielo 3.0 que retorna, a partir do BIN (6 primeiros dígitos do cartão), características tais como bandeira e tipo do cartão. 
- 
-Os dois serviços podem ser consumidos simultaneamente através do VerifyCard. Também é possível condicionar o processo de autorização automaticamente a um retorno de sucesso do ZeroAuth. Para habilitar este último fluxo, entre em contato com nosso time de suporte.
+O **VerifyCard** é composto por dois serviços: **Zero Auth** e **Consulta BIN**.
 
-A funcionalidade VerifyCard pode ser utilizada em conjunto com o serviço de tokenização do cartão. Neste caso, a API do VerifyCard primeiramente recebe a requisição do serviço Zero Auth e faz a validação com a adquirente, que responde se o cartão é válido ou não. A API do VerifyCard envia então este retorno à loja, que poderá escolher fazer ou não a requisição de tokenização do cartão para a API do Cartão Protegido. 
+![VerifyCard]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/verifycard.png)
+ 
+O **Zero Auth** é um serviço que identifica se um cartão é válido ou não, através de uma operação semelhante a uma autorização, porém com valor R$ 0,00.
 
-Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **VerifyCard** em conjunto com o **Cartão Protegido**:
+O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre o teste.
+
+![Fluxo ZeroAuth]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/zeroauth.png)
+
+Já o Consulta BIN é um serviço disponível exclusivamente para clientes Cielo que retorna informações do cartão a partir do BIN (seis primeiros dígitos do cartão):
+
+* **Bandeira do cartão**: nome da bandeira;
+* **Tipo de cartão**: crédito, débito ou múltiplo (crédito e débito);
+* **Nacionalidade do cartão**: internacional ou nacional;
+* **Cartão corporativo**: se o cartão é corporativo ou não;
+* **Banco emissor**: código e nome do emissor;
+* **Cartão pré-pago**: se o cartão é pré-pago ou não.
+
+![Consulta BIN]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/consultabin.png)
+
+## Benefícios do VerifyCard
+
+Os retornos do VerifyCard sobre a validade e informações do cartão permitem que a sua loja crie personalizações na sua aplicação e/ou checkout. Veja exemplos de uso:
+
+* **Solicitar autorização apenas se o cartão estiver válido**: você pode criar uma condição em sua aplicação para apenas enviar a solicitação de autorização se houver retorno de sucesso no ZeroAuth;
+
+<aside class="notice"> Para habilitar este fluxo, entre em contato com nosso time de suporte.</aside>
+
+* **Solicitar a tokenização apenas se o cartão estiver válido**: você pode criar uma condição em sua aplicação para apenas solicitar a tokenização de um cartão se ele estiver válido. Saiba mais no tópico Usando o VerifyCard com Cartão Protegido;
+* **Evitar erros relacionados ao tipo do cartão ou bandeira**: se o seu checkout exige a seleção manual da bandeira ou tipo do cartão, você desenvolver uma mensagem de alerta para quando, por exemplo, a pessoa está usando um cartão de débito quando na verdade deveria usar um de crédito;
+* **Oferecer a recuperação do carrinho**: você pode desenvolver um fluxo no seu checkout para que, caso o cartão informado o seja múltiplo (crédito e débito), a sua loja pode reter os dados do cartão e, caso a transação de crédito falhe, oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão;
+* **Alertar sobre cartões internacionais ou pré-pagos**: se a sua loja não deseja receber pagamentos internacionais ou de cartões pré-pagos, por exemplo, você pode configurar o seu checkout para informar ao consumidor que a loja não aceita o cartão informado.
+
+## Usando o VerifyCard com o Cartão Protegido
+
+O VerifyCard pode ser utilizada em conjunto com o serviço de tokenização do cartão (Cartão Protegido).
+
+Neste caso, a API do VerifyCard primeiro recebe a requisição do serviço Zero Auth e faz a validação com a adquirente, que responde se o cartão é válido ou não. A API do VerifyCard envia então este retorno à loja, que poderá escolher fazer ou não a requisição de tokenização do cartão para a API do Cartão Protegido.
+
+Abaixo veja a representação desse **fluxo transacional**, usando o **VerifyCard** em conjunto com o **Cartão Protegido**:
 
 ![VerifyCard com Cartão Protegido]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/fluxo-trans3b-pt.png)
 
-## Ambientes
+## VerifyCard em sandbox
+
+### Respostas programadas Zero Auth
+
+É possível testar os retornos do VerifyCard (Zero Auth) em ambiente sandbox usando o provider "Simulado". Para isso, você pode usar os cartões de teste da tabela a seguir para simular os cenários de consulta autorizada, não autorizada e falha na operação.
+
+| Número do cartão | Status | Retorno | Mensagem |
+|---|---|---|---|
+| 4532117080573788 | 0 | 70 | Não autorizado |
+| 4532117080573799 | 99 | BP900 | Falha na operação |
+| 4532117080573701 | 1 | 4 | Autorizado |
+
+### Respostas Programadas Consulta BIN
+
+Na simulação da Consulta BIN em ambiente sandbox, cada um dos seis primeiros dígitos vai reger um resultado simulado. É possível montar uma numeração de cartão para teste e observar o retorno esperado de acordo com diferentes cenários.
+
+|   Dígito  | O que indica                             | Retorno |
+|-----------|------------------------------------------|---------|
+| 1º dígito | Bandeira.                       | Se for '**3**' retorna "**AMEX**"<br>Se for '**5**' retorna "**MASTERCARD**"<br>Se for '**6**' retorna "**DISCOVER**"<br>Qualquer outro número retorna "**VISA**".|
+| 2º dígito | Tipo do cartão.                 | Se for '**3**' retorna "**Débito**"<br>Se for '**5**' retorna "**Crédito**"<br>Se for '**7**' retorna "**Crédito**" e retorna o campo `Prepaid`como "**true**"<br>Qualquer outro número retorna"**Múltiplo**".|
+| 3º dígito | Nacionalidade do cartão.        | Se for '**1**' retorna "**true**" (cartão nacional)<br>Qualquer número diferente de '**1**' retorna "**false**" (cartão internacional).|
+| 4º dígito | Se o cartão é corporativo ou não. | Se for '**1**' retorna "**true**" (é cartão corporativo)<br>Qualquer número diferente de '**1**' retorna "**false**" (não é cartão corporativo).|
+| 5º dígito | Retorno da análise.             | Se for '**2**' retorna "**01 - Bandeira não suportada**"<br>Se for '**3**' retorna "**02 - Voucher - Não suportado na consulta de bins**"<br>Qualquer outro número retorna "**00 - Analise autorizada**"|
+| 6º dígito | Banco emissor.                  | Se for '**1**' retorna "**104**" e "**Caixa**"<br>Se for '**2**' retorna "**001**" e "**Banco do Brasil**"<br>Qualquer outro número retorna "**237**" e "**Bradesco**"|
+
+# Ambientes
 
 |Ambiente|Base da URL transacional|
 |---|---|
 |Sandbox|https://apisandbox.braspag.com.br/|
 |Produção|https://api.braspag.com.br/|
 
-<br/>Para consultar dados de um cartão, envie uma requisição utilizando o verbo HTTP POST para o serviço VerifyCard, de acordo com os exemplos deste manual. A consulta pode ser feita pelo número ou pelo token do cartão.
+# Integração
 
-# Consulta pelo número do cartão
+Para consultar um cartão, envie uma requisição utilizando o verbo HTTP POST para o serviço VerifyCard, de acordo com os exemplos deste manual. A consulta do VerifyCard pode ser feita pelo número ou pelo token do cartão.
+
+Na requisição ao VerifyCard, você enviará o `Provider` junto com os dados do cartão (número ou cartão tokenizado).
+
+Na resposta, a verificação do ZeroAuth será exibida nas propriedades `Status`, `ProviderReturnCode` e `ProviderReturnMessage`. O retorno da Consulta BIN estará nas propriedades do nó `BinData`.
+
+# VerifyCard pelo número do cartão
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
@@ -154,7 +217,7 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 |`BinData.CardLast4Digits`|Código do emissor do cartão.|Número|4 |Ex.: "9999"|
 |`BinData.Prepaid`|Indica se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
 
-# Consulta pelo token do cartão
+# VerifyCard pelo token do cartão
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
 
@@ -263,15 +326,3 @@ Abaixo veja a representação desse **fluxo transacional**, utilizando-se o **Ve
 |`BinData.CardBin`|Código do emissor do cartão.|Número|6 |Ex.: "999999"|
 |`BinData.CardLast4Digits`|Código do emissor do cartão.|Número|4 |Ex.: "9999"|
 |`BinData.Prepaid`|Indica se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
-
-# Respostas programadas
-
-É possível testar os retornos do VerifyCard (Zero Auth) em ambiente sandbox usando o provider "Simulado". Para isso, você pode usar os cartões de teste da tabela a seguir para simular os cenários de consulta autorizada, não autorizada e falha na operação.
-
-| Número do cartão | Status | Retorno | Mensagem |
-|---|---|---|---|
-| 4532117080573788 | 0 | 70 | Não autorizado |
-| 4532117080573799 | 99 | BP900 | Falha na operação |
-| 4532117080573701 | 1 | 4 | Autorizado |
-
-Para testar os cenários de retorno da Consulta BIN em sandbox, acesse a [documentação da Cielo](https://developercielo.github.io/manual/cielo-ecommerce#consulta-bin-sandbox){:target="_blank"}.
