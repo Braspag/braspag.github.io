@@ -28,14 +28,14 @@ O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar 
 
 Já o Consulta BIN é um serviço disponível exclusivamente para clientes Cielo que retorna informações do cartão a partir do BIN (seis primeiros dígitos do cartão):
 
+![Consulta BIN]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/consultabin.png)
+
 * **Bandeira do cartão**: nome da bandeira;
 * **Tipo de cartão**: crédito, débito ou múltiplo (crédito e débito);
 * **Nacionalidade do cartão**: internacional ou nacional;
 * **Cartão corporativo**: se o cartão é corporativo ou não;
 * **Banco emissor**: código e nome do emissor;
 * **Cartão pré-pago**: se o cartão é pré-pago ou não.
-
-![Consulta BIN]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/consultabin.png)
 
 ## Benefícios do VerifyCard
 
