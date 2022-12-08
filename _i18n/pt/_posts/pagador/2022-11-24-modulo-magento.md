@@ -44,7 +44,7 @@ bin/magento setup:di:compile
 
 ## Configurações Gerais
 
-Seguem instruções de acesso para as configurações gerais do módulo Braspag:
+Siga as instruções de acesso para as configurações gerais do módulo Braspag:
 
 1. Faça login no admin do Magento;
 2. No menu, acesse `Lojas` > `Configurações`;
