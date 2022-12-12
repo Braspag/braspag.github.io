@@ -57,7 +57,7 @@ O Agiliza hoje suporta as principais credenciadoras do mercado:
 * BMG Granito
 * Mercado Pago
 <br/>
-> Cada credenciadora possui layouts e eventos específicos em seu extrato. As especificidades de cada credenciadora podem ser conferidas em **Informações sobre as adquirentes**, tanto para [CSV](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes49) quanto para [XML](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes).
+> Cada credenciadora possui layouts e eventos específicos em seu extrato. As especificidades de cada credenciadora podem ser conferidas em Informações sobre as adquirentes, tanto para [CSV](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes49) quanto para [XML](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes).
 
 ## Arquivo de Saída
 
