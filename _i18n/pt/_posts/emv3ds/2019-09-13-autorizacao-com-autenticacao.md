@@ -114,7 +114,7 @@ Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador
 
 # Autorização para Transações Data Only
 
-Após ter sido realizada a etapa de autenticação no modelo *Data Only* (enviando-se o campo `bpmpi_auth_notifyonly` como "true") submete-se a transação ao processo de autorização, enviando-se os dados de autenticação no modelo de "autenticação externa" (nó `ExternalAuthentication`).
+Após ter sido realizada a etapa de autenticação no modelo Data Only (enviando-se o campo `bpmpi_auth_notifyonly` como "true") submete-se a transação ao processo de autorização, enviando-se os dados de autenticação no modelo de "autenticação externa" (nó `ExternalAuthentication`).
 
 Veja abaixo um exemplo de envio de dados de autenticação da requisição de autorização da API Pagador, utilizando o método POST:
 
