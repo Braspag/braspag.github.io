@@ -14,7 +14,7 @@ language_tabs:
 
 # Sobre essa documentação 
 
-Este manual apresenta a integração com a API do **Antifraude Gateway Braspag** para **chamadas apartadas de análise de fraude**. Para integração de chamada conjunta com outros serviços, veja o manual do serviço de interesse: [Pagador](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude){:target="_blank"}, [API Cielo E-commerce](https://braspag.github.io//manual/api-ecommerce-cielo-af){:target="_blank"}, [Split Cielo E-commerce](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#antifraude){:target="_blank"} ou [Split Pagador](https://braspag.github.io//manual/split-de-pagamentos-pagador#antifraude){:target="_blank"}.
+Este manual apresenta a integração com a API do Antifraude Gateway Braspag para **chamadas apartadas de análise de fraude**. Para integração de chamada conjunta com outros serviços, veja o manual do serviço de interesse: [Pagador](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude){:target="_blank"}, [API Cielo E-commerce](https://braspag.github.io//manual/api-ecommerce-cielo-af){:target="_blank"}, [Split Cielo E-commerce](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#antifraude){:target="_blank"} ou [Split Pagador](https://braspag.github.io//manual/split-de-pagamentos-pagador#antifraude){:target="_blank"}.
 
 # Visão Geral
 
