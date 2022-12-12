@@ -53,7 +53,7 @@ Siga as instruções de acesso para as configurações gerais do módulo Braspag
 
 ## Configurações Globais
 
-A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Global Settings** do plugin Braspag:
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção Global Settings do plugin Braspag:
 ![Global Settings]({{ site.baseurl_root }}/images/braspag/pagador/magento-global-settings.png)
 
 |Campo|Descrição|
