@@ -24,7 +24,7 @@ Os chargebacks são comuns em qualquer operação de e-commerce e geram impactos
 
 ## Requisitos
 
-Você pode integrar a Risk Notification API se a sua loja cria transações usando a [**API do Pagador**](https://www.braspag.com.br/pagamentos/){:target="_blank"}  (tendo a Cielo como adquirente) ou a [**API E-commerce Cielo**](https://www.cielo.com.br/e-commerce){:target="_blank"}.
+Você pode integrar a Risk Notification API se a sua loja cria transações usando a [API do Pagador](https://www.braspag.com.br/pagamentos/){:target="_blank"}  (tendo a Cielo como adquirente) ou a [**API E-commerce Cielo**](https://www.cielo.com.br/e-commerce){:target="_blank"}.
 
 Para contratar a Risk Notification API, fale com o time [Comercial da Braspag](https://www.braspag.com.br/contato/){:target="_blank"}.
 
