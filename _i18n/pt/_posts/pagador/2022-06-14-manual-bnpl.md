@@ -19,7 +19,7 @@ language_tabs:
 
 **O que é Buy Now, Pay Later?**
 
-*Buy Now, Pay Later*, mais conhecido pela sigla **BNPL**, é um tipo de financiamento de curto prazo, com ou sem taxas para o comprador, que considera uma avaliação de crédito instantânea permitindo o parcelamento de compras sem o uso de cartão de crédito. Esse meio de pagamento é uma oferta complementar que pode impulsionar a conversão de vendas e aumentar o ticket médio de estabelecimentos comerciais, oferecendo maior poder de compra aos consumidores.
+*Buy Now, Pay Later*, mais conhecido pela sigla BNPL, é um tipo de financiamento de curto prazo, com ou sem taxas para o comprador, que considera uma avaliação de crédito instantânea permitindo o parcelamento de compras sem o uso de cartão de crédito. Esse meio de pagamento é uma oferta complementar que pode impulsionar a conversão de vendas e aumentar o ticket médio de estabelecimentos comerciais, oferecendo maior poder de compra aos consumidores.
 
 **Exemplos de aplicação do BNPL**
 
