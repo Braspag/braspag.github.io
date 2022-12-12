@@ -20,7 +20,7 @@ Se você tem interesse na ferramenta de análise de fraude da Braspag, acesse a 
 
 # Visão geral    
 
-Os chargebacks são comuns em qualquer operação de e-commerce e geram impactos na agenda financeira de uma loja. A Risk Notification API oferece uma forma fácil e simplificada de saber quando um chargeback ocorreu e por qual motivo; assim, a loja pode decidir se irá aceitar ou disputar o chargeback.
+Os chargebacks são comuns em qualquer operação de e-commerce e geram impactos na agenda financeira de uma loja. **A Risk Notification API** oferece uma forma fácil e simplificada de saber quando um chargeback ocorreu e por qual motivo; assim, a loja pode decidir se irá aceitar ou disputar o chargeback.
 
 ## Requisitos
 
