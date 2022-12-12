@@ -19,7 +19,7 @@ language_tabs:
 
 ![FluxoSplit]({{ site.baseurl_root }}/images/braspag/split/split1-fluxo-geral.png)
 
-O Split de Pagamentos é um serviço de subadquirência para marketplaces e outros modelos de negócio que precisam dividir o valor de uma venda entre diferentes participantes. Funciona tanto para e-commerce quanto para mundo físico.
+O **Split de Pagamentos** é um serviço de subadquirência para marketplaces e outros modelos de negócio que precisam dividir o valor de uma venda entre diferentes participantes. Funciona tanto para e-commerce quanto para mundo físico.
 
 O Split de Pagamentos atua em todo o fluxo de venda e pagamento:
 
