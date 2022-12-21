@@ -36,5 +36,5 @@ Pagador offers a range of Software Development Kits (SDKs), written in Portugues
 |[**Google Pay**](https://github.com/Braspag/braspag-google-pay)         |
 <br>
 <br>
-<aside class="warning">Warning: We do not offer support for the development and implementation of this SDK.</aside>
+<aside class="warning">Warning: We do not offer support for the development and implementation of SDKs.</aside>
 
