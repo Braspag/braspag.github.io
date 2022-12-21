@@ -34,3 +34,5 @@ O Pagador oferece uma gama de Software Development Kits (SDKs), disponíveis no 
 |-|
 |[Apple Pay](https://github.com/Braspag/braspag-apple-pay)|
 |[Google Pay](https://github.com/Braspag/braspag-google-pay)|
+
+<aside class="warning">Atenção: Não oferecemos suporte para o desenvolvimento e implementação dos SDKs.</aside>
