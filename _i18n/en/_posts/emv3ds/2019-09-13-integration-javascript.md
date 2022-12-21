@@ -17,6 +17,8 @@ language_tabs:
 
 For more details about 3DS 2.0, please visit: [https://braspag.github.io//en/manualp/emv3ds](https://braspag.github.io//en/manualp/emv3ds)
 
+<aside class="warning">Warning: We do not offer support for the development and implementation of this SDK.</aside>
+
 # Step 1 - Access Token Request
 
 The solution consists of two steps, the API access token request and the JavaScript authentication request.
