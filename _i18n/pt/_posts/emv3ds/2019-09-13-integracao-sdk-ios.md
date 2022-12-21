@@ -14,7 +14,7 @@ tags:
 
 Para maiores detalhes sobre o 3DS 2.0, acesse: [https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?](https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)
 
-<aside class="warning">Atenção: não oferecemos suporte para o desenvolvimento e implementação deste SDK.</aside>
+<aside class="warning">Atenção: Não oferecemos suporte para o desenvolvimento e implementação deste SDK.</aside>
 
 # Passo 1 - Solicitação de Token de Acesso
 
