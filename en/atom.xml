@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2022-12-30T12:46:31+00:00</updated>
+    <updated>2022-12-30T12:48:28+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -81,7 +81,7 @@
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
+      &lt;th&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -961,7 +961,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
+      &lt;th&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -1248,7 +1248,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
+      &lt;th&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -1527,7 +1527,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory&lt;/th&gt;
+      &lt;th&gt;Required&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
