@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2022-12-30T12:16:30+00:00</updated>
+    <updated>2022-12-30T12:42:09+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -1959,7 +1959,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -2122,7 +2122,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cvvRequired&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;“false” (unables CVV as mandatory) / “true” (CVV is mandatory).&lt;/td&gt;
+      &lt;td&gt;“false” (unables CVV as required) / “true” (CVV is required).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
