@@ -355,7 +355,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 
 <aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).</aside>
 
-<p>The parameters contained within the <code class="language-plaintext highlighter-rouge">Address</code> and <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> nodes are <strong>required</strong> when the transaction is submitted to the <a href="https://braspag.github.io//en/manual/antifraude">Antifraude</a> or <strong>Velocity</strong> analysis. These parameters are marked with an * in the mandatory column of the table below.</p>
+<p>The parameters contained within the <code class="language-plaintext highlighter-rouge">Address</code> and <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> nodes are <strong>required</strong> when the transaction is submitted to the <a href="https://braspag.github.io//en/manual/antifraude">Antifraude</a> or <strong>Velocity</strong> analysis. These parameters are marked with an * in the required column of the table below.</p>
 
 <p>Here are request and answer examples of how to create a credit transaction:</p>
 
@@ -521,7 +521,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -1287,7 +1287,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 
 <h3 id="creating-a-debit-transaction">Creating a Debit Transaction</h3>
 
-<p>A debit card transaction creation is similar to that of a credit card, except for the fact that it is mandatory to submit it to the authentication process.</p>
+<p>A debit card transaction creation is similar to that of a credit card, except for the fact that it is required to submit it to the authentication process.</p>
 
 <h4 id="request-1">Request</h4>
 
@@ -1417,7 +1417,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -1797,7 +1797,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -2057,7 +2057,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -2339,7 +2339,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -2755,7 +2755,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -2936,7 +2936,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -3433,7 +3433,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -3762,7 +3762,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
       <th>DESCRIPTION</th>
       <th>TYPE</th>
       <th>SIZE</th>
-      <th>MANDATORY?</th>
+      <th>REQUIRED?</th>
     </tr>
   </thead>
   <tbody>
@@ -3987,7 +3987,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
       <th>DESCRIPTION</th>
       <th>TYPE</th>
       <th>SIZE</th>
-      <th>MANDATORY?</th>
+      <th>REQUIRED?</th>
     </tr>
   </thead>
   <tbody>
@@ -4147,7 +4147,7 @@ The example below covers the minimum required fields to be submitted for authori
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -4345,7 +4345,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>To generate boletos, customer’s data such as ID number (CPF or CNPJ) and address must be provided. Below is an example of how to create a boleto as the payment method.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">Payment.FineRate</code> and <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code> parameters must not be used together. The same rule applies to the <code class="language-plaintext highlighter-rouge">Payment.InterestRate</code> and <code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code> parameters. They are all marked with an “*” in the “MANDATORY” column,</p>
+<p>The <code class="language-plaintext highlighter-rouge">Payment.FineRate</code> and <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code> parameters must not be used together. The same rule applies to the <code class="language-plaintext highlighter-rouge">Payment.InterestRate</code> and <code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code> parameters. They are all marked with an “*” in the “REQUIRED” column,</p>
 
 <h4 id="request-12">Request</h4>
 
@@ -4443,7 +4443,7 @@ The example below covers the minimum required fields to be submitted for authori
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -5092,7 +5092,7 @@ The example below covers the minimum required fields to be submitted for authori
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -5509,7 +5509,7 @@ The example below covers the minimum required fields to be submitted for authori
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -5768,7 +5768,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>Add the <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> node to the <code class="language-plaintext highlighter-rouge">Payment</code> node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> and <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code> parameters, marked with an “*” in the “MANDATORY” column, must not be used together.</p>
+<p>The <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> and <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code> parameters, marked with an “*” in the “REQUIRED” column, must not be used together.</p>
 
 <h4 id="request-15">Request</h4>
 
@@ -5890,7 +5890,7 @@ The example below covers the minimum required fields to be submitted for authori
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -6222,7 +6222,7 @@ The example below covers the minimum required fields to be submitted for authori
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -6571,7 +6571,7 @@ The example below covers the minimum required fields to be submitted for authori
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -6888,7 +6888,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -7105,7 +7105,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -7182,7 +7182,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -7265,7 +7265,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -7343,7 +7343,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -7422,7 +7422,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -7551,7 +7551,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -7669,14 +7669,14 @@ To change the payment details, simply make a PUT call as shown in the example.</
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Credentials.Username</code></td>
-      <td>User generated during the accreditation with the acquirer (providers like Rede and Getnet need a username and password for communicating, so this field is mandatory).</td>
+      <td>User generated during the accreditation with the acquirer (providers like Rede and Getnet need a username and password for communicating, so this field is required).</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Credentials.Password</code></td>
-      <td>Password generated during the accreditation with the acquirer (providers like Rede and Getnet need a username and password for communicating, so this field is mandatory).</td>
+      <td>Password generated during the accreditation with the acquirer (providers like Rede and Getnet need a username and password for communicating, so this field is required).</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
@@ -7724,7 +7724,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -7792,7 +7792,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -8137,7 +8137,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -8553,7 +8553,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -8928,7 +8928,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -9562,7 +9562,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -10234,7 +10234,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<aside class="warning">The fields of the "FraudAnalysis.Travel" node become mandatory if your business segment is the airline segment.</aside>
+<aside class="warning">The fields of the "FraudAnalysis.Travel" node become required if your business segment is the airline segment.</aside>
 
 <h3 id="response-32">Response</h3>
 
@@ -11368,7 +11368,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -12115,7 +12115,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -12646,7 +12646,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -12761,7 +12761,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -13029,7 +13029,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       <th>Description</th>
       <th>Type</th>
       <th>Size</th>
-      <th>Mandatory?</th>
+      <th>Required?</th>
     </tr>
   </thead>
   <tbody>
@@ -13494,7 +13494,7 @@ The following lists refer to providers for the REST integration:</p>
     </tr>
     <tr>
       <td>4</td>
-      <td>Sales channel. Possible values: “Call Center” (phone purchase) / “Web” (web purchase) / “Portal” (purchase through agent) / “Kiosk” (kiosk  purchase) / “Mobile” (cell phone or tablet purchases). Note: When “Call Center”, the submission of field <strong>39</strong>(call center user name) is mandatory.</td>
+      <td>Sales channel. Possible values: “Call Center” (phone purchase) / “Web” (web purchase) / “Portal” (purchase through agent) / “Kiosk” (kiosk  purchase) / “Mobile” (cell phone or tablet purchases). Note: When “Call Center”, the submission of field <strong>39</strong>(call center user name) is required.</td>
       <td>string</td>
       <td>3</td>
       <td>All</td>
@@ -13529,7 +13529,7 @@ The following lists refer to providers for the REST integration:</p>
     </tr>
     <tr>
       <td>9</td>
-      <td>Identifies if the customer will pick up the product in the store. Possible values: “YES” / “NO”. Note: When “YES”, the submission of field <strong>22</strong>(code of pick up store) is mandatory.</td>
+      <td>Identifies if the customer will pick up the product in the store. Possible values: “YES” / “NO”. Note: When “YES”, the submission of field <strong>22</strong>(code of pick up store) is required.</td>
       <td>string</td>
       <td>3</td>
       <td>Retail or Cosmetics</td>
@@ -13585,7 +13585,7 @@ The following lists refer to providers for the REST integration:</p>
     </tr>
     <tr>
       <td>17</td>
-      <td>Identifies if the reservation was brought forward. Possible values: “YES” / “NO”. Note: When “YES”, the submission of field <strong>16</strong> (reservation PNR code) is mandatory.</td>
+      <td>Identifies if the reservation was brought forward. Possible values: “YES” / “NO”. Note: When “YES”, the submission of field <strong>16</strong> (reservation PNR code) is required.</td>
       <td>string</td>
       <td>3</td>
       <td>Air</td>

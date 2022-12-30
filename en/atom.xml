@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2022-12-21T19:55:28+00:00</updated>
+    <updated>2022-12-30T12:16:30+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -15319,7 +15319,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
 
 &lt;aside class=&quot;warning&quot;&gt;IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).&lt;/aside&gt;
 
-&lt;p&gt;The parameters contained within the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Address&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DeliveryAddress&lt;/code&gt; nodes are &lt;strong&gt;required&lt;/strong&gt; when the transaction is submitted to the &lt;a href=&quot;https://braspag.github.io//en/manual/antifraude&quot;&gt;Antifraude&lt;/a&gt; or &lt;strong&gt;Velocity&lt;/strong&gt; analysis. These parameters are marked with an * in the mandatory column of the table below.&lt;/p&gt;
+&lt;p&gt;The parameters contained within the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Address&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DeliveryAddress&lt;/code&gt; nodes are &lt;strong&gt;required&lt;/strong&gt; when the transaction is submitted to the &lt;a href=&quot;https://braspag.github.io//en/manual/antifraude&quot;&gt;Antifraude&lt;/a&gt; or &lt;strong&gt;Velocity&lt;/strong&gt; analysis. These parameters are marked with an * in the required column of the table below.&lt;/p&gt;
 
 &lt;p&gt;Here are request and answer examples of how to create a credit transaction:&lt;/p&gt;
 
@@ -15485,7 +15485,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -16251,7 +16251,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
 
 &lt;h3 id=&quot;creating-a-debit-transaction&quot;&gt;Creating a Debit Transaction&lt;/h3&gt;
 
-&lt;p&gt;A debit card transaction creation is similar to that of a credit card, except for the fact that it is mandatory to submit it to the authentication process.&lt;/p&gt;
+&lt;p&gt;A debit card transaction creation is similar to that of a credit card, except for the fact that it is required to submit it to the authentication process.&lt;/p&gt;
 
 &lt;h4 id=&quot;request-1&quot;&gt;Request&lt;/h4&gt;
 
@@ -16381,7 +16381,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -16761,7 +16761,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -17021,7 +17021,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -17303,7 +17303,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -17719,7 +17719,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -17900,7 +17900,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -18397,7 +18397,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -18726,7 +18726,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
       &lt;th&gt;DESCRIPTION&lt;/th&gt;
       &lt;th&gt;TYPE&lt;/th&gt;
       &lt;th&gt;SIZE&lt;/th&gt;
-      &lt;th&gt;MANDATORY?&lt;/th&gt;
+      &lt;th&gt;REQUIRED?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -18951,7 +18951,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
       &lt;th&gt;DESCRIPTION&lt;/th&gt;
       &lt;th&gt;TYPE&lt;/th&gt;
       &lt;th&gt;SIZE&lt;/th&gt;
-      &lt;th&gt;MANDATORY?&lt;/th&gt;
+      &lt;th&gt;REQUIRED?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -19111,7 +19111,7 @@ The example below covers the minimum required fields to be submitted for authori
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -19309,7 +19309,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 &lt;p&gt;To generate boletos, customer’s data such as ID number (CPF or CNPJ) and address must be provided. Below is an example of how to create a boleto as the payment method.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.FineRate&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.FineAmount&lt;/code&gt; parameters must not be used together. The same rule applies to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InterestRate&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InterestAmount&lt;/code&gt; parameters. They are all marked with an “*” in the “MANDATORY” column,&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.FineRate&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.FineAmount&lt;/code&gt; parameters must not be used together. The same rule applies to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InterestRate&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InterestAmount&lt;/code&gt; parameters. They are all marked with an “*” in the “REQUIRED” column,&lt;/p&gt;
 
 &lt;h4 id=&quot;request-12&quot;&gt;Request&lt;/h4&gt;
 
@@ -19407,7 +19407,7 @@ The example below covers the minimum required fields to be submitted for authori
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -20056,7 +20056,7 @@ The example below covers the minimum required fields to be submitted for authori
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -20473,7 +20473,7 @@ The example below covers the minimum required fields to be submitted for authori
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -20732,7 +20732,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 &lt;p&gt;Add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RecurrentPayment&lt;/code&gt; node to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment&lt;/code&gt; node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.RecurrentPayment.Interval&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.RecurrentPayment.DailyInterval&lt;/code&gt; parameters, marked with an “*” in the “MANDATORY” column, must not be used together.&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.RecurrentPayment.Interval&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.RecurrentPayment.DailyInterval&lt;/code&gt; parameters, marked with an “*” in the “REQUIRED” column, must not be used together.&lt;/p&gt;
 
 &lt;h4 id=&quot;request-15&quot;&gt;Request&lt;/h4&gt;
 
@@ -20854,7 +20854,7 @@ The example below covers the minimum required fields to be submitted for authori
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -21186,7 +21186,7 @@ The example below covers the minimum required fields to be submitted for authori
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -21535,7 +21535,7 @@ The example below covers the minimum required fields to be submitted for authori
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -21852,7 +21852,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -22069,7 +22069,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -22146,7 +22146,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -22229,7 +22229,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -22307,7 +22307,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -22386,7 +22386,7 @@ In &lt;strong&gt;response&lt;/strong&gt; to your request, the API will return an
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -22515,7 +22515,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -22633,14 +22633,14 @@ To change the payment details, simply make a PUT call as shown in the example.&l
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Credentials.Username&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;User generated during the accreditation with the acquirer (providers like Rede and Getnet need a username and password for communicating, so this field is mandatory).&lt;/td&gt;
+      &lt;td&gt;User generated during the accreditation with the acquirer (providers like Rede and Getnet need a username and password for communicating, so this field is required).&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Credentials.Password&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Password generated during the accreditation with the acquirer (providers like Rede and Getnet need a username and password for communicating, so this field is mandatory).&lt;/td&gt;
+      &lt;td&gt;Password generated during the accreditation with the acquirer (providers like Rede and Getnet need a username and password for communicating, so this field is required).&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -22688,7 +22688,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -22756,7 +22756,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -23101,7 +23101,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -23517,7 +23517,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -23892,7 +23892,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -24526,7 +24526,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -25198,7 +25198,7 @@ To change the payment details, simply make a PUT call as shown in the example.&l
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;The fields of the &quot;FraudAnalysis.Travel&quot; node become mandatory if your business segment is the airline segment.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;The fields of the &quot;FraudAnalysis.Travel&quot; node become required if your business segment is the airline segment.&lt;/aside&gt;
 
 &lt;h3 id=&quot;response-32&quot;&gt;Response&lt;/h3&gt;
 
@@ -26332,7 +26332,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -27079,7 +27079,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -27610,7 +27610,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -27725,7 +27725,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -27993,7 +27993,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Mandatory?&lt;/th&gt;
+      &lt;th&gt;Required?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -28458,7 +28458,7 @@ The following lists refer to providers for the REST integration:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;Sales channel. Possible values: “Call Center” (phone purchase) / “Web” (web purchase) / “Portal” (purchase through agent) / “Kiosk” (kiosk  purchase) / “Mobile” (cell phone or tablet purchases). Note: When “Call Center”, the submission of field &lt;strong&gt;39&lt;/strong&gt;(call center user name) is mandatory.&lt;/td&gt;
+      &lt;td&gt;Sales channel. Possible values: “Call Center” (phone purchase) / “Web” (web purchase) / “Portal” (purchase through agent) / “Kiosk” (kiosk  purchase) / “Mobile” (cell phone or tablet purchases). Note: When “Call Center”, the submission of field &lt;strong&gt;39&lt;/strong&gt;(call center user name) is required.&lt;/td&gt;
       &lt;td&gt;string&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;All&lt;/td&gt;
@@ -28493,7 +28493,7 @@ The following lists refer to providers for the REST integration:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt;Identifies if the customer will pick up the product in the store. Possible values: “YES” / “NO”. Note: When “YES”, the submission of field &lt;strong&gt;22&lt;/strong&gt;(code of pick up store) is mandatory.&lt;/td&gt;
+      &lt;td&gt;Identifies if the customer will pick up the product in the store. Possible values: “YES” / “NO”. Note: When “YES”, the submission of field &lt;strong&gt;22&lt;/strong&gt;(code of pick up store) is required.&lt;/td&gt;
       &lt;td&gt;string&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;Retail or Cosmetics&lt;/td&gt;
@@ -28549,7 +28549,7 @@ The following lists refer to providers for the REST integration:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;17&lt;/td&gt;
-      &lt;td&gt;Identifies if the reservation was brought forward. Possible values: “YES” / “NO”. Note: When “YES”, the submission of field &lt;strong&gt;16&lt;/strong&gt; (reservation PNR code) is mandatory.&lt;/td&gt;
+      &lt;td&gt;Identifies if the reservation was brought forward. Possible values: “YES” / “NO”. Note: When “YES”, the submission of field &lt;strong&gt;16&lt;/strong&gt; (reservation PNR code) is required.&lt;/td&gt;
       &lt;td&gt;string&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;Air&lt;/td&gt;
