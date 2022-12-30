@@ -132,7 +132,7 @@ If your store uses *Retry* or *Loadbalance* services, affiliations must be regis
 
 <aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).</aside>
 
-The parameters contained within the `Address` and `DeliveryAddress` nodes are **required** when the transaction is submitted to the [Antifraude](https://braspag.github.io//en/manual/antifraude) or **Velocity** analysis. These parameters are marked with an * in the mandatory column of the table below.
+The parameters contained within the `Address` and `DeliveryAddress` nodes are **required** when the transaction is submitted to the [Antifraude](https://braspag.github.io//en/manual/antifraude) or **Velocity** analysis. These parameters are marked with an * in the required column of the table below.
 
 Here are request and answer examples of how to create a credit transaction:
 
@@ -293,7 +293,7 @@ Here are request and answer examples of how to create a credit transaction:
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (through header)|
@@ -578,7 +578,7 @@ Here are request and answer examples of how to create a credit transaction:
 
 ### Creating a Debit Transaction
 
-A debit card transaction creation is similar to that of a credit card, except for the fact that it is mandatory to submit it to the authentication process.
+A debit card transaction creation is similar to that of a credit card, except for the fact that it is required to submit it to the authentication process.
 
 #### Request
 
@@ -703,7 +703,7 @@ A debit card transaction creation is similar to that of a credit card, except fo
 }
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Name of payment method provider.|Text|15|Yes|
 |`Payment.Type`|Payment method type. In this case, "DebitCard".|Text|100|Yes|
@@ -927,7 +927,7 @@ It is possible to process a debit card without having to submit your customer to
 }
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Name of payment method provider. **Applicable to "Cielo30" only.**|Text|15|Yes|
 |`Payment.Type`|Payment method type. In this case, "DebitCard".|Text|100|Yes|
@@ -1042,7 +1042,7 @@ An authorization that is not captured by the deadline is automatically released 
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Store identifier in the API.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in the API.|Text 40|Yes (through header)|
@@ -1250,7 +1250,7 @@ In a standard authentication, as the merchant does not have a direct connection 
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Name of payment method provider.|Text|15|Yes|
 |`Payment.Type`|Payment method type.|Text|100|Yes|
@@ -1516,7 +1516,7 @@ Add the `Payment.ExternalAuthentication` node to the default contract, as shown.
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`Payment.ExternalAuthentication.Cavv`|Cavv value returned by external authentication mechanism.|Text|28|Yes|
 |`Payment.ExternalAuthentication.Xid`|Xid value returned by the external authentication mechanism.|Text|28|Yes|
@@ -1646,7 +1646,7 @@ To cancel a credit card transaction, you must send an HTTP message through the P
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Store identifier in the API.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in the API.|Text|40|Sim (through header)|
@@ -1927,7 +1927,7 @@ In the third step, the store system sends the transaction confirmation with the 
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`Id`|ID of the currency exchange action.|Text|50|Yes|
 |`Currency`|Customer's selected currency.|Numeric|4|Yes|
@@ -2110,7 +2110,7 @@ Here are examples of a request and response for generating the QR code Pix:
 --verbose
 ```
 
-| PROPERTY | DESCRIPTION| TYPE | SIZE | MANDATORY?|
+| PROPERTY | DESCRIPTION| TYPE | SIZE | REQUIRED?|
 | --- | --- | --- | --- | --- |
 | `MerchantOrderId` | Order ID number. | Text | 50 | Yes |
 | `Customer.Name`| Customer's name. | Text | 255 | Yes |
@@ -2214,7 +2214,7 @@ If the merchant needs to "cancel" a Pix transfer, it is possible to perform an o
 --verbose
 ```
 
-| PROPERTY | DESCRIPTION| TYPE | SIZE | MANDATORY?|
+| PROPERTY | DESCRIPTION| TYPE | SIZE | REQUIRED?|
 |-----------|---------|----|-------|-----------|
 | `MerchantId`| API store identifier. | GUID | 36|Yes |
 | `MerchantKey`| Public key for dual authentication in the API. | Text |40|Yes |
@@ -2308,7 +2308,7 @@ The example below covers the minimum required fields to be submitted for authori
 }
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Customer's name.|Text|255|No|
@@ -2419,7 +2419,7 @@ Here is a list of the migration/membership procedures (in Portuguese) for each b
 
 To generate boletos, customer's data such as ID number (CPF or CNPJ) and address must be provided. Below is an example of how to create a boleto as the payment method.
 
-The `Payment.FineRate` and `Payment.FineAmount` parameters must not be used together. The same rule applies to the `Payment.InterestRate` and `Payment.InterestAmount` parameters. They are all marked with an "\*" in the "MANDATORY" column,
+The `Payment.FineRate` and `Payment.FineAmount` parameters must not be used together. The same rule applies to the `Payment.InterestRate` and `Payment.InterestAmount` parameters. They are all marked with an "\*" in the "REQUIRED" column,
 
 #### Request
 
@@ -2512,7 +2512,7 @@ The `Payment.FineRate` and `Payment.FineAmount` parameters must not be used toge
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Store identifier at Braspag.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes (through header)|
@@ -2797,7 +2797,7 @@ To create a sale, you must send an HTTP message through the POST method to the *
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Store identifier in the API.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in the API.|Text|40|Sim (through header)|
@@ -3044,7 +3044,7 @@ A transaction with a voucher card is similar to a debit card transaction; only w
 }
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Name of the payment method provider. Currently only "Cielo" supports this form of payment via Pagador.|Text|15|Yes|
 |`Payment.Type`|Payment method type. In this case, "DebitCard".|Text|100|Yes|
@@ -3164,7 +3164,7 @@ The merchant counts with features that can be used to shape their charging syste
 
 Add the `RecurrentPayment` node to the `Payment` node to schedule future recurrences when authorizing a transaction for the first time in the recurrence series.
 
-The `Payment.RecurrentPayment.Interval` and `Payment.RecurrentPayment.DailyInterval` parameters, marked with an "\*" in the "MANDATORY" column, must not be used together. 
+The `Payment.RecurrentPayment.Interval` and `Payment.RecurrentPayment.DailyInterval` parameters, marked with an "\*" in the "REQUIRED" column, must not be used together. 
 
 #### Request
 
@@ -3281,7 +3281,7 @@ The `Payment.RecurrentPayment.Interval` and `Payment.RecurrentPayment.DailyInter
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Name of the payment method provider.|Text|15|Yes|
 |`Payment.Type`|Payment method type.|Text|100|Yes|
@@ -3487,7 +3487,7 @@ Contact our support team to determine in how many days you wish your boletos gen
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Name of the payment method provider.|Text|15|Yes|
 |`Payment.Type`|Type of payment method.|Text|100|Yes|
@@ -3740,7 +3740,7 @@ To schedule the first transaction in the recurrence series, pass the `Payment.Re
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Name of the payment method provider.|Text|15|Yes|
 |`Payment.Type`|Payment method type.|Text|100|Yes|
@@ -3925,7 +3925,7 @@ In **response** to your request, the API will return an [HTTP Status](https://br
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -3984,7 +3984,7 @@ To change the end date of the existing recurrence, just make a PUT call as in th
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -4023,7 +4023,7 @@ To change the range of an existing recurrence, just make a PUT call as shown in 
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -4068,7 +4068,7 @@ Take the following API updating rules into account when modifying the expiration
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -4108,7 +4108,7 @@ To modify the transaction value of an existing recurrence, simply make a PUT cal
 
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -4149,7 +4149,7 @@ To change only one next payment date, make a PUT call as shown in the example.
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -4238,7 +4238,7 @@ To change the payment details, simply make a PUT call as shown in the example.
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -4256,8 +4256,8 @@ To change the payment details, simply make a PUT call as shown in the example.
 |`CreditCard.Brand`|Card brand.|Text|10|Yes|
 |`Credentials.Code`|Affiliation generated by the acquirer.|Text|100|Yes|
 |`Credentials.Key`|Affiliation key/token generated by the acquirer.|Text|100|Yes|
-|`Credentials.Username`|User generated during the accreditation with the acquirer (providers like Rede and Getnet need a username and password for communicating, so this field is mandatory).|Text|50|No|
-|`Credentials.Password`|Password generated during the accreditation with the acquirer (providers like Rede and Getnet need a username and password for communicating, so this field is mandatory).|Text|50|No|
+|`Credentials.Username`|User generated during the accreditation with the acquirer (providers like Rede and Getnet need a username and password for communicating, so this field is required).|Text|50|No|
+|`Credentials.Password`|Password generated during the accreditation with the acquirer (providers like Rede and Getnet need a username and password for communicating, so this field is required).|Text|50|No|
 |`Credentials.Signature`|Submit the *TerminalID* from **Global Payments**. E.g.: 001. For **Safra**, include establishment name, city and state concatenated with a semicolon “;”. E.g.: StoreName;Sao Paulo;SP.|Text|3|No|
 
 #### Response
@@ -4288,7 +4288,7 @@ To deactivate a recurring request, simply make a PUT call as shown in the exampl
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -4323,7 +4323,7 @@ To reactivate a recurring request, simply make a PUT call as shown in the exampl
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -4603,7 +4603,7 @@ To save a credit card used in a transaction, simply send the `Payment.SaveCard` 
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Name of the payment method provider.|Text|15|Yes|
 |`Payment.Type`|Payment method type.|Text|100|Yes|
@@ -4869,7 +4869,7 @@ The `CreditCard` node within the `Payment` node will change as shown in the exam
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Name of the payment method provider.|Text|15|Yes|
 |`Payment.Type`|Payment method type.|Text|100|Yes|
@@ -5124,7 +5124,7 @@ This is an example of how to use the previously saved *alias* to create a transa
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`Payment.Provider`|Name of the payment method provider.|Text|15|Yes|
 |`Payment.Type`|Payment method type.|Text|100|Yes|
@@ -5593,7 +5593,7 @@ During the Cybersource deployment, additional information can be stored through 
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Store identifier at Braspag.|GUID|36|Yes|
 |`MerchantKey`|Public key for dual authentication with Braspag.|Text|40|Yes|
@@ -5691,7 +5691,7 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Departure airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm).|Text|3|No|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Arrival airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm).|Text|3|No|
 
-<aside class="warning">The fields of the "FraudAnalysis.Travel" node become mandatory if your business segment is the airline segment.</aside>
+<aside class="warning">The fields of the "FraudAnalysis.Travel" node become required if your business segment is the airline segment.</aside>
 
 ### Response
 
@@ -6295,7 +6295,7 @@ In order to query a credit card transaction via PaymentID, you must send an HTTP
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -6597,7 +6597,7 @@ In order to query a registered boleto transaction via PaymentID, you must send a
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -6803,7 +6803,7 @@ In order to query a sale by the store identifier, you must send an HTTP message 
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -6869,7 +6869,7 @@ In order to query a recurring order, you must send an HTTP message through the G
 --verbose
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|API store identifier.|GUID|36|Yes (through header)|
 |`MerchantKey`|Public key for dual authentication in API.|Text|40|Yes (through header)|
@@ -7010,7 +7010,7 @@ To receive notifications of status changes, you must have configured the URL Sta
 }
 ```
 
-|Property|Description|Type|Size|Mandatory?|
+|Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`RecurrentPaymentId`|Identifier representing the recurring order (only applicable for `ChangeType` "2" or "4").|GUID|36|No|
 |`PaymentId`|Identifier representing the transaction.|GUID|36|Yes|
@@ -7148,12 +7148,12 @@ A risk strategy is designed in accordance with your business needs, taking into 
 |1|Customer who logged in. Possible values: "{*customer_login*}" (if the final customer logs in to purchase on the site) / "Guest" (if the final customer makes the purchase as a visitor). Note: **Do not** submit the field if the sale is made directly by a third party (e.g.: an agent).|string|2|All|
 |2|How long (in days) the customer has been your customer. E.g.: 314.|int|3|All|
 |3|Quantity of order installments.|int|3|All|
-|4|Sales channel. Possible values: "Call Center" (phone purchase) / "Web" (web purchase) / "Portal" (purchase through agent) / "Kiosk" (kiosk  purchase) / "Mobile" (cell phone or tablet purchases). Note: When “Call Center”, the submission of field **39**(call center user name) is mandatory.|string|3|All|
+|4|Sales channel. Possible values: "Call Center" (phone purchase) / "Web" (web purchase) / "Portal" (purchase through agent) / "Kiosk" (kiosk  purchase) / "Mobile" (cell phone or tablet purchases). Note: When “Call Center”, the submission of field **39**(call center user name) is required.|string|3|All|
 |5|Coupon/discount code in case the customer uses it in the purchase.|string|1|All|
 |6|How long (in days) since customer's last purchase. E.g.: 55.|int|3|All|
 |7|Seller's code or name.|string|1|All|
 |8|Number of customer's attempts to pay one same order, which may have been using different credit cards and/or other payment methods.|int|2|All|
-|9|Identifies if the customer will pick up the product in the store. Possible values: "YES" / "NO". Note: When “YES”, the submission of field **22**(code of pick up store) is mandatory.|string|3|Retail or Cosmetics|
+|9|Identifies if the customer will pick up the product in the store. Possible values: "YES" / "NO". Note: When “YES”, the submission of field **22**(code of pick up store) is required.|string|3|Retail or Cosmetics|
 |10|Identifies whether payment will be made by someone not present on the trip or package. Possible values: "YES" / "NO".|string|3|Air or Tourism|
 |11|Hotel category (star rating). Possible values: "1" (simple) / "2"  (budget) / "3" (tourism) / "4" (superior) / "5" (luxury).|int|3|Tourism|
 |12|How long (in days) from purchase date to hotel check-in. E.g.: 123.|int|3|Tourism|
@@ -7161,7 +7161,7 @@ A risk strategy is designed in accordance with your business needs, taking into 
 |14|Trip or package category. <br> Possible values: "National" / "International" / "National/International".|string|3|Air or Tourism|
 |15|Name of airline / car rental /hotel. Note: Name each company name, separated by a "/".|string|2|Air or Tourism|
 |16|Reservation PNR code. When there is a reservation change for this PNR to an earlier flight date, it is important to apply a new fraud analysis by resubmitting this PNR.|string|3|Air|
-|17|Identifies if the reservation was brought forward. Possible values: "YES" / "NO". Note: When “YES”, the submission of field **16** (reservation PNR code) is mandatory.|string|3|Air|
+|17|Identifies if the reservation was brought forward. Possible values: "YES" / "NO". Note: When “YES”, the submission of field **16** (reservation PNR code) is required.|string|3|Air|
 |18|Rented vehicle category. Possible values: "1" (basic) / "2" (sport) / "3" (prime) / "4" (utility) / "5" (armored).|string|3|Tourism|
 |19|Identifies if the package refers to a cruise. Possible values: "YES" / "NO".|string|2|Tourism|
 |20|Decision of fraud review for the latest purchase. Possible values: "ACCEPT" / "REJECTED".|string|3|All|
