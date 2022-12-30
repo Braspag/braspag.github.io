@@ -115,7 +115,7 @@ After obtaining AccessToken OAuth2, you should send a new request (POST) to the 
 --verbose
 ```
 
-|Properties|Description|Type|Size|Mandatory?|
+|Properties|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Merchant identifier at Pagador.|GUID |36 |Yes|
 |`Authorization`|Bearer [AccessToken OAuth2]|Text |36 |Yes|
@@ -183,7 +183,7 @@ The establishment shall parameterize the form elements with the following classe
 |`enableBinQuery`|**true** if you want to enable BIN Query (returns card characteristics). **false** otherwise.|
 |`enableVerifyCard`|**true** if you want to enable ZeroAuth (returns if the card is valid or not). **false** otherwise.|
 |`enableTokenize`| **true** if you want to save the card directly on your vault in the Cartão Protegido (retorn a 'cardToken' instead of a 'paymentToken'). **false** otherwise.|
-|`cvvRequired`| "false" (unables CVV as mandatory) / "true" (CVV is mandatory). |
+|`cvvRequired`| "false" (unables CVV as required) / "true" (CVV is required). |
 
 **SCRIPT RESPONSE**
 
