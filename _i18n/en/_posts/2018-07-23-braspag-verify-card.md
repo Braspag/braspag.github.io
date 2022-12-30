@@ -65,7 +65,7 @@ To query data from a card, send a request through the POST HTTP verb to the Veri
 }
 ```
 
-|Property|Description|Type|Size|Mandatory|
+|Property|Description|Type|Size|Required|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Store identifier at Braspag.|Guid|36|Yes|
 |`MerchantKey`|Public key for dual authentication at Braspag.|Text|40|Yes|
