@@ -138,7 +138,7 @@ A solução disponibiliza dezenas de classes que devem ser mapeadas em seu códi
 
 Uma vez que a classe é mapeada em determinado campo, o script é capaz de recuperar o valor contido no campo e submetê-lo para compor a requisição de autenticação.
 
-<aside class="warning">Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco</aside>
+<aside class="warning">Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco.</aside>
 
 <aside class="notice">o caracter # indicados no campo deve ser substituído por número que representa o índice do item. Exemplo: bpmpi_item_1_productName representa o nome do item 1 do carrinho</aside>
 
@@ -235,6 +235,7 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | bpmpi_device_ipaddress | Endereço IP da máquina do comprador | Alfanumérico [até 45] | Não |
 | bpmpi_device_#_fingerprint | Id retornado pelo Device Finger Print | Alfanumérico [sem limitação] | Não |
 | bpmpi_device_#_provider | Nome do provedor do Device Finger Print | Alfanumérico [até 32 posições] cardinal<br>inauth<br>threatmetrix| Não |
+| bpmpi_device_channel | Canal por onde chegou a transação. Valores possíveis:<br>- Browser<br>- SDK<br>- 3RI | Alfanúmerico [até 7 posições] | Não |
 
 | **Dados específicos para companhias aéreas** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
