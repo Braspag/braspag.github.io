@@ -402,7 +402,7 @@
 
 <p>Uma vez que a classe é mapeada em determinado campo, o script é capaz de recuperar o valor contido no campo e submetê-lo para compor a requisição de autenticação.</p>
 
-<aside class="warning">Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco</aside>
+<aside class="warning">Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco.</aside>
 
 <aside class="notice">o caracter # indicados no campo deve ser substituído por número que representa o índice do item. Exemplo: bpmpi_item_1_productName representa o nome do item 1 do carrinho</aside>
 
@@ -926,6 +926,12 @@
       <td>bpmpi_device_#_provider</td>
       <td>Nome do provedor do Device Finger Print</td>
       <td>Alfanumérico [até 32 posições] cardinal<br />inauth<br />threatmetrix</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>bpmpi_device_channel</td>
+      <td>Canal por onde chegou a transação. Valores possíveis:<br />- Browser<br />- SDK<br />- 3RI</td>
+      <td>Alfanúmerico [até 7 posições]</td>
       <td>Não</td>
     </tr>
   </tbody>
