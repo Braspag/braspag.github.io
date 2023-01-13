@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Integração via SDK iOS
+title: Integração via SDK iOS - Versão Antiga
 description: Integração Técnica Gateway Braspag
 search: true
 translated: true
