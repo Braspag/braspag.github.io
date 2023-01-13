@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title:  SDKs Pagador Braspag
+title:  SDKs Pagador Braspag - Versão Antiga
 description: Lista de SDKs API Pagador
 toc_footers: true
 categories: tutorial
