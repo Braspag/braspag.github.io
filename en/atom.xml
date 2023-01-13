@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-01-13T18:09:32+00:00</updated>
+    <updated>2023-01-13T18:25:16+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -36420,7 +36420,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
         <id>https://braspag.github.io//en/tutorial/sdks-braspag</id>
         <content type="html">&lt;h1 id=&quot;software-development-kits---pagador&quot;&gt;Software Development Kits - Pagador&lt;/h1&gt;
 
-&lt;p&gt;Pagador offers a range of Software Development Kits (SDKs), written in Portuguese. They are available in our Braspag official repository in Github:&lt;/p&gt;
+&lt;aside class=&quot;warning&quot;&gt;Warning: Pagador's Software Development Kits (SDKs) have been discontinued. We do not support the development and implementation of SDKs.&lt;/aside&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -36473,11 +36473,21 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;|SDK Wallet                                                              |
-|————————————————————————|
-|&lt;a href=&quot;https://github.com/Braspag/braspag-apple-pay&quot;&gt;&lt;strong&gt;Apple Pay&lt;/strong&gt;&lt;/a&gt;           |
-|&lt;a href=&quot;https://github.com/Braspag/braspag-google-pay&quot;&gt;&lt;strong&gt;Google Pay&lt;/strong&gt;&lt;/a&gt;         |&lt;/p&gt;
-&lt;aside class=&quot;warning&quot;&gt;Warning: We do not offer support for the development and implementation of SDKs.&lt;/aside&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SDK Wallet&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/Braspag/braspag-apple-pay&quot;&gt;&lt;strong&gt;Apple Pay&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/Braspag/braspag-google-pay&quot;&gt;&lt;strong&gt;Google Pay&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 </content>
     </entry>
