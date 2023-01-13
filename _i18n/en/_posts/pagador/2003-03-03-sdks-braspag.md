@@ -12,7 +12,7 @@ tags:
 
 # Software Development Kits - Pagador
 
-Pagador offers a range of Software Development Kits (SDKs), written in Portuguese. They are available in our Braspag official repository in Github:
+<aside class="warning">Warning: Pagador's Software Development Kits (SDKs) have been discontinued. We do not support the development and implementation of SDKs.</aside>
 
 |SDK                                                                     |
 |------------------------------------------------------------------------|
@@ -34,7 +34,5 @@ Pagador offers a range of Software Development Kits (SDKs), written in Portugues
 |------------------------------------------------------------------------|
 |[**Apple Pay**](https://github.com/Braspag/braspag-apple-pay)           |
 |[**Google Pay**](https://github.com/Braspag/braspag-google-pay)         |
-<br>
-<br>
-<aside class="warning">Warning: We do not offer support for the development and implementation of SDKs.</aside>
+
 
