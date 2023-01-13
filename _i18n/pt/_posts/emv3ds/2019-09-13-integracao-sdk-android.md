@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Integração via SDK Android
+title: Integração via SDK Android - Versão Antiga
 description: Integração Técnica Gateway Braspag
 search: true
 translated: true
