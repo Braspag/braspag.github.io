@@ -40,6 +40,15 @@ bin/magento setup:di:compile
 
 > Você também pode fazer o download do conector direto no nosso [GitHub](https://github.com/Braspag/pagador-module-magento){:target="_blank"}.
 
+## Post de Notificação
+
+O módulo Magento possui um endpoint criado e preparado para receber as notificações de atualização de status da transação, como um boleto que foi pago, por exemplo. Assim, são feitas atualizações dos pedidos na loja.
+<br/>Para configurar a URL de sua loja aqui na Braspag, entre em contato conosco informando o seu `MerchantID` e a "URL de Notificação".
+
+<aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Magento).</aside>
+
+Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o) para mais informações sobre o Post de Notificação.
+
 # Configuração
 
 Siga as instruções de acesso para as configurações gerais do módulo Braspag:
@@ -152,15 +161,6 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |---|---|
 |**Client ID**|ID do cliente, disponibilizado pela Braspag.|
 |**Client Secret**|Chave secreta do cliente, disponibilizada pela Braspag.|
-
-## Post de Notificação
-
-O módulo Magento possui um endpoint criado e preparado para receber as notificações de atualização de status da transação, como um boleto que foi pago, por exemplo. Assim, são feitas atualizações dos pedidos na loja.
-<br/>Para configurar a URL de sua loja aqui na Braspag, entre em contato conosco informando o seu `MerchantID` e a "URL de Notificação".
-
-<aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Magento).</aside>
-
-Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o) para mais informações sobre o Post de Notificação.
 
 # Clientes
 
