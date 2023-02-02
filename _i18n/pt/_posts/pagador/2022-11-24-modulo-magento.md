@@ -64,7 +64,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 |Campo|Descrição|
 |---|---|
-|**Merchant ID**|ID da loja, disponibilizado pela Braspag.|
+|**ID do Comerciante**|ID da loja, disponibilizado pela Braspag.|
 |**Merchant Key**|Chave da loja, disponibilizada pela Braspag.|
 |**Merchant Name**|Nome da loja, disponibilizado pela Braspag.|
 |**Establishment Code**|Código de estabelecimento da loja, disponibilizado pela Braspag.|
@@ -141,17 +141,17 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 |Campo|Descrição|
 |---|---|
-|**Enable/Disable**|Ativa ("Yes") ou desativa ("No") o método de pagamento boleto.|
-|**Title**|Título do método de pagamento boleto exibido no checkout.|
-|**Type**|*Provider* utilizado para o método de pagamento boleto.|
+|**Habilitado**|Ativa ("Yes") ou desativa ("No") o método de pagamento boleto.|
+|**Título**|Título do método de pagamento boleto exibido no checkout.|
+|**Tipo**|*Provider* utilizado para o método de pagamento boleto.|
 |**Demonstrative**|Instruções de pagamento no boleto para o cliente.|
-|**Instructions**|Instruções de pagamento no boleto para o banco.|
+|**Instruções**|Instruções de pagamento no boleto para o banco.|
 |**Assignor**|Nome do cedente para o método de pagamento boleto.|
 |**Assignor Address**|Endereço do cedente para o método de pagamento boleto.|
-|**Identification**|CNPJ do cedente para o método de pagamento boleto.|
-|**Expiration Day**|Dias para a expiração do boleto.|
-|**New Order Status**|Status padrão de um novo pedido para o método de pagamento boleto.|
-|**Sort Order**|Ordem de exibição do método de pagamento boleto no front da loja.|
+|**Identificaçãp**|CNPJ do cedente para o método de pagamento boleto.|
+|**Expirations Day**|Dias para a expiração do boleto.|
+|**Novo status do pedido**|Status padrão de um novo pedido para o método de pagamento boleto.|
+|**Ordenação**|Ordem de exibição do método de pagamento boleto no front da loja.|
 
 **Visualização Final**
 
@@ -171,16 +171,15 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 |Campo|Descrição|
 |---|---|
-|**Enable/Disable**|Ativa ("Yes") ou desativa ("No") o método de pagamento cartão de crédito.|
-|**Title**|Título do método de pagamento cartão de crédito exibido no checkout.|
-|**Description**|Descrição do método de pagamento cartão de crédito exibido no checkout.|
+|**Habilitado**|Ativa ("Yes") ou desativa ("No") o método de pagamento cartão de crédito.|
+|**Título**|Título do método de pagamento cartão de crédito exibido no checkout.|
 |**Decimal Grand Total**|Decimais permitidos no valor total do pedido para o método de pagamento cartão de crédito.|
-|**Payment Action**|Ação do pagamento.<br>"Authorize Only" - apenas autorização. / "Authorize and Capture" - autoriza e captura a transação.|
-|**New Order Status**|Status padrão de um novo pedido para o método de pagamento cartão de crédito.|
+|**Ação de Pagamento**|Ação do pagamento.<br>"Authorize Only" - apenas autorização. / "Authorize and Capture" - autoriza e captura a transação.|
+|**Novo status do pedido**|Status padrão de um novo pedido para o método de pagamento cartão de crédito.|
 |**Review Order Status**|Status padrão de um novo pedido para o método de pagamento cartão de crédito quando o mesmo fica com o status “Em revisão” na Braspag. **ANTI FRAUD***|
 |**Reject Order Status**|Status padrão de um novo pedido para o método de pagamento cartão de crédito quando o mesmo fica com o status “Rejeitado” na Braspag. **ANTI FRAUD***|
 |**Create Invoice on Notification Return Captured Status**|Ativa ("Yes") ou desativa ("No") a criação de fatura após notificação de captura no método de pagamento cartão de crédito.|
-|**Sort Order**|Ordem de exibição do método de pagamento cartão de crédito no front da loja.|
+|**Ordenação**|Ordem de exibição do método de pagamento cartão de crédito no front da loja.|
 
 ### Types
 
@@ -198,12 +197,10 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos para ca
 
 |Campo|Descrição|
 |---|---|
-|**Active**|Ativa ("Yes") ou inativa ("No") o parcelamento para o método de pagamento cartão de crédito.|
-|**Number**|Número de parcelamentos para o método de pagamento cartão de crédito.|
+|**Ativo**|Ativa ("Yes") ou inativa ("No") o parcelamento para o método de pagamento cartão de crédito.|
+|**Número**|Número de parcelamentos para o método de pagamento cartão de crédito.|
 |**Min Amount**|Valor mínimo para ativar o parcelamento para o método de pagamento cartão de crédito.|
 |**Interest by Issuer**|Ativa os juros de parcelamento para o método de pagamento cartão de crédito.|
-|**Interest Rate (%)**|Porcentagem dos juros para o método de pagamento cartão de crédito.|
-|**Max Without Interest**|Determina a partir de qual número de parcelamentos os juros serão adicionados para o método de pagamento cartão de crédito.|
 
 ### Silent Order Post
 
@@ -212,7 +209,7 @@ A imagem a seguir mostra o campo de configuração a ser preenchido para cartão
 
 |Campo|Descrição|
 |---|---|
-|**Active**|Ativa ("Yes") ou inativa ("No") a tokenização do cartão para o método de pagamento cartão de crédito.|
+|**Ativo**|Ativa ("Yes") ou inativa ("No") a tokenização do cartão para o método de pagamento cartão de crédito.|
 
 ### Autenticação 3DS 2.0
 
@@ -221,8 +218,8 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos para ca
 
 |Campo|Descrição|
 |---|---|
-|**Enable**|Ativa ("Yes") ou desativa ("No") a Autenticação 3DS 2.0 para o método de pagamento cartão de crédito.|
-|**MasterCard - Notify Only**|Ativa ("Yes") ou desativa ("No") a notificação para a autenticação 3DS 2.0 caso a bandeira do cartão seja MasterCard.|
+|**Ativo**|Ativa ("Yes") ou desativa ("No") a Autenticação 3DS 2.0 para o método de pagamento cartão de crédito.|
+|**Master Card - Notify Only**|Ativa ("Yes") ou desativa ("No") a notificação para a autenticação 3DS 2.0 caso a bandeira do cartão seja MasterCard.|
 |**Authorization On Error**|Ativa ("Yes") ou desativa ("No") a autorização da transação em caso de erro na Autenticação 3DS 2.0.|
 |**Authorization On Failure**|Ativa ("Yes") ou desativa ("No") a autorização da transação em caso de falha na Autenticação 3DS 2.0.|
 |**Authorization On Unenrolled**|Ativa ("Yes") ou desativa ("No") a autorização da transação em caso de não inscrição na Autenticação 3DS 2.0.|
@@ -235,7 +232,7 @@ A imagem a seguir mostra o campo de configuração a ser preenchido para cartão
 
 |Campo|Descrição|
 |---|---|
-|**Active**|Ativa ("Yes") ou desativa ("No") o Serviço de Verificação do Endereço para o método de pagamento cartão de crédito. Quando ativado, a informação do endereço será relevante para a autorização da transação. Será feita a comparação do endereço salvo no banco emissor do cartão com o informado no momento da compra.|
+|**Ativo**|Ativa ("Yes") ou desativa ("No") o Serviço de Verificação do Endereço para o método de pagamento cartão de crédito. Quando ativado, a informação do endereço será relevante para a autorização da transação. Será feita a comparação do endereço salvo no banco emissor do cartão com o informado no momento da compra.|
 
 ### Checkout Card View
 
@@ -269,11 +266,11 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 |Campo|Descrição|
 |---|---|
-|**Enable/Disable**|Ativa ("Yes") ou desativa ("No") o método de pagamento cartão de crédito JustClick.|
-|**Title**|Título do método de pagamento cartão de crédito JustClick exibido no checkout.|
-|**Payment Action**|Ação do pagamento, no momento de fechamento do pedido no checkout da loja.<br>"Authorize Only" - apenas autorização. / "Authorize and Capture" - autoriza e captura a transação.|
-|**New Order Status**|Status padrão de um novo pedido para o método de pagamento cartão de crédito JustClick.|
-|**Sort Order**|Ordem de exibição do método de pagamento cartão de crédito no front da loja.|
+|**Habilitado**|Ativa ("Yes") ou desativa ("No") o método de pagamento cartão de crédito JustClick.|
+|**Título**|Título do método de pagamento cartão de crédito JustClick exibido no checkout.|
+|**Ação de pagamento**|Ação do pagamento, no momento de fechamento do pedido no checkout da loja.<br>"Authorize Only" - apenas autorização. / "Authorize and Capture" - autoriza e captura a transação.|
+|**Novo status do pedido**|Status padrão de um novo pedido para o método de pagamento cartão de crédito JustClick.|
+|**Ordenação**|Ordem de exibição do método de pagamento cartão de crédito no front da loja.|
 
 ### Installments
 
@@ -282,12 +279,10 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 |Campo|Descrição|
 |---|---|
-|**Active**|Adquirentes e bandeiras disponíveis para o método de pagamento cartão de crédito JustClick.|
-|**Number**|Número de parcelamentos para o método de pagamento cartão de crédito JustClick.|
+|**Ativo**|Adquirentes e bandeiras disponíveis para o método de pagamento cartão de crédito JustClick.|
+|**Número**|Número de parcelamentos para o método de pagamento cartão de crédito JustClick.|
 |**Min Amount**|Valor mínimo para ativar o parcelamento para o método de pagamento cartão de crédito JustClick.|
 |**Interest by Issuer**|Ativa os juros de parcelamento para o método de pagamento cartão de crédito JustClick.|
-|**Interest Rate (%)**|Porcentagem dos juros para o método de pagamento cartão de crédito JustClick.|
-|**Max Without Interest**|Determina a partir de qual número de parcelamentos os juros serão adicionados para o método de pagamento cartão de crédito JustClick.|
 
 ## Cartão de Débito
 
@@ -303,11 +298,11 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 |Campo|Descrição|
 |---|---|
-|**Enable/Disable**|Ativa ("Yes") ou desativa ("No") o método de pagamento cartão de débito.|
-|**Title**|Título do método de pagamento cartão de débito exibido no checkout.|
-|**New Order Status**|Status padrão de um novo pedido para o método de pagamento cartão de débito.|
+|**Habilitado**|Ativa ("Yes") ou desativa ("No") o método de pagamento cartão de débito.|
+|**Título**|Título do método de pagamento cartão de débito exibido no checkout.|
+|**Novo status do pedido**|Status padrão de um novo pedido para o método de pagamento cartão de débito.|
 |**Super Débito**|Ativa ("Yes") ou desativa ("No") o super débito para o método de pagamento cartão de débito.|
-|**Sort Order**|Ordem de exibição do método de pagamento cartão de débito no front da loja.|
+|**Ordenação**|Ordem de exibição do método de pagamento cartão de débito no front da loja.|
 |**Redirect After Place Order?**|Ativa ("Yes") ou desativa ("No") o redirecionamento para a autenticação após a finalização do pedido para o método de pagamento cartão de débito.|
 
 ### Types
@@ -326,8 +321,8 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos para ca
 
 |Campo|Descrição|
 |---|---|
-|**Enable**|Ativa ("Yes") ou desativa ("No") a Autenticação 3DS 2.0 para o método de pagamento cartão de débito.|
-|**MasterCard - Notify Only**|Ativa ("Yes") ou desativa ("No") a notificação para a autenticação 3DS 2.0 caso a bandeira do cartão seja MasterCard.|
+|**Ativo**|Ativa ("Yes") ou desativa ("No") a Autenticação 3DS 2.0 para o método de pagamento cartão de débito.|
+|**Master Card - Notify Only**|Ativa ("Yes") ou desativa ("No") a notificação para a autenticação 3DS 2.0 caso a bandeira do cartão seja MasterCard.|
 |**Authorization On Error**|Ativa ("Yes") ou desativa ("No") a autorização da transação em caso de erro na Autenticação 3DS 2.0.|
 |**Authorization On Failure**|Ativa ("Yes") ou desativa ("No") a autorização da transação em caso de falha na Autenticação 3DS 2.0.|
 |**Authorization On Unenrolled**|Ativa ("Yes") ou desativa ("No") a autorização da transação em caso de não inscrição na Autenticação 3DS 2.0.|
@@ -340,7 +335,7 @@ A imagem a seguir mostra o campo de configuração a ser preenchido para cartão
 
 |Campo|Descrição|
 |---|---|
-|**Active**|Ativa ("Yes") ou desativa ("No") o Serviço de Verificação do Endereço para o método de pagamento cartão de crédito. Quando ativado, a informação do endereço será relevante para a autorização da transação. Será feita a comparação do endereço salvo no banco emissor do cartão com o informado no momento da compra.|
+|**Ativo**|Ativa ("Yes") ou desativa ("No") o Serviço de Verificação do Endereço para o método de pagamento cartão de crédito. Quando ativado, a informação do endereço será relevante para a autorização da transação. Será feita a comparação do endereço salvo no banco emissor do cartão com o informado no momento da compra.|
 
 ### Checkout Card View
 
@@ -349,7 +344,7 @@ A imagem a seguir mostra o campo de configuração a ser preenchido para cartão
 
 |Campo|Descrição|
 |---|---|
-|**Active**|Ativa ("Yes") ou desativa ("No") a exibição de animação com a imagem do cartão de débito no checkout para o método de pagamento cartão de débito.|
+|**Ativo**|Ativa ("Yes") ou desativa ("No") a exibição de animação com a imagem do cartão de débito no checkout para o método de pagamento cartão de débito.|
 
 A visão do método de pagamento cartão de débito, após a configuração na loja, será a seguinte:
 ![Cartão de Débito]({{ site.baseurl_root }}/images/braspag/pagador/magento/006d4-debitoview.png)
@@ -365,7 +360,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |**Habilitado**|Habilita (“Sim”) ou não (“Não”) o tipo de pagamento Pix.|
 |**Título**|Título exibido no método de pagamento da tela de checkout|
 |**Tipo**|Nome do provedor do meio de pagamento. Neste caso, “Cielo30” ou “Bradesco2”. “Simulado” é o provedor para o ambiente sandbox e deve ser utilizado com as credenciais de sandbox.|
-|**Demonstrativo**|Mensagem informativa exibida na tela de checkout da loja.|
+|**Demonstrative**|Mensagem informativa exibida na tela de checkout da loja.|
 |**Identificação**|Título exibido no aplicativo bancário.|
 |**Expirations Time**|Tempo de expiração do QR Code, em minutos. Este tempo varia de acordo com o provedor.|
 |**Novo status do pedido**|Configura a situação do pedido para novo pedido. As opções são exibidas conforme configurado no menu Lojas > Situação do Pedido. Default: ‘Pending’.|
@@ -373,7 +368,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |**Ordenação***|Ordem de exibição do método de pagamento na tela de checkout da loja.|
 |**Automatic canceling of expired orders**|Habilita (“Sim”) ou não (“Não”) o cancelamento de pedidos que tiveram o QR Code expirado.|
 |**Logo**|Imagem para ser exibida ao lado do QR Code.|
-|**Display Title next to logo**|Título exibido ao lado da imagem.|
+|**Display Title next to Logo**|Título exibido ao lado da imagem.|
 
 # Antifraude
 
@@ -387,7 +382,7 @@ A imagem a seguir mostra o campo de configuração a ser preenchido na seção *
 
 |Campo|Descrição|
 |---|---|
-|**Enable/Disable**|Ativa ("Yes") ou desativa ("No") o antifraude.|
+|**Habilitado**|Ativa ("Yes") ou desativa ("No") o antifraude.|
 
 Além da ativação do antifraude, nesta aba são também configurados o Fingerprint, as opções de sequência e captura do antifraude e os MDDs (Merchant Defined Data).
 
@@ -401,7 +396,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |Campo|Descrição|
 |---|---|
 |**Org ID**|Fingerprint Org ID, disponibilizado pela Braspag.|
-|**Merchant ID**|Fingerprint Merchant ID, disponibilizado pela Braspag.|
+|**ID do Comerciante**|Fingerprint Merchant ID, disponibilizado pela Braspag.|
 |**Use Order ID to Fingerprint**|Ativa ("Yes") ou desativa ("No") a utilização do ID do pedido na composição do fingerprint.|
 
 ## Options
@@ -423,7 +418,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 |Campo|Descrição|
 |---|---|
-|**Customer Fetch Self Shipping Method**|Método de entrega do cliente.|
+|**Customer fetch self Shipping Method**|Método de entrega do cliente.|
 |**Store Code From Customer Fetch Self**|Código da loja do cliente.|
 |**Vertical Segment**|Segmento da loja.|
 |**Store Identity (CNPJ)**|CNPJ da loja.|
