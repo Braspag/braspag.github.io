@@ -245,7 +245,7 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Merchant ID</strong></td>
+      <td><strong>Id do Comerciante</strong></td>
       <td>ID da loja, disponibilizado pela Braspag.</td>
     </tr>
     <tr>
@@ -427,10 +427,6 @@ bin/magento setup:di:compile
       <td><strong>Fixed value in sales participation</strong></td>
       <td>Valor fixo que será direcionado à loja durante o split de pagamentos caso a loja participe das vendas no tipo de participação “Fixed value”.</td>
     </tr>
-    <tr>
-      <td><strong>Percent value in sales participation</strong></td>
-      <td>Percentual que será direcionado à loja durante o split de pagamentos caso a loja participe das vendas no tipo de participação “Percent”.</td>
-    </tr>
   </tbody>
 </table>
 
@@ -516,15 +512,15 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Enable/Disable</strong></td>
+      <td><strong>Habilitado</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) o método de pagamento boleto.</td>
     </tr>
     <tr>
-      <td><strong>Title</strong></td>
+      <td><strong>Título</strong></td>
       <td>Título do método de pagamento boleto exibido no checkout.</td>
     </tr>
     <tr>
-      <td><strong>Type</strong></td>
+      <td><strong>Tipo</strong></td>
       <td><em>Provider</em> utilizado para o método de pagamento boleto.</td>
     </tr>
     <tr>
@@ -532,7 +528,7 @@ bin/magento setup:di:compile
       <td>Instruções de pagamento no boleto para o cliente.</td>
     </tr>
     <tr>
-      <td><strong>Instructions</strong></td>
+      <td><strong>Instruções</strong></td>
       <td>Instruções de pagamento no boleto para o banco.</td>
     </tr>
     <tr>
@@ -544,19 +540,19 @@ bin/magento setup:di:compile
       <td>Endereço do cedente para o método de pagamento boleto.</td>
     </tr>
     <tr>
-      <td><strong>Identification</strong></td>
+      <td><strong>Identificação</strong></td>
       <td>CNPJ do cedente para o método de pagamento boleto.</td>
     </tr>
     <tr>
-      <td><strong>Expiration Day</strong></td>
+      <td><strong>Expirations Day</strong></td>
       <td>Dias para a expiração do boleto.</td>
     </tr>
     <tr>
-      <td><strong>New Order Status</strong></td>
+      <td><strong>Novo status do pedido</strong></td>
       <td>Status padrão de um novo pedido para o método de pagamento boleto.</td>
     </tr>
     <tr>
-      <td><strong>Sort Order</strong></td>
+      <td><strong>Ordenação</strong></td>
       <td>Ordem de exibição do método de pagamento boleto no front da loja.</td>
     </tr>
   </tbody>
@@ -578,20 +574,12 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Active</strong></td>
+      <td><strong>Ativo</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) o split de pagamentos para o método de pagamento boleto.</td>
     </tr>
     <tr>
       <td><strong>Split Type</strong></td>
       <td>Tipo do split de pagamentos para o método de pagamento boleto.<br />“Transactional” - o split de pagamentos é enviado no momento da finalização do pedido. / “Transactional Post” - o split de pagamentos é enviado em um momento posterior ao da finalização do pedido. Esse momento é determinado nas configurações abaixo.</td>
-    </tr>
-    <tr>
-      <td><strong>Transactional Post Sends Request Automatically?</strong></td>
-      <td>Ativa (“Yes”) ou desativa (“No”) o envio do split de pagamentos via CRON, de forma automática, ao invés do envio manual. Este campo só é exibido quando o tipo de split de pagamentos é “Transactional Post”.</td>
-    </tr>
-    <tr>
-      <td><strong>Transactional Post Sends Request Automatically After (Days)</strong></td>
-      <td>Após quantos dias da finalização do pedido o split de pagamentos deverá ser enviado de forma automática (CRON). Este campo só é exibido quando o tipo de split de pagamentos é “Transactional Post”. De acordo com a documentação, a Braspag permite “20 dias” (campo numérico) como valor máximo.</td>
     </tr>
     <tr>
       <td><strong>Default Store MDR</strong></td>
@@ -631,27 +619,23 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Enable/Disable</strong></td>
+      <td><strong>Habilitado</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) o método de pagamento cartão de crédito.</td>
     </tr>
     <tr>
-      <td><strong>Title</strong></td>
+      <td><strong>Título</strong></td>
       <td>Título do método de pagamento cartão de crédito exibido no checkout.</td>
-    </tr>
-    <tr>
-      <td><strong>Description</strong></td>
-      <td>Descrição do método de pagamento cartão de crédito exibido no checkout.</td>
     </tr>
     <tr>
       <td><strong>Decimal Grand Total</strong></td>
       <td>Decimais permitidos no valor total do pedido para o método de pagamento cartão de crédito.</td>
     </tr>
     <tr>
-      <td><strong>Payment Action</strong></td>
+      <td><strong>Ação de Pagamento</strong></td>
       <td>Ação do pagamento.<br />“Authorize Only” - apenas autorização. / “Authorize and Capture” - autoriza e captura a transação.</td>
     </tr>
     <tr>
-      <td><strong>New Order Status</strong></td>
+      <td><strong>Novo status do pedido</strong></td>
       <td>Status padrão de um novo pedido para o método de pagamento cartão de crédito.</td>
     </tr>
     <tr>
@@ -667,7 +651,7 @@ bin/magento setup:di:compile
       <td>Ativa (“Yes”) ou desativa (“No”) a criação de fatura após notificação de captura no método de pagamento cartão de crédito.</td>
     </tr>
     <tr>
-      <td><strong>Sort Order</strong></td>
+      <td><strong>Ordenação</strong></td>
       <td>Ordem de exibição do método de pagamento cartão de crédito no front da loja.</td>
     </tr>
   </tbody>
@@ -707,11 +691,11 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Active</strong></td>
+      <td><strong>Ativo</strong></td>
       <td>Ativa (“Yes”) ou inativa (“No”) o parcelamento para o método de pagamento cartão de crédito.</td>
     </tr>
     <tr>
-      <td><strong>Number</strong></td>
+      <td><strong>Número</strong></td>
       <td>Número de parcelamentos para o método de pagamento cartão de crédito.</td>
     </tr>
     <tr>
@@ -721,14 +705,6 @@ bin/magento setup:di:compile
     <tr>
       <td><strong>Interest by Issuer</strong></td>
       <td>Ativa os juros de parcelamento para o método de pagamento cartão de crédito.</td>
-    </tr>
-    <tr>
-      <td><strong>Interest Rate (%)</strong></td>
-      <td>Porcentagem dos juros para o método de pagamento cartão de crédito.</td>
-    </tr>
-    <tr>
-      <td><strong>Max Without Interest</strong></td>
-      <td>Determina a partir de qual número de parcelamentos os juros serão adicionados para o método de pagamento cartão de crédito.</td>
     </tr>
   </tbody>
 </table>
@@ -747,7 +723,7 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Active</strong></td>
+      <td><strong>Ativo</strong></td>
       <td>Ativa (“Yes”) ou inativa (“No”) a tokenização do cartão para o método de pagamento cartão de crédito.</td>
     </tr>
   </tbody>
@@ -767,11 +743,11 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Enable</strong></td>
+      <td><strong>Ativo</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) a Autenticação 3DS 2.0 para o método de pagamento cartão de crédito.</td>
     </tr>
     <tr>
-      <td><strong>MasterCard - Notify Only</strong></td>
+      <td><strong>Master Card - Notify Only</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) a notificação para a autenticação 3DS 2.0 caso a bandeira do cartão seja MasterCard.</td>
     </tr>
     <tr>
@@ -809,20 +785,12 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Active</strong></td>
+      <td><strong>Ativo</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) o split de pagamentos para o método de pagamento cartão de crédito.</td>
     </tr>
     <tr>
       <td><strong>Split Type</strong></td>
       <td>Tipo do split de pagamentos para o método de pagamento cartão de crédito.<br />“Transactional” - o split de pagamentos é enviado no momento da finalização do pedido. / “Transactional Post” - o split de pagamentos é enviado em um momento posterior ao da finalização do pedido. Esse momento é determinado nas configurações abaixo.</td>
-    </tr>
-    <tr>
-      <td><strong>Transactional Post Sends Request Automatically?</strong></td>
-      <td>Ativa (“Yes”) ou desativa (“No”) o envio do split de pagamentos via CRON, de forma automática, ao invés do envio manual. Este campo só é exibido quando o tipo de split de pagamentos é “Transactional Post”.</td>
-    </tr>
-    <tr>
-      <td><strong>Transactional Post Sends Request Automatically After (Days)</strong></td>
-      <td>Após quantos dias da finalização do pedido o split de pagamentos deverá ser enviado de forma automática (CRON). Este campo só é exibido quando o tipo de split de pagamentos é “Transactional Post”. De acordo com a documentação, a Braspag permite “20 dias” (campo numérico) como valor máximo.</td>
     </tr>
     <tr>
       <td><strong>Default Store MDR</strong></td>
@@ -849,7 +817,7 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Active</strong></td>
+      <td><strong>Ativo</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) o Serviço de Verificação do Endereço para o método de pagamento cartão de crédito. Quando ativado, a informação do endereço será relevante para a autorização da transação. Será feita a comparação do endereço salvo no banco emissor do cartão com o informado no momento da compra.</td>
     </tr>
   </tbody>
@@ -869,7 +837,7 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Active</strong></td>
+      <td><strong>Ativo</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) a exibição da animação com a imagem do cartão de crédito no checkout para o método de pagamento cartão de crédito.</td>
     </tr>
   </tbody>
@@ -905,23 +873,23 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Enable/Disable</strong></td>
+      <td><strong>Habilitado</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) o método de pagamento cartão de crédito JustClick.</td>
     </tr>
     <tr>
-      <td><strong>Title</strong></td>
+      <td><strong>Título</strong></td>
       <td>Título do método de pagamento cartão de crédito JustClick exibido no checkout.</td>
     </tr>
     <tr>
-      <td><strong>Payment Action</strong></td>
+      <td><strong>Ação de Pagamento</strong></td>
       <td>Ação do pagamento, no momento de fechamento do pedido no checkout da loja.<br />“Authorize Only” - apenas autorização. / “Authorize and Capture” - autoriza e captura a transação.</td>
     </tr>
     <tr>
-      <td><strong>New Order Status</strong></td>
+      <td><strong>Novo status do pedido</strong></td>
       <td>Status padrão de um novo pedido para o método de pagamento cartão de crédito JustClick.</td>
     </tr>
     <tr>
-      <td><strong>Sort Order</strong></td>
+      <td><strong>Ordenação</strong></td>
       <td>Ordem de exibição do método de pagamento cartão de crédito no front da loja.</td>
     </tr>
   </tbody>
@@ -941,11 +909,11 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Active</strong></td>
+      <td><strong>Ativo</strong></td>
       <td>Adquirentes e bandeiras disponíveis para o método de pagamento cartão de crédito JustClick.</td>
     </tr>
     <tr>
-      <td><strong>Number</strong></td>
+      <td><strong>Número</strong></td>
       <td>Número de parcelamentos para o método de pagamento cartão de crédito JustClick.</td>
     </tr>
     <tr>
@@ -955,14 +923,6 @@ bin/magento setup:di:compile
     <tr>
       <td><strong>Interest by Issuer</strong></td>
       <td>Ativa os juros de parcelamento para o método de pagamento cartão de crédito JustClick.</td>
-    </tr>
-    <tr>
-      <td><strong>Interest Rate (%)</strong></td>
-      <td>Porcentagem dos juros para o método de pagamento cartão de crédito JustClick.</td>
-    </tr>
-    <tr>
-      <td><strong>Max Without Interest</strong></td>
-      <td>Determina a partir de qual número de parcelamentos os juros serão adicionados para o método de pagamento cartão de crédito JustClick.</td>
     </tr>
   </tbody>
 </table>
@@ -990,15 +950,15 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Enable/Disable</strong></td>
+      <td><strong>Habilitado</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) o método de pagamento cartão de débito.</td>
     </tr>
     <tr>
-      <td><strong>Title</strong></td>
+      <td><strong>Título</strong></td>
       <td>Título do método de pagamento cartão de débito exibido no checkout.</td>
     </tr>
     <tr>
-      <td><strong>New Order Status</strong></td>
+      <td><strong>Novo status do pedido</strong></td>
       <td>Status padrão de um novo pedido para o método de pagamento cartão de débito.</td>
     </tr>
     <tr>
@@ -1006,7 +966,7 @@ bin/magento setup:di:compile
       <td>Ativa (“Yes”) ou desativa (“No”) o super débito para o método de pagamento cartão de débito.</td>
     </tr>
     <tr>
-      <td><strong>Sort Order</strong></td>
+      <td><strong>Ordenação</strong></td>
       <td>Ordem de exibição do método de pagamento cartão de débito no front da loja.</td>
     </tr>
     <tr>
@@ -1092,20 +1052,12 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Active</strong></td>
+      <td><strong>Ativo</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) o split de pagamentos para o método de pagamento cartão de débito.</td>
     </tr>
     <tr>
       <td><strong>Split Type</strong></td>
       <td>Tipo do split de pagamentos para o método de pagamento cartão de débito.<br />“Transactional” - o split de pagamentos é enviado no momento da finalização do pedido. / “Transactional Post” - o split de pagamentos é enviado em um momento posterior ao da finalização do pedido. Esse momento é determinado nas configurações abaixo.</td>
-    </tr>
-    <tr>
-      <td><strong>Transactional Post Sends Request Automatically?</strong></td>
-      <td>Ativa (“Yes”) ou desativa (“No”) o envio do split de pagamentos via CRON, de forma automática, ao invés do envio manual. Este campo só é exibido quando o tipo de split de pagamentos é “Transactional Post”.</td>
-    </tr>
-    <tr>
-      <td><strong>Transactional Post Sends Request Automatically After (Days)</strong></td>
-      <td>Após quantos dias da finalização do pedido o split de pagamentos deverá ser enviado de forma automática (CRON). Este campo só é exibido quando o tipo de split de pagamentos é “Transactional Post”. De acordo com a documentação, a Braspag permite “20 dias” (campo numérico) como valor máximo.</td>
     </tr>
     <tr>
       <td><strong>Default Store MDR</strong></td>
@@ -1132,7 +1084,7 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Active</strong></td>
+      <td><strong>Ativo</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) o Serviço de Verificação do Endereço para o método de pagamento cartão de crédito. Quando ativado, a informação do endereço será relevante para a autorização da transação. Será feita a comparação do endereço salvo no banco emissor do cartão com o informado no momento da compra.</td>
     </tr>
   </tbody>
@@ -1188,7 +1140,7 @@ bin/magento setup:di:compile
       <td>Nome do provedor do meio de pagamento. Neste caso, “Cielo30” ou “Bradesco2”. “Simulado” é o provedor para o ambiente sandbox e deve ser utilizado com as credenciais de sandbox.</td>
     </tr>
     <tr>
-      <td><strong>Demonstrativo</strong></td>
+      <td><strong>Demonstrative</strong></td>
       <td>Mensagem informativa exibida na tela de checkout da loja.</td>
     </tr>
     <tr>
@@ -1220,7 +1172,7 @@ bin/magento setup:di:compile
       <td>Imagem para ser exibida ao lado do QR Code.</td>
     </tr>
     <tr>
-      <td><strong>Display Title next to logo</strong></td>
+      <td><strong>Display Title next to Logo</strong></td>
       <td>Título exibido ao lado da imagem.</td>
     </tr>
   </tbody>
@@ -1242,7 +1194,7 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Enable/Disable</strong></td>
+      <td><strong>Habilitado</strong></td>
       <td>Ativa (“Yes”) ou desativa (“No”) o antifraude.</td>
     </tr>
   </tbody>
@@ -1270,7 +1222,7 @@ bin/magento setup:di:compile
       <td>Fingerprint Org ID, disponibilizado pela Braspag.</td>
     </tr>
     <tr>
-      <td><strong>Merchant ID</strong></td>
+      <td><strong>ID do Comerciante</strong></td>
       <td>Fingerprint Merchant ID, disponibilizado pela Braspag.</td>
     </tr>
     <tr>
@@ -1326,7 +1278,7 @@ bin/magento setup:di:compile
   </thead>
   <tbody>
     <tr>
-      <td><strong>Customer Fetch Self Shipping Method</strong></td>
+      <td><strong>Customer fetch self Shipping Method</strong></td>
       <td>Método de entrega do cliente.</td>
     </tr>
     <tr>
