@@ -1,123 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt">
-    <head>
-    <link href="http://gmpg.org/xfn/11" rel="profile">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="theme-color" content="#00aeef">
-    <meta http-equiv="Content-Language" content="pt">
+<p>20230120-magento2.0</p>
 
-    <!-- Enable responsiveness on mobile devices-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<hr />
+<p>layout: tutorial
+title:  Módulo Magento 2.0
+description: Como Integrar sua Loja Magento com o Módulo de Pagamentos Braspag
+toc_footers: false
+categories: tutorial
+translated: true
+sort_order: 1
+tags:
+    - 2. Módulos e SDKs</p>
 
-    <title>
-        
-        Módulo Magento 2.0 &middot; Braspag Developers - Manuais
-        
-    </title>
+<hr />
 
-    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
-
-    <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
-
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
-
-    
-        
-            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//tutorial/modulo-magento" />
-        
-    
-        
-            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/tutorial/modulo-magento" />
-        
-    
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
-</head>
-
-    <body>
-        
-            <div class="content-container no-dark-box">
-        
-            <div id="submenu">
-                <div class="submenu-container">
-                    <div class="submenu-row sub-items">
-                        <div class="submenu-itens">
-                            <a href="https://suporte.braspag.com.br/hc/pt-br" class="help">Ajuda</a>
-
-                            
-                            <div class="lang">
-                                <span>Idiomas</span>
-
-                                
-                                    
-                                    <a href="https://braspag.github.io//tutorial/modulo-magento">
-                                    
-
-                                        <img alt="Português" src="https://braspag.github.io//assets/images/pt.png"/>
-                                    </a>
-                                
-                                    
-                                    <a href="https://braspag.github.io//en/tutorial/modulo-magento">
-                                    
-
-                                        <img alt="English" src="https://braspag.github.io//assets/images/en.png"/>
-                                    </a>
-                                
-                            </div>
-                            
-                        </div>
-
-                        
-                    </div>
-                        
-
-                    <div class="submenu-row breads">
-                        <ol class="breadcrumb">
-                            
-                            <li><a href="/">Início</a></li>
-                            
-                            
-                            
-                            
-                                
-                                    
-                                    
-                                    
-                                    
-                                    
-                                        
-                                    
-                                        
-                                    
-                                        
-                                    
-                                
-                            
-                                
-                                    
-                                    <li class="active">&gt; <a href="https://braspag.github.io//tutorial/modulo-magento">Módulo Magento 2.0</a></li>
-                                    
-                                
-                            
-                        </ol>
-                    </div>
-                </div>
-            </div>
-
-            <div class="post">
-    <h1 id="integração-do-módulo-magento-20">Integração do Módulo Magento 2.0</h1>
+<h1 id="integração-do-módulo-magento-20">Integração do Módulo Magento 2.0</h1>
 
 <h1 id="instalação">Instalação</h1>
 
@@ -149,10 +45,11 @@ bin/magento setup:di:compile
   <p>Você também pode fazer o download do conector direto no nosso <a href="https://github.com/Braspag/pagador-module-magento" target="_blank">GitHub</a>.</p>
 </blockquote>
 
-<h2 id="post-de-notificação">Post de Notificação</h2>
+<h1 id="post-de-notificação">Post de Notificação</h1>
 
-<p>O módulo Magento possui um endpoint criado e preparado para receber as notificações de atualização de status da transação, como um boleto que foi pago, por exemplo. Assim, são feitas atualizações dos pedidos na loja.
-<br />Para configurar a URL de sua loja aqui na Braspag, entre em contato conosco informando o seu <code class="language-plaintext highlighter-rouge">MerchantID</code> e a “URL de Notificação”.</p>
+<p>O módulo Magento possui um endpoint criado e preparado para receber as notificações de atualização de status da transação, como um boleto que foi pago, por exemplo. Assim, são feitas atualizações dos pedidos na loja.</p>
+
+<p><br />Para configurar a URL de sua loja na Braspag, entre em contato conosco informando o seu <code class="language-plaintext highlighter-rouge">MerchantID</code> e a “URL de Notificação”.</p>
 
 <aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Magento).</aside>
 
@@ -164,15 +61,13 @@ bin/magento setup:di:compile
 
 <ol>
   <li>Faça login no admin do Magento;</li>
-  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
-  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
-  <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code>.</li>
+  <li>No menu, acesse <strong>Lojas</strong> &gt; <strong>Configuração</strong> &gt; <strong>Vendas</strong> &gt; <strong>Formas de Pagamento</strong> &gt; <strong>Outros meios de pagamento</strong> &gt; <strong>Braspag</strong>.</li>
 </ol>
 
 <h2 id="configurações-globais">Configurações Globais</h2>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção Global Settings do plugin Braspag:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-global-settings.png" alt="Global Settings" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/001-geral.png" alt="Global Settings" /></p>
 
 <table>
   <thead>
@@ -224,7 +119,7 @@ bin/magento setup:di:compile
 </ol>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “OAuth2 - Config”:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-oauth.png" alt="OAuth2 - Config" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/002-oauth.png" alt="OAuth2 - Config" /></p>
 
 <table>
   <thead>
@@ -245,133 +140,6 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="antifraude">Antifraude</h2>
-
-<p>Seguem as instruções de acesso para ativação do <strong>Anti Fraud</strong>:</p>
-
-<ol>
-  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
-  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Anti Fraud</code>.</li>
-</ol>
-
-<p>A imagem a seguir mostra o campo de configuração a ser preenchido na seção <strong>General</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-antifraud-general.png" alt="Antifraude" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Enable/Disable</strong></td>
-      <td>Ativa (“Yes”) ou desativa (“No”) o antifraude.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Além da ativação do antifraude, nesta aba são também configurados o Fingerprint, as opções de sequência e captura do antifraude e os MDDs (Merchant Defined Data).</p>
-
-<h3 id="fingerprint">FingerPrint</h3>
-
-<p>O FingerPrint é uma funcionalidade utilizada para identificar o dispositivo do comprador.</p>
-
-<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “FingerPrint”:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-fingerprint.png" alt="Fingerprint" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Org ID</strong></td>
-      <td>Fingerprint Org ID, disponibilizado pela Braspag.</td>
-    </tr>
-    <tr>
-      <td><strong>Merchant ID</strong></td>
-      <td>Fingerprint Merchant ID, disponibilizado pela Braspag.</td>
-    </tr>
-    <tr>
-      <td><strong>Use Order ID to Fingerprint</strong></td>
-      <td>Ativa (“Yes”) ou desativa (“No”) a utilização do ID do pedido na composição do fingerprint.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="options">Options</h3>
-
-<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Options”:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-antifraud-options.png" alt="Options" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Sequence</strong></td>
-      <td>Sequência do processamento do antifraude.<br />“Analyse First” - é efetuada a análise de fraude e depois a autorização. / “Authorize First” - é efetuada a autorização e depois a análise de fraude. <br /> Obs.: Clientes utilizando revisão manual devem operar no fluxo “Authorize First”.</td>
-    </tr>
-    <tr>
-      <td><strong>Sequence Criteria</strong></td>
-      <td>Critério da sequência do processamento.<br />“On Success” - realiza a análise apenas quando a transação é efetuada com sucesso. / “Always” - a análise sempre será efetuada.</td>
-    </tr>
-    <tr>
-      <td><strong>Capture On Low Risk</strong></td>
-      <td>Ativa (“Yes”) ou desativa (“No”) a captura em caso de baixo risco na transação.</td>
-    </tr>
-    <tr>
-      <td><strong>Void On High Risk</strong></td>
-      <td>Ativa (“Yes”) ou desativa (“No”) o estorno automático em caso de alto risco na transação.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="mdds">MDDs</h3>
-
-<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “MDD’s”:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-antifraud-mdds.png" alt="MDD's" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Customer Fetch Self Shipping Method</strong></td>
-      <td>Método de entrega do cliente.</td>
-    </tr>
-    <tr>
-      <td><strong>Store Code From Customer Fetch Self</strong></td>
-      <td>Código da loja do cliente.</td>
-    </tr>
-    <tr>
-      <td><strong>Vertical Segment</strong></td>
-      <td>Segmento da loja.</td>
-    </tr>
-    <tr>
-      <td><strong>Store Identity (CNPJ)</strong></td>
-      <td>CNPJ da loja.</td>
-    </tr>
-    <tr>
-      <td><strong>Category Attribute Code</strong></td>
-      <td>Código do atributo da categoria.</td>
-    </tr>
-  </tbody>
-</table>
-
 <h2 id="autenticação-3ds-20">Autenticação 3DS 2.0</h2>
 
 <p>A autenticação 3DS 2.0 é utilizada para a criação do token em requisições na Braspag. Consulte o nosso <a href="https://braspag.github.io//manualp/emv3ds">Manual 3DS 2.0</a> e conheça suas vantagens.
@@ -386,7 +154,7 @@ bin/magento setup:di:compile
 </ol>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção <strong>Authentication 3DS 2.0 - Config</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-authentication.png" alt="Authentication 3DS 2.0 Config" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/003-3ds.png" alt="Authentication 3DS 2.0 Config" /></p>
 
 <table>
   <thead>
@@ -407,7 +175,7 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h1 id="clientes">Clientes</h1>
+<h2 id="clientes">Clientes</h2>
 
 <p>Seguem instruções para configuração de <strong>Dados do Cliente</strong>:</p>
 
@@ -416,8 +184,6 @@ bin/magento setup:di:compile
   <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Métodos de Pagamento</code>;</li>
   <li>Na lista de Métodos de Pagamento, clique em <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Customer Config</code>.</li>
 </ol>
-
-<h2 id="address">Address</h2>
 
 <p>A imagem a seguir mostra os campos de configuração com os respectivos valores a serem utilizados na seção <strong>Address</strong>:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-customer-config.png" alt="Address" /></p>
@@ -469,7 +235,7 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h1 id="boleto">Boleto</h1>
+<h2 id="boleto">Boleto</h2>
 
 <p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Boleto</strong>:</p>
 
@@ -480,7 +246,7 @@ bin/magento setup:di:compile
 </ol>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção <strong>Boleto</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-boleto-config.png" alt="Boleto" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006a-boleto.png" alt="Boleto" /></p>
 
 <table>
   <thead>
@@ -537,12 +303,12 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="visualização-final">Visualização Final</h2>
+<p><strong>Visualização Final</strong></p>
 
 <p>A visão do método de pagamento boleto, após a configuração na loja, será a seguinte:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-boleto-transaction.png" alt="Boleto" /></p>
 
-<h1 id="cartão-de-crédito">Cartão de Crédito</h1>
+<h2 id="cartão-de-crédito">Cartão de Crédito</h2>
 
 <p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Crédito</strong>:</p>
 
@@ -553,7 +319,7 @@ bin/magento setup:di:compile
 </ol>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção <strong>Credit Card</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-config.png" alt="Credit Card" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006b-credito.png" alt="Credit Card" /></p>
 
 <table>
   <thead>
@@ -606,10 +372,10 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="types">Types</h2>
+<h3 id="types">Types</h3>
 
 <p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção <strong>Types</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-types.png" alt="Types" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006b1-creditotype.png" alt="Types" /></p>
 
 <table>
   <thead>
@@ -626,10 +392,10 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="installments">Installments</h2>
+<h3 id="installments">Installments</h3>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de crédito na seção <strong>Installments</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-installments.png" alt="Installments" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006b2-creditoparcelas.png" alt="Installments" /></p>
 
 <table>
   <thead>
@@ -666,10 +432,10 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="silent-order-post">Silent Order Post</h2>
+<h3 id="silent-order-post">Silent Order Post</h3>
 
 <p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção <strong>Silent Order Post</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-sop.png" alt="Silent Order Post" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006b3-creditosilent.png" alt="Silent Order Post" /></p>
 
 <table>
   <thead>
@@ -686,10 +452,10 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="autenticação-3ds-20-1">Autenticação 3DS 2.0</h2>
+<h3 id="autenticação-3ds-20-1">Autenticação 3DS 2.0</h3>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de crédito na seção <strong>Authentication 3DS 2.0</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-authentication.png" alt="Authentication 3DS 2.0" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006b4-credito3ds.png" alt="Authentication 3DS 2.0" /></p>
 
 <table>
   <thead>
@@ -726,10 +492,10 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="avs-address-verification-service">AVS (Address Verification Service)</h2>
+<h3 id="avs-address-verification-service">AVS (Address Verification Service)</h3>
 
 <p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção <strong>Avs</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-avs.png" alt="AVS" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006b6-creditoavs-view.png" alt="AVS" /></p>
 
 <table>
   <thead>
@@ -746,7 +512,7 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="checkout-card-view">Checkout Card View</h2>
+<h3 id="checkout-card-view">Checkout Card View</h3>
 
 <p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção <strong>Checkout Card View</strong>:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-checkout.png" alt="Checkout Card View" /></p>
@@ -766,12 +532,12 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="visualização-final-1">Visualização Final</h2>
+<p><strong>Visualização Final</strong></p>
 
 <p>A visão do método de pagamento cartão de crédito, após a configuração na loja, será a seguinte:
 <img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-transaction.png" alt="Cartão de Crédito" /></p>
 
-<h1 id="cartão-salvo-just-click">Cartão Salvo (Just Click)</h1>
+<h3 id="cartão-salvo-just-click">Cartão Salvo (Just Click)</h3>
 
 <p>A função “JustClick” funcionará apenas com a contratação do serviço do Cartão Protegido da Braspag. Entre em contato conosco através do email “comercial@braspag.com.br” para mais detalhes.</p>
 
@@ -785,7 +551,7 @@ bin/magento setup:di:compile
 </ol>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção <strong>Credit Card JustClick (Token)</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-justclick-token.png" alt="Credit Card JustClick" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006c-cartaoprotegido.png" alt="Credit Card JustClick" /></p>
 
 <aside class="warning">Quando ativado o JustClick, todas as configurações informadas para o método cartão de crédito serão aplicadas, com exceção das configurações abaixo, que irão sobrescrevê-las.</aside>
 
@@ -820,10 +586,10 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="installments-1">Installments</h2>
+<h3 id="installments-1">Installments</h3>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção <strong>Installments</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-justclick-installments.png" alt="Installments" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006c1-cartaoprotegidoparcela.png" alt="Installments" /></p>
 
 <table>
   <thead>
@@ -860,12 +626,7 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="visualização-final-2">Visualização Final</h2>
-
-<p>A visão do método de pagamento cartão de crédito JustClick, após a configuração na loja, será a seguinte:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-justclick-transaction.png" alt="Cartão de Crédito JustClick" /></p>
-
-<h1 id="cartão-de-débito">Cartão de Débito</h1>
+<h2 id="cartão-de-débito">Cartão de Débito</h2>
 
 <p>Seguem instruções para acesso e configurações específicas para o método de pagamento <strong>Cartão de Débito</strong>:</p>
 
@@ -877,7 +638,7 @@ bin/magento setup:di:compile
 </ol>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção <strong>Debit Card</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-config.png" alt="Debit Card" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006d-debito.png" alt="Debit Card" /></p>
 
 <table>
   <thead>
@@ -914,10 +675,10 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="types-1">Types</h2>
+<h3 id="types-1">Types</h3>
 
 <p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de débito na seção <strong>Types</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-types.png" alt="Types" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006d1-debitotypes.png" alt="Types" /></p>
 
 <table>
   <thead>
@@ -934,10 +695,10 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="autenticação-3ds-20-2">Autenticação 3DS 2.0</h2>
+<h3 id="autenticação-3ds-20-2">Autenticação 3DS 2.0</h3>
 
 <p>A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de débito na seção <strong>Authentication 3DS 2.0</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-authentication.png" alt="Authentication 3DS 2.0" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006d2-debito3ds.png" alt="Authentication 3DS 2.0" /></p>
 
 <table>
   <thead>
@@ -974,10 +735,10 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="avs-address-verification-service-1">AVS (Address Verification Service)</h2>
+<h3 id="avs-address-verification-service-1">AVS (Address Verification Service)</h3>
 
 <p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de débito na seção <strong>Avs</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-creditcard-avs.png" alt="AVS" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006d3-debitocheckout-view.png" alt="AVS" /></p>
 
 <table>
   <thead>
@@ -994,10 +755,10 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="checkout-card-view-1">Checkout Card View</h2>
+<h3 id="checkout-card-view-1">Checkout Card View</h3>
 
 <p>A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de débito na seção <strong>Checkout Card View</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-checkout.png" alt="Checkout Card View" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006d3-debitocheckout-view.png" alt="Checkout Card View" /></p>
 
 <table>
   <thead>
@@ -1014,121 +775,197 @@ bin/magento setup:di:compile
   </tbody>
 </table>
 
-<h2 id="visualização-final-3">Visualização Final</h2>
-
 <p>A visão do método de pagamento cartão de débito, após a configuração na loja, será a seguinte:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-debitcard-transaction.png" alt="Cartão de Débito" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/magento/006d4-debitoview.png" alt="Cartão de Débito" /></p>
 
-</div>
+<h2 id="pix">Pix</h2>
 
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção <strong>Pix</strong>:</p>
 
-            <div class="footer-conteudo">
-    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
-            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
-    </div>
+<p><img src="https://braspag.github.io//images/braspag/pagador/magento/006d5-pix.png" alt="Pix" /></p>
 
-    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-        <h2>Precisa de ajuda?</h2>
-        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://suporte.braspag.com.br/hc/pt-br">entre em contato conosco</a>.</p>
-    </div>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Habilitado</strong></td>
+      <td>Habilita (“Sim”) ou não (“Não”) o tipo de pagamento Pix.</td>
+    </tr>
+    <tr>
+      <td><strong>Título</strong></td>
+      <td>Título exibido no método de pagamento da tela de checkout</td>
+    </tr>
+    <tr>
+      <td><strong>Tipo</strong></td>
+      <td>Nome do provedor do meio de pagamento. Neste caso, “Cielo30” ou “Bradesco2”. “Simulado” é o provedor para o ambiente sandbox e deve ser utilizado com as credenciais de sandbox.</td>
+    </tr>
+    <tr>
+      <td><strong>Demonstrativo</strong></td>
+      <td>Mensagem informativa exibida na tela de checkout da loja.</td>
+    </tr>
+    <tr>
+      <td><strong>Identificação</strong></td>
+      <td>Título exibido no aplicativo bancário.</td>
+    </tr>
+    <tr>
+      <td><strong>Expirations Time</strong></td>
+      <td>Tempo de expiração do QR Code, em minutos. Este tempo varia de acordo com o provedor.</td>
+    </tr>
+    <tr>
+      <td><strong>Novo status do pedido</strong></td>
+      <td>Configura a situação do pedido para novo pedido. As opções são exibidas conforme configurado no menu Lojas &gt; Situação do Pedido. Default: ‘Pending’.</td>
+    </tr>
+    <tr>
+      <td><strong>Captured Order Status</strong></td>
+      <td>Configura a situação do pedido para pedido capturado. As opções são exibidas conforme configurado no menu Lojas &gt; Situação do Pedido. Default: ‘Processing’.</td>
+    </tr>
+    <tr>
+      <td><strong>Ordenação</strong>*</td>
+      <td>Ordem de exibição do método de pagamento na tela de checkout da loja.</td>
+    </tr>
+    <tr>
+      <td><strong>Automatic canceling of expired orders</strong></td>
+      <td>Habilita (“Sim”) ou não (“Não”) o cancelamento de pedidos que tiveram o QR Code expirado.</td>
+    </tr>
+    <tr>
+      <td><strong>Logo</strong></td>
+      <td>Imagem para ser exibida ao lado do QR Code.</td>
+    </tr>
+    <tr>
+      <td><strong>Display Title next to logo</strong></td>
+      <td>Título exibido ao lado da imagem.</td>
+    </tr>
+  </tbody>
+</table>
 
-        </div>
+<h1 id="antifraude">Antifraude</h1>
 
-        <div class="sidebar">
-  <div class="sidebar-sticky">
-    <div class="sidebar-about">
-      <a title="Comutar a coluna da esquerda" class="hamburger">
-        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
-      </a>
-      <a href="https://braspag.github.io/">
-        <img src="https://braspag.github.io//assets/images/logo.png" alt="Braspag Developers - Manuais">
-      </a>
-      <div></div>
-    </div>
+<p>Seguem as instruções de acesso para ativação do <strong>Anti Fraud</strong>:</p>
 
-    <div id="toc"></div>
+<ol>
+  <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Lojas</code> &gt; <code class="language-plaintext highlighter-rouge">Configurações</code>;</li>
+  <li>Acesse a aba <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Anti Fraud</code>.</li>
+</ol>
 
-    <div class="fixed-footer">
-        
+<p>A imagem a seguir mostra o campo de configuração a ser preenchido na seção <strong>General</strong>:
+<img src="https://braspag.github.io//images/braspag/pagador/magento/007a-antifraudegeral.png" alt="Antifraude" /></p>
 
-    <div class="toc-contact">
-      <div class="contact">
-        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
-          <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>Contato</span>
-        </a>
-      </div>
-      <div class="github">
-        <a title="GitHub" href="https://github.com/Braspag">
-          <i class="fa fa-github" aria-hidden="true"></i>
-          <span>GitHub</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enable/Disable</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o antifraude.</td>
+    </tr>
+  </tbody>
+</table>
 
+<p>Além da ativação do antifraude, nesta aba são também configurados o Fingerprint, as opções de sequência e captura do antifraude e os MDDs (Merchant Defined Data).</p>
 
-        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
-        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
-        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
-        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
-        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
-        <script>
-        $(function() {
-            var openedHeader = null;
+<h2 id="fingerprint">FingerPrint</h2>
 
-            $("#toc").tocify({
-                
-                selectors: "h1,h2,h3,h4,h5,h6",
-                
-                hashGenerator: "pretty",
-                ignoreSelector: ".no-toc",
-                scrollTo: 100,
-                smoothScroll: false,
-                showEffect: "none"
-            }).data("toc-tocify");
+<p>O FingerPrint é uma funcionalidade utilizada para identificar o dispositivo do comprador.</p>
 
-            $('ul').prev('li').addClass('has-subitens');
-            $(window).scroll(function () {
-                if ($('li.active').closest('.tocify-header') !== openedHeader) {
-                    $('li.is-open').removeClass('is-open');
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “FingerPrint”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento/007a-antifraude-fingerprint.png" alt="Fingerprint" /></p>
 
-                    openedHeader = $('li.active').closest('.tocify-header');
-                }
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Org ID</strong></td>
+      <td>Fingerprint Org ID, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Merchant ID</strong></td>
+      <td>Fingerprint Merchant ID, disponibilizado pela Braspag.</td>
+    </tr>
+    <tr>
+      <td><strong>Use Order ID to Fingerprint</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a utilização do ID do pedido na composição do fingerprint.</td>
+    </tr>
+  </tbody>
+</table>
 
-                openedHeader.find('ul:visible').prev('li').addClass('is-open');
-            });
+<h2 id="options">Options</h2>
 
-            $('.hamburger').click(function() {
-                $('body').toggleClass('sidebar-closed');
-            });
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Options”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento/007a-antifraude-opcoes.png" alt="Options" /></p>
 
-            $('.code-menu').click(function() {
-                $('body').toggleClass('code-menu-closed');
-            });
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Sequence</strong></td>
+      <td>Sequência do processamento do antifraude.<br />“Analyse First” - é efetuada a análise de fraude e depois a autorização. / “Authorize First” - é efetuada a autorização e depois a análise de fraude. <br /> Obs.: Clientes utilizando revisão manual devem operar no fluxo “Authorize First”.</td>
+    </tr>
+    <tr>
+      <td><strong>Sequence Criteria</strong></td>
+      <td>Critério da sequência do processamento.<br />“On Success” - realiza a análise apenas quando a transação é efetuada com sucesso. / “Always” - a análise sempre será efetuada.</td>
+    </tr>
+    <tr>
+      <td><strong>Capture On Low Risk</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) a captura em caso de baixo risco na transação.</td>
+    </tr>
+    <tr>
+      <td><strong>Void On High Risk</strong></td>
+      <td>Ativa (“Yes”) ou desativa (“No”) o estorno automático em caso de alto risco na transação.</td>
+    </tr>
+  </tbody>
+</table>
 
-            prettyPrint();
-        });
-        </script>
+<h2 id="mdds">MDDs</h2>
 
-        
+<p>A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “MDD’s”:
+<img src="https://braspag.github.io//images/braspag/pagador/magento/007b-antifraudemdd.png" alt="MDD's" /></p>
 
-        
-
-        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:2191438,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
-    </body>
-</html>
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Customer Fetch Self Shipping Method</strong></td>
+      <td>Método de entrega do cliente.</td>
+    </tr>
+    <tr>
+      <td><strong>Store Code From Customer Fetch Self</strong></td>
+      <td>Código da loja do cliente.</td>
+    </tr>
+    <tr>
+      <td><strong>Vertical Segment</strong></td>
+      <td>Segmento da loja.</td>
+    </tr>
+    <tr>
+      <td><strong>Store Identity (CNPJ)</strong></td>
+      <td>CNPJ da loja.</td>
+    </tr>
+    <tr>
+      <td><strong>Category Attribute Code</strong></td>
+      <td>Código do atributo da categoria.</td>
+    </tr>
+  </tbody>
+</table>
