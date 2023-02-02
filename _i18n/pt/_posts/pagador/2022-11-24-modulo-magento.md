@@ -1,5 +1,3 @@
-20230120-magento2.0
-
 ---
 layout: tutorial
 title:  Módulo Magento 2.0
