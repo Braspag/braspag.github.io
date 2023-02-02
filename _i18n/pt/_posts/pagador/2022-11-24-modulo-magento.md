@@ -231,7 +231,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos para ca
 ### AVS (Address Verification Service)
 
 A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção **Avs**:
-![AVS]({{ site.baseurl_root }}/images/braspag/pagador/magento/006b6-creditoavs-view.png)
+![AVS]({{ site.baseurl_root }}/images/braspag/pagador/magento/006b6-creditoavs.png)
 
 |Campo|Descrição|
 |---|---|
