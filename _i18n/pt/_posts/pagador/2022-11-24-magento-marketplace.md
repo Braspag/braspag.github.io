@@ -306,7 +306,7 @@ A imagem a seguir mostra o campo de configuração a ser preenchido para cartão
 |---|---|
 |**Types**|Adquirentes e bandeiras disponíveis para o método de pagamento cartão de crédito.|
 
-### Installments
+#### Installments
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de crédito na seção **Installments**:
 ![Installments]({{ site.baseurl_root }}/images/braspag/pagador/magento/006b2-creditoparcelas.png)
@@ -399,8 +399,9 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |**Ação de Pagamento**|Ação do pagamento, no momento de fechamento do pedido no checkout da loja.<br>"Authorize Only" - apenas autorização. / "Authorize and Capture" - autoriza e captura a transação.|
 |**Novo status do pedido**|Status padrão de um novo pedido para o método de pagamento cartão de crédito JustClick.|
 |**Ordenação**|Ordem de exibição do método de pagamento cartão de crédito no front da loja.|
+|**Automatically Disable previously saved cards when saving a new card**|Desabilita ("Yes") ou não ("No") automaticamente um cartão salvo anteriormente ao salvar novo cartão.
 
-### Installments
+#### Installments
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Installments**:
 ![Installments]({{ site.baseurl_root }}/images/braspag/pagador/magento/006c1-cartaoprotegidoparcela.png)
