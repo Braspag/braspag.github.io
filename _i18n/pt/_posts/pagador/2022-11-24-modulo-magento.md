@@ -271,7 +271,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |**Ação de pagamento**|Ação do pagamento, no momento de fechamento do pedido no checkout da loja.<br>"Authorize Only" - apenas autorização. / "Authorize and Capture" - autoriza e captura a transação.|
 |**Novo status do pedido**|Status padrão de um novo pedido para o método de pagamento cartão de crédito JustClick.|
 |**Ordenação**|Ordem de exibição do método de pagamento cartão de crédito no front da loja.|
-|**Automatically Disable previously saved cards when saving a new card**|Desabilita ("Yes") ou não ("No") automaticamente um cartão salvo anteriormente ao salvar novo cartão.
+|**Automatically Disable previously saved cards when saving a new card**|Desabilitar automaticamente o cartão salvo anteriormente ao salvar novo cartão. Default: Não|
 
 #### Installments
 
