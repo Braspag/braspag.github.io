@@ -578,20 +578,27 @@ Here are request and answer examples of how to create a credit transaction:
 
 ### Creating a Debit Transaction
 
-A debit card transaction creation is similar to that of a credit card, except for the fact that it is required to submit it to the authentication process.
+A debit card transaction is carried out in the same way as a credit card transaction. It is mandatory, however, to submit it to the authentication process.
+
+All debit transactions must be authenticated as required by the issuing banks and brands, in order to promote greater security. To authenticate a debit transaction, we use the [EMV 3DS 2.0](https://www.emvco.com/emv-technologies/3-d-secure/){:target="_blank"} protocol. This protocol is a script integrated into the e-commerce website that verifies the identity of the cardholder while maintaining a good shopping experience and reducing the risk of fraud.
+
+To integrate the authentication method, check the [3DS 2.0](https://braspag.github.io//en/manualp/emv3ds){:target="_blank"} documentation.
+
+See below the representation of a standard **transactional flow** in the creation of a debit transaction, with the authentication and authorization steps:
+![3DS 2.0 Flow]({{ site.baseurl_root }}/images/fluxo3ds-en.png)
 
 #### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
-{  
-   "MerchantOrderId":"2017051001",
-   "Customer":{  
+{
+   "MerchantOrderId":"202301131052",
+   "Customer":{
       "Name":"Nome do Comprador",
-      "Identity":"12345678909",
+      "Identity":"12345678900",
       "IdentityType":"CPF",
-      "Email":"comprador@braspag.com.br",
+      "Email":"comprador@email.com.br",
       "Birthdate":"1991-01-02",
       "IpAddress":"127.0.0.1",
       "Address":{  
@@ -615,44 +622,48 @@ A debit card transaction creation is similar to that of a credit card, except fo
          "District":"Alphaville"
       }
    },
-   "Payment": {
-      "Provider":"Simulado",
-      "Type":"DebitCard",
-      "Amount": 10000,
-      "Currency":"BRL",
-      "Country":"BRA",
-      "Installments": 1,
-      "Interest":"ByMerchant",
-      "Capture": true,
-      "Authenticate": true,
-      "Recurrent": false,
-      "SoftDescriptor":"Mensagem",
+   "Payment":{
       "DebitCard":{
-         "CardNumber":"4551870000000181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-         "CardOnFile":{
-            "Usage":"Used",
-            "Reason":"Unscheduled"
-      },
-      [...]
+         "CardNumber":"************1106",
+         "Holder":"NOME DO TITULAR DO CARTÃO",
+         "ExpirationDate":"12/2030",
+         "SaveCard":false,
+         "Brand":"Master"      },
+      "Authenticate":true,
+      "Recurrent":false,
+      "ReturnUrl":"https://braspag.com.br",
+      "ProofOfSale":"20230113",
+      "AcquirerTransactionId":"0510053219433",
+      "AuthorizationCode":"936403",
+      "ExternalAuthentication":{
+         "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+         "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+         "Eci":"5",
+         "Version":"2",
+         "ReferenceId":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+      ]
    }
 }
 ```
 
 ```shell
+--request POST "https://apisandbox.braspag.com.br/v2/sales"
 --header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+--header "MerchantKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 --data-binary
-{  
-   "MerchantOrderId":"2017051001",
-   "Customer":{  
+--verbose
+{
+   "MerchantOrderId":"202301131052",
+   "Customer":{
       "Name":"Nome do Comprador",
-      "Identity":"12345678909",
+      "Identity":"12345678900",
       "IdentityType":"CPF",
-      "Email":"comprador@braspag.com.br",
+      "Email":"comprador@email.com.br",
       "Birthdate":"1991-01-02",
       "IpAddress":"127.0.0.1",
       "Address":{  
@@ -676,29 +687,30 @@ A debit card transaction creation is similar to that of a credit card, except fo
          "District":"Alphaville"
       }
    },
-   "Payment": {
-      "Provider": "Simulado",
-      "Type": "DebitCard",
-      "Amount": 10000,
-      "Currency": "BRL",
-      "Country": "BRA",
-      "Installments": 1,
-      "Interest": "ByMerchant",
-      "Capture": true,
-      "Authenticate": true,
-      "Recurrent": false,
-      "SoftDescriptor": "Mensagem",
+   "Payment":{
       "DebitCard":{
-         "CardNumber":"4551870000000181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-         "CardOnFile":{
-            "Usage":"Used",
-            "Reason":"Unscheduled"
-      },
-      [...]
+         "CardNumber":"************1106",
+         "Holder":"NOME DO TITULAR DO CARTÃO",
+         "ExpirationDate":"12/2030",
+         "SaveCard":false,
+         "Brand":"Master"      },
+      "Authenticate":true,
+      "Recurrent":false,
+      "ReturnUrl":"https://braspag.com.br",
+      "ProofOfSale":"20230113",
+      "AcquirerTransactionId":"0510053219433",
+      "AuthorizationCode":"936403",
+      "ExternalAuthentication":{
+         "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+         "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+         "Eci":"5",
+         "Version":"2",
+         "ReferenceId":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"      },
+      "ExtraDataCollection":[  
+         {  
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"
+      ]
    }
 }
 ```
@@ -717,39 +729,96 @@ A debit card transaction creation is similar to that of a credit card, except fo
 |`DebitCard.Brand`|Card brand.|Text|10|Yes|
 |`DebitCard.CardOnFile.Usage`|"First" if the card has been stored and it is your first use.<br>"Used" if the card has been stored and it has been used previously in another transaction.<br><br>**Applicable to `Provider` Cielo only.**|Text|-|No|
 |`DebitCard.CardOnFile.Reason`|Indicates the purpose of the card storage, in case the `Usage` field is "Used".<br><br>"Recurring" - Scheduled recurring purchase (e.g.: subscription services).<br>"Unscheduled" - Unscheduled recurring purchase (e.g.: services apps).<br>"Installments" - Installment through recurrence. <br><br> **Applicable to `Provider` Cielo only.**|Text|-|Conditional|
+|`Payment.Authenticate` | Defines whether the buyer will be directed to the issuer for card authentication. | Boolean ("true" / "false") | - | Yes, if the authentication is validated.|
+|`Payment.ExternalAuthentication.ReturnUrl` | Callback URL only applicable if version is "1". | Alphanumeric | 1024 | Yes. |
+|`Payment.ExternalAuthentication.Cavv` | Signature returned in authentication success scenarios. | Text | 28 | Yes, if authentication is validated. |
+|`Payment.ExternalAuthentication.Xid` | XID returned in the authentication process. | Text | 28 | Yes, when the 3DS version is "1".|
+|`Payment.ExternalAuthentication.Eci` | *Electronic Commerce Indicator* returned in the authentication process. | Number | 1 | Yes. |
+|`Payment.ExternalAuthentication.Version` | 3DS version used in the authentication process. | Alphanumeric | 1 position | Yes, when the 3DS version is "2".|
+|`Payment.ExternalAuthentication.ReferenceId` | RequestID returned in the authentication process. | GUID | 36 | Yes, when the 3DS version is "2". |
 
 #### Response
 
 ```json
 {
- [...]
-  "Payment":{
-    "DebitCard":{
-      "CardNumber": "455187******0181",
-      "Holder": "Cardholder Name",
-      "ExpirationDate":"12/2021",
-      "SaveCard":"false",
-      "Brand":"Visa",
-      "CardOnFile":{
-            "Usage":"Used",
-            "Reason":"Unscheduled"
+    "MerchantOrderId": "2017051002",
+    "Customer": {
+       "Name": "Nome do Comprador",
+       "Identity": "12345678909",
+       "IdentityType": "CPF",
+       "Email": "comprador@braspag.com.br",
+       "Birthdate": "1991-01-02",
+       "Address": {
+          "Street": "Alameda Xingu",
+          "Number": "512",
+          "Complement": "27 andar",
+          "ZipCode": "12345987",
+          "City": "São Paulo",
+          "State": "SP",
+          "Country": "BRA",
+          "District": "Alphaville"
+       },
+       "DeliveryAddress": {
+          "Street": "Alameda Xingu",
+          "Number": "512",
+          "Complement": "27 andar",
+          "ZipCode": "12345987",
+          "City": "São Paulo",
+          "State": "SP",
+          "Country": "BRA",
+          "District": "Alphaville"
     },
-    "AuthenticationUrl": "https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f",
-    "AcquirerTransactionId": "10069930690009D366FA",
-    "PaymentId": "21423fa4-6bcf-448a-97e0-e683fa2581ba",
-    "Type": "DebitCard",
-    "Amount":10000,
-    "ReceivedDate": "2017-05-11 15:19:58",
-    "Currency":"BRL",
-    "Country":"BRA",
-    "Provider": "Cielo",
-    "ReturnUrl": "http://www.braspag.com.br",
-    "ReasonCode": 9,
-    "ReasonMessage": "Waiting",
-    "Status": 0,
-    "ProviderReturnCode": "0",
-    [...]
-  }
+    "Payment": {
+       "DebitCard": {
+          "CardNumber": "455187******0181",
+          "Holder": "NOME DO TITULAR DO CARTÃO",
+          "ExpirationDate": "12/2031",
+          "SaveCard": false,
+          "Brand": "Visa"     },
+      "Authenticate":true,
+      "Recurrent":false,
+      "ReturnUrl":"http://www.braspag.com.br",
+      "ProofOfSale":"20230115053219433",
+      "AcquirerTransactionId":"10069930690009D366FA",
+      "AuthorizationCode":"936403",
+      "SentOrderId":"10045146",
+      "ExternalAuthentication":{
+         "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+         "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+         "Eci":"02",
+         "Version":"2",
+         "ReferenceId":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"      },
+      "PaymentId":"21423fa4-6bcf-448a-97e0-e683fa2581b",
+      "Type":"DebitCard",
+      "Amount":10000,
+      "ReceivedDate":"2023-01-09 16:24:14",
+      "CapturedAmount":10000,
+      "CapturedDate":"2023-01-09 16:24:15",
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Provider":"Cielo",
+      "ExtraDataCollection":[
+         {
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"         }
+      ],
+      "ReasonCode":0,
+      "ReasonMessage":"Successful",
+      "Status":2,
+      "ProviderReturnCode":"00",
+      "ProviderReturnMessage":"Successful",
+      "Links":[
+         {
+            "Method":"GET",
+            "Rel":"self",
+            "Href":"https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"         },
+         {
+            "Method":"PUT",
+            "Rel":"void",
+            "Href":"https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"         }
+      ]
+   }
+}
 }
 ```
 
@@ -758,34 +827,84 @@ A debit card transaction creation is similar to that of a credit card, except fo
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
- [...]
-  "Payment":{
-    "DebitCard":{
-      "CardNumber": "455187******0181",
-      "Holder": "Cardholder Name",
-      "ExpirationDate":"12/2021",
-      "SaveCard":"false",
-      "Brand":"Visa",
-      "CardOnFile":{
-            "Usage":"Used",
-            "Reason":"Unscheduled"
+    "MerchantOrderId": "2017051002",
+    "Customer": {
+       "Name": "Nome do Comprador",
+       "Identity": "12345678909",
+       "IdentityType": "CPF",
+       "Email": "comprador@braspag.com.br",
+       "Birthdate": "1991-01-02",
+       "Address": {
+          "Street": "Alameda Xingu",
+          "Number": "512",
+          "Complement": "27 andar",
+          "ZipCode": "12345987",
+          "City": "São Paulo",
+          "State": "SP",
+          "Country": "BRA",
+          "District": "Alphaville"
+       },
+       "DeliveryAddress": {
+          "Street": "Alameda Xingu",
+          "Number": "512",
+          "Complement": "27 andar",
+          "ZipCode": "12345987",
+          "City": "São Paulo",
+          "State": "SP",
+          "Country": "BRA",
+          "District": "Alphaville"
     },
-    "AuthenticationUrl": "https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f",
-    "AcquirerTransactionId": "10069930690009D366FA",
-    "PaymentId": "21423fa4-6bcf-448a-97e0-e683fa2581ba",
-    "Type": "DebitCard",
-    "Amount":10000,
-    "ReceivedDate": "2017-05-11 15:19:58",
-    "Currency":"BRL",
-    "Country":"BRA",
-    "Provider": "Cielo",
-    "ReturnUrl": "http://www.braspag.com.br",
-    "ReasonCode": 9,
-    "ReasonMessage": "Waiting",
-    "Status": 0,
-    "ProviderReturnCode": "0",
-    [...]
-  }
+    "Payment": {
+       "DebitCard": {
+          "CardNumber": "455187******0181",
+          "Holder": "NOME DO TITULAR DO CARTÃO",
+          "ExpirationDate": "12/2031",
+          "SaveCard": false,
+          "Brand": "Visa"     },
+      "Authenticate":true,
+      "Recurrent":false,
+      "ReturnUrl":"http://www.braspag.com.br",
+      "ProofOfSale":"20230115053219433",
+      "AcquirerTransactionId":"10069930690009D366FA",
+      "AuthorizationCode":"936403",
+      "SentOrderId":"10045146",
+      "ExternalAuthentication":{
+         "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+         "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+         "Eci":"02",
+         "Version":"2",
+         "ReferenceId":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"      },
+      "PaymentId":"21423fa4-6bcf-448a-97e0-e683fa2581b",
+      "Type":"DebitCard",
+      "Amount":10000,
+      "ReceivedDate":"2023-01-09 16:24:14",
+      "CapturedAmount":10000,
+      "CapturedDate":"2023-01-09 16:24:15",
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Provider":"Cielo",
+      "ExtraDataCollection":[
+         {
+            "Name":"NomeDoCampo",
+            "Value":"ValorDoCampo"         }
+      ],
+      "ReasonCode":0,
+      "ReasonMessage":"Successful",
+      "Status":2,
+      "ProviderReturnCode":"00",
+      "ProviderReturnMessage":"Successful",
+      "Links":[
+         {
+            "Method":"GET",
+            "Rel":"self",
+            "Href":"https://apiquerysandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925"         },
+         {
+            "Method":"PUT",
+            "Rel":"void",
+            "Href":"https://apisandbox.braspag.com.br/v2/sales/c374099e-c474-4916-9f5c-f2598fec2925/void"         }
+      ]
+   }
+}
 }
 ```
 
@@ -801,7 +920,12 @@ A debit card transaction creation is similar to that of a credit card, except fo
 |`Status`|Transaction Status.|Byte|2|E.g.: 1|
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
-|`AuthenticationUrl`|URL to which the holder will be redirected for authentication.|Text|56|https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
+|`Payment.MerchantAdviceCode` | Flag return code that defines period for retry. *Valid for Mastercard*.|Text| 2 | Numeric|
+|`Payment.ExternalAuthentication.Cavv` | Cavv value submitted in the authorization request. | Text | 28 | kBMaEAEAbV3FcwnExrXh4phhmpIj |
+|`Payment.ExternalAuthentication.Xid` | Xid value submitted in the authorization request. | Text | 28 | ZGUzNzgwYzQxM2ZlMWMxMzVkMjc= |
+|`Payment.ExternalAuthentication.Eci` | ECI value submitted in the authorization request. | Number | 1 | Ex. 5 |
+|`Payment.ExternalAuthentication.Version` | 3DS version used in the authentication process. | Alphanumeric | 1 | Ex: 2 |
+|`Payment.ExternalAuthentication.ReferenceId`| RequestID returned in the authentication process. | GUID | 36 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 
 ### Creating a Debit Transaction with no Authentication
 
