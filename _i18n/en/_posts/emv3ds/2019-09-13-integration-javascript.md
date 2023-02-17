@@ -91,7 +91,7 @@ curl
 
 In this step we implement the _script_ and mapping of _classes_, responsible for communicating with the brand and issuer authentication platforms. Follow the example below, which demonstrates the basic implementation. It is recommended that the snippet be placed at the end of your checkout HTML code:
 
-To download the code, [go here](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html)
+> To download the code, [go here](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html)
 
 ![3DS 2.0 Flux]({{ site.baseurl_root }}/images/exemplo-html.jpg)
 
@@ -102,7 +102,7 @@ To download the code, [go here](https://github.com/Braspag/braspag.github.io/blo
 |onReady|Triggers when all solution script loading procedures have completed successfully, which includes access token validation, indicating that the checkout is ready to start authentication|
 |onSuccess|Triggers when the card is eligible and has successfully completed the authentication process. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.|
 |onFailure|Triggers when the card is eligible but the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.|
-|onUnenrolled|Triggers when the card is not eligible, i.e. the holder and/or issuer does not participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.|
+|onUnenrolled|It is triggered when the card is not elegible, in other words, the cardholder and/or issuer does not support the authentication program. In this case, guide the shopper to check with the issuer if the card is enabled to perform authentication in e-commerce. Only the ECI variable is returned. If the merchant decides to proceed with the authorization, the ECI must be sent together with the authorization. If the transaction is authorized, the liability shift remains with the merchant.|
 |onDisabled|Triggers when the merchant has chosen not to subject the bearer to the authentication process (class "bpmpi\_auth" as false). In this scenario, if the transaction is authorized, the liability shift remains with the merchant.|
 |onError|Triggers when the authentication process has received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.|
 |onUnsupportedBrand|Triggers when card brand is not supported by 3DS 2.0|
