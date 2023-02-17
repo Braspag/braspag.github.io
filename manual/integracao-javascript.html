@@ -272,7 +272,9 @@
 
 <p>Neste passo, é implementado o <em>script</em> e o mapeamento de <em>classes</em> responsáveis pela comunicação com as plataformas de autenticação das bandeiras e emissor. Siga o exemplo abaixo, que demonstra a implementação básica. Recomenda-se que o trecho seja colocado no final do código HTML de seu checkout:</p>
 
-<p>Para baixar o código, <a href="https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html">acesse aqui</a></p>
+<blockquote>
+  <p>Para baixar o código, <a href="https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html">acesse aqui</a></p>
+</blockquote>
 
 <p><img src="https://braspag.github.io//images/exemplo-html.jpg" alt="Fluxo 3DS 2.0" /></p>
 
@@ -300,7 +302,7 @@
     </tr>
     <tr>
       <td>onUnenrolled</td>
-      <td>É acionado quando o cartão não é elegível, ou seja, o portador e/ou emissor não participam do programa de autenticação. Neste caso, somente a variável ECI será retornada. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
+      <td>É acionado quando o cartão não é elegível, ou seja, o portador e/ou emissor não participam do programa de autenticação. Neste caso, orientar o comprador a verificar junto ao emissor se o cartão está habilitado para realizar autenticação no e-commerce. Somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
     </tr>
     <tr>
       <td>onDisabled</td>
