@@ -248,7 +248,7 @@ master. Posteriormente, é permitido que o master envie novas regras de divisão
 
 Veja a seguir exemplos de requisições e respostas para transações de crédito.
 
-### Transação de crédito sem o nó da divisão 
+### Transação de crédito sem subordinado
 
 Veja uma requisição de transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.
 
@@ -440,7 +440,7 @@ O valor total a receber pelo master está representado na figura a seguir.
 }
 ```
 
-### Transação de crédito com o nó da divisão  
+### Transação de crédito com subordinado 
 
 A próxima requisição corresponde a uma transação no valor de R$100,00 com o nó contendo as regras de divisão. Neste exemplo foram assumidas as seguintes taxas:
 
