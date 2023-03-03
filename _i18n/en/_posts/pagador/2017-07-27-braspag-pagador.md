@@ -30,7 +30,7 @@ Below is the representation of a standard **transactional flow**, followed by a 
 
 ## Attributes of the Solution
 
-The Pagador API solution (refer to [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360013153791-O-que-%C3%A9-o-Pagador-) in Portuguese for more details) was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: *ASP*, *ASP.Net*, *Java*, *PHP*, *Ruby* and *Python*.
+The Pagador API solution (refer to [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360013153791-O-que-%C3%A9-o-Pagador-){:target="_blank"} in Portuguese for more details) was developed with the market reference REST technology, which works regardless of the technology used by our customers. Therefore, it is possible to integrate using various programming languages, such as: *ASP*, *ASP.Net*, *Java*, *PHP*, *Ruby* and *Python*.
 
 Here are some of the main benefits of using Braspag's e-commerce platform:
 
@@ -74,7 +74,7 @@ Create an account in our sandbox and try out our APIs during your testing phase,
 
 |Information|Description|
 |----|----|
-|Access credentials|`MerchantId` and `MerchantKey` received after your test account creation in [Sandbox Registration](https://cadastrosandbox.braspag.com.br/).|
+|Access credentials|`MerchantId` and `MerchantKey` received after your test account creation in [Sandbox Registration](https://cadastrosandbox.braspag.com.br/){:target="_blank"}.|
 |Base URL for transactions|https://apisandbox.braspag.com.br/|
 |Base URL for query services|https://apiquerysandbox.braspag.com.br/|
 
@@ -106,21 +106,21 @@ Some of the important features that we offer for your transactions are listed be
 
 |Term|Description|
 |---|---|
-|**Antifraude**| A feature which consists in a fraud prevention platform, that provides a detailed risk analysis of online purchases. The process is fully transparent to the cardholder. According to a pre-established criteria, the request can be automatically accepted, rejected or redirected for manual review. For further information, refer to the [Antifraude](https://braspag.github.io//en/manual/antifraude) integration guide.
-|**Autenticação**| A process which allows the transaction to pass through the card issuing bank authentication process, bringing more security to the sale as it transfers the risk of fraud to the issuer. For further information, refer to the [3DS 2.0 Authentication](https://braspag.github.io//en/manualp/emv3ds) documentation. 
-|**Cartão Protegido**| A platform that offers secure storage of sensitive credit card data. This data is transformed into an encrypted code called "token", which can be stored in a database. With this platform, the store is able to offer features such as "*1-Click Purchase*" and "*Transaction Submission Retry*", while preserving the integrity and confidentiality of that data. For further information, refer to the [Cartão Protegido](https://braspag.github.io//en/manual/cartao-protegido-api-rest) integration guide.
+|**Antifraude**| A feature which consists in a fraud prevention platform, that provides a detailed risk analysis of online purchases. The process is fully transparent to the cardholder. According to a pre-established criteria, the request can be automatically accepted, rejected or redirected for manual review. For further information, refer to the [Antifraude](https://braspag.github.io//en/manual/antifraude){:target="_blank"} integration guide.
+|**Autenticação**| A process which allows the transaction to pass through the card issuing bank authentication process, bringing more security to the sale as it transfers the risk of fraud to the issuer. For further information, refer to the [3DS 2.0 Authentication](https://braspag.github.io//en/manualp/emv3ds){:target="_blank"} documentation. 
+|**Cartão Protegido**| A platform that offers secure storage of sensitive credit card data. This data is transformed into an encrypted code called "token", which can be stored in a database. With this platform, the store is able to offer features such as "*1-Click Purchase*" and "*Transaction Submission Retry*", while preserving the integrity and confidentiality of that data. For further information, refer to the [Cartão Protegido](https://braspag.github.io//en/manual/cartao-protegido-api-rest){:target="_blank"} integration guide.
 
 ## Braspag Support Service
 
 <aside class="notice">Braspag offers high availability support. You can contact us from 9AM to 7PM weekdays, through our 24 hour emergency call service or through our web-based tool. Our support team speaks Portuguese, English and Spanish.</aside>
 
-You can access our web support tool here: [Zendesk](https://suporte.braspag.com.br/hc/en-us) and check our [Atendimento Braspag](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag) article, in Portuguese, for further information about our support service.
+You can access our web support tool here: [Zendesk](https://suporte.braspag.com.br/hc/en-us){:target="_blank"} and check our [Atendimento Braspag](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag){:target="_blank"} article, in Portuguese, for further information about our support service.
 
 # Payment Methods
 
 The Pagador API works with transactions made with the following payment methods: credit card, debit card, *boleto* bill, electronic transfer, e-wallet and voucher.
 
-To prevent duplicate orders from occurring during a transaction, Pagador has the option of blocking duplicate orders which, when enabled, returns the "302" error code, informing that the `MerchantOrderId` sent is duplicated. For more details on the feature, you can refer to [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360030183991), in Portuguese.
+To prevent duplicate orders from occurring during a transaction, Pagador has the option of blocking duplicate orders which, when enabled, returns the "302" error code, informing that the `MerchantOrderId` sent is duplicated. For more details on the feature, you can refer to [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360030183991){:target="_blank"}, in Portuguese.
 
 ## Credit and Debit Cards
 
@@ -128,11 +128,11 @@ To prevent duplicate orders from occurring during a transaction, Pagador has the
 
 When requesting authorization for a credit transaction, it is necessary to follow the contract below. The details related to your affiliation are sent within the `Payment.Credentials` node, and must be sent whenever a new authorization request is submitted for approval.
 
-If your store uses *Retry* or *Loadbalance* services, affiliations must be registered by the customer support team. To request the registration of affiliations, [click here](https://suporte.braspag.com.br/hc/en-us/requests/new) and send your request.
+If your store uses *Retry* or *Loadbalance* services, affiliations must be registered by the customer support team. To request the registration of affiliations, [click here](https://suporte.braspag.com.br/hc/en-us/requests/new){:target="_blank"} and send your request.
 
 <aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number (SentOrderId) can be generated for the order and used during the transaction. This number (SentOrderId) will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId).</aside>
 
-The parameters contained within the `Address` and `DeliveryAddress` nodes are **required** when the transaction is submitted to the [Antifraude](https://braspag.github.io//en/manual/antifraude) or **Velocity** analysis. These parameters are marked with an * in the required column of the table below.
+The parameters contained within the `Address` and `DeliveryAddress` nodes are **required** when the transaction is submitted to the [Antifraude](https://braspag.github.io//en/manual/antifraude){:target="_blank"} or **Velocity** analysis. These parameters are marked with an * in the required column of the table below.
 
 Here are request and answer examples of how to create a credit transaction:
 
@@ -929,7 +929,7 @@ See below the representation of a standard **transactional flow** in the creatio
 
 ### Creating a Debit Transaction with no Authentication
 
-It is possible to process a debit card without having to submit your customer to the authentication process. You will find more details in the [Débito sem Senha](https://suporte.braspag.com.br/hc/pt-br/articles/360013285531) article, written in Portuguese.<br>That is the case with the "Coronavoucher" emergency aid, provided by the government, which can be consumed through the *Caixa Econômica Federal* virtual debit card. In such case, the request must follow the Debit Card pattern, only with **no authentication**, according to the example below.
+It is possible to process a debit card without having to submit your customer to the authentication process. You will find more details in the [Débito sem Senha](https://suporte.braspag.com.br/hc/pt-br/articles/360013285531){:target="_blank"} article, written in Portuguese.<br>That is the case with the "Coronavoucher" emergency aid, provided by the government, which can be consumed through the *Caixa Econômica Federal* virtual debit card. In such case, the request must follow the Debit Card pattern, only with **no authentication**, according to the example below.
 
 #### Request
 
@@ -1151,7 +1151,7 @@ It is possible to process a debit card without having to submit your customer to
 
 When a transaction is submitted with the `Payment.Capture` parameter as "false", there is the need of a later request for capturing the transaction, in order for it to be confirmed.
 
-An authorization that is not captured by the deadline is automatically released by the acquirer. Merchants may have specific negotiations with the acquirers to change their capturing deadline. For further information about capture deadlines and refund, you can refer to [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812), in Portuguese.
+An authorization that is not captured by the deadline is automatically released by the acquirer. Merchants may have specific negotiations with the acquirers to change their capturing deadline. For further information about capture deadlines and refund, you can refer to [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812){:target="_blank"}, in Portuguese.
 
 #### Request
 
@@ -1236,7 +1236,7 @@ With the authentication process, a risk analysis can be carried out taking more 
 
 Through Pagador, when a transaction is submitted to the authentication process, the bearer is redirected to the issuer's environment to confirm their information. If correctly validated, the risk of chargeback (dispute of a purchase made by credit or debit card) shifts to the issuer, which means the merchant is not held accountable for it.
 
-In the mobile environment, we recommend using the [3DS 2.0](https://braspag.github.io//en/manualp/emv3ds) version for authentication.
+In the mobile environment, we recommend using the [3DS 2.0](https://braspag.github.io//en/manualp/emv3ds){:target="_blank"} version for authentication.
 
 <aside class="warning"> IMPORTANT: The 3DS 1.0 version is not compatible in the mobile environment.</aside>
 
@@ -1753,7 +1753,7 @@ With the external authentication, a transaction will receive the `Payment.Extern
 
 ### Canceling/Refunding a Transaction
 
-The availability of the refunding service varies depending on the acquirer. Each acquirer has its own deadlines to allow the refund of a transaction. In [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812), written in Portuguese, you can check each of them.
+The availability of the refunding service varies depending on the acquirer. Each acquirer has its own deadlines to allow the refund of a transaction. In [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812){:target="_blank"}, written in Portuguese, you can check each of them.
 
 To cancel a credit card transaction, you must send an HTTP message through the PUT method to the *Payment* resource, as in the example:
 
@@ -2315,13 +2315,13 @@ Here are examples of a request and response for generating the QR code Pix:
 | `Payment.SentOrderId` | Number sent to Pix issuer representing the order number. The `Payment.SentOrderId` is used for financial reconciliation. | Number | 8 | 10045146 |
 | `Payment.QrcodeBase64Image` | Base64 encoded QR code image. | Text | - |Text | 
 | `Payment.QrCodeString`| Coded text for the shopper to "copy" and "paste" in the  internet banking correspondent field for payments made in mobile environment.|Text|Variable | Alphanumeric text|
-| `Payment.Status` | Transaction Status. If transaction is a success, the initial status is "12" (*Pending*). [Click here](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o) to view status list.| Number| - | 12 |
+| `Payment.Status` | Transaction Status. If transaction is a success, the initial status is "12" (*Pending*). [Click here](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o){:target="_blank"} to view status list.| Number| - | 12 |
 | `Payment.ProviderReturnCode` | Code returned by the acquirer. | Text | 32 | 0 |
 | `Payment.ProviderReturnMessage` | Message returned by the acquirer. | Text | 512 | "Pix generated successfully" |
 
 ### Requesting a Pix Refund
 
-If the merchant needs to "cancel" a Pix transfer, it is possible to perform an operation called a "refund". It is important to note that the refund is not an instant operation, and can be complied with or not by the Pix provider. When a refund is accepted, the store receives a [notification](https://braspag.github.io//en/manual/braspag-pagador#notification-post).<br/>
+If the merchant needs to "cancel" a Pix transfer, it is possible to perform an operation called a "refund". It is important to note that the refund is not an instant operation, and can be complied with or not by the Pix provider. When a refund is accepted, the store receives a [notification](https://braspag.github.io//en/manual/braspag-pagador#notification-post){:target="_blank"}.<br/>
 
 ![Fluxo Cancelamento Pix]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/pix-3-devolucaopix.png)
 
@@ -2529,7 +2529,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 FEBRABAN, the Brazilian Federation of Banks, together with the banking network, launched the **New Payment Slip-Registered Collections Platform**. This new system was created in order to promote greater control and security to the boleto transactional in e-commerce, and to ensure more reliability and convenience to users.
 
-Since July 21, 2018, all boletos issued in e-commerce must be registered. [Click here](https://portal.febraban.org.br/pagina/3150/1094/en-us/new-payment-platform) to access the full announcement (available only in Portuguese).
+Since July 21, 2018, all boletos issued in e-commerce must be registered. [Click here](https://portal.febraban.org.br/pagina/3150/1094/en-us/new-payment-platform){:target="_blank"} to access the full announcement (available only in Portuguese).
 
 Here is a list of the migration/membership procedures (in Portuguese) for each bank:
 
@@ -2795,7 +2795,7 @@ The `Payment.FineRate` and `Payment.FineAmount` parameters must not be used toge
 
 ### Boleto Conciliation
 
-In order to update the status of a Boleto to *Pago* (meaning paid), the Pagador must receive CNAB files with the related settlements from the banks. To enable your store to receive bank files, simply follow the procedure described on [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-) (written in Portuguese).
+In order to update the status of a Boleto to *Pago* (meaning paid), the Pagador must receive CNAB files with the related settlements from the banks. To enable your store to receive bank files, simply follow the procedure described on [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-){:target="_blank"}{:target="_blank"} (written in Portuguese).
 
 ### Specific Rules by Issuer 
 
@@ -3042,11 +3042,11 @@ Contact the provider of your choice for further information on how to contract t
 
 Pagador currently supports the main digital wallets available in the market, which are listed below:
 
-* [*Apple Pay*](https://www.apple.com/br/apple-pay/)
-* [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)
-* [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/)
-* [*Visa Checkout*](https://vaidevisa.visa.com.br/site/visa-checkout)
-* [*Masterpass*](https://masterpass.com/)
+* [*Apple Pay*](https://www.apple.com/br/apple-pay/){:target="_blank"}
+* [*Samsung Pay*](https://www.samsung.com.br/samsungpay/){:target="_blank"}
+* [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/){:target="_blank"}
+* [*Visa Checkout*](https://vaidevisa.visa.com.br/site/visa-checkout){:target="_blank"}
+* [*Masterpass*](https://masterpass.com/){:target="_blank"}
 
 <aside class="warning">When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
 
@@ -3054,7 +3054,7 @@ Pagador currently supports the main digital wallets available in the market, whi
 
 ### E-Wallet Integration
 
-Refer to our [E-Wallets](https://braspag.github.io//en/manual/ewallets) guide for more details about how to integrate the e-wallets in your checkout.
+Refer to our [E-Wallets](https://braspag.github.io//en/manual/ewallets){:target="_blank"} guide for more details about how to integrate the e-wallets in your checkout.
 
 ## Voucher
 
@@ -3276,7 +3276,7 @@ Unlike traditional credit card or boleto payments, recurring payments are automa
 
 It is widely used for magazine subscriptions, monthly fees, software licenses, among others. In addition to the technical integration, it is necessary for the customer's merchant to be enabled with the acquirer to receive recurring payments.
 
-The merchant counts with features that can be used to shape their charging system in accordance with their business. Some of these features are: parameterization and change of periodicity, start and end date, number of attempts and interval between attempts. To learn more details about Recurrence, refer to our [article](https://suporte.braspag.com.br/hc/pt-br/articles/360013311991) in Portuguese.
+The merchant counts with features that can be used to shape their charging system in accordance with their business. Some of these features are: parameterization and change of periodicity, start and end date, number of attempts and interval between attempts. To learn more details about Recurrence, refer to our [article](https://suporte.braspag.com.br/hc/pt-br/articles/360013311991){:target="_blank"} in Portuguese.
 
 <aside class="notice">Recurring credit card sales do not require CVV.</aside>
 <aside class="warning">Recurrence is not available for e-wallet transactions due to the use of ephemeral keys which are necessary in credit operations.</aside>
@@ -3975,7 +3975,7 @@ To schedule the first transaction in the recurrence series, pass the `Payment.Re
 ### Changing Customer Data
 
 To change customer data in an existing recurrence, simply make a PUT call to the specified endpoint.
-In **response** to your request, the API will return an [HTTP Status](https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code) code, informing whether the operation was successful or not.
+In **response** to your request, the API will return an [HTTP Status](https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code){:target="_blank"} code, informing whether the operation was successful or not.
 
 #### Request
 
@@ -4083,7 +4083,7 @@ In **response** to your request, the API will return an [HTTP Status](https://br
 HTTP Status 200
 ```
 
-Refer to the [HTTP Status Code](https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code) annex for a list of all HTTP status codes possibly returned by the API.
+Refer to the [HTTP Status Code](https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code){:target="_blank"} annex for a list of all HTTP status codes possibly returned by the API.
 
 ### Changing Recurrence End Date
 
@@ -4122,7 +4122,7 @@ To change the end date of the existing recurrence, just make a PUT call as in th
 HTTP Status 200
 ```
 
-Refer to the [HTTP Status Code](https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code) annex for a list of all HTTP status codes possibly returned by the API.
+Refer to the [HTTP Status Code](https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code){:target="_blank"} annex for a list of all HTTP status codes possibly returned by the API.
 
 ### Changing Recurrence Interval
 
@@ -4161,7 +4161,7 @@ To change the range of an existing recurrence, just make a PUT call as shown in 
 HTTP Status 200
 ```
 
-Refer to the [HTTP Status Code](https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code) annex for a list of all HTTP status codes possibly returned by the API.
+Refer to the [HTTP Status Code](https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code){:target="_blank"} annex for a list of all HTTP status codes possibly returned by the API.
 
 ### Changing Recurrence Day
 
@@ -4568,7 +4568,7 @@ To use Renova Fácil, the service must be enabled at CIELO. No extra information
 
 # Saving and Reusing Cards
 
-With [Cartão Protegido](https://braspag.github.io//en/manual/cartao-protegido-api-rest), you can safely save your client's credit card in accordance with the PCI standards. The card information is saved as a token (excluding the card CVV), making transaction process easier by replacing its data in a future transaction from the same shopper, while keeping the integrity of the saved cards. 
+With [Cartão Protegido](https://braspag.github.io//en/manual/cartao-protegido-api-rest){:target="_blank"}, you can safely save your client's credit card in accordance with the PCI standards. The card information is saved as a token (excluding the card CVV), making transaction process easier by replacing its data in a future transaction from the same shopper, while keeping the integrity of the saved cards. 
 
 <aside class="warning">ATTENTION: For safety reasons, it's only possible to save cards that pass the Luhn Algorithm checksum formula, also known as "mod10".</aside>
 
@@ -4578,7 +4578,7 @@ In addition to generating a card token, you can associate a name (identifier in 
 
 #### Request
 
-To save a credit card used in a transaction, simply send the `Payment.SaveCard` parameter as _true_ in the standard authorization request. The card number to be used can be validated through the technique exaplained in [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051), in Portuguese.
+To save a credit card used in a transaction, simply send the `Payment.SaveCard` parameter as _true_ in the standard authorization request. The card number to be used can be validated through the technique exaplained in [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051){:target="_blank"}, in Portuguese.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5384,7 +5384,7 @@ If not otherwise specified during authorization, Braspag will process your trans
 
 For the CyberSource fraud analysis to be performed during a credit card transaction, you must add the following nodes to the authorization agreement: `FraudAnalysis`, `Cart`, `MerchantDefinedFields` and `Travel` (this one only for airline tickets). 
 
-During the Cybersource deployment, additional information can be stored through MDDs (Merchand Defined Data). MDDs are fields numbered 0 through N used to store unique merchant information. [This article](https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral) (in Portuguese) has details on how to fill these fields.
+During the Cybersource deployment, additional information can be stored through MDDs (Merchand Defined Data). MDDs are fields numbered 0 through N used to store unique merchant information. [This article](https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral){:target="_blank"} (in Portuguese) has details on how to fill these fields.
 
 ### Request
 
@@ -5735,7 +5735,7 @@ During the Cybersource deployment, additional information can be stored through 
 |`Customer.Address.ZipCode`|Billing address zip code.|Text|9|Yes|
 |`Customer.Address.City`|Billing address city.|Text|50|Yes|
 |`Customer.Address.State`|Billing address status.|Text|2|Yes|
-|`Customer.Address.Country`|Billing address country.<br/>For details, refer to [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Text|2|Yes|
+|`Customer.Address.Country`|Billing address country.<br/>For details, refer to [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}.|Text|2|Yes|
 |`Customer.Address.District`|Billing address neighborhood.|Text|45|Yes|
 |`Customer.DeliveryAddress.Street`|Delivery address street.|Text|54|No|
 |`Customer.DeliveryAddress.Number`|Delivery address number.|Text|5|No|
@@ -5812,8 +5812,8 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.FraudAnalysis.Travel.Passengers.Rating`|Passenger type. <br/> [Value List - Payment.FraudAnalysis.Travel.Passengers {n}.PassengerType]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating)|Text|13|No|
 |`Payment.FraudAnalysis.Travel.Passengers.Email`|Passenger's email.|Text|255|No|
 |`Payment.FraudAnalysis.Travel.Passengers.Phone`|Passenger's phone. <br/> E.g.: 552121114700|Text|15|No|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Departure airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm).|Text|3|No|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Arrival airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm).|Text|3|No|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Departure airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}.|Text|3|No|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Arrival airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}.|Text|3|No|
 
 <aside class="warning">The fields of the "FraudAnalysis.Travel" node become required if your business segment is the airline segment.</aside>
 
@@ -6321,7 +6321,7 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Codes indicate incompatibilities between shopper's billing and delivery addresses. <br/> Codes are concatenated using a ^ character. E.g.: COR-BA^MM-BIN. <br/> [List of Payments - Payment. FraudAnalysis.ReplyData.AddressInfoCode]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode).|Text|
 |`Payment.FraudAnalysis.ReplyData.FactorCode`|Codes that affected the analysis score. <br/> Codes are concatenated using the ^ character. E.g.: B^D^R^Z. <br/>[List of Values - ProviderAnalysisResult.AfsReply.FactorCode]({{site.baseurl_root}}manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode).|Text|
 |`Payment.FraudAnalysis.ReplyData.Score`|Score from the fraud analysis. Value between 0 and 100.|Number|
-|`Payment.FraudAnalysis.ReplyData.BinCountry`|Card BIN country code used in the analysis. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui).|Text|
+|`Payment.FraudAnalysis.ReplyData.BinCountry`|Card BIN country code used in the analysis. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}.|Text|
 |`Payment.FraudAnalysis.ReplyData.CardIssuer`|Name of the bank or credit card issuer.|Text|
 |`Payment.FraudAnalysis.ReplyData.CardScheme`|Card brand.|Text|
 |`Payment.FraudAnalysis.ReplyData.HostSeverity`|Shopper's email domain risk level, from 0 to 5, where 0 is undetermined risk and 5 represents the highest risk.|Number|
@@ -6397,7 +6397,7 @@ There are different ways to perform the query of a sale or transaction. Dependin
 
 ## Querying a Transaction via PaymentID
 
-In order to include the `Chargeback` node in your response, Braspag must receive your store's chargebacks. You will be able to either accept or dispute the operations, and then track their progress in the Admin Braspag panel. Your store can be informed of the transactions with issued chargebacks through the Notification Post. The operations displayed in the Admin Braspag panel are also available in the [Risk Notification API](https://braspag.github.io//en/manual/risknotification).
+In order to include the `Chargeback` node in your response, Braspag must receive your store's chargebacks. You will be able to either accept or dispute the operations, and then track their progress in the Admin Braspag panel. Your store can be informed of the transactions with issued chargebacks through the Notification Post. The operations displayed in the Admin Braspag panel are also available in the [Risk Notification API](https://braspag.github.io//en/manual/risknotification){:target="_blank"}.
 
 In order to include the `FraudAlert` node in your response, Braspag must receive your store's fraud alerts. They will be available in the Admin Braspag panel. Your store will be informed of the transactions with issued fraud alerts through the Notification Post.
 
@@ -7161,14 +7161,14 @@ If the above response is not returned, there will be two more attempts to send t
 
 ## List of Providers
 
-For SOAP integration, refer to the list of providers listed in [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360026794092), in Portuguese, and also refer to their reference numbers for the `PaymentMethod` field.<br/>
+For SOAP integration, refer to the list of providers listed in [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360026794092){:target="_blank"}, in Portuguese, and also refer to their reference numbers for the `PaymentMethod` field.<br/>
 The following lists refer to providers for the REST integration:
 
 ### Providers for Credit Card
 
 |Provider|Brand|Description|
 |--------|-----|---------|
-|Simulado|---|Sandbox Provider. [Click here](https://braspag.github.io//en/manual/braspag-pagador#test-cards-(simulado)) for more details about cards for tests.|
+|Simulado|---|Sandbox Provider. [Click here](https://braspag.github.io//en/manual/braspag-pagador#test-cards-(simulado)){:target="_blank"} for more details about cards for tests.|
 |Cielo30|Visa, Master, Amex, Elo, Aura, Jcb, Diners, Discover, Hipercard, Hiper|Provider for transactions on the Cielo 3.0 e-commerce platform.|
 |Rede2|Visa, Master, Hipercard, Hyper, Diners, Link, Amex|Provider for transactions in e-commerce platform Rede (e-Rede) in REST version.|
 |Getnet|Visa, Master, Elo, Amex|Provider for transactions on Getnet e-commerce platform.|
