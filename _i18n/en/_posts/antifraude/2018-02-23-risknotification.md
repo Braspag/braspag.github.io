@@ -20,7 +20,7 @@ language_tabs:
 
 The API is based on REST architecture, which exchange data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the industry and supported by the technical communities.
 
-> To learn more about OAuth 2, see [https://oauth.net/2/](https://oauth.net/2/)
+> To learn more about OAuth 2, see [https://oauth.net/2/](https://oauth.net/2/){:target="_blank"}
 
 # Objective
 
@@ -65,7 +65,7 @@ The access token is obtained through the oauth **client_credentials**. The diagr
 4. If the access token is valid, the request is processed and the data is returned to the **Client Application**
 
 > Request a credential by opening a ticket through our support tool, sending the exit IP (s) of your homologation and production servers. <br/>
-[Support Braspag](https://suporte.braspag.com.br/hc/en-us)
+[Support Braspag](https://suporte.braspag.com.br/hc/en-us){:target="_blank"}
 
 ## How to get the token
 
