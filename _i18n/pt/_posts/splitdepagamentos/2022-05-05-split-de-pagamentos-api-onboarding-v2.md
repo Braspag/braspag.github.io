@@ -49,7 +49,7 @@ O onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
 
 # Autenticação
 
-O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/), no qual é necessário primeiro obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API de Onboarding Split 2.0.
+O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, no qual é necessário primeiro obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API de Onboarding Split 2.0.
 
 Para obter um token de acesso:
 
@@ -175,7 +175,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
-| `BankAccount.Bank` | String | 3 | Sim | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
+| `BankAccount.Bank` | String | 3 | Sim | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o){:target="_blank"} |
 | `BankAccount.BankAccountType` | String | - | Sim | Tipo de conta bancária. Os tipos válidos são "CheckingAccount" (conta corrente) e "SavingsAccount" (conta poupança). |
 | `BankAccount.Number` | String | 10 | Sim | Número da conta do subordinado. |
 | `BankAccount.Operation` | String | 10 | Não | Operação da conta do subordinado. |
@@ -451,7 +451,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `Address.City` | String | 50 | Cidade |
 | `Address.State` | String | 2 | Sigla do estado |
 | `BankAccount.Bank` | Int | - | Identificação da conta bancária |
-| `BankAccount.Bank` | String | 3 | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
+| `BankAccount.Bank` | String | 3 | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o){:target="_blank"} |
 | `BankAccount.BankAccountType` | String | - | Tipo de conta bancária. Os tipos válidos são _CheckingAccount_ (Conta corrente) e _SavingsAccount_ (Conta poupança) |
 | `BankAccount.Number` | String | 10 | Número da conta |
 | `BankAccount.AgencyNumber` | String | 15 | Número da agência |
