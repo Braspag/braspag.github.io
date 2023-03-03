@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-03-03T19:26:01+00:00</updated>
+    <updated>2023-03-03T19:33:17+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -29296,7 +29296,7 @@ All the orders just authorized must be captured here. When the capture process i
 &lt;p&gt;The API is based on REST architecture, which exchange data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the industry and supported by the technical communities.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;To learn more about OAuth 2, see &lt;a href=&quot;https://oauth.net/2/&quot;&gt;https://oauth.net/2/&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;To learn more about OAuth 2, see &lt;a href=&quot;https://oauth.net/2/&quot; target=&quot;_blank&quot;&gt;https://oauth.net/2/&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;The platform was built using one of Braspag’s main products, the Cartão Protegido, for card tokenization and token fraud analysis.&lt;/p&gt;
@@ -29380,7 +29380,7 @@ All the orders just authorized must be captured here. When the capture process i
 
 &lt;blockquote&gt;
   &lt;p&gt;Request a credential by opening a ticket through our support tool, sending the exit IP (s) of your homologation and production servers. &lt;br /&gt;
-&lt;a href=&quot;https://suporte.braspag.com.br/hc/en-us&quot;&gt;Support Braspag&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;https://suporte.braspag.com.br/hc/en-us&quot; target=&quot;_blank&quot;&gt;Support Braspag&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;how-to-get-the-token&quot;&gt;How to get the token&lt;/h2&gt;
@@ -29686,7 +29686,7 @@ All the orders just authorized must be captured here. When the capture process i
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Currency&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Currency. More information on &lt;a href=&quot;https://www.iso.org/iso-4217-currency-codes.html&quot;&gt;ISO 4217 Currency Codes&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Currency. More information on &lt;a href=&quot;https://www.iso.org/iso-4217-currency-codes.html&quot; target=&quot;_blank&quot;&gt;ISO 4217 Currency Codes&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
@@ -29826,7 +29826,7 @@ All the orders just authorized must be captured here. When the capture process i
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Billing.Country&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Billing address country. More information on &lt;a href=&quot;https://www.iso.org/obp/ui&quot;&gt;ISO 2-Digit Alpha Country Code&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Billing address country. More information on &lt;a href=&quot;https://www.iso.org/obp/ui&quot; target=&quot;_blank&quot;&gt;ISO 2-Digit Alpha Country Code&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
@@ -29882,7 +29882,7 @@ All the orders just authorized must be captured here. When the capture process i
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Shipping.Country&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Shipping address country. More information on &lt;a href=&quot;https://www.iso.org/obp/ui&quot;&gt;ISO 2-Digit Alpha Country Code&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Shipping address country. More information on &lt;a href=&quot;https://www.iso.org/obp/ui&quot; target=&quot;_blank&quot;&gt;ISO 2-Digit Alpha Country Code&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;no&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
@@ -30127,7 +30127,7 @@ All the orders just authorized must be captured here. When the capture process i
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bank.Country&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Customer’s bank city &lt;br /&gt; More information on &lt;a href=&quot;https://www.iso.org/obp/ui&quot;&gt;ISO 2-Digit Alpha Country Code&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Customer’s bank city &lt;br /&gt; More information on &lt;a href=&quot;https://www.iso.org/obp/ui&quot; target=&quot;_blank&quot;&gt;ISO 2-Digit Alpha Country Code&lt;/a&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;no&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
