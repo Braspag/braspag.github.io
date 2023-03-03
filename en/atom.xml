@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-03-03T20:30:42+00:00</updated>
+    <updated>2023-03-03T20:32:39+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -3944,8 +3944,8 @@ See example below, describing the submission of authentication data from the Pag
 &lt;p&gt;For those who want to try out the APIs directly via Postman, follow the link to download the collection:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Postman Collection: [https://bit.ly/2YX3YwE[(https://bit.ly/2YX3YwE)&lt;/li&gt;
-  &lt;li&gt;Sandbox Variables: [https://bit.ly/2YX3YwE[(https://bit.ly/2YX3YwE)&lt;/li&gt;
+  &lt;li&gt;Postman Collection: [https://bit.ly/2YX3YwE[(https://bit.ly/2YX3YwE){:target=”_blank”}&lt;/li&gt;
+  &lt;li&gt;Sandbox Variables: [https://bit.ly/2YX3YwE[(https://bit.ly/2YX3YwE){:target=”_blank”}&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;authentication-step&quot;&gt;Authentication Step&lt;/h2&gt;
