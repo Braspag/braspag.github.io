@@ -17,7 +17,7 @@ tags:
 
 ## Pré-Requisitos Técnicos
 
-Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Magento, consulte o [Guia de Instalação](https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html) na documentação oficial do Magento.
+Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Magento, consulte o [Guia de Instalação](https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html){:target="_blank"} na documentação oficial do Magento.
 
 <aside class="notice">A versão recomendada do Magento é 2.4.3 ou superior.</aside>
 
@@ -109,7 +109,7 @@ O módulo Magento possui um endpoint criado e preparado para receber as notifica
 
 <aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Magento).</aside>
 
-Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o) para mais informações sobre o Post de Notificação.
+Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o){:target="_blank"} para mais informações sobre o Post de Notificação.
 
 # Configuração
 
@@ -151,7 +151,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 ## Autenticação 3DS 2.0
 
-A autenticação 3DS 2.0 é utilizada para a criação do token em requisições na Braspag. Consulte o nosso [Manual 3DS 2.0](https://braspag.github.io//manualp/emv3ds) e conheça suas vantagens.
+A autenticação 3DS 2.0 é utilizada para a criação do token em requisições na Braspag. Consulte o nosso [Manual 3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"} e conheça suas vantagens.
 <br/>Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 em sua loja, entre em contato com o nosso Comercial (comercial@braspag.com.br).
 
 Seguem instruções para configuração da autenticação OAuth para a **Autenticação 3DS 2.0**:
