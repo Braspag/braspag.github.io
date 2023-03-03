@@ -151,11 +151,11 @@
 <p>Pagador currently supports the following digital wallets:</p>
 
 <ul>
-  <li><a href="https://www.apple.com/br/apple-pay/"><em>Apple Pay</em></a></li>
-  <li><a href="https://www.samsung.com.br/samsungpay/"><em>Samsung Pay</em></a></li>
-  <li><a href="https://pay.google.com/intl/pt-BR_br/about/"><em>Google Pay</em></a></li>
-  <li><a href="https://vaidevisa.visa.com.br/site/visa-checkout"><em>Visa Checkout</em></a></li>
-  <li><a href="https://masterpass.com/"><em>Masterpass</em></a></li>
+  <li><a href="https://www.apple.com/br/apple-pay/" target="_blank"><em>Apple Pay</em></a></li>
+  <li><a href="https://www.samsung.com.br/samsungpay/" target="_blank"><em>Samsung Pay</em></a></li>
+  <li><a href="https://pay.google.com/intl/pt-BR_br/about/" target="_blank"><em>Google Pay</em></a></li>
+  <li><a href="https://vaidevisa.visa.com.br/site/visa-checkout" target="_blank"><em>Visa Checkout</em></a></li>
+  <li><a href="https://masterpass.com/" target="_blank"><em>Masterpass</em></a></li>
 </ul>
 
 <aside class="warning">When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
@@ -583,11 +583,11 @@
 <p>In order to use Apple Pay, your store must be previously registered in the AppleID program. In addition to that, you must also:</p>
 
 <ol>
-  <li>Enroll your store through <a href="https://developer.apple.com/programs/enroll/">this URL</a>, following all steps required by Apple.</li>
+  <li>Enroll your store through <a href="https://developer.apple.com/programs/enroll/" target="_blank">this URL</a>, following all steps required by Apple.</li>
   <li>Follow the procedure set out in this document, in order to complete your integration with Apple.</li>
   <li>Hire Pagador API REST as the payment gateway.</li>
   <li>Hire Cielo 3.0 as the acquirer.</li>
-  <li>Integrate with <a href="https://braspag.github.io//en/manual/braspag-pagador">Pagador API REST</a>.</li>
+  <li>Integrate with <a href="https://braspag.github.io//en/manual/braspag-pagador" target="_blank">Pagador API REST</a>.</li>
 </ol>
 
 <h2 id="part-1---configuring-the-merchant-identifier">PART 1 - Configuring the Merchant Identifier</h2>
@@ -596,7 +596,7 @@
 
 <h3 id="step-1---create-a-merchant-identifier">Step 1 - Create a Merchant Identifier</h3>
 
-<p>The merchant identifier must be created through the <a href="https://developer.apple.com/account/resources">Apple Developer</a> website as follows:</p>
+<p>The merchant identifier must be created through the <a href="https://developer.apple.com/account/resources" target="_blank">Apple Developer</a> website as follows:</p>
 
 <ol>
   <li>In the <strong>“Certificates, Identifiers &amp; Profiles”</strong> section, select <strong>“Identifiers”</strong> on the side menu, and click the <code class="language-plaintext highlighter-rouge">(+)</code> button by the title:
@@ -611,7 +611,7 @@
 
 <h3 id="step-2---apply-for-a-csr-certificate">Step 2 - Apply for a “.CSR” Certificate</h3>
 
-<p>To send Braspag a request for a certificate in the “.CSR” format, contact our <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">Support Team</a> informing the following:</p>
+<p>To send Braspag a request for a certificate in the “.CSR” format, contact our <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new" target="_blank">Support Team</a> informing the following:</p>
 
 <ol>
   <li>The <strong>Merchant Identifier</strong> created in “Step 1”;</li>
@@ -622,7 +622,7 @@
 
 <h3 id="step-3---create-a-cer-certificate">Step 3 - Create a “.CER” Certificate</h3>
 
-<p>To create a payment processing certificate (“.CER”) to be used in your virtual store or app, you must enter the <a href="https://developer.apple.com/account/resources">Apple Developer</a>  website and follow the procedure below:</p>
+<p>To create a payment processing certificate (“.CER”) to be used in your virtual store or app, you must enter the <a href="https://developer.apple.com/account/resources" target="_blank">Apple Developer</a>  website and follow the procedure below:</p>
 
 <ol>
   <li>In the <strong>“Certificates, Identifier &amp; Profiles”</strong> section, select <strong>“Identifiers”</strong> on the side menu.</li>
@@ -642,11 +642,11 @@
 <img src="https://braspag.github.io//images/braspag/pagador/applepay11.png" alt="Step2.7" /></li>
 </ol>
 
-<p>For more details on the process, access Apple’s <a href="https://help.apple.com/developer-account/#/devb2e62b839">Developer Account Help</a>.</p>
+<p>For more details on the process, access Apple’s <a href="https://help.apple.com/developer-account/#/devb2e62b839" target="_blank">Developer Account Help</a>.</p>
 
 <h2 id="part-2-integrating-with-apple-pay">PART 2. Integrating with Apple Pay</h2>
 
-<p>Most of the process of enabling the “Pay with Apple Pay” button in your app or site is performed during your wallet integration. For that reason, we recommend you to follow the instructions available in the <a href="https://developer.apple.com/documentation">Apple Developer Documentation</a> website for Apple’s self-service implementation.</p>
+<p>Most of the process of enabling the “Pay with Apple Pay” button in your app or site is performed during your wallet integration. For that reason, we recommend you to follow the instructions available in the <a href="https://developer.apple.com/documentation" target="_blank">Apple Developer Documentation</a> website for Apple’s self-service implementation.</p>
 
 <p>At the end of the process performed in the Apple API, you will receive a JSON containing two important fields that will be used in “PART 3”: the <code class="language-plaintext highlighter-rouge">paymentData.data</code> and the <code class="language-plaintext highlighter-rouge">ephemeralPublicKey.header.EphemeralPublicKey</code> fields.</p>
 
@@ -745,7 +745,7 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
       <td>Node with customer’s data.</td>
-      <td>Refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador#request">Pagador Guide</a>.</td>
+      <td>Refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador#request" target="_blank">Pagador Guide</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -824,10 +824,10 @@
 
 <ol>
   <li>Agree to Google’s terms of service.</li>
-  <li>Follow the steps in this documentation to thoroughly <a href="https://developers.google.com/pay/api/android/overview">integrate Google Pay</a> into your app.</li>
+  <li>Follow the steps in this documentation to thoroughly <a href="https://developers.google.com/pay/api/android/overview" target="_blank">integrate Google Pay</a> into your app.</li>
   <li>Hire Pagador API REST as the payment gateway.</li>
   <li>Hire Cielo 3.0 as the acquirer.</li>
-  <li>Integrate with <a href="https://braspag.github.io/manual/braspag-pagador">Pagador API REST</a>.</li>
+  <li>Integrate with <a href="https://braspag.github.io/manual/braspag-pagador" target="_blank">Pagador API REST</a>.</li>
 </ol>
 
 <h2 id="part-1-integrating-google-pay">PART 1: Integrating Google Pay</h2>
@@ -836,12 +836,12 @@
 
 <h3 id="step-1---configure-your-project">Step 1 - Configure your Project</h3>
 
-<p>Follow the instructions described in the <a href="https://developers.google.com/pay/api/android/guides/setup">Google Pay Setup Guide</a>.<br />
+<p>Follow the instructions described in the <a href="https://developers.google.com/pay/api/android/guides/setup" target="_blank">Google Pay Setup Guide</a>.<br />
 In this step, you must <strong>add dependencies</strong> either by importing the Google Pay Services library or choosing the APIs you wish to compile. Then, you must follow the instructions and <strong>modify your project’s <em>“AndroidManifest.xml”</em> file</strong> accordingly.</p>
 
 <h3 id="step-2---implement-google-pay">Step 2 - Implement Google Pay</h3>
 
-<p>To integrate Google Play into your app, follow all the steps described in the <a href="https://developers.google.com/pay/api/android/guides/tutorial">Google Pay Tutorial Guide</a>.</p>
+<p>To integrate Google Play into your app, follow all the steps described in the <a href="https://developers.google.com/pay/api/android/guides/tutorial" target="_blank">Google Pay Tutorial Guide</a>.</p>
 
 <p>For an accurate integration of Google Pay using Braspag’s payment gateway, the following points must be carefully considered:</p>
 
@@ -879,11 +879,11 @@ In this step, you must <strong>add dependencies</strong> either by importing the
 
 <p>In <em>“Step 9: Handle the response object”</em>, the <code class="language-plaintext highlighter-rouge">Activity.RESULT_OK</code> event is described, in which an object is returned with all the payment data, including payment tokens.</p>
 
-<p>Use the <code class="language-plaintext highlighter-rouge">getPaymentMethodToken()</code> method to get the <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code> object from <code class="language-plaintext highlighter-rouge">PaymentData</code>. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData">Click here</a> for details.</p>
+<p>Use the <code class="language-plaintext highlighter-rouge">getPaymentMethodToken()</code> method to get the <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code> object from <code class="language-plaintext highlighter-rouge">PaymentData</code>. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">Click here</a> for details.</p>
 
-<p>After obtaining the <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code>, use the <code class="language-plaintext highlighter-rouge">GetToken()</code> method, from the <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code> object in order to obtain the <em>string</em> that contains the payment tokens. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken">Click here</a> for details.</p>
+<p>After obtaining the <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code>, use the <code class="language-plaintext highlighter-rouge">GetToken()</code> method, from the <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code> object in order to obtain the <em>string</em> that contains the payment tokens. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken" target="_blank">Click here</a> for details.</p>
 
-<p>The string obtained has a similar structure to the one in the following example. <a href="https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography">Click here</a> for further information.</p>
+<p>The string obtained has a similar structure to the one in the following example. <a href="https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography" target="_blank">Click here</a> for further information.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"protocolVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ECv1"</span><span class="p">,</span><span class="w">
@@ -916,7 +916,7 @@ In this step, you must <strong>add dependencies</strong> either by importing the
   </tbody>
 </table>
 
-<p>(to see more details: <a href="https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography">https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography</a>)</p>
+<p>(to see more details: <a href="https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography" target="_blank">https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography</a>)</p>
 
 <p>Hold the <code class="language-plaintext highlighter-rouge">signedMessage</code> and <code class="language-plaintext highlighter-rouge">signature</code> values. They will be requested in Braspag’s authorization process in PART 2, described ahead.</p>
 
@@ -986,7 +986,7 @@ In this step, you must <strong>add dependencies</strong> either by importing the
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
       <td>Node with the buyer’s data.</td>
-      <td>Refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador#request">Pagador Guide</a>.</td>
+      <td>Refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador#request" target="_blank">Pagador Guide</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -1026,11 +1026,11 @@ In this step, you must <strong>add dependencies</strong> either by importing the
   </tbody>
 </table>
 
-<p>For further information, refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador">Pagador Guide</a>.</p>
+<p>For further information, refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador" target="_blank">Pagador Guide</a>.</p>
 
 <h3 id="response-1">Response</h3>
 
-<p>The wallet authorization response will have the same fields as the ones presented in our <a href="https://braspag.github.io//en/manual/braspag-pagador#response">Pagador</a> documentation. The response will be added of the <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> node, which will repeat the same fields used in the request and described above.</p>
+<p>The wallet authorization response will have the same fields as the ones presented in our <a href="https://braspag.github.io//en/manual/braspag-pagador#response" target="_blank">Pagador</a> documentation. The response will be added of the <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> node, which will repeat the same fields used in the request and described above.</p>
 
 <h2 id="part-3-production-data-request">PART 3: Production Data Request</h2>
 
@@ -1038,11 +1038,11 @@ In this step, you must <strong>add dependencies</strong> either by importing the
 
 <h3 id="step-1---branding-guideline">Step 1 - Branding Guideline</h3>
 
-<p>Verify whether the <a href="https://developers.google.com/pay/api/android/guides/brand-guidelines">branding guidelines</a> have been thoroughly followed.</p>
+<p>Verify whether the <a href="https://developers.google.com/pay/api/android/guides/brand-guidelines" target="_blank">branding guidelines</a> have been thoroughly followed.</p>
 
 <h3 id="step-2---checklist-and-credentials-request">Step 2 - Checklist and Credentials Request</h3>
 
-<p>Verify whether all items in the <a href="https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist">integration checklist</a> have been completed.</p>
+<p>Verify whether all items in the <a href="https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist" target="_blank">integration checklist</a> have been completed.</p>
 
 <p>After the validation in steps 1 and 2 is done, request your access credentials for the production environment.</p>
 
