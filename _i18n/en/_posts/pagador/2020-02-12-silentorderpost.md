@@ -50,7 +50,7 @@ How to obtain the Base64 value:
 2. Code the result in base64.
 3. Send a request to the authorization server with the alphanumeric code you just created.
 
-> To request your "ClientID" and "ClientSecret", please contact our [Support](https://suporte.braspag.com.br/hc/pt-br):
+> To request your "ClientID" and "ClientSecret", please contact our [Support](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}:
 * MerchantId;
 * Describe that you need the credentials "ClientID" e o "ClientSecret" to use Silent Order Post.
 
@@ -152,7 +152,7 @@ As a response, you will receive a JSON ("HTTP 201 Created") with the SOP AccessT
 |`Issued`|Token creation date and hour. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Token expiration date and hour. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 
-<aside class="warning">To see the legacy authentication process, which used the MerchantId and shopper IP address to create the `AccessToken`, [click here](https://braspag.github.io//en/manual/silentorderpost#legacy-authentication).</aside>
+<aside class="warning">To see the legacy authentication process, which used the MerchantId and shopper IP address to create the `AccessToken`, [click here](https://braspag.github.io//en/manual/silentorderpost#legacy-authentication){:target="_blank"}.</aside>
 
 ## 3. Implementing the script
 
@@ -224,7 +224,7 @@ The script provided by Braspag provides three events for handling and managed by
 
 Example of a parameterization on the checkout page:
 
-To download the code, click [here](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html)
+To download the code, click [here](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html){:target="_blank"}
 
 ![Checkout Page]({{ site.baseurl_root }}/images/consulta-bin.jpg)
 
@@ -233,7 +233,7 @@ To download the code, click [here](https://github.com/Braspag/braspag.github.io/
 After obtaining PaymentToken through the script, the authorization process is performed by sending PaymentToken in place of card data.
 
 See example below, describing the submission of authentication data from the Pagador API authorization request.
-For more details on implementation, please visit: [Pagador API] (https://braspag.github.io//manual/braspag-pagador):
+For more details on implementation, please visit: [Pagador API](https://braspag.github.io//manual/braspag-pagador){:target="_blank"}:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales</span></aside>
 
@@ -286,7 +286,7 @@ curl
 
 ### Response
 
-See https://braspag.github.io/manual/braspag-pagador
+See https://braspag.github.io/manual/braspag-pagador{:target="_blank"}
 
 # ANNEX
 
@@ -346,4 +346,4 @@ In response, the establishment will receive a json (HTTP 201 Created) containing
 |`Issued`|Date and time of generation|Text|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Expiration Date and Time|Text|-|YYYY-MM-DDTHH:MM:SS|
 
-<aside class="notice">For security reasons, registration of a valid IP of the establishment in Braspag will be required. Otherwise the request will not be authorized (HTTP 401 NotAuthorized). Please identify which will be the outgoing IP that will access the API and then request the registration through the Braspag service channel: https://suporte.braspag.com.br/hc/en</aside>
+<aside class="notice">For security reasons, registration of a valid IP of the establishment in Braspag will be required. Otherwise the request will not be authorized (HTTP 401 NotAuthorized). Please identify which will be the outgoing IP that will access the API and then request the registration through the Braspag service channel: https://suporte.braspag.com.br/hc/en{:target="_blank"}</aside>
