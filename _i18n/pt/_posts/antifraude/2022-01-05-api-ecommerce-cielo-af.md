@@ -224,7 +224,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Customer.BillingAddress.ZipCode`|Texto|9|Sim|Código postal do endereço de cobrança|
 |`Customer.BillingAddress.City`|Texto|50|Sim|Cidade do endereço de cobrança|
 |`Customer.BillingAddress.State`|Texto|2|Sim|Estado do endereço de cobrança|
-|`Customer.BillingAddress.Country`|Texto|2|Sim|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
+|`Customer.BillingAddress.Country`|Texto|2|Sim|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|
 |`Customer.BillingAddress.District`|Texto|45|Sim|Bairro do endereço de cobrança|
 |`Customer.DeliveryAddress.Street`|Texto|54|Não|Logradouro do endereço de entrega|
 |`Customer.DeliveryAddress.Number`|Texto|5|Não|Número do endereço de entrega|
@@ -232,7 +232,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|Código postal do endereço de entrega|
 |`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço de entrega|
 |`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço de entrega|
-|`Customer.DeliveryAddress.Country`|Texto|2|Não|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
+|`Customer.DeliveryAddress.Country`|Texto|2|Não|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|
 |`Customer.DeliveryAddress.District`|Texto|45|Não|Bairro do endereço de entrega|
 |`Payment.Provider`|Texto|15|Não|Define comportamento do meio de pagamento (ver Anexo) <br/> Obs.: Não obrigatório para `Payment.Type` igual a _CreditCard_|
 |`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. <br/> Obs.: Somente o tipo _CreditCard_ funciona com análise de fraude|
@@ -291,8 +291,8 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.FraudAnalysis.Travel.Passengers.Rating`|Texto|13|Não|Tipo do passageiro <br/> [Tabela 13 - Payment.FraudAnalysis.Travel.Passengers{n}.Rating]({{ site.baseurl_root }}/manual/cielo-ecommerce#tabela-13-payment.fraudanalysis.travel.passengers[n].rating)|
 |`Payment.FraudAnalysis.Travel.Passengers.Email`|Texto|255|Não|E-mail do passageiro|
 |`Payment.FraudAnalysis.Travel.Passengers.Phone`|Texto|15|Não|Telefone do passageiro <br/> Ex.: 552121114700|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|3|Não|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Não|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|3|Não|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Não|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|
 
 ## Resposta
 
@@ -493,7 +493,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.FraudAnalysis.ReplyData.AddressInfoCode`|Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador <br/> Os códigos são concatenados usando o caracter ^ Ex.: COR-BA^MM-BIN <br/> [Tabela 16 - Payment.FraudAnalysis.ReplyData.AddressInfoCode]({{ site.baseurl_root }}/manual/cielo-ecommerce#tabela-16-payment.fraudanalysis.replydata.addressinfocode)|Texto|512|
 |`Payment.FraudAnalysis.ReplyData.FactorCode`|Códigos que afetaram a pontuação da análise <br/> Os códigos são concatenados usando o caracter ^. Ex.: B^D^R^Z <br/>[Tabela 17 - ProviderAnalysisResult.AfsReply.FactorCode]({{ site.baseurl_root }}/manual/cielo-ecommerce#tabela-17-payment.fraudanalysis.replydata.factorcode)|Texto|512|
 |`Payment.FraudAnalysis.ReplyData.Score`|Score da análise de fraude. Valor entre 0 e 100|Número|-|
-|`Payment.FraudAnalysis.ReplyData.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|Texto|2|
+|`Payment.FraudAnalysis.ReplyData.BinCountry`|Código do país do BIN do cartão usado na análise. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|Texto|2|
 |`Payment.FraudAnalysis.ReplyData.CardIssuer`|Nome do banco ou entidade emissora do cartão de crédito|Texto|256|
 |`Payment.FraudAnalysis.ReplyData.CardScheme`|Bandeira do cartão|Texto|128|
 |`Payment.FraudAnalysis.ReplyData.HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto|Número|-|
