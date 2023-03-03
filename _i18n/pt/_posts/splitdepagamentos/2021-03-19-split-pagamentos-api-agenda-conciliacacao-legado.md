@@ -32,7 +32,7 @@ Para executar uma operação:
 |**API Split**|https://splitsandbox.braspag.com.br/| Para requisições de agenda financeira, chargeback, liquidação e antecipação.|
 |**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/| Para requisição de autenticação.|
 
-> <p>&#9888;</p> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br).
+> <p>&#9888;</p> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br){:target="_blank"}.
 
 ### Produção
 
@@ -46,7 +46,7 @@ Para executar uma operação:
 
 ## Autenticação
 
-O Split de Pagamentos utiliza como segurança o protocolo [OAuth 2.0](https://oauth.net/2/). É necessário primeiramente obter um token de acesso, utilizando suas credenciais. O token deverá posteriormente ser enviado à API do Split.
+O Split de Pagamentos utiliza como segurança o protocolo [OAuth 2.0](https://oauth.net/2/){:target="_blank"}. É necessário primeiramente obter um token de acesso, utilizando suas credenciais. O token deverá posteriormente ser enviado à API do Split.
 
 Para obter um token de acesso:
 
