@@ -44,7 +44,7 @@ Em "Configurações", preencha os campos com dados referentes a provedores de pa
 |`MerchantID Braspag`|Merchant Id enviado pela Braspag (diferente da credencial de afiliação Cielo).|
 |`MerchantKey Braspag`|Merchant Key enviado pela Braspag (diferente da credencial de afiliação Cielo).|
 |`Email da Conta da Braspag`|Email relacionado à conta Braspag.|
-|`URL do WebHook`|URL de webhook a ser cadastrada pelo cliente/suporte junto à Braspag, conforme instruções [neste link](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o).|
+|`URL do WebHook`|URL de webhook a ser cadastrada pelo cliente/suporte junto à Braspag, conforme instruções [neste link](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o){:target="_blank"}.|
 
 ### Antifraude
 
@@ -52,9 +52,9 @@ Em "Configurações", preencha os campos com dados referentes a provedores de pa
 
 |CAMPO|DESCRIÇÃO|
 |---|---|
-|`Utilizar Anti-Fraude`|Habilita a utilização do [Antifraude da Braspag](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude). Possível apenas após a homologação da loja pela Braspag.|
+|`Utilizar Anti-Fraude`|Habilita a utilização do [Antifraude da Braspag](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude){:target="_blank"}. Possível apenas após a homologação da loja pela Braspag.|
 |`MID Cybersource`|MID da loja informado pela Braspag após homologação.|
-|`Utilizar Auto-Captura`|Habilita a [captura automática](https://braspag.github.io//manual/braspag-pagador#termos-transacionais) das transações, não sendo aplicada a [pré-autorização](https://braspag.github.io//manual/braspag-pagador#termos-transacionais) (bloqueio do valor no cartão de crédito). Para clientes que utilizam o fluxo transacional com o antifraude incluso, deve-se atentar que esta opção **não** deve ser habilitada caso opte por receber o retorno da análise de antifraude antes da captura da transação. Consulte a Braspag caso tenha dúvidas se deve utilizá-lo ou não durante a implantação.|
+|`Utilizar Auto-Captura`|Habilita a [captura automática](https://braspag.github.io//manual/braspag-pagador#termos-transacionais){:target="_blank"} das transações, não sendo aplicada a [pré-autorização](https://braspag.github.io//manual/braspag-pagador#termos-transacionais){:target="_blank"} (bloqueio do valor no cartão de crédito). Para clientes que utilizam o fluxo transacional com o antifraude incluso, deve-se atentar que esta opção **não** deve ser habilitada caso opte por receber o retorno da análise de antifraude antes da captura da transação. Consulte a Braspag caso tenha dúvidas se deve utilizá-lo ou não durante a implantação.|
 |`Utilizar parâmetros captureOnLowRisk e voidOnHighRisk`|Habilita as opções `captureOnLowRisk` e `voidOnHighRisk` para as transações, após a análise do antifraude.|
 |`Utilizar captureOnLowRisk`|Habilita a captura do valor bloqueado (pré-autorizado) caso o antifraude defina a transação como sendo de baixo risco. A cobrança na fatura do cartão é efetivada.|
 |`Utilizar voidOnHighRisk`|Habilita o cancelamento automático da transação caso o antifraude defina a transação como sendo de alto risco. A cobrança na fatura é cancelada ou estornada.|
