@@ -59,8 +59,8 @@ Integration is made through services as Web Services. The model used is quite si
 
 For those who want to try out the APIs directly via Postman, follow the link to download the collection:
 
-* Postman Collection: [https://bit.ly/2YX3YwE[(https://bit.ly/2YX3YwE)
-* Sandbox Variables: [https://bit.ly/2YX3YwE[(https://bit.ly/2YX3YwE)
+* Postman Collection: [https://bit.ly/2YX3YwE[(https://bit.ly/2YX3YwE){:target="_blank"}
+* Sandbox Variables: [https://bit.ly/2YX3YwE[(https://bit.ly/2YX3YwE){:target="_blank"}
 
 ## Authentication Step
 
