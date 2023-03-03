@@ -17,17 +17,17 @@ language_tabs:
 
 O Cartão Protegido é uma plataforma que permite o armazenamento seguro de cartões de crédito e débito. Contamos com ambiente totalmente certificado pelo respeitado conselho de padrão de segurança *PCI Security Standards Council*, que assegura que a Braspag siga plenamente os rígidos requisitos e normas determinadas pelo mesmo.
 
-A plataforma é compatível com o gateway [Pagador](https://braspag.github.io//manual/braspag-pagador), também da Braspag, facilitando o processamento de transações de cartão de crédito e débito via token.
+A plataforma é compatível com o gateway [Pagador](https://braspag.github.io//manual/braspag-pagador){:target="_blank"}, também da Braspag, facilitando o processamento de transações de cartão de crédito e débito via token.
 
 ## Principais Benefícios
 
-* **Atualiza Fácil**: qualquer atualização no número do cartão que tenha sofrido bloqueio ou cancelamento por parte do emissor é automaticamente informado à Braspag, que por sua vez associa o novo cartão ao token já existente. Através da tecnologia das bandeiras, tudo isso é realizado de forma totalmente transparente para os estabelecimentos e portadores. Esta feature, interessante principalmente para quem trabalha no modelo de recorrência, está disponível para cartões Elo, Mastercard e Visa, e deve ser solicitada através do [canal de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672) da Braspag.
+* **Atualiza Fácil**: qualquer atualização no número do cartão que tenha sofrido bloqueio ou cancelamento por parte do emissor é automaticamente informado à Braspag, que por sua vez associa o novo cartão ao token já existente. Através da tecnologia das bandeiras, tudo isso é realizado de forma totalmente transparente para os estabelecimentos e portadores. Esta feature, interessante principalmente para quem trabalha no modelo de recorrência, está disponível para cartões Elo, Mastercard e Visa, e deve ser solicitada através do [canal de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672){:target="_blank"} da Braspag.
 
-* **Maior taxa de conversão**: as transações tokenizadas e processadas na Braspag via Pagador podem resultar em uma taxa de conversão maior que a média do mercado. Isso porque os cartões tokenizados nas bandeiras são autorizados junto com o criptograma, que provê maior segurança no processo. Com isso, os emissores tendem a aprovar mais facilmente.O Cartão Protegido está preparado para a tokenização de cartões Visa, Mastercard e Elo processando via Cielo 3.0; consulte a disponibilidade da bandeira e solicite esta feature no [canal de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672) da Braspag.
+* **Maior taxa de conversão**: as transações tokenizadas e processadas na Braspag via Pagador podem resultar em uma taxa de conversão maior que a média do mercado. Isso porque os cartões tokenizados nas bandeiras são autorizados junto com o criptograma, que provê maior segurança no processo. Com isso, os emissores tendem a aprovar mais facilmente.O Cartão Protegido está preparado para a tokenização de cartões Visa, Mastercard e Elo processando via Cielo 3.0; consulte a disponibilidade da bandeira e solicite esta feature no [canal de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672){:target="_blank"} da Braspag.
 
 * **Ambiente seguro PCI DSS**: a Braspag conta com ambiente certificado PCI DSS, que assegura a integridade e segurança de dados sensíveis como os de cartões de crédito.
 
-* **Garantia da utilização de cartões válidos**: o Cartão Protegido só aceitará salvar cartões que passem pela checagem do Algorítimo de Luhn, também conhecido como "mod10". Isso dará maior segurança e certeza de que os cartões salvos tenham o mínimo de validação de sua veracidade. Para saber mais sobre esse processo, consulte o nosso artigo "[Como Validar um Cartão?](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051)".
+* **Garantia da utilização de cartões válidos**: o Cartão Protegido só aceitará salvar cartões que passem pela checagem do Algorítimo de Luhn, também conhecido como "mod10". Isso dará maior segurança e certeza de que os cartões salvos tenham o mínimo de validação de sua veracidade. Para saber mais sobre esse processo, consulte o nosso artigo "[Como Validar um Cartão?](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051){:target="_blank"}".
 
 ## Casos de Uso
 
@@ -62,22 +62,22 @@ A integração é realizada através de serviços disponibilizados como web serv
 
 O serviço do Cartão Protegido pode ser consumido de duas formas:
 
-1. Durante um processo de autorização, através da [API do Pagador](https://braspag.github.io//manual/braspag-pagador#salvando-um-cart%C3%A3o-durante-uma-autoriza%C3%A7%C3%A3o);
+1. Durante um processo de autorização, através da [API do Pagador](https://braspag.github.io//manual/braspag-pagador#salvando-um-cart%C3%A3o-durante-uma-autoriza%C3%A7%C3%A3o){:target="_blank"};
 2. Antes mesmo de se efetuar a compra, acionando-se diretamente a API do Cartão Protegido.
 
 Veja a representação do **fluxo transacional** quando o token é solicitado diretamente à **API do Cartão Protegido**:
 
 ![Cartão Protegido]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/fluxo-trans3a-pt.png)
 
-Consulte também sobre a utilização da funcionalidade [VerifyCard](https://braspag.github.io//manual/braspag-verify-card) em conjunto com o serviço de tokenização do cartão.
+Consulte também sobre a utilização da funcionalidade [VerifyCard](https://braspag.github.io//manual/braspag-verify-card){:target="_blank"} em conjunto com o serviço de tokenização do cartão.
 
 ## Testes no Postman
 
-Experimente as APIs diretamente via Postman. [Clique aqui](https://www.postman.com/collections/e21ffab28a8e54972c9d) e baixe a coleção.
+Experimente as APIs diretamente via Postman. [Clique aqui](https://www.postman.com/collections/e21ffab28a8e54972c9d){:target="_blank"} e baixe a coleção.
 
 ## Etapa de Autenticação
 
-O `AccessToken` é um recurso que autoriza o acesso a dados específicos de um cliente, como os dados de seu cartão de crédito. Para consumir os métodos da API Cartão Protegido, é necessário obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/):
+O `AccessToken` é um recurso que autoriza o acesso a dados específicos de um cliente, como os dados de seu cartão de crédito. Para consumir os métodos da API Cartão Protegido, é necessário obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/){:target="_blank"}:
 
 |Ambiente | URL base + endpoint | Authorization |
 |---|---|---|
