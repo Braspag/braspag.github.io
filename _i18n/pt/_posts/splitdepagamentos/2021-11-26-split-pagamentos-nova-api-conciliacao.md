@@ -119,7 +119,7 @@ Na API Split, você pode usar o ambiente **Sandbox** para homologação e testes
 |**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/| Para requisição de autenticação.|
 |**API Split**|https://splitsandbox.braspag.com.br| Para requisições de consulta de agenda e unidade de recebíveis.|
 
-> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br).
+> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br){:target="_blank"}.
 
 ## Produção
 
@@ -133,7 +133,7 @@ Na API Split, você pode usar o ambiente **Sandbox** para homologação e testes
 
 # Autenticação
 
-O Split de Pagamentos utiliza como segurança o protocolo [OAuth 2.0](https://oauth.net/2/). Primeiro, você deverá obter um token de acesso, utilizando suas credenciais. 
+O Split de Pagamentos utiliza como segurança o protocolo [OAuth 2.0](https://oauth.net/2/){:target="_blank"}. Primeiro, você deverá obter um token de acesso, utilizando suas credenciais. 
 
 Para obter um token de acesso:
 
