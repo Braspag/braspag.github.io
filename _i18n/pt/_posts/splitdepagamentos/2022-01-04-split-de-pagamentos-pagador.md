@@ -48,7 +48,7 @@ Com o Split de Pagamentos da Braspag, você tem acesso a um pacote de soluções
 * **Cartão Protegido**: permite o armazenamento seguro de cartões de crédito e débito, de acordo com as normas do PCI, e contribui para melhorar a taxa de conversão do seu e-commerce;
 * **Silent Order Post**: possibilita o envio de dados do pagamento do cliente de forma segura, armazenando os dados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2. O Silent Order Post é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.
 <br/>
-> O Antifraude está sujeito à uma taxa por transação analisada. Consulte a área [Comercial da Braspag](https://suporte.braspag.com.br/hc/pt-br) para saber mais.
+> O Antifraude está sujeito à uma taxa por transação analisada. Consulte a área [Comercial da Braspag](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"} para saber mais.
 
 # Como funciona
 
@@ -62,7 +62,7 @@ Os possíveis participantes de uma venda são: master, subordinado e Split de Pa
 
 Ao contratar o Split de Pagamentos, você (usuário master) receberá as credenciais para integração com as nossas APIs (`MerchantId`, `MerchantKey` e `ClientSecret`), além do seu login no portal Backoffice Split.
 
-> Nesta documentação, mostramos o passo a passo da integração via API. Para saber como usar o Backoffice Split, consulte os [artigos na nossa página de Suporte](https://suporte.braspag.com.br/hc/pt-br).
+> Nesta documentação, mostramos o passo a passo da integração via API. Para saber como usar o Backoffice Split, consulte os [artigos na nossa página de Suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}.
 
 Antes de começar a transacionar, você precisa cadastrar os seus subordinados. Para isso, leia a documentação Cadastro de Subordinados.
 
@@ -160,11 +160,11 @@ As bandeiras suportadas pelo Split são:
 
 # Ambientes
 
-É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu [executivo comercial](https://www.braspag.com.br/contato/).
+É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu [executivo comercial](https://www.braspag.com.br/contato/){:target="_blank"}.
 
 ## Sandbox
 
-> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br).
+> Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}.
 
 |API|URL|DESCRIÇÃO|
 |---|---|---|
@@ -833,7 +833,7 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 * O nó `Payment.FraudAnalysis` não deve ser informado, pois a transação não necessita de análise de fraude;
 * É obrigatório submeter a transação de débito à autenticação. Para isso, é necessário incluir o nó `Payment.ExternalAuthentication`. A autenticação é feita pela integração 3DS 2.0. 
 
-> Para saber mais sobre a integração 3DS 2.0, acesse o [Manual de Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).
+> Para saber mais sobre a integração 3DS 2.0, acesse o [Manual de Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}.
 
 ### Requisição
 
@@ -1391,7 +1391,7 @@ grant_type=client_credentials
 
 # Salvando e Reutilizando Cartões
 
-Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
+Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest){:target="_blank"}, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
 
 Além da geração do `CardToken`, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
 
@@ -1405,7 +1405,7 @@ Na transação com Cartão Protegido, a solicitação de tokenização é feita 
 
 ## Salvando um Cartão Durante uma Autorização
 
-Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
+Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051){:target="_blank"}.
 
 ### Requisição
 
@@ -1651,7 +1651,7 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
 
 ## Criando uma Transação com CardToken
 
-Este é um exemplo de como utilizar o `CardToken`, previamente salvo, para criar uma transação. Por questões de segurança, um `CardToken` não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato como nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
+Este é um exemplo de como utilizar o `CardToken`, previamente salvo, para criar uma transação. Por questões de segurança, um `CardToken` não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato como nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag){:target="_blank"}.
 
 O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir:
 
@@ -1882,7 +1882,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 
 ## Criando uma Transação com Alias
 
-Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um *Alias* não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos [canais de atendimento](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
+Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um *Alias* não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos [canais de atendimento](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag){:target="_blank"}.
 
 O nó `CreditCard` dentro do nó `Payment` será alterado, conforme exemplo a seguir:
 
@@ -2116,7 +2116,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado, conforme exemplo a se
 
 ## Consulta
 
-Para consultar uma transação, use o serviço de consulta da API do Pagador, informando o `PaymentId` da transação. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o [Post de Notificação](https://braspag.github.io//manual/split-de-pagamentos-pagador#post-de-notifica%C3%A7%C3%A3o).
+Para consultar uma transação, use o serviço de consulta da API do Pagador, informando o `PaymentId` da transação. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o [Post de Notificação](https://braspag.github.io//manual/split-de-pagamentos-pagador#post-de-notifica%C3%A7%C3%A3o){:target="_blank"}.
 
 ### Requisição
 
@@ -2850,7 +2850,7 @@ A escolha do tipo de desconto das taxas pode ser feita:
 
 * No momento do **Split Transacional** ou Pós-Transacional**;
 * No momento do **Split Pós-Transacional** ou
-* **Pré-configurada**. Para pré-configurar, entre em contato com o [Suporte](https://suporte.braspag.com.br/hc/pt-br), que irá criar, remover ou atualizar a
+* **Pré-configurada**. Para pré-configurar, entre em contato com o [Suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}, que irá criar, remover ou atualizar a
 pré-configuração. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
 
 <br/>No caso de uma transação criada com um tipo de desconto das taxas, esse tipo será usado em todas as requisições posteriores. É possível mudar o tipo de desconto através da redivisão
@@ -5003,7 +5003,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Customer.Address.ZipCode`|Texto|9|Sim|Código postal do endereço de cobrança|
 |`Customer.Address.City`|Texto|50|Sim|Cidade do endereço de cobrança|
 |`Customer.Address.State`|Texto|2|Sim|Estado do endereço de cobrança|
-|`Customer.Address.Country`|Texto|2|Sim|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
+|`Customer.Address.Country`|Texto|2|Sim|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|
 |`Customer.Address.District`|Texto|45|Sim|Bairro do endereço de cobrança|
 |`Customer.DeliveryAddress.Street`|Texto|54|Obrigatório caso faça entrega|Logradouro do endereço de entrega|
 |`Customer.DeliveryAddress.Number`|Texto|5|Obrigatório caso faça entrega|Número do endereço de entrega|
@@ -5011,7 +5011,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Customer.DeliveryAddress.ZipCode`|Texto|9|Obrigatório caso faça entrega|Código postal do endereço de entrega|
 |`Customer.DeliveryAddress.City`|Texto|50|Obrigatório caso faça entrega|Cidade do endereço de entrega|
 |`Customer.DeliveryAddress.State`|Texto|2|Obrigatório caso faça entrega|Estado do endereço de entrega|
-|`Customer.DeliveryAddress.Country`|Texto|2|Obrigatório caso faça entrega|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|
+|`Customer.DeliveryAddress.Country`|Texto|2|Obrigatório caso faça entrega|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|
 |`Customer.DeliveryAddress.District`|Texto|45|Obrigatório caso faça entrega|Bairro do endereço de entrega|
 |`Payment.Provider`|Texto|15|Sim|Nome da provedora da autorização|
 |`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. <br/> Obs.: Somente o tipo _CreditCard_ funciona com análise de fraude|
@@ -5072,8 +5072,8 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.FraudAnalysis.Travel.Passengers.Rating`|Texto|13|Não|Tipo do passageiro <br/> [Tabela 13 - Payment.FraudAnalysis.Travel.Passengers{n}.PassengerType]({{ site.baseurl_root }}manual/split-pagamentos-braspag-pagador#tabela-13-payment.fraudanalysis.travel.passengers[n].rating)|
 |`Payment.FraudAnalysis.Travel.Passengers.Email`|Texto|255|Não|E-mail do passageiro|
 |`Payment.FraudAnalysis.Travel.Passengers.Phone`|Texto|15|Não|Telefone do passageiro <br/> Ex.: 552121114700|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|3|Não|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
-|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Não|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto|3|Não|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto|3|Não|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|
 
 > Os campos do nó `FraudAnalysis.Travel` se tornam obrigatórios caso o segmento do seu negócio seja aéreas.
 
@@ -5759,7 +5759,7 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 |"1"|Mudança de status do pagamento.|
 |"3"|Mudança de status do *Antifraude*.|
 |"6"|Boleto registrado pago a menor.|
-|"7"|Notificação de chargeback. Para mais detalhes, consulte o manual de [Risk Notification](https://braspag.github.io//manual/risknotification).|
+|"7"|Notificação de chargeback. Para mais detalhes, consulte o manual de [Risk Notification](https://braspag.github.io//manual/risknotification){:target="_blank"}.|
 |"8"|Alerta de fraude.|
 
 ## Resposta Esperada
