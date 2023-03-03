@@ -1750,4 +1750,4 @@ In the example below there was a Partial Chargeback of BRL 60.00 on a transactio
 
 ## Notification
 
-To be notified about the status of a transaction, use the Cielo E-Commerce API [notification service](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação).
+To be notified about the status of a transaction, use the Cielo E-Commerce API [notification service](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação){:target="_blank"}.
