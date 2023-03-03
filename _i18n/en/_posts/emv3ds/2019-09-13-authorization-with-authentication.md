@@ -19,7 +19,7 @@ language_tabs:
 After authentication is completed, the transaction undergoes the authorization process by submitting the authentication data in the "external authentication" (node **ExternalAuthentication**).
 This procedure is also valid for establishments that performed authentication outside Cielo (External MPI).
 
-For more details about 3DS 2.0, please visit: [https://braspag.github.io//en/manualp/emv3ds](https://braspag.github.io//en/manualp/emv3ds)
+For more details about 3DS 2.0, please visit: [https://braspag.github.io//en/manualp/emv3ds](https://braspag.github.io//en/manualp/emv3ds){:target="_blank"}
 
 See example below, describing the submission of authentication data from the Pagador API authorization request.
 
@@ -111,7 +111,7 @@ curl
 
 ### Response
 
-See response at [API REST Integration Guide](https://braspag.github.io//en/manual/braspag-pagador#authenticating-a-transaction)  
+See response at [API REST Integration Guide](https://braspag.github.io//en/manual/braspag-pagador#authenticating-a-transaction){:target="_blank"}
 
 # Authorization for Data Only Transactions
 
