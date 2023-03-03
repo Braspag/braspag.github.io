@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-03-03T14:48:59+00:00</updated>
+    <updated>2023-03-03T15:09:21+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -7381,7 +7381,7 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
 
 &lt;h2 id=&quot;notification&quot;&gt;Notification&lt;/h2&gt;
 
-&lt;p&gt;To be notified about the status of a transaction, use the Cielo E-Commerce API &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação&quot;&gt;notification service&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To be notified about the status of a transaction, use the Cielo E-Commerce API &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação&quot; target=&quot;_blank&quot;&gt;notification service&lt;/a&gt;.&lt;/p&gt;
 </content>
     </entry>
     
