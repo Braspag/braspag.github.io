@@ -158,7 +158,7 @@
   <li><strong>Silent Order Post</strong>: possibilita o envio de dados do pagamento do cliente de forma segura, armazenando os dados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2. O Silent Order Post é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.
 <br />
     <blockquote>
-      <p>O Antifraude está sujeito à uma taxa por transação analisada. Consulte a área <a href="https://suporte.braspag.com.br/hc/pt-br">Comercial da Braspag</a> para saber mais.</p>
+      <p>O Antifraude está sujeito à uma taxa por transação analisada. Consulte a área <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Comercial da Braspag</a> para saber mais.</p>
     </blockquote>
   </li>
 </ul>
@@ -193,7 +193,7 @@
 <p>Ao contratar o Split de Pagamentos, você (usuário master) receberá as credenciais para integração com as nossas APIs (<code class="language-plaintext highlighter-rouge">MerchantId</code>, <code class="language-plaintext highlighter-rouge">MerchantKey</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>), além do seu login no portal Backoffice Split.</p>
 
 <blockquote>
-  <p>Nesta documentação, mostramos o passo a passo da integração via API. Para saber como usar o Backoffice Split, consulte os <a href="https://suporte.braspag.com.br/hc/pt-br">artigos na nossa página de Suporte</a>.</p>
+  <p>Nesta documentação, mostramos o passo a passo da integração via API. Para saber como usar o Backoffice Split, consulte os <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">artigos na nossa página de Suporte</a>.</p>
 </blockquote>
 
 <p>Antes de começar a transacionar, você precisa cadastrar os seus subordinados. Para isso, leia a documentação Cadastro de Subordinados.</p>
@@ -314,12 +314,12 @@
 
 <h1 id="ambientes">Ambientes</h1>
 
-<p>É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu <a href="https://www.braspag.com.br/contato/">executivo comercial</a>.</p>
+<p>É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu <a href="https://www.braspag.com.br/contato/" target="_blank">executivo comercial</a>.</p>
 
 <h2 id="sandbox">Sandbox</h2>
 
 <blockquote>
-  <p>Solicite suas credenciais para o ambiente de teste com o nosso <a href="https://suporte.braspag.com.br/hc/pt-br">Suporte</a>.</p>
+  <p>Solicite suas credenciais para o ambiente de teste com o nosso <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Suporte</a>.</p>
 </blockquote>
 
 <table>
@@ -1455,7 +1455,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 </ul>
 
 <blockquote>
-  <p>Para saber mais sobre a integração 3DS 2.0, acesse o <a href="https://braspag.github.io//manualp/emv3ds">Manual de Autenticação 3DS 2.0</a>.</p>
+  <p>Para saber mais sobre a integração 3DS 2.0, acesse o <a href="https://braspag.github.io//manualp/emv3ds" target="_blank">Manual de Autenticação 3DS 2.0</a>.</p>
 </blockquote>
 
 <h3 id="requisição-3">Requisição</h3>
@@ -2345,7 +2345,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 
 <h1 id="salvando-e-reutilizando-cartões">Salvando e Reutilizando Cartões</h1>
 
-<p>Ao contratar o <a href="https://braspag.github.io//manual/cartao-protegido-api-rest">Cartão Protegido</a>, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.</p>
+<p>Ao contratar o <a href="https://braspag.github.io//manual/cartao-protegido-api-rest" target="_blank">Cartão Protegido</a>, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.</p>
 
 <p>Além da geração do <code class="language-plaintext highlighter-rouge">CardToken</code>, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o <code class="language-plaintext highlighter-rouge">Alias</code>.</p>
 
@@ -2359,7 +2359,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 
 <h2 id="salvando-um-cartão-durante-uma-autorização">Salvando um Cartão Durante uma Autorização</h2>
 
-<p>Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> como “true” na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051">neste artigo</a>.</p>
+<p>Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> como “true” na requisição padrão de autorização. A numeração do cartão utilizado pode ser validada através da técnica do mod10, explicada <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051" target="_blank">neste artigo</a>.</p>
 
 <h3 id="requisição-6">Requisição</h3>
 
@@ -2755,7 +2755,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 
 <h2 id="criando-uma-transação-com-cardtoken">Criando uma Transação com CardToken</h2>
 
-<p>Este é um exemplo de como utilizar o <code class="language-plaintext highlighter-rouge">CardToken</code>, previamente salvo, para criar uma transação. Por questões de segurança, um <code class="language-plaintext highlighter-rouge">CardToken</code> não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato como nosso <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">Suporte</a>.</p>
+<p>Este é um exemplo de como utilizar o <code class="language-plaintext highlighter-rouge">CardToken</code>, previamente salvo, para criar uma transação. Por questões de segurança, um <code class="language-plaintext highlighter-rouge">CardToken</code> não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato como nosso <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag" target="_blank">Suporte</a>.</p>
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> será alterado conforme exemplo a seguir:</p>
 
@@ -3106,7 +3106,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 
 <h2 id="criando-uma-transação-com-alias">Criando uma Transação com Alias</h2>
 
-<p>Este é um exemplo de como utilizar o <em>Alias</em>, previamente salvo, para criar uma transação. Por questões de segurança, um <em>Alias</em> não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag">canais de atendimento</a>.</p>
+<p>Este é um exemplo de como utilizar o <em>Alias</em>, previamente salvo, para criar uma transação. Por questões de segurança, um <em>Alias</em> não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção <em>recorrente</em> (que permite transacionar sem utilizar o CVV), entre em contato atráves de nossos <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag" target="_blank">canais de atendimento</a>.</p>
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> será alterado, conforme exemplo a seguir:</p>
 
@@ -3466,7 +3466,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 
 <h2 id="consulta">Consulta</h2>
 
-<p>Para consultar uma transação, use o serviço de consulta da API do Pagador, informando o <code class="language-plaintext highlighter-rouge">PaymentId</code> da transação. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o <a href="https://braspag.github.io//manual/split-de-pagamentos-pagador#post-de-notifica%C3%A7%C3%A3o">Post de Notificação</a>.</p>
+<p>Para consultar uma transação, use o serviço de consulta da API do Pagador, informando o <code class="language-plaintext highlighter-rouge">PaymentId</code> da transação. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu status. Caso queira receber atualizações de status de uma transação, recomendamos usar o <a href="https://braspag.github.io//manual/split-de-pagamentos-pagador#post-de-notifica%C3%A7%C3%A3o" target="_blank">Post de Notificação</a>.</p>
 
 <h3 id="requisição-9">Requisição</h3>
 
@@ -4700,7 +4700,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
 <ul>
   <li>No momento do <strong>Split Transacional</strong> ou Pós-Transacional**;</li>
   <li>No momento do <strong>Split Pós-Transacional</strong> ou</li>
-  <li><strong>Pré-configurada</strong>. Para pré-configurar, entre em contato com o <a href="https://suporte.braspag.com.br/hc/pt-br">Suporte</a>, que irá criar, remover ou atualizar a
+  <li><strong>Pré-configurada</strong>. Para pré-configurar, entre em contato com o <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Suporte</a>, que irá criar, remover ou atualizar a
 pré-configuração. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.</li>
 </ul>
 
@@ -7977,7 +7977,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">2</td>
       <td style="text-align: left">Sim</td>
-      <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
@@ -8033,7 +8033,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">2</td>
       <td style="text-align: left">Obrigatório caso faça entrega</td>
-      <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
@@ -8460,14 +8460,14 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">3</td>
       <td style="text-align: left">Não</td>
-      <td style="text-align: left">Código do aeroporto de partida. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
+      <td style="text-align: left">Código do aeroporto de partida. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">3</td>
       <td style="text-align: left">Não</td>
-      <td style="text-align: left">Código do aeroporto de chegada. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm">IATA 3-Letter Codes</a></td>
+      <td style="text-align: left">Código do aeroporto de chegada. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a></td>
     </tr>
   </tbody>
 </table>
@@ -10789,7 +10789,7 @@ No caso de não possuir o dado para enviar, pedimos a gentileza de não enviar o
     </tr>
     <tr>
       <td>“7”</td>
-      <td>Notificação de chargeback. Para mais detalhes, consulte o manual de <a href="https://braspag.github.io//manual/risknotification">Risk Notification</a>.</td>
+      <td>Notificação de chargeback. Para mais detalhes, consulte o manual de <a href="https://braspag.github.io//manual/risknotification" target="_blank">Risk Notification</a>.</td>
     </tr>
     <tr>
       <td>“8”</td>
