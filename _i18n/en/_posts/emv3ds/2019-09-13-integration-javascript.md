@@ -15,7 +15,7 @@ language_tabs:
 
 # What is 3DS 2.0?
 
-For more details about 3DS 2.0, please visit: [https://braspag.github.io//en/manualp/emv3ds](https://braspag.github.io//en/manualp/emv3ds)
+For more details about 3DS 2.0, please visit: [https://braspag.github.io//en/manualp/emv3ds](https://braspag.github.io//en/manualp/emv3ds){:target="_blank"}
 
 <aside class="warning">Warning: We do not offer support for the development and implementation of this SDK.</aside>
 
@@ -91,7 +91,7 @@ curl
 
 In this step we implement the _script_ and mapping of _classes_, responsible for communicating with the brand and issuer authentication platforms. Follow the example below, which demonstrates the basic implementation. It is recommended that the snippet be placed at the end of your checkout HTML code:
 
-> To download the code, [go here](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html)
+> To download the code, [go here](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html){:target="_blank"}
 
 ![3DS 2.0 Flux]({{ site.baseurl_root }}/images/exemplo-html.jpg)
 
@@ -285,11 +285,11 @@ Use the **test** cards below to simulate various scenarios in the **SANDBOX** en
 ## Authorization with Authentication
 
 After authentication is completed, it undergoes the authorization process by submitting the authentication data in the "external authentication" (node **ExternalAuthentication**).
-See more details at: [https://braspag.github.io//en/manualp/authorization-with-authentication](https://braspag.github.io//en/manualp/authorization-with-authentication)
+See more details at: [https://braspag.github.io//en/manualp/authorization-with-authentication](https://braspag.github.io//en/manualp/authorization-with-authentication){:target="_blank"}
 
 # Last updates
 
-To see the manual's latest updates, [click here](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-javascript.md).
+To see the manual's latest updates, [click here](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-13-integration-javascript.md){:target="_blank"}.
 
 # ANNEX
 
