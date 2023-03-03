@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-03-03T20:42:27+00:00</updated>
+    <updated>2023-03-03T20:48:28+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -1836,7 +1836,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
 &lt;/ol&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;To request your “ClientID” and “ClientSecret”, please contact our &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br&quot;&gt;Support&lt;/a&gt;:&lt;/p&gt;
+  &lt;p&gt;To request your “ClientID” and “ClientSecret”, please contact our &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br&quot; target=&quot;_blank&quot;&gt;Support&lt;/a&gt;:&lt;/p&gt;
   &lt;ul&gt;
     &lt;li&gt;MerchantId;&lt;/li&gt;
     &lt;li&gt;Describe that you need the credentials “ClientID” e o “ClientSecret” to use Silent Order Post.&lt;/li&gt;
@@ -2045,7 +2045,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;To see the legacy authentication process, which used the MerchantId and shopper IP address to create the `AccessToken`, [click here](https://braspag.github.io//en/manual/silentorderpost#legacy-authentication).&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;To see the legacy authentication process, which used the MerchantId and shopper IP address to create the `AccessToken`, [click here](https://braspag.github.io//en/manual/silentorderpost#legacy-authentication){:target=&quot;_blank&quot;}.&lt;/aside&gt;
 
 &lt;h2 id=&quot;3-implementing-the-script&quot;&gt;3. Implementing the script&lt;/h2&gt;
 
@@ -2264,7 +2264,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
 
 &lt;p&gt;Example of a parameterization on the checkout page:&lt;/p&gt;
 
-&lt;p&gt;To download the code, click &lt;a href=&quot;https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To download the code, click &lt;a href=&quot;https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/silent-order-post-example.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/consulta-bin.jpg&quot; alt=&quot;Checkout Page&quot; /&gt;&lt;/p&gt;
 
@@ -2273,7 +2273,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
 &lt;p&gt;After obtaining PaymentToken through the script, the authorization process is performed by sending PaymentToken in place of card data.&lt;/p&gt;
 
 &lt;p&gt;See example below, describing the submission of authentication data from the Pagador API authorization request.
-For more details on implementation, please visit: [Pagador API] (https://braspag.github.io//manual/braspag-pagador):&lt;/p&gt;
+For more details on implementation, please visit: &lt;a href=&quot;https://braspag.github.io//manual/braspag-pagador&quot; target=&quot;_blank&quot;&gt;Pagador API&lt;/a&gt;:&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales&lt;/span&gt;&lt;/aside&gt;
 
@@ -2341,7 +2341,7 @@ For more details on implementation, please visit: [Pagador API] (https://braspag
 
 &lt;h3 id=&quot;response-2&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;See https://braspag.github.io/manual/braspag-pagador&lt;/p&gt;
+&lt;p&gt;See https://braspag.github.io/manual/braspag-pagador{:target=”_blank”}&lt;/p&gt;
 
 &lt;h1 id=&quot;annex&quot;&gt;ANNEX&lt;/h1&gt;
 
@@ -2465,7 +2465,7 @@ For more details on implementation, please visit: [Pagador API] (https://braspag
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;For security reasons, registration of a valid IP of the establishment in Braspag will be required. Otherwise the request will not be authorized (HTTP 401 NotAuthorized). Please identify which will be the outgoing IP that will access the API and then request the registration through the Braspag service channel: https://suporte.braspag.com.br/hc/en&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;For security reasons, registration of a valid IP of the establishment in Braspag will be required. Otherwise the request will not be authorized (HTTP 401 NotAuthorized). Please identify which will be the outgoing IP that will access the API and then request the registration through the Braspag service channel: https://suporte.braspag.com.br/hc/en{:target=&quot;_blank&quot;}&lt;/aside&gt;
 </content>
     </entry>
     
@@ -8673,7 +8673,7 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;If you want to test Consulta BIN return scenarios in sandbox, see &lt;a href=&quot;https://developercielo.github.io/manual/'?json#consulta-bin-sandbox&quot;&gt;Cielo documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you want to test Consulta BIN return scenarios in sandbox, see &lt;a href=&quot;https://developercielo.github.io/manual/'?json#consulta-bin-sandbox&quot; target=&quot;_blank&quot;&gt;Cielo documentation&lt;/a&gt;.&lt;/p&gt;
 </content>
     </entry>
     
