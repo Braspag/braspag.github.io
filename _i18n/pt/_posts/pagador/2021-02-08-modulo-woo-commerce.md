@@ -31,13 +31,13 @@ tags:
 
 ## Plugin Requerido
 
-É necessária a instalação do plugin [Brazilian Market on WooCommerce](https://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil), da WordPress, para adicionar recursos de preenchimento de informações pessoais do cliente. 
+É necessária a instalação do plugin [Brazilian Market on WooCommerce](https://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil){:target="_blank"}, da WordPress, para adicionar recursos de preenchimento de informações pessoais do cliente. 
 
 ## Instalação no WordPress
 
 ### Download do Plugin
 
-Primeiramente deve-se acessar [este endereço](https://github.com/Braspag/woocommerce) e fazer o donwload do plugin.
+Primeiramente deve-se acessar [este endereço](https://github.com/Braspag/woocommerce){:target="_blank"} e fazer o donwload do plugin.
 <br/>
 
 ### Instalação do Plugin
@@ -114,7 +114,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 ## Autenticação 3DS 2.0
 
-A autenticação 3DS 2.0 é utilizada para a criação do token em requisições na Braspag. Consulte o nosso [Manual 3DS 2.0](https://braspag.github.io//manualp/emv3ds) e conheça suas vantagens.
+A autenticação 3DS 2.0 é utilizada para a criação do token em requisições na Braspag. Consulte o nosso [Manual 3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"} e conheça suas vantagens.
 <br/>Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 em sua loja, entre em contato com o nosso Comercial (comercial@braspag.com.br).
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção “Authentication 3DS 2.0”:
@@ -128,13 +128,13 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 ## Post de Notificação
 
 Cadastre o endpoint **http://wordpress.local/_?wc-api=wc_braspag_** na URL da sua loja na Braspag, para que o webhook atualize os status de cobrança dos pedidos na loja.
-<br/>Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o) para mais informações sobre o Post de Notificação.
+<br/>Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o){:target="_blank"} para mais informações sobre o Post de Notificação.
 
 # Clientes
 
 ## Plugin "Brazilian Market on WooCommerce"
 
-Para o correto funcionamento do plugin WooCommerce, é necessário que seja instalado o plugin [Brazilian Market on WooCommerce](https://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil).
+Para o correto funcionamento do plugin WooCommerce, é necessário que seja instalado o plugin [Brazilian Market on WooCommerce](https://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil){:target="_blank"}.
 <br/>Com ele, as informações pessoais como CPF, bairro e número no endereço do cliente podem ser configuradas corretamente.
 
 # Boleto
