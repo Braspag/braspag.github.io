@@ -20,7 +20,7 @@ language_tabs:
 
 The API is based on REST architecture, which exchange data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the industry and supported by the technical communities.
 
-> To learn more about OAuth 2, see [https://oauth.net/2/](https://oauth.net/2/)
+> To learn more about OAuth 2, see [https://oauth.net/2/](https://oauth.net/2/){:target="_blank"}
 
 The platform was built using one of Braspag's main products, the Cartão Protegido, for card tokenization and token fraud analysis.
 
@@ -67,7 +67,7 @@ The access token is obtained through the oauth **client_credentials**. The diagr
 4. If the access token is valid, the request is processed and the data is returned to the **Client Application**
 
 > Request a credential by opening a ticket through our support tool, sending the exit IP (s) of your homologation and production servers. <br/>
-[Support Braspag](https://suporte.braspag.com.br/hc/en-us)
+[Support Braspag](https://suporte.braspag.com.br/hc/en-us){:target="_blank"}
 
 ## How to get the token
 
@@ -278,7 +278,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`MerchantOrderId` |Merchant order number|string|yes|100|
 |`TotalOrderAmount`|Total order value in cents <br/> Ex: 123456 = r$ 1.234,56|long|yes|-|
 |`TransactionAmount`|Value of the financial transaction in cents <br/> Ex: 150000 = r$ 1.500,00|long|yes|-|
-|`Currency`|Currency. More information on [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|string|yes|3|
+|`Currency`|Currency. More information on [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|string|yes|3|
 |`Provider`|Antifraud provider <br/> [Table 1 - Provider]({{ site.baseurl_root }}en/manual/antifraude#table-1-provider)|enum|-|-|
 |`BraspagTransactionId`|Transaction id in Pagador Braspag|guid|no|-|
 |`Tid`|Acquirer transaction id <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the `BraspagTransactionId` field, so you need to send the fields` Nsu`, `AuthorizationCode` and` SaleDate`, besides this one in question|string|no|20|
@@ -298,7 +298,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`Billing.Neighborhood`|Billing address neighborhood|string|no|45|
 |`Billing.City`|Billing address city|string|yes|50|
 |`Billing.State`|Billing address state|string|no|2|
-|`Billing.Country`|Billing address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|yes|2|
+|`Billing.Country`|Billing address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|yes|2|
 |`Billing.ZipCode`|Billing address zipcode|string|no|9|
 |`Shipping.Street`|Shipping address street|string|no|54|
 |`Shipping.Number`|Shipping address number|string|no|5|
@@ -306,7 +306,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`Shipping.Neighborhood`|Shipping address neighborhood|string|no|45|
 |`Shipping.City`|Shipping address city|string|no|50|
 |`Shipping.State`|Shipping address state|string|no|2|
-|`Shipping.Country`|Shipping address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|no|2|
+|`Shipping.Country`|Shipping address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|no|2|
 |`Shipping.ZipCode`|Shipping address zipcode|string|no|9|
 |`Shipping.FirstName`|First name of person in charge of receiving product at shipping address|string|no|60|
 |`Shipping.LastName`|Last name of the person in charge of receiving the product at the shipping address|string|no|60|
@@ -341,7 +341,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`Bank.Agency`|Customer's bank agency|string|no|15|
 |`Bank.Address`|Customer's bank address|string|no|255|
 |`Bank.City`|Customer's bank city|string|no|15|
-|`Bank.Country`|Customer's bank city <br/> More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|no|2|
+|`Bank.Country`|Customer's bank city <br/> More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|no|2|
 |`Bank.SwiftCode`|Customer's bank swift code|string|no|30|
 |`FundTransfer.AccountName`|Name linked to bank account|string|no|30|
 |`FundTransfer.AccountNumber`|Customer's bank account number|string|no|30|
