@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-03-03T20:09:36+00:00</updated>
+    <updated>2023-03-03T20:28:12+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -3555,7 +3555,7 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
 &lt;p&gt;After authentication is completed, the transaction undergoes the authorization process by submitting the authentication data in the “external authentication” (node &lt;strong&gt;ExternalAuthentication&lt;/strong&gt;).
 This procedure is also valid for establishments that performed authentication outside Cielo (External MPI).&lt;/p&gt;
 
-&lt;p&gt;For more details about 3DS 2.0, please visit: &lt;a href=&quot;https://braspag.github.io//en/manualp/emv3ds&quot;&gt;https://braspag.github.io//en/manualp/emv3ds&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For more details about 3DS 2.0, please visit: &lt;a href=&quot;https://braspag.github.io//en/manualp/emv3ds&quot; target=&quot;_blank&quot;&gt;https://braspag.github.io//en/manualp/emv3ds&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;See example below, describing the submission of authentication data from the Pagador API authorization request.&lt;/p&gt;
 
@@ -3695,7 +3695,7 @@ This procedure is also valid for establishments that performed authentication ou
 
 &lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;See response at &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#authenticating-a-transaction&quot;&gt;API REST Integration Guide&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;See response at &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#authenticating-a-transaction&quot; target=&quot;_blank&quot;&gt;API REST Integration Guide&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;authorization-for-data-only-transactions&quot;&gt;Authorization for Data Only Transactions&lt;/h1&gt;
 
