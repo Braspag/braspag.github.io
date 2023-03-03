@@ -142,4 +142,4 @@ You are able test VerifyCard (Zero Auth) returns in sandbox environment using th
 | 4532117080573799 | 99 | BP900 | Operation failure |
 | 4532117080573701 | 1 | 4 | Authorized |
 
-If you want to test Consulta BIN return scenarios in sandbox, see [Cielo documentation](https://developercielo.github.io/manual/'?json#consulta-bin-sandbox).
+If you want to test Consulta BIN return scenarios in sandbox, see [Cielo documentation](https://developercielo.github.io/manual/'?json#consulta-bin-sandbox){:target="_blank"}.
