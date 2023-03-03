@@ -41,7 +41,7 @@ Com o Registro de Recebíveis será permitido negociar as URs em aberto como ope
 
 ## Relatórios
 
-Abaixo seguem as descrições das colunas contidas nos relatórios transacionais e de recebíveis. Você pode solicitar os relatórios com nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br).
+Abaixo seguem as descrições das colunas contidas nos relatórios transacionais e de recebíveis. Você pode solicitar os relatórios com nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}.
 
 ### Relatório de transações
 
