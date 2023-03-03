@@ -251,11 +251,11 @@ Se você é cliente do gateway de pagamento **Pagador Braspag** ou usa a **API C
 
 ### Cliente de outros gateways e credenciadoras
 
-Se você é cliente de outros gateways ou possui a maquininha (POS) de outras credenciadoras (que não sejam Cielo), você deverá fazer a importação das suas vendas. O carregamento das vendas para o Agiliza pode ser feito na [Edição de Loja](https://reconciliation.braspag.com.br/WebSite/Login.aspx?ReturnUrl=%2fWebSite%2fBackOffice%2fEditMerchant.aspx) no portal do cliente Agiliza, por integração com a API Agiliza, transferência via SFTP ou transferência via webservice SOAP.
+Se você é cliente de outros gateways ou possui a maquininha (POS) de outras credenciadoras (que não sejam Cielo), você deverá fazer a importação das suas vendas. O carregamento das vendas para o Agiliza pode ser feito na [Edição de Loja](https://reconciliation.braspag.com.br/WebSite/Login.aspx?ReturnUrl=%2fWebSite%2fBackOffice%2fEditMerchant.aspx){:target="_blank"} no portal do cliente Agiliza, por integração com a API Agiliza, transferência via SFTP ou transferência via webservice SOAP.
 
 #### Importação via portal do cliente Agiliza
 
-O layout está disponível em [Manual de Arquivos de Vendas Externas](https://reconciliation.braspag.com.br/WebSite/Login.aspx?ReturnUrl=%2fWebSite%2fBackOffice%2fEditMerchant.aspx) e o formato deste arquivo deve ser CSV. Atente-se para os dados obrigatórios neste tipo de integração. Alguns campos que sempre devem ser enviados:
+O layout está disponível em [Manual de Arquivos de Vendas Externas](https://reconciliation.braspag.com.br/WebSite/Login.aspx?ReturnUrl=%2fWebSite%2fBackOffice%2fEditMerchant.aspx){:target="_blank"} e o formato deste arquivo deve ser CSV. Atente-se para os dados obrigatórios neste tipo de integração. Alguns campos que sempre devem ser enviados:
 
 * Afiliação;
 * Credenciadora (adquirente);
