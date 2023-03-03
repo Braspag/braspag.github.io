@@ -1132,7 +1132,7 @@ Você deve colocar o código no checkout, na parte de preenchimento dos dados ca
 
 #### 1. Adicione o SDK ao seu projeto
 
-Faça o download do [SDK Android](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20Android%20SDK%206.0-138_.zip).
+Faça o download do [SDK Android](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20Android%20SDK%206.0-138_.zip){:target="_blank"}.
 
 Em seguida, adicione o SDK ao seu projeto.
 
@@ -1221,13 +1221,13 @@ Implemente Profiling com EndNotifier.
 <br/>
 `}`
 
-Faça o download do [material de apoio da Cybersource](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf).
+Faça o download do [material de apoio da Cybersource](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf){:target="_blank"}.
 
 ### Configurando o Fingerprint na Cybersource – iOS
 
 #### 1. Adicione o SDK ao seu projeto
 
-Faça o download do [SDK iOS](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20iOS%20SDK%206.0-91_.zip).
+Faça o download do [SDK iOS](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20iOS%20SDK%206.0-91_.zip){:target="_blank"}.
 
 Em seguida, adicione o SDK ao seu projeto.
 
@@ -1290,7 +1290,7 @@ Adicione a função doProfileRequest() à sua aplicação e especifique as segui
 
 `RLTMXSessionID: [MyVariable], callbackBlock:{(result: [AnyHashable : Any]?) -> Void in`
 
-Faça o download do [material de apoio da Cybersource](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf).
+Faça o download do [material de apoio da Cybersource](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf){:target="_blank"}.
 
 # Integração com a ACI Worldwide
 
@@ -1460,7 +1460,7 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 |`MerchantOrderId`|Número do pedido da loja|string|sim|100|
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
-|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|-|-|
+|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|enum|-|-|
 |`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}manual/antifraude#tabela-1-provider)|enum|-|-|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|não|-|
@@ -1808,7 +1808,7 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 |`MerchantOrderId`|Número do pedido da loja|string|
 |`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|
-|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html)|enum|
+|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|enum|
 |`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}//manual/antifraude#tabela-1-provider)|enum|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155|datetime|
 |`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|
@@ -1841,7 +1841,7 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 |`Shipping.Neighborhood`|Bairro do endereço de entrega|string|
 |`Shipping.City`|Cidade do endereço de entrega|string|
 |`Shipping.State`|Estado do endereço de entrega|string|
-|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
 |`Shipping.ZipCode`|Código postal do endereço de entrega|string|
 |`Shipping.Email`|E-mail do responsável a receber o produto no endereço de entrega|string|
 |`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|
@@ -1888,10 +1888,10 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 |`Airline.Passengers[n].Email`|E-mail do passageiro|string|
 |`Airline.Passengers[n].LoyaltyMemberNumber`|Número de fidelidade do passageiro|string|
 |`Airline.Passengers[n].TicketNumber`|Número da passagem|string|
-|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
-|`Airline.Passengers[n].Legs[n].DepartureCountry`|Código do país do aeroporto de saída. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
-|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Código do país do aeroporto de chegada. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|
+|`Airline.Passengers[n].Legs[n].DepartureCountry`|Código do país do aeroporto de saída. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|
+|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Código do país do aeroporto de chegada. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
 |`Airline.Passengers[n].Legs[n].AirlineCode`|Código da companhia aérea|string|
 |`Airline.Passengers[n].Legs[n].DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38 |datetime|
 |`Airline.Passengers[n].Legs[n].ClassOfService`|Classe de serviço|string|
@@ -2024,7 +2024,7 @@ A versão 1.2.0 do Iovation Mobile SDK para Android suporta versões do Android 
 
 1. Baixe e descompacte o deviceprint-lib-1.2.0.aar;
 2. Inicie o IDE de sua escolha;
-3. No Eclipse e Maven, faça o deploy do arquivo de extensão *.aar* no repositório Maven local, usando o maven-deploy. Mais detalhes em: [Maven Guide](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html);
+3. No Eclipse e Maven, faça o deploy do arquivo de extensão *.aar* no repositório Maven local, usando o maven-deploy. Mais detalhes em: [Maven Guide](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html){:target="_blank"};
 4. No Android Studio, selecione *File -> New Module*. Expande *More Modules* e escolha *Import existing .jar or .aar package*;
 5. Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em *Finish*;
 6. Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle.
