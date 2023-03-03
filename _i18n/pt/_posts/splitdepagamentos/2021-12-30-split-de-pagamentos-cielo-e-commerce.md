@@ -49,7 +49,7 @@ Com o Split de Pagamentos da Braspag, você tem acesso a um pacote de soluções
 * **Cartão Protegido**: permite o armazenamento seguro de cartões de crédito e débito, de acordo com as normas do PCI, e contribui para melhorar a taxa de conversão do seu e-commerce;
 * **Silent Order Post**: possibilita o envio de dados do pagamento do cliente de forma segura, armazenando os dados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2. O Silent Order Post é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.
 <br/>
-> O Antifraude está sujeito à uma taxa por transação analisada. Consulte a área [Comercial da Braspag](https://suporte.braspag.com.br/hc/pt-br) para saber mais.
+> O Antifraude está sujeito à uma taxa por transação analisada. Consulte a área [Comercial da Braspag](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"} para saber mais.
 
 # Como funciona
 
@@ -63,7 +63,7 @@ Os possíveis participantes de uma venda são: master, subordinado e Split de Pa
 
 Ao contratar o Split de Pagamentos, você (usuário master) receberá as credenciais para integração com as nossas APIs (`MerchantId`, `MerchantKey` e `ClientSecret`), além do seu login no portal Backoffice Split.
 
-> Nesta documentação, mostramos o passo a passo da integração via API. Para saber como usar o Backoffice Split, consulte os [artigos na nossa página de Suporte](https://suporte.braspag.com.br/hc/pt-br).
+> Nesta documentação, mostramos o passo a passo da integração via API. Para saber como usar o Backoffice Split, consulte os [artigos na nossa página de Suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}.
 
 Antes de começar a transacionar, você precisa cadastrar os seus subordinados. Para isso, leia a documentação Cadastro de Subordinados.
 
@@ -165,7 +165,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 
 ## Sandbox
 
-Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br).
+Solicite suas credenciais para o ambiente de teste com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}.
 
 |API|URL|DESCRIÇÃO|
 |---|---|---|
@@ -187,7 +187,7 @@ Você receberá as credenciais para o ambiente de produção durante o onboardin
 
 # Autenticação
 
-O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/), no qual é necessário primeiramente obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API Cielo E-Commerce e à API do Split.
+O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, no qual é necessário primeiramente obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API Cielo E-Commerce e à API do Split.
 
 Para obter um token de acesso:
 
@@ -226,7 +226,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 # Autorização
 
-A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce, seguindo as mesmas requisições do [Manual de Integração API Cielo E-commerce](https://developercielo.github.io/manual/cielo-ecommerce).
+A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce, seguindo as mesmas requisições do [Manual de Integração API Cielo E-commerce](https://developercielo.github.io/manual/cielo-ecommerce){:target="_blank"}.
 
 **Fluxo transacional padrão**
 
@@ -848,7 +848,7 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 * O nó `Payment.FraudAnalysis` não deve ser informado, pois a transação não necessita de análise de fraude;
 * É obrigatório submeter a transação de débito à autenticação. Para isso, é necessário incluir o nó `Payment.ExternalAuthentication`. A autenticação é feita pela integração 3DS 2.0. 
 
->Para saber mais sobre a integração 3DS 2.0, acesse o [Manual de Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).
+>Para saber mais sobre a integração 3DS 2.0, acesse o [Manual de Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}.
 
 ### Requisição
 
@@ -1390,7 +1390,7 @@ Neste modelo, o master poderá enviar as regras de divisão da transação após
 
 # Salvando e Reutilizando Cartões
 
-Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest), é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
+Ao contratar o [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest){:target="_blank"}, é possível salvar um cartão de forma segura e de acordo com as normas PCI. Os dados do cartão são salvos em formato de um token (excluindo o CVV do cartão), o que facilita o envio e processamento de transações, garantindo a integridade dos cartões armazenados e substituindo seus dados numa próxima transação do mesmo comprador.
 
 Além da geração do `CardToken`, é possível associar um nome (um identificador em formato de texto) ao cartão salvo. Esse identificador será o `Alias`.
 
@@ -1404,7 +1404,7 @@ Na transação com Cartão Protegido, a solicitação de tokenização é feita 
 
 ## Salvando um Cartão Durante uma Autorização
 
-Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. A numeração do cartão usado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051).
+Para salvar um cartão de crédito utilizado em uma transação, basta enviar o parâmetro `Payment.SaveCard` como "true" na requisição padrão de autorização. A numeração do cartão usado pode ser validada através da técnica do mod10, explicada [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051){:target="_blank"}.
 
 ### Requisição
 
@@ -1623,7 +1623,7 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
 
 ## Criando uma Transação com CardToken
 
-Este é um exemplo de como utilizar o `CardToken`, previamente salvo, para criar uma transação. Por questões de segurança, um `CardToken` não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
+Este é um exemplo de como utilizar o `CardToken`, previamente salvo, para criar uma transação. Por questões de segurança, um `CardToken` não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag){:target="_blank"}.
 
 O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seguir:
 
@@ -1820,7 +1820,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 
 ## Criando uma Transação com Alias
 
-Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag).
+Este é um exemplo de como utilizar o *Alias*, previamente salvo, para criar uma transação. Por questões de segurança, um Alias não armazena o Código de Segurança (CVV). Desta forma, é preciso solicitar esta informação ao portador para cada nova transação. Para transacionar com a opção *recorrente* (que permite transacionar sem utilizar o CVV), entre em contato com o nosso [Suporte](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag){:target="_blank"}.
 
 O nó `CreditCard` dentro do nó `Payment` será alterado, conforme exemplo a seguir:
 
@@ -2021,7 +2021,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado, conforme exemplo a se
 ## Consulta
 
 Para consultar uma transação, use o serviço de consulta da API Cielo E-Commerce. Você pode consultar uma transação para verificar todos os dados dessa transação ou para saber o seu
-status. Caso queira receber atualizações de status de uma transação, recomendamos usar o [**Post de Notificação**](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#post-de-notifica%C3%A7%C3%A3o).
+status. Caso queira receber atualizações de status de uma transação, recomendamos usar o [**Post de Notificação**](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#post-de-notifica%C3%A7%C3%A3o){:target="_blank"}.
 
 #### Requisição
 
@@ -2532,7 +2532,7 @@ A escolha do tipo de desconto das taxas pode ser feita:
 
 * No momento do **Split Transacional** ou Pós-Transacional**;
 * No momento do **Split Pós-Transacional** ou
-* **Pré-configurada**. Para pré-configurar, entre em contato com o [Suporte](https://suporte.braspag.com.br/hc/pt-br), que irá criar, remover ou atualizar a
+* **Pré-configurada**. Para pré-configurar, entre em contato com o [Suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}, que irá criar, remover ou atualizar a
 pré-configuração. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
 
 <br/>No caso de uma transação criada com um tipo de desconto das taxas, esse tipo será usado em todas as requisições posteriores. É possível mudar o tipo de desconto através da redivisão
@@ -4218,7 +4218,7 @@ Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 HTTP Status 200
 ```
 
-Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code) para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Consulte o anexo [HTTP Status Code](https://developercielo.github.io/manual/cielo-ecommerce#http-status-code){:target="_blank"} para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ## Transação com Renova Fácil
 
@@ -4538,13 +4538,13 @@ Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.F
 |`Payment.FraudAnalysis.TotalOrderAmount`|Inteiro|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação  |Ex.: Valor do pedido sem a taxa de entrega|
 |`Payment.FraudAnalisys.Browser`|-|-|Sim|-|
 |`Payment.FraudAnalysis.Browser.IpAddress`|Texto|255|Sim|Ip do comprador|
-|`Payment.FraudAnalysis.Browser.BrowserFingerPrint`|Texto|88|Sim|Impressão digital de dispositivos e geolocalização real do IP do comprador [Configuração do Fingerprint](https://braspag.github.io//manual/antifraude#cybersource)|
+|`Payment.FraudAnalysis.Browser.BrowserFingerPrint`|Texto|88|Sim|Impressão digital de dispositivos e geolocalização real do IP do comprador [Configuração do Fingerprint](https://braspag.github.io//manual/antifraude#cybersource){:target="_blank"}|
 |`Payment.FraudAnalysis.Cart`|Lista|-|Não|Nó contendo as informações do carrinho de compras para análise de fraude|
 |`Payment.FraudAnalysis.Cart.Items[].Name`|Texto|50|Não|Nome do produto|
 |`Payment.FraudAnalysis.Cart.Items[].Sku`|Texto|12|Não|Sku do produto|
 |`Payment.FraudAnalysis.Cart.Items[].UnitPrice`|Inteiro|15|Não|Preço original do produto em centavos  |Ex.: R$ 1.559,85 = 155985|
 |`Payment.FraudAnalysis.Cart.Items[].Quantity`|Inteiro|-|Não|Quantidade do produto|
-|`Payment.FraudAnalysis.MerchantDefinedFields`|Lista|-|Sim|Nó contendo dados adicionais para análise de fraude [Tabela de Merchant Defined Data](https://braspag.github.io//manual/antifraude#tabela-31-merchantdefineddata-(cybersource))|
+|`Payment.FraudAnalysis.MerchantDefinedFields`|Lista|-|Sim|Nó contendo dados adicionais para análise de fraude [Tabela de Merchant Defined Data](https://braspag.github.io//manual/antifraude#tabela-31-merchantdefineddata-(cybersource){:target="_blank"}|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Items[].Id`|Inteiro|-|Sim|Identificador de uma informação adicional a ser enviada|
 |`Payment.FraudAnalysis.MerchantDefinedFields.Items[].Value`|Texto|255|Sim|Valor de uma informação adicional a ser enviada|
 |`Payment.FraudAnalysis.Shipping`|-|-|Não|Nó contendo informações adicionais da entrega do pedido para análise de fraude|
@@ -4579,7 +4579,7 @@ Os parâmetros serão enviados à URL cadastrada, conforme o próximo exemplo.
 |"1"|Mudança de status do pagamento.|
 |"3"|Mudança de status do *Antifraude*.|
 |"6"|Boleto registrado pago a menor.|
-|"7"|Notificação de chargeback. Para mais detalhes, consulte o manual de [Risk Notification](https://braspag.github.io//manual/risknotification).|
+|"7"|Notificação de chargeback. Para mais detalhes, consulte o manual de [Risk Notification](https://braspag.github.io//manual/risknotification){:target="_blank"}.|
 |"8"|Alerta de fraude.|
 
 ## Resposta Esperada
