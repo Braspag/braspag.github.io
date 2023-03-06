@@ -15,7 +15,7 @@ language_tabs:
 
 # O que é 3DS 2.0?
 
-Para maiores detalhes sobre o 3DS 2.0, consulte o [Manual 3DS 2.0](https://braspag.github.io//manualp/emv3ds).
+Para maiores detalhes sobre o 3DS 2.0, consulte o [Manual 3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}.
 
 <aside class="warning">Atenção: Não oferecemos suporte para o desenvolvimento e implementação deste SDK.</aside>
 
@@ -91,7 +91,7 @@ curl
 
 Neste passo, é implementado o _script_ e o mapeamento de _classes_ responsáveis pela comunicação com as plataformas de autenticação das bandeiras e emissor. Siga o exemplo abaixo, que demonstra a implementação básica. Recomenda-se que o trecho seja colocado no final do código HTML de seu checkout:
 
-> Para baixar o código, [acesse aqui](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html)
+> Para baixar o código, [acesse aqui](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html){:target="_blank"}
 
 ![Fluxo 3DS 2.0]({{ site.baseurl_root }}/images/exemplo-html.jpg)
 
@@ -118,7 +118,7 @@ Neste passo, é implementado o _script_ e o mapeamento de _classes_ responsávei
 
 O arquivo JavaScript deve ser salvo no servidor onde está a aplicação da loja. Para baixar o arquivo, acesse:
 
-[https://bit.ly/2CSOp2n](https://bit.ly/2CSOp2n)
+[https://bit.ly/2CSOp2n](https://bit.ly/2CSOp2n){:target="_blank"}
 
 ## Descrição das saídas
 
@@ -286,7 +286,7 @@ Utilize os cartões de **teste** abaixo para simular diversos cenários no ambie
 ## Autorização com Autenticação
 
 Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó **ExternalAuthentication** ).
-Veja maiores detalhes em: [https://braspag.github.io/manual/autorizacao-com-autenticacao](https://braspag.github.io/manual/autorizacao-com-autenticacao)
+Veja maiores detalhes em: [https://braspag.github.io/manual/autorizacao-com-autenticacao](https://braspag.github.io/manual/autorizacao-com-autenticacao){:target="_blank"}
 
 # Últimas atualizações
 
