@@ -21,7 +21,7 @@ O objetivo desta documentação é orientar o desenvolvedor sobre como integrar 
 
 ## Principais Benefícios
 
-A solução [API Pagador](https://suporte.braspag.com.br/hc/pt-br/articles/360013153791-O-que-%C3%A9-o-Pagador-) foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: *ASP, ASP.Net, Java, PHP, Ruby* e *Python*.
+A solução [API Pagador](https://suporte.braspag.com.br/hc/pt-br/articles/360013153791-O-que-%C3%A9-o-Pagador-){:target="_blank"} foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: *ASP, ASP.Net, Java, PHP, Ruby* e *Python*.
 
 Conheça alguns dos atributos que se destacam no Gateway de Pagamentos:
 
@@ -50,7 +50,7 @@ O modelo empregado na integração das APIs é simples e se baseia na utilizaç�
 |**PUT**|Atualiza um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|
 
 Todas a operações requerem as credenciais de acesso **"Merchant ID"** e **"Merchant Key"**, que devem ser enviadas no cabeçalho (*header*) da requisição.<br>
-<br>Cada envio de requisição irá retornar um código de [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), indicando se ela foi realizada com sucesso ou não.
+<br>Cada envio de requisição irá retornar um código de [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code){:target="_blank"}, indicando se ela foi realizada com sucesso ou não.
 
 ## Ambientes de Teste e Produção
 
@@ -97,15 +97,15 @@ Os seguintes recursos são oferecidos, podendo ser aplicados em diferentes momen
 
 |Termo|Descrição|
 |---|---|
-|**Antifraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual. Leia mais na seção [Pagamentos com Análise de Fraude](#pagamentos-com-análise-de-fraude) ou consulte o manual [Antifraude](https://braspag.github.io//manual/antifraude).|
-|**Autenticação**|Processo que possibilita passagem da venda por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude. Leia mais na seção [Autenticando uma Transação](#autenticando-uma-transação) ou consulte o manual [Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds).|
-|**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito no formato de *token*. Com a plataforma, a loja poderá oferecer recursos como "*Compra com 1 clique*" e "*Retentativa*" de envio de transação, sempre preservando a integridade e a confidencialidade das informações. Leia mais na seção [Salvando e Reutilizando Cartões](#salvando-e-reutilizando-cartões) ou consulte o manual [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest).|
+|**Antifraude**|Plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual. Leia mais na seção [Pagamentos com Análise de Fraude](#pagamentos-com-análise-de-fraude) ou consulte o manual [Antifraude](https://braspag.github.io//manual/antifraude){:target="_blank"}.|
+|**Autenticação**|Processo que possibilita passagem da venda por autenticação do emissor do cartão, trazendo com isso mais segurança para a venda e transferindo para o emissor o risco de fraude. Leia mais na seção [Autenticando uma Transação](#autenticando-uma-transação) ou consulte o manual [Autenticação 3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}.|
+|**Cartão Protegido**|Plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito no formato de *token*. Com a plataforma, a loja poderá oferecer recursos como "*Compra com 1 clique*" e "*Retentativa*" de envio de transação, sempre preservando a integridade e a confidencialidade das informações. Leia mais na seção [Salvando e Reutilizando Cartões](#salvando-e-reutilizando-cartões) ou consulte o manual [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest){:target="_blank"}.|
 
 ## Suporte Braspag
 
 <aside class="notice">A Braspag oferece suporte de alta disponibilidade. Atendemos de segunda a sexta, das 9h às 19h, através de telefone de emergência 24 horas por dia e de ferramenta via web. Contamos com equipe que poderá atender em português, inglês e espanhol.</aside>
 
-Acesse nossa ferramenta de atendimento web [Zendesk](http://suporte.braspag.com.br/) e consulte o nosso artigo [Atendimento Braspag](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag) para mais informações sobre nosso serviço de suporte. 
+Acesse nossa ferramenta de atendimento web [Zendesk](http://suporte.braspag.com.br/){:target="_blank"} e consulte o nosso artigo [Atendimento Braspag](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672-Atendimento-Braspag){:target="_blank"} para mais informações sobre nosso serviço de suporte. 
 
 # Meios de Pagamento
 
@@ -121,7 +121,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão seguida de um
 * **Bandeira:** faz a comunicação com o emissor do cartão da transação e liquida a transação para os adquirentes.
 * **Emissor:** dá crédito e armazena o dinheiro do comprador. Na transação, aprova ou nega por razões de saldo, validade do cartão ou fraude. Liquida a transação para a bandeira.
 
-<br/>**Nota:** Para evitar que a duplicidade de pedidos ocorra durante uma transação, o Pagador possui a opção de bloqueio de pedidos duplicados que, quando habilitado, retorna o código de erro "302", informando que o `MerchantOrderId` enviado está duplicado. Para saber mais detalhes sobre essa feature, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360030183991).
+<br/>**Nota:** Para evitar que a duplicidade de pedidos ocorra durante uma transação, o Pagador possui a opção de bloqueio de pedidos duplicados que, quando habilitado, retorna o código de erro "302", informando que o `MerchantOrderId` enviado está duplicado. Para saber mais detalhes sobre essa feature, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360030183991){:target="_blank"}.
 
 ## Cartões de Crédito e Débito
 
@@ -132,11 +132,11 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 
 Ao solicitar a **autorização** de uma transação de crédito, é necessário seguir o contrato abaixo. Os dados referentes à sua afiliação são enviados no nó `Payment.Credentials` e devem ser enviados sempre que uma nova requisição de autorização for submetida para aprovação.
 
-Caso a sua loja utilize os serviços de *Retentativa* ou *Loadbalance*, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, [clique aqui](https://suporte.braspag.com.br/hc/pt-br/requests/new) e envie sua requisição.
+Caso a sua loja utilize os serviços de *Retentativa* ou *Loadbalance*, as afiliações devem ser cadastradas pela equipe de suporte ao cliente. Para solicitar o cadastro de afiliações, [clique aqui](https://suporte.braspag.com.br/hc/pt-br/requests/new){:target="_blank"} e envie sua requisição.
 
 <aside class="warning">IMPORTANTE: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional (SentOrderId) pode ser gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</aside>
 
-Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao [Antifraude](https://braspag.github.io//manual/antifraude) ou à análise do [Velocity](https://braspag.github.io//manual/velocity). Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.
+Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao [Antifraude](https://braspag.github.io//manual/antifraude){:target="_blank"} ou à análise do [Velocity](https://braspag.github.io//manual/velocity){:target="_blank"}. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.
 
 Seguem exemplos de envio de requisição e resposta para criar uma transação de crédito:
 
@@ -929,7 +929,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 
 ### Criando uma Transação de Débito sem Autenticação
 
-É possível processar um cartão de débito sem a necessidade de submeter o comprador ao processo de autenticação. Confira o artigo [Débito sem Senha (Autenticação)](https://suporte.braspag.com.br/hc/pt-br/articles/360013285531) para mais detalhes a respeito desse tipo de transação.
+É possível processar um cartão de débito sem a necessidade de submeter o comprador ao processo de autenticação. Confira o artigo [Débito sem Senha (Autenticação)](https://suporte.braspag.com.br/hc/pt-br/articles/360013285531){:target="_blank"} para mais detalhes a respeito desse tipo de transação.
 <br>Este é o caso do auxílio emergencial "Coronavoucher", disponibilizado pelo governo, que pode ser consumido através do cartão de débito virtual da Caixa Econômica Federal. Desta forma, a requisição deverá ser do tipo Cartão de Débito, porém **sem autenticação**, conforme o exemplo abaixo. 
 
 #### Requisição
@@ -1152,7 +1152,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 
 Quando uma transação é submetida com o parâmetro `Payment.Capture` igual a "false", é necessário que seja feita, posteriormente, uma solicitação de captura para confirmar a transação.
 
-Transações que não são capturadas até a [data limite](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno) são automaticamente desfeitas pelas adquirentes. Clientes podem ter negociações específicas com as adquirentes para que alterem esse prazo limite de captura.
+Transações que não são capturadas até a [data limite](https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno){:target="_blank"} são automaticamente desfeitas pelas adquirentes. Clientes podem ter negociações específicas com as adquirentes para que alterem esse prazo limite de captura.
 
 #### Requisição
 
@@ -1240,16 +1240,16 @@ Transações que não são capturadas até a [data limite](https://suporte.brasp
 
 Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim no processo de validação da compra online. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
-O padrão mais atual do autenticador é o [3DS 2.0](https://braspag.github.io//manualp/emv3ds), sendo que a versão 3DS 1.0 está em vias de descontinuação.
+O padrão mais atual do autenticador é o [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}, sendo que a versão 3DS 1.0 está em vias de descontinuação.
 
 <aside class="notice">A utilização da versão 3DS 2.0 é indicada para autenticação no ambiente mobile, que não suporta a versão 1.0.</aside>
 <aside class="warning">O 3DS 1.0 deverá ser descontinuado a partir de Outubro de 2021 e não recomendamos, portanto, sua integração.</aside>
 
 #### 3DS 2.0
 
-Além de ser compatível com os diferentes tipos de dispositivos (desktop, tablet ou smartphone), a versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds) possui recursos que proporcionam uma melhor experiência de compra online para o seu cliente.
+Além de ser compatível com os diferentes tipos de dispositivos (desktop, tablet ou smartphone), a versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"} possui recursos que proporcionam uma melhor experiência de compra online para o seu cliente.
 
-Durante o fluxo da transação, a etapa de autorização pode ser realizada separada ou juntamente com a autenticação. Para conhecer sobre o segundo fluxo, confira a documentação da [Autorização com Autenticação](https://braspag.github.io/manual/autorizacao-com-autenticacao#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o) do 3DS 2.0.  
+Durante o fluxo da transação, a etapa de autorização pode ser realizada separada ou juntamente com a autenticação. Para conhecer sobre o segundo fluxo, confira a documentação da [Autorização com Autenticação](https://braspag.github.io/manual/autorizacao-com-autenticacao#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o){:target="_blank"} do 3DS 2.0.  
 
 #### 3DS 1.0 Padrão
 
@@ -2933,7 +2933,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 Com o objetivo de promover maior controle e segurança ao transacional de boletos no e-commerce e garantir mais confiabilidade e comodidade aos usuários, a FEBRABAN em conjunto com os bancos lançou a **Nova Plataforma de Cobrança**.
 
-Desde 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigatoriamente, precisam ser registrados. [Clique aqui](https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos) para acessar o comunicado completo.   
+Desde 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigatoriamente, precisam ser registrados. [Clique aqui](https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos){:target="_blank"} para acessar o comunicado completo.   
 
 Abaixo seguem os procedimentos de migração/filiação de cada banco:
 
@@ -3207,7 +3207,7 @@ Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizad
 
 ### Conciliação de Boletos
 
-Para atualizar o status de um boleto para *Pago*, o Pagador deve receber dos bancos os arquivos CNAB com as liquidações referentes. Para habilitar sua loja a receber os arquivos bancários, basta seguir o procedimento descrito [neste link](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-).
+Para atualizar o status de um boleto para *Pago*, o Pagador deve receber dos bancos os arquivos CNAB com as liquidações referentes. Para habilitar sua loja a receber os arquivos bancários, basta seguir o procedimento descrito [neste link](https://suporte.braspag.com.br/hc/pt-br/articles/360007068352-Como-funciona-a-Concilia%C3%A7%C3%A3o-via-Nexxera-){:target="_blank"}.
 
 ### Regras Específicas por Banco Emissor
 
@@ -3464,7 +3464,7 @@ O Pagador possui suporte para as principais carteiras digitais disponíveis no m
 
 ### Integração da E-Wallet
 
-Consulte nosso manual [E-Wallets](https://braspag.github.io//manual/ewallets) e saiba mais detalhes sobre a integração dessas e-wallets em seu checkout.
+Consulte nosso manual [E-Wallets](https://braspag.github.io//manual/ewallets){:target="_blank"} e saiba mais detalhes sobre a integração dessas e-wallets em seu checkout.
 
 Com a e-wallet já totalmente integrada, o seu **fluxo transacional** de pagamento será o seguinte:
 ![Fluxo E-Wallet]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/e-wallet2.png)
@@ -3957,7 +3957,7 @@ A data de vencimento dos boletos recorrentes será criada baseando-se na data do
 
 Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias. Vencimento do boleto criado automaticamente: 06/01/2021.
 
-Entre em contato com o [time de suporte](https://suporte.braspag.com.br/hc/pt-br/requests/new) para definir em quantos dias você quer que seus boletos gerados via recorrência vençam.
+Entre em contato com o [time de suporte](https://suporte.braspag.com.br/hc/pt-br/requests/new){:target="_blank"} para definir em quantos dias você quer que seus boletos gerados via recorrência vençam.
 
 #### Requisição
 
@@ -7767,7 +7767,7 @@ A consulta deve ser feita através de requisição diretamente à API de Consult
 ## Consultando uma Transação via PaymentID
 
 Para que o nó `Chargeback` esteja contido no retorno, a Braspag deverá passar a receber os chargebacks da sua loja. Você poderá então acatar ou contestar as operações, acompanhando os resultados das contestações no Painel Admin Braspag. Através do [Post de Notificação](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o), sua loja poderá ser informada da transação que sofreu o chargeback.
-As operações contidas no Painel Admin Braspag também estão disponíveis na [API Risk Notification](https://braspag.github.io//manual/risknotification).
+As operações contidas no Painel Admin Braspag também estão disponíveis na [API Risk Notification](https://braspag.github.io//manual/risknotification){:target="_blank"}.
 
 Para que o nó `FraudAlert` esteja contido no retorno, a Braspag deverá passar a receber os alertas de fraude da sua loja, que ficarão disponíveis no Painel Admin Braspag. Através do Post de Notificação, a sua loja será informada da transação que sofreu o alerta de fraude.
 
@@ -8536,7 +8536,7 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 |"4"|Mudança de status do pagamento recorrente (Ex.: desativação automática).|
 |"5"|Estorno negado (aplicável para **Rede**).|
 |"6"|Boleto registrado pago a menor.|
-|"7"|Notificação de chargeback. Exclusivo para clientes integrados à [Risk Notification API](https://braspag.github.io//manual/risknotification).|
+|"7"|Notificação de chargeback. Exclusivo para clientes integrados à [Risk Notification API](https://braspag.github.io//manual/risknotification){:target="_blank"}.|
 |"8"|Alerta de fraude.|
 
 ## Resposta Esperada
@@ -8550,7 +8550,7 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 
 ## Lista de Providers
 
-No caso da integração SOAP, consulte a lista de provedores (*providers*) e seus correspondentes meios de pagamento listados [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360026794092-Lista-de-Payment-Method).<br/>
+No caso da integração SOAP, consulte a lista de provedores (*providers*) e seus correspondentes meios de pagamento listados [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360026794092-Lista-de-Payment-Method){:target="_blank"}.<br/>
 As listas a seguir se referem a provedores na integração REST:  
 
 ### Providers para Crédito
