@@ -65,7 +65,7 @@ Para a fase de testes, crie uma conta em nosso sandbox e experimente as nossas A
 
 |Informação|Descrição|
 |----|----|
-|Credenciais de acesso|`MerchantId` e `MerchantKey` recebidos após criação da conta de testes em [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/).|
+|Credenciais de acesso|`MerchantId` e `MerchantKey` recebidos após criação da conta de testes em [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/){:target="_blank"}.|
 |Base da URL transacional|https://apisandbox.braspag.com.br/|
 |Base da URL para consultas|https://apiquerysandbox.braspag.com.br/|
 
@@ -2937,11 +2937,11 @@ Desde 21 de julho de 2018 todos os boletos emitidos no e-commerce, obrigatoriame
 
 Abaixo seguem os procedimentos de migração/filiação de cada banco:
 
-* [Bradesco](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf)
-* [Banco do Brasil](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf)
-* [Itaú](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf)
-* [Santander](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf)
-* [Caixa Econômica](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf)
+* [Bradesco](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/24157160-4da2-46d4-a119-60d8f614a842/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Bradesco.pdf){:target="_blank"}
+* [Banco do Brasil](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/0f4644c6-da10-42ab-b647-09786d5db5cb/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Banco_do_Brasil.pdf){:target="_blank"}
+* [Itaú](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/de2e95e8-441a-4fa2-be01-9b89463477d0/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Ita%C3%BA_v1.1.pdf){:target="_blank"}
+* [Santander](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/a8661c34-6341-466a-86cf-078fb5e19626/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Santander.pdf){:target="_blank"}
+* [Caixa Econômica](https://gallery.mailchimp.com/365fc3ca5e4f598460f07ecaa/files/fee80b87-2b37-4f19-b293-bb43389025de/Procedimento_de_Migra%C3%A7%C3%A3o_Boleto_Registrado_Caixa_v1.1.pdf){:target="_blank"}
 
 ### Criando uma Transação de Boleto
 
