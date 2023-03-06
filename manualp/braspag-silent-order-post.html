@@ -165,7 +165,7 @@
 
 <p>Quando o comprador acessa o checkout, o estabelecimento deve gerar o <code class="language-plaintext highlighter-rouge">AccessToken</code> a partir da API de autenticação da Braspag (<strong>OAuth2</strong>). Em caso de sucesso, a API retornará um <code class="language-plaintext highlighter-rouge">AccessToken</code> que deverá ser utilizado na próxima camada de autenticação da ferramenta.</p>
 
-<p>Para obter o <code class="language-plaintext highlighter-rouge">AccessToken</code> no padrão <a href="https://oauth.net/2/">OAuth 2.0</a>, realize um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL, formada pela “URL base do ambiente + endpoint”, no modelo server-to-server:</p>
+<p>Para obter o <code class="language-plaintext highlighter-rouge">AccessToken</code> no padrão <a href="https://oauth.net/2/" target="_blank">OAuth 2.0</a>, realize um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL, formada pela “URL base do ambiente + endpoint”, no modelo server-to-server:</p>
 
 <table>
   <thead>
@@ -404,14 +404,14 @@
 </table>
 
 <blockquote>
-  <p>Consulte sobre o <a href="https://braspag.github.io//manualp/braspag-silent-order-post#autentica%C3%A7%C3%A3o-legada">processo legado de autenticação</a>, com geração do <code class="language-plaintext highlighter-rouge">AccessToken</code> utilizando <code class="language-plaintext highlighter-rouge">MerchantId</code> e IP do comprador.</p>
+  <p>Consulte sobre o <a href="https://braspag.github.io//manualp/braspag-silent-order-post#autentica%C3%A7%C3%A3o-legada" target="_blank">processo legado de autenticação</a>, com geração do <code class="language-plaintext highlighter-rouge">AccessToken</code> utilizando <code class="language-plaintext highlighter-rouge">MerchantId</code> e IP do comprador.</p>
 </blockquote>
 
 <h2 id="3-implementando-o-script">3. Implementando o Script</h2>
 
 <h3 id="mapeando-classes">Mapeando Classes</h3>
 
-<p>O estabelecimento deverá fazer o <a href="https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js">download do script</a> disponibilizado pela Braspag e anexá-lo à sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento.</p>
+<p>O estabelecimento deverá fazer o <a href="https://www.pagador.com.br/post/scripts/silentorderpost-1.0.min.js" target="_blank">download do script</a> disponibilizado pela Braspag e anexá-lo à sua página de checkout. Esse script permitirá à Braspag processar todas as informações de cartão sem intervenção do estabelecimento.</p>
 
 <p>O estabelecimento deverá parametrizar os elementos de formulário com as seguintes classes:</p>
 
@@ -611,7 +611,7 @@
 <p>Após a obtenção do <em>PaymentToken</em> através do script, execute o processo de autorização, enviando o <em>PaymentToken</em> no lugar de dados do cartão.</p>
 
 <p>Veja o exemplo abaixo, descrevendo o envio dos dados de autenticação da requisição de autorização da API do Pagador. 
-Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag.github.io//manual/braspag-pagador">Manual da API do Pagador</a>.</p>
+Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag.github.io//manual/braspag-pagador" target="_blank">Manual da API do Pagador</a>.</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales</span></aside>
 
@@ -676,7 +676,7 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
 
 <h3 id="response">Response</h3>
 
-<p>Consulte o <a href="https://braspag.github.io//manual/braspag-pagador">Manual da API do Pagador</a> para exemplos de resposta a requisições de autorização.</p>
+<p>Consulte o <a href="https://braspag.github.io//manual/braspag-pagador" target="_blank">Manual da API do Pagador</a> para exemplos de resposta a requisições de autorização.</p>
 
 <h2 id="exemplo-de-integração">Exemplo de Integração</h2>
 
@@ -813,7 +813,7 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
 
 <aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada ("HTTP 401 NotAuthorized").</aside>
 
-<p>Identifique qual será o IP de saída que acessará a API e, na sequência, solicite o cadastro do mesmo através do <a href="https://suporte.braspag.com.br/hc/pt-br">Canal de Atendimento</a> Braspag.</p>
+<p>Identifique qual será o IP de saída que acessará a API e, na sequência, solicite o cadastro do mesmo através do <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Canal de Atendimento</a> Braspag.</p>
 
 </div>
 
