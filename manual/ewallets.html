@@ -555,7 +555,7 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<table>
+<table target="_blank">
   <thead>
     <tr>
       <th>Propriedade</th>
@@ -641,14 +641,14 @@
       <td>Chave criptográfica que identifica lojas nas wallets. Consulte a tabela <a href="https://braspag.github.io//manual/ewallets#walletkey">WalletKey</a> para mais informações.</td>
       <td>Texto</td>
       <td>–</td>
-      <td>Ver tabela <a href="https://braspag.github.io//manual/braspag-pagador#walletkey">WalletKey</a></td>
+      <td>Ver tabela <a href="https://braspag.github.io//manual/braspag-pagador#walletkey" target="_blank">WalletKey</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AdditionalData.EphemeralPublicKey</code></td>
       <td>Token retornado pela wallet. Deve ser enviado em Integrações: “ApplePay”.</td>
       <td>Texto</td>
       <td>–</td>
-      <td>Ver tabela <a href="https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey">EphemeralPublicKey</a></td>
+      <td>Ver tabela <a href="https://braspag.github.io//manual/braspag-pagador#ephemeralpublickey" target="_blank">EphemeralPublicKey</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AdditionalData.CaptureCode</code></td>
@@ -662,11 +662,10 @@
       <td>Token retornado pela wallet. Deve ser enviado em Integrações: “GooglePay”.</td>
       <td>Texto</td>
       <td>–</td>
-      <td>Ver tabela <a href="https://braspag.github.io//manual/braspag-pagador#signature">Signature</a></td>
+      <td>Ver tabela <a href="https://braspag.github.io//manual/braspag-pagador#signature" target="_blank">Signature</a></td>
     </tr>
   </tbody>
 </table>
-
 <h1 id="exemplos-de-integração">Exemplos de Integração</h1>
 
 <p>A seguir, veja alguns exemplos de integração com as principais e-wallets disponíveis no mercado.</p>
@@ -680,11 +679,11 @@
 <p>Para utilização do Apple Pay, é necessário que a loja já esteja cadastrada no programa AppleID. Além disso, você deve:</p>
 
 <ol>
-  <li>Realizar o cadastro, acessando <a href="https://developer.apple.com/programs/enroll/">esta URL</a> e seguindo todos os passos requeridos pela Apple.</li>
+  <li>Realizar o cadastro, acessando <a href="https://developer.apple.com/programs/enroll/" target="_blank">esta URL</a> e seguindo todos os passos requeridos pela Apple.</li>
   <li>Seguir os passos dessa documentação para completar a integração junto à Apple.</li>
   <li>Contratar o Pagador API REST como gateway de pagamento.</li>
   <li>Contratar a Cielo 3.0 como adquirência.</li>
-  <li>Integrar com o <a href="https://braspag.github.io/manual/braspag-pagador">Pagador API REST</a>.</li>
+  <li>Integrar com o <a href="https://braspag.github.io/manual/braspag-pagador" target="_blank">Pagador API REST</a>.</li>
 </ol>
 
 <h2 id="etapa-1---configuração-do-merchant-identifier">ETAPA 1 - Configuração do Merchant Identifier</h2>
@@ -693,7 +692,7 @@
 
 <h3 id="passo-1---criar-o-merchant-identifier">Passo 1 - Criar o Merchant Identifier</h3>
 
-<p>A criação do merchant identifier deve ser feita através do <a href="https://developer.apple.com/account/resources">Portal de Desenvolvedores da Apple</a>, da seguinte maneira:</p>
+<p>A criação do merchant identifier deve ser feita através do <a href="https://developer.apple.com/account/resources" target="_blank">Portal de Desenvolvedores da Apple</a>, da seguinte maneira:</p>
 
 <ol>
   <li>Na seção <strong>“Certificates, Identifiers &amp; Profiles”</strong>, selecione <strong>“Identifiers”</strong> no menu lateral, e então clique no botão <code class="language-plaintext highlighter-rouge">(+)</code> ao lado do título:
@@ -708,7 +707,7 @@
 
 <h3 id="passo-2---solicitar-o-certificado-csr">Passo 2 - Solicitar o Certificado “.CSR”</h3>
 
-<p>Para solicitar à Braspag a geração do certificado no formato “.CSR”, entre em contato com o nosso <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new">Time de Atendimento</a> e informe:</p>
+<p>Para solicitar à Braspag a geração do certificado no formato “.CSR”, entre em contato com o nosso <a href="https://suporte.braspag.com.br/hc/pt-br/requests/new" target="_blank">Time de Atendimento</a> e informe:</p>
 
 <ol>
   <li>O <strong>Merchant Identifier</strong> criado no “Passo 1”;</li>
@@ -719,7 +718,7 @@
 
 <h3 id="passo-3---criar-o-certificado-cer">Passo 3 - Criar o Certificado “.CER”</h3>
 
-<p>Para criar um certificado de processamento de pagamento (“.CER”), que será utilizado em sua loja virtual ou aplicativo, é necessário acessar o <a href="https://developer.apple.com/account/resources">Portal de Desenvolvedores da Apple</a> e seguir os passos abaixo:</p>
+<p>Para criar um certificado de processamento de pagamento (“.CER”), que será utilizado em sua loja virtual ou aplicativo, é necessário acessar o <a href="https://developer.apple.com/account/resources" target="_blank">Portal de Desenvolvedores da Apple</a> e seguir os passos abaixo:</p>
 
 <ol>
   <li>Na seção <strong>“Certificates, Identifiers &amp; Profiles”</strong>, selecione <strong>“Identifiers”</strong>, no menu lateral.</li>
@@ -739,11 +738,11 @@
 <img src="https://braspag.github.io//images/braspag/pagador/applepay11.png" alt="Step2.7" /></li>
 </ol>
 
-<p>Para mais detalhes, acesse a <a href="https://help.apple.com/developer-account/#/devb2e62b839">Developer Account Help</a> da Apple.</p>
+<p>Para mais detalhes, acesse a <a href="https://help.apple.com/developer-account/#/devb2e62b839" target="_blank">Developer Account Help</a> da Apple.</p>
 
 <h2 id="etapa-2-integração-com-apple-pay">ETAPA 2. Integração com Apple Pay</h2>
 
-<p>Boa parte do processo para disponibilização do botão “Pagar com Apple Pay” no seu app ou site será realizado na sua integração junto à wallet. Por isso, recomendamos que siga as orientações disponíveis no site de <a href="https://developer.apple.com/documentation">Documentação da Apple</a> para a implementação, que é totalmente self-service.</p>
+<p>Boa parte do processo para disponibilização do botão “Pagar com Apple Pay” no seu app ou site será realizado na sua integração junto à wallet. Por isso, recomendamos que siga as orientações disponíveis no site de <a href="https://developer.apple.com/documentation" target="_blank">Documentação da Apple</a> para a implementação, que é totalmente self-service.</p>
 
 <p>Ao final do processo realizado na API da Apple, você receberá um JSON contendo dois campos importantes que deverão ser utilizados na “ETAPA 3”. São os campos <code class="language-plaintext highlighter-rouge">paymentData.data</code> e <code class="language-plaintext highlighter-rouge">ephemeralPublicKey.header.EphemeralPublicKey</code>.</p>
 
@@ -842,7 +841,7 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
       <td>Nó com dados do comprador.</td>
-      <td>Consulte o <a href="https://braspag.github.io/manual/braspag-pagador?json#requisi%C3%A7%C3%A3o">Manual do Pagador</a>.</td>
+      <td>Consulte o <a href="https://braspag.github.io/manual/braspag-pagador?json#requisi%C3%A7%C3%A3o" target="_blank">Manual do Pagador</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -909,7 +908,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>A resposta de autorização da wallet terá os mesmos campos apresentados em nossa documentação do <a href="https://braspag.github.io//manual/braspag-pagador#resposta">Pagador</a>, porém com a adição do nó <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> repetindo os mesmos campos utilizados na autorização, como descrito acima.</p>
+<p>A resposta de autorização da wallet terá os mesmos campos apresentados em nossa documentação do <a href="https://braspag.github.io//manual/braspag-pagador#resposta" target="_blank">Pagador</a>, porém com a adição do nó <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> repetindo os mesmos campos utilizados na autorização, como descrito acima.</p>
 
 <h1 id="google-pay-">Google Pay ™</h1>
 
@@ -921,10 +920,10 @@
 
 <ol>
   <li>Concordar com os termos de serviço do Google Pay.</li>
-  <li>Seguir os passos dessa documentação para completar a integração junto à <a href="https://developers.google.com/pay/api/android/overview">Google Pay</a>.</li>
+  <li>Seguir os passos dessa documentação para completar a integração junto à <a href="https://developers.google.com/pay/api/android/overview" target="_blank">Google Pay</a>.</li>
   <li>Contratar o Pagador API REST como gateway de pagamento.</li>
   <li>Contratar o Cielo 3.0 como adquirência.</li>
-  <li>Integrar com o <a href="https://braspag.github.io/manual/braspag-pagador">Pagador API REST</a>.</li>
+  <li>Integrar com o <a href="https://braspag.github.io/manual/braspag-pagador" target="_blank">Pagador API REST</a>.</li>
 </ol>
 
 <h2 id="etapa-1-integração-com-google-pay">ETAPA 1: Integração com Google Pay</h2>
@@ -933,12 +932,12 @@
 
 <h3 id="passo-1---configuração-do-projeto">Passo 1 - Configuração do Projeto</h3>
 
-<p>Para configurar seu projeto, siga as instruções descritas no <a href="https://developers.google.com/pay/api/android/guides/setup">Guia de Configuração</a> do Google Pay.<br />
+<p>Para configurar seu projeto, siga as instruções descritas no <a href="https://developers.google.com/pay/api/android/guides/setup" target="_blank">Guia de Configuração</a> do Google Pay.<br />
 Neste passo, você deverá <strong>adicionar dependências</strong> importando a biblioteca do Google Play Services ou então escolhendo as APIs que deseja compilar. E então, para ativar o Google Pay no seu aplicativo Android, você deverá <strong>modificar o arquivo <em>“AndroidManifest.xml”</em></strong> do seu projeto de acordo com as instruções dadas na página.</p>
 
 <h3 id="passo-2---implementação-do-google-pay">Passo 2 - Implementação do Google Pay</h3>
 
-<p>Para integrar o Google Pay em seu aplicativo, siga todos os passos indicados no <a href="https://developers.google.com/pay/api/android/guides/tutorial">Tutorial de Implementação</a> do Google Pay.
+<p>Para integrar o Google Pay em seu aplicativo, siga todos os passos indicados no <a href="https://developers.google.com/pay/api/android/guides/tutorial" target="_blank">Tutorial de Implementação</a> do Google Pay.
 <br /><br />
 Para a correta integração do Google Pay via Braspag, é necessário se atentar aos pontos abaixo:</p>
 
@@ -976,11 +975,11 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
 
 <p>No passo <em>“Step 9: Handle the response object”</em>, está descrito o evento <code class="language-plaintext highlighter-rouge">Activity.RESULT_OK</code>, onde é retornado um objeto com todos os dados referentes ao dados de pagamento, inclusive o token de pagamento.</p>
 
-<p>A partir do <code class="language-plaintext highlighter-rouge">PaymentData</code>, obtém-se o objeto <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code>, através da chamada do método <code class="language-plaintext highlighter-rouge">getPaymentMethodToken()</code>. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData">Clique aqui</a> para mais informações.</p>
+<p>A partir do <code class="language-plaintext highlighter-rouge">PaymentData</code>, obtém-se o objeto <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code>, através da chamada do método <code class="language-plaintext highlighter-rouge">getPaymentMethodToken()</code>. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">Clique aqui</a> para mais informações.</p>
 
-<p>Na sequência, deve-se obter a <em>string</em> que contém tokens de pagamento a partir do método <code class="language-plaintext highlighter-rouge">GetToken()</code> do objeto <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code>. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken">Clique aqui</a> para mais informações.</p>
+<p>Na sequência, deve-se obter a <em>string</em> que contém tokens de pagamento a partir do método <code class="language-plaintext highlighter-rouge">GetToken()</code> do objeto <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code>. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken" target="_blank">Clique aqui</a> para mais informações.</p>
 
-<p>A <em>string</em> obtida no passo anterior possui uma estrutura como a mostrada a seguir. <a href="https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography">Clique aqui</a> para mais informações.</p>
+<p>A <em>string</em> obtida no passo anterior possui uma estrutura como a mostrada a seguir. <a href="https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography" target="_blank">Clique aqui</a> para mais informações.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"protocolVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ECv1"</span><span class="p">,</span><span class="w">
@@ -1081,7 +1080,7 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
       <td>Nó com dados do comprador.</td>
-      <td>Consulte o <a href="https://braspag.github.io/manual/braspag-pagador?json#requisi%C3%A7%C3%A3o">Manual do Pagador</a>.</td>
+      <td>Consulte o <a href="https://braspag.github.io/manual/braspag-pagador?json#requisi%C3%A7%C3%A3o" target="_blank">Manual do Pagador</a>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -1121,11 +1120,11 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
   </tbody>
 </table>
 
-<p>Para mais informações, consulte o <a href="https://braspag.github.io/manual/braspag-pagador">Manual do Pagador</a>.</p>
+<p>Para mais informações, consulte o <a href="https://braspag.github.io/manual/braspag-pagador" target="_blank">Manual do Pagador</a>.</p>
 
 <h3 id="resposta-1">Resposta</h3>
 
-<p>A resposta de autorização da wallet terá os mesmos campos apresentados em nossa documentação do <a href="https://braspag.github.io/manual/braspag-pagador?json#resposta">Pagador</a>, porém com a adição do nó <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> repetindo os mesmos campos utilizados na autorização, como descrito acima.</p>
+<p>A resposta de autorização da wallet terá os mesmos campos apresentados em nossa documentação do <a href="https://braspag.github.io/manual/braspag-pagador?json#resposta" target="_blank">Pagador</a>, porém com a adição do nó <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> repetindo os mesmos campos utilizados na autorização, como descrito acima.</p>
 
 <h2 id="etapa-3-solicitação-de-dados-de-produção">ETAPA 3: Solicitação de Dados de Produção</h2>
 
@@ -1133,11 +1132,11 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
 
 <h3 id="passo-1---branding-guideline">Passo 1 - Branding Guideline</h3>
 
-<p>Verifique se todas as diretrizes de branding foram seguidas conforme descrito no <a href="https://developers.google.com/pay/api/android/guides/brand-guidelines">Guia Diretrizes de Marca</a>.</p>
+<p>Verifique se todas as diretrizes de branding foram seguidas conforme descrito no <a href="https://developers.google.com/pay/api/android/guides/brand-guidelines" target="_blank">Guia Diretrizes de Marca</a>.</p>
 
 <h3 id="passo-2---checklist-e-solicitação-de-credenciais">Passo 2 - Checklist e Solicitação de Credenciais</h3>
 
-<p>Verifique se todos os itens do <a href="https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist">checklist de integração</a> foram atendidos. Após tudo validado, solicite os dados de acesso produtivos.</p>
+<p>Verifique se todos os itens do <a href="https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist" target="_blank">checklist de integração</a> foram atendidos. Após tudo validado, solicite os dados de acesso produtivos.</p>
 
 <h1 id="masterpass-">Masterpass ™</h1>
 
@@ -1285,7 +1284,7 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
-      <td>Chave criptográfica que representa os dados do cartão. Consultar a tabela <a href="https://braspag.github.io//manual/braspag-pagador#walletkey">WalletKey</a> para mais informações.</td>
+      <td>Chave criptográfica que representa os dados do cartão. Consultar a tabela <a href="https://braspag.github.io//manual/braspag-pagador#walletkey" target="_blank">WalletKey</a> para mais informações.</td>
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
@@ -1866,7 +1865,7 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
       <td>Chave criptográfica que representa os dados do cartão. Consultar a tabela <a href="https://braspag.github.io//manual/ewallets#walletkey">WalletKey</a> para mais informações.</td>
       <td>Texto</td>
       <td>255</td>
-      <td>Ver a tabela <a href="https://braspag.github.io//manual/braspag-pagador#walletkey">WalletKey</a></td>
+      <td>Ver a tabela <a href="https://braspag.github.io//manual/braspag-pagador#walletkey" target="_blank">WalletKey</a></td>
     </tr>
   </tbody>
 </table>
