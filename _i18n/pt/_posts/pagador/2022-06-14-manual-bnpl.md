@@ -36,7 +36,7 @@ Veja a representação do **fluxo transacional** do **BNPL** da empresa **Koin**
 
 ![Fluxo BPNL Koin Aprovação Posterior]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/bnpl-koin-aprovacaoposterior100.png)
 
-> Para ambos os fluxos é importante que você tenha uma URL de Notificação configurada em sua loja do Pagador, para que possamos informar que a transação teve seu status alterado. Saiba como configurar essa URL na documentação do [Post de Notificação](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o).
+> Para ambos os fluxos é importante que você tenha uma URL de Notificação configurada em sua loja do Pagador, para que possamos informar que a transação teve seu status alterado. Saiba como configurar essa URL na documentação do [Post de Notificação](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o){:target="_blank"}.
 
 # Koin
 
@@ -44,7 +44,7 @@ A Koin é uma empresa de meios de pagamento que oferece a solução **Boleto Par
 
 # Ambientes e APIs
 
-Para a integração com a Koin, você irá usar os endpoints da **[API do Pagador](https://braspag.github.io//manual/braspag-pagador#ambientes-de-teste-e-produ%C3%A7%C3%A3o)**, e da **API de Consulta de Parcelas**. 
+Para a integração com a Koin, você irá usar os endpoints da **[API do Pagador](https://braspag.github.io//manual/braspag-pagador#ambientes-de-teste-e-produ%C3%A7%C3%A3o){:target="_blank"}**, e da **API de Consulta de Parcelas**. 
 
 **Sandbox**
 
