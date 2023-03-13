@@ -77,14 +77,14 @@ grant_type=client_credentials
 }
 ```
 
-<aside class="notice">O MerchantId é o identificador dentro da Braspag. O ClientSecret é a chave utilizada na autenticação.</aside>
+<aside class="notice">O MerchantId é o identificador dentro do Split. O ClientSecret é a chave utilizada na autenticação.</aside>
 
 O token retornado (`access_token`) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O `access_token` possui uma validade de 20 minutos, e é necessário gerar um novo token toda vez que a validade expirar.  
 
 # Agenda Financeira
 
-No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).<br/>
-A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.
+O responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é o Split (Facilitador).<br/>
+O Split irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.
 Essa agenda é composta por eventos de Crédito e Débito que são gerados de acordo com as operações efetuadas e o regime de pagamento acordado.
 
 Em uma consulta ou ajuste na agenda, os seguintes valores podem ser retornados no campo `Schedules.EventDescription`, em resposta à requisição:
