@@ -73,7 +73,7 @@ A Agenda apresenta a previsão diária de créditos e débitos para cada partici
 * **Débito:** em até dois dias úteis.
 * **Boleto:** em até dois dias úteis após a confirmação do pagamento.
 
-> O pagamento ocorre somente em dia de expediente bancário. Os prazos do regime de pagamento podem sofrer alterações por questões operacionais da adquirente ou da Braspag.
+<aside class="warning">O pagamento ocorre somente em dia de expediente bancário. Os prazos do regime de pagamento podem sofrer alterações por questões operacionais da adquirente ou da Braspag.</aside>
 
 Considere uma transação de crédito no valor de R$90,00 dividida em três parcelas. O exemplo a seguir apresenta qual seria o ciclo dessa transação, da data de captura até a data de previsão de pagamento da última parcela.
 
@@ -83,7 +83,7 @@ Considere uma transação de crédito no valor de R$90,00 dividida em três parc
 
 ## Unidades de Recebíveis
 
-As Unidades de Recebíveis (URs) estão em vigor desde 07/06/2021, com a resolução nº 4.734/2019 do Conselho Monetário Nacional (CMN) e a Circular nº 3.952/2019 do Banco Central do Brasil. Com isso, as credenciadoras e subcredenciadoras, como a Braspag, precisam registrar as URs dos estabelecimentos em uma entidade registradora que será responsável por disponibilizar as informações dos recebíveis entre instituições financeiras.
+As Unidades de Recebíveis (URs) estão em vigor desde 07/06/2021, com a resolução nº 4.734/2019 do Conselho Monetário Nacional (CMN) e a Circular nº 3.952/2019 do Banco Central do Brasil. Com isso, as credenciadoras e subcredenciadoras, como o Split, precisam registrar as URs dos estabelecimentos em uma entidade registradora que será responsável por disponibilizar as informações dos recebíveis entre instituições financeiras.
 
 Cada UR é composta por:
 
@@ -164,7 +164,7 @@ grant_type=client_credentials
 }
 ```
 
-<aside class="notice">O `MerchantId` é o identificador dentro da Braspag. O `ClientSecret` é a chave utilizada na autenticação.</aside>
+<aside class="notice">O `MerchantId` é o identificador dentro do Split. O `ClientSecret` é a chave utilizada na autenticação.</aside>
 
 Você deverá enviar token de acesso retornado pela API de autenticação (`access_token`) em toda requisição à API Split como uma chave de autorização. O `access_token` possui uma validade de 20 minutos, e é necessário gerar um novo token toda vez que a validade expirar.
 
@@ -542,7 +542,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 
 |Valor                | Descrição |
 |---------------------|-----------|
-| 0-Braspag           | Pagamento padrão. Definido no cadastro do estabelecimento como domicílio padrão para pagamento.
+| 0-Split           | Pagamento padrão. Definido no cadastro do estabelecimento como domicílio padrão para pagamento.
 | 1-ChangeOfOwnership | Troca de titularidade. Caso tenha ocorrido negociação do contrato. |
 | 2-LienFiduciaryAssignment | Caso o pagamento seja resultado de aplicação de efeito de contrato do tipo "Ônus - Cessão Fiduciária"|
 | 3-LienOthers        | Caso o pagamento seja resultado de aplicação de efeito de contrato do tipo "Ônus - Outros" |
