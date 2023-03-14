@@ -76,7 +76,7 @@ grant_type=client_credentials
 }
 ```
 
-> O MerchantId é o identificador dentro da Braspag, conhecido como MerchantId. O ClientSecret deve ser obtido junto ao Split.
+> O MerchantId é o identificador dentro do Split, conhecido como MerchantId. O ClientSecret deve ser obtido junto ao Split.
 
 O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar. 
 
