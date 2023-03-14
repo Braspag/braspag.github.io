@@ -103,7 +103,7 @@ O master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarif
 
 ![SplitExTaxas]({{ site.baseurl_root }}/images/braspag/split/split3-taxas.png)
  
-* A Tarifa Fixa acordada entre o master e o Split não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto ao Spli. 
+* A Tarifa Fixa acordada entre o master e o Split não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto ao Split. 
 * O MDR entra no cálculo de divisão da transação, considerando o valor total da transação, já que o MDR deve estar embutido no MDR acordado entre o master e seus subordinados.
 
 > **Taxa Split**: MDR Split (%) + Tarifa Fixa Split (R$)
