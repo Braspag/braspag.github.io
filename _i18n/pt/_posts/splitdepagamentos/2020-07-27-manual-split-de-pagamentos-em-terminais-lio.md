@@ -21,13 +21,13 @@ Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pag
 
 # Configuração
 
-Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, e será necessário configurar o estabelecimento comercial da Braspag (Subadquirência) pelo qual serão realizadas as transações destinadas ao Split.  
+Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, e será necessário configurar o estabelecimento comercial do Split (Subadquirência) pelo qual serão realizadas as transações.
 
 Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um subordinado.
 
 Com isso, no momento da configuração de um terminal, é necessário informar o número de identificação do terminal LIO (número lógico) para que seja possível a correta configuração e operação da plataforma.
 
-> Para que seja possível operar com o Split utilizando terminais LIO, entre em contato com a equipe comercial Cielo/Braspag.
+> Para que seja possível operar com o Split utilizando terminais LIO, entre em contato com a equipe comercial Cielo/Suporte de atendimento Split.
 
 # Ambientes
 
@@ -76,7 +76,7 @@ grant_type=client_credentials
 }
 ```
 
-> O MerchantId é o identificador dentro da Braspag, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
+> O MerchantId é o identificador dentro da Braspag, conhecido como MerchantId. O ClientSecret deve ser obtido junto ao Split.
 
 O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar. 
 
