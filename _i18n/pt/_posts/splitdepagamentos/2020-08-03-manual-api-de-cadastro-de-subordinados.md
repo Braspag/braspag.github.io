@@ -219,17 +219,19 @@ No **Split de Pagamentos** há possibilidades de acordos de taxas entre o master
 Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: [**Não cadastrar taxa**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#acordo-de-taxas-n%C3%A3o-informado-no-cadastro), [**Taxa global**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-%C3%BAnico-para-todos-os-acordos) e [**Taxa por meio de pagamento**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-por-arranjo-de-pagamento-e-intervalo-de-parcelas). 
 
 > **ATENÇÃO**: Se não houver cobrança de MDR, basta não enviar o nó `Agreements`.<br>
-> O campo `Agreements[].Percent` só deve ser enviado em caso de cadastro de subordinado com MDR único.
+> O campo `Agreements[].Percent` só deve ser enviado em caso de cadastro de subordinado com Taxa global.
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
-| `Agreements[].Percent` | Decimal | - | Sim, para requisições cujo acordo é MDR único. | Porcentagem da taxa de desconto única (MDR único) que será aplicada para todos os acordos entre master e subordinado. Valor com até duas casas decimais. |
+| `Agreements[].Percent` | Decimal | - | Sim, para requisições cujo acordo é com Taxa global. | Porcentagem da taxa de desconto única (MDR único) que será aplicada para todos os acordos entre master e subordinado. Valor com até duas casas decimais. |
 | `Agreements[].Fee` | Número | - | Sim | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = `Fee` : 100 |
-| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Product` | Texto | - | Sim | Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são "CreditCard" e "DebitCard". |
-| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand` | Texto | - | Sim | Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são _Visa_, _Master_, _Amex_, _Elo_, _Diners_, _Discover_ e _Hipercard_. |
-| `Agreements[].MerchantDiscountRates[].InitialInstallmentNumber` | Número | - | Sim | Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**. |
-| `Agreements[].MerchantDiscountRates[].FinalInstallmentNumber` | Número | - | Sim | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**. | 
-| `Agreements[].MerchantDiscountRates[].Percent` | Decimal | - | Sim | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais. |
+| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Product` | Texto | - | Não* | Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são "CreditCard" e "DebitCard". |
+| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand` | Texto | - | Não* | Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são _Visa_, _Master_, _Amex_, _Elo_, _Diners_, _Discover_ e _Hipercard_. |
+| `Agreements[].MerchantDiscountRates[].InitialInstallmentNumber` | Número | - | Não* | Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**. |
+| `Agreements[].MerchantDiscountRates[].FinalInstallmentNumber` | Número | - | Não* | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**. | 
+| `Agreements[].MerchantDiscountRates[].Percent` | Decimal | - | Não* | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais. |
+
+* Obrigatório apenas para o cenário de acordo de taxas *"3. Taxa por meio de pagamento"*.
 
 #### Propriedades dos anexos
 
