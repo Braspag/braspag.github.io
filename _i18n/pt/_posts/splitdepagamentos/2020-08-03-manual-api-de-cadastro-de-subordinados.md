@@ -193,8 +193,8 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 | `BankAccount.VerifierDigit` | Texto | 1 | Sim | Dígito verificador da conta do subordinado. |
 | `BankAccount.AgencyNumber` | Texto | 15 | Sim | Número da agência do subordinado. |
 | `BankAccount.AgencyDigit` | Texto | 1 | Sim | Dígito da agência do subordinado. Caso a agência não tenha dígito, informar o valor "x". |
-| `BankAccount.DocumentNumber` | Texto | 14 | Sim | Número do documento da conta (apenas números) do subordinado. |
-| `BankAccount.DocumentType` | Texto | - | Sim | Tipo do documento. Os tipos válidos são "CPF" ou "CNPJ". |
+| `BankAccount.DocumentNumber` | Texto | 14 | Não | Número do documento da conta (apenas números) do subordinado. |
+| `BankAccount.DocumentType` | Texto | - | Não | Tipo do documento. Os tipos válidos são "CPF" ou "CNPJ". |
 
 #### Propriedades do endereço
 
