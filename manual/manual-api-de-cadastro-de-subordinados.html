@@ -568,7 +568,7 @@
 
 <blockquote>
   <p><strong>ATENÇÃO</strong>: Se não houver cobrança de MDR, basta não enviar o nó <code class="language-plaintext highlighter-rouge">Agreements</code>.<br />
-O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent</code> só deve ser enviado em caso de cadastro de subordinado com MDR único.</p>
+O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent</code> só deve ser enviado em caso de cadastro de subordinado com Taxa global.</p>
 </blockquote>
 
 <table>
@@ -586,7 +586,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
       <td><code class="language-plaintext highlighter-rouge">Agreements[].Percent</code></td>
       <td>Decimal</td>
       <td>-</td>
-      <td>Sim, para requisições cujo acordo é MDR único.</td>
+      <td>Sim, para requisições cujo acordo é com Taxa global.</td>
       <td>Porcentagem da taxa de desconto única (MDR único) que será aplicada para todos os acordos entre master e subordinado. Valor com até duas casas decimais.</td>
     </tr>
     <tr>
@@ -600,91 +600,42 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].PaymentArrangement.Product</code></td>
       <td>Texto</td>
       <td>-</td>
-      <td>Sim</td>
+      <td>Não*</td>
       <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são “CreditCard” e “DebitCard”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
       <td>Texto</td>
       <td>-</td>
-      <td>Sim</td>
+      <td>Não*</td>
       <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <em>Visa</em>, <em>Master</em>, <em>Amex</em>, <em>Elo</em>, <em>Diners</em>, <em>Discover</em> e <em>Hipercard</em>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].InitialInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
-      <td>Sim</td>
+      <td>Não*</td>
       <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].FinalInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
-      <td>Sim</td>
+      <td>Não*</td>
       <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].Percent</code></td>
       <td>Decimal</td>
       <td>-</td>
-      <td>Sim</td>
+      <td>Não*</td>
       <td>Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais.</td>
     </tr>
   </tbody>
 </table>
 
-<h4 id="propriedades-dos-anexos">Propriedades dos anexos</h4>
-
-<blockquote>
-  <p><strong>Cadastro de subordinado pelo CPF:</strong> é obrigatório enviar pelo menos um arquivo comprovando o ramo de atividade (<code class="language-plaintext highlighter-rouge">AttachmentType</code> igual a “ProofBusinessActivity”);<br />
-<strong>Cadastro de subordinado pelo CNPJ:</strong> o envio de anexos é opcional.</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>PROPRIEDADE</th>
-      <th>TIPO</th>
-      <th>TAMANHO</th>
-      <th>OBRIGATÓRIO</th>
-      <th>DESCRIÇÃO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Attachments[].AttachmentType</code></td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
-      <td>Tipo do documento anexo do subordinado. Os tipos válidos são “ProofOfBankDomicile” (comprovante de domicílio bancário), “ModelOfAdhesionTerm” (modelo de termo de adesão) e “ProofBusinessActivity” (comprovante do ramo de atividade).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Name</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
-      <td>Nome do arquivo do documento anexo do subordinado.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Attachments[].File.FileType</code></td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
-      <td>Tipo do arquivo do documento anexo do subordinado. Os tipos de arquivos válidos são “pdf”, “png” e “jpg”.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Data</code></td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
-      <td>Documento convertido para <strong>Base64</strong>.</td>
-    </tr>
-  </tbody>
-</table>
-
 <ul>
-  <li>Não é obrigatório quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CNPJ”.</li>
+  <li>Obrigatório apenas para o cenário de acordo de taxas <em>“3. Taxa por meio de pagamento”</em>.</li>
 </ul>
 
 <h3 id="resposta-1">Resposta</h3>
