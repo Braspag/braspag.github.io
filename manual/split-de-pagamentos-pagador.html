@@ -149,16 +149,16 @@
 
 <h2 id="segurança-para-as-suas-transações">Segurança para as suas transações</h2>
 
-<p>Com o Split de Pagamentos da Braspag, você tem acesso a um pacote de soluções para a segurança do comprador, do seu e-commerce e dos seus vendedores:</p>
+<p>Com o Split de Pagamentos, você tem acesso a um pacote de soluções para a segurança do comprador, do seu e-commerce e dos seus vendedores:</p>
 <ul>
   <li><strong>VerifyCard</strong>: composto pelo Zero Auth, que identifica se um cartão é válido, e pelo Consulta BIN, que retorna características do cartão, como tipo e bandeira;</li>
   <li><strong>Autenticação 3DS 2.0</strong>: é um modelo de autenticação que permite determinar se um comprador é, de fato, o portador do cartão;</li>
   <li><strong>Antifraude</strong>*: permite a análise de fraude de cada transação em parceria com a Cybersource;</li>
   <li><strong>Cartão Protegido</strong>: permite o armazenamento seguro de cartões de crédito e débito, de acordo com as normas do PCI, e contribui para melhorar a taxa de conversão do seu e-commerce;</li>
-  <li><strong>Silent Order Post</strong>: possibilita o envio de dados do pagamento do cliente de forma segura, armazenando os dados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2. O Silent Order Post é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.
+  <li><strong>Silent Order Post</strong>: possibilita o envio de dados do pagamento do cliente de forma segura, armazenando os dados no ambiente do Split, que conta com a certificação PCI DSS 3.2. O Silent Order Post é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.
 <br />
     <blockquote>
-      <p>O Antifraude está sujeito à uma taxa por transação analisada. Consulte a área <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Comercial da Braspag</a> para saber mais.</p>
+      <p>O Antifraude está sujeito à uma taxa por transação analisada. Consulte a área <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Comercial do Split</a> para saber mais.</p>
     </blockquote>
   </li>
 </ul>
@@ -202,7 +202,7 @@
 
 <p>Para cada transação, você poderá informar como será a divisão entre cada participante, podendo ser no momento de captura (Split transacional) ou em um momento posterior (Split pós-transacional).</p>
 
-<p>Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores para cada envolvido na transação. O <strong>Regime de Pagamento</strong> é o prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.</p>
+<p>Com a transação capturada, o Split calcula o valor destinado a cada participante e repassa esses valores para cada envolvido na transação. O <strong>Regime de Pagamento</strong> é o prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.</p>
 
 <blockquote>
   <p><strong>Crédito</strong>: em até 31 dias.<br />
@@ -223,7 +223,7 @@
 
 <h2 id="taxas">Taxas</h2>
 
-<p>As taxas acordadas entre os participantes podem ser um MDR (%) e/ou uma Tarifa Fixa (R$), e devem ser definidas no momento do cadastro do master e dos seus subordinados junto à Braspag.</p>
+<p>As taxas acordadas entre os participantes podem ser um MDR (%) e/ou uma Tarifa Fixa (R$), e devem ser definidas no momento do cadastro do master e dos seus subordinados junto ao Split.</p>
 
 <p>As taxas podem ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, o Split vai considerar as taxas cadastradas e acordadas previamente entre os participantes.</p>
 
@@ -232,29 +232,29 @@
 <strong>Tarifa fixa</strong>: também chamada de fee transacional. Valor em centavos a ser cobrado por transação capturada. É descontado no momento da “montagem” da agenda financeira.</p>
 </blockquote>
 
-<h3 id="braspag">Braspag</h3>
+<h3 id="split">Split</h3>
 
-<p>A Braspag acordará um MDR e/ou uma Tarifa Fixa com o master, que serão descontadas do valor total de cada transação.</p>
+<p>O Split acordará um MDR e/ou uma Tarifa Fixa com o master, que serão descontadas do valor total de cada transação.</p>
 
-<p>O master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa com cada Subordinado. Se desejar, pode embutir o MDR e/ou Tarifa acordados junto à Braspag.</p>
+<p>O master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa com cada Subordinado. Se desejar, pode embutir o MDR e/ou Tarifa acordados junto ao Split.</p>
 
 <p><img src="https://braspag.github.io//images/braspag/split/split3-taxas.png" alt="SplitExTaxas" /></p>
 
 <ul>
-  <li>A Tarifa Fixa acordada entre o master e a Braspag não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto à Braspag.</li>
+  <li>A Tarifa Fixa acordada entre o master e o Split não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto à Braspag.</li>
   <li>O MDR entra no cálculo de divisão da transação, considerando o valor total da transação, já que o MDR deve estar embutido no MDR acordado entre o master e seus subordinados.</li>
 </ul>
 
 <blockquote>
-  <p><strong>Taxa Braspag</strong>: MDR Braspag (%) + Tarifa Fixa Braspag (R$)</p>
+  <p><strong>Taxa Split</strong>: MDR Split (%) + Tarifa Fixa Split (R$)</p>
 </blockquote>
 
 <h3 id="master">Master</h3>
 
-<p>O master é responsável por acordar as taxas a serem cobradas dos seus subordinados, definindo um MDR maior ou igual ao MDR definido com a Braspag, e uma Tarifa Fixa, que é opcional.</p>
+<p>O master é responsável por acordar as taxas a serem cobradas dos seus subordinados, definindo um MDR maior ou igual ao MDR definido com o Split, e uma Tarifa Fixa, que é opcional.</p>
 
 <blockquote>
-  <p>Taxa Master: MDR Master (%) + Tarifa Fixa (R$), na qual o MDR Master (%) pode embutir o MDR Braspag (%).</p>
+  <p>Taxa Master: MDR Master (%) + Tarifa Fixa (R$), na qual o MDR Master (%) pode embutir o MDR Split (%).</p>
 </blockquote>
 
 <h3 id="exemplo-da-divisão-e-taxas">Exemplo da divisão e taxas</h3>
@@ -266,8 +266,8 @@
 <p>Neste exemplo, foram assumidos os seguintes acordos:</p>
 
 <blockquote>
-  <p><strong>Taxa Braspag</strong>: 2% de MDR + R$0,10 de Tarifa Fixa.<br />
-<strong>Taxa Master</strong>: 4% de MDR (embutindo os 2% de MDR da Braspag) + R$0,30 de Tarifa Fixa.</p>
+  <p><strong>Taxa Split</strong>: 2% de MDR + R$0,10 de Tarifa Fixa.<br />
+<strong>Taxa Master</strong>: 4% de MDR (embutindo os 2% de MDR do Split) + R$0,30 de Tarifa Fixa.</p>
 </blockquote>
 
 <p>Após a divisão, cada participante terá sua agenda sensibilizada com os seguintes eventos:</p>
@@ -284,19 +284,19 @@
 <p><strong>Master:</strong></p>
 
 <ul>
-  <li>Crédito de R$2,30 (R$4,00 de MDR mais R$0,30 de Tarifa Fixa do subordinado, menos R$2,00 de MDR da Braspag);</li>
-  <li>Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</li>
+  <li>Crédito de R$2,30 (R$4,00 de MDR mais R$0,30 de Tarifa Fixa do subordinado, menos R$2,00 de MDR do Split);</li>
+  <li>Débito de R$0,10 (Tarifa Fixa acordada com o Split).</li>
 </ul>
 
 <p><br />O <strong>total a receber</strong> pelo master será <strong>R$2,20</strong>.</p>
 
-<p><strong>Braspag:</strong></p>
+<p><strong>Split:</strong></p>
 
 <ul>
   <li>Crédito de R$2,10 (R$2,00 de MDR aplicado sobre o valor total da transação mais R$0,10 de Tarifa Fixa acordada com o Master).</li>
 </ul>
 
-<p><br />O <strong>total a receber</strong> pela Braspag será <strong>R$2,10</strong>.</p>
+<p><br />O <strong>total a receber</strong> pelo Split será <strong>R$2,10</strong>.</p>
 
 <h3 id="bandeiras">Bandeiras</h3>
 
@@ -314,7 +314,7 @@
 
 <h1 id="ambientes">Ambientes</h1>
 
-<p>É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split Braspag. Para utilizar o Split, é necessário contratar o serviço com seu <a href="https://www.braspag.com.br/contato/" target="_blank">executivo comercial</a>.</p>
+<p>É possível dividir uma venda enviada para o Pagador em várias liquidações para contas diferentes através do Split. Para utilizar o Split, é necessário contratar o serviço com seu <a href="https://www.braspag.com.br/contato/" target="_blank">executivo comercial</a>.</p>
 
 <h2 id="sandbox">Sandbox</h2>
 
@@ -412,9 +412,9 @@
 
 <h2 id="transação-de-crédito">Transação de Crédito</h2>
 
-<p>Ao informar um tipo de pagamento referente ao Split, a API do Pagador automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag.</p>
+<p>Ao informar um tipo de pagamento referente ao Split, a API do Pagador automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através do Split.</p>
 
-<p>Caso a transação enviada seja marcada para captura automática, é necessário enviar o nó contendo as regras de divisão; caso contrário a transação será dividida entre a Braspag e o master. Posteriormente é permitido que o master envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.</p>
+<p>Caso a transação enviada seja marcada para captura automática, é necessário enviar o nó contendo as regras de divisão; caso contrário a transação será dividida entre o Split e o master. Posteriormente é permitido que o master envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.</p>
 
 <blockquote>
   <p>Para transações <strong>com análise de fraude</strong>, siga a requisição do capítulo <a href="https://braspag.github.io//manual/split-de-pagamentos-pagador#antifraude"><strong>Antifraude</strong></a> deste manual.</p>
@@ -422,30 +422,30 @@
 
 <h3 id="transação-de-crédito-sem-o-nó-da-divisão">Transação de crédito sem o nó da divisão</h3>
 
-<p>Neste caso, o master recebe o valor da transação descontado o MDR acordado com a Braspag. Como apresentado anteriormente, a Tarifa Fixa acordada entre o master e a Braspag é sensibilizada diretamente na agenda de ambas as partes.</p>
+<p>Neste caso, o master recebe o valor da transação descontado o MDR acordado com o Split. Como apresentado anteriormente, a Tarifa Fixa acordada entre o master e o Split é sensibilizada diretamente na agenda de ambas as partes.</p>
 
 <p><img src="https://braspag.github.io//images/braspag/split/split7-exemplo2-sem-no.png" alt="SplitEx2" /></p>
 
 <blockquote>
-  <p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.</p>
+  <p><strong>Taxa Split</strong>: 2% MDR + R$0,10 Tarifa Fixa.</p>
 </blockquote>
 
 <p><strong>Master:</strong></p>
 
 <ul>
-  <li>Crédito de R$98,00 (R$100,00 da transação menos R$2,00 de MDR da Braspag);</li>
-  <li>Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</li>
+  <li>Crédito de R$98,00 (R$100,00 da transação menos R$2,00 de MDR do Split);</li>
+  <li>Débito de R$0,10 (Tarifa Fixa acordada com o Split).</li>
 </ul>
 
 <p><br />O <strong>total a receber</strong> pelo master será <strong>R$97,90</strong>.</p>
 
-<p><strong>Braspag:</strong></p>
+<p><strong>Split:</strong></p>
 
 <ul>
   <li>Crédito: R$2,10 (MDR aplicado sobre o valor total da transação mais R$0,10 (Tarifa Fixa acordada com o Master).</li>
 </ul>
 
-<p><br />O <strong>total a receber</strong> pela Braspag será <strong>R$2,10</strong>.</p>
+<p><br />O <strong>total a receber</strong> pelo Split será <strong>R$2,10</strong>.</p>
 
 <p>Veja a requisição dessa transação no valor de R$100,00, com captura automática, sem o nó contendo as regras de divisão.</p>
 
@@ -498,14 +498,14 @@
       <td>GUID</td>
       <td>36</td>
       <td>Sim (envio no <em>header</em>)</td>
-      <td>Identificador da loja na Braspag.</td>
+      <td>Identificador da loja no Split.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim (envio no <em>header</em>)</td>
-      <td>Chave pública para autenticação dupla na Braspag.</td>
+      <td>Chave pública para autenticação dupla no Split.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -785,9 +785,9 @@
 <p>O próximo exemplo corresponde a uma transação no valor de R$100,00 com o nó contendo as regras de divisão. Neste exemplo foram assumidas as seguintes taxas:</p>
 
 <blockquote>
-  <p><strong>Taxa Braspag</strong>: 2% MDR + R$0,10 Tarifa Fixa.<br />
-<strong>Taxa Master com o Subordinado A</strong>: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.<br />
-<strong>Taxa Master com o Subordinado B</strong>: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.</p>
+  <p><strong>Taxa Split</strong>: 2% MDR + R$0,10 Tarifa Fixa.<br />
+<strong>Taxa Master com o Subordinado A</strong>: 5% MDR (embutindo os 2% do MDR Split) + 0,30 Tarifa Fixa.<br />
+<strong>Taxa Master com o Subordinado B</strong>: 4% MDR (embutindo os 2% do MDR Split) + 0,15 Tarifa Fixa.</p>
 </blockquote>
 
 <p><strong>Subordinado A:</strong></p>
@@ -810,18 +810,18 @@
 
 <p><strong>Master:</strong></p>
 
-<p>Crédito de R$3,05 (R$3,00 de MDR + R$0,30 de Tarifa Fixa do subordinado A, somados com R$1,60 de MDR + R$0,15 de Tarifa Fixa do subordinado B, menos R$2,00 de MDR Braspag);
-Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
+<p>Crédito de R$3,05 (R$3,00 de MDR + R$0,30 de Tarifa Fixa do subordinado A, somados com R$1,60 de MDR + R$0,15 de Tarifa Fixa do subordinado B, menos R$2,00 de MDR Split);
+Débito de R$0,10 (Tarifa Fixa acordada com o Split).</p>
 
 <p><br />O <strong>total a receber</strong> pelo Master será <strong>R$2,95</strong>.</p>
 
-<p><strong>Braspag:</strong></p>
+<p><strong>Split:</strong></p>
 
 <ul>
   <li>Crédito de R$2,10 (R$2,00 de MDR aplicado sobre o valor total da transação mais R$0,10 de Tarifa Fixa acordada com o Master).</li>
 </ul>
 
-<p><br />O <strong>total a receber</strong> pela Braspag será <strong>R$2,10</strong>.</p>
+<p><br />O <strong>total a receber</strong> pelo Split será <strong>R$2,10</strong>.</p>
 
 <p>Veja a requisição dessa transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão.</p>
 
@@ -890,14 +890,14 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
       <td>GUID</td>
       <td>36</td>
       <td>Sim (envio no <em>header</em>)</td>
-      <td>Identificador da loja na Braspag.</td>
+      <td>Identificador da loja no Split.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim (envio no <em>header</em>)</td>
-      <td>Chave pública para autenticação dupla na Braspag.</td>
+      <td>Chave pública para autenticação dupla no Split.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -1196,7 +1196,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com a Braspag).</p>
 
 <p>Alguns ramos de atividades exercidos pelos subordinado exigem o envio de informações especificas para a autorização da transação. Neste caso, o subordinado é considerado o <strong>Participante Principal</strong> da transação.</p>
 
-<p>Para casos que necessitam utilizar um ramo específico para autorização da transação,solicite análise ao Suporte Braspag para atuar com o <strong>Subordinado Principal</strong>.</p>
+<p>Para casos que necessitam utilizar um ramo específico para autorização da transação, solicite análise ao Suporte do Split para atuar com o <strong>Subordinado Principal</strong>.</p>
 
 <p>Após ter a funcionalidade habilitada, é necessário enviar a propriedade <code class="language-plaintext highlighter-rouge">MainSubordinateMerchantId</code> no nó <code class="language-plaintext highlighter-rouge">SplitTransaction</code>.</p>
 
@@ -1750,14 +1750,14 @@ tipo de meio de pagamento.</p>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificador da loja na Braspag</td>
+      <td>Identificador da loja no Split</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
-      <td>Chave Publica para Autenticação Dupla na Braspag</td>
+      <td>Chave Publica para Autenticação Dupla no Split</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -2265,7 +2265,7 @@ tipo de meio de pagamento.</p>
 </span></code></pre></div></div>
 
 <blockquote>
-  <p>O <code class="language-plaintext highlighter-rouge">ClientSecret</code> deve ser obtido junto à Braspag. <br />
+  <p>O <code class="language-plaintext highlighter-rouge">ClientSecret</code> deve ser obtido junto ao Split. <br />
 O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar deverá um novo token toda vez que a validade expirar.</p>
 </blockquote>
 
@@ -2703,7 +2703,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Braspag.</td>
+      <td>Data em que a transação foi recebida pelo Split.</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -3061,7 +3061,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Braspag.</td>
+      <td>Data em que a transação foi recebida pelo Split.</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -3419,7 +3419,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Braspag.</td>
+      <td>Data em que a transação foi recebida pelo Split.</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -4126,7 +4126,7 @@ O token retornado (<code class="language-plaintext highlighter-rouge">access_tok
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
-      <td>Data em que a transação foi recebida pela Braspag.</td>
+      <td>Data em que a transação foi recebida pelo Split.</td>
       <td>Texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
@@ -4718,9 +4718,9 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 <p>A transação tem valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão e o master participando da venda.</p>
 
 <blockquote>
-  <p><strong>Taxa Braspag:</strong> 2% de MDR + R$0,30 de Tarifa Fixa.<br />
-<strong>Taxa Master com o Subordinado A:</strong> 5% de MDR, já embutindo os 2% do MDR Braspag + R$0,30 de Tarifa Fixa.<br /> 
-<strong>Taxa Master com o Subordinado B:</strong> 4% MDR, já embutindo os 2% do MDR Braspag + R$ 0,15 de Tarifa Fixa.</p>
+  <p><strong>Taxa Split:</strong> 2% de MDR + R$0,30 de Tarifa Fixa.<br />
+<strong>Taxa Master com o Subordinado A:</strong> 5% de MDR, já embutindo os 2% do MDR Split + R$0,30 de Tarifa Fixa.<br /> 
+<strong>Taxa Master com o Subordinado B:</strong> 4% MDR, já embutindo os 2% do MDR Split + R$ 0,15 de Tarifa Fixa.</p>
 </blockquote>
 
 <p>Após a divisão, cada participante terá sua agenda sensibilizada com os seguintes eventos:</p>
@@ -4746,19 +4746,19 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 <p><strong>Master:</strong></p>
 
 <ul>
-  <li>Crédito de R$ 26,90 (R$25,00 da transação somados com R$2,25 de MDR e R$0,30 de Tarifa Fixa do subordinado A, e com R$1,20 de MDR e R$0,15 de Tarifa Fixa do subordinado B; menos R$2,00 de MDR da Braspag);</li>
-  <li>Débito de R$0,30 (Tarifa Fixa acordada com a Braspag).</li>
+  <li>Crédito de R$ 26,90 (R$25,00 da transação somados com R$2,25 de MDR e R$0,30 de Tarifa Fixa do subordinado A, e com R$1,20 de MDR e R$0,15 de Tarifa Fixa do subordinado B; menos R$2,00 de MDR da Split);</li>
+  <li>Débito de R$0,30 (Tarifa Fixa acordada com a Split).</li>
 </ul>
 
 <p><br />O <strong>total a receber</strong> pelo master será <strong>R$26,60</strong>.</p>
 
-<p><strong>Braspag:</strong></p>
+<p><strong>Split:</strong></p>
 
 <ul>
   <li>Crédito de R$2,30 (MDR aplicado sobre o valor total da transação mais R$0,30 de Tarifa Fixa acordada com o master).</li>
 </ul>
 
-<p><br />O <strong>total a receber</strong> pela Braspag será <strong>R$2,30</strong>.</p>
+<p><br />O <strong>total a receber</strong> pelo Split será <strong>R$2,30</strong>.</p>
 
 <p>As divisões e o valor total a receber de cada participante estão na figura a seguir.</p>
 
@@ -5603,7 +5603,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <p>O pedido de requisição de uma transação recorrente com boleto bancário é o mesmo da criação de um boleto tradicional. Adicione o nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> ao nó <code class="language-plaintext highlighter-rouge">Payment</code> para agendar as recorrências futuras ao autorizar uma transação pela primeira vez na série de recorrências.</p>
 
-<p>A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente adicionado do valor que estiver configurado no meio de pagamento na Braspag.</p>
+<p>A data de vencimento dos boletos recorrentes será criada baseando-se na data do próximo pedido recorrente adicionado do valor que estiver configurado no meio de pagamento no Split.</p>
 
 <p>Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias. Vencimento do boleto criado automaticamente: 06/01/2021.</p>
 
@@ -7682,13 +7682,13 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
     </tr>
     <tr>
       <td>Capturar apenas se uma transação for segura</td>
-      <td>Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a aceita, a transação será capturada automaticamente</td>
+      <td>Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após o Split receber a notificação do novo status e for igual a aceita, a transação será capturada automaticamente</td>
       <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AuthorizeFirst</em>, <code class="language-plaintext highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code> igual a <em>true</em> e <code class="language-plaintext highlighter-rouge">Payment.Capture</code> igual a <em>false</em></td>
       <td> </td>
     </tr>
     <tr>
       <td>Cancelar uma transação comprometida</td>
-      <td>Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Braspag receber a notificação do novo status e for igual a rejeitada, a transação será cancelada ou estornada automaticamente</td>
+      <td>Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após o Split receber a notificação do novo status e for igual a rejeitada, a transação será cancelada ou estornada automaticamente</td>
       <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> como <em>AuthorizeFirst</em></td>
       <td> </td>
     </tr>
@@ -7872,14 +7872,14 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">36</td>
       <td style="text-align: left">Sim (envio no <em>header</em>)</td>
-      <td style="text-align: left">Identificador da loja na Braspag.</td>
+      <td style="text-align: left">Identificador da loja no Split.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">40</td>
       <td style="text-align: left">Sim (envio no <em>header</em>)</td>
-      <td style="text-align: left">Chave pública para autenticação dupla na Braspag.</td>
+      <td style="text-align: left">Chave pública para autenticação dupla no Split.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -8208,7 +8208,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Não</td>
-      <td style="text-align: left">Indica se a transação após a análise de fraude será capturada <br /> Possíveis valores: true / false (default) <br /> Obs.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br /> Obs2.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Braspag receber a notificação da alteração de status e esta for baixo risco (Accept) <br /> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente <em>AuthorizeFirst</em></td>
+      <td style="text-align: left">Indica se a transação após a análise de fraude será capturada <br /> Possíveis valores: true / false (default) <br /> Obs.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br /> Obs2.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após o Split receber a notificação da alteração de status e esta for baixo risco (Accept) <br /> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente <em>AuthorizeFirst</em></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
@@ -9221,7 +9221,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.PaymentId</code></td>
       <td style="text-align: left">GUID</td>
-      <td style="text-align: left">Identificador da transação no Pagador Braspag</td>
+      <td style="text-align: left">Identificador da transação no Pagador</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.AcquirerTransactionId</code></td>
@@ -9241,7 +9241,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
       <td style="text-align: left">Datetime</td>
-      <td style="text-align: left">Data em que a transação foi recebida no Pagador Braspag <br /> Ex.: 2018-01-16 16:38:19</td>
+      <td style="text-align: left">Data em que a transação foi recebida no Pagador<br /> Ex.: 2018-01-16 16:38:19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CapturedDate</code></td>
