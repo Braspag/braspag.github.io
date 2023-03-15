@@ -214,7 +214,7 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | **Dados do carrinho de compras** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
 | bpmpi_cart_#_description | Descrição do item | Alfanumérico [até 255 posições] | Não |
-| bpmpi_cart_#_name | Nome do item | Alfanumérico [até 255 posições] | Não | Sim |
+| bpmpi_cart_#_name | Nome do item | Alfanumérico [até 255 posições] | Não |
 | bpmpi_cart_#_sku | SKU do item | Alfanumérico [até 255 posições] | Não |
 | bpmpi_cart_#_quantity| Quantidade do item no carrinho | Numérico [até 10 posições] | Não |
 | bpmpi_cart_#_unitprice | Valor unitário do item do carrinho em centavos | Numérico [até 10 posições] | Não |
