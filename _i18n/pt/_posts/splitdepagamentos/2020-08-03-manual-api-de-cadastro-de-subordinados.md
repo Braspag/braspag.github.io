@@ -233,20 +233,6 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 
 * Obrigatório apenas para o cenário de acordo de taxas *"3. Taxa por meio de pagamento"*.
 
-#### Propriedades dos anexos
-
-> **Cadastro de subordinado pelo CPF:** é obrigatório enviar pelo menos um arquivo comprovando o ramo de atividade (`AttachmentType` igual a "ProofBusinessActivity");<br>
-> **Cadastro de subordinado pelo CNPJ:** o envio de anexos é opcional.
-
-| PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
-|---|---|---|---|---|
-| `Attachments[].AttachmentType` | Texto | - | Sim*, quando `DocumentType` for "CPF". | Tipo do documento anexo do subordinado. Os tipos válidos são "ProofOfBankDomicile" (comprovante de domicílio bancário), "ModelOfAdhesionTerm" (modelo de termo de adesão) e "ProofBusinessActivity" (comprovante do ramo de atividade). |
-| `Attachments[].File.Name` | Texto | 50 | Sim*, quando `DocumentType` for "CPF". | Nome do arquivo do documento anexo do subordinado. |
-| `Attachments[].File.FileType` | Texto | - | Sim*, quando `DocumentType` for "CPF". | Tipo do arquivo do documento anexo do subordinado. Os tipos de arquivos válidos são "pdf", "png" e "jpg". |
-| `Attachments[].File.Data` | Texto | - | Sim*, quando `DocumentType` for "CPF". | Documento convertido para **Base64**. |
-
-* Não é obrigatório quando `DocumentType` for "CNPJ".
-
 ### Resposta
 
 ```json
