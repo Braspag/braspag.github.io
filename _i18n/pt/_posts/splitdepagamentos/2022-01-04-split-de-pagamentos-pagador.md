@@ -102,7 +102,7 @@ O master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarif
 
 ![SplitExTaxas]({{ site.baseurl_root }}/images/braspag/split/split3-taxas.png)
  
-* A Tarifa Fixa acordada entre o master e o Split não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto à Braspag. 
+* A Tarifa Fixa acordada entre o master e o Split não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto ao Split. 
 * O MDR entra no cálculo de divisão da transação, considerando o valor total da transação, já que o MDR deve estar embutido no MDR acordado entre o master e seus subordinados.
 
 > **Taxa Split**: MDR Split (%) + Tarifa Fixa Split (R$)
@@ -2887,7 +2887,7 @@ Após a divisão, cada participante terá sua agenda sensibilizada com os seguin
 **Master:**
 
 * Crédito de R$ 26,90 (R$25,00 da transação somados com R$2,25 de MDR e R$0,30 de Tarifa Fixa do subordinado A, e com R$1,20 de MDR e R$0,15 de Tarifa Fixa do subordinado B; menos R$2,00 de MDR da Split);
-* Débito de R$0,30 (Tarifa Fixa acordada com a Split).
+* Débito de R$0,30 (Tarifa Fixa acordada com o Split).
 
 <br/>O **total a receber** pelo master será **R$26,60**.
  
