@@ -21,7 +21,7 @@ Essa documentação apresenta a integração com a **API de Onboarding Split 2.0
 
 A **API de Onboarding Split 2.0** do **Split de Pagamentos** permite que o master gerencie seus subordinados na plataforma. O master deverá coletar as informações do subordinado para usar no processo de onboarding.
 
-Na API de Onboarding 2.0 o master cadastra o subordinado e, em seguida, a Braspag submete o subordinado à análise de Know Your Customer (KYC) de forma automática e notifica o master com o resultado desse processo, de acordo com as configurações de notificação.
+Na API de Onboarding 2.0 o master cadastra o subordinado e, em seguida, o Split submete o subordinado à análise de Know Your Customer (KYC) de forma automática e notifica o master com o resultado desse processo, de acordo com as configurações de notificação.
 
 > O cadastro de subordinados também pode ser feito pelo backoffice Split. [Saiba mais neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360055405011-Cadastro-de-subordinados-do-Split-via-Backoffice){:target="_blank"}.
 
@@ -86,7 +86,7 @@ grant_type=client_credentials
 }
 ```
 
-> O `MerchantId` é o mesmo utilizado na integração com a API Cielo E-Commerce ou com a API do Pagador. O `ClientSecret` deve ser obtido junto à Braspag.
+> O `MerchantId` é o mesmo utilizado na integração com a API Cielo E-Commerce ou com a API do Pagador. O `ClientSecret` deve ser obtido junto ao Split.
 
 Use o token retornado (access_token) em toda requisição à API de Onboarding Split 2.0 como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.  
 
@@ -213,7 +213,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 No **Split de Pagamentos** há possibilidades de acordos de taxas entre o master e seus subordinados:
 
 1. **Não cadastrar taxa**: quando as taxas não são definidas no momento do cadastro do subordinado, você deverá informá-las a **cada transação**, no momento da captura da transação ou da emissão do boleto;
-2. **Taxa global**: configure uma única taxa para todos os acordos (MDR único). O **Split de Pagamentos** irá replicar os mesmos acordos do master com a Braspag (subadquirente), para o master com o subordinado;
+2. **Taxa global**: configure uma única taxa para todos os acordos (MDR único). O **Split de Pagamentos** irá replicar os mesmos acordos do master com o Split, para o master com o subordinado;
 3. **Taxa por meio de pagamento**: você deverá definir as taxas cobradas por transação por arranjos de pagamento e intervalo de parcelas.
 
 Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: [**Não cadastrar taxa**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#acordo-de-taxas-n%C3%A3o-informado-no-cadastro), [**Taxa global**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-%C3%BAnico-para-todos-os-acordos) e [**Taxa por meio de pagamento**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-por-arranjo-de-pagamento-e-intervalo-de-parcelas). 
@@ -610,13 +610,13 @@ Veja as propriedades na [requisição padrão](https://braspag.github.io//manual
 
 Nesse caso, você deverá informar os campos referentes à taxa fixa, produto, bandeira, intervalo de parcelas e porcentagem do MDR.
 
-> Os arranjos informados no cadastro do subordinado precisam ser iguais aos acordos entre master e Braspag.
+> Os arranjos informados no cadastro do subordinado precisam ser iguais aos acordos entre master e Split.
 
 **Exemplo**
 
 MDR do master com subordinado igual a 4%.
 
-| ACORDO SUBADQUIRENTE (BRASPAG) E MASTER | VISA | MASTERCARD | ELO |
+| ACORDO SUBADQUIRENTE (SPLIT) E MASTER | VISA | MASTERCARD | ELO |
 |---|---|---|---|
 | **Débito** | 2.00% | 2.00% | 2.00% |
 | **Crédito à vista** | 2.50% | 2.50% | 2.50% |
@@ -740,7 +740,7 @@ A solicitação de cadastro deve ser realizada através de uma requisição pelo
 Para a definição de acordos entre o master e seus subordinados, o **Split de Pagamentos** dispõe de duas possibilidades:
 
 1. É possível definir a porcentagem do MDR (Merchant Discount Rate) cobrado por transação por Arranjos de Pagamento e intervalo de parcelas.
-2. Caso o master não queira definir a porcentagem do MDR para cada Arranjo de Pagamento e intervalo de parcelas, o **Split de Pagamentos** irá replicar os mesmos acordos do master com a Subadquirente (Braspag), para o master com o Subordinado. Dessa forma, o master deverá informar apenas um MDR único, que será aplicado para todos os acordos.
+2. Caso o master não queira definir a porcentagem do MDR para cada Arranjo de Pagamento e intervalo de parcelas, o **Split de Pagamentos** irá replicar os mesmos acordos do master com a Subadquirente (Split), para o master com o Subordinado. Dessa forma, o master deverá informar apenas um MDR único, que será aplicado para todos os acordos.
 
 **Exemplo:**
 
@@ -1496,7 +1496,7 @@ Quando houver alteração no status da análise de KYC, a Braspag enviará uma n
 
 # Criação de usuário para o subordinado
 
-Caso ache necessário, o master pode permitir o acesso do subordinado ao backoffice do Split. Para isso, o master precisa enviar para o [suporte Braspag](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}:
+Caso ache necessário, o master pode permitir o acesso do subordinado ao backoffice do Split. Para isso, o master precisa enviar para o [suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}:
 
 * O `MerchantId` do subordinado;
 * O e-mail do subordinado e
