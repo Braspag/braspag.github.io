@@ -774,7 +774,12 @@ A tabela abaixo é valida para:
 | 26                   | Agro Custeio                       |
 | 27                   | Agro Investimento                  |
 | 28                   | FCO Giro                           |
+| 29                   | Visa crediário no crédito          |
+| 30                   | Visa parcelado cliente             |
+| 31                   | Pré-pago Visa Débito               |
+| 32                   | Pré-pago Visa Crédito              |
 | 33                   | JCB                                |
+| 35                   |Pré-pago Visa Carnê                 |
 | 36                   | Saque com cartão de Débito VISA    |
 | 37                   | Flex Car Visa Vale                 |
 | 38                   | CredSystem crédito à vista         |
@@ -785,6 +790,67 @@ A tabela abaixo é valida para:
 | 43                   | Visa Parcelado Loja                |
 | 44                   | Visa Electron Pré-Datado           |
 | 45                   | Alelo Refeição (Bandeira Visa/Elo) |
+| 46                   |Alelo Alimentação (Visa)            |
+| 58                   | Alelo Multibenefícios              |
+| 59                   | Alelo Auto                         |
+| 60                   | Sorocred débito à vista            |
+| 61                   | Sorocred crédito à vista           |
+| 62                   | Sorocred parcelado loja            |
+| 64                   | Visa Crediário                     |
+| 65                   | Alelo Refeição (Elo)               |
+| 66                   | Alelo Alimentação (Elo)            |
+| 67                   | Visa Capital de Giro               |
+| 68                   | Visa Crédito Imobiliário           |
+| 69                   | Alelo Cultura                      |
+| 70                   | Elo crédito a vista                |
+| 71                   | Elo débito à vista                 |
+| 72                   | Elo parcelado loja                 |
+| 73                   | Pré-pago Visa Cash                 |
+| 79                   | Pagamento Carnê Visa Electron      |
+| 80                   | Visa Crédito Conversor de Moeda    |
+| 81                   | Mastercard Crédito Especializado (*)|
+| 82                   | Amex crédito à vista               |
+| 83                   | Amex parcelado loja                |
+| 84                   | Amex parcelado banco               |
+| 89                   | Elo Crédito Imobiliário            |
+| 91                   | Elo Crédito Especializado (*)      |
+| 94                   | Banescard Débito                   |
+| 96                   | Cabal crédito à vista              |
+| 97                   | Cabal débito à vista               |
+| 98                   | Cabal parcelado loja               |
+| 107                  | Pré-pago Master Carnê              |
+| 110                  | Pré-pago Master Crédito            |
+| 111                  | Pré-pago Master Débito             |
+| 161                  | Hiper crédito à vista              |
+| 162                  | Hiper débito à vista               |
+| 163                  | Hiper parcelado loja|
+| 164                  | Hipercard crédito à vista|
+| 165                  | Hipercard parcelado loja|
+| 200                  | Verdecard crédito a vista|
+| 201                  | Verdecard parcelado loja|
+| 202                  | Nutricash Alimentação|
+| 203                  | Nutricash Refeição|
+| 204                  | Nutricash Multibenefícios|
+| 205                  | Nutricash Combustível|
+| 206                  | Ben Alimentação|
+| 207                  | Ben Refeição|
+| 269                  | Pré-pago Elo Carnê|
+| 270                  | Pré-pago Elo Crédito|
+| 271                  | Pré-pago Elo Débito|
+| 314                  | Ourocard Agro débito|
+| 315                  | Ourocard Agro custeio|
+| 316                  | Ourocard Agro investimento|
+| 317                  | Ourocard Agro custeio + débito|
+| 318                  | Ourocard Agro investimento + débito|
+| 321                  | Mastercard crediário no crédito|
+| 322                  | Mastercard parcelado cliente|
+| 324                  | Elo parcelado cliente|
+| 330                  | Elo crediário no crédito|
+| 342                  | Mastercard Pedágio|
+| 377                  | Elo Carnê|
+| 378                  | Mastercard Carnê|
+| 380                  | Mastercard Crédito Conversor de Moeda|
+| 433                  | JCB parcelado loja|
 
 ### Getnet
 
@@ -793,6 +859,30 @@ A tabela abaixo é valida para:
 | 1                    | Título                           |
 | 2                    | Convênio                         |
 | 3                    | Crédito Digital                  |
+| 9 | Elo crediário |
+| 11 | Mastercard débito |
+| 12 | Mastercard crédito |
+| 41 | Visa débito |
+| 43 | Visa crédito |
+| 64 | Visa crediário |
+| 71 | Elo débito |
+| 72 | Elo crédito |
+| 83 | Amex crédito |
+| 165 | Hiper/Hipercard crédito |
+| 321 | Mastercard crediário |
+| 378 | Mastercard débito - Pagamento carnê |
+| 507 | Hiper/Hipercard crediário |
+| 509 | Visa débito - Pagamento carnê |
+| 510 | Elo débito - Pagamento carnê |
+| 511 | Mastercard crédito BNDES |
+| 512 | Visa crédito BNDES |
+| 513 | Amex crediário |
+| 10074 | Titulo |
+| 10075 | Convênio |
+| 10076 | Crédito Digital |
+| 10077 | Cupom Eletrônico |
+| 10078 | Cupom Papel |
+| 10079 | Pagamento Recorrente|
 | 00/CE                | Cupom Eletrônico                 |
 | CP                   | Cupom Papel                      |
 | SM                   | Cartão de Crédito MASTERCARD     |
@@ -804,6 +894,73 @@ A tabela abaixo é valida para:
 | PM                   | Pagamento Carnê – Débito MAESTRO |
 | PR                   | Pagamento Recorrente             |
 
+### Redecard
+
+| Código/Identificador | Descrição          |
+|----------------------|--------------------|
+| 3 | EEVC Banescard crédito à vista |
+| 3 | EEFI Banescard crédito à vista |
+| 4 | EEVC Banescard parcelado loja |
+| 4 | EEFI Banescard parcelado loja |
+| 6 | EEVC Credz crédito à vista |
+| 6 | EEFI Credz crédito à vista |
+| 8 | EEVC Credz parcelado loja |
+| 8 | EEFI Credz parcelado loja |
+| 10 | EEFI Mastercard crédito à vista |
+| 10 | EEVC Mastercard crédito à vista |
+| 11 | EEVD Maestro débito |
+| 11 | EEVD Maestro |
+| 12 | EEFI Mastercard parcelado loja |
+| 12 | EEVC Mastercard parcelado loja |
+| 20 | EEVC Diners crédito à vista |
+| 20 | EEFI Diners crédito à vista |
+| 21 | EEFI Diners parcelado loja |
+| 21 | EEVC Diners parcelado loja |
+| 33 | EEFI JCB |
+| 33 | EEVD JCB |
+| 33 | EEVC JCB |
+| 38 | EEVC Credsystem crédito à vista |
+| 38 | EEFI Credsystem crédito à vista |
+| 39 | EEVC Credsystem parcelado loja |
+| 39 | EEFI Credsystem parcelado loja |
+| 40 | EEFI Visa crédito à vista |
+| 40 | EEVC Visa crédito à vista |
+| 41 | EEVD Visa débito |
+| 42 | EEFI Visa parcelado loja |
+| 43 | EEVC Visa parcelado loja |
+| 60 | EEVC Sorocred crédito à vista |
+| 60 | EEFI Sorocred crédito à vista |
+| 62 | EEVC Sorocred parcelado loja |
+| 62 | EEFI Sorocred parcelado loja |
+| 70 | EEVC Elo crédito a vista |
+| 70 | EEFI Elo crédito a vista |
+| 71 | EEVD Elo débito à vista |
+| 72 | EEVC Elo parcelado loja |
+| 72 | EEFI Elo parcelado loja |
+| 82 | EEVC Amex crédito à vista |
+| 82 | EEFI Amex crédito à vista |
+| 83 | EEVC Amex parcelado loja |
+| 83 | EEFI Amex parcelado loja |
+| 94 | EEVD Banescard Débito |
+| 96 | EEFI Cabal crédito à vista |
+| 96 | EEVC Cabal crédito à vista |
+| 97 | EEVD Cabal débito |
+| 98 | EEVC Cabal parcelado loja |
+| 98 | EEFI Cabal parcelado loja |
+| 161 | EEVC Hiper crédito à vista |
+| 161 | EEFI Hiper crédito à vista |
+| 162 | EEVD Hiper débito à vista |
+| 163 | EEVC Hiper parcelado loja |
+| 163 | EEFI Hiper parcelado loja |
+| 164 | EEFI Hipercard crédito à vista |
+| 164 | EEVC Hipercard crédito à vista |
+| 165 | EEVC Hipercard parcelado loja |
+| 165 | EEFI Hipercard parcelado loja |
+| 433 | EEFI JCB |
+| 433 | EEVC JCB |
+| 501 | EEVD Hipercard débito |
+| 506 | EEVD Diners débito |
+
 ### Stone
 
 | Código/Identificador | Descrição          |
@@ -811,11 +968,41 @@ A tabela abaixo é valida para:
 | 1                    | Crédito Visa       |
 | 2                    | Crédito Master     |
 | 4                    | Crédito Elo        |
+| 10                   | Mastercard crédito à vista |
+| 11                   | Mastercard débito |
+| 12                   | Mastercard crédito parcelado |
 | 15                   | Crédito Hipercard  |
+| 29                   | Visa Crediário
+| 30                   | Visa parcelado cliente
 | 35                   | Mastercard Maestro |
 | 36                   | Visa Electron      |
 | 38                   | Débito Elo         |
 | 39                   | Débito Hipercard   |
+| 40                   | Visa crédito à vista |
+| 41                   | Visa débito |
+| 43                   | Visa crédito parcelado |
+| 70                   | Elo crédito à vista |
+| 71                   | Elo débito |
+| 72                   | Elo crédito parcelado |
+| 82                   | Amex crédito à vista |
+| 83                   | Amex crédito parcelado |
+| 84                   | Amex parcelado banco |
+| 96                   | Cabal crédito à vista |
+| 97                   | Cabal débito |
+| 98                   | Cabal crédito parcelado |
+| 164                  | Hipercard crédito à vista |
+| 165                  | Hipercard crédito parcelado |
+| 321                  | Mastercard crediário |
+| 322                  | Mastercard parcelado cliente |
+| 324                  | Elo parcelado cliente |
+| 330                  | Elo Crediário |
+| 501                  | Hipercard débito |
+| 502                  | Amex débito |
+| 503                  | Cabal débito |
+| 504                  | Cabal crédito parcelado |
+| 505                  | Cabal crédito à vista |
+| 507                  | Hipercard crediário |
+| 513                  | Amex crediário |
 
 ### Global Payments
 
@@ -1365,7 +1552,12 @@ A tabela abaixo é valida para:
 | 26                   | Agro Custeio                       |
 | 27                   | Agro Investimento                  |
 | 28                   | FCO Giro                           |
+| 29                   | Visa crediário no crédito          |
+| 30                   | Visa parcelado cliente             |
+| 31                   | Pré-pago Visa Débito               |
+| 32                   | Pré-pago Visa Crédito              |
 | 33                   | JCB                                |
+| 35                   |Pré-pago Visa Carnê                 |
 | 36                   | Saque com cartão de Débito VISA    |
 | 37                   | Flex Car Visa Vale                 |
 | 38                   | CredSystem crédito à vista         |
@@ -1376,6 +1568,67 @@ A tabela abaixo é valida para:
 | 43                   | Visa Parcelado Loja                |
 | 44                   | Visa Electron Pré-Datado           |
 | 45                   | Alelo Refeição (Bandeira Visa/Elo) |
+| 46                   |Alelo Alimentação (Visa)            |
+| 58                   | Alelo Multibenefícios              |
+| 59                   | Alelo Auto                         |
+| 60                   | Sorocred débito à vista            |
+| 61                   | Sorocred crédito à vista           |
+| 62                   | Sorocred parcelado loja            |
+| 64                   | Visa Crediário                     |
+| 65                   | Alelo Refeição (Elo)               |
+| 66                   | Alelo Alimentação (Elo)            |
+| 67                   | Visa Capital de Giro               |
+| 68                   | Visa Crédito Imobiliário           |
+| 69                   | Alelo Cultura                      |
+| 70                   | Elo crédito a vista                |
+| 71                   | Elo débito à vista                 |
+| 72                   | Elo parcelado loja                 |
+| 73                   | Pré-pago Visa Cash                 |
+| 79                   | Pagamento Carnê Visa Electron      |
+| 80                   | Visa Crédito Conversor de Moeda    |
+| 81                   | Mastercard Crédito Especializado (*)|
+| 82                   | Amex crédito à vista               |
+| 83                   | Amex parcelado loja                |
+| 84                   | Amex parcelado banco               |
+| 89                   | Elo Crédito Imobiliário            |
+| 91                   | Elo Crédito Especializado (*)      |
+| 94                   | Banescard Débito                   |
+| 96                   | Cabal crédito à vista              |
+| 97                   | Cabal débito à vista               |
+| 98                   | Cabal parcelado loja               |
+| 107                  | Pré-pago Master Carnê              |
+| 110                  | Pré-pago Master Crédito            |
+| 111                  | Pré-pago Master Débito             |
+| 161                  | Hiper crédito à vista              |
+| 162                  | Hiper débito à vista               |
+| 163                  | Hiper parcelado loja|
+| 164                  | Hipercard crédito à vista|
+| 165                  | Hipercard parcelado loja|
+| 200                  | Verdecard crédito a vista|
+| 201                  | Verdecard parcelado loja|
+| 202                  | Nutricash Alimentação|
+| 203                  | Nutricash Refeição|
+| 204                  | Nutricash Multibenefícios|
+| 205                  | Nutricash Combustível|
+| 206                  | Ben Alimentação|
+| 207                  | Ben Refeição|
+| 269                  | Pré-pago Elo Carnê|
+| 270                  | Pré-pago Elo Crédito|
+| 271                  | Pré-pago Elo Débito|
+| 314                  | Ourocard Agro débito|
+| 315                  | Ourocard Agro custeio|
+| 316                  | Ourocard Agro investimento|
+| 317                  | Ourocard Agro custeio + débito|
+| 318                  | Ourocard Agro investimento + débito|
+| 321                  | Mastercard crediário no crédito|
+| 322                  | Mastercard parcelado cliente|
+| 324                  | Elo parcelado cliente|
+| 330                  | Elo crediário no crédito|
+| 342                  | Mastercard Pedágio|
+| 377                  | Elo Carnê|
+| 378                  | Mastercard Carnê|
+| 380                  | Mastercard Crédito Conversor de Moeda|
+| 433                  | JCB parcelado loja|
 
 ### Getnet
 
@@ -1384,6 +1637,30 @@ A tabela abaixo é valida para:
 | 1                    | Título                           |
 | 2                    | Convênio                         |
 | 3                    | Crédito Digital                  |
+| 9 | Elo crediário |
+| 11 | Mastercard débito |
+| 12 | Mastercard crédito |
+| 41 | Visa débito |
+| 43 | Visa crédito |
+| 64 | Visa crediário |
+| 71 | Elo débito |
+| 72 | Elo crédito |
+| 83 | Amex crédito |
+| 165 | Hiper/Hipercard crédito |
+| 321 | Mastercard crediário |
+| 378 | Mastercard débito - Pagamento carnê |
+| 507 | Hiper/Hipercard crediário |
+| 509 | Visa débito - Pagamento carnê |
+| 510 | Elo débito - Pagamento carnê |
+| 511 | Mastercard crédito BNDES |
+| 512 | Visa crédito BNDES |
+| 513 | Amex crediário |
+| 10074 | Titulo |
+| 10075 | Convênio |
+| 10076 | Crédito Digital |
+| 10077 | Cupom Eletrônico |
+| 10078 | Cupom Papel |
+| 10079 | Pagamento Recorrente|
 | 00/CE                | Cupom Eletrônico                 |
 | CP                   | Cupom Papel                      |
 | SM                   | Cartão de Crédito MASTERCARD     |
@@ -1395,6 +1672,73 @@ A tabela abaixo é valida para:
 | PM                   | Pagamento Carnê – Débito MAESTRO |
 | PR                   | Pagamento Recorrente             |
 
+### Redecard
+
+| Código/Identificador | Descrição          |
+|----------------------|--------------------|
+| 3 | EEVC Banescard crédito à vista |
+| 3 | EEFI Banescard crédito à vista |
+| 4 | EEVC Banescard parcelado loja |
+| 4 | EEFI Banescard parcelado loja |
+| 6 | EEVC Credz crédito à vista |
+| 6 | EEFI Credz crédito à vista |
+| 8 | EEVC Credz parcelado loja |
+| 8 | EEFI Credz parcelado loja |
+| 10 | EEFI Mastercard crédito à vista |
+| 10 | EEVC Mastercard crédito à vista |
+| 11 | EEVD Maestro débito |
+| 11 | EEVD Maestro |
+| 12 | EEFI Mastercard parcelado loja |
+| 12 | EEVC Mastercard parcelado loja |
+| 20 | EEVC Diners crédito à vista |
+| 20 | EEFI Diners crédito à vista |
+| 21 | EEFI Diners parcelado loja |
+| 21 | EEVC Diners parcelado loja |
+| 33 | EEFI JCB |
+| 33 | EEVD JCB |
+| 33 | EEVC JCB |
+| 38 | EEVC Credsystem crédito à vista |
+| 38 | EEFI Credsystem crédito à vista |
+| 39 | EEVC Credsystem parcelado loja |
+| 39 | EEFI Credsystem parcelado loja |
+| 40 | EEFI Visa crédito à vista |
+| 40 | EEVC Visa crédito à vista |
+| 41 | EEVD Visa débito |
+| 42 | EEFI Visa parcelado loja |
+| 43 | EEVC Visa parcelado loja |
+| 60 | EEVC Sorocred crédito à vista |
+| 60 | EEFI Sorocred crédito à vista |
+| 62 | EEVC Sorocred parcelado loja |
+| 62 | EEFI Sorocred parcelado loja |
+| 70 | EEVC Elo crédito a vista |
+| 70 | EEFI Elo crédito a vista |
+| 71 | EEVD Elo débito à vista |
+| 72 | EEVC Elo parcelado loja |
+| 72 | EEFI Elo parcelado loja |
+| 82 | EEVC Amex crédito à vista |
+| 82 | EEFI Amex crédito à vista |
+| 83 | EEVC Amex parcelado loja |
+| 83 | EEFI Amex parcelado loja |
+| 94 | EEVD Banescard Débito |
+| 96 | EEFI Cabal crédito à vista |
+| 96 | EEVC Cabal crédito à vista |
+| 97 | EEVD Cabal débito |
+| 98 | EEVC Cabal parcelado loja |
+| 98 | EEFI Cabal parcelado loja |
+| 161 | EEVC Hiper crédito à vista |
+| 161 | EEFI Hiper crédito à vista |
+| 162 | EEVD Hiper débito à vista |
+| 163 | EEVC Hiper parcelado loja |
+| 163 | EEFI Hiper parcelado loja |
+| 164 | EEFI Hipercard crédito à vista |
+| 164 | EEVC Hipercard crédito à vista |
+| 165 | EEVC Hipercard parcelado loja |
+| 165 | EEFI Hipercard parcelado loja |
+| 433 | EEFI JCB |
+| 433 | EEVC JCB |
+| 501 | EEVD Hipercard débito |
+| 506 | EEVD Diners débito |
+
 ### Stone
 
 | Código/Identificador | Descrição          |
@@ -1402,11 +1746,41 @@ A tabela abaixo é valida para:
 | 1                    | Crédito Visa       |
 | 2                    | Crédito Master     |
 | 4                    | Crédito Elo        |
+| 10                   | Mastercard crédito à vista |
+| 11                   | Mastercard débito |
+| 12                   | Mastercard crédito parcelado |
 | 15                   | Crédito Hipercard  |
+| 29                   | Visa Crediário
+| 30                   | Visa parcelado cliente
 | 35                   | Mastercard Maestro |
 | 36                   | Visa Electron      |
 | 38                   | Débito Elo         |
 | 39                   | Débito Hipercard   |
+| 40                   | Visa crédito à vista |
+| 41                   | Visa débito |
+| 43                   | Visa crédito parcelado |
+| 70                   | Elo crédito à vista |
+| 71                   | Elo débito |
+| 72                   | Elo crédito parcelado |
+| 82                   | Amex crédito à vista |
+| 83                   | Amex crédito parcelado |
+| 84                   | Amex parcelado banco |
+| 96                   | Cabal crédito à vista |
+| 97                   | Cabal débito |
+| 98                   | Cabal crédito parcelado |
+| 164                  | Hipercard crédito à vista |
+| 165                  | Hipercard crédito parcelado |
+| 321                  | Mastercard crediário |
+| 322                  | Mastercard parcelado cliente |
+| 324                  | Elo parcelado cliente |
+| 330                  | Elo Crediário |
+| 501                  | Hipercard débito |
+| 502                  | Amex débito |
+| 503                  | Cabal débito |
+| 504                  | Cabal crédito parcelado |
+| 505                  | Cabal crédito à vista |
+| 507                  | Hipercard crediário |
+| 513                  | Amex crediário |
 
 ### Global Payments
 
