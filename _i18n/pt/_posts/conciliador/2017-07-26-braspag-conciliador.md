@@ -889,8 +889,7 @@ A tabela abaixo é valida para:
 | SV                   | Cartão de Crédito VISA           |
 | SR                   | Cartão de Débito MAESTRO         |
 | SE                   | Cartão de Débito VISA ELECTRON   |
-| PV                   | Pagamento Carnê – Débito VISA    |
-| ELECTRON             |                                  |
+| PV                   | Pagamento Carnê – Débito VISAELECTRON |
 | PM                   | Pagamento Carnê – Débito MAESTRO |
 | PR                   | Pagamento Recorrente             |
 
@@ -1667,8 +1666,7 @@ A tabela abaixo é valida para:
 | SV                   | Cartão de Crédito VISA           |
 | SR                   | Cartão de Débito MAESTRO         |
 | SE                   | Cartão de Débito VISA ELECTRON   |
-| PV                   | Pagamento Carnê – Débito VISA    |
-| ELECTRON             |                                  |
+| PV                   | Pagamento Carnê – Débito VISA ELECTRON |
 | PM                   | Pagamento Carnê – Débito MAESTRO |
 | PR                   | Pagamento Recorrente             |
 
