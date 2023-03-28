@@ -233,6 +233,8 @@ Veja a requisição dessa transação no valor de R$100,00, com captura automát
 
 #### Requisição
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
 ```json
 {
     "merchantorderid": "30082019",
@@ -417,6 +419,8 @@ Débito de R$0,10 (Tarifa Fixa acordada com o Split).
 Veja a requisição dessa transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 
 #### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 {
@@ -837,6 +841,8 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 
 ### Requisição
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
 ```json
 {
     "merchantorderid": "30082019",
@@ -1222,6 +1228,8 @@ O nó referente ao split (divisão), tanto no contrato de requisição quanto de
 No Split Transacional é necessário que o master envie um "nó" adicional na integração da API do Pagador, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
 
 ### Requisição
+  
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
 "SplitPayments":[
