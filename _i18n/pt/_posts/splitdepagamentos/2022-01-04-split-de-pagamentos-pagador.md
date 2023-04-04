@@ -1228,7 +1228,7 @@ O nó referente ao split (divisão), tanto no contrato de requisição quanto de
 No Split Transacional é necessário que o master envie um "nó" adicional na integração da API do Pagador, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
 
 ### Requisição
-  
+
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
 ```json
