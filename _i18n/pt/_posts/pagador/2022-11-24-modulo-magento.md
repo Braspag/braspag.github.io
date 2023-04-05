@@ -251,7 +251,7 @@ A imagem a seguir mostra o campo de configuração a ser preenchido para cartão
 
 |Campo|Descrição|
 |---|---|
-|**Habilitado**|Ativa (“Yes”) ou desativa (“No”) realizar o pagamento com dois cartões.|
+|**Habilitado**|Ativa (“Sim”) ou desativa (“Não”) realizar o pagamento com dois cartões.|
 
 **Visualização Final**
 
@@ -389,7 +389,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 |Campo|Descrição|
 |---|---|
-|**Habilitado**|Ativa (“Yes”) ou desativa (“No”) o método de pagamento voucher.|
+|**Habilitado**|Ativa (“Sim”) ou desativa (“Não”) o método de pagamento voucher.|
 |**Título**|Título do método de pagamento cartão de crédito exibido no checkout.|
 |**Tipo**|Adquirentes e bandeiras disponíveis para o método de pagamento voucher.|
 
