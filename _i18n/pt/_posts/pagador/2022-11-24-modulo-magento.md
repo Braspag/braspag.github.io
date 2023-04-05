@@ -381,6 +381,18 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |**Logo**|Imagem para ser exibida ao lado do QR Code.|
 |**Display Title next to Logo**|Título exibido ao lado da imagem.|
 
+## Voucher
+
+A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Voucher**:
+
+![Voucher]({{ site.baseurl_root }}/images/braspag/pagador/magento/magento-voucher.png)
+
+|Campo|Descrição|
+|---|---|
+|**Habilitado**|Ativa (“Yes”) ou desativa (“No”) o método de pagamento voucher.|
+|**Título**|Título do método de pagamento cartão de crédito exibido no checkout.|
+|**Tipo**|Adquirentes e bandeiras disponíveis para o método de pagamento voucher.|
+
 # Antifraude
 
 Seguem as instruções de acesso para ativação do **Anti Fraud**:
