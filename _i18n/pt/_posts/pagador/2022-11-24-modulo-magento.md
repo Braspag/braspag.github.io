@@ -243,6 +243,12 @@ A imagem a seguir mostra o campo de configuração a ser preenchido para cartão
 |---|---|
 |**Active**|Ativa ("Yes") ou desativa ("No") a exibição da animação com a imagem do cartão de crédito no checkout para o método de pagamento cartão de crédito.|
 
+### Dois Cartões
+
+A imagem a seguir mostra o campo de configuração a ser preenchido para cartão de crédito na seção **Dois Cartões**:
+
+![Dois Cartoes View]({{ site.baseurl_root }}/images/braspag/pagador/magento/magento-creditcard-doiscartoes.png)
+
 **Visualização Final**
 
 A visão do método de pagamento cartão de crédito, após a configuração na loja, será a seguinte:
