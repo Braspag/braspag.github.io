@@ -249,6 +249,10 @@ A imagem a seguir mostra o campo de configuração a ser preenchido para cartão
 
 ![Dois Cartoes View]({{ site.baseurl_root }}/images/braspag/pagador/magento/magento-creditcard-doiscartoes.png)
 
+|Campo|Descrição|
+|---|---|
+|**Habilitado**|Ativa (“Yes”) ou desativa (“No”) realizar o pagamento com dois cartões.|
+
 **Visualização Final**
 
 A visão do método de pagamento cartão de crédito, após a configuração na loja, será a seguinte:
