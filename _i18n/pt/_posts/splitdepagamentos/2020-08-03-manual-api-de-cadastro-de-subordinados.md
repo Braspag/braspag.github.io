@@ -1550,7 +1550,7 @@ A API de Alteração de Taxas em Lote permite que o master realize a alteração
 | `Aggrement.MerchantDiscountRates[].FinalInstallmentNumber` | Int | - | Sim | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12** | 
 | `Aggrement.MerchantDiscountRates[].Percent` | Decimal | - | Sim | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais | 
 
-### Resposta
+## Resposta
 
 ```json
 {    
