@@ -1464,6 +1464,151 @@ Você pode consultar um subordinado específico através do `MerchantId` do subo
 | `Attachments[].File.Name`                                       | Texto  | 50      | Não         | Nome do arquivo do documento em anexo do subordinado  |
 | `Attachments[].File.FileType`                                   | Texto  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg` |
 
+# Alteração de Taxas em Lote
+
+A API de Alteração de Taxas em Lote permite que o master realize a alteração das taxas entre ele e os seus subordinados através de uma requisição. Atualmente, somente será possível informar o mesmo conjunto de taxas para todos os subordinados.
+
+## Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{split-onboarding-api}/api/agreements/batch</span></aside>
+
+```json
+--header "Authorization: Bearer {access_token}"
+{ 
+    "MasterMerchantId": "2161acd0-3767-48d5-85c2-84d6dd412254", 
+    "SubordinateIds": [ 
+        "aab81d0c-88a8-43df-b15d-eee58d98a54e",
+        "770d5796-25cf-4277-9a29-0b41cafd6d71",
+        "4152723e-a693-458f-be78-6eacbaeb3966",
+        "24654353-2035-4412-ae8f-4b7f31c65efb"
+    ],
+    "Aggrement": { 
+        "InitialValidityDate": "2023-12-30", 
+        "Fees": { 
+            "Fee": 150
+        }, 
+        "MerchantDiscountRates": [ 
+            { 
+                "PaymentArrangement": { 
+                    "Product": "CreditCard",
+                     "Brand": "Visa"
+                },
+                "InitialInstallmentNumber": 9,
+                "FinalInstallmentNumber": 12,
+                "Percent": 1
+             },
+             { 
+                "PaymentArrangement": {
+                    "Product": "CreditCard",
+                    "Brand": "Visa" 
+                },
+                "InitialInstallmentNumber": 1,    
+                "FinalInstallmentNumber": 1,
+                "Percent": 2
+            },
+            {
+                "PaymentArrangement": {
+                    "Product": "CreditCard", 
+                    "Brand": "Visa"
+                }, 
+                "InitialInstallmentNumber": 7, 
+                "FinalInstallmentNumber": 8, 
+                "Percent": 3
+            },
+            {
+                "PaymentArrangement": { 
+                    "Product": "CreditCard", 
+                    "Brand": "Master" 
+                }, 
+                "InitialInstallmentNumber": 2, 
+                "FinalInstallmentNumber": 6, 
+                "Percent": 6.00
+            },
+            {
+                "PaymentArrangement": { 
+                    "Product": "CreditCard",
+                    "Brand": "Master"
+                }, 
+                "InitialInstallmentNumber": 9, 
+                "FinalInstallmentNumber": 12, 
+                "Percent": 7.00
+            }
+        ]
+    }
+} 
+```
+
+| PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO | 
+|-|-|-|-|-| 
+| `MasterMerchantId` | Guid | 36 | Sim | Identificação do master. | 
+| `SubordinateIds` | Guid[] | - | Sim | Identificação dos subordinados que terão o acordo alterado. | 
+| `Aggrement.InitialValidityDate` | Data | 10 | Sim | Data de início da validade do acordo. Formato: yyyy-MM-dd | 
+| `Aggrement.Fees.Fee` | Int | - | Sim | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = _"Fee" : 100_ | 
+| `Aggrement.MerchantDiscountRates[].PaymentArrangement.Product` | String | - | Sim | Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são _"CreditCard"_ e _"DebitCard"_ | 
+| `Aggrement.MerchantDiscountRates[].PaymentArrangement.Brand` | String | - | Sim | Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são _Visa_, _Master_, _Amex_, _Elo_, _Diners_, _Discover_ e _Hipercard_ | 
+| `Aggrement.MerchantDiscountRates[].InitialInstallmentNumber` | Int | - | Sim | Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12** | 
+| `Aggrement.MerchantDiscountRates[].FinalInstallmentNumber` | Int | - | Sim | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12** | 
+| `Aggrement.MerchantDiscountRates[].Percent` | Decimal | - | Sim | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais | 
+
+### Resposta
+
+```json
+{    
+    "initialValidityDate": "2024-06-02T00:00:00",     
+    "fees": {         
+        "fee": 150,     
+    },     
+    "merchantDiscountRates": [         
+        {             
+            "paymentArrangement": {
+                 "product": "CreditCard",
+                 "brand": "Visa"            
+},
+             "initialInstallmentNumber": 9,
+             "finalInstallmentNumber": 12,
+             "percent": 1
+        },
+         {
+             "paymentArrangement": {
+                 "product": "CreditCard",
+                 "brand": "Visa"
+            },
+
+             "initialInstallmentNumber": 1,
+             "finalInstallmentNumber": 1,
+             "percent": 2
+        },
+         {
+             "paymentArrangement": {
+                 "product": "CreditCard",
+                 "brand": "Visa"
+            },
+             "initialInstallmentNumber": 7,
+             "finalInstallmentNumber": 8,
+             "percent": 3
+        },
+         {
+             "paymentArrangement": {
+                 "product": "CreditCard",
+                 "brand": "Master"
+            },
+             "initialInstallmentNumber": 2,
+             "finalInstallmentNumber": 6,
+             "percent": 6.00
+        },
+         {
+             "paymentArrangement": {
+                 "product": "CreditCard",
+                 "brand": "Master"
+            },
+             "initialInstallmentNumber": 9,
+             "finalInstallmentNumber": 12,
+             "percent": 7.00
+        }
+    ]
+} 
+```
+
 # Notificação de KYC
 
 Para receber a notificação de alteração de status da análise de KYC, é necessário configurar o campo "URL de Notificação" durante o cadastro do master na Braspag para receber uma requisição do tipo "POST". O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).
