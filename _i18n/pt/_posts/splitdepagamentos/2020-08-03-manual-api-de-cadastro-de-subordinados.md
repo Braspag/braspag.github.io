@@ -1468,6 +1468,8 @@ Você pode consultar um subordinado específico através do `MerchantId` do subo
 
 A API de Alteração de Taxas em Lote permite que o master realize a alteração das taxas entre ele e os seus subordinados através de uma requisição. Atualmente, somente será possível informar o mesmo conjunto de taxas para todos os subordinados.
 
+> A alteração de taxas é feita pela [API de Onboarding Split 2.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#ambientes){:target="_blank"}.
+
 ## Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{split-onboarding-api}/api/agreements/batch</span></aside>
