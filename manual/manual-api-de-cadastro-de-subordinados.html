@@ -3535,6 +3535,214 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
   </tbody>
 </table>
 
+<h1 id="alteração-de-taxas-em-lote">Alteração de Taxas em Lote</h1>
+
+<p>A API de Alteração de Taxas em Lote permite que o master realize a alteração das taxas entre ele e os seus subordinados através de uma requisição. Atualmente, somente será possível informar o mesmo conjunto de taxas para todos os subordinados.</p>
+
+<h2 id="requisição-5">Requisição</h2>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{split-onboarding-api}/api/agreements/batch</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w"> 
+    </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2161acd0-3767-48d5-85c2-84d6dd412254"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"SubordinateIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+        </span><span class="s2">"aab81d0c-88a8-43df-b15d-eee58d98a54e"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"770d5796-25cf-4277-9a29-0b41cafd6d71"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"4152723e-a693-458f-be78-6eacbaeb3966"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"24654353-2035-4412-ae8f-4b7f31c65efb"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Aggrement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"InitialValidityDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-12-30"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"Fees"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w">
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="nl">"MerchantDiscountRates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+            </span><span class="p">{</span><span class="w"> 
+                </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+                    </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                     </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"InitialInstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"FinalInstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+             </span><span class="p">},</span><span class="w">
+             </span><span class="p">{</span><span class="w"> 
+                </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w"> 
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"InitialInstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">    
+                </span><span class="nl">"FinalInstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w"> 
+                    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+                </span><span class="p">},</span><span class="w"> 
+                </span><span class="nl">"InitialInstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"FinalInstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+                    </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w"> 
+                    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w"> 
+                </span><span class="p">},</span><span class="w"> 
+                </span><span class="nl">"InitialInstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"FinalInstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.00</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"PaymentArrangement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+                    </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="w">
+                </span><span class="p">},</span><span class="w"> 
+                </span><span class="nl">"InitialInstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"FinalInstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.00</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w"> 
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MasterMerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificação do master.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SubordinateIds</code></td>
+      <td>Guid[]</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Identificação dos subordinados que terão o acordo alterado.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Aggrement.InitialValidityDate</code></td>
+      <td>Data</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Data de início da validade do acordo. Formato: yyyy-MM-dd</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Aggrement.Fees.Fee</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = <em>“Fee” : 100</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Aggrement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <em>“CreditCard”</em> e <em>“DebitCard”</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Aggrement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <em>Visa</em>, <em>Master</em>, <em>Amex</em>, <em>Elo</em>, <em>Diners</em>, <em>Discover</em> e <em>Hipercard</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Aggrement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Aggrement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
+      <td>Int</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Aggrement.MerchantDiscountRates[].Percent</code></td>
+      <td>Decimal</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-5">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="err">  </span><span class="w"> 
+    </span><span class="nl">"initialValidityDate"</span><span class="p">:</span><span class="err"> </span><span class="s2">"2024-06-02T00:00:00"</span><span class="p">,</span><span class="w"> </span><span class="err">   </span><span class="w"> 
+    </span><span class="nl">"fees"</span><span class="p">:</span><span class="err"> </span><span class="p">{</span><span class="w"> </span><span class="err">       </span><span class="w"> 
+        </span><span class="nl">"fee"</span><span class="p">:</span><span class="err"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="err">   </span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> </span><span class="err">   </span><span class="w"> 
+    </span><span class="nl">"merchantDiscountRates"</span><span class="p">:</span><span class="err"> </span><span class="p">[</span><span class="w"> </span><span class="err">       </span><span class="w"> 
+        </span><span class="p">{</span><span class="w"> </span><span class="err">           </span><span class="w"> 
+            </span><span class="nl">"paymentArrangement"</span><span class="p">:</span><span class="err"> </span><span class="p">{</span><span class="w">
+ </span><span class="err">               </span><span class="w"> </span><span class="nl">"product"</span><span class="p">:</span><span class="err"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+ </span><span class="err">               </span><span class="w"> </span><span class="nl">"brand"</span><span class="p">:</span><span class="err"> </span><span class="s2">"Visa"</span><span class="err">           </span><span class="w"> 
+</span><span class="p">},</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"initialInstallmentNumber"</span><span class="p">:</span><span class="err"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"finalInstallmentNumber"</span><span class="p">:</span><span class="err"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"percent"</span><span class="p">:</span><span class="err"> </span><span class="mi">1</span><span class="w">
+</span><span class="err">       </span><span class="w"> </span><span class="p">},</span><span class="w">
+ </span><span class="err">       </span><span class="w"> </span><span class="p">{</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"paymentArrangement"</span><span class="p">:</span><span class="err"> </span><span class="p">{</span><span class="w">
+ </span><span class="err">               </span><span class="w"> </span><span class="nl">"product"</span><span class="p">:</span><span class="err"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+ </span><span class="err">               </span><span class="w"> </span><span class="nl">"brand"</span><span class="p">:</span><span class="err"> </span><span class="s2">"Visa"</span><span class="w">
+</span><span class="err">           </span><span class="w"> </span><span class="p">},</span><span class="w">
+
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"initialInstallmentNumber"</span><span class="p">:</span><span class="err"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"finalInstallmentNumber"</span><span class="p">:</span><span class="err"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"percent"</span><span class="p">:</span><span class="err"> </span><span class="mi">2</span><span class="w">
+</span><span class="err">       </span><span class="w"> </span><span class="p">},</span><span class="w">
+ </span><span class="err">       </span><span class="w"> </span><span class="p">{</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"paymentArrangement"</span><span class="p">:</span><span class="err"> </span><span class="p">{</span><span class="w">
+ </span><span class="err">               </span><span class="w"> </span><span class="nl">"product"</span><span class="p">:</span><span class="err"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+ </span><span class="err">               </span><span class="w"> </span><span class="nl">"brand"</span><span class="p">:</span><span class="err"> </span><span class="s2">"Visa"</span><span class="w">
+</span><span class="err">           </span><span class="w"> </span><span class="p">},</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"initialInstallmentNumber"</span><span class="p">:</span><span class="err"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"finalInstallmentNumber"</span><span class="p">:</span><span class="err"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"percent"</span><span class="p">:</span><span class="err"> </span><span class="mi">3</span><span class="w">
+</span><span class="err">       </span><span class="w"> </span><span class="p">},</span><span class="w">
+ </span><span class="err">       </span><span class="w"> </span><span class="p">{</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"paymentArrangement"</span><span class="p">:</span><span class="err"> </span><span class="p">{</span><span class="w">
+ </span><span class="err">               </span><span class="w"> </span><span class="nl">"product"</span><span class="p">:</span><span class="err"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+ </span><span class="err">               </span><span class="w"> </span><span class="nl">"brand"</span><span class="p">:</span><span class="err"> </span><span class="s2">"Master"</span><span class="w">
+</span><span class="err">           </span><span class="w"> </span><span class="p">},</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"initialInstallmentNumber"</span><span class="p">:</span><span class="err"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"finalInstallmentNumber"</span><span class="p">:</span><span class="err"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"percent"</span><span class="p">:</span><span class="err"> </span><span class="mf">6.00</span><span class="w">
+</span><span class="err">       </span><span class="w"> </span><span class="p">},</span><span class="w">
+ </span><span class="err">       </span><span class="w"> </span><span class="p">{</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"paymentArrangement"</span><span class="p">:</span><span class="err"> </span><span class="p">{</span><span class="w">
+ </span><span class="err">               </span><span class="w"> </span><span class="nl">"product"</span><span class="p">:</span><span class="err"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+ </span><span class="err">               </span><span class="w"> </span><span class="nl">"brand"</span><span class="p">:</span><span class="err"> </span><span class="s2">"Master"</span><span class="w">
+</span><span class="err">           </span><span class="w"> </span><span class="p">},</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"initialInstallmentNumber"</span><span class="p">:</span><span class="err"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"finalInstallmentNumber"</span><span class="p">:</span><span class="err"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+ </span><span class="err">           </span><span class="w"> </span><span class="nl">"percent"</span><span class="p">:</span><span class="err"> </span><span class="mf">7.00</span><span class="w">
+</span><span class="err">       </span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w"> 
+</span></code></pre></div></div>
+
 <h1 id="notificação-de-kyc">Notificação de KYC</h1>
 
 <p>Para receber a notificação de alteração de status da análise de KYC, é necessário configurar o campo “URL de Notificação” durante o cadastro do master na Braspag para receber uma requisição do tipo “POST”. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
