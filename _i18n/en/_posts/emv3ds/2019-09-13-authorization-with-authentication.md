@@ -199,12 +199,13 @@ See [API Rest Integration Guide](https://braspag.github.io//en/manualp/authoriza
 
 # ECI Table
 
-|**BRAND**|**ECI**|**TRANSACTION MEANING**|
-|---|---|---|
-|Visa|06|Authenticated by the card brand – chargeback risk is held by the issuer|
-|Visa|05|Authenticated by the issuer – chargeback risk is held by the issuer|
-|Visa|Different from 05 and 06|Non-authenticated – chargeback risk is held by the merchant|
-|Mastercard|01|Authenticated by the card brand – chargeback risk is held by the issuer|
-|Mastercard|02|Authenticated by the issuer – chargeback risk is held by the issuer|
-|Mastercard|03|Non-authenticated, Data Only transaction – chargeback risk is held by the merchant|
-|Mastercard|Different from 01, 02, and 04|Non-authenticated – chargeback risk is held by the merchant|
+The Electronic Commerce Indicator (ECI) is a code returned by the card brands indicating the 3DS card holder authentication result. The table below presents the ECI codes corresponding to each brand and the authentication result.
+
+> The ECI value received during authentication must later be sent in the authorization request in the parameter `Payment.ExternalAuthentication.Eci`.
+
+|Mastercard                 |Amex                |Elo                  |Visa                |Authentication Result|Transaction was authenticated?|
+|---------------------------|--------------------|---------------------|--------------------|-------------------------|--------------------------|
+| 02                        |05                  |05                   |05                  |Authenticated by the issuer – chargeback liability is held by the issuer.|Yes|
+| 01                        |06                  |06                   |06                  |Authenticated by the card brand – chargeback liability is held by the issue.|Yes|
+| Different from 01, 02 or 04  |Different from 05 or 06|Different from 05 or 06 |Different from 05 or 06| Non-authenticated – chargeback liability is held by the merchant.|No|
+| 04                        |-                   |-                    |-                   |Non-authenticated, *Data Only* transaction – chargeback liability is held by the merchant|No|
