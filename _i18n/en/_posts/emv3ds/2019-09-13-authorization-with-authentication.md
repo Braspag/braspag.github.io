@@ -203,7 +203,7 @@ The Electronic Commerce Indicator (ECI) is a code returned by the card brands in
 
 > The ECI value received during authentication must later be sent in the authorization request in the parameter `Payment.ExternalAuthentication.Eci`.
 
-|Mastercard                 |Amex                |Elo                  |Visa                |Authentication Result|Transaction was authenticated?|
+|Mastercard                 |Visa                |Elo                  |Amex                |Authentication Result    |Transaction was authenticated?|
 |---------------------------|--------------------|---------------------|--------------------|-------------------------|--------------------------|
 | 02                        |05                  |05                   |05                  |Authenticated by the issuer – chargeback liability is held by the issuer.|Yes|
 | 01                        |06                  |06                   |06                  |Authenticated by the card brand – chargeback liability is held by the issue.|Yes|
