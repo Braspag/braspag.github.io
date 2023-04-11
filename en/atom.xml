@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-04-11T17:42:44+00:00</updated>
+    <updated>2023-04-11T17:58:55+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -3811,49 +3811,55 @@ See example below, describing the submission of authentication data from the Pag
 
 &lt;h1 id=&quot;eci-table&quot;&gt;ECI Table&lt;/h1&gt;
 
+&lt;p&gt;The Electronic Commerce Indicator (ECI) is a code returned by the card brands indicating the 3DS card holder authentication result. The table below presents the ECI codes corresponding to each brand and the authentication result.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The ECI value received during authentication must later be sent in the authorization request in the parameter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.ExternalAuthentication.Eci&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;&lt;strong&gt;BRAND&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;ECI&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;TRANSACTION MEANING&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;Mastercard&lt;/th&gt;
+      &lt;th&gt;Amex&lt;/th&gt;
+      &lt;th&gt;Elo&lt;/th&gt;
+      &lt;th&gt;Visa&lt;/th&gt;
+      &lt;th&gt;Authentication Result&lt;/th&gt;
+      &lt;th&gt;Transaction was authenticated?&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Visa&lt;/td&gt;
-      &lt;td&gt;06&lt;/td&gt;
-      &lt;td&gt;Authenticated by the card brand – chargeback risk is held by the issuer&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Visa&lt;/td&gt;
-      &lt;td&gt;05&lt;/td&gt;
-      &lt;td&gt;Authenticated by the issuer – chargeback risk is held by the issuer&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Visa&lt;/td&gt;
-      &lt;td&gt;Different from 05 and 06&lt;/td&gt;
-      &lt;td&gt;Non-authenticated – chargeback risk is held by the merchant&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Mastercard&lt;/td&gt;
-      &lt;td&gt;01&lt;/td&gt;
-      &lt;td&gt;Authenticated by the card brand – chargeback risk is held by the issuer&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Mastercard&lt;/td&gt;
       &lt;td&gt;02&lt;/td&gt;
-      &lt;td&gt;Authenticated by the issuer – chargeback risk is held by the issuer&lt;/td&gt;
+      &lt;td&gt;05&lt;/td&gt;
+      &lt;td&gt;05&lt;/td&gt;
+      &lt;td&gt;05&lt;/td&gt;
+      &lt;td&gt;Authenticated by the issuer – chargeback liability is held by the issuer.&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Mastercard&lt;/td&gt;
-      &lt;td&gt;03&lt;/td&gt;
-      &lt;td&gt;Non-authenticated, Data Only transaction – chargeback risk is held by the merchant&lt;/td&gt;
+      &lt;td&gt;01&lt;/td&gt;
+      &lt;td&gt;06&lt;/td&gt;
+      &lt;td&gt;06&lt;/td&gt;
+      &lt;td&gt;06&lt;/td&gt;
+      &lt;td&gt;Authenticated by the card brand – chargeback liability is held by the issue.&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Mastercard&lt;/td&gt;
-      &lt;td&gt;Different from 01, 02, and 04&lt;/td&gt;
-      &lt;td&gt;Non-authenticated – chargeback risk is held by the merchant&lt;/td&gt;
+      &lt;td&gt;Different from 01, 02 or 04&lt;/td&gt;
+      &lt;td&gt;Different from 05 or 06&lt;/td&gt;
+      &lt;td&gt;Different from 05 or 06&lt;/td&gt;
+      &lt;td&gt;Different from 05 or 06&lt;/td&gt;
+      &lt;td&gt;Non-authenticated – chargeback liability is held by the merchant.&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;04&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Non-authenticated, &lt;em&gt;Data Only&lt;/em&gt; transaction – chargeback liability is held by the merchant&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
