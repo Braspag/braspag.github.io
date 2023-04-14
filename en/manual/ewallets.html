@@ -183,6 +183,7 @@
     </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Payment.Capture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WALLET TYPE"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WALLET STORE ID"</span><span class="p">,</span><span class="w">
@@ -274,6 +275,13 @@
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Indicates whether the authorization will use automatic capture (“true”) or not (“false”). If “false”, a capture request must be sent - please, check with the acquirer if pre-authorization is available.</td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>No (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
