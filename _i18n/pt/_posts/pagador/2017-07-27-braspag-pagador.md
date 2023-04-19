@@ -6095,7 +6095,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`RequestId`|Identificador do request definido pela loja.|GUID|36|Não (envio no *header*)|
 |`MerchantOrderId`|Número do pedido da loja.|Texto|50|Sim|
 |`Customer.Name`|Nome completo do comprador.|Texto|120|Sim|
-|`Customer.Identity`|Número do documento de identificação do comprador.|Texto|16|Sim|
+|`Customer.Identity`|Número do documento de identificação do comprador.|Texto|14|Sim|
 |`Customer.IdentityType`|Tipo de documento de identificação do comprador. <br/> Possíveis valores: "CPF" ou "CNPJ".|Texto|255|Não|
 |`Customer.Email`|E-mail do comprador.|Texto|100|Sim|
 |`Customer.Birthdate`|Data de nascimento do comprador. <br/> Ex.: 1991-01-10.|Date|10|Sim|
