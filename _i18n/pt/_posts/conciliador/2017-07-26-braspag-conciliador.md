@@ -334,8 +334,8 @@ O registro segue o seguinte padrão:
 | Número do cartão         | Texto          | 0~24    | Número do cartão utilizado na transação (mascarado conforme normas PCI).                            |
 | Valor1                   | Inteiro3       | N/A     | Valor da transação em centavos.                                                                     |
 | Quantidade de parcelas1  | Byte5          | N/A     | Quantidade de parcelas em que a transação foi dividida. 1 = Transações à vista                      |
-| Data da venda            | Domínio2       | 8       | Data da venda da transação. Formato “yyyyMMdd”.                                                     |
-| Hora da venda            | Domínio2       | 8       | Hora da venda da transação. Formato “HH:mm:ss”.                                                     |
+| Data da venda1           | Domínio2       | 8       | Data da venda da transação. Formato “yyyyMMdd”.                                                     |
+| Hora da venda1           | Domínio2       | 8       | Hora da venda da transação. Formato “HH:mm:ss”.                                                     |
 | Identificador da filial1 | Texto          | 0~256   | Identificador da filial da loja.                                                                    |
 | Documento do cliente     | Texto          | 0~32    | Numero do documento de identificação do cliente.                                                    |
 | Nome do cliente          | Texto          | 0~256   | Nome do cliente.                                                                                    |
