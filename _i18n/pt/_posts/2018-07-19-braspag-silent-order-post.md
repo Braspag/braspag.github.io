@@ -279,8 +279,6 @@ Consulte o [Manual da API do Pagador](https://braspag.github.io//manual/braspag-
 
 Compartilhamos no nosso GitHub um [exemplo prático](https://github.com/Braspag/silent-order-post){:target="_blank"} de como você deve mapear as classes e integrar o Silent Order Post ao seu checkout.
 
-Para ver uma aplicação pronta e integrada ao Silent Order Post, acesse nossa [integração de exemplo](https://braspag.github.io/silent-order-post/){:target="_blank"}.
-
 # ANEXO
 
 ## Autenticação Legada
