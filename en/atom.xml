@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-04-26T11:45:32+00:00</updated>
+    <updated>2023-04-26T11:52:26+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -18240,8 +18240,6 @@ The example below covers the minimum required fields to be submitted for authori
   &lt;li&gt;&lt;a href=&quot;https://www.apple.com/br/apple-pay/&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Apple Pay&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.samsung.com.br/samsungpay/&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Samsung Pay&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://pay.google.com/intl/pt-BR_br/about/&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Google Pay&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://vaidevisa.visa.com.br/site/visa-checkout&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Visa Checkout&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://masterpass.com/&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Masterpass&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.&lt;/aside&gt;
@@ -27402,16 +27400,6 @@ The following lists refer to providers for the REST integration:&lt;/p&gt;
       &lt;td&gt;210&lt;/td&gt;
       &lt;td&gt;Shipping data cannot be null&lt;/td&gt;
       &lt;td&gt;Required field not submitted.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;211&lt;/td&gt;
-      &lt;td&gt;WalletKey is invalid&lt;/td&gt;
-      &lt;td&gt;Invalid Visa Checkout data.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;212&lt;/td&gt;
-      &lt;td&gt;Merchant Wallet Configuration not found&lt;/td&gt;
-      &lt;td&gt;Visa Checkout not linked to merchant account.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;213&lt;/td&gt;
