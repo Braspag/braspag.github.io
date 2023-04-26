@@ -3045,8 +3045,6 @@ Pagador currently supports the main digital wallets available in the market, whi
 * [*Apple Pay*](https://www.apple.com/br/apple-pay/){:target="_blank"}
 * [*Samsung Pay*](https://www.samsung.com.br/samsungpay/){:target="_blank"}
 * [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/){:target="_blank"}
-* [*Visa Checkout*](https://vaidevisa.visa.com.br/site/visa-checkout){:target="_blank"}
-* [*Masterpass*](https://masterpass.com/){:target="_blank"}
 
 <aside class="warning">When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
 
@@ -7309,8 +7307,6 @@ Error codes returned, identifying the reason for the error and their respective 
 |208|Cart item sku length exceeded|Data sent exceeds field size.|
 |209|Shipping address sku length exceeded|Data sent exceeds field size.|
 |210|Shipping data cannot be null|Required field not submitted.|
-|211|WalletKey is invalid|Invalid Visa Checkout data.|
-|212|Merchant Wallet Configuration not found|Visa Checkout not linked to merchant account.|
 |213|Credit Card Number is invalid|Credit card sent is invalid.|
 |214|Credit Card Holder Must Have Only Letters|Cardholder must not contain special characters.|
 |215|Agency is required in Boleto Credential|Required Field Not Submitted.|
