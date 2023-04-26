@@ -31,11 +31,10 @@ Para saber quais os requisitos técnicos de infraestrutura para a instalação d
 2. Localize a raiz do projeto e execute os seguintes comandos:
 
 ```
-composer require braspag/pagador-module-magento
+composer require braspag/magento2-module-braspagpagador
 composer update
 bin/magento module:enable Braspag_BraspagPagador
 bin/magento setup:upgrade
-bin/magento setup:di:compile
 ```
 
 > Você também pode fazer o download do conector direto no nosso [GitHub](https://github.com/Braspag/pagador-module-magento){:target="_blank"}.
