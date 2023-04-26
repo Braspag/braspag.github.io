@@ -3456,8 +3456,6 @@ O Pagador possui suporte para as principais carteiras digitais disponíveis no m
 * [*Apple Pay*](https://www.apple.com/br/apple-pay/){:target="_blank"}
 * [*Samsung Pay*](https://www.samsung.com.br/samsungpay/){:target="_blank"}
 * [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/){:target="_blank"}
-* [*Visa Checkout*](https://vaidevisa.visa.com.br/site/visa-checkout/){:target="_blank"}
-* [*Masterpass*](https://masterpass.com/pt-br/){:target="_blank"}
 * [*PayPal*](https://www.paypal.com/br/business){:target="_blank"}
 
 <aside class="warning">Quando o nó “Wallet” é enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
@@ -8708,8 +8706,6 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 |208|Cart item sku length exceeded |Dado enviado excede o tamanho do campo.|
 |209|Shipping addressee sku length exceeded |Dado enviado excede o tamanho do campo.|
 |210|Shipping data cannot be null|Campo obrigatório não enviado.|
-|211|WalletKey is invalid|Dados da Visa Checkout inválidos.|
-|212|Merchant Wallet Configuration not found|Visa Checkout não vinculado a conta do lojista.|
 |213|Credit Card Number is invalid|Cartão de crédito enviado é invalido.|
 |214|Credit Card Holder Must Have Only Letters|Portador do cartão não deve conter caracteres especiais.|
 |215|Agency is required in Boleto Credential|Campo obrigatório não enviado.|
