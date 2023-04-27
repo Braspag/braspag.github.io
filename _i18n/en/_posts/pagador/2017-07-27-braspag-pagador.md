@@ -6987,19 +6987,19 @@ The following lists refer to providers for the REST integration:
 
 ## Transaction Status List
 
-List of statuses returned by API:
+List of statuses returned by the API:
 
-|Code|Payment Status|Payment method|Description|
-|------|-------------------|-----------------|---------|
-|0|NotFinished|All|Failed to process payment.|
-|1|Authorized|All|Payment method to be captured or paid (Boleto).|
-|2|PaymentConfirmed|All|Payment confirmed and finalized.|
-|3|Denied|Credit & debit cards (electronic transfer)|Payment denied by authorizer.|
-|10|Voided|All|Payment cancelled.|
-|11|Refunded|Credit & debit cards|Payment cancelled/refunded.|
-|12|Pending|Credit & debit cards (electronic transfer)|Awaiting response from the financial institution.|
-|13|Aborted|All|Payment cancelled due to processing failure.|
-|20|Scheduled|Credit card|Recurrence scheduled.|
+| Code | Payment status | Payment method                                                        | Description                                                                                                                                                                                                                                                                                                                                                                              |
+| ------ | ------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0      | NotFinished         | All                                                                    | **Failed to process the payment**.<br>Possible causes: incorrect data, error in the request, acquirer _timeout_, some processing instability.<br>In case of debit transaction, the buyer may have abandoned the purchase.                                                                                                                                            |
+| 1      | Authorized          | All                                                                    | **Payment methods able to be captured or paid (boleto)**.<br>For a boleto transaction, it means that the boleto was successfully generated.<br>For a card transaction, it means that there was approval by the issuing bank. However, this does not mean that the transaction has been completed - for this, a second step is required, capturing the transaction or making the payment. |
+| 2      | PaymentConfirmed    | All                                                                    | Payment confirmed and completed.                                                                                                                                                                                                                                                                                                                                                     |
+| 3      | Denied              | Credit and debit cards (electronic transfer) and e-wallets. | **Payment denied by authorizer**. <br>Possible causes: insufficient limit, lack of payment on the card, unavailable brand, blocking due to fraud, among others.<br>To find out the real reason for the denial, it is necessary to look at the return code generated during the transaction.                                                                                                    |
+| 10     | Voided              | All, except boleto                                                    | **Payment canceled**.<br>It is the suspension of the transaction, exempting from fees or amounts charged. Pre-authorized transactions can be canceled even after 23:59 on the authorization date. Captured transactions can be canceled up to 11:59 pm on the same day of authorization, after which time the amount will be reversed.                                                     |
+| 11     | Refunded            | Credit and debit cards and e-wallets.                                 | **Payment cancelled/reversed**.<br>Means that the cancellation of the transaction was requested, which may occur from 0:00 am on the day after the creation of the transaction. Regardless of the amount, it is only possible to make one reversal request per transaction. This can happen due to incorrect data or at the request of the shopper.                                  |
+| 12     | Pending             | Credit and debit cards (electronic transfer), e-wallets and pix. | **Awaiting return from financial institution**. <br>Means that the transaction was sent to Cielo in the pre-authorization process, awaiting a response from the issuing bank to validate it.                                                                                                                                                                                        |
+| 13     | Aborted             | All                                                                    | **Payment canceled due to processing failure**.<br>Means that the transaction was canceled due to processing failure. It can also be aborted if Anti-Fraud denies the transaction before authorization.                                                                                                                                                                         |
+| 20     | Scheduled           |Credit card and e-wallets.                                           | **Scheduled recurrence**.<br>Means that the transaction will have a scheduled recurrence, that is, the purchase amount will be collected on the day it was scheduled by the store.                                                                                                                                                                                                                  |
 
 ## Anti-Fraud Status List
 
