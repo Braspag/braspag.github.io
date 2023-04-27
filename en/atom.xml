@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-04-27T12:37:44+00:00</updated>
+    <updated>2023-04-27T12:43:06+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -1212,6 +1212,79 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;See “WalletKey” table&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;annexes&quot;&gt;Annexes&lt;/h1&gt;
+
+&lt;h2 id=&quot;transaction-status-list&quot;&gt;Transaction Status List&lt;/h2&gt;
+
+&lt;p&gt;List of statuses returned by the API:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Code&lt;/th&gt;
+      &lt;th&gt;Payment status&lt;/th&gt;
+      &lt;th&gt;Payment method&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;NotFinished&lt;/td&gt;
+      &lt;td&gt;All&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Failed to process the payment&lt;/strong&gt;.&lt;br /&gt;Possible causes: incorrect data, error in the request, acquirer &lt;em&gt;timeout&lt;/em&gt;, some processing instability.&lt;br /&gt;In case of debit transaction, the buyer may have abandoned the purchase.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Authorized&lt;/td&gt;
+      &lt;td&gt;All&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Payment methods able to be captured or paid (boleto)&lt;/strong&gt;.&lt;br /&gt;For a boleto transaction, it means that the boleto was successfully generated.&lt;br /&gt;For a card transaction, it means that there was approval by the issuing bank. However, this does not mean that the transaction has been completed - for this, a second step is required, capturing the transaction or making the payment.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;PaymentConfirmed&lt;/td&gt;
+      &lt;td&gt;All&lt;/td&gt;
+      &lt;td&gt;Payment confirmed and completed.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;Denied&lt;/td&gt;
+      &lt;td&gt;Credit and debit cards (electronic transfer) and e-wallets.&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Payment denied by authorizer&lt;/strong&gt;. &lt;br /&gt;Possible causes: insufficient limit, lack of payment on the card, unavailable brand, blocking due to fraud, among others.&lt;br /&gt;To find out the real reason for the denial, it is necessary to look at the return code generated during the transaction.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;Voided&lt;/td&gt;
+      &lt;td&gt;All, except boleto&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Payment canceled&lt;/strong&gt;.&lt;br /&gt;It is the suspension of the transaction, exempting from fees or amounts charged. Pre-authorized transactions can be canceled even after 23:59 on the authorization date. Captured transactions can be canceled up to 11:59 pm on the same day of authorization, after which time the amount will be reversed.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;11&lt;/td&gt;
+      &lt;td&gt;Refunded&lt;/td&gt;
+      &lt;td&gt;Credit and debit cards and e-wallets.&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Payment cancelled/reversed&lt;/strong&gt;.&lt;br /&gt;Means that the cancellation of the transaction was requested, which may occur from 0:00 am on the day after the creation of the transaction. Regardless of the amount, it is only possible to make one reversal request per transaction. This can happen due to incorrect data or at the request of the shopper.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;Pending&lt;/td&gt;
+      &lt;td&gt;Credit and debit cards (electronic transfer), e-wallets and pix.&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Awaiting return from financial institution&lt;/strong&gt;. &lt;br /&gt;Means that the transaction was sent to Cielo in the pre-authorization process, awaiting a response from the issuing bank to validate it.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;13&lt;/td&gt;
+      &lt;td&gt;Aborted&lt;/td&gt;
+      &lt;td&gt;All&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Payment canceled due to processing failure&lt;/strong&gt;.&lt;br /&gt;Means that the transaction was canceled due to processing failure. It can also be aborted if Anti-Fraud denies the transaction before authorization.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;Scheduled&lt;/td&gt;
+      &lt;td&gt;Credit card and e-wallets.&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Scheduled recurrence&lt;/strong&gt;.&lt;br /&gt;Means that the transaction will have a scheduled recurrence, that is, the purchase amount will be collected on the day it was scheduled by the store.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
