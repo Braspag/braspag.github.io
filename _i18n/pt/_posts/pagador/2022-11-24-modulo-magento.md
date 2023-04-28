@@ -173,7 +173,7 @@ A imagem a seguir mostra o campo de configuração a ser preenchido para cartão
 |---|---|
 |**Types**|Adquirentes e bandeiras disponíveis para o método de pagamento cartão de crédito.|
 
-#### Installments
+#### Número de Parcelas
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos para cartão de crédito na seção **Installments**:
 ![Installments]({{ site.baseurl_root }}/images/braspag/pagador/magento/006b2-creditoparcelas.png)
@@ -245,7 +245,7 @@ A visão do método de pagamento cartão de crédito, após a configuração na 
 
 A função "JustClick" funcionará apenas com a contratação do serviço do Cartão Protegido da Braspag. Entre em contato conosco através do email "comercial@braspag.com.br" para mais detalhes.
 
-o menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Credit Card JustClick**.
+No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Credit Card JustClick**.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Credit Card JustClick (Token)**:
 ![Credit Card JustClick]({{ site.baseurl_root }}/images/braspag/pagador/magento/006c-cartaoprotegido.png)
@@ -261,7 +261,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |**Ordenação**|Ordem de exibição do método de pagamento cartão de crédito no front da loja.|
 |**Automatically Disable previously saved cards when saving a new card**|Desabilitar automaticamente o cartão salvo anteriormente ao salvar novo cartão. Default: Não|
 
-### Installments
+### Número de Parcelas
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Installments**:
 ![Installments]({{ site.baseurl_root }}/images/braspag/pagador/magento/006c1-cartaoprotegidoparcela.png)
