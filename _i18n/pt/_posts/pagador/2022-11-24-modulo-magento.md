@@ -73,7 +73,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 ## Autenticação OAuth
 
-Essa autenticação irá criar o token que deve ser enviado nas requisições para a Braspag. Seguem instruções para configuração da autenticação **OAuth**: 
+Essa autenticação irá criar o token que deve ser enviado nas requisições para a Braspag.  
 
 No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **OAuth2 - Config**.
 
@@ -89,8 +89,6 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 A autenticação 3DS 2.0 é utilizada para a criação do token em requisições na Braspag. Consulte o nosso [Manual 3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"} e conheça suas vantagens.
 <br/>Para obter mais informações sobre como utilizar a Autenticação 3DS 2.0 em sua loja, entre em contato com o nosso Comercial (comercial@braspag.com.br).
-
-Seguem instruções para configuração da autenticação OAuth para a **Autenticação 3DS 2.0**:
 
 No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Authentication 3DS 2.0 Config**.
 
@@ -123,8 +121,6 @@ A imagem a seguir mostra os campos de configuração com os respectivos valores 
 
 ## Boleto
 
-Seguem instruções para acesso e configurações específicas para o método de pagamento **Boleto**:
-
 No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Pagador Transaction** > **Boleto**.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Boleto**:
@@ -150,8 +146,6 @@ A visão do método de pagamento boleto, após a configuração na loja, será a
 ![Boleto]({{ site.baseurl_root }}/images/braspag/pagador/magento-boleto-transaction.png)
 
 ## Cartão de Crédito
-
-Seguem instruções para acesso e configurações específicas para o método de pagamento **Cartão de Crédito**:
 
 No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Pagador Transaction** > **Credit Card**.
 
@@ -251,8 +245,6 @@ A visão do método de pagamento cartão de crédito, após a configuração na 
 
 A função "JustClick" funcionará apenas com a contratação do serviço do Cartão Protegido da Braspag. Entre em contato conosco através do email "comercial@braspag.com.br" para mais detalhes.
 
-Seguem instruções para acesso e configurações específicas para o método de pagamento **Cartão de Crédito Salvo (JustClick)**:
-
 o menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Credit Card JustClick**.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Credit Card JustClick (Token)**:
@@ -282,8 +274,6 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |**Interest by Issuer**|Ativa os juros de parcelamento para o método de pagamento cartão de crédito JustClick.|
 
 ## Cartão de Débito
-
-Seguem instruções para acesso e configurações específicas para o método de pagamento **Cartão de Débito**:
 
 No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Debit Card**.
 
