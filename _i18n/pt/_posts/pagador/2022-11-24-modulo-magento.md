@@ -75,9 +75,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 Essa autenticação irá criar o token que deve ser enviado nas requisições para a Braspag. Seguem instruções para configuração da autenticação **OAuth**: 
 
-1. No menu, acesse `Lojas` > `Configurações`;
-2. Acesse a aba `Vendas` > `Métodos de Pagamento`;
-3. Na lista de Métodos de Pagamento, clique em `Braspag` > `OAuth2 - Config`.
+No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **OAuth2 - Config**.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção "OAuth2 - Config":
 ![OAuth2 - Config]({{ site.baseurl_root }}/images/braspag/pagador/magento/002-oauth.png)
@@ -94,9 +92,7 @@ A autenticação 3DS 2.0 é utilizada para a criação do token em requisições
 
 Seguem instruções para configuração da autenticação OAuth para a **Autenticação 3DS 2.0**:
 
-1. No menu, acesse `Lojas` > `Configurações`;
-2. Acesse a aba `Vendas` > `Métodos de Pagamento`;
-3. Na lista de Métodos de Pagamento, clique em `Braspag` > `Authentication 3DS 2.0 Config`.
+No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Authentication 3DS 2.0 Config**.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Authentication 3DS 2.0 - Config**:
 ![Authentication 3DS 2.0 Config]({{ site.baseurl_root }}/images/braspag/pagador/magento/003-3ds.png)
@@ -110,9 +106,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 Seguem instruções para configuração de **Dados do Cliente**:
 
-1. No menu, acesse `Lojas` > `Configurações`;
-2. Acesse a aba `Vendas` > `Métodos de Pagamento`;
-3. Na lista de Métodos de Pagamento, clique em `Braspag` > `Customer Config`.
+No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Customer Config**.
 
 A imagem a seguir mostra os campos de configuração com os respectivos valores a serem utilizados na seção **Address**:
 ![Address]({{ site.baseurl_root }}/images/braspag/pagador/magento-customer-config.png)
@@ -131,9 +125,7 @@ A imagem a seguir mostra os campos de configuração com os respectivos valores 
 
 Seguem instruções para acesso e configurações específicas para o método de pagamento **Boleto**:
 
-1. No menu, acesse `Lojas` > `Configurações`;
-2. Acesse a aba `Vendas` > `Métodos de Pagamento`;
-3. Na lista de Métodos de Pagamento, clique em `Braspag` > `Pagador Transaction` > `Boleto`.
+No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Pagador Transaction** > **Boleto**.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Boleto**:
 ![Boleto]({{ site.baseurl_root }}/images/braspag/pagador/magento/006a-boleto.png)
@@ -161,9 +153,7 @@ A visão do método de pagamento boleto, após a configuração na loja, será a
 
 Seguem instruções para acesso e configurações específicas para o método de pagamento **Cartão de Crédito**:
 
-1. No menu, acesse `Lojas` > `Configurações`;
-2. Acesse a aba `Vendas` > `Métodos de Pagamento`;
-3. Na lista de Métodos de Pagamento, clique em `Braspag` > `Pagador Transaction` > `Credit Card`.
+No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Pagador Transaction** > **Credit Card**.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Credit Card**:
 ![Credit Card]({{ site.baseurl_root }}/images/braspag/pagador/magento/006b-credito.png)
@@ -263,10 +253,7 @@ A função "JustClick" funcionará apenas com a contratação do serviço do Car
 
 Seguem instruções para acesso e configurações específicas para o método de pagamento **Cartão de Crédito Salvo (JustClick)**:
 
-1. Faça login no admin do Magento;
-2. No menu, acesse `Lojas` > `Configurações`;
-3. Acesse a aba `Vendas` > `Métodos de Pagamento`;
-4. Na lista de Métodos de Pagamento, clique em `Braspag` > `Credit Card JustClick`.
+o menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Credit Card JustClick**.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Credit Card JustClick (Token)**:
 ![Credit Card JustClick]({{ site.baseurl_root }}/images/braspag/pagador/magento/006c-cartaoprotegido.png)
@@ -298,10 +285,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 Seguem instruções para acesso e configurações específicas para o método de pagamento **Cartão de Débito**:
 
-1. Faça login no admin do Magento;
-2. No menu, acesse `Lojas` > `Configurações`;
-3. Acesse a aba `Vendas` > `Métodos de Pagamento`;
-4. Na lista de Métodos de Pagamento, clique em `Braspag` > `Debit Card`.
+No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Debit Card**.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Debit Card**:
 ![Debit Card]({{ site.baseurl_root }}/images/braspag/pagador/magento/006d-debito.png)
@@ -396,8 +380,7 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 Seguem as instruções de acesso para ativação do **Anti Fraud**:
 
-1. No menu, acesse `Lojas` > `Configurações`;
-2. Acesse a aba `Braspag` > `Anti Fraud`.
+No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Anti Fraud**.
 
 A imagem a seguir mostra o campo de configuração a ser preenchido na seção **General**:
 ![Antifraude]({{ site.baseurl_root }}/images/braspag/pagador/magento/007a-antifraudegeral.png)
