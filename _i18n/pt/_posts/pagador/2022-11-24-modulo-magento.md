@@ -335,6 +335,8 @@ A visão do método de pagamento cartão de débito, após a configuração na l
 
 ## Pix
 
+No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Pagador Transaction**  > **Pix**.
+
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Pix**:
 
 ![Pix]({{ site.baseurl_root }}/images/braspag/pagador/magento/006d5-pix.png)
@@ -355,6 +357,8 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 |**Display Title next to Logo**|Título exibido ao lado da imagem.|
 
 ## Voucher
+
+No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Pagador Transaction**  > **Voucher**.
 
 A imagem a seguir mostra os campos de configuração a serem preenchidos na seção **Voucher**:
 
