@@ -3845,6 +3845,8 @@ Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.D
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
 
+*Não use os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.DailyInterval` em conjunto.
+
 #### Resposta
 
 ```json
