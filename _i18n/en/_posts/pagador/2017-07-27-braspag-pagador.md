@@ -6977,7 +6977,7 @@ The following lists refer to providers for the REST integration:
 
 |Provider|
 |--------|
-|Braspag, Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica|
+|Braspag, Bradesco2, BancoDoBrasil2, BancoDoBrasil3, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica|
 
 ### Providers for Electronic Transfer (Online Debit)
 
