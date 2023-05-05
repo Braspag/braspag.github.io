@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-05-05T12:31:40+00:00</updated>
+    <updated>2023-05-05T12:50:13+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -25354,7 +25354,7 @@ The following lists refer to providers for the REST integration:&lt;/p&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Braspag, Bradesco2, BancoDoBrasil2, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica&lt;/td&gt;
+      &lt;td&gt;Braspag, Bradesco2, BancoDoBrasil2, BancoDoBrasil3, ItauShopline, Itau2, Santander2, Caixa2, CitiBank2, BankOfAmerica&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
