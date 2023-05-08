@@ -851,63 +851,63 @@
       <td>Condicional**</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td>Número do cartão do comprador.</td>
       <td>Texto</td>
       <td>19</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td>Nome do portador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.</td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td>Data de validade impressa no cartão.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
       <td>Código de segurança impresso no verso do cartão.</td>
       <td>Texto</td>
       <td>4</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
       <td>Bandeira do cartão.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
       <td>Identifica se o cartão será salvo para gerar o token (<em>CardToken</em>).</td>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (default “false”)</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Alias</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Alias</code></td>
       <td>Nome atribuído pelo lojista ao cartão salvo como <em>CardToken</em>.</td>
       <td>Texto</td>
       <td>64</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Usage</code></td>
       <td>“First” se o cartão foi armazenado e é seu primeiro uso.<br />“Used” se o cartão foi armazenado e já utilizado em outra transação.<br /><strong>Aplicável para Cielo30 e Rede2.</strong></td>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Reason</code></td>
       <td>Indica o propósito de armazenamento de cartões, caso o campo <code class="language-plaintext highlighter-rouge">Usage</code> seja “Used”.<br />“Recurring” - Compra recorrente programada, ex.: assinaturas.<br />“Unscheduled” - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br />“Installments” - Parcelamento através da recorrência.<br /><strong>Aplicável para Cielo30 e Rede2.</strong></td>
       <td>Texto</td>
       <td>-</td>
@@ -1220,7 +1220,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.MerchantAdviceCode</code></td>
-      <td>Código de retorno da bandeira que define período para retentativa. <em>Válido para bandeira Mastercard</em>.</td>
+      <td>Código de retorno da bandeira que define período para retentativa. <em>Válido para bandeira Mastercard</em>. Saiba mais em <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="_blank">Programa de Retentativa das Bandeiras</a></td>
       <td>Texto</td>
       <td>2</td>
       <td>Numérico</td>
