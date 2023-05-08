@@ -918,63 +918,63 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
       <td>Yes for facilitators</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td>Customer’s card number.</td>
       <td>Text</td>
       <td>19</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td>Name of cardholder printed on the card.</td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td>Expiration date printed on the card.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
       <td>Security code printed on the back of the card.</td>
       <td>Text</td>
       <td>4</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
       <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
       <td>Indicates whether the card will be saved to generate the token (<em>CardToken</em>).</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No (default “false”)</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Alias</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Alias</code></td>
       <td>Name given by merchant to card saved as <em>CardToken</em>.</td>
       <td>Text</td>
       <td>64</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Usage</code></td>
       <td>“First” if the card has been stored and it is your first use.<br />“Used” if the card has been stored and it has been used previously in another transaction.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo only.</strong></td>
       <td>Text</td>
       <td>-</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Reason</code></td>
       <td>Indicates the purpose of the card storage, in case the <code class="language-plaintext highlighter-rouge">Usage</code> field is “Used”.<br />“Recurring” - Scheduled recurring purchase (e.g.: subscription services).<br />“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).<br />“Installments” - Installment through recurrence. <br /> <strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo only.</strong></td>
       <td>Text</td>
       <td>-</td>
