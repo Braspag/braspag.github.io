@@ -351,15 +351,15 @@ Here are request and answer examples of how to create a credit transaction:
 |`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Sub-merchant's telephone number.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
 |`Payment.PaymentFacilitator.SubEstablishment.Identity`|Sub-merchant's CNPJ or CPF.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
 |`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Sub-merchant's country code based on ISO 3166.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
-|`CreditCard.CardNumber`|Customer's card number.|Text|19|Yes|
-|`CreditCard.Holder`|Name of cardholder printed on the card.|Text|25|Yes|
-|`CreditCard.ExpirationDate`|Expiration date printed on the card.|Text|7|Yes|
-|`CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
-|`CreditCard.Brand`|Card brand.|Text|10|Yes|
-|`CreditCard.SaveCard`|Indicates whether the card will be saved to generate the token (*CardToken*).|Boolean|---|No (default "false")|
-|`CreditCard.Alias`|Name given by merchant to card saved as *CardToken*.|Text|64|No|
-|`CreditCard.CardOnFile.Usage`|"First" if the card has been stored and it is your first use.<br>"Used" if the card has been stored and it has been used previously in another transaction.<br><br>**Applicable to `Provider` Cielo only.**|Text|-|No|
-|`CreditCard.CardOnFile.Reason`|Indicates the purpose of the card storage, in case the `Usage` field is "Used".<br><br>"Recurring" - Scheduled recurring purchase (e.g.: subscription services).<br>"Unscheduled" - Unscheduled recurring purchase (e.g.: services apps).<br>"Installments" - Installment through recurrence. <br><br> **Applicable to `Provider` Cielo only.**|Text|-|Conditional|
+|`Payment.CreditCard.CardNumber`|Customer's card number.|Text|19|Yes|
+|`Payment.CreditCard.Holder`|Name of cardholder printed on the card.|Text|25|Yes|
+|`Payment.CreditCard.ExpirationDate`|Expiration date printed on the card.|Text|7|Yes|
+|`Payment.CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
+|`Payment.CreditCard.Brand`|Card brand.|Text|10|Yes|
+|`Payment.CreditCard.SaveCard`|Indicates whether the card will be saved to generate the token (*CardToken*).|Boolean|---|No (default "false")|
+|`Payment.CreditCard.Alias`|Name given by merchant to card saved as *CardToken*.|Text|64|No|
+|`Payment.CreditCard.CardOnFile.Usage`|"First" if the card has been stored and it is your first use.<br>"Used" if the card has been stored and it has been used previously in another transaction.<br><br>**Applicable to `Provider` Cielo only.**|Text|-|No|
+|`Payment.CreditCard.CardOnFile.Reason`|Indicates the purpose of the card storage, in case the `Usage` field is "Used".<br><br>"Recurring" - Scheduled recurring purchase (e.g.: subscription services).<br>"Unscheduled" - Unscheduled recurring purchase (e.g.: services apps).<br>"Installments" - Installment through recurrence. <br><br> **Applicable to `Provider` Cielo only.**|Text|-|Conditional|
 
 #### Response
 
