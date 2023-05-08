@@ -1469,49 +1469,49 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DeditCard.CardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.CardNumber</code></td>
       <td>Customer’s card number.</td>
       <td>Text</td>
       <td>16</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DeditCard.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.Holder</code></td>
       <td>Name of the cardholder printed on the card.</td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.ExpirationDate</code></td>
       <td>Expiration date printed on the card, in the MM/YYYY format.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.SecurityCode</code></td>
       <td>Security code printed on the back of the card.</td>
       <td>Text</td>
       <td>4</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.Brand</code></td>
       <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.CardOnFile.Usage</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.CardOnFile.Usage</code></td>
       <td>“First” if the card has been stored and it is your first use.<br />“Used” if the card has been stored and it has been used previously in another transaction.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo only.</strong></td>
       <td>Text</td>
       <td>-</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.CardOnFile.Reason</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.CardOnFile.Reason</code></td>
       <td>Indicates the purpose of the card storage, in case the <code class="language-plaintext highlighter-rouge">Usage</code> field is “Used”.<br />“Recurring” - Scheduled recurring purchase (e.g.: subscription services).<br />“Unscheduled” - Unscheduled recurring purchase (e.g.: services apps).<br />“Installments” - Installment through recurrence. <br /> <strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo only.</strong></td>
       <td>Text</td>
       <td>-</td>
