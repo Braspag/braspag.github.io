@@ -722,13 +722,13 @@ See below the representation of a standard **transactional flow** in the creatio
 |`Payment.Amount`|Order amount in cents.|Number|15|Yes|
 |`Payment.Installments`|Number of installments.|Number|2|Yes|
 |`Payment.ReturnUrl`|URL to which the user will be redirected at the end of the payment.|Text|1024|Yes|
-|`DeditCard.CardNumber`|Customer's card number.|Text|16|Yes|
-|`DeditCard.Holder`|Name of the cardholder printed on the card.|Text|25|Yes|
-|`DebitCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format.|Text|7|Yes|
-|`DebitCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
-|`DebitCard.Brand`|Card brand.|Text|10|Yes|
-|`DebitCard.CardOnFile.Usage`|"First" if the card has been stored and it is your first use.<br>"Used" if the card has been stored and it has been used previously in another transaction.<br><br>**Applicable to `Provider` Cielo only.**|Text|-|No|
-|`DebitCard.CardOnFile.Reason`|Indicates the purpose of the card storage, in case the `Usage` field is "Used".<br><br>"Recurring" - Scheduled recurring purchase (e.g.: subscription services).<br>"Unscheduled" - Unscheduled recurring purchase (e.g.: services apps).<br>"Installments" - Installment through recurrence. <br><br> **Applicable to `Provider` Cielo only.**|Text|-|Conditional|
+|`Payment.DebitCard.CardNumber`|Customer's card number.|Text|16|Yes|
+|`Payment.DebitCard.Holder`|Name of the cardholder printed on the card.|Text|25|Yes|
+|`Payment.DebitCard.ExpirationDate`|Expiration date printed on the card, in the MM/YYYY format.|Text|7|Yes|
+|`Payment.DebitCard.SecurityCode`|Security code printed on the back of the card.|Text|4|Yes|
+|`Payment.DebitCard.Brand`|Card brand.|Text|10|Yes|
+|`Payment.DebitCard.CardOnFile.Usage`|"First" if the card has been stored and it is your first use.<br>"Used" if the card has been stored and it has been used previously in another transaction.<br><br>**Applicable to `Provider` Cielo only.**|Text|-|No|
+|`Payment.DebitCard.CardOnFile.Reason`|Indicates the purpose of the card storage, in case the `Usage` field is "Used".<br><br>"Recurring" - Scheduled recurring purchase (e.g.: subscription services).<br>"Unscheduled" - Unscheduled recurring purchase (e.g.: services apps).<br>"Installments" - Installment through recurrence. <br><br> **Applicable to `Provider` Cielo only.**|Text|-|Conditional|
 |`Payment.Authenticate` | Defines whether the buyer will be directed to the issuer for card authentication. | Boolean ("true" / "false") | - | Yes, if the authentication is validated.|
 |`Payment.ExternalAuthentication.ReturnUrl` | Callback URL only applicable if version is "1". | Alphanumeric | 1024 | Yes. |
 |`Payment.ExternalAuthentication.Cavv` | Signature returned in authentication success scenarios. | Text | 28 | Yes, if authentication is validated. |
