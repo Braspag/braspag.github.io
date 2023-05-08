@@ -722,13 +722,13 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
 |`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento.|Texto |1024|Sim|
-|`DebitCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
-|`DebitCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
-|`DebitCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
-|`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
-|`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-|`DebitCard.CardOnFile.Usage`|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e já utilizado em outra transação.<br><br>**Aplicável somente para Cielo.**|Texto|-|Não|
-|`DebitCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` seja "Used".<br>"Recurring" - Compra recorrente programada, ex.: assinaturas.<br>"Unscheduled" - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br>"Installments" - Parcelamento através da recorrência.<br><br>**Aplicável somente para Cielo.**|Texto|-|Condicional|
+|`Payment.DebitCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`Payment.DebitCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`Payment.DebitCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`Payment.DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`Payment.DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
+|`Payment.DebitCard.CardOnFile.Usage`|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e já utilizado em outra transação.<br><br>**Aplicável somente para Cielo.**|Texto|-|Não|
+|`Payment.DebitCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` seja "Used".<br>"Recurring" - Compra recorrente programada, ex.: assinaturas.<br>"Unscheduled" - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br>"Installments" - Parcelamento através da recorrência.<br><br>**Aplicável somente para Cielo.**|Texto|-|Condicional|
 |`Payment.Authenticate`|Define se o comprador será direcionado ao emissor para autenticação do cartão. | Booleano ("true" / "false") | - | Sim, caso a autenticação seja validada.|
 |`Payment.ExternalAuthentication.ReturnUrl`| URL de retorno aplicável somente se a versão for "1". | Alfanumérico | 1024 | Sim. |
 |`Payment.ExternalAuthentication.Cavv`| Assinatura retornada nos cenários de sucesso na autenticação. | Texto | 28 | Sim, caso a autenticação seja validada. |
@@ -1055,13 +1055,13 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
 |`Payment.Installments`|Número de parcelas. Fixo "1" para o cartão de débito.|Número|2|Sim|
-|`DebitCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
-|`DebitCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
-|`DebitCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
-|`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
-|`DebitCard.Brand`|Bandeira do cartão. Para este tipo de transação, sempre "Elo".|Texto|10|Sim|
-|`DebitCard.CardOnFile.Usage`|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e já utilizado em outra transação.<br><br>**Aplicável somente para Cielo.**|Texto|-|Não|
-|`DebitCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` seja "Used".<br>"Recurring" - Compra recorrente programada, ex.: assinaturas.<br>"Unscheduled" - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br>"Installments" - Parcelamento através da recorrência.<br><br>**Aplicável somente para Cielo.**|Texto|-|Condicional|
+|`Payment.DebitCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
+|`Payment.DebitCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
+|`Payment.DebitCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
+|`Payment.Payment.DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
+|`Payment.DebitCard.Brand`|Bandeira do cartão. Para este tipo de transação, sempre "Elo".|Texto|10|Sim|
+|`Payment.DebitCard.CardOnFile.Usage`|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e já utilizado em outra transação.<br><br>**Aplicável somente para Cielo.**|Texto|-|Não|
+|`Payment.DebitCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` seja "Used".<br>"Recurring" - Compra recorrente programada, ex.: assinaturas.<br>"Unscheduled" - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br>"Installments" - Parcelamento através da recorrência.<br><br>**Aplicável somente para Cielo.**|Texto|-|Condicional|
 
 #### Resposta
 
