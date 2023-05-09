@@ -9044,7 +9044,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
     <tr>
       <td>Analysis of authorized transactions</td>
       <td>The fraud analysis is only triggered to analyze transactions with the “authorized” status. This avoids the cost of unauthorized transactions analyses.</td>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.SequenceCriteria</code> is “OnSuccess”</td>
+      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> is “AuthorizeFirst” and <code class="language-plaintext highlighter-rouge">FraudAnalysis.SequenceCriteria</code> is “OnSuccess”</td>
     </tr>
     <tr>
       <td>Analysis in any event</td>
