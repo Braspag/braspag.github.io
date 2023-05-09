@@ -9745,7 +9745,7 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td>Análise das transações autorizadas</td>
       <td>O Antifraude é acionado apenas para analisar transações autorizadas, evitando-se o custo com análises de transações que não receberiam autorização.</td>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.SequenceCriteria</code> igual a “OnSuccess”</td>
+      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> igual a “AuthorizeFirst” e <code class="language-plaintext highlighter-rouge">FraudAnalysis.SequenceCriteria</code> igual a “OnSuccess”</td>
     </tr>
     <tr>
       <td>Análise em qualquer hipótese</td>
