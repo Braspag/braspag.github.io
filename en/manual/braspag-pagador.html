@@ -11111,14 +11111,14 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h2 id="configuring-fingerprint">Configuring Fingerprint</h2>
+<h3 id="configuring-fingerprint">Configuring Fingerprint</h3>
 
 <p>The <em>fingerprint</em> is an important component of the anti-fraud analysis. It is a script that must be added to your website in order to capture important data about the device being used for the transaction, such as the machine IP, browser version and operating system used.
 Sometimes only the cart information is not enough to guarantee an assertive analysis. The data collected by the fingerprint adds on to the analysis, making sure your store is better protected.</p>
 
 <p>This page describes how to integrate and set up fingerprint in your checkout and mobile page.</p>
 
-<h3 id="checkout-integration">Checkout Integration</h3>
+<h4 id="checkout-integration">Checkout Integration</h4>
 
 <p>In order to integrate the fingerprint technology into your checkout page, you must add two tags to its source code:</p>
 
@@ -11129,7 +11129,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <aside class="warning">ATTENTION: If the 2 code snippets are not added to the checkout page, the fraud analysis results may not be accurate.</aside>
 
-<h4 id="filling-in-the-url">Filling in the URL</h4>
+<h5 id="filling-in-the-url">Filling in the URL</h5>
 
 <p>Two variables must be filled in the Javascript URL: the <code class="language-plaintext highlighter-rouge">org_id</code> and the<code class="language-plaintext highlighter-rouge"> session_id</code>. The <code class="language-plaintext highlighter-rouge">org_id</code> variable has a preset value, while the <code class="language-plaintext highlighter-rouge">session_id</code> variable holds the concatenation of the <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> and <code class="language-plaintext highlighter-rouge">FraudAnalysis.FingerPrintId</code> parameters, as shown below:</p>
 
@@ -11152,7 +11152,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h4 id="applying-the-script">Applying the Script</h4>
+<h5 id="applying-the-script">Applying the Script</h5>
 
 <p>This is the script template:</p>
 
@@ -11164,7 +11164,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <aside class="notice">Make sure to copy all data accurately and have all the variables correctly replaced with their respective values.</aside>
 
-<h3 id="mobile-apps-integration">Mobile Apps Integration</h3>
+<h4 id="mobile-apps-integration">Mobile Apps Integration</h4>
 
 <aside class="notice">Use your integration ticket to request the SDKs (iOS and Android) and guidelines for this integration.</aside>
 
