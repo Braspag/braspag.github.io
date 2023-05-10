@@ -6101,14 +6101,14 @@ During the Cybersource deployment, additional information can be stored through 
 |`Payment.ProviderReturnCode`|Code returned by acquirer or issuer.|Text|
 |`Payment.ProviderReturnMessage`|Message returned by acquirer or issuer.|Text|
 
-## Configuring Fingerprint
+### Configuring Fingerprint
 
 The *fingerprint* is an important component of the anti-fraud analysis. It is a script that must be added to your website in order to capture important data about the device being used for the transaction, such as the machine IP, browser version and operating system used.
 Sometimes only the cart information is not enough to guarantee an assertive analysis. The data collected by the fingerprint adds on to the analysis, making sure your store is better protected.
 
 This page describes how to integrate and set up fingerprint in your checkout and mobile page.
 
-### Checkout Integration
+#### Checkout Integration
 
 In order to integrate the fingerprint technology into your checkout page, you must add two tags to its source code: 
 
@@ -6117,7 +6117,7 @@ In order to integrate the fingerprint technology into your checkout page, you mu
 
 <aside class="warning">ATTENTION: If the 2 code snippets are not added to the checkout page, the fraud analysis results may not be accurate.</aside>
 
-#### Filling in the URL
+##### Filling in the URL
 
 Two variables must be filled in the Javascript URL: the `org_id` and the` session_id`. The `org_id` variable has a preset value, while the `session_id` variable holds the concatenation of the `ProviderMerchantId` and `FraudAnalysis.FingerPrintId` parameters, as shown below:
 
@@ -6126,7 +6126,7 @@ Two variables must be filled in the Javascript URL: the `org_id` and the` sessio
 |`org_id`|for Sandbox = "1snn5n9w"  <br/> for Production = "k8vif92e"|
 |`session_id`|`ProviderMerchantId`(Your store identifier at Cybersource. Contact Braspag in case you don't have one.) <br/> `FraudAnalysis.FingerPrintId` (Identifier used to crosscheck information obtained from the shopper's device.) <br/><br/>Note: This identifier can have any value or be the order number, but it must be unique for 48 hours.|
 
-#### Applying the Script
+##### Applying the Script
 
 This is the script template:
 
@@ -6138,7 +6138,7 @@ After being properly filled in, the variables will provide a URL as in the examp
 
 <aside class="notice">Make sure to copy all data accurately and have all the variables correctly replaced with their respective values.</aside>
 
-### Mobile Apps Integration
+#### Mobile Apps Integration
 
 <aside class="notice">Use your integration ticket to request the SDKs (iOS and Android) and guidelines for this integration.</aside>
 
