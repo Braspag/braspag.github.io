@@ -7014,9 +7014,11 @@ List of statuses returned by the API:
 
 ## MDD Table
 
-A risk strategy is designed in accordance with your business needs, taking into consideration the level of relevance of the MDD (Merchant Defined Data) fields. Even if those fields are not sent, they will still be charged during the validation of the test transactions. For this reason, we request that a prior analysis of the documentation is carried out and the store informs the fields that cannot be sent.
+A risk strategy is designed in accordance with your business needs, taking into consideration the level of relevance of the Merchant Defined Data (MDD) fields. Even if those fields are not sent, they will still be charged during the validation of the test transactions. For this reason, we request that a prior analysis of the documentation is carried out and the store informs the fields that cannot be sent.
 
-<aside class="warning">Do not send any empty fields. In case of any fields with no data to be sent, simply skip it.</aside>
+> The MDD fields **1**, **4**, **9**, **83** e **84** are required during the validation of the test transactions. If your ecommerce is unable to send one or more MDD fields, you must inform Braspag which fields will not be sent.
+
+<aside class="warning">Do not send any empty fields. In case of any fields with no data to be sent, do not send the MDD.</aside>
 
 **Level of Relevance of the MDD Fields**
 
@@ -7024,94 +7026,94 @@ A risk strategy is designed in accordance with your business needs, taking into 
 2- Very Relevant <br/>
 3- Extremely Relevant <br/><br/>
 
-|ID|Value|Type|Relevance Level|Segment|
-|--|-----|----|-------------------|--------|
-|1|Customer who logged in. Possible values: "{*customer_login*}" (if the final customer logs in to purchase on the site) / "Guest" (if the final customer makes the purchase as a visitor). Note: **Do not** submit the field if the sale is made directly by a third party (e.g.: an agent).|string|2|All|
-|2|How long (in days) the customer has been your customer. E.g.: 314.|int|3|All|
-|3|Quantity of order installments.|int|3|All|
-|4|Sales channel. Possible values: "Call Center" (phone purchase) / "Web" (web purchase) / "Portal" (purchase through agent) / "Kiosk" (kiosk  purchase) / "Mobile" (cell phone or tablet purchases). Note: When “Call Center”, the submission of field **39**(call center user name) is required.|string|3|All|
-|5|Coupon/discount code in case the customer uses it in the purchase.|string|1|All|
-|6|How long (in days) since customer's last purchase. E.g.: 55.|int|3|All|
-|7|Seller's code or name.|string|1|All|
-|8|Number of customer's attempts to pay one same order, which may have been using different credit cards and/or other payment methods.|int|2|All|
-|9|Identifies if the customer will pick up the product in the store. Possible values: "YES" / "NO". Note: When “YES”, the submission of field **22**(code of pick up store) is required.|string|3|Retail or Cosmetics|
-|10|Identifies whether payment will be made by someone not present on the trip or package. Possible values: "YES" / "NO".|string|3|Air or Tourism|
-|11|Hotel category (star rating). Possible values: "1" (simple) / "2"  (budget) / "3" (tourism) / "4" (superior) / "5" (luxury).|int|3|Tourism|
-|12|How long (in days) from purchase date to hotel check-in. E.g.: 123.|int|3|Tourism|
-|13|Number of nights at the hotel. E.g.: 5.|int|3|Tourism|
-|14|Trip or package category. <br> Possible values: "National" / "International" / "National/International".|string|3|Air or Tourism|
-|15|Name of airline / car rental /hotel. Note: Name each company name, separated by a "/".|string|2|Air or Tourism|
-|16|Reservation PNR code. When there is a reservation change for this PNR to an earlier flight date, it is important to apply a new fraud analysis by resubmitting this PNR.|string|3|Air|
-|17|Identifies if the reservation was brought forward. Possible values: "YES" / "NO". Note: When “YES”, the submission of field **16** (reservation PNR code) is required.|string|3|Air|
-|18|Rented vehicle category. Possible values: "1" (basic) / "2" (sport) / "3" (prime) / "4" (utility) / "5" (armored).|string|3|Tourism|
-|19|Identifies if the package refers to a cruise. Possible values: "YES" / "NO".|string|2|Tourism|
-|20|Decision of fraud review for the latest purchase. Possible values: "ACCEPT" / "REJECTED".|string|3|All|
-|21|Shipping cost. E.g.: 10599 = $ 105.99|long|1|Retail or Cosmetics|
-|22|Code of pick up store. Note: This field must be sent when field **9** is "YES".|string|3|Retail or Cosmetics|
-|23|Credit card suffix (last 4 digits).|int|1|All|
-|24|How long in days since first customer purchase. E.g.: 150.|int|3|All|
-|25|Gender of the customer. Possible values: "F" (female) / "M" (male).|string|2|All|
-|26|Credit card bin (first 6 digits).|int|1|All|
-|27|Delivery address street type. Possible values: "R" (residential) / "C" (commercial).|string|2|All|
-|28|Average time taken by the customer to make the purchase.|int|2|All|
-|29|Number of retries the customer made to log in.|int|2|All|
-|30|Number of web pages the customer visited within the 30 minutes before the purchase.|int|2|All|
-|31|Number of changes of credit card number the customer made to make the order payment.|int|2|All|
-|32|Identifies whether the email was pasted or typed. Possible values: "Typed" / "Pasted".|string|3|All|
-|33|Identifies whether the credit card number was pasted or entered. Possible values: "Typed / Pasted".|string|3|All|
-|34|Identifies if the email has been verified for account activation. Possible values: "YES" / "NO".|string|2|All|
-|35|Identifies the type of customer. Possible values: "Local" / "Tourist".|string|2|Tourism|
-|36|Identifies whether a giftcard was used as the payment method. Possible values: "YES" / "NO".|string|1|All|
-|37|Order delivery method. Possible values: "Sedex" / "Sedex 10" / "1 day" / "2 days" / "Motoboy" / "Same day".|string|3|Retail or Cosmetics|
-|38|Customer phone number identified via caller ID for a sale made through a "Call Center". Format: DDIDDNumber - E.g.: 552121114720.|string|3|All|
-|39|Call center username. Note: This field must be sent when field **4** is "Call Center".|string|1|All|
-|40|Comments added when the order is a gift.|string|1|All|
-|41|Document type. Possible values: "CPF" / "CNPJ" / "Passport".|string|2|All|
-|42|Customer's age.|int|2|All|
-|43|Customer's income range. E.g.: 100000 = $ 1,000.00.|long|2|All|
-|44|Historical quantity of customer purchases.|int|3|All|
-|45|Identifies if the purchase was made by an employee. Possible values: "YES" / "NO".|string|2|All|
-|46|Name printed on the credit card (bearer).|string|3|All|
-|47|Identifies whether it is a private label card. Possible values: "YES" / "NO".|string|2|All|
-|48|Number of payment methods used to make the purchase.|int|2|All|
-|49|Average value of the purchases made over the past 6 months. E.g.: 159050 = $ 1,590.99.|long|3|All|
-|50|Current purchase value deviation factor over average of the past 6 months.|3|All|
-|51|Identifies if you are a VIP client with special risk treatment or positive list. Possible values: "YES" / "NO".|string|3|All|
-|52|Product category. Possible values: "Animals & Pets" / "Clothing & Accessories" / "Business & Industry" / "Cameras & Optics" / "Electronics" / "Food, Beverage & Cigarettes" / "Furniture" / "Tools" / "Health & Beauty" / "Home & Garden" / "Bags & Luggage" / "Adult" / "Guns & Ammo" / "Office Supplies" / "Religion & Ceremonials" / "Software" / "Sports Equipment" / "Toys & Games" / "Vehicles & Parts" / "Books" / "DVDs & Videos" / "Magazines & Newspapers" / "Music" / "Other Unspecified Categories".|string|2|All|
-|53|Identifies if there is an SMS phone confirmation routine. Possible values: "YES" / "NO".|string|2|All|
-|54|2nd payment method.|string|2|All|
-|55|3rd payment method.|string|2|All|
-|56|If 2nd payment method is "credit card", send brand.|string|1|All|
-|57|If 3rd payment method is "credit card", send brand.|string|1|All|
-|58|If 2nd payment method, inform the amount paid. E.g.: 128599 = $ 1,285.99.|long|2|All|
-|59|If 3rd payment method, inform the amount paid. E.g.: 59089 = R $ 590,89.|long|2|All|
-|60|How long (in days) since last change. E.g.: 57.|int|3|All|
-|61|Identifies if there was any registration information change.|string|1|
-|62|Number of points redeemed in the latest purchase.|long|3|Loyalty|
-|63|Amount of points left in balance.|long|2|Loyalty|
-|64|Number of days since last points exchange.|long|2|Loyalty|
-|65|Customer identifier in loyalty program.|string|2|Loyalty|
-|66|Number of minutes recharged over the past 30 days.|long|2|Digital Goods|
-|67|Number of top-ups performed over the past 30 days.|long|2|Digital Goods|
-|68|Number of days between departure date and return date.|int|2|Air|
-|69|Number of passengers traveling regardless of age group.|int|2|Air|
-|70|Flight identifier.|string|1|Air|
-|71|Number of infants traveling.|int|2|Air|
-|72|Number of children traveling.|int|2|Air|
-|73|Number of adults traveling.|int|2|Air|
-|74|Identifies a frequent flyer. Possible values: "YES" / "NO".|string|2|Air|
-|75|Frequent flyer number.|string|2|Air|
-|76|Frequent flyer category. This category may vary according to the airline.|int|2|Air|
-77|Boarding day. Possible values: "Sunday" / "Monday" / "Tuesday" / "Wednesday" / "Thursday" / "Friday" / "Saturday".|string|2|Air|
-|78|Airline code. E.g.: "JJ" / "LA" / "AA" / "UA" / "G3" etc.|string|1|Air|
-|79|Class of ticket fare. E.g.: "W" / "Y" / "N" etc.|string|2|Air|
-|80|Passenger's cell phone number. Format: DDIDDNumber - E.g.: 5521976781114.|string|2|Air|
-|81|Identifies if the credit card holder will travel. Possible values: "YES" / "NO".|string|3|Air|
-|82|Identifies if the seller will work with manual review. Possible values: "YES" / "NO".|string|1|All|
-|83|Business segment. E.g.: "Retail".|string|2|All|
-|84|Name of the platform integrated with the Gateway Braspag Anti-fraud API. For direct integrations between the store and Braspag, send the value "PROPRIA".|string|3|All|
-|85 to 89|Free fields defined with the anti-fraud provider, according to the business rules.|-|-|-|
-|90 to 100|Reserved.|-|-|-|
+|ID|Value|Type|Relevance Level|Segment|Required|
+|--|-----|----|-------------------|--------|---|
+|1|Customer who logged in. Possible values: "{*customer_login*}" (if the final customer logs in to purchase on the site) / "Guest" (if the final customer makes the purchase as a visitor). Note: **Do not** submit the field if the sale is made directly by a third party (e.g.: an agent).|string|2|All|**Yes**|
+|2|How long (in days) the customer has been your customer. E.g.: 314.|int|3|All|No|
+|3|Quantity of order installments.|int|3|All|No|
+|4|Sales channel. Possible values: "Call Center" (phone purchase) / "Web" (web purchase) / "Portal" (purchase through agent) / "Kiosk" (kiosk  purchase) / "Mobile" (cell phone or tablet purchases). Note: When “Call Center”, the submission of field **39**(call center user name) is required.|string|3|All|**Yes**|
+|5|Coupon/discount code in case the customer uses it in the purchase.|string|1|All|No|
+|6|How long (in days) since customer's last purchase. E.g.: 55.|int|3|All|No|
+|7|Seller's code or name.|string|1|All|No|
+|8|Number of customer's attempts to pay one same order, which may have been using different credit cards and/or other payment methods.|int|2|All|No|
+|9|Identifies if the customer will pick up the product in the store. Possible values: "YES" / "NO". Note: When “YES”, the submission of field **22**(code of pick up store) is required.|string|3|Retail or Cosmetics|**Yes**|
+|10|Identifies whether payment will be made by someone not present on the trip or package. Possible values: "YES" / "NO".|string|3|Air or Tourism|No|
+|11|Hotel category (star rating). Possible values: "1" (simple) / "2"  (budget) / "3" (tourism) / "4" (superior) / "5" (luxury).|int|3|Tourism|No|
+|12|How long (in days) from purchase date to hotel check-in. E.g.: 123.|int|3|Tourism|No|
+|13|Number of nights at the hotel. E.g.: 5.|int|3|Tourism|No|
+|14|Trip or package category. <br> Possible values: "National" / "International" / "National/International".|string|3|Air or Tourism|No|
+|15|Name of airline / car rental /hotel. Note: Name each company name, separated by a "/".|string|2|Air or Tourism|No|
+|16|Reservation PNR code. When there is a reservation change for this PNR to an earlier flight date, it is important to apply a new fraud analysis by resubmitting this PNR.|string|3|Air|No|
+|17|Identifies if the reservation was brought forward. Possible values: "YES" / "NO". Note: When “YES”, the submission of field **16** (reservation PNR code) is required.|string|3|Air|No|
+|18|Rented vehicle category. Possible values: "1" (basic) / "2" (sport) / "3" (prime) / "4" (utility) / "5" (armored).|string|3|Tourism|No|
+|19|Identifies if the package refers to a cruise. Possible values: "YES" / "NO".|string|2|Tourism|No|
+|20|Decision of fraud review for the latest purchase. Possible values: "ACCEPT" / "REJECTED".|string|3|All|No|
+|21|Shipping cost. E.g.: 10599 = $ 105.99|long|1|Retail or Cosmetics|No|
+|22|Code of pick up store. Note: This field must be sent when field **9** is "YES".|string|3|Retail or Cosmetics|No|
+|23|Credit card suffix (last 4 digits).|int|1|All|No|
+|24|How long in days since first customer purchase. E.g.: 150.|int|3|All|No|
+|25|Gender of the customer. Possible values: "F" (female) / "M" (male).|string|2|All|No|
+|26|Credit card bin (first 6 digits).|int|1|All|No|
+|27|Delivery address street type. Possible values: "R" (residential) / "C" (commercial).|string|2|All|No|
+|28|Average time taken by the customer to make the purchase.|int|2|All|No|
+|29|Number of retries the customer made to log in.|int|2|All|No|
+|30|Number of web pages the customer visited within the 30 minutes before the purchase.|int|2|All|No|
+|31|Number of changes of credit card number the customer made to make the order payment.|int|2|All|No|
+|32|Identifies whether the email was pasted or typed. Possible values: "Typed" / "Pasted".|string|3|All|No|
+|33|Identifies whether the credit card number was pasted or entered. Possible values: "Typed / Pasted".|string|3|All|No|
+|34|Identifies if the email has been verified for account activation. Possible values: "YES" / "NO".|string|2|All|No|
+|35|Identifies the type of customer. Possible values: "Local" / "Tourist".|string|2|Tourism|No|
+|36|Identifies whether a giftcard was used as the payment method. Possible values: "YES" / "NO".|string|1|All|No|
+|37|Order delivery method. Possible values: "Sedex" / "Sedex 10" / "1 day" / "2 days" / "Motoboy" / "Same day".|string|3|Retail or Cosmetics|No|
+|38|Customer phone number identified via caller ID for a sale made through a "Call Center". Format: DDIDDNumber - E.g.: 552121114720.|string|3|All|No|
+|39|Call center username. Note: This field must be sent when field **4** is "Call Center".|string|1|All|No|
+|40|Comments added when the order is a gift.|string|1|All|No|
+|41|Document type. Possible values: "CPF" / "CNPJ" / "Passport".|string|2|All|No|
+|42|Customer's age.|int|2|All|No|
+|43|Customer's income range. E.g.: 100000 = $ 1,000.00.|long|2|All|No|
+|44|Historical quantity of customer purchases.|int|3|All|No|
+|45|Identifies if the purchase was made by an employee. Possible values: "YES" / "NO".|string|2|All|No|
+|46|Name printed on the credit card (bearer).|string|3|All|No|
+|47|Identifies whether it is a private label card. Possible values: "YES" / "NO".|string|2|All|No|
+|48|Number of payment methods used to make the purchase.|int|2|All|No|
+|49|Average value of the purchases made over the past 6 months. E.g.: 159050 = $ 1,590.99.|long|3|All|No|
+|50|Current purchase value deviation factor over average of the past 6 months.|3|All|No|
+|51|Identifies if you are a VIP client with special risk treatment or positive list. Possible values: "YES" / "NO".|string|3|All|No|
+|52|Product category. Possible values: "Animals & Pets" / "Clothing & Accessories" / "Business & Industry" / "Cameras & Optics" / "Electronics" / "Food, Beverage & Cigarettes" / "Furniture" / "Tools" / "Health & Beauty" / "Home & Garden" / "Bags & Luggage" / "Adult" / "Guns & Ammo" / "Office Supplies" / "Religion & Ceremonials" / "Software" / "Sports Equipment" / "Toys & Games" / "Vehicles & Parts" / "Books" / "DVDs & Videos" / "Magazines & Newspapers" / "Music" / "Other Unspecified Categories".|string|2|All|No|
+|53|Identifies if there is an SMS phone confirmation routine. Possible values: "YES" / "NO".|string|2|All|No|
+|54|2nd payment method.|string|2|All|No|
+|55|3rd payment method.|string|2|All|No|
+|56|If 2nd payment method is "credit card", send brand.|string|1|All|No|
+|57|If 3rd payment method is "credit card", send brand.|string|1|All|No|
+|58|If 2nd payment method, inform the amount paid. E.g.: 128599 = $ 1,285.99.|long|2|All|No|
+|59|If 3rd payment method, inform the amount paid. E.g.: 59089 = R $ 590,89.|long|2|All|No|
+|60|How long (in days) since last change. E.g.: 57.|int|3|All|No|
+|61|Identifies if there was any registration information change.|string|1|No|
+|62|Number of points redeemed in the latest purchase.|long|3|Loyalty|No|
+|63|Amount of points left in balance.|long|2|Loyalty|No|
+|64|Number of days since last points exchange.|long|2|Loyalty|No|
+|65|Customer identifier in loyalty program.|string|2|Loyalty|No|
+|66|Number of minutes recharged over the past 30 days.|long|2|Digital Goods|No|
+|67|Number of top-ups performed over the past 30 days.|long|2|Digital Goods|No|
+|68|Number of days between departure date and return date.|int|2|Air|No|
+|69|Number of passengers traveling regardless of age group.|int|2|Air|No|
+|70|Flight identifier.|string|1|Air|No|
+|71|Number of infants traveling.|int|2|Air|No|
+|72|Number of children traveling.|int|2|Air|No|
+|73|Number of adults traveling.|int|2|Air|No|
+|74|Identifies a frequent flyer. Possible values: "YES" / "NO".|string|2|Air|No|
+|75|Frequent flyer number.|string|2|Air|No|
+|76|Frequent flyer category. This category may vary according to the airline.|int|2|Air|No|
+77|Boarding day. Possible values: "Sunday" / "Monday" / "Tuesday" / "Wednesday" / "Thursday" / "Friday" / "Saturday".|string|2|Air|No|
+|78|Airline code. E.g.: "JJ" / "LA" / "AA" / "UA" / "G3" etc.|string|1|Air|No|
+|79|Class of ticket fare. E.g.: "W" / "Y" / "N" etc.|string|2|Air|No|
+|80|Passenger's cell phone number. Format: DDIDDNumber - E.g.: 5521976781114.|string|2|Air|No|
+|81|Identifies if the credit card holder will travel. Possible values: "YES" / "NO".|string|3|Air|No|
+|82|Identifies if the seller will work with manual review. Possible values: "YES" / "NO".|string|1|All|No|
+|83|Business segment. E.g.: "Retail".|string|2|All|**Yes**|
+|84|Name of the platform integrated with the Gateway Braspag Anti-fraud API. For direct integrations between the store and Braspag, send the value "PROPRIA".|string|3|All|**Yes**|
+|85 to 89|Free fields defined with the anti-fraud provider, according to the business rules.|-|-|-|No|
+|90 to 100|Reserved.|-|-|-|No|
 
 ## List of HTTP Status Code
 
