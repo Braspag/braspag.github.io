@@ -2592,7 +2592,7 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 
 ##### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -2762,7 +2762,7 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 
 ##### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -2934,7 +2934,7 @@ Veja uma requisição no modelo Split Pós-transacional com o desconto aplicado 
 
 #### Requisição
 
-<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">https://splitsandbox.braspag.com.br/api/transactions/{PaymentId}/split?masterRateDiscountType=Sale</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
