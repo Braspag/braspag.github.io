@@ -2030,7 +2030,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 #### Requisição
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}</span></aside>
 
 ```shell
 x-www-form-urlencoded
@@ -2142,7 +2142,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -2238,7 +2238,7 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount={amount}</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
 ```shell
 x-www-form-urlencoded
@@ -2247,7 +2247,7 @@ x-www-form-urlencoded
 
 O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação realizada no valor de R$100,00.
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture?amount=8000</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -2351,7 +2351,7 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void</span></aside>
 
 ```shell
 x-www-form-urlencoded
@@ -2415,7 +2415,7 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void?amount={amount}</span></aside>
 
 ```shell
 x-www-form-urlencoded
@@ -2424,7 +2424,7 @@ x-www-form-urlencoded
 
 No exemplo a seguir, a requisição informa o cancelamento do valor de R$25,00 de uma transação capturada no valor de R$100,00.
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce/1/sales/{PaymentId}/void?amount=2500</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void?amount=2500</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
