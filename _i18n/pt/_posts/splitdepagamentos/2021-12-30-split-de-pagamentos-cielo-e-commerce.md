@@ -3021,7 +3021,7 @@ Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.D
 
 #### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 {  
@@ -3263,7 +3263,7 @@ Ex.: Dia da próxima cobrança: 01/01/2021 + 5 dias. Vencimento do boleto criado
 
 #### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 {  
@@ -3502,7 +3502,7 @@ Para programar a primeira transação da série de recorrências, passe o parâm
 
 #### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 {  
@@ -3710,7 +3710,7 @@ Para alterar os dados do comprador de uma recorrência existente, basta fazer um
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
 ```json
 {  
@@ -3826,7 +3826,7 @@ Para alterar a data final da recorrência já existente, basta fazer um PUT conf
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
 ```json
 "2021-01-09"
@@ -3870,7 +3870,7 @@ Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT c
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
 ```json
 {
@@ -3922,7 +3922,7 @@ Ao efetuar a alteração do dia da recorrência, devem ser levadas em considera�
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
 ```json
 16
@@ -3968,7 +3968,7 @@ Para modificar o valor da transação de uma recorrência já existente, basta f
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
 ```json
 156
@@ -4014,7 +4014,7 @@ Para alterar somente a data do pagamento seguinte, basta fazer um PUT conforme o
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
 ```json
 "2017-06-15"
@@ -4066,7 +4066,7 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
 ```json
 {  
@@ -4163,7 +4163,7 @@ Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
 ```shell
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate"
@@ -4198,7 +4198,7 @@ Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
 ```shell
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate"
