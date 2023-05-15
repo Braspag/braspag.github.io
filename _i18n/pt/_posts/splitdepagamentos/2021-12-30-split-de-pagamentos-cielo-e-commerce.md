@@ -206,7 +206,7 @@ Durante o onboarding, você receberá as credenciais `MerchantId` e `ClientSecre
 
 #### Requisição  
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://authsandbox.braspag.com.br/oauth2/token</span></aside>
 
 ``` shell
 x-www-form-urlencoded
