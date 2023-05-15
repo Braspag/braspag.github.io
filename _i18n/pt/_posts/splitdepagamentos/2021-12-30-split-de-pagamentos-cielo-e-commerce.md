@@ -282,7 +282,7 @@ O valor total a receber pelo master está representado na figura a seguir.
 
 #### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -488,7 +488,7 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 
 #### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -707,7 +707,7 @@ Confira um exemplo de requisição com **Subordinado Principal**:
 
 #### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 {
@@ -859,7 +859,7 @@ Uma transação com um cartão de débito é semelhante à de cartão de crédit
 
 ### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
@@ -1052,7 +1052,7 @@ tipo de meio de pagamento.
 
 #### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 --header "Content-Type: application/json"
