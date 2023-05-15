@@ -229,9 +229,7 @@ grant_type=client_credentials
 
 O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo E-commerce ou à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.  
 
-# Integração
-
-# Autorização
+# Criando transações
 
 A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce, seguindo as mesmas requisições do [Manual de Integração API Cielo E-commerce](https://developercielo.github.io/manual/cielo-ecommerce){:target="_blank"}.
 
