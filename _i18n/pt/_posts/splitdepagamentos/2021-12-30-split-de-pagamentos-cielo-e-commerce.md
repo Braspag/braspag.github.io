@@ -1413,7 +1413,7 @@ Para salvar um cartão de crédito utilizado em uma transação, basta enviar o 
 
 ### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 {  
@@ -1634,7 +1634,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado conforme exemplo a seg
 
 ### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 {  
@@ -1831,7 +1831,7 @@ O nó `CreditCard` dentro do nó `Payment` será alterado, conforme exemplo a se
 
 ### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/</span></aside>
 
 ```json
 {  
