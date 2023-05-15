@@ -1316,7 +1316,7 @@ Neste modelo, o master poderá enviar as regras de divisão da transação após
 
 ### Requisição  
 
-<aside class="request"><span class="method post">PUT</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
+<aside class="request"><span class="method post">PUT</span> <span class="endpoint">https://splitsandbox.braspag.com.br/api/transactions/{PaymentId}/split</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}"
