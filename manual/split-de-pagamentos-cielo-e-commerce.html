@@ -3288,7 +3288,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 <h4 id="requisição-11">Requisição</h4>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
@@ -3398,7 +3398,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 <h4 id="requisição-12">Requisição</h4>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -3492,7 +3492,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 <h4 id="requisição-13">Requisição</h4>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount={amount}</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
@@ -3500,7 +3500,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 <p>O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação realizada no valor de R$100,00.</p>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture?amount=8000</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -3604,7 +3604,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 <h4 id="requisição-14">Requisição</h4>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
@@ -3666,7 +3666,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 <h4 id="requisição-15">Requisição</h4>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void?amount={amount}</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
 <span class="nt">--header</span> <span class="s2">"Authorization: Bearer {access_token}"</span>  
@@ -3674,7 +3674,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 <p>No exemplo a seguir, a requisição informa o cancelamento do valor de R$25,00 de uma transação capturada no valor de R$100,00.</p>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce/1/sales/{PaymentId}/void?amount=2500</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void?amount=2500</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
