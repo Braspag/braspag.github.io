@@ -412,13 +412,22 @@
 
 <p>O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/" target="_blank">OAUTH2</a>, no qual é necessário primeiramente obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API Cielo E-Commerce e à API do Split.</p>
 
-<p>Para obter um token de acesso:</p>
+<p>Durante o onboarding, você receberá as credenciais <code class="language-plaintext highlighter-rouge">MerchantId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>. Caso não tenha recebido a credencial, solicite ao <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Suporte Braspag</a>.</p>
 
-<ol>
-  <li>Concatene o MerchantId e ClientSecret: <code class="language-plaintext highlighter-rouge">MerchantId:ClientSecret</code>;</li>
-  <li>Codifique o resultado da concatenação em Base64;</li>
-  <li>Realize uma requisição ao servidor de autorização.</li>
-</ol>
+<p><strong>1.</strong> Concatene as credenciais no formato <code class="language-plaintext highlighter-rouge">MerchantId:ClientSecret</code>;<br />
+<strong>2.</strong> Converta o resultado em base 64, gerando uma string;</p>
+
+<blockquote>
+  <p><strong>Exemplo:</strong><br /></p>
+  <ul>
+    <li>merchant_id: <strong>braspagtestes</strong><br /></li>
+    <li>client_secret: <strong>1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong><br /></li>
+    <li>String a ser codificada em Base64: <strong>braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong><br /></li>
+    <li>Resultado após a codificação: <strong>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</strong><br /></li>
+  </ul>
+</blockquote>
+
+<p><strong>3.</strong> Envie a string em base 64 na requisição de Autenticação (POST);<br /></p>
 
 <p><img src="https://braspag.github.io//images/braspag/split/split5-auth.png" alt="SplitAuth" /></p>
 
