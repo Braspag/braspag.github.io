@@ -189,11 +189,18 @@ Você receberá as credenciais para o ambiente de produção durante o onboardin
 
 O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, no qual é necessário primeiramente obter um token de acesso utlizando suas credenciais, e posteriormente enviar o token de acesso à API Cielo E-Commerce e à API do Split.
 
-Para obter um token de acesso:
+Durante o onboarding, você receberá as credenciais `MerchantId` e `ClientSecret`. Caso não tenha recebido a credencial, solicite ao [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}.
 
-1. Concatene o MerchantId e ClientSecret: `MerchantId:ClientSecret`;  
-2. Codifique o resultado da concatenação em Base64;  
-3. Realize uma requisição ao servidor de autorização.
+**1.** Concatene as credenciais no formato `MerchantId:ClientSecret`;<br/>
+**2.** Converta o resultado em base 64, gerando uma string;
+
+> **Exemplo:**<br/>
+> * merchant_id: **braspagtestes**<br/>
+> * client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
+> * String a ser codificada em Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
+> * Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**<br/>
+
+**3.** Envie a string em base 64 na requisição de Autenticação (POST);<br/>
 
 ![SplitAuth]({{ site.baseurl_root }}/images/braspag/split/split5-auth.png)
 
