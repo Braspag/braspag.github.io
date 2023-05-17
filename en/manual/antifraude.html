@@ -12,7 +12,7 @@
 
     <title>
         
-        Antifraud Integration Guide &middot; Braspag Developers - Manuais
+        Antifraude Integration Guide &middot; Braspag Developers - Manuais
         
     </title>
 
@@ -130,7 +130,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//en/manual/antifraude">Antifraud Integration Guide</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//en/manual/antifraude">Antifraude Integration Guide</a></li>
                                     
                                 
                             
@@ -140,23 +140,73 @@
             </div>
 
             <div class="post">
-  <h1 id="overview">Overview</h1>
+  <h1 id="about-this-documentation">About this documentation</h1>
 
-<p><strong>Antifraud Gateway</strong> is a platform developed by the Braspag’s Risk team to facilitate the integration of clients who wish to perform fraud analysis with different providers and with different technologies, ie, the Antifraud Gateway is responsible for performing the interconnection between the client that uses JSON in the messaging and the provider that uses XML in messaging, for example.</p>
+<p>This manual presents the API Antifraude Gateway Braspag integration for <strong>separated fraud analysis calls</strong>. For joint call integration with other services, see the service manual of interest: <a href="https://braspag.github.io//en/manual/braspag-pagador" target="_blank">Pagador</a>, <a href="https://braspag.github.io//manual/api-ecommerce-cielo-af" target="_blank">API Cielo E-commerce</a>, <a href="https://braspag.github.io//en/manual/split-de-pagamentos-cielo-e-commerce" target="_blank">Split Cielo E-commerce</a> or <a href="https://braspag.github.io//manual/split-de-pagamentos-pagador#antifraude" target="_blank">Split Pagador</a>.</p>
 
-<p>The API is based on REST architecture, which exchange data in JSON format following authorization flows defined by the OAuth 2 protocol, where all standards are widely used by the industry and supported by the technical communities.</p>
+<h1 id="overview">Overview</h1>
 
-<blockquote>
-  <p>To learn more about OAuth 2, see <a href="https://oauth.net/2/" target="_blank">https://oauth.net/2/</a></p>
-</blockquote>
+<p>Braspag’s <strong>Antifraude Gateway</strong> is an API REST that offers risk management for your e-commerce with the analysis from the best anti-fraud providers in the world.</p>
 
-<p>The platform was built using one of Braspag’s main products, the Cartão Protegido, for card tokenization and token fraud analysis.</p>
+<h2 id="why-have-a-fraud-analysis">Why have a fraud analysis?</h2>
 
-<h1 id="objective">Objective</h1>
+<ul>
+  <li>Get the best conversion by controlling the chargeback rate;</li>
+  <li>Identify fraudulent transactions;</li>
+  <li>Increase security by analyzing Antifraude’s transaction history;</li>
+  <li>Avoid brand fines for increasing the chargeback frequency.</li>
+</ul>
 
-<p>The purpose of this documentation is to guide the developer on how to integrate with Antifraud Gateway API, gateway of providers of antifraud solutions, describing the operations available with sample requests and responses.</p>
+<h2 id="benefits-of-the-antifraude-gateway">Benefits of the Antifraude Gateway</h2>
 
-<p>To perform an operation, combine the base endpoint of the environment with the endpoint of the desired operation and send using the HTTP VERB as described in the operation.</p>
+<p>The Braspag Antifraude Gateway facilitates the fraud analysis process in your e-commerce, allowing you to:</p>
+
+<ul>
+  <li>Access to the best anti-fraud providers on the market, without the burden of direct integration;</li>
+  <li>Simplified integration;</li>
+  <li>Readiness: the main e-commerce platforms are already integrated with Braspag.</li>
+</ul>
+
+<h2 id="antifraud-providers">Antifraud providers</h2>
+
+<p>Anti-fraud providers offer neural network-based tools, non-relational databases, recommendations based on transaction history, behavior and repetitions by time interval, among other functions that make up the fraud analysis model.</p>
+
+<p>When contracting the Antifraude Gateway, you choose which provider(s) you want to analyze your transactions with and which plan.</p>
+
+<h3 id="cybersource">Cybersource</h3>
+
+<p>Cybersource is a Visa group company, that has been operating fraud management since 1994.</p>
+
+<p>Learn more about Cybersource’s plans in the table below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PLANS</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hierarchy</td>
+      <td>Risk models standardized by the e-commerce industry.</td>
+    </tr>
+    <tr>
+      <td>Advanced</td>
+      <td>Allows proposals for improvements in risk rules and monthly consulting with Cybersource and Braspag.</td>
+    </tr>
+    <tr>
+      <td>Enterprise</td>
+      <td>It has a dedicated CyberSource risk analyst, who will proactively propose adjustments to the business ruleset in order to improve conversion and reduce chargeback rates.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="aci-worldwide">ACI Worldwide</h3>
+
+<p>ACI Worlwide, founded in 1975, is a global mission-critical software company providing fraud control and prevention solutions as well as real-time payment processing and management for corporations.</p>
+
+<p>In this manual, refer to the requirements and <a href="https://braspag.github.io//en/manual/antifraude#tables">attached tables corresponding to your anti-fraud provider</a>.</p>
 
 <h1 id="hosts">Hosts</h1>
 
