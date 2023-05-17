@@ -121,7 +121,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão seguida de um
 * **Bandeira:** faz a comunicação com o emissor do cartão da transação e liquida a transação para os adquirentes.
 * **Emissor:** dá crédito e armazena o dinheiro do comprador. Na transação, aprova ou nega por razões de saldo, validade do cartão ou fraude. Liquida a transação para a bandeira.
 
-<br/>**Nota:** Para evitar que a duplicidade de pedidos ocorra durante uma transação, o Pagador possui a opção de bloqueio de pedidos duplicados que, quando habilitado, retorna o código de erro "302", informando que o `MerchantOrderId` enviado está duplicado. Para saber mais detalhes sobre essa feature, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360030183991){:target="_blank"}.
+> **Nota:** Para evitar que a duplicidade de pedidos ocorra durante uma transação, o Pagador possui a opção de bloqueio de pedidos duplicados que, quando habilitado, retorna o código de erro "302", informando que o `MerchantOrderId` enviado está duplicado. Para saber mais detalhes sobre essa feature, consulte [este artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360030183991){:target="_blank"}.
 
 ## Cartões de Crédito e Débito
 
