@@ -61,6 +61,59 @@ ACI Worlwide, founded in 1975, is a global mission-critical software company pro
 
 In this manual, refer to the requirements and [attached tables corresponding to your anti-fraud provider](https://braspag.github.io//en/manual/antifraude#tables).
 
+# Fraud Analysis Flows
+
+The Antifraude Gateway forwards transaction data to an anti-fraud provider for analysis. The providers use technologies such as machine identification, IP geolocation, social network analysis, proxy detection and replay counters. Braspag receives a recommendation from the provider in real time and can then take action based on the risk of fraud identified by the analysis.
+There are two possible flows for fraud analysis:
+
+* **AnalyseFirst:** all transactions are first submitted to Antifraude for analysis and, if accepted, proceed to the acquirer's authorization process. 
+* **AuthorizeFirst:** all transactions are first submitted for authorization by the acquirer and, if authorized, are sent for analysis by Antifraude.
+
+![Fluxos AnalyseFirst e AuthorizeFirst]({{ site.baseurl_root }}/images/braspag/af/fluxo-analysefirst-authorizefirst-en.png)
+
+*Review status is returned only if included in your plan.
+
+## AnalyseFirst
+
+1. The merchant requests a fraud analysis from Antifraude;
+2. Antifraude returns the status Accept, Reject or Review;
+3. The merchant sends the transaction request to the payment gateway;
+4. The payment gateway requests authorization from the acquirer;
+5. The acquirer authorizes the transaction or authorizes and capture;
+6. The payment gateway returns the authorization response.
+
+## AuthorizeFirst
+
+1. The merchant sends the transaction request to the payment gateway;
+2. The payment gateway requests authorization from the acquirer;
+3. The acquirer authorizes the transaction;
+4. The payment gateway returns the authorization response;
+5. The merchant requests a fraud analysis from Antifraude;
+6. Antifraude returns the status Accept, Reject or Review.
+
+The chosen flow must be determined during integration, because it is part of the application architecture.
+
+If, after integration, you wish to change the fraud analysis flow, you should request Braspag's support, as there are details involved in a possible change, mainly in relation to speed rules.
+
+## Which flow is indicated for my e-commerce?
+
+* The choice can be made according to the rules of your business, taking into account aspects such as the average ticket and type of product sold;
+* You can build your application with both flows and apply the business rules according to your risk criteria.
+
+Below are some characteristics of each flow, which can help you decide on the best model for your business:
+
+**AnalyzeFirst**
+
+* Antifraud will be able to see e-commerce credit card transactions;
+* Avoids early awareness of the credit card limit, avoiding attrition/bad consumer experience;
+* Favors the learning of the Antifraude engine;
+* There is an analysis cost when the credit card used in the transaction does not have an available limit.
+
+**AuthorizeFirst**
+
+* Avoids the cost of analysis on credit card transactions that have no available limit;
+* Antifraude will not be able to see e-commerce credit card transactions.
+
 # Hosts
 
 ## BraspagAuth API
