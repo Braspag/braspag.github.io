@@ -132,49 +132,42 @@ Below are some characteristics of each flow, which can help you decide on the be
 
 # Authentication
 
-## Access Token
+The API Antifraude Gateway Braspag uses the OAuth 2.0 market standard protocol to authorize access to its specific resources by environment, **Sandbox** and **Production**.
 
-The Antifraud Gateway API uses the industry standard OAuth 2.0 protocol for authorization of access to its specific resources by environments, which are: **Sandbox** e **Produção**.
+## Obtaining access token
 
-This session describes the flow required for client applications to obtain valid access tokens for use on the platform.
+During onboarding, you will be given the `ClientId` and `ClientSecret` credentials. If you have not received the credentials, ask [Braspag Support](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}.
 
-## Obtaining the access token  
+**1.** Concatenate the credentials in the `ClientId:ClientSecret` form;<br/>
+**2.** Convert the result to base64, generating a string;
 
-The access token is obtained through the oauth **client_credentials**. The diagram below illustrates, in chronological order, the communication between **Client Application**, **BraspagAuth API** and **Antifraud Gateway API**.
+> **Example:**<br/>
+> * client_id: **braspagtestes**<br/>
+> * client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
+> * String to encode in Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**<br/>
+> * Result after coding: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**<br/>
 
-1. The **Client Application**, informs the **BraspagAuth API** your credential.
+**3.** Send the base64 string in the Authentication request (POST);<br/>
+**4.** The Authentication API will validate the string and return the `access_token`.
 
-2. The **BraspagAuth API** validates the credential received. If valid, returns the access token for **Client Application**.
+The returned token (`access_token`) must be used in every request to the Antifraude Gateway API as an authorization key. The `access_token` has a validity of 20 minutes and it is necessary to generate a new one every time the validity expires.
 
-3. The **Client Application** informs the access token in the header of the HTTP requests made to the **Antifraud Gateway API**.
+See the image for the authentication flow and the sending of the `access_token` in the fraud analysis request.
 
-4. If the access token is valid, the request is processed and the data is returned to the **Client Application**
-
-> Request a credential by opening a ticket through our support tool, sending the exit IP (s) of your homologation and production servers. <br/>
-[Support Braspag](https://suporte.braspag.com.br/hc/en-us){:target="_blank"}
-
-## How to get the token
-
-Once in possession of the credential, you will need to "encrypt" it in Base64, using the **client_id:client_secret** convention, and send the result in the header through the **Authorization** field.
-
-Exemple:
-* client_id: **braspagtestes**
-* client_secret: **1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
-* String to be encoded in Base64: **braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p**
-* Result after encoding: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**
+![Fluxo de Autenticação]({{ site.baseurl_root }}/images/braspag/af/af-autenticacao-bpauth-en.png)
 
 ### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-**Parameters in the header (Header)**
+**Parameters on the header**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/x-www-form-urlencoded|
 |`Authorization`|Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==|
 
-**Parameters in the body (Body)**
+**Parameters on the body**
 
 |Key|Value|
 |:-|:-|
@@ -191,13 +184,13 @@ Exemple:
 }
 ```
 
-**Parameters in the body (Body)**
+**Parameters on the body**
 
 |Parameter|Description|
 |:-|:-|
-|`access_token`|The access token requested. The application can use this token to authenticate itself to the protected resource, in this case the Antifraud Gateway API|
-|`token_type`|Indicates the value of the token type|
-|`expires_in`|Expiry of the access token, in seconds <br/> The token when it expires, it is necessary to get a new one|
+|`access_token`|Requested access token.|
+|`token_type`|Indicates the value of the type of token.|
+|`expires_in`|Access token expiration, in seconds. <br/>After it expires, you need to get a new one.|
 
 # Conducting a fraud analysis
 
