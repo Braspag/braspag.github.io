@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-05-19T13:16:55+00:00</updated>
+    <updated>2023-05-19T13:27:44+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -30292,46 +30292,52 @@ There are two possible flows for fraud analysis:&lt;/p&gt;
   &lt;li&gt;Antifraude will not be able to see e-commerce credit card transactions.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;hosts&quot;&gt;Hosts&lt;/h1&gt;
+&lt;h1 id=&quot;environments&quot;&gt;Environments&lt;/h1&gt;
 
-&lt;h2 id=&quot;braspagauth-api&quot;&gt;BraspagAuth API&lt;/h2&gt;
+&lt;h2 id=&quot;sandbox&quot;&gt;Sandbox&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Environment&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;URL&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Base URL&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;https://authsandbox.braspag.com.br/&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Authentication.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https://auth.braspag.com.br/&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;API Risk&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https://risksandbox.braspag.com.br/&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Fraud analysis, query, associate transaction and status update.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;antifraud-gateway-api&quot;&gt;Antifraud Gateway API&lt;/h2&gt;
+&lt;h2 id=&quot;production&quot;&gt;Production&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Environment&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;URL&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Base URL&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;https://risksandbox.braspag.com.br/&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;https://auth.braspag.com.br/&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Authentication&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Produção&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;API Risk&lt;/strong&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;https://risk.braspag.com.br/&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Fraud analysis, query, associate transaction and status update.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;

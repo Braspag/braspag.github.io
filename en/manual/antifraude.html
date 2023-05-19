@@ -273,46 +273,52 @@ There are two possible flows for fraud analysis:</p>
   <li>Antifraude will not be able to see e-commerce credit card transactions.</li>
 </ul>
 
-<h1 id="hosts">Hosts</h1>
+<h1 id="environments">Environments</h1>
 
-<h2 id="braspagauth-api">BraspagAuth API</h2>
+<h2 id="sandbox">Sandbox</h2>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Environment</th>
-      <th style="text-align: left">URL</th>
+      <th style="text-align: left">Base URL</th>
+      <th style="text-align: left">Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Sandbox</code></td>
+      <td style="text-align: left"><strong>Braspag OAUTH2 Server</strong></td>
       <td style="text-align: left">https://authsandbox.braspag.com.br/</td>
+      <td style="text-align: left">Authentication.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Produção</code></td>
-      <td style="text-align: left">https://auth.braspag.com.br/</td>
+      <td style="text-align: left"><strong>API Risk</strong></td>
+      <td style="text-align: left">https://risksandbox.braspag.com.br/</td>
+      <td style="text-align: left">Fraud analysis, query, associate transaction and status update.</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="antifraud-gateway-api">Antifraud Gateway API</h2>
+<h2 id="production">Production</h2>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Environment</th>
-      <th style="text-align: left">URL</th>
+      <th style="text-align: left">Base URL</th>
+      <th style="text-align: left">Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Sandbox</code></td>
-      <td style="text-align: left">https://risksandbox.braspag.com.br/</td>
+      <td style="text-align: left"><strong>Braspag OAUTH2 Server</strong></td>
+      <td style="text-align: left">https://auth.braspag.com.br/</td>
+      <td style="text-align: left">Authentication</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Produção</code></td>
+      <td style="text-align: left"><strong>API Risk</strong></td>
       <td style="text-align: left">https://risk.braspag.com.br/</td>
+      <td style="text-align: left">Fraud analysis, query, associate transaction and status update.</td>
     </tr>
   </tbody>
 </table>
