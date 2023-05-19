@@ -325,53 +325,39 @@ There are two possible flows for fraud analysis:</p>
 
 <h1 id="authentication">Authentication</h1>
 
-<h2 id="access-token">Access Token</h2>
+<p>The API Antifraude Gateway Braspag uses the OAuth 2.0 market standard protocol to authorize access to its specific resources by environment, <strong>Sandbox</strong> and <strong>Production</strong>.</p>
 
-<p>The Antifraud Gateway API uses the industry standard OAuth 2.0 protocol for authorization of access to its specific resources by environments, which are: <strong>Sandbox</strong> e <strong>Produção</strong>.</p>
+<h2 id="obtaining-access-token">Obtaining access token</h2>
 
-<p>This session describes the flow required for client applications to obtain valid access tokens for use on the platform.</p>
+<p>During onboarding, you will be given the <code class="language-plaintext highlighter-rouge">ClientId</code> and <code class="language-plaintext highlighter-rouge">ClientSecret</code> credentials. If you have not received the credentials, ask <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Braspag Support</a>.</p>
 
-<h2 id="obtaining-the-access-token">Obtaining the access token</h2>
-
-<p>The access token is obtained through the oauth <strong>client_credentials</strong>. The diagram below illustrates, in chronological order, the communication between <strong>Client Application</strong>, <strong>BraspagAuth API</strong> and <strong>Antifraud Gateway API</strong>.</p>
-
-<ol>
-  <li>
-    <p>The <strong>Client Application</strong>, informs the <strong>BraspagAuth API</strong> your credential.</p>
-  </li>
-  <li>
-    <p>The <strong>BraspagAuth API</strong> validates the credential received. If valid, returns the access token for <strong>Client Application</strong>.</p>
-  </li>
-  <li>
-    <p>The <strong>Client Application</strong> informs the access token in the header of the HTTP requests made to the <strong>Antifraud Gateway API</strong>.</p>
-  </li>
-  <li>
-    <p>If the access token is valid, the request is processed and the data is returned to the <strong>Client Application</strong></p>
-  </li>
-</ol>
+<p><strong>1.</strong> Concatenate the credentials in the <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code> form;<br />
+<strong>2.</strong> Convert the result to base64, generating a string;</p>
 
 <blockquote>
-  <p>Request a credential by opening a ticket through our support tool, sending the exit IP (s) of your homologation and production servers. <br />
-<a href="https://suporte.braspag.com.br/hc/en-us" target="_blank">Support Braspag</a></p>
+  <p><strong>Example:</strong><br /></p>
+  <ul>
+    <li>client_id: <strong>braspagtestes</strong><br /></li>
+    <li>client_secret: <strong>1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong><br /></li>
+    <li>String to encode in Base64: <strong>braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong><br /></li>
+    <li>Result after coding: <strong>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</strong><br /></li>
+  </ul>
 </blockquote>
 
-<h2 id="how-to-get-the-token">How to get the token</h2>
+<p><strong>3.</strong> Send the base64 string in the Authentication request (POST);<br />
+<strong>4.</strong> The Authentication API will validate the string and return the <code class="language-plaintext highlighter-rouge">access_token</code>.</p>
 
-<p>Once in possession of the credential, you will need to “encrypt” it in Base64, using the <strong>client_id:client_secret</strong> convention, and send the result in the header through the <strong>Authorization</strong> field.</p>
+<p>The returned token (<code class="language-plaintext highlighter-rouge">access_token</code>) must be used in every request to the Antifraude Gateway API as an authorization key. The <code class="language-plaintext highlighter-rouge">access_token</code> has a validity of 20 minutes and it is necessary to generate a new one every time the validity expires.</p>
 
-<p>Exemple:</p>
-<ul>
-  <li>client_id: <strong>braspagtestes</strong></li>
-  <li>client_secret: <strong>1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong></li>
-  <li>String to be encoded in Base64: <strong>braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong></li>
-  <li>Result after encoding: <strong>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</strong></li>
-</ul>
+<p>See the image for the authentication flow and the sending of the <code class="language-plaintext highlighter-rouge">access_token</code> in the fraud analysis request.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/af/af-autenticacao-bpauth-en.png" alt="Fluxo de Autenticação" /></p>
 
 <h3 id="request">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-<p><strong>Parameters in the header (Header)</strong></p>
+<p><strong>Parameters on the header</strong></p>
 
 <table>
   <thead>
@@ -392,7 +378,7 @@ There are two possible flows for fraud analysis:</p>
   </tbody>
 </table>
 
-<p><strong>Parameters in the body (Body)</strong></p>
+<p><strong>Parameters on the body</strong></p>
 
 <table>
   <thead>
@@ -422,7 +408,7 @@ There are two possible flows for fraud analysis:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parameters in the body (Body)</strong></p>
+<p><strong>Parameters on the body</strong></p>
 
 <table>
   <thead>
@@ -434,15 +420,15 @@ There are two possible flows for fraud analysis:</p>
   <tbody>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">access_token</code></td>
-      <td style="text-align: left">The access token requested. The application can use this token to authenticate itself to the protected resource, in this case the Antifraud Gateway API</td>
+      <td style="text-align: left">Requested access token.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">token_type</code></td>
-      <td style="text-align: left">Indicates the value of the token type</td>
+      <td style="text-align: left">Indicates the value of the type of token.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">expires_in</code></td>
-      <td style="text-align: left">Expiry of the access token, in seconds <br /> The token when it expires, it is necessary to get a new one</td>
+      <td style="text-align: left">Access token expiration, in seconds. <br />After it expires, you need to get a new one.</td>
     </tr>
   </tbody>
 </table>
