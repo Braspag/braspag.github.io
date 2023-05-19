@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-05-19T12:22:59+00:00</updated>
+    <updated>2023-05-19T13:16:55+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -2506,7 +2506,7 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.&lt;/td&gt;
+      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “GooglePay”.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -2526,13 +2526,6 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.AdditionalData.CaptureCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Code informed by &lt;strong&gt;Masterpass&lt;/strong&gt; to the merchant.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;–&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.AdditionalData.Signature&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Token returned by wallet. Must be submitted in &lt;strong&gt;GooglePay&lt;/strong&gt; integrations.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
@@ -2546,7 +2539,7 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
 
 &lt;p&gt;WalletKey is the identifier used by Braspag to decrypt the payloads returned by an e-wallet.&lt;/p&gt;
 
-&lt;p&gt;Here is a list of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt; formats to be passed to the Pagador API:&lt;/p&gt;
+&lt;p&gt;Here is a list of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt; formats to be passed \to the Pagador API:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2559,28 +2552,18 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;em&gt;Apple Pay&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+easdhghrsa/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc&lt;/td&gt;
-      &lt;td&gt;.&lt;/td&gt;
+      &lt;td&gt;9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/&lt;br /&gt;SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyr&lt;br /&gt;O2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+easdhghrsa/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;em&gt;Samsung Pay&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR–gApzoXH-fdafddfa-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ&lt;/td&gt;
-      &lt;td&gt;.&lt;/td&gt;
+      &lt;td&gt;eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPS&lt;br /&gt;IsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR&lt;br /&gt;–gApzoXH-fdafddfa-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfy&lt;br /&gt;LBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-&lt;br /&gt;p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-&lt;br /&gt;R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;em&gt;Google Pay&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;{&quot;encryptedMessage&quot;:&quot;0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\u003d\u003d&quot;,&quot;ephemeralPublicKey&quot;:&quot;BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\u003d&quot;,&quot;tag&quot;:&quot;yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\u003d&quot;}&lt;/td&gt;
-      &lt;td&gt;.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;em&gt;Visa Checkout&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;1140812334225873901&lt;/td&gt;
-      &lt;td&gt;.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;em&gt;Masterpass&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;a561da1c18a89cfdafas875f9d43fc46cd9bf3e1&lt;/td&gt;
-      &lt;td&gt;.&lt;/td&gt;
+      &lt;td&gt;{“encryptedMessage”:”0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE&lt;br /&gt;+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37&lt;br /&gt;mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHw&lt;br /&gt;LzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO&lt;br /&gt;+fhBt6X0izE9hBGTexdZyg\u003d\u003d”,”ephemeralPublicKey”:”BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxo&lt;br /&gt;TpFydLhj5kzoOhbw2OzZu0\u003d”,”tag”:”yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\u003d”}&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2763,7 +2746,7 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.&lt;/td&gt;
+      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “GooglePay”.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
@@ -2781,13 +2764,6 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;–&lt;/td&gt;
       &lt;td&gt;See “EphemeralPublicKey” table annexed&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AdditionalData.CaptureCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Code informed by &lt;strong&gt;Masterpass&lt;/strong&gt; to the merchant.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;–&lt;/td&gt;
-      &lt;td&gt;3&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AdditionalData.Signature&lt;/code&gt;&lt;/td&gt;
@@ -3392,7 +3368,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.&lt;/td&gt;
+      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “GooglePay”.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -3544,7 +3520,7 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.&lt;/td&gt;
+      &lt;td&gt;Wallet type: “ApplePay” / “SamsungPay” / “GooglePay”.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
