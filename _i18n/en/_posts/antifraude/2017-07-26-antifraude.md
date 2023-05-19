@@ -114,21 +114,21 @@ Below are some characteristics of each flow, which can help you decide on the be
 * Avoids the cost of analysis on credit card transactions that have no available limit;
 * Antifraude will not be able to see e-commerce credit card transactions.
 
-# Hosts
+# Environments
 
-## BraspagAuth API
+## Sandbox
 
-|Environment|URL|
-|:-|:-|
-|`Sandbox`|https://authsandbox.braspag.com.br/|
-|`Produção`|https://auth.braspag.com.br/|
+|Environment|Base URL|Description|
+|:-|:-|:-|
+|**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/ | Authentication.|
+|**API Risk**|https://risksandbox.braspag.com.br/ | Fraud analysis, query, associate transaction and status update.|
 
-## Antifraud Gateway API
+## Production
 
-|Environment|URL|
-|:-|:-|
-|`Sandbox`|https://risksandbox.braspag.com.br/|
-|`Produção`|https://risk.braspag.com.br/|
+|Environment|Base URL|Description|
+|:-|:-|:-|
+|**Braspag OAUTH2 Server**|https://auth.braspag.com.br/ | Authentication|
+|**API Risk**|https://risk.braspag.com.br/ | Fraud analysis, query, associate transaction and status update. |
 
 # Authentication
 
