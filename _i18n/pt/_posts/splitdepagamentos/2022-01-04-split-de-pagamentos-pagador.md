@@ -2841,34 +2841,40 @@ Não é obrigatório informar todos os subordinados no cancelamento parcial. Voc
 
 # Opções de Configuração da Transação
 
-Em uma transação do Split, existem configurações opcionais que podem ser utilizadas para controlar alguns aspectos.
+Em uma transação do Split, as taxas podem ser descontadas da comissão do master ou da venda do master. Além disso, as taxas podem ser descontadas no momento da transação, após a transação ou pelo padrão pré-configurado junto ao nosso Suporte. Confira a seguir as opções de configuração da transação.
 
 ## Tipo do Desconto das Taxas
 
-Os descontos das taxas (MDR e tarifa fixa) do Split podem ser feitos de duas formas: sobre a comissão ou venda do master.
+Os descontos das taxas (MDR e tarifa fixa) do Split podem ser feitos de duas formas: sobre a comissão do master ou sobre a venda do master.
 
 |TIPO|DESCRIÇÃO|
 |---|---|
-|`Commission`|O desconto será feito sobre o valor de comissão que o master tem a receber na transação. É o padrão adotado pelo Split.|
-|`Sale`|O desconto será feito sobre o valor de venda que o master tem a receber na transação.|
+|`Commission`|O desconto será feito sobre o valor de **comissão** que o master recebe de seus subordinados na transação. **É o padrão adotado pelo Split**.|
+|`Sale`|O desconto será feito sobre o valor de **venda** que o master tem a receber na transação, caso o master esteja participando.|
 
-> Para que a opção de desconto da parte da venda seja possível, o master deve possuir venda na transação.
+> Atenção: A opção de desconto da parte da venda só é possível se o master tiver venda na transação.
 
 A escolha do tipo de desconto das taxas pode ser feita:
 
-* No momento do **Split Transacional** ou Pós-Transacional**;
+* No momento do **Split Transacional**;
 * No momento do **Split Pós-Transacional** ou
-* **Pré-configurada**. Para pré-configurar, entre em contato com o [Suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}, que irá criar, remover ou atualizar a
+* **Pré-configurada**. Para pré-configurar, entre em contato com o [Suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"} que irá criar, remover ou atualizar a
 pré-configuração. A pré-configuração só será utilizada caso nenhum valor seja informado na requisição.
 
-<br/>No caso de uma transação criada com um tipo de desconto das taxas, esse tipo será usado em todas as requisições posteriores. É possível mudar o tipo de desconto através da redivisão
-(pelo Split Pós-Transacional), informando o tipo desejado. Uma vez que o tipo é mudado, o novo tipo é usado em todas as requisições posteriores ou até que seja mudado novamente.
+<aside class="notice">Quando uma transação é criada com um tipo de desconto de taxas (comissão ou venda), esse tipo será usado em todas as requisições posteriores. É possível mudar o tipo de desconto através da redivisão (pelo Split Pós-Transacional). Uma vez alterado, o novo tipo de desconto é usado em todas as requisições posteriores ou até que seja alterado novamente.</aside>
 
-> Só é possível mudar o tipo de desconto enquanto ainda for possível redividir a transação.
+> Só é possível alterar o tipo de desconto enquanto ainda for possível redividir a transação.
 
 ### No Momento Transacional
 
-A seguir vamos apresentar exemplos de uma transação com o desconto aplicado sobre a comissão e com o desconto aplicado sobre a venda.
+A seguir vamos apresentar exemplos de uma mesma transação em dois cenários:
+
+* Desconto aplicado sobre a comissão;
+* Desconto aplicado sobre a venda.
+
+A transação de exemplo com as divisões e o valor total a receber de cada participante estão representados na figura a seguir:
+
+![SplitEx4]({{ site.baseurl_root }}/images/braspag/split/split10-exemplo4-tipo-de-desconto.png)
 
 A transação tem valor de **R$100,00** com o nó contendo as regras de divisão e o master participando da venda.
 
@@ -2905,11 +2911,11 @@ Após a divisão, cada participante terá sua agenda sensibilizada com os seguin
 
 <br/>O **total a receber** pelo Split será **R$2,30**.
 
-As divisões e o valor total a receber de cada participante estão na figura a seguir.
-
-![SplitEx4]({{ site.baseurl_root }}/images/braspag/split/split10-exemplo4-tipo-de-desconto.png)
+Confira a seguir os exemplos com o cenário do desconto sendo aplicado sobre a comissão e com o cenário do desconto sendo aplicado sobre a venda.
 
 #### Desconto sendo aplicado sobre a comissão
+
+Neste cenário, envie o parâmetro `MasterRateDiscountType` com o valor "Commission".
 
 ##### Requisição
 
@@ -3104,7 +3110,7 @@ As divisões e o valor total a receber de cada participante estão na figura a s
 
 #### Desconto sendo aplicado sobre a venda
 
-Com a mesma transação:
+Neste cenário, envie o parâmetro `MasterRateDiscountType` com o valor "Sale".
 
 ##### Requisição
 
@@ -3299,7 +3305,9 @@ Com a mesma transação:
 
 ### No Momento Pós-Transacional
 
-Veja uma requisição no modelo Split Pós-transacional com o desconto aplicado sobre a venda.
+A configuração de taxas no momento pós-transacional ocorre após a transação ser criada. Neste cenário, envie o parâmetro `MasterRateDiscountType` com o valor "Sale" na query string.
+
+Veja um exemplo de requisição no modelo Split Pós-transacional com o desconto aplicado sobre a venda.
 
 #### Requisição
 
