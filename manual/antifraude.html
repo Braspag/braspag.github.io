@@ -627,28 +627,28 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td style="text-align: left">Número do pedido da loja</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">TotalOrderAmount</code></td>
       <td style="text-align: left">Valor total do pedido em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
       <td style="text-align: center">long</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">TransactionAmount</code></td>
       <td style="text-align: left">Valor da transação financeira em centavos <br /> Ex: 150000 = r$ 1.500,00</td>
       <td style="text-align: center">long</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Currency</code></td>
       <td style="text-align: left">Moeda. Maiores informações em <a href="https://www.iso.org/iso-4217-currency-codes.html" target="_blank">ISO 4217 Currency Codes</a></td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">3</td>
     </tr>
     <tr>
@@ -662,217 +662,217 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: left">Id da transação no Pagador da Braspag. Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você pode enviar os campos <code class="language-plaintext highlighter-rouge">Tdi</code>,<code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: center">guid</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Tid</code></td>
       <td style="text-align: left">Id da transação na adquirente <br /> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o <code class="language-plaintext highlighter-rouge">Tid</code> acompanhado dos campos <code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">20</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Nsu</code></td>
       <td style="text-align: left">Número sequencial único da transação na adquirente <br /> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o <code class="language-plaintext highlighter-rouge">Nsu</code> acompanhado dos campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">10</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
       <td style="text-align: left">Código de autorização da transação na adquirente <br /> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o <code class="language-plaintext highlighter-rouge">AuthorizationCode</code>, acompanhado dos campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">10</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">SaleDate</code></td>
       <td style="text-align: left">Data da autorização da transação na adquirente <br /> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar este campo, acompanhado dos campos <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code> e <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: center">datetime</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Number</code></td>
       <td style="text-align: left">Número do cartão de crédito</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">19</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
       <td style="text-align: left">Nome do portador impresso no cartão de crédito</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">50</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
       <td style="text-align: left">Data de expiração do cartão de crédito <br /> Ex.: 01/2023</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">7</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Brand</code></td>
       <td style="text-align: left">Bandeira do cartão de crédito <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-3-card.brand">Tabela 3 - Card.Brand</a></td>
       <td style="text-align: center">enum</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Save</code></td>
       <td style="text-align: left">Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido</td>
       <td style="text-align: center">bool</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Token</code></td>
       <td style="text-align: left">Identificador do cartão de crédito salvo no Cartão Protegido</td>
       <td style="text-align: center">guid</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Alias</code></td>
       <td style="text-align: left"><em>Alias</em> (apelido) do cartão de crédito salvo no Cartão Protegido</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">64</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.Street</code></td>
       <td style="text-align: left">Logradouro do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">54</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.Number</code></td>
       <td style="text-align: left">Número do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">5</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.Complement</code></td>
       <td style="text-align: left">Complemento do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">14</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.Neighborhood</code></td>
       <td style="text-align: left">Bairro do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">45</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.City</code></td>
       <td style="text-align: left">Cidade do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">50</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.State</code></td>
       <td style="text-align: left">Estado do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.Country</code></td>
       <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.ZipCode</code></td>
       <td style="text-align: left">Código postal do endereço de cobrança</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">9</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Street</code></td>
       <td style="text-align: left">Logradouro do endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">54</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Number</code></td>
       <td style="text-align: left">Número do endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">5</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Complement</code></td>
       <td style="text-align: left">Complemento do endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">14</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Neighborhood</code></td>
       <td style="text-align: left">Bairro do endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">45</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.City</code></td>
       <td style="text-align: left">Cidade do endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">50</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.State</code></td>
       <td style="text-align: left">Estado do endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Country</code></td>
       <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a></td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.ZipCode</code></td>
       <td style="text-align: left">Código postal do endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">9</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.FirstName</code></td>
       <td style="text-align: left">Primeiro nome do responsável a receber o produto no endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.LastName</code></td>
       <td style="text-align: left">Último do nome do responsável a receber o produto no endereço de entrega</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Phone</code></td>
       <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
@@ -886,56 +886,56 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.MerchantCustomerId</code></td>
       <td style="text-align: left">Número do documento de identificação do comprador, CPF ou CNPJ</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">16</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.FirstName</code></td>
       <td style="text-align: left">Primeiro nome do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.LastName</code></td>
       <td style="text-align: left">Último nome do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.BirthDate</code></td>
       <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1983-10-01</td>
       <td style="text-align: center">date</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td style="text-align: left">E-mail do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Ip</code></td>
       <td style="text-align: left">Endereço de IP do comprador. Formato IPv4 ou IPv6</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">45</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
       <td style="text-align: left">Número do telefone do comprador <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.BrowserHostName</code></td>
       <td style="text-align: left">Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
@@ -949,28 +949,28 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.BrowserEmail</code></td>
       <td style="text-align: left">E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja (<code class="language-plaintext highlighter-rouge">Customer.Email</code>)</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">100</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.BrowserType</code></td>
       <td style="text-align: left">Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP <br /> Ex.: Google Chrome, Mozilla Firefox, Safari etc.</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">40</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code></td>
       <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="language-plaintext highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br /> Saiba mais em <a href="https://braspag.github.io/manual/antifraude#fingerprint-com-a-cybersource">Fingerprint com a Cybersource</a></td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">88</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].ProductName</code></td>
       <td style="text-align: left">Nome do produto</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">255</td>
     </tr>
     <tr>
@@ -991,21 +991,21 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].UnitPrice</code></td>
       <td style="text-align: left">Preço unitário do produto <br /> Ex: 10950 = r$ 109,50</td>
       <td style="text-align: center">long</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].Sku</code></td>
       <td style="text-align: left">SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">255</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].Quantity</code></td>
       <td style="text-align: left">Quantidade do produto</td>
       <td style="text-align: center">int</td>
-      <td style="text-align: center">sim</td>
+      <td style="text-align: center">Sim</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
@@ -1061,35 +1061,35 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Bank.Name</code></td>
       <td style="text-align: left">Nome do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">40</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Bank.Code</code></td>
       <td style="text-align: left">Código do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Bank.Agency</code></td>
       <td style="text-align: left">Agência do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Bank.Address</code></td>
       <td style="text-align: left">Endereço do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">255</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Bank.City</code></td>
       <td style="text-align: left">Cidade onde está localizado o banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
@@ -1103,140 +1103,140 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Bank.SwiftCode</code></td>
       <td style="text-align: left">Código identificador único do banco do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">FundTransfer.AccountName</code></td>
       <td style="text-align: left">Nome vinculado a conta bancária</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">FundTransfer.AccountNumber</code></td>
       <td style="text-align: left">Número da conta bancária do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">FundTransfer.BankCheckDigit</code></td>
       <td style="text-align: left">Código utilizado para validar a conta bancária do comprador</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">2</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">FundTransfer.Iban</code></td>
       <td style="text-align: left">Número internacional da conta bancária do comprador (IBAN)</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">30</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Invoice.IsGift</code></td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador é para presente</td>
       <td style="text-align: center">bool</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Invoice.ReturnsAccepted</code></td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador pode ser devolvido a loja</td>
       <td style="text-align: center">bool</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Invoice.Tender</code></td>
       <td style="text-align: left">Forma de pagamento utilizada pelo comprador <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-18-invoice.tender">Tabela 18 - Invoice.Tender</a></td>
       <td style="text-align: center">enum</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.JourneyType</code></td>
       <td style="text-align: left">Tipo de viagem <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-7-airline.journeytype">Tabela 7 - Airline.JourneyType</a></td>
       <td style="text-align: center">enun</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.DepartureDateTime</code></td>
       <td style="text-align: left">Data e hora de partida <br /> Ex.: 2018-03-31 19:16:38</td>
       <td style="text-align: center">datetime</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].FirstName</code></td>
       <td style="text-align: left">Primeiro nome do passageiro</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].LastName</code></td>
       <td style="text-align: left">Último nome do passageiro</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].PassengerId</code></td>
       <td style="text-align: left">Identificador do passageiro a quem a passagem foi emitida</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">32</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].PassengerType</code></td>
       <td style="text-align: left">Tipo do passageiro <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-8-airline.passengers[n].passengertype">Tabela 8 - Airline.Passengers{n}.PassengerType</a></td>
       <td style="text-align: center">enum</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Phone</code></td>
       <td style="text-align: left">Telefone do passageiro <br /> Ex.: 552121114700</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">15</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Email</code></td>
       <td style="text-align: left">E-mail do passageiro</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">255</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Status</code></td>
       <td style="text-align: left">Classificação da empresa aérea <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-9-airline.passengers[n].status">Tabela 9 - Airline.Passengers{n}.Status</a></td>
       <td style="text-align: center">enum</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">60</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureAirport</code></td>
       <td style="text-align: left">Código do aeroporto de partida. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">3</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Legs[n].ArrivalAirport</code></td>
       <td style="text-align: left">Código do aeroporto de chegada. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a></td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">3</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CustomConfiguration.Comments</code></td>
       <td style="text-align: left">Comentários que a loja poderá associar a análise de fraude</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">255</td>
     </tr>
     <tr>
@@ -1250,14 +1250,14 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantDefinedData[n].Key</code></td>
       <td style="text-align: left">Chave do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-34-merchantdefineddata-(cybersource)">Tabela 34 - MerchantDefinedData(Cybersource)</a></td>
       <td style="text-align: center">int</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantDefinedData[n].Value</code></td>
       <td style="text-align: left">Valor do campo definido junto ao provedor de antifraude <br /> <a href="https://braspag.github.io/manual/antifraude#tabela-34-merchantdefineddata-(cybersource)">Tabela 34 - MerchantDefinedData(Cybersource)</a></td>
       <td style="text-align: center">var</td>
-      <td style="text-align: center">não</td>
+      <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
   </tbody>
