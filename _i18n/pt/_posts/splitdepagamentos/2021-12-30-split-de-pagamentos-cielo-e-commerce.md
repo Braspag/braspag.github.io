@@ -4593,6 +4593,8 @@ Os parâmetros serão enviados à URL cadastrada, conforme o próximo exemplo.
 
 Caso não seja retornada a resposta acima, haverá mais duas tentativas de envio do Post de Notificação.
 
+********************************************************************************************************************************************************************
+
 # Anexos
 
 ## Lista de Status da Transação
@@ -4640,8 +4642,8 @@ Quando uma pessoa tenta fazer uma compra com cartão no e-commerce a transação
 As transações negadas são classificadas como:
 
 * **Irreversíveis**: quando a retentativa não é permitida;
-* **Reversíveis**: quando a retentativa é permitida mediante as regras de cada bandeira.
-<br/>
+* **Reversíveis**: quando a retentativa é permitida mediante as regras de cada bandeira.<br>
+
 As retentativas podem ser cobradas pela bandeira e a quantidade de vezes que uma transação pode ser retentada antes da cobrança também varia de acordo com a bandeira.
 
 > Para ver as regras de retentativa de cada bandeira, acesse o manual [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="_blank"}
