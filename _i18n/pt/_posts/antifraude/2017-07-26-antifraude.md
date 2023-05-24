@@ -354,61 +354,61 @@ A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cy
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
-|`MerchantOrderId` |Número do pedido da loja|string|sim|100|
-|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
-|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
-|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|string|sim|3|
+|`MerchantOrderId` |Número do pedido da loja|string|Sim|100|
+|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|Sim|-|
+|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|Sim|-|
+|`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|string|Sim|3|
 |`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider](https://braspag.github.io/manual/antifraude#tabela-1-provider)|enum|-|-|
-|`BraspagTransactionId`|Id da transação no Pagador da Braspag. Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você pode enviar os campos `Tdi`,`Nsu`, `AuthorizationCode` e `SaleDate` em vez do campo `BraspagTransactionId`|guid|não|-|
-|`Tid`|Id da transação na adquirente <br/> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o `Tid` acompanhado dos campos `Nsu`, `AuthorizationCode` e `SaleDate` em vez do campo `BraspagTransactionId`|string|não|20|
-|`Nsu`|Número sequencial único da transação na adquirente <br/> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o `Nsu` acompanhado dos campos `Tid`, `AuthorizationCode` e `SaleDate` em vez do campo `BraspagTransactionId`|string|não|10|
-|`AuthorizationCode`|Código de autorização da transação na adquirente <br/> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o `AuthorizationCode`, acompanhado dos campos `Tid`, `Nsu` e `SaleDate` em vez do campo `BraspagTransactionId`|string|não|10|
-|`SaleDate`|Data da autorização da transação na adquirente <br/> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar este campo, acompanhado dos campos `Tid`, `Nsu` e `AuthorizationCode` em vez do campo `BraspagTransactionId`|datetime|não|-|
-|`Card.Number`|Número do cartão de crédito|string|sim|19|
-|`Card.Holder`|Nome do portador impresso no cartão de crédito|string|sim|50|
-|`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
-|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand](https://braspag.github.io/manual/antifraude#tabela-3-card.brand)|enum|sim|-|
-|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|não|-|
-|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|não|-|
-|`Card.Alias`|*Alias* (apelido) do cartão de crédito salvo no Cartão Protegido|string|não|64|
-|`Billing.Street`|Logradouro do endereço de cobrança|string|sim|54|
-|`Billing.Number`|Número do endereço de cobrança|string|sim|5|
-|`Billing.Complement`|Complemento do endereço de cobrança|string|não|14|
-|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|sim|45|
-|`Billing.City`|Cidade do endereço de cobrança|string|sim|50|
-|`Billing.State`|Estado do endereço de cobrança|string|sim|2|
-|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|sim|2|
-|`Billing.ZipCode`|Código postal do endereço de cobrança|string|sim|9|
-|`Shipping.Street`|Logradouro do endereço de entrega|string|não|54|
-|`Shipping.Number`|Número do endereço de entrega|string|não|5|
-|`Shipping.Complement`|Complemento do endereço de entrega|string|não|14|
-|`Shipping.Neighborhood`|Bairro do endereço de entrega|string|não|45|
-|`Shipping.City`|Cidade do endereço de entrega|string|não|50|
-|`Shipping.State`|Estado do endereço de entrega|string|não|2|
-|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|não|2|
-|`Shipping.ZipCode`|Código postal do endereço de entrega|string|não|9|
-|`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|não|60|
-|`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|não|60|
-|`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|não|15|
+|`BraspagTransactionId`|Id da transação no Pagador da Braspag. Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você pode enviar os campos `Tdi`,`Nsu`, `AuthorizationCode` e `SaleDate` em vez do campo `BraspagTransactionId`|guid|Não|-|
+|`Tid`|Id da transação na adquirente <br/> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o `Tid` acompanhado dos campos `Nsu`, `AuthorizationCode` e `SaleDate` em vez do campo `BraspagTransactionId`|string|Não|20|
+|`Nsu`|Número sequencial único da transação na adquirente <br/> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o `Nsu` acompanhado dos campos `Tid`, `AuthorizationCode` e `SaleDate` em vez do campo `BraspagTransactionId`|string|Não|10|
+|`AuthorizationCode`|Código de autorização da transação na adquirente <br/> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o `AuthorizationCode`, acompanhado dos campos `Tid`, `Nsu` e `SaleDate` em vez do campo `BraspagTransactionId`|string|Não|10|
+|`SaleDate`|Data da autorização da transação na adquirente <br/> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar este campo, acompanhado dos campos `Tid`, `Nsu` e `AuthorizationCode` em vez do campo `BraspagTransactionId`|datetime|Não|-|
+|`Card.Number`|Número do cartão de crédito|string|Sim|19|
+|`Card.Holder`|Nome do portador impresso no cartão de crédito|string|Sim|50|
+|`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|Sim|7|
+|`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand](https://braspag.github.io/manual/antifraude#tabela-3-card.brand)|enum|Sim|-|
+|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|Não|-|
+|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|Não|-|
+|`Card.Alias`|*Alias* (apelido) do cartão de crédito salvo no Cartão Protegido|string|Não|64|
+|`Billing.Street`|Logradouro do endereço de cobrança|string|Sim|54|
+|`Billing.Number`|Número do endereço de cobrança|string|Sim|5|
+|`Billing.Complement`|Complemento do endereço de cobrança|string|Não|14|
+|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|Sim|45|
+|`Billing.City`|Cidade do endereço de cobrança|string|Sim|50|
+|`Billing.State`|Estado do endereço de cobrança|string|Sim|2|
+|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|Sim|2|
+|`Billing.ZipCode`|Código postal do endereço de cobrança|string|Sim|9|
+|`Shipping.Street`|Logradouro do endereço de entrega|string|Não|54|
+|`Shipping.Number`|Número do endereço de entrega|string|Não|5|
+|`Shipping.Complement`|Complemento do endereço de entrega|string|Não|14|
+|`Shipping.Neighborhood`|Bairro do endereço de entrega|string|Não|45|
+|`Shipping.City`|Cidade do endereço de entrega|string|Não|50|
+|`Shipping.State`|Estado do endereço de entrega|string|Não|2|
+|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|Não|2|
+|`Shipping.ZipCode`|Código postal do endereço de entrega|string|Não|9|
+|`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|Não|60|
+|`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|Não|60|
+|`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|Não|15|
 |`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod](https://braspag.github.io/manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|sim|16|
-|`Customer.FirstName`|Primeiro nome do comprador|string|sim|60|
-|`Customer.LastName`|Último nome do comprador|string|sim|60|
-|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|sim|-|
-|`Customer.Email`|E-mail do comprador|string|sim|100|
-|`Customer.Ip`|Endereço de IP do comprador. Formato IPv4 ou IPv6|string|sim|45|
-|`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|sim|15|
-|`Customer.BrowserHostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|string|não|60|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|Sim|16|
+|`Customer.FirstName`|Primeiro nome do comprador|string|Sim|60|
+|`Customer.LastName`|Último nome do comprador|string|Sim|60|
+|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|Sim|-|
+|`Customer.Email`|E-mail do comprador|string|Sim|100|
+|`Customer.Ip`|Endereço de IP do comprador. Formato IPv4 ou IPv6|string|Sim|45|
+|`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|Sim|15|
+|`Customer.BrowserHostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|string|Não|60|
 |`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies <br/> Possíveis valores: true / false (default)|bool|-|-|
-|`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja (`Customer.Email`)|string|não|100|
-|`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP <br/> Ex.: Google Chrome, Mozilla Firefox, Safari etc.|string|não|40|
-|`Customer.BrowserFingerprint`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br/> Saiba mais em [Fingerprint com a Cybersource](https://braspag.github.io/manual/antifraude#fingerprint-com-a-cybersource)|string|sim|88|
-|`CartItem[n].ProductName`|Nome do produto|string|sim|255|
+|`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja (`Customer.Email`)|string|Não|100|
+|`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP <br/> Ex.: Google Chrome, Mozilla Firefox, Safari etc.|string|Não|40|
+|`Customer.BrowserFingerprint`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br/> Saiba mais em [Fingerprint com a Cybersource](https://braspag.github.io/manual/antifraude#fingerprint-com-a-cybersource)|string|Sim|88|
+|`CartItem[n].ProductName`|Nome do produto|string|Sim|255|
 |`CartItem[n].Category`|Categoria do produto <br/> [Tabela 36 - CartItem{n}.Category](https://braspag.github.io/manual/antifraude#tabela-36-cartitem[n].category)|enum|-|-|
 |`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 10 - CartItem{n}.Risk](https://braspag.github.io/manual/antifraude#tabela-10-cartitem[n].risk)|enum|-|-|
-|`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|sim|-|
-|`CartItem[n].Sku`|SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto|string|sim|255|
-|`CartItem[n].Quantity`|Quantidade do produto|int|sim|-|
+|`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|Sim|-|
+|`CartItem[n].Sku`|SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto|string|Sim|255|
+|`CartItem[n].Quantity`|Quantidade do produto|int|Sim|-|
 |`CartItem[n].AddressRiskVerify`|Identifica que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países <br/> [Tabela 11 - CartItem{n}.AddressRiskVerify](https://braspag.github.io/manual/antifraude#tabela-11-cartitem[n].addressriskverify)|enum|-|-|
 |`CartItem[n].HostHedge`|Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude <br/> [Tabela 12 - CartItem{n}.HostHedge](https://braspag.github.io/manual/antifraude#tabela-12-cartitem[n].hosthedge)|enum|-|-|
 |`CartItem[n].NonSensicalHedge`|Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude <br/> [Tabela 13 - CartItem{n}.NonSensicalHedge](https://braspag.github.io/manual/antifraude#tabela-13-cartitem[n].nonsensicalhedge)|enum|-|-|
@@ -416,35 +416,35 @@ A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cy
 |`CartItem[n].TimeHedge`|Nível de importância da hora do dia na análise de fraude que o comprador realizou o pedido <br/> [Tabela 15 - CartItem{n}.TimeHedge](https://braspag.github.io/manual/antifraude#tabela-15-cartitem[n].timehedge)|enum|-|-|
 |`CartItem[n].PhoneHedge`|Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude <br/> [Tabela 16 - CartItem{n}.PhoneHedge](https://braspag.github.io/manual/antifraude#tabela-16-cartitem[n].phonehedge)|enum|-|-|
 |`CartItem[n].VelocityHedge`|Nível de importância da frequência de compra do comprador na análise de fraude dentro dos 15 minutos anteriores <br/> [Tabela 16 - CartItem{n}.VelocityHedge](https://braspag.github.io/manual/antifraude#tabela-17-cartitem[n].velocityhedge){:target="_blank"}|enum|-|-|
-|`Bank.Name`|Nome do banco do comprador|string|não|40|
-|`Bank.Code`|Código do banco do comprador|string|não|15|
-|`Bank.Agency`|Agência do banco do comprador|string|não|15|
-|`Bank.Address`|Endereço do banco do comprador|string|não|255|
-|`Bank.City`|Cidade onde está localizado o banco do comprador|string|não|15|
+|`Bank.Name`|Nome do banco do comprador|string|Não|40|
+|`Bank.Code`|Código do banco do comprador|string|Não|15|
+|`Bank.Agency`|Agência do banco do comprador|string|Não|15|
+|`Bank.Address`|Endereço do banco do comprador|string|Não|255|
+|`Bank.City`|Cidade onde está localizado o banco do comprador|string|Não|15|
 |`Bank.Country`|País onde está localizado o banco do comprador <br/> Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|não|2|
-|`Bank.SwiftCode`|Código identificador único do banco do comprador|string|não|30|
-|`FundTransfer.AccountName`|Nome vinculado a conta bancária|string|não|30|
-|`FundTransfer.AccountNumber`|Número da conta bancária do comprador|string|não|30|
-|`FundTransfer.BankCheckDigit`|Código utilizado para validar a conta bancária do comprador|string|não|2|
-|`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|não|30|
-|`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|não|-|
-|`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|bool|não|-|
-|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Tabela 18 - Invoice.Tender](https://braspag.github.io/manual/antifraude#tabela-18-invoice.tender)|enum|não|-|
-|`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 7 - Airline.JourneyType](https://braspag.github.io/manual/antifraude#tabela-7-airline.journeytype)|enun|não|-|
-|`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|não|-|
-|`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|60|
-|`Airline.Passengers[n].LastName`|Último nome do passageiro|string|não|60|
-|`Airline.Passengers[n].PassengerId`|Identificador do passageiro a quem a passagem foi emitida|string|não|32|
-|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 8 - Airline.Passengers{n}.PassengerType](https://braspag.github.io/manual/antifraude#tabela-8-airline.passengers[n].passengertype)|enum|não|-|
-|`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|15|
-|`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|255|
-|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 9 - Airline.Passengers{n}.Status](https://braspag.github.io/manual/antifraude#tabela-9-airline.passengers[n].status)|enum|não|60|
-|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|não|3|
-|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|não|3|
-|`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|não|255|
+|`Bank.SwiftCode`|Código identificador único do banco do comprador|string|Não|30|
+|`FundTransfer.AccountName`|Nome vinculado a conta bancária|string|Não|30|
+|`FundTransfer.AccountNumber`|Número da conta bancária do comprador|string|Não|30|
+|`FundTransfer.BankCheckDigit`|Código utilizado para validar a conta bancária do comprador|string|Não|2|
+|`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|Não|30|
+|`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|Não|-|
+|`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|bool|Não|-|
+|`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Tabela 18 - Invoice.Tender](https://braspag.github.io/manual/antifraude#tabela-18-invoice.tender)|enum|Não|-|
+|`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 7 - Airline.JourneyType](https://braspag.github.io/manual/antifraude#tabela-7-airline.journeytype)|enun|Não|-|
+|`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|Não|-|
+|`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|Não|60|
+|`Airline.Passengers[n].LastName`|Último nome do passageiro|string|Não|60|
+|`Airline.Passengers[n].PassengerId`|Identificador do passageiro a quem a passagem foi emitida|string|Não|32|
+|`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 8 - Airline.Passengers{n}.PassengerType](https://braspag.github.io/manual/antifraude#tabela-8-airline.passengers[n].passengertype)|enum|Não|-|
+|`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|Não|15|
+|`Airline.Passengers[n].Email`|E-mail do passageiro|string|Não|255|
+|`Airline.Passengers[n].Status`|Classificação da empresa aérea <br/> [Tabela 9 - Airline.Passengers{n}.Status](https://braspag.github.io/manual/antifraude#tabela-9-airline.passengers[n].status)|enum|Não|60|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|Não|3|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|Não|3|
+|`CustomConfiguration.Comments`|Comentários que a loja poderá associar a análise de fraude|string|Não|255|
 |`CustomConfiguration.ScoreThreshold`|Nível aceitável de risco para cada produto|int|-|-|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 34 - MerchantDefinedData(Cybersource)](https://braspag.github.io/manual/antifraude#tabela-34-merchantdefineddata-(cybersource))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 34 - MerchantDefinedData(Cybersource)](https://braspag.github.io/manual/antifraude#tabela-34-merchantdefineddata-(cybersource))|var|não|-|
+|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 34 - MerchantDefinedData(Cybersource)](https://braspag.github.io/manual/antifraude#tabela-34-merchantdefineddata-(cybersource))|int|Não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 34 - MerchantDefinedData(Cybersource)](https://braspag.github.io/manual/antifraude#tabela-34-merchantdefineddata-(cybersource))|var|Não|-|
 
 ### Resposta
 
