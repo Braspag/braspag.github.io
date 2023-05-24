@@ -95,7 +95,7 @@ The chosen flow must be determined during integration, because it is part of the
 
 If, after integration, you wish to change the fraud analysis flow, you should request Braspag's support, as there are details involved in a possible change, mainly in relation to speed rules.
 
-## Which flow is indicated for my e-commerce?
+## Which flow is recommended for my e-commerce?
 
 * The choice can be made according to the rules of your business, taking into account aspects such as the average ticket and type of product sold;
 * You can build your application with both flows and apply the business rules according to your risk criteria.
