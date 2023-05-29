@@ -2632,14 +2632,14 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 
 | PROPRIEDADE| DESCRIÇÃO| TIPO| TAMANHO | OBRIGATÓRIO?|
 | --- | --- | --- | --- | --- |
-| `MerchantOrderId` | Número de identificação do pedido.| Texto | 50 | Sim |
-| `Customer.Name` | Nome do pagador. | Texto | 255 | Sim |
-| `Customer.Identity` | Número do CPF ou CNPJ do cliente. | Texto | 14 | Sim |
-| `Customer.IdentityType` | Tipo de documento de identificação do comprador (CPF ou CNPJ). | Texto | 255 | Sim |
-| `Payment.Type` | Tipo do meio de pagamento. Neste caso, "Pix". | Texto | - | Sim |
-| `Payment.Provider` |Nome do provedor do meio de pagamento. Neste caso, "Cielo30" ou "Bradesco2". | Texto | - | Sim |
-| `Payment.Amount` | Valor do pedido, em centavos.| Número | 15 | Sim |
-| `Payment.QrCodeExpiration` | Tempo de expiração do QR Code, em segundos. Ex: 24 horas = 86400.<br> **Para provider Cielo30**: o tempo de expiração é de 24 horas e não é parametrizavel.<br>**Para provider Bradesco2**: o tempo de expiração do QR Code pode ser configurado no painel Shopfácil ou no momento da autorização pelo parâmetro `Payment.QrCodeExpiration`.| Número | 3600 | Não |
+| `MerchantOrderId` | Número de identificação do pedido.| texto | 50 | Sim |
+| `Customer.Name` | Nome do pagador. | texto | 255 | Sim |
+| `Customer.Identity` | Número do CPF ou CNPJ do cliente. | texto | 14 | Sim |
+| `Customer.IdentityType` | Tipo de documento de identificação do comprador (CPF ou CNPJ). | texto | 255 | Sim |
+| `Payment.Type` | Tipo do meio de pagamento. Neste caso, "Pix". | texto | - | Sim |
+| `Payment.Provider` |Nome do provedor do meio de pagamento. Neste caso, "Cielo30" ou "Bradesco2". | texto | - | Sim |
+| `Payment.Amount` | Valor do pedido, em centavos.| número | 15 | Sim |
+| `Payment.QrCodeExpiration` | Tempo de expiração do QR Code, em segundos. Ex: 24 horas = 86400.<br> **Para provider Cielo30**: o tempo de expiração é de 24 horas e não é parametrizavel.<br>**Para provider Bradesco2**: o tempo de expiração do QR Code pode ser configurado no painel Shopfácil ou no momento da autorização pelo parâmetro `Payment.QrCodeExpiration`.| número | 3600 | Não |
 
 #### Resposta
 
@@ -2647,8 +2647,8 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 {
    "MerchantOrderId":"2020102601",
    "Customer":{
-        "Name": "Luis Henrique",
-        "Identity": "21844718933",
+        "Name": "Nome comprador",
+        "Identity": "12345678900",
         "IdentityType": "CPF"
    },
    "Payment":{
@@ -2679,8 +2679,8 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 {
    "MerchantOrderId":"2020102601",
    "Customer":{
-        "Name": "Luis Henrique",
-        "Identity": "21844718933",
+        "Name": "Nome comprador",
+        "Identity": "12345678900",
         "IdentityType": "CPF"
    },
    "Payment":{
@@ -2707,15 +2707,15 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 
 | PROPRIEDADE | DESCRIÇÃO| TIPO | TAMANHO | FORMATO |
 | --- | --- | --- | --- | --- |
-| `Payment.PaymentId` | Campo identificador do pedido. | GUID | 40 | Texto |
+| `Payment.PaymentId` | Campo identificador do pedido. | GUID | 40 | texto |
 | `Payment.AcquirerTransactionId` | Id da transação no provedor de meio de pagamento.| GUID | 36 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `Payment.ProofOfSale` | NSU Pix. |Texto|20|Texto alfanumérico|
-| `Payment.SentOrderId` | Número único enviado ao emissor Pix para representar o número do pedido. Utilizado para realizar a conciliação financeira. | Número | 8 | 10045146 |
-| `Payment.QrcodeBase64Image` | Código em base64 da imagem do QR code. | Texto | - | Texto |
-| `Payment.QrCodeString`|Texto codificado para o comprador "copiar" e "colar" no campo do internet banking em pagamentos feitos no ambiente mobile.|Texto|Variável|Texto alfanumérico|
-| `Payment.Status` | Status da transação. Em caso de sucesso, o status inicial é “12” (*Pendente*). [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o) para ver lista de status.| Número | - | 12 |
-| `Payment.ProviderReturnCode` | Código retornado pelo provedor do meio de pagamento. | Texto | 32 | 0 |
-| `Payment.ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento. | Texto | 512 |"Pix gerado com sucesso" |
+| `Payment.ProofOfSale` | NSU Pix. |texto|20|texto alfanumérico|
+| `Payment.SentOrderId` | Número único enviado ao emissor Pix para representar o número do pedido. Utilizado para realizar a conciliação financeira. | número | 8 | 10045146 |
+| `Payment.QrcodeBase64Image` | Código em base64 da imagem do QR code. | texto | - | texto |
+| `Payment.QrCodeString`|Texto codificado para o comprador "copiar" e "colar" no campo do internet banking em pagamentos feitos no ambiente mobile.|texto|Variável|texto alfanumérico|
+| `Payment.Status` | Status da transação. Em caso de sucesso, o status inicial é “12” (*Pendente*). [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o) para ver lista de status.| número | - | 12 |
+| `Payment.ProviderReturnCode` | Código retornado pelo provedor do meio de pagamento. | texto | 32 | 0 |
+| `Payment.ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento. | texto | 512 |"Pix gerado com sucesso". |
 
 ### Solicitando uma Devolução Pix
 
@@ -2739,10 +2739,10 @@ Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
-|`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API. |texto |40 |Sim|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
 |`PaymentId`|Campo identificador do pedido. |GUID |36 |Sim|
-|`Amount`|Valor a ser cancelado/estornado, em centavos. Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.|Número |15 |Não|
+|`Amount`|Valor a ser cancelado/estornado, em centavos. Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.|número |15 |Não|
 
 #### Resposta
 
@@ -2782,9 +2782,9 @@ Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar 
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`Status`|Status da transação. |Byte | 2 | Ex.: "1" |
-|`ReasonCode`|Código de retorno da adquirência. |Texto |32 |Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da adquirência. |Texto |512 |Texto alfanumérico|
+|`Status`|Status da transação. |byte | 2 | Ex.: "1" |
+|`ReasonCode`|Código de retorno da adquirência. |texto |32 |texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da adquirência. |texto |512 |texto alfanumérico|
 
 ## QR Code
 
@@ -2838,13 +2838,13 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
-|`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do comprador.|Texto|255|Não|
-|`Payment.Provider`|Nome do provedor do meio de pagamento. Obs.: Atualmente somente disponível para **Cielo30**.|Texto|15|Sim|
-|`Payment.Type`|Tipo do meio de pagamento. Neste caso, "qrcode".|Texto|100|Sim|
-|`Payment.Amount`|Valor do pedido (maior que zero), em centavos.|Número|15|Sim|
-|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
-|`Payment.Capture`|Enviar "true" para uma transação de captura automática.|Booleano|-|Não|
+|`MerchantOrderId`|Número de identificação do pedido.|texto|50|Sim|
+|`Customer.Name`|Nome do comprador.|texto|255|Não|
+|`Payment.Provider`|Nome do provedor do meio de pagamento. Obs.: Atualmente somente disponível para **Cielo30**.|texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento. Neste caso, "qrcode".|texto|100|Sim|
+|`Payment.Amount`|Valor do pedido (maior que zero), em centavos.|número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|número|2|Sim|
+|`Payment.Capture`|Enviar "true" para uma transação de captura automática.|booleano|-|Não|
 
 #### Resposta
 
@@ -2921,11 +2921,11 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`QrCodeBase64Image`|QR code codificado em base64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este:<br><br> &lt;img src="data:image/png;base64,{código da imagem em base64}"&gt;.|Texto|Variável|Texto alfanumérico|
+|`QrCodeBase64Image`|QR code codificado em base64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este:<br><br> &lt;img src="data:image/png;base64,{código da imagem em base64}"&gt;.|texto|Variável|texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido. Necessário para operações como consulta, captura e cancelamento.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Status da transação. No caso da transação de geração com QR code, o status inicial é "12" (*Pendente*). [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte|-|2|
-|`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirência.|Texto|512|Texto alfanumérico|
+|`Status`|Status da transação. No caso da transação de geração com QR code, o status inicial é "12" (*Pendente*). [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|byte|-|2|
+|`ReturnCode`|Código de retorno da adquirência.|texto|32|texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da adquirência.|texto|512|texto alfanumérico|
 
 ## Boleto
 
@@ -3049,39 +3049,39 @@ Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizad
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
 |`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|Texto|40|Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|texto|40|Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não (envio no *header*)|
-|`MerchantOrderId`|Número de identificação do pedido. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
-|`Customer.Name`|Nome do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
-|`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.|Texto |14 |Sim|
-|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ).|Texto|255|Sim|
-|`Customer.Address.Street`|Endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
-|`Customer.Address.Number`|Número do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
-|`Customer.Address.Complement`|Complemento do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Não|
-|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador.|Texto|8|Sim|
-|`Customer.Address.District`|Bairro do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim
-|`Customer.Address.City`|Cidade do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
-|`Customer.Address.State`|Estado do endereço de contato do comprador.|Texto|2|Sim|
-|`Customer.Address.Country`|País do endereço de contato do comprador.|Texto|35|Sim|
-|`Payment.Provider`|Nome do provedor do meio de pagamento do boleto. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#providers-para-consulta-bin-via-verifycard) para acessar a lista de provedores.|Texto|15|Sim|
-|`Payment.Type`|Tipo do meio de pagamento. Neste caso, "Boleto".|Texto|100|Sim|
-|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.BoletoNumber`|Número do boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Número |Veja a [tabela](#conciliação-de-boletos)|Não|
-|`Payment.Assignor`|Nome do cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento.|Texto |200|Não|
-|`Payment.Demonstrative`|Texto de demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
+|`MerchantOrderId`|Número de identificação do pedido. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Name`|Nome do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.|texto |14 |Sim|
+|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ).|texto|255|Sim|
+|`Customer.Address.Street`|Endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Address.Number`|Número do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Address.Complement`|Complemento do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|texto|Veja a [tabela](#conciliação-de-boletos)|Não|
+|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador.|texto|8|Sim|
+|`Customer.Address.District`|Bairro do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|texto|Veja a [tabela](#conciliação-de-boletos)|Sim
+|`Customer.Address.City`|Cidade do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
+|`Customer.Address.State`|Estado do endereço de contato do comprador.|texto|2|Sim|
+|`Customer.Address.Country`|País do endereço de contato do comprador.|texto|35|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento do boleto. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#providers-para-consulta-bin-via-verifycard) para acessar a lista de provedores.|texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento. Neste caso, "Boleto".|texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|número|15|Sim|
+|`Payment.BoletoNumber`|Número do boleto ("Nosso Número"). Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|número |Veja a [tabela](#conciliação-de-boletos)|Não|
+|`Payment.Assignor`|Nome do cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento.|texto |200|Não|
+|`Payment.Demonstrative`|Texto de demonstrativo. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|texto |Veja a [tabela](#conciliação-de-boletos)|Não|
 |`Payment.ExpirationDate`|Data de vencimento do boleto. Caso não esteja previamente cadastrado no meio de pagamento, o envio deste campo é obrigatório. Se enviado na requisição, sobrepõe o valor configurado no meio de pagamento.|Date |AAAA-MM-DD|Não|
-|`Payment.Identification`|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento.|Texto |14 |Não|
-|`Payment.Instructions`|Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)). Para quebra de linhas no texto utilize sempre a notação em HTML `<br>`.|Texto |Veja a [tabela](#conciliação-de-boletos)|Não|
-|`Payment.NullifyDays`|Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo, contado a partir da data de vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12; após esta data o título é cancelado. Obs.: Recurso válido somente para boletos registrados do Banco Santander.|Número |2 |Não|
-|`Payment.DaysToFine`|Opcional e somente para o provedor Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex.: 3.|Número |15 |Não|
-|`Payment.FineRate`|Opcional e somente para o provedor Bradesco2. Valor da multa após o vencimento, em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `FineAmount`. Ex: 10.12345 = 10.12345%.|Número |15 |Não*|
-|`Payment.FineAmount`|Opcional e somente para o provedor Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não utilizar em conjunto com `FineRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
-|`Payment.DaysToInterest`|Opcional e somente para o provedor Bradesco2. Quantidade de dias após o vencimento para início da cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex.: 3.|Número |15 |Não|
-|`Payment.InterestRate`|Opcional e somente para o provedor Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `InterestAmount`. Ex.: 10.12345.|Número |15 |Não*|
-|`Payment.InterestAmount`|Opcional e somente para o provedor Bradesco2. Valor absoluto de juros diários após o vencimento, em centavos. Não utilizar em conjunto com `InterestRate`. Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
-|`Payment.DiscountAmount`|Opcional e somente para o provedor Bradesco2.  Valor do desconto até a data limite estipulada pelo Payment.DiscountLimitDate. Em valor absoluto em centavos. Não utilizar em conjunto com "Payment.DiscountRate". Ex.: 1000 = R$ 10,00.|Número |15 |Não*|
-|`Payment.DiscountLimitDate`|Opcional e somente para o provedor Bradesco2. Data limite para conceder o desconto|Date|AAAA-MM-DD|Não*|
-|`Payment.DiscountRate`|Opcional e somente para o provedor Bradesco2. Valor de desconto após o vencimento em percentual, com base no valor do boleto (%). Não utilizar em conjunto com "Payment.DiscountAmount".|Número |15 |Não* |
+|`Payment.Identification`|CNPJ do Cedente. Caso preenchido, sobrepõe o valor configurado no meio de pagamento.|texto |14 |Não|
+|`Payment.Instructions`|Instruções do boleto. Caso preenchido, sobrepõe o valor configurado no meio de pagamento. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)). Para quebra de linhas no texto utilize sempre a notação em HTML `<br>`.|texto |Veja a [tabela](#conciliação-de-boletos)|Não|
+|`Payment.NullifyDays`|Prazo para baixa automática do boleto. O cancelamento automático do boleto acontecerá após o número de dias estabelecido neste campo, contado a partir da data de vencimento. Ex.: um boleto com vencimento para 15/12 que tenha em seu registro o prazo para baixa de 5 dias, poderá ser pago até 20/12; após esta data o título é cancelado. Obs.: Recurso válido somente para boletos registrados do Banco Santander.|número |2 |Não|
+|`Payment.DaysToFine`|Opcional e somente para o provedor Bradesco2. Quantidade de dias após o vencimento para cobrar o valor da multa, em número inteiro. Ex.: 3.|número |15 |Não|
+|`Payment.FineRate`|Opcional e somente para o provedor Bradesco2. Valor da multa após o vencimento, em percentual, com base no valor do boleto (%). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `FineAmount`. Ex: 10.12345 = 10.12345%.|número |15 |Não*|
+|`Payment.FineAmount`|Opcional e somente para o provedor Bradesco2. Valor da multa após o vencimento em valor absoluto em centavos. Não utilizar em conjunto com `FineRate`. Ex.: 1000 = R$ 10,00.|número |15 |Não*|
+|`Payment.DaysToInterest`|Opcional e somente para o provedor Bradesco2. Quantidade de dias após o vencimento para início da cobrança de juros por dia sobre o valor do boleto, em número inteiro. Ex.: 3.|número |15 |Não|
+|`Payment.InterestRate`|Opcional e somente para o provedor Bradesco2. Valor de juros mensal após o vencimento em percentual, com base no valor do boleto (%). O valor de juros é cobrado proporcionalmente por dia (mensal dividido por 30). Permitido decimal com até 5 casas decimais. Não utilizar em conjunto com `InterestAmount`. Ex.: 10.12345.|número |15 |Não*|
+|`Payment.InterestAmount`|Opcional e somente para o provedor Bradesco2. Valor absoluto de juros diários após o vencimento, em centavos. Não utilizar em conjunto com `InterestRate`. Ex.: 1000 = R$ 10,00.|número |15 |Não*|
+|`Payment.DiscountAmount`|Opcional e somente para o provedor Bradesco2.  Valor do desconto até a data limite estipulada pelo Payment.DiscountLimitDate. Em valor absoluto em centavos. Não utilizar em conjunto com "Payment.DiscountRate". Ex.: 1000 = R$ 10,00.|número |15 |Não*|
+|`Payment.DiscountLimitDate`|Opcional e somente para o provedor Bradesco2. Data limite para conceder o desconto|data|AAAA-MM-DD|Não*|
+|`Payment.DiscountRate`|Opcional e somente para o provedor Bradesco2. Valor de desconto após o vencimento em percentual, com base no valor do boleto (%). Não utilizar em conjunto com "Payment.DiscountAmount".|número |15 |Não* |
 
 #### Resposta
 
@@ -3198,13 +3198,13 @@ Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizad
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`PaymentId`|Campo identificador do pedido. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`ExpirationDate`|Data de expiração. |Texto |10 |2014-12-25 |
+|`ExpirationDate`|Data de expiração. |texto |10 |2014-12-25 |
 |`Url`|URL do boleto gerado. |string |256 |https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d |
-|`BoletoNumber`|"NossoNumero" gerado. |Número|50 |2017091101 |
-|`BarCodeNumber`|Representação numérica do código de barras. |Texto |44 |00091628800000157000494250100000001200656560 |
-|`DigitableLine`|Linha digitável. |Texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
-|`Address`|Endereço da loja cadastrada no banco emissor. |Texto |256 |Ex.: Av. Teste, 160 |
-|`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|Byte | 2 | Ex.: 1 |
+|`BoletoNumber`|"NossoNumero" gerado. |número|50 |2017091101 |
+|`BarCodeNumber`|Representação numérica do código de barras. |texto |44 |00091628800000157000494250100000001200656560 |
+|`DigitableLine`|Linha digitável. |texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
+|`Address`|Endereço da loja cadastrada no banco emissor. |texto |256 |Ex.: Av. Teste, 160 |
+|`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|byte | 2 | Ex.: 1 |
 
 ### Conciliação de Boletos
 
@@ -3335,27 +3335,27 @@ Para criar uma venda, é necessário o envio de mensagem HTTP através do métod
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API. |texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`MerchantOrderId`|Número de identificação do pedido. |Texto |50 |Sim|
-|`Customer.Name`|Nome do comprador.|Texto|255|Sim|
-|`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.| Texto |14 |Sim|
-|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ).|Texto|255|Não|
-|`Customer.Email`|Email do comprador.|Texto|255|Não|
-|`Customer.Address.Street`|Endereço de contato do comprador.|Texto|255|Sim|
-|`Customer.Address.Number`|Número do endereço de contato do comprador.|Texto|15|Sim|
-|`Customer.Address.Complement`|Complemento do endereço de contato do comprador.|Texto|50|Sim|
-|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador.|Texto|9|Sim|
-|`Customer.Address.City`|Cidade do endereço de contato do comprador.|Texto|50|Sim|
-|`Customer.Address.State`|Estado do endereço de contato do comprador.|Texto|2|Sim|
-|`Customer.Address.Country`|País do endereço de contato do comprador.|Texto|35|Sim|
-|`Customer.Address.District`|Bairro do endereço de contato do comprador.|Texto|35|Sim|
-|`Payment.Type`|Tipo do meio de pagamento. Neste caso, "EletronicTransfer".|Texto |100 |Sim|
-|`Payment.Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
-|`Payment.Provider`|Nome do provedor do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador##providers-para-transferência-eletrônica-(débito-online)) para acessar a lista de provedores.|Texto |15 |---|
-|`Payment.Beneficiary.Bank`|Banco do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). |Texto |100 |Condicional|
-|`Payment.Shopper.Branch`|Agência do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). Obs.: Suprimir esse nó para modalidade de *Depósito Identificado*. |Texto |100 |Condicional|
-|`Payment.Shopper.Account`|Conta do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). Obs.: Suprimir esse nó para modalidade de *Depósito Identificado*. |Texto |100 |Condicional|
+|`MerchantOrderId`|Número de identificação do pedido. |texto |50 |Sim|
+|`Customer.Name`|Nome do comprador.|texto|255|Sim|
+|`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.| texto |14 |Sim|
+|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ).|texto|255|Não|
+|`Customer.Email`|Email do comprador.|texto|255|Não|
+|`Customer.Address.Street`|Endereço de contato do comprador.|texto|255|Sim|
+|`Customer.Address.Number`|Número do endereço de contato do comprador.|texto|15|Sim|
+|`Customer.Address.Complement`|Complemento do endereço de contato do comprador.|texto|50|Sim|
+|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador.|texto|9|Sim|
+|`Customer.Address.City`|Cidade do endereço de contato do comprador.|texto|50|Sim|
+|`Customer.Address.State`|Estado do endereço de contato do comprador.|texto|2|Sim|
+|`Customer.Address.Country`|País do endereço de contato do comprador.|texto|35|Sim|
+|`Customer.Address.District`|Bairro do endereço de contato do comprador.|texto|35|Sim|
+|`Payment.Type`|Tipo do meio de pagamento. Neste caso, "EletronicTransfer".|texto |100 |Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|número |15 |Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador##providers-para-transferência-eletrônica-(débito-online)) para acessar a lista de provedores.|texto |15 |---|
+|`Payment.Beneficiary.Bank`|Banco do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). |texto |100 |Condicional|
+|`Payment.Shopper.Branch`|Agência do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). Obs.: Suprimir esse nó para modalidade de *Depósito Identificado*. |texto |100 |Condicional|
+|`Payment.Shopper.Account`|Conta do pagador (obrigatório somente para transferência eletrônica com provider **PayMeeSemiTransparent**). Obs.: Suprimir esse nó para modalidade de *Depósito Identificado*. |texto |100 |Condicional|
 
 #### Resposta
 
@@ -3438,8 +3438,8 @@ Para criar uma venda, é necessário o envio de mensagem HTTP através do métod
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Url`|URL para onde o usuário será redirecionado para autenticação da transferência eletrônica. |Texto |256 |Url de Autenticação|
-|`Status`|Status da transação.|Byte|2|Ex.: 1|
+|`Url`|URL para onde o usuário será redirecionado para autenticação da transferência eletrônica. |texto |256 |Url de Autenticação|
+|`Status`|Status da transação.|byte|2|Ex.: 1|
 
 ## E-Wallet (Carteira Digital)
 
@@ -3590,16 +3590,16 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome do provedor do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador#providers-para-voucher) para acessar a lista de provedores.|Texto|15|Sim|
-|`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|Texto|100|Sim|
-|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
-|`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento.|Texto |1024 |Sim|
-|`DebitCard.CardNumber`|Número do cartão do comprador.|Texto|16|Sim|
-|`DebitCard.Holder`|Nome do comprador impresso no cartão.|Texto|25|Sim|
-|`DebitCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA. Obs.: Vouchers "Ticket" não possuem data de validade impressa no cartão. Envie uma data posterior ao dia atual para que a transação seja processada.|Texto|7|Sim|
-|`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
-|`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+|`Payment.Provider`|Nome do provedor do meio de pagamento. [Clique aqui](https://braspag.github.io//manual/braspag-pagador#providers-para-voucher) para acessar a lista de provedores.|texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento. Neste caso, "DebitCard".|texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|número|2|Sim|
+|`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento.|texto |1024 |Sim|
+|`DebitCard.CardNumber`|Número do cartão do comprador.|texto|16|Sim|
+|`DebitCard.Holder`|Nome do comprador impresso no cartão.|texto|25|Sim|
+|`DebitCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA. Obs.: Vouchers "Ticket" não possuem data de validade impressa no cartão. Envie uma data posterior ao dia atual para que a transação seja processada.|texto|7|Sim|
+|`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|texto|4|Sim|
+|`DebitCard.Brand`|Bandeira do cartão.|texto|10|Sim |
 
 #### Resposta
 
@@ -3680,17 +3680,17 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|texto|40|texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|texto|20|texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|texto|300|texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
-|`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação. |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
+|`Status`|Status da transação.|byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
+|`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação. |texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
 # Recorrência
 
