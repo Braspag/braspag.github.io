@@ -5061,17 +5061,17 @@ Consulte também os fluxos de tokenização direta com a [API do Cartão Protegi
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
-|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
-|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|19|Sim|
-|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
-|`CreditCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
-|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
-|`CreditCard.SaveCard`|"true" - para salvar o cartão. / "false" - para não salvar o cartão.|Booleano|10|Não (default "false") |
-|`CreditCard.Alias`|Alias (apelido) do cartão de crédito.|Texto|64|Não |
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|número|2|Sim|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|texto|19|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|texto|25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|texto|4|Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|texto|10|Sim |
+|`CreditCard.SaveCard`|"true" - para salvar o cartão. / "false" - para não salvar o cartão.|booleano|10|Não (default "false") |
+|`CreditCard.Alias`|Alias (apelido) do cartão de crédito.|texto|64|Não |
 
 ### Resposta
 
@@ -5166,16 +5166,16 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor do meio de pagamento.|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`AcquirerTransactionId`|Id da transação no provedor do meio de pagamento.|texto|40|texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|texto|20|texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|300|texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
+|`Status`|Status da transação.|byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
 |`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
 ## Criando uma Transação com CardToken
@@ -5333,13 +5333,13 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `CardToken` conforme exemp
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
-|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|número|2|Sim|
 |`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.|Texto|4|Não|
-|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.|texto|4|Não|
+|`CreditCard.Brand`|Bandeira do cartão.|texto|10|Sim |
 
 ### Resposta
 
@@ -5430,16 +5430,16 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `CardToken` conforme exemp
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|texto|40|texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|texto|20|texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|texto|300|texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
+|`Status`|Status da transação.|byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
 
 ## Criando uma Transação com Alias
 
@@ -5596,14 +5596,14 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `Alias` conforme exemplo a
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
-|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|número|2|Sim|
 |`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.|Texto|4|Não|
-|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
-|`CreditCard.Alias`|Alias (apelido) do cartão de crédito.|Texto|64|Não |
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.|texto|4|Não|
+|`CreditCard.Brand`|Bandeira do cartão.|texto|10|Sim |
+|`CreditCard.Alias`|Alias (apelido) do cartão de crédito.|texto|64|Não |
 
 ### Resposta
 
@@ -5694,16 +5694,16 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `Alias` conforme exemplo a
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento.|texto|40|texto alfanumérico|
+|`ProofOfSale`|Número do comprovante de venda.|texto|20|texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|texto|300|texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da operação.|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|Texto alfanumérico|
-|`Status`|Status da transação.|Byte|2|Ex.: 1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|Texto|512|Transação Aprovada|
+|`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
+|`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
+|`Status`|Status da transação.|byte|2|Ex.: 1|
+|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
+|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
 
 # Pagamentos com Análise de Fraude
 
