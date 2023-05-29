@@ -3831,19 +3831,19 @@ Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.D
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
-|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
-|`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
-|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência. Não utilizar em conjunto com `DailyInterval`.<br><br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não*|
-|`Payment.RecurrentPayment.DailyInterval`|Padrão da recorrência em dias. Não utilizar em conjunto com `Interval`.|Número|2|Não*|
-|`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
-|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|19|Sim|
-|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
-|`CreditCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|Texto|7|Sim|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
-|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|número|2|Sim|
+|`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|texto |10 |Não|
+|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência. Não utilizar em conjunto com `DailyInterval`.<br><br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|texto |10 |Não*|
+|`Payment.RecurrentPayment.DailyInterval`|Padrão da recorrência em dias. Não utilizar em conjunto com `Interval`.|número|2|Não*|
+|`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|booleano |--- |Sim|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|texto|19|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|texto|25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impresso no cartão, no formato MM/AAAA.|texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|texto|4|Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|texto|10|Sim |
 
 *Não use os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.DailyInterval` em conjunto.
 
@@ -3945,10 +3945,10 @@ Os parâmetros `Payment.RecurrentPayment.Interval` e `Payment.RecurrentPayment.D
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`RecurrentPaymentId`|ID que representa a recorrência, utilizada para consultas e alterações futuras. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`NextRecurrency`|Data de quando acontecerá a próxima recorrência. |Texto |10|2019-12-11 (YYYY-MM-DD) |
-|`EndDate`|Data do fim da recorrência. |Texto |10|2019-12-31 (YYYY-MM-DD) |
-|`Interval`|Intervalo entre as recorrências. |Texto |10 |Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
-|`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |Booleano |--- |"true" ou "false" |
+|`NextRecurrency`|Data de quando acontecerá a próxima recorrência. |texto |10|2019-12-11 (YYYY-MM-DD) |
+|`EndDate`|Data do fim da recorrência. |texto |10|2019-12-31 (YYYY-MM-DD) |
+|`Interval`|Intervalo entre as recorrências. |texto |10 |Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
+|`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |booleano |--- |"true" ou "false" |
 
 ## Agendamento de Recorrência
 
@@ -4051,20 +4051,20 @@ Para programar a primeira transação da série de recorrências, passe o parâm
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
-|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
-|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
-|`Payment.RecurrentPayment.StartDate`|Data para início da recorrência.|Texto |10 |Não|
-|`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|Texto |10 |Não|
-|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|Texto |10 |Não|
-|`Payment.RecurrentPayment.DailyInterval`|Padrão da recorrência em dias. Não utilizar em conjunto com `Interval`.|Número|2|Não*|
-|`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|Booleano |--- |Sim|
-|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|19|Sim|
-|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|Sim|
-|`CreditCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|Texto|7|Sim|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Sim|
-|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim |
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|texto|15|Sim|
+|`Payment.Type`|Tipo do meio de pagamento.|texto|100|Sim|
+|`Payment.Amount`|Valor do pedido, em centavos.|número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|número|2|Sim|
+|`Payment.RecurrentPayment.StartDate`|Data para início da recorrência.|texto |10 |Não|
+|`Payment.RecurrentPayment.EndDate`|Data para término da recorrência.|texto |10 |Não|
+|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br>Monthly (default) / Bimonthly / Quarterly / SemiAnnual / Annual|texto |10 |Não|
+|`Payment.RecurrentPayment.DailyInterval`|Padrão da recorrência em dias. Não utilizar em conjunto com `Interval`.|número|2|Não*|
+|`Payment.RecurrentPayment.AuthorizeNow`|"true" - autoriza no momento da requisição. "false" - para agendamento futuro.|booleano |--- |Sim|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|texto|19|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|texto|25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impressa no cartão, no formato MM/AAAA.|texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|texto|4|Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|texto|10|Sim |
 
 #### Resposta
 
@@ -4154,11 +4154,11 @@ Para programar a primeira transação da série de recorrências, passe o parâm
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`RecurrentPaymentId`|Campo identificador da próxima recorrência. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`NextRecurrency`|Data da próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`StartDate`|Data do início da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`Interval`|Intervalo entre as recorrências. |Texto |10 |Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
-|`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |Booleano |--- |true ou false |
+|`NextRecurrency`|Data da próxima recorrência. |texto |7 |05/2019 (MM/YYYY) |
+|`StartDate`|Data do início da recorrência. |texto |7 |05/2019 (MM/YYYY) |
+|`EndDate`|Data do fim da recorrência. |texto |7 |05/2019 (MM/YYYY) |
+|`Interval`|Intervalo entre as recorrências. |texto |10 |Monthly / Bimonthly / Quarterly / SemiAnnual / Annual|
+|`AuthorizeNow`|Define se a primeira recorrência já irá ser autorizada ou não. |booleano |--- |true ou false |
 
 ## Alteração de Dados
 
@@ -4241,30 +4241,30 @@ Para alterar os dados do comprador de uma recorrência existente, basta fazer um
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
-|`Name`|Nome do comprador. |Texto |255|Sim|
-|`Email`|Email do comprador. |Texto |255|Não|
-|`Birthdate`|Data de nascimento do comprador. |Date |10 |Não|
-|`Identity`|Número do RG, CPF ou CNPJ do cliente. |Texto |14 |Não|
-|`IdentityType`|Tipo do documento de identificação do comprador (CFP/CNPJ).|Texto|255|Não|
-|`Address.Street`|Endereço do comprador. |Texto |255 |Não|
-|`Address.Number`|Número do endereço do comprador. |Texto |15 |Não|
-|`Address.Complement`|Complemento do endereço do comprador.|Texto |50 |Não|
-|`Address.ZipCode`|CEP do endereço do comprador. |Texto |9 |Não|
-|`Address.City`|Cidade do endereço do comprador. |Texto |50 |Não|
-|`Address.State`|Estado do endereço do comprador. |Texto |2 |Não|
-|`Address.Country`|País do endereço do comprador. |Texto |35 |Não|
-|`Address.District`|Bairro do endereço do comprador. |Texto |50 |Não|
-|`DeliveryAddress.Street`|Endereço de entrega do comprador. |Texto |255 |Não|
-|`DeliveryAddress.Number`|Número do endereço de entrega do comprador. |Texto |15 |Não|
-|`DeliveryAddress.Complement`|Complemento do endereço de entrega do comprador. |Texto |50 |Não|
-|`DeliveryAddress.ZipCode`|CEP do endereço de entrega do comprador. |Texto |9 |Não|
-|`DeliveryAddress.City`|Cidade do endereço de entrega do comprador. |Texto |50 |Não|
-|`DeliveryAddress.State`|Estado do endereço de entrega do comprador. |Texto |2 |Não|
-|`DeliveryAddress.Country`|País do endereço de entrega do comprador. |Texto |35 |Não|
-|`DeliveryAddress.District`|Bairro do endereço de entrega do comprador. |Texto |50 |Não|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |texto |50 |Sim (envio no *endpoint*)|
+|`Name`|Nome do comprador. |texto |255|Sim|
+|`Email`|Email do comprador. |texto |255|Não|
+|`Birthdate`|Data de nascimento do comprador. |data |10 |Não|
+|`Identity`|Número do RG, CPF ou CNPJ do cliente. |texto |14 |Não|
+|`IdentityType`|Tipo do documento de identificação do comprador (CFP/CNPJ).|texto|255|Não|
+|`Address.Street`|Endereço do comprador. |texto |255 |Não|
+|`Address.Number`|Número do endereço do comprador. |texto |15 |Não|
+|`Address.Complement`|Complemento do endereço do comprador.|texto |50 |Não|
+|`Address.ZipCode`|CEP do endereço do comprador. |texto |9 |Não|
+|`Address.City`|Cidade do endereço do comprador. |texto |50 |Não|
+|`Address.State`|Estado do endereço do comprador. |texto |2 |Não|
+|`Address.Country`|País do endereço do comprador. |texto |35 |Não|
+|`Address.District`|Bairro do endereço do comprador. |texto |50 |Não|
+|`DeliveryAddress.Street`|Endereço de entrega do comprador. |texto |255 |Não|
+|`DeliveryAddress.Number`|Número do endereço de entrega do comprador. |texto |15 |Não|
+|`DeliveryAddress.Complement`|Complemento do endereço de entrega do comprador. |texto |50 |Não|
+|`DeliveryAddress.ZipCode`|CEP do endereço de entrega do comprador. |texto |9 |Não|
+|`DeliveryAddress.City`|Cidade do endereço de entrega do comprador. |texto |50 |Não|
+|`DeliveryAddress.State`|Estado do endereço de entrega do comprador. |texto |2 |Não|
+|`DeliveryAddress.Country`|País do endereço de entrega do comprador. |texto |35 |Não|
+|`DeliveryAddress.District`|Bairro do endereço de entrega do comprador. |texto |50 |Não|
 
 #### Resposta
 
@@ -4305,10 +4305,10 @@ Para alterar a data final da recorrência já existente, basta fazer um PUT conf
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
-|`EndDate`|Data para término da recorrência.|Texto |10 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |texto |50 |Sim (envio no *endpoint*)|
+|`EndDate`|Data para término da recorrência.|texto |10 |Sim|
 
 #### Resposta
 
@@ -4351,10 +4351,10 @@ Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT c
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
-|`Interval`|Intervalo da recorrência. <br>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual.|Texto |10 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |texto |50 |Sim (envio no *endpoint*)|
+|`Interval`|Intervalo da recorrência. <br>Monthly / Bimonthly / Quarterly / SemiAnnual / Annual.|texto |10 |Sim|
 
 #### Resposta
 
@@ -4373,9 +4373,9 @@ Consulte o anexo [HTTP Status Code](https://braspag.github.io//manual/braspag-pa
 
 Ao efetuar a alteração do dia da recorrência, devem ser levadas em consideração as seguintes regras utilizadas para execução da atualização na API:
 
-1- Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência.<br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 10, a data da próxima recorrência será dia 10/05.
-<br/><br/>2- Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, mas este só terá efeito depois que a próxima recorrência for executada com sucesso. <br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 03, a data da próxima recorrência permanecerá dia 25/05. Após sua execução, a recorrência seguinte será agendada para o dia 03/06.
-<br/><br/>3- Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência.<br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado para o dia 03, a data da próxima recorrência será 03/09.
+**1. Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência.**<br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 10, a data da próxima recorrência será dia 10/05.
+<br/><br/>**2. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, mas este só terá efeito depois que a próxima recorrência for executada com sucesso.** <br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 03, a data da próxima recorrência permanecerá dia 25/05. Após sua execução, a recorrência seguinte será agendada para o dia 03/06.
+<br/><br/>**3. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência.**<br>Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado para o dia 03, a data da próxima recorrência será 03/09.
 
 <br/>Para modificar o dia de vencimento de uma recorrência já existente, basta fazer um PUT conforme o exemplo:
 
@@ -4401,10 +4401,10 @@ Ao efetuar a alteração do dia da recorrência, devem ser levadas em considera�
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
-|`RecurrencyDay`|Dia da recorrência.|Número |2 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |texto |50 |Sim (envio no *endpoint*)|
+|`RecurrencyDay`|Dia da recorrência.|número |2 |Sim|
 
 #### Resposta
 
@@ -4447,10 +4447,10 @@ Para modificar o valor da transação de uma recorrência já existente, basta f
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API.|GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.| GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência.|Texto |50 |Sim (envio no *endpoint*)|
-|`Amount`|Valor do pedido, em centavos. Ex.: 156 equivale a R$ 1,56.|Número|15|Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência.|texto |50 |Sim (envio no *endpoint*)|
+|`Amount`|Valor do pedido, em centavos. Ex.: 156 equivale a R$ 1,56.|número|15|Sim|
 
 #### Resposta
 
@@ -4493,10 +4493,10 @@ Para alterar somente a data do pagamento seguinte, basta fazer um PUT conforme o
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
-|`NextPaymentDate`|Data de pagamento da próxima recorrência.|Texto |10 |Sim|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |texto |50 |Sim (envio no *endpoint*)|
+|`NextPaymentDate`|Data de pagamento da próxima recorrência.|texto |10 |Sim|
 
 #### Resposta
 
@@ -4586,24 +4586,24 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
-|`Provider`|Nome do provedor do meio de pagamento.|Texto|15|Sim|
-|`Type`|Tipo do meio de pagamento. |Texto |100|Sim|
-|`Amount`|Valor do pedido, em centavos.|Número |15 |Sim|
-|`Installments`|Número de parcelas.|Número |2 |Sim|
-|`SoftDescriptor`|Texto que será impresso na fatura do portador.|Texto |13|Não|
-|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto |19|Sim|
-|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto |25|Sim|
-|`CreditCard.ExpirationDate`|Data de validade impressa no cartão.|Texto |7 |Sim|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto |4 |Sim|
-|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-|`Credentials.Code`|Afiliação gerada pela adquirente.|Texto|100|Sim|
-|`Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|Texto|100|Sim|
-|`Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
-|`Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
-|`Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP.|Texto|--|Não|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |texto |50 |Sim (envio no *endpoint*)|
+|`Provider`|Nome do provedor do meio de pagamento.|texto|15|Sim|
+|`Type`|Tipo do meio de pagamento. |texto |100|Sim|
+|`Amount`|Valor do pedido, em centavos.|número |15 |Sim|
+|`Installments`|Número de parcelas.|número |2 |Sim|
+|`SoftDescriptor`|Texto que será impresso na fatura do portador.|texto |13|Não|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|texto |19|Sim|
+|`CreditCard.Holder`|Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|texto |25|Sim|
+|`CreditCard.ExpirationDate`|Data de validade impressa no cartão.|texto |7 |Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|texto |4 |Sim|
+|`CreditCard.Brand`|Bandeira do cartão.|texto|10|Sim|
+|`Credentials.Code`|Afiliação gerada pela adquirente.|texto|100|Sim|
+|`Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|texto|100|Sim|
+|`Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|texto|50|Não|
+|`Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|texto|50|Não|
+|`Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP.|texto|--|Não|
 
 #### Resposta
 
@@ -4636,9 +4636,9 @@ Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |texto |50 |Sim (envio no *endpoint*)|
 
 #### Resposta
 
@@ -4671,9 +4671,9 @@ Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Número de identificação da recorrência. |Texto |50 |Sim (envio no *endpoint*)|
+|`RecurrentPaymentId`|Número de identificação da recorrência. |texto |50 |Sim (envio no *endpoint*)|
 
 #### Resposta
 
@@ -4783,11 +4783,11 @@ Veja a seguir o exemplo de resposta de uma transação de crédito com o nó `Ne
 
 |Propriedade|Descrição|Tipo|Tamanho|
 |-----------|---------|----|-------|
-|`NewCard.CardNumber`|Novo número do cartão do comprador.|Texto|16|
-|`NewCard.Holder`|Nome do portador impresso no novo cartão.|Texto|25|
-|`NewCard.ExpirationDate`|Data de validade impressa no novo cartão.|Texto|7|
-|`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão.|Texto|4|
-|`NewCard.Brand`|Bandeira do novo cartão.|Texto|10 |
+|`NewCard.CardNumber`|Novo número do cartão do comprador.|texto|16|
+|`NewCard.Holder`|Nome do portador impresso no novo cartão.|texto|25|
+|`NewCard.ExpirationDate`|Data de validade impressa no novo cartão.|texto|7|
+|`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão.|texto|4|
+|`NewCard.Brand`|Bandeira do novo cartão.|texto|10 |
 
 <aside class="notice">Para simular o retorno do node "NewCard" em Sandbox utilize um cartão com final 3 e o "ExpirationDate" vencido.</aside>
 
@@ -4879,12 +4879,12 @@ Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o
 
 |Propriedade|Descrição|Tipo|Tamanho|
 |-----------|---------|----|-------|
-|`NewCard.CardNumber`|BIN e 4 últimos dígitios do novo número do cartão do comprador.|Texto|16|
-|`NewCard.Holder`|Nome do portador impresso no novo cartão.|Texto|25|
-|`NewCard.ExpirationDate`|Data de validade impressa no novo cartão.|Texto|7|
-|`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão.|Texto|4|
+|`NewCard.CardNumber`|BIN e 4 últimos dígitios do novo número do cartão do comprador.|texto|16|
+|`NewCard.Holder`|Nome do portador impresso no novo cartão.|texto|25|
+|`NewCard.ExpirationDate`|Data de validade impressa no novo cartão.|texto|7|
+|`NewCard.SecurityCode`|Código de segurança impresso no verso do novo cartão.|texto|4|
 |`NewCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão. OBS.: Se a origem da transação for do *Silent Order Post* então o retorno será `NewCard.PaymentToken`|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`NewCard.Brand`|Bandeira do novo cartão.|Texto|10|
+|`NewCard.Brand`|Bandeira do novo cartão.|texto|10|
 
 # Salvando e Reutilizando Cartões
 
