@@ -8661,77 +8661,77 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Nome do provedor do meio de pagamento.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Tipo do meio de pagamento.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Valor do pedido, em centavos.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td>Número de parcelas.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
       <td>Número do cartão do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>19</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
       <td>Nome do comprador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>25</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
       <td>Data de validade impressa no cartão, no formato MM/AAAA.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>7</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
       <td>Código de segurança impresso no verso do cartão.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>4</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
       <td>Bandeira do cartão.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
       <td>“true” - para salvar o cartão. / “false” - para não salvar o cartão.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>10</td>
       <td>Não (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Alias</code></td>
       <td>Alias (apelido) do cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>64</td>
       <td>Não</td>
     </tr>
@@ -8841,23 +8841,23 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
       <td>Id da transação no provedor do meio de pagamento.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>40</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
       <td>Número do comprovante de venda.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>20</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
       <td>Código de autorização.</td>
       <td>Texto</td>
       <td>300</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
@@ -8869,42 +8869,42 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
       <td>Data em que a transação foi recebida pela Braspag.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
       <td>Código de retorno da operação.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>32</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
       <td>Mensagem de retorno da operação.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Status da transação.</td>
-      <td>Byte</td>
+      <td>byte</td>
       <td>2</td>
       <td>Ex.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
       <td>Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
       <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
     </tr>
@@ -9085,28 +9085,28 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Nome do provedor do meio de pagamento.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Tipo do meio de pagamento.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Valor do pedido, em centavos.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td>Número de parcelas.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
@@ -9120,14 +9120,14 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
       <td>Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>4</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
       <td>Bandeira do cartão.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
@@ -9233,23 +9233,23 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
       <td>Id da transação no provedor de meio de pagamento.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>40</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
       <td>Número do comprovante de venda.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>20</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
       <td>Código de autorização.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>300</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
@@ -9261,42 +9261,42 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
       <td>Data em que a transação foi recebida pela Braspag.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
       <td>Código de retorno da operação.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>32</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
       <td>Mensagem de retorno da operação.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Status da transação.</td>
-      <td>Byte</td>
+      <td>byte</td>
       <td>2</td>
       <td>Ex.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
       <td>Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
       <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
     </tr>
@@ -9470,28 +9470,28 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Nome do provedor do meio de pagamento.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Tipo do meio de pagamento.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Valor do pedido, em centavos.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td>Número de parcelas.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
@@ -9505,21 +9505,21 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
       <td>Código de segurança impresso no verso do cartão. Para processar vendas sem o CVV, é necessário solicitar liberação na adquirente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>4</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
       <td>Bandeira do cartão.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Alias</code></td>
       <td>Alias (apelido) do cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>64</td>
       <td>Não</td>
     </tr>
@@ -9625,23 +9625,23 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AcquirerTransactionId</code></td>
       <td>Id da transação no provedor de meio de pagamento.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>40</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
       <td>Número do comprovante de venda.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>20</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
       <td>Código de autorização.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>300</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
@@ -9653,42 +9653,42 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReceivedDate</code></td>
       <td>Data em que a transação foi recebida pela Braspag.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>19</td>
       <td>AAAA-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
       <td>Código de retorno da operação.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>32</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
       <td>Mensagem de retorno da operação.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td>texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Status da transação.</td>
-      <td>Byte</td>
+      <td>byte</td>
       <td>2</td>
       <td>Ex.: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
       <td>Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>32</td>
       <td>57</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
       <td>Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>512</td>
       <td>Transação Aprovada</td>
     </tr>
