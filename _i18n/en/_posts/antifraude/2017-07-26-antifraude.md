@@ -1206,6 +1206,14 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |Cybersource|Cybersource|
 |ACI Wordwide|ReDShield|
 
+## Table 2 - SplitingPaymentMethod
+
+|Value|Description|Provider|
+|:-|:-|:-|
+|None|Payment with one card only.|ACI Wordwide|
+|CardSplit|Payment with more than one card.|ACI Wordwide|
+|MixedPaymentMethodSplit|Payment with more than one payment method.|ACI Wordwide|
+
 ## Table 3 - Card.Brand
 
 |Valor|Provider|Observação|
