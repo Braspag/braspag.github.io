@@ -16,7 +16,9 @@ language_tabs:
 
 # Silent Order Post
 
-Esta é uma integração que a Braspag oferece aos lojistas com o intuito de oferecer maior segurança e controle sobre a experiência de checkout.<br/>O **Silent Order Post** é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito; ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.
+Esta é uma integração que a Braspag oferece aos lojistas com o intuito de oferecer maior segurança e controle sobre a experiência de checkout.
+
+O **Silent Order Post** é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito; ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.
 
 Este método possibilita o envio de dados do pagamento do seu cliente de forma segura, diretamente em nosso sistema. Os dados do pagamento, tais como número do cartão e data de validade, são armazenados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2.
 
@@ -118,7 +120,7 @@ Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um e
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja no Pagador.|GUID |36 |Sim|
-|`Authorization`|Bearer [AccessToken OAuth2]|Texto |36 |Sim|
+|`Authorization`|Bearer [AccessToken OAuth2]|texto |36 |Sim|
 
 ### Resposta
 
@@ -147,10 +149,10 @@ Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`MerchantId`|Identificador da loja no Pagador. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`AccessToken`|Token de acesso (AccessToken SOP). Por questões de segurança, este token dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo token para impedir um uso futuro.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
-|`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
-|`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
+|`MerchantId`|Identificador da loja no Pagador. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AccessToken`|Token de acesso (AccessToken SOP). Por questões de segurança, este token dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo token para impedir um uso futuro.|texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`Issued`|Data e hora da geração. |texto|--|AAAA-MM-DDTHH:MM:SS|
+|`ExpiresIn`|Data e hora da expiração. |texto|--|AAAA-MM-DDTHH:MM:SS|
 
 > Consulte sobre o [processo legado de autenticação](https://braspag.github.io//manualp/braspag-silent-order-post#autentica%C3%A7%C3%A3o-legada){:target="_blank"}, com geração do `AccessToken` utilizando `MerchantId` e IP do comprador.
 
@@ -309,7 +311,7 @@ No lugar de **_{MerchantID}_** preencha o `MerchantID` de sua loja na plataforma
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
-|`MerchantID`|Identificador da loja no Pagador.|Guid |36 |Sim|
+|`MerchantID`|Identificador da loja no Pagador.|GUID |36 |Sim|
 
 ### Resposta
 
@@ -338,10 +340,10 @@ Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`MerchantId`|Identificador da loja no Pagador. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`AccessToken`|Token de acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para impedir um uso futuro.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
-|`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
-|`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
+|`MerchantId`|Identificador da loja no Pagador. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AccessToken`|Token de acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para impedir um uso futuro.|texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`Issued`|Data e hora da geração. |texto|--|AAAA-MM-DDTHH:MM:SS|
+|`ExpiresIn`|Data e hora da expiração. |texto|--|AAAA-MM-DDTHH:MM:SS|
 
 <aside class="warning">Por questões de segurança, será requerido obrigatoriamente o cadastro de um IP válido do estabelecimento na Braspag. Caso contrário, a requisição não será autorizada ("HTTP 401 NotAuthorized").</aside>
 
