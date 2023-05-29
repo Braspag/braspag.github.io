@@ -1201,9 +1201,10 @@ The variables, when properly filled in, would provide a URL similar to the examp
 
 ## Table 1 - Provider
 
-|Value|
-|:-|
-|Cybersource|
+|Provider|Value|
+|---|---|
+|Cybersource|Cybersource|
+|ACI Wordwide|ReDShield|
 
 ## Table 3 - Card.Brand
 
