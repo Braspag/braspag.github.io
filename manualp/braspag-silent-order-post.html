@@ -140,7 +140,9 @@
             <div class="post">
   <h1 id="silent-order-post">Silent Order Post</h1>
 
-<p>Esta é uma integração que a Braspag oferece aos lojistas com o intuito de oferecer maior segurança e controle sobre a experiência de checkout.<br />O <strong>Silent Order Post</strong> é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito; ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.</p>
+<p>Esta é uma integração que a Braspag oferece aos lojistas com o intuito de oferecer maior segurança e controle sobre a experiência de checkout.</p>
+
+<p>O <strong>Silent Order Post</strong> é ideal para a empresa que não possui estrutura para cumprir todos os requisitos de segurança do PCI DSS no uso de cartões de crédito; ou, também, para o lojista que prefira concentrar seus esforços em outros elementos do negócio.</p>
 
 <p>Este método possibilita o envio de dados do pagamento do seu cliente de forma segura, diretamente em nosso sistema. Os dados do pagamento, tais como número do cartão e data de validade, são armazenados no ambiente da Braspag, que conta com a certificação PCI DSS 3.2.</p>
 
@@ -331,7 +333,7 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Bearer [AccessToken OAuth2]</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -375,28 +377,28 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja no Pagador.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AccessToken</code></td>
       <td>Token de acesso (AccessToken SOP). Por questões de segurança, este token dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo <em>ExpiresIn</em> (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo token para impedir um uso futuro.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>–</td>
       <td>NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Issued</code></td>
       <td>Data e hora da geração.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>–</td>
       <td>AAAA-MM-DDTHH:MM:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ExpiresIn</code></td>
       <td>Data e hora da expiração.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>–</td>
       <td>AAAA-MM-DDTHH:MM:SS</td>
     </tr>
@@ -737,7 +739,7 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>Identificador da loja no Pagador.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
@@ -781,28 +783,28 @@ Para maiores detalhes sobre a implementação, acesse o <a href="https://braspag
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja no Pagador.</td>
-      <td>Guid</td>
+      <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AccessToken</code></td>
       <td>Token de acesso. Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo <em>ExpiresIn</em> (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para impedir um uso futuro.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>–</td>
       <td>NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Issued</code></td>
       <td>Data e hora da geração.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>–</td>
       <td>AAAA-MM-DDTHH:MM:SS</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ExpiresIn</code></td>
       <td>Data e hora da expiração.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>–</td>
       <td>AAAA-MM-DDTHH:MM:SS</td>
     </tr>
