@@ -67,11 +67,11 @@ Existem dois fluxos possíveis para a análise de fraude:
 * **AnalyseFirst:** todas as transações são primeiro submetidas à análise do Antifraude e, se aceitas, seguem para o processo de autorização da adquirente. 
 * **AuthorizeFirst:** todas as transações são primeiro submetidas à autorização na adquirente e, se autorizadas, são enviadas para a análise do Antifraude. 
 
-![Fluxos AnalyseFirst e AuthorizeFirst]({{ site.baseurl_root }}/images/braspag/af/fluxo-authorizefirst-analyzefirst100.png)
+![Fluxos AnalyzeFirst e AuthorizeFirst]({{ site.baseurl_root }}/images/braspag/af/fluxo-authorizefirst-analyzefirst100.png)
 
 *O status Review é retornado somente se estiver incluso no seu plano.
 
-## AnalyseFirst
+## AnalyzeFirst
 
 1. A loja solicita a análise de fraude ao Antifraude;
 2. O Antifraude retorna o status Accept, Reject ou Review;
