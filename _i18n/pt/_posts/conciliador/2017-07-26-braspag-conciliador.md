@@ -35,27 +35,16 @@ O Agiliza hoje suporta as principais credenciadoras do mercado:
 * Cielo
 * Rede
 * Getnet
-* Brasilcard MG
-* DM Card
-* BIN
-* FortBrasil
 * GlobalPayments
-* LinxPay
 * PagSeguro
-* Policard
 * SafraPay
-* Sipag
-* Sodexo
 * Stone
-* Ticket
-* Tricard
 * VR
 * Valecard
-* Verocheque
-* Vero
-* Sorocred
-* BMG Granito
+* Banrisul
+* BIN
 * Mercado Pago
+* Alelo
 <br/>
 > Cada credenciadora possui layouts e eventos específicos em seu extrato. As especificidades de cada credenciadora podem ser conferidas em Informações sobre as adquirentes, tanto para [CSV](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes49) quanto para [XML](https://braspag.github.io//manual/braspag-conciliador#informa%C3%A7%C3%B5es-sobre-as-adquirentes).
 
