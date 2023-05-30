@@ -10136,7 +10136,7 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Chave pública para autenticação dupla na Braspag.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>40</td>
       <td>Sim (envio no <em>header</em>)</td>
     </tr>
@@ -10150,644 +10150,644 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Número do pedido da loja.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Nome completo do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>120</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Número do documento de identificação do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>14</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td>Tipo de documento de identificação do comprador. <br /> Possíveis valores: “CPF” ou “CNPJ”.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td>E-mail do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
       <td>Data de nascimento do comprador. <br /> Ex.: 1991-01-10.</td>
-      <td>Date</td>
+      <td>data</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
       <td>Número do telefone do comprador. <br /> Ex.: 5521976781114.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
       <td>Logradouro do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>54</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
       <td>Número do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>5</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
       <td>Complemento do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>14</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
       <td>CEP do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>9</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
       <td>Cidade do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
       <td>Estado do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
       <td>País do endereço de cobrança.<br />Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
       <td>Bairro do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>45</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
       <td>Logradouro do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>54</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
       <td>Número do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>5</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
       <td>Complemento do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>14</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
       <td>CEP do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>9</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
       <td>Cidade do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
       <td>Estado do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>2</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
       <td>País do endereço de entrega.<br />Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>2</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
       <td>Bairro do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>45</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Nome do provedor da autorização.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Tipo do meio de pagamento.<br />Obs.: Somente o tipo “CreditCard” funciona com análise de fraude.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Valor da transação financeira, em centavos. <br /> Ex.: 150000 = R$ 1.500,00.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
       <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. <br /> Obs.: Esse valor não é adicionado ao valor da autorização.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
       <td>Moeda na qual o pagamento será feito. <br /> Possíveis valores: “BRL” / “USD” / “MXN” / “COP” / “CLP” / “ARS” / “PEN” / “EUR” / “PYN” / “UYU” / “VEB” / “VEF” / “GBP”.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>3</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
       <td>País na qual o pagamento será realizado.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>3</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td>Número de parcelas.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
       <td>Tipo de parcelamento. <br /> Possíveis valores: “ByMerchant” (loja) / “ByIssuer” (emissor).</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
       <td>Indica se a autorização deverá ser com captura automática. <br /> Possíveis valores: “true” / “false” (default). <br /> Obs1.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade. <br /> Obs2.: Este campo deverá ser preenchido de acordo com o fluxo da análise de fraude.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td>Indica se a transação deve ser autenticada. <br /> Possíveis valores: “true” / “false” (default). <br /> Obs1.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.<br /> Obs2. O campo <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> deve ser igual a “true” quando este for igual a “false”.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
       <td>Indica se a transação é do tipo recorrente. <br /> Possíveis valores: “true” / “false” (default). <br /> Obs1.: Este campo igual a “true” não irá criar uma recorrência; apenas permitirá a realização de uma transação sem a necessidade de envio do CVV, indicando para a adquirente que é a cobrança de uma transação de uma recorrência. <br /> Obs2.: Somente para transações <strong>Cielo</strong>. <br /> Obs3.: O campo <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> deve ser igual a “false” quando este for igual a “true”.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
       <td>Texto que será impresso na fatura do portador. <br /> Obs.: O valor deste campo deve tornar fácil para o portador a identificação do estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>13</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
       <td>Indica se a transação será dividida entre vários participantes. <br /> Possíveis valores: “true” / “false” (default). <br /> Para utilizar a funcionalidade de split de pagamentos, é necessário a contratação da solução junto à Braspag.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
       <td>Identificador do campo extra que será enviado.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
       <td>Valor do campo extra que será enviado.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>1024</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Code</code></td>
       <td>Afiliação gerada pela adquirente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Key</code></td>
       <td>Chave de afiliação/token gerado pela adquirente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Username</code></td>
       <td>Usuário gerado no credenciamento com a adquirente <strong>Getnet</strong>. <br /> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Password</code></td>
       <td>Senha gerada no credenciamento com a adquirente <strong>Getnet</strong>. <br /> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Getnet.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Credentials.Signature</code></td>
       <td>Id do terminal no credenciamento com a adquirente <strong>Global Payments</strong>. <br /> Obs.: O campo deve ser obrigatoriamente enviado se a transação é direcionada para Global Payments.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>3</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td>Número do cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>19</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td>Nome do portador impresso no cartão de crédito. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>25</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td>Data de validade do cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>7</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
       <td>Código de segurança no verso do cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>4</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
       <td>Bandeira do cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
       <td>Indica se os dados do cartão de crédito serão armazenados no <em>Cartão Protegido</em>.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Alias</code></td>
       <td>Alias (apelido) do cartão de crédito salvo no <em>Cartão Protegido</em>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>64</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Sequence</code></td>
       <td>Tipo de fluxo da análise de fraude. <br /> Possíveis valores: “AnalyseFirst” / “AuthorizeFirst”.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>14</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
       <td>Critério do fluxo da análise de fraude. <br /> Possíveis valores: “OnSuccess” / “Always”.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>9</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
       <td>Provedor de <em>Antifraude</em>. <br /> Possível valor: “Cybersource”.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
       <td>Indica se a transação após a análise de fraude será capturada. <br /> Possíveis valores: “true” / “false” (default) <br /> Obs1.: Quando enviado igual a “true” e o retorno da análise de fraude for de baixo risco (“<em>Accept</em>”), a transação anteriormente autorizada será capturada. <br /> Obs2.: Quando enviado igual a “true” e o retorno da análise de fraude for revisão (“<em>Review</em>”), a transação ficará autorizada, sendo capturada após a Braspag receber notificação de alteração do status para baixo risco (“<em>Accept</em>”). <br /> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (<code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code>) deve ser obrigatoriamente “AuthorizeFirst”.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.VoidOnHighRisk</code></td>
       <td>Indica se a transação após a análise de fraude será cancelada. <br /> Possíveis valores: “true” / “false” (default). <br /> Obs1.: Quando enviado igual a “true” e o retorno da análise de fraude for de alto risco (“<em>Reject</em>”), a transação anteriormente autorizada será cancelada. <br /> Obs2.: Quando enviado igual a “true” e o retorno da análise de fraude for revisão (“<em>Review</em>”), a transação ficará autorizada, sendo cancelada após a Braspag receber notificação de alteração do status para alto risco (“<em>Reject</em>”). <br /> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (<code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code>) deve ser obrigatoriamente “AuthorizeFirst”.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
       <td>Valor total do pedido, em centavos. <br /> Ex.: 123456 = R$ 1.234,56.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code></td>
       <td>Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="language-plaintext highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>88</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.HostName</code></td>
       <td>Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>60</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.CookiesAccepted</code></td>
       <td>Identifica se o browser do comprador aceita cookies. <br /> Possíveis valores: “true” / “false” (default).</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.Email</code></td>
       <td>E-mail registrado no browser do comprador. Pode ser diferente do e-mail de cadastro na loja (<code class="language-plaintext highlighter-rouge">Customer.Email</code>).</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>100</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.Type</code></td>
       <td>Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP. <br /> Ex.: “Google Chrome”, “Mozilla Firefox”, “Safari”, etc.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>40</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.IpAddress</code></td>
       <td>Endereço de IP do comprador. Formato IPv4 ou IPv6.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>45</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.IsGift</code></td>
       <td>Indica se o pedido realizado pelo comprador é para presente.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.ReturnsAccepted</code></td>
       <td>Indica se o pedido realizado pelo comprador pode ser devolvido à loja. <br /> Possíveis valores: “true” / “false” (default).</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.GiftCategory</code></td>
       <td>Identifica a avaliação dos endereços de cobrança e entrega para diferentes cidades, estados ou países. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].giftcategory">Lista de Valores - GiftCategory</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>9</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.HostHedge</code></td>
       <td>Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].hosthedge">Lista de Valores - HostHedge</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>6</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.NonSensicalHedge</code></td>
       <td>Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].nonsensicalhedge">Lista de Valores - NonSensicalHedge</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>6</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge</code></td>
       <td>Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].obscenitieshedge">Lista de Valores - ObscenitiesHedge</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>6</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.PhoneHedge</code></td>
       <td>Nível de importância das verificações sobre os números de telefone do comprador na análise de fraude. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].phonehedge">Lista de Valores - PhoneHedge</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>6</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Name</code></td>
       <td>Nome do produto.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Quantity</code></td>
       <td>Quantidade do produto.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Sku</code></td>
       <td>SKU (<em>Stock Keeping Unit</em> - Unidade de Controle de Estoque) do produto.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.UnitPrice</code></td>
       <td>Preço unitário do produto, em centavos. <br /> Ex.: 10950 = R$ 109,50.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Risk</code></td>
       <td>Nível de risco do produto associado a quantidade de chargebacks.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>6</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.TimeHedge</code></td>
       <td>Nível de importância, na análise de fraude, da hora do dia em que o comprador realizou o pedido. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].timehedge">Lista de Valores - TimeHedge</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>6</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Type</code></td>
       <td>Categoria do produto. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type">Lista de Valores - Type</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>19</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.VelocityHedge</code></td>
       <td>Nível de importância, na análise de fraude, da frequência de compra do comprador dentro dos 15 minutos anteriores. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].velocityhedge">Lista de Valores - VelocityHedge</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>6</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Id</code></td>
       <td>Id das informações adicionais a serem enviadas. <br /> <a href="#tabela-de-mdds">Tabela de MDDs</a>.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Value</code></td>
       <td>Valor das informações adicionais a serem enviadas. <br /> <a href="#tabela-de-mdds">Tabela de MDDs</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Addressee</code></td>
       <td>Nome completo do responsável a receber o produto no endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>120</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Method</code></td>
       <td>Meio de entrega do pedido. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.method">Lista de Valores - Method</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>8</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
       <td>Número do telefone do responsável a receber o produto no endereço de entrega. <br /> Ex.: 552121114700.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.JourneyType</code></td>
       <td>Tipo de viagem. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.journeytype">Lista de Valores - JourneyType</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>32</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.DepartureTime</code></td>
       <td>Data e hora de partida. <br /> Ex.: 2018-03-31 19:16:38.</td>
-      <td>DateTime</td>
+      <td>datetime</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Name</code></td>
       <td>Nome completo do passageiro.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>120</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Identity</code></td>
       <td>Número do documento do passageiro.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>32</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Status</code></td>
       <td>Classificação da empresa aérea. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status">Lista de Valores - Status</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Rating</code></td>
       <td>Tipo do passageiro. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating">Lista de Valores - Rating</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>13</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Email</code></td>
       <td>E-mail do passageiro.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Phone</code></td>
       <td>Telefone do passageiro. <br /> Ex.: 552121114700.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin</code></td>
       <td>Código do aeroporto de partida.<br /> Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>3</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
       <td>Código do aeroporto de chegada.<br /> Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>3</td>
       <td>Não</td>
     </tr>
@@ -11209,252 +11209,252 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td style="text-align: left">Número do pedido da loja.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td style="text-align: left">Nome completo do comprador.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td style="text-align: left">Número do documento de identificação do comprador.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td style="text-align: left">Tipo de documento de identificação do comprador.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td style="text-align: left">E-mail do comprador.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
       <td style="text-align: left">Data de nascimento do comprador.</td>
-      <td style="text-align: left">Date</td>
+      <td style="text-align: left">data</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
       <td style="text-align: left">Número do telefone do comprador.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
       <td style="text-align: left">Logradouro do endereço de cobrança.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
       <td style="text-align: left">Número do endereço de cobrança.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
       <td style="text-align: left">Complemento do endereço de cobrança.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
       <td style="text-align: left">CEP do endereço de cobrança.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
       <td style="text-align: left">Cidade do endereço de cobrança.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
       <td style="text-align: left">Estado do endereço de cobrança.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
       <td style="text-align: left">País do endereço de cobrança.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
       <td style="text-align: left">Bairro do endereço de cobrança.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
       <td style="text-align: left">Logradouro do endereço de entrega.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
       <td style="text-align: left">Número do endereço de entrega.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
       <td style="text-align: left">Complemento do endereço de entrega.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
       <td style="text-align: left">CEP do endereço de entrega.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
       <td style="text-align: left">Cidade do endereço de entrega.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
       <td style="text-align: left">Estado do endereço de entrega.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
       <td style="text-align: left">País do endereço de entrega.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
       <td style="text-align: left">Bairro do endereço de entrega.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td style="text-align: left">Nome do provedor da autorização.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td style="text-align: left">Tipo do meio de pagamento.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td style="text-align: left">Valor da transação financeira, em centavos.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
       <td style="text-align: left">Montante do valor da autorização que deve ser destinado à taxa de serviço.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
       <td style="text-align: left">Moeda na qual o pagamento será feito.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
       <td style="text-align: left">País na qual o pagamento será realizado.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td style="text-align: left">Número de parcelas.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
       <td style="text-align: left">Tipo de parcelamento.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
       <td style="text-align: left">Indica se a autorização deverá ser com captura automática.</td>
-      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">booleano</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td style="text-align: left">Indica se a transação deve ser autenticada.</td>
-      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">booleano</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
       <td style="text-align: left">Indica se a transação é do tipo recorrente.</td>
-      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">booleano</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
       <td style="text-align: left">Texto que será impresso na fatura do portador.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
       <td style="text-align: left">Indica se a transação será dividida entre vários participantes.</td>
-      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">booleano</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Name</code></td>
       <td style="text-align: left">Identificador do campo extra que será enviado.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ExtraDataCollection.Value</code></td>
       <td style="text-align: left">Valor do campo extra que será enviado.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Credentials.Code</code></td>
       <td style="text-align: left">Afiliação gerada pela adquirente.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Credentials.Key</code></td>
       <td style="text-align: left">Chave de afiliação/token gerado pela adquirente.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Credentials.Username</code></td>
       <td style="text-align: left">Usuário gerado no credenciamento com a adquirente Getnet.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Credentials.Password</code></td>
       <td style="text-align: left">Senha gerada no credenciamento com a adquirente Getnet.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Credentials.Signature</code></td>
       <td style="text-align: left">Id do terminal no credenciamento com a adquirente Global Payments.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td style="text-align: left">Número do cartão de crédito truncado.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td style="text-align: left">Nome do portador impresso no cartão de crédito.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td style="text-align: left">Data de validade do cartão de crédito.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
       <td style="text-align: left">Código de segurança no verso do cartão de crédito.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
       <td style="text-align: left">Bandeira do cartão de crédito.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
       <td style="text-align: left">Indica se os dados do cartão de crédito foram armazenados no <em>Cartão Protegido</em>.</td>
-      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">booleano</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Alias</code></td>
       <td style="text-align: left">Alias (apelido) do cartão de crédito salvo no <em>Cartão Protegido</em>.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardToken</code></td>
@@ -11464,212 +11464,212 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Sequence</code></td>
       <td style="text-align: left">Tipo de fluxo da análise de fraude.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
       <td style="text-align: left">Critério do fluxo da análise de fraude.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
       <td style="text-align: left">Provedor de <em>Antifraude</em>.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
       <td style="text-align: left">Indica se a transação após a análise de fraude será capturada.</td>
-      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">booleano</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.VoidOnHighRisk</code></td>
       <td style="text-align: left">Indica se a transação após a análise de fraude será cancelada.</td>
-      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">booleano</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
       <td style="text-align: left">Valor total do pedido, em centavos.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code></td>
       <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.HostName</code></td>
       <td style="text-align: left">Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.CookiesAccepted</code></td>
       <td style="text-align: left">Identifica se o browser do comprador aceita cookies.</td>
-      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">booleano</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.Email</code></td>
       <td style="text-align: left">E-mail registrado no browser do comprador. Pode ser diferente do e-mail de cadastro na loja (<code class="language-plaintext highlighter-rouge">Customer.Email</code>).</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.Type</code></td>
       <td style="text-align: left">Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.IpAddress</code></td>
       <td style="text-align: left">Endereço de IP do comprador. Formato IPv4 ou IPv6.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.IsGift</code></td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador é para presente.</td>
-      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">booleano</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.ReturnsAccepted</code></td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador pode ser devolvido à loja.</td>
-      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">booleano</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.GiftCategory</code></td>
       <td style="text-align: left">Identifica a avaliação dos endereços de cobrança e entrega para diferentes cidades, estados ou países.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.HostHedge</code></td>
       <td style="text-align: left">Nível de importância dos endereços de IP e e-mail do comprador na análise de fraude.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.NonSensicalHedge</code></td>
       <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador sem sentido na análise de fraude.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.ObscenitiesHedge</code></td>
       <td style="text-align: left">Nível de importância das verificações sobre os dados do comprador com obscenidade na análise de fraude.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.PhoneHedge</code></td>
       <td style="text-align: left">Nível de importância das verificações sobre os números de telefones do comprador na análise de fraude.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Name</code></td>
       <td style="text-align: left">Nome do produto.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Quantity</code></td>
       <td style="text-align: left">Quantidade do produto.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Sku</code></td>
       <td style="text-align: left">SKU (<em>Stock Keeping Unit</em> - Unidade de Controle de Estoque) do produto.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.UnitPrice</code></td>
       <td style="text-align: left">Preço unitário do produto.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Risk</code></td>
       <td style="text-align: left">Nível de risco do produto associado à quantidade de chargebacks.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.TimeHedge</code></td>
       <td style="text-align: left">Nível de importância, na análise de fraude, da hora do dia em que o comprador realizou o pedido.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Type</code></td>
       <td style="text-align: left">Categoria do produto.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.VelocityHedge</code></td>
       <td style="text-align: left">Nível de importância, na análise de fraude, da frequência de compra do comprador dentro dos 15 minutos anteriores.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Id</code></td>
       <td style="text-align: left">Id das informações adicionais a serem enviadas.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Value</code></td>
       <td style="text-align: left">Valor das informações adicionais a serem enviadas.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Addressee</code></td>
       <td style="text-align: left">Nome completo do responsável a receber o produto no endereço de entrega.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Method</code></td>
       <td style="text-align: left">Meio de entrega do pedido.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
       <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.JourneyType</code></td>
       <td style="text-align: left">Tipo de viagem.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.DepartureTime</code></td>
       <td style="text-align: left">Data e hora de partida.</td>
-      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">datetime</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Name</code></td>
       <td style="text-align: left">Nome completo do passageiro.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Identity</code></td>
       <td style="text-align: left">Número do documento do passageiro.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Status</code></td>
       <td style="text-align: left">Classificação da empresa aérea.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Rating</code></td>
       <td style="text-align: left">Tipo do passageiro.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Email</code></td>
       <td style="text-align: left">E-mail do passageiro.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Phone</code></td>
       <td style="text-align: left">Telefone do passageiro.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin</code></td>
       <td style="text-align: left">Código do aeroporto de partida.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
       <td style="text-align: left">Código do aeroporto de chegada.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Id</code></td>
@@ -11679,72 +11679,72 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Status</code></td>
       <td style="text-align: left">Status da transação no <em>Antifraude</em> Braspag. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status" target="_blank">Lista de Valores - Status</a>.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.FraudAnalysisReasonCode</code></td>
       <td style="text-align: left">Código de retorno da Cybersouce. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.fraudanalysisreasoncode" target="_blank">Lista de Valores - FraudAnalysisReasonCode</a>.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.AddressInfoCode</code></td>
       <td style="text-align: left">Códigos indicam incompatibilidades entre os endereços de cobrança e entrega do comprador. <br /> Os códigos são concatenados usando o caractere “^”. Ex.: COR-BA^MM-BIN. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.addressinfocode" target="_blank">Lista de Valores - AddressInfoCode</a>.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.FactorCode</code></td>
       <td style="text-align: left">Códigos que afetaram a pontuação da análise. <br /> Os códigos são concatenados usando o caractere “^”. Ex.: B^D^R^Z. <br /><a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode" target="_blank">Lista de Valores - FactorCode</a>.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.Score</code></td>
       <td style="text-align: left">Score da análise de fraude. Valor entre 0 e 100.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.BinCountry</code></td>
       <td style="text-align: left">Código do país do BIN do cartão usado na análise.<br /> Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a>.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.CardIssuer</code></td>
       <td style="text-align: left">Nome do banco ou entidade emissora do cartão de crédito.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.CardScheme</code></td>
       <td style="text-align: left">Bandeira do cartão.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.HostSeverity</code></td>
       <td style="text-align: left">Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.InternetInfoCode</code></td>
       <td style="text-align: left">Códigos que indicam problemas com o endereço de e-mail, endereço IP ou endereço de cobrança. <br /> Os códigos são concatenados usando o caractere “^”. Ex.: FREE-EM^RISK-EM <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.internetinfocode" target="_blank">Lista de Valores - InternetInfoCode</a>.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.IpRoutingMethod</code></td>
       <td style="text-align: left">Método de roteamento do comprador obtido a partir do endereço de IP. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.iproutingmethod" target="_blank">Lista de Valores - IpRoutingMethod</a>.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.ScoreModelUsed</code></td>
       <td style="text-align: left">Nome do modelo de score utilizado na análise. Caso não tenha nenhum modelo definido, o modelo padrão da Cybersource foi o utilizado.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.CasePriority</code></td>
       <td style="text-align: left">Define o nível de prioridade das regras ou perfis do lojista. O nível de prioridade varia entre 1 (maior) e 5 (menor). O valor padrão é 3, e é atribuído caso não se tenha definido a prioridade das regras ou perfis. Este campo será retornado somente se a loja for assinante do <em>Enhanced Case Management</em>.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.ProviderTransactionId</code></td>
       <td style="text-align: left">Id da transação na Cybersource.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.PaymentId</code></td>
@@ -11754,47 +11754,47 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.AcquirerTransactionId</code></td>
       <td style="text-align: left">Identificador da transação na adquirente.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
       <td style="text-align: left">Número do comprovante de venda na adquirente (NSU - Número Sequencial Único).</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.AuthorizationCode</code></td>
       <td style="text-align: left">Código de autorização na adquirente.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
       <td style="text-align: left">Data em que a transação foi recebida no Pagador Braspag. <br /> Ex.: 2018-01-16 16:38:19.</td>
-      <td style="text-align: left">Datetime</td>
+      <td style="text-align: left">datetime</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CapturedDate</code></td>
       <td style="text-align: left">Data em que a transação foi capturada na adquirente. <br /> Ex.: 2018-01-16 16:38:20.</td>
-      <td style="text-align: left">Datetime</td>
+      <td style="text-align: left">datetime</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code></td>
       <td style="text-align: left">Valor capturado da transação, em centavos. <br /> Ex.: 123456 = R$ 1.234,56.</td>
-      <td style="text-align: left">Número</td>
+      <td style="text-align: left">número</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ECI</code></td>
       <td style="text-align: left"><em>Electronic Commerce Indicator</em>. Código gerado em uma transação de crédito com autenticação externa.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ReasonCode</code></td>
       <td style="text-align: left">Código de retorno da operação.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ReasonMessage</code></td>
       <td style="text-align: left">Mensagem de retorno da operação.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
@@ -11804,12 +11804,12 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ProviderReturnCode</code></td>
       <td style="text-align: left">Código retornado pela adquirente ou emissor.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.ProviderReturnMessage</code></td>
       <td style="text-align: left">Mensagem retornada pela adquirente ou emissor.</td>
-      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">texto</td>
     </tr>
   </tbody>
 </table>
@@ -12103,504 +12103,504 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Número do pedido da loja.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Nome completo do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>120</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Número do documento de identificação do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>16</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td>Tipo de documento de identificação do comprador. <br /> Possíveis valores: “CPF” ou “CNPJ”.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td>E-mail do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
       <td>Data de nascimento do comprador. <br /> Ex.: 1991-01-10.</td>
-      <td>Date</td>
+      <td>data</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
       <td>Número do telefone do comprador. <br /> Ex.: 5521976781114.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Mobile</code></td>
       <td>Número do telefone celular do comprador. <br /> Ex.: 5521976781114.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
       <td>Logradouro do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>54</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
       <td>Número do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>5</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
       <td>Complemento do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>14</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
       <td>CEP do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>9</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
       <td>Cidade do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
       <td>Estado do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
       <td>País do endereço de cobrança.<br />Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
       <td>Bairro do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>45</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
       <td>Logradouro do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>54</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
       <td>Número do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>5</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
       <td>Complemento do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>14</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
       <td>CEP do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>9</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
       <td>Cidade do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>50</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
       <td>Estado do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>2</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
       <td>País do endereço de entrega.<br />Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>2</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
       <td>Bairro do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>45</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Nome do provedor da autorização.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Tipo do meio de pagamento.<br />Obs.: Somente o tipo “CreditCard” funciona com análise de fraude.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>100</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Valor da transação financeira, em centavos. <br /> Ex.: 150000 = R$ 1.500,00.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
       <td>Moeda na qual o pagamento será feito. <br /> Possíveis valores: “BRL” / “USD” / “MXN” / “COP” / “CLP” / “ARS” / “PEN” / “EUR” / “PYN” / “UYU” / “VEB” / “VEF” / “GBP”.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>3</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
       <td>País na qual o pagamento será realizado.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>3</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td>Número de parcelas.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
       <td>Tipo de parcelamento. <br /> Possíveis valores: “ByMerchant” (loja) / “ByIssuer” (emissor).</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
       <td>Indica se a autorização deverá ser com captura automática. <br /> Possíveis valores: “true” / “false” (default). <br /> Obs1.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade. <br /> Obs2.: Este campo deverá ser preenchido de acordo com o fluxo da análise de fraude.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td>Indica se a transação deve ser autenticada. <br /> Possíveis valores: “true” / “false” (default). <br /> Obs1.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.<br /> Obs2. O campo <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> deve ser igual a “true” quando este for igual a “false”.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
       <td>Indica se a transação é do tipo recorrente. <br /> Possíveis valores: “true” / “false” (default). <br /> Obs1.: Este campo igual a “true” não irá criar uma recorrência; apenas permitirá a realização de uma transação sem a necessidade de envio do CVV, indicando para a adquirente que é a cobrança de uma transação de uma recorrência. <br /> Obs2.: Somente para transações <strong>Cielo</strong>. <br /> Obs3.: O campo <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> deve ser igual a “false” quando este for igual a “true”.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
       <td>Texto que será impresso na fatura do portador. <br /> Obs.: O valor deste campo deve tornar fácil para o portador a identificação do estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>13</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
       <td>Indica se a transação será dividida entre vários participantes. <br /> Possíveis valores: “true” / “false” (default). <br /> Para utilizar a funcionalidade de split de pagamentos, é necessário a contratação da solução junto à Braspag.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td>Número do cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>19</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td>Nome do portador impresso no cartão de crédito. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>25</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td>Data de validade do cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>7</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
       <td>Código de segurança no verso do cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>4</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
       <td>Bandeira do cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
       <td>Indica se os dados do cartão de crédito serão armazenados no <em>Cartão Protegido</em>.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Sequence</code></td>
       <td>Tipo de fluxo da análise de fraude. <br /> Possíveis valores: “AnalyseFirst” / “AuthorizeFirst”.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>14</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
       <td>Critério do fluxo da análise de fraude. <br /> Possíveis valores: “OnSuccess” / “Always”.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>9</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
       <td>Provedor de <em>Antifraude</em>. <br /> Valor possível para o provedor ACI Worldwide: “RedShield”.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
       <td>Indica se a transação após a análise de fraude será capturada. <br /> Possíveis valores: “true” / “false” (default) <br /> Obs1.: Quando enviado igual a “true” e o retorno da análise de fraude for de baixo risco (“<em>Accept</em>”), a transação anteriormente autorizada será capturada. <br /> Obs2.: Quando enviado igual a “true” e o retorno da análise de fraude for revisão (“<em>Review</em>”), a transação ficará autorizada, sendo capturada após a Braspag receber notificação de alteração do status para baixo risco (“<em>Accept</em>”). <br /> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (<code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code>) deve ser obrigatoriamente “AuthorizeFirst”.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.VoidOnHighRisk</code></td>
       <td>Indica se a transação após a análise de fraude será cancelada. <br /> Possíveis valores: “true” / “false” (default). <br /> Obs1.: Quando enviado igual a “true” e o retorno da análise de fraude for de alto risco (“<em>Reject</em>”), a transação anteriormente autorizada será cancelada. <br /> Obs2.: Quando enviado igual a “true” e o retorno da análise de fraude for revisão (“<em>Review</em>”), a transação ficará autorizada, sendo cancelada após a Braspag receber notificação de alteração do status para alto risco (“<em>Reject</em>”). <br /> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (<code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code>) deve ser obrigatoriamente “AuthorizeFirst”.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
       <td>Valor total do pedido, em centavos. <br /> Ex.: 123456 = R$ 1.234,56.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code></td>
       <td>Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="language-plaintext highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>88</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.CookiesAccepted</code></td>
       <td>Identifica se o browser do comprador aceita cookies. <br /> Possíveis valores: “true” / “false” (default).</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.IpAddress</code></td>
       <td>Endereço de IP do comprador. Formato IPv4 ou IPv6.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>45</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.IsGift</code></td>
       <td>Indica se o pedido realizado pelo comprador é para presente.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.ReturnsAccepted</code></td>
       <td>Indica se o pedido realizado pelo comprador pode ser devolvido à loja. <br /> Possíveis valores: “true” / “false” (default).</td>
-      <td>Booleano</td>
+      <td>booleano</td>
       <td>—</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Name</code></td>
       <td>Nome do produto.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Quantity</code></td>
       <td>Quantidade do produto.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Sku</code></td>
       <td>SKU (<em>Stock Keeping Unit</em> - Unidade de Controle de Estoque) do produto.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.UnitPrice</code></td>
       <td>Preço unitário do produto, em centavos. <br /> Ex.: 10950 = R$ 109,50.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Id</code></td>
       <td>Id das informações adicionais a serem enviadas. <br /> <a href="#tabela-de-mdds">Tabela de MDDs</a>.</td>
-      <td>Número</td>
+      <td>número</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Value</code></td>
       <td>Valor das informações adicionais a serem enviadas. <br /> <a href="#tabela-de-mdds">Tabela de MDDs</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Addressee</code></td>
       <td>Nome completo do responsável a receber o produto no endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>120</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Method</code></td>
       <td>Meio de entrega do pedido. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.shipping.method">Lista de Valores - Method</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>8</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
       <td>Número do telefone do responsável a receber o produto no endereço de entrega. <br /> Ex.: 552121114700.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.JourneyType</code></td>
       <td>Tipo de viagem. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.journeytype">Lista de Valores - JourneyType</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>32</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.DepartureTime</code></td>
       <td>Data e hora de partida. <br /> Ex.: 2018-03-31 19:16:38.</td>
-      <td>DateTime</td>
+      <td>datetime</td>
       <td>—</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Name</code></td>
       <td>Nome completo do passageiro.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>120</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Identity</code></td>
       <td>Número do documento do passageiro.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>32</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Status</code></td>
       <td>Classificação da empresa aérea. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].status">Lista de Valores - Status</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Rating</code></td>
       <td>Tipo do passageiro. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.travel.passengers[n].rating">Lista de Valores - Rating</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>13</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Email</code></td>
       <td>E-mail do passageiro.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>255</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Phone</code></td>
       <td>Telefone do passageiro. <br /> Ex.: 552121114700.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>15</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin</code></td>
       <td>Código do aeroporto de partida.<br /> Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>3</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
       <td>Código do aeroporto de chegada.<br /> Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
       <td>3</td>
       <td>Não*</td>
     </tr>
@@ -12959,367 +12959,367 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Número do pedido da loja.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Nome completo do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Número do documento de identificação do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td>Tipo de documento de identificação do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td>E-mail do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
       <td>Data de nascimento do comprador.</td>
-      <td>Date</td>
+      <td>data</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
       <td>Número do telefone do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
       <td>Logradouro do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
       <td>Número do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
       <td>Complemento do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
       <td>CEP do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
       <td>Cidade do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
       <td>Estado do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
       <td>País do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
       <td>Bairro do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.AddressType</code></td>
       <td>Tipo do endereço de cobrança.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
       <td>Logradouro do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
       <td>Número do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
       <td>Complemento do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
       <td>CEP do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
       <td>Cidade do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
       <td>Estado do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
       <td>País do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
       <td>Bairro do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.AddressType</code></td>
       <td>Tipo do endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Mobile</code></td>
       <td>Número do telefone celular do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
       <td>Montante do valor da autorização que deve ser destinado à taxa de serviço.</td>
-      <td>Número</td>
+      <td>número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td>Número de parcelas.</td>
-      <td>Número</td>
+      <td>número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
       <td>Tipo de parcelamento.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
       <td>Indica se a autorização deverá ser com captura automática.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td>Indica se a transação deve ser autenticada.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
       <td>Indica se a transação é do tipo recorrente.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td>Número do cartão de crédito truncado.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td>Nome do portador impresso no cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td>Data de validade do cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
       <td>Indica se os dados do cartão de crédito foram armazenados no <em>Cartão Protegido</em>.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
       <td>Bandeira do cartão de crédito.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
       <td>Número do comprovante de venda na adquirente (NSU - Número Sequencial Único).</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.AcquirerTransactionId</code></td>
       <td>Identificador da transação na adquirente.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.AuthorizationCode</code></td>
       <td>Código de autorização na adquirente.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
       <td>Texto que será impresso na fatura do portador.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SentOrderId</code></td>
       <td>Número adicional ao MerchantOrderId gerado para o pedido e utilizado durante a transação. Esse número (SentOrderId) só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Sequence</code></td>
       <td>Tipo de fluxo da análise de fraude.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
       <td>Critério do fluxo da análise de fraude.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code></td>
       <td>Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
       <td>Provedor de <em>Antifraude</em>.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
       <td>Indica se a transação após a análise de fraude será capturada.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.VoidOnHighRisk</code></td>
       <td>Indica se a transação após a análise de fraude será cancelada.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
       <td>Valor total do pedido, em centavos.</td>
-      <td>Número</td>
+      <td>número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.IsRetryTransaction</code></td>
       <td>Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900</td>
-      <td>Booleano</td>
+      <td>booleano</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Id</code></td>
       <td>Id das informações adicionais a serem enviadas.</td>
-      <td>Número</td>
+      <td>número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.MerchantDefinedFields.Value</code></td>
       <td>Valor das informações adicionais a serem enviadas.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.IsGift</code></td>
       <td>Indica se o pedido realizado pelo comprador é para presente.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.ReturnsAccepted</code></td>
       <td>Indica se o pedido realizado pelo comprador pode ser devolvido à loja.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Name</code></td>
       <td>Nome do produto.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Sku</code></td>
       <td>SKU (<em>Stock Keeping Unit</em> - Unidade de Controle de Estoque) do produto.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.UnitPrice</code></td>
       <td>Preço unitário do produto.</td>
-      <td>Número</td>
+      <td>número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Quantity</code></td>
       <td>Quantidade do produto.</td>
-      <td>Número</td>
+      <td>número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.DepartureTime</code></td>
       <td>Data e hora de partida.</td>
-      <td>DateTime</td>
+      <td>datetime</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.JourneyType</code></td>
       <td>Tipo de viagem.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Name</code></td>
       <td>Nome completo do passageiro.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Identity</code></td>
       <td>Número do documento do passageiro.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Status</code></td>
       <td>Classificação da empresa aérea.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Rating</code></td>
       <td>Tipo do passageiro.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Email</code></td>
       <td>E-mail do passageiro.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Phone</code></td>
       <td>Telefone do passageiro.</td>
-      <td>Número</td>
+      <td>número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
       <td>Código do aeroporto de chegada.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin</code></td>
       <td>Código do aeroporto de partida.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.CookiesAccepted</code></td>
       <td>Identifica se o browser do comprador aceita cookies.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.IpAddress</code></td>
       <td>Endereço de IP do comprador. Formato IPv4 ou IPv6.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Addressee</code></td>
       <td>Nome completo do responsável a receber o produto no endereço de entrega.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
       <td>Número do telefone do responsável a receber o produto no endereço de entrega.</td>
-      <td>Número</td>
+      <td>número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Method</code></td>
       <td>Meio de entrega do pedido.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Id</code></td>
@@ -13329,42 +13329,42 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Status</code></td>
       <td>Status da transação no <em>Antifraude</em> Braspag. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.status" target="_blank">Lista de Valores - Status</a>.</td>
-      <td>Número</td>
+      <td>número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.StatusDescription</code></td>
       <td>Descrição do status</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.FactorCode</code></td>
       <td>Códigos que afetaram a pontuação da análise. <br /> Os códigos são concatenados usando o caractere “^”. Ex.: B^D^R^Z. <br /><a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.replydata.factorcode" target="_blank">Lista de Valores - FactorCode</a>.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.ProviderTransactionId</code></td>
       <td>Id da transação na ACI Worldwide.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.ReturnMessage</code></td>
       <td>Mensagem retornada pelo provedor de Antifraude</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.ProviderOrderId</code></td>
       <td>Id do pedido na ACI Worldwide</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.ReturnCode</code></td>
       <td>Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DoSplit</code></td>
       <td>Indica se a transação será dividida entre vários participantes.</td>
-      <td>Booleano</td>
+      <td>booleano</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentId</code></td>
@@ -13374,27 +13374,27 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Tipo do meio de pagamento. Obs.: Somente o tipo “CreditCard” funciona com análise de fraude.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Valor da transação financeira, em centavos. Ex.: 150000 = R$ 1.500,00.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
       <td>Data em que a transação foi recebida no Pagador Braspag. <br /> Ex.: 2018-01-16 16:38:19.</td>
-      <td>Datetime</td>
+      <td>datetime</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code></td>
       <td>Valor capturado da transação, em centavos. <br /> Ex.: 123456 = R$ 1.234,56.</td>
-      <td>Número</td>
+      <td>número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CapturedDate</code></td>
       <td>Data em que a transação foi capturada na adquirente. <br /> Ex.: 2018-01-16 16:38:20.</td>
-      <td>Datetime</td>
+      <td>datetime</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
@@ -13404,37 +13404,37 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
       <td>País no qual o pagamento será realizado.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
       <td>Nome do provedor da autorização.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReasonCode</code></td>
       <td>Código de retorno da operação.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReasonMessage</code></td>
       <td>Mensagem de retorno da operação.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
       <td>Status da transação no Pagador. <br /> <a href="https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação" target="_blank">Lista de Status da Transação</a>.</td>
-      <td>Número</td>
+      <td>número</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ProviderReturnCode</code></td>
       <td>Código retornado pela adquirente ou emissor.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ProviderReturnMessage</code></td>
       <td>Mensagem retornada pela adquirente ou emissor.</td>
-      <td>Texto</td>
+      <td>texto</td>
     </tr>
   </tbody>
 </table>
