@@ -7553,9 +7553,9 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`PaymentId`|Número de identificação do pagamento. |Texto |36 |Sim (envio no *endpoint*)|
+|`PaymentId`|Número de identificação do pagamento. |texto |36 |Sim (envio no *endpoint*)|
 
 #### Resposta
 
@@ -7769,77 +7769,77 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Texto alfanumérico|
-|`Customer.Name`|Nome do comprador.|Texto|255|Texto alfanumérico|
-|`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.|Texto |14 |Texto alfanumérico|
-|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ).|Texto|255|CPF ou CNPJ|
-|`Customer.Email`|Email do comprador.|Texto|255|Texto alfanumérico|
-|`Customer.Birthdate`|Data de nascimento do comprador.|Date|10|formato AAAA-MM-DD|
-|`Customer.Address.Street`|Endereço de contato do comprador.|Texto|255|Texto alfanumérico|
-|`Customer.Address.Number`|Número do endereço de contato do comprador.|Texto|15|Texto alfanumérico|
-|`Customer.Address.Complement`|Complemento do endereço de contato do comprador.|Texto|50|Texto alfanumérico|
-|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador.|Texto|9|Texto alfanumérico|
-|`Customer.Address.City`|Cidade do endereço de contato do comprador.|Texto|50|Texto alfanumérico|
-|`Customer.Address.State`|Estado do endereço de contato do comprador.|Texto|2|Texto alfanumérico|
-|`Customer.Address.Country`|Pais do endereço de contato do comprador|Texto|35|Texto alfanumérico|
-|`Customer.Address.District`|Bairro do endereço de contato do comprador.|Texto |50 |Texto alfanumérico|
-|`Customer.DeliveryAddress.Street`|Endereço de entrega do pedido.|Texto|255|Texto alfanumérico|
-|`Customer.DeliveryAddress.Number`|Número do endereço de entrega do pedido.|Texto|15|Texto alfanumérico|
-|`Customer.DeliveryAddress.Complement`|Complemento do endereço de entrega do pedido.|Texto|50|Texto alfanumérico|
-|`Customer.DeliveryAddress.ZipCode`|CEP do endereço de entrega do pedido.|Texto|9|Texto alfanumérico|
-|`Customer.DeliveryAddress.City`|Cidade do endereço de entrega do pedido.|Texto|50|Texto alfanumérico|
-|`Customer.DeliveryAddress.State`|Estado do endereço de entrega do pedido.|Texto|2|Texto alfanumérico|
-|`Customer.DeliveryAddress.Country`|País do endereço de entrega do pedido.|Texto|35|Texto alfanumérico|
-|`Customer.DeliveryAddress.District`|Bairro do endereço de entrega do pedido. |Texto |50|Texto alfanumérico|
+|`MerchantOrderId`|Número de identificação do pedido.|texto|50|texto alfanumérico|
+|`Customer.Name`|Nome do comprador.|texto|255|texto alfanumérico|
+|`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.|texto |14 |texto alfanumérico|
+|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ).|texto|255|CPF ou CNPJ|
+|`Customer.Email`|Email do comprador.|texto|255|texto alfanumérico|
+|`Customer.Birthdate`|Data de nascimento do comprador.|data|10|formato AAAA-MM-DD|
+|`Customer.Address.Street`|Endereço de contato do comprador.|texto|255|texto alfanumérico|
+|`Customer.Address.Number`|Número do endereço de contato do comprador.|texto|15|texto alfanumérico|
+|`Customer.Address.Complement`|Complemento do endereço de contato do comprador.|texto|50|texto alfanumérico|
+|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador.|texto|9|texto alfanumérico|
+|`Customer.Address.City`|Cidade do endereço de contato do comprador.|texto|50|texto alfanumérico|
+|`Customer.Address.State`|Estado do endereço de contato do comprador.|texto|2|texto alfanumérico|
+|`Customer.Address.Country`|Pais do endereço de contato do comprador|texto|35|texto alfanumérico|
+|`Customer.Address.District`|Bairro do endereço de contato do comprador.|texto |50 |texto alfanumérico|
+|`Customer.DeliveryAddress.Street`|Endereço de entrega do pedido.|texto|255|texto alfanumérico|
+|`Customer.DeliveryAddress.Number`|Número do endereço de entrega do pedido.|texto|15|texto alfanumérico|
+|`Customer.DeliveryAddress.Complement`|Complemento do endereço de entrega do pedido.|texto|50|texto alfanumérico|
+|`Customer.DeliveryAddress.ZipCode`|CEP do endereço de entrega do pedido.|texto|9|texto alfanumérico|
+|`Customer.DeliveryAddress.City`|Cidade do endereço de entrega do pedido.|texto|50|texto alfanumérico|
+|`Customer.DeliveryAddress.State`|Estado do endereço de entrega do pedido.|texto|2|texto alfanumérico|
+|`Customer.DeliveryAddress.Country`|País do endereço de entrega do pedido.|texto|35|texto alfanumérico|
+|`Customer.DeliveryAddress.District`|Bairro do endereço de entrega do pedido. |texto |50|texto alfanumérico|
 |`Merchant.Id`|Identificador da loja que efetuou essa transação.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Merchant.TradeName`|Nome da loja.|Texto|50|Texto alfanumérico|
-|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15| Consulte os [anexos](#anexos).|
-|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Ex.: "CreditCard"|
-|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|10000|
-|`Payment.ServiceTaxAmount`|Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|10000|
-|`Payment.Currency`|Moeda na qual o pagamento será feito.|Texto|3|BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
-|`Payment.Country`|País na qual o pagamento será feito.|Texto|3|BRA|
-|`Payment.Installments`|Número de parcelas.|Número|2|6|
-|`Payment.Interest`|Tipo de parcelamento.|Texto|10|Loja ("ByMerchant") ou Emissor ("ByIssuer")|
-|`Payment.Capture`|Indica se a autorização deve ser com captura automática ou não. Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.|Booleano|---|true / false (default)|
-|`Payment.Authenticate`|Indica se a transação deve ser autenticada ou não. Deverá verificar junto à adquirente a disponibilidade desta funcionalidade. `Authenticate` deve ser "false" quando `Recurrent` é "true".|Booleano|---|true / false (default)|
-|`Payment.Recurrent`|Indica se a transação é do tipo recorrente ou não. Obs.: Este campo igual a "true" não irá originar uma nova recorrência; apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Somente para transações **Cielo**. `Authenticate` deve ser "false" quando `Recurrent` é "true".|Booleano|---|true / false (default)|
-|`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador.|Texto|13|Texto alfanumérico|
-|`Payment.ExtraDataCollection.Name`|Nome do campo em que será gravado o dado extra.|Texto|50|Texto alfanumérico|
-|`Payment.ExtraDataCollection.Value`|Valor do campo em que será gravado o dado extra.|Texto|1024|Texto alfanumérico|
-|`Payment.AcquirerTransactionId`|Id da transação no provedor do meio de pagamento.|Texto|40|Texto alfanumérico|
-|`Payment.ProofOfSale`|Número do comprovante de venda.|Texto|20|Texto alfanumérico|
-|`Payment.AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
-|`Payment.Refunds.Amount`|Valor reembolsado, em centavos.|Número|15|10000|
-|`Payment.Refunds.Status`|Status do reembolso.|Número|1|Received = 1<br/>Sent = 2<br/>Approved = 3<br/>Denied = 4<br/>Rejected = 5|
-|`Payment.Refunds.ReceivedDate`|Data de recebimento do reembolso.|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.Chargebacks[n].Amount`|Valor do chargeback, em centavos.|Número|15|10000|
-|`Payment.Chargebacks[n].CaseNumber`|Número do caso relacionado ao chargeback.|Texto|16|Texto alfanumérico|
-|`Payment.Chargebacks[n].Date`|Data do chargeback.|Date|10|AAAA-MM-DD|
-|`Payment.Chargebacks[n].ReasonCode`|Código do motivo do chargeback.<br/>[Lista de Valores - ReasonCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage).|Texto|10|Texto alfanumérico|
-|`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback.<br/>[Lista de Valores - ReasonMessage](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage).|Texto|512|Texto alfanumérico|
-|`Payment.Chargebacks[n].Status`|Status do chargeback. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status).|Texto|32|Texto|
-|`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem.|Texto|512|Texto alfanumérico|
-|`Payment.FraudAlert.Date`|Data do alerta de fraude.|Date|10|AAAA-MM-DD|
-|`Payment.FraudAlert.ReasonMessage`|Mensagem de motivo do alerta de fraude.|Texto|512|Texto alfanumérico|
-|`Payment.FraudAlert.IncomingChargeback`|Flag que identifica se a transação possui um chargeback ocorrido antes do alerta de fraude.|Booleano|5|Texto|
-|`Payment.PaymentId`|Campo identificador do pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.ReasonCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
-|`Payment.ReasonMessage`|Mensagem de retorno da adquirência.|Texto|512|Texto alfanumérico|
-|`Payment.CapturedAmount`|Valor capturado.|Número|15|10000|
-|`Payment.CapturedDate`|Data da captura.|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.VoidedAmount`|Valor cancelado/estornado, em centavos.|Número|15|10000|
-|`Payment.VoidedDate`|Data do cancelamento/estorno.|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.Status`|Status da transação.|Byte|2| Ex.: "1"|
-|`RecurrentPayment.RecurrentPaymentID`|Caso a transação tenha surgido de um pedido recorrente, retorna o RecurrentPaymentID desse pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Payment.Provider`|Provedor utilizado.|Texto|32|Simulado|
-|`Payment.ProviderDescription`|Nome do adquirente que processou a transação.|Texto|512|Simulado|
-|`CreditCard.CardNumber`|Número do cartão do comprador.|Texto|19|---|
-|`CreditCard.Holder`|Nome do portador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|Texto|25|---|
-|`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|MM/AAAA|
-|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|---|
-|`CreditCard.SaveCard`|Identifica se o cartão será salvo para gerar o token (*CardToken*).|Booleano|---|true / false (default)|
+|`Merchant.TradeName`|Nome da loja.|texto|50|texto alfanumérico|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|texto|15| Consulte os [anexos](#anexos).|
+|`Payment.Type`|Tipo do meio de pagamento.|texto|100|Ex.: "CreditCard"|
+|`Payment.Amount`|Valor do pedido, em centavos.|número|15|10000|
+|`Payment.ServiceTaxAmount`|Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|número|15|10000|
+|`Payment.Currency`|Moeda na qual o pagamento será feito.|texto|3|BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
+|`Payment.Country`|País na qual o pagamento será feito.|texto|3|BRA|
+|`Payment.Installments`|Número de parcelas.|número|2|6|
+|`Payment.Interest`|Tipo de parcelamento.|texto|10|Loja ("ByMerchant") ou Emissor ("ByIssuer")|
+|`Payment.Capture`|Indica se a autorização deve ser com captura automática ou não. Deverá verificar junto à adquirente a disponibilidade desta funcionalidade.|booleano|---|true / false (default)|
+|`Payment.Authenticate`|Indica se a transação deve ser autenticada ou não. Deverá verificar junto à adquirente a disponibilidade desta funcionalidade. `Authenticate` deve ser "false" quando `Recurrent` é "true".|booleano|---|true / false (default)|
+|`Payment.Recurrent`|Indica se a transação é do tipo recorrente ou não. Obs.: Este campo igual a "true" não irá originar uma nova recorrência; apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Somente para transações **Cielo**. `Authenticate` deve ser "false" quando `Recurrent` é "true".|booleano|---|true / false (default)|
+|`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador.|texto|13|texto alfanumérico|
+|`Payment.ExtraDataCollection.Name`|Nome do campo em que será gravado o dado extra.|texto|50|texto alfanumérico|
+|`Payment.ExtraDataCollection.Value`|Valor do campo em que será gravado o dado extra.|texto|1024|texto alfanumérico|
+|`Payment.AcquirerTransactionId`|Id da transação no provedor do meio de pagamento.|texto|40|texto alfanumérico|
+|`Payment.ProofOfSale`|Número do comprovante de venda.|texto|20|texto alfanumérico|
+|`Payment.AuthorizationCode`|Código de autorização.|texto|300|texto alfanumérico|
+|`Payment.Refunds.Amount`|Valor reembolsado, em centavos.|número|15|10000|
+|`Payment.Refunds.Status`|Status do reembolso.|número|1|Received = 1<br/>Sent = 2<br/>Approved = 3<br/>Denied = 4<br/>Rejected = 5|
+|`Payment.Refunds.ReceivedDate`|Data de recebimento do reembolso.|texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.Chargebacks[n].Amount`|Valor do chargeback, em centavos.|número|15|10000|
+|`Payment.Chargebacks[n].CaseNumber`|Número do caso relacionado ao chargeback.|texto|16|Texto alfanumérico|
+|`Payment.Chargebacks[n].Date`|Data do chargeback.|data|10|AAAA-MM-DD|
+|`Payment.Chargebacks[n].ReasonCode`|Código do motivo do chargeback.<br/>[Lista de Valores - ReasonCode](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage).|texto|10|texto alfanumérico|
+|`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback.<br/>[Lista de Valores - ReasonMessage](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].reasoncode-e-payment.chargebacks[n].reasonmessage).|texto|512|texto alfanumérico|
+|`Payment.Chargebacks[n].Status`|Status do chargeback. <br/> [Lista de Valores - Status](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status).|texto|32|texto|
+|`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente, podendo ser o titular do cartão ou outra mensagem.|texto|512|texto alfanumérico|
+|`Payment.FraudAlert.Date`|Data do alerta de fraude.|data|10|AAAA-MM-DD|
+|`Payment.FraudAlert.ReasonMessage`|Mensagem de motivo do alerta de fraude.|texto|512|texto alfanumérico|
+|`Payment.FraudAlert.IncomingChargeback`|Flag que identifica se a transação possui um chargeback ocorrido antes do alerta de fraude.|booleano|5|Texto|
+|`Payment.PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.ReasonCode`|Código de retorno da adquirência.|texto|32|texto alfanumérico|
+|`Payment.ReasonMessage`|Mensagem de retorno da adquirência.|texto|512|texto alfanumérico|
+|`Payment.CapturedAmount`|Valor capturado.|número|15|10000|
+|`Payment.CapturedDate`|Data da captura.|texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.VoidedAmount`|Valor cancelado/estornado, em centavos.|número|15|10000|
+|`Payment.VoidedDate`|Data do cancelamento/estorno.|texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.Status`|Status da transação.|byte|2| Ex.: "1"|
+|`RecurrentPayment.RecurrentPaymentID`|Caso a transação tenha surgido de um pedido recorrente, retorna o RecurrentPaymentID desse pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Payment.Provider`|Provedor utilizado.|texto|32|Simulado|
+|`Payment.ProviderDescription`|Nome do adquirente que processou a transação.|texto|512|Simulado|
+|`CreditCard.CardNumber`|Número do cartão do comprador.|texto|19|---|
+|`CreditCard.Holder`|Nome do portador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|texto|25|---|
+|`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|texto|7|MM/AAAA|
+|`CreditCard.Brand`|Bandeira do cartão.|texto|10|---|
+|`CreditCard.SaveCard`|Identifica se o cartão será salvo para gerar o token (*CardToken*).|booleano|---|true / false (default)|
 
 ### Transação de Boleto Registrado
 
@@ -7862,7 +7862,7 @@ Para consultar uma transação de boleto registrado via PaymentID, é necessári
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
 |`PaymentId`|Número de identificação do pagamento. |GUID |36 |Sim (envio no *endpoint*)|
 
@@ -8000,54 +8000,54 @@ Para consultar uma transação de boleto registrado via PaymentID, é necessári
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Texto alfanumérico|
-|`Customer.Name`|Nome do comprador.|Texto|255|Texto alfanumérico|
-|`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.|Texto |14 |Texto alfanumérico|
-|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ).|Texto|255|CPF ou CNPJ|
-|`Customer.Email`|E-mail do comprador.|Texto|255|Texto alfanumérico|
-|`Customer.Birthdate`|Data de nascimento do comprador.|Date|10|formato AAAA-MM-DD|
-|`Customer.Address.Street`|Endereço de contato do comprador.|Texto|255|Texto alfanumérico|
-|`Customer.Address.Number`|Número do endereço de contato do comprador.|Texto|15|Texto alfanumérico|
-|`Customer.Address.Complement`|Complemento do endereço de contato do comprador.|Texto|50|Texto alfanumérico|
-|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador.|Texto|9|Texto alfanumérico|
-|`Customer.Address.City`|Cidade do endereço de contato do comprador.|Texto|50|Texto alfanumérico|
-|`Customer.Address.State`|Estado do endereço de contato do comprador.|Texto|2|Texto alfanumérico|
-|`Customer.Address.Country`|País do endereço de contato do comprador.|Texto|35|Texto alfanumérico|
-|`Customer.Address.District`|Bairro do endereço de contato do comprador.|Texto |50 |Texto alfanumérico|
-|`Customer.DeliveryAddress.Street`|Endereço de entrega do pedido.|Texto|255|Texto alfanumérico|
-|`Customer.DeliveryAddress.Number`|Número do endereço de entrega do pedido.|Texto|15|Texto alfanumérico|
+|`MerchantOrderId`|Número de identificação do pedido.|texto|50|texto alfanumérico|
+|`Customer.Name`|Nome do comprador.|texto|255|texto alfanumérico|
+|`Customer.Identity`|Número do RG, CPF ou CNPJ do cliente.|texto |14 |texto alfanumérico|
+|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ).|texto|255|CPF ou CNPJ|
+|`Customer.Email`|E-mail do comprador.|texto|255|texto alfanumérico|
+|`Customer.Birthdate`|Data de nascimento do comprador.|data|10|formato AAAA-MM-DD|
+|`Customer.Address.Street`|Endereço de contato do comprador.|texto|255|texto alfanumérico|
+|`Customer.Address.Number`|Número do endereço de contato do comprador.|texto|15|texto alfanumérico|
+|`Customer.Address.Complement`|Complemento do endereço de contato do comprador.|texto|50|texto alfanumérico|
+|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador.|texto|9|texto alfanumérico|
+|`Customer.Address.City`|Cidade do endereço de contato do comprador.|texto|50|texto alfanumérico|
+|`Customer.Address.State`|Estado do endereço de contato do comprador.|texto|2|texto alfanumérico|
+|`Customer.Address.Country`|País do endereço de contato do comprador.|texto|35|texto alfanumérico|
+|`Customer.Address.District`|Bairro do endereço de contato do comprador.|texto |50 |texto alfanumérico|
+|`Customer.DeliveryAddress.Street`|Endereço de entrega do pedido.|texto|255|texto alfanumérico|
+|`Customer.DeliveryAddress.Number`|Número do endereço de entrega do pedido.|texto|15|texto alfanumérico|
 |`Customer.DeliveryAddress.Complement`|Complemento do endereço de entrega do pedido.|Texto|50|Texto alfanumérico|
-|`Customer.DeliveryAddress.ZipCode`|CEP do endereço de entrega do pedido.|Texto|9|Texto alfanumérico|
-|`Customer.DeliveryAddress.City`|Cidade do endereço de entrega do pedido.|Texto|50|Texto alfanumérico|
-|`Customer.DeliveryAddress.State`|Estado do endereço de entrega do pedido.|Texto|2|Texto alfanumérico|
-|`Customer.DeliveryAddress.Country`|País do endereço de entrega do pedido.|Texto|35|Texto alfanumérico|
-|`Customer.DeliveryAddress.District`|Bairro do comprador.|Texto |50 |Texto alfanumérico|
-|`Payment.Provider`|Nome do provedor do meio de pagamento.|Texto|15| Consulta os provedores disponíveis nos anexos|
-|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Ex.: Boleto|
-|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|10000|
-|`Payment.CapturedAmount`|Valor pago do boleto, em centavos.|Número|15|10000|
-|`Payment.Instructions`|Texto sobre alguma instrução específica para o boleto.|Texto|Veja as [Regras Específicas por Banco](#conciliação-de-boletos).|Ex.: "Não pagar após o vencimento"|
-|`Payment.Demonstrative`|Texto sobre alguma informação específica para o boleto.|Texto|Veja as [Regras Específicas por Banco](#conciliação-de-boletos).|Ex.: "Boleto referente ao pedido número 99999"|
-|`Payment.Url`|URL para apresentação do boleto.|Texto|-|Ex.: "https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX"|
-|`Payment.BoletoNumber`|Nosso número.|Número|Veja as [Regras Específicas por Banco](#conciliação-de-boletos).|Ex.: "12345678"|
-|`Payment.BarCodeNumber`|Código de barras do boleto.|Texto|44|Ex.: "99999390276000001234864001834007775680099999"|
-|`Payment.DigitableLine`|Linha digitável do boleto.|Texto|54|Ex.: "99999.39027 60000.012348 64001.834007 7 75680000199999"|
-|`Payment.Assignor`|Nome do cedente do boleto.|Texto|200|Ex.: "RAZAO SOCIAL DA LOJA LTDA"|
-|`Payment.Address`|Endereço do cedente do boleto.|Texto|160|Ex.: "Alameda Xingu 512"|
-|`Payment.Identification`|CNPJ do cedente.|Texto|18|Ex.: "11.355.111/0001-11"|
-|`Payment.ExpirationDate`|Data de vencimento do boleto.|Texto|AAAA-MM-DD|Ex.: "2018-06-21"|
-|`Payment.CreditDate`|Data de crédito do valor pago do boleto.|Texto|AAAA-MM-DD|Ex.: "2018-06-19"|
-|`Payment.CapturedDate`|Data de pagamento do boleto.|Texto|AAAA-MM-DD HH:mm:SS|Ex.: "2018-06-19 01:45:57"|
-|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Braspag.|Texto|AAAA-MM-DD HH:mm:SS|Ex.: "2018-06-19 01:45:57"|
-|`Payment.ReturnUrl`|URL da loja para onde o cliente é redirecionado.|Texto|-|Ex.: "https://www.loja.com.br"|
-|`Payment.Currency`|Moeda na qual o pagamento será feito.|Texto|3|BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
-|`Payment.Country`|País na qual o pagamento será feito.|Texto|3|BRA|
-|`Payment.ExtraDataCollection.Name`|Nome do campo em que será gravado o dado extra.|Texto|50|Texto alfanumérico|
-|`Payment.ExtraDataCollection.Value`|Valor do campo em que será gravado o dado extra.|Texto|1024|Texto alfanumérico|
+|`Customer.DeliveryAddress.ZipCode`|CEP do endereço de entrega do pedido.|texto|9|texto alfanumérico|
+|`Customer.DeliveryAddress.City`|Cidade do endereço de entrega do pedido.|texto|50|texto alfanumérico|
+|`Customer.DeliveryAddress.State`|Estado do endereço de entrega do pedido.|texto|2|texto alfanumérico|
+|`Customer.DeliveryAddress.Country`|País do endereço de entrega do pedido.|texto|35|texto alfanumérico|
+|`Customer.DeliveryAddress.District`|Bairro do comprador.|texto |50 |texto alfanumérico|
+|`Payment.Provider`|Nome do provedor do meio de pagamento.|texto|15| Consulta os provedores disponíveis nos anexos|
+|`Payment.Type`|Tipo do meio de pagamento.|texto|100|Ex.: Boleto|
+|`Payment.Amount`|Valor do pedido, em centavos.|número|15|10000|
+|`Payment.CapturedAmount`|Valor pago do boleto, em centavos.|número|15|10000|
+|`Payment.Instructions`|Texto sobre alguma instrução específica para o boleto.|texto|Veja as [Regras Específicas por Banco](#conciliação-de-boletos).|Ex.: "Não pagar após o vencimento"|
+|`Payment.Demonstrative`|Texto sobre alguma informação específica para o boleto.|texto|Veja as [Regras Específicas por Banco](#conciliação-de-boletos).|Ex.: "Boleto referente ao pedido número 99999"|
+|`Payment.Url`|URL para apresentação do boleto.|texto|-|Ex.: "https://www.pagador.com.br/post/pagador/reenvia.asp/3fda2279-1c45-4271-9656-XXXXXXXXXX"|
+|`Payment.BoletoNumber`|Nosso número.|número|Veja as [Regras Específicas por Banco](#conciliação-de-boletos).|Ex.: "12345678"|
+|`Payment.BarCodeNumber`|Código de barras do boleto.|texto|44|Ex.: "99999390276000001234864001834007775680099999"|
+|`Payment.DigitableLine`|Linha digitável do boleto.|texto|54|Ex.: "99999.39027 60000.012348 64001.834007 7 75680000199999"|
+|`Payment.Assignor`|Nome do cedente do boleto.|texto|200|Ex.: "RAZAO SOCIAL DA LOJA LTDA"|
+|`Payment.Address`|Endereço do cedente do boleto.|texto|160|Ex.: "Alameda Xingu 512"|
+|`Payment.Identification`|CNPJ do cedente.|texto|18|Ex.: "11.355.111/0001-11"|
+|`Payment.ExpirationDate`|Data de vencimento do boleto.|texto|AAAA-MM-DD|Ex.: "2018-06-21"|
+|`Payment.CreditDate`|Data de crédito do valor pago do boleto.|texto|AAAA-MM-DD|Ex.: "2018-06-19"|
+|`Payment.CapturedDate`|Data de pagamento do boleto.|texto|AAAA-MM-DD HH:mm:SS|Ex.: "2018-06-19 01:45:57"|
+|`Payment.ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|AAAA-MM-DD HH:mm:SS|Ex.: "2018-06-19 01:45:57"|
+|`Payment.ReturnUrl`|URL da loja para onde o cliente é redirecionado.|texto|-|Ex.: "https://www.loja.com.br"|
+|`Payment.Currency`|Moeda na qual o pagamento será feito.|texto|3|BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP|
+|`Payment.Country`|País na qual o pagamento será feito.|texto|3|BRA|
+|`Payment.ExtraDataCollection.Name`|Nome do campo em que será gravado o dado extra.|texto|50|texto alfanumérico|
+|`Payment.ExtraDataCollection.Value`|Valor do campo em que será gravado o dado extra.|texto|1024|texto alfanumérico|
 |`Payment.PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Payment.ReasonCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
-|`Payment.Status`|Status da transação.|Byte|2| Ex.: 1|
-|`RecurrentPayment.RecurrentPaymentID`|Caso a transação tenha surgido de um pedido recorrente, retorna o RecurrentPaymentID desse pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Payment.ReasonCode`|Código de retorno da adquirência.|texto|32|texto alfanumérico|
+|`Payment.Status`|Status da transação.|byte|2| Ex.: 1|
+|`RecurrentPayment.RecurrentPaymentID`|Caso a transação tenha surgido de um pedido recorrente, retorna o RecurrentPaymentID desse pedido|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
 ## Consultando uma Venda pelo Identificador da Loja
 
@@ -8072,9 +8072,9 @@ Para consultar uma venda pelo identificador da loja, é necessário o envio de m
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`MerchantOrderId`|Campo identificador do pedido na loja. |Texto |36 |Sim (envio no *endpoint*)|
+|`MerchantOrderId`|Campo identificador do pedido na loja. |texto |36 |Sim (envio no *endpoint*)|
 
 ### Resposta
 
@@ -8138,9 +8138,9 @@ Para consultar um pedido de recorrência, é necessário o envio de mensagem HTT
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
 |`MerchantId`|Identificador da loja na API. |GUID |36 |Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na API.|Texto |40 |Sim (envio no *header*)|
+|`MerchantKey`|Chave pública para autenticação dupla na API.|texto |40 |Sim (envio no *header*)|
 |`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não (envio no *header*)|
-|`RecurrentPaymentId`|Campo identificador da recorrência. |Texto |36 |Sim (envio no *endpoint*)|
+|`RecurrentPaymentId`|Campo identificador da recorrência. |texto |36 |Sim (envio no *endpoint*)|
 
 ### Resposta
 
@@ -8246,19 +8246,19 @@ Para consultar um pedido de recorrência, é necessário o envio de mensagem HTT
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`RecurrentPaymentId`|Campo identificador da próxima recorrência. |GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`NextRecurrency`|Data da próxima recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`StartDate`|Data do início da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`EndDate`|Data do fim da recorrência. |Texto |7 |05/2019 (MM/YYYY) |
-|`Interval`|Intervalo entre as recorrências. |Texto |10 |"Monthly" / "Bimonthly" / "Quarterly" / "SemiAnnual" / "Annual"|
-|`CurrentRecurrencyTry`|Número atual da tentativa de recorrência.|Número|1|1|
-|`OrderNumber`|Identificação do pedido na loja. |Texto|50 |2017051101|
-|`Status`|Status do pedido recorrente. |Número|1 |1- Ativo / 2- Finalizado / 3- Desativado pelo Usuário / 4- Desativado por Número Máximo de Tentativas / 5- Desativado por Cartão de Crédito Expirado|
-|`RecurrencyDay`|Dia da recorrência.|Número|2 |22 |
-|`SuccessfulRecurrences`|Quantidade de recorrências realizadas com sucesso.|Número|2 |5|
+|`NextRecurrency`|Data da próxima recorrência. |texto |7 |05/2019 (MM/YYYY) |
+|`StartDate`|Data do início da recorrência. |texto |7 |05/2019 (MM/YYYY) |
+|`EndDate`|Data do fim da recorrência. |texto |7 |05/2019 (MM/YYYY) |
+|`Interval`|Intervalo entre as recorrências. |texto |10 |"Monthly" / "Bimonthly" / "Quarterly" / "SemiAnnual" / "Annual"|
+|`CurrentRecurrencyTry`|Número atual da tentativa de recorrência.|número|1|1|
+|`OrderNumber`|Identificação do pedido na loja. |texto|50 |2017051101|
+|`Status`|Status do pedido recorrente. |número|1 |1- Ativo / 2- Finalizado / 3- Desativado pelo Usuário / 4- Desativado por Número Máximo de Tentativas / 5- Desativado por Cartão de Crédito Expirado|
+|`RecurrencyDay`|Dia da recorrência.|número|2 |22 |
+|`SuccessfulRecurrences`|Quantidade de recorrências realizadas com sucesso.|número|2 |5|
 |`RecurrentTransactions.RecurrentPaymentId`|Id da recorrência.|GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 |`RecurrentTransactions.TransactionId`|Payment ID da transação gerada na recorrência.|GUID |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-|`RecurrentTransactions.PaymentNumber`|Número da recorrência. A primeira é zero. |Número|2 |3 |
-|`RecurrentTransactions.TryNumber`|Número da tentativa atual na recorrência específica. |Número|2 |1 |
+|`RecurrentTransactions.PaymentNumber`|Número da recorrência. A primeira é zero. |número|2 |3 |
+|`RecurrentTransactions.TryNumber`|Número da tentativa atual na recorrência específica. |número|2 |1 |
 
 # Post de Notificação
 
