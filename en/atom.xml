@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-05-31T13:36:56+00:00</updated>
+    <updated>2023-05-31T13:50:33+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -33823,6 +33823,55 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
       &lt;td style=&quot;text-align: left&quot;&gt;RoundTrip&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Round trip&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;table-8---airlinepassengersnpassengertype&quot;&gt;Table 8 - Airline.Passengers[n].PassengerType&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Adult&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Adult&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Child&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Child&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Infant&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Infant&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Youth&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Teenager&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Student&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Student&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;SeniorCitizen&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Senior Citizen&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Military&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Military&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
