@@ -3911,36 +3911,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-11---cartitemnrisk">Table 11 - CartItem[n].Risk</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Description</th>
-      <th style="text-align: left">Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Low</td>
-      <td style="text-align: left">Product associated with few chargebacks (default)</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Normal</td>
-      <td style="text-align: left">Product associated with the normal quantity of chargebacks</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">High</td>
-      <td style="text-align: left">Product associated with many chargebacks</td>
-      <td style="text-align: left">Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="table-12---cartitemnaddressriskverify">Table 12 - CartItem[n].AddressRiskVerify</h2>
+<h2 id="table-11---cartitemnaddressriskverify">Table 11 - CartItem[n].AddressRiskVerify</h2>
 
 <table>
   <thead>
@@ -3953,17 +3924,17 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   <tbody>
     <tr>
       <td style="text-align: left">Yes</td>
-      <td style="text-align: left">In case of divergence between billing and shipping addresses, it assigns low risk to the request</td>
+      <td style="text-align: left">In case of divergence between billing and delivery addresses, assign low risk to the order</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">No</td>
-      <td style="text-align: left">In case of divergence between billing and shipping addresses, it assigns high risk to the request (default)</td>
+      <td style="text-align: left">In case of divergence between billing and delivery addresses, assign high risk to the order (default)</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Off</td>
-      <td style="text-align: left">Differences between billing and shipping addresses do not affect punctuation</td>
+      <td style="text-align: left">Differences between billing and delivery addresses do not affect the score</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>

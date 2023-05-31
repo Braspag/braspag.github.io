@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-05-31T14:08:42+00:00</updated>
+    <updated>2023-05-31T14:58:05+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -33930,36 +33930,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;table-11---cartitemnrisk&quot;&gt;Table 11 - CartItem[n].Risk&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Low&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Product associated with few chargebacks (default)&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Normal&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Product associated with the normal quantity of chargebacks&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;High&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Product associated with many chargebacks&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;table-12---cartitemnaddressriskverify&quot;&gt;Table 12 - CartItem[n].AddressRiskVerify&lt;/h2&gt;
+&lt;h2 id=&quot;table-11---cartitemnaddressriskverify&quot;&gt;Table 11 - CartItem[n].AddressRiskVerify&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -33972,17 +33943,17 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Yes&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;In case of divergence between billing and shipping addresses, it assigns low risk to the request&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;In case of divergence between billing and delivery addresses, assign low risk to the order&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;No&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;In case of divergence between billing and shipping addresses, it assigns high risk to the request (default)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;In case of divergence between billing and delivery addresses, assign high risk to the order (default)&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Off&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Differences between billing and shipping addresses do not affect punctuation&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Differences between billing and delivery addresses do not affect the score&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
