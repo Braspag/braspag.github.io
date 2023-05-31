@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-05-30T15:03:02+00:00</updated>
+    <updated>2023-05-31T12:21:42+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -33565,65 +33565,65 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Observação&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Observation&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Amex&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource, ACI Wordwide&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Diners&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource, ACI Wordwide&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Discover&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource, ACI Wordwide&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;JCB&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource, ACI Wordwide&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Master&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource, ACI Wordwide&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Dankort&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource, ACI Wordwide&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cartebleue&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource, ACI Wordwide&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Maestro&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource, ACI Wordwide&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Visa&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource, ACI Wordwide&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Elo&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource, ACI Wordwide&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Hipercard&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource, ACI Wordwide&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Will be sent to Cybersource as Private Label&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
