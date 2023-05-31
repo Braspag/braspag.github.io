@@ -1315,59 +1315,59 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |No|In case of divergence between billing and delivery addresses, assign high risk to the order (default)|Cybersource|
 |Off|Differences between billing and delivery addresses do not affect the score|Cybersource|
 
-## Table 13 - CartItem[n].HostHedge
+## Table 12 - CartItem[n].HostHedge
 
 |Value|Description|Provider|
 |:-|:-|:-|
 |Low|Low|Cybersource|
 |Normal|Normal (default)|Cybersource|
 |High|High|Cybersource|
-|Off|Will not affect fraud scoring score|Cybersource|
+|Off|Will not affect the fraud analysis score|Cybersource|
 
-## Table 14 - CartItem[n].NonSensicalHedge
-
-|Value|Description|Provider|
-|:-|:-|:-|
-|Low|Low|Cybersource|
-|Normal|Normal (default)|Cybersource|
-|High|High|Cybersource|
-|Off|Will not affect fraud scoring score|Cybersource|
-
-## Table 15 - CartItem[n].ObscenitiesHedge
+## Table 13 - CartItem[n].NonSensicalHedge
 
 |Value|Description|Provider|
 |:-|:-|:-|
 |Low|Low|Cybersource|
 |Normal|Normal (default)|Cybersource|
 |High|High|Cybersource|
-|Off|Will not affect fraud scoring score|Cybersource|
+|Off|Will not affect the fraud analysis score|Cybersource|
 
-## Table 16 - CartItem[n].TimeHedge
-
-|Value|Description|Provider|
-|:-|:-|:-|
-|Low|Low|Cybersource|
-|Normal|Normal (default)|Cybersource|
-|High|High|Cybersource|
-|Off|Will not affect fraud scoring score|Cybersource|
-
-## Table 17 - CartItem[n].PhoneHedge
+## Table 14 - CartItem[n].ObscenitiesHedge
 
 |Value|Description|Provider|
 |:-|:-|:-|
 |Low|Low|Cybersource|
 |Normal|Normal (default)|Cybersource|
 |High|High|Cybersource|
-|Off|Will not affect fraud scoring score|Cybersource|
+|Off|Will not affect the fraud analysis score|Cybersource|
 
-## Table 18 - CartItem[n].VelocityHedge
+## Table 15 - CartItem[n].TimeHedge
 
 |Value|Description|Provider|
 |:-|:-|:-|
 |Low|Low|Cybersource|
 |Normal|Normal (default)|Cybersource|
 |High|High|Cybersource|
-|Off|Will not affect fraud scoring score|Cybersource|
+|Off|Will not affect the fraud analysis score|Cybersource|
+
+## Table 16 - CartItem[n].PhoneHedge
+
+|Value|Description|Provider|
+|:-|:-|:-|
+|Low|Low|Cybersource|
+|Normal|Normal (default)|Cybersource|
+|High|High|Cybersource|
+|Off|Will not affect the fraud analysis score|Cybersource|
+
+## Table 17 - CartItem[n].VelocityHedge
+
+|Value|Description|Provider|
+|:-|:-|:-|
+|Low|Low|Cybersource|
+|Normal|Normal (default)|Cybersource|
+|High|High|Cybersource|
+|Off|Will not affect the fraud analysis score|Cybersource|
 
 ## Table 19 - Invoice.Tender
 
