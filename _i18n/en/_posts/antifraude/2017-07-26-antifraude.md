@@ -1315,7 +1315,6 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |No|In case of divergence between billing and delivery addresses, assign high risk to the order (default)|Cybersource|
 |Off|Differences between billing and delivery addresses do not affect the score|Cybersource|
 
-
 ## Table 13 - CartItem[n].HostHedge
 
 |Value|Description|Provider|
