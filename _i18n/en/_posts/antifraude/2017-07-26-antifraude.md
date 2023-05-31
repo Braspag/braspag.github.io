@@ -1258,6 +1258,13 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |Other|Other delivery methods|ACI Worldwide, Cybersource|
 |None|No delivery method as it is a service or subscription|ACI Worldwide, Cybersource|
 
+## Table 5 - Customer.Gender
+
+|Value|Provider|
+|:-|:-|:-|
+|Male|ACI Worldwide|
+|Female|ACI Worldwide|
+
 ## Table 8 - Airline.JourneyType
 
 |Value|Description|Provider|
