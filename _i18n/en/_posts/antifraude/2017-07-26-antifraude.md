@@ -1265,6 +1265,13 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |Male|ACI Worldwide|
 |Female|ACI Worldwide|
 
+## Table 6 - Customer.Status
+
+|Value|Description|Provider|
+|:-|:-|:-|
+|New|Identifies when the shopper is new to the store and never made a purchase|ACI Worldwide|
+|Existing|Identifies when the shopper has used the store and has already made a purchase|ACI Worldwide|
+
 ## Table 8 - Airline.JourneyType
 
 |Value|Description|Provider|
