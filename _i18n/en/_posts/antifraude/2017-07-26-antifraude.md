@@ -1299,6 +1299,14 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |Gold|Cybersource|
 |Platinum|Cybersource|
 
+## Table 10 - CartItem[n].Risk
+
+|Value|Description|Provider|
+|:-|:-|:-|
+|Low|Product associated with a low amount of chargebacks (default)|Cybersource|
+|Normal|Product associated with the normal amount of chargebacks|Cybersource|
+|High|Product associated with a high amount of chargebacks|Cybersource|
+
 ## Table 11 - CartItem[n].Risk
 
 |Value|Description|Provider|
