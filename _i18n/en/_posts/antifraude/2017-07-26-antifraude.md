@@ -1279,6 +1279,18 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |OneWayTrip|One-way trip|Cybersource|
 |RoundTrip|Round trip|Cybersource|
 
+## Table 8 - Airline.Passengers[n].PassengerType
+
+|Value|Description|Provider|
+|:-|:-|:-|
+|Adult|Adult|ACI Worldwide, Cybersource|
+|Child|Child|ACI Worldwide, Cybersource|
+|Infant|Infant|ACI Worldwide, Cybersource|
+|Youth|Teenager|ACI Worldwide|
+|Student|Student|ACI Worldwide|
+|SeniorCitizen|Senior Citizen|ACI Worldwide|
+|Military|Military|ACI Worldwide|
+
 ## Table 9 - Airline.Passengers[n].PassengerType
 
 |Value|Description|Provider|
