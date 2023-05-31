@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-05-31T12:21:42+00:00</updated>
+    <updated>2023-05-31T12:44:41+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -33701,39 +33701,59 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;SameDay&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Same day delivery&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;NextDay&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Next day delivery&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;TwoDay&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Two-day delivery&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Delivery in two days&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;ThreeDay&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Three day delivery&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Delivery in three days&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;LowCost&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Low cost delivery&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Low cost delivery method&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Pickup&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Store pickup&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CarrierDesignatedByCustomer&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Delivery method designated by the shopper&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;International&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;International delivery method&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Military&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Military delivery method&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Other&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Other delivery method&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Other delivery methods&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;None&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;No delivery, as it is a service or subscription&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;No delivery method as it is a service or subscription&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
