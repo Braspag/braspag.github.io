@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-05-31T12:52:34+00:00</updated>
+    <updated>2023-05-31T13:14:49+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -33774,6 +33774,30 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Female&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;table-6---customerstatus&quot;&gt;Table 6 - Customer.Status&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;New&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identifies when the shopper is new to the store and never made a purchase&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Existing&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Identifies when the shopper has used the store and has already made a purchase&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
