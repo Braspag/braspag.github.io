@@ -1246,13 +1246,17 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |Value|Description|Provider|
 |:-|:-|:-|
 |SameDay|Same day delivery|Cybersource|
-|NextDay|Next day delivery|Cybersource|
-|TwoDay|Two-day delivery|Cybersource|
-|ThreeDay|Three day delivery|Cybersource|
-|LowCost|Low cost delivery|Cybersource|
-|Pickup|Store pickup|Cybersource|
-|Other|Other delivery method|Cybersource|
-|None|No delivery, as it is a service or subscription|Cybersource| 
+|SameDay|Same day delivery|ACI Worldwide, Cybersource|
+|NextDay|Next day delivery|ACI Worldwide, Cybersource|
+|TwoDay|Delivery in two days|ACI Worldwide, Cybersource|
+|ThreeDay|Delivery in three days|ACI Worldwide, Cybersource|
+|LowCost|Low cost delivery method|ACI Worldwide, Cybersource|
+|Pickup|Store pickup|ACI Worldwide, Cybersource|
+|CarrierDesignatedByCustomer|Delivery method designated by the shopper|ACI Worldwide|
+|International|International delivery method|ACI Worldwide|
+|Military|Military delivery method|ACI Worldwide|
+|Other|Other delivery methods|ACI Worldwide, Cybersource|
+|None|No delivery method as it is a service or subscription|ACI Worldwide, Cybersource|
 
 ## Table 8 - Airline.JourneyType
 
