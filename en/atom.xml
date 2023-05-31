@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-05-31T13:50:33+00:00</updated>
+    <updated>2023-05-31T14:04:15+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -33876,36 +33876,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;table-9---airlinepassengersnpassengertype&quot;&gt;Table 9 - Airline.Passengers[n].PassengerType&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Adult&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Adult&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Child&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Child&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Infant&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Infant&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;table-10---airlinepassengersnstatus&quot;&gt;Table 10 - Airline.Passengers[n].Status&lt;/h2&gt;
+&lt;h2 id=&quot;table-9---airlinepassengersnstatus&quot;&gt;Table 9 - Airline.Passengers[n].Status&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
