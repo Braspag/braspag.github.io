@@ -1307,21 +1307,14 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |Normal|Product associated with the normal amount of chargebacks|Cybersource|
 |High|Product associated with a high amount of chargebacks|Cybersource|
 
-## Table 11 - CartItem[n].Risk
+## Table 11 - CartItem[n].AddressRiskVerify
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Low|Product associated with few chargebacks (default)|Cybersource|
-|Normal|Product associated with the normal quantity of chargebacks|Cybersource|
-|High|Product associated with many chargebacks|Cybersource|
+|Yes|In case of divergence between billing and delivery addresses, assign low risk to the order|Cybersource|
+|No|In case of divergence between billing and delivery addresses, assign high risk to the order (default)|Cybersource|
+|Off|Differences between billing and delivery addresses do not affect the score|Cybersource|
 
-## Table 12 - CartItem[n].AddressRiskVerify
-
-|Value|Description|Provider|
-|:-|:-|:-|
-|Yes|In case of divergence between billing and shipping addresses, it assigns low risk to the request|Cybersource|
-|No|In case of divergence between billing and shipping addresses, it assigns high risk to the request (default)|Cybersource|
-|Off|Differences between billing and shipping addresses do not affect punctuation|Cybersource|
 
 ## Table 13 - CartItem[n].HostHedge
 
