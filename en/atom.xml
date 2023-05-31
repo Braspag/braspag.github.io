@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-05-31T13:14:49+00:00</updated>
+    <updated>2023-05-31T13:36:56+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -33803,7 +33803,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;table-8---airlinejourneytype&quot;&gt;Table 8 - Airline.JourneyType&lt;/h2&gt;
+&lt;h2 id=&quot;table-7---airlinejourneytype&quot;&gt;Table 7 - Airline.JourneyType&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -33816,7 +33816,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;OneWayTrip&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;One way trip&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;One-way trip&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
