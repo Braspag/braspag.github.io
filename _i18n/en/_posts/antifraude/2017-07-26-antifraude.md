@@ -1291,15 +1291,7 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |SeniorCitizen|Senior Citizen|ACI Worldwide|
 |Military|Military|ACI Worldwide|
 
-## Table 9 - Airline.Passengers[n].PassengerType
-
-|Value|Description|Provider|
-|:-|:-|:-|
-|Adult|Adult|Cybersource|
-|Child|Child|Cybersource|
-|Infant|Infant|Cybersource|
-
-## Table 10 - Airline.Passengers[n].Status
+## Table 9 - Airline.Passengers[n].Status
 
 |Value|Provider|
 |:-|:-|
