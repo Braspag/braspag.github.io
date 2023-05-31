@@ -1216,19 +1216,19 @@ The variables, when properly filled in, would provide a URL similar to the examp
 
 ## Table 3 - Card.Brand
 
-|Valor|Provider|Observação|
+|Value|Provider|Observation|
 |:-|:-|:-|
-|Amex|Cybersource|-|
-|Diners|Cybersource|-|
-|Discover|Cybersource|-|
-|JCB|Cybersource|-|
-|Master|Cybersource|-|
-|Dankort|Cybersource|-|
-|Cartebleue|Cybersource|-|
-|Maestro|Cybersource|-|
-|Visa|Cybersource|-|
-|Elo|Cybersource|-|
-|Hipercard|Cybersource|Will be sent to Cybersource as Private Label|
+|Amex|Cybersource, ACI Wordwide|-|
+|Diners|Cybersource, ACI Wordwide|-|
+|Discover|Cybersource, ACI Wordwide|-|
+|JCB|Cybersource, ACI Wordwide|-|
+|Master|Cybersource, ACI Wordwide|-|
+|Dankort|Cybersource, ACI Wordwide|-|
+|Cartebleue|Cybersource, ACI Wordwide|-|
+|Maestro|Cybersource, ACI Wordwide|-|
+|Visa|Cybersource, ACI Wordwide|-|
+|Elo|Cybersource, ACI Wordwide|-|
+|Hipercard|Cybersource, ACI Wordwide|Will be sent to Cybersource as Private Label|
 |Aura|Cybersource|Will be sent to Cybersource as Private Label|
 |Hiper|Cybersource|Will be sent to Cybersource as Private Label|
 |Naranja|Cybersource|Will be sent to Cybersource as Private Label|
