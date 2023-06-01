@@ -2477,7 +2477,7 @@ A resposta sempre irá apresentar no header o `Content-Type` com o valor "applic
 |Review|Transação em revisão após análise de fraude|ACI Worldwide, Cybersource|
 |Reject|Transação rejeitada após análise de fraude|ACI Worldwide, Cybersource|
 |Pendent|Transação pendente, pois ao enviar a mesma para análise de fraude ocorreu um timeout na resposta entre Braspag e Cybersource|Cybersource|
-|Unfinished|Transação não finalizada por algum motivo de validação de contrato ou erro interno <br/> Uma transação analisada na Cybersource, no response da análise o campo `ProviderAnalysisResult.ProviderStatus` for igual a **REJECT** e o campo `ProviderAnalysisResult.ProviderCode` diferente de **481**, o status da transação será **Unfinished**|ACI Worldwide, Cybersource|
+|Unfinished|Transação não finalizada por algum motivo de validação de contrato ou erro interno <br/> Se na resposta de uma transação analisada na Cybersource o campo `ProviderAnalysisResult.ProviderStatus` for igual a **REJECT** e o campo `ProviderAnalysisResult.ProviderCode` diferente de **481**, o status da transação será **Unfinished**|ACI Worldwide, Cybersource|
 |ProviderError|Transação com erro no provedor ao ser enviada para análise|ACI Worldwide, Cybersource|
 
 ## Tabela 20 - ProviderStatus
