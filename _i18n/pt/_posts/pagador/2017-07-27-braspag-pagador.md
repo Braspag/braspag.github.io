@@ -1242,7 +1242,7 @@ Com o processo de autenticação, é possível fazer uma análise de risco consi
 
 O padrão mais atual do autenticador é o [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}, sendo que a versão 3DS 1.0 foi descontinuada.
 
-<aside class="notice">A utilização da versão 3DS 2.0 é indicada para autenticação no ambiente mobile, que não suporta a versão 1.0.</aside>
+<aside class="notice">O padrão 3DS 2.0 é indicado também para o ambiente mobile.</aside>
 
 #### 3DS 2.0
 
