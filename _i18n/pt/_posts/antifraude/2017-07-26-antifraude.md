@@ -402,7 +402,7 @@ A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cy
 |`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies <br/> Possíveis valores: true / false (default)|bool|-|-|
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja (`Customer.Email`)|string|Não|100|
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP <br/> Ex.: Google Chrome, Mozilla Firefox, Safari etc.|string|Não|40|
-|`Customer.BrowserFingerprint`|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br/> Saiba mais em [Fingerprint com a Cybersource](https://braspag.github.io/manual/antifraude#fingerprint-com-a-cybersource)|string|Sim|88|
+|`Customer.BrowserFingerprint`|É o valor do `ProviderIdentifier`. Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.<br>Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.<br>Saiba mais em [Fingerprint com a Cybersource](https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource)|string|Sim|88|
 |`CartItem[n].ProductName`|Nome do produto|string|Sim|255|
 |`CartItem[n].Category`|Categoria do produto <br/> [Tabela 36 - CartItem{n}.Category](https://braspag.github.io/manual/antifraude#tabela-36-cartitem[n].category)|enum|-|-|
 |`CartItem[n].Risk`|Nível de risco do produto associado a quantidade de chargebacks <br/> [Tabela 10 - CartItem{n}.Risk](https://braspag.github.io/manual/antifraude#tabela-10-cartitem[n].risk)|enum|-|-|
@@ -1058,9 +1058,19 @@ Veja a representação do fluxo de criação do Fingerprint e requisição de an
 
 ### Onde enviar o Fingerprint?
 
-Na requisição de análise de fraude com a Cybersource, o valor do campo `Customer.BrowserFingerprint` será o `ProviderIdentifier`, que deve ser gerado pelo e-commerce.
+Na requisição de análise de fraude com a Cybersource, o valor do parâmetro `Customer.BrowserFingerprint` será o `ProviderIdentifier` gerado pela loja.
 
-Note que o valor desse campo não é o Fingerprint em si, mas sim uma indicação do Fingerprint da transação. Essa indicação será usada pela Cybersource para consultar o Fingerprint no serviço de identificação do dispositivo e assim usá-lo para compor a análise de fraude.
+Note que o valor do `Customer.BrowserFingerprint` não é o Fingerprint em si, mas sim uma indicação do Fingerprint da transação (`ProviderIdentifier`). Essa indicação será usada pela Cybersource para consultar o Fingerprint no serviço de identificação do dispositivo (Threatmetrix) e assim usá-lo para compor a análise de fraude.
+
+> **Atenção**:
+>
+> O campo de envio do identificador do Fingerprint é diferente quando a análise de fraude faz parte da requisição da transação, ou seja, para clientes integrados à API do Pagador, API E-commerce Cielo ou APIs do Split. Confira o campo de envio do `ProviderIdentifier` em cada situação:
+> Para clientes integrados à API do Pagador, API E-commerce Cielo ou APIs do Split o parâmetro de envio do identificador do Fingerprint é diferente. Confira o campo de envio do `ProviderIdentifier` em cada situação:
+>
+> **Análise de fraude Cybersource usando a [API do Pagador](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude){:target="_blank"}**: envie o `ProviderIdentifier` no parâmetro `Payment.FraudAnalisys.FingerprintId`;
+> **Análise de fraude Cybersource usando a [API E-commerce Cielo](https://braspag.github.io//manual/api-ecommerce-cielo-af){:target="_blank"}**: envie o `ProviderIdentifier` no parâmetro `Payment.FraudAnalysis.Browser.BrowserFingerprint`;
+> **Análise de fraude Cybersource para clientes [Split via API do Pagador](https://braspag.github.io//manual/split-de-pagamentos-pagador){:target="_blank"}**: envie o `ProviderIdentifier` no parâmetro `Payment.FraudAnalisys.FingerprintId`;
+> **Análise de fraude Cybersource para clientes [Split via API E-commerce Cielo](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce){:target="_blank"}**: envie o `ProviderIdentifier` no parâmetro `Payment.FraudAnalysis.Browser.BrowserFingerprint`.
 
 ### Como configurar o Fingerprint na Cybersource?
 
@@ -1077,8 +1087,8 @@ A tabela a seguir apresenta as variáveis para configuração do Fingerprint com
 |`org_id`| Indica o ambiente na Threatmetrix: Sandbox ou Produção.|Sandbox = 1snn5n9w<br>Produção = k8vif92e|String|08|
 |`ProviderMerchantId`| Identificador da sua loja ou operação, fornecido pela Braspag, no formato braspag_nomedaloja.<br>**É diferente do MerchantId**. |Fornecido pela Braspag após a contratação.|String|30|
 |`ProviderIdentifier`| Variável que você deve gerar para identificar a sessão. Recomendamos usar um GUID. É o valor que será enviado no campo `Customer.BrowserFingerprint`.|Personalizado|GUID ou String, na qual são aceitos inteiro, letra maiúscula ou minúscula, hífen e "\_" (*underscore*).|88|
-|`session_id` (para web)| Concatenação das variáveis `ProviderMerchantId` e `ProviderIdentifier`.| Personalizado| `ProviderMerchantIdProviderIdentifier` |118|
-|`MyVariable` (para mobile)|Concatenação das variáveis `ProviderMerchantId` e `ProviderIdentifier`.| Personalizado | `ProviderMerchantIdProviderIdentifier`|118|
+|`session_id` (para web)| Concatenação das variáveis `ProviderMerchantId` e `ProviderIdentifier`. O valor do `session_id` irá compor a [URL da Threatmetrix](https://braspag.github.io//manual/antifraude#1.-preencha-a-url-da-threatmetrix) que será enviada no [script](https://braspag.github.io//manual/antifraude#2.-adicione-as-tags-ao-script) da integração web.| Personalizado| `ProviderMerchantIdProviderIdentifier` |118|
+|`MyVariable` (para mobile)|Concatenação das variáveis `ProviderMerchantId` e `ProviderIdentifier`. Veja mais detalhes em [6. Crie a variável de identificação da sessão](https://braspag.github.io//manual/antifraude#6.-crie-a-vari%C3%A1vel-de-identifica%C3%A7%C3%A3o-da-sess%C3%A3o)| Personalizado | `ProviderMerchantIdProviderIdentifier`|118|
 
 ### Configurando o Fingerprint na Cybersource – Web
 
