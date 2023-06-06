@@ -9824,7 +9824,7 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code></td>
-      <td>Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="language-plaintext highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
+      <td>É o valor do <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>. Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.<br /> Saiba mais em <a href="https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource" target="_blank">Fingerprint com a Cybersource</a>.</td>
       <td>texto</td>
       <td>88</td>
       <td>Sim</td>
@@ -11099,7 +11099,13 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
 
 <h3 id="fingerprint-com-a-cybersource">Fingerprint com a Cybersource</h3>
 
-<p>O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo. Para configurar o Fingerprint com a Cybersource, consulte o manual do <a href="https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource" target="_blank">Antifraude Gateway</a>.</p>
+<p>O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo.</p>
+
+<blockquote>
+  <p>Na integração da API do Pagador com análise de fraude, o valor do <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> deve ser enviado no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalisys.FingerprintId</code>.</p>
+</blockquote>
+
+<p>Para configurar o Fingerprint com a Cybersource, consulte o manual do <a href="https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource" target="_blank">Antifraude Gateway</a>.</p>
 
 <h2 id="implementando-a-análise-aci-worldwide">Implementando a Análise ACI Worldwide</h2>
 
