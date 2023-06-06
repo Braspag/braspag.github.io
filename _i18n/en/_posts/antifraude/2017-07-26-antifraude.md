@@ -1369,29 +1369,45 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |High|High|Cybersource|
 |Off|Will not affect the fraud analysis score|Cybersource|
 
-## Table 19 - Invoice.Tender
+## Table 18 - Invoice.Tender
 
 |Value|Description|Provider|
 |:-|:-|:-|
 |Consumer|Personal credit card (default)|Cybersource|
 |Corporate|Corporate credit card|Cybersource|
 |Debit|Debit card|Cybersource|
-|CollectDelivery|Delivery charges|Cybersource|
-|ElectronicCheck|Electronic check|Cybersource|
-|PaymentP2P|Payment from person to person|Cybersource|
-|PrivateLabel|Private credit card|Cybersource|
+|CollectDelivery|Charge on delivery|Cybersource|
+|EletronicCheck|Electronic check|Cybersource|
+|PaymentP2P|Person-to-person payment|Cybersource|
+|PrivateLabel|Private credit card payment|Cybersource|
 |Other|Payments with other methods|Cybersource|
 
-## Table 20 - Status
+## Table 19 - Status
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|Accept|Transaction accepted after fraud analysis|Cybersource|
-|Review|Transaction review after fraud analysis|Cybersource|
-|Reject|Rejected Transaction after fraud analysis|Cybersource|
-|Pendent|Transaction pending, when sending the same for analysis of fraud occurred a timeout in the response between Braspag and Cybersource|
-|Unfinished|Transaction not finalized for some reason, contract validation or internal error <br/> A transaction analyzed in Cybersource, in the analysis response the `ProviderAnalysisResult.ProviderStatus` field is equal to **REJECT** and the `ProviderAnalysisResult.ProviderCode` other than **481**, the transaction status will be **Unfinished**|Cybersource|
-|ProviderError|Transaction with provider error while being submitted for analysis|Cybersource|
+|Accept|Transaction accepted after fraud analysis|ACI Worldwide, Cybersource|
+|Review|Transaction under review after fraud analysis|ACI Worldwide, Cybersource|
+|Reject|Transaction rejected after fraud analysis|ACI Worldwide, Cybersource|
+|Pendent|Transaction pending, because when sending it for fraud analysis there was a timeout in the response between Braspag and Cybersource|Cybersource|
+|Unfinished|Transaction not finalized due to some contract validation reason or internal error <br/> A transaction analyzed at Cybersource, in the analysis response the field `ProviderAnalysisResult.ProviderStatus` is equal to **REJECT** and the field `ProviderAnalysisResult.ProviderCode` other than **481**, transaction status will be **Unfinished**|ACI Worldwide, Cybersource|
+|ProviderError|Transação com erro no provedor ao ser enviada para análise|ACI Worldwide, Cybersource|
+
+## Table 20 - ProviderStatus
+
+|Value|Description|Provider|From-To with the `Status` field (Status of the transaction in the Braspag Antifraude Gateway)|
+|:-|:-|:-|:-|
+|APPROVE|Transaction approved at the provider|ACI Worldwide|Accept|
+|ACCEPT|Transaction accepted at provider|ACI Worldwide, Cybersource|Accept|
+|PEND|Transaction under review at the provider|ACI Worldwide|Review|
+|CHALLENGE|Transaction under review at the provider|ACI Worldwide|Review|
+|REVIEW|Transaction under review at the provider|Cybersource|Review|
+|CANCEL|Transaction rejected at provider|ACI Worldwide|Reject|
+|DENY|Transaction rejected at provider|ACI Worldwide|Reject|
+|REJECT|Transaction rejected at provider|Cybesource|Reject|
+|ENETLP|Transaction error at provider|ACI Worldwide|ProviderError|
+|ENORSP|Transaction error at provider|ACI Worldwide|ProviderError|
+|ERROR|Transaction error at provider|ACI Worldwide, Cybersource|ProviderError|
 
 ## Table 21 - ProviderStatus
 
