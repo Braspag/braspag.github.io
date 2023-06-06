@@ -4144,7 +4144,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-19---invoicetender">Table 19 - Invoice.Tender</h2>
+<h2 id="table-18---invoicetender">Table 18 - Invoice.Tender</h2>
 
 <table>
   <thead>
@@ -4172,22 +4172,22 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
     </tr>
     <tr>
       <td style="text-align: left">CollectDelivery</td>
-      <td style="text-align: left">Delivery charges</td>
+      <td style="text-align: left">Charge on delivery</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
-      <td style="text-align: left">ElectronicCheck</td>
+      <td style="text-align: left">EletronicCheck</td>
       <td style="text-align: left">Electronic check</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">PaymentP2P</td>
-      <td style="text-align: left">Payment from person to person</td>
+      <td style="text-align: left">Person-to-person payment</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">PrivateLabel</td>
-      <td style="text-align: left">Private credit card</td>
+      <td style="text-align: left">Private credit card payment</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -4198,7 +4198,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-20---status">Table 20 - Status</h2>
+<h2 id="table-19---status">Table 19 - Status</h2>
 
 <table>
   <thead>
@@ -4212,32 +4212,113 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
     <tr>
       <td style="text-align: left">Accept</td>
       <td style="text-align: left">Transaction accepted after fraud analysis</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Review</td>
-      <td style="text-align: left">Transaction review after fraud analysis</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Transaction under review after fraud analysis</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Reject</td>
-      <td style="text-align: left">Rejected Transaction after fraud analysis</td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Transaction rejected after fraud analysis</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Pendent</td>
-      <td style="text-align: left">Transaction pending, when sending the same for analysis of fraud occurred a timeout in the response between Braspag and Cybersource</td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">Transaction pending, because when sending it for fraud analysis there was a timeout in the response between Braspag and Cybersource</td>
+      <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">Unfinished</td>
-      <td style="text-align: left">Transaction not finalized for some reason, contract validation or internal error <br /> A transaction analyzed in Cybersource, in the analysis response the <code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code> field is equal to <strong>REJECT</strong> and the <code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ProviderCode</code> other than <strong>481</strong>, the transaction status will be <strong>Unfinished</strong></td>
-      <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Transaction not finalized due to some contract validation reason or internal error <br /> A transaction analyzed at Cybersource, in the analysis response the field <code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ProviderStatus</code> is equal to <strong>REJECT</strong> and the field <code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ProviderCode</code> other than <strong>481</strong>, transaction status will be <strong>Unfinished</strong></td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">ProviderError</td>
-      <td style="text-align: left">Transaction with provider error while being submitted for analysis</td>
+      <td style="text-align: left">Transação com erro no provedor ao ser enviada para análise</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="table-20---providerstatus">Table 20 - ProviderStatus</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Provider</th>
+      <th style="text-align: left">From-To with the <code class="language-plaintext highlighter-rouge">Status</code> field (Status of the transaction in the Braspag Antifraude Gateway)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">APPROVE</td>
+      <td style="text-align: left">Transaction approved at the provider</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">Accept</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ACCEPT</td>
+      <td style="text-align: left">Transaction accepted at provider</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
+      <td style="text-align: left">Accept</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PEND</td>
+      <td style="text-align: left">Transaction under review at the provider</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">Review</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CHALLENGE</td>
+      <td style="text-align: left">Transaction under review at the provider</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">Review</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REVIEW</td>
+      <td style="text-align: left">Transaction under review at the provider</td>
       <td style="text-align: left">Cybersource</td>
+      <td style="text-align: left">Review</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CANCEL</td>
+      <td style="text-align: left">Transaction rejected at provider</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">Reject</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DENY</td>
+      <td style="text-align: left">Transaction rejected at provider</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">Reject</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REJECT</td>
+      <td style="text-align: left">Transaction rejected at provider</td>
+      <td style="text-align: left">Cybesource</td>
+      <td style="text-align: left">Reject</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ENETLP</td>
+      <td style="text-align: left">Transaction error at provider</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">ProviderError</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ENORSP</td>
+      <td style="text-align: left">Transaction error at provider</td>
+      <td style="text-align: left">ACI Worldwide</td>
+      <td style="text-align: left">ProviderError</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ERROR</td>
+      <td style="text-align: left">Transaction error at provider</td>
+      <td style="text-align: left">ACI Worldwide, Cybersource</td>
+      <td style="text-align: left">ProviderError</td>
     </tr>
   </tbody>
 </table>

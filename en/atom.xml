@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-06-02T14:42:23+00:00</updated>
+    <updated>2023-06-06T11:50:29+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -33454,7 +33454,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;table-19---invoicetender&quot;&gt;Table 19 - Invoice.Tender&lt;/h2&gt;
+&lt;h2 id=&quot;table-18---invoicetender&quot;&gt;Table 18 - Invoice.Tender&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -33482,22 +33482,22 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;CollectDelivery&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Delivery charges&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Charge on delivery&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ElectronicCheck&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;EletronicCheck&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Electronic check&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;PaymentP2P&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Payment from person to person&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Person-to-person payment&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;PrivateLabel&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Private credit card&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Private credit card payment&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -33508,7 +33508,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;table-20---status&quot;&gt;Table 20 - Status&lt;/h2&gt;
+&lt;h2 id=&quot;table-19---status&quot;&gt;Table 19 - Status&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -33522,32 +33522,113 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Accept&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Transaction accepted after fraud analysis&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Review&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transaction review after fraud analysis&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction under review after fraud analysis&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Reject&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Rejected Transaction after fraud analysis&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction rejected after fraud analysis&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Pendent&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transaction pending, when sending the same for analysis of fraud occurred a timeout in the response between Braspag and Cybersource&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction pending, because when sending it for fraud analysis there was a timeout in the response between Braspag and Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Unfinished&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transaction not finalized for some reason, contract validation or internal error &lt;br /&gt; A transaction analyzed in Cybersource, in the analysis response the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderAnalysisResult.ProviderStatus&lt;/code&gt; field is equal to &lt;strong&gt;REJECT&lt;/strong&gt; and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderAnalysisResult.ProviderCode&lt;/code&gt; other than &lt;strong&gt;481&lt;/strong&gt;, the transaction status will be &lt;strong&gt;Unfinished&lt;/strong&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction not finalized due to some contract validation reason or internal error &lt;br /&gt; A transaction analyzed at Cybersource, in the analysis response the field &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderAnalysisResult.ProviderStatus&lt;/code&gt; is equal to &lt;strong&gt;REJECT&lt;/strong&gt; and the field &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderAnalysisResult.ProviderCode&lt;/code&gt; other than &lt;strong&gt;481&lt;/strong&gt;, transaction status will be &lt;strong&gt;Unfinished&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;ProviderError&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transaction with provider error while being submitted for analysis&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transação com erro no provedor ao ser enviada para análise&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;table-20---providerstatus&quot;&gt;Table 20 - ProviderStatus&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;From-To with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt; field (Status of the transaction in the Braspag Antifraude Gateway)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;APPROVE&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction approved at the provider&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Accept&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACCEPT&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction accepted at provider&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Accept&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;PEND&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction under review at the provider&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Review&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CHALLENGE&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction under review at the provider&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Review&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;REVIEW&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction under review at the provider&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Review&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;CANCEL&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction rejected at provider&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reject&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;DENY&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction rejected at provider&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reject&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;REJECT&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction rejected at provider&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cybesource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reject&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ENETLP&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction error at provider&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ProviderError&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ENORSP&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction error at provider&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ProviderError&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ERROR&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction error at provider&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ACI Worldwide, Cybersource&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;ProviderError&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
