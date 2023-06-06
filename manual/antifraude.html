@@ -961,7 +961,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code></td>
-      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="language-plaintext highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas. <br /> Saiba mais em <a href="https://braspag.github.io/manual/antifraude#fingerprint-com-a-cybersource">Fingerprint com a Cybersource</a></td>
+      <td style="text-align: left">É o valor do <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>. Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.<br />Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.<br />Saiba mais em <a href="https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource">Fingerprint com a Cybersource</a></td>
       <td style="text-align: center">string</td>
       <td style="text-align: center">Sim</td>
       <td style="text-align: right">88</td>
@@ -3144,9 +3144,21 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
 
 <h3 id="onde-enviar-o-fingerprint">Onde enviar o Fingerprint?</h3>
 
-<p>Na requisição de análise de fraude com a Cybersource, o valor do campo <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> será o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>, que deve ser gerado pelo e-commerce.</p>
+<p>Na requisição de análise de fraude com a Cybersource, o valor do parâmetro <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> será o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> gerado pela loja.</p>
 
-<p>Note que o valor desse campo não é o Fingerprint em si, mas sim uma indicação do Fingerprint da transação. Essa indicação será usada pela Cybersource para consultar o Fingerprint no serviço de identificação do dispositivo e assim usá-lo para compor a análise de fraude.</p>
+<p>Note que o valor do <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> não é o Fingerprint em si, mas sim uma indicação do Fingerprint da transação (<code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>). Essa indicação será usada pela Cybersource para consultar o Fingerprint no serviço de identificação do dispositivo (Threatmetrix) e assim usá-lo para compor a análise de fraude.</p>
+
+<blockquote>
+  <p><strong>Atenção</strong>:</p>
+
+  <p>O campo de envio do identificador do Fingerprint é diferente quando a análise de fraude faz parte da requisição da transação, ou seja, para clientes integrados à API do Pagador, API E-commerce Cielo ou APIs do Split. Confira o campo de envio do <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> em cada situação:
+Para clientes integrados à API do Pagador, API E-commerce Cielo ou APIs do Split o parâmetro de envio do identificador do Fingerprint é diferente. Confira o campo de envio do <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> em cada situação:</p>
+
+  <p><strong>Análise de fraude Cybersource usando a <a href="https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude" target="_blank">API do Pagador</a></strong>: envie o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalisys.FingerprintId</code>;
+<strong>Análise de fraude Cybersource usando a <a href="https://braspag.github.io//manual/api-ecommerce-cielo-af" target="_blank">API E-commerce Cielo</a></strong>: envie o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.BrowserFingerprint</code>;
+<strong>Análise de fraude Cybersource para clientes <a href="https://braspag.github.io//manual/split-de-pagamentos-pagador" target="_blank">Split via API do Pagador</a></strong>: envie o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalisys.FingerprintId</code>;
+<strong>Análise de fraude Cybersource para clientes <a href="https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce" target="_blank">Split via API E-commerce Cielo</a></strong>: envie o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.BrowserFingerprint</code>.</p>
+</blockquote>
 
 <h3 id="como-configurar-o-fingerprint-na-cybersource">Como configurar o Fingerprint na Cybersource?</h3>
 
@@ -3192,14 +3204,14 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">session_id</code> (para web)</td>
-      <td>Concatenação das variáveis <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> e <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>.</td>
+      <td>Concatenação das variáveis <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> e <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>. O valor do <code class="language-plaintext highlighter-rouge">session_id</code> irá compor a <a href="https://braspag.github.io//manual/antifraude#1.-preencha-a-url-da-threatmetrix">URL da Threatmetrix</a> que será enviada no <a href="https://braspag.github.io//manual/antifraude#2.-adicione-as-tags-ao-script">script</a> da integração web.</td>
       <td>Personalizado</td>
       <td><code class="language-plaintext highlighter-rouge">ProviderMerchantIdProviderIdentifier</code></td>
       <td>118</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MyVariable</code> (para mobile)</td>
-      <td>Concatenação das variáveis <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> e <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>.</td>
+      <td>Concatenação das variáveis <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> e <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>. Veja mais detalhes em <a href="https://braspag.github.io//manual/antifraude#6.-crie-a-vari%C3%A1vel-de-identifica%C3%A7%C3%A3o-da-sess%C3%A3o">6. Crie a variável de identificação da sessão</a></td>
       <td>Personalizado</td>
       <td><code class="language-plaintext highlighter-rouge">ProviderMerchantIdProviderIdentifier</code></td>
       <td>118</td>
