@@ -6208,7 +6208,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 
 O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo. 
 
-> Na integração da API do Pagador com análise de fraude, o valor do `ProviderIdentifier` deve ser enviado no parâmetro `Payment.FraudAnalisys.FingerprintId`.
+> Na integração da API do Pagador com análise de fraude, o valor do `ProviderIdentifier` deve ser enviado no parâmetro `Payment.FraudAnalisys.FingerPrintId`.
 
 Para configurar o Fingerprint com a Cybersource, consulte o manual do [Antifraude Gateway](https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource){:target="_blank"}.
 
