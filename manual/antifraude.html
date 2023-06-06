@@ -3149,15 +3149,19 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
 <p>Note que o valor do <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> não é o Fingerprint em si, mas sim uma indicação do Fingerprint da transação (<code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>). Essa indicação será usada pela Cybersource para consultar o Fingerprint no serviço de identificação do dispositivo (Threatmetrix) e assim usá-lo para compor a análise de fraude.</p>
 
 <blockquote>
-  <p><strong>Atenção</strong>:</p>
-
-  <p>O campo de envio do identificador do Fingerprint é diferente quando a análise de fraude faz parte da requisição da transação, ou seja, para clientes integrados à API do Pagador, API E-commerce Cielo ou APIs do Split. Confira o campo de envio do <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> em cada situação:
-Para clientes integrados à API do Pagador, API E-commerce Cielo ou APIs do Split o parâmetro de envio do identificador do Fingerprint é diferente. Confira o campo de envio do <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> em cada situação:</p>
-
-  <p><strong>Análise de fraude Cybersource usando a <a href="https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude" target="_blank">API do Pagador</a></strong>: envie o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalisys.FingerprintId</code>;
-<strong>Análise de fraude Cybersource usando a <a href="https://braspag.github.io//manual/api-ecommerce-cielo-af" target="_blank">API E-commerce Cielo</a></strong>: envie o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.BrowserFingerprint</code>;
-<strong>Análise de fraude Cybersource para clientes <a href="https://braspag.github.io//manual/split-de-pagamentos-pagador" target="_blank">Split via API do Pagador</a></strong>: envie o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalisys.FingerprintId</code>;
-<strong>Análise de fraude Cybersource para clientes <a href="https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce" target="_blank">Split via API E-commerce Cielo</a></strong>: envie o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.BrowserFingerprint</code>.</p>
+  <p><strong>Atenção</strong>:
+<br />
+O campo de envio do identificador do Fingerprint é diferente quando a análise de fraude faz parte da requisição da transação, ou seja, para clientes integrados à API do Pagador, API E-commerce Cielo ou APIs do Split. Confira o campo de envio do <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> em cada situação:
+<br /></p>
+  <ul>
+    <li><strong>Análise de fraude Cybersource usando a <a href="https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude" target="_blank">API do Pagador</a></strong>: envie o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalisys.FingerprintId</code>;
+<br /></li>
+    <li><strong>Análise de fraude Cybersource usando a <a href="https://braspag.github.io//manual/api-ecommerce-cielo-af" target="_blank">API E-commerce Cielo</a></strong>: envie o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.BrowserFingerprint</code>;
+<br /></li>
+    <li><strong>Análise de fraude Cybersource para clientes <a href="https://braspag.github.io//manual/split-de-pagamentos-pagador" target="_blank">Split via API do Pagador</a></strong>: envie o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalisys.FingerprintId</code>;
+<br /></li>
+    <li><strong>Análise de fraude Cybersource para clientes <a href="https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce" target="_blank">Split via API E-commerce Cielo</a></strong>: envie o <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.BrowserFingerprint</code>.</li>
+  </ul>
 </blockquote>
 
 <h3 id="como-configurar-o-fingerprint-na-cybersource">Como configurar o Fingerprint na Cybersource?</h3>
