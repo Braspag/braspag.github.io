@@ -1460,30 +1460,30 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |MM-Z|The billing and shipping addresses use different postal codes|Cybersource|
 |UNV-ADDR|The address is unverifiable|Cybersource|
 
-## Table 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode
+## Table 23 - ProviderAnalysisResult.AfsReply.AfsFactorCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|A|Excessive address change. The customer changed the billing address two or more times in the last six months|Cybersource|
-|B|Card BIN or authorization risk. Risk factors are related to credit card BIN and/or card authorization checks|Cybersource|
-|C|High number of account numbers. The customer used more than six credit cards numbers in the last six months|Cybersource|
-|D|Email address impact. The customer uses a free email provider, or the email address is risky|Cybersource|
-|E|Positive list. The customer is on your positive list|Cybersource|
-|F|Negative list. The account number, street address, email address, or IP address for this order appears on your negative list|Cybersource|
-|G|Geolocation inconsistencies. The customer’s email domain, phone number, billing address, shipping address, or IP address is suspicious|Cybersource|
-|H|Excessive name changes. The customer changed the name two or more times in the last six months|Cybersource|
-|I|Internet inconsistencies. The IP address and email domain are not consistent with the billing address|Cybersource|
-|N|Nonsensical input. The customer name and address fields contain meaningless words or language|Cybersource|
-|O|Obscenities. The customer’s input contains obscene words|Cybersource|
-|P|Identity morphing. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number|Cybersource|
-|Q|Phone inconsistencies. The customer’s phone number is suspicious|Cybersource|
-|R|Risky order. The transaction, customer, and merchant information show multiple high-risk correlations|Cybersource|
-|T|Time hedge. The customer is attempting a purchase outside of the expected hours|Cybersource|
-|U|Unverifiable address. The billing or shipping address cannot be verified|Cybersource|
-|V|Velocity. The account number was used many times in the past 15 minutes|Cybersource|
-|W|Marked as suspect. The billing or shipping address is similar to an address previously marked as suspect|Cybersource|
-|Y|Gift Order. The street address, city, state, or country of the billing and shipping addresses do not correlate|Cybersource|
-|Z|Invalid value. Because the request contains an unexpected value, a default value was substituted. Although the transaction can still be processed, examine the request carefully for abnormalities in the order|Cybersource|
+|A|Excessive change of address. Shopper has changed billing address two or more times in the past six months|Cybersource|
+|B|Card BIN or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks|Cybersource|
+|C|High numbers of credit cards. Shopper has used more than six credit card numbers in the last six months|Cybersource|
+|D|Impact of email address. Shopper uses free email provider or email address is risky|Cybersource|
+|E|Positive list. The shopper is on your positive list|Cybersource|
+|F|Negative list. Account number, address, email address or IP address for this purpose appears your negative list|Cybersource|
+|G|Geolocation inconsistencies. Shopper's email domain, phone number, billing address, shipping address or IP address is suspicious|Cybersource|
+|H|Excessive name changes. The shopper changed the name two or more times in the last six months|Cybersource|
+|I|Internet inconsistencies. IP address and email domain are not consistent with billing address|Cybersource|
+|N|Meaningless input. Shopper's name and address fields contain meaningless words or language|Cybersource|
+|O|Obscenities. Shopper data contains obscene words|Cybersource|
+|P|Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.|Cybersource|
+|Q|Phone inconsistencies. Shopper's phone number is suspicious|Cybersource|
+|R|Risky order. Transaction, shopper and merchant show high risk correlated information|Cybersource|
+|T|Time coverage. The shopper is trying to buy outside the expected time|Cybersource|
+|U|Unverifiable address. Billing or delivery address cannot be verified|Cybersource|
+|V|Card has been used many times in the last 15 minutes|Cybersource|
+|W|Marked as suspicious. The billing or delivery address is similar to an address previously marked as suspicious|Cybersource|
+|Y|The address, city, state or country of the billing and delivery addresses do not match|Cybersource|
+|Z|Invalid value. Since the request contains an unexpected value, a default value has been substituted. Although the transaction can still be processed, examine the order carefully for anomalies|Cybersource|
 
 ## Table 25 - ProviderAnalysisResult.AfsReply.CardAccountType
 
