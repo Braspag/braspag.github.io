@@ -4323,46 +4323,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-21---providerstatus">Table 21 - ProviderStatus</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Description</th>
-      <th style="text-align: left">Provider</th>
-      <th style="text-align: left">From-To with the <code class="language-plaintext highlighter-rouge">Status</code> field (Transaction status in Antifraud Gateway Braspag)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">ACCEPT</td>
-      <td style="text-align: left">Accepted transaction at provider</td>
-      <td style="text-align: left">Cybersource</td>
-      <td style="text-align: left">Accept</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">REVIEW</td>
-      <td style="text-align: left">Transaction review at provider</td>
-      <td style="text-align: left">Cybersource</td>
-      <td style="text-align: left">Review</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">REJECT</td>
-      <td style="text-align: left">Rejected transaction at provider</td>
-      <td style="text-align: left">Cybesource</td>
-      <td style="text-align: left">Reject</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">ERROR</td>
-      <td style="text-align: left">Transaction with provider error</td>
-      <td style="text-align: left">Cybersource</td>
-      <td style="text-align: left">ProviderError</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="table-22---provideranalysisresultprovidercode">Table 22 - ProviderAnalysisResult.ProviderCode</h2>
+<h2 id="table-21---provideranalysisresultprovidercode">Table 21 - ProviderAnalysisResult.ProviderCode</h2>
 
 <table>
   <thead>
@@ -4375,52 +4336,52 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   <tbody>
     <tr>
       <td style="text-align: left">100</td>
-      <td style="text-align: left">Operation successful</td>
+      <td style="text-align: left">Successfully performed operation</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">101</td>
-      <td style="text-align: left">The transaction sent for fraud analysis is missing one or more required fields <br /> Check in the response the <code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.Missing</code> field <br /> Possible action: Resend the transaction with the complete information</td>
+      <td style="text-align: left">Transaction submitted for fraud analysis is missing one or more required fields. <br /> Check the <code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.Missing</code> field in the response <br /> Possible action: Resend the transaction with complete information</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">102</td>
-      <td style="text-align: left">The transaction sent for fraud analysis has one or more fields with invalid values <br /> Check in the response the <code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.Invalid</code> field <br /> Possible action: Resend the transaction with the correct information</td>
+      <td style="text-align: left">The transaction sent for fraud analysis has one or more fields with invalid values <br /> Check the <code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.Invalid</code> field in the response <br /> Possible action: Resend the transaction with the correct information</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">150</td>
-      <td style="text-align: left">Internal error <br /> Possible action: Wait a few minutes and try to resend the transaction</td>
+      <td style="text-align: left">Internal error <br /> Possible Action: Wait a few minutes and try to resend the transaction</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">151</td>
-      <td style="text-align: left">The transaction was received, but time-out occurred on the server. This error does not include time-out between client and server <br /> Possible action: Wait a few minutes and try to resend the transaction</td>
+      <td style="text-align: left">The transaction was received, but the server timed out. This error does not include time-out between client and server<br /> Possible Action: Wait a few minutes and try to resend the transaction</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">152</td>
-      <td style="text-align: left">The request was received, but has occurred time-out <br /> Possible action: Wait a few minutes and try to resend the transaction</td>
+      <td style="text-align: left">Order was received, but time-out occurred <br /> Possible Action: Wait a few minutes and try to resend the transaction</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">202</td>
-      <td style="text-align: left">Transaction declined because card expired or expiration date does not match correct <br /> Possible action: Request another card or other payment method</td>
+      <td style="text-align: left">The transaction was declined because the card has expired or the expiration date does not match the correct one <br /> Possible action: Request another card or payment method</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">231</td>
-      <td style="text-align: left">Transaction declined because card is invalid <br /> Possible action: Request another card or other payment method</td>
+      <td style="text-align: left">The transaction was declined as card is invalid <br /> Possible action: Request another card or payment method</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">234</td>
-      <td style="text-align: left">Trouble with store setup in Cybersource <br /> Possible action: Contact support to fix the configuration problem</td>
+      <td style="text-align: left">Problem with store configuration at Cybersource <br /> Possible action: Contact support to fix the configuration issue</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">400</td>
-      <td style="text-align: left">Fraud score exceeds your limit <br /> Possible action: Review the customer transaction</td>
+      <td style="text-align: left">Fraud score exceeds your threshold <br /> Possible action: Review the shopper’s transaction</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -4430,7 +4391,81 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
     </tr>
     <tr>
       <td style="text-align: left">481</td>
-      <td style="text-align: left">The transaction was rejected by the DM (Decision Manager)</td>
+      <td style="text-align: left">The transaction was rejected by the DM(Decision Manager)</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="table-22---provideranalysisresultafsreplyaddressinfocode">Table 22 - ProviderAnalysisResult.AfsReply.AddressInfoCode</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">COR-BA</td>
+      <td style="text-align: left">Billing address can be normalized</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COR-SA</td>
+      <td style="text-align: left">Delivery address can be normalized</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INTL-BA</td>
+      <td style="text-align: left">Billing address country is outside the US</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INTL-SA</td>
+      <td style="text-align: left">Delivery address country is outside the US</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MIL-USA</td>
+      <td style="text-align: left">US Military Address</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-A</td>
+      <td style="text-align: left">Billing and delivery addresses use different street names</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-BIN</td>
+      <td style="text-align: left">Card BIN (first six digits of card number) does not match country</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-C</td>
+      <td style="text-align: left">Billing and delivery addresses use different cities</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-CO</td>
+      <td style="text-align: left">Billing and delivery addresses use different countries</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-ST</td>
+      <td style="text-align: left">Billing and shipping addresses use different states</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MM-Z</td>
+      <td style="text-align: left">Billing and delivery addresses use different postal codes</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UNV-ADDR</td>
+      <td style="text-align: left">The address is unverifiable</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
   </tbody>
