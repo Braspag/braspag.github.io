@@ -1409,31 +1409,39 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |ENORSP|Transaction error at provider|ACI Worldwide|ProviderError|
 |ERROR|Transaction error at provider|ACI Worldwide, Cybersource|ProviderError|
 
-## Table 21 - ProviderStatus
-
-|Value|Description|Provider|From-To with the `Status` field (Transaction status in Antifraud Gateway Braspag)|
-|:-|:-|:-|:-|
-|ACCEPT|Accepted transaction at provider|Cybersource|Accept|
-|REVIEW|Transaction review at provider|Cybersource|Review|
-|REJECT|Rejected transaction at provider|Cybesource|Reject|
-|ERROR|Transaction with provider error|Cybersource|ProviderError|
-
-## Table 22 - ProviderAnalysisResult.ProviderCode
+## Table 21 - ProviderAnalysisResult.ProviderCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|100|Operation successful|Cybersource|
-|101|The transaction sent for fraud analysis is missing one or more required fields <br/> Check in the response the `ProviderAnalysisResult.Missing` field <br/> Possible action: Resend the transaction with the complete information|Cybersource|
-|102|The transaction sent for fraud analysis has one or more fields with invalid values <br/> Check in the response the `ProviderAnalysisResult.Invalid` field <br/> Possible action: Resend the transaction with the correct information|Cybersource|
-|150|Internal error <br/> Possible action: Wait a few minutes and try to resend the transaction|Cybersource|
-|151|The transaction was received, but time-out occurred on the server. This error does not include time-out between client and server <br/> Possible action: Wait a few minutes and try to resend the transaction|Cybersource|
-|152|The request was received, but has occurred time-out <br/> Possible action: Wait a few minutes and try to resend the transaction|Cybersource|
-|202|Transaction declined because card expired or expiration date does not match correct <br/> Possible action: Request another card or other payment method|Cybersource|
-|231|Transaction declined because card is invalid <br/> Possible action: Request another card or other payment method|Cybersource|
-|234|Trouble with store setup in Cybersource <br/> Possible action: Contact support to fix the configuration problem|Cybersource|
-|400|Fraud score exceeds your limit <br> Possible action: Review the customer transaction|Cybersource|
+|100|Successfully performed operation|Cybersource|
+|101|Transaction submitted for fraud analysis is missing one or more required fields. <br/> Check the `ProviderAnalysisResult.Missing` field in the response <br/> Possible action: Resend the transaction with complete information|Cybersource|
+|102|The transaction sent for fraud analysis has one or more fields with invalid values <br/> Check the `ProviderAnalysisResult.Invalid` field in the response <br/> Possible action: Resend the transaction with the correct information|Cybersource|
+|150|Internal error <br/> Possible Action: Wait a few minutes and try to resend the transaction|Cybersource|
+|151|The transaction was received, but the server timed out. This error does not include time-out between client and server<br/> Possible Action: Wait a few minutes and try to resend the transaction|Cybersource|
+|152|Order was received, but time-out occurred <br/> Possible Action: Wait a few minutes and try to resend the transaction|Cybersource|
+|202|The transaction was declined because the card has expired or the expiration date does not match the correct one <br/> Possible action: Request another card or payment method|Cybersource|
+|231|The transaction was declined as card is invalid <br/> Possible action: Request another card or payment method|Cybersource|
+|234|Problem with store configuration at Cybersource <br/> Possible action: Contact support to fix the configuration issue|Cybersource|
+|400|Fraud score exceeds your threshold <br/> Possible action: Review the shopper's transaction|Cybersource|
 |480|The transaction was marked as review by the DM (Decision Manager)|Cybersource|
-|481|The transaction was rejected by the DM (Decision Manager)|Cybersource|
+|481|The transaction was rejected by the DM(Decision Manager)|Cybersource|
+
+## Table 22 - ProviderAnalysisResult.AfsReply.AddressInfoCode
+
+|Value|Description|Provider|
+|:-|:-|:-|
+|COR-BA|Billing address can be normalized|Cybersource|
+|COR-SA|Delivery address can be normalized|Cybersource|
+|INTL-BA|Billing address country is outside the US|Cybersource|
+|INTL-SA|Delivery address country is outside the US|Cybersource|
+|MIL-USA|US Military Address|Cybersource|
+|MM-A|Billing and delivery addresses use different street names|Cybersource|
+|MM-BIN|Card BIN (first six digits of card number) does not match country|Cybersource|
+|MM-C|Billing and delivery addresses use different cities|Cybersource|
+|MM-CO|Billing and delivery addresses use different countries|Cybersource|
+|MM-ST|Billing and shipping addresses use different states|Cybersource|
+|MM-Z|Billing and delivery addresses use different postal codes|Cybersource|
+|UNV-ADDR|The address is unverifiable|Cybersource|
 
 ## Table 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode
 
