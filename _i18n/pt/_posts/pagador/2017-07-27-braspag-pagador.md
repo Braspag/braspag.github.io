@@ -7617,6 +7617,9 @@ Para consultar um pedido de recorrência, é necessário o envio de mensagem HTT
 
 ### Requisição
 
+<--!consulta-->
+{::comment}consulta{:/comment}
+
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
 ```shell
