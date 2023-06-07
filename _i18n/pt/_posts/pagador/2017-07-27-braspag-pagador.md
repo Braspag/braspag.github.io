@@ -2432,6 +2432,7 @@ Abaixo seguem os procedimentos de configuração de boletos em cada banco:
 * [Itaú Shopline](https://suporte.braspag.com.br/hc/pt-br/articles/360002968392-Como-fa%C3%A7o-para-configurar-o-Boleto-Registrado-Ita%C3%BA-Shopline-){:target="_blank"}
 * [Santander](https://suporte.braspag.com.br/hc/pt-br/articles/360002970552-Como-fa%C3%A7o-para-configurar-o-Boleto-Registrado-Santander-){:target="_blank"}
 * [Caixa Econômica](https://suporte.braspag.com.br/hc/pt-br/articles/360002969812-Como-fa%C3%A7o-para-configurar-o-Boleto-Registrado-Caixa-){:target="_blank"}
+* [Citibank](https://suporte.braspag.com.br/hc/pt-br/articles/360002992191-Como-fa%C3%A7o-para-configurar-o-Boleto-Registrado-Citibank-){:target="_blank"}
 
 ### Criando uma Transação de Boleto
 
