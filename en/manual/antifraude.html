@@ -4853,7 +4853,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-27---provideranalysisresultafsreplyidentityinfocode">Table 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode</h2>
+<h2 id="table-26---provideranalysisresultafsreplyidentityinfocode">Table 26 - ProviderAnalysisResult.AfsReply.IdentityInfoCode</h2>
 
 <table>
   <thead>
@@ -4897,7 +4897,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-28---provideranalysisresultafsreplyinternetinfocode">Table 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode</h2>
+<h2 id="table-27---provideranalysisresultafsreplyinternetinfocode">Table 27 - ProviderAnalysisResult.AfsReply.InternetInfoCode</h2>
 
 <table>
   <thead>
@@ -4971,7 +4971,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-29---provideranalysisresultafsreplyphoneinfocode">Table 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode</h2>
+<h2 id="table-28---provideranalysisresultafsreplyphoneinfocode">Table 28 - ProviderAnalysisResult.AfsReply.PhoneInfoCode</h2>
 
 <table>
   <thead>
@@ -5020,7 +5020,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-30---provideranalysisresultafsreplysuspiciousinfocode">Table 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</h2>
+<h2 id="table-29---provideranalysisresultafsreplysuspiciousinfocode">Table 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode</h2>
 
 <table>
   <thead>
@@ -5134,7 +5134,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-31---provideranalysisresultafsreplyvelocityinfocode">Table 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode</h2>
+<h2 id="table-30---provideranalysisresultafsreplyvelocityinfocode">Table 30 - ProviderAnalysisResult.AfsReply.VelocityInfoCode</h2>
 
 <table>
   <thead>
@@ -5278,7 +5278,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-32---provideranalysisresultafsreplyiproutingmethod">Table 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod</h2>
+<h2 id="table-31---provideranalysisresultafsreplyiproutingmethod">Table 31 - ProviderAnalysisResult.AfsReply.IpRoutingMethod</h2>
 
 <table>
   <thead>
@@ -5347,7 +5347,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-33---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggeredndecision">Table 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision</h2>
+<h2 id="table-32---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggeredndecision">Table 32 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision</h2>
 
 <table>
   <thead>
@@ -5376,7 +5376,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-34---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggerednevaluation">Table 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation</h2>
+<h2 id="table-33---provideranalysisresultdecisionreplyactiveprofilereplyrulestriggerednevaluation">Table 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation</h2>
 
 <table>
   <thead>
@@ -5389,12 +5389,12 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   <tbody>
     <tr>
       <td style="text-align: left">T</td>
-      <td style="text-align: left">Rule true</td>
+      <td style="text-align: left">The rule is true</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
       <td style="text-align: left">F</td>
-      <td style="text-align: left">Rule false</td>
+      <td style="text-align: left">The rule is false</td>
       <td style="text-align: left">Cybersource</td>
     </tr>
     <tr>
@@ -5410,7 +5410,871 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   </tbody>
 </table>
 
-<h2 id="table-37---merchantdefineddata-cybersource">Table 37 - MerchantDefinedData (Cybersource)</h2>
+<h2 id="table-34---merchantdefineddata-cybersource">Table 34 - MerchantDefinedData (Cybersource)</h2>
+
+<blockquote>
+  <p>Relevance level <br /> 1 - Relevant <br /> 2 - Very Relevant <br /> 3 - Extremely Relevant <br /><br />
+Depending on the level of relevance of the fields and the possibility of designing the risk strategy according to the needs of your business, when validating test transactions, they will be charged if they are not sent. With this, we request a prior analysis of the documentation and signaling of the fields that will not be possible to be sent.<br /><br />
+If you do not have the data to send, please do not send the corresponding field as empty, that is, just do not send it.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value</th>
+      <th>Type</th>
+      <th>Relevance Level</th>
+      <th>Segment</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Customer who logged in. Possible values: “{<em>customer_login</em>}” (if the final customer logs in to purchase on the site) / “Guest” (if the final customer makes the purchase as a visitor). Note: <strong>Do not</strong> submit the field if the sale is made directly by a third party (e.g.: an agent).</td>
+      <td>string</td>
+      <td>2</td>
+      <td>All</td>
+      <td><strong>Yes</strong></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>How long (in days) the customer has been your customer. E.g.: 314.</td>
+      <td>int</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Quantity of order installments.</td>
+      <td>int</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Sales channel. Possible values: “Call Center” (phone purchase) / “Web” (web purchase) / “Portal” (purchase through agent) / “Kiosk” (kiosk  purchase) / “Mobile” (cell phone or tablet purchases). Note: When “Call Center”, the submission of field <strong>39</strong>(call center user name) is required.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>All</td>
+      <td><strong>Yes</strong></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Coupon/discount code in case the customer uses it in the purchase.</td>
+      <td>string</td>
+      <td>1</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>How long (in days) since customer’s last purchase. E.g.: 55.</td>
+      <td>int</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Seller’s code or name.</td>
+      <td>string</td>
+      <td>1</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Number of customer’s attempts to pay one same order, which may have been using different credit cards and/or other payment methods.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Identifies if the customer will pick up the product in the store. Possible values: “YES” / “NO”. Note: When “YES”, the submission of field <strong>22</strong>(code of pick up store) is required.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Retail or Cosmetics</td>
+      <td><strong>Yes</strong></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Identifies whether payment will be made by someone not present on the trip or package. Possible values: “YES” / “NO”.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Air or Tourism</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Hotel category (star rating). Possible values: “1” (simple) / “2”  (budget) / “3” (tourism) / “4” (superior) / “5” (luxury).</td>
+      <td>int</td>
+      <td>3</td>
+      <td>Tourism</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>How long (in days) from purchase date to hotel check-in. E.g.: 123.</td>
+      <td>int</td>
+      <td>3</td>
+      <td>Tourism</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Number of nights at the hotel. E.g.: 5.</td>
+      <td>int</td>
+      <td>3</td>
+      <td>Tourism</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Trip or package category. <br /> Possible values: “National” / “International” / “National/International”.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Air or Tourism</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Name of airline / car rental /hotel. Note: Name each company name, separated by a “/”.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Air or Tourism</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Reservation PNR code. When there is a reservation change for this PNR to an earlier flight date, it is important to apply a new fraud analysis by resubmitting this PNR.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Identifies if the reservation was brought forward. Possible values: “YES” / “NO”. Note: When “YES”, the submission of field <strong>16</strong> (reservation PNR code) is required.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Rented vehicle category. Possible values: “1” (basic) / “2” (sport) / “3” (prime) / “4” (utility) / “5” (armored).</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Tourism</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Identifies if the package refers to a cruise. Possible values: “YES” / “NO”.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Tourism</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Decision of fraud review for the latest purchase. Possible values: “ACCEPT” / “REJECTED”.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Shipping cost. E.g.: 10599 = $ 105.99</td>
+      <td>long</td>
+      <td>1</td>
+      <td>Retail or Cosmetics</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Code of pick up store. Note: This field must be sent when field <strong>9</strong> is “YES”.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Retail or Cosmetics</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Credit card suffix (last 4 digits).</td>
+      <td>int</td>
+      <td>1</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>How long in days since first customer purchase. E.g.: 150.</td>
+      <td>int</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Gender of the customer. Possible values: “F” (female) / “M” (male).</td>
+      <td>string</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Credit card bin (first 6 digits).</td>
+      <td>int</td>
+      <td>1</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Delivery address street type. Possible values: “R” (residential) / “C” (commercial).</td>
+      <td>string</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Average time taken by the customer to make the purchase.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Number of retries the customer made to log in.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Number of web pages the customer visited within the 30 minutes before the purchase.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Number of changes of credit card number the customer made to make the order payment.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Identifies whether the email was pasted or typed. Possible values: “Typed” / “Pasted”.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Identifies whether the credit card number was pasted or entered. Possible values: “Typed / Pasted”.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Identifies if the email has been verified for account activation. Possible values: “YES” / “NO”.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Identifies the type of customer. Possible values: “Local” / “Tourist”.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Tourism</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Identifies whether a giftcard was used as the payment method. Possible values: “YES” / “NO”.</td>
+      <td>string</td>
+      <td>1</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Order delivery method. Possible values: “Sedex” / “Sedex 10” / “1 day” / “2 days” / “Motoboy” / “Same day”.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Retail or Cosmetics</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>Customer phone number identified via caller ID for a sale made through a “Call Center”. Format: DDIDDNumber - E.g.: 552121114720.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Call center username. Note: This field must be sent when field <strong>4</strong> is “Call Center”.</td>
+      <td>string</td>
+      <td>1</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Comments added when the order is a gift.</td>
+      <td>string</td>
+      <td>1</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Document type. Possible values: “CPF” / “CNPJ” / “Passport”.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Customer’s age.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>Customer’s income range. E.g.: 100000 = $ 1,000.00.</td>
+      <td>long</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>Historical quantity of customer purchases.</td>
+      <td>int</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td>Identifies if the purchase was made by an employee. Possible values: “YES” / “NO”.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td>Name printed on the credit card (bearer).</td>
+      <td>string</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>47</td>
+      <td>Identifies whether it is a private label card. Possible values: “YES” / “NO”.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>Number of payment methods used to make the purchase.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>Average value of the purchases made over the past 6 months. E.g.: 159050 = $ 1,590.99.</td>
+      <td>long</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>Current purchase value deviation factor over average of the past 6 months.</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>Identifies if you are a VIP client with special risk treatment or positive list. Possible values: “YES” / “NO”.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Product category. Possible values: “Animals &amp; Pets” / “Clothing &amp; Accessories” / “Business &amp; Industry” / “Cameras &amp; Optics” / “Electronics” / “Food, Beverage &amp; Cigarettes” / “Furniture” / “Tools” / “Health &amp; Beauty” / “Home &amp; Garden” / “Bags &amp; Luggage” / “Adult” / “Guns &amp; Ammo” / “Office Supplies” / “Religion &amp; Ceremonials” / “Software” / “Sports Equipment” / “Toys &amp; Games” / “Vehicles &amp; Parts” / “Books” / “DVDs &amp; Videos” / “Magazines &amp; Newspapers” / “Music” / “Other Unspecified Categories”.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Identifies if there is an SMS phone confirmation routine. Possible values: “YES” / “NO”.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>2nd payment method.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>3rd payment method.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>If 2nd payment method is “credit card”, send brand.</td>
+      <td>string</td>
+      <td>1</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>If 3rd payment method is “credit card”, send brand.</td>
+      <td>string</td>
+      <td>1</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>If 2nd payment method, inform the amount paid. E.g.: 128599 = $ 1,285.99.</td>
+      <td>long</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>If 3rd payment method, inform the amount paid. E.g.: 59089 = R $ 590,89.</td>
+      <td>long</td>
+      <td>2</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>How long (in days) since last change. E.g.: 57.</td>
+      <td>int</td>
+      <td>3</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>61</td>
+      <td>Identifies if there was any registration information change.</td>
+      <td>string</td>
+      <td>1</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>Number of points redeemed in the latest purchase.</td>
+      <td>long</td>
+      <td>3</td>
+      <td>Loyalty</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>Amount of points left in balance.</td>
+      <td>long</td>
+      <td>2</td>
+      <td>Loyalty</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>Number of days since last points exchange.</td>
+      <td>long</td>
+      <td>2</td>
+      <td>Loyalty</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>65</td>
+      <td>Customer identifier in loyalty program.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Loyalty</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>66</td>
+      <td>Number of minutes recharged over the past 30 days.</td>
+      <td>long</td>
+      <td>2</td>
+      <td>Digital Goods</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>67</td>
+      <td>Number of top-ups performed over the past 30 days.</td>
+      <td>long</td>
+      <td>2</td>
+      <td>Digital Goods</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>68</td>
+      <td>Number of days between departure date and return date.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>69</td>
+      <td>Number of passengers traveling regardless of age group.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>Flight identifier.</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>71</td>
+      <td>Number of infants traveling.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Number of children traveling.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>73</td>
+      <td>Number of adults traveling.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>74</td>
+      <td>Identifies a frequent flyer. Possible values: “YES” / “NO”.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>Frequent flyer number.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>Frequent flyer category. This category may vary according to the airline.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>Boarding day. Possible values: “Sunday” / “Monday” / “Tuesday” / “Wednesday” / “Thursday” / “Friday” / “Saturday”.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>Airline code. E.g.: “JJ” / “LA” / “AA” / “UA” / “G3” etc.</td>
+      <td>string</td>
+      <td>1</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>79</td>
+      <td>Class of ticket fare. E.g.: “W” / “Y” / “N” etc.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Passenger’s cell phone number. Format: DDIDDNumber - E.g.: 5521976781114.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>81</td>
+      <td>Identifies if the credit card holder will travel. Possible values: “YES” / “NO”.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>Air</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>Identifies if the seller will work with manual review. Possible values: “YES” / “NO”.</td>
+      <td>string</td>
+      <td>1</td>
+      <td>All</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>Business segment. E.g.: “Retail”.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>All</td>
+      <td><strong>Yes</strong></td>
+    </tr>
+    <tr>
+      <td>84</td>
+      <td>Name of the platform integrated with the Gateway Braspag Anti-fraud API. For direct integrations between the store and Braspag, send the value “PROPRIA”.</td>
+      <td>string</td>
+      <td>3</td>
+      <td>All</td>
+      <td><strong>Yes</strong></td>
+    </tr>
+    <tr>
+      <td>85 to 89</td>
+      <td>Free fields defined with the anti-fraud provider, according to the business rules.</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>90 to 100</td>
+      <td>Reserved.</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="table-35---merchantdefineddata-aci-worldwide">Table 35 - MerchantDefinedData (ACI Worldwide)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Size</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1 to 3</td>
+      <td style="text-align: left">Reserved</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4 to 8</td>
+      <td style="text-align: left">Free fields defined with the anti-fraud provider, according to business rules</td>
+      <td style="text-align: left">var</td>
+      <td style="text-align: left">256</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9 to 13</td>
+      <td style="text-align: left">Reserved</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">Segment</td>
+      <td style="text-align: left">MCC (Merchant Category Code) of your store</td>
+      <td style="text-align: left">int</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">15 to 20</td>
+      <td style="text-align: left">Free fields defined with the anti-fraud provider, according to business rules</td>
+      <td style="text-align: left">var</td>
+      <td style="text-align: left">30</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">21</td>
+      <td style="text-align: left">Reserved</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">22</td>
+      <td style="text-align: left">Free field defined with the anti-fraud provider, according to business rules</td>
+      <td style="text-align: left">var</td>
+      <td style="text-align: left">30</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">23</td>
+      <td style="text-align: left">Reserved</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">24</td>
+      <td style="text-align: left">Free field defined with the anti-fraud provider, according to business rules</td>
+      <td style="text-align: left">var</td>
+      <td style="text-align: left">30</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">Reserved</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="table-36---cartitemncategory">Table 36 - CartItem[n].Category</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">AdultContent</td>
+      <td style="text-align: left">Adult Content</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Coupon</td>
+      <td style="text-align: left">Coupon applied to entire order</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Default</td>
+      <td style="text-align: left">Default value for the product type. When no other value is sent, the category being sent is assumed to be this</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EletronicGood</td>
+      <td style="text-align: left">Electronic product other than software</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EletronicSoftware</td>
+      <td style="text-align: left">Software distributed electronically via download</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GiftCertificate</td>
+      <td style="text-align: left">Gift Certificate</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HandlingOnly</td>
+      <td style="text-align: left">Fee you charge your customer to cover your selling administrative costs. Ex.: Convenience fee / Installation fee</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Service</td>
+      <td style="text-align: left">Service that will be performed for the client</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ShippingAndHandling</td>
+      <td style="text-align: left">Amount of freight and fee you charge your customer to cover your sales administrative costs</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ShippingOnly</td>
+      <td style="text-align: left">Shipping value</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Subscription</td>
+      <td style="text-align: left">Subscription. Eg.: Streaming videos / Subscription to news</td>
+      <td style="text-align: left">Cybersource</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
