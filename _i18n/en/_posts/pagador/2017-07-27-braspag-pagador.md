@@ -7296,7 +7296,7 @@ List of statuses returned by the API:
 |4|Aborted|
 |5|Unfinished|
 
-## MDD Table
+## MerchantDefinedData Table
 
 A risk strategy is designed in accordance with your business needs, taking into consideration the level of relevance of the Merchant Defined Data (MDD) fields. Even if those fields are not sent, they will still be charged during the validation of the test transactions. For this reason, we request that a prior analysis of the documentation is carried out and the store informs the fields that cannot be sent.
 
