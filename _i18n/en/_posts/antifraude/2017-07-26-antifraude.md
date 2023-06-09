@@ -1443,23 +1443,6 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |MM-Z|Billing and delivery addresses use different postal codes|Cybersource|
 |UNV-ADDR|The address is unverifiable|Cybersource|
 
-## Table 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode
-
-|Value|Description|Provider|
-|:-|:-|:-|
-|COR-BA|The billing address has corrected elements or can be normalized|Cybersource|
-|COR-SA|The shipping address has corrected elements or can be normalized|Cybersource|
-|INTL-BA|The billing country is outside of the U.S.|Cybersource|
-|INTL-SA|The shipping country is outside of the U.S.|Cybersource|
-|MIL-USA|The address is a U.S. military address|Cybersource|
-|MM-A|The billing and shipping addresses use different street addresses|Cybersource|
-|MM-BIN|The card BIN (the first six digits of the number) does not match the country|Cybersource|
-|MM-C|The billing and shipping addresses use different cities|Cybersource|
-|MM-CO|The billing and shipping addresses use different countries|Cybersource|
-|MM-ST|The billing and shipping addresses use different states|Cybersource|
-|MM-Z|The billing and shipping addresses use different postal codes|Cybersource|
-|UNV-ADDR|The address is unverifiable|Cybersource|
-
 ## Table 23 - ProviderAnalysisResult.AfsReply.AfsFactorCode
 
 |Value|Description|Provider|
@@ -1485,14 +1468,14 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |Y|The address, city, state or country of the billing and delivery addresses do not match|Cybersource|
 |Z|Invalid value. Since the request contains an unexpected value, a default value has been substituted. Although the transaction can still be processed, examine the order carefully for anomalies|Cybersource|
 
-## Table 25 - ProviderAnalysisResult.AfsReply.CardAccountType
+## Table 24 - ProviderAnalysisResult.AfsReply.CardAccountType
 
 |Value|Description|Provider|
 |:-|:-|:-|
 |CN|Private card|Cybersource|
 |CP|Corporate card|Cybersource|
 
-## Table 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode
+## Table 25 - ProviderAnalysisResult.AfsReply.HotListInfoCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
