@@ -1526,7 +1526,7 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |REV-SCO|The shipping country is on the review list|Cybersource|
 |REV-SZC|The shipping postal code is on the review list|Cybersource|
 
-## Table 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode
+## Table 26 - ProviderAnalysisResult.AfsReply.IdentityInfoCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
@@ -1537,7 +1537,7 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |MORPH-P|The same phone number has been used several times with multiple customer identities|Cybersource|
 |MORPH-S|The same shipping address has been used several times with multiple customer identities|Cybersource|
 
-## Table 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode
+## Table 27 - ProviderAnalysisResult.AfsReply.InternetInfoCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
@@ -1554,7 +1554,7 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |UNV-RISK|The IP address is from a risky source|Cybersource|
 |UNV-EMBCO|The country of the customer’s email address does not match the country in the billing address|Cybersource|
 
-## Table 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode
+## Table 28 - ProviderAnalysisResult.AfsReply.PhoneInfoCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
@@ -1566,7 +1566,7 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |UNV-OC|Invalid area code and/or phone prefix|Cybersource|
 |UNV-PH|Invalid phone number|Cybersource|
 
-## Table 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode
+## Table 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
@@ -1591,7 +1591,7 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |RISK-TIP|The true IP address is risky|Cybersource|
 |RISK-TS|The day and time of the order associated with the shipping address is risky|Cybersource|
 
-## Table 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode
+## Table 30 - ProviderAnalysisResult.AfsReply.VelocityInfoCode
 
 |Value|Description|Provider|
 |:-|:-|:-|
@@ -1622,7 +1622,7 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |VELI-TIP|The true IP address has been used several times during the medium interval|Cybersource|
 |VELL-TIP|The true IP address has been used several times during the long interval|Cybersource|
 
-## Table 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod
+## Table 31 - ProviderAnalysisResult.AfsReply.IpRoutingMethod
 
 |Value|Description|Provider|
 |:-|:-|:-|
@@ -1638,7 +1638,7 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |SuperPOP|Customer is dialing into a multi-state or multi-national ISP that is not likely near the IP location. The customer may be dialing across geographical boundaries|Cybersource|
 |No value returned|The routing type is unknown|Cybersource|
 
-## Table 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision
+## Table 32 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision
 
 |Value|Provider|
 |:-|:-|
@@ -1647,13 +1647,137 @@ The variables, when properly filled in, would provide a URL similar to the examp
 |REJECT|Cybersource|
 |REVIEW|Cybersource|
 
-## Table 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation
+## Table 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation
 
 |Value|Description|Provider|
 |:-|:-|:-|
-|T|Rule true|Cybersource|
-|F|Rule false|Cybersource|
+|T|The rule is true|Cybersource|
+|F|The rule is false|Cybersource|
 |N|The rule can not be evaluated because the data is insufficient|Cybersource|
 |E|The rule can not be evaluated because an error has occurred|Cybersource|
 
-## Table 37 - MerchantDefinedData (Cybersource)
+## Table 34 - MerchantDefinedData (Cybersource)
+
+> Relevance level <br/> 1 - Relevant <br/> 2 - Very Relevant <br/> 3 - Extremely Relevant <br/><br/>
+> Depending on the level of relevance of the fields and the possibility of designing the risk strategy according to the needs of your business, when validating test transactions, they will be charged if they are not sent. With this, we request a prior analysis of the documentation and signaling of the fields that will not be possible to be sent.<br/><br/>
+> If you do not have the data to send, please do not send the corresponding field as empty, that is, just do not send it.
+
+|ID|Value|Type|Relevance Level|Segment|Required|
+|--|-----|----|-------------------|--------|---|
+|1|Customer who logged in. Possible values: "{*customer_login*}" (if the final customer logs in to purchase on the site) / "Guest" (if the final customer makes the purchase as a visitor). Note: **Do not** submit the field if the sale is made directly by a third party (e.g.: an agent).|string|2|All|**Yes**|
+|2|How long (in days) the customer has been your customer. E.g.: 314.|int|3|All|No|
+|3|Quantity of order installments.|int|3|All|No|
+|4|Sales channel. Possible values: "Call Center" (phone purchase) / "Web" (web purchase) / "Portal" (purchase through agent) / "Kiosk" (kiosk  purchase) / "Mobile" (cell phone or tablet purchases). Note: When “Call Center”, the submission of field **39**(call center user name) is required.|string|3|All|**Yes**|
+|5|Coupon/discount code in case the customer uses it in the purchase.|string|1|All|No|
+|6|How long (in days) since customer's last purchase. E.g.: 55.|int|3|All|No|
+|7|Seller's code or name.|string|1|All|No|
+|8|Number of customer's attempts to pay one same order, which may have been using different credit cards and/or other payment methods.|int|2|All|No|
+|9|Identifies if the customer will pick up the product in the store. Possible values: "YES" / "NO". Note: When “YES”, the submission of field **22**(code of pick up store) is required.|string|3|Retail or Cosmetics|**Yes**|
+|10|Identifies whether payment will be made by someone not present on the trip or package. Possible values: "YES" / "NO".|string|3|Air or Tourism|No|
+|11|Hotel category (star rating). Possible values: "1" (simple) / "2"  (budget) / "3" (tourism) / "4" (superior) / "5" (luxury).|int|3|Tourism|No|
+|12|How long (in days) from purchase date to hotel check-in. E.g.: 123.|int|3|Tourism|No|
+|13|Number of nights at the hotel. E.g.: 5.|int|3|Tourism|No|
+|14|Trip or package category. <br> Possible values: "National" / "International" / "National/International".|string|3|Air or Tourism|No|
+|15|Name of airline / car rental /hotel. Note: Name each company name, separated by a "/".|string|2|Air or Tourism|No|
+|16|Reservation PNR code. When there is a reservation change for this PNR to an earlier flight date, it is important to apply a new fraud analysis by resubmitting this PNR.|string|3|Air|No|
+|17|Identifies if the reservation was brought forward. Possible values: "YES" / "NO". Note: When “YES”, the submission of field **16** (reservation PNR code) is required.|string|3|Air|No|
+|18|Rented vehicle category. Possible values: "1" (basic) / "2" (sport) / "3" (prime) / "4" (utility) / "5" (armored).|string|3|Tourism|No|
+|19|Identifies if the package refers to a cruise. Possible values: "YES" / "NO".|string|2|Tourism|No|
+|20|Decision of fraud review for the latest purchase. Possible values: "ACCEPT" / "REJECTED".|string|3|All|No|
+|21|Shipping cost. E.g.: 10599 = $ 105.99|long|1|Retail or Cosmetics|No|
+|22|Code of pick up store. Note: This field must be sent when field **9** is "YES".|string|3|Retail or Cosmetics|No|
+|23|Credit card suffix (last 4 digits).|int|1|All|No|
+|24|How long in days since first customer purchase. E.g.: 150.|int|3|All|No|
+|25|Gender of the customer. Possible values: "F" (female) / "M" (male).|string|2|All|No|
+|26|Credit card bin (first 6 digits).|int|1|All|No|
+|27|Delivery address street type. Possible values: "R" (residential) / "C" (commercial).|string|2|All|No|
+|28|Average time taken by the customer to make the purchase.|int|2|All|No|
+|29|Number of retries the customer made to log in.|int|2|All|No|
+|30|Number of web pages the customer visited within the 30 minutes before the purchase.|int|2|All|No|
+|31|Number of changes of credit card number the customer made to make the order payment.|int|2|All|No|
+|32|Identifies whether the email was pasted or typed. Possible values: "Typed" / "Pasted".|string|3|All|No|
+|33|Identifies whether the credit card number was pasted or entered. Possible values: "Typed / Pasted".|string|3|All|No|
+|34|Identifies if the email has been verified for account activation. Possible values: "YES" / "NO".|string|2|All|No|
+|35|Identifies the type of customer. Possible values: "Local" / "Tourist".|string|2|Tourism|No|
+|36|Identifies whether a giftcard was used as the payment method. Possible values: "YES" / "NO".|string|1|All|No|
+|37|Order delivery method. Possible values: "Sedex" / "Sedex 10" / "1 day" / "2 days" / "Motoboy" / "Same day".|string|3|Retail or Cosmetics|No|
+|38|Customer phone number identified via caller ID for a sale made through a "Call Center". Format: DDIDDNumber - E.g.: 552121114720.|string|3|All|No|
+|39|Call center username. Note: This field must be sent when field **4** is "Call Center".|string|1|All|No|
+|40|Comments added when the order is a gift.|string|1|All|No|
+|41|Document type. Possible values: "CPF" / "CNPJ" / "Passport".|string|2|All|No|
+|42|Customer's age.|int|2|All|No|
+|43|Customer's income range. E.g.: 100000 = $ 1,000.00.|long|2|All|No|
+|44|Historical quantity of customer purchases.|int|3|All|No|
+|45|Identifies if the purchase was made by an employee. Possible values: "YES" / "NO".|string|2|All|No|
+|46|Name printed on the credit card (bearer).|string|3|All|No|
+|47|Identifies whether it is a private label card. Possible values: "YES" / "NO".|string|2|All|No|
+|48|Number of payment methods used to make the purchase.|int|2|All|No|
+|49|Average value of the purchases made over the past 6 months. E.g.: 159050 = $ 1,590.99.|long|3|All|No|
+|50|Current purchase value deviation factor over average of the past 6 months.|3|All|No|
+|51|Identifies if you are a VIP client with special risk treatment or positive list. Possible values: "YES" / "NO".|string|3|All|No|
+|52|Product category. Possible values: "Animals & Pets" / "Clothing & Accessories" / "Business & Industry" / "Cameras & Optics" / "Electronics" / "Food, Beverage & Cigarettes" / "Furniture" / "Tools" / "Health & Beauty" / "Home & Garden" / "Bags & Luggage" / "Adult" / "Guns & Ammo" / "Office Supplies" / "Religion & Ceremonials" / "Software" / "Sports Equipment" / "Toys & Games" / "Vehicles & Parts" / "Books" / "DVDs & Videos" / "Magazines & Newspapers" / "Music" / "Other Unspecified Categories".|string|2|All|No|
+|53|Identifies if there is an SMS phone confirmation routine. Possible values: "YES" / "NO".|string|2|All|No|
+|54|2nd payment method.|string|2|All|No|
+|55|3rd payment method.|string|2|All|No|
+|56|If 2nd payment method is "credit card", send brand.|string|1|All|No|
+|57|If 3rd payment method is "credit card", send brand.|string|1|All|No|
+|58|If 2nd payment method, inform the amount paid. E.g.: 128599 = $ 1,285.99.|long|2|All|No|
+|59|If 3rd payment method, inform the amount paid. E.g.: 59089 = R $ 590,89.|long|2|All|No|
+|60|How long (in days) since last change. E.g.: 57.|int|3|All|No|
+|61|Identifies if there was any registration information change.|string|1|No|
+|62|Number of points redeemed in the latest purchase.|long|3|Loyalty|No|
+|63|Amount of points left in balance.|long|2|Loyalty|No|
+|64|Number of days since last points exchange.|long|2|Loyalty|No|
+|65|Customer identifier in loyalty program.|string|2|Loyalty|No|
+|66|Number of minutes recharged over the past 30 days.|long|2|Digital Goods|No|
+|67|Number of top-ups performed over the past 30 days.|long|2|Digital Goods|No|
+|68|Number of days between departure date and return date.|int|2|Air|No|
+|69|Number of passengers traveling regardless of age group.|int|2|Air|No|
+|70|Flight identifier.|string|1|Air|No|
+|71|Number of infants traveling.|int|2|Air|No|
+|72|Number of children traveling.|int|2|Air|No|
+|73|Number of adults traveling.|int|2|Air|No|
+|74|Identifies a frequent flyer. Possible values: "YES" / "NO".|string|2|Air|No|
+|75|Frequent flyer number.|string|2|Air|No|
+|76|Frequent flyer category. This category may vary according to the airline.|int|2|Air|No|
+77|Boarding day. Possible values: "Sunday" / "Monday" / "Tuesday" / "Wednesday" / "Thursday" / "Friday" / "Saturday".|string|2|Air|No|
+|78|Airline code. E.g.: "JJ" / "LA" / "AA" / "UA" / "G3" etc.|string|1|Air|No|
+|79|Class of ticket fare. E.g.: "W" / "Y" / "N" etc.|string|2|Air|No|
+|80|Passenger's cell phone number. Format: DDIDDNumber - E.g.: 5521976781114.|string|2|Air|No|
+|81|Identifies if the credit card holder will travel. Possible values: "YES" / "NO".|string|3|Air|No|
+|82|Identifies if the seller will work with manual review. Possible values: "YES" / "NO".|string|1|All|No|
+|83|Business segment. E.g.: "Retail".|string|2|All|**Yes**|
+|84|Name of the platform integrated with the Gateway Braspag Anti-fraud API. For direct integrations between the store and Braspag, send the value "PROPRIA".|string|3|All|**Yes**|
+|85 to 89|Free fields defined with the anti-fraud provider, according to the business rules.|-|-|-|No|
+|90 to 100|Reserved.|-|-|-|No|
+
+## Table 35 - MerchantDefinedData (ACI Worldwide)
+
+|Key|Value|Type|Size|
+|:-|:-|:-|:-|
+|1 to 3|Reserved|-|-|
+|4 to 8|Free fields defined with the anti-fraud provider, according to business rules|var|256|
+|9 to 13|Reserved|-|-|
+|14|Segment|MCC (Merchant Category Code) of your store|int|-|
+|15 to 20|Free fields defined with the anti-fraud provider, according to business rules|var|30|
+|21|Reserved|-|-|
+|22|Free field defined with the anti-fraud provider, according to business rules|var|30|
+|23|Reserved|-|-|
+|24|Free field defined with the anti-fraud provider, according to business rules|var|30|
+|25|Reserved|-|-|
+
+## Table 36 - CartItem[n].Category
+
+|Value|Description|Provider|
+|:-|:-|:-|
+|AdultContent|Adult Content|Cybersource|
+|Coupon|Coupon applied to entire order|Cybersource|
+|Default|Default value for the product type. When no other value is sent, the category being sent is assumed to be this|Cybersource|
+|EletronicGood|Electronic product other than software|Cybersource|
+|EletronicSoftware|Software distributed electronically via download|Cybersource|
+|GiftCertificate|Gift Certificate|Cybersource|
+|HandlingOnly|Fee you charge your customer to cover your selling administrative costs. Ex.: Convenience fee / Installation fee|Cybersource|
+|Service|Service that will be performed for the client|Cybersource|
+|ShippingAndHandling|Amount of freight and fee you charge your customer to cover your sales administrative costs|Cybersource|
+|ShippingOnly|Shipping value|Cybersource|
+|Subscription|Subscription. Eg.: Streaming videos / Subscription to news|Cybersource|
