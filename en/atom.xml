@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-06-07T20:31:15+00:00</updated>
+    <updated>2023-06-09T13:13:54+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -33781,80 +33781,6 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;table-23---provideranalysisresultafsreplyaddressinfocode&quot;&gt;Table 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Provider&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;COR-BA&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;The billing address has corrected elements or can be normalized&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;COR-SA&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;The shipping address has corrected elements or can be normalized&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;INTL-BA&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;The billing country is outside of the U.S.&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;INTL-SA&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;The shipping country is outside of the U.S.&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;MIL-USA&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;The address is a U.S. military address&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;MM-A&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;The billing and shipping addresses use different street addresses&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;MM-BIN&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;The card BIN (the first six digits of the number) does not match the country&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;MM-C&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;The billing and shipping addresses use different cities&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;MM-CO&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;The billing and shipping addresses use different countries&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;MM-ST&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;The billing and shipping addresses use different states&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;MM-Z&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;The billing and shipping addresses use different postal codes&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;UNV-ADDR&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;The address is unverifiable&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Cybersource&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
 &lt;h2 id=&quot;table-23---provideranalysisresultafsreplyafsfactorcode&quot;&gt;Table 23 - ProviderAnalysisResult.AfsReply.AfsFactorCode&lt;/h2&gt;
 
 &lt;table&gt;
@@ -33969,7 +33895,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;table-25---provideranalysisresultafsreplycardaccounttype&quot;&gt;Table 25 - ProviderAnalysisResult.AfsReply.CardAccountType&lt;/h2&gt;
+&lt;h2 id=&quot;table-24---provideranalysisresultafsreplycardaccounttype&quot;&gt;Table 24 - ProviderAnalysisResult.AfsReply.CardAccountType&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -33993,7 +33919,7 @@ Often, only the cart data is not enough to guarantee an assertive analysis. The 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;table-26---provideranalysisresultafsreplyhotlistinfocode&quot;&gt;Table 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode&lt;/h2&gt;
+&lt;h2 id=&quot;table-25---provideranalysisresultafsreplyhotlistinfocode&quot;&gt;Table 25 - ProviderAnalysisResult.AfsReply.HotListInfoCode&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
