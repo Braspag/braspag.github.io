@@ -19,10 +19,7 @@ A Cielo desenvolveu um conector na plataforma de e-commerce VTEX para realizaç�
 
 Para a configuração estar completa é preciso cadastrar **Afiliação de pagamento** para posteriormente vincular a uma **Condição de pagamento**.
 
-<aside class="notice"> Para mais informações visite os artigos de suporte da VTEX:
-
-* [Cadastrar afiliações de gateway](https://help.vtex.com/pt/tutorial/afiliacoes-de-gateway--tutorials_444){:target="_blank"}
-* [Configurar condições de pagamento](https://help.vtex.com/pt/tutorial/condicoes-de-pagamento--tutorials_455){:target="_blank"}</aside>
+<aside class="notice"> Para mais informações visite os artigos de suporte da VTEX: [Cadastrar afiliações de gateway](https://help.vtex.com/pt/tutorial/afiliacoes-de-gateway--tutorials_444){:target="_blank"} e [Configurar condições de pagamento](https://help.vtex.com/pt/tutorial/condicoes-de-pagamento--tutorials_455){:target="_blank"}</aside>
 
 ### Afiliação de Pagamento
 
@@ -36,7 +33,7 @@ Selecione o conector **CieloEcommerce** e insira as informações conforme receb
 
 É preciso configurar o mesmo conector quantas vezes necessárias de acordo com o tipo de pagamento desejado, por isso fique atento ao Nome da Afiliação utilizada. Sugerimos incluir no nome e o provedor configurado.
 
-#### Exemplos de Nome da Afiliação:
+#### Exemplos de Nome da Afiliação
 
 **Exemplo**: CieloEcommerce – Ticket
 
@@ -91,6 +88,7 @@ Da mesma forma que a Afiliação de Pagamento, é preciso configurar a condiçã
 * Ticket
 
 Nesse exemplo o título relembra que a condição de pagamento vai utilizar a afiliação configurada com o Provider = Ticket.
+<br>
 
 * Cielo30 c/ 3DS c/ SPLIT
 
@@ -161,7 +159,7 @@ Para configurar, acesse **Transações** > **Configurações** > **Afiliações 
 
 Selecione o conector **Braspag** (Soluções Antifraude) e insira as informações conforme recebidas após a contratação das soluções desejadas.
 
-![Antifraude]{{ site.baseurl_root }}/images/braspag/pagador/vtex/08-antifraude.jpg)
+![Antifraude]({{ site.baseurl_root }}/images/braspag/pagador/vtex/08-antifraude.jpg)
 
 |Campo|Descrição|
 |-|-|
