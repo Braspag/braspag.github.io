@@ -121,13 +121,13 @@
 
 <p>A Cielo desenvolveu um conector na plataforma de e-commerce VTEX para realização do pagamento através das APIs de pagamento online da Cielo.  A usabilidade da plataforma deve ser consultada no <a href="https://help.vtex.com/tutorial/" target="_blank">tutorial da VTEX</a>. Abaixo reforçaremos as informações necessárias para utilização do conector.</p>
 
-<h2 id="configuração">Configuração</h2>
+<h1 id="configuração">Configuração</h1>
 
 <p>Para a configuração estar completa é preciso cadastrar <strong>Afiliação de pagamento</strong> para posteriormente vincular a uma <strong>Condição de pagamento</strong>.</p>
 
-<p>Para mais informações, visite os artigos de suporte da VTEX: <a href="https://help.vtex.com/pt/tutorial/afiliacoes-de-gateway--tutorials_444" target="_blank">Cadastrar afiliações de gateway</a> e <a href="https://help.vtex.com/pt/tutorial/condicoes-de-pagamento--tutorials_455" target="_blank">Configurar condições de pagamento</a>&lt;/aside&gt;</p>
+<p>Para mais informações, visite os artigos de suporte da VTEX: <a href="https://help.vtex.com/pt/tutorial/afiliacoes-de-gateway--tutorials_444" target="_blank">Cadastrar afiliações de gateway</a> e <a href="https://help.vtex.com/pt/tutorial/condicoes-de-pagamento--tutorials_455" target="_blank">Configurar condições de pagamento</a>.</p>
 
-<h3 id="afiliação-de-pagamento">Afiliação de Pagamento</h3>
+<h2 id="afiliação-de-pagamento">Afiliação de Pagamento</h2>
 
 <p>Acesse o painel <strong>ADMIN VTEX</strong> (https://<em>nomedaloja</em>.myvtex.com/admin) e comece a navegação por <strong>Transações</strong> &gt; <strong>Pagamentos</strong> &gt; <strong>Configurações</strong> &gt; <strong>Afiliações de gateways</strong> &gt; <strong>+</strong></p>
 
@@ -139,7 +139,7 @@
 
 <p>É preciso configurar o mesmo conector quantas vezes necessárias de acordo com o tipo de pagamento desejado, por isso fique atento ao Nome da Afiliação utilizada. Sugerimos incluir no nome e o provedor configurado.</p>
 
-<h4 id="exemplos-de-nome-da-afiliação">Exemplos de Nome da Afiliação</h4>
+<h3 id="exemplos-de-nome-da-afiliação">Exemplos de Nome da Afiliação</h3>
 
 <p><strong>Exemplo</strong>: CieloEcommerce – Ticket</p>
 
@@ -163,51 +163,51 @@
   </thead>
   <tbody>
     <tr>
-      <td>Nome da Afiliação</td>
+      <td><strong>Nome da Afiliação</strong></td>
       <td>Insira nome identificador da afiliação.</td>
     </tr>
     <tr>
-      <td>Application Key</td>
+      <td><strong>Application Key</strong></td>
       <td>Insira o MerchantID.</td>
     </tr>
     <tr>
-      <td>Application Token</td>
+      <td><strong>Application Token</strong></td>
       <td>Insira o MerchantKey.</td>
     </tr>
     <tr>
-      <td>Integration</td>
+      <td><strong>Integration</strong></td>
       <td>Selecione <strong>Adquirência</strong> se o seu contrato é somente com a adquirência Cielo. <br />Selecione <strong>Gateway</strong> se o seu contrato é para utilização de outros provedores.</td>
     </tr>
     <tr>
-      <td>Provider</td>
+      <td><strong>Provider</strong></td>
       <td>Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br />Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br />O provedor <strong>Simulado</strong> deve ser utilizado para transaçãoes de teste.<br />O provedor <strong>Cielo</strong> deve ser configurado para Integração <strong>Adquirência</strong>. <br />O provedor <strong>Cielo30</strong> deve ser configurado para Integração <strong>Gateway</strong>.</td>
     </tr>
     <tr>
-      <td>UseSPLIT</td>
+      <td><strong>UseSPLIT</strong></td>
       <td>Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento Crédito, Débito e Boleto.</td>
     </tr>
     <tr>
-      <td>UseMPI</td>
+      <td><strong>UseMPI</strong></td>
       <td>Insira “Sim” ou “Não” se deseja utilizar a Autenticação de 3DS2.0. Este campo é obrigatório para o tipo de pagamento Débito.</td>
     </tr>
     <tr>
-      <td>MpiClientId</td>
+      <td><strong>MpiClientId</strong></td>
       <td>ID do MPI, disponibilizado para o cliente pela Cielo.</td>
     </tr>
     <tr>
-      <td>MpiClientSecret</td>
+      <td><strong>MpiClientSecret</strong></td>
       <td>Chave secreta do MPI, disponibilizada para o cliente pela Cielo.</td>
     </tr>
     <tr>
-      <td>MpiMerchantName</td>
+      <td><strong>MpiMerchantName</strong></td>
       <td>Nome da loja, disponibilizado pela Cielo.</td>
     </tr>
     <tr>
-      <td>MpiMCC</td>
+      <td><strong>MpiMCC</strong></td>
       <td>Merchant Category Code da loja, disponibilizado pela Cielo.</td>
     </tr>
     <tr>
-      <td>MpiEstablishmentCode</td>
+      <td><strong>MpiEstablishmentCode</strong></td>
       <td>Código de estabelecimento da loja, disponibilizado pela Cielo.</td>
     </tr>
   </tbody>
@@ -215,7 +215,7 @@
 
 <p>Após salvar o conector ele irá aparecer na lista <strong>Processar com afiliação</strong> da tela de configuração da <strong>Condição de Pagamento</strong>. </p>
 
-<h3 id="condição-de-pagamento">Condição de Pagamento</h3>
+<h2 id="condição-de-pagamento">Condição de Pagamento</h2>
 
 <p>Acesse <strong>Transações</strong> &gt; <strong>Configurações</strong> &gt; <strong>Condições de Pagamento</strong> &gt; <strong>+</strong></p>
 
@@ -250,7 +250,7 @@
 
 <p>Da mesma forma que a Afiliação de Pagamento, é preciso configurar a condição de pagamento quantas vezes necessárias de acordo com o tipo de pagamento desejado, por isso fique atento ao Nome da Condição utilizada. O nome do conector é exibido e o tipo de pagamento também. Então sugerimos inserir somente as soluções que foram configuradas na afiliação selecionada.</p>
 
-<h4 id="exemplos-de-nome-da-condição">Exemplos de Nome da Condição</h4>
+<h3 id="exemplos-de-nome-da-condição">Exemplos de Nome da Condição</h3>
 
 <ul>
   <li>Ticket</li>
@@ -270,21 +270,21 @@
 
 <aside class="notice">A VTEX possui apenas cadastramento de seller do tipo pessoa ‘Jurídica’.</aside>
 
-<h3 id="meios-de-pagamento">Meios de Pagamento</h3>
+<h2 id="meios-de-pagamento">Meios de Pagamento</h2>
 
-<h4 id="crédito">Crédito</h4>
-
-<p>Identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens acima.</p>
-
-<h4 id="débito">Débito</h4>
+<h3 id="crédito">Crédito</h3>
 
 <p>Identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens acima.</p>
 
-<h4 id="voucher">Voucher</h4>
+<h3 id="débito">Débito</h3>
+
+<p>Identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens acima.</p>
+
+<h3 id="voucher">Voucher</h3>
 
 <p>Este meio de pagamento deve seguir a seção de <strong>Pagamentos Customizados</strong> para que a opção seja exibida na Condição de Pagamento. Posteriormente, identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens acima.</p>
 
-<h3 id="pagamentos-customizados">Pagamentos Customizados</h3>
+<h2 id="pagamentos-customizados">Pagamentos Customizados</h2>
 
 <p>Para configurar pagamentos customizados, acesse <strong>Transações</strong> &gt; <strong>Configurações</strong> &gt; <strong>Pagamentos Customizados</strong> &gt; <strong>Cartão da Loja – Bandeira Própria</strong> &gt; <strong>Configurar</strong></p>
 
@@ -302,61 +302,61 @@
   </thead>
   <tbody>
     <tr>
-      <td>Name</td>
+      <td><strong>Name</strong></td>
       <td><strong>Valores Possíveis:</strong> <br />Carrefour<br />Credz<br />CredSystem<br />DMCard<br />Ticket</td>
     </tr>
     <tr>
-      <td>Descrição</td>
+      <td><strong>Descrição</strong></td>
       <td><strong>Valores Possíveis:</strong> <br />Carrefour<br />Credz<br />CredSystem<br />DMCard<br />Ticket</td>
     </tr>
     <tr>
-      <td>Intervalos de BIN</td>
+      <td><strong>Intervalos de BIN</strong></td>
       <td>100000-999999</td>
     </tr>
     <tr>
-      <td>Código de pagamento do adquirente</td>
+      <td><strong>Código de pagamento do adquirente</strong></td>
       <td><strong>Valores Possíveis:</strong> <br />580<br />565<br />550<br />564<br />634</td>
     </tr>
     <tr>
-      <td>Usar nome do titular do cartão</td>
+      <td><strong>Usar nome do titular do cartão</strong></td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td>Quantidade de dígitos do CVV</td>
+      <td><strong>Quantidade de dígitos do CVV</strong></td>
       <td>[1]999</td>
     </tr>
     <tr>
-      <td>Usar data de validade do cartão?</td>
+      <td><strong>Usar data de validade do cartão?</strong></td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>Usar endereço de cobrança?</td>
+      <td><strong>Usar endereço de cobrança?</strong></td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>Máscara do cartão</td>
+      <td><strong>Máscara do cartão</strong></td>
       <td>9999 9999 9999 9999</td>
     </tr>
     <tr>
-      <td>Validade do pagamento</td>
+      <td><strong>Validade do pagamento</strong></td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>Autorizar automaticamente</td>
+      <td><strong>Autorizar automaticamente</strong></td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>Ativar divisão de pagamento</td>
+      <td><strong>Ativar divisão de pagamento</strong></td>
       <td>Não</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="3ds">3DS</h3>
+<h2 id="3ds">3DS</h2>
 
 <p>As credenciais recebidas para utilização da solução devem ser inseridas conforme Afiliação de Pagamento mencionado acima.</p>
 
-<h3 id="split-de-pagamentos">Split de Pagamentos</h3>
+<h2 id="split-de-pagamentos">Split de Pagamentos</h2>
 
 <p>Para que o Split seja utilizado corretamente, os sellers de um marketplace devem estar previamente cadastrados na plataforma VTEX e deve ser informado ao time de implantação fielmente ao cadastro da VTEX juntamente com o CNPJ. Uma vez editada essa informação na VTEX, o time Cielo deve ser informado dos novos dados.</p>
 
@@ -365,7 +365,7 @@
 <p><img src="https://braspag.github.io//images/braspag/pagador/vtex/07a-split.jpg" alt="Split1" />
 <img src="https://braspag.github.io//images/braspag/pagador/vtex/07b-split.jpg" alt="Split2" /></p>
 
-<h3 id="antifraude">Antifraude</h3>
+<h2 id="antifraude">Antifraude</h2>
 
 <p>Para que as transações sejam validadas pelo antifraude é necessário que o conector de Antifraude <strong>Braspag</strong> esteja configurado previamente em Afiliação de Pagamento antes da etapa de Condição de Pagamento.</p>
 
@@ -384,27 +384,27 @@
   </thead>
   <tbody>
     <tr>
-      <td>Id do Merchant</td>
+      <td><strong>Id do Merchant</strong></td>
       <td>Merchant ID do antifraude, disponibilizado pela Cielo.</td>
     </tr>
     <tr>
-      <td>FingerPrint_OrgId</td>
+      <td><strong>FingerPrint_OrgId</strong></td>
       <td>Fingerprint Org ID, disponibilizado pela Cielo para validação na Cybersource.</td>
     </tr>
     <tr>
-      <td>FingerPrint_MerchantId</td>
+      <td><strong>FingerPrint_MerchantId</strong></td>
       <td>Fingerprint Merchant ID, disponibilizado pela Cielo para validação na Cybersource.</td>
     </tr>
     <tr>
-      <td>Moeda</td>
+      <td><strong>Moeda</strong></td>
       <td>Selecionar a moeda da transação Brasil Real (BRL)</td>
     </tr>
     <tr>
-      <td>Versão de dados definidos da loja</td>
+      <td><strong>Versão de dados definidos da loja</strong></td>
       <td>Utilizar sempre Retail_V4</td>
     </tr>
     <tr>
-      <td>Enviar transações autenticadas</td>
+      <td><strong>Enviar transações autenticadas</strong></td>
       <td>Sim</td>
     </tr>
   </tbody>
