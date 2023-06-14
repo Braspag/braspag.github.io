@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Integração VTEX &middot; Braspag Developers - Manuais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//tutorial/integracao-vtex" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/tutorial/integracao-vtex" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
+</head>
+
+    <body>
+        
+            <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://suporte.braspag.com.br/hc/pt-br" class="help">Ajuda</a>
+
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
+
+                                
+                                    
+                                    <a href="https://braspag.github.io//tutorial/integracao-vtex">
+                                    
+
+                                        <img alt="Português" src="https://braspag.github.io//assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://braspag.github.io//en/tutorial/integracao-vtex">
+                                    
+
+                                        <img alt="English" src="https://braspag.github.io//assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//tutorial/integracao-vtex">Integração VTEX</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+    <h1 id="integração-vtex">Integração VTEX</h1>
+
+<p>A Cielo desenvolveu um conector na plataforma de e-commerce VTEX para realização do pagamento através das APIs de pagamento online da Cielo.  A usabilidade da plataforma deve ser consultada no <a href="https://help.vtex.com/tutorial/" target="_blank">tutorial da VTEX</a>. Abaixo reforçaremos as informações necessárias para utilização do conector.</p>
+
+<h2 id="configuração">Configuração</h2>
+
+<p>Para a configuração estar completa é preciso cadastrar <strong>Afiliação de pagamento</strong> para posteriormente vincular a uma <strong>Condição de pagamento</strong>.</p>
+
+<aside class="notice"> Para mais informações visite os artigos de suporte da VTEX:
+
+* [Cadastrar afiliações de gateway](https://help.vtex.com/pt/tutorial/afiliacoes-de-gateway--tutorials_444){:target="_blank"}
+* [Configurar condições de pagamento](https://help.vtex.com/pt/tutorial/condicoes-de-pagamento--tutorials_455){:target="_blank"}</aside>
+
+<h3 id="afiliação-de-pagamento">Afiliação de Pagamento</h3>
+
+<p>Acesse o painel <strong>ADMIN VTEX</strong> (https://<em>nomedaloja</em>.myvtex.com/admin) e comece a navegação por <strong>Transações</strong> &gt; <strong>Pagamentos</strong> &gt; <strong>Configurações</strong> &gt; <strong>Afiliações de gateways</strong> &gt; <strong>+</strong></p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/00-afiliacao.png" alt="Afiliação" /></p>
+
+<p>Selecione o conector <strong>CieloEcommerce</strong> e insira as informações conforme recebidas após a contratação das soluções desejadas.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/01-cieloecommerce.jpeg" alt="CieloEcommerce" /></p>
+
+<p>É preciso configurar o mesmo conector quantas vezes necessárias de acordo com o tipo de pagamento desejado, por isso fique atento ao Nome da Afiliação utilizada. Sugerimos incluir no nome e o provedor configurado.</p>
+
+<h4 id="exemplos-de-nome-da-afiliação">Exemplos de Nome da Afiliação:</h4>
+
+<p><strong>Exemplo</strong>: CieloEcommerce – Ticket</p>
+
+<p>Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar o Provider = Ticket.</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/02-nome-afiliacao-ticket.jpeg" alt="CieloEcommerce - Ticket" /></p>
+
+<p><strong>Exemplo</strong>: CieloEcommerce – Cielo30 c/ 3DS c/ SPLIT</p>
+
+<p>Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar o Provider = Cielo30 e realizar a autenticação com 3DS (se compatível) e realizar SPLIT (se compatível).</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/03a-nome-afiliacao-cielo30.jpg" alt="1CieloEcommerce - Cielo30" />
+<img src="https://braspag.github.io//images/braspag/pagador/vtex/03b-nome-afiliacao-cielo30.jpg" alt="2CieloEcommerce - Cielo30" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nome da Afiliação</td>
+      <td>Insira nome identificador da afiliação.</td>
+    </tr>
+    <tr>
+      <td>Application Key</td>
+      <td>Insira o MerchantID.</td>
+    </tr>
+    <tr>
+      <td>Application Token</td>
+      <td>Insira o MerchantKey.</td>
+    </tr>
+    <tr>
+      <td>Integration</td>
+      <td>Selecione <strong>Adquirência</strong> se o seu contrato é somente com a adquirência Cielo. <br />Selecione <strong>Gateway</strong> se o seu contrato é para utilização de outros provedores.</td>
+    </tr>
+    <tr>
+      <td>Provider</td>
+      <td>Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br />Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br />O provedor <strong>Simulado</strong> deve ser utilizado para transaçãoes de teste.<br />O provedor <strong>Cielo</strong> deve ser configurado para Integração <strong>Adquirência</strong>. <br />O provedor <strong>Cielo30</strong> deve ser configurado para Integração <strong>Gateway</strong>.</td>
+    </tr>
+    <tr>
+      <td>UseSPLIT</td>
+      <td>Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento Crédito, Débito e Boleto.</td>
+    </tr>
+    <tr>
+      <td>UseMPI</td>
+      <td>Insira “Sim” ou “Não” se deseja utilizar a Autenticação de 3DS2.0. Este campo é obrigatório para o tipo de pagamento Débito.</td>
+    </tr>
+    <tr>
+      <td>MpiClientId</td>
+      <td>ID do MPI, disponibilizado para o cliente pela Cielo.</td>
+    </tr>
+    <tr>
+      <td>MpiClientSecret</td>
+      <td>Chave secreta do MPI, disponibilizada para o cliente pela Cielo.</td>
+    </tr>
+    <tr>
+      <td>MpiMerchantName</td>
+      <td>Nome da loja, disponibilizado pela Cielo.</td>
+    </tr>
+    <tr>
+      <td>MpiMCC</td>
+      <td>Merchant Category Code da loja, disponibilizado pela Cielo.</td>
+    </tr>
+    <tr>
+      <td>MpiEstablishmentCode</td>
+      <td>Código de estabelecimento da loja, disponibilizado pela Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Após salvar o conector ele irá aparecer na lista <strong>Processar com afiliação</strong> da tela de configuração da <strong>Condição de Pagamento</strong>. </p>
+
+<h3 id="condição-de-pagamento">Condição de Pagamento</h3>
+
+<p>Acesse <strong>Transações</strong> &gt; <strong>Configurações</strong> &gt; <strong>Condições de Pagamento</strong> &gt; <strong>+</strong></p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/04-condicao.jpeg" alt="Condições de pagamento" /></p>
+
+<p>Selecione o tipo de pagamento que deseja configurar e insira as informações necessárias:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/05-nome-condicao.jpeg" alt="Nome Condição" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nome da Condição</td>
+      <td>Insira nome identificador da condição de pagamento.</td>
+    </tr>
+    <tr>
+      <td>Processar com a afiliação</td>
+      <td>Selecione a afiliação existente na lista conforme previamente cadastrada na seção Afiliação de Pagamento.</td>
+    </tr>
+    <tr>
+      <td>Usar solução antifraude</td>
+      <td>Esta opção apenas será exibida se houver Antifraude previamente cadastrado Afiliação de Pagamento.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Da mesma forma que a Afiliação de Pagamento, é preciso configurar a condição de pagamento quantas vezes necessárias de acordo com o tipo de pagamento desejado, por isso fique atento ao Nome da Condição utilizada. O nome do conector é exibido e o tipo de pagamento também. Então sugerimos inserir somente as soluções que foram configuradas na afiliação selecionada.</p>
+
+<h4 id="exemplos-de-nome-da-condição">Exemplos de Nome da Condição</h4>
+
+<ul>
+  <li>Ticket</li>
+</ul>
+
+<p>Nesse exemplo o título relembra que a condição de pagamento vai utilizar a afiliação configurada com o Provider = Ticket.</p>
+
+<ul>
+  <li>Cielo30 c/ 3DS c/ SPLIT</li>
+</ul>
+
+<p>Nesse exemplo o título relembra que qualquer condição de pagamento vai utilizar a afiliação configurada com o Provider = Cielo30 e realizar a autenticação com 3DS (se compatível) e realizará SPLIT de Pagamento (se compatível).</p>
+
+<p>Após essas duas etapas concluídas com todas as condições de pagamento criadas, as opções de pagamento serão exibidas na tela de checkout da loja.</p>
+
+<aside class="notice">A VTEX  agenda a solicitação de captura para 4 dias após a autorização para o tipo de pagamento ‘Crédito’, quando não há configuração do tempo de captura.</aside>
+
+<aside class="notice">A VTEX possui apenas cadastramento de seller do tipo pessoa ‘Jurídica’.</aside>
+
+<h3 id="meios-de-pagamento">Meios de Pagamento</h3>
+
+<h4 id="crédito">Crédito</h4>
+
+<p>Identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens acima.</p>
+
+<h4 id="débito">Débito</h4>
+
+<p>Identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens acima.</p>
+
+<h4 id="voucher">Voucher</h4>
+
+<p>Este meio de pagamento deve seguir a seção de <strong>Pagamentos Customizados</strong> para que a opção seja exibida na Condição de Pagamento. Posteriormente, identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens acima.</p>
+
+<h3 id="pagamentos-customizados">Pagamentos Customizados</h3>
+
+<p>Para configurar pagamentos customizados, acesse <strong>Transações</strong> &gt; <strong>Configurações</strong> &gt; <strong>Pagamentos Customizados</strong> &gt; <strong>Cartão da Loja – Bandeira Própria</strong> &gt; <strong>Configurar</strong></p>
+
+<p>Nesta seção configure os dados para Private Label e Ticket:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/06a-pagamento-customizado.jpg" alt="1Pagamento Customizado" />
+![2Pagamento Customizado]https://braspag.github.io//images/braspag/pagador/vtex/06b-pagamento-customizado.jpg)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td><strong>Valores Possíveis:</strong> <br />Carrefour<br />Credz<br />CredSystem<br />DMCard<br />Ticket</td>
+    </tr>
+    <tr>
+      <td>Descrição</td>
+      <td><strong>Valores Possíveis:</strong> <br />Carrefour<br />Credz<br />CredSystem<br />DMCard<br />Ticket</td>
+    </tr>
+    <tr>
+      <td>Intervalos de BIN</td>
+      <td>100000-999999</td>
+    </tr>
+    <tr>
+      <td>Código de pagamento do adquirente</td>
+      <td><strong>Valores Possíveis:</strong> <br />580<br />565<br />550<br />564<br />634</td>
+    </tr>
+    <tr>
+      <td>Usar nome do titular do cartão</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Quantidade de dígitos do CVV</td>
+      <td>[1]999</td>
+    </tr>
+    <tr>
+      <td>Usar data de validade do cartão?</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Usar endereço de cobrança?</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Máscara do cartão</td>
+      <td>9999 9999 9999 9999</td>
+    </tr>
+    <tr>
+      <td>Validade do pagamento</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Autorizar automaticamente</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Ativar divisão de pagamento</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="3ds">3DS</h3>
+
+<p>As credenciais recebidas para utilização da solução devem ser inseridas conforme Afiliação de Pagamento mencionado acima.</p>
+
+<h3 id="split-de-pagamentos">Split de Pagamentos</h3>
+
+<p>Para que o Split seja utilizado corretamente, os sellers de um marketplace devem estar previamente cadastrados na plataforma VTEX e deve ser informado ao time de implantação fielmente ao cadastro da VTEX juntamente com o CNPJ. Uma vez editada essa informação na VTEX, o time Cielo deve ser informado dos novos dados.</p>
+
+<p>Para fazer o cadastro de um sellers, acesse <strong>Marketplace</strong> &gt; <strong>Sellers</strong> &gt; <strong>Gerenciamento</strong>:</p>
+
+<p>![Split1]https://braspag.github.io//images/braspag/pagador/vtex/07a-split.jpg)
+![Split2]https://braspag.github.io//images/braspag/pagador/vtex/07b-split.jpg)</p>
+
+<h3 id="antifraude">Antifraude</h3>
+
+<p>Para que as transações sejam validadas pelo antifraude é necessário que o conector de Antifraude <strong>Braspag</strong> esteja configurado previamente em Afiliação de Pagamento antes da etapa de Condição de Pagamento.</p>
+
+<p>Para configurar, acesse <strong>Transações</strong> &gt; <strong>Configurações</strong> &gt; <strong>Afiliações de gateways</strong> &gt; <strong>+</strong></p>
+
+<p>Selecione o conector <strong>Braspag</strong> (Soluções Antifraude) e insira as informações conforme recebidas após a contratação das soluções desejadas.</p>
+
+<p>![Antifraude]https://braspag.github.io//images/braspag/pagador/vtex/08-antifraude.jpg)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Id do Merchant</td>
+      <td>Merchant ID do antifraude, disponibilizado pela Cielo.</td>
+    </tr>
+    <tr>
+      <td>FingerPrint_OrgId</td>
+      <td>Fingerprint Org ID, disponibilizado pela Cielo para validação na Cybersource.</td>
+    </tr>
+    <tr>
+      <td>FingerPrint_MerchantId</td>
+      <td>Fingerprint Merchant ID, disponibilizado pela Cielo para validação na Cybersource.</td>
+    </tr>
+    <tr>
+      <td>Moeda</td>
+      <td>Selecionar a moeda da transação Brasil Real (BRL)</td>
+    </tr>
+    <tr>
+      <td>Versão de dados definidos da loja</td>
+      <td>Utilizar sempre Retail_V4</td>
+    </tr>
+    <tr>
+      <td>Enviar transações autenticadas</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://suporte.braspag.com.br/hc/pt-br">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io/">
+        <img src="https://braspag.github.io//assets/images/logo.png" alt="Braspag Developers - Manuais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/Braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2191438,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
