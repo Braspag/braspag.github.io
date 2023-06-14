@@ -19,7 +19,7 @@ A Cielo desenvolveu um conector na plataforma de e-commerce VTEX para realizaç�
 
 Para a configuração estar completa é preciso cadastrar **Afiliação de pagamento** para posteriormente vincular a uma **Condição de pagamento**.
 
-<aside class="notice"> Para mais informações visite os artigos de suporte da VTEX: [Cadastrar afiliações de gateway](https://help.vtex.com/pt/tutorial/afiliacoes-de-gateway--tutorials_444){:target="_blank"} e [Configurar condições de pagamento](https://help.vtex.com/pt/tutorial/condicoes-de-pagamento--tutorials_455){:target="_blank"}</aside>
+Para mais informações, visite os artigos de suporte da VTEX: [Cadastrar afiliações de gateway](https://help.vtex.com/pt/tutorial/afiliacoes-de-gateway--tutorials_444){:target="_blank"} e [Configurar condições de pagamento](https://help.vtex.com/pt/tutorial/condicoes-de-pagamento--tutorials_455){:target="_blank"}</aside>
 
 ### Afiliação de Pagamento
 
@@ -121,7 +121,7 @@ Para configurar pagamentos customizados, acesse **Transações** > **Configuraç
 Nesta seção configure os dados para Private Label e Ticket:
 
 ![1Pagamento Customizado]({{ site.baseurl_root }}/images/braspag/pagador/vtex/06a-pagamento-customizado.jpg)
-![2Pagamento Customizado]{{ site.baseurl_root }}/images/braspag/pagador/vtex/06b-pagamento-customizado.jpg)
+![2Pagamento Customizado]({{ site.baseurl_root }}/images/braspag/pagador/vtex/06b-pagamento-customizado.jpg)
 
 |Campo|Descrição|
 |-|-|
@@ -148,8 +148,8 @@ Para que o Split seja utilizado corretamente, os sellers de um marketplace devem
 
 Para fazer o cadastro de um sellers, acesse **Marketplace** > **Sellers** > **Gerenciamento**:
 
-![Split1]{{ site.baseurl_root }}/images/braspag/pagador/vtex/07a-split.jpg)
-![Split2]{{ site.baseurl_root }}/images/braspag/pagador/vtex/07b-split.jpg)
+![Split1]({{ site.baseurl_root }}/images/braspag/pagador/vtex/07a-split.jpg)
+![Split2]({{ site.baseurl_root }}/images/braspag/pagador/vtex/07b-split.jpg)
 
 ### Antifraude
 
