@@ -67,11 +67,15 @@ Após salvar o conector ele irá aparecer na lista **Processar com afiliação**
 
 ## Condição de Pagamento
 
-1. Acesse **Transações** > **Configurações** > **Condições de Pagamento** > **+**
+### 1° Passo
+
+Acesse **Transações** > **Configurações** > **Condições de Pagamento** > **+**
 
 ![Condições de pagamento]({{ site.baseurl_root }}/images/braspag/pagador/vtex/04-condicao.jpeg)
 
-2. Selecione o tipo de pagamento que deseja configurar e insira as informações necessárias:
+### 2° Passo
+
+Selecione o tipo de pagamento que deseja configurar e insira as informações necessárias:
 
 ![Nome Condição]({{ site.baseurl_root }}/images/braspag/pagador/vtex/05-nome-condicao.jpeg)
  
@@ -100,7 +104,7 @@ Após essas duas etapas concluídas com todas as condições de pagamento criada
 
 ### Crédito
 
-Identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens acima.
+Identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens 
 
 ### Débito
 
