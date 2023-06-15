@@ -37,20 +37,25 @@ Selecione o conector **CieloEcommerce** e insira as informações conforme receb
 
 É preciso configurar o mesmo conector quantas vezes necessárias de acordo com o tipo de pagamento desejado, por isso fique atento ao Nome da Afiliação utilizada. Sugerimos incluir no nome e o provedor configurado.
 
-### Exemplos de Nome da Afiliação
+### 3° Passo
 
-**Exemplo**: CieloEcommerce – Ticket
+Insira o Nome da Afiliação:
 
-Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar o Provider = Ticket.
+![Nome da Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/02-nome-afiliacao-ticket.jpg)
 
-![CieloEcommerce - Ticket]({{ site.baseurl_root }}/images/braspag/pagador/vtex/02-nome-afiliacao-ticket.jpeg)
+#### Exemplos de Nome da Afiliação
 
-**Exemplo**: CieloEcommerce – Cielo30 c/ 3DS c/ SPLIT
+|Exemplo|Definição|
+|-|-|
+|CieloEcommerce - Ticket|Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Ticket como o provider.|
+|CieloEcommerce - Cielo30 c/ 3DS c/ SPLIT|Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Cielo30 como o provider, fazer a autenticação com 3DS (se compatível) e realizar SPLIT (se compatível).
 
-Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar o Provider = Cielo30 e realizar a autenticação com 3DS (se compatível) e realizar SPLIT (se compatível).
+### 4° Passo
 
-![1CieloEcommerce - Cielo30]({{ site.baseurl_root }}/images/braspag/pagador/vtex/03a-nome-afiliacao-cielo30.jpg)
-![2CieloEcommerce - Cielo30]({{ site.baseurl_root }}/images/braspag/pagador/vtex/03b-nome-afiliacao-cielo30.jpg)
+Preencha os campos com os dados requisitados:
+
+![1Dados Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/03a-dados.jpg)
+![2Dados Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/03b-dados.jpg)
 
 |Campo|Descrição|
 |-|-|
