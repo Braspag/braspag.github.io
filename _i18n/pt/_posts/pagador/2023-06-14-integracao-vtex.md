@@ -23,11 +23,11 @@ Para mais informações, visite os artigos de suporte da VTEX: [Cadastrar afilia
 
 ## Afiliação de Pagamento
 
-Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece a navegação por **Transações** > **Pagamentos** > **Configurações** > **Afiliações de gateways** > **+**
+1. Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece a navegação por **Transações** > **Pagamentos** > **Configurações** > **Afiliações de gateways** > **+**
 
 ![Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/00-afiliacao.png)
 
-Selecione o conector **CieloEcommerce** e insira as informações conforme recebidas após a contratação das soluções desejadas. 
+2. Selecione o conector **CieloEcommerce** e insira as informações conforme recebidas após a contratação das soluções desejadas. 
  
 ![CieloEcommerce]({{ site.baseurl_root }}/images/braspag/pagador/vtex/01-cieloecommerce.jpeg)
 
@@ -67,11 +67,11 @@ Após salvar o conector ele irá aparecer na lista **Processar com afiliação**
 
 ## Condição de Pagamento
 
-Acesse **Transações** > **Configurações** > **Condições de Pagamento** > **+**
+1. Acesse **Transações** > **Configurações** > **Condições de Pagamento** > **+**
 
 ![Condições de pagamento]({{ site.baseurl_root }}/images/braspag/pagador/vtex/04-condicao.jpeg)
 
-Selecione o tipo de pagamento que deseja configurar e insira as informações necessárias:
+2. Selecione o tipo de pagamento que deseja configurar e insira as informações necessárias:
 
 ![Nome Condição]({{ site.baseurl_root }}/images/braspag/pagador/vtex/05-nome-condicao.jpeg)
  
@@ -85,14 +85,10 @@ Da mesma forma que a Afiliação de Pagamento, é preciso configurar a condiçã
 
 ### Exemplos de Nome da Condição
 
-* Ticket
-
-Nesse exemplo o título relembra que a condição de pagamento vai utilizar a afiliação configurada com o Provider = Ticket.
-<br>
-
-* Cielo30 c/ 3DS c/ SPLIT
-
-Nesse exemplo o título relembra que qualquer condição de pagamento vai utilizar a afiliação configurada com o Provider = Cielo30 e realizar a autenticação com 3DS (se compatível) e realizará SPLIT de Pagamento (se compatível).
+|Exemplo|Definição|
+|-|-|
+|Ticket|Nesse exemplo o título relembra que a condição de pagamento vai utilizar a afiliação configurada com o Provider = Ticket.|
+|Cielo30 c/ 3DS c/ SPLIT|Nesse exemplo o título relembra que qualquer condição de pagamento vai utilizar a afiliação configurada com o Provider = Cielo30 e realizar a autenticação com 3DS (se compatível) e realizará SPLIT de Pagamento (se compatível)|
 
 Após essas duas etapas concluídas com todas as condições de pagamento criadas, as opções de pagamento serão exibidas na tela de checkout da loja.
 
