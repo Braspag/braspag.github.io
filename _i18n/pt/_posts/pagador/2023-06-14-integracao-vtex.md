@@ -23,11 +23,15 @@ Para mais informações, visite os artigos de suporte da VTEX: [Cadastrar afilia
 
 ## Afiliação de Pagamento
 
-1. Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece a navegação por **Transações** > **Pagamentos** > **Configurações** > **Afiliações de gateways** > **+**
+### 1° Passo
+
+Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece a navegação por **Transações** > **Pagamentos** > **Configurações** > **Afiliações de gateways** > **+**
 
 ![Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/00-afiliacao.png)
 
-2. Selecione o conector **CieloEcommerce** e insira as informações conforme recebidas após a contratação das soluções desejadas. 
+### 2° Passo
+
+Selecione o conector **CieloEcommerce** e insira as informações conforme recebidas após a contratação das soluções desejadas. 
  
 ![CieloEcommerce]({{ site.baseurl_root }}/images/braspag/pagador/vtex/01-cieloecommerce.jpeg)
 
@@ -104,7 +108,7 @@ Após essas duas etapas concluídas com todas as condições de pagamento criada
 
 ### Crédito
 
-Identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens 
+Identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens acima.
 
 ### Débito
 
