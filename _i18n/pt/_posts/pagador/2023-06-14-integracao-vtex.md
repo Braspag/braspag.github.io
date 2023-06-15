@@ -41,7 +41,7 @@ Selecione o conector **CieloEcommerce** e insira as informações conforme receb
 
 Insira o Nome da Afiliação:
 
-![Nome da Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/02-nome-afiliacao-ticket.jpg)
+![Nome da Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/02-nome-afiliacao-ticket.jpeg)
 
 #### Exemplos de Nome da Afiliação
 
