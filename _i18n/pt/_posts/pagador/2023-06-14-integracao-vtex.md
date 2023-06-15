@@ -48,7 +48,7 @@ Insira o Nome da Afiliação:
 |Exemplo|Definição|
 |-|-|
 |CieloEcommerce - Ticket|Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Ticket como o provider.|
-|CieloEcommerce - Cielo30 c/ 3DS c/ SPLIT|Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Cielo30 como o provider, fazer a autenticação com 3DS (se compatível) e realizar SPLIT (se compatível).
+|CieloEcommerce - Cielo30 c/ 3DS c/ SPLIT|Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Cielo30 como o provider, fazer a autenticação com 3DS (se compatível) e realizar SPLIT de pagamento (se compatível).
 
 ### 4° Passo
 
@@ -100,8 +100,8 @@ Da mesma forma que a Afiliação de Pagamento, é preciso configurar a condiçã
 
 |Exemplo|Definição|
 |-|-|
-|Ticket|Nesse exemplo o título relembra que a condição de pagamento vai utilizar a afiliação configurada com o Provider = Ticket.|
-|Cielo30 c/ 3DS c/ SPLIT|Nesse exemplo o título relembra que qualquer condição de pagamento vai utilizar a afiliação configurada com o Provider = Cielo30 e realizar a autenticação com 3DS (se compatível) e realizará SPLIT de Pagamento (se compatível)|
+|Ticket|Nesse exemplo o título relembra que a condição de pagamento vai utilizar a afiliação configurada com Ticket como provider.|
+|Cielo30 c/ 3DS c/ SPLIT|Nesse exemplo o título relembra que qualquer condição de pagamento vai utilizar a afiliação configurada com Cielo30 como provider, fazer a autenticação com 3DS (se compatível) e realizará SPLIT de Pagamento (se compatível)|
 
 Após essas duas etapas concluídas com todas as condições de pagamento criadas, as opções de pagamento serão exibidas na tela de checkout da loja.
 
