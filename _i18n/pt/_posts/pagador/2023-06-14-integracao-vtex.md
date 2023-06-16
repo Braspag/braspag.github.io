@@ -23,13 +23,13 @@ Para mais informações, visite os artigos de suporte da VTEX: [Cadastrar afilia
 
 ## Afiliação de Pagamento
 
-### 1° Passo
+### 1. Acessando o Painel VTEX
 
 Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece a navegação por **Transações** > **Pagamentos** > **Configurações** > **Afiliações de gateways** > **+**
 
 ![Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/00-afiliacao.png)
 
-### 2° Passo
+### 2. Selecionando o Conector
 
 Selecione o conector **CieloEcommerce** e insira as informações conforme recebidas após a contratação das soluções desejadas. 
  
@@ -37,7 +37,7 @@ Selecione o conector **CieloEcommerce** e insira as informações conforme receb
 
 É preciso configurar o mesmo conector quantas vezes necessárias de acordo com o tipo de pagamento desejado, por isso fique atento ao Nome da Afiliação utilizada. Sugerimos incluir no nome e o provedor configurado.
 
-### 3° Passo
+### 3. Escolhendo o Nome da Afiliação
 
 Insira o Nome da Afiliação:
 
@@ -50,7 +50,7 @@ Insira o Nome da Afiliação:
 |CieloEcommerce - Ticket|Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Ticket como o provider.|
 |CieloEcommerce - Cielo30 c/ 3DS c/ SPLIT|Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Cielo30 como o provider, fazer a autenticação com 3DS (se compatível) e realizar SPLIT de pagamento (se compatível).
 
-### 4° Passo
+### 4. Preenchendo Dados Necessários
 
 Preencha os campos com os dados requisitados:
 
@@ -76,13 +76,13 @@ Após salvar o conector ele irá aparecer na lista **Processar com afiliação**
 
 ## Condição de Pagamento
 
-### 1° Passo
+### 1. Adicionando Nova Condição de Pagamento
 
 Acesse **Transações** > **Configurações** > **Condições de Pagamento** > **+**
 
 ![Condições de pagamento]({{ site.baseurl_root }}/images/braspag/pagador/vtex/04-condicao.jpeg)
 
-### 2° Passo
+### 2. Configurando o Tipo de Pagamento
 
 Selecione o tipo de pagamento que deseja configurar e insira as informações necessárias:
 
@@ -145,20 +145,20 @@ Nesta seção configure os dados para Private Label e Ticket:
 
 ## 3DS
 
-As credenciais recebidas para utilização da solução devem ser inseridas conforme Afiliação de Pagamento mencionado acima.
+As credenciais recebidas para utilização da solução devem ser inseridas conforme em [Afiliação de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#afilia%C3%A7%C3%A3o-de-pagamento)
 
 ## Split de Pagamentos
 
 Para que o Split seja utilizado corretamente, os sellers de um marketplace devem estar previamente cadastrados na plataforma VTEX e deve ser informado ao time de implantação fielmente ao cadastro da VTEX juntamente com o CNPJ. Uma vez editada essa informação na VTEX, o time Cielo deve ser informado dos novos dados.
 
-Para fazer o cadastro de um sellers, acesse **Marketplace** > **Sellers** > **Gerenciamento**:
+Para fazer o cadastro de um seller, acesse **Marketplace** > **Sellers** > **Gerenciamento**:
 
 ![Split1]({{ site.baseurl_root }}/images/braspag/pagador/vtex/07a-split.jpg)
 ![Split2]({{ site.baseurl_root }}/images/braspag/pagador/vtex/07b-split.jpg)
 
 ## Antifraude
 
-Para que as transações sejam validadas pelo antifraude é necessário que o conector de Antifraude **Braspag** esteja configurado previamente em Afiliação de Pagamento antes da etapa de Condição de Pagamento.
+Para que as transações sejam validadas pelo Antifraude é necessário que o conector de Antifraude **Braspag** esteja configurado previamente em Afiliação de Pagamento antes da etapa de Condição de Pagamento.
 
 Para configurar, acesse **Transações** > **Configurações** > **Afiliações de gateways** > **+**
 
