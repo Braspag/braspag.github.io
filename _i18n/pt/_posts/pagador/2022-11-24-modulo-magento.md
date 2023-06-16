@@ -7,7 +7,7 @@ categories: tutorial
 translated: true
 sort_order: 1
 tags:
-    - 2. Módulos e SDKs
+    - 2. Módulos
  
 ---
 
