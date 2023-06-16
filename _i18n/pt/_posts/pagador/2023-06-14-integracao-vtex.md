@@ -111,17 +111,13 @@ Após essas duas etapas concluídas com todas as condições de pagamento criada
 
 ## Meios de Pagamento
 
-### Crédito
+### Crédito e Débito
 
-Identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens acima.
-
-### Débito
-
-Identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens acima.
+Selecione a Condição de Pagamento desejada e configure conforme o passo a passo em [Condição de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento).
 
 ### Voucher
 
-Este meio de pagamento deve seguir a seção de **Pagamentos Customizados** para que a opção seja exibida na Condição de Pagamento. Posteriormente, identifique a Condição de Pagamento desejada e configure conforme mencionado nos itens acima.
+Este meio de pagamento deve seguir a seção de [Pagamentos Customizados](https://braspag.github.io//tutorial/integracao-vtex#pagamentos-customizados) para que a opção seja exibida na Condição de Pagamento. Posteriormente, selecione a Condição de Pagamento desejada e configure conforme o passo a passo em [Condição de Pagamento](https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento).
 
 ## Pagamentos Customizados
 
