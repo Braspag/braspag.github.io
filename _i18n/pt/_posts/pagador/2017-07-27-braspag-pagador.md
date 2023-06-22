@@ -360,7 +360,7 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 |`Payment.CreditCard.CardOnFile.Usage`|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e já utilizado em outra transação.<br><br>**Aplicável para Cielo30 e Rede2.**|texto|-|Não|
 |`Payment.CreditCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` seja "Used".<br>"Recurring" - Compra recorrente programada, ex.: assinaturas.<br>"Unscheduled" - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br>"Installments" - Parcelamento através da recorrência.<br><br>**Aplicável para Cielo30 e Rede2.**|texto|-|Condicional|
 |`Payment.InitiatedTransactionIndicator.Category`|Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>- “C1”: transação inciada pelo portador do cartão;<br>- “M1”: transação recorrente ou parcelada iniciada pela loja;<br>- “M2”: transação iniciada pela loja.|string|2|Condicional. Obrigatório apenas para bandeira Mastercard|
-|`Payment.InitiatedTransactionIndicator.Subcategory`|Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em [Tabelas do Indicador de Início da Transação]().|string|-|Condicional. Obrigatório apenas para bandeira Mastercard|
+|`Payment.InitiatedTransactionIndicator.Subcategory`|Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em Tabelas do Indicador de Início da Transação.|string|-|Condicional. Obrigatório apenas para bandeira Mastercard|
 |`Payment.Credentials.Code`|Afiliação gerada pela adquirente.|texto|100|Condicional**|
 |`Payment.Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|texto|100|Condicional**|
 |`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|texto|50|Condicional**|
@@ -767,7 +767,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`Payment.ExternalAuthentication.Version`| Versão do 3DS utilizado no processo de autenticação. | alfanumérico | 1 posição | Sim, quando a versão do 3DS for "2".|
 |`Payment.ExternalAuthentication.ReferenceId`| RequestID retornado no processo de autenticação. | GUID | 36 | Sim, quando a versão do 3DS for "2". |
 |`Payment.InitiatedTransactionIndicator.Category`|Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>- “C1”: transação inciada pelo portador do cartão;<br>- “M1”: transação recorrente ou parcelada iniciada pela loja;<br>- “M2”: transação iniciada pela loja.|string|2|Condicional. Obrigatório apenas para bandeira Mastercard|
-|`Payment.InitiatedTransactionIndicator.Subcategory`|Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em [Tabelas do Indicador de Início da Transação]().|string|-|Condicional. Obrigatório apenas para bandeira Mastercard|
+|`Payment.InitiatedTransactionIndicator.Subcategory`|Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em Tabelas do Indicador de Início da Transação.|string|-|Condicional. Obrigatório apenas para bandeira Mastercard|
 
 #### Resposta
 
