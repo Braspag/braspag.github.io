@@ -138,6 +138,8 @@ Caso a sua loja utilize os serviços de *Retentativa* ou *Loadbalance*, as afili
 
 Os parâmetros contidos dentro dos nós `Address` e `DeliveryAddress` são de preenchimento **obrigatório** quando a transação é submetida ao [Antifraude](https://braspag.github.io//manual/antifraude){:target="_blank"} ou à análise do [Velocity](https://braspag.github.io//manual/velocity){:target="_blank"}. Na tabela de parâmetros, mais abaixo, esses parâmetros aparecem marcados com um * na coluna de obrigatoriedade.
 
+> **Transações de crédito Mastercard com credenciais armazenadas**: a bandeira Mastercard exige o envio do **Indicador de Início da Transação** para compras de **cartão de crédito e débito** que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó `InitiatedTransactionIndicator` com os parâmetros `Category` e `SubCategory` para transações Mastercard, dentro do nó `Payment`. Confira a lista de categorias na descrição do parâmetro `Category` e a tabela completa de subcategorias em [Tabelas do Indicador de Início da Transação](###Tabelas do Indicador de Início da Transação).
+
 Seguem exemplos de envio de requisição e resposta para criar uma transação de crédito:
 
 #### Requisição
@@ -201,6 +203,10 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
             "Reason":"Unscheduled"
          }
       },
+      "InitiatedTransactionIndicator": {
+            "Category": "C1",
+            "Subcategory": "Standingorder"
+         },
       "Credentials":{  
          "Code":"9999999",
          "Key":"D8888888",
@@ -281,6 +287,10 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
             "Reason":"Unscheduled"
          }
       },
+      "InitiatedTransactionIndicator": {
+            "Category": "C1",
+            "Subcategory": "Standingorder"
+         },      
       "Credentials":{  
          "Code":"9999999",
          "Key":"D8888888",
@@ -340,13 +350,6 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 |`Payment.Recurrent`|Indica se a transação é do tipo recorrente ("true") ou não ("false"). O valor "true" não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. `Authenticate` deve ser "false" quando `Recurrent` é "true". **Somente para transações Cielo, Cielo30 e Rede2.**|booleano|---|Não (default "false")|
 |`Payment.SoftDescriptor`|Valor que será concatenado com o valor de cadastro na adquirente para identificação na fatura.|texto|13|Não|
 |`Payment.DoSplit`|Indica se a transação será dividida entre várias contas ("true") ou não ("false").|booleano|---|Não (default "false")|
-|`Payment.ExtraDataCollection.Name`|Nome do campo que será gravado como dado extra.|texto|50|Não|
-|`Payment.ExtraDataCollection.Value`|Valor do campo que será gravado como dado extra.|texto|1024|Não|
-|`Payment.Credentials.Code`|Afiliação gerada pela adquirente.|texto|100|Condicional**|
-|`Payment.Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|texto|100|Condicional**|
-|`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|texto|50|Condicional**|
-|`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|texto|50|Condicional**|
-|`Payment.Credentials.Signature`|Envio do *TerminalID* da adquirente **Global Payments**, ex.: "001". Para **Safra** colocar o nome do estabelecimento, cidade e o estado concatenados com ponto-e-vírgula (;), ex.: "NomedaLoja;São Paulo;SP".|texto|--|Condicional**|
 |`Payment.CreditCard.CardNumber`|Número do cartão do comprador.|texto|19|Sim|
 |`Payment.CreditCard.Holder`|Nome do portador impresso no cartão. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|texto|25|Sim|
 |`Payment.CreditCard.ExpirationDate`|Data de validade impressa no cartão.|texto|7|Sim|
@@ -356,6 +359,15 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 |`Payment.CreditCard.Alias`|Nome atribuído pelo lojista ao cartão salvo como *CardToken*.|texto|64|Não|
 |`Payment.CreditCard.CardOnFile.Usage`|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e já utilizado em outra transação.<br><br>**Aplicável para Cielo30 e Rede2.**|texto|-|Não|
 |`Payment.CreditCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` seja "Used".<br>"Recurring" - Compra recorrente programada, ex.: assinaturas.<br>"Unscheduled" - Compra recorrente sem agendamento, ex.: aplicativos de serviços.<br>"Installments" - Parcelamento através da recorrência.<br><br>**Aplicável para Cielo30 e Rede2.**|texto|-|Condicional|
+|`Payment.InitiatedTransactionIndicator.Category`|Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>- “C1”: transação inciada pelo portador do cartão;<br>- “M1”: transação recorrente ou parcelada iniciada pela loja;<br>- “M2”: transação iniciada pela loja.|string|2|Condicional. Obrigatório apenas para bandeira Mastercard|
+|`Payment.InitiatedTransactionIndicator.Subcategory`|Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em [Tabelas do Indicador de Início da Transação]().|string|-|Condicional. Obrigatório apenas para bandeira Mastercard|
+|`Payment.Credentials.Code`|Afiliação gerada pela adquirente.|texto|100|Condicional**|
+|`Payment.Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|texto|100|Condicional**|
+|`Payment.Credentials.Username`|Usuário gerado no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|texto|50|Condicional**|
+|`Payment.Credentials.Password`|Senha gerada no credenciamento com a adquirente **Getnet** (envio obrigatório se a transação é direcionada para Getnet).|texto|50|Condicional**|
+|`Payment.Credentials.Signature`|Envio do *TerminalID* da adquirente **Global Payments**, ex.: "001". Para **Safra** colocar o nome do estabelecimento, cidade e o estado concatenados com ponto-e-vírgula (;), ex.: "NomedaLoja;São Paulo;SP".|texto|--|Condicional**|
+|`Payment.ExtraDataCollection.Name`|Nome do campo que será gravado como dado extra.|texto|50|Não|
+|`Payment.ExtraDataCollection.Value`|Valor do campo que será gravado como dado extra.|texto|1024|Não|
 
 ***Obrigatório caso não estejam pré configurados nos meios de pagamento do MerchantID utilizado.*
 
@@ -410,6 +422,10 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
             "Reason":"Unscheduled"
          }
       },
+      "InitiatedTransactionIndicator": {
+         "Category": "C1",
+         "Subcategory": "Standingorder"
+      },      
       "Credentials": {
          "Code": "9999999",
          "Key": "D8888888",
@@ -511,6 +527,10 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
             "Reason":"Unscheduled"
          }
         },
+      "InitiatedTransactionIndicator": {
+         "Category": "C1",
+         "Subcategory": "Standingorder"
+      },
         "Credentials": {
             "Code": "9999999",
             "Key": "D8888888",
@@ -587,6 +607,8 @@ Para integrar o método de autenticação, consulte a documentação do [3DS 2.0
 Veja abaixo a representação de um **fluxo transacional** padrão na criação de uma transação de débito, com as etapas de autenticação e autorização:
 ![Fluxo 3DS 2.0]({{ site.baseurl_root }}/images/3ds.png)
 
+> **Transações de débito Mastercard com credenciais armazenadas**: a bandeira Mastercard exige o envio do **Indicador de Início da Transação** para compras de **cartão de crédito e débito** que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó `InitiatedTransactionIndicator` com os parâmetros `Category` e `SubCategory` para transações Mastercard, dentro do nó `Payment`. Confira a lista de categorias na descrição do parâmetro `Category` e a tabela completa de subcategorias em [Tabelas do Indicador de Início da Transação](###Tabelas do Indicador de Início da Transação).
+
 #### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
@@ -641,6 +663,10 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
          "Eci":"5",
          "Version":"2",
          "ReferenceId":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"      },
+      "InitiatedTransactionIndicator": {
+            "Category": "C1",
+            "Subcategory": "Standingorder"
+         },
       "ExtraDataCollection":[  
          {  
             "Name":"NomeDoCampo",
@@ -706,6 +732,10 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
          "Eci":"5",
          "Version":"2",
          "ReferenceId":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"      },
+      "InitiatedTransactionIndicator": {
+            "Category": "C1",
+            "Subcategory": "Standingorder"
+         },
       "ExtraDataCollection":[  
          {  
             "Name":"NomeDoCampo",
@@ -736,6 +766,8 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`Payment.ExternalAuthentication.Eci`| *Electronic Commerce Indicator* retornado no processo de autenticação. | número | 1 | Sim. |
 |`Payment.ExternalAuthentication.Version`| Versão do 3DS utilizado no processo de autenticação. | alfanumérico | 1 posição | Sim, quando a versão do 3DS for "2".|
 |`Payment.ExternalAuthentication.ReferenceId`| RequestID retornado no processo de autenticação. | GUID | 36 | Sim, quando a versão do 3DS for "2". |
+|`Payment.InitiatedTransactionIndicator.Category`|Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>- “C1”: transação inciada pelo portador do cartão;<br>- “M1”: transação recorrente ou parcelada iniciada pela loja;<br>- “M2”: transação iniciada pela loja.|string|2|Condicional. Obrigatório apenas para bandeira Mastercard|
+|`Payment.InitiatedTransactionIndicator.Subcategory`|Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em [Tabelas do Indicador de Início da Transação]().|string|-|Condicional. Obrigatório apenas para bandeira Mastercard|
 
 #### Resposta
 
@@ -797,6 +829,10 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
       "Currency":"BRL",
       "Country":"BRA",
       "Provider":"Cielo",
+      "InitiatedTransactionIndicator": {
+            "Category": "C1",
+            "Subcategory": "Standingorder"
+         },
       "ExtraDataCollection":[
          {
             "Name":"NomeDoCampo",
@@ -883,6 +919,10 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
       "Currency":"BRL",
       "Country":"BRA",
       "Provider":"Cielo",
+      "InitiatedTransactionIndicator": {
+            "Category": "C1",
+            "Subcategory": "Standingorder"
+         },
       "ExtraDataCollection":[
          {
             "Name":"NomeDoCampo",
@@ -7896,6 +7936,49 @@ Lista de status retornados pela API:
 |12|Pending|Cartões de crédito e débito (transferência eletrônica), e-wallets e pix.|**Esperando retorno da instituição financeira**. <br>Significa que a transação foi enviada para a Braspag em processo de pré-autorização, esperando uma resposta do banco emissor para validá-la. |
 |13|Aborted|Todos|**Pagamento cancelado por falha no processamento**.<br>Significa que a transação foi cancelada por falha de processamento. Também pode ser abortada, caso o Antifraude negue a transação antes da autorização. |
 |20|Scheduled|Cartão de crédito e e-wallets.|**Recorrência agendada**.<br>Significa que a transação terá uma recorrência agendada, ou seja, o valor da compra será recolhido no dia em que foi agendado pela loja. |
+
+## Tabelas do Indicador de Início da Transação Mastercard
+
+As tabelas a seguir se aplicam para transações de crédito e débito Mastercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo **titular do cartão** (Cardholder Initiated Transaction - CIT) ou pela **loja** (Merchant Initiated Transaction - MIT).
+
+Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.InitiatedTransactionIndicator`. Este nó tem dois parâmetros, categoria (`Category`) e subcategoria (`Subcategory`); confira a seguir os valores correspondentes:
+
+**Categoria C1 - transação iniciada pelo portador do cartão**
+
+`Payment.InitiatedTransactionIndicator.Category` = "C1"
+
+|Subcategoria do indicador|Significado|Descrição|
+|---|---|---|
+|`CredentialsOnFile`| Salvar dados do cartão para compras futuras.| O consumidor inicia uma compra e a loja solicita ao consumidor que salve os dados do cartão para futuras compras iniciadas pelo titular do cartão. |
+|`StandingOrder`| Salvar dados do cartão para compras recorrentes de valor variável e frequência fixa.  | Transação inicial para armazenar os dados do cartão para um pagamento mensal de serviços públicos.  |
+|`Subscription` |  Salvar dados do cartão para compras recorrentes de valor e frequência fixos. |  Transação inicial para armazenar os dados do cartão para uma assinatura mensal (exemplo: jornais e revistas). |
+|`Installment` | Salvar dados do cartão para compra parcelada | Transação inicial para armazenar os dados do cartão para uma compra a ser paga por meio de pagamentos parcelados. |
+
+**Categoria M1 - transação recorrente ou parcelada iniciada pela loja**
+
+`Payment.InitiatedTransactionIndicator.Category` = "M1"
+
+Nessa categoria, a transação é feita após um acordo com um acordo entre um titular de cartão e a loja, pelo qual o titular do cartão autoriza a loja a armazenar e usar os dados da conta do titular do cartão para iniciar uma ou mais transações futuras, conforme a subcategoria:
+
+|Subcategoria do indicador|Significado|Descrição|
+|---|---|---|
+|`CredentialsOnFile`| Salvar dados do cartão para compras futuras iniciadas pela loja, com valor fixou ou variável e sem intervalo fixo ou data programada.  | Exemplo: o consumidor concorda em permitir que uma concessionária inicie transações de cobrança de pedágio quando o saldo na conta do consumidor estiver abaixo de uma quantia estabelecida (auto recarga). |
+|`StandingOrder` | Salvar dados do cartão para compras futuras iniciadas pela loja, com valor variável e intervalo fixo.  | Exemplo: pagamentos mensais de serviços públicos.  |
+|`Subscription`| Salvar dados do cartão para compras futuras iniciadas pela loja, com valor e intervalo fixos.  | Exemplo: assinatura mensal ou pagamento de serviço mensal fixo. |
+|`Installment` | Salvar dados do cartão para compras futuras iniciadas pela loja, com valor conhecido e período definido.  | Exemplo: o consumidor compra uma televisão por R$2000,00 e faz o pagamento em quatro parcelas iguais de R$500,00; nesse cenário, a primeira transação é iniciada pelo titular do cartão e as três transações restantes são iniciadas pela loja. |
+
+**Categoria M2 - transação iniciada pela loja**
+
+`Payment.InitiatedTransactionIndicator.Category` = "M2"
+
+|Subcategoria do indicador|Significado|Descrição|
+|---|---|---|
+| `PartialShipment` | Salvar dados do cartão para compras futuras iniciadas pela loja, quando a compra será dividida em mais de uma remessa de entrega.  | Ocorre quando uma quantidade acordada de mercadorias encomendadas por e-commerce não está disponível para envio no momento da compra. Cada remessa é uma transação separada.  |
+|`RelatedOrDelayedCharge` | Salvar dados do cartão para compras futuras iniciadas pela loja para despesas adicionais.  |  Uma cobrança adicional da conta após a prestação dos serviços iniciais e o processamento do pagamento. Exemplo: cobrança do frigobar do hotel após o titular do cartão fazer check-out do hotel.  |
+|`NoShow`| Salvar dados do cartão para compras futuras iniciadas pela loja para cobrança de multas.  | Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: O cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.  | 
+| `Resubmission` | Salvar dados do cartão para retentativa de transações negadas anteriormente.  | A tentativa anterior de obter autorização para uma transação foi recusada, mas a resposta do emissor não proíbe a loja de tentar novamente mais tarde. Exemplo: fundos insuficientes/resposta acima do limite de crédito. |
+
+> **Atenção**: Os dados do cartão são armazenados de forma criptografada.
 
 ## Lista de Status do Antifraude
 
