@@ -1069,7 +1069,7 @@ Note that the value of this field is not the Fingerprint itself, but an indicati
 
 Fingerprint consists of implementing a script on your checkout page (front-end), in the part where the shopper fills in the registration data.
 
-Fingerprint configuration will be different for each type of client application ([web](https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-web), [Android](https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-android) or [iOS](https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-ios)), but the variables used are the same; see the table with Fingerprint variables.
+Fingerprint configuration will be different for each type of client application ([web](https://braspag.github.io//en/manual/antifraude#setting-up-fingerprint-on-cybersource-%E2%80%93-web), [Android](https://braspag.github.io//en/manual/antifraude#setting-up-fingerprint-on-cybersource-%E2%80%93-android) or [iOS](https://braspag.github.io//en/manual/antifraude#setting-up-fingerprint-on-cybersource-%E2%80%93-ios)), but the variables used are the same; see the table with Fingerprint variables.
 
 #### Fingerprint variables
 
