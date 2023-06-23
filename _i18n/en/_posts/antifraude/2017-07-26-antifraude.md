@@ -192,11 +192,15 @@ See the image for the authentication flow and the sending of the `access_token` 
 |`token_type`|Indicates the value of the type of token.|
 |`expires_in`|Access token expiration, in seconds. <br/>After it expires, you need to get a new one.|
 
-# Conducting a fraud analysis
+# Integrating with Cybersource
 
-Braspag, upon receiving the request data, directs the provider to analyze them. Providers use technologies such as device identification, IP geolocation, social network analytics, proxy detection, and speed counters. In real-time you will receive a recommendation from the analysis and you can take an action.
+Below is an example of a fraud analysis request with Cybersource.
 
-## Analyzing a transaction in Cybersource
+> Attention: You should only send the `BraspagTransactionId` field if your flow is `AuthorizeFirst` and you are using Pagador Braspag. The `BraspagTransactionId` field is the identifier of the transaction in Pagador. Learn more at [Pagador documentation](https://braspag.github.io//en/manual/braspag-pagador){:target="_blank"}.
+
+## Analyzing a transaction at Cybersource
+
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
 
@@ -260,6 +264,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
   "CartItems": [
     {
       "ProductName": "Mouse",
+      "Category": "EletronicGood"
       "UnitPrice": "12000",
       "Sku": "abc123",
       "Quantity": 1,
@@ -274,6 +279,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
     },
     {
       "ProductName": "Teclado",
+      "Category": "EletronicGood"
       "UnitPrice": "96385",
       "MerchantItemId": "3",
       "Sku": "abc456",
@@ -337,9 +343,7 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 }
 ```
 
-### Request
-
-**Parameters in the header (Header)**
+**Parameters in the header**
 
 |Key|Value|
 |:-|:-|
@@ -348,100 +352,103 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-**Parameters in the body (Body)**
+**Parameters in the body**
 
 |Parameter|Description|Type|Required|Size|
 |:-|:-|:-:|:-:|-:|
-|`MerchantOrderId` |Merchant order number|string|yes|100|
-|`TotalOrderAmount`|Total order value in cents <br/> Ex: 123456 = r$ 1.234,56|long|yes|-|
-|`TransactionAmount`|Value of the financial transaction in cents <br/> Ex: 150000 = r$ 1.500,00|long|yes|-|
-|`Currency`|Currency. More information on [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|string|yes|3|
-|`Provider`|Antifraud provider <br/> [Table 1 - Provider]({{ site.baseurl_root }}en/manual/antifraude#table-1-provider)|enum|-|-|
-|`BraspagTransactionId`|Transaction id in Pagador Braspag|guid|no|-|
-|`Tid`|Acquirer transaction id <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the `BraspagTransactionId` field, so you need to send the fields` Nsu`, `AuthorizationCode` and` SaleDate`, besides this one in question|string|no|20|
-|`Nsu`|Acquirer transaction unique sequence number <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the field `BraspagTransactionId`, so you need to send the fields` Tid`, `AuthorizationCode` and `SaleDate`, in addition to the one in question|string|no|10|
-|`AuthorizationCode`|Acquirer authorization code <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the `BraspagTransactionId` field, so you need to send the` Tid`, `Nsu` and `SaleDate`, in addition to the one in question|string|no|10|
-|`SaleDate`|Acquirer authorization date <br/> Note: If you do not have integration with the Pagador Braspag, you can not send the field `BraspagTransactionId`, so you need to send the fields` Tid`, `Nsu `and` AuthorizationCode`, in addition to the one in question|datetime|no|-|
-|`Card.Number`|Credit card number|string|yes|20|
-|`Card.Holder`|Holder name|string|yes|50|
-|`Card.ExpirationDate`|Credit card expiration date <br/> Ex.: 01/2023|string|yes|7|
-|`Card.Brand`|Credit card brand <br/> [Table 3 - Card.Brand]({{ site.baseurl_root }}en/manual/antifraude#table-3-card.brand)|enum|-|-|
-|`Card.Save`|Indicates whether credit card data will be stored on the Cartão Protegido|bool|no|-|
-|`Card.Token`|Credit card token saved on the Cartão Protegido|guid|no|-|
-|`Card.Alias`|Credit card alias saved on the Cartão Protegido|string|no|64|
-|`Billing.Street`|Billing address street|string|yes|54|
-|`Billing.Number`|Billing address number|string|no|5|
-|`Billing.Complement`|Billing address complement|string|no|14|
-|`Billing.Neighborhood`|Billing address neighborhood|string|no|45|
-|`Billing.City`|Billing address city|string|yes|50|
-|`Billing.State`|Billing address state|string|no|2|
-|`Billing.Country`|Billing address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|yes|2|
-|`Billing.ZipCode`|Billing address zipcode|string|no|9|
-|`Shipping.Street`|Shipping address street|string|no|54|
-|`Shipping.Number`|Shipping address number|string|no|5|
-|`Shipping.Complement`|Shipping address complement|string|no|14|
-|`Shipping.Neighborhood`|Shipping address neighborhood|string|no|45|
-|`Shipping.City`|Shipping address city|string|no|50|
-|`Shipping.State`|Shipping address state|string|no|2|
-|`Shipping.Country`|Shipping address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|no|2|
-|`Shipping.ZipCode`|Shipping address zipcode|string|no|9|
-|`Shipping.FirstName`|First name of person in charge of receiving product at shipping address|string|no|60|
-|`Shipping.LastName`|Last name of the person in charge of receiving the product at the shipping address|string|no|60|
-|`Shipping.Phone`|Telephone number of the person in charge of receiving the product at the shipping address <br/> Ex.: 552121114700|string|no|15|
-|`Shipping.ShippingMethod`|Order delivery method <br/> [Table 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|-|-|
-|`Customer.MerchantCustomerId`|Customer document number, CPF or CNPJ|string|yes|16|
-|`Customer.FirstName`|Customer first name|string|yes|60|
-|`Customer.LastName`|Customer last name|string|yes|60|
-|`Customer.BirthDate`|Customer birthdate <br/> Ex.: 1983-10-01|date|yes|-|
-|`Customer.Email`|Customer email|string|yes|100|
-|`Customer.Ip`|Customer IP address|string|no|15|
-|`Customer.Phone`|Customer telephone number <br/> Ex.: 552121114700|string|no|15|
-|`Customer.BrowserHostName`|Host name entered by the customer's browser and identified through the HTTP header|string|no|60|
-|`Customer.BrowserCookiesAccepted`|Identifies whether the customer's browser accepts cookies or not|bool|-|-|
-|`Customer.BrowserEmail`|E-mail registered in the customer's browser. Can differ from merchant email (`Customer.Email`)|string|no|100|
-|`Customer.BrowserType`|Name of the browser used by the customer and identified through the HTTP header|string|no|40|
-|`Customer.BrowserFingerprint`|Identifier used to cross information obtained from the buyer's device. This same identifier must be used to generate the value that will be assigned to the `session_id` field of the script that will be included on the checkout page. <br/> Note: This identifier can be any value or order number but must be unique for 48 hours. <br/> [Fingerprint Configuration]({{ site.baseurl_root }}/manual/antifraude#cybersource)|string|yes|88|
-|`CartItem[n].ProductName`|Product name|string|yes|255|
-|`CartItem[n].Risk`|Risk level of the product associated with the quantity of chargebacks <br/> [Table 11 - CartItem{n}.Risk]({{ site.baseurl_root }}en/manual/antifraude#table-11-cartitem[n].risk)|enum|-|-|
-|`CartItem[n].UnitPrice`|Product unit price <br/> Ex: 10950 = r$ 109,50|long|yes|-|
-|`CartItem[n].Sku`|Product SKU|string|yes|255|
-|`CartItem[n].Quantity`|Product quantity|int|yes|-|
-|`CartItem[n].AddressRiskVerify`|Identifies that you will evaluate the billing and shipping addresses for different cities, states or countries <br/> [Table 12 - CartItem{n}.AddressRiskVerify]({{ site.baseurl_root }}en/manual/antifraude#table-12-cartitem[n].addressriskverify)|enum|-|-|
-|`CartItem[n].HostHedge`|Level of importance of customer IP and email addresses in fraud analysis <br/> [Table 13 - CartItem{n}.HostHedge]({{ site.baseurl_root }}en/manual/antifraude#table-13-cartitem[n].hosthedge)|enum|-|-|
-|`CartItem[n].NonSensicalHedge`|Level of importance of verifications about the customer data non sensical in fraud analysis <br/> [Table 14 - CartItem{n}.NonSensicalHedge]({{ site.baseurl_root }}en/manual/antifraude#table-14-cartitem[n].nonsensicalhedge)|enum|-|-|
-|`CartItem[n].ObscenitiesHedge`|Level of importance of checks on customer data with obscenity in fraud analysis <br/> [Table 15 - CartItem{n}.ObscenitiesHedge]({{ site.baseurl_root }}en/manual/antifraude#table-15-cartitem[n].obscenitieshedge)|enum|-|-|
-|`CartItem[n].TimeHedge`|Level of importance of the time of day in the fraud analysis that the customer made the request <br/> [Table 16 - CartItem{n}.TimeHedge]({{ site.baseurl_root }}en/manual/antifraude#table-16-cartitem[n].timehedge)|enum|-|-|
-|`CartItem[n].PhoneHedge`|Level of importance of checks on customer's phone numbers in fraud analysis <br/> [Table 17 - CartItem{n}.PhoneHedge]({{ site.baseurl_root }}en/manual/antifraude#table-17-cartitem[n].phonehedge)|enum|-|-|
-|`CartItem[n].VelocityHedge`|Level of importance of customer's purchase frequency in the fraud analysis of the previous 15 minutes <br/> [Table 18 - CartItem{n}.VelocityHedge]({{ site.baseurl_root }}en/manual/antifraude#table-18-cartitem[n].velocityhedge)|enum|-|-|
-|`Bank.Name`|Customer's bank name|string|no|40|
-|`Bank.Code`|Customer's bank code|string|no|15|
-|`Bank.Agency`|Customer's bank agency|string|no|15|
-|`Bank.Address`|Customer's bank address|string|no|255|
-|`Bank.City`|Customer's bank city|string|no|15|
-|`Bank.Country`|Customer's bank city <br/> More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|no|2|
-|`Bank.SwiftCode`|Customer's bank swift code|string|no|30|
-|`FundTransfer.AccountName`|Name linked to bank account|string|no|30|
-|`FundTransfer.AccountNumber`|Customer's bank account number|string|no|30|
-|`FundTransfer.BankCheckDigit`|Code used to validate customer's bank account|string|no|2|
-|`FundTransfer.Iban`|Customer's International Bank Account Number (IBAN)|string|no|30|
-|`Invoice.IsGift`|Indicates whether the order placed by the customer is for gift|bool|no|-|
-|`Invoice.ReturnsAccepted`|Indicates whether the order placed by the customer can be returned to the merchant|bool|no|-|
-|`Invoice.Tender`|Payment method used by the customer <br/> [Table 19 - Invoice.Tender]({{ site.baseurl_root }}en/manual/antifraude#table-19-invoice.tender)|enum|no|-|
-|`Airline.JourneyType`|Journey type <br/> [Table 8 - Airline.JourneyType]({{ site.baseurl_root }}en/manual/antifraude#table-8-airline.journeytype)|enun|no|-|
-|`Airline.DepartureDateTime`|Departure datetime <br/> Ex.: 2018-03-31 19:16:38|datetime|no|-|
-|`Airline.Passengers[n].FirstName`|Passenger first name|string|no|60|
-|`Airline.Passengers[n].LastName`|Passenger last name|string|no|60|
-|`Airline.Passengers[n].PassengerId`|Identifier of the passenger to whom the ticket was issued|string|no|32|
-|`Airline.Passengers[n].PassengerType`|Passenger type <br/> [Table 9 - Airline.Passengers{n}.PassengerType]({{ site.baseurl_root }}en/manual/antifraude#table-9-airline.passengers[n].passengertype)|enum|no|-|
-|`Airline.Passengers[n].Phone`|Passenger telephone number <br/> Ex.: 552121114700|string|no|15|
-|`Airline.Passengers[n].Email`|Passenger email|string|no|255|
-|`Airline.Passengers[n].Status`|Airline classification <br/> [Table 10 - Airline.Passengers{n}.Status]({{ site.baseurl_root }}en/manual/antifraude#table-10-airline.passengers[n].status)|enum|no|60|
-|`Airline.Passengers[n].Legs[n].DepartureAirport`|Departure airport code. More informations on. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|no|3|
-|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Arrival airport code. More information on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|no|3|
-|`CustomConfiguration.Comments`|Comments that the merchant may associate fraud analysis|string|no|255|
-|`CustomConfiguration.ScoreThreshold`|Acceptable level of risk for each product|int|-|-|
-|`MerchantDefinedData[n].Key`|Field key set against antifraud provider <br/> [Table 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}en/manual/antifraude#table-37-merchantdefineddata-(cybersource))|int|no|-|
-|`MerchantDefinedData[n].Value`|Field value set against antifraud provider <br/> [Table 37 - MerchantDefinedData(Cybersource)]({{ site.baseurl_root }}en/manual/antifraude#table-37-merchantdefineddata-(cybersource))|var|no|-|
+|`MerchantOrderId`|Order number.|string|Yes|100|
+|`TotalOrderAmount`|Total order amount in cents. <br/> Example: 123456 = R$ 1.234,56|long|Yes|-|
+|`TransactionAmount`|Financial transaction amount in cents. <br/> Example: 150000 = R$ 1.500,00|long|Yes|-|
+|`Currency`|Currency code. More information in [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|string|Yes|3|
+|`Provider`|Antifraud provider.<br/> [Table 1 - Provider](https://braspag.github.io//en/manual/antifraude#table-1-provider)|enum|-|-|
+|`BraspagTransactionId`|Transaction ID on Braspag Pagador. Note: You can send this field if your fraud analysis flow is AuthorizeFirst, in which authorization happens first. If you do not have an integration with Pagador Braspag, you can send the fields `Tdi`, `Nsu`, `AuthorizationCode` and `SaleDate` instead of the field `BraspagTransactionId`.|guid|No|-|
+|`Tid`|Acquirer transaction id <br/> Note: You can send this field if your fraud analysis flow is AuthorizeFirst, in which authorization happens first. If you do not have integration with Pagador Braspag, you have the option of sending the `Tid` accompanied by the fields `Nsu`, `AuthorizationCode` and `SaleDate` instead of the field `BraspagTransactionId`.|string|No|20|
+|`Nsu`|Unique sequence number of the acquirer transaction <br/> Note: You can send this field if your fraud analysis flow is AuthorizeFirst, in which the authorization happens first. If you do not have an integration with Pagador Braspag, you have the option of sending the `Nsu` accompanied by the fields `Tid`, `AuthorizationCode` and `SaleDate` instead of the field `BraspagTransactionId`.|string|No|10|
+|`AuthorizationCode`|Acquirer transaction authorization code <br/> Note: You can send this field if your fraud analysis flow is AuthorizeFirst, in which authorization happens first. If you do not have an integration with Pagador Braspag, you have the option of sending the `AuthorizationCode`, accompanied by the fields `Tid`, `Nsu` and `SaleDate` instead of the field `BraspagTransactionId`|string|No|10|
+|`SaleDate`|Transaction authorization date at acquirer <br/> Note: You can send this field if your fraud analysis flow is AuthorizeFirst, in which authorization happens first. If you do not have an integration with Pagador Braspag, you have the option of sending this field, accompanied by the fields `Tid`, `Nsu` and `AuthorizationCode` instead of the field `BraspagTransactionId`|datetime|No|-|
+|`Card.Number`|Credit card number.|string|Yes|19|
+|`Card.Holder`|Cardholder name printed on credit card.|string|Yes|50|
+|`Card.ExpirationDate`|Credit card expiration date. <br/> Eg: 01/2023|string|Yes|7|
+|`Card.Brand`|Credit card brand. <br/> [Table 3 - Card.Brand](https://braspag.github.io//en/manual/antifraude#table-3-card.brand)|enum|Yes|-|
+|`Card.Save`|Indicates whether credit card data will be stored in Cartão Protegido.|bool|No|-|
+|`Card.Token`|Credit card identifier saved in Cartão Protegido.|guid|No|-|
+|`Card.Alias`|*Alias* (nickname) of the credit card saved in Cartão Protegido|string|No|64|
+|`Billing.Street`|Billing address.|string|Yes|54|
+|`Billing.Number`|Billing address number.|string|Yes|5|
+|`Billing.Complement`|Billing address complement.|string|No|14|
+|`Billing.Neighborhood`|Billing address neighborhood.|string|Yes|45|
+|`Billing.City`|Billing address city.|string|Yes|50|
+|`Billing.State`|Billing address state.|string|Yes|2|
+|`Billing.Country`|Billing address country. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|Yes|2|
+|`Billing.ZipCode`|Billing address postal code.|string|Yes|9|
+|`Shipping.Street`|Delivery address address.|string|No|54|
+|`Shipping.Number`|Delivery address number.|string|No|5|
+|`Shipping.Complement`|Delivery address complement.|string|No|14|
+|`Shipping.Neighborhood`|Delivery address neighborhood.|string|No|45|
+|`Shipping.City`|Delivery address city.|string|No|50|
+|`Shipping.State`|Delivery address status.|string|No|2|
+|`Shipping.Country`|Delivery address country. More information at[ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|No|2|
+|`Shipping.ZipCode`|Delivery address postal code.|string|No|9|
+|`Shipping.FirstName`|First name of person responsible to receive the product at the delivery address.|string|No|60|
+|`Shipping.LastName`|Last name of the person responsible to receive the product at the delivery address.|string|No|60|
+|`Shipping.Phone`|Telephone number of the person responsible for receiving the product at the delivery address. <br/> Eg.: 552121114700|string|No|15|
+|`Shipping.ShippingMethod`|Order delivery method <br/> [Table 4 - ShippingMethod](https://braspag.github.io//en/manual/antifraude#table-4-shippingmethod)|enum|-|-|
+|`Customer.MerchantCustomerId`|Shopper's identification document number, CPF or CNPJ|string|Yes|16|
+|`Customer.FirstName`|Shopper's first name.|string|Yes|60|
+|`Customer.LastName`|Shopper's last name.|string|Yes|60|
+|`Customer.BirthDate`|Shopper's birth date. <br/> Eg.: 1983-10-01|date|Yes|-|
+|`Customer.Email`|Shopper's email.|string|Yes|100|
+|`Customer.Ip`|Shopper's IP address. IPv4 or IPv6 formats.|string|Yes|45|
+|`Customer.Phone`|Shopper's phone number.<br/> Eg.: 552121114700|string|Yes|15|
+|`Customer.BrowserHostName`|Host name informed by the shopper's browser and identified through the HTTP header|string|No|60|
+|`Customer.BrowserCookiesAccepted`|Identifies whether the shopper's browser accepts cookies.<br/> Possible values: true / false (default)|bool|-|-|
+|`Customer.BrowserEmail`|Email registered in the shopper's browser. It can differ from the registration email in the store (`Customer.Email`)|string|No|100|
+|`Customer.BrowserType`|Browser name used by the shopper and identified through the HTTP header <br/> Eg.: Google Chrome, Mozilla Firefox, Safari etc.|string|No|40|
+|`Customer.BrowserFingerprint`|Identifier used to cross information obtained from the shopper's device. This same identifier must be used to generate the value that will be assigned to the `session_id` field of the script that will be included on the checkout page. <br/> Note: This identifier can be any value or the order number, but it must be unique for 48 hours. <br/> Learn more at [Fingerprint with a Cybersource](https://braspag.github.io/manual/antifraude#fingerprint-com-a-cybersource)|string|Yes|88|
+|`CartItem[n].ProductName`|Product's name.|string|Yes|255|
+|`CartItem[n].Category`|Product category. <br/> [Table 36 - CartItem{n}.Category](https://braspag.github.io//en/manual/antifraude#table-36-cartitem[n].category)|enum|-|-|
+|`CartItem[n].Risk`|Product risk level associated with the amount of chargebacks. <br/> [Table 10 - CartItem{n}.Risk](https://braspag.github.io//en/manual/antifraude#table-10-cartitem[n].risk)|enum|-|-|
+|`CartItem[n].UnitPrice`|Product unit price. <br/> Eg: 10950 = R$ 109.50|long|Yes|-|
+|`CartItem[n].Sku`|Product SKU (Stock Keeping Unit).|string|Yes|255|
+|`CartItem[n].Quantity`|Product quantity.|int|Yes|-|
+|`CartItem[n].AddressRiskVerify`|Identifies who will evaluate billing and delivery addresses for different cities, states or countries <br/> [Table 11 - CartItem{n}.AddressRiskVerify](https://braspag.github.io//en/manual/antifraude#table-11-cartitem[n].addressriskverify)|enum|-|-|
+|`CartItem[n].HostHedge`|Importance level of shopper's IP and email addresses in fraud analysis. <br/> [Table 12 - CartItem{n}.HostHedge](https://braspag.github.io//en/manual/antifraude#table-12-cartitem[n].hosthedge)|enum|-|-|
+|`CartItem[n].NonSensicalHedge`|Importance level of the verification of shopper's non sensical data in fraud analysis. <br/> [Table 13 - CartItem{n}.NonSensicalHedge](https://braspag.github.io//en/manual/antifraude#table-13-cartitem[n].nonsensicalhedge)|enum|-|-|
+|`CartItem[n].ObscenitiesHedge`|Importance level of the verification of shopper's data containing obscenity in fraud analysis.<br/> [Table 14 - CartItem{n}.ObscenitiesHedge](https://braspag.github.io//en/manual/antifraude#table-14-cartitem[n].obscenitieshedge)|enum|-|-|
+|`CartItem[n].TimeHedge`|Importance level of the time in the day that the shopper placed the order for fraud analysis. <br/> [Table 15 - CartItem{n}.TimeHedge](https://braspag.github.io//en/manual/antifraude#table-15-cartitem[n].timehedge)|enum|-|-|
+|`CartItem[n].PhoneHedge`|Importance level of the verification of shopper's phone numbers in fraud analysis. <br/> [Table 16 - CartItem{n}.PhoneHedge](https://braspag.github.io//en/manual/antifraude#table-16-cartitem[n].phonehedge)|enum|-|-|
+|`CartItem[n].VelocityHedge`|Importance level of shopper's buying frequency in the last 15 minutes in fraud analysis. <br/> [Table 17 - CartItem{n}.VelocityHedge](https://braspag.github.io//en/manual/antifraude#table-17-cartitem[n].velocityhedge){:target="_blank"}|enum|-|-|
+|`Bank.Name`|Name of shopper's bank.|string|No|40|
+|`Bank.Code`|Shopper's bank's code.|string|No|15|
+|`Bank.Agency`|Shopper's bank agency.|string|No|15|
+|`Bank.Address`|Shopper's bank address.|string|No|255|
+|`Bank.City`|City where the shopper's bank is located.|string|No|15|
+|`Bank.Country`|Country where the shopper's bank is located. <br/> More information in [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|No|2|
+|`Bank.SwiftCode`|Shopper's bank unique identifier code.|string|No|30|
+|`FundTransfer.AccountName`|Name linked to bank account.|string|No|30|
+|`FundTransfer.AccountNumber`|Shopper's bank account number|string|No|30|
+|`FundTransfer.BankCheckDigit`|Code used to validate the shopper's bank account|string|No|2|
+|`FundTransfer.Iban`|Shopper's international bank account number (IBAN)|string|No|30|
+|`Invoice.IsGift`|Indicates whether the order placed by the shopper is a gift.|bool|No|-|
+|`Invoice.ReturnsAccepted`|Indicates whether the order placed by the shopper can be returned to the store.|bool|No|-|
+|`Invoice.Tender`|Payment method used by the shopper.<br/> [Table 18 - Invoice.Tender](https://braspag.github.io//en/manual/antifraude#table-18-invoice.tender)|enum|No|-|
+|`Airline.JourneyType`|Type of journey.<br/> [Table 7 - Airline.JourneyType](https://braspag.github.io//en/manual/antifraude#table-7-airline.journeytype)|enun|No|-|
+|`Airline.DepartureDateTime`|Departure date and time. <br/> Eg.: 2018-03-31 19:16:38|datetime|No|-|
+|`Airline.Passengers[n].FirstName`|Passenger's first name.|string|No|60|
+|`Airline.Passengers[n].LastName`|Passenger's last name.|string|No|60|
+|`Airline.Passengers[n].PassengerId`|Identifier of the passenger to whom the ticket was issued.|string|No|32|
+|`Airline.Passengers[n].PassengerType`|Passenger type. <br/> [Table 8 - Airline.Passengers{n}.PassengerType](https://braspag.github.io//en/manual/antifraude#table-8-airline.passengers[n].passengertype)|enum|No|-|
+|`Airline.Passengers[n].Phone`|Passenger's phone number. <br/> Eg.: 552121114700|string|No|15|
+|`Airline.Passengers[n].Email`|Passenger's email.|string|No|255|
+|`Airline.Passengers[n].Status`|Airline rating. <br/> [Table 9 - Airline.Passengers{n}.Status](https://braspag.github.io//en/manual/antifraude#table-9-airline.passengers[n].status)|enum|No|60|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Departure airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|No|3|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Arrival airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|No|3|
+|`CustomConfiguration.Comments`|Comments that the store may associate with fraud analysis.|string|No|255|
+|`CustomConfiguration.ScoreThreshold`|Acceptable level of risk for each product.|int|-|-|
+|`MerchantDefinedData[n].Key`|Field key defined with the anti-fraud provider. <br/> [Table 34 - MerchantDefinedData(Cybersource)](https://braspag.github.io//en/manual/antifraude#table-34-merchantdefineddata-(cybersource)))|int|não|-|
+|`MerchantDefinedData[n].Value`|Field value defined with the anti-fraud provider. <br/> [Tabela 34 - MerchantDefinedData(Cybersource)](https://braspag.github.io//en/manual/antifraude#table-34-merchantdefineddata-(cybersource)))|var|No|-|
+
+### Response
 
 ``` json
 {
@@ -481,106 +488,811 @@ Braspag, upon receiving the request data, directs the provider to analyze them. 
 }
 ```
 
-### Response
-
-**Parameters in the header (Header)**
+**Parameters in the header**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|201 Created|
 
-**Parameters in the body (Body)**
+**Parameters in the body**
 
 |Parameter|Description|Type|
 |:-|:-|:-:|
-|`TransactionId`|Transaction id on Antifraud Gateway Braspag Braspag|guid|
-|`Status`|Transaction status on Antifraud Gateway Braspag <br/> [Table 20  - Status]({{ site.baseurl_root }}en/manual/antifraude#table-20-status)|enum|
-|`ProviderAnalysisResult.ProviderTransactionId`|Cybersource transaction id|string|
-|`ProviderAnalysisResult.ProviderStatus`|Cybersource transaction status <br/> [Table 21 - ProviderStatus]({{ site.baseurl_root }}en/manual/antifraude#table-21-providerstatus)|enum|
-|`ProviderAnalysisResult.ProviderCode`|Cybersource return code <br/> [Table 22 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}en/manual/antifraude#table-22-provideranalysisresult.providercode)|int|
-|`ProviderAnalysisResult.ProviderRequestTransactionId`|Cybersource transaction request id|string|
+|`TransactionId`|Transaction ID in the Braspag Antifraude Gateway|guid|
+|`Status`|Transaction status in the Braspag Antifraude Gateway <br/> [Table 19 - Status](https://braspag.github.io//en/manual/antifraude#table-19-status)|enum|
+|`ProviderAnalysisResult.ProviderTransactionId`|Transaction ID at Cybersource|string|
+|`ProviderAnalysisResult.ProviderStatus`|Transaction status at Cybersource <br/> [Table 20 - ProviderStatus](https://braspag.github.io//en/manual/antifraude#table-20-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderCode`|Cybersource return code <br/> [Table 21 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io//en/manual/antifraude#table-21-provideranalysisresult.providercode)|int|
+|`ProviderAnalysisResult.ProviderRequestTransactionId`|Transaction request ID at Cybersource|string|
 |`ProviderAnalysisResult.Missing`|Missing fields in the request sent to Cybersource|string|
 |`ProviderAnalysisResult.Invalid`|Fields with invalid values sent to Cybersource|string|
-|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Codes that indicate incompatibilities between the customer's billing and shipping addresses <br/> Codes are concatenated using the character <br/> Os códigos são concatenados usando o caracter ^ Ex.: MM-A^MM-Z <br/>[Table 23 - ProviderAnalysisResult.AfsReply.AddressInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-23-provideranalysisresult.afsreply.addressinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Codes that affect analysis score <br/> Codes are concatenated using the ^ character. Ex: [Table 24 - ProviderAnalysisResult.AfsReply.AfsFactorCode]({{ site.baseurl_root }}en/manual/antifraude#table-24-provideranalysisresult.afsreply.afsfactorcode)|string|
-|`ProviderAnalysisResult.AfsReply.AfsResult`|Total calculated score for order|int|
-|`ProviderAnalysisResult.AfsReply.BinCountry`|BIN country code of the card used in the analysis. More information on More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
-|`ProviderAnalysisResult.AfsReply.CardAccountType`|Card type <br/> [Table 25 - ProviderAnalysisResult.AfsReply.CardAccountType]({{ site.baseurl_root }}en/manual/antifraude#table-25-provideranalysisresult.afsreply.cardaccounttype)|string|
-|`ProviderAnalysisResult.AfsReply.CardIssuer`|Name of the bank or issuer of the card|string|
+|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Codes indicate incompatibilities between the shopper's billing and shipping addresses <br/> Codes are concatenated using the ^ character Eg: MM-A^MM-Z <br/>[Table 22 - ProviderAnalysisResult.AfsReply.AddressInfoCode](https://braspag.github.io//en/manual/antifraude#table-22-provideranalysisresult.afsreply.addressinfocode))|string|
+|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Codes that affected the analysis score <br/> Codes are concatenated using the ^ character. E.g.: F^P <br/>[Table 23 - ProviderAnalysisResult.AfsReply.AfsFactorCode](https://braspag.github.io//en/manual/antifraude#table-23-provideranalysisresult.afsreply.afsfactorcode)|string|
+|`ProviderAnalysisResult.AfsReply.AfsResult`|Total score calculated for the order|int|
+|`ProviderAnalysisResult.AfsReply.BinCountry`|Country code of the BIN of the card used in the analysis. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
+|`ProviderAnalysisResult.AfsReply.CardAccountType`|Shopper's card type <br/>[Table 24 - ProviderAnalysisResult.AfsReply.CardAccountType]https://braspag.github.io//en/manual/antifraude#table-24-provideranalysisresult.afsreply.cardaccounttype)|string|
+|`ProviderAnalysisResult.AfsReply.CardIssuer`|Name of bank or card issuer|string|
 |`ProviderAnalysisResult.AfsReply.CardScheme`|Card brand|string|
-|`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Customer's local time, calculated from the date of the request and the billing address|string|
-|`ProviderAnalysisResult.AfsReply.HostSeverity`|Risk level of the customer's e-mail domain, 0 to 5, where 0 is undetermined risk and 5 represents the highest risk|int|
-|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Codes that indicate customer data are associated with positive or negative lists <br/> Codes are concatenated using the ^ character. Ex .: NEG-AFCB ^ NEG-CC [Table 26 - ProviderAnalysisResult.AfsReply.HotListInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-26-provideranalysisresult.afsreply.hotlistinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Codes that indicate excessive identity changes <br/> Codes are concatenated using the ^ character. Example: COR-BA-MM-BIN [Table 27 - ProviderAnalysisResult.AfsReply.IdentityInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-27-provideranalysisresult.afsreply.identityinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Codes that indicate problems with the email address, IP address or billing address <br/> Codes are concatenated using the ^ character. Ex .: COR-BA-MM-BIN [Table 28 Codes are concatenated using the ^ character. Ex .: COR-BA-MM-BIN [Table 28 - ProviderAnalysisResult.AfsReply.InternetInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-28-provideranalysisresult.afsreply.internetinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.IpCity`|Customer's city name obtained from the IP address|string|
-|`ProviderAnalysisResult.AfsReply.IpCountry`|Customer's country name obtained from the IP address|string|
-|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Customer's routing method obtained from the IP address <br/> [Table 32 - ProviderAnalysisResult.AfsReply.IpRoutingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-32-provideranalysisresult.afsreply.iproutingmethod)|string|
-|`ProviderAnalysisResult.AfsReply.IpState`|Customer's state name obtained from the IP address|string|
-|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Codes that indicate a problem with the customer's phone number <br/> Codes are concatenated using the ^ character. Ex .: UNV-AC ^ RISK-AC [Table 29 - ProviderAnalysisResult.AfsReply.PhoneInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-29-provideranalysisresult.afsreply.phoneinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.ReasonCode`|Cybersource return code <br/> [Table 22 - ProviderAnalysisResult.ProviderCode]({{ site.baseurl_root }}en/manual/antifraude#table-22-provideranalysisresult.providercode)|int|
-|`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Name of the scoring model used in the analysis. If you do not have a defined, the Cybersource default scoring model was used|string|
-|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Codes that indicate that the customer potentially provided suspicious information <br/> Codes are concatenated using the ^ character. Ex .: RISK-TB ^ RISK-TS [Table 30 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-30-provideranalysisresult.afsreply.suspiciousinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Codes that indicate that the customer has a high frequency of purchases <br/> Codes are concatenated using the ^ character. Ex .: VELV-SA VELI-CC VELSIP [Table 31 - ProviderAnalysisResult.AfsReply.VelocityInfoCode]({{ site.baseurl_root }}en/manual/antifraude#table-31-provideranalysisresult.afsreply.velocityinfocode)|string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`|Browser language used by the customer at the time of purchase|string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ScreenResolution`|Screen resolution of the customer at the time of purchase|string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.CookiesEnabled`|Flag identifying that the customer's browser was enabled to temporarily store cookies at the time of purchase|string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.FlashEnabled`|Flag identifying that the customer's browser enabled the execution of Flash content at the time of purchase |string|
+|`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Shopper's local time, calculated from date of request and billing address|string|
+|`ProviderAnalysisResult.AfsReply.HostSeverity`|Shopper's email domain risk level, from 0 to 5, where 0 is undetermined risk and 5 represents the highest risk|int|
+|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Codes that indicate that the shopper's data are associated in positive or negative lists <br/> The codes are concatenated using the ^ character. Eg: NEG-AFCB^NEG-CC <br/>[Table 25 - ProviderAnalysisResult.AfsReply.HotListInfoCode](https://braspag.github.io//en/manual/antifraude#table-25-provideranalysisresult.afsreply.hotlistinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Codes that indicate excessive identity changes <br/> Codes are concatenated using the ^ character. Ex.: COLOR-BA^MM-BIN <br/>[Table 26 - ProviderAnalysisResult.AfsReply.IdentityInfoCode](https://braspag.github.io//en/manual/antifraude#table-26-provideranalysisresult.afsreply.identityinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Codes that indicate problems with the email address, IP address, or billing address <br/> Codes are concatenated using the ^ character. Eg: FREE-EM^RISK-EM <br/> [Table 27 - ProviderAnalysisResult.AfsReply.InternetInfoCode](https://braspag.github.io//en/manual/antifraude#table-27-provideranalysisresult.afsreply.internetinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.IpCity`|Shopper's city name obtained from IP Address|string|
+|`ProviderAnalysisResult.AfsReply.IpCountry`|Shopper's country name obtained from IP address|string|
+|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Shopper routing method obtained from IP address<br/> [Table 31 - ProviderAnalysisResult.AfsReply.IpRoutingMethod](https://braspag.github.io//en/manual/antifraude#table-31-provideranalysisresult.afsreply.iproutingmethod)|string|
+|`ProviderAnalysisResult.AfsReply.IpState`|Shopper state name obtained from IP address|string|
+|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Codes that indicate a problem with the buyer's phone number <br/> Codes are concatenated using the ^ character. Eg: UNV-AC^RISK-AC <br/>[Table 28 - ProviderAnalysisResult.AfsReply.PhoneInfoCode](https://braspag.github.io//en/manual/antifraude#table-28-provideranalysisresult.afsreply.phoneinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.ReasonCode`|Cybersouce return code <br/> [Table 21 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io//en/manual/antifraude#table-21-provideranalysisresult.providercode)|int|
+|`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Name of the scoring model used in the analysis. If you don't have any template defined, Cybersource's default template was used|string|
+|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Codes indicating that the shopper has potentially provided suspicious information <br/> The codes are concatenated using the ^ character. Eg: RISK-TB^RISK-TS<br/> [Table 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode](https://braspag.github.io//en/manual/antifraude#table-29-provideranalysisresult.afsreply.suspiciousinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Codes that indicate that the buyer has a high frequency of purchases <br/> The codes are concatenated using the ^ character. Ex.: VELV-SA^VELI-CC^VELSIP <br/> [Table 30 - ProviderAnalysisResult.AfsReply.VelocityInfoCode](https://braspag.github.io//en/manual/antifraude#table-30-provideranalysisresult.afsreply.velocityinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`|Browser language used by the buyer at the time of purchase|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ScreenResolution`|Shopper screen resolution at time of purchase|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.CookiesEnabled`|Flag identifying that the shopper's browser was enabled to store cookies temporarily at the time of purchase|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.FlashEnabled`|Flag identifying that the shopper's browser enabled the execution of Flash content at the time of purchase|string|
 |`ProviderAnalysisResult.AfsReply.DeviceFingerprint.Hash`|Hash generated from the data collected by the fingerprint script|string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ImagesEnabled`|Flag identifying that the customer's browser was enabled with image caching at the time of purchase|string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.JavascriptEnabled`|Flag identifying that the customer's browser was running Javascript sripts enabled at the time of purchase|string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddress`|Flag identifying that customer IP address is real|string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCity`|Flag identifying that the customer IP address is in fact of the city that it should be|string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCountry`|Flag identifying that the customer IP address is in fact of the country that it should be|string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartId`|Customer device identifier|string|
-|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartIdConfidenceLevel`|Customer device identifier|string|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.DestinationQueue`|When verbose mode is enabled, the name of the queue to which the transactions do not automatically accept are sent|string|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.Name`|When verbose mode is enabled, name of the profile selected in the analysis. If you do not have any, the default profile has been selected|string|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.SelectedBy`|When verbose mode is enabled, name of the rule selector that selects the rules profile|string|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].RuleId`|When verbose mode is enabled, rule id|enum|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|When verbose mode is enabled, decision taken by rule <br/> [Table 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision]({{ site.baseurl_root }}en/manual/antifraude#table-33-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision)|enum|
-|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|When verbose mode is enabled, rule evaluation <br/> [Table 34 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation]({{ site.baseurl_root }}en/manual/antifraude#table-34-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation)|enum|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ImagesEnabled`|Flag identifying that the shopper's browser had image caching enabled at the time of purchase|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.JavascriptEnabled`|Flag identifying that the shopper's browser had JavaScript scripts enabled at the time of purchase|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddress`|Flag identifying that the shopper's IP is real|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCity`|Flag identifying that the shopper's IP is actually from the city it should be|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCountry`|Flag identifying that the shopper's IP is in fact from the country it should be|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartId`|Shopper device identifier|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartIdConfidenceLevel`|Shopper device identifier|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.DestinationQueue`|When verbose mode is enabled, name of the queue where transactions not automatically accepted are sent|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.Name`|When verbose mode is enabled, profile name is selected in analysis. If you don't have any, the default profile has been selected|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.SelectedBy`|When verbose mode is enabled, name of the rule selector that selects the rule profiles|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].RuleId`|When verbose mode is enabled, rule ID|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|When verbose mode is enabled, decision made by rule <br/> [Table 32 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision](https://braspag.github.io//en/manual/antifraude#table-32-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].decision)|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|When verbose mode is enabled, rule evaluation <br/> [Table 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation](https://braspag.github.io//en/manual/antifraude#table-33-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation)|enum|
 |`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name`|When verbose mode is enabled, rule name|string|
-|`ProviderAnalysisResult.DecisionReply.CasePriority`|Sets the priority level of the rules or profiles of the merchant. The priority level varies from 1 (major) to 5 (minor) and the default value is 3, and this will be assigned if you have not set the priority of the rules or profiles. This field will only be returned if the merchant is an Enhanced Case Management subscriber|string|
-|`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Codes of information triggered by analysis. These codes were generated when the rules were created|string|
+|`ProviderAnalysisResult.DecisionReply.CasePriority`|Sets the priority level for merchant rules or profiles. The priority level varies from 1 (highest) to 5 (lowest) and the default value is 3, and this will be assigned if you have not defined the priority of the rules or profiles. This field will only be returned if the store subscribes to Enhanced Case Management|int|
+|`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Information codes triggered by the analysis. These codes were generated when creating the rules|string|
 
-## Indicating integration errors
+## Querying a Cybersource transaction
+
+To know the status of a transaction at Cybersource, we recommend that you set up the [Notification Post](https://braspag.github.io//en/manual/antifraude#notification-post) and also do the query by poll, which is presented below:
+
+### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+
+**Parameters in the header**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+### Response
 
 ``` json
 {
-  "Message": "The request is invalid.",
-  "ModelState": {
-    "request.Customer.Gender": [
-      "Error converting value \"M\" to type 'Antifraude.Domain.Enums.GenderType'. Path 'Customer.Gender', line 51, position 17."
-    ],
-    "FraudAnalysisRequestError": [
-      "The Card.EciThreeDSecure lenght is gratter than 1",
-      "The Shipping.Complement lenght is gratter than 14",
-      "The Shipping.MiddleName lenght is gratter than 1",
-      "The Customer.MerchantCustomerId lenght is gratter than 16",
-      "The Customer.MiddleName lenght is gratter than 1"
-    ]
+   "TransactionId": "1eae3d39-a723-e811-80c3-0003ff21d83f",
+   "Status": "Accept",
+   "ProviderAnalysisResult": {
+       "ProviderTransactionId": "5206061832306553904009",
+       "ProviderStatus": "ACCEPT",
+       "ProviderCode": "100",
+       "ProviderRequestTransactionId": "AhjzbwSTGjifFZXHYduJEAFReTUyEoftDpA9+Ehk0kv9Atj2YEBMmAL2",
+       "AfsReply": {
+           "reasonCode": "100",
+           "afsResult": "99",
+           "hostSeverity": "3",
+           "consumerLocalTime": "11:36:23",
+           "afsFactorCode": "D^F^Z",
+           "addressInfoCode": "COR-BA",
+           "hotlistInfoCode": "NEG-AFCB^NEG-BA^NEG-CC^NEG-EM^NEG-PEM^NEG-SA^REV-PPH^REV-SUSP",
+           "internetInfoCode": "FREE-EM^RISK-EM",
+           "suspiciousInfoCode": "RISK-TB",
+           "velocityInfoCode": "VEL-NAME",
+           "scoreModelUsed": "default_lac"
+       },
+       "DecisionReply": {
+           "casePriority": "3",
+           "activeProfileReply": {},
+           "velocityInfoCode": "GVEL-R1^GVEL-R2^GVEL-R4^GVEL-R6^GVEL-R7^GVEL-R9"
+       }
+   },
+   "Links": [
+       {
+           "Method": "GET",
+           "Href": "http://localhost:1316/Analysis/v2/1eae3d39-a723-e811-80c3-0003ff21d83f",
+           "Rel": "Self"
+       }
+   ],
+  "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
+  "TotalOrderAmount": 15000,
+  "TransactionAmount": 14000,
+  "Currency": "BRL",
+  "Provider": "Cybersource",
+  "BraspagTransactionId":"a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+  "Card": {
+    "Number" : "4444555566667777",
+    "Holder": "Holder Name",
+    "ExpirationDate": "12/2023",
+    "Cvv": "999",
+    "Brand": "VISA"
+  },
+  "Billing": {
+    "Street": "Rua Saturno",
+    "Number": "12345",
+    "Complement": "Sala 123",
+    "Neighborhood": "Centro",
+    "City": "Rio de Janeiro",
+    "State": "RJ",
+    "Country": "BR",
+    "ZipCode": "20080123"
+  },
+  "Shipping": {
+    "Street": "Rua Neturno",
+    "Number": "30000",
+    "Complement": "sl 123",
+    "Neighborhood": "Centro",
+    "City": "Rio de Janeiro",
+    "State": "RJ",
+    "Country": "BR",
+    "ZipCode": "123456789",
+    "FirstName": "João",
+    "LastName": "Silva",
+    "ShippingMethod": "SameDay",
+    "Phone": "552121114700"
+  },
+  "Customer": {
+    "MerchantCustomerId": "10050665740",
+    "FirstName": "João",
+    "LastName": "Silva",
+    "BirthDate": "2016-12-09",
+    "Email": "emailcomprador@dominio.com.br",
+    "Phone": "552121114700",
+    "Ip": "127.0.0.1",
+    "BrowserHostName":"www.dominiobrowsercomprador.com.br",
+    "BrowserCookiesAccepted":true,
+    "BrowserEmail":"emailbrowsercomprador@dominio.com.br",
+    "BrowserType":"Chrome 58 on Windows 10"
+  },
+  "CartItems": [
+    {
+      "ProductName": "Mouse",
+      "Category": "EletronicGood",
+      "UnitPrice": "12000",
+      "Sku": "abc123",
+      "Quantity": 1,
+      "Risk":"Low",
+      "AddressRiskVerify":"No",
+      "HostHedge":"Low",
+      "NonSensicalHedge":"Normal",
+      "ObscenitiesHedge":"High",
+      "TimeHedge":"Low",
+      "PhoneHedge":"Normal",
+      "VelocityHedge":"High"
+    },
+    {
+      "ProductName": "Teclado",
+      "Category": "EletronicGood",
+      "UnitPrice": "96385",
+      "MerchantItemId": "3",
+      "Sku": "abc456",
+      "Quantity": 1,
+      "Risk": "High"
+    }
+  ],
+  "MerchantDefinedData": [
+    {
+      "Key": "1",
+      "Value": "Valor definido com o Provedor a ser enviado neste campo."
+    },
+    {
+      "Key": "2",
+      "Value": "Valor definido com o Provedor a ser enviado neste campo."
+    },
+    {
+      "Key": "3",
+      "Value": "Valor definido com o Provedor a ser enviado neste campo."
+    }
+  ],
+  "Bank":{
+    "Address": "Rua Marte, 29",
+    "Code": "237",
+    "Agency": "987654",
+    "City": "Rio de Janeiro",
+    "Country": "BR",
+    "Name": "Bradesco",
+    "SwiftCode": "789"
+  },
+  "FundTransfer":{
+    "AccountNumber":"159753",
+    "AccountName":"Conta particular",
+    "BankCheckDigit":"51",
+    "Iban":"123456789"
+  },
+  "Invoice":{
+    "IsGift": false,
+    "ReturnsAccept": true,
+    "Tender": "Consumer"
+  },
+  "Airline": {
+    "JourneyType": "OneWayTrip",
+    "DepartureDateTime": "2018-01-09 18:00",
+    "Passengers": [
+    {
+        "FirstName": "Fulano",
+        "LastName": "Tal",
+        "PassangerId": "",
+        "PassengerType": "Adult",
+        "Email": "email@mail.com",
+        "Phone": "1234567890",
+        "Status": "Gold",
+        "Legs" : [
+        {
+            "ArrivalAirport": "AMS",
+            "DepartureAirport": "GIG"
+        }]
+    }]
   }
 }
 ```
 
+**Parameter in the header**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+**Parameters in the body**
+
+|Parameter|Description|Type|
+|:-|:-|:-:|
+|`TransactionId`|Transaction ID in the Braspag Antifraude Gateway|guid|
+|`Status`|Transaction status in the Braspag Antifraude Gateway <br/> [Table 19 - Status](https://braspag.github.io//en/manual/antifraude#table-19-status)|enum|
+|`ProviderAnalysisResult.ProviderTransactionId`|Transaction ID at Cybersource|string|
+|`ProviderAnalysisResult.ProviderStatus`|Transaction status at Cybersource <br/> [Table 20 - ProviderStatus](https://braspag.github.io//en/manual/antifraude#table-20-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderCode`|Cybersource return code <br/> [Table 21 - Provider Analysis Result.Provider Code](https://braspag.github.io//en/manual/antifraude#table-21-provideranalysisresult.providercode)|int|
+|`ProviderAnalysisResult.ProviderRequestTransactionId`|Transaction request ID at Cybersource|string|
+|`ProviderAnalysisResult.Missing`|Missing fields in the request sent to Cybersource|string|
+|`ProviderAnalysisResult.Invalid`|Fields with invalid values sent to Cybersource|string|
+|`ProviderAnalysisResult.AfsReply.AddressInfoCode`|Codes indicate incompatibilities between the shopper's billing and delivery addresses <br/> The codes are concatenated using the ^ character Eg: MM-A^MM-Z <br/>[Table 22 - ProviderAnalysisResult.AfsReply.AddressInfoCode](https://braspag.github.io//en/manual/antifraude#table-22-provideranalysisresult.afsreply.addressinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.AfsFactorCode`|Codes that affected the analysis score <br/> Codes are concatenated using the ^ character. E.g.: F^P <br/>[Table 23 - ProviderAnalysisResult.AfsReply.AfsFactorCode](https://braspag.github.io//en/manual/antifraude#table-23-provideranalysisresult.afsreply.afsfactorcode)|string|
+|`ProviderAnalysisResult.AfsReply.AfsResult`|Total score calculated for the order|int|
+|`ProviderAnalysisResult.AfsReply.BinCountry`|Country code of the BIN of the card used in the analysis. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`ProviderAnalysisResult.AfsReply.CardAccountType`|Shopper's card type <br/>[Table 24 - ProviderAnalysisResult.AfsReply.CardAccountType](https://braspag.github.io//en/manual/antifraude#table-24-provideranalysisresult.afsreply.cardaccounttype)|string|
+|`ProviderAnalysisResult.AfsReply.CardIssuer`|Name of bank or card issuer|string|
+|`ProviderAnalysisResult.AfsReply.CardScheme`|Card brand|string|
+|`ProviderAnalysisResult.AfsReply.ConsumerLocalTime`|Shopper's local time, calculated from date of request and billing address|string|
+|`ProviderAnalysisResult.AfsReply.HostSeverity`|Shopper's email domain risk level, from 0 to 5, where 0 is undetermined risk and 5 represents the highest risk|int|
+|`ProviderAnalysisResult.AfsReply.HotListInfoCode`|Codes that indicate that the shopper's data are associated in positive or negative lists <br/> The codes are concatenated using the ^ character. Eg: NEG-AFCB^NEG-CC <br/>[Table 25 - ProviderAnalysisResult.AfsReply.HotListInfoCode]https://braspag.github.io//en/manual/antifraude#table-25-provideranalysisresult.afsreply.hotlistinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.IdentityInfoCode`|Codes that indicate excessive identity changes <br/> Codes are concatenated using the ^ character. Eg: COR-BA^MM-BIN <br/> [Table 26 - ProviderAnalysisResult.AfsReply.IdentityInfoCode](https://braspag.github.io//en/manual/antifraude#table-26-provideranalysisresult.afsreply.identityinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.InternetInfoCode`|Codes that indicate problems with the email address, IP address, or billing address <br/> Codes are concatenated using the ^ character. Eg: COR-BA^MM-BIN <br/> [Table 27 - ProviderAnalysisResult.AfsReply.InternetInfoCode](https://braspag.github.io//en/manual/antifraude#table-27-provideranalysisresult.afsreply.internetinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.IpCity`|Shopper city name obtained from IP Address|string|
+|`ProviderAnalysisResult.AfsReply.IpCountry`|Shopper country name obtained from IP address|string|
+|`ProviderAnalysisResult.AfsReply.IpRoutingMethod`|Shopper routing method obtained from IP address <br/> [Table 31 - ProviderAnalysisResult.AfsReply.IpRoutingMethod](https://braspag.github.io//en/manual/antifraude#table-31-provideranalysisresult.afsreply.iproutingmethod)|string|
+|`ProviderAnalysisResult.AfsReply.IpState`|Nome do estado do comprador obtido a partir do endereço de IP|string|
+|`ProviderAnalysisResult.AfsReply.PhoneInfoCode`|Códigos que indicam um problema com o número de telefone do comprador <br/> Os códigos são concatenados usando o caracter ^. Ex.: UNV-AC^RISK-AC <br/> [Tabela 28 - ProviderAnalysisResult.AfsReply.PhoneInfoCode](https://braspag.github.io//en/manual/antifraude#table-28-provideranalysisresult.afsreply.phoneinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.ReasonCode`|Cybersource return code <br/> [Table 21 - Provider Analysis Result.Provider Code](https://braspag.github.io//en/manual/antifraude#table-21-provideranalysisresult.providercode)|int|
+|`ProviderAnalysisResult.AfsReply.ScoreModelUsed`|Name of the scoring model used in the analysis. If you don't have any template defined, Cybersource's default template was used|string|
+|`ProviderAnalysisResult.AfsReply.SuspiciousInfoCode`|Codes indicating that the shopper has potentially provided suspicious information <br/> The codes are concatenated using the ^ character. Eg: RISK-TB^RISK-TS <br/> [Table 29 - ProviderAnalysisResult.AfsReply.SuspiciousInfoCode](https://braspag.github.io//en/manual/antifraude#table-29-provideranalysisresult.afsreply.suspiciousinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.VelocityInfoCode`|Codes that indicate that the shopper has a high frequency of purchases <br/> The codes are concatenated using the ^ character. Eg: VELV-SA^VELI-CC^VELSIP <br/> [Table 30 - ProviderAnalysisResult.AfsReply.VelocityInfoCode](https://braspag.github.io//en/manual/antifraude#table-30-provideranalysisresult.afsreply.velocityinfocode)|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.BrowserLanguage`|Browser language used by the shopper at the time of purchase|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ScreenResolution`|Shopper screen resolution at time of purchase|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.CookiesEnabled`|Flag identifying that the shopper's browser was enabled to store cookies temporarily at the time of purchase|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.FlashEnabled`|Flag identifying that the shopper's browser enabled the execution of Flash content at the time of purchase|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.Hash`|Hash generated from the data collected by the fingerprint script|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.ImagesEnabled`|Flag identifying that the shopper's browser had image caching enabled at the time of purchase|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.JavascriptEnabled`|Flag identifying that the shopper's browser had JavaScript scripts enabled at the time of purchase|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddress`|Flag identifying that the shopper's IP is real|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCity`|Flag identifying that the shopper's IP is actually from the city it should be|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.TrueIPAddressCountry`|Flag identifying that the shopper's IP is in fact from the country it should be|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartId`|Shopper device identifier|string|
+|`ProviderAnalysisResult.AfsReply.DeviceFingerprint.SmartIdConfidenceLevel`|Shopper device identifier|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.DestinationQueue`|When verbose mode is enabled, name of the queue where transactions not automatically accepted are sent|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.Name`|When verbose mode is enabled, name of profile selected in analysis. If you don't have any, the default profile has been selected|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.SelectedBy`|When verbose mode is enabled, name of the rule selector that selects the rules profile|string|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].RuleId`|When verbose mode is enabled, rule Id|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Decision`|When verbose mode is enabled, decision taken by rule <br/> [Table 30 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Decision](https://braspag.github.io//en/manual/antifraude#table-30-provideranalysisresult.afsreply.velocityinfocode)|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Evaluation`|When verbose mode is enabled, rule evaluation <br/> [Table 33 - ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered{n}.Evaluation](https://braspag.github.io//en/manual/antifraude#table-33-provideranalysisresult.decisionreply.activeprofilereply.rulestriggered[n].evaluation)|enum|
+|`ProviderAnalysisResult.DecisionReply.ActiveProfileReply.RulesTriggered[n].Name`|When verbose mode is enabled, rule name|string|
+|`ProviderAnalysisResult.DecisionReply.CasePriority`|Sets the priority level for merchant rules or profiles. The priority level varies from 1 (highest) to 5 (lowest) and the default value is 3, and this will be assigned if you have not defined the priority of the rules or profiles. This field will only be returned if the store subscribes to Enhanced Case Management|string|
+|`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Information codes triggered by the analysis. These codes were generated when creating the rules|string|
+|`MerchantOrderId` |Store order number|string|
+|`TotalOrderAmount`|Total order value in cents <br/> Eg: 123456 = BRL 1,234.56|long|
+|`TransactionAmount`|Value of the financial transaction in cents <br/> Eg: 150000 = R$ 1,500.00|long|
+|`Currency`|Currency. More information in [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|string|
+|`Provider`|Anti-fraud solution provider <br/> [Table 1 - Provider](https://braspag.github.io//en/manual/antifraude#table-1-provider)|enum|
+|`BraspagTransactionId`|Transaction ID in Braspag Pagador|guid|
+|`Tid`|Transaction ID at acquirer|string|
+|`Nsu`|Unique sequential number of the transaction at the acquirer <br/>|string|
+|`AuthorizationCode`|Acquirer transaction authorization code <br/>|string|
+|`SaleDate`|Transaction authorization date at the acquirer <br/>|datetime|
+|`Card.Number`|Credit card number|string|
+|`Card.Holder`|Holder name|string|
+|`Card.ExpirationDate`|Credit card expiration date <br/> Ex.: 01/2023|string|
+|`Card.Brand`|Credit card brand <br/> [Table 3 - Card.Brand]({{ site.baseurl_root }}en/manual/antifraude#table-3-card.brand)|enum|
+|`Card.Save`|Indicates whether credit card data will be stored on the Cartão Protegido|bool|
+|`Card.Token`|Credit card token saved on the Cartão Protegido|guid|
+|`Card.Alias`|Credit card alias saved on the Cartão Protegido|string||
+|`Billing.Street`|Billing address street|string|
+|`Billing.Number`|Billing address number|string|
+|`Billing.Complement`|Billing address complement|string|
+|`Billing.Neighborhood`|Billing address neighborhood|string|
+|`Billing.City`|Billing address city|string|
+|`Billing.State`|Billing address state|string|
+|`Billing.Country`|Billing address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
+|`Billing.ZipCode`|Billing address zipcode|string|
+|`Shipping.Street`|Shipping address street|string|
+|`Shipping.Number`|Shipping address number|string|
+|`Shipping.Complement`|Shipping address complement|string|
+|`Shipping.Neighborhood`|Shipping address neighborhood|string|
+|`Shipping.City`|Shipping address city|string|
+|`Shipping.State`|Shipping address state|string|
+|`Shipping.Country`|Shipping address country. More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
+|`Shipping.ZipCode`|Shipping address zipcode|string|
+|`Shipping.FirstName`|First name of person in charge of receiving product at shipping address|string|
+|`Shipping.LastName`|Last name of the person in charge of receiving the product at the shipping address|string|
+|`Shipping.Phone`|Telephone number of the person in charge of receiving the product at the shipping address <br/> Eg.: 552121114700|string|
+|`Shipping.ShippingMethod`|Order delivery method <br/> [Table 4 - ShippingMethod]({{ site.baseurl_root }}en/manual/antifraude#table-4-shippingmethod)|enum|
+|`Customer.MerchantCustomerId`|Customer document number, CPF or CNPJ|string|
+|`Customer.FirstName`|Customer first name|string|
+|`Customer.LastName`|Customer last name|string|
+|`Customer.BirthDate`|Customer birthdate <br/> Eg.: 1983-10-01|date|
+|`Customer.Email`|Customer email|string|
+|`Customer.Ip`|Customer IP address|string|
+|`Customer.Phone`|Customer telephone number <br/> Ex.: 552121114700|string|
+|`Customer.BrowserHostName`|Host name entered by the customer's browser and identified through the HTTP header|string|
+|`Customer.BrowserCookiesAccepted`|Identifies whether the customer's browser accepts cookies or not|bool|
+|`Customer.BrowserEmail`|E-mail registered in the customer's browser. Can differ from merchant email (`Customer.Email`)|string|
+|`Customer.BrowserType`|Name of the browser used by the customer and identified through the HTTP header|string|
+|`CartItem[n].ProductName`|Product name|string|
+|`CartItem[n].Category`|Product category <br/> [Table 36 - CartItem{n}.Category](https://braspag.github.io//en/manual/antifraude#table-36-cartitem[n].category)|enum|
+|`CartItem[n].Risk`|Product risk level associated with the amount of chargebacks <br/> [Table 10 - CartItem{n}.Risk](https://braspag.github.io//en/manual/antifraude#table-10-cartitem[n].risk)|enum|
+|`CartItem[n].UnitPrice`|Product unit price <br/> Eg: 10950 = R$ 109.50|long|
+|`CartItem[n].Sku`|Product Sku|string|
+|`CartItem[n].Quantity`|Product quantity|int|
+|`CartItem[n].AddressRiskVerify`|Identifies that it will evaluate billing and delivery addresses for different cities, states or countries <br/> [Table 11 - CartItem{n}.AddressRiskVerify](https://braspag.github.io//en/manual/antifraude#table-11-cartitem[n].addressriskverify)|enum|
+|`CartItem[n].HostHedge`|Level of importance of shopper's IP and email addresses in fraud analysis <br/> [Table 12 - CartItem{n}.HostHedge](https://braspag.github.io//en/manual/antifraude#table-12-cartitem[n].hosthedge)|enum|
+|`CartItem[n].NonSensicalHedge`|Level of importance of meaningless shopper data checks in fraud analysis <br/> [Table 13 - CartItem{n}.NonSensicalHedge](https://braspag.github.io//en/manual/antifraude#table-13-cartitem[n].nonsensicalhedge)|enum|
+|`CartItem[n].ObscenitiesHedge`|Importance level of obscenity shopper data checks in fraud analysis <br/> [Table 14 - CartItem{n}.ObscenitiesHedge](https://braspag.github.io//en/manual/antifraude#table-14-cartitem[n].obscenitieshedge)|enum|
+|`CartItem[n].TimeHedge`|Level of importance of the time of day in the fraud analysis that the shopper placed the order <br/> [Table 15 - CartItem{n}.TimeHedge](https://braspag.github.io//en/manual/antifraude#table-15-cartitem[n].timehedge)|enum|
+|`CartItem[n].PhoneHedge`|Level of importance of checks on shopper phone numbers in fraud analysis <br/> [Table 16 - CartItem{n}.PhoneHedge](https://braspag.github.io//manual/antifraude#tabela-16-cartitem[n].phonehedge)|enum|
+|`CartItem[n].VelocityHedge`|Importance level of the shopper's purchase frequency in the fraud analysis within the previous 15 minutes <br/> [Table 17 - CartItem{n}.VelocityHedge](https://braspag.github.io//en/manual/antifraude#table-17-cartitem[n].velocityhedge)|enum|
+|`Bank.Name`|Shopper's bank name|string|
+|`Bank.Code`|Shopper's bank code|string|
+|`Bank.Agency`|Shopper's bank agency|string|
+|`Bank.Address`|Shopper's bank address|string|
+|`Bank.City`|Shopper's bank city|string|
+|`Bank.Country`|Shopper's bank city <br/> More information on [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
+|`Bank.SwiftCode`|Shopper's bank swift code|string|
+|`FundTransfer.AccountName`|Name linked to bank account|string|
+|`FundTransfer.AccountNumber`|Customer's bank account number|string|
+|`FundTransfer.BankCheckDigit`|Code used to validate customer's bank account|string|
+|`FundTransfer.Iban`|Customer's International Bank Account Number (IBAN)|string|
+|`Invoice.IsGift`|Indicates whether the order placed by the customer is for gift|bool|
+|`Invoice.ReturnsAccepted`|Indicates whether the order placed by the customer can be returned to the merchant|bool|
+|`Invoice.Tender`|Payment method used by the customer <br/> [Table 18 - Invoice.Tender](https://braspag.github.io//en/manual/antifraude#table-18-invoice.tender)|enum|
+|`Airline.JourneyType`|Journey type <br/> [Table 7 - Airline.JourneyType](https://braspag.github.io//en/manual/antifraude#table-7-airline.journeytype)|enun|
+|`Airline.DepartureDateTime`|Departure datetime <br/> Ex.: 2018-03-31 19:16:38|datetime|
+|`Airline.Passengers[n].FirstName`|Passenger first name|string|
+|`Airline.Passengers[n].LastName`|Passenger last name|string|
+|`Airline.Passengers[n].PassengerId`|Identifier of the passenger to whom the ticket was issued|string|
+|`Airline.Passengers[n].PassengerType`|Passenger type <br/> [Table 9 - Airline.Passengers{n}.PassengerType](https://braspag.github.io//en/manual/antifraude#table-8-airline.passengers[n].passengertype)|enum|
+|`Airline.Passengers[n].Phone`|Passenger telephone number <br/> Ex.: 552121114700|string|
+|`Airline.Passengers[n].Email`|Passenger email|string|
+|`Airline.Passengers[n].Status`|Airline classification <br/> [Table 10 - Airline.Passengers{n}.Status](https://braspag.github.io//en/manual/antifraude#table-9-airline.passengers[n].status)|enum|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Departure airport code. More information on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Arrival airport code. More information on [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm)|string|
+|`CustomConfiguration.Comments`|Comments that the merchant may associate fraud analysis|string|
+|`CustomConfiguration.ScoreThreshold`|Acceptable level of risk for each product|int|
+|`MerchantDefinedData[n].Key`|Field key set against antifraud provider <br/> [Table 37 - MerchantDefinedData(Cybersource)](https://braspag.github.io//en/manual/antifraude#table-34-merchantdefineddata-(cybersource)|int|
+|`MerchantDefinedData[n].Value`|Field value set against antifraud provider <br/> [Table 37 - MerchantDefinedData(Cybersource)](https://braspag.github.io//en/manual/antifraude#table-34-merchantdefineddata-(cybersource))|var|
+
+## Update on the Cybersource status
+
+In case of manual review by the e-commerce itself, we recommend that the result of the review (new status) be sent to Cybersource in order to refine the fraud analysis process of your store.
+
+Follow the example request below to change the status of transactions:
+
+* From *Review* to *Accept* or *Reject*;
+* From *Accept* to *Reject*.
+
+### Request
+
+To request the status update you must generate the access token (access_token) and send it in the request header.
+
+<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
+
+``` json
+{
+    "Status": "Accept",
+    "Comments": "Dados do cliente OK"
+}
+```
+
+**Parameters in the header**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+**Parameters in the body**
+
+|Parameter|Description|Type|Required|Size|
+|:-|:-|:-:|:-:|-:|
+|`Status`|New transaction status. Accept or Reject|string|Yes|-|
+|`Comments`|Comment associated with status change|string|No|255|
+
 ### Response
 
-**Parameters in the header (Header)**
+* When the transaction is received for processing
+
+``` json
+{
+    "Status": "Accept",
+    "ChangeStatusResponse": {
+        "Status": "OK",
+        "Message": "Change Status request successfully received. New status: Accept."
+    }
+}
+```
+
+**Parameters in the header**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+**Parameters in the body**
+
+|Parameter|Description|
+|:-|:-|
+|`Status`|New transaction status|string|
+|`ChangeStatusResponse.Status`|Identifies that Cybersource received the status change request|string|
+|`ChangeStatusResponse.Message`|Message containing content of the operation performed|string|
+
+* When the transaction is not found in the database.
+<br/><br/>
+
+**Parameters in the header**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|404 Not Found|
+
+* When the transaction is not eligible for change of status.
+<br/><br/>
+**Parameters in the header**
 
 |Key|Value|
 |:-|:-|
 |`Content-Type`|application/json|
 |`Status`|400 Bad Request|
 
-**Parameters in the body (Body)**
+* When the new status sent is different from Accept or Reject.
+<br/><br/>
+**Parameters in the header**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+* When the type or size of a field is not sent as specified in the manual.
+
+``` json
+{
+    "Message": "The request is invalid.",
+    "ModelState": {
+        "request.Status": [
+            "Error converting value \"Review\" to type 'Antifraude.Domain.Enums.StatusType'. Path 'Status', line 2, position 16."
+        ],
+        "request.Comments": [
+            "The field Comments must be a string or array type with a maximum length of '255'."
+        ]
+    }
+}
+```
+**Parameters in the header**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parameters in the body**
 
 |Parameter|Description|
 |:-|:-|
-|`Message`|Message stating that the request is invalid|
-|`ModelState`|Collection that will contain messages with fields that do not conform to the type or domain as specified in the manual|
-|`FraudAnalysisRequestError`|Collection that will contain messages with fields that do not conform to the size specified in the manual|
+|`Message`|Message informing that the request is invalid|
+|`ModelState`|Collection that will contain messages with fields that do not conform to the type, domain or size as specified in the manual|
+
+## Fingerprint with Cybersource
+
+### What is Fingerprint?
+
+The Fingerprint is the digital identification of the shopper's device. This identification is made up of a series of data collected on the checkout page of the website or application, such as:
+
+* Shopper's device IP;
+* Browser version;
+* Operational system;
+* Language and country compatibility.<br/>
+<br/>
+
+Fingerprint identifies the device used per browsing session and persists for approximately 24 hours. If the page is closed and the shopper returns to the site by opening a new page, or if you close the application and open it again, you must generate a new session and a new session ID.
+
+The Fingerprint is important for fraud analysis because, often, only the cart data is not enough to guarantee an assertive analysis. The data collected by Fingerprint complements the analysis and increases the security of your store.
+
+<aside class="notice">IMPORTANT: To comply with the requirements of Lei Geral de Proteção de Dados (General Data Protection Act) or LGPD, include information about data collection from the er'shopper's device in your e-commerce's cookie policy.</aside>
+
+### Who creates Fingerprint?
+
+For analysis via Cybersource, Fingerprint is created before the fraud analysis request by **Threatmetrix**, the company that identifies the device.
+
+To establish communication between your checkout page and Threatmetrix and send the shopper's data, you need to insert a Fingerprint code in your e-commerce; read more about it at [How to set up Fingerprint in Cybersource?](https://braspag.github.io//en/manual/antifraude#how-to-set-up-fingerprint-in-cybersource?)
+
+### Fingerprint Flow with Cybersource
+
+Fingerprint creation takes place separately from the fraud analysis request.
+
+See the representation of the Fingerprint creation flow and fraud analysis request:
+
+![Fluxo Fingerprint Cybersource]({{ site.baseurl_root }}/images/braspag/af/fluxo-fingerprint-cybersource-en.png)
+ 
+**Fingerprint creation step**
+
+1. The shopper fills in the requested data on the merchant's checkout page (website or application);
+2. The merchant's checkout page, already set up with the Fingerprint code, collects the shopper's data and sends it to Threatmetrix requesting the identification of the device (Fingerprint creation);
+3. Threatmetrix creates the Fingerprint of the shopper's device.
+
+**Fraud analysis step**
+
+1. The merchant sends the fraud analysis request with the `Customer.BrowserFingerprint` field to the Antifraude Gateway;
+2. The Antifraude Gateway validates the request and requests the fraud analysis to Cybersource;
+3. Cybersource consults the Fingerprint in the Threatmetrix, performs the fraud analysis and sends the recommendation (Accept/Reject/Review) to the Antifraude Gateway;
+4. The Antifraude Gateway returns the result of the fraud analysis to the merchant;
+5. The merchant returns the transaction status (approved or not approved) to the shopper.
+
+### Where to send the Fingerprint?
+
+In the fraud analysis request with Cybersource, the value of the `Customer.BrowserFingerprint` field will be the `ProviderIdentifier`, which must be generated by the e-commerce.
+
+Note that the value of this field is not the Fingerprint itself, but an indication of the Fingerprint of the transaction. This indication will be used by Cybersource to query the Fingerprint in the device identification service and thus use it to compose the fraud analysis.
+
+### How to set up Fingerprint in Cybersource?
+
+Fingerprint consists of implementing a script on your checkout page (front-end), in the part where the shopper fills in the registration data.
+
+Fingerprint configuration will be different for each type of client application ([web](https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-web), [Android](https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-android) or [iOS](https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-ios)), but the variables used are the same; see the table with Fingerprint variables.
+
+#### Fingerprint variables
+
+The following table presents the Fingerprint configuration variables with Threatmetrix and Cybersource.
+
+|VARIABLE|DESCRIPTION|VALUE|FORMAT|SIZE|
+|---|---|---|---|---|
+|`org_id`|Indicates the environment in Threatmetrix: Sandbox or Production.|Sandbox = 1snn5n9w<br>Production = k8vif92e|String|08|
+|`ProviderMerchantId`|Identifier of the merchant or operation, provided by Braspag, in the format braspag_nameofmerchant.<br>**This is different from MerchantId**. |Provided by Braspag after contracting.|String|30|
+|`ProviderIdentifier`| Variable you must generate to identify the session. We recommend using a GUID. It is the value that will be sent in the `Customer.BrowserFingerprint` field.|Custom|GUID or String, in which integer, uppercase or lowercase letter, hyphen and "\_" (*underscore*) are accepted.|88|
+|`session_id` (for web)| Concatenation of `ProviderMerchantId` and `ProviderIdentifier` variables.| Custom| `ProviderMerchantIdProviderIdentifier` |118|
+|`MyVariable` (for mobile)|Concatenation of `ProviderMerchantId` and `ProviderIdentifier` variables.| Custom | `ProviderMerchantIdProviderIdentifier`|118|
+
+### Setting up Fingerprint on Cybersource – Web
+
+You will need to insert a JavaScript script in the front-end code of your checkout page.
+
+#### 1. Fill in the Threatmetrix URL
+
+The Threatmetrix URL will be inserted in the script and therefore must be filled in correctly.
+
+![URL Threatmetrix]({{ site.baseurl_root }}/images/braspag/af/url-threatmetrix.png)
+
+> The Threatmetrix URL template is **https://h.online-metrix.net/fp/tags.js?org_id=OrgId&session_id=ProviderMerchantIdProviderIdentifier**
+
+In the URL, replace the `OrgId`, `ProviderMerchantId` and `ProviderIdentifier` values as directed in the Threatmetrix URL Variables table.
+
+#### 2. Add the tags to the script
+
+Insert the URL filled in step 1 into the `script` and `noscript` tags of the JavaScript template.
+
+The JavaScript model is represented in the following image.
+
+![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemplo-script-js.png)
+
+> [Access our GitHub](https://github.com/Braspag/braspag.github.io/blob/docs/_i18n/pt/_posts/antifraude/javascript-fingerprint-cybersource.js){:target="_blank "} to view and copy the JavaScript template.
+
+* Insert the `script` tag inside the `head` tag for correct performance:
+
+&lt;`head`&gt;<br>
+&lt;`script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"&gt;&lt;/script`&gt;<br>
+&lt;`/head`&gt;
+
+* Insert the `noscript` tag inside the `body` tag, so that the device data collection is carried out even if the browser's JavaScript is disabled. The `noscript` tag is a redundancy to collaborate with data collection.
+
+&lt;`body`&gt;<br>
+&lt;`noscript`&gt;<br>
+&lt;`iframe style="width: 100px; height: 100px; border: 0; psition:absolute; top: -5000px;" src="https://h.online-metrix.net/fp/tags?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"`&gt;&lt;`/iframe`&gt;<br>
+&lt;`/noscript`&gt;<br>
+&lt;`/body`&gt;
+
+<aside class="warning">Make sure you copy all data correctly and replace variables with their values.</aside>
+
+#### 3. Apply the JavaScript template
+
+Insert the Javascript with tags (step 2) into the front-end code of your checkout page.
+
+You must put the code at checkout, in the part of filling in the registration data. Thus, the data that make up the Fingerprint will be collected while the shopper fills in the form.
+
+> In the fraud analysis request, send only the value `ProviderIdentifier` in the `Customer.BrowserFingerprint` field.
+
+### Setting up Fingerprint on Cybersource – Android
+
+#### 1. Add SDK to your project
+
+Download the [Android SDK](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20Android%20SDK%206.0-138_.zip){:target ="_blank"}.
+
+Then add the SDK to your project.
+
+#### 2. Add the libraries
+
+Add the libraries and dependencies to the project:
+
+* TMXProfiling-6.0-138.aar 
+* MXProfilingConnections-6.0-138.aar
+<br/>
+<br/>
+Learn more about building libraries on Android in the [Android for Developers](https://developer.android.com/studio/projects/android-library){:target="_blank"} documentation.
+
+#### 3. Include permissions
+
+In Manifest, you must include the following permissions:
+
+&lt;`uses-permission android:name="android.permission.INTERNET"`&gt;
+
+&lt;`/uses-permission`&gt;
+
+#### 4. Import the libraries
+
+Import the following libraries:
+
+* import com.threatmetrix.TrustDefender.TMXConfig
+* import com.threatmetrix.TrustDefender.TMXEndNotifier
+* import com.threatmetrix.TrustDefender.TMXProfiling
+* import com.threatmetrix.TrustDefender.TMXProfilingHandle
+* import com.threatmetrix.TrustDefender.TMXProfilingOptions
+
+#### 5. Parameterize the SDK
+
+You must parameterize the SDK with the following parameters:
+
+`TMXConfig config = new TMXConfig()`
+
+`.setOrgId("OrgId")`
+<br/>
+<br/>
+In the **“OrgId”** field, indicate the value corresponding to the environment in the Threatmetrix:
+
+* Sandbox: “1snn5n9w”;
+* Production: “k8vif92e”.
+
+`.setFPServer("h.online-metrix.net")`
+
+`.setContext(getApplicationContext());`
+
+`.setTimeout(20, TimeUnit.SECONDS)`
+
+`TMXProfiling.getInstance().init(config);`
+
+#### 6. Create the session id variable
+
+The `ProviderMerchantId` value must be concatenated with the `ProviderIdentifier` variable (defined by your e-commerce) to create the session identification (`MyVariable`).
+
+`MyVariable` = `ProviderMerchantId` + `ProviderIdentifier`
+
+**Example:**
+
+`MyVariable` = `braspag_XXXX` + `ProviderIdentifier`
+<br/>
+<br/>
+> In the fraud analysis request, send only the value `ProviderIdentifier` in the `Customer.BrowserFingerprint` field. If the `ProviderIdentifier` generated by your e-commerce is "202201080949", in the field `Customer.BrowserFingerprint` send the value "202201080949".
+
+<aside class="notice">We recommend that the `ProviderIdentifier` variable be a GUID.</aside>
+
+#### 7. Implement Profiling
+
+Implement Profiling with EndNotifier.
+
+`TMXProfilingOptions options = new TMXProfilingOptions().setCustomAttributes(null);options.setSessionID(MyVariable)`
+
+`TMXProfilingHandle profilingHandle = TMXProfiling.getInstance().profile(options,new CompletionNotifier());`
+
+`class CompletionNotifier implements TMXEndNotifier`
+
+`{`
+<br/>
+`Override public void complete(TMXProfilingHandle.Result result)`
+<br/>
+`{ // Once Profile is done. Check the status code in the results dictionary, and use the session Id in the API.`
+<br/>
+`}`
+<br/>
+`}`
+
+Download the [Cybersource support material](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf){:target="_blank"} .
+
+### Setting up Fingerprint on Cybersource – iOS
+
+#### 1. Add SDK to your project
+
+Download the [iOS SDK](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/ThreatMetrix%20iOS%20SDK%206.0-91_.zip){:target ="_blank"}.
+
+Then add the SDK to your project.
+
+#### 2. Import the libraries and dependencies
+
+Add the following libraries and dependencies to your project:
+
+* import RLTMXProfiling
+* import RLTMXProfilingConnections
+* import RLTMXBehavioralBiometrics
+
+#### 3. Parameterize the SDK
+
+Parameterize the SDK with the following parameters:
+
+`self.profile.configure(configData:[`
+
+`RLTMXOrgID : "OrgID",`
+<br/>
+<br/>
+In the “OrgID” field, indicate the value corresponding to the environment in the Threatmetrix:
+
+* Sandbox: “1snn5n9w”;
+* Production: “k8vif92e”.
+
+`RLTMXFingerprintServer : "h.online-metrix.net",`
+
+`RLTMXProfileTimeout : self.profileTimeout,`
+
+`RLTMXLocationServices : true,`
+
+`RLTMXProfilingConnectionsInstance : profilingConnections,`
+
+`])`
+
+#### 4. Create the session id variable
+
+The `ProviderMerchantId` value must be concatenated with the `ProviderIdentifier` variable (defined by e-commerce) to create the session identification (`MyVariable`).
+
+`MyVariable` = `ProviderMerchantId` + `ProviderIdentifier`
+
+**Example:**
+
+`MyVariable` = `braspag_XXXX` + `ProviderIdentifier`
+
+`self.profile.sessionID` = @"`MyVariable`"
+<br/>
+<br/>
+> In the fraud analysis request, send only the value `ProviderIdentifier` in the `Customer.BrowserFingerprint` field. If the `ProviderIdentifier` generated by your e-commerce is "202201080949", in the field `Customer.BrowserFingerprint` send the value "202201080949".
+
+<aside class="notice">We recommend that the `ProviderIdentifier` variable be a GUID.</aside>
+
+#### 5. Implement Profiling
+
+Add the doProfileRequest() function to your application and specify the following options:
+
+`let profileHandle: RLTMXProfileHandle =`
+
+`self.profile.profileDevice(profileOptions:[RLTMXCustomAttributes: [],`
+
+`RLTMXSessionID: [MyVariable], callbackBlock:{(result: [AnyHashable : Any]?) -> Void in`
+
+Download the [Cybersource support material](https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf){:target="_blank"}.
 
 # Queries
 
