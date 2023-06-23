@@ -998,6 +998,7 @@ To request the status update you must generate the access token (access_token) a
     }
 }
 ```
+
 **Parameters in the header**
 
 |Key|Value|
