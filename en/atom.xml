@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-06-23T12:39:56+00:00</updated>
+    <updated>2023-06-23T12:50:55+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -32326,7 +32326,7 @@ There are two possible flows for fraud analysis:&lt;/p&gt;
 
 &lt;p&gt;Fingerprint consists of implementing a script on your checkout page (front-end), in the part where the shopper fills in the registration data.&lt;/p&gt;
 
-&lt;p&gt;Fingerprint configuration will be different for each type of client application (&lt;a href=&quot;https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-web&quot;&gt;web&lt;/a&gt;, &lt;a href=&quot;https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-android&quot;&gt;Android&lt;/a&gt; or &lt;a href=&quot;https://braspag.github.io//manual/antifraude#configurando-o-fingerprint-na-cybersource-%E2%80%93-ios&quot;&gt;iOS&lt;/a&gt;), but the variables used are the same; see the table with Fingerprint variables.&lt;/p&gt;
+&lt;p&gt;Fingerprint configuration will be different for each type of client application (&lt;a href=&quot;https://braspag.github.io//en/manual/antifraude#setting-up-fingerprint-on-cybersource-%E2%80%93-web&quot;&gt;web&lt;/a&gt;, &lt;a href=&quot;https://braspag.github.io//en/manual/antifraude#setting-up-fingerprint-on-cybersource-%E2%80%93-android&quot;&gt;Android&lt;/a&gt; or &lt;a href=&quot;https://braspag.github.io//en/manual/antifraude#setting-up-fingerprint-on-cybersource-%E2%80%93-ios&quot;&gt;iOS&lt;/a&gt;), but the variables used are the same; see the table with Fingerprint variables.&lt;/p&gt;
 
 &lt;h4 id=&quot;fingerprint-variables&quot;&gt;Fingerprint variables&lt;/h4&gt;
 
