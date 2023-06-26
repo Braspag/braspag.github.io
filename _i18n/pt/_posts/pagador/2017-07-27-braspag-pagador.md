@@ -591,7 +591,7 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 |`ECI`|*Electronic Commerce Indicator*. Representa o resultado da autenticação.|texto|2|Ex.: 5|
 |`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
-|`Status`|Status da transação.|byte|2|Ex.: 1|
+|`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
 |`Payment.MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido para bandeira Mastercard*. Saiba mais em [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="_blank"}|texto| 2 | Numérico|
@@ -957,7 +957,7 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da operação.|texto|32|Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
-|`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|byte|2|Ex.: 1|
+|`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|Ex.: 57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Ex.: Transação Aprovada|
 |`Payment.MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido para bandeira Mastercard*.|texto| 2 | numérico|
@@ -1542,7 +1542,7 @@ Não há diferença entre uma requisição de autorização padrão e uma de DCC
 | `ReceivedDate`          | Data em que a transação foi recebida pela Braspag.                          | texto | 19      | AAAA-MM-DD HH:mm:SS                  |
 | `ReasonCode`            | Código de retorno da operação.                                              | texto | 32      | Texto alfanumérico                   |
 | `ReasonMessage`         | Mensagem de retorno da operação.                                            | texto | 512     | Texto alfanumérico                   |
-| `Status`                | Status da transação.                                                        | byte  | 2       | Ex.: 12                              |
+| `Status`                | Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o). | byte  | 2       | Ex.: 12                              |
 | `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).   | texto | 32      | 57                                   |
 | `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor). | texto | 512     | Transação Aprovada                   |
 | `CurrencyExchangeData.Id` | Id da ação da troca de moeda. | Texto | 50     | 1b05456446c116374005602dcbaf8db8879515a0                   |
@@ -1692,7 +1692,7 @@ Segue um exemplo de confirmação da transação com a moeda escolhida pelo comp
 | `ReceivedDate`          | Data em que a transação foi recebida pela Braspag.                            | texto | 19      | AAAA-MM-DD HH:mm:SS                  |
 | `ReasonCode`            | Código de retorno da operação.                                               | texto | 32      | Texto alfanumérico                   |
 | `ReasonMessage`         | Mensagem de retorno da operação.                                             | texto | 512     | Texto alfanumérico                   |
-| `Status`                | Status da transação.                                                         | byte  | 2       | Ex.: 2                                  |
+| `Status`                | Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o). | byte  | 2       | Ex.: 2                                  |
 | `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).   | texto | 32      | 57                                   |
 | `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor). | texto | 512     | Transação Aprovada                   |
 
@@ -2242,7 +2242,7 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 | `Payment.SentOrderId` | Número único enviado ao emissor Pix para representar o número do pedido. Utilizado para realizar a conciliação financeira. | número | 8 | 10045146 |
 | `Payment.QrcodeBase64Image` | Código em base64 da imagem do QR code. | texto | - | texto |
 | `Payment.QrCodeString`|Texto codificado para o comprador "copiar" e "colar" no campo do internet banking em pagamentos feitos no ambiente mobile.|texto|Variável|texto alfanumérico|
-| `Payment.Status` | Status da transação. Em caso de sucesso, o status inicial é “12” (*Pendente*). [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o) para ver lista de status.| número | - | 12 |
+| `Payment.Status` | Status da transação. Em caso de sucesso, o status inicial é “12” (*Pendente*). Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).| número | - | 12 |
 | `Payment.ProviderReturnCode` | Código retornado pelo provedor do meio de pagamento. | texto | 32 | 0 |
 | `Payment.ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento. | texto | 512 |"Pix gerado com sucesso". |
 
@@ -2452,7 +2452,7 @@ O exemplo abaixo contempla o mínimo de campos necessários a serem enviados par
 |-----------|---------|----|-------|-------|
 |`QrCodeBase64Image`|QR code codificado em base64. A imagem do QR code poderá ser apresentada na página utilizando um código HTML como este:<br><br> &lt;img src="data:image/png;base64,{código da imagem em base64}"&gt;.|texto|Variável|texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido. Necessário para operações como consulta, captura e cancelamento.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Status da transação. No caso da transação de geração com QR code, o status inicial é "12" (*Pendente*). [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|byte|-|2|
+|`Status`|Status da transação. No caso da transação de geração com QR code, o status inicial é "12" (*Pendente*). Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|byte|-|2|
 |`ReturnCode`|Código de retorno da adquirência.|texto|32|texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da adquirência.|texto|512|texto alfanumérico|
 
@@ -2734,7 +2734,7 @@ Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizad
 |`BarCodeNumber`|Representação numérica do código de barras. |texto |44 |00091628800000157000494250100000001200656560 |
 |`DigitableLine`|Linha digitável. |texto |256 |00090.49420 50100.000004 12006.565605 1 62880000015700 |
 |`Address`|Endereço da loja cadastrada no banco emissor. |texto |256 |Ex.: Av. Teste, 160 |
-|`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|byte | 2 | Ex.: 1 |
+|`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|byte | 2 | Ex.: 1 |
 
 ### Conciliação de Boletos
 
@@ -2969,7 +2969,7 @@ Para criar uma venda, é necessário o envio de mensagem HTTP através do métod
 |-----------|---------|----|-------|-------|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Url`|URL para onde o usuário será redirecionado para autenticação da transferência eletrônica. |texto |256 |Url de Autenticação|
-|`Status`|Status da transação.|byte|2|Ex.: 1|
+|`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o). |byte|2|Ex.: 1|
 
 ## E-Wallet (Carteira Digital)
 
@@ -3217,7 +3217,7 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
-|`Status`|Status da transação.|byte|2|Ex.: 1|
+|`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação. |texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
@@ -4703,7 +4703,7 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
-|`Status`|Status da transação.|byte|2|Ex.: 1|
+|`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
 |`CreditCard.CardToken`|Token no *Cartão Protegido* que representa os dados do cartão.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -4967,7 +4967,7 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `CardToken` conforme exemp
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
-|`Status`|Status da transação.|byte|2|Ex.: 1|
+|`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o). |byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
 
@@ -5231,7 +5231,7 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `Alias` conforme exemplo a
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
 |`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
-|`Status`|Status da transação.|byte|2|Ex.: 1|
+|`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
 
@@ -6241,7 +6241,7 @@ Durante implantação do Cybersource, informações adicionais podem ser armazen
 |`Payment.ECI`|*Electronic Commerce Indicator*. Código gerado em uma transação de crédito com autenticação externa.|texto|
 |`Payment.ReasonCode`|Código de retorno da operação.|texto|
 |`Payment.ReasonMessage`|Mensagem de retorno da operação.|texto|
-|`Payment.Status`|Status da transação no Pagador. <br/> [Lista de Status da Transação](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação){:target="_blank"}.|Número|
+|`Payment.Status`|Status da transação no Pagador. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|Número|
 |`Payment.ProviderReturnCode`|Código retornado pela adquirente ou emissor.|texto|
 |`Payment.ProviderReturnMessage`|Mensagem retornada pela adquirente ou emissor.|texto|
 
@@ -7036,7 +7036,7 @@ Para configurar o Fingerprint com a Cybersource, consulte o manual do [Antifraud
 |`Payment.Provider`|Nome do provedor da autorização.|texto|
 |`Payment.ReasonCode`|Código de retorno da operação.|texto|
 |`Payment.ReasonMessage`|Mensagem de retorno da operação.|texto|
-|`Payment.Status`|Status da transação no Pagador. <br/> [Lista de Status da Transação](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação){:target="_blank"}.|número|
+|`Payment.Status`|Status da transação no Pagador. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|número|
 |`Payment.ProviderReturnCode`|Código retornado pela adquirente ou emissor.|texto|
 |`Payment.ProviderReturnMessage`|Mensagem retornada pela adquirente ou emissor.|texto|
 
