@@ -1910,7 +1910,7 @@ The variables, when properly filled in, would provide a URL similar to the examp
 
 > Request the SDKs (iOS and Android) and manuals together with the integration ticket.
 
-# Tables
+# Annexes
 
 ## Table 1 - Provider
 
