@@ -320,14 +320,13 @@
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro.</td>
       <td>GUID</td>
-      <td>Não***</td>
+      <td>Será obrigatório apenas se o <code class="language-plaintext highlighter-rouge">ReconciliationType</code> for do tipo SellerForecast.</td>
     </tr>
   </tbody>
 </table>
 
-<p><em>Se o campo <code class="language-plaintext highlighter-rouge">Date</code> não for preenchido, o endpoint retornará o último arquivo gerado para o número de documento informado.<br />
-**Extrato seller não está disponível para consumo.<br />
-**</em>Será obrigatório apenas se o <code class="language-plaintext highlighter-rouge">ReconciliationType</code> for do tipo SellerForecast.</p>
+<p>*Se o campo <code class="language-plaintext highlighter-rouge">Date</code> não for preenchido, o endpoint retornará o último arquivo gerado para o número de documento informado.<br />
+**Extrato seller não está disponível para consumo.</p>
 
 <p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
@@ -1583,8 +1582,8 @@
   </tbody>
 </table>
 
-<p><em>Campos só serão obrigatórios se o tipo de liquidação for diferente de troca de titularidade.
-**Campo obrigatório se o tipo de liquidação for troca de titularidade.
+<p><em>Campos só serão obrigatórios se o tipo de liquidação for diferente de troca de titularidade.<br />
+**Campo obrigatório se o tipo de liquidação for troca de titularidade.<br />
 **</em>Campo obrigatório se o tipo de liquidação for diferente de Braspag.</p>
 
 <h3 id="registro-3---agenda-financeiraevento-transacional">Registro 3 - Agenda Financeira/Evento Transacional</h3>
