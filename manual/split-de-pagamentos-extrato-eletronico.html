@@ -1,0 +1,2803 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Split de Pagamentos - Extrato Eletrônico &middot; Braspag Developers - Manuais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
+    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/manual/split-de-pagamentos-extrato-eletronico" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
+</head>
+
+    <body>
+        
+            <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        });
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://suporte.braspag.com.br/hc/pt-br" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico">Split de Pagamentos - Extrato Eletrônico</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="introdução-ao-extrato-eletrônico">Introdução ao Extrato Eletrônico</h1>
+
+<p>O Extrato Eletrônico é um produto disponibilizado aos clientes que necessitam de automatização no processo de conciliação. Nele, as informações são transmitidas de forma padronizada sem intervenção, proporcionando agilidade e segurança no tráfego das informações.</p>
+
+<p>Os principais benefícios deste produto são:</p>
+
+<ul>
+  <li>Realização da conciliação contábil e financeira de forma automatizada;</li>
+  <li>Maior agilidade e eficiência operacional;</li>
+  <li>Integração com a automação comercial de vendas;</li>
+  <li>Segurança no recebimento das informações;</li>
+  <li>Atendimento especializado.</li>
+</ul>
+
+<h1 id="ambientes">Ambientes</h1>
+
+<h2 id="sandbox">Sandbox</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Ambiente</th>
+      <th style="text-align: left">URL base</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Braspag OAUTH2 Server</strong></td>
+      <td style="text-align: left">https://authsandbox.braspag.com.br</td>
+      <td style="text-align: left">Autenticação.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>API Split</strong></td>
+      <td style="text-align: left">https://splitsandbox.braspag.com.br/</td>
+      <td style="text-align: left">Para requisição dos arquivos do Extrato Eletrônico.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="produção">Produção</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Ambiente</th>
+      <th style="text-align: left">URL base</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Braspag OAUTH2 Server</strong></td>
+      <td style="text-align: left">https://auth.braspag.com.br/</td>
+      <td style="text-align: left">Autenticação.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>API Split</strong></td>
+      <td style="text-align: left">https://split.braspag.com.br/</td>
+      <td style="text-align: left">Para requisição dos arquivos do Extrato Eletrônico.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="autenticação">Autenticação</h1>
+
+<p>Durante o onboarding, você receberá as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>. Caso não tenha recebido a credencial, solicite ao <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">Suporte Braspag</a>.</p>
+
+<p><strong>1.</strong> Concatene as credenciais no formato <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>;<br />
+<strong>2.</strong> Converta o resultado em base 64, gerando uma string;</p>
+
+<blockquote>
+  <p><strong>Exemplo:</strong><br /></p>
+  <ul>
+    <li>client_id: <strong>braspagtestes</strong><br /></li>
+    <li>client_secret: <strong>1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong><br /></li>
+    <li>String a ser codificada em Base64: <strong>braspagtestes:1q2w3e4r5t6y7u8i9o0p0q9w8e7r6t5y4u3i2o1p</strong><br /></li>
+    <li>Resultado após a codificação: <strong>YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</strong><br /></li>
+  </ul>
+</blockquote>
+
+<p><strong>3.</strong> Envie a string em base 64 na requisição de Autenticação (POST);<br />
+<strong>4.</strong> A API de Autenticação irá validar a string e retornará o <code class="language-plaintext highlighter-rouge">access_token</code> (token de acesso).</p>
+
+<p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API do Split como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos e é necessário gerar um novo toda vez que a validade expirar.</p>
+
+<h3 id="requisição">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
+
+<p><strong>Parâmetros no Cabeçalho (header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/x-www-form-urlencoded</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Basic YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no Corpo (body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">grant_type</code></td>
+      <td style="text-align: left">client_credentials</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no corpo (body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parâmetro</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">access_token</code></td>
+      <td style="text-align: left">O token de acesso solicitado.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">token_type</code></td>
+      <td style="text-align: left">Indica o valor do tipo de token.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">expires_in</code></td>
+      <td style="text-align: left">Expiração do token de acesso, em segundos. <br />Após expirar, é necessário obter um novo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="obtendo-arquivos-de-extrato-eletrônico">Obtendo arquivos de Extrato Eletrônico</h1>
+
+<p>Para obter os arquivos de Extrato Eletrônico, faça a seguinte requisição:</p>
+
+<h2 id="requisição-1">Requisição</h2>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">schedule-api/v2/electronic-statement?DocumentNumber=00000000000000&amp;ReconciliationType=Forecast&amp;Date=0000-00-00</span></aside>
+
+<p><strong>Parâmetros da requisição</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros</th>
+      <th>Definição</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
+      <td>Número do documento (CPF ou CNPJ) o qual está buscando as informações.</td>
+      <td>string</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Date</code></td>
+      <td>Informar a data base pretendida</td>
+      <td>data</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReconciliationType</code></td>
+      <td>Valores possíveis:<br /><strong>Forecast</strong>: Será retornado o arquivo referente aos eventos transacionais e previsões de liquidação.<br /><strong>Settlement</strong>: Será retornado o arquivo referente às liquidações realizadas.<br /><strong>SellerForecast</strong><strong>: Será retornado o arquivo para o Seller referente ao MerchantId informado.<br /></strong>SellerSettlement<em>**</em>: Será retornado o arquivo referente às liquidações realizadas para o Seller de acordo com o MerchantId informado.</td>
+      <td>string</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro.</td>
+      <td>GUID</td>
+      <td>Não***</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Se o campo <code class="language-plaintext highlighter-rouge">Date</code> não for preenchido, o endpoint retornará o último arquivo gerado para o número de documento informado.<br />
+**Extrato seller não está disponível para consumo.<br />
+**</em>Será obrigatório apenas se o <code class="language-plaintext highlighter-rouge">ReconciliationType</code> for do tipo SellerForecast.</p>
+
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Bearer {access_token}</td>
+      <td>Use o <code class="language-plaintext highlighter-rouge">acess_token</code> retornado anteriormente.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>application/json</td>
+      <td>Tipo de mídia.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="tipos-de-arquivos">Tipos de arquivos</h1>
+
+<h2 id="arquivo-de-previsão">Arquivo de Previsão</h2>
+
+<p>Com o Arquivo de Previsão você consegue conferir se todas as vendas realizadas foram recebidas e as previsões de pagamento geradas, com as seguintes informações:</p>
+
+<ul>
+  <li>As vendas concluídas (capturadas) no dia anterior, ajustes, cancelamentos, chargebacks com agenda de previsão de pagamento;</li>
+  <li>Todo o plano parcelado da venda realizada no dia anterior;</li>
+  <li>Como a transação foi dividida no Split das Transações.</li>
+</ul>
+
+<h2 id="arquivo-de-liquidação">Arquivo de Liquidação</h2>
+
+<p>Com o Arquivo de Liquidação você consegue conferir a origem do pagamento recebido, com as seguintes informações:</p>
+
+<ul>
+  <li>Informações de liquidação de D-1;</li>
+  <li>Efeitos de  contrato liquidados.</li>
+</ul>
+
+<h1 id="layout-dos-arquivos">Layout dos Arquivos</h1>
+
+<p>O layout dos Arquivos segue o seguinte padrão:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/split/split-extrato-edi.png" alt="Layout dos Arquivos" /></p>
+
+<h2 id="layout-do-arquivo-de-previsão">Layout do Arquivo de Previsão</h2>
+
+<h3 id="registro-0---cabeçalho">Registro 0 - Cabeçalho</h3>
+
+<p>Identifica o cabeçalho do arquivo de Previsão:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo de Registro</td>
+      <td>Identifica o tipo de registro. <br />0 - header (início do arquivo)</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Versão do layout</td>
+      <td>Versão do layout em que o arquivo foi gerado.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Número Documento</td>
+      <td>Número do documento (CNPJ/CPF).</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>14</td>
+      <td>0000000000</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Data Geração</td>
+      <td>Informa a data de geração do arquivo.</td>
+      <td>Sim</td>
+      <td>datetime</td>
+      <td>17</td>
+      <td>20220119 09:43:10</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Sequência</td>
+      <td>Número sequencial do arquivo.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Tipo do Arquivo</td>
+      <td>Tipo de Extrato. <br /> Ex.: Arquivo de Previsão</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Data Mínima Processada*</td>
+      <td>Data mínima de agendamento das operações dentro do arquivo - Tratamento interno</td>
+      <td>Sim</td>
+      <td>datetime</td>
+      <td>17</td>
+      <td>20220118 09:43:10</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Data Máxima Processada*</td>
+      <td>Data máxima de agendamento das operações dentro do arquivo - Tratamento interno</td>
+      <td>Sim</td>
+      <td>datetime</td>
+      <td>17</td>
+      <td>20220118 09:43:10</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Data Mínima Evento Transacional*</td>
+      <td>Data inicial de captura dos itens presentes no arquivo.</td>
+      <td>Sim</td>
+      <td>data</td>
+      <td>17</td>
+      <td>20220118</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Data Máxima de Evento Transacional*</td>
+      <td>Data Final de captura dos itens presentes no arquivo.</td>
+      <td>Sim</td>
+      <td>data</td>
+      <td>17</td>
+      <td>20220118</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Reprocessado</td>
+      <td>Informa se o arquivo foi gerado através do fluxo de reprocessamento.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>1</td>
+      <td>0 (Falso) ou 1 (Verdadeiro)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Campos não obrigatórios, poderão vir vazios na ausência de movimento no dia.</p>
+
+<h3 id="registro-1---estabelecimento">Registro 1 - Estabelecimento</h3>
+
+<p>Identifica os dados do estabelecimento:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo Registro</td>
+      <td>Indica o tipo de registro.<br />1 - Estabelecimento</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Identificador do estabelecimento</td>
+      <td>Número identificador do estabelecimento onde a venda foi realizada.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>1B917293-8B8D-4180-B2D8-C514A1F8512D</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Tipo Estabelecimendo</td>
+      <td>Tipo do estabelecimento (linkar tabela)</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-2---eventos-transacionais">Registro 2 - Eventos Transacionais</h3>
+
+<p>Identifica os eventos transacionais:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo do registro</td>
+      <td>Indica o tipo de registro. <br />2 - Eventos Transacionais</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Tipo de Evento Transacional</td>
+      <td>Tipo de Eventos transacionais. (linkar tabela)</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Identificador do Evento Transacional</td>
+      <td>Identificador único do evento lançado na agenda financeira.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>D6CDD768-CDFE-479A-B090-CD03253EEE2B</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Data do Evento Transacional</td>
+      <td>Data em que a aoperação ocorreu. Para a transação representa a data de autorização, para os demais, representa a data em que a operação ocorreu.</td>
+      <td>Sim</td>
+      <td>datetime</td>
+      <td>17</td>
+      <td>20220119 09:43:10</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Data de Confirmação</td>
+      <td>Data em que a operação foi efetivada. <br /> - Transação: Data de captura; <br />- Outros eventos: Data da confirmação.</td>
+      <td>Sim</td>
+      <td>data</td>
+      <td>8</td>
+      <td>20220119</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Data de Agendamento</td>
+      <td>Data em que o evento foi processado em agenda financeira.</td>
+      <td>Sim</td>
+      <td>datetime</td>
+      <td>17</td>
+      <td>20220119 09:43:10</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Valor da Operação</td>
+      <td>Valor da operação em centavos. Podendo ser um valor positivo ou negativo.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001 ou -10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Taxa Administrativa (MDR)</td>
+      <td>Percentual aplicado ao valor bruto da operação.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>1,55% = 1,55</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Valor Taxa Administrativa (MDR)</td>
+      <td>Valor calculado da taxa admnistrativa em centavos sobre o evento transacional.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Tarifa Administrativa (Fee)</td>
+      <td>Tarifa fixa cobrada por transação. Valor cobrado separadamente em agenda financeira.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Valor Taxa Receba Rápido*</td>
+      <td>Valor descontado para adiantamento dos subordinados pelo Receba Rápido</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Tarifa Boleto*</td>
+      <td>Tarifa Cobrada pelo boleto emitido ou pago para transações de boleto</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Valor Bruto Venda Direta*</td>
+      <td>Valor bruto de venda direta do Master, caso o mesmo seja um participante da transação.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Valor Taxa Administrativa Venda Direta*</td>
+      <td>Valor calculado da taxa administrativa, em centavos, sobre a venda direta.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Valor Líquido Venda Direta*</td>
+      <td>Valor líquido da venda direta.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Valor Bruto Comissão*</td>
+      <td>Valor bruto de comissão recebido pelo Master.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Valor Taxa Administrativa Comissão*</td>
+      <td>Valor calculado da taxa administrativa, em centavos, sobre a comissão, incluindo a taxa de receba rápido.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Valor Líquido Comissão*</td>
+      <td>Valor líquido da comissão recebido dos subordinados.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Identificador da Transação</td>
+      <td>Identificador da transação.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>ED6C8828-F92B-42F4-B6B3-6CA276830733</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Data de Autorização</td>
+      <td>Data da venda.</td>
+      <td>Sim</td>
+      <td>datetime</td>
+      <td>17</td>
+      <td>20220119 09:43:10</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Código do Ajuste</td>
+      <td>Código que indetifica o ajuste financeiro lançado em agenda (linkar tabela)</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>4</td>
+      <td>A001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Data de captura</td>
+      <td>Data de confirmação da transação.</td>
+      <td>Sim</td>
+      <td> </td>
+      <td>data</td>
+      <td>8</td>
+      <td>20220119</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Valor da Transação</td>
+      <td>Valor da transação em centavos.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Código do Produto</td>
+      <td>Código que identifica o produto. (linkar tabela)</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Código da Bandeira</td>
+      <td>Código que identifica a bandeira ou o banco. (linkar tabela)</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Código de Autorização</td>
+      <td>Código de autorização da transação. Este número não é único e pode se repetir.</td>
+      <td>Sim</td>
+      <td>alfanúmerico</td>
+      <td>10</td>
+      <td>251411</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>NSU/DOC</td>
+      <td>Número sequencial da transação, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número e pode se repetir.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>8</td>
+      <td>053181</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Total de Parcelas</td>
+      <td>Total de parcelas da transação.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>10</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Número do Pedido</td>
+      <td>Número do pedido informado pelo estabelecimento na transação.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>50</td>
+      <td>Pedido123456</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Número do cartão truncado</td>
+      <td>Número truncado do cartão que efetuou a compra.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>19</td>
+      <td>111111<strong>**</strong>1111</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Identificador Transação Adquirente</td>
+      <td>Identificador da transação na adquirente para transações de e-commerce (TID)</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>20</td>
+      <td>99999999111Q1A2A3A4A</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Número Lógico do Terminal</td>
+      <td>Número lógico do terminal em que ocorreu a transação.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>50</td>
+      <td>99999999</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Meio de Captura</td>
+      <td>Meio pelo qual a transação foi capturada. (linkar tabela)</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Campos não obrigatórios.</p>
+
+<h3 id="registro-3---participantes-do-evento-transacional">Registro 3 - Participantes do Evento Transacional</h3>
+
+<p>Identifica os participantes (Master e Subordinados) do Evento Transacional:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo Registro</td>
+      <td>Indica o tipo de registro. <br />3 - Participantes da Transação</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Identificador da Divisão</td>
+      <td>Identificador da divisão.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>CCC2E1DD-C47D-4722-A8A2-4DC51746CB0C</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Identificador do Estabelecimento</td>
+      <td>Identifica o estabelecimento participante da divisão.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>AAA2E1DD-C47D-4722-A8A2-4DC51746CB0C</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Número do documento</td>
+      <td>Identifica o número do CPF/CNPJ do participante.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>17</td>
+      <td>00000000000</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Tipo Estabelecimento</td>
+      <td>Identifica o tipo de participante (linkar tabela)</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Valor Bruto Participante</td>
+      <td>Valor Bruto da operação alocado para o participante.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Percentual Desconto</td>
+      <td>Percentual descontado do valor bruto do participante.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>20% = 20</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Valor Desconto</td>
+      <td>Valor calculado em centavos do percentual de desconto aplicado sobre o valor bruto.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Taxa Fixa Desconto</td>
+      <td>Valor fixo descontado do valor bruto do participante.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Valor Líquido Participante</td>
+      <td>Valor Líquido da operação a ser recebido pelo participante.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Indicador Comissão</td>
+      <td>Indica se a divisão refere-se a comissão do master ou não. <br />0 – Não; 1 - Sim</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Percentual Parcela Receba Rápido*</td>
+      <td>Percentual por parcela do Receba Rápido.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>20% = 20</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Percentual Total Receba Rápido*</td>
+      <td>Percentual total do Receba Rápido.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>20% = 20</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Valor Calculado Receba Rápido*</td>
+      <td>Valor calculado do Receba Rápido.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Campos não obrigatórios.</p>
+
+<h3 id="registro-4---agenda-financeira">Registro 4 - Agenda Financeira</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo Registro</td>
+      <td>Indica o tipo de registro.<br />4 - Agenda Financeira</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Identificador do Evento Financeiro</td>
+      <td>Identificador originador do evento lançado na agenda financeira.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>4717A632-D6C4-4B74-9422-235905D1857D</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Identificador Origem</td>
+      <td>Identificador da agenda financeira. Identificador do Evento Transacional.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>D8D26880-7BBB-4761-A2A7-B4C835B4923C</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Identificador Estabelecimento</td>
+      <td>Identifica o estabelecimento.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>5CB61E99-1B4D-4E7A-886F-6BFB4FF71219</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Número do documento</td>
+      <td>Identifica o número do CPF/CNPJ do participante.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>17</td>
+      <td>00000000000</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Número da Parcela</td>
+      <td>Identifica a parcela a ser liquidada.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Tipo do Evento</td>
+      <td>Identifica o tipo de evento lançado na agenda financeira (linkar tabela)</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Tipo de Evento Transacional</td>
+      <td>Identifica o tipo de evento transacional originador do lançamento em agenda.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Data Prevista Liquidação</td>
+      <td>Data prevista da liquidação.</td>
+      <td>Sim</td>
+      <td>data</td>
+      <td>8</td>
+      <td>AAAAMMDD</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Valor Líquido</td>
+      <td>Valor líquido a ser liquidado.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Indicador de Comissão</td>
+      <td>Indica se o lançamento em agenda  refere-se a comissão do master ou não. <br /> 0 - Não; 1 – Sim</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-9---rodapé">Registro 9 - Rodapé</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo de registro</td>
+      <td>Indica o tipo de registro. <br /> 9- Rodapé (fim do arquivo)</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Quantidade de Registros</td>
+      <td>Quantidade de registros do arquivo excluindo o “cabeçalho” e o “rodapé”.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>1000</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="layout-do-arquivo-de-liquidação">Layout do Arquivo de Liquidação</h2>
+
+<h3 id="registro-0---cabeçalho-1">Registro 0 - Cabeçalho</h3>
+
+<p>Identifica o cabeçalho do Arquivo de Liquidação:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo de Registro</td>
+      <td>Identifica o tipo de registro header (início do arquivo). <br /> 0 - Cabeçalho</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Versão do Layout</td>
+      <td>Versão do Layout em que o arquivo foi gerado.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Número Documento</td>
+      <td>Número do documento (CNPJ/CPF).</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>14</td>
+      <td>0000000000</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Data Geração</td>
+      <td>Informa a data de geração do arquivo.</td>
+      <td>Sim</td>
+      <td>datetime</td>
+      <td>17</td>
+      <td>20220119 09:43:10</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Sequência</td>
+      <td>Número sequencial do arquivo.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Tipo do Arquivo</td>
+      <td>Tipo de Extrato. <br /> Ex.: Arquivo de Liquidação</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Data Mínima Liquidação*</td>
+      <td>Menor data de liquidação dos recebíveis.</td>
+      <td>Sim</td>
+      <td>date</td>
+      <td>8</td>
+      <td>20220118</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Data Máxima Liquidação*</td>
+      <td>Maior data de liquidação dos recebíveis.</td>
+      <td>Sim</td>
+      <td>date</td>
+      <td>8</td>
+      <td>20220118</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Data Mínima Prevista*</td>
+      <td>Menor data prevista dos recebíveis liquidados no dia.</td>
+      <td>Sim</td>
+      <td>date</td>
+      <td>8</td>
+      <td>20220118</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Data Máxima Prevista*</td>
+      <td>Maior data prevista dos recebíveis liquidados no dia.</td>
+      <td>Sim</td>
+      <td>date</td>
+      <td>8</td>
+      <td>20220118</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Reprocessado</td>
+      <td>Informa se o arquivo foi gerado através do fluxo de reprocessamento</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>1</td>
+      <td>0 (Falso) ou 1 (Verdadeiro)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Campos não obrigatórios, poderão vir vazios na ausência de movimento no dia.</p>
+
+<h3 id="registro-1---recebível">Registro 1 - Recebível</h3>
+
+<p>Identifica o recebível e sua liquidação:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo de Registro</td>
+      <td>Indica o tipo de registro. 1 - Recebível</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Identificador do Recebível</td>
+      <td>Identificador único da Unidade de Recebível.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>1B917293-8B8D-4180-B2D8-C514A1F8512D</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Data Prevista de Liquidação</td>
+      <td>Data Prevista de Liquidação.</td>
+      <td>Sim</td>
+      <td>date</td>
+      <td>8</td>
+      <td>20220110</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Código do Produto</td>
+      <td>Identificador do tipo de Produto - linkar tabela</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Código da Bandeira</td>
+      <td>Identificador da Bandeira ou Banco - linkar tabela</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Valor Total da UR</td>
+      <td>Valor acumulado da Unidade de Recebível.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$ 10000,00 = 1000000</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Valor Total Previamente Liquidado</td>
+      <td>Valor total já liquidado da UR informados em arquivos anteriores.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$ 10000,00 = 1000000</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Valor Liquidado</td>
+      <td>Valor liquidado da UR no arquivo atual.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$ 10000,00 = 1000000</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-2---grupos-de-pagamento">Registro 2 - Grupos de Pagamento</h3>
+
+<p>Identifica detalhes da liquidação do recebível:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo de Registro</td>
+      <td>Identifica o tipo de registro. <br /> 2 - Grupo de Pagamento</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Tipo de Liquidação</td>
+      <td>Informa o Tipo de Liquidação - linkar tabela</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Status da Liquidação*</td>
+      <td>Informa o Status da Liquidação linkar tabela</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Valor Liquidado*</td>
+      <td>Valor pago do grupo de pagamento.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>R$ 1000,00 = 100000</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Data de Liquidação*</td>
+      <td>Data na qual ocorreu o pagamento.</td>
+      <td>Sim</td>
+      <td>date</td>
+      <td>8</td>
+      <td>20220118</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>ISPB*</td>
+      <td>Código ISPB (Identificador Sistema de Pagamentos Brasileiro) do banco.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>8</td>
+      <td>01027058</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>CompeCode*</td>
+      <td>Código COMPE do banco.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>3</td>
+      <td>362</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Número da Agência*</td>
+      <td>Número da agência bancária.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>15</td>
+      <td>3452</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Dígito da Agência*</td>
+      <td>Dígito da agência bancária.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Número da conta*</td>
+      <td>Número da conta bancária.</td>
+      <td>Sim</td>
+      <td>alfanúmérico</td>
+      <td>20</td>
+      <td>256545</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Dígito da conta*</td>
+      <td>Dígito da conta.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Tipo de conta*</td>
+      <td>Tipo de conta. linkar tabela</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Nome do titular da conta*</td>
+      <td>Nome do titular da conta.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>200</td>
+      <td>NOME TITULAR</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Número do Documento do Titular da Conta*</td>
+      <td>Número de documento do titular da conta (CPF ou CNPJ).</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>14</td>
+      <td>234</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Beneficiário da troca de titularidade**</td>
+      <td>Número do documento do beneficiário da troca de titularidade (CPF ou CNPJ).</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>14</td>
+      <td>0000000000</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Número do Protocolo do Contrato***</td>
+      <td>Identificador do efeito de protocolo recebido da registradora que informou a troca de titularidade.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>485BDD77-BA55-4447-AC10-AA38F97CFC49</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Campos só serão obrigatórios se o tipo de liquidação for diferente de troca de titularidade.
+**Campo obrigatório se o tipo de liquidação for troca de titularidade.
+**</em>Campo obrigatório se o tipo de liquidação for diferente de Braspag.</p>
+
+<h3 id="registro-3---agenda-financeiraevento-transacional">Registro 3 - Agenda Financeira/Evento Transacional</h3>
+
+<p>Identifica os lançamentos na agenda financeira com base no eventro transacional:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo Registro</td>
+      <td>Indica o tipo de registro. <br /> 3 - Agenda Financeira</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Identificador do Evento</td>
+      <td>Identificador único do evento lançado na agenda financeira.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>4717A632-D6C4-4B74-9422-235905D1857D</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Identificador Origem</td>
+      <td>Identificador originador da agenda financeira, identificador do Evento Transacional.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>D8D26880-7BBB-4761-A2A7-B4C835B4923C</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Identificador Estabelecimento</td>
+      <td>Identificador do estabelecimento.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>5CB61E99-1B4D-4E7A-886F-6BFB4FF71219</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Número do Documento</td>
+      <td>Identifica o número do CPF/CNPJ do participante.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>17</td>
+      <td>00000000000</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Número da Parcela</td>
+      <td>Identifica a parcela a ser liquidada.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Tipo do Evento</td>
+      <td>Identifica o tipo de evento lançado na agenda financeira linkar tabela</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Tipo de Evento Transacional</td>
+      <td>Identifica o tipo de evento transacional originador do lançamento em agenda.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Data Prevista Liquidação</td>
+      <td>Data prevista da liquidação.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>8</td>
+      <td>AAAAMMDD</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Valor Líquido Agenda</td>
+      <td>Valor líquido a ser liquidado.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Identificador do Evento Transacional**</td>
+      <td>Identificador do evento transacional. Quando é uma transação, este campo é igual ao Identificador da Transação.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>D6CDD768-CDFE-479A-B090-CD03253EEE2B</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Data do Evento Transacional**</td>
+      <td>Data em que a operação ocorreu. Para a transação, representa a data de autorização. Para os demais, representa a data em que a operação ocorreu.</td>
+      <td>Sim</td>
+      <td>datetime</td>
+      <td>17</td>
+      <td>20220119 09:43:10</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Data de Confirmação**</td>
+      <td>Data em que a operação foi efetivada.<br />Transação - Captura<br />Cancelamento - Confirmação do cancelamento.</td>
+      <td>Sim</td>
+      <td>date</td>
+      <td>17</td>
+      <td>20220119</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Data de Agendamento**</td>
+      <td>Data em que o evento foi processado em agenda financeira.</td>
+      <td>Sim</td>
+      <td>datetime</td>
+      <td>17</td>
+      <td>20220119 09:43:10</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Valor da Operação**</td>
+      <td>Valor da operação em centavos. Podendo ser um valor positivo ou negativo.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Taxa Administrativa (MDR)**</td>
+      <td>Percentual aplicado ao valor bruto da operação.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Valor Taxa Administrativa</td>
+      <td>Valor calculado da traxa administrativa em centavos sobre o evento transacional.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Tarifa Administrativa (Fee)**</td>
+      <td>Tarifa fixa cobrada por transação. Valor cobrado separadamente em agenda financeira.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Valor Taxa Receba Rápido**</td>
+      <td>Valor descontado para adiantamento dos subordinados pelo Receba Rápido.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Tarifa Boleto**</td>
+      <td>Tarifa cobrada pelo boleto emitido ou pago para transações de boleto.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Valor Bruto Venda Direta**</td>
+      <td>Valor bruto de venda direta do Master, caso o mesmo seja um participante da transação vendendo um produto.</td>
+      <td>Não</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Valor Taxa Admnistrativa Venda Direta**</td>
+      <td>Valor calculado da taxa administrativa, em centavos, sobre a venda direta.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Valor Líquido Venda Direta**</td>
+      <td>Valor líquido da venda direta.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Valor Bruto Comissão**</td>
+      <td>Valor bruto de comissão recebido pelo Master.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Valor Taxa Administrativa Comissão**</td>
+      <td>Valor calculado da taxa administrativa, em centavos, sobre a comissão, incluindo a taxa de Receba Rápido.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Valor Líquido Comissão**</td>
+      <td>Valor líquido da comissão recebido dos subordinados.</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Identificador da Transação**</td>
+      <td>Identificador da transação.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>D6CDD768-CDFE-479A-B090-CD03253EEE2B</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Data de Autorização**</td>
+      <td>Data da venda.</td>
+      <td>Sim</td>
+      <td>datetime</td>
+      <td>17</td>
+      <td>20220119 09:43:10</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Código do Ajuste**</td>
+      <td>Código que identifica o ajuste financeiro lançado em agenda - linkar tabela</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>4</td>
+      <td>A001</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Data de Captura**</td>
+      <td>Data de confirmação da transação.</td>
+      <td>Sim</td>
+      <td>date</td>
+      <td>8</td>
+      <td>20220119</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Valor da Transação**</td>
+      <td>Valor da transação em centavos.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Código do Produto**</td>
+      <td>Código que identifica o produto - linkar tabela</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Código da Bandeira**</td>
+      <td>Código que identifica a bandeira ou banco - linkar tabela</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Código de Autorização**</td>
+      <td>Código de autorização da transação. Este número não é único e pode se repetir.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>10</td>
+      <td>251411</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>NSU/DOC**</td>
+      <td>Número sequencial da transação, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número não é único e pode se repetir.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>8</td>
+      <td>053181</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Total de Parcelas**</td>
+      <td>Total de pacelas da transação.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Número do Pedido**</td>
+      <td>Número do pedido informado pelo estabelecimento na transação.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>50</td>
+      <td>1234567891011</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>Número do cartão truncado**</td>
+      <td>Número truncado do cartão que efetuou a compra.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>19</td>
+      <td>111111<strong>**</strong>1111</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Identificador Transação Adquirente**</td>
+      <td>Identificador da transação na adquirente para transações de e-commerce (TID)</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>20</td>
+      <td>99999999111Q1A2A3A4A</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Número Lógico do Terminal**</td>
+      <td>Número Lógico do Terminal em que ocorreu a transação.</td>
+      <td>Sim</td>
+      <td>alfanumérico</td>
+      <td>50</td>
+      <td>99999999</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Meio de Captura**</td>
+      <td>Meio pelo qual a transação foi capturada. - linkar tabela</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Indicador de Comissão</td>
+      <td>Indica se o lançamento em agenda refere-se à comissão do Master ou não.<br />0 - Não;<br />1- Sim</td>
+      <td>Não</td>
+      <td>número</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">Os campos compreendidos entre a posição 11 e 41 não serão exibidos caso o **Tipo do Evento** seja igual a 41, 42 ou 43.</aside>
+
+<h3 id="registro-4---balanceamento-de-saldo">Registro 4 - Balanceamento de Saldo</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo Registro</td>
+      <td>Indica o tipo de registro.<br />4 - Balanceamento de Saldo</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Data da Posição</td>
+      <td>Data da posição do saldo negativo.</td>
+      <td>Sim</td>
+      <td>date</td>
+      <td>8</td>
+      <td>20220119</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Código do Produto</td>
+      <td>Código que identifica o produto - linkar tabela</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Código da Bandeira</td>
+      <td>Código que identifica a bandeira ou banco - linkar tabela</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Valor Inicial</td>
+      <td>Valor inicial do saldo negativo.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Valor Lançado</td>
+      <td>Valor lançado no processo de balanceamento.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Valor Final</td>
+      <td>Valor final do saldo negativo após balanceamento.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-5---balanceamento-de-saldo-por-estabelecimento">Registro 5 - Balanceamento de Saldo por Estabelecimento</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo Registro</td>
+      <td>Indica o tipo de registro.<br />5 - Balanceamento de Saldo por Estabelecimento</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Identificador Estabelecimento</td>
+      <td>Identifica o estabelecimento.</td>
+      <td>Sim</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>5CB61E99-1B4D-4E7A-886F-6BFB4FF71219</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Valor Inicial</td>
+      <td>Valor inicial do saldo negativo.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Valor Lançado</td>
+      <td>Valor lançado no processo de balanceamento.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Valor Final</td>
+      <td>Valor final do saldo negativo após balanceamento.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>R$100,01 = 10001</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-9---rodapé-1">Registro 9 - Rodapé</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>Campo</th>
+      <th>Descrição</th>
+      <th>Extrato Subordinado</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Tipo do registro</td>
+      <td>Indica o tipo de registro.<br />9 - Rodapé (Fim do arquivo)</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>2</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Quantidade de Registros</td>
+      <td>Quantidade de registros do arquivo excluindo o cabeçalho e o rodapé.</td>
+      <td>Sim</td>
+      <td>número</td>
+      <td>20</td>
+      <td>1000</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="tabelas-adicionais">Tabelas Adicionais</h1>
+
+<h2 id="tabela-i---tipos-de-estabelecimento">Tabela I - Tipos de Estabelecimento</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3</td>
+      <td>Master</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Subordinado</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-ii---eventos-transacionais">Tabela II - Eventos Transacionais</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Tipo do Evento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Transação</td>
+      <td>É o evento que representa uma venda de cartão de crédito ou débito.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Reversão da Transação</td>
+      <td>É o evento interno que realiza a reversão de uma transação e com isso lança valores na agenda revertendo e debitando os lançamentos da transação original.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Cancelamento</td>
+      <td>É o evento que representa o cancelamento/estorno de uma venda.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Reversão do Cancelamento</td>
+      <td>É o evento interno que realiza a reversão de um cancelamento e com isso lança valores na agenda revertendo e compensando os lançamentos da transação original.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Chargeback</td>
+      <td>É o evento que representa o chargeback de uma compra.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Reversão do Chargeback</td>
+      <td>É o evento interno que realiza a reversão de um cancelamento e com isso lança valores na agenda revertendo e compensando os lançamentos da transação original.</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Cobrança Antifraude</td>
+      <td>É o evento que representa a cobrança da taxa de antifraude em uma venda.</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Boleto Emitido</td>
+      <td>É o evento que representa a taxa sobre o boleto emitido.</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Boleto Pago</td>
+      <td>É o evento que representa a venda e a taxa sobre o boleto que foi pago.</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Ajuste Financeiro</td>
+      <td>É o evento que faz um lançamento financeiro na agenda com objetivo de regularizar compensação de valores.</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Ajuste Debit Balance</td>
+      <td>É o evento que faz um lançamento financeiro na agenda com objetivo de compensar valores.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-iii---produtos">Tabela III - Produtos</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Cartão de Crédito</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Cartão de Débito</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Boleto</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-iv---bandeiras">Tabela IV - Bandeiras</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Mastercard</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Amex</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Diners</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Discover</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Hipercard</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Boleto</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-v---meios-de-captura">Tabela V - Meios de Captura</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>E-commerce</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>POS</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Captura Única</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>TEF</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-vi---eventos-financeiros">Tabela VI - Eventos Financeiros</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Tipo do Evento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Credit</td>
+      <td>Evento de crédito de parcelas de uma transação.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Debit</td>
+      <td>Evento de débito de parcelas de uma transação.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>FeeDebit</td>
+      <td>Evento de débito da tarifa transacional.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>RefundCredit</td>
+      <td>Evento de crédito devido a um cancelamento.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>RefundDebit</td>
+      <td>Evento de débito devido a um cancelamento.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>ChargebackCredit</td>
+      <td>Evento de crédito devido a um chargeback.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>ChargebackDebit</td>
+      <td>Evento de débito devido a um chargeback.</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>UndoChargebackCredit</td>
+      <td>Evento de crédito devido a um desfazimento de chargeback.</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>UndoChargebackDebit</td>
+      <td>Evento de débito devido a um desfazimento de chargeback.</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>AntiFraudFeeDebit</td>
+      <td>Evento de débito da tarifa de antifraude.</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>AdjustmentCredit</td>
+      <td>Evento de ajuste a crédito em agenda financeira.</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>AdjustmentDebit</td>
+      <td>Evento de ajuste a débito em agenda financeira.</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>ChargebackReversalCredit</td>
+      <td>Evento de crédito devido a uma reversão de chargeback.</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>ChargebackReversalDebit</td>
+      <td>Evento de débito devido a uma reversão de chargeback.</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>RefundReversalCredit</td>
+      <td>Evento de rédito devido a uma reversão de cancelamento.</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>RefundReversalDebit</td>
+      <td>Evento de débito devido a uma reversão de cancelamento.</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>ReversalPayoutCredit</td>
+      <td>Evento de crédito devido a reversão de agendamento de uma transação.</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>ReversalPayoutDebit</td>
+      <td>Evento de débito devido a reversão de um agendamento de uma transação.</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>ReversalFeeCredit</td>
+      <td>Evento de crédito devido a reversão de agendamento da tarifa transacional.</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>BankSlipFeeDebit</td>
+      <td>Evetno de débito da tarifa de cobrança de boleto.</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>ReversalAntiFraudFeeCredit</td>
+      <td>Evento de crédito devido a reversão da cobrança da tarifa de antifraude.</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>ReversalBankSlipFeeCredit</td>
+      <td>Evento de crédito devido a reversão da cobrança da tarifa do boleto.</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>CompensationBetweenSamePaymentArrangementDebit</td>
+      <td>Evento de débito para balanceamento de saldo dentro do mesmo arranjo de pagamento.</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>ScheduleBalanceCredit</td>
+      <td>Evento de crédito para balanceamento de saldo dentro do mesmo arranjo de pagamento e estabelecimentos de mesmo CNPJ/CPF.</td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>ScheduleBalanceDebit</td>
+      <td>Evento de débito para balanceamento de saldo dentro do mesmo arranjo de pagamento e estabelecimentos de mesmo CNPJ/CPF.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-vii---ajustes-financeiros">Tabela VII - Ajustes Financeiros</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A001</td>
+      <td>Ajuste para compensação de saldo negativo.</td>
+      <td>Balanceamento de Saldo</td>
+    </tr>
+    <tr>
+      <td>A002</td>
+      <td>Ajuste para correção de lançamentos.</td>
+      <td>Correção</td>
+    </tr>
+    <tr>
+      <td>A003</td>
+      <td>Ajuste de valores lançados/cobrados indevidamente.</td>
+      <td>Acerto</td>
+    </tr>
+    <tr>
+      <td>A004</td>
+      <td>Multa por excesso de chargeback.</td>
+      <td>Acerto</td>
+    </tr>
+    <tr>
+      <td>A005</td>
+      <td>Tarifa por retentativa de transações (bandeiras).</td>
+      <td>Acerto</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-viii---tipos-de-liquidação">Tabela VIII - Tipos de Liquidação</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Braspag*</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Troca de Titularidade</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Ônus - Cessão Fiduciária</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Ônus - Outros</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Bloqueio Judicial</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">Tipo de Liquidação Braspag indica que os valores foram liquidados para o domicílio cadastrado na plataforma e sobre este valor não ocorreu qualquer efeito de contrato.  Os demais tipos indicam que a liquidação ocorreu em um domicílio conforme instrução enviada nos efeitos de contrato recebidos das registradoras.</aside>
+
+<h2 id="tabela-ix---tipos-de-contas">Tabela IX - Tipos de Contas</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Conta Corrente</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Conta Poupança</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Conta de Pagamento</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Conta de Depósito</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Conta Garantida</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Conta Investimento</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-x---status-da-liquidação">Tabela X - Status da Liquidação</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Código</td>
+      <td>Status</td>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Agendado</td>
+      <td>Indica que o recebível está agendado para liquidação de acordo com sua data prevista.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Pendente</td>
+      <td>Indica que a Braspag enviou os recebíveis para liquidação e está aguardando a resposta.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Liquidado</td>
+      <td>Indica que a liquidação ocorreu com sucesso.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Erro</td>
+      <td>Indica que a liquidação não foi realizada com sucesso.</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://suporte.braspag.com.br/hc/pt-br">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://braspag.github.io/">
+        <img src="https://braspag.github.io//assets/images/logo.png" alt="Braspag Developers - Manuais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/Braspag">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
+        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
+        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://braspag.github.io//assets/js/jquery.highlight.js"></script>
+        <script src="https://braspag.github.io//assets/js/lunr.js"></script>
+        <script src="https://braspag.github.io//assets/js/search.js"></script>
+        
+
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://braspag.github.io//assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json", ]);
+            });
+        </script>
+        
+
+        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2191438,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
