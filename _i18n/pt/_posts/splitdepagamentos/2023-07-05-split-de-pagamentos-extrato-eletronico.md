@@ -150,11 +150,11 @@ O layout dos Arquivos segue o seguinte padrão:
 
 ### Registro 0 - Cabeçalho
 
-Identifica o cabeçalho do arquivo de Previsão:
+Identifica o cabeçalho do Arquivo de Previsão:
 
 |Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
-|1|Tipo de Registro|Identifica o tipo de registro. <br>0 - header (início do arquivo)|Sim|número|2|0|
+|1|Tipo de Registro|Identifica o tipo de registro header (início do arquivo). <br> 0 - Cabeçalho|Sim|número|2|0|
 |2|Versão do layout|Versão do layout em que o arquivo foi gerado.|Sim|número|3|1|
 |3|Número Documento|Número do documento (CNPJ/CPF).|Sim|alfanumérico|14|0000000000|
 |4|Data Geração|Informa a data de geração do arquivo.|Sim|datetime|17|20220119 09:43:10|
@@ -163,7 +163,7 @@ Identifica o cabeçalho do arquivo de Previsão:
 |7|Data Mínima Processada*|Data mínima de agendamento das operações dentro do arquivo - Tratamento interno|Sim|datetime|17|20220118 09:43:10|
 |8|Data Máxima Processada*|Data máxima de agendamento das operações dentro do arquivo - Tratamento interno|Sim|datetime|17|20220118 09:43:10|
 |9|Data Mínima Evento Transacional*|Data inicial de captura dos itens presentes no arquivo.|Sim|data|17|20220118|
-|10|Data Máxima de Evento Transacional*|Data Final de captura dos itens presentes no arquivo.|Sim|data|17|20220118|
+|10|Data Máxima de Evento Transacional*|Data final de captura dos itens presentes no arquivo.|Sim|data|17|20220118|
 |11|Reprocessado|Informa se o arquivo foi gerado através do fluxo de reprocessamento.|Sim|número|1|0 (Falso) ou 1 (Verdadeiro)|
 
 *Campos não obrigatórios, poderão vir vazios na ausência de movimento no dia.
@@ -176,7 +176,7 @@ Identifica os dados do estabelecimento:
 |-|-|-|-|-|-|-|
 |1|Tipo Registro|Indica o tipo de registro.<br>1 - Estabelecimento|Sim|número|2|1|
 |2|Identificador do estabelecimento| Número identificador do estabelecimento onde a venda foi realizada.|Sim|GUID|36|1B917293-8B8D-4180-B2D8-C514A1F8512D|
-|3|Tipo Estabelecimendo|Tipo do estabelecimento (linkar tabela)|
+|3|Tipo Estabelecimento|Tipo do estabelecimento (linkar tabela)|Sim|número|2|3|
 
 ### Registro 2 - Eventos Transacionais
 
@@ -187,15 +187,15 @@ Identifica os eventos transacionais:
 |1|Tipo do registro|Indica o tipo de registro. <br>2 - Eventos Transacionais|Sim|número|2|2|
 |2|Tipo de Evento Transacional|Tipo de Eventos transacionais. (linkar tabela)|Sim|número|2|1|
 |3|Identificador do Evento Transacional|Identificador único do evento lançado na agenda financeira.|Sim|GUID|36|D6CDD768-CDFE-479A-B090-CD03253EEE2B|
-|4|Data do Evento Transacional|Data em que a aoperação ocorreu. Para a transação representa a data de autorização, para os demais, representa a data em que a operação ocorreu.|Sim|datetime|17|20220119 09:43:10|
-|5|Data de Confirmação|Data em que a operação foi efetivada. <br> - Transação: Data de captura; <br>- Outros eventos: Data da confirmação.|Sim|data|8|20220119|
+|4|Data do Evento Transacional|Data em que a operação ocorreu. Para a transação, representa a data de autorização, para os demais, representa a data em que a operação ocorreu.|Sim|datetime|17|20220119 09:43:10|
+|5|Data de Confirmação|Data em que a operação foi efetivada. <br> - Transação: data de captura; <br>- Outros eventos: data da confirmação.|Sim|data|8|20220119|
 |6|Data de Agendamento|Data em que o evento foi processado em agenda financeira.|Sim|datetime|17|20220119 09:43:10|
 |7|Valor da Operação|Valor da operação em centavos. Podendo ser um valor positivo ou negativo.|Não|número|20|R$100,01 = 10001 ou -10001|
 |8|Taxa Administrativa (MDR)|Percentual aplicado ao valor bruto da operação.|Não|número|20|1,55% = 1,55|
 |9|Valor Taxa Administrativa (MDR)|Valor calculado da taxa admnistrativa em centavos sobre o evento transacional.|Não|número|20|R$100,01 = 10001|
 |10|Tarifa Administrativa (Fee)|Tarifa fixa cobrada por transação. Valor cobrado separadamente em agenda financeira.|Não|número|20|R$100,01 = 10001|
 |11|Valor Taxa Receba Rápido*|Valor descontado para adiantamento dos subordinados pelo Receba Rápido|Não|número|20|R$100,01 = 10001|
-|12|Tarifa Boleto*|Tarifa Cobrada pelo boleto emitido ou pago para transações de boleto|Não|número|20|R$100,01 = 10001|
+|12|Tarifa Boleto*|Tarifa cobrada pelo boleto emitido ou pago para transações de boleto.|Não|número|20|R$100,01 = 10001|
 |13|Valor Bruto Venda Direta*|Valor bruto de venda direta do Master, caso o mesmo seja um participante da transação.|Não|número|20|R$100,01 = 10001|
 |14|Valor Taxa Administrativa Venda Direta*|Valor calculado da taxa administrativa, em centavos, sobre a venda direta.|Não|número|20|R$100,01 = 10001|
 |15|Valor Líquido Venda Direta*|Valor líquido da venda direta.|Não|número|20|R$100,01 = 10001|
@@ -204,7 +204,7 @@ Identifica os eventos transacionais:
 |18|Valor Líquido Comissão*|Valor líquido da comissão recebido dos subordinados.|Não|número|20|R$100,01 = 10001|
 |19|Identificador da Transação|Identificador da transação.|Sim|GUID|36|ED6C8828-F92B-42F4-B6B3-6CA276830733|
 |20|Data de Autorização|Data da venda.|Sim|datetime|17|20220119 09:43:10|
-|21|Código do Ajuste|Código que indetifica o ajuste financeiro lançado em agenda (linkar tabela)|Sim|alfanumérico|4|A001|
+|21|Código do Ajuste|Código que identifica o ajuste financeiro lançado em agenda. (linkar tabela)|Sim|alfanumérico|4|A001|
 |22|Data de captura|Data de confirmação da transação.|Sim||data|8|20220119|
 |23|Valor da Transação|Valor da transação em centavos.|Sim|número|20|R$100,01 = 10001|
 |24|Código do Produto|Código que identifica o produto. (linkar tabela)|Sim|número|2|1|
@@ -213,8 +213,8 @@ Identifica os eventos transacionais:
 |27|NSU/DOC|Número sequencial da transação, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número e pode se repetir.|Sim|alfanumérico|8|053181|
 |28|Total de Parcelas|Total de parcelas da transação.|Sim|número|2|10|
 |29|Número do Pedido|Número do pedido informado pelo estabelecimento na transação.|Sim|número|50|Pedido123456|
-|30|Número do cartão truncado|Número truncado do cartão que efetuou a compra.|Sim|alfanumérico|19|111111******1111|
-|31|Identificador Transação Adquirente|Identificador da transação na adquirente para transações de e-commerce (TID)|Sim|alfanumérico|20|99999999111Q1A2A3A4A|
+|30|Número do cartão truncado|Número truncado do cartão que efetuou a compra.|Sim|alfanumérico|19|111111*******1111|
+|31|Identificador Transação Adquirente|Identificador da transação na adquirente para transações de e-commerce (TID)|.Sim|alfanumérico|20|99999999111Q1A2A3A4A|
 |32|Número Lógico do Terminal|Número lógico do terminal em que ocorreu a transação.|Sim|alfanumérico|50|99999999|
 |33|Meio de Captura|Meio pelo qual a transação foi capturada. (linkar tabela)|Sim|número|2|1|
 
@@ -230,12 +230,12 @@ Identifica os participantes (Master e Subordinados) do Evento Transacional:
 |2|Identificador da Divisão|Identificador da divisão.|Sim|GUID|36|CCC2E1DD-C47D-4722-A8A2-4DC51746CB0C|
 |3|Identificador do Estabelecimento|Identifica o estabelecimento participante da divisão.|Sim|GUID|36|AAA2E1DD-C47D-4722-A8A2-4DC51746CB0C|
 |4|Número do documento|Identifica o número do CPF/CNPJ do participante.|Sim|alfanumérico|17|00000000000|
-|5|Tipo Estabelecimento|Identifica o tipo de participante (linkar tabela)|Sim|número|2|3|
-|6|Valor Bruto Participante|Valor Bruto da operação alocado para o participante.|Sim|número|2|R$100,01 = 10001|
+|5|Tipo Estabelecimento|Identifica o tipo de participante. (linkar tabela)|Sim|número|2|3|
+|6|Valor Bruto Participante|Valor bruto da operação alocado para o participante.|Sim|número|2|R$100,01 = 10001|
 |7|Percentual Desconto|Percentual descontado do valor bruto do participante.|Sim|número|20|20% = 20|
 |8|Valor Desconto|Valor calculado em centavos do percentual de desconto aplicado sobre o valor bruto.|Sim|número|20|R$100,01 = 10001|
 |9|Taxa Fixa Desconto|Valor fixo descontado do valor bruto do participante.|Sim|número|20|R$100,01 = 10001|
-|10|Valor Líquido Participante|Valor Líquido da operação a ser recebido pelo participante.|Sim|número|20|R$100,01 = 10001|
+|10|Valor Líquido Participante|Valor líquido da operação a ser recebido pelo participante.|Sim|número|20|R$100,01 = 10001|
 |11|Indicador Comissão|Indica se a divisão refere-se a comissão do master ou não. <br>0 – Não; 1 - Sim|Sim|número|1|0|
 |12|Percentual Parcela Receba Rápido*|Percentual por parcela do Receba Rápido.|Sim|número|20|20% = 20|
 |13|Percentual Total Receba Rápido*|Percentual total do Receba Rápido.|Sim|número|20|20% = 20|
@@ -249,11 +249,11 @@ Identifica os participantes (Master e Subordinados) do Evento Transacional:
 |-|-|-|-|-|-|-|
 |1|Tipo Registro|Indica o tipo de registro.<br>4 - Agenda Financeira|Sim|número|2|4|
 |2|Identificador do Evento Financeiro|Identificador originador do evento lançado na agenda financeira.|Sim|GUID|36|4717A632-D6C4-4B74-9422-235905D1857D|
-|3|Identificador Origem|Identificador da agenda financeira. Identificador do Evento Transacional.|Sim|GUID|36|D8D26880-7BBB-4761-A2A7-B4C835B4923C|
+|3|Identificador Origem|Identificador da agenda financeira. Identificador do evento transacional.|Sim|GUID|36|D8D26880-7BBB-4761-A2A7-B4C835B4923C|
 |4|Identificador Estabelecimento|Identifica o estabelecimento.|Sim|GUID|36|5CB61E99-1B4D-4E7A-886F-6BFB4FF71219|
 |5|Número do documento|Identifica o número do CPF/CNPJ do participante.|Sim|alfanumérico|17|00000000000|
 |6|Número da Parcela|Identifica a parcela a ser liquidada.|Sim|número|2|10|
-|7|Tipo do Evento|Identifica o tipo de evento lançado na agenda financeira (linkar tabela)|Sim|número|2|23|
+|7|Tipo do Evento|Identifica o tipo de evento lançado na agenda financeira. (linkar tabela)|Sim|número|2|23|
 |8|Tipo de Evento Transacional|Identifica o tipo de evento transacional originador do lançamento em agenda.|Sim|número|2|1|
 |9|Data Prevista Liquidação|Data prevista da liquidação.|Sim|data|8|AAAAMMDD|
 |10|Valor Líquido|Valor líquido a ser liquidado.|Sim|número|20|R$100,01 = 10001|
@@ -284,7 +284,7 @@ Identifica o cabeçalho do Arquivo de Liquidação:
 |8|Data Máxima Liquidação*|Maior data de liquidação dos recebíveis.|Sim|date|8|20220118|
 |9|Data Mínima Prevista*|Menor data prevista dos recebíveis liquidados no dia.|Sim|date|8|20220118|
 |10|Data Máxima Prevista*|Maior data prevista dos recebíveis liquidados no dia.|Sim|date|8|20220118|
-|11|Reprocessado|Informa se o arquivo foi gerado através do fluxo de reprocessamento|Sim|número|1|0 (Falso) ou 1 (Verdadeiro)|
+|11|Reprocessado|Informa se o arquivo foi gerado através do fluxo de reprocessamento.|Sim|número|1|0 (Falso) ou 1 (Verdadeiro)|
 
 *Campos não obrigatórios, poderão vir vazios na ausência de movimento no dia.
 
@@ -294,11 +294,11 @@ Identifica o recebível e sua liquidação:
 
 |Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
-|1|Tipo de Registro|Indica o tipo de registro. 1 - Recebível|Sim|número|2|1|
+|1|Tipo de Registro|Indica o tipo de registro. <br>1 - Recebível|Sim|número|2|1|
 |2|Identificador do Recebível|Identificador único da Unidade de Recebível.|Sim|GUID|36|1B917293-8B8D-4180-B2D8-C514A1F8512D|
-|3|Data Prevista de Liquidação|Data Prevista de Liquidação.|Sim|date|8|20220110|
-|4|Código do Produto|Identificador do tipo de Produto - linkar tabela|Sim|número|2|1|
-|5|Código da Bandeira|Identificador da Bandeira ou Banco - linkar tabela|Sim|número|2|1|
+|3|Data Prevista de Liquidação|Data prevista de Liquidação.|Sim|date|8|20220110|
+|4|Código do Produto|Identificador do tipo de produto - linkar tabela|Sim|número|2|1|
+|5|Código da Bandeira|Identificador da bandeira ou banco - linkar tabela|Sim|número|2|1|
 |6|Valor Total da UR|Valor acumulado da Unidade de Recebível.|Sim|número|20|R$ 10000,00 = 1000000|
 |7|Valor Total Previamente Liquidado|Valor total já liquidado da UR informados em arquivos anteriores.|Sim|número|20|R$ 10000,00 = 1000000|
 |8|Valor Liquidado|Valor liquidado da UR no arquivo atual.|Sim|número|20|R$ 10000,00 = 1000000|
@@ -310,8 +310,8 @@ Identifica detalhes da liquidação do recebível:
 |Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo de Registro|Identifica o tipo de registro. <br> 2 - Grupo de Pagamento|Sim|número|1|2|
-|2|Tipo de Liquidação|Informa o Tipo de Liquidação - linkar tabela|Sim|número|2|1|
-|3|Status da Liquidação*|Informa o Status da Liquidação linkar tabela|Sim|número|2|1|
+|2|Tipo de Liquidação|Informa o tipo de liquidação - linkar tabela|Sim|número|2|1|
+|3|Status da Liquidação*|Informa o status da liquidação linkar tabela|Sim|número|2|1|
 |4|Valor Liquidado*|Valor pago do grupo de pagamento.|Sim|número|2|R$ 1000,00 = 100000|
 |5|Data de Liquidação*|Data na qual ocorreu o pagamento.|Sim|date|8|20220118|
 |6|ISPB*|Código ISPB (Identificador Sistema de Pagamentos Brasileiro) do banco.|Sim|alfanumérico|8|01027058|
@@ -338,7 +338,7 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 |-|-|-|-|-|-|-|
 |1|Tipo Registro|Indica o tipo de registro. <br> 3 - Agenda Financeira |Sim|número|2|3|
 |2|Identificador do Evento|Identificador único do evento lançado na agenda financeira.|Sim|GUID|36|4717A632-D6C4-4B74-9422-235905D1857D|
-|3|Identificador Origem|Identificador originador da agenda financeira, identificador do Evento Transacional.|Sim|GUID|36|D8D26880-7BBB-4761-A2A7-B4C835B4923C|
+|3|Identificador Origem|Identificador originador da agenda financeira, identificador do evento transacional.|Sim|GUID|36|D8D26880-7BBB-4761-A2A7-B4C835B4923C|
 |4|Identificador Estabelecimento|Identificador do estabelecimento.|Sim|GUID|36|5CB61E99-1B4D-4E7A-886F-6BFB4FF71219|
 |5|Número do Documento|Identifica o número do CPF/CNPJ do participante.|Sim|alfanumérico|17|00000000000|
 |6|Número da Parcela|Identifica a parcela a ser liquidada.|Sim|número|2|10|
@@ -373,13 +373,13 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 |35|NSU/DOC**|Número sequencial da transação, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número não é único e pode se repetir.|Sim|alfanumérico|8|053181|
 |36|Total de Parcelas**|Total de pacelas da transação.|Sim|número|2|10|
 |37|Número do Pedido**|Número do pedido informado pelo estabelecimento na transação.|Sim|número|50|1234567891011|
-|38|Número do cartão truncado**|Número truncado do cartão que efetuou a compra.|Sim|alfanumérico|19|111111******1111|
-|39|Identificador Transação Adquirente**|Identificador da transação na adquirente para transações de e-commerce (TID)|Sim|alfanumérico|20|99999999111Q1A2A3A4A|
+|38|Número do cartão truncado**|Número truncado do cartão que efetuou a compra.|Sim|alfanumérico|19|111111*******1111|
+|39|Identificador Transação Adquirente**|Identificador da transação na adquirente para transações de e-commerce (TID).|Sim|alfanumérico|20|99999999111Q1A2A3A4A|
 |40|Número Lógico do Terminal**|Número Lógico do Terminal em que ocorreu a transação.|Sim|alfanumérico|50|99999999|
 |41|Meio de Captura**|Meio pelo qual a transação foi capturada. - linkar tabela|Sim|número|2|1|
 |42|Indicador de Comissão|Indica se o lançamento em agenda refere-se à comissão do Master ou não.<br>0 - Não;<br>1- Sim|Não|número|1|0|
 
-<aside class="notice">Os campos compreendidos entre a posição 11 e 41 não serão exibidos caso o **Tipo do Evento** seja igual a 41, 42 ou 43.</aside>
+<aside class="notice">Os campos compreendidos entre a posição 11 e 41 não serão exibidos caso o Tipo do Evento seja igual a 41, 42 ou 43.</aside>
 
 ### Registro 4 - Balanceamento de Saldo
 
