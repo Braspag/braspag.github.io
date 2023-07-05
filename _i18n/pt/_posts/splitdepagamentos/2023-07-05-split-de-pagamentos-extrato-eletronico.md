@@ -110,11 +110,10 @@ Para obter os arquivos de Extrato Eletrônico, faça a seguinte requisição:
 |`DocumentNumber`|Número do documento (CPF ou CNPJ) o qual está buscando as informações.|string|Sim|
 |`Date`|Informar a data base pretendida|data|Não*|
 |`ReconciliationType`|Valores possíveis:<br>**Forecast**: Será retornado o arquivo referente aos eventos transacionais e previsões de liquidação.<br>**Settlement**: Será retornado o arquivo referente às liquidações realizadas.<br>**SellerForecast****: Será retornado o arquivo para o Seller referente ao MerchantId informado.<br>**SellerSettlement****: Será retornado o arquivo referente às liquidações realizadas para o Seller de acordo com o MerchantId informado.|string|Sim|
-|`MerchantId`|Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro.|GUID|Não***|
+|`MerchantId`|Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro.|GUID|Será obrigatório apenas se o `ReconciliationType` for do tipo SellerForecast.|
 
 *Se o campo `Date` não for preenchido, o endpoint retornará o último arquivo gerado para o número de documento informado.<br>
-**Extrato seller não está disponível para consumo.<br>
-***Será obrigatório apenas se o `ReconciliationType` for do tipo SellerForecast.
+**Extrato seller não está disponível para consumo.
 
 **Parâmetros no cabeçalho (header)**
 
@@ -326,8 +325,8 @@ Identifica detalhes da liquidação do recebível:
 |15|Beneficiário da troca de titularidade**|Número do documento do beneficiário da troca de titularidade (CPF ou CNPJ).|Sim|alfanumérico|14|0000000000|
 |16|Número do Protocolo do Contrato***|Identificador do efeito de protocolo recebido da registradora que informou a troca de titularidade.|Sim|GUID|36|485BDD77-BA55-4447-AC10-AA38F97CFC49|
 
-*Campos só serão obrigatórios se o tipo de liquidação for diferente de troca de titularidade.
-**Campo obrigatório se o tipo de liquidação for troca de titularidade.
+*Campos só serão obrigatórios se o tipo de liquidação for diferente de troca de titularidade.<br>
+**Campo obrigatório se o tipo de liquidação for troca de titularidade.<br>
 ***Campo obrigatório se o tipo de liquidação for diferente de Braspag.
 
 ### Registro 3 - Agenda Financeira/Evento Transacional
