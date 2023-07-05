@@ -176,7 +176,7 @@ Identifica os dados do estabelecimento:
 |-|-|-|-|-|-|-|
 |1|Tipo Registro|Indica o tipo de registro.<br>1 - Estabelecimento|Sim|número|2|1|
 |2|Identificador do estabelecimento| Número identificador do estabelecimento onde a venda foi realizada.|Sim|GUID|36|1B917293-8B8D-4180-B2D8-C514A1F8512D|
-|3|Tipo Estabelecimento|Tipo do estabelecimento (linkar tabela)|Sim|número|2|3|
+|3|Tipo Estabelecimento|Tipo do estabelecimento. Veja a [Tabela I](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-i-tipos-de-estabelecimento).|Sim|número|2|3|
 
 ### Registro 2 - Eventos Transacionais
 
@@ -185,7 +185,7 @@ Identifica os eventos transacionais:
 |Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo do registro|Indica o tipo de registro. <br>2 - Eventos Transacionais|Sim|número|2|2|
-|2|Tipo de Evento Transacional|Tipo de Eventos transacionais. (linkar tabela)|Sim|número|2|1|
+|2|Tipo de Evento Transacional|Tipo de Eventos transacionais. Veja a [Tabela II](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-ii-eventos-transacionais). |Sim|número|2|1|
 |3|Identificador do Evento Transacional|Identificador único do evento lançado na agenda financeira.|Sim|GUID|36|D6CDD768-CDFE-479A-B090-CD03253EEE2B|
 |4|Data do Evento Transacional|Data em que a operação ocorreu. Para a transação, representa a data de autorização, para os demais, representa a data em que a operação ocorreu.|Sim|datetime|17|20220119 09:43:10|
 |5|Data de Confirmação|Data em que a operação foi efetivada. <br> - Transação: data de captura; <br>- Outros eventos: data da confirmação.|Sim|data|8|20220119|
@@ -204,11 +204,11 @@ Identifica os eventos transacionais:
 |18|Valor Líquido Comissão*|Valor líquido da comissão recebido dos subordinados.|Não|número|20|R$100,01 = 10001|
 |19|Identificador da Transação|Identificador da transação.|Sim|GUID|36|ED6C8828-F92B-42F4-B6B3-6CA276830733|
 |20|Data de Autorização|Data da venda.|Sim|datetime|17|20220119 09:43:10|
-|21|Código do Ajuste|Código que identifica o ajuste financeiro lançado em agenda. (linkar tabela)|Sim|alfanumérico|4|A001|
+|21|Código do Ajuste|Código que identifica o ajuste financeiro lançado em agenda. Veja a [Tabela VII](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-vii-ajustes-financeiros).|Sim|alfanumérico|4|A001|
 |22|Data de captura|Data de confirmação da transação.|Sim||data|8|20220119|
 |23|Valor da Transação|Valor da transação em centavos.|Sim|número|20|R$100,01 = 10001|
-|24|Código do Produto|Código que identifica o produto. (linkar tabela)|Sim|número|2|1|
-|25|Código da Bandeira|Código que identifica a bandeira ou o banco. (linkar tabela)|Sim|número|2|2|
+|24|Código do Produto|Código que identifica o produto. Veja a [Tabela III](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iii-produtos).|Sim|número|2|1|
+|25|Código da Bandeira|Código que identifica a bandeira ou o banco. Veja a [Tabela IV](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iv-bandeiras).|Sim|número|2|2|
 |26|Código de Autorização|Código de autorização da transação. Este número não é único e pode se repetir.|Sim|alfanúmerico|10|251411|
 |27|NSU/DOC|Número sequencial da transação, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número e pode se repetir.|Sim|alfanumérico|8|053181|
 |28|Total de Parcelas|Total de parcelas da transação.|Sim|número|2|10|
@@ -216,7 +216,7 @@ Identifica os eventos transacionais:
 |30|Número do cartão truncado|Número truncado do cartão que efetuou a compra.|Sim|alfanumérico|19|111111*******1111|
 |31|Identificador Transação Adquirente|Identificador da transação na adquirente para transações de e-commerce (TID)|.Sim|alfanumérico|20|99999999111Q1A2A3A4A|
 |32|Número Lógico do Terminal|Número lógico do terminal em que ocorreu a transação.|Sim|alfanumérico|50|99999999|
-|33|Meio de Captura|Meio pelo qual a transação foi capturada. (linkar tabela)|Sim|número|2|1|
+|33|Meio de Captura|Meio pelo qual a transação foi capturada. Veja a [Tabela V](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-v-meios-de-captura).|Sim|número|2|1|
 
 *Campos não obrigatórios.
 
@@ -230,7 +230,7 @@ Identifica os participantes (Master e Subordinados) do Evento Transacional:
 |2|Identificador da Divisão|Identificador da divisão.|Sim|GUID|36|CCC2E1DD-C47D-4722-A8A2-4DC51746CB0C|
 |3|Identificador do Estabelecimento|Identifica o estabelecimento participante da divisão.|Sim|GUID|36|AAA2E1DD-C47D-4722-A8A2-4DC51746CB0C|
 |4|Número do documento|Identifica o número do CPF/CNPJ do participante.|Sim|alfanumérico|17|00000000000|
-|5|Tipo Estabelecimento|Identifica o tipo de participante. (linkar tabela)|Sim|número|2|3|
+|5|Tipo Estabelecimento|Identifica o tipo de participante. Veja a [Tabela I](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-i-tipos-de-estabelecimento).|Sim|número|2|3|
 |6|Valor Bruto Participante|Valor bruto da operação alocado para o participante.|Sim|número|2|R$100,01 = 10001|
 |7|Percentual Desconto|Percentual descontado do valor bruto do participante.|Sim|número|20|20% = 20|
 |8|Valor Desconto|Valor calculado em centavos do percentual de desconto aplicado sobre o valor bruto.|Sim|número|20|R$100,01 = 10001|
@@ -297,8 +297,8 @@ Identifica o recebível e sua liquidação:
 |1|Tipo de Registro|Indica o tipo de registro. <br>1 - Recebível|Sim|número|2|1|
 |2|Identificador do Recebível|Identificador único da Unidade de Recebível.|Sim|GUID|36|1B917293-8B8D-4180-B2D8-C514A1F8512D|
 |3|Data Prevista de Liquidação|Data prevista de Liquidação.|Sim|date|8|20220110|
-|4|Código do Produto|Identificador do tipo de produto - linkar tabela|Sim|número|2|1|
-|5|Código da Bandeira|Identificador da bandeira ou banco - linkar tabela|Sim|número|2|1|
+|4|Código do Produto|Identificador do tipo de produto. Veja a [Tabela III](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iii-produtos)|Sim|número|2|1|
+|5|Código da Bandeira|Identificador da bandeira ou banco. Veja a [Tabela IV](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iv-bandeiras).|Sim|número|2|1|
 |6|Valor Total da UR|Valor acumulado da Unidade de Recebível.|Sim|número|20|R$ 10000,00 = 1000000|
 |7|Valor Total Previamente Liquidado|Valor total já liquidado da UR informados em arquivos anteriores.|Sim|número|20|R$ 10000,00 = 1000000|
 |8|Valor Liquidado|Valor liquidado da UR no arquivo atual.|Sim|número|20|R$ 10000,00 = 1000000|
@@ -310,8 +310,8 @@ Identifica detalhes da liquidação do recebível:
 |Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo de Registro|Identifica o tipo de registro. <br> 2 - Grupo de Pagamento|Sim|número|1|2|
-|2|Tipo de Liquidação|Informa o tipo de liquidação - linkar tabela|Sim|número|2|1|
-|3|Status da Liquidação*|Informa o status da liquidação linkar tabela|Sim|número|2|1|
+|2|Tipo de Liquidação|Informa o tipo de liquidação. Veja a [Tabela VIII](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-viii-tipos-de-liquida%C3%A7%C3%A3o).|Sim|número|2|1|
+|3|Status da Liquidação*|Informa o status da liquidação. Veja a [Tabela X](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-x-status-da-liquida%C3%A7%C3%A3o).|Sim|número|2|1|
 |4|Valor Liquidado*|Valor pago do grupo de pagamento.|Sim|número|2|R$ 1000,00 = 100000|
 |5|Data de Liquidação*|Data na qual ocorreu o pagamento.|Sim|date|8|20220118|
 |6|ISPB*|Código ISPB (Identificador Sistema de Pagamentos Brasileiro) do banco.|Sim|alfanumérico|8|01027058|
@@ -320,7 +320,7 @@ Identifica detalhes da liquidação do recebível:
 |9|Dígito da Agência*|Dígito da agência bancária.|Sim|alfanumérico|1|1|
 |10|Número da conta*|Número da conta bancária.|Sim|alfanúmérico|20|256545|
 |11|Dígito da conta*|Dígito da conta.|Sim|alfanumérico|1|1|
-|12|Tipo de conta*|Tipo de conta. linkar tabela|Sim|alfanumérico|2|3|
+|12|Tipo de conta*|Tipo de conta. Veja a [Tabela IX](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-ix-tipos-de-contas).|Sim|alfanumérico|2|3|
 |13|Nome do titular da conta*|Nome do titular da conta.|Sim|alfanumérico|200|NOME TITULAR|
 |14|Número do Documento do Titular da Conta*|Número de documento do titular da conta (CPF ou CNPJ).|Sim|alfanumérico|14|234|
 |15|Beneficiário da troca de titularidade**|Número do documento do beneficiário da troca de titularidade (CPF ou CNPJ).|Sim|alfanumérico|14|0000000000|
@@ -342,7 +342,7 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 |4|Identificador Estabelecimento|Identificador do estabelecimento.|Sim|GUID|36|5CB61E99-1B4D-4E7A-886F-6BFB4FF71219|
 |5|Número do Documento|Identifica o número do CPF/CNPJ do participante.|Sim|alfanumérico|17|00000000000|
 |6|Número da Parcela|Identifica a parcela a ser liquidada.|Sim|número|2|10|
-|7|Tipo do Evento|Identifica o tipo de evento lançado na agenda financeira linkar tabela|Sim|número|2|23|
+|7|Tipo do Evento|Identifica o tipo de evento lançado na agenda financeira. Veja a [Tabela VI](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-vi-eventos-financeiros).|Sim|número|2|23|
 |8|Tipo de Evento Transacional|Identifica o tipo de evento transacional originador do lançamento em agenda.|Sim|número|2|1|
 |9|Data Prevista Liquidação|Data prevista da liquidação.|Sim|número|8|AAAAMMDD|
 |10|Valor Líquido Agenda|Valor líquido a ser liquidado.|Sim|número|20|R$100,01 = 10001|
@@ -364,11 +364,11 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 |26|Valor Líquido Comissão**|Valor líquido da comissão recebido dos subordinados.|Não|número|20|R$100,01 = 10001|
 |27|Identificador da Transação**|Identificador da transação.|Sim|GUID|36|D6CDD768-CDFE-479A-B090-CD03253EEE2B|
 |28|Data de Autorização**|Data da venda.|Sim|datetime|17|20220119 09:43:10|
-|29|Código do Ajuste**|Código que identifica o ajuste financeiro lançado em agenda - linkar tabela |Sim|alfanumérico|4|A001|
+|29|Código do Ajuste**|Código que identifica o ajuste financeiro lançado em agenda. Veja a [Tabela VII](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-vii-ajustes-financeiros).|Sim|alfanumérico|4|A001|
 |30|Data de Captura**|Data de confirmação da transação.|Sim|date|8|20220119|
 |31|Valor da Transação**|Valor da transação em centavos.|Sim|número|20|R$100,01 = 10001|
-|32|Código do Produto**|Código que identifica o produto - linkar tabela|Sim|número|2|2|
-|33|Código da Bandeira**|Código que identifica a bandeira ou banco - linkar tabela|Sim|número|2|1|
+|32|Código do Produto**|Código que identifica o produto. Veja a [Tabela III](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iii-produtos).|Sim|número|2|2|
+|33|Código da Bandeira**|Código que identifica a bandeira ou banco. Veja a [Tabela IV](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iv-bandeiras).|Sim|número|2|1|
 |34|Código de Autorização**|Código de autorização da transação. Este número não é único e pode se repetir.|Sim|alfanumérico|10|251411|
 |35|NSU/DOC**|Número sequencial da transação, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número não é único e pode se repetir.|Sim|alfanumérico|8|053181|
 |36|Total de Parcelas**|Total de pacelas da transação.|Sim|número|2|10|
@@ -376,7 +376,7 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 |38|Número do cartão truncado**|Número truncado do cartão que efetuou a compra.|Sim|alfanumérico|19|111111*******1111|
 |39|Identificador Transação Adquirente**|Identificador da transação na adquirente para transações de e-commerce (TID).|Sim|alfanumérico|20|99999999111Q1A2A3A4A|
 |40|Número Lógico do Terminal**|Número Lógico do Terminal em que ocorreu a transação.|Sim|alfanumérico|50|99999999|
-|41|Meio de Captura**|Meio pelo qual a transação foi capturada. - linkar tabela|Sim|número|2|1|
+|41|Meio de Captura**|Meio pelo qual a transação foi capturada. Veja a [Tabela V](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-v-meios-de-captura).|Sim|número|2|1|
 |42|Indicador de Comissão|Indica se o lançamento em agenda refere-se à comissão do Master ou não.<br>0 - Não;<br>1- Sim|Não|número|1|0|
 
 <aside class="notice">Os campos compreendidos entre a posição 11 e 41 não serão exibidos caso o Tipo do Evento seja igual a 41, 42 ou 43.</aside>
@@ -387,8 +387,8 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 |-|-|-|-|-|-|-|
 |1|Tipo Registro|Indica o tipo de registro.<br>4 - Balanceamento de Saldo|Sim|número|2|4|
 |2|Data da Posição|Data da posição do saldo negativo.|Sim|date|8|20220119|
-|3|Código do Produto|Código que identifica o produto - linkar tabela|Sim|número|2|1|
-|4|Código da Bandeira|Código que identifica a bandeira ou banco - linkar tabela|Sim|número|2|1|
+|3|Código do Produto|Código que identifica o produto. Veja a [Tabela III](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iii-produtos).|Sim|número|2|1|
+|4|Código da Bandeira|Código que identifica a bandeira ou banco. Veja a [Tabela IV](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iv-bandeiras).|Sim|número|2|1|
 |5|Valor Inicial|Valor inicial do saldo negativo.|Sim|número|20|R$100,01 = 10001|
 |6|Valor Lançado|Valor lançado no processo de balanceamento.|Sim|número|20|R$100,01 = 10001|
 |7|Valor Final|Valor final do saldo negativo após balanceamento.|Sim|número|20|R$100,01 = 10001|
