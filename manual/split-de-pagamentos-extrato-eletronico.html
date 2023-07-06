@@ -500,7 +500,7 @@
   </tbody>
 </table>
 
-<p>*Campos não obrigatórios, poderão vir vazios na ausência de movimento no dia.</p>
+<p>*Não obrigatórios, poderão vir vazios na ausência de movimento no dia.</p>
 
 <h3 id="registro-1---estabelecimento">Registro 1 - Estabelecimento</h3>
 
@@ -900,7 +900,7 @@
   </tbody>
 </table>
 
-<p>*Campos não obrigatórios.</p>
+<p>*Não obrigatórios.</p>
 
 <h3 id="registro-3---participantes-do-evento-transacional">Registro 3 - Participantes do Evento Transacional</h3>
 
@@ -1048,7 +1048,7 @@
   </tbody>
 </table>
 
-<p>*Campos não obrigatórios.</p>
+<p>*Não obrigatórios.</p>
 
 <h3 id="registro-4---agenda-financeira">Registro 4 - Agenda Financeira</h3>
 
@@ -1324,7 +1324,7 @@
   </tbody>
 </table>
 
-<p>*Campos não obrigatórios, poderão vir vazios na ausência de movimento no dia.</p>
+<p>*Não obrigatórios, poderão vir vazios na ausência de movimento no dia.</p>
 
 <h3 id="registro-1---recebível">Registro 1 - Recebível</h3>
 
@@ -1695,7 +1695,7 @@
     </tr>
     <tr>
       <td>11</td>
-      <td>Identificador do Evento Transacional**</td>
+      <td>Identificador do Evento Transacional</td>
       <td>Identificador do evento transacional. Quando é uma transação, este campo é igual ao Identificador da Transação.</td>
       <td>Sim</td>
       <td>GUID</td>
@@ -1704,7 +1704,7 @@
     </tr>
     <tr>
       <td>12</td>
-      <td>Data do Evento Transacional**</td>
+      <td>Data do Evento Transacional</td>
       <td>Data em que a operação ocorreu. Para a transação, representa a data de autorização. Para os demais, representa a data em que a operação ocorreu.</td>
       <td>Sim</td>
       <td>datetime</td>
@@ -1713,7 +1713,7 @@
     </tr>
     <tr>
       <td>13</td>
-      <td>Data de Confirmação**</td>
+      <td>Data de Confirmação</td>
       <td>Data em que a operação foi efetivada.<br />Transação - Captura<br />Cancelamento - Confirmação do cancelamento.</td>
       <td>Sim</td>
       <td>date</td>
@@ -1722,7 +1722,7 @@
     </tr>
     <tr>
       <td>14</td>
-      <td>Data de Agendamento**</td>
+      <td>Data de Agendamento</td>
       <td>Data em que o evento foi processado em agenda financeira.</td>
       <td>Sim</td>
       <td>datetime</td>
@@ -1731,7 +1731,7 @@
     </tr>
     <tr>
       <td>15</td>
-      <td>Valor da Operação**</td>
+      <td>Valor da Operação</td>
       <td>Valor da operação em centavos. Podendo ser um valor positivo ou negativo.</td>
       <td>Não</td>
       <td>número</td>
@@ -1740,7 +1740,7 @@
     </tr>
     <tr>
       <td>16</td>
-      <td>Taxa Administrativa (MDR)**</td>
+      <td>Taxa Administrativa (MDR)</td>
       <td>Percentual aplicado ao valor bruto da operação.</td>
       <td>Não</td>
       <td>número</td>
@@ -1758,7 +1758,7 @@
     </tr>
     <tr>
       <td>18</td>
-      <td>Tarifa Administrativa (Fee)**</td>
+      <td>Tarifa Administrativa (Fee)</td>
       <td>Tarifa fixa cobrada por transação. Valor cobrado separadamente em agenda financeira.</td>
       <td>Não</td>
       <td>número</td>
@@ -1767,7 +1767,7 @@
     </tr>
     <tr>
       <td>19</td>
-      <td>Valor Taxa Receba Rápido**</td>
+      <td>Valor Taxa Receba Rápido</td>
       <td>Valor descontado para adiantamento dos subordinados pelo Receba Rápido.</td>
       <td>Não</td>
       <td>número</td>
@@ -1776,7 +1776,7 @@
     </tr>
     <tr>
       <td>20</td>
-      <td>Tarifa Boleto**</td>
+      <td>Tarifa Boleto</td>
       <td>Tarifa cobrada pelo boleto emitido ou pago para transações de boleto.</td>
       <td>Não</td>
       <td>número</td>
@@ -1785,7 +1785,7 @@
     </tr>
     <tr>
       <td>21</td>
-      <td>Valor Bruto Venda Direta**</td>
+      <td>Valor Bruto Venda Direta</td>
       <td>Valor bruto de venda direta do Master, caso o mesmo seja um participante da transação vendendo um produto.</td>
       <td>Não</td>
       <td>20</td>
@@ -1803,7 +1803,7 @@
     </tr>
     <tr>
       <td>23</td>
-      <td>Valor Líquido Venda Direta**</td>
+      <td>Valor Líquido Venda Direta</td>
       <td>Valor líquido da venda direta.</td>
       <td>Não</td>
       <td>número</td>
@@ -1812,7 +1812,7 @@
     </tr>
     <tr>
       <td>24</td>
-      <td>Valor Bruto Comissão**</td>
+      <td>Valor Bruto Comissão</td>
       <td>Valor bruto de comissão recebido pelo Master.</td>
       <td>Não</td>
       <td>número</td>
@@ -1821,7 +1821,7 @@
     </tr>
     <tr>
       <td>25</td>
-      <td>Valor Taxa Administrativa Comissão**</td>
+      <td>Valor Taxa Administrativa Comissão</td>
       <td>Valor calculado da taxa administrativa, em centavos, sobre a comissão, incluindo a taxa de Receba Rápido.</td>
       <td>Não</td>
       <td>número</td>
@@ -1830,7 +1830,7 @@
     </tr>
     <tr>
       <td>26</td>
-      <td>Valor Líquido Comissão**</td>
+      <td>Valor Líquido Comissão</td>
       <td>Valor líquido da comissão recebido dos subordinados.</td>
       <td>Não</td>
       <td>número</td>
@@ -1839,7 +1839,7 @@
     </tr>
     <tr>
       <td>27</td>
-      <td>Identificador da Transação**</td>
+      <td>Identificador da Transação</td>
       <td>Identificador da transação.</td>
       <td>Sim</td>
       <td>GUID</td>
@@ -1848,7 +1848,7 @@
     </tr>
     <tr>
       <td>28</td>
-      <td>Data de Autorização**</td>
+      <td>Data de Autorização</td>
       <td>Data da venda.</td>
       <td>Sim</td>
       <td>datetime</td>
@@ -1857,7 +1857,7 @@
     </tr>
     <tr>
       <td>29</td>
-      <td>Código do Ajuste**</td>
+      <td>Código do Ajuste</td>
       <td>Código que identifica o ajuste financeiro lançado em agenda. Veja a <a href="https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-vii-ajustes-financeiros">Tabela VII</a>.</td>
       <td>Sim</td>
       <td>alfanumérico</td>
@@ -1866,7 +1866,7 @@
     </tr>
     <tr>
       <td>30</td>
-      <td>Data de Captura**</td>
+      <td>Data de Captura</td>
       <td>Data de confirmação da transação.</td>
       <td>Sim</td>
       <td>date</td>
@@ -1875,7 +1875,7 @@
     </tr>
     <tr>
       <td>31</td>
-      <td>Valor da Transação**</td>
+      <td>Valor da Transação</td>
       <td>Valor da transação em centavos.</td>
       <td>Sim</td>
       <td>número</td>
@@ -1884,7 +1884,7 @@
     </tr>
     <tr>
       <td>32</td>
-      <td>Código do Produto**</td>
+      <td>Código do Produto</td>
       <td>Código que identifica o produto. Veja a <a href="https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iii-produtos">Tabela III</a>.</td>
       <td>Sim</td>
       <td>número</td>
@@ -1893,7 +1893,7 @@
     </tr>
     <tr>
       <td>33</td>
-      <td>Código da Bandeira**</td>
+      <td>Código da Bandeira</td>
       <td>Código que identifica a bandeira ou banco. Veja a <a href="https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iv-bandeiras">Tabela IV</a>.</td>
       <td>Sim</td>
       <td>número</td>
@@ -1902,7 +1902,7 @@
     </tr>
     <tr>
       <td>34</td>
-      <td>Código de Autorização**</td>
+      <td>Código de Autorização</td>
       <td>Código de autorização da transação. Este número não é único e pode se repetir.</td>
       <td>Sim</td>
       <td>alfanumérico</td>
@@ -1911,7 +1911,7 @@
     </tr>
     <tr>
       <td>35</td>
-      <td>NSU/DOC**</td>
+      <td>NSU/DOC</td>
       <td>Número sequencial da transação, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número não é único e pode se repetir.</td>
       <td>Sim</td>
       <td>alfanumérico</td>
@@ -1920,7 +1920,7 @@
     </tr>
     <tr>
       <td>36</td>
-      <td>Total de Parcelas**</td>
+      <td>Total de Parcelas</td>
       <td>Total de pacelas da transação.</td>
       <td>Sim</td>
       <td>número</td>
@@ -1929,7 +1929,7 @@
     </tr>
     <tr>
       <td>37</td>
-      <td>Número do Pedido**</td>
+      <td>Número do Pedido</td>
       <td>Número do pedido informado pelo estabelecimento na transação.</td>
       <td>Sim</td>
       <td>número</td>
@@ -1938,7 +1938,7 @@
     </tr>
     <tr>
       <td>38</td>
-      <td>Número do cartão truncado**</td>
+      <td>Número do cartão truncado</td>
       <td>Número truncado do cartão que efetuou a compra.</td>
       <td>Sim</td>
       <td>alfanumérico</td>
@@ -1947,7 +1947,7 @@
     </tr>
     <tr>
       <td>39</td>
-      <td>Identificador Transação Adquirente**</td>
+      <td>Identificador Transação Adquirente</td>
       <td>Identificador da transação na adquirente para transações de e-commerce (TID).</td>
       <td>Sim</td>
       <td>alfanumérico</td>
@@ -1956,7 +1956,7 @@
     </tr>
     <tr>
       <td>40</td>
-      <td>Número Lógico do Terminal**</td>
+      <td>Número Lógico do Terminal</td>
       <td>Número Lógico do Terminal em que ocorreu a transação.</td>
       <td>Sim</td>
       <td>alfanumérico</td>
@@ -1965,7 +1965,7 @@
     </tr>
     <tr>
       <td>41</td>
-      <td>Meio de Captura**</td>
+      <td>Meio de Captura</td>
       <td>Meio pelo qual a transação foi capturada. Veja a <a href="https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-v-meios-de-captura">Tabela V</a>.</td>
       <td>Sim</td>
       <td>número</td>
