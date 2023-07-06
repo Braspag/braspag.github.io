@@ -325,9 +325,9 @@ Identifica detalhes da liquidação do recebível:
 |15|Beneficiário da troca de titularidade**|Número do documento do beneficiário da troca de titularidade (CPF ou CNPJ).|Sim|alfanumérico|14|0000000000|
 |16|Número do Protocolo do Contrato***|Identificador do efeito de protocolo recebido da registradora que informou a troca de titularidade.|Sim|GUID|36|485BDD77-BA55-4447-AC10-AA38F97CFC49|
 
-*Campos só serão obrigatórios se o tipo de liquidação for diferente de troca de titularidade.<br>
-**Campo obrigatório se o tipo de liquidação for troca de titularidade.<br>
-***Campo obrigatório se o tipo de liquidação for diferente de Braspag.
+*\Obrigatórios se o tipo de liquidação for diferente de troca de titularidade.<br>
+**\Obrigatório se o tipo de liquidação for troca de titularidade.<br>
+***\Obrigatório se o tipo de liquidação for diferente de Braspag.
 
 ### Registro 3 - Agenda Financeira/Evento Transacional
 
