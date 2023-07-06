@@ -109,7 +109,7 @@ Para obter os arquivos de Extrato Eletrônico, faça a seguinte requisição:
 |-|-|-|-|
 |`DocumentNumber`|Número do documento (CPF ou CNPJ) o qual está buscando as informações.|string|Sim|
 |`Date`|Informar a data base pretendida|data|Não*|
-|`ReconciliationType`|Valores possíveis:<br>**Forecast**: Será retornado o arquivo referente aos eventos transacionais e previsões de liquidação.<br>**Settlement**: Será retornado o arquivo referente às liquidações realizadas.<br>**SellerForecast****: Será retornado o arquivo para o Seller referente ao MerchantId informado.<br>**SellerSettlement****: Será retornado o arquivo referente às liquidações realizadas para o Seller de acordo com o MerchantId informado.|string|Sim|
+|`ReconciliationType`|Valores possíveis:<br>**Forecast**: Será retornado o arquivo referente aos eventos transacionais e previsões de liquidação.<br>**Settlement**: Será retornado o arquivo referente às liquidações realizadas.<br>**SellerForecast****: Será retornado o arquivo para o Seller referente ao MerchantId informado.<br>**SellerSettlement**\**: Será retornado o arquivo referente às liquidações realizadas para o Seller de acordo com o MerchantId informado.|string|Sim|
 |`MerchantId`|Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro.|GUID|Será obrigatório apenas se o `ReconciliationType` for do tipo SellerForecast.|
 
 *Se o campo `Date` não for preenchido, o endpoint retornará o último arquivo gerado para o número de documento informado.<br>
@@ -165,7 +165,7 @@ Identifica o cabeçalho do Arquivo de Previsão:
 |10|Data Máxima de Evento Transacional*|Data final de captura dos itens presentes no arquivo.|Sim|data|17|20220118|
 |11|Reprocessado|Informa se o arquivo foi gerado através do fluxo de reprocessamento.|Sim|número|1|0 (Falso) ou 1 (Verdadeiro)|
 
-*Campos não obrigatórios, poderão vir vazios na ausência de movimento no dia.
+*Não obrigatórios, poderão vir vazios na ausência de movimento no dia.
 
 ### Registro 1 - Estabelecimento
 
@@ -217,7 +217,7 @@ Identifica os eventos transacionais:
 |32|Número Lógico do Terminal|Número lógico do terminal em que ocorreu a transação.|Sim|alfanumérico|50|99999999|
 |33|Meio de Captura|Meio pelo qual a transação foi capturada. Veja a [Tabela V](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-v-meios-de-captura).|Sim|número|2|1|
 
-*Campos não obrigatórios.
+*Não obrigatórios.
 
 ### Registro 3 - Participantes do Evento Transacional
 
@@ -240,7 +240,7 @@ Identifica os participantes (Master e Subordinados) do Evento Transacional:
 |13|Percentual Total Receba Rápido*|Percentual total do Receba Rápido.|Sim|número|20|20% = 20|
 |14|Valor Calculado Receba Rápido*|Valor calculado do Receba Rápido.|Sim|número|20|R$100,01 = 10001|
 
-*Campos não obrigatórios.
+*Não obrigatórios.
 
 ### Registro 4 - Agenda Financeira
 
@@ -285,7 +285,7 @@ Identifica o cabeçalho do Arquivo de Liquidação:
 |10|Data Máxima Prevista*|Maior data prevista dos recebíveis liquidados no dia.|Sim|date|8|20220118|
 |11|Reprocessado|Informa se o arquivo foi gerado através do fluxo de reprocessamento.|Sim|número|1|0 (Falso) ou 1 (Verdadeiro)|
 
-*Campos não obrigatórios, poderão vir vazios na ausência de movimento no dia.
+*Não obrigatórios, poderão vir vazios na ausência de movimento no dia.
 
 ### Registro 1 - Recebível
 
@@ -345,37 +345,37 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 |8|Tipo de Evento Transacional|Identifica o tipo de evento transacional originador do lançamento em agenda.|Sim|número|2|1|
 |9|Data Prevista Liquidação|Data prevista da liquidação.|Sim|número|8|AAAAMMDD|
 |10|Valor Líquido Agenda|Valor líquido a ser liquidado.|Sim|número|20|R$100,01 = 10001|
-|11|Identificador do Evento Transacional**|Identificador do evento transacional. Quando é uma transação, este campo é igual ao Identificador da Transação.|Sim|GUID|36|D6CDD768-CDFE-479A-B090-CD03253EEE2B|
-|12|Data do Evento Transacional**|Data em que a operação ocorreu. Para a transação, representa a data de autorização. Para os demais, representa a data em que a operação ocorreu.|Sim|datetime|17|20220119 09:43:10|
-|13|Data de Confirmação**|Data em que a operação foi efetivada.<br>Transação - Captura<br>Cancelamento - Confirmação do cancelamento.|Sim|date|17|20220119|
-|14|Data de Agendamento**|Data em que o evento foi processado em agenda financeira.|Sim|datetime|17|20220119 09:43:10|
-|15|Valor da Operação**|Valor da operação em centavos. Podendo ser um valor positivo ou negativo.|Não|número|20|R$100,01 = 10001|
-|16|Taxa Administrativa (MDR)**|Percentual aplicado ao valor bruto da operação.|Não|número|20|R$100,01 = 10001|
+|11|Identificador do Evento Transacional|Identificador do evento transacional. Quando é uma transação, este campo é igual ao Identificador da Transação.|Sim|GUID|36|D6CDD768-CDFE-479A-B090-CD03253EEE2B|
+|12|Data do Evento Transacional|Data em que a operação ocorreu. Para a transação, representa a data de autorização. Para os demais, representa a data em que a operação ocorreu.|Sim|datetime|17|20220119 09:43:10|
+|13|Data de Confirmação|Data em que a operação foi efetivada.<br>Transação - Captura<br>Cancelamento - Confirmação do cancelamento.|Sim|date|17|20220119|
+|14|Data de Agendamento|Data em que o evento foi processado em agenda financeira.|Sim|datetime|17|20220119 09:43:10|
+|15|Valor da Operação|Valor da operação em centavos. Podendo ser um valor positivo ou negativo.|Não|número|20|R$100,01 = 10001|
+|16|Taxa Administrativa (MDR)|Percentual aplicado ao valor bruto da operação.|Não|número|20|R$100,01 = 10001|
 |17|Valor Taxa Administrativa|Valor calculado da traxa administrativa em centavos sobre o evento transacional.|Não|número|20|R$100,01 = 10001|
-|18|Tarifa Administrativa (Fee)**|Tarifa fixa cobrada por transação. Valor cobrado separadamente em agenda financeira.|Não|número|20|R$100,01 = 10001|
-|19|Valor Taxa Receba Rápido**|Valor descontado para adiantamento dos subordinados pelo Receba Rápido.|Não|número|20|R$100,01 = 10001|
-|20|Tarifa Boleto**|Tarifa cobrada pelo boleto emitido ou pago para transações de boleto.|Não|número|20|R$100,01 = 10001|
-|21|Valor Bruto Venda Direta**|Valor bruto de venda direta do Master, caso o mesmo seja um participante da transação vendendo um produto.|Não|20|R$100,01 = 10001|
+|18|Tarifa Administrativa (Fee)|Tarifa fixa cobrada por transação. Valor cobrado separadamente em agenda financeira.|Não|número|20|R$100,01 = 10001|
+|19|Valor Taxa Receba Rápido|Valor descontado para adiantamento dos subordinados pelo Receba Rápido.|Não|número|20|R$100,01 = 10001|
+|20|Tarifa Boleto|Tarifa cobrada pelo boleto emitido ou pago para transações de boleto.|Não|número|20|R$100,01 = 10001|
+|21|Valor Bruto Venda Direta|Valor bruto de venda direta do Master, caso o mesmo seja um participante da transação vendendo um produto.|Não|20|R$100,01 = 10001|
 |22|Valor Taxa Admnistrativa Venda Direta**|Valor calculado da taxa administrativa, em centavos, sobre a venda direta.|Não|número|20|R$100,01 = 10001|
-|23|Valor Líquido Venda Direta**|Valor líquido da venda direta.|Não|número|20|R$100,01 = 10001|
-|24|Valor Bruto Comissão**|Valor bruto de comissão recebido pelo Master.|Não|número|20|R$100,01 = 10001|
-|25|Valor Taxa Administrativa Comissão**|Valor calculado da taxa administrativa, em centavos, sobre a comissão, incluindo a taxa de Receba Rápido.|Não|número|20|R$100,01 = 10001|
-|26|Valor Líquido Comissão**|Valor líquido da comissão recebido dos subordinados.|Não|número|20|R$100,01 = 10001|
-|27|Identificador da Transação**|Identificador da transação.|Sim|GUID|36|D6CDD768-CDFE-479A-B090-CD03253EEE2B|
-|28|Data de Autorização**|Data da venda.|Sim|datetime|17|20220119 09:43:10|
-|29|Código do Ajuste**|Código que identifica o ajuste financeiro lançado em agenda. Veja a [Tabela VII](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-vii-ajustes-financeiros).|Sim|alfanumérico|4|A001|
-|30|Data de Captura**|Data de confirmação da transação.|Sim|date|8|20220119|
-|31|Valor da Transação**|Valor da transação em centavos.|Sim|número|20|R$100,01 = 10001|
-|32|Código do Produto**|Código que identifica o produto. Veja a [Tabela III](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iii-produtos).|Sim|número|2|2|
-|33|Código da Bandeira**|Código que identifica a bandeira ou banco. Veja a [Tabela IV](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iv-bandeiras).|Sim|número|2|1|
-|34|Código de Autorização**|Código de autorização da transação. Este número não é único e pode se repetir.|Sim|alfanumérico|10|251411|
-|35|NSU/DOC**|Número sequencial da transação, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número não é único e pode se repetir.|Sim|alfanumérico|8|053181|
-|36|Total de Parcelas**|Total de pacelas da transação.|Sim|número|2|10|
-|37|Número do Pedido**|Número do pedido informado pelo estabelecimento na transação.|Sim|número|50|1234567891011|
-|38|Número do cartão truncado**|Número truncado do cartão que efetuou a compra.|Sim|alfanumérico|19|111111*******1111|
-|39|Identificador Transação Adquirente**|Identificador da transação na adquirente para transações de e-commerce (TID).|Sim|alfanumérico|20|99999999111Q1A2A3A4A|
-|40|Número Lógico do Terminal**|Número Lógico do Terminal em que ocorreu a transação.|Sim|alfanumérico|50|99999999|
-|41|Meio de Captura**|Meio pelo qual a transação foi capturada. Veja a [Tabela V](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-v-meios-de-captura).|Sim|número|2|1|
+|23|Valor Líquido Venda Direta|Valor líquido da venda direta.|Não|número|20|R$100,01 = 10001|
+|24|Valor Bruto Comissão|Valor bruto de comissão recebido pelo Master.|Não|número|20|R$100,01 = 10001|
+|25|Valor Taxa Administrativa Comissão|Valor calculado da taxa administrativa, em centavos, sobre a comissão, incluindo a taxa de Receba Rápido.|Não|número|20|R$100,01 = 10001|
+|26|Valor Líquido Comissão|Valor líquido da comissão recebido dos subordinados.|Não|número|20|R$100,01 = 10001|
+|27|Identificador da Transação|Identificador da transação.|Sim|GUID|36|D6CDD768-CDFE-479A-B090-CD03253EEE2B|
+|28|Data de Autorização|Data da venda.|Sim|datetime|17|20220119 09:43:10|
+|29|Código do Ajuste|Código que identifica o ajuste financeiro lançado em agenda. Veja a [Tabela VII](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-vii-ajustes-financeiros).|Sim|alfanumérico|4|A001|
+|30|Data de Captura|Data de confirmação da transação.|Sim|date|8|20220119|
+|31|Valor da Transação|Valor da transação em centavos.|Sim|número|20|R$100,01 = 10001|
+|32|Código do Produto|Código que identifica o produto. Veja a [Tabela III](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iii-produtos).|Sim|número|2|2|
+|33|Código da Bandeira|Código que identifica a bandeira ou banco. Veja a [Tabela IV](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-iv-bandeiras).|Sim|número|2|1|
+|34|Código de Autorização|Código de autorização da transação. Este número não é único e pode se repetir.|Sim|alfanumérico|10|251411|
+|35|NSU/DOC|Número sequencial da transação, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número não é único e pode se repetir.|Sim|alfanumérico|8|053181|
+|36|Total de Parcelas|Total de pacelas da transação.|Sim|número|2|10|
+|37|Número do Pedido|Número do pedido informado pelo estabelecimento na transação.|Sim|número|50|1234567891011|
+|38|Número do cartão truncado|Número truncado do cartão que efetuou a compra.|Sim|alfanumérico|19|111111*******1111|
+|39|Identificador Transação Adquirente|Identificador da transação na adquirente para transações de e-commerce (TID).|Sim|alfanumérico|20|99999999111Q1A2A3A4A|
+|40|Número Lógico do Terminal|Número Lógico do Terminal em que ocorreu a transação.|Sim|alfanumérico|50|99999999|
+|41|Meio de Captura|Meio pelo qual a transação foi capturada. Veja a [Tabela V](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-v-meios-de-captura).|Sim|número|2|1|
 |42|Indicador de Comissão|Indica se o lançamento em agenda refere-se à comissão do Master ou não.<br>0 - Não;<br>1- Sim|Não|número|1|0|
 
 <aside class="notice">Os campos compreendidos entre a posição 11 e 41 não serão exibidos caso o Tipo do Evento seja igual a 41, 42 ou 43.</aside>
