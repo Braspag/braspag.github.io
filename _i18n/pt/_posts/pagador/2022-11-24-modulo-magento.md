@@ -1,7 +1,7 @@
 ---
 layout: tutorial
-title:  Módulo Magento 2.0
-description: Como Integrar sua Loja Magento com o Módulo de Pagamentos Braspag
+title:  Módulo Adobe Commerce
+description: Como Integrar sua Loja Adobe Commerce com o Módulo de Pagamentos Braspag
 toc_footers: false
 categories: tutorial
 translated: true
@@ -11,17 +11,19 @@ tags:
  
 ---
 
-# Integração do Módulo Magento 2.0
+# Integração do Módulo Adobe Commerce
+
+<aside class="notice">A plataforma Magento agora se chama Adobe Commerce. Para mais informações, consulte o site [Adobe Commerce](https://business.adobe.com/br/products/magento/magento-commerce.html){:target="_blank"}</aside>
 
 # Instalação
 
 ## Pré-Requisitos Técnicos
 
-Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Magento, consulte o [Guia de Instalação](https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html){:target="_blank"} na documentação oficial do Magento.
+Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Adobe Commerce, consulte o [Guia de Instalação](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html){:target="_blank"} na documentação oficial do Adobe Commerce.
 
-<aside class="notice">A versão recomendada do Magento é 2.4.3 ou superior.</aside>
+<aside class="notice">A versão recomendada do Adobe Commerce é 2.4.3 ou superior.</aside>
 
-<aside class="warning">As versões Magento entre 2.3.0. e 2.4.2 não estão recebendo atualizações no módulo Braspag. </aside>
+<aside class="warning">As versões Adobe Commerce entre 2.3.0. e 2.4.2 não estão recebendo atualizações no módulo Braspag. </aside>
 
 ## Instalação do Módulo Base
 
