@@ -1,7 +1,7 @@
 ---
 layout: tutorial
-title:  Módulo Magento 2.0 - Marketplace
-description: Como Integrar sua Loja Magento com o Módulo de Pagamentos Braspag na Webjump
+title:  Módulo Adobe Commerce - Marketplace
+description: Como Integrar sua Loja Adobe Commerce com o Módulo de Pagamentos Braspag na Webjump
 toc_footers: false
 categories: tutorial
 translated: true
@@ -11,17 +11,19 @@ tags:
 
 ---
 
-# Integração do Módulo Magento 2.0 para Marketplace
+# Integração do Módulo Adobe Commerce 2.0 para Marketplace
+
+A plataforma Magento agora se chama Adobe Commerce. Para mais informações, consulte o site [Adobe Commerce](https://business.adobe.com/br/products/magento/magento-commerce.html){:target="_blank"}.
 
 # Instalação
 
 ## Pré-Requisitos Técnicos
 
-Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Magento, consulte o [Guia de Instalação](https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html){:target="_blank"} na documentação oficial do Magento.
+Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Adobe Commerce, consulte o [Guia de Instalação](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html){:target="_blank"} na documentação oficial do Adobe Commerce.
 
-<aside class="notice">A versão recomendada do Magento é 2.4.3 ou superior.</aside>
+<aside class="notice">A versão recomendada do Adobe Commerce é 2.4.3 ou superior.</aside>
 
-<aside class="warning">As versões Magento entre 2.3.0. e 2.4.2 não estão recebendo atualizações no módulo Braspag. </aside>
+<aside class="warning">As versões Adobe Commerce entre 2.3.0. e 2.4.2 não estão recebendo atualizações no módulo Braspag. </aside>
 
 ## Instalação do Módulo Base
 
@@ -41,11 +43,11 @@ bin/magento setup:upgrade
 
 # Post de Notificação
 
-O módulo Magento possui um endpoint criado e preparado para receber as notificações de atualização de status da transação, como um boleto que foi pago, por exemplo. Assim, são feitas atualizações dos pedidos na loja.
+O módulo Adobe Commerce possui um endpoint criado e preparado para receber as notificações de atualização de status da transação, como um boleto que foi pago, por exemplo. Assim, são feitas atualizações dos pedidos na loja.
 
 <br/>Para configurar a URL de sua loja na Braspag, entre em contato conosco informando o seu `MerchantID` e a "URL de Notificação".
 
-<aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Magento).</aside>
+<aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Adobe Commerce).</aside>
 
 Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o){:target="_blank"} para mais informações sobre o Post de Notificação.
 
@@ -53,7 +55,7 @@ Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador
 
 Siga as instruções de acesso para as configurações gerais do módulo Braspag:
 
-1. Faça login no admin do Magento;
+1. Faça login no admin do Adobe Commerce;
 2. No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag**.
 
 ## Configurações Globais
@@ -425,13 +427,13 @@ A imagem a seguir mostra os campos de configuração a serem preenchidos na seç
 
 # Split de Pagamentos 
 
-<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível de alterações.</aside>
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Adobe Commerce está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível de alterações.</aside>
 
-## Split (Magento)
+## Split (Adobe Commerce)
 
-Seguem instruções para acesso e configurações de algumas funcionalidades do **Split de Pagamentos** disponibilizadas no Magento:
+Seguem instruções para acesso e configurações de algumas funcionalidades do **Split de Pagamentos** disponibilizadas no Adobe Commerce:
 
-1. Faça login no admin do Magento;
+1. Faça login no admin do Adobe Commerce;
 2. No menu, acesse `Vendas` > `Braspag` > `Payment Splits`.
 
 ### Trava do Split
@@ -441,9 +443,9 @@ Para efetuar uma trava no pagamento de split, acesse as transações seguindo os
 
 ### Envio Manual Pós-Transacional
 
-Para efetuar o envio do split pós transacional manualmente, é necessário acessar o pedido no admin do Magento (`Vendas` > `Pedidos` > `Visualizar`) e, caso o pós transacional esteja ativado mas ainda não tenha sido efetuado, será possível clicar no botão **Send Payment Split**.
+Para efetuar o envio do split pós transacional manualmente, é necessário acessar o pedido no admin do Adobe Commerce (`Vendas` > `Pedidos` > `Visualizar`) e, caso o pós transacional esteja ativado mas ainda não tenha sido efetuado, será possível clicar no botão **Send Payment Split**.
 
-## Split (Magento + Unirgy)
+## Split (Adobe Commerce + Unirgy)
 
 A seguir, algumas funcionalidades do split de pagamentos disponibilizadas de forma customizada na Unirgy:
 
@@ -482,7 +484,7 @@ Existem três formas de se cadastrar as taxas e descontos de comissões para um 
    1. Para acessar esta configuração, vá até o menu `Catálogo` > `Produtos` e selecione o produto pretendido na grid, clicando em **Editar**.
    2. Localize a aba `Dropship Vendors`. Adicione o seller ao produto (é importante que o mesmo já tenha um `MerchantID` Braspag vinculado, como demonstrado no item [Vínculo do Seller ao Subordinado](https://braspag.github.io//tutorial/modulo-magento-webjump#split-(magento-+-unirgy)), e nos campos “Braspag Subordinate MDR” e “Braspag Subordinate Fee”, adicione as informações de taxas e descontos de comissões a serem aplicadas para o Seller na venda do produto que está sendo editado.
 
-## Split (Magento + Webkul)
+## Split (Adobe Commerce + Webkul)
 
 A seguir, algumas funcionalidades do Split de Pagamentos disponibilizadas de forma customizada na Webkul:
 
