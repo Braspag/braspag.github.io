@@ -13,7 +13,7 @@ tags:
 
 # Integração do Módulo Adobe Commerce
 
-<aside class="notice">A plataforma Magento agora se chama Adobe Commerce. Para mais informações, consulte o site [Adobe Commerce](https://business.adobe.com/br/products/magento/magento-commerce.html){:target="_blank"}</aside>
+A plataforma Magento agora se chama Adobe Commerce. Para mais informações, consulte o site [Adobe Commerce](https://business.adobe.com/br/products/magento/magento-commerce.html){:target="_blank"}
 
 # Instalação
 
