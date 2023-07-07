@@ -12,7 +12,7 @@
 
     <title>
         
-        Módulo Magento 2.0 - Marketplace &middot; Braspag Developers - Manuais
+        Módulo Adobe Commerce - Marketplace &middot; Braspag Developers - Manuais
         
     </title>
 
@@ -34,11 +34,11 @@
 
     
         
-            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//tutorial/magento-marketplace" />
+            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//tutorial/modulo-adobe-commerce-marketplace" />
         
     
         
-            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/tutorial/magento-marketplace" />
+            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/tutorial/modulo-adobe-commerce-marketplace" />
         
     
 
@@ -62,14 +62,14 @@
 
                                 
                                     
-                                    <a href="https://braspag.github.io//tutorial/magento-marketplace">
+                                    <a href="https://braspag.github.io//tutorial/modulo-adobe-commerce-marketplace">
                                     
 
                                         <img alt="Português" src="https://braspag.github.io//assets/images/pt.png"/>
                                     </a>
                                 
                                     
-                                    <a href="https://braspag.github.io//en/tutorial/magento-marketplace">
+                                    <a href="https://braspag.github.io//en/tutorial/modulo-adobe-commerce-marketplace">
                                     
 
                                         <img alt="English" src="https://braspag.github.io//assets/images/en.png"/>
@@ -107,7 +107,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://braspag.github.io//tutorial/magento-marketplace">Módulo Magento 2.0 - Marketplace</a></li>
+                                    <li class="active">&gt; <a href="https://braspag.github.io//tutorial/modulo-adobe-commerce-marketplace">Módulo Adobe Commerce - Marketplace</a></li>
                                     
                                 
                             
@@ -117,17 +117,19 @@
             </div>
 
             <div class="post">
-    <h1 id="integração-do-módulo-magento-20-para-marketplace">Integração do Módulo Magento 2.0 para Marketplace</h1>
+    <h1 id="integração-do-módulo-adobe-commerce-20-para-marketplace">Integração do Módulo Adobe Commerce 2.0 para Marketplace</h1>
+
+<p>A plataforma Magento agora se chama Adobe Commerce. Para mais informações, consulte o site <a href="https://business.adobe.com/br/products/magento/magento-commerce.html" target="_blank">Adobe Commerce</a>.</p>
 
 <h1 id="instalação">Instalação</h1>
 
 <h2 id="pré-requisitos-técnicos">Pré-Requisitos Técnicos</h2>
 
-<p>Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Magento, consulte o <a href="https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html" target="_blank">Guia de Instalação</a> na documentação oficial do Magento.</p>
+<p>Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Adobe Commerce, consulte o <a href="https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html" target="_blank">Guia de Instalação</a> na documentação oficial do Adobe Commerce.</p>
 
-<aside class="notice">A versão recomendada do Magento é 2.4.3 ou superior.</aside>
+<aside class="notice">A versão recomendada do Adobe Commerce é 2.4.3 ou superior.</aside>
 
-<aside class="warning">As versões Magento entre 2.3.0. e 2.4.2 não estão recebendo atualizações no módulo Braspag. </aside>
+<aside class="warning">As versões Adobe Commerce entre 2.3.0. e 2.4.2 não estão recebendo atualizações no módulo Braspag. </aside>
 
 <h2 id="instalação-do-módulo-base">Instalação do Módulo Base</h2>
 
@@ -150,11 +152,11 @@ bin/magento setup:upgrade
 
 <h1 id="post-de-notificação">Post de Notificação</h1>
 
-<p>O módulo Magento possui um endpoint criado e preparado para receber as notificações de atualização de status da transação, como um boleto que foi pago, por exemplo. Assim, são feitas atualizações dos pedidos na loja.</p>
+<p>O módulo Adobe Commerce possui um endpoint criado e preparado para receber as notificações de atualização de status da transação, como um boleto que foi pago, por exemplo. Assim, são feitas atualizações dos pedidos na loja.</p>
 
 <p><br />Para configurar a URL de sua loja na Braspag, entre em contato conosco informando o seu <code class="language-plaintext highlighter-rouge">MerchantID</code> e a “URL de Notificação”.</p>
 
-<aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Magento).</aside>
+<aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Adobe Commerce).</aside>
 
 <p>Consulte o <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o" target="_blank">Manual do Pagador</a> para mais informações sobre o Post de Notificação.</p>
 
@@ -163,7 +165,7 @@ bin/magento setup:upgrade
 <p>Siga as instruções de acesso para as configurações gerais do módulo Braspag:</p>
 
 <ol>
-  <li>Faça login no admin do Magento;</li>
+  <li>Faça login no admin do Adobe Commerce;</li>
   <li>No menu, acesse <strong>Lojas</strong> &gt; <strong>Configuração</strong> &gt; <strong>Vendas</strong> &gt; <strong>Formas de Pagamento</strong> &gt; <strong>Outros meios de pagamento</strong> &gt; <strong>Braspag</strong>.</li>
 </ol>
 
@@ -1070,14 +1072,14 @@ bin/magento setup:upgrade
 
 <h1 id="split-de-pagamentos">Split de Pagamentos</h1>
 
-<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Magento está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível de alterações.</aside>
+<aside class="warning">ATENÇÃO! O Split de Pagamentos para o módulo Adobe Commerce está em processo de homologação. Portanto, o conteúdo abaixo referente à sua configuração está passível de alterações.</aside>
 
-<h2 id="split-magento">Split (Magento)</h2>
+<h2 id="split-adobe-commerce">Split (Adobe Commerce)</h2>
 
-<p>Seguem instruções para acesso e configurações de algumas funcionalidades do <strong>Split de Pagamentos</strong> disponibilizadas no Magento:</p>
+<p>Seguem instruções para acesso e configurações de algumas funcionalidades do <strong>Split de Pagamentos</strong> disponibilizadas no Adobe Commerce:</p>
 
 <ol>
-  <li>Faça login no admin do Magento;</li>
+  <li>Faça login no admin do Adobe Commerce;</li>
   <li>No menu, acesse <code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Braspag</code> &gt; <code class="language-plaintext highlighter-rouge">Payment Splits</code>.</li>
 </ol>
 
@@ -1088,9 +1090,9 @@ bin/magento setup:upgrade
 
 <h3 id="envio-manual-pós-transacional">Envio Manual Pós-Transacional</h3>
 
-<p>Para efetuar o envio do split pós transacional manualmente, é necessário acessar o pedido no admin do Magento (<code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Pedidos</code> &gt; <code class="language-plaintext highlighter-rouge">Visualizar</code>) e, caso o pós transacional esteja ativado mas ainda não tenha sido efetuado, será possível clicar no botão <strong>Send Payment Split</strong>.</p>
+<p>Para efetuar o envio do split pós transacional manualmente, é necessário acessar o pedido no admin do Adobe Commerce (<code class="language-plaintext highlighter-rouge">Vendas</code> &gt; <code class="language-plaintext highlighter-rouge">Pedidos</code> &gt; <code class="language-plaintext highlighter-rouge">Visualizar</code>) e, caso o pós transacional esteja ativado mas ainda não tenha sido efetuado, será possível clicar no botão <strong>Send Payment Split</strong>.</p>
 
-<h2 id="split-magento--unirgy">Split (Magento + Unirgy)</h2>
+<h2 id="split-adobe-commerce--unirgy">Split (Adobe Commerce + Unirgy)</h2>
 
 <p>A seguir, algumas funcionalidades do split de pagamentos disponibilizadas de forma customizada na Unirgy:</p>
 
@@ -1149,7 +1151,7 @@ bin/magento setup:upgrade
   </li>
 </ul>
 
-<h2 id="split-magento--webkul">Split (Magento + Webkul)</h2>
+<h2 id="split-adobe-commerce--webkul">Split (Adobe Commerce + Webkul)</h2>
 
 <p>A seguir, algumas funcionalidades do Split de Pagamentos disponibilizadas de forma customizada na Webkul:</p>
 
