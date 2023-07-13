@@ -1608,6 +1608,478 @@ When your antifraude provider is ACI Worldwide, send the value "RedShield" in th
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Order ID on ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Exclusive ID of the ReDShield request|string|
 
+## Querying a transaction on ACI Worldwide
+
+### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+
+``` json
+{
+  "TransactionId": "fdf8f357-a723-e811-80c3-0003ff21d83f",
+   "Status": "Accept",
+   "ProviderAnalysisResult": {
+       "ProviderRequestId": "8a829449620619e801620b31d1c85d5a",
+       "Result": {
+           "ProviderCode": "000.000.000",
+           "ProviderDescription": "Transaction succeeded"
+       },
+       "ResultDetails": {
+           "CSITransactionLink": "https://csi-stage.redworldwide.com/index.red#transactiondetail/000548000001XAR20180309093717761",
+           "ProviderStatus": "ACCEPT",
+           "ProviderTransactionId": "381069636258",
+           "ProviderResponseCode": "0150",
+           "ProviderOrderId": "000548000001XAR20180309093717761"
+       },
+       "Ndc": "8a82941859d5969a0159db3f6ecc1418_60d2e8536e244db2bf04146872b00d38"
+   },
+   "Links": [
+       {
+           "Method": "GET",
+           "Href": "http://localhost:1316/Analysis/v2/fdf8f357-a723-e811-80c3-0003ff21d83f",
+           "Rel": "Self"
+       }
+   ],
+  "MerchantOrderId": "4493d42c-8732-4b13-aadc-b07e89732c26",
+  "TotalOrderAmount": 15000,
+  "TransactionAmount": 14000,
+  "Currency": "BRL",
+  "Provider": "RedShield",
+  "OrderDate": "2016-12-09 12:35:58.852",
+  "BraspagTransactionId":"a3e08eb2-2144-4e41-85d4-61f1befc7a3b",
+  "SplitingPaymentMethod": "None",
+  "IsRetryTransaction": false,
+  "Card": {
+    "Number" : "4444555566667777",
+    "Holder": "Holder Name",
+    "ExpirationDate": "12/2023",
+    "Cvv": "999",
+    "Brand": "VISA",
+    "EciThreeDSecure": "5"
+  },
+  "Billing": {
+    "Street": "Rua Neturno",
+    "Number": "12345",
+    "Complement": "Sala 123",
+    "Neighborhood": "Centro",
+    "City": "Rio de Janeiro",
+    "State": "RJ",
+    "Country": "BR",
+    "ZipCode": "20080123"
+  },
+  "Shipping": {
+    "Street": "Rua Saturno",
+    "Number": "30000",
+    "Complement": "sl 123",
+    "Neighborhood": "Centro",
+    "City": "Rio de Janeiro",
+    "State": "RJ",
+    "Country": "BR",
+    "ZipCode": "123456789",
+    "Email": "emailentrega@dominio.com.br",
+    "FirstName": "João",
+    "MiddleName": "P",
+    "LastName": "Silvao",
+    "ShippingMethod": "SameDay",
+    "Phone": "552121114700",
+    "WorkPhone": "552121114721",
+    "Mobile": "5521998765432",
+    "Comment": "Em frente ao 322"
+  },
+  "Customer": {
+    "MerchantCustomerId": "10050665740",
+    "FirstName": "João",
+    "MiddleName": "P",
+    "LastName": "Silva",
+    "BirthDate": "1983-10-01",
+    "Gender": "Male",
+    "Email": "emailcomprador@dominio.com.br",
+    "Phone": "552121114700",
+    "WorkPhone": "552121114721",
+    "Mobile": "5521998765432",
+    "Ip": "127.0.0.1",
+    "BrowserFingerprint": "04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw==",
+    "Status": "NEW"
+  },
+  "CartItems": [
+    {
+      "ProductName": "Mouse",
+      "UnitPrice": "6500",
+      "MerchantItemId": "4",
+      "Sku": "abc123",
+      "Quantity": 1,
+      "OriginalPrice": "7000",
+      "GiftMessage": "Te amo!",
+      "Description": "Uma description do Mouse",
+      "ShippingInstructions": "Proximo ao 546",
+      "ShippingMethod": "SameDay",
+      "ShippingTrackingNumber": "123456"
+    },
+    {
+      "ProductName": "Teclado",
+      "UnitPrice": "7500",
+      "MerchantItemId": "3",
+      "Sku": "abc456",
+      "Quantity": 1,
+      "OriginalPrice": "8000",
+      "GiftMessage": "Te odeio!",
+      "Description": "Uma description do Teclado",
+      "ShippingInstructions": "Proximo ao 123",
+      "ShippingMethod": "SameDay",
+      "ShippingTrackingNumber": "987654"
+    }
+  ],
+  "CustomConfiguration": {
+    "MerchantWebsite": "www.test.com"
+  },
+  "MerchantDefinedData": [
+    {
+      "Key": "USER_DATA4",
+      "Value": "Valor definido com o Provedor a ser enviado neste campo."
+    },
+    {
+      "Key": "Segment",
+      "Value": "8999"
+    },
+    {
+      "Key": "MerchantId",
+      "Value": "Seller123456"
+    }
+  ],
+  "Airline": {
+    "ThirdPartyBooking": "Y",
+    "Bookingtype": "Corporate",
+    "TicketDeliveryMethod": "Delivery",
+    "BookingReferenceNumber": "L5W4NW",
+    "Passengers": [
+    {
+        "FirstName": "Fulano",
+        "MiddleName": "D",
+        "LastName": "Tal",
+        "PassengerType": "Adult",
+        "Email": "email@mail.com",
+        "Phone": "1234567890",
+        "TicketNumber": "123541",
+        "LoyaltyMemberNumber": "159753852",
+        "Legs" : [
+        {
+            "ArrivalAirport": "AMS",
+            "DepartureAirport": "GIG",
+            "ArrivalCountry": "NLD",
+            "DepartureCountry": "BRA",
+            "AirlineCode": "KLM",
+            "DepartureDateTime": "2018-01-09 18:00",
+            "ClassOfService": "Standard"
+        }]
+    }]
+  }
+}
+```
+
+**Parameters in the header**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+### Response
+
+**Parameters in the header**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|200 OK|
+
+**Parameters in the body**
+
+|Parameter|Description|Type|
+|:-|:-|:-:|
+|`TransactionId`|Transaction ID in the Braspag Antifraude Gateway|guid|
+|`Status`|Transaction status in the Braspag Antifraude Gateway <br/> [Table 20 - Status](https://braspag.github.io//en/manual/antifraude#table-19-status)|enum|
+|`ProviderAnalysisResult.ProviderRequestId`|Transaction request ID on ReDShield|string|
+|`ProviderAnalysisResult.Result.ProviderCode`|ReDShield return code|string|
+|`ProviderAnalysisResult.Result.ProviderDescription`|ReDShield return message|string|
+|`ProviderAnalysisResult.ResultDetails.CSITransactionLink`|Link to view transaction details on ReDShield's CSI portal|string|
+|`ProviderAnalysisResult.ResultDetails.ProviderStatus`|Transaction status at ReDShield<br/> [Tabela 20 - ProviderStatus](https://braspag.github.io//en/manual/antifraude#table-20-providerstatus)|enum|
+|`ProviderAnalysisResult.ResultDetails.ProviderTransactionId`|Transaction ID on ReDShield|string|
+|`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Order ID on ReDShield|string|
+|`ProviderAnalysisResult.Ndc`|Exclusive ID of the ReDShield request|string|
+|`MerchantOrderId`|Merchant order number|string|
+|`TotalOrderAmount`|Total order value in cents <br/> Eg: 123456 = R$ 1,234.56|long|
+|`TransactionAmount`|Financial transaction amount in cents <br/> Eg: 150000 = R$ 1.500,00|long|
+|`Currency`|Currency. More information in [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|enum|
+|`Provider`|Anti-fraud solution provider <br/> [Table 1 - Provider](https://braspag.github.io//en/manual/antifraude#table-1-provider)|enum|
+|`OrderDate`|Order Date <br/> Eg.: 2016-12-09 19:16:38.155|datetime|
+|`BraspagTransactionId`|Transaction ID in Braspag Pagador|guid|
+|`Tid`|Transaction ID at acquirer <br/> Note: If you do not have an integration with Pagador Braspag, you will not be able to send the `BraspagTransactionId` field, so it is necessary to send the fields `Nsu`, `AuthorizationCode` and `SaleDate`, in addition to this|string|
+|`Nsu`|Unique sequential number of the transaction in the acquirer <br/> Note: If you do not have an integration with Pagador Braspag, you will not be able to send the `BraspagTransactionId` field, so it is necessary to send the fields `Tid`, `AuthorizationCode` and `SaleDate`, in addition to this|string|
+|`AuthorizationCode`|Acquirer transaction authorization code <br/> Note: If you do not have integration with Pagador Braspag, you will not be able to send the `BraspagTransactionId` field, so it is necessary to send the fields `Tid`, `Nsu` and `SaleDate`, in addition to this|string|
+|`SaleDate`|Date of authorization of the transaction at the acquirer <br/> Note: If you do not have an integration with Pagador Braspag, you will not be able to send the `BraspagTransactionId` field, so it is necessary to send the fields `Tid`, `Nsu ` and `AuthorizationCode`, in addition to this|datetime|
+|`SplitingPaymentMethod`|Identifies whether the transaction authorization is with one or more cards or with more than one means of payment <br/> [Table 2 - SplitingPaymentMethod](https://braspag.github.io//en/manual/antifraude#table-2-splitingpaymentmethod)|enum|
+|`IsRetryTransaction`|Retry of an analysis, and must be sent with a value equal to TRUE when the return code in the first attempt is equal to BP900|bool|
+|`Card.Number`|Credit card number|string|
+|`Card.Holder`|Name in credit card|string|
+|`Card.ExpirationDate`|Credit card expiration date <br/> Eg.: 01/2023|string|
+|`Card.Cvv`|Credit card security code|string|
+|`Card.Brand`|Credit card brand <br/> [Table 3 - Card.Brand](https://braspag.github.io//en/manual/antifraude#table-3-card.brand)|enum|
+|`Card.EciThreeDSecure`|Authentication ECI (Electronic Commerce Indicator) code|string|
+|`Card.Save`|Indicates whether credit card data will be stored in Cartão Protegido|bool|
+|`Card.Token`|Credit card identifier saved in Cartão Protegido|guid|
+|`Card.Alias`|Alias (nickname) of the credit card saved in the Cartão Protegido|string|
+|`Billing.Street`|Billing addressstreet|string|
+|`Billing.Number`|Billing address number|string|
+|`Billing.Complement`|Billing address add-on|string|
+|`Billing.Neighborhood`|Billing address neighborhood|string|
+|`Billing.City`|Billing address city|string|
+|`Billing.State`|Billing address state|string|
+|`Billing.Country`|Billing address country. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui)|string|
+|`Billing.ZipCode`|Billing address postal code|string|
+|`Shipping.Street`|Street of the delivery address|string|
+|`Shipping.Number`|Delivery address number|string|
+|`Shipping.Complement`|Delivery address add-on|string|
+|`Shipping.Neighborhood`|Delivery address neighborhood|string|
+|`Shipping.City`|Delivery address city|string|
+|`Shipping.State`|Delivery address state|string|
+|`Shipping.Country`|Country of delivery address. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
+|`Shipping.ZipCode`|Delivery address postal code|string|
+|`Shipping.Email`|E-mail of the person responsible to receive the product at the delivery address|string|
+|`Shipping.FirstName`|First name of person responsible to receive the product at the delivery address|string|
+|`Shipping.MiddleName`|First letter of the middle name of the person responsible to receive the product at the delivery address|string|
+|`Shipping.LastName`|Last name of the person responsible to receive the product at the delivery address|string|
+|`Shipping.Phone`|Telephone number of the person responsible for receiving the product at the delivery address<br/> Eg.: 552121114700|string|
+|`Shipping.WorkPhone`|Work phone number of the person responsible to receive the product at the delivery address <br/> Eg.: 552121114701|string|
+|`Shipping.Mobile`|Mobile number of the person responsible to receive the product at the delivery address <br/> Eg.: 5521987654321|string|
+|`Shipping.ShippingMethod`|Order delivery method <br/> [Table 4 - ShippingMethod](https://braspag.github.io//en/manual/antifraude#table-4-shippingmethod)|enum|
+|`Shipping.Comment`|Delivery address references|string|
+|`Customer.MerchantCustomerId`|Shopper's identification document number, CPF or CNPJ|string|
+|`Customer.FirstName`|Shopper's first name|string|
+|`Customer.MiddleName`|First letter of shopper's name|string|
+|`Customer.LastName`|Shopper's last name|string|
+|`Customer.BirthDate`|Shopper's date of birth<br/> Ex.: 1983-10-01|date|
+|`Customer.Gender`|Shopper's gender <br/> [Table 5 - Customer.Gender](https://braspag.github.io//en/manual/antifraude#table-5-customer.gender)|string|
+|`Customer.Email`|Shopper's email|string|
+|`Customer.Ip`|Shopper's IP address|string|
+|`Customer.Phone`|Shopper's phone number <br/> Eg.: 552121114700|string|
+|`Customer.WorkPhone`|Shopper's phone number <br/> Eg.: 552121114701|string|
+|`Customer.Mobile`|Shopper's mobile number<br/> Eg.: 5521987654321|string|
+|`Customer.Status`|Shopper status in store <br/> [Table 7 - Customer.Status](https://braspag.github.io//en/manual/antifraude#table-6-customer.status)|string|
+|`Customer.BrowserFingerPrint`|Device Fingerprint and shopper's IP location|string|
+|`CartItem[n].ProductName`|Product's name|string|
+|`CartItem[n].UnitPrice`|Product unit price <br/> Eg: 10950 = R$ 109.50|long|
+|`CartItem[n].OriginalPrice`|Original product price <br/> Eg: 11490 = R$ 114.90|long|
+|`CartItem[n].MerchantItemId`|Product ID in store|string|
+|`CartItem[n].Sku`|Product's sku|string|
+|`CartItem[n].Quantity`|Product quantity|int|
+|`CartItem[n].GiftMessage`|Gift Message|string|
+|`CartItem[n].Description`|Product description|string|
+|`CartItem[n].ShippingInstructions`|Shipping instructions|string|
+|`CartItem[n].ShippingMethod`|Shipping method <br/> [Table 4 - ShippingMethod](https://braspag.github.io//en/manual/antifraude#table-4-shippingmethod)|enum|
+|`CartItem[n].ShippingTranckingNumber`|Product tracking number|string|
+|`Airline.ThirdPartyBooking`|Indicates whether the reservation was booked by third parties, such as travel agencies|bool|
+|`Airline.BookingType`|Booking appointment type|string|
+|`Airline.TicketDeliveryMethod`|Ticket delivery type|string|
+|`Airline.BookingReferenceNumber`|Booking reference number|string|
+|`Airline.Passengers[n].FirstName`|Passenger's first name|string|
+|`Airline.Passengers[n].MiddleName`|Passenger's middle name|string|
+|`Airline.Passengers[n].LastName`|Passenger's last name|string|
+|`Airline.Passengers[n].PassengerType`|Passenger type <br/> [Tabela 8 - Airline.Passengers{n}.PassengerType](https://braspag.github.io//en/manual/antifraude#table-8-airline.passengers[n].passengertype)|enum|
+|`Airline.Passengers[n].Phone`|Passenger's phone <br/> Eg.: 552121114700|string|
+|`Airline.Passengers[n].Email`|Passenger's email|string|
+|`Airline.Passengers[n].LoyaltyMemberNumber`|Passenger's loyalty number|string|
+|`Airline.Passengers[n].TicketNumber`|Ticket number|string|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Departure airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|
+|`Airline.Passengers[n].Legs[n].DepartureCountry`|Departure airport country code. More information at [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Arrival airport code. More information at [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|
+|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Country code of the airport of arrival. More information at [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|
+|`Airline.Passengers[n].Legs[n].AirlineCode`|Airline code|string|
+|`Airline.Passengers[n].Legs[n].DepartureDateTime`|Departure date and time <br/> Eg.: 2018-03-31 19:16:38|datetime|
+|`Airline.Passengers[n].Legs[n].ClassOfService`|Class of service|string|
+|`CustomConfiguration.MerchantWebsite`|Merchant website|string|
+|`MerchantDefinedData[n].Key`|Field key defined with the anti-fraud provider <br/> [Table 36 - MerchantDefinedData(ACI Worldwide)](https://braspag.github.io//en/manual/antifraude#table-35-merchantdefineddata-(aci-worldwide))|int|
+|`MerchantDefinedData[n].Value`|Field value defined with the anti-fraud provider <br/> [Table 36 - MerchantDefinedData(ACI Worldwide)](https://braspag.github.io//en/manual/antifraude#table-35-merchantdefineddata-(aci-worldwide))|var|
+
+## Fingerprint with ACI Worldwide
+
+The Fingerprint is the digital identification of the shopper's device. This identification is made up of a series of data collected on the checkout page of the website or application.
+
+### Integration with your checkout page (website)
+
+#### How does it work?
+
+![Fluxo]({{ site.baseurl_root }}/images/braspag/af/fingerprint.png)
+
+1. The store's checkout page sends the attributes of the shopper's device to Iovation, thus creating the *black box*;
+2. The merchant receives the encrypted character string from Iovation and writes it on the checkout page in a field of type *hidden*;
+3. The merchant sends the *black box* to Braspag, together with the other transaction data to be analyzed;
+4. Braspag receives all the data, validates it and sends it to ACI Worldwide;
+5. ACI Worldwide receives all data, sends the *black box* to Iovation to decrypt;
+6. ACI Worldwide receives shopper device attributes from Iovation.
+
+#### How to set it up?
+
+1. Include Iovation's javascript on your checkout page;
+2. Add configuration parameters in JavaScript;
+3. Create a *hidden* field on your page to write the *black box* in it and send it along with the transaction data to be analyzed.
+
+<aside class="notice">Do not cache the script, as it may happen that several devices are identified as being the same.</aside>
+
+**Including Iovation's JavaScript**
+
+To include JavaScript, add the **&lt;script&gt;** element to your checkout page.
+
+This is the URL for the Iovation version of snare.js: &lt;script type="text/javascript" src="https://mpsnare.iesnare.com/snare.js"&gt;&lt;/script&gt;
+
+#### Configuration parameters
+
+|Parameters|Description|Default|
+|:-|:-|:-|
+|`io_install_flash`|Determines whether the user will be asked to install Flash or update the version|false|
+|`io_flash_needs_handler`|This parameter will only be valid if the `io_install_flash` parameter is set to TRUE, otherwise it will not be executed <br/> Here you can customize your own message if Flash is not installed <br/> Eg.: var `io_flash_needs_handler` = "Alert('Install Flash');"|-|
+|`io_install_stm`|Determines whether to prompt the user to install Active X, which helps gather hardware information. <br/> This control is only available for Internet Explorer, and if Active X is already installed, this setting will have no effect.|false|
+|`io_exclude_stm`|Determines whether Active X should run when installed <br/> You can choose to disable tracking for specific platforms <br/> Possible values: <br/> 0 - runs on all platforms <br/> 1 - does not run on Windows 9.x (including versions 3.1, 95, 98 and ME) <br/> 2 - does not run on Windows CE <br/> 4 - does not run on Windows XP (including NT, 2000, 2003 and 8 versions) <br/> 8 - does not run on Windows Vista <br/> Note: The values are the combination of sums of the above values, for example: 12 - does not run on Windows XP (4) or Windows Vista (8)|15|
+|`io_bbout_element_id`|HTML element id to populate with *black box* <br/> If the `io_bb_callback` parameter is set, it has no effect|-|
+|`io_enable_rip`|Determines whether to attempt to collect information to obtain the shopper's real IP address|true|
+|`io_bb_callback`|Parameter to customize *black box* collection check completed <br/> When using, write the function according to the following syntax: <br/> *io_callback(bb, complete)*, where: <br/> bb - black box value <br/> complete - boolean value that indicates that the collection is completed|-|
+
+<aside class="warning">IMPORTANT: The configuration parameters must be placed before the tag call; they determine how Iovation's JavaScript will work, and errors can occur if placed before the JavaScript call.</aside>
+
+**Example**
+![Exemplo HTML]({{ site.baseurl_root }}/images/braspag/af/exemplohtmlred.png)
+
+### Integration into iOS and Android mobile apps
+
+**Downloading the SDK**
+If you haven't already downloaded the iOS or Android SDK, you must do so before proceeding. To do so, access one of the links as desired.
+* [Download Deviceprint SDK iOS](https://github.com/iovation/deviceprint-SDK-iOS)
+* [Download Deviceprint SDK Android](https://github.com/iovation/deviceprint-SDK-Android)
+
+**About the integration**
+Add the Iovation Mobile SDK to your apps to collect information about shoppers' devices. A *black box* will be generated which contains all available device information.
+
+![Fluxo da coleta do fingerprint mobile]({{ site.baseurl_root }}/images/braspag/af/fingerprintmobile.png)
+
+#### Integrating with iOS apps
+
+iOS Integration Files and Requirements
+![Detalhes integração iOS]({{ site.baseurl_root }}/images/braspag/af/fingerprintios1.png)
+
+This release supports iOS 5.1.1 or higher on the following devices:
+- iPhone 3GS and later
+- iPod Touch 3rd generation or later
+- All iPads
+
+**Installing the SDK on iOS**
+
+1. Download and unzip the SDK;
+
+2. In Xcode, drag *iovation.framework* into your project's navigation area
+![Detalhes instalação SDK]({{ site.baseurl_root }}/images/braspag/af/fingerprintios2.png)
+
+3. In the dialog box that appears:
+- Select *Copy items if needed* to copy the framework to the project directory
+- Check the checkbox for the targets where you plan to use the framework
+![Detalhes instalação SDK]({{ site.baseurl_root }}/images/braspag/af/fingerprintios3.png)
+
+4. Click Finish
+
+5. Add the following frameworksto the application target in XCode:
+*ExternalAccessory.framework*. If you find that Wireless Accessory Configuration is enabled in Xcode 6 or higher and you don't need it, disable it and re-add the ExternalAccessory.framework
+*CoreTelephony.framework*
+![Detalhes instalação SDK]({{ site.baseurl_root }}/images/braspag/af/fingerprintios4.png)
+
+6. Optionally add these frameworks if your application makes use of them:
+*AdSupport.framework*. If your app displays ads
+Note: Do not include if your app does not use ads, as the App Store rejects apps that include the framework but do not use ads
+*CoreLocation.framework*. If your app uses local monitoring
+Note: Do not include unless your application requests user geolocation permission
+
+**Using the +ioBegin function**
+
+The *+ioBegin* function collects information about the device and generates a *black box*. This *black box* must be sent through the *Customer.BrowserFingerPrint* field together with the other data for analysis.
+
+**Syntax**
+
+> NSSstring * bbox = [iovation ioBegin]
+
+**Return values**
+
+> bbox - string which contains the *black box*
+
+<aside class="warning">IMPORTANT: The *black box* returned from *+ioBegin* must never be empty. An empty *black box* indicates that the protection offered by the system may have been compromised.</aside>
+
+**Example**
+![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemplocodigo1.png)
+
+#### Integrating with Android apps
+
+Android Integration Files and Requirements
+![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid.png){: .left }{:title="Detalhes integração Android"}
+
+<aside class="notice">If the listed permissions are not needed by the app, the obtained values obtained using these permissions will be ignored. Permissions are not required to get a *black box*, but they help to get more information from the device.</aside>
+
+Version 1.2.0 of the Iovation Mobile SDK for Android supports Android versions 2.1 and higher.
+
+**Installing the SDK on Android**
+
+1. Download and unzip deviceprint-lib-1.2.0.aar;
+2. Launch the IDE of your choice;
+3. In Eclipse and Maven, deploy the *.aar* extension file to your local Maven repository using maven-deploy. More details at: [Maven Guide](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html){:target="_blank"};
+4. In Android Studio, select *File -> New Module*. Expand *More Modules* and choose *Import existing .jar or .aar package*;
+5. Select the deviceprint-lib-1.2.0.aar file, and click on *Finish*;
+6. Make sure device-lib is a build dependency in the build.gradle file.
+
+![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid1.png){: .left }{:title="Detalhes integração Android"}
+
+**Using the ioBegin function**
+
+The *ioBegin* function collects information about the device and generates a *black box*. This *black box* must be sent through the *Customer.BrowserFingerPrint* field together with the other data for analysis.
+
+**Syntax*
+
+> public static String ioBegin(Context context)
+
+**Parameters*
+
+> context - an instance of the *android.content.Context* class used to access information about the device
+
+**Return Values**
+
+> string containing the *black box*
+
+**IMPORTANT**
+The *black box* returned from *ioBegin* must never be empty. An empty *black box* that contains only *0500* indicates that the protection offered by the system may have been compromised.
+
+**IMPORTANT**
+The *device-lib-1.2.0.aar* file must be packaged with the application.
+
+* Compiling the sample app in Android Studio
+
+**IMPORTANT**
+If the option to run the module does not appear, select *File -> Project Structure* and open the *Modules* panel. From there, set the Android SDK version in the list.
+
+![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemplocodigo2.png)
+
+1. Download and unzip deviceprint-lib-1.2.0.aar;
+2. In Android Studio, select *File -> Open* or click on *Open Project* through the *quick-start* option;
+3. In the directory where you unzipped *deviceprint-lib-1.2.0.aar*, open the sample app's *android-studio-sample-app* directory;
+4. Open the file *DevicePrintSampleActivity*;
+5. With some settings, Android Studio may detect an Android Framework in the project and not configure it. In this case, open the *Event Log* and click on *Configure*;
+6. A popup will open for you to select the Android Framework. Click *OK* to correct the errors;
+7. In Android Studio, select *File -> New Module*. Expand *More Modules* and choose *Import existing .jar or .aar package*;
+8. Select the deviceprint-lib-1.2.0.aar file, and click on *Finish*;
+9. Make sure device-lib is a build dependency in build.gradle file <br/> ![Detalhes integração Android]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid1.png);
+10. Open the Device Print Sample Activity folder;
+11. In the project navigation option, open *src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java*;
+12. Right click and select *Run DevicePrintSampleAct*;
+13. Select a connected physical device or a virtual Android to run the app;
+14. The app will compile and run.
+
+The example is simple, there is a button and when clicked a text box is filled with the *black box*. For a richer example, see the Android Studio sample app included in the SDK.
+
 # Queries
 
 ## Querying a transaction Cybersource
