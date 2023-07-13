@@ -3307,6 +3307,969 @@ In the “OrgID” field, indicate the value corresponding to the environment in
 
 <p>Download the <a href="https://github.com/Braspag/braspag.github.io/raw/bf88c72d069e15925b13227ce653df931f275d1d/files/braspag/antifraude/DecisionManagerDeviceFingerprint_v6.pdf" target="_blank">Cybersource support material</a>.</p>
 
+<h1 id="integrating-with-aci-worldwide">Integrating with ACI Worldwide</h1>
+
+<h2 id="analyzing-a-transaction-at-aci-worldwide">Analyzing a transaction at ACI Worldwide</h2>
+
+<p>When your antifraude provider is ACI Worldwide, send the value “RedShield” in the <code class="language-plaintext highlighter-rouge">Provider</code> field.</p>
+
+<h3 id="request-4">Request</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4493d42c-8732-4b13-aadc-b07e89732c26"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"TransactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">14000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RedShield"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"OrderDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09 12:35:58.852"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"BraspagTransactionId"</span><span class="p">:</span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910111216AB8"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"951852"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"T12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09 10:01:55.662"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SplitingPaymentMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"IsRetryTransaction"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Number"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"4444555566667777"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holder Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2023"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Cvv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"EciThreeDSecure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Neturno"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sala 123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20080123"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Saturno"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sl 123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emailentrega@dominio.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MiddleName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Silvao"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ShippingMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SameDay"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552121114700"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"WorkPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552121114721"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5521998765432"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Em frente ao 322"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantCustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10050665740"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MiddleName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1983-10-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emailcomprador@dominio.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552121114700"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"WorkPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552121114721"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5521998765432"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BrowserFingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx1P+NzuNQnyK6+7x2OpjJZkl4NlfPt7h9d96X/miNlYT65UIY2PeH7sUAh9vKxMn1nlPu2MJCSi12NBBoiZbfxP1Whlz5wlRFwWJi0FRulruXQQGCQaJkXU7GWWZGI8Ypycnf7F299GIR12G/cdkIMFbm6Yf0/pTJUUz1vNp0X2Zw8QydKgnOIDKXq4HnEqNOos1c6njJgQh/4vXJiqy0MXMQOThNipDmXv9I185O+yC2f3lLEO0Tay66NZEyiLNePemJKSIdwO9O5ZtntuUkG6NTqARuHStXXfwp8cyGF4MPWLuvNvEfRkJupBy3Z8hSEMEK7ZWd2T2HOihQxRh4qp+NANqYKBTl3v6fQJAEKikeSQVeBN8sQqAL0BZFaIMzbrnMivi6m6JRQUIdvEt+MbJEPFc0LjRycC5ApUmJO+Aoo9VKL1B8ftMSQ1iq1uTKn16ZOmDpzZrZhMPbH83aV0rfB2GDXcjpghm9klVFOw7EoYzV7IDBIIRtgqG9KZ+8NH/z6D+YNUMLEUuK1N2ddqKbS5cKs2hplVRjwSv7x8lMXWE7VDaOZWB8+sD1cMLQtEUC0znzxZ4bpRaiSy4dJLxuJpQYAFUrDlfSKRv/eHV3QiboXLuw9Lm6xVBK8ZvpD5d5olGQdc+NgsqjFnAHZUE+OENgY4kVU9wB84+POrI4MkoD4iHJ5a1QF8AZkZDFo1m1h9Bl+J2Ohr6MkBZq8DG5iVaunHfxUdHou5GL7lS1H7r+8ctfDXi8AfOPjzqyODJQ74Aiel35TKTOWG8pq1WO6yzJ1GNmMuMWZBamlGXoG/imnjwHY9HQtQzpGfcm0cR8X2Fd1ngNFGLDGZlWOX0jWtOwU6XVGT37JFD9W/cx4kzI+mPNi65X5WFPYlDG9N0Lbh5nOj3u3DXqRCiKCUrsEkMt8z9fxO9pLLGVQUKIYR2wTw53CiWK96FOpPevDWtH2XR0QkfOd02D73n81x6hEMCy0s3hRLn08Th9FlNHDMJBqLj+Tz8rG2TtNki3mJC7Ass1MT2qnKBI77n6vsQkAp59TfbZm/tBXwAoYdLJXge8F/numhd5AvQ+6I8ZHGJfdN3qWndvJ2I7s5Aeuzb8t9//eNsm73fIa05XreFsNyfOq1vG2COftC6EEsoJWe5h5Nwu1x6PIKuCaWxLY+npfWgM0dwJPmSgPx7TNM31LyVNS65m83pQ+qMTRH6GRVfg7HAcS5fnS/cjdbgHxEkRmgkRq1Qs48sbX9QC8nOTD0ntb6FcJyEOEOVzmJtDqimkzDq+SXR1/63AYe4LEj+ogRgN+Z8HAFhGFzd/m6snVviELfRqJ4LLQIk9Y/fzqnsF6I5OGxfdT2sxxK2Vokpi3jWhCcEknw7dYlHYpOnCHZO7QVgjQTngF2mzKf4GeOF4ECFsWTgLy6HFEitfauYJt1Xh1NfZZerBMwXLFzdhzoTQxGlcXc8lZIoEG1BLYv/ScICf8Ft9PEtpEa+j0cDSlU99UoH2xknwR1W9MRGc5I/euE63/IMJTqguZ3YcnJpjSVnAGSpyz/0gKjypJ3L86rHFRGXt0QbmaXtSl2UmmjI0p0LCCdx7McatCFEVI6FwPpPV0ZSMv/jM75eBid1X/lTV4XNzjowzR/iFlKYMzHZtVO9hCBPKlTwblRXNn4MlvNm/XeSRQ+Mr0YV5w5CL5Z/tGyzqnaLPj/kOVdyfj8r2m5Bcrz4g/ieUIo8qRFv2T2mET46ydqaxi27G4ZYHj7hbiaIqTOxWaE07qMCkJw=="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"CartItems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mouse"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6500"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MerchantItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"GiftMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Te amo!"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uma description do Mouse"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ShippingInstructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Proximo ao 546"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ShippingMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SameDay"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ShippingTrackingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teclado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7500"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MerchantItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"GiftMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Te odeio!"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uma description do Teclado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ShippingInstructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Proximo ao 123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ShippingMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SameDay"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ShippingTrackingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987654"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"CustomConfiguration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantWebsite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.test.com"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"MerchantDefinedData"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USER_DATA4"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor definido com o Provedor a ser enviado neste campo."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Segment"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MerchantId"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seller123456"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"Airline"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ThirdPartyBooking"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Bookingtype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Corporate"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TicketDeliveryMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivery"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BookingReferenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L5W4NW"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Passengers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulano"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MiddleName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tal"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PassengerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email@mail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"TicketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123541"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"LoyaltyMemberNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"159753852"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Legs"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ArrivalAirport"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMS"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DepartureAirport"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GIG"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ArrivalCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NLD"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DepartureCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AirlineCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLM"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"DepartureDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-09 18:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ClassOfService"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standard"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the header</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the body</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Paramater</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Required</th>
+      <th style="text-align: right">Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td style="text-align: left">Order number.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">100</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">TotalOrderAmount</code></td>
+      <td style="text-align: left">Total order amount in cents. <br /> Example: 123456 = R$ 1.234,56</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">TransactionAmount</code></td>
+      <td style="text-align: left">Financial transaction amount in cents. <br /> Example: 150000 = R$ 1.500,00</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Currency</code></td>
+      <td style="text-align: left">Currency. More information in <a href="https://www.iso.org/iso-4217-currency-codes.html" target="_blank">ISO 4217 Currency Codes</a></td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Provider</code></td>
+      <td style="text-align: left">Anti-fraud solution provider. <br /> <a href="https://braspag.github.io//en/manual/antifraude#table-1-provider">Table 1 - Provider</a></td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">OrderDate</code></td>
+      <td style="text-align: left">Order date <br /> Eg: 2016-12-09 19:16:38.155 <br /> Note: If not informed, a date will be generated by Braspag</td>
+      <td style="text-align: center">datetime</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
+      <td style="text-align: left">Transaction ID on Braspag Pagador.</td>
+      <td style="text-align: center">guid</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td style="text-align: left">Id of the transaction at the acquirer <br /> Note: If you do not have an integration with Pagador Braspag, you will not be able to send the <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> field, so it is necessary to send the fields <code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> and <code class="language-plaintext highlighter-rouge">SaleDate </code>, in addition to this one.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Nsu</code></td>
+      <td style="text-align: left">Unique sequential number of the transaction in the acquirer <br /> Note: If you do not have an integration with Pagador Braspag, you will not be able to send the <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> field, so it is necessary to send the fields <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> and <code class="language-plaintext highlighter-rouge">SaleDate</code>, other than this one in question</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td style="text-align: left">Acquirer transaction authorization code <br /> Note: If you do not have integration with Pagador Braspag, you will not be able to send the <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> field, so it is necessary to send the fields <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu</code> and <code class="language-plaintext highlighter-rouge">SaleDate</code>, other than this one.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">SaleDate</code></td>
+      <td style="text-align: left">Date of authorization of the transaction at the acquirer <br /> Note: If you do not have an integration with Pagador Braspag, you will not be able to send the <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> field, so it is necessary to send the fields <code class="language-plaintext highlighter-rouge">Tid</code>, <code class="language-plaintext highlighter-rouge">Nsu </code> and <code class="language-plaintext highlighter-rouge">AuthorizationCode</code>, besides this one.</td>
+      <td style="text-align: center">datetime</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">SplitingPaymentMethod</code></td>
+      <td style="text-align: left">Identifies whether the transaction is authorized with one or more cards or with more than one payment method. <br /> <a href="https://braspag.github.io//en/manual/antifraude#table-2-splitingpaymentmethod">Table 2 - SplitingPaymentMethod</a></td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">IsRetryTransaction</code></td>
+      <td style="text-align: left">Retry of an analysis, must be sent with a value equal to TRUE when the return code in the first attempt is equal to BP900.</td>
+      <td style="text-align: center">bool</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Number</code></td>
+      <td style="text-align: left">Credit card number.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
+      <td style="text-align: left">Credit card name.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">50</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
+      <td style="text-align: left">Credit card expiration date. <br /> Eg: 01/2023</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">7</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Cvv</code></td>
+      <td style="text-align: left">Credit card security code.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Brand</code></td>
+      <td style="text-align: left">Credit card brand. <br /> <a href="https://braspag.github.io//en/manual/antifraude#table-3-card.brand">Table 3 - Card.Brand</a></td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.EciThreeDSecure</code></td>
+      <td style="text-align: left">Authentication ECI (Electronic Commerce Indicator) code.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Save</code></td>
+      <td style="text-align: left">Indicates whether credit card data will be stored in Cartão Protegido.</td>
+      <td style="text-align: center">bool</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Token</code></td>
+      <td style="text-align: left">Credit card identifier saved in the Cartão Protegido.</td>
+      <td style="text-align: center">guid</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Alias</code></td>
+      <td style="text-align: left">Alias (nickname) of the credit card saved in the Cartão Protegido.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">64</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.Street</code></td>
+      <td style="text-align: left">Billing address street.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">24</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.Number</code></td>
+      <td style="text-align: left">Billing address number.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.Complement</code></td>
+      <td style="text-align: left">Billing address complement.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">14</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.Neighborhood</code></td>
+      <td style="text-align: left">Billing Address neighborhood.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">15</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.City</code></td>
+      <td style="text-align: left">Billing address city.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.State</code></td>
+      <td style="text-align: left">Billing address state.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.Country</code></td>
+      <td style="text-align: left">Billing address country. More information at <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Billing.ZipCode</code></td>
+      <td style="text-align: left">Billing address postal code.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">9</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Street</code></td>
+      <td style="text-align: left">Delivery address street.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">24</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Number</code></td>
+      <td style="text-align: left">Delivery address number.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Complement</code></td>
+      <td style="text-align: left">Delivery address complement.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">14</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Neighborhood</code></td>
+      <td style="text-align: left">Delivery address neighborhood.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">15</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.City</code></td>
+      <td style="text-align: left">Delivery address city.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.State</code></td>
+      <td style="text-align: left">Delivery address status.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Country</code></td>
+      <td style="text-align: left">Delivery address country. More information at<a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.ZipCode</code></td>
+      <td style="text-align: left">Delivery address postal code.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">9</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Email</code></td>
+      <td style="text-align: left">E-mail of the person responsible to receive the product at the delivery address.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">60</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.FirstName</code></td>
+      <td style="text-align: left">First name of person responsible to receive the product at the delivery address.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.MiddleName</code></td>
+      <td style="text-align: left">First letter of the middle name of the person responsible to receive the product at the delivery address.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.LastName</code></td>
+      <td style="text-align: left">Last name of the person responsible to receive the product at the delivery address.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Phone</code></td>
+      <td style="text-align: left">Telephone number of the person responsible for receiving the product at the delivery address. <br /> Eg.: 552121114700</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.WorkPhone</code></td>
+      <td style="text-align: left">Work telephone number of the person responsible for receiving the product at the delivery address. <br /> Eg.: 552121114701</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Mobile</code></td>
+      <td style="text-align: left">Cell phone number of the person responsible for receiving the product at the delivery address. <br /> Eg.: 5521987654321</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.ShippingMethod</code></td>
+      <td style="text-align: left">Order delivery method <br /> <a href="https://braspag.github.io//en/manual/antifraude#table-4-shippingmethod">Table 4 - ShippingMethod</a></td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Shipping.Comment</code></td>
+      <td style="text-align: left">Delivery address references.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">160</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.MerchantCustomerId</code></td>
+      <td style="text-align: left">Shopper’s identification document number, CPF or CNPJ</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">16</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.FirstName</code></td>
+      <td style="text-align: left">Shopper’s first name.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.MiddleName</code></td>
+      <td style="text-align: left">First letter of shopper’s middle name.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.LastName</code></td>
+      <td style="text-align: left">Shopper’s last name.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.BirthDate</code></td>
+      <td style="text-align: left">Shopper’s birth date. <br /> Eg.: 1983-10-01</td>
+      <td style="text-align: center">date</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Gender</code></td>
+      <td style="text-align: left">Shopper’s gender. <br /> <a href="https://braspag.github.io//en/manual/antifraude#table-5-customer.gender">Table 5 - Customer.Gender</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">6</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
+      <td style="text-align: left">Shopper’s email.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">60</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Ip</code></td>
+      <td style="text-align: left">Shopper’s IP address.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">15</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
+      <td style="text-align: left">Shopper’s phone number.<br /> Eg.: 552121114700</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.WorkPhone</code></td>
+      <td style="text-align: left">Shopper’s phone number <br /> Eg.: 552121114701</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Mobile</code></td>
+      <td style="text-align: left">Shopper’s cell phone number <br /> Ex.: 5521987654321</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td style="text-align: left">Status of the shopper in the store <br /> <a href="https://braspag.github.io//en/manual/antifraude#table-6-customer.status">Table 6 - Customer.Status</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">8</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.BrowserFingerPrint</code></td>
+      <td style="text-align: left">Device Fingerprint and real shopper IP Ggeolocation. - <a href="https://braspag.github.io//en/manual/antifraude#fingerprint-with-aci-worldwide">Fingerprint Settings</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">6005</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].ProductName</code></td>
+      <td style="text-align: left">Product’s name.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">50</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].UnitPrice</code></td>
+      <td style="text-align: left">Product unit price. <br /> Eg: 10950 = R$ 109.50</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].OriginalPrice</code></td>
+      <td style="text-align: left">Original product price. <br /> Eg: 11490 = R$ 114.90</td>
+      <td style="text-align: center">long</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].MerchantItemId</code></td>
+      <td style="text-align: left">Product ID in store.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].Sku</code></td>
+      <td style="text-align: left">Product SKU (Stock Keeping Unit).</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">12</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].Quantity</code></td>
+      <td style="text-align: left">Product quantity.</td>
+      <td style="text-align: center">int</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].GiftMessage</code></td>
+      <td style="text-align: left">Gift message.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">160</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].Description</code></td>
+      <td style="text-align: left">Product description.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">76</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].ShippingInstructions</code></td>
+      <td style="text-align: left">Product delivery instructions.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">160</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].ShippingMethod</code></td>
+      <td style="text-align: left">Product delivery method. <br /> <a href="https://braspag.github.io//en/manual/antifraude#table-4-shippingmethod">Table 4 - ShippingMethod</a></td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CartItem[n].ShippingTranckingNumber</code></td>
+      <td style="text-align: left">Product tracking number.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.ThirdPartyBooking</code></td>
+      <td style="text-align: left">Indicates whether the reservation was booked by third parties, such as travel agencies.</td>
+      <td style="text-align: center">bool</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.BookingType</code></td>
+      <td style="text-align: left">Reservation schedule type</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">255</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.TicketDeliveryMethod</code></td>
+      <td style="text-align: left">Ticket delivery type</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">127</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.BookingReferenceNumber</code></td>
+      <td style="text-align: left">Booking reference number</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">9</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].FirstName</code></td>
+      <td style="text-align: left">Passenger’s first name.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">29</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].MiddleName</code></td>
+      <td style="text-align: left">Passenger’s middle name.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].LastName</code></td>
+      <td style="text-align: left">Passenger’s last name.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">28</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].PassengerType</code></td>
+      <td style="text-align: left">Passenger type. <br /> <a href="https://braspag.github.io//en/manual/antifraude#table-8-airline.passengers[n].passengertype">Table 8 - Airline.Passengers{n}.PassengerType</a></td>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Phone</code></td>
+      <td style="text-align: left">Passenger’s phone number. <br /> Eg.: 552121114700</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Noo</td>
+      <td style="text-align: right">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Email</code></td>
+      <td style="text-align: left">Passenger’s email.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">60</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].LoyaltyMemberNumber</code></td>
+      <td style="text-align: left">Passenger loyalty number.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">255</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].TicketNumber</code></td>
+      <td style="text-align: left">Ticket number.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureAirport</code></td>
+      <td style="text-align: left">Departure airport code. More information at <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureCountry</code></td>
+      <td style="text-align: left">Departure airport country code. More information at <a href="https://www.iso.org/obp/ui" target="_blank">ISO 3-Digit Alpha Country Code</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Legs[n].ArrivalAirport</code></td>
+      <td style="text-align: left">Arrival airport code. More information at <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Legs[n].ArrivalCountry</code></td>
+      <td style="text-align: left">Country code of the airport of arrival. More information at <a href="https://www.iso.org/obp/ui" target="_blank">ISO 3-Digit Alpha Country Code</a></td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Legs[n].AirlineCode</code></td>
+      <td style="text-align: left">Airline code.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Legs[n].DepartureDateTime</code></td>
+      <td style="text-align: left">Departure date and time <br /> Eg.: 2018-03-31 19:16:38</td>
+      <td style="text-align: center">datetime</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Airline.Passengers[n].Legs[n].ClassOfService</code></td>
+      <td style="text-align: left">Class of service.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CustomConfiguration.MerchantWebsite</code></td>
+      <td style="text-align: left">Merchant website.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">60</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantDefinedData[n].Key</code></td>
+      <td style="text-align: left">Field key defined with the anti-fraud provider. <br /> <a href="https://braspag.github.io//en/manual/antifraude#table-35-merchantdefineddata-(aci-worldwide)">Table 35 - MerchantDefinedData (ACI Worldwide)</a></td>
+      <td style="text-align: center">int</td>
+      <td style="text-align: center">não</td>
+      <td style="text-align: right">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantDefinedData[n].Value</code></td>
+      <td style="text-align: left">Field value defined with the anti-fraud provider. <br /> <a href="https://braspag.github.io//en/manual/antifraude#table-35-merchantdefineddata-(aci-worldwide)">Table 35 - MerchantDefinedData (ACI Worldwide)</a></td>
+      <td style="text-align: center">var</td>
+      <td style="text-align: center">No</td>
+      <td style="text-align: right">-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-4">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdf8f357-a723-e811-80c3-0003ff21d83f"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ProviderAnalysisResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"ProviderRequestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8a829449620619e801620b31d1c85d5a"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"ProviderCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000.000.000"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"ProviderDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction succeeded"</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="nl">"ResultDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"CSITransactionLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://csi-stage.redworldwide.com/index.red#transactiondetail/000548000001XAR20180309093717761"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"ProviderStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"381069636258"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"ProviderResponseCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0150"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"ProviderOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000548000001XAR20180309093717761"</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="nl">"Ndc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8a82941859d5969a0159db3f6ecc1418_60d2e8536e244db2bf04146872b00d38"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:1316/Analysis/v2/fdf8f357-a723-e811-80c3-0003ff21d83f"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Self"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the header</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td style="text-align: left">201 Created</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the body</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: center">Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">TransactionId</code></td>
+      <td style="text-align: left">Transaction ID in the Braspag Antifraude Gateway</td>
+      <td style="text-align: center">guid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td style="text-align: left">Transaction status in the Braspag Antifraude Gateway <br /> <a href="https://braspag.github.io//en/manual/antifraude#table-19-status">Table 19 - Status</a></td>
+      <td style="text-align: center">enum</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ProviderRequestId</code></td>
+      <td style="text-align: left">Transaction request ID on ReDShield</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.Result.ProviderCode</code></td>
+      <td style="text-align: left">ReDShield return code</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.Result.ProviderDescription</code></td>
+      <td style="text-align: left">ReDShield return message</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ResultDetails.CSITransactionLink</code></td>
+      <td style="text-align: left">Link to view transaction details on ReDShield’s CSI portal</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderStatus</code></td>
+      <td style="text-align: left">Transaction status at ReDShield <br /> <a href="https://braspag.github.io//en/manual/antifraude#table-20-providerstatus">Table 20 - ProviderStatus</a></td>
+      <td style="text-align: center">enum</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderTransactionId</code></td>
+      <td style="text-align: left">Transaction ID on ReDShield</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.ResultDetails.ProviderOrderId</code></td>
+      <td style="text-align: left">Order ID on ReDShield</td>
+      <td style="text-align: center">string</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ProviderAnalysisResult.Ndc</code></td>
+      <td style="text-align: left">Exclusive ID of the ReDShield request</td>
+      <td style="text-align: center">string</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="queries">Queries</h1>
 
 <h2 id="querying-a-transaction-cybersource">Querying a transaction Cybersource</h2>
@@ -3475,7 +4438,7 @@ In the “OrgID” field, indicate the value corresponding to the environment in
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="request-4">Request</h3>
+<h3 id="request-5">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
@@ -3508,7 +4471,7 @@ In the “OrgID” field, indicate the value corresponding to the environment in
   </tbody>
 </table>
 
-<h3 id="response-4">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <p><strong>Parameters in the header (Header)</strong></p>
 
@@ -4524,7 +5487,7 @@ In the “OrgID” field, indicate the value corresponding to the environment in
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-<h3 id="request-5">Request</h3>
+<h3 id="request-6">Request</h3>
 
 <p><strong>Parameters in the header (Header)</strong></p>
 
@@ -4555,7 +5518,7 @@ In the “OrgID” field, indicate the value corresponding to the environment in
   </tbody>
 </table>
 
-<h3 id="response-5">Response</h3>
+<h3 id="response-6">Response</h3>
 
 <p><strong>Parameters in the header (Header)</strong></p>
 
@@ -4597,7 +5560,7 @@ In the “OrgID” field, indicate the value corresponding to the environment in
   </li>
 </ul>
 
-<h2 id="request-6">Request</h2>
+<h2 id="request-7">Request</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{url loja}</span></aside>
 
@@ -4642,7 +5605,7 @@ In the “OrgID” field, indicate the value corresponding to the environment in
   </tbody>
 </table>
 
-<h2 id="response-6">Response</h2>
+<h2 id="response-7">Response</h2>
 
 <p><strong>Parameters in the header (Header)</strong></p>
 
@@ -4678,7 +5641,7 @@ In the “OrgID” field, indicate the value corresponding to the environment in
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
-<h2 id="request-7">Request</h2>
+<h2 id="request-8">Request</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
@@ -4737,7 +5700,7 @@ In the “OrgID” field, indicate the value corresponding to the environment in
   </tbody>
 </table>
 
-<h2 id="response-7">Response</h2>
+<h2 id="response-8">Response</h2>
 
 <p><strong>Parameters in the header (Header)</strong></p>
 
@@ -4835,7 +5798,7 @@ In the “OrgID” field, indicate the value corresponding to the environment in
 
 <p>This section describes how to change the status of transactions in review to accept or reject or accept to reject.</p>
 
-<h2 id="request-8">Request</h2>
+<h2 id="request-9">Request</h2>
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
 
@@ -4904,7 +5867,7 @@ In the “OrgID” field, indicate the value corresponding to the environment in
   </tbody>
 </table>
 
-<h2 id="response-8">Response</h2>
+<h2 id="response-9">Response</h2>
 
 <ul>
   <li>When the transaction is received for processing.</li>
