@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-07-14T12:50:38+00:00</updated>
+    <updated>2023-07-14T13:13:03+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -30910,7 +30910,7 @@ There are two possible flows for fraud analysis:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;querying-a-cybersource-transaction&quot;&gt;Querying a Cybersource transaction&lt;/h2&gt;
+&lt;h2 id=&quot;querying-a-transaction-at-cybersource&quot;&gt;Querying a transaction at Cybersource&lt;/h2&gt;
 
 &lt;p&gt;To know the status of a transaction at Cybersource, we recommend that you set up the &lt;a href=&quot;https://braspag.github.io//en/manual/antifraude#notification-post&quot;&gt;Notification Post&lt;/a&gt; and also do the query by poll, which is presented below:&lt;/p&gt;
 
@@ -33589,7 +33589,7 @@ In the “OrgID” field, indicate the value corresponding to the environment in
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;querying-a-transaction-on-aci-worldwide&quot;&gt;Querying a transaction on ACI Worldwide&lt;/h2&gt;
+&lt;h2 id=&quot;querying-a-transaction-at-aci-worldwide&quot;&gt;Querying a transaction at ACI Worldwide&lt;/h2&gt;
 
 &lt;h3 id=&quot;request-5&quot;&gt;Request&lt;/h3&gt;
 
