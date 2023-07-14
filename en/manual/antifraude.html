@@ -5486,27 +5486,32 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   </tbody>
 </table>
 
-<h1 id="link-pagador-and-antifraud-transaction">Link Pagador and Antifraud transaction</h1>
+<h1 id="associating-a-transaction">Associating a transaction</h1>
 
-<p>This session describes how to link a transaction from the Pagador Braspag to a transaction of the Antifraud Gateway Braspag.</p>
+<p>The association of a Pagador Braspag transaction or another authorization solution to an Antifraude Gateway Braspag transaction can be done when the fraud analysis flow is <strong>AuthorizeFirst</strong>.</p>
 
 <blockquote>
-  <p>You should make this call when using the flow below: <br />
-1 - Send analyzes through the Antifraud Gateway Braspag <br />
-2 - Performs the authorization through the Pagador Braspag <br />
-3 - The 3rd step should be the call to this service to link the transaction of the Pagador Braspag to the transaction of the Antifraud Gateway Braspag</p>
+  <p>You must make this request when you: <br /></p>
+  <ol>
+    <li>Carry out a fraud analysis using the Braspag Antifraud Gateway <br /></li>
+    <li>Carry out the authorization through Pagador Braspag or another authorization solution.</li>
+  </ol>
 </blockquote>
 
-<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
+<p>To learn more about the <strong>AuthorizeFirst</strong> model of fraud analysis, in which the risk analysis takes place after authorization of the transaction, consult the [Pagador Manula]](https://braspag.github.io//en/manual/braspag-pagador#payments-with-fraud-analysis){:target=”_blank”}.</p>
 
-<h2 id="request-8">Request</h2>
+<h2 id="antifraude-and-pagador">Antifraude and Pagador</h2>
+
+<h3 id="request-8">Request</h3>
+
+<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parameters in the header (Header)</strong></p>
+<p><strong>Parameters in the header</strong></p>
 
 <table>
   <thead>
@@ -5535,7 +5540,7 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   </tbody>
 </table>
 
-<p><strong>Parameters in the body (Body)</strong></p>
+<p><strong>Parameters in the body</strong></p>
 
 <table>
   <thead>
@@ -5550,7 +5555,7 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   <tbody>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
-      <td style="text-align: left">Transaction id in Pagador Braspag</td>
+      <td style="text-align: left">Transaction ID in Pagador Braspag</td>
       <td style="text-align: center">guid</td>
       <td style="text-align: center">yes</td>
       <td style="text-align: right">-</td>
@@ -5558,115 +5563,52 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   </tbody>
 </table>
 
-<h2 id="response-9">Response</h2>
+<h3 id="response-9">Response</h3>
 
-<p><strong>Parameters in the header (Header)</strong></p>
-
-<p>When the Pagador transaction is properly linked to the Antifraud transaction</p>
+<p>The response will always present in the header the <code class="language-plaintext highlighter-rouge">Content-Type</code> with the value “application/json” and the <code class="language-plaintext highlighter-rouge">Status</code>. Below is the possible status for each scenario:</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
+      <th>Status</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
+      <td>200 OK</td>
+      <td>The Pagador transaction was correctly associated with the Antifraude Gateway transaction.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td style="text-align: left">200 OK</td>
+      <td>400 Bad Request</td>
+      <td>The Pagador transaction was not informed in the request.</td>
+    </tr>
+    <tr>
+      <td>404 Not Found</td>
+      <td>The Antifraude Gateway transaction was not found in the database.</td>
+    </tr>
+    <tr>
+      <td>409 Conflict</td>
+      <td>The Pagador transaction is already associated with another Antifraude Gateway transaction.</td>
     </tr>
   </tbody>
 </table>
 
-<ul>
-  <li>When the Payer transaction is not entered in the requisition</li>
-</ul>
+<h2 id="antifraude-and-another-authorization-solution">Antifraude and another authorization solution</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td style="text-align: left">400 Bad Request</td>
-    </tr>
-  </tbody>
-</table>
+<h3 id="request-9">Request</h3>
 
-<ul>
-  <li>When the Antifraud Gateway transaction is not found in the database</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td style="text-align: left">404 Not Found</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>When the Pagador transaction is already associated with another Antifraud Gateway transaction</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td style="text-align: left">409 Conflict</td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="cybersource-status-update">Cybersource Status Update</h1>
-
-<p>This section describes how to change the status of transactions in review to accept or reject or accept to reject.</p>
-
-<h2 id="request-9">Request</h2>
-
-<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">transaction/{id}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dados do cliente OK"</span><span class="w">
+    </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678910111216AB8"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"951852"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="s2">"T12345"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SaleDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09 10:01:55.662"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Parameters in the header (Header)</strong></p>
+<p><strong>Parameters in the header</strong></p>
 
 <table>
   <thead>
@@ -5695,12 +5637,12 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   </tbody>
 </table>
 
-<p><strong>Parameters in the body (Body)</strong></p>
+<p><strong>Parameters in the body</strong></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Parameters</th>
       <th style="text-align: left">Description</th>
       <th style="text-align: center">Type</th>
       <th style="text-align: center">Required</th>
@@ -5709,268 +5651,66 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Transaction new status. Accept or Reject</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td style="text-align: left">Transaction ID at acquirer.</td>
       <td style="text-align: center">string</td>
-      <td style="text-align: center">yes</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Nsu</code></td>
+      <td style="text-align: left">Unique sequential number of the transaction at the acquirer.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td style="text-align: left">Transaction authorization code at acquirer.</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Yes</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">SaleDate</code></td>
+      <td style="text-align: left">Transaction authorization date of the transaction at acquirer.</td>
+      <td style="text-align: center">datetime</td>
+      <td style="text-align: center">Yes</td>
       <td style="text-align: right">-</td>
     </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Comments</code></td>
-      <td style="text-align: left">Comment associated with status change</td>
-      <td style="text-align: center">string</td>
-      <td style="text-align: center">no</td>
-      <td style="text-align: right">255</td>
-    </tr>
   </tbody>
 </table>
 
-<h2 id="response-10">Response</h2>
+<h3 id="response-10">Response</h3>
 
-<ul>
-  <li>When the transaction is received for processing.</li>
-</ul>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ChangeStatusResponse"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Change Status request successfully received. New status: Accept."</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parameters in the header (Header)</strong></p>
+<p>The response will always present in the header the <code class="language-plaintext highlighter-rouge">Content-Type</code> with the value “application/json” and the <code class="language-plaintext highlighter-rouge">Status</code>. Below is the possible status for each scenario:</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
+      <th>Status</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
+      <td>200 OK</td>
+      <td>The transaction from the other authorization solution (different from Pagador) was correctly associated with the Antifraude Gateway transaction.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td style="text-align: left">200 OK</td>
+      <td>400 Bad Request</td>
+      <td>One of the contract fields (Tid, Nsu, Authorization code and Sale date) was not informed in the requisition.</td>
+    </tr>
+    <tr>
+      <td>404 Not Found</td>
+      <td>The Antifraude Gateway transaction was not found in the database.</td>
+    </tr>
+    <tr>
+      <td>409 Conflict</td>
+      <td>The transaction from the other authorization solution is already associated with another transaction from the Antifraude Gateway.</td>
     </tr>
   </tbody>
 </table>
-
-<p><strong>Parameters in the body (Body)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parâmetro</th>
-      <th style="text-align: left">Descrição</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td style="text-align: left">Transaction new status</td>
-      <td>string</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ChangeStatusResponse.Status</code></td>
-      <td style="text-align: left">Identify that Cybersource has received a status change request</td>
-      <td>string</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ChangeStatusResponse.Message</code></td>
-      <td style="text-align: left">Message containing content of the operation performed</td>
-      <td>string</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>When the transaction is not found in the database.</li>
-</ul>
-
-<p><strong>Parameters in the header (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td style="text-align: left">404 Not Found</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>When the transaction is not eligible to change status.</li>
-</ul>
-
-<p><strong>Parameters in the header (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td style="text-align: left">400 Bad Request</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>When the new status sent is different from Accept or Reject.</li>
-</ul>
-
-<p><strong>Parameters in the header (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td style="text-align: left">400 Bad Request</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>When the type or size of any field is not sent as specified in the manual.</li>
-</ul>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ModelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"request.Status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"Error converting value </span><span class="se">\"</span><span class="s2">Review</span><span class="se">\"</span><span class="s2"> to type 'Antifraude.Domain.Enums.StatusType'. Path 'Status', line 2, position 16."</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"request.Comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"The field Comments must be a string or array type with a maximum length of '255'."</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Parameters in the header (Header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td style="text-align: left">400 Bad Request</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Parameters in the body (Body)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Parameter</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Message</code></td>
-      <td style="text-align: left">Message stating that the request is invalid</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ModelState</code></td>
-      <td style="text-align: left">Collection that will contain messages with fields that do not conform to the type, domain or size as specified in the manual</td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="fingerprint-configuration">Fingerprint Configuration</h1>
-
-<p>An important component of fraud analysis, Fingerprint is a Javascript that must be inserted on your website to capture important data such as: customer’s IP, browser version, operating system etc.
-Often, only the cart data is not enough to guarantee an assertive analysis. The data collected by Fingerprint complement the analysis and ensure that your store is more protected.</p>
-
-<p>It will be necessary to add two tags, the <strong>&lt;script&gt;</strong> inside the <strong>&lt;head&gt;</strong> tag for a correct performance and <strong>&lt;noscript&gt;</strong> within the <strong>&lt;body&gt;</strong> tag, so that the device data collection is performed even if the browser Javascript is disabled.</p>
-
-<aside class="warning">If the 2 code segments are not placed on the checkout page, the results may not be accurate</aside>
-
-<p><strong>Variables</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Variable</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">org_id</code></td>
-      <td style="text-align: left">Sandbox = 1snn5n9w <br /> Production = k8vif92e</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">session_id</code></td>
-      <td style="text-align: left">Concatenation of the variables <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> and<code class="language-plaintext highlighter-rouge"> Customer.BrowserFingerprint</code> <br /> <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> = Identifier of your store in Cybersource. If not, contact Braspag <br /> <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> = Identifier used to cross information obtained from the buyer’s device. <br /> Obs .: This identifier can be any value or the order number, but it must be unique for 48 hours.</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>Javascript Code</p>
-</blockquote>
-
-<p><img src="https://braspag.github.io//images/braspag/af/exemploscriptdfp.png" alt="Code example" /></p>
-
-<p>The variables, when properly filled in, would provide a URL similar to the example below:</p>
-
-<p><img src="https://braspag.github.io/images/braspag/af/urldfpaf.png" alt="Exemplo Url" /></p>
-
-<aside class="warning"> Make sure that you copy all the data correctly and that you have replaced the variables correctly with the respective values. </aside>
-
-<p>** Integração em aplicativos mobile **</p>
-
-<blockquote>
-  <p>Request the SDKs (iOS and Android) and manuals together with the integration ticket.</p>
-</blockquote>
 
 <h1 id="annexes">Annexes</h1>
 

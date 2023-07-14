@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-07-14T13:20:53+00:00</updated>
+    <updated>2023-07-14T13:35:41+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -34805,27 +34805,32 @@ If the option to run the module does not appear, select &lt;em&gt;File -&amp;gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;link-pagador-and-antifraud-transaction&quot;&gt;Link Pagador and Antifraud transaction&lt;/h1&gt;
+&lt;h1 id=&quot;associating-a-transaction&quot;&gt;Associating a transaction&lt;/h1&gt;
 
-&lt;p&gt;This session describes how to link a transaction from the Pagador Braspag to a transaction of the Antifraud Gateway Braspag.&lt;/p&gt;
+&lt;p&gt;The association of a Pagador Braspag transaction or another authorization solution to an Antifraude Gateway Braspag transaction can be done when the fraud analysis flow is &lt;strong&gt;AuthorizeFirst&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;You should make this call when using the flow below: &lt;br /&gt;
-1 - Send analyzes through the Antifraud Gateway Braspag &lt;br /&gt;
-2 - Performs the authorization through the Pagador Braspag &lt;br /&gt;
-3 - The 3rd step should be the call to this service to link the transaction of the Pagador Braspag to the transaction of the Antifraud Gateway Braspag&lt;/p&gt;
+  &lt;p&gt;You must make this request when you: &lt;br /&gt;&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Carry out a fraud analysis using the Braspag Antifraud Gateway &lt;br /&gt;&lt;/li&gt;
+    &lt;li&gt;Carry out the authorization through Pagador Braspag or another authorization solution.&lt;/li&gt;
+  &lt;/ol&gt;
 &lt;/blockquote&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method patch&quot;&gt;PATCH&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;transaction/{id}&lt;/span&gt;&lt;/aside&gt;
+&lt;p&gt;To learn more about the &lt;strong&gt;AuthorizeFirst&lt;/strong&gt; model of fraud analysis, in which the risk analysis takes place after authorization of the transaction, consult the [Pagador Manula]](https://braspag.github.io//en/manual/braspag-pagador#payments-with-fraud-analysis){:target=”_blank”}.&lt;/p&gt;
 
-&lt;h2 id=&quot;request-8&quot;&gt;Request&lt;/h2&gt;
+&lt;h2 id=&quot;antifraude-and-pagador&quot;&gt;Antifraude and Pagador&lt;/h2&gt;
+
+&lt;h3 id=&quot;request-8&quot;&gt;Request&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method patch&quot;&gt;PATCH&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;transaction/{id}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;BraspagTransactionId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a3e08eb2-2144-4e41-85d4-61f1befc7a3b&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -34854,7 +34859,7 @@ If the option to run the module does not appear, select &lt;em&gt;File -&amp;gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -34869,7 +34874,7 @@ If the option to run the module does not appear, select &lt;em&gt;File -&amp;gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BraspagTransactionId&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transaction id in Pagador Braspag&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction ID in Pagador Braspag&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;guid&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
@@ -34877,115 +34882,52 @@ If the option to run the module does not appear, select &lt;em&gt;File -&amp;gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;response-9&quot;&gt;Response&lt;/h2&gt;
+&lt;h3 id=&quot;response-9&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;When the Pagador transaction is properly linked to the Antifraud transaction&lt;/p&gt;
+&lt;p&gt;The response will always present in the header the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt; with the value “application/json” and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;. Below is the possible status for each scenario:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+      &lt;th&gt;Status&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+      &lt;td&gt;200 OK&lt;/td&gt;
+      &lt;td&gt;The Pagador transaction was correctly associated with the Antifraude Gateway transaction.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;200 OK&lt;/td&gt;
+      &lt;td&gt;400 Bad Request&lt;/td&gt;
+      &lt;td&gt;The Pagador transaction was not informed in the request.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;404 Not Found&lt;/td&gt;
+      &lt;td&gt;The Antifraude Gateway transaction was not found in the database.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;409 Conflict&lt;/td&gt;
+      &lt;td&gt;The Pagador transaction is already associated with another Antifraude Gateway transaction.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;When the Payer transaction is not entered in the requisition&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&quot;antifraude-and-another-authorization-solution&quot;&gt;Antifraude and another authorization solution&lt;/h2&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;400 Bad Request&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;h3 id=&quot;request-9&quot;&gt;Request&lt;/h3&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;When the Antifraud Gateway transaction is not found in the database&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;404 Not Found&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;When the Pagador transaction is already associated with another Antifraud Gateway transaction&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;409 Conflict&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h1 id=&quot;cybersource-status-update&quot;&gt;Cybersource Status Update&lt;/h1&gt;
-
-&lt;p&gt;This section describes how to change the status of transactions in review to accept or reject or accept to reject.&lt;/p&gt;
-
-&lt;h2 id=&quot;request-9&quot;&gt;Request&lt;/h2&gt;
-
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method patch&quot;&gt;PATCH&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;analysis/v2/{id}&lt;/span&gt;&lt;/aside&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;transaction/{id}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Accept&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Comments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Dados do cliente OK&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Tid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12345678910111216AB8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Nsu&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;951852&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;T12345&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;SaleDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2016-12-09 10:01:55.662&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the header&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -35014,12 +34956,12 @@ If the option to run the module does not appear, select &lt;em&gt;File -&amp;gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters in the body&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Parameters&lt;/th&gt;
       &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;Required&lt;/th&gt;
@@ -35028,268 +34970,66 @@ If the option to run the module does not appear, select &lt;em&gt;File -&amp;gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transaction new status. Accept or Reject&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tid&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction ID at acquirer.&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;yes&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Yes&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;20&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nsu&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Unique sequential number of the transaction at the acquirer.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Yes&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AuthorizationCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction authorization code at acquirer.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Yes&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SaleDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Transaction authorization date of the transaction at acquirer.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;datetime&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Yes&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Comments&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Comment associated with status change&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;no&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;255&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;response-10&quot;&gt;Response&lt;/h2&gt;
+&lt;h3 id=&quot;response-10&quot;&gt;Response&lt;/h3&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;When the transaction is received for processing.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Accept&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ChangeStatusResponse&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OK&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Message&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Change Status request successfully received. New status: Accept.&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The response will always present in the header the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt; with the value “application/json” and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;. Below is the possible status for each scenario:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
+      &lt;th&gt;Status&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
+      &lt;td&gt;200 OK&lt;/td&gt;
+      &lt;td&gt;The transaction from the other authorization solution (different from Pagador) was correctly associated with the Antifraude Gateway transaction.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;200 OK&lt;/td&gt;
+      &lt;td&gt;400 Bad Request&lt;/td&gt;
+      &lt;td&gt;One of the contract fields (Tid, Nsu, Authorization code and Sale date) was not informed in the requisition.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;404 Not Found&lt;/td&gt;
+      &lt;td&gt;The Antifraude Gateway transaction was not found in the database.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;409 Conflict&lt;/td&gt;
+      &lt;td&gt;The transaction from the other authorization solution is already associated with another transaction from the Antifraude Gateway.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parâmetro&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Transaction new status&lt;/td&gt;
-      &lt;td&gt;string&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChangeStatusResponse.Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Identify that Cybersource has received a status change request&lt;/td&gt;
-      &lt;td&gt;string&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChangeStatusResponse.Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Message containing content of the operation performed&lt;/td&gt;
-      &lt;td&gt;string&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;When the transaction is not found in the database.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;404 Not Found&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;When the transaction is not eligible to change status.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;400 Bad Request&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;When the new status sent is different from Accept or Reject.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;400 Bad Request&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;When the type or size of any field is not sent as specified in the manual.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Message&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;The request is invalid.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ModelState&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;request.Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Error converting value &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Review&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; to type 'Antifraude.Domain.Enums.StatusType'. Path 'Status', line 2, position 16.&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;request.Comments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;The field Comments must be a string or array type with a maximum length of '255'.&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Parameters in the header (Header)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Key&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;application/json&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;400 Bad Request&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;Parameters in the body (Body)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Parameter&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Message&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Message stating that the request is invalid&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ModelState&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Collection that will contain messages with fields that do not conform to the type, domain or size as specified in the manual&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h1 id=&quot;fingerprint-configuration&quot;&gt;Fingerprint Configuration&lt;/h1&gt;
-
-&lt;p&gt;An important component of fraud analysis, Fingerprint is a Javascript that must be inserted on your website to capture important data such as: customer’s IP, browser version, operating system etc.
-Often, only the cart data is not enough to guarantee an assertive analysis. The data collected by Fingerprint complement the analysis and ensure that your store is more protected.&lt;/p&gt;
-
-&lt;p&gt;It will be necessary to add two tags, the &lt;strong&gt;&amp;lt;script&amp;gt;&lt;/strong&gt; inside the &lt;strong&gt;&amp;lt;head&amp;gt;&lt;/strong&gt; tag for a correct performance and &lt;strong&gt;&amp;lt;noscript&amp;gt;&lt;/strong&gt; within the &lt;strong&gt;&amp;lt;body&amp;gt;&lt;/strong&gt; tag, so that the device data collection is performed even if the browser Javascript is disabled.&lt;/p&gt;
-
-&lt;aside class=&quot;warning&quot;&gt;If the 2 code segments are not placed on the checkout page, the results may not be accurate&lt;/aside&gt;
-
-&lt;p&gt;&lt;strong&gt;Variables&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Variable&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;org_id&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Sandbox = 1snn5n9w &lt;br /&gt; Production = k8vif92e&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;session_id&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Concatenation of the variables &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderMerchantId&lt;/code&gt; and&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; Customer.BrowserFingerprint&lt;/code&gt; &lt;br /&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderMerchantId&lt;/code&gt; = Identifier of your store in Cybersource. If not, contact Braspag &lt;br /&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customer.BrowserFingerprint&lt;/code&gt; = Identifier used to cross information obtained from the buyer’s device. &lt;br /&gt; Obs .: This identifier can be any value or the order number, but it must be unique for 48 hours.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Javascript Code&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/af/exemploscriptdfp.png&quot; alt=&quot;Code example&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The variables, when properly filled in, would provide a URL similar to the example below:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io/images/braspag/af/urldfpaf.png&quot; alt=&quot;Exemplo Url&quot; /&gt;&lt;/p&gt;
-
-&lt;aside class=&quot;warning&quot;&gt; Make sure that you copy all the data correctly and that you have replaced the variables correctly with the respective values. &lt;/aside&gt;
-
-&lt;p&gt;** Integração em aplicativos mobile **&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Request the SDKs (iOS and Android) and manuals together with the integration ticket.&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;annexes&quot;&gt;Annexes&lt;/h1&gt;
 
