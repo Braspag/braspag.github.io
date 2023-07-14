@@ -550,7 +550,7 @@ Below is an example of a fraud analysis request with Cybersource.
 |`ProviderAnalysisResult.DecisionReply.CasePriority`|Sets the priority level for merchant rules or profiles. The priority level varies from 1 (highest) to 5 (lowest) and the default value is 3, and this will be assigned if you have not defined the priority of the rules or profiles. This field will only be returned if the store subscribes to Enhanced Case Management|int|
 |`ProviderAnalysisResult.DecisionReply.VelocityInfoCode`|Information codes triggered by the analysis. These codes were generated when creating the rules|string|
 
-## Querying a Cybersource transaction
+## Querying a transaction at Cybersource
 
 To know the status of a transaction at Cybersource, we recommend that you set up the [Notification Post](https://braspag.github.io//en/manual/antifraude#notification-post) and also do the query by poll, which is presented below:
 
@@ -1608,7 +1608,7 @@ When your antifraude provider is ACI Worldwide, send the value "RedShield" in th
 |`ProviderAnalysisResult.ResultDetails.ProviderOrderId`|Order ID on ReDShield|string|
 |`ProviderAnalysisResult.Ndc`|Exclusive ID of the ReDShield request|string|
 
-## Querying a transaction on ACI Worldwide
+## Querying a transaction at ACI Worldwide
 
 ### Request
 
