@@ -2080,6 +2080,67 @@ If the option to run the module does not appear, select *File -> Project Structu
 
 The example is simple, there is a button and when clicked a text box is filled with the *black box*. For a richer example, see the Android Studio sample app included in the SDK.
 
+# Indicating integration errors
+
+## Response
+
+``` json
+{
+  "Message": "The request is invalid.",
+  "ModelState": {
+    "request.Customer.Gender": [
+      "Error converting value \"M\" to type 'Antifraude.Domain.Enums.GenderType'. Path 'Customer.Gender', line 51, position 17."
+    ],
+    "FraudAnalysisRequestError": [
+      "The Card.EciThreeDSecure lenght is gratter than 1",
+      "The Shipping.Complement lenght is gratter than 14",
+      "The Shipping.MiddleName lenght is gratter than 1",
+      "The Customer.MerchantCustomerId lenght is gratter than 16",
+      "The Customer.MiddleName lenght is gratter than 1"
+    ]
+  }
+}
+```
+
+**Parameters in the header**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|400 Bad Request|
+
+**Parameters in the body**
+
+|Parameters|Description|
+|:-|:-|
+|`Message`|Message stating that the request is invalid.|
+|`ModelState`|Collection that will contain messages with fields that do not conform to the type or domain as specified in the manual.|
+|`FraudAnalysisRequestError`|CCollection that will contain messages with fields that do not conform to the size specified in the manual.|
+
+# Querying a non-existent transaction
+
+## Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+
+**Parameters in the header**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+## Response
+
+**Parameters in the header**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|404 Not Found|
+
 # Queries
 
 ## Querying a transaction Cybersource
