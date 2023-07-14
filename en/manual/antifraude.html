@@ -5265,6 +5265,131 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
 
 <p>The example is simple, there is a button and when clicked a text box is filled with the <em>black box</em>. For a richer example, see the Android Studio sample app included in the SDK.</p>
 
+<h1 id="indicating-integration-errors">Indicating integration errors</h1>
+
+<h2 id="response-6">Response</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ModelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"request.Customer.Gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Error converting value </span><span class="se">\"</span><span class="s2">M</span><span class="se">\"</span><span class="s2"> to type 'Antifraude.Domain.Enums.GenderType'. Path 'Customer.Gender', line 51, position 17."</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"FraudAnalysisRequestError"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"The Card.EciThreeDSecure lenght is gratter than 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"The Shipping.Complement lenght is gratter than 14"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"The Shipping.MiddleName lenght is gratter than 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"The Customer.MerchantCustomerId lenght is gratter than 16"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"The Customer.MiddleName lenght is gratter than 1"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parameters in the header</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td style="text-align: left">400 Bad Request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parameters in the body</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameters</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td style="text-align: left">Message stating that the request is invalid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ModelState</code></td>
+      <td style="text-align: left">Collection that will contain messages with fields that do not conform to the type or domain as specified in the manual.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">FraudAnalysisRequestError</code></td>
+      <td style="text-align: left">CCollection that will contain messages with fields that do not conform to the size specified in the manual.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="querying-a-non-existent-transaction">Querying a non-existent transaction</h1>
+
+<h2 id="request-6">Request</h2>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
+
+<p><strong>Parameters in the header</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td style="text-align: left">Bearer {access_token}</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="response-7">Response</h2>
+
+<p><strong>Parameters in the header</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Key</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td style="text-align: left">application/json</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td style="text-align: left">404 Not Found</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="queries">Queries</h1>
 
 <h2 id="querying-a-transaction-cybersource">Querying a transaction Cybersource</h2>
@@ -5433,7 +5558,7 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="request-6">Request</h3>
+<h3 id="request-7">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
@@ -5466,7 +5591,7 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   </tbody>
 </table>
 
-<h3 id="response-6">Response</h3>
+<h3 id="response-8">Response</h3>
 
 <p><strong>Parameters in the header (Header)</strong></p>
 
@@ -6478,11 +6603,11 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   </tbody>
 </table>
 
-<h2 id="querying-a-non-existent-transaction">Querying a non-existent transaction</h2>
+<h2 id="querying-a-non-existent-transaction-1">Querying a non-existent transaction</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
 
-<h3 id="request-7">Request</h3>
+<h3 id="request-8">Request</h3>
 
 <p><strong>Parameters in the header (Header)</strong></p>
 
@@ -6513,7 +6638,7 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   </tbody>
 </table>
 
-<h3 id="response-7">Response</h3>
+<h3 id="response-9">Response</h3>
 
 <p><strong>Parameters in the header (Header)</strong></p>
 
@@ -6555,7 +6680,7 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   </li>
 </ul>
 
-<h2 id="request-8">Request</h2>
+<h2 id="request-9">Request</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{url loja}</span></aside>
 
@@ -6600,7 +6725,7 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   </tbody>
 </table>
 
-<h2 id="response-8">Response</h2>
+<h2 id="response-10">Response</h2>
 
 <p><strong>Parameters in the header (Header)</strong></p>
 
@@ -6636,7 +6761,7 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
-<h2 id="request-9">Request</h2>
+<h2 id="request-10">Request</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
@@ -6695,7 +6820,7 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   </tbody>
 </table>
 
-<h2 id="response-9">Response</h2>
+<h2 id="response-11">Response</h2>
 
 <p><strong>Parameters in the header (Header)</strong></p>
 
@@ -6793,7 +6918,7 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
 
 <p>This section describes how to change the status of transactions in review to accept or reject or accept to reject.</p>
 
-<h2 id="request-10">Request</h2>
+<h2 id="request-11">Request</h2>
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
 
@@ -6862,7 +6987,7 @@ If the option to run the module does not appear, select <em>File -&gt; Project S
   </tbody>
 </table>
 
-<h2 id="response-10">Response</h2>
+<h2 id="response-12">Response</h2>
 
 <ul>
   <li>When the transaction is received for processing.</li>
