@@ -2195,18 +2195,21 @@ The Notification Post is a webhook that sends a notification to the URL register
 |`Content-Type`|application/json|
 |`Status`|200 OK|
 
-# Link Pagador and Antifraud transaction
+# Associating a transaction
 
-This session describes how to link a transaction from the Pagador Braspag to a transaction of the Antifraud Gateway Braspag.
+The association of a Pagador Braspag transaction or another authorization solution to an Antifraude Gateway Braspag transaction can be done when the fraud analysis flow is **AuthorizeFirst**.
 
-> You should make this call when using the flow below: <br/>
-> 1 - Send analyzes through the Antifraud Gateway Braspag <br/>
-> 2 - Performs the authorization through the Pagador Braspag <br/>
-> 3 - The 3rd step should be the call to this service to link the transaction of the Pagador Braspag to the transaction of the Antifraud Gateway Braspag
+> You must make this request when you: <br/>
+> 1. Carry out a fraud analysis using the Braspag Antifraud Gateway <br/>
+> 2. Carry out the authorization through Pagador Braspag or another authorization solution.
+
+To learn more about the **AuthorizeFirst** model of fraud analysis, in which the risk analysis takes place after authorization of the transaction, consult the [Pagador Manula]](https://braspag.github.io//en/manual/braspag-pagador#payments-with-fraud-analysis){:target="_blank"}.
+
+## Antifraude and Pagador
+
+### Request
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
-
-## Request
 
 ``` json
 {
@@ -2214,7 +2217,7 @@ This session describes how to link a transaction from the Pagador Braspag to a t
 }
 ```
 
-**Parameters in the header (Header)**
+**Parameters in the header**
 
 |Key|Value|
 |:-|:-|
@@ -2223,60 +2226,39 @@ This session describes how to link a transaction from the Pagador Braspag to a t
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-**Parameters in the body (Body)**
+**Parameters in the body**
 
 |Parameter|Description|Type|Required|Size|
 |:-|:-|:-:|:-:|-:|
-|`BraspagTransactionId`|Transaction id in Pagador Braspag|guid|yes|-|
+|`BraspagTransactionId`|Transaction ID in Pagador Braspag|guid|yes|-|
 
-## Response
+### Response
 
-**Parameters in the header (Header)**
+The response will always present in the header the `Content-Type` with the value "application/json" and the `Status`. Below is the possible status for each scenario:
 
-When the Pagador transaction is properly linked to the Antifraud transaction
+|Status|Description|
+|---|---|
+|200 OK | The Pagador transaction was correctly associated with the Antifraude Gateway transaction.|
+|400 Bad Request| The Pagador transaction was not informed in the request.|
+|404 Not Found|The Antifraude Gateway transaction was not found in the database.|
+|409 Conflict|The Pagador transaction is already associated with another Antifraude Gateway transaction.|
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|200 OK|
+## Antifraude and another authorization solution
 
-* When the Payer transaction is not entered in the requisition
+### Request
 
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-* When the Antifraud Gateway transaction is not found in the database
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|404 Not Found|
-
-* When the Pagador transaction is already associated with another Antifraud Gateway transaction
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|409 Conflict|
-
-# Cybersource Status Update
-
-This section describes how to change the status of transactions in review to accept or reject or accept to reject.
-
-## Request
-
-<aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">analysis/v2/{id}</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">transaction/{id}</span></aside>
 
 ``` json
 {
-    "Status": "Accept",
-    "Comments": "Dados do cliente OK"
+    "Tid": "12345678910111216AB8",
+    "Nsu": "951852",
+    "AuthorizationCode":"T12345",
+    "SaleDate": "2016-12-09 10:01:55.662"
 }
 ```
 
-**Parameters in the header (Header)**
+**Parameters in the header**
 
 |Key|Value|
 |:-|:-|
@@ -2285,128 +2267,25 @@ This section describes how to change the status of transactions in review to acc
 |`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
-**Parameters in the body (Body)**
+**Parameters in the body**
 
-|Parameter|Description|Type|Required|Size|
+|Parameters|Description|Type|Required|Size|
 |:-|:-|:-:|:-:|-:|
-|`Status`|Transaction new status. Accept or Reject|string|yes|-|
-|`Comments`|Comment associated with status change|string|no|255|
+|`Tid`|Transaction ID at acquirer.|string|Yes|20|
+|`Nsu`|Unique sequential number of the transaction at the acquirer.|string|Yes|10|
+|`AuthorizationCode`|Transaction authorization code at acquirer.|string|Yes|10|
+|`SaleDate`|Transaction authorization date of the transaction at acquirer.|datetime|Yes|-|
 
-## Response
+### Response
 
-* When the transaction is received for processing.
+The response will always present in the header the `Content-Type` with the value "application/json" and the `Status`. Below is the possible status for each scenario:
 
-``` json
-{
-    "Status": "Accept",
-    "ChangeStatusResponse": {
-        "Status": "OK",
-        "Message": "Change Status request successfully received. New status: Accept."
-    }
-}
-```
-
-**Parameters in the header (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|200 OK|
-
-**Parameters in the body (Body)**
-
-|Parâmetro|Descrição|
-|:-|:-|
-|`Status`|Transaction new status|string|
-|`ChangeStatusResponse.Status`|Identify that Cybersource has received a status change request|string|
-|`ChangeStatusResponse.Message`|Message containing content of the operation performed|string|
-
-* When the transaction is not found in the database.
-
-**Parameters in the header (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|404 Not Found|
-
-* When the transaction is not eligible to change status.
-
-**Parameters in the header (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-* When the new status sent is different from Accept or Reject.
-
-**Parameters in the header (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-* When the type or size of any field is not sent as specified in the manual.
-
-``` json
-{
-    "Message": "The request is invalid.",
-    "ModelState": {
-        "request.Status": [
-            "Error converting value \"Review\" to type 'Antifraude.Domain.Enums.StatusType'. Path 'Status', line 2, position 16."
-        ],
-        "request.Comments": [
-            "The field Comments must be a string or array type with a maximum length of '255'."
-        ]
-    }
-}
-```
-
-**Parameters in the header (Header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Status`|400 Bad Request|
-
-**Parameters in the body (Body)**
-
-|Parameter|Description|
-|:-|:-|
-|`Message`|Message stating that the request is invalid|
-|`ModelState`|Collection that will contain messages with fields that do not conform to the type, domain or size as specified in the manual|
-
-# Fingerprint Configuration
-
-An important component of fraud analysis, Fingerprint is a Javascript that must be inserted on your website to capture important data such as: customer's IP, browser version, operating system etc.
-Often, only the cart data is not enough to guarantee an assertive analysis. The data collected by Fingerprint complement the analysis and ensure that your store is more protected.
-
-It will be necessary to add two tags, the **&lt;script&gt;** inside the **&lt;head&gt;** tag for a correct performance and **&lt;noscript&gt;** within the **&lt;body&gt;** tag, so that the device data collection is performed even if the browser Javascript is disabled.
-
-<aside class="warning">If the 2 code segments are not placed on the checkout page, the results may not be accurate</aside>
-
-**Variables**
-
-|Variable|Description|
-|:-|:-|
-|`org_id`|Sandbox = 1snn5n9w <br/> Production = k8vif92e|
-|`session_id`|Concatenation of the variables `ProviderMerchantId` and` Customer.BrowserFingerprint` <br/> `ProviderMerchantId` = Identifier of your store in Cybersource. If not, contact Braspag <br/> `Customer.BrowserFingerprint` = Identifier used to cross information obtained from the buyer's device. <br/> Obs .: This identifier can be any value or the order number, but it must be unique for 48 hours.|
-
-> Javascript Code
-
-![Code example]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
-
-The variables, when properly filled in, would provide a URL similar to the example below:
-
-![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfpaf.png)
-
-<aside class = "warning"> Make sure that you copy all the data correctly and that you have replaced the variables correctly with the respective values. </aside>
-
-** Integração em aplicativos mobile **
-
-> Request the SDKs (iOS and Android) and manuals together with the integration ticket.
+|Status|Description|
+|---|---|
+|200 OK |The transaction from the other authorization solution (different from Pagador) was correctly associated with the Antifraude Gateway transaction.|
+|400 Bad Request| One of the contract fields (Tid, Nsu, Authorization code and Sale date) was not informed in the requisition.|
+|404 Not Found|The Antifraude Gateway transaction was not found in the database.|
+|409 Conflict|The transaction from the other authorization solution is already associated with another transaction from the Antifraude Gateway.|
 
 # Annexes
 
