@@ -97,6 +97,12 @@ In this step we implement the _script_ and mapping of _classes_, responsible for
 
 ## Description of Events
 
+The events are actions that the script considers as a response for following the authentication process, but do not indicate if the transaction was successfully authenticated.
+
+The ECI (E-commerce Indicator) is what indicates if the transaction was authenticated or not and the liability in case of chargeback. In order to sumbit a transaction for authorization, please consider the ECI value and use the events only as a complemenatry information for decision-making.
+
+<aside class="warning">Submitting a non-authenticated transaction for authorization is allowed; however, the liability shift in case of chargeback remains with the merchant.</aside>
+
 |**Event**|**Description**|
 |---|---|
 |onReady|Triggers when all solution script loading procedures have completed successfully, which includes access token validation, indicating that the checkout is ready to start authentication|
