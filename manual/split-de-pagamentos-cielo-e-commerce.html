@@ -3394,7 +3394,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 <h3 id="captura-total">Captura Total</h3>
 
-<p>Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.</p>
+<p>Na captura total de uma transação, o somatório dos valores de participação de cada seller deverá ser igual ao valor total da transação enviado no momento da autorização.</p>
 
 <h4 id="requisição-12">Requisição</h4>
 
@@ -3488,7 +3488,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 <h3 id="captura-parcial">Captura Parcial</h3>
 
-<p>Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio master.</p>
+<p>Na captura parcial de uma transação, o somatório dos valores de participação de cada seller deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio master.</p>
 
 <h4 id="requisição-13">Requisição</h4>
 
@@ -3592,7 +3592,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 <h2 id="cancelamento">Cancelamento</h2>
 
-<p>Ao cancelar uma transação do Split de Pagamentos o master deve informar, para um cancelamento parcial, qual o valor que deve ser cancelado para cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que o valor total será cancelado e, consequentemente, o valor total de cada subordinado.</p>
+<p>Ao cancelar uma transação do Split de Pagamentos o master deve informar, para um cancelamento parcial, qual o valor que deve ser cancelado para cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que o valor total será cancelado e, consequentemente, o valor total de cada seller.</p>
 
 <blockquote>
   <p>O prazo de estorno de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.</p>
@@ -3600,7 +3600,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 <h3 id="cancelamento-total">Cancelamento Total</h3>
 
-<p>No cancelamento total de uma transação, será cancelado o valor total da transação e, consequentemente, o valor total de cada subordinado e as comissões de todos os participantes.</p>
+<p>No cancelamento total de uma transação, será cancelado o valor total da transação e, consequentemente, o valor total de cada seller e as comissões de todos os participantes.</p>
 
 <h4 id="requisição-14">Requisição</h4>
 
@@ -3662,7 +3662,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 
 <h3 id="cancelamento-parcial">Cancelamento Parcial</h3>
 
-<p>No cancelamento parcial, o somatório dos valores cancelados definidos para cada subordinado deve ser igual ao valor do cancelamento parcial.</p>
+<p>No cancelamento parcial, o somatório dos valores cancelados definidos para cada seller deve ser igual ao valor do cancelamento parcial.</p>
 
 <h4 id="requisição-15">Requisição</h4>
 
@@ -3704,14 +3704,14 @@ status. Caso queira receber atualizações de status de uma transação, recomen
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VoidSplitPayments.SubordinateMerchantId</code></td>
-      <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong>.</td>
+      <td><strong>MerchantId</strong> (identificador) do <strong>seller</strong>.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VoidedAmount.Amount</code></td>
-      <td>Total ou parte do valor destinado ao <strong>Subordinado</strong> a ser cancelado, em centavos.</td>
+      <td>Total ou parte do valor destinado ao <strong>seller</strong> a ser cancelado, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
@@ -3774,7 +3774,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Não é obrigatório informar todos os subordinados no cancelamento parcial. Você pode informar apenas os subordinados para os quais deseja cancelar totalmente ou cancelar parte do valor destinado a cada um na transação, conforme exemplo a seguir:</p>
+<p>Não é obrigatório informar todos os sellers no cancelamento parcial. Você pode informar apenas os sellers para os quais deseja cancelar totalmente ou cancelar parte do valor destinado a cada um na transação, conforme exemplo a seguir:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
@@ -3787,7 +3787,7 @@ status. Caso queira receber atualizações de status de uma transação, recomen
 </span></code></pre></div></div>
 
 <blockquote>
-  <p>Ao cancelar parcialmente parte de um valor destinado a um subordinado, a Tarifa Fixa que o master tem a receber também é cancelada proporcionalmente.</p>
+  <p>Ao cancelar parcialmente parte de um valor destinado a um seller, a Tarifa Fixa que o master tem a receber também é cancelada proporcionalmente.</p>
 </blockquote>
 
 <h1 id="opções-de-configuração-da-transação">Opções de Configuração da Transação</h1>
@@ -3845,34 +3845,34 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <blockquote>
   <p><strong>Taxa Split:</strong> 2% de MDR + R$0,30 de Tarifa Fixa.<br />
-<strong>Taxa Master com o Subordinado A:</strong> 5% de MDR, já embutindo os 2% do MDR Split + R$0,30 de Tarifa Fixa.<br /> 
-<strong>Taxa Master com o Subordinado B:</strong> 4% MDR, já embutindo os 2% do MDR Split + R$ 0,15 de Tarifa Fixa.</p>
+<strong>Taxa Master com o seller A:</strong> 5% de MDR, já embutindo os 2% do MDR Split + R$0,30 de Tarifa Fixa.<br /> 
+<strong>Taxa Master com o seller B:</strong> 4% MDR, já embutindo os 2% do MDR Split + R$ 0,15 de Tarifa Fixa.</p>
 </blockquote>
 
 <p>Após a divisão, cada participante terá sua agenda sensibilizada com os seguintes eventos:</p>
 
-<p><strong>Subordinado A:</strong></p>
+<p><strong>Seller A:</strong></p>
 
 <ul>
   <li>Crédito de R$42,75 (R$45,00 da transação menos R$2,25 de MDR);</li>
   <li>Débito de R$0,30 de Tarifa Fixa.</li>
 </ul>
 
-<p><br />O <strong>total a receber</strong> pelo subordinado A será <strong>R$42,45</strong>.</p>
+<p><br />O <strong>total a receber</strong> pelo seller A será <strong>R$42,45</strong>.</p>
 
-<p><strong>Subordinado B:</strong></p>
+<p><strong>Seller B:</strong></p>
 
 <ul>
   <li>Crédito de R$28,80 (R$30,00 da transação menos R$1,20 de MDR);</li>
   <li>Débito de R$0,15 de Tarifa Fixa.</li>
 </ul>
 
-<p><br />O <strong>total a receber</strong> pelo subordinado B será <strong>R$28,65</strong>.</p>
+<p><br />O <strong>total a receber</strong> pelo seller B será <strong>R$28,65</strong>.</p>
 
 <p><strong>Master:</strong></p>
 
 <ul>
-  <li>Crédito de R$ 26,90 (R$25,00 da transação somados com R$2,25 de MDR e R$0,30 de Tarifa Fixa do subordinado A, e com R$1,20 de MDR e R$0,15 de Tarifa Fixa do subordinado B; menos R$2,00 de MDR do Split);</li>
+  <li>Crédito de R$ 26,90 (R$25,00 da transação somados com R$2,25 de MDR e R$0,30 de Tarifa Fixa do seller A, e com R$1,20 de MDR e R$0,15 de Tarifa Fixa do seller B; menos R$2,00 de MDR do Split);</li>
   <li>Débito de R$0,30 (Tarifa Fixa acordada com o Split).</li>
 </ul>
 
@@ -6744,7 +6744,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 <p>O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.</p>
 
 <blockquote>
-  <p>No modelo de negócio do Split, todo chargeback é repassado ao master, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.</p>
+  <p>No modelo de negócio do Split, todo chargeback é repassado ao master, que pode ou não repassá-lo para os seus sellers. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.</p>
 </blockquote>
 
 <h2 id="fluxo-transacional-com-antifraude">Fluxo transacional com Antifraude</h2>
