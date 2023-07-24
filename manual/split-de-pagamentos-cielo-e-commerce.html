@@ -185,7 +185,7 @@
 
 <h1 id="como-funciona">Como funciona</h1>
 
-<p>Os possíveis participantes de uma venda são: master, subordinado e Split de Pagamentos.</p>
+<p>Os possíveis participantes de uma venda são: master, seller e Split de Pagamentos.</p>
 
 <table>
   <thead>
@@ -197,15 +197,15 @@
   <tbody>
     <tr>
       <td><strong>Master</strong></td>
-      <td>É o responsável pelo carrinho.<br />Possui acordos com subordinados que fornecem os produtos presentes no carrinho.<br />Define as taxas a serem descontadas sobre a venda de cada subordinado.<br />Pode participar de uma venda fornecendo seus próprios produtos.</td>
+      <td>É o responsável pelo carrinho.<br />Possui acordos com outros comerciantes (sellers) que fornecem os produtos presentes no carrinho.<br />Define as taxas a serem descontadas sobre a venda de cada seller.<br />Pode participar de uma venda fornecendo seus próprios produtos.</td>
     </tr>
     <tr>
-      <td><strong>Subordinado</strong></td>
+      <td><strong>Seller</strong></td>
       <td>É o fornecedor dos produtos que compõem o carrinho.<br />Recebe parte do valor da venda, descontadas as taxas acordadas com o master.</td>
     </tr>
     <tr>
       <td><strong>Split de Pagamentos</strong></td>
-      <td>É responsável pelo fluxo transacional, funcionando como uma subadquirente.<br />Define as taxas a serem descontadas sobre o valor total da venda realizada pelo master.<br />É responsável pela liquidação dos pagamentos para os subordinados e master.</td>
+      <td>É responsável pelo fluxo transacional, funcionando como uma subadquirente.<br />Define as taxas a serem descontadas sobre o valor total da venda realizada pelo master.<br />É responsável pela liquidação dos pagamentos para os sellers e master.</td>
     </tr>
   </tbody>
 </table>
@@ -216,7 +216,7 @@
   <p>Nesta documentação, mostramos o passo a passo da integração via API. Para saber como usar o Backoffice Split, consulte os <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">artigos na nossa página de Suporte</a>.</p>
 </blockquote>
 
-<p>Antes de começar a transacionar, você precisa cadastrar os seus subordinados. Para isso, leia a documentação Cadastro de Subordinados.</p>
+<p>Antes de começar a transacionar, você precisa cadastrar os seus sellers. Para isso, leia a documentação Cadastro de Sellers.</p>
 
 <p>Como master, o primeiro passo é fazer a sua integração com a API Cielo E-commerce 3.0.</p>
 
@@ -234,16 +234,16 @@
 <p><br />Na divisão de uma transação, você deve informar:</p>
 
 <ul>
-  <li>Os <strong>identificadores (MerchantId) dos subordinados e do master</strong>, caso também participe da venda;</li>
+  <li>Os <strong>identificadores (MerchantId) dos sellers e do master</strong>, caso também participe da venda;</li>
   <li>Os <strong>valores correspondentes a cada participante</strong>. O somatório deverá ser igual ao valor total da transação;</li>
-  <li>As <strong>taxas</strong> a serem aplicadas sobre o valor de cada subordinado destinadas ao master. Essas taxas deverão ser acordadas previamente entre master e subordinado.</li>
+  <li>As <strong>taxas</strong> a serem aplicadas sobre o valor de cada seller destinadas ao master. Essas taxas deverão ser acordadas previamente entre master e seller.</li>
 </ul>
 
-<p>Quando o master participa da divisão, passa a ter também o papel de subordinado e a ter seus próprios produtos no carrinho.</p>
+<p>Quando o master participa da divisão, passa a ter também o papel de seller e a ter seus próprios produtos no carrinho.</p>
 
 <h2 id="taxas">Taxas</h2>
 
-<p>As taxas acordadas entre os participantes podem ser um MDR (%) e/ou uma Tarifa Fixa (R$), e devem ser definidas no momento do cadastro do master e dos seus subordinados junto ao Split.</p>
+<p>As taxas acordadas entre os participantes podem ser um MDR (%) e/ou uma Tarifa Fixa (R$), e devem ser definidas no momento do cadastro do master e dos seus sellers junto ao Split.</p>
 
 <p>As taxas podem ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, o Split vai considerar as taxas cadastradas e acordadas previamente entre os participantes.</p>
 
@@ -256,13 +256,13 @@
 
 <p>O Split acordará um MDR e/ou uma Tarifa Fixa com o master, que serão descontadas do valor total de cada transação.</p>
 
-<p>O master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa com cada Subordinado. Se desejar, pode embutir o MDR e/ou Tarifa acordados junto ao Split.</p>
+<p>O master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa com cada seller. Se desejar, pode embutir o MDR e/ou Tarifa acordados junto ao Split.</p>
 
 <p><img src="https://braspag.github.io//images/braspag/split/split3-taxas.png" alt="SplitExTaxas" /></p>
 
 <ul>
   <li>A Tarifa Fixa acordada entre o master e o Split não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto ao Split.</li>
-  <li>O MDR entra no cálculo de divisão da transação, considerando o valor total da transação, já que o MDR deve estar embutido no MDR acordado entre o master e seus subordinados.</li>
+  <li>O MDR entra no cálculo de divisão da transação, considerando o valor total da transação, já que o MDR deve estar embutido no MDR acordado entre o master e seus sellers.</li>
 </ul>
 
 <blockquote>
@@ -271,7 +271,7 @@
 
 <h3 id="master">Master</h3>
 
-<p>O master é responsável por acordar as taxas a serem cobradas dos seus subordinados, definindo um MDR maior ou igual ao MDR definido com o Split, e uma Tarifa Fixa, que é opcional.</p>
+<p>O master é responsável por acordar as taxas a serem cobradas dos seus sellers, definindo um MDR maior ou igual ao MDR definido com o Split, e uma Tarifa Fixa, que é opcional.</p>
 
 <blockquote>
   <p>Taxa Master: MDR Master (%) + Tarifa Fixa (R$), na qual o MDR Master (%) pode embutir o MDR Split (%).</p>
@@ -279,7 +279,7 @@
 
 <h3 id="exemplo-da-divisão-e-taxas">Exemplo da divisão e taxas</h3>
 
-<p>Uma transação de R$100,00, realizada por um master com participação do subordinado A.</p>
+<p>Uma transação de R$100,00, realizada por um master com participação do seller A.</p>
 
 <p><img src="https://braspag.github.io//images/braspag/split/split4-exemplo1-taxas.png" alt="SplitExemplo1" /></p>
 
@@ -292,14 +292,14 @@
 
 <p>Após a divisão, cada participante terá sua agenda sensibilizada com os seguintes eventos:</p>
 
-<p><strong>Subordinado:</strong></p>
+<p><strong>Seller:</strong></p>
 
 <ul>
   <li>Crédito de R$96,00 (R$100,00 da transação menos R$4,00 de MDR);</li>
   <li>Débito de R$0,30 de Tarifa Fixa.</li>
 </ul>
 
-<p><br />O <strong>total a receber</strong> pelo subordinado será <strong>R$95,70</strong>.</p>
+<p><br />O <strong>total a receber</strong> pelo seller será <strong>R$95,70</strong>.</p>
 
 <p><strong>Master:</strong></p>
 
