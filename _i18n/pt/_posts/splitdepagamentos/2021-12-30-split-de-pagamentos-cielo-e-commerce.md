@@ -136,7 +136,7 @@ Após a divisão, cada participante terá sua agenda sensibilizada com os seguin
 
 **Master:**
 
-* Crédito de R$2,30 (R$4,00 de MDR mais R$0,30 de Tarifa Fixa do subordinado, menos R$2,00 de MDR do Split);
+* Crédito de R$2,30 (R$4,00 de MDR mais R$0,30 de Tarifa Fixa do seller, menos R$2,00 de MDR do Split);
 * Débito de R$0,10 (Tarifa Fixa acordada com o Split).
 
 <br/>O **total a receber** pelo master será **R$2,20**.
