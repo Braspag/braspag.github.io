@@ -386,26 +386,26 @@ Veja a requisição dessa transação no valor de R$100,00, com captura automát
 O próximo exemplo corresponde a uma transação no valor de R$100,00 com o nó contendo as regras de divisão. Neste exemplo foram assumidas as seguintes taxas:
 
 >**Taxa Split**: 2% MDR + R$0,10 Tarifa Fixa.<br>
->**Taxa Master com o Subordinado A**: 5% MDR (embutindo os 2% do MDR Split) + 0,30 Tarifa Fixa.<br>
->**Taxa Master com o Subordinado B**: 4% MDR (embutindo os 2% do MDR Split) + 0,15 Tarifa Fixa.
+>**Taxa Master com o seller A**: 5% MDR (embutindo os 2% do MDR Split) + 0,30 Tarifa Fixa.<br>
+>**Taxa Master com o seller B**: 4% MDR (embutindo os 2% do MDR Split) + 0,15 Tarifa Fixa.
 
-**Subordinado A:**
+**Seller A:**
 
 * Crédito de R$57,00 (R$60,00 da transação menos R$3,00 de MDR);
 * Débito de R$0,30 de Tarifa Fixa.
 
-<br/>O **total a receber** pelo subordinado A será **R$56,70**.
+<br/>O **total a receber** pelo seller A será **R$56,70**.
 
-**Subordinado B:**
+**Seller B:**
 
 * Crédito de R$38,40 (R$40,00 da transação menos R$1,60 de MDR);
 * Débito de R$0,15 de Tarifa Fixa.
 
-<br/>O total a receber pelo subordinado B será **R$38,25**.
+<br/>O total a receber pelo seller B será **R$38,25**.
 
 **Master:**
 
-Crédito de R$3,05 (R$3,00 de MDR + R$0,30 de Tarifa Fixa do subordinado A, somados com R$1,60 de MDR + R$0,15 de Tarifa Fixa do subordinado B, menos R$2,00 de MDR Split);
+Crédito de R$3,05 (R$3,00 de MDR + R$0,30 de Tarifa Fixa do seller A, somados com R$1,60 de MDR + R$0,15 de Tarifa Fixa do seller B, menos R$2,00 de MDR Split);
 Débito de R$0,10 (Tarifa Fixa acordada com o Split).
 
 <br/>O **total a receber** pelo Master será **R$2,95**.
@@ -604,17 +604,17 @@ Veja a requisição dessa transação no valor de **R$100,00** com o nó contend
 }
 ```
 
-### Transação de crédito com MCC do subordinado
+### Transação de crédito com MCC do seller
 
-Alguns ramos de atividades exercidos pelos subordinado exigem o envio de informações especificas para a autorização da transação. Neste caso, o subordinado é considerado o **Participante Principal** da transação.
+Alguns ramos de atividades exercidos pelos sellers exigem o envio de informações especificas para a autorização da transação. Neste caso, o seller é considerado o **participante principal** da transação.
 
-Para casos que necessitam utilizar um ramo específico para autorização da transação, solicite análise ao Suporte do Split para atuar com o **Subordinado Principal**.
+Para casos que necessitam utilizar um ramo específico para autorização da transação, solicite análise ao Suporte do Split para atuar com o **seller principal**.
 
 Após ter a funcionalidade habilitada, é necessário enviar a propriedade `MainSubordinateMerchantId` no nó `SplitTransaction`.
 
 > Esse tipo de transação só pode ter um subordinado.
 
-Confira um exemplo de requisição com **Subordinado Principal**:
+Confira um exemplo de requisição com **seller principal**:
 
 #### Requisição
 
@@ -702,7 +702,7 @@ Confira um exemplo de requisição com **Subordinado Principal**:
 
 |PROPRIEDADE|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
 |---|---|---|---|---|
-| `SplitTransaction.MainSubordinateMerchantId` | GUID | 36 | Não | Identificação do subordinado principal. É o mesmo valor do `SubordinateMerchantId`.|
+| `SplitTransaction.MainSubordinateMerchantId` | GUID | 36 | Não | Identificação do seller principal. É o mesmo valor do `SubordinateMerchantId`.|
 |`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. Possíveis Valores: "CreditCard", "DebitCard", "SplittedCreditcard" ou "SplittedDebitcard".|
 
 #### Resposta
@@ -825,9 +825,9 @@ Confira um exemplo de requisição com **Subordinado Principal**:
 
 > **Observações:**<br/>
 > <br/>
-> * Para este tipo de transação, o subordinado não pode ser removido da transação através do Split Pós-transacional;<br/>
-> * A transação só pode ter um subordinado;<br/>
-> * Caso use autorização com captura posterior, o subordinado informado na captura deve ser o mesmo enviado na autorização como participante principal da transação;<br/>
+> * Para este tipo de transação, o seller não pode ser removido da transação através do Split Pós-transacional;<br/>
+> * A transação só pode ter um seller;<br/>
+> * Caso use autorização com captura posterior, o seller informado na captura deve ser o mesmo enviado na autorização como participante principal da transação;<br/>
 > * Cancelamentos podem ocorrer normalmente, desde que o participante principal continue participando da transação.
 
 ## Transação de Débito
@@ -1246,14 +1246,14 @@ No Split Transacional é necessário que o master envie um "nó" adicional na in
 
 | Propriedade                             | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
 |-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
-| `SplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **subordinado**.                                                      | Guid    | 36      | Sim         |
-| `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do **subordinado**, em centavos.             | Inteiro | -       | Sim         |
-| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Master** a ser descontado do valor referente a participação do **subordinado**     | Decimal | -       | Não         |
-| `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **subordinado**, em centavos. | Inteiro | -       | Não         |
+| `SplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **seller**.                                                      | Guid    | 36      | Sim         |
+| `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do seller, em centavos.             | Inteiro | -       | Sim         |
+| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Master** a ser descontado do valor referente a participação do **seller**     | Decimal | -       | Não         |
+| `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **seller**, em centavos. | Inteiro | -       | Não         |
 
 ### Resposta
 
-Como resposta, A API retornará um nó contendo as regras de divisão enviadas e os valores a serem recebidos pelo master e seus subordinados:
+Como resposta, A API retornará um nó contendo as regras de divisão enviadas e os valores a serem recebidos pelo master e seus sellers:
 
 ```json
 "SplitPayments": [
@@ -1280,8 +1280,8 @@ Como resposta, A API retornará um nó contendo as regras de divisão enviadas e
 
 | Propriedade                                  | Descrição                                                                                   | Tipo   | Tamanho | Obrigatório |
 |----------------------------------------------|---------------------------------------------------------------------------------------------|--------|---------|-------------|
-| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Master**.                       | Guid   | 36      | Sim         |
-| `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Master**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
+| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **seller** ou **master**.                       | Guid   | 36      | Sim         |
+| `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **seller** ou **master**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
 ## Split Pós-Transacional
 
