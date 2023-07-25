@@ -788,31 +788,31 @@
 
 <blockquote>
   <p><strong>Taxa Split</strong>: 2% MDR + R$0,10 Tarifa Fixa.<br />
-<strong>Taxa Master com o Subordinado A</strong>: 5% MDR (embutindo os 2% do MDR Split) + 0,30 Tarifa Fixa.<br />
-<strong>Taxa Master com o Subordinado B</strong>: 4% MDR (embutindo os 2% do MDR Split) + 0,15 Tarifa Fixa.</p>
+<strong>Taxa Master com o seller A</strong>: 5% MDR (embutindo os 2% do MDR Split) + 0,30 Tarifa Fixa.<br />
+<strong>Taxa Master com o seller B</strong>: 4% MDR (embutindo os 2% do MDR Split) + 0,15 Tarifa Fixa.</p>
 </blockquote>
 
-<p><strong>Subordinado A:</strong></p>
+<p><strong>Seller A:</strong></p>
 
 <ul>
   <li>Crédito de R$57,00 (R$60,00 da transação menos R$3,00 de MDR);</li>
   <li>Débito de R$0,30 de Tarifa Fixa.</li>
 </ul>
 
-<p><br />O <strong>total a receber</strong> pelo subordinado A será <strong>R$56,70</strong>.</p>
+<p><br />O <strong>total a receber</strong> pelo seller A será <strong>R$56,70</strong>.</p>
 
-<p><strong>Subordinado B:</strong></p>
+<p><strong>Seller B:</strong></p>
 
 <ul>
   <li>Crédito de R$38,40 (R$40,00 da transação menos R$1,60 de MDR);</li>
   <li>Débito de R$0,15 de Tarifa Fixa.</li>
 </ul>
 
-<p><br />O total a receber pelo subordinado B será <strong>R$38,25</strong>.</p>
+<p><br />O total a receber pelo seller B será <strong>R$38,25</strong>.</p>
 
 <p><strong>Master:</strong></p>
 
-<p>Crédito de R$3,05 (R$3,00 de MDR + R$0,30 de Tarifa Fixa do subordinado A, somados com R$1,60 de MDR + R$0,15 de Tarifa Fixa do subordinado B, menos R$2,00 de MDR Split);
+<p>Crédito de R$3,05 (R$3,00 de MDR + R$0,30 de Tarifa Fixa do seller A, somados com R$1,60 de MDR + R$0,15 de Tarifa Fixa do seller B, menos R$2,00 de MDR Split);
 Débito de R$0,10 (Tarifa Fixa acordada com o Split).</p>
 
 <p><br />O <strong>total a receber</strong> pelo Master será <strong>R$2,95</strong>.</p>
@@ -1196,11 +1196,11 @@ Débito de R$0,10 (Tarifa Fixa acordada com o Split).</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="transação-de-crédito-com-mcc-do-subordinado">Transação de crédito com MCC do subordinado</h3>
+<h3 id="transação-de-crédito-com-mcc-do-seller">Transação de crédito com MCC do seller</h3>
 
-<p>Alguns ramos de atividades exercidos pelos subordinado exigem o envio de informações especificas para a autorização da transação. Neste caso, o subordinado é considerado o <strong>Participante Principal</strong> da transação.</p>
+<p>Alguns ramos de atividades exercidos pelos sellers exigem o envio de informações especificas para a autorização da transação. Neste caso, o seller é considerado o <strong>participante principal</strong> da transação.</p>
 
-<p>Para casos que necessitam utilizar um ramo específico para autorização da transação, solicite análise ao Suporte do Split para atuar com o <strong>Subordinado Principal</strong>.</p>
+<p>Para casos que necessitam utilizar um ramo específico para autorização da transação, solicite análise ao Suporte do Split para atuar com o <strong>seller principal</strong>.</p>
 
 <p>Após ter a funcionalidade habilitada, é necessário enviar a propriedade <code class="language-plaintext highlighter-rouge">MainSubordinateMerchantId</code> no nó <code class="language-plaintext highlighter-rouge">SplitTransaction</code>.</p>
 
@@ -1208,7 +1208,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com o Split).</p>
   <p>Esse tipo de transação só pode ter um subordinado.</p>
 </blockquote>
 
-<p>Confira um exemplo de requisição com <strong>Subordinado Principal</strong>:</p>
+<p>Confira um exemplo de requisição com <strong>seller principal</strong>:</p>
 
 <h4 id="requisição-2">Requisição</h4>
 
@@ -1309,7 +1309,7 @@ Débito de R$0,10 (Tarifa Fixa acordada com o Split).</p>
       <td>GUID</td>
       <td>36</td>
       <td>Não</td>
-      <td>Identificação do subordinado principal. É o mesmo valor do <code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code>.</td>
+      <td>Identificação do seller principal. É o mesmo valor do <code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -1442,9 +1442,9 @@ Débito de R$0,10 (Tarifa Fixa acordada com o Split).</p>
   <p><strong>Observações:</strong><br />
 <br /></p>
   <ul>
-    <li>Para este tipo de transação, o subordinado não pode ser removido da transação através do Split Pós-transacional;<br /></li>
-    <li>A transação só pode ter um subordinado;<br /></li>
-    <li>Caso use autorização com captura posterior, o subordinado informado na captura deve ser o mesmo enviado na autorização como participante principal da transação;<br /></li>
+    <li>Para este tipo de transação, o seller não pode ser removido da transação através do Split Pós-transacional;<br /></li>
+    <li>A transação só pode ter um seller;<br /></li>
+    <li>Caso use autorização com captura posterior, o seller informado na captura deve ser o mesmo enviado na autorização como participante principal da transação;<br /></li>
     <li>Cancelamentos podem ocorrer normalmente, desde que o participante principal continue participando da transação.</li>
   </ul>
 </blockquote>
@@ -2152,28 +2152,28 @@ tipo de meio de pagamento.</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
-      <td><strong>MerchantId</strong> (Identificador) do <strong>subordinado</strong>.</td>
+      <td><strong>MerchantId</strong> (Identificador) do <strong>seller</strong>.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Amount</code></td>
-      <td>Parte do valor total da transação referente a participação do <strong>subordinado</strong>, em centavos.</td>
+      <td>Parte do valor total da transação referente a participação do seller, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
-      <td><strong>MDR(%)</strong> do <strong>Master</strong> a ser descontado do valor referente a participação do <strong>subordinado</strong></td>
+      <td><strong>MDR(%)</strong> do <strong>Master</strong> a ser descontado do valor referente a participação do <strong>seller</strong></td>
       <td>Decimal</td>
       <td>-</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Fee</code></td>
-      <td><strong>Tarifa Fixa(R$)</strong> a ser descontada do valor referente a participação do <strong>subordinado</strong>, em centavos.</td>
+      <td><strong>Tarifa Fixa(R$)</strong> a ser descontada do valor referente a participação do <strong>seller</strong>, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Não</td>
@@ -2183,7 +2183,7 @@ tipo de meio de pagamento.</p>
 
 <h3 id="resposta-5">Resposta</h3>
 
-<p>Como resposta, A API retornará um nó contendo as regras de divisão enviadas e os valores a serem recebidos pelo master e seus subordinados:</p>
+<p>Como resposta, A API retornará um nó contendo as regras de divisão enviadas e os valores a serem recebidos pelo master e seus sellers:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -2220,14 +2220,14 @@ tipo de meio de pagamento.</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Splits.SubordinateMerchantId</code></td>
-      <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong> ou <strong>Master</strong>.</td>
+      <td><strong>MerchantId</strong> (Identificador) do <strong>seller</strong> ou <strong>master</strong>.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Splits.Amount</code></td>
-      <td>Parte do valor calculado da transação a ser recebido pelo <strong>Subordinado</strong> ou <strong>Master</strong>, já descontando todas as taxas (MDR e Tarifa Fixa)</td>
+      <td>Parte do valor calculado da transação a ser recebido pelo <strong>seller</strong> ou <strong>master</strong>, já descontando todas as taxas (MDR e Tarifa Fixa)</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
