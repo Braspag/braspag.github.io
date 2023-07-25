@@ -17,7 +17,7 @@ language_tabs:
 
 # Visão geral
 
-![FluxoSplit]({{ site.baseurl_root }}/images/braspag/split/split1-fluxo-geral.png)
+![FluxoSplit]({{ site.baseurl_root }}/images/braspag/split/split1-visao-geral.png)
 
 O **Split de Pagamentos** é um serviço de subadquirência para marketplaces e outros modelos de negócio que precisam dividir o valor de uma venda entre diferentes participantes. Funciona tanto para e-commerce quanto para mundo físico.
 
@@ -101,7 +101,7 @@ O Split acordará um MDR e/ou uma Tarifa Fixa com o master, que serão descontad
 
 O master, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa com cada seller. Se desejar, pode embutir o MDR e/ou Tarifa acordados junto ao Split.
 
-![SplitExTaxas]({{ site.baseurl_root }}/images/braspag/split/split3-taxas.png)
+![SplitExTaxas]({{ site.baseurl_root }}/images/braspag/split/split3-mdr-tarifafixa.png)
  
 * A Tarifa Fixa acordada entre o master e o Split não é aplicada no valor total da transação, ou seja, não entra no cálculo da divisão, e é debitada diretamente do montante que o master tem para receber junto ao Split. 
 * O MDR entra no cálculo de divisão da transação, considerando o valor total da transação, já que o MDR deve estar embutido no MDR acordado entre o master e seus sellers.
@@ -118,7 +118,7 @@ O master é responsável por acordar as taxas a serem cobradas dos seus sellers,
 
 Uma transação de R$100,00, realizada por um master com participação do seller A.
 
-![SplitExemplo1]({{ site.baseurl_root }}/images/braspag/split/split4-exemplo1-taxas.png)
+![SplitExemplo1]({{ site.baseurl_root }}/images/braspag/split/split4-ex-divisao-taxas.png)
  
 Neste exemplo, foram assumidos os seguintes acordos:
 
@@ -276,7 +276,7 @@ Neste caso, o master recebe o valor da transação descontado o MDR acordado com
 
 O valor total a receber pelo master está representado na figura a seguir.
 
-![SplitEx2]({{ site.baseurl_root }}/images/braspag/split/split7-exemplo2-sem-no.png)
+![SplitEx2]({{ site.baseurl_root }}/images/braspag/split/split6-sem-no.png)
 
 #### Requisição
 
@@ -482,7 +482,7 @@ O **total a receber** pelo Split será **R$2,10**.
 
 As divisões e o valor total a receber de cada participante estão na figura a seguir.
 
-![SplitEx3]({{ site.baseurl_root }}/images/braspag/split/split8-exemplo3-com-no.png)
+![SplitEx3]({{ site.baseurl_root }}/images/braspag/split/split7-com-no.png)
 
 #### Requisição
 
@@ -2586,7 +2586,7 @@ Após a divisão, cada participante terá sua agenda sensibilizada com os seguin
 
 As divisões e o valor total a receber de cada participante estão na figura a seguir.
 
-![SplitEx4]({{ site.baseurl_root }}/images/braspag/split/split10-exemplo4-tipo-de-desconto.png)
+![SplitEx4]({{ site.baseurl_root }}/images/braspag/split/split10-split9-momentotransacional.png)
 
 #### Desconto sendo aplicado sobre a comissão
 
