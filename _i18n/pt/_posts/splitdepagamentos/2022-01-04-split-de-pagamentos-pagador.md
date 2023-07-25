@@ -612,7 +612,7 @@ Para casos que necessitam utilizar um ramo específico para autorização da tra
 
 Após ter a funcionalidade habilitada, é necessário enviar a propriedade `MainSubordinateMerchantId` no nó `SplitTransaction`.
 
-> Esse tipo de transação só pode ter um subordinado.
+> Esse tipo de transação só pode ter um seller.
 
 Confira um exemplo de requisição com **seller principal**:
 
