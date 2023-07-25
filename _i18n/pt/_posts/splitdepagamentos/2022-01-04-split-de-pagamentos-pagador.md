@@ -2433,7 +2433,7 @@ Ao capturar uma transação do Split de Pagamentos, o master precisa informar as
 
 ### Captura Total
 
-Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.
+Na captura total de uma transação, o somatório dos valores de participação de cada seller deverá ser igual ao valor total da transação enviado no momento da autorização.
 
 #### Requisição
 
@@ -2528,13 +2528,13 @@ Na captura total de uma transação, o somatório dos valores de participação 
 
 ### Captura Parcial
 
-Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio master.
+Na captura parcial de uma transação, o somatório dos valores de participação de cada seller deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio master.
 
 #### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
-O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação realizada no valor de R$100,00, sendo que R$ 50,00 serão capturados do subordinado A e R$ 30,00 serão capturados do subordinado B.
+O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação realizada no valor de R$100,00, sendo que R$ 50,00 serão capturados do seller A e R$ 30,00 serão capturados do seller B.
 
 ```json
 {
@@ -2673,13 +2673,13 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 
 ## Cancelamento
 
-Ao cancelar uma transação do Split de Pagamentos o master deve informar, para um cancelamento parcial, qual o valor que deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e, consequentemente, o valor total de cada subordinado.
+Ao cancelar uma transação do Split de Pagamentos o master deve informar, para um cancelamento parcial, qual o valor que deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e, consequentemente, o valor total de cada seller.
 
 > O prazo de estorno de uma transação é de 300 dias, devido a regra definida pela adquirente, bancos e bandeiras.
 
 ### Cancelamento Total
 
-No cancelamento total de uma transação, será cancelado o valor total da transação e, consequentemente, o valor total de cada subordinado e as comissões de todos os participantes.
+No cancelamento total de uma transação, será cancelado o valor total da transação e, consequentemente, o valor total de cada seller e as comissões de todos os participantes.
 
 #### Requisição
 
@@ -2738,7 +2738,7 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 
 ### Cancelamento Parcial
 
-No cancelamento parcial, o somatório dos valores cancelados definidos para cada subordinado deve ser igual ao valor do cancelamento parcial.
+No cancelamento parcial, o somatório dos valores cancelados definidos para cada seller deve ser igual ao valor do cancelamento parcial.
 
 #### Requisição
 
@@ -2765,8 +2765,8 @@ No exemplo a seguir, a requisição informa o cancelamento do valor de R$25,00 d
 
 | Propriedade                                 | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
 |---------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
-| `VoidSplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
-| `VoidedAmount.Amount`                       | Total ou parte do valor destinado ao **Subordinado** a ser cancelado, em centavos.                      | Inteiro | -       | Sim         |
+| `VoidSplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **seller**.                                                      | Guid    | 36      | Sim         |
+| `VoidedAmount.Amount`                       | Total ou parte do valor destinado ao **seller** a ser cancelado, em centavos.                      | Inteiro | -       | Sim         |
 
 #### Resposta
 
@@ -2824,7 +2824,7 @@ No exemplo a seguir, a requisição informa o cancelamento do valor de R$25,00 d
 }
 ```
 
-Não é obrigatório informar todos os subordinados no cancelamento parcial. Você pode informar apenas os subordinados para os quais deseja cancelar totalmente ou cancelar parte do valor destinado a cada um na transação, conforme exemplo a seguir:
+Não é obrigatório informar todos os sellers no cancelamento parcial. Você pode informar apenas os sellers para os quais deseja cancelar totalmente ou cancelar parte do valor destinado a cada um na transação, conforme exemplo a seguir:
 
 ```json
 {
@@ -2837,7 +2837,7 @@ Não é obrigatório informar todos os subordinados no cancelamento parcial. Voc
 }
 ```
 
-> Ao cancelar parcialmente parte de um valor destinado a um subordinado, a Tarifa Fixa que o master tem a receber também é cancelada proporcionalmente.
+> Ao cancelar parcialmente parte de um valor destinado a um seller, a Tarifa Fixa que o master tem a receber também é cancelada proporcionalmente.
 
 # Opções de Configuração da Transação
 
@@ -2849,7 +2849,7 @@ Os descontos das taxas (MDR e tarifa fixa) do Split podem ser feitos de duas for
 
 |TIPO|DESCRIÇÃO|
 |---|---|
-|`Commission`|O desconto será feito sobre o valor de **comissão** que o master recebe de seus subordinados na transação. **É o padrão adotado pelo Split**.|
+|`Commission`|O desconto será feito sobre o valor de **comissão** que o master recebe de seus sellers na transação. **É o padrão adotado pelo Split**.|
 |`Sale`|O desconto será feito sobre o valor de **venda** que o master tem a receber na transação, caso o master esteja participando.|
 
 > Atenção: A opção de desconto da parte da venda só é possível se o master tiver venda na transação.
@@ -2879,28 +2879,28 @@ A transação de exemplo com as divisões e o valor total a receber de cada part
 A transação tem valor de **R$100,00** com o nó contendo as regras de divisão e o master participando da venda.
 
 > **Taxa Split:** 2% de MDR + R$0,30 de Tarifa Fixa.<br>
-> **Taxa Master com o Subordinado A:** 5% de MDR, já embutindo os 2% do MDR Split + R$0,30 de Tarifa Fixa.<br> 
-> **Taxa Master com o Subordinado B:** 4% MDR, já embutindo os 2% do MDR Split + R$ 0,15 de Tarifa Fixa.
+> **Taxa Master com o seller A:** 5% de MDR, já embutindo os 2% do MDR Split + R$0,30 de Tarifa Fixa.<br> 
+> **Taxa Master com o seller B:** 4% MDR, já embutindo os 2% do MDR Split + R$ 0,15 de Tarifa Fixa.
 
 Após a divisão, cada participante terá sua agenda sensibilizada com os seguintes eventos:
 
-**Subordinado A:**
+**Seller A:**
 
 * Crédito de R$42,75 (R$45,00 da transação menos R$2,25 de MDR);
 * Débito de R$0,30 de Tarifa Fixa.
 
-<br/>O **total a receber** pelo subordinado A será **R$42,45**.
+<br/>O **total a receber** pelo seller A será **R$42,45**.
 
-**Subordinado B:**
+**Seller B:**
 
 * Crédito de R$28,80 (R$30,00 da transação menos R$1,20 de MDR);
 * Débito de R$0,15 de Tarifa Fixa.
 
-<br/>O **total a receber** pelo subordinado B será **R$28,65**.
+<br/>O **total a receber** pelo seller B será **R$28,65**.
 
 **Master:**
 
-* Crédito de R$ 26,90 (R$25,00 da transação somados com R$2,25 de MDR e R$0,30 de Tarifa Fixa do subordinado A, e com R$1,20 de MDR e R$0,15 de Tarifa Fixa do subordinado B; menos R$2,00 de MDR da Split);
+* Crédito de R$ 26,90 (R$25,00 da transação somados com R$2,25 de MDR e R$0,30 de Tarifa Fixa do seller A, e com R$1,20 de MDR e R$0,15 de Tarifa Fixa do seller B; menos R$2,00 de MDR da Split);
 * Débito de R$0,30 (Tarifa Fixa acordada com o Split).
 
 <br/>O **total a receber** pelo master será **R$26,60**.
@@ -4813,7 +4813,7 @@ Para clientes Cartão Protegido e Renova Fácil, o nó `NewCard` irá retornar o
 
 O Split de Pagamentos possui uma plataforma de antifraude que utiliza inteligência artificial para minimizar os riscos de fraude e chargeback.
 
-> No modelo de negócio do Split, todo chargeback é repassado ao master, que pode ou não repassá-lo para os seus subordinados. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.
+> No modelo de negócio do Split, todo chargeback é repassado ao master, que pode ou não repassá-lo para os seus sellers. Portanto, é de suma importância que a plataforma de antifraude esteja corretamente integrada e configurada.
 
 ## Fluxo transacional com Antifraude
 
