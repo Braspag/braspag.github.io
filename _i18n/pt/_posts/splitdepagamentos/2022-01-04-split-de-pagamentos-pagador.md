@@ -155,8 +155,7 @@ As bandeiras suportadas pelo Split são:
 * Elo;
 * Amex;
 * Hipercard;
-* Diners;
-* Discover.
+* Diners.
 
 # Ambientes
 
