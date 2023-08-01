@@ -184,7 +184,7 @@ A API Split permite consultar a agenda de acordo com os parâmetros data previst
 | `FinalForecastedDate`   | Data final prevista de pagamento para busca.   | Date   | Não*        |
 | `InitialScheduleDate`   | Data inicial de lançamento de informação na agenda.    | Date   | Não*        |
 | `FinalScheduleDate`     | Data final de lançamento de informação na agenda.    | Date   | Não*        |
- `Brand`                  | Bandeira  que deve ser considerada na consulta. Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui agenda. | String | Não         |
+| `Brand`                 | Bandeira  que deve ser considerada na consulta. Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui agenda. | String | Não         |
 | `Product`               | Produto que deve ser considerado na consulta ("CreditCard" para cartão de crédito, "DebitCard" para cartão de débito ou "BankSlip" para boleto). Por padrão, são retornadas informações de todos os produtos na qual o solicitante possui agenda. | String | Não         |
 | `MerchantId`           | Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro. |Guid| Não |
 | `ScheduleEvent`            | Ids dos Eventos de Agenda que se deseja consultar - consulte os Ids no anexo [Eventos de Agenda](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao#eventos-de-agenda).| Int (Array)   | Não         |
@@ -286,7 +286,7 @@ A API Split permite consultar a agenda de acordo com os parâmetros data previst
 | `Items[].DocumentNumber`   | string     | Número do documento (CPF/CNPJ) do lojista.   |
 | `Items[].ForecastedDate`   | Date   | Data prevista de pagamento. Formato YYYY-dd-MM. Ex: 2021-11-01.   |
 | `Items[].Product`   | String   | Produto. Tipos possíveis: "CreditCard" para cartão de crédito, "DebitCard" para cartão de débito ou "BankSlip" para boleto. |
-| `Items[].Brand`     | String   | Bandeira do cartão ou banco emissor do boleto. Tipos possíveis: *Visa, Master, Amex, Elo, Diners, Discover e Hipercard.*  |
+| `Items[].Brand`     | String   | Bandeira do cartão ou banco emissor do boleto. Tipos possíveis: *Visa, Master, Amex, Elo, Diners e Hipercard.*  |
 | `Items[].ForecastedNetAmount`  | Número   | Valor em centavos, podendo ser negativo. Ex R$1,00 = 100,  referente ao somatório dos valores líquidos de agenda.  |
 | `Items[].ItemSchedules`   | Array[Schedule]  | Lista de objeto contendo informações de cada agenda individual. |
 | `Items[].ItemSchedules[].ScheduleId`                       | GUID                  | Id de identificação do evento da agenda.  |
@@ -325,7 +325,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `FinalForecastedDate`          | Intervalo de data previsto de pagamento final para busca.                            | Data    | Não*       | 
 | `InitialSettlementDate`        | Intervalo de data de pagamento efetivo inicial para busca.                           | Data    | Não*       |  
 | `FinalSettlementDate`          | Intervalo data de pagamento efetivo final para busca.                                | Data    | Não*       | 
-| `Brand`                        | Bandeira que deve ser considerada na consulta. Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui recebíveis. Valores possíveis:<br>Visa;<br>Master;<br>Amex;<br>Elo;<br>Diners;<br>Discover;<br>Hipercard.| String  | Não        | 
+| `Brand`                        | Bandeira que deve ser considerada na consulta. Por padrão, o saldo é consultado em todas as bandeiras na qual o solicitante possui recebíveis. Valores possíveis:<br>Visa;<br>Master;<br>Amex;<br>Elo;<br>Diners;<br>Hipercard.| String  | Não        | 
 | `Product`                      | Produto que deve ser considerado na consulta (CreditCard, DebitCard ou BankSlip). Por padrão, são retornadas informações de todas as bandeiras na qual o solicitante possui recebíveis.                                                                    | String  | Não        |
 | `MerchantId`                   | Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro| Guid   | Não|  
 | `Anticipation`                 | Flag para informar se deseja consultar apenas informações referentes à antecipação    | Boolean    | Não        |  
