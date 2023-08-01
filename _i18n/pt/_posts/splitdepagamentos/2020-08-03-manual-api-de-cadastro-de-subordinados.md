@@ -212,7 +212,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 
 No **Split de Pagamentos** há possibilidades de acordos de taxas entre o master e seus subordinados:
 
-1. **Não cadastrar taxa**: quando as taxas não são definidas no momento do cadastro do subordinado, você deverá informá-las **a cada transação**, no momento da captura da transação ou da emissão do boleto. Se não cadastrar taxas e não informar a taxa na transação, o split vai replicar os mesmos acordos do master com o Split para o master com o subordinado;
+1. **Não cadastrar taxa**: quando as taxas não são definidas no momento do cadastro do subordinado, você deverá informá-las **a cada transação**, no momento da captura da transação ou da emissão do boleto. Se não cadastrar taxas e não informar a taxa na transação, o Split vai replicar os mesmos acordos do master com o Split para o master com o subordinado;
 2. **Taxa global**: configure uma única taxa para todos os acordos (MDR único);
 3. **Taxa por meio de pagamento**: você deverá definir as taxas cobradas por transação por arranjos de pagamento e intervalo de parcelas.
 
