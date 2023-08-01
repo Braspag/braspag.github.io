@@ -156,8 +156,7 @@ As bandeiras suportadas pelo Split são:
 * Elo;
 * Amex;
 * Hipercard;
-* Diners;
-* Discover.
+* Diners.
 
 # Ambientes
 
@@ -4535,7 +4534,7 @@ Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.F
 |`Payment.CreditCard.Holder`|Texto|50|Sim|Nome do comprador impresso no cartão|
 |`Payment.CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade do cartão composta por MM/AAAA|
 |`Payment.CreditCard.SecurityCode`|Texto|4|Sim|Código de segurança impresso no verso do cartão|
-|`Payment.CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão  |Possíveis valores: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover|
+|`Payment.CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão  |Possíveis valores: Visa / Master / Amex / Elo / Aura / JCB / Diners |
 |`Payment.SaveCard`|Boleano|-|Não|Parâmetro para salvar os dados do cartão como token. Caso seja passado com o valor `True`, O parâmetro `CardToken` será retornado no `Response` sendo seu valor o token gerado que poderá ser utilizado em futuras transações.|
 |`Payment.FraudAnalysis`|-|-|-|Nó contendo as informações para Análise de Fraude|
 |`Payment.FraudAnalysis.Provider`|Texto|12|Sim|Identifica o provedor da solução de análise de fraude  |Possíveis valores: `Cybersource`|
