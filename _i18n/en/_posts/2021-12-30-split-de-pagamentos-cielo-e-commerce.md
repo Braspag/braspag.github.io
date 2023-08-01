@@ -103,7 +103,6 @@ Split Payments supports the following brands:
 * Amex
 * Hipercard
 * Diners
-* Discover
 
 ## Environments
 
@@ -1327,13 +1326,13 @@ Split API provides an endpoint to discover the pending amount a merchant has to 
 | `IncludeAllSubordinates`   | Includes all subordinates in the response.                                                                 | Boolean | -          | No          | false                 | 
 | `MerchantIds`              | Filters by Merchant IDs.                                                                                   | Guid    | -          | No          | -                     |
 
-**Resquest**
+**Request**
 
 **By forecasted payment date**
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/events?initialForecastedDate=2017-12-01&finalForecastedDate=2018-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
-**Por payment date**
+**By payment date**
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{split-api}/schedule-api/events?initialPaymentDate=2018-08-22&finalPaymentDate=2018-08-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
