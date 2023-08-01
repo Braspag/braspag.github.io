@@ -559,8 +559,8 @@
 <p>No <strong>Split de Pagamentos</strong> há possibilidades de acordos de taxas entre o master e seus subordinados:</p>
 
 <ol>
-  <li><strong>Não cadastrar taxa</strong>: quando as taxas não são definidas no momento do cadastro do subordinado, você deverá informá-las a <strong>cada transação</strong>, no momento da captura da transação ou da emissão do boleto;</li>
-  <li><strong>Taxa global</strong>: configure uma única taxa para todos os acordos (MDR único). O <strong>Split de Pagamentos</strong> irá replicar os mesmos acordos do master com o Split, para o master com o subordinado;</li>
+  <li><strong>Não cadastrar taxa</strong>: quando as taxas não são definidas no momento do cadastro do subordinado, você deverá informá-las <strong>a cada transação</strong>, no momento da captura da transação ou da emissão do boleto. Se não cadastrar taxas e não informar a taxa na transação, o split vai replicar os mesmos acordos do master com o Split para o master com o subordinado;</li>
+  <li><strong>Taxa global</strong>: configure uma única taxa para todos os acordos (MDR único);</li>
   <li><strong>Taxa por meio de pagamento</strong>: você deverá definir as taxas cobradas por transação por arranjos de pagamento e intervalo de parcelas.</li>
 </ol>
 
@@ -608,7 +608,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
       <td>Texto</td>
       <td>-</td>
       <td>Não*</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <em>Visa</em>, <em>Master</em>, <em>Amex</em>, <em>Elo</em>, <em>Diners</em>, <em>Discover</em> e <em>Hipercard</em>.</td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <em>Visa</em>, <em>Master</em>, <em>Amex</em>, <em>Elo</em>, <em>Diners</em> e <em>Hipercard</em>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].InitialInstallmentNumber</code></td>
@@ -1867,7 +1867,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code>, <code class="language-plaintext highlighter-rouge">Discover</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
@@ -2292,7 +2292,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code>, <code class="language-plaintext highlighter-rouge">Discover</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
@@ -3032,7 +3032,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code>, <code class="language-plaintext highlighter-rouge">Discover</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
@@ -3467,7 +3467,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code>, <code class="language-plaintext highlighter-rouge">Discover</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
@@ -3663,7 +3663,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <em>Visa</em>, <em>Master</em>, <em>Amex</em>, <em>Elo</em>, <em>Diners</em>, <em>Discover</em> e <em>Hipercard</em></td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <em>Visa</em>, <em>Master</em>, <em>Amex</em>, <em>Elo</em>, <em>Diners</em> e <em>Hipercard</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Aggrement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
