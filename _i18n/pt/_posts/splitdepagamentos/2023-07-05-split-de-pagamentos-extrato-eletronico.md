@@ -451,7 +451,6 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 |3|Amex|
 |4|Elo|
 |7|Diners|
-|8|Discover|
 |9|Hipercard|
 |19|Boleto|
 
