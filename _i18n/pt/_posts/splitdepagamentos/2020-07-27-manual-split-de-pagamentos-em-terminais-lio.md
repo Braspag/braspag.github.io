@@ -129,7 +129,7 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 | `Amount`                                | Valor da transação em centavos.                                                                         | Inteiro | -       | Sim         | 
 | `Installments`                          | Número de Parcelas da transação.                                                                        | Inteiro | -       | Sim         |
 | `Product`                               | Tipo da transação [CreditCard - DebitCard].                                                             | String  | -       | Sim         |
-| `Brand`                                 | Bandeira do cartão utilizado na transação [Visa - Master - Elo - Amex - Diners - Discover].             | String  | -       | Sim         |
+| `Brand`                                 | Bandeira do cartão utilizado na transação [Visa - Master - Elo - Amex - Diners].             | String  | -       | Sim         |
 | `PaymentDetails.AffiliationCode`        | Código do estabelecimento Cielo configurado na LIO e utilizado na transação.                            | String  | 10      | Sim         |
 | `PaymentDetails.Nsu`                    | Número Sequencial Único da transação.                                                                   | String  | max(10) | Sim         |
 | `PaymentDetails.AuthorizationCode`      | Código de Autorização da transação.                                                                     | String  | max(10) | Sim         |
