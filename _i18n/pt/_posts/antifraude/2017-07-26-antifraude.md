@@ -262,7 +262,7 @@ A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cy
   "CartItems": [
     {
       "ProductName": "Mouse",
-      "Category": "EletronicGood"
+      "Category": "EletronicGood",
       "UnitPrice": "12000",
       "Sku": "abc123",
       "Quantity": 1,
@@ -277,7 +277,7 @@ A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cy
     },
     {
       "ProductName": "Teclado",
-      "Category": "EletronicGood"
+      "Category": "EletronicGood",
       "UnitPrice": "96385",
       "MerchantItemId": "3",
       "Sku": "abc456",
