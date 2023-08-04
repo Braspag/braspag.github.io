@@ -621,8 +621,8 @@ Onde o texto [ID] deve ser substituído pelo identificador informado no registro
 | AcquirerAdjustDescription   | Descrição do Ajuste                         | Alfanumérico       | A       | A descrição do ajuste (apenas para eventos de ajustes)                                                                |
 | AnticipationOperationNumber | Número da Operação de  Antecipação na Cielo | Numérico           | N       | O número da Operação de Antecipação (apenas para eventos derivados de antecipações na Cielo)                          |
 | OriginalPaymentDate         | Data original de pagamento                  | Data               | D       | A data original para a qual o evento de pagamento estava previsto (apenas para eventos de antecipações)               |
-| OriginalPixId|Identificador original gerado|Alfanumérico|A|O identificador inicial gerado no momento da transação.|
-|PixId|Identificador secundário gerado|Alfanumérico|A|Identificador gerado, caso ocorra alguma mudança no identificador do Pix.|
+| PixId | ID PIX | Alfanumérico | A | O identificador inicial gerado no momento da transação. |
+| OriginalPixId | ID PIX Original | Alfanumérico | A | Gerado para identificar a transação original. |
 
 ## Meios de Captura
 
