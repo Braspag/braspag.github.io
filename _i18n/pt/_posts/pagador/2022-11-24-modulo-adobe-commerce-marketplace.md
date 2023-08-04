@@ -21,7 +21,7 @@ A plataforma Magento agora se chama Adobe Commerce. Para mais informações, con
 
 Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Adobe Commerce, consulte o [Guia de Instalação](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html){:target="_blank"} na documentação oficial do Adobe Commerce.
 
-<aside class="notice">A versão recomendada do Adobe Commerce é 2.4.3 ou superior.</aside>
+<aside class="notice">A versão 3.18 do módulo é compatível com a versão 2.4.3, 2.4.4 e 2.4.5 do Adobe Commerce. Versões superiores do Adobe Commerce necessitam de atualização no módulo.</aside>
 
 <aside class="warning">As versões Adobe Commerce entre 2.3.0. e 2.4.2 não estão recebendo atualizações no módulo Braspag. </aside>
 
@@ -47,7 +47,7 @@ O módulo Adobe Commerce possui um endpoint criado e preparado para receber as n
 
 <br/>Para configurar a URL de sua loja na Braspag, entre em contato conosco informando o seu `MerchantID` e a "URL de Notificação".
 
-<aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Adobe Commerce).</aside>
+<aside class="notice">https://URL_DA_LOJA/rest/V1/braspag/notification/save (URL de Notificação para o Módulo Adobe Commerce).</aside>
 
 Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o){:target="_blank"} para mais informações sobre o Post de Notificação.
 
@@ -109,7 +109,7 @@ Seguem instruções para configuração de **Dados do Cliente**:
 No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Customer Config**.
 
 A imagem a seguir mostra os campos de configuração com os respectivos valores a serem utilizados na seção **Address**:
-![Address]({{ site.baseurl_root }}/images/braspag/pagador/magento-customer-config.png)
+![Address]({{ site.baseurl_root }}/images/braspag/pagador/adobe-commerce-customer-config.png)
 
 |Campo|Descrição|Valor|
 |---|---|---|
@@ -119,7 +119,7 @@ A imagem a seguir mostra os campos de configuração com os respectivos valores 
 |**Number Attribute**|Atributo utilizado no campo "número" do endereço do cliente.|"street_2"|
 |**Complement Attribute**|Atributo utilizado no campo "complemento" do endereço do cliente.|"street_3"|
 |**District Attribute**|Atributo utilizado no campo "bairro" do endereço do cliente.|"street_4"|
-|**Customer Identity (CPF/CNPJ) Attribute**|Atributo utilizado no campo "CPF/CNPJ" do cliente.|"customer_taxvat"|
+|**Customer Identity (CPF/CNPJ) Attribute**|Atributo utilizado no campo "CPF/CNPJ" do cliente.|**Valores possíveis**:<br> - "vat_id": se deseja configurar CPF endereço;<br>- "customer_taxvat": se deseja configurar CPF cadastro.|
 
 ## Boleto
 
