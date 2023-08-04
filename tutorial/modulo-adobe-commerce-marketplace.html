@@ -127,7 +127,7 @@
 
 <p>Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Adobe Commerce, consulte o <a href="https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html" target="_blank">Guia de Instalação</a> na documentação oficial do Adobe Commerce.</p>
 
-<aside class="notice">A versão recomendada do Adobe Commerce é 2.4.3 ou superior.</aside>
+<aside class="notice">A versão 3.18 do módulo é compatível com a versão 2.4.3, 2.4.4 e 2.4.5 do Adobe Commerce. Versões superiores do Adobe Commerce necessitam de atualização no módulo.</aside>
 
 <aside class="warning">As versões Adobe Commerce entre 2.3.0. e 2.4.2 não estão recebendo atualizações no módulo Braspag. </aside>
 
@@ -156,7 +156,7 @@ bin/magento setup:upgrade
 
 <p><br />Para configurar a URL de sua loja na Braspag, entre em contato conosco informando o seu <code class="language-plaintext highlighter-rouge">MerchantID</code> e a “URL de Notificação”.</p>
 
-<aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Adobe Commerce).</aside>
+<aside class="notice">https://URL_DA_LOJA/rest/V1/braspag/notification/save (URL de Notificação para o Módulo Adobe Commerce).</aside>
 
 <p>Consulte o <a href="https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o" target="_blank">Manual do Pagador</a> para mais informações sobre o Post de Notificação.</p>
 
@@ -277,7 +277,7 @@ bin/magento setup:upgrade
 <p>No menu, acesse <strong>Lojas</strong> &gt; <strong>Configuração</strong> &gt; <strong>Vendas</strong> &gt; <strong>Formas de Pagamento</strong> &gt; <strong>Outros meios de pagamento</strong> &gt; <strong>Braspag</strong> &gt; <strong>Customer Config</strong>.</p>
 
 <p>A imagem a seguir mostra os campos de configuração com os respectivos valores a serem utilizados na seção <strong>Address</strong>:
-<img src="https://braspag.github.io//images/braspag/pagador/magento-customer-config.png" alt="Address" /></p>
+<img src="https://braspag.github.io//images/braspag/pagador/adobe-commerce-customer-config.png" alt="Address" /></p>
 
 <table>
   <thead>
@@ -321,7 +321,7 @@ bin/magento setup:upgrade
     <tr>
       <td><strong>Customer Identity (CPF/CNPJ) Attribute</strong></td>
       <td>Atributo utilizado no campo “CPF/CNPJ” do cliente.</td>
-      <td>“customer_taxvat”</td>
+      <td><strong>Valores possíveis</strong>:<br /> - “vat_id”: se deseja configurar CPF endereço;<br />- “customer_taxvat”: se deseja configurar CPF cadastro.</td>
     </tr>
   </tbody>
 </table>
