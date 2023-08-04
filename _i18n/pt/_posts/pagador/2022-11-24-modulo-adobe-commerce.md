@@ -119,7 +119,7 @@ A imagem a seguir mostra os campos de configuração com os respectivos valores 
 |**Number Attribute**|Atributo utilizado no campo "número" do endereço do cliente.|"street_2"|
 |**Complement Attribute**|Atributo utilizado no campo "complemento" do endereço do cliente.|"street_3"|
 |**District Attribute**|Atributo utilizado no campo "bairro" do endereço do cliente.|"street_4"|
-|**Customer Identity (CPF/CNPJ) Attribute**|Atributo utilizado no campo "CPF/CNPJ" do cliente.|"customer_taxvat"|
+|**Customer Identity (CPF/CNPJ) Attribute**|Atributo utilizado no campo "CPF/CNPJ" do cliente.|**Valores possíveis**:<br> - "vat_id": se deseja configurar CPF endereço;<br>- "customer_taxvat": se deseja configurar CPF cadastro.|
 
 ## Boleto
 
