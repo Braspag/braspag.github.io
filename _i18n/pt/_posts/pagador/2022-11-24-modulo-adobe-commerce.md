@@ -47,7 +47,7 @@ O módulo Adobe Commerce possui um endpoint criado e preparado para receber as n
 
 <br/>Para configurar a URL de sua loja na Braspag, entre em contato conosco informando o seu `MerchantID` e a "URL de Notificação".
 
-<aside class="notice">http://URL_DA_LOJA/braspag-pagador/post/notification (URL de Notificação para o Módulo Adobe Commerce).</aside>
+<aside class="notice">https://URL_DA_LOJA/rest/V1/braspag/notification/save (URL de Notificação para o Módulo Adobe Commerce).</aside>
 
 Consulte o [Manual do Pagador](https://braspag.github.io//manual/braspag-pagador#post-de-notifica%C3%A7%C3%A3o){:target="_blank"} para mais informações sobre o Post de Notificação.
 
