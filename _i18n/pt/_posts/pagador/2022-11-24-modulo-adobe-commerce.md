@@ -23,6 +23,8 @@ Para saber quais os requisitos técnicos de infraestrutura para a instalação d
 
 <aside class="notice">A versão recomendada do Adobe Commerce é 2.4.3 ou superior.</aside>
 
+<aside class="notice">A versão 3.18 do módulo é compatível com a versão 2.4.3, 2.4.4 e 2.4.5 do Adobe Commerce. Versões superiores do Adobe Commerce necessitam de atualização no módulo.</aside>
+
 <aside class="warning">As versões Adobe Commerce entre 2.3.0. e 2.4.2 não estão recebendo atualizações no módulo Braspag. </aside>
 
 ## Instalação do Módulo Base
