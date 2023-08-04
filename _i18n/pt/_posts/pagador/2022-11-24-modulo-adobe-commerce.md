@@ -109,7 +109,7 @@ Seguem instruções para configuração de **Dados do Cliente**:
 No menu, acesse **Lojas** > **Configuração** > **Vendas** > **Formas de Pagamento** > **Outros meios de pagamento** > **Braspag** > **Customer Config**.
 
 A imagem a seguir mostra os campos de configuração com os respectivos valores a serem utilizados na seção **Address**:
-![Address]({{ site.baseurl_root }}/images/braspag/pagador/magento-customer-config.png)
+![Address]({{ site.baseurl_root }}/images/braspag/pagador/adobe-commerce-customer-config.png)
 
 |Campo|Descrição|Valor|
 |---|---|---|
