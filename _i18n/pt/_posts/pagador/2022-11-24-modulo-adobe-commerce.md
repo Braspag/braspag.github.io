@@ -21,8 +21,6 @@ A plataforma Magento agora se chama Adobe Commerce. Para mais informações, con
 
 Para saber quais os requisitos técnicos de infraestrutura para a instalação do módulo Adobe Commerce, consulte o [Guia de Instalação](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html){:target="_blank"} na documentação oficial do Adobe Commerce.
 
-<aside class="notice">A versão recomendada do Adobe Commerce é 2.4.3 ou superior.</aside>
-
 <aside class="notice">A versão 3.18 do módulo é compatível com a versão 2.4.3, 2.4.4 e 2.4.5 do Adobe Commerce. Versões superiores do Adobe Commerce necessitam de atualização no módulo.</aside>
 
 <aside class="warning">As versões Adobe Commerce entre 2.3.0. e 2.4.2 não estão recebendo atualizações no módulo Braspag. </aside>
