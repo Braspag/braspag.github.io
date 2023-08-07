@@ -68,7 +68,7 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um exemplo do
 
 |Campo|Descrição|Conector|
 |-|-|-|
-|**Nome da Afiliação**|Insira nome identificador da afiliação.|Braspag, BraspagV2, CieloV3, CieloV4 e CieloEcommerce - Todos.|
+|**Nome da Afiliação**|Insira nome identificador da afiliação.|Todos.|
 |**Application Key**|Insira o MerchantID.| Todos.|
 |**Application Token**|Insira o MerchantKey.| Todos. |
 |**Integration**|Selecione **Adquirência** se o seu contrato é somente com a adquirência Cielo. <br>Selecione **Gateway** se o seu contrato é para utilização de outros provedores.|CieloEcommerce*|
