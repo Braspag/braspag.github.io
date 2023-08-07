@@ -38,7 +38,7 @@ Selecione o conector desejado e insira as informações conforme recebidas após
 * **CieloV3**;
 * **CieloV4**
 
-<aside class="notice">Em breve o conector **CieloEcommerce**; também estará disponível.</aside>
+<aside class="notice">Em breve o conector CieloEcommerce; também estará disponível.</aside>
  
 ![CieloEcommerce]({{ site.baseurl_root }}/images/braspag/pagador/vtex/01-cieloecommerce.jpeg)
 
