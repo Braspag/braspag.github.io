@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Split de Pagamentos - Onboarding de Subordinados
+title: Split de Pagamentos - Onboarding de Sellers
 description: Split de Pagamentos - Onboarding
 search: true
 toc_footers: false
