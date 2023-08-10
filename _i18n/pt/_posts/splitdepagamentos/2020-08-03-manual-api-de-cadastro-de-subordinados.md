@@ -13,27 +13,27 @@ tags:
 
 # Sobre essa documentação
 
-Essa documentação apresenta a integração com a **API de Onboarding Split 2.0** para o cadastro de subordinados pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico [Cadastro de Subordinados 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#deprecated-cadastro-de-subordinados-1.0){:target="_blank"}.
+Essa documentação apresenta a integração com a **API de Onboarding Split 2.0** para o cadastro de sellers pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico [Cadastro de Subordinados 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#deprecated-cadastro-de-subordinados-1.0){:target="_blank"}.
 
-> Se você já possui integração com a API de Onboarding Split 1.0, **a migração para a API de Onboarding Split 2.0 será obrigatória para novos cadastros** de subordinados a partir de agosto de 2023. Consulte as instruções para migração no [artigo da nossa página de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387){:target="_blank"}.
+> Se você já possui integração com a API de Onboarding Split 1.0, **a migração para a API de Onboarding Split 2.0 será obrigatória para novos cadastros** de sellers a partir de agosto de 2023. Consulte as instruções para migração no [artigo da nossa página de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387){:target="_blank"}.
 
 # Visão geral
 
-A **API de Onboarding Split 2.0** do **Split de Pagamentos** permite que o master gerencie seus subordinados na plataforma. O master deverá coletar as informações do subordinado para usar no processo de onboarding.
+A **API de Onboarding Split 2.0** do **Split de Pagamentos** permite que o master gerencie seus sellers na plataforma. O master deverá coletar as informações do seller para usar no processo de onboarding.
 
-Na API de Onboarding 2.0 o master cadastra o subordinado e, em seguida, o Split submete o subordinado à análise de Know Your Customer (KYC) de forma automática e notifica o master com o resultado desse processo, de acordo com as configurações de notificação.
+Na API de Onboarding 2.0 o master cadastra o seller e, em seguida, o Split submete o seller à análise de Know Your Customer (KYC) de forma automática e notifica o master com o resultado desse processo, de acordo com as configurações de notificação.
 
-> O cadastro de subordinados também pode ser feito pelo backoffice Split. [Saiba mais neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360055405011-Cadastro-de-subordinados-do-Split-via-Backoffice){:target="_blank"}.
+> O cadastro de sellers também pode ser feito pelo backoffice Split. [Saiba mais neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360055405011-Cadastro-de-subordinados-do-Split-via-Backoffice){:target="_blank"}.
 
-Assim como o master, os subordinados também irão passar pelo processo de Know Your Customer (KYC) do Split de Pagamentos, com objetivo de identificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.
+Assim como o master, os sellers também irão passar pelo processo de Know Your Customer (KYC) do Split de Pagamentos, com objetivo de identificar o cliente (seller). Por este motivo, alguns documentos do seller serão necessários.
 
 O processo de KYC é uma medida obrigatória exigida pelas instituições reguladoras de pagamento.
 
-O onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
+O onboarding do seller no Split de Pagamentos ocorre da seguinte forma:
 
-1. O master solicita o cadastro do subordinado;
-2. O subordinado será criado com status "Em análise" e estará bloqueado para participar da transação até que o processo de KYC seja finalizado;
-3. Ao final da análise, o master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.
+1. O master solicita o cadastro do seller;
+2. O seller será criado com status "Em análise" e estará bloqueado para participar da transação até que o processo de KYC seja finalizado;
+3. Ao final da análise, o master será notificado com o resultado do processo de KYC, juntamente com a identificação do seller.
 
 # Ambientes
 
@@ -42,16 +42,16 @@ O onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:
 |API|URL|Descrição|
 |---|---|---|
 |**Braspag OAUTH2 Server**|https://authsandbox.braspag.com.br/| Autenticação.|
-|**API de Onboarding Split 2.0**|https://splitonboardingapisandbox.braspag.com.br| Cadastro de subordinados.|
-|**API de Onboarding Split 1.0** |https://splitonboardingsandbox.braspag.com.br | Consulta de subordinados.|
+|**API de Onboarding Split 2.0**|https://splitonboardingapisandbox.braspag.com.br| Cadastro de sellers.|
+|**API de Onboarding Split 1.0** |https://splitonboardingsandbox.braspag.com.br | Consulta de sellers.|
 
 ## Produção
 
 |API|URL|Descrição|
 |---|---|---|
 |**Braspag OAUTH2 Server**|https://auth.braspag.com.br/| Autenticação.|
-|**API de Onboarding Split 2.0**|https://splitonboardingapi.braspag.com.br| Cadastro de subordinados.|
-|**API de Onboarding Split 1.0** |https://splitonboarding.braspag.com.br | Consulta de subordinados.|
+|**API de Onboarding Split 2.0**|https://splitonboardingapi.braspag.com.br| Cadastro de sellers.|
+|**API de Onboarding Split 1.0** |https://splitonboarding.braspag.com.br | Consulta de sellers.|
 
 # Autenticação
 
@@ -90,13 +90,13 @@ grant_type=client_credentials
 
 Use o token retornado (access_token) em toda requisição à API de Onboarding Split 2.0 como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.  
 
-# Cadastro de Subordinados
+# Cadastro de Sellers
 
-## Cadastro de Subordinados 2.0
+## Cadastro de Sellers 2.0
 
 Siga as instruções dessa seção para novas integrações.
 
-O **master** deverá solicitar o **cadastro de subordinado** enviando uma requisição com os **dados do subordinado**:
+O **master** deverá solicitar o **cadastro de seller** enviando uma requisição com os **dados do seller**:
 
 * Dados de identificação e contato;
 * Dados bancários (nó `BankAccount`);
@@ -104,9 +104,9 @@ O **master** deverá solicitar o **cadastro de subordinado** enviando uma requis
 * Acordos de taxas (nó `Agreements`);
 * Documentos anexos (nó `Attachments`).
 
-O subordinado pode ser cadastrado com um CPF ou CNPJ. Caso o documento seja um CPF, envie também os campos `BirthdayDate` e `BusinessActivity`, conforme descrito na tabela de propriedades da requisição.
+O seller pode ser cadastrado com um CPF ou CNPJ. Caso o documento seja um CPF, envie também os campos `BirthdayDate` e `BusinessActivity`, conforme descrito na tabela de propriedades da requisição.
 
-Veja a seguir o exemplo de uma requisição completa para cadastro de um subordinado do tipo CNPJ:
+Veja a seguir o exemplo de uma requisição completa para cadastro de um seller do tipo CNPJ:
 
 ### Requisição
 
@@ -163,7 +163,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 }
 ```
 
-#### Propriedades do subordinado
+#### Propriedades do seller
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
@@ -178,7 +178,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 | `MailAddress` | Texto | 50 | Sim | Endereço de e-mail. |
 | `Website` | Texto | 200 | Não | Endereço do website .|
 | `BirthdayDate`* | Data | 10 | Sim*, quando `DocumentType` for "CPF". | Data de nascimento (apenas para cadastro de pessoa física - CPF). Formato: yyyy-MM-dd |
-| `BusinessActivityId`* | Número | - | Sim*, quando `DocumentType` for "CPF". | Ramo de atividade que o subordinado atua. (apenas para cadastro de pessoa física - CPF). Veja a [**Lista de Ramos de Atividades**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-ramos-de-atividades). |
+| `BusinessActivityId`* | Número | - | Sim*, quando `DocumentType` for "CPF". | Ramo de atividade que o seller atua. (apenas para cadastro de pessoa física - CPF). Veja a [**Lista de Ramos de Atividades**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-ramos-de-atividades). |
 
 *Não é obrigatório quando `DocumentType` for "CNPJ".
 
@@ -188,48 +188,48 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um subordi
 |---|---|---|---|---|
 | `BankAccount.Bank` | Texto | 3 | Sim | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
 | `BankAccount.BankAccountType` | Texto | - | Sim | Tipo de conta bancária. Os tipos válidos são "CheckingAccount" (conta corrente) e "SavingsAccount" (conta poupança). |
-| `BankAccount.Number` | Texto | 10 | Sim | Número da conta do subordinado. |
-| `BankAccount.Operation` | Texto | 10 | Não | Operação da conta do subordinado. |
-| `BankAccount.VerifierDigit` | Texto | 1 | Sim | Dígito verificador da conta do subordinado. |
-| `BankAccount.AgencyNumber` | Texto | 15 | Sim | Número da agência do subordinado. |
-| `BankAccount.AgencyDigit` | Texto | 1 | Sim | Dígito da agência do subordinado. Caso a agência não tenha dígito, informar o valor "x". |
-| `BankAccount.DocumentNumber` | Texto | 14 | Não | Número do documento da conta (apenas números) do subordinado. |
+| `BankAccount.Number` | Texto | 10 | Sim | Número da conta do seller. |
+| `BankAccount.Operation` | Texto | 10 | Não | Operação da conta do seller. |
+| `BankAccount.VerifierDigit` | Texto | 1 | Sim | Dígito verificador da conta do seller. |
+| `BankAccount.AgencyNumber` | Texto | 15 | Sim | Número da agência do seller. |
+| `BankAccount.AgencyDigit` | Texto | 1 | Sim | Dígito da agência do seller. Caso a agência não tenha dígito, informar o valor "x". |
+| `BankAccount.DocumentNumber` | Texto | 14 | Não | Número do documento da conta (apenas números) do seller. |
 | `BankAccount.DocumentType` | Texto | - | Não | Tipo do documento. Os tipos válidos são "CPF" ou "CNPJ". |
 
 #### Propriedades do endereço
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
-| `Address.Street` | Texto | 100 | Sim | Logradouro do endereço do subordinado. |
-| `Address.Number` | Texto | 15 | Sim | Número do endereço do subordinado. |
-| `Address.Complement` | Texto | 80 | Não | Complemento do endereço do subordinado. |
-| `Address.Neighborhood` | Texto | 50 | Sim | Bairro do subordinado.|
-| `Address.City` | Texto | 50 | Sim | Cidade do subordinado|
-| `Address.State` | Texto | 2 | Sim | Sigla do estado (UF) do subordinado.|
-| `Address.ZipCode` | Texto | 9 | Sim | CEP (apenas números) do subordinado. |
+| `Address.Street` | Texto | 100 | Sim | Logradouro do endereço do seller. |
+| `Address.Number` | Texto | 15 | Sim | Número do endereço do seller. |
+| `Address.Complement` | Texto | 80 | Não | Complemento do endereço do seller. |
+| `Address.Neighborhood` | Texto | 50 | Sim | Bairro do seller.|
+| `Address.City` | Texto | 50 | Sim | Cidade do seller.|
+| `Address.State` | Texto | 2 | Sim | Sigla do estado (UF) do seller.|
+| `Address.ZipCode` | Texto | 9 | Sim | CEP (apenas números) do seller. |
 
 #### Propriedades do acordo de taxas
 
-No **Split de Pagamentos** há possibilidades de acordos de taxas entre o master e seus subordinados:
+No **Split de Pagamentos** há possibilidades de acordos de taxas entre o master e seus sellers:
 
-1. **Não cadastrar taxa**: quando as taxas não são definidas no momento do cadastro do subordinado, você deverá informá-las **a cada transação**, no momento da captura da transação ou da emissão do boleto. Se não cadastrar taxas e não informar a taxa na transação, o Split vai replicar os mesmos acordos do master com o Split para o master com o subordinado;
+1. **Não cadastrar taxa**: quando as taxas não são definidas no momento do cadastro do seller, você deverá informá-las **a cada transação**, no momento da captura da transação ou da emissão do boleto. Se não cadastrar taxas e não informar a taxa na transação, o Split vai replicar os mesmos acordos do master com o Split para o master com o seller;
 2. **Taxa global**: configure uma única taxa para todos os acordos (MDR único);
 3. **Taxa por meio de pagamento**: você deverá definir as taxas cobradas por transação por arranjos de pagamento e intervalo de parcelas.
 
 Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: [**Não cadastrar taxa**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#acordo-de-taxas-n%C3%A3o-informado-no-cadastro), [**Taxa global**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-%C3%BAnico-para-todos-os-acordos) e [**Taxa por meio de pagamento**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-por-arranjo-de-pagamento-e-intervalo-de-parcelas). 
 
 > **ATENÇÃO**: Se não houver cobrança de MDR, basta não enviar o nó `Agreements`.<br>
-> O campo `Agreements[].Percent` só deve ser enviado em caso de cadastro de subordinado com Taxa global.
+> O campo `Agreements[].Percent` só deve ser enviado em caso de cadastro de seller com Taxa global.
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
-| `Agreements[].Percent` | Decimal | - | Sim, para requisições cujo acordo é com Taxa global. | Porcentagem da taxa de desconto única (MDR único) que será aplicada para todos os acordos entre master e subordinado. Valor com até duas casas decimais. |
+| `Agreements[].Percent` | Decimal | - | Sim, para requisições cujo acordo é com Taxa global. | Porcentagem da taxa de desconto única (MDR único) que será aplicada para todos os acordos entre master e seller. Valor com até duas casas decimais. |
 | `Agreements[].Fee` | Número | - | Sim | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = `Fee` : 100 |
-| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Product` | Texto | - | Não* | Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são "CreditCard" e "DebitCard". |
-| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand` | Texto | - | Não* | Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são _Visa_, _Master_, _Amex_, _Elo_, _Diners_ e _Hipercard_. |
-| `Agreements[].MerchantDiscountRates[].InitialInstallmentNumber` | Número | - | Não* | Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**. |
-| `Agreements[].MerchantDiscountRates[].FinalInstallmentNumber` | Número | - | Não* | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**. | 
-| `Agreements[].MerchantDiscountRates[].Percent` | Decimal | - | Não* | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais. |
+| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Product` | Texto | - | Não* | Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são "CreditCard" e "DebitCard". |
+| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand` | Texto | - | Não* | Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são _Visa_, _Master_, _Amex_, _Elo_, _Diners_ e _Hipercard_. |
+| `Agreements[].MerchantDiscountRates[].InitialInstallmentNumber` | Número | - | Não* | Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**. |
+| `Agreements[].MerchantDiscountRates[].FinalInstallmentNumber` | Número | - | Não* | Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**. | 
+| `Agreements[].MerchantDiscountRates[].Percent` | Decimal | - | Não* | Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais. |
 
 * Obrigatório apenas para o cenário de acordo de taxas *"3. Taxa por meio de pagamento"*.
 
@@ -426,7 +426,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 }
 ```
 
-#### Propriedades do subordinado
+#### Propriedades do seller
 
 | PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
 |---|---|---|---|
@@ -442,7 +442,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `ContactName` | Texto | 100 | Nome do contato responsável |
 | `MailAddress` | Texto | 50 | Endereço de e-mail |
 | `ContactPhone` | Texto | 11 | Número do telefone do contato responsável |
-| `Blocked` | Booleano | - | Flag para indicar se o subordinado está bloqueado para participar da transação |
+| `Blocked` | Booleano | - | Flag para indicar se o seller está bloqueado para participar da transação |
 | `Analysis.Status` | Texto| - | Status da análise do processo de KYC. Os Status válidos são _UnderAnalysis_, _Approved_, _ApprovedWithRestriction_ e _Rejected_ |
 
 #### Propriedades do endereço
@@ -479,11 +479,11 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `Agreements[].Fee` | Número | - | Taxa fixa por transação |
 | `Agreements[].AntiFraudFee` | Número | - | Taxa do anti-fraude |
 | `Agreements[].AntiFraudFeeWithReview` | Número | - | Taxa do anti-fraude taxa com revisão manual |
-| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Product` | Texto | - | Produto do arranjo de pagamento da taxa de desconto do subordinado |
-| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand` | Texto | - | Bandeira do arranjo de pagamento da taxa de desconto do subordinado |
-| `Agreements[].MerchantDiscountRates[].InitialInstallmentNumber` | Número | - | Número inicial do intervalo de parcelas da taxa de desconto do subordinado |
-| `Agreements[].MerchantDiscountRates[].FinalInstallmentNumber` | Número | - | Número final do intervalo de parcelas da taxa de desconto do subordinado | 
-| `Agreements[].MerchantDiscountRates[].Percent` | Decimal | - | Porcentagem da taxa de desconto do subordinado |
+| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Product` | Texto | - | Produto do arranjo de pagamento da taxa de desconto do seller |
+| `Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand` | Texto | - | Bandeira do arranjo de pagamento da taxa de desconto do seller |
+| `Agreements[].MerchantDiscountRates[].InitialInstallmentNumber` | Número | - | Número inicial do intervalo de parcelas da taxa de desconto do seller |
+| `Agreements[].MerchantDiscountRates[].FinalInstallmentNumber` | Número | - | Número final do intervalo de parcelas da taxa de desconto do seller | 
+| `Agreements[].MerchantDiscountRates[].Percent` | Decimal | - | Porcentagem da taxa de desconto do seller |
 | `Links` | - | - | Links para navegação |
 
 ### Exemplos dos acordos de taxas
@@ -492,7 +492,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 
 Quando não haverá cobrança de MDR, siga a requisição padrão excluindo o nó `Agreements`.
 
-Veja a seguir o exemplo de uma requisição completa para cadastro de um subordinado do tipo CNPJ e ausência de cobrança de MDR:
+Veja a seguir o exemplo de uma requisição completa para cadastro de um seller do tipo CNPJ e ausência de cobrança de MDR:
 
 **Requisição**
 
@@ -610,11 +610,11 @@ Veja as propriedades na [requisição padrão](https://braspag.github.io//manual
 
 Nesse caso, você deverá informar os campos referentes à taxa fixa, produto, bandeira, intervalo de parcelas e porcentagem do MDR.
 
-> Os arranjos informados no cadastro do subordinado precisam ser iguais aos acordos entre master e Split.
+> Os arranjos informados no cadastro do seller precisam ser iguais aos acordos entre master e Split.
 
 **Exemplo**
 
-MDR do master com subordinado igual a 4%.
+MDR do master com seller igual a 4%.
 
 | ACORDO SUBADQUIRENTE (SPLIT) E MASTER | VISA | MASTERCARD | ELO |
 |---|---|---|---|
@@ -623,7 +623,7 @@ MDR do master com subordinado igual a 4%.
 | **Crédito 2x a 6x** | 3.00% | 3.00% | 3.00% |
 | **Crédito 7x a 12x** | 3.50% | 3.50% | 3.50% |
 
-| ACORDO MASTER E SUBORDINADO | VISA | MASTERCARD | ELO |
+| ACORDO MASTER E SELLER | VISA | MASTERCARD | ELO |
 |---|---|---|---|
 | **Débito** | 4.00% | 4.00% | 4.00% |
 | **Crédito à vista** | 4.00% | 4.00% | 4.00% |
@@ -632,7 +632,7 @@ MDR do master com subordinado igual a 4%.
 
 **Requisição**
 
-Veja a seguir o exemplo de requisição de cadastro de subordinado com CPF com acordo de taxas por arranjo de pagamento e intervalo de parcelas. 
+Veja a seguir o exemplo de requisição de cadastro de seller com CPF com acordo de taxas por arranjo de pagamento e intervalo de parcelas. 
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/merchants</span></aside>
 
@@ -728,23 +728,23 @@ Veja a seguir o exemplo de requisição de cadastro de subordinado com CPF com a
 
 Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10).
 
-## DEPRECATED - Cadastro de subordinados 1.0
+## DEPRECATED - Cadastro de sellers 1.0
 
 Esta seção detalha a integração da API de Onboarding Split 1.0, que será descontinuada em breve.
 
-> Para novas integrações, veja a seção [Cadastro de Subordinados 2.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-2.0){:target="_blank"}.<br>
+> Para novas integrações, veja a seção [Cadastro de Sellers 2.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-2.0){:target="_blank"}.<br>
 > Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instruções [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387){:target="_blank"}.
 
-A solicitação de cadastro deve ser realizada através de uma requisição pelo **master** informando os dados do subordinado.
+A solicitação de cadastro deve ser realizada através de uma requisição pelo **master** informando os dados do seller.
 
-Para a definição de acordos entre o master e seus subordinados, o **Split de Pagamentos** dispõe de duas possibilidades:
+Para a definição de acordos entre o master e seus sellers, o **Split de Pagamentos** dispõe de duas possibilidades:
 
 1. É possível definir a porcentagem do MDR (Merchant Discount Rate) cobrado por transação por Arranjos de Pagamento e intervalo de parcelas.
-2. Caso o master não queira definir a porcentagem do MDR para cada Arranjo de Pagamento e intervalo de parcelas, o **Split de Pagamentos** irá replicar os mesmos acordos do master com a Subadquirente (Split), para o master com o Subordinado. Dessa forma, o master deverá informar apenas um MDR único, que será aplicado para todos os acordos.
+2. Caso o master não queira definir a porcentagem do MDR para cada Arranjo de Pagamento e intervalo de parcelas, o **Split de Pagamentos** irá replicar os mesmos acordos do master com a Subadquirente (Split), para o master com o seller. Dessa forma, o master deverá informar apenas um MDR único, que será aplicado para todos os acordos.
 
 **Exemplo:**
 
-**MDR do master com subordinado igual a 4%**
+**MDR do master com seller igual a 4%**
 
 | ACORDO SUBADQUIRENTE e MASTER | Visa  | Master | Elo   | Diners  | Amex  | Hiper  |
 |-------------------------------|----------------------------------------------------|
@@ -753,7 +753,7 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 | Crédito 2x a 6x               | 3.00% | 3.00%  | 3.00% | 3.00%   | 3.00% |  3.00%  |
 | Crédito 7x a 12x              | 3.50% | 3.50%  | 3.50% | 3.50%   | 3.50% |  3.50%  |
 
-| ACORDO MASTER e SUBORDINADO  | Visa  | Master | Elo   | Diners  | Amex   | Hiper  |
+| ACORDO MASTER e SELLER  | Visa  | Master | Elo   | Diners  | Amex   | Hiper  |
 |------------------------------|----------------------------------------------------|
 | Débito                       | 4.00% | 4.00%  | 4.00% |    -    |   -    |    -   |  
 | Crédito a Vista              | 4.00% | 4.00%  | 4.00% | 4.00%   | 4.00%  |  4.00% |
@@ -888,17 +888,17 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 | `Address.State`                                                 | Texto  | 2       | Sim         | Sigla do estado                                                                                                                                                                                                                      |
 | `Address.ZipCode`                                               | Texto  | 9       | Sim         | CEP (Apenas números)                                                                                                                                                                                                                 |
 | `Agreement.Fee`                                                 | Número     | -       | Sim         | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = `"Fee" : 100`                                                                                                                                                              |
-| `Agreement.MerchantDiscountRates[].PaymentArrangement.Product`  | Texto  | -       | Sim         | Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são `CreditCard` e `DebitCard`                                                                                                               |
-| `Agreement.MerchantDiscountRates[].PaymentArrangement.Brand`    | Texto  | -       | Sim         | Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são `Visa`, `Master`, `Amex`, `Elo`, `Diners` e `Hipercard`                                                                    |
-| `Agreement.MerchantDiscountRates[].InitialInstallmentNumber`    | Número     | -       | Sim         | Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                 |
-| `Agreement.MerchantDiscountRates[].FinalInstallmentNumber`      | Número     | -       | Sim         | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                   |
-| `Agreement.MerchantDiscountRates[].Percent`                     | Decimal | -       | Sim         | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais                                                                                                                                                    |
+| `Agreement.MerchantDiscountRates[].PaymentArrangement.Product`  | Texto  | -       | Sim         | Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são `CreditCard` e `DebitCard`                                                                                                               |
+| `Agreement.MerchantDiscountRates[].PaymentArrangement.Brand`    | Texto  | -       | Sim         | Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são `Visa`, `Master`, `Amex`, `Elo`, `Diners` e `Hipercard`                                                                    |
+| `Agreement.MerchantDiscountRates[].InitialInstallmentNumber`    | Número     | -       | Sim         | Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                 |
+| `Agreement.MerchantDiscountRates[].FinalInstallmentNumber`      | Número     | -       | Sim         | Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                   |
+| `Agreement.MerchantDiscountRates[].Percent`                     | Decimal | -       | Sim         | Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais                                                                                                                                                    |
 | `Notification.Url`                                              | Texto  | 200     | Sim         | Url de notificação de mudança de status da análise do processo de KYC                                                                                                                                                                |
 | `Notification.Headers[].Key`                                    | Texto  | 100     | Sim         | Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC                                                                                                                                  |
 | `Notification.Headers[].Value`                                  | Texto  | 100     | Sim         | Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC                                                                                                                                  |
-| `Attachments[].AttachmentType`                                  | Texto  | -       | Não         | Tipo do documento em anexo do subordinado. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
-| `Attachments[].File.Name`                                       | Texto  | 50      | Não         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
-| `Attachments[].File.FileType`                                   | Texto  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
+| `Attachments[].AttachmentType`                                  | Texto  | -       | Não         | Tipo do documento em anexo do seller. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
+| `Attachments[].File.Name`                                       | Texto  | 50      | Não         | Nome do arquivo do documento em anexo do seller                                                                                                                                                                                 |
+| `Attachments[].File.FileType`                                   | Texto  | -       | Não         | Tipo do arquivo do documento em anexo do seller. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 | `Attachments[].File.Data`                                       | Texto  | -       | Não         | Documento convertido para **Base64**   |
 
 #### Resposta
@@ -1007,8 +1007,8 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 
 | Propriedade                                                     | Tipo    | Tamanho | Obrigatório | Descrição                                                                                                                                                                                                                            |
 |-----------------------------------------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MasterMerchantId`                                              | GUID    | 36      | Sim         | Identificação do master do subordinado                                                                                                                                                                                               |
-| `MerchantId`                                                    | GUID    | 36      | Sim         | Identificação do subordinado                                                                                                                                                                                                         |
+| `MasterMerchantId`                                              | GUID    | 36      | Sim         | Identificação do master do seller                                                                                                                                                                                               |
+| `MerchantId`                                                    | GUID    | 36      | Sim         | Identificação do seller                                                                                                                                                                                                         |
 | `CorporateName`                                                 | Texto  | 100     | Sim         | Razão social                                                                                                                                                                                                                         |
 | `FancyName`                                                     | Texto  | 50      | Sim         | Nome fantasia                                                                                                                                                                                                                        |
 | `DocumentNumber`                                                | Texto  | 14      | Sim         | Número do documento                                                                                                                                                                                                                  |
@@ -1019,7 +1019,7 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 | `ContactPhone`                                                  | Texto  | 11      | Sim         | Número do telefone do contato responsável (Apenas números)                                                                                                                                                                           |
 | `MailAddress`                                                   | String  | 50      | Sim         | Endereço de e-mail                                                                                                                                                                                                                   |
 | `Website`                                                       | Texto  | 200     | Não         | Endereço do website                                                                                                                                                                                                                  |
-| `Blocked`                                                       | Booleano | -       | Sim         | Flag para indicar se o subordinado está bloqueado para participar da transação                                                                                                                                                       |
+| `Blocked`                                                       | Booleano | -       | Sim         | Flag para indicar se o seller está bloqueado para participar da transação                                                                                                                                                       |
 | `Analysis.Status`                                               | Texto  | -       | Sim         | Status da análise do processo de KYC. Os Status válidos são `Approved`, `ApprovedWithRestriction` e `Rejected`                                                                                                                       |
 | `BankAccount.Bank`                                              | Texto  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
 | `BankAccount.BankAccountType`                                   | Texto  | -       | Sim         | Tipo de conta bancária. Os tipos válidos são `CheckingAccount` (Conta corrente) e `SavingsAccount` (Conta poupança)                                                                                                                  |
@@ -1038,18 +1038,18 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 | `Address.State`                                                 | Texto  | 2       | Sim         | Sigla do estado                                                                                                                                                                                                                      |
 | `Address.ZipCode`                                               | Texto  | 9       | Sim         | CEP                                                                                                                                                                                                                                  |
 | `Agreement.Fee`                                                 | Número     | -       | Sim         | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = `"Fee" : 100`                                                                                                                                                              |
-| `Agreement.MerchantDiscountRates[].MerchantDiscountRateId`      | GUID    | 36      | Sim         | Identificação da taxa de desconto do subordinado                                                                                                                                                                                     |
-| `Agreement.MerchantDiscountRates[].PaymentArrangement.Product`  | Texto  | -       | Sim         | Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são `CreditCard` e `DebitCard`                                                                                                               |
-| `Agreement.MerchantDiscountRates[].PaymentArrangement.Brand`    | Texto  | -       | Sim         | Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são `Visa`, `Master`, `Amex`, `Elo`, `Diners` e `Hipercard`                                                                    |
-| `Agreement.MerchantDiscountRates[].InitialInstallmentNumber`    | Número     | -       | Sim         | Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                 |
-| `Agreement.MerchantDiscountRates[].FinalInstallmentNumber`      | Número     | -       | Sim         | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                   |
-| `Agreement.MerchantDiscountRates[].Percent`                     | Decimal | -       | Sim         | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais                                                                                                                                                    |
+| `Agreement.MerchantDiscountRates[].MerchantDiscountRateId`      | GUID    | 36      | Sim         | Identificação da taxa de desconto do seller                                                                                                                                                                                     |
+| `Agreement.MerchantDiscountRates[].PaymentArrangement.Product`  | Texto  | -       | Sim         | Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são `CreditCard` e `DebitCard`                                                                                                               |
+| `Agreement.MerchantDiscountRates[].PaymentArrangement.Brand`    | Texto  | -       | Sim         | Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são `Visa`, `Master`, `Amex`, `Elo`, `Diners` e `Hipercard`                                                                    |
+| `Agreement.MerchantDiscountRates[].InitialInstallmentNumber`    | Número     | -       | Sim         | Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                 |
+| `Agreement.MerchantDiscountRates[].FinalInstallmentNumber`      | Número     | -       | Sim         | Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                   |
+| `Agreement.MerchantDiscountRates[].Percent`                     | Decimal | -       | Sim         | Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais                                                                                                                                                    |
 | `Notification.Url`                                              | Texto  | 200     | Sim         | Url de notificação de mudança de status da análise do processo de KYC                                                                                                                                                                |
 | `Notification.Headers[].Key`                                    | Texto  | 100     | Sim         | Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC                                                                                                                                  |
 | `Notification.Headers[].Value`                                  | Texto  | 100     | Sim         | Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC                                                                                                                                  |
-| `Attachments[].AttachmentType`                                  | Texto  | -       | Não         | Tipo do documento em anexo do subordinado. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
-| `Attachments[].File.Name`                                       | Texto  | 50      | Não         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
-| `Attachments[].File.FileType`                                   | Texto  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
+| `Attachments[].AttachmentType`                                  | Texto  | -       | Não         | Tipo do documento em anexo do seller. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
+| `Attachments[].File.Name`                                       | Texto  | 50      | Não         | Nome do arquivo do documento em anexo do seller                                                                                                                                                                                 |
+| `Attachments[].File.FileType`                                   | Texto  | -       | Não         | Tipo do arquivo do documento em anexo do seller. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 
 ### Informando a porcentagem do MDR único aplicado para todos os acordos
 
@@ -1144,13 +1144,13 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 | `Address.State`                                                 | Texto  | 2       | Sim         | Sigla do estado                                                                                                                                                                                                                      |
 | `Address.ZipCode`                                               | Texto  | 9       | Sim         | CEP (Apenas números)                                                                                                                                                                                                                 |
 | `Agreement.Fee`                                                 | Número     | -       | Sim         | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = `"Fee" : 100`                                                                                                                                                              |
-| `Agreement.MdrPercentage`                                       | Decimal | -       | Sim         | Porcentagem da taxa de desconto única que será aplicada para todos os acordos entre Master e Subordinado. Valor com até duas casas decimais                                                                                        |
+| `Agreement.MdrPercentage`                                       | Decimal | -       | Sim         | Porcentagem da taxa de desconto única que será aplicada para todos os acordos entre Master e Seller. Valor com até duas casas decimais                                                                                        |
 | `Notification.Url`                                              | Texto  | 200     | Sim         | Url de notificação de mudança de status da análise do processo de KYC                                                                                                                                                                |
 | `Notification.Headers[].Key`                                    | Texto  | 100     | Sim         | Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC                                                                                                                                  |
 | `Notification.Headers[].Value`                                  | Texto  | 100     | Sim         | Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC                                                                                                                                  |
-| `Attachments[].AttachmentType`                                  | Texto  | -       | Não         | Tipo do documento em anexo do subordinado. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
-| `Attachments[].File.Name`                                       | Texto  | 50      | Não         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
-| `Attachments[].File.FileType`                                   | Texto  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
+| `Attachments[].AttachmentType`                                  | Texto  | -       | Não         | Tipo do documento em anexo do seller. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
+| `Attachments[].File.Name`                                       | Texto  | 50      | Não         | Nome do arquivo do documento em anexo do seller                                                                                                                                                                                 |
+| `Attachments[].File.FileType`                                   | Texto  | -       | Não         | Tipo do arquivo do documento em anexo do seller. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`                                                                                                                  |
 | `Attachments[].File.Data`                                       | Texto  | -       | Não         | Documento convertido para **Base64** |
 
 #### Resposta
@@ -1259,8 +1259,8 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 
 | Propriedade                                                     | Tipo    | Tamanho | Obrigatório | Descrição                                                                                                                                                                                                                            |
 |-----------------------------------------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MasterMerchantId`                                              | GUID    | 36      | Sim         | Identificação do master do subordinado                                                                                                                                                                                               |
-| `MerchantId`                                                    | GUID    | 36      | Sim         | Identificação do subordinado                                                                                                                                                                                                         |
+| `MasterMerchantId`                                              | GUID    | 36      | Sim         | Identificação do master do seller                                                                                                                                                                                               |
+| `MerchantId`                                                    | GUID    | 36      | Sim         | Identificação do seller                                                                                                                                                                                                         |
 | `CorporateName`                                                 | Texto  | 100     | Sim         | Razão social                                                                                                                                                                                                                         |
 | `FancyName`                                                     | Texto  | 50      | Sim         | Nome fantasia                                                                                                                                                                                                                        |
 | `DocumentNumber`                                                | Texto  | 14      | Sim         | Número do documento                                                                                                                                                                                                                  |
@@ -1271,7 +1271,7 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 | `ContactPhone`                                                  | Texto  | 11      | Sim         | Número do telefone do contato responsável (Apenas números)                                                                                                                                                                           |
 | `MailAddress`                                                   | Texto  | 50      | Sim         | Endereço de e-mail                                                                                                                                                                                                                   |
 | `Website`                                                       | Texto  | 200     | Não         | Endereço do website                                                                                                                                                                                                                  |
-| `Blocked`                                                       | Booleano | -       | Sim         | Flag para indicar se o subordinado está bloqueado para participar da transação                                                                                                                                                       |
+| `Blocked`                                                       | Booleano | -       | Sim         | Flag para indicar se o seller está bloqueado para participar da transação                                                                                                                                                       |
 | `Analysis.Status`                                               | Texto  | -       | Sim         | Status da análise do processo de KYC. Os Status válidos são `Approved`, `ApprovedWithRestriction` e `Rejected`                                                                                                                       |
 | `BankAccount.Bank`                                              | Texto  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o)|
 | `BankAccount.BankAccountType`                                   | Texto  | -       | Sim         | Tipo de conta bancária. Os tipos válidos são `CheckingAccount` (Conta corrente) e `SavingsAccount` (Conta poupança)                                                                                                                  |
@@ -1290,22 +1290,22 @@ Para a definição de acordos entre o master e seus subordinados, o **Split de P
 | `Address.State`                                                 | Texto  | 2       | Sim         | Sigla do estado                                                                                                                                                                                                                      |
 | `Address.ZipCode`                                               | Texto  | 9       | Sim         | CEP                                                                                                                                                                                                                                  |
 | `Agreement.Fee`                                                 | Número     | -       | Sim         | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = `"Fee" : 100`                                                                                                                                                              |
-| `Agreement.MerchantDiscountRates[].MerchantDiscountRateId`      | GUID    | 36      | Sim         | Identificação da taxa de desconto do subordinado                                                                                                                                                                                     |
-| `Agreement.MerchantDiscountRates[].PaymentArrangement.Product`  | Texto  | -       | Sim         | Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são `CreditCard` e `DebitCard`                                                                                                               |
-| `Agreement.MerchantDiscountRates[].PaymentArrangement.Brand`    | Texto  | -       | Sim         | Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são `Visa`, `Master`, `Amex`, `Elo`, `Diners` e `Hipercard`                                                                    |
-| `Agreement.MerchantDiscountRates[].InitialInstallmentNumber`    | Número     | -       | Sim         | Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                 |
-| `Agreement.MerchantDiscountRates[].FinalInstallmentNumber`      | Número     | -       | Sim         | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                   |
-| `Agreement.MerchantDiscountRates[].Percent`                     | Decimal | -       | Sim         | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais                                                                                                                                                    |
+| `Agreement.MerchantDiscountRates[].MerchantDiscountRateId`      | GUID    | 36      | Sim         | Identificação da taxa de desconto do seller                                                                                                                                                                                     |
+| `Agreement.MerchantDiscountRates[].PaymentArrangement.Product`  | Texto  | -       | Sim         | Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são `CreditCard` e `DebitCard`                                                                                                               |
+| `Agreement.MerchantDiscountRates[].PaymentArrangement.Brand`    | Texto  | -       | Sim         | Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são `Visa`, `Master`, `Amex`, `Elo`, `Diners` e `Hipercard`                                                                    |
+| `Agreement.MerchantDiscountRates[].InitialInstallmentNumber`    | Número     | -       | Sim         | Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                 |
+| `Agreement.MerchantDiscountRates[].FinalInstallmentNumber`      | Número     | -       | Sim         | Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**                                                                                   |
+| `Agreement.MerchantDiscountRates[].Percent`                     | Decimal | -       | Sim         | Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais                                                                                                                                                    |
 | `Notification.Url`                                              | Texto  | 200     | Sim         | Url de notificação de mudança de status da análise do processo de KYC                                                                                                                                                                |
 | `Notification.Headers[].Key`                                    | Texto  | 100     | Sim         | Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC                                                                                                                                  |
 | `Notification.Headers[].Value`                                  | Texto  | 100     | Sim         | Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC                                                                                                                                  |
-| `Attachments[].AttachmentType`                                  | Texto  | -       | Não         | Tipo do documento em anexo do subordinado. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
-| `Attachments[].File.Name`                                       | Texto  | 50      | Não         | Nome do arquivo do documento em anexo do subordinado                                                                                                                                                                                 |
-| `Attachments[].File.FileType`                                   | Texto  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`  |
+| `Attachments[].AttachmentType`                                  | Texto  | -       | Não         | Tipo do documento em anexo do seller. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)                                                        |
+| `Attachments[].File.Name`                                       | Texto  | 50      | Não         | Nome do arquivo do documento em anexo do seller                                                                                                                                                                                 |
+| `Attachments[].File.FileType`                                   | Texto  | -       | Não         | Tipo do arquivo do documento em anexo do seller. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg`  |
 
-# Consulta de Subordinados
+# Consulta de Sellers
 
-Você pode consultar um subordinado específico através do `MerchantId` do subordinado. Essa consulta é feita pela [API de Onboarding Split 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#ambientes).
+Você pode consultar um seller específico através do `MerchantId` do seller. Essa consulta é feita pela [API de Onboarding Split 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#ambientes).
 
 ## Requisição
 
@@ -1419,8 +1419,8 @@ Você pode consultar um subordinado específico através do `MerchantId` do subo
 
 | Propriedade  | Tipo    | Tamanho | Obrigatório | Descrição |
 |-----------------------------------------------------------------|---------|---------|-------------|------------------------------------------------|
-| `MasterMerchantId`                                              | GUID    | 36      | Sim         | Identificação do master do subordinado  |
-| `MerchantId`                                                    | GUID    | 36      | Sim         | Identificação do subordinado  |
+| `MasterMerchantId`                                              | GUID    | 36      | Sim         | Identificação do master do seller  |
+| `MerchantId`                                                    | GUID    | 36      | Sim         | Identificação do seller  |
 | `CorporateName`                                                 | Texto  | 100     | Sim         | Razão social  |
 | `FancyName`                                                     | Texto  | 50      | Sim         | Nome fantasia  |
 | `DocumentNumber`                                                | Texto  | 14      | Sim         | Número do documento   |
@@ -1430,10 +1430,10 @@ Você pode consultar um subordinado específico através do `MerchantId` do subo
 | `ContactPhone`                                                  | Texto  | 11      | Sim         | Número do telefone do contato responsável (Apenas números)  |
 | `MailAddress`                                                   | Texto  | 50      | Sim         | Endereço de e-mail   |
 | `Website`                                                       | Texto  | 200     | Não         | Endereço do website  |
-| `Blocked`                                                       | Booleano | -       | Sim         | Flag para indicar se o subordinado está bloqueado para participar da transação  |
+| `Blocked`                                                       | Booleano | -       | Sim         | Flag para indicar se o seller está bloqueado para participar da transação  |
 | `Analysis.Status`                                               | Texto  | -       | Sim         | Status da análise do processo de KYC. Os Status válidos são `Approved`, `ApprovedWithRestriction` e `Rejected`  |
 | `Analysis.Score`                                                | Número     | -       | Não         | Score da análise do processo de KYC. Range de 1 a 100    |
-| `Analysis.DenialReason`                                         | Texto  | -       | Não         | Motivo de reprovação do subordinado |
+| `Analysis.DenialReason`                                         | Texto  | -       | Não         | Motivo de reprovação do seller |
 | `BankAccount.Bank`                                              | Texto  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://www.bcb.gov.br/Fis/CODCOMPE/Tabela.pdf){:target="_blank"} |
 | `BankAccount.BankAccountType`                                   | Texto  | -       | Sim         | Tipo de conta bancária. Os tipos válidos são `CheckingAccount` (Conta corrente) e `SavingsAccount` (Conta poupança)  |
 | `BankAccount.Number`                                            | Texto  | 10      | Sim         | Número da conta  |
@@ -1451,22 +1451,22 @@ Você pode consultar um subordinado específico através do `MerchantId` do subo
 | `Address.State`                                                 | Texto  | 2       | Sim         | Sigla do estado  |
 | `Address.ZipCode`                                               | Texto  | 9       | Sim         | CEP   |
 | `Agreement.Fee`                                                 | Número     | -       | Sim         | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = `"Fee" : 100`  |
-| `Agreement.MerchantDiscountRates[].MerchantDiscountRateId`      | GUID    | 36      | Sim         | Identificação da taxa de desconto do subordinado  |
-| `Agreement.MerchantDiscountRates[].PaymentArrangement.Product`  | Texto  | -       | Sim         | Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são `CreditCard` e `DebitCard`   |
-| `Agreement.MerchantDiscountRates[].PaymentArrangement.Brand`    | Texto  | -       | Sim         | Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são `Visa`, `Master`, `Amex`, `Elo`, `Diners` e `Hipercard`   |
-| `Agreement.MerchantDiscountRates[].InitialInstallmentNumber`    | Número     | -       | Sim         | Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**  |
-| `Agreement.MerchantDiscountRates[].FinalInstallmentNumber`      | Número     | -       | Sim         | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**   |
-| `Agreement.MerchantDiscountRates[].Percent`                     | Decimal | -       | Sim         | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais   |
+| `Agreement.MerchantDiscountRates[].MerchantDiscountRateId`      | GUID    | 36      | Sim         | Identificação da taxa de desconto do seller  |
+| `Agreement.MerchantDiscountRates[].PaymentArrangement.Product`  | Texto  | -       | Sim         | Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são `CreditCard` e `DebitCard`   |
+| `Agreement.MerchantDiscountRates[].PaymentArrangement.Brand`    | Texto  | -       | Sim         | Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são `Visa`, `Master`, `Amex`, `Elo`, `Diners` e `Hipercard`   |
+| `Agreement.MerchantDiscountRates[].InitialInstallmentNumber`    | Número     | -       | Sim         | Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**  |
+| `Agreement.MerchantDiscountRates[].FinalInstallmentNumber`      | Número     | -       | Sim         | Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12**   |
+| `Agreement.MerchantDiscountRates[].Percent`                     | Decimal | -       | Sim         | Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais   |
 | `Notification.Url`                                              | Texto  | 200     | Sim         | Url de notificação de mudança de status da análise do processo de KYC   |
 | `Notification.Headers[].Key`                                    | Texto  | 100     | Sim         | Chave do header da requisição para a notificação de mudança de status da análise do processo de KYC   |
 | `Notification.Headers[].Value`                                  | Texto  | 100     | Sim         | Valor do header da requisição para a notificação de mudança de status da análise do processo de KYC  |
-| `Attachments[].AttachmentType`                                  | Texto  | -       | Não         | Tipo do documento em anexo do subordinado. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)   |
-| `Attachments[].File.Name`                                       | Texto  | 50      | Não         | Nome do arquivo do documento em anexo do subordinado  |
-| `Attachments[].File.FileType`                                   | Texto  | -       | Não         | Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg` |
+| `Attachments[].AttachmentType`                                  | Texto  | -       | Não         | Tipo do documento em anexo do seller. Os tipos válidos são `ProofOfBankDomicile` (Comprovante de domicílio bancário) e `ModelOfAdhesionTerm` (Modelo de termo de adesão)   |
+| `Attachments[].File.Name`                                       | Texto  | 50      | Não         | Nome do arquivo do documento em anexo do seller  |
+| `Attachments[].File.FileType`                                   | Texto  | -       | Não         | Tipo do arquivo do documento em anexo do seller. Os tipos de arquivos válidos são `pdf`, `png`, `jpg` e `jpeg` |
 
 # Alteração de Taxas em Lote
 
-A API de Alteração de Taxas em Lote permite que o master realize a alteração das taxas entre ele e os seus subordinados através de uma requisição. Atualmente, somente será possível informar o mesmo conjunto de taxas para todos os subordinados.
+A API de Alteração de Taxas em Lote permite que o master realize a alteração das taxas entre ele e os seus sellers através de uma requisição. Atualmente, somente será possível informar o mesmo conjunto de taxas para todos os sellers.
 
 > A alteração de taxas é feita pela [API de Onboarding Split 2.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#ambientes){:target="_blank"}.
 
@@ -1543,14 +1543,14 @@ A API de Alteração de Taxas em Lote permite que o master realize a alteração
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO | 
 |-|-|-|-|-| 
 | `MasterMerchantId` | Guid | 36 | Sim | Identificação do master. | 
-| `SubordinateIds` | Guid[] | - | Sim | Identificação dos subordinados que terão o acordo alterado. | 
+| `SubordinateIds` | Guid[] | - | Sim | Identificação dos sellers que terão o acordo alterado. | 
 | `Aggrement.InitialValidityDate` | Data | 10 | Sim | Data de início da validade do acordo. Formato: yyyy-MM-dd | 
 | `Aggrement.Fees.Fee` | Int | - | Sim | Taxa fixa por transação. Valor em centavos. Ex: R$ 1,00 = _"Fee" : 100_ | 
-| `Aggrement.MerchantDiscountRates[].PaymentArrangement.Product` | String | - | Sim | Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são _"CreditCard"_ e _"DebitCard"_ | 
-| `Aggrement.MerchantDiscountRates[].PaymentArrangement.Brand` | String | - | Sim | Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são _Visa_, _Master_, _Amex_, _Elo_, _Diners_ e _Hipercard_ | 
-| `Aggrement.MerchantDiscountRates[].InitialInstallmentNumber` | Int | - | Sim | Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12** | 
-| `Aggrement.MerchantDiscountRates[].FinalInstallmentNumber` | Int | - | Sim | Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12** | 
-| `Aggrement.MerchantDiscountRates[].Percent` | Decimal | - | Sim | Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais | 
+| `Aggrement.MerchantDiscountRates[].PaymentArrangement.Product` | String | - | Sim | Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são _"CreditCard"_ e _"DebitCard"_ | 
+| `Aggrement.MerchantDiscountRates[].PaymentArrangement.Brand` | String | - | Sim | Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são _Visa_, _Master_, _Amex_, _Elo_, _Diners_ e _Hipercard_ | 
+| `Aggrement.MerchantDiscountRates[].InitialInstallmentNumber` | Int | - | Sim | Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12** | 
+| `Aggrement.MerchantDiscountRates[].FinalInstallmentNumber` | Int | - | Sim | Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser **maior do que 0 e menor ou igual a 12** | 
+| `Aggrement.MerchantDiscountRates[].Percent` | Decimal | - | Sim | Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais | 
 
 ## Resposta
 
@@ -1615,7 +1615,7 @@ A API de Alteração de Taxas em Lote permite que o master realize a alteração
 
 Para receber a notificação de alteração de status da análise de KYC, é necessário configurar o campo "URL de Notificação" durante o cadastro do master na Braspag para receber uma requisição do tipo "POST". O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).
 
-Quando houver alteração no status da análise de KYC, a Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do master e do subordinado e status da análise de KYC.
+Quando houver alteração no status da análise de KYC, a Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do master e do seller e status da análise de KYC.
 
 **Exemplo de notificação enviada pela Braspag:**
 
@@ -1634,20 +1634,20 @@ Quando houver alteração no status da análise de KYC, a Braspag enviará uma n
 |---|---|---|---|
 | `ChangeType` | Número | - | Identificador do tipo de notificação. Para a notificação de KYC, o `ChangeType` é igual a "20".|
 | `MasterMerchantId` | GUID | 36 | Identificação do master. |
-| `Data.SubordinateMerchantId` | GUID | 36 | Identificação do subordinado. |
+| `Data.SubordinateMerchantId` | GUID | 36 | Identificação do seller. |
 | `Data.Status` | Número | - | Status da análise do processo de KYC. Os status válidos são:<br>UnderAnalysis = 1;<br>_Approved = 2_;<br>_ApprovedWithRestriction = 3_ e<br>_Rejected = 4_ |
 
 <aside class="notice">Caso você tenha configurado headers personalizados durante o cadastro da sua URL de notificação na Braspag, a notificação também retornará os headers personalizados.</aside>
 
 > É esperado que a loja retorne a seguinte resposta: `HTTP Status Code 200 OK`. Caso essa resposta não seja retornada, haverá mais duas tentativas de envio do Post de Notificação.
 
-# Criação de usuário para o subordinado
+# Criação de usuário para o seller
 
-Caso ache necessário, o master pode permitir o acesso do subordinado ao backoffice do Split. Para isso, o master precisa enviar para o [suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}:
+Caso ache necessário, o master pode permitir o acesso do seller ao backoffice do Split. Para isso, o master precisa enviar para o [suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}:
 
-* O `MerchantId` do subordinado;
-* O e-mail do subordinado e
-* O nome de usuário do subordinado.
+* O `MerchantId` do seller;
+* O e-mail do seller e
+* O nome de usuário do seller.
 
 # ANEXOS
 
@@ -1656,9 +1656,9 @@ Caso ache necessário, o master pode permitir o acesso do subordinado ao backoff
 | Status | Nome do Status | Descrição |
 |---|---|---|
 | 1 | UnderAnalysis | Análise de KYC em andamento. | 
-| 2 | Approved | Subordinado aprovado na análise de KYC. |
-| 3 | ApprovedWithRestriction | Subordinado aprovado com restrições na análise de KYC. |
-| 4 | Rejected | Subordinado não aprovado na análise de KYC. |
+| 2 | Approved | Seller aprovado na análise de KYC. |
+| 3 | ApprovedWithRestriction | Seller aprovado com restrições na análise de KYC. |
+| 4 | Rejected | Seller não aprovado na análise de KYC. |
 
 ## Lista de Ramos de Atividades
 
