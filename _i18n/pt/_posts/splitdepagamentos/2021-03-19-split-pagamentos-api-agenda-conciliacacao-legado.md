@@ -84,7 +84,7 @@ O token retornado (`access_token`) deverá ser utilizado em toda requisição à
 # Agenda Financeira
 
 O responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é o Split (Facilitador).<br/>
-O Split irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.
+O Split irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Sellers.
 Essa agenda é composta por eventos de Crédito e Débito que são gerados de acordo com as operações efetuadas e o regime de pagamento acordado.
 
 Em uma consulta ou ajuste na agenda, os seguintes valores podem ser retornados no campo `Schedules.EventDescription`, em resposta à requisição:
@@ -146,7 +146,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 | `PageIndex`             | Página a ser consultada.                                                            | Inteiro | -          | Não         | 1                     |
 | `PageSize`              | Tamanho da página. Valores possíveis: 25, 50, 100.                                  | Inteiro | -          | Não         | 25                    |
 | `EventStatus`    |Status do evento [Scheduled - Pending - Settled - Error - WaitingForAdjustmentDebit - Anticipated].|String| -      | Não         | Todos                 |
-| `IncludeAllSubordinates`| Inclui todos os subordinados na consulta.                                           | Boolean | -          | Não         | false                 | 
+| `IncludeAllSubordinates`| Inclui todos os sellers na consulta.                                           | Boolean | -          | Não         | false                 | 
 | `MerchantIds`           | Lojas a serem consideradas na consulta.                                             | Guid    | -          | Não         | -                     |
 
 *É obrigatório passar pelo menos um intervalo de datas, com no máximo 31 dias entre a data inicial e a data final.
@@ -280,7 +280,7 @@ O Split de Pagamentos permite consultar a agenda financeira de várias transaç�
 | `PageIndex`             | Página a ser consultada.                                                      | Inteiro | -          | Não         | 1                  |
 | `PageSize`              | Tamanho da página.  Valores possíveis: 25, 50, 100.                           | Inteiro | -          | Não         | 25                 |
 | `EventStatus`           | Status do evento [Scheduled - Pending - Settled - Error - Anticipated].       | String  | -          | Não         | Todos              |
-| `IncludeAllSubordinates`| Inclui todos os subordinados na consulta.                                     | Boolean | -          | Não         | false              |
+| `IncludeAllSubordinates`| Inclui todos os sellers na consulta.                                     | Boolean | -          | Não         | false              |
 | `MerchantIds`           | Lojas a serem consideradas na consulta.                                       | Guid    | -          | Não         | -                  |
 
 **Nota:** Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds". Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.
