@@ -23,7 +23,7 @@ Para maiores detalhes e informações sobre a plataforma, consulte [Split de Pag
 
 Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, e será necessário configurar o estabelecimento comercial do Split (Subadquirência) pelo qual serão realizadas as transações.
 
-Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um subordinado.
+Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um seller.
 
 Com isso, no momento da configuração de um terminal, é necessário informar o número de identificação do terminal LIO (número lógico) para que seja possível a correta configuração e operação da plataforma.
 
@@ -137,10 +137,10 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 | `PaymentDetails.AuthorizationDate`      | Data de autorização da transação em horário local (Brasil) [yyyy-MM-dd hh:mm:ss]                        | Datetime| -       | Sim         |
 | `PaymentDetails.CaptureDate`            |Data de captura da transação [yyyy-MM-dd].                                                               |Date     | -       |Sim|
 | `SplitPayments`                         | Nó contendo a informação de divisão da transação.                                                       | -       | -       | Não         |
-| `SplitPayments.SubordinateMerchantId`   | **MerchantId** (identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
-| `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do **Subordinado**, em centavos.             | Inteiro | -       | Sim         |
-| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Master** a ser descontado do valor referente a participação do **Subordinado**.    | Decimal | -       | Não         |
-| `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos. | Inteiro | -       | Não         |
+| `SplitPayments.SubordinateMerchantId`   | **MerchantId** (identificador) do **Seller**.                                                      | Guid    | 36      | Sim         |
+| `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do **Seller**, em centavos.             | Inteiro | -       | Sim         |
+| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Master** a ser descontado do valor referente a participação do **Seller**.    | Decimal | -       | Não         |
+| `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Seller**, em centavos. | Inteiro | -       | Não         |
 
 ## Resposta
 
@@ -203,8 +203,8 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 | Propriedade                                  | Descrição                                                                                   | Tipo   | Tamanho | Obrigatório |
 |----------------------------------------------|---------------------------------------------------------------------------------------------|--------|---------|-------------|
 | `Id`                                         | Identificador da transação.                                                                 | Guid   | 36      | Sim         |
-| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (identificador) do **Subordinado** ou **Master**.                       | Guid   | 36      | Sim         |
-| `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Master**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
+| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (identificador) do **Seller** ou **Master**.                       | Guid   | 36      | Sim         |
+| `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Seller** ou **Master**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
 ## Transação existente
 
@@ -214,7 +214,7 @@ Caso a transação não seja criada no Split ao ser autorizada pela Cielo, o sis
 
 ### Requisição
 
-Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao subordinado 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.
+Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao seller 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions</span></aside>
 
