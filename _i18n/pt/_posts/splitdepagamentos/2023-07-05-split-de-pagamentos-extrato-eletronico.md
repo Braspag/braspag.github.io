@@ -151,7 +151,7 @@ O layout dos Arquivos segue o seguinte padrão:
 
 Identifica o cabeçalho do Arquivo de Previsão:
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo de Registro|Identifica o tipo de registro header (início do arquivo). <br> 0 - Cabeçalho|Sim|número|2|0|
 |2|Versão do layout|Versão do layout em que o arquivo foi gerado.|Sim|número|3|1|
@@ -171,7 +171,7 @@ Identifica o cabeçalho do Arquivo de Previsão:
 
 Identifica os dados do estabelecimento:
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo Registro|Indica o tipo de registro.<br>1 - Estabelecimento|Sim|número|2|1|
 |2|Identificador do estabelecimento| Número identificador do estabelecimento onde a venda foi realizada.|Sim|GUID|36|1B917293-8B8D-4180-B2D8-C514A1F8512D|
@@ -181,7 +181,7 @@ Identifica os dados do estabelecimento:
 
 Identifica os eventos transacionais:
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo do registro|Indica o tipo de registro. <br>2 - Eventos Transacionais|Sim|número|2|2|
 |2|Tipo de Evento Transacional|Tipo de Eventos transacionais. Veja a [Tabela II](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-ii-eventos-transacionais). |Sim|número|2|1|
@@ -193,14 +193,14 @@ Identifica os eventos transacionais:
 |8|Taxa Administrativa (MDR)|Percentual aplicado ao valor bruto da operação.|Não|número|20|1,55% = 1,55|
 |9|Valor Taxa Administrativa (MDR)|Valor calculado da taxa admnistrativa em centavos sobre o evento transacional.|Não|número|20|R$100,01 = 10001|
 |10|Tarifa Administrativa (Fee)|Tarifa fixa cobrada por transação. Valor cobrado separadamente em agenda financeira.|Não|número|20|R$100,01 = 10001|
-|11|Valor Taxa Receba Rápido*|Valor descontado para adiantamento dos subordinados pelo Receba Rápido|Não|número|20|R$100,01 = 10001|
+|11|Valor Taxa Receba Rápido*|Valor descontado para adiantamento dos sellers pelo Receba Rápido|Não|número|20|R$100,01 = 10001|
 |12|Tarifa Boleto*|Tarifa cobrada pelo boleto emitido ou pago para transações de boleto.|Não|número|20|R$100,01 = 10001|
 |13|Valor Bruto Venda Direta*|Valor bruto de venda direta do Master, caso o mesmo seja um participante da transação.|Não|número|20|R$100,01 = 10001|
 |14|Valor Taxa Administrativa Venda Direta*|Valor calculado da taxa administrativa, em centavos, sobre a venda direta.|Não|número|20|R$100,01 = 10001|
 |15|Valor Líquido Venda Direta*|Valor líquido da venda direta.|Não|número|20|R$100,01 = 10001|
 |16|Valor Bruto Comissão*|Valor bruto de comissão recebido pelo Master.|Não|número|20|R$100,01 = 10001|
 |17|Valor Taxa Administrativa Comissão*|Valor calculado da taxa administrativa, em centavos, sobre a comissão, incluindo a taxa de receba rápido.|Não|número|20|R$100,01 = 10001|
-|18|Valor Líquido Comissão*|Valor líquido da comissão recebido dos subordinados.|Não|número|20|R$100,01 = 10001|
+|18|Valor Líquido Comissão*|Valor líquido da comissão recebido dos sellers.|Não|número|20|R$100,01 = 10001|
 |19|Identificador da Transação|Identificador da transação.|Sim|GUID|36|ED6C8828-F92B-42F4-B6B3-6CA276830733|
 |20|Data de Autorização|Data da venda.|Sim|datetime|17|20220119 09:43:10|
 |21|Código do Ajuste|Código que identifica o ajuste financeiro lançado em agenda. Veja a [Tabela VII](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-vii-ajustes-financeiros).|Sim|alfanumérico|4|A001|
@@ -221,9 +221,9 @@ Identifica os eventos transacionais:
 
 ### Registro 3 - Participantes do Evento Transacional
 
-Identifica os participantes (Master e Subordinados) do Evento Transacional:
+Identifica os participantes (Master e Sellers) do Evento Transacional:
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo Registro|Indica o tipo de registro. <br>3 - Participantes da Transação|Sim|número|2|3|
 |2|Identificador da Divisão|Identificador da divisão.|Sim|GUID|36|CCC2E1DD-C47D-4722-A8A2-4DC51746CB0C|
@@ -244,7 +244,7 @@ Identifica os participantes (Master e Subordinados) do Evento Transacional:
 
 ### Registro 4 - Agenda Financeira
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo Registro|Indica o tipo de registro.<br>4 - Agenda Financeira|Sim|número|2|4|
 |2|Identificador do Evento Financeiro|Identificador originador do evento lançado na agenda financeira.|Sim|GUID|36|4717A632-D6C4-4B74-9422-235905D1857D|
@@ -260,7 +260,7 @@ Identifica os participantes (Master e Subordinados) do Evento Transacional:
 
 ### Registro 9 - Rodapé
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo de registro|Indica o tipo de registro. <br> 9- Rodapé (fim do arquivo)|Sim|número|2|9|
 |2|Quantidade de Registros|Quantidade de registros do arquivo excluindo o "cabeçalho" e o "rodapé".|Sim|número|20|1000|
@@ -271,7 +271,7 @@ Identifica os participantes (Master e Subordinados) do Evento Transacional:
 
 Identifica o cabeçalho do Arquivo de Liquidação:
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo de Registro|Identifica o tipo de registro header (início do arquivo). <br> 0 - Cabeçalho|Sim|número|2|0|
 |2|Versão do Layout|Versão do Layout em que o arquivo foi gerado.|Sim|número|2|1|
@@ -291,7 +291,7 @@ Identifica o cabeçalho do Arquivo de Liquidação:
 
 Identifica o recebível e sua liquidação:
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo de Registro|Indica o tipo de registro. <br>1 - Recebível|Sim|número|2|1|
 |2|Identificador do Recebível|Identificador único da Unidade de Recebível.|Sim|GUID|36|1B917293-8B8D-4180-B2D8-C514A1F8512D|
@@ -306,7 +306,7 @@ Identifica o recebível e sua liquidação:
 
 Identifica detalhes da liquidação do recebível:
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo de Registro|Identifica o tipo de registro. <br> 2 - Grupo de Pagamento|Sim|número|1|2|
 |2|Tipo de Liquidação|Informa o tipo de liquidação. Veja a [Tabela VIII](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-viii-tipos-de-liquida%C3%A7%C3%A3o).|Sim|número|2|1|
@@ -333,7 +333,7 @@ Identifica detalhes da liquidação do recebível:
 
 Identifica os lançamentos na agenda financeira com base no eventro transacional:
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo Registro|Indica o tipo de registro. <br> 3 - Agenda Financeira |Sim|número|2|3|
 |2|Identificador do Evento|Identificador único do evento lançado na agenda financeira.|Sim|GUID|36|4717A632-D6C4-4B74-9422-235905D1857D|
@@ -353,14 +353,14 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 |16|Taxa Administrativa (MDR)|Percentual aplicado ao valor bruto da operação.|Não|número|20|R$100,01 = 10001|
 |17|Valor Taxa Administrativa|Valor calculado da traxa administrativa em centavos sobre o evento transacional.|Não|número|20|R$100,01 = 10001|
 |18|Tarifa Administrativa (Fee)|Tarifa fixa cobrada por transação. Valor cobrado separadamente em agenda financeira.|Não|número|20|R$100,01 = 10001|
-|19|Valor Taxa Receba Rápido|Valor descontado para adiantamento dos subordinados pelo Receba Rápido.|Não|número|20|R$100,01 = 10001|
+|19|Valor Taxa Receba Rápido|Valor descontado para adiantamento dos sellers pelo Receba Rápido.|Não|número|20|R$100,01 = 10001|
 |20|Tarifa Boleto|Tarifa cobrada pelo boleto emitido ou pago para transações de boleto.|Não|número|20|R$100,01 = 10001|
 |21|Valor Bruto Venda Direta|Valor bruto de venda direta do Master, caso o mesmo seja um participante da transação vendendo um produto.|Não|20|R$100,01 = 10001|
 |22|Valor Taxa Admnistrativa Venda Direta**|Valor calculado da taxa administrativa, em centavos, sobre a venda direta.|Não|número|20|R$100,01 = 10001|
 |23|Valor Líquido Venda Direta|Valor líquido da venda direta.|Não|número|20|R$100,01 = 10001|
 |24|Valor Bruto Comissão|Valor bruto de comissão recebido pelo Master.|Não|número|20|R$100,01 = 10001|
 |25|Valor Taxa Administrativa Comissão|Valor calculado da taxa administrativa, em centavos, sobre a comissão, incluindo a taxa de Receba Rápido.|Não|número|20|R$100,01 = 10001|
-|26|Valor Líquido Comissão|Valor líquido da comissão recebido dos subordinados.|Não|número|20|R$100,01 = 10001|
+|26|Valor Líquido Comissão|Valor líquido da comissão recebido dos sellers.|Não|número|20|R$100,01 = 10001|
 |27|Identificador da Transação|Identificador da transação.|Sim|GUID|36|D6CDD768-CDFE-479A-B090-CD03253EEE2B|
 |28|Data de Autorização|Data da venda.|Sim|datetime|17|20220119 09:43:10|
 |29|Código do Ajuste|Código que identifica o ajuste financeiro lançado em agenda. Veja a [Tabela VII](https://braspag.github.io//manual/split-de-pagamentos-extrato-eletronico#tabela-vii-ajustes-financeiros).|Sim|alfanumérico|4|A001|
@@ -382,7 +382,7 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 
 ### Registro 4 - Balanceamento de Saldo
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo Registro|Indica o tipo de registro.<br>4 - Balanceamento de Saldo|Sim|número|2|4|
 |2|Data da Posição|Data da posição do saldo negativo.|Sim|date|8|20220119|
@@ -394,7 +394,7 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 
 ### Registro 5 - Balanceamento de Saldo por Estabelecimento
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo Registro|Indica o tipo de registro.<br>5 - Balanceamento de Saldo por Estabelecimento|Sim|número|2|5|
 |2|Identificador Estabelecimento|Identifica o estabelecimento.|Sim|GUID|36|5CB61E99-1B4D-4E7A-886F-6BFB4FF71219|
@@ -404,7 +404,7 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 
 ### Registro 9 - Rodapé
 
-|Posição|Campo|Descrição|Extrato Subordinado|Tipo|Tamanho|Exemplo|
+|Posição|Campo|Descrição|Extrato Seller|Tipo|Tamanho|Exemplo|
 |-|-|-|-|-|-|-|
 |1|Tipo do registro|Indica o tipo de registro.<br>9 - Rodapé (Fim do arquivo)|Sim|número|2|9|
 |2|Quantidade de Registros|Quantidade de registros do arquivo excluindo o cabeçalho e o rodapé.|Sim|número|20|1000|
@@ -416,7 +416,7 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 |Código|Descrição|
 |-|-|
 |3|Master|
-|4|Subordinado|
+|4|Seller|
 
 ## Tabela II - Eventos Transacionais
 
