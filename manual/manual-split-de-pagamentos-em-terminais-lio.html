@@ -126,7 +126,7 @@
 
 <p>Para utilização do Split de Pagamentos na LIO, o terminal deverá estar habilitado para transacionar com múltiplos estabelecimentos comerciais, e será necessário configurar o estabelecimento comercial do Split (Subadquirência) pelo qual serão realizadas as transações.</p>
 
-<p>Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um subordinado.</p>
+<p>Para que seja possível realizar as liquidações para cada participante de uma venda realizada nos terminais LIO, o terminal deverá ser previamente cadastrado na plataforma e associado a um seller.</p>
 
 <p>Com isso, no momento da configuração de um terminal, é necessário informar o número de identificação do terminal LIO (número lógico) para que seja possível a correta configuração e operação da plataforma.</p>
 
@@ -354,28 +354,28 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
-      <td><strong>MerchantId</strong> (identificador) do <strong>Subordinado</strong>.</td>
+      <td><strong>MerchantId</strong> (identificador) do <strong>Seller</strong>.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Amount</code></td>
-      <td>Parte do valor total da transação referente a participação do <strong>Subordinado</strong>, em centavos.</td>
+      <td>Parte do valor total da transação referente a participação do <strong>Seller</strong>, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
-      <td><strong>MDR(%)</strong> do <strong>Master</strong> a ser descontado do valor referente a participação do <strong>Subordinado</strong>.</td>
+      <td><strong>MDR(%)</strong> do <strong>Master</strong> a ser descontado do valor referente a participação do <strong>Seller</strong>.</td>
       <td>Decimal</td>
       <td>-</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Fee</code></td>
-      <td><strong>Tarifa Fixa(R$)</strong> a ser descontada do valor referente a participação do <strong>Subordinado</strong>, em centavos.</td>
+      <td><strong>Tarifa Fixa(R$)</strong> a ser descontada do valor referente a participação do <strong>Seller</strong>, em centavos.</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Não</td>
@@ -460,14 +460,14 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Splits.SubordinateMerchantId</code></td>
-      <td><strong>MerchantId</strong> (identificador) do <strong>Subordinado</strong> ou <strong>Master</strong>.</td>
+      <td><strong>MerchantId</strong> (identificador) do <strong>Seller</strong> ou <strong>Master</strong>.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SplitPayments.Splits.Amount</code></td>
-      <td>Parte do valor calculado da transação a ser recebido pelo <strong>Subordinado</strong> ou <strong>Master</strong>, já descontando todas as taxas (MDR e Tarifa Fixa)</td>
+      <td>Parte do valor calculado da transação a ser recebido pelo <strong>Seller</strong> ou <strong>Master</strong>, já descontando todas as taxas (MDR e Tarifa Fixa)</td>
       <td>Inteiro</td>
       <td>-</td>
       <td>Sim</td>
@@ -483,7 +483,7 @@
 
 <h3 id="requisição-2">Requisição</h3>
 
-<p>Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao subordinado 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.</p>
+<p>Para o exemplo abaixo, considerou-se que o terminal LIO está associado ao seller 7c7e5e7b-8a5d-41bf-ad91-b346e077f769.</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions</span></aside>
 
