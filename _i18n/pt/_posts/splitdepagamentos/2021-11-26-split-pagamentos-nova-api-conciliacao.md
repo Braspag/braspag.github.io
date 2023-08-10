@@ -36,7 +36,7 @@ Para que você possa aproveitar melhor todos os recursos disponíveis em nossa A
 
 # Fluxo da transação até o pagamento
 
-A captura de uma transação é a confirmação de que aquela venda foi realizada com sucesso. Assim, após a captura, uma agenda é gerada para cada evento transacional e para cada um de seus participantes (master e subordinados).
+A captura de uma transação é a confirmação de que aquela venda foi realizada com sucesso. Assim, após a captura, uma agenda é gerada para cada evento transacional e para cada um de seus participantes (master e sellers).
 
 A agenda apresenta a previsão de pagamento de eventos de crédito e débito. A agenda é atualizada de acordo com os eventos transacionais.
 
@@ -66,7 +66,7 @@ A tabela a seguir apresenta três transações com diferentes arranjos de pagame
 
 ## Agenda
 
-A Agenda apresenta a previsão diária de créditos e débitos para cada participante da transação (master e subordinados), levando em conta o regime de pagamento para cada tipo de meio de pagamento:
+A Agenda apresenta a previsão diária de créditos e débitos para cada participante da transação (master e sellers), levando em conta o regime de pagamento para cada tipo de meio de pagamento:
 
 * **Crédito:** em até 31 dias.
 * **Crédito parcelado:** primeira parcela em 31 dias e demais a cada 30 dias.
@@ -291,7 +291,7 @@ A API Split permite consultar a agenda de acordo com os parâmetros data previst
 | `Items[].ItemSchedules`   | Array[Schedule]  | Lista de objeto contendo informações de cada agenda individual. |
 | `Items[].ItemSchedules[].ScheduleId`                       | GUID                  | Id de identificação do evento da agenda.  |
 | `Items[].ItemSchedules[].MerchantDetails`                  | MerchantDetails       | Objeto contendo os detalhes da loja envolvida na agenda.  |
-| `Items[].ItemSchedules[].MerchantDetails.MasterMerchantId` | GUID                  | Id do Master. Retornado quando o Merchant for um subordinado. |
+| `Items[].ItemSchedules[].MerchantDetails.MasterMerchantId` | GUID                  | Id do Master. Retornado quando o Merchant for um sellers. |
 | `Items[].ItemSchedules[].MerchantDetails.MerchantId`       | GUID                  | Id da loja.  |
 | `Items[].ItemSchedules[].MerchantDetails.MerchantType`     | String                | Tipo da loja. Valores possíveis: *Master* ou *Subordinate* |
 | `Items[].ItemSchedules[].MerchantDetails.CorporateName`    | String                | Razão social da loja.  |
@@ -313,7 +313,7 @@ A API Split permite consultar a agenda de acordo com os parâmetros data previst
 
 # Consulta de Unidade de Recebíveis
 
-A API Split permite consultar as **unidades de recebíveis** de acordo com alguns parâmetros, como intervalo de data prevista de pagamento, intervalo de data de pagamento efetivo, bandeira, produto, MerchantId, antecipação, todos os subordinados e número da página.
+A API Split permite consultar as **unidades de recebíveis** de acordo com alguns parâmetros, como intervalo de data prevista de pagamento, intervalo de data de pagamento efetivo, bandeira, produto, MerchantId, antecipação, todos os sellers e número da página.
 
 ## Requisição
 
@@ -329,7 +329,7 @@ A API Split permite consultar as **unidades de recebíveis** de acordo com algun
 | `Product`                      | Produto que deve ser considerado na consulta (CreditCard, DebitCard ou BankSlip). Por padrão, são retornadas informações de todas as bandeiras na qual o solicitante possui recebíveis.                                                                    | String  | Não        |
 | `MerchantId`                   | Id do Merchant que deseja consultar as informações. Serão retornadas informações referentes ao número de documento do cadastro| Guid   | Não|  
 | `Anticipation`                 | Flag para informar se deseja consultar apenas informações referentes à antecipação    | Boolean    | Não        |  
-| `IncludeAllSubordinates`       | Determina se serão incluídas informações dos subordinados que realizaram o *optin* para o master consultar as informações.| Boolean | Não |  
+| `IncludeAllSubordinates`       | Determina se serão incluídas informações dos sellers que realizaram o *optin* para o master consultar as informações.| Boolean | Não |  
 |`PageIndex`                     |Índice da paginação. Necessário para percorrer as páginas do resultado                 | Inteiro     | Não        |
 
 ***O intervalo de datas para utilização da conciliação de URs deve seguir as seguintes regras:**
