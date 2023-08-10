@@ -78,7 +78,7 @@ Abaixo seguem as descrições das colunas contidas nos relatórios transacionais
 | FancyName              | Nome fantasia do participante                                                                     |
 | DocumentNumber         | Número de documento do participante                                                               |
 | DocumentType           | Tipo de documento do participante                                                                 |
-| MerchantType           | Tipo de Merchant do participante (Master ou Subordinado)                                          |
+| MerchantType           | Tipo de Merchant do participante - Master ou Subordinado (Seller)                                 |
 | MasterRateDiscountType | Tipo de desconto aplicado sobre o Merchant                                                        |
 | TransactionId          | Identificador único da transação                                                                  |
 | OrderId                | Número de pedido estabelecido pelo lojista                                                        |
@@ -99,7 +99,7 @@ Abaixo seguem as descrições das colunas contidas nos relatórios transacionais
 | FancyName              | Nome fantasia do participante                                  |
 | DocumentNumber         | Número de documento do participante                            |
 | DocumentType           | Tipo de documento do participante                              |
-| MerchantType           | Tipo de Merchant do participante (Master ou Subordinado)       |
+| MerchantType           | Tipo de Merchant do participante - Master ou Subordinado (Seller)|
 | TransactionId          | Identificador único da transação                               |
 | OrderId                | Número de pedido estabelecido pelo lojista                     |
 | TransactionTotalAmount | Valor total da transação em centavos                           |
@@ -118,7 +118,7 @@ Abaixo seguem as descrições das colunas contidas nos relatórios transacionais
 | FancyName              | Nome fantasia do participante                                     |
 | DocumentNumber         | Número de documento do participante                               |
 | DocumentType           | Tipo de documento do participante                                 |
-| MerchantType           | Tipo de Merchant do participante (Master ou Subordinado)          |
+| MerchantType           | Tipo de Merchant do participante - Master ou Subordinado (Seller) |
 | TransactionId          | Identificador único da transação                                  |
 | OrderId                | Número de pedido estabelecido pelo lojista                        |
 | TransactionTotalAmount | Valor total da transação em centavos                              |
@@ -137,7 +137,7 @@ Abaixo seguem as descrições das colunas contidas nos relatórios transacionais
 | FancyName             | Nome fantasia do participante                            |
 | DocumentNumber        | Número de documento do participante                      |
 | DocumentType          | Tipo de documento do participante                        |
-| MerchantType          | Tipo de Merchant do participante (Master ou Subordinado) |
+| MerchantType          | Tipo de Merchant do participante - Master ou Subordinado (Seller)|
 | MerchantId            | Identificador único do Master que realizou a transação   |
 | AuthorizationDate     | Data de autorização da transação                         |
 | CaptureDate           | Data de captura da transação                             |
