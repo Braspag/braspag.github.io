@@ -13,7 +13,7 @@ tags:
 
 # Sobre essa documentação
 
-Essa documentação apresenta a integração com a API de Onboarding 2.0 para o cadastro de subordinados pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada [aqui](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados){:target="_blank"}.
+Essa documentação apresenta a integração com a API de Onboarding 2.0 para o cadastro de sellers pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada [aqui](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#deprecated-cadastro-de-subordinados-1.0){:target="_blank"}.
 
 # Visão geral
 
