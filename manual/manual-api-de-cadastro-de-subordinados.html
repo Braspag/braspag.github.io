@@ -107,32 +107,32 @@
             <div class="post">
   <h1 id="sobre-essa-documentação">Sobre essa documentação</h1>
 
-<p>Essa documentação apresenta a integração com a <strong>API de Onboarding Split 2.0</strong> para o cadastro de subordinados pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#deprecated-cadastro-de-subordinados-1.0" target="_blank">Cadastro de Subordinados 1.0</a>.</p>
+<p>Essa documentação apresenta a integração com a <strong>API de Onboarding Split 2.0</strong> para o cadastro de sellers pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#deprecated-cadastro-de-subordinados-1.0" target="_blank">Cadastro de Subordinados 1.0</a>.</p>
 
 <blockquote>
-  <p>Se você já possui integração com a API de Onboarding Split 1.0, <strong>a migração para a API de Onboarding Split 2.0 será obrigatória para novos cadastros</strong> de subordinados a partir de agosto de 2023. Consulte as instruções para migração no <a href="https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387" target="_blank">artigo da nossa página de suporte</a>.</p>
+  <p>Se você já possui integração com a API de Onboarding Split 1.0, <strong>a migração para a API de Onboarding Split 2.0 será obrigatória para novos cadastros</strong> de sellers a partir de agosto de 2023. Consulte as instruções para migração no <a href="https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387" target="_blank">artigo da nossa página de suporte</a>.</p>
 </blockquote>
 
 <h1 id="visão-geral">Visão geral</h1>
 
-<p>A <strong>API de Onboarding Split 2.0</strong> do <strong>Split de Pagamentos</strong> permite que o master gerencie seus subordinados na plataforma. O master deverá coletar as informações do subordinado para usar no processo de onboarding.</p>
+<p>A <strong>API de Onboarding Split 2.0</strong> do <strong>Split de Pagamentos</strong> permite que o master gerencie seus sellers na plataforma. O master deverá coletar as informações do seller para usar no processo de onboarding.</p>
 
-<p>Na API de Onboarding 2.0 o master cadastra o subordinado e, em seguida, o Split submete o subordinado à análise de Know Your Customer (KYC) de forma automática e notifica o master com o resultado desse processo, de acordo com as configurações de notificação.</p>
+<p>Na API de Onboarding 2.0 o master cadastra o seller e, em seguida, o Split submete o seller à análise de Know Your Customer (KYC) de forma automática e notifica o master com o resultado desse processo, de acordo com as configurações de notificação.</p>
 
 <blockquote>
-  <p>O cadastro de subordinados também pode ser feito pelo backoffice Split. <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360055405011-Cadastro-de-subordinados-do-Split-via-Backoffice" target="_blank">Saiba mais neste artigo</a>.</p>
+  <p>O cadastro de sellers também pode ser feito pelo backoffice Split. <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360055405011-Cadastro-de-subordinados-do-Split-via-Backoffice" target="_blank">Saiba mais neste artigo</a>.</p>
 </blockquote>
 
-<p>Assim como o master, os subordinados também irão passar pelo processo de Know Your Customer (KYC) do Split de Pagamentos, com objetivo de identificar o cliente (subordinado). Por este motivo, alguns documentos do subordinado serão necessários.</p>
+<p>Assim como o master, os sellers também irão passar pelo processo de Know Your Customer (KYC) do Split de Pagamentos, com objetivo de identificar o cliente (seller). Por este motivo, alguns documentos do seller serão necessários.</p>
 
 <p>O processo de KYC é uma medida obrigatória exigida pelas instituições reguladoras de pagamento.</p>
 
-<p>O onboarding do subordinado no Split de Pagamentos ocorre da seguinte forma:</p>
+<p>O onboarding do seller no Split de Pagamentos ocorre da seguinte forma:</p>
 
 <ol>
-  <li>O master solicita o cadastro do subordinado;</li>
-  <li>O subordinado será criado com status “Em análise” e estará bloqueado para participar da transação até que o processo de KYC seja finalizado;</li>
-  <li>Ao final da análise, o master será notificado com o resultado do processo de KYC, juntamente com a identificação do subordinado.</li>
+  <li>O master solicita o cadastro do seller;</li>
+  <li>O seller será criado com status “Em análise” e estará bloqueado para participar da transação até que o processo de KYC seja finalizado;</li>
+  <li>Ao final da análise, o master será notificado com o resultado do processo de KYC, juntamente com a identificação do seller.</li>
 </ol>
 
 <h1 id="ambientes">Ambientes</h1>
@@ -156,12 +156,12 @@
     <tr>
       <td><strong>API de Onboarding Split 2.0</strong></td>
       <td>https://splitonboardingapisandbox.braspag.com.br</td>
-      <td>Cadastro de subordinados.</td>
+      <td>Cadastro de sellers.</td>
     </tr>
     <tr>
       <td><strong>API de Onboarding Split 1.0</strong></td>
       <td>https://splitonboardingsandbox.braspag.com.br</td>
-      <td>Consulta de subordinados.</td>
+      <td>Consulta de sellers.</td>
     </tr>
   </tbody>
 </table>
@@ -185,12 +185,12 @@
     <tr>
       <td><strong>API de Onboarding Split 2.0</strong></td>
       <td>https://splitonboardingapi.braspag.com.br</td>
-      <td>Cadastro de subordinados.</td>
+      <td>Cadastro de sellers.</td>
     </tr>
     <tr>
       <td><strong>API de Onboarding Split 1.0</strong></td>
       <td>https://splitonboarding.braspag.com.br</td>
-      <td>Consulta de subordinados.</td>
+      <td>Consulta de sellers.</td>
     </tr>
   </tbody>
 </table>
@@ -234,13 +234,13 @@
 
 <p>Use o token retornado (access_token) em toda requisição à API de Onboarding Split 2.0 como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.</p>
 
-<h1 id="cadastro-de-subordinados">Cadastro de Subordinados</h1>
+<h1 id="cadastro-de-sellers">Cadastro de Sellers</h1>
 
-<h2 id="cadastro-de-subordinados-20">Cadastro de Subordinados 2.0</h2>
+<h2 id="cadastro-de-sellers-20">Cadastro de Sellers 2.0</h2>
 
 <p>Siga as instruções dessa seção para novas integrações.</p>
 
-<p>O <strong>master</strong> deverá solicitar o <strong>cadastro de subordinado</strong> enviando uma requisição com os <strong>dados do subordinado</strong>:</p>
+<p>O <strong>master</strong> deverá solicitar o <strong>cadastro de seller</strong> enviando uma requisição com os <strong>dados do seller</strong>:</p>
 
 <ul>
   <li>Dados de identificação e contato;</li>
@@ -250,9 +250,9 @@
   <li>Documentos anexos (nó <code class="language-plaintext highlighter-rouge">Attachments</code>).</li>
 </ul>
 
-<p>O subordinado pode ser cadastrado com um CPF ou CNPJ. Caso o documento seja um CPF, envie também os campos <code class="language-plaintext highlighter-rouge">BirthdayDate</code> e <code class="language-plaintext highlighter-rouge">BusinessActivity</code>, conforme descrito na tabela de propriedades da requisição.</p>
+<p>O seller pode ser cadastrado com um CPF ou CNPJ. Caso o documento seja um CPF, envie também os campos <code class="language-plaintext highlighter-rouge">BirthdayDate</code> e <code class="language-plaintext highlighter-rouge">BusinessActivity</code>, conforme descrito na tabela de propriedades da requisição.</p>
 
-<p>Veja a seguir o exemplo de uma requisição completa para cadastro de um subordinado do tipo CNPJ:</p>
+<p>Veja a seguir o exemplo de uma requisição completa para cadastro de um seller do tipo CNPJ:</p>
 
 <h3 id="requisição-1">Requisição</h3>
 
@@ -308,7 +308,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="propriedades-do-subordinado">Propriedades do subordinado</h4>
+<h4 id="propriedades-do-seller">Propriedades do seller</h4>
 
 <table>
   <thead>
@@ -403,7 +403,7 @@
       <td>Número</td>
       <td>-</td>
       <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
-      <td>Ramo de atividade que o subordinado atua. (apenas para cadastro de pessoa física - CPF). Veja a <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-ramos-de-atividades"><strong>Lista de Ramos de Atividades</strong></a>.</td>
+      <td>Ramo de atividade que o seller atua. (apenas para cadastro de pessoa física - CPF). Veja a <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-ramos-de-atividades"><strong>Lista de Ramos de Atividades</strong></a>.</td>
     </tr>
   </tbody>
 </table>
@@ -442,42 +442,42 @@
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
-      <td>Número da conta do subordinado.</td>
+      <td>Número da conta do seller.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Operation</code></td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
-      <td>Operação da conta do subordinado.</td>
+      <td>Operação da conta do seller.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.VerifierDigit</code></td>
       <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
-      <td>Dígito verificador da conta do subordinado.</td>
+      <td>Dígito verificador da conta do seller.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyNumber</code></td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Número da agência do subordinado.</td>
+      <td>Número da agência do seller.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.AgencyDigit</code></td>
       <td>Texto</td>
       <td>1</td>
       <td>Sim</td>
-      <td>Dígito da agência do subordinado. Caso a agência não tenha dígito, informar o valor “x”.</td>
+      <td>Dígito da agência do seller. Caso a agência não tenha dígito, informar o valor “x”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentNumber</code></td>
       <td>Texto</td>
       <td>14</td>
       <td>Não</td>
-      <td>Número do documento da conta (apenas números) do subordinado.</td>
+      <td>Número do documento da conta (apenas números) do seller.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.DocumentType</code></td>
@@ -507,59 +507,59 @@
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Logradouro do endereço do subordinado.</td>
+      <td>Logradouro do endereço do seller.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Número do endereço do subordinado.</td>
+      <td>Número do endereço do seller.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
       <td>Texto</td>
       <td>80</td>
       <td>Não</td>
-      <td>Complemento do endereço do subordinado.</td>
+      <td>Complemento do endereço do seller.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.Neighborhood</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
-      <td>Bairro do subordinado.</td>
+      <td>Bairro do seller.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
-      <td>Cidade do subordinado</td>
+      <td>Cidade do seller.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
       <td>Texto</td>
       <td>2</td>
       <td>Sim</td>
-      <td>Sigla do estado (UF) do subordinado.</td>
+      <td>Sigla do estado (UF) do seller.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
       <td>Texto</td>
       <td>9</td>
       <td>Sim</td>
-      <td>CEP (apenas números) do subordinado.</td>
+      <td>CEP (apenas números) do seller.</td>
     </tr>
   </tbody>
 </table>
 
 <h4 id="propriedades-do-acordo-de-taxas">Propriedades do acordo de taxas</h4>
 
-<p>No <strong>Split de Pagamentos</strong> há possibilidades de acordos de taxas entre o master e seus subordinados:</p>
+<p>No <strong>Split de Pagamentos</strong> há possibilidades de acordos de taxas entre o master e seus sellers:</p>
 
 <ol>
-  <li><strong>Não cadastrar taxa</strong>: quando as taxas não são definidas no momento do cadastro do subordinado, você deverá informá-las <strong>a cada transação</strong>, no momento da captura da transação ou da emissão do boleto. Se não cadastrar taxas e não informar a taxa na transação, o Split vai replicar os mesmos acordos do master com o Split para o master com o subordinado;</li>
+  <li><strong>Não cadastrar taxa</strong>: quando as taxas não são definidas no momento do cadastro do seller, você deverá informá-las <strong>a cada transação</strong>, no momento da captura da transação ou da emissão do boleto. Se não cadastrar taxas e não informar a taxa na transação, o Split vai replicar os mesmos acordos do master com o Split para o master com o seller;</li>
   <li><strong>Taxa global</strong>: configure uma única taxa para todos os acordos (MDR único);</li>
   <li><strong>Taxa por meio de pagamento</strong>: você deverá definir as taxas cobradas por transação por arranjos de pagamento e intervalo de parcelas.</li>
 </ol>
@@ -568,7 +568,7 @@
 
 <blockquote>
   <p><strong>ATENÇÃO</strong>: Se não houver cobrança de MDR, basta não enviar o nó <code class="language-plaintext highlighter-rouge">Agreements</code>.<br />
-O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent</code> só deve ser enviado em caso de cadastro de subordinado com Taxa global.</p>
+O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent</code> só deve ser enviado em caso de cadastro de seller com Taxa global.</p>
 </blockquote>
 
 <table>
@@ -587,7 +587,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
       <td>Decimal</td>
       <td>-</td>
       <td>Sim, para requisições cujo acordo é com Taxa global.</td>
-      <td>Porcentagem da taxa de desconto única (MDR único) que será aplicada para todos os acordos entre master e subordinado. Valor com até duas casas decimais.</td>
+      <td>Porcentagem da taxa de desconto única (MDR único) que será aplicada para todos os acordos entre master e seller. Valor com até duas casas decimais.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].Fee</code></td>
@@ -601,35 +601,35 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
       <td>Texto</td>
       <td>-</td>
       <td>Não*</td>
-      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são “CreditCard” e “DebitCard”.</td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são “CreditCard” e “DebitCard”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Não*</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <em>Visa</em>, <em>Master</em>, <em>Amex</em>, <em>Elo</em>, <em>Diners</em> e <em>Hipercard</em>.</td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são <em>Visa</em>, <em>Master</em>, <em>Amex</em>, <em>Elo</em>, <em>Diners</em> e <em>Hipercard</em>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].InitialInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
       <td>Não*</td>
-      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong>.</td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].FinalInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
       <td>Não*</td>
-      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong>.</td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].Percent</code></td>
       <td>Decimal</td>
       <td>-</td>
       <td>Não*</td>
-      <td>Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais.</td>
+      <td>Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais.</td>
     </tr>
   </tbody>
 </table>
@@ -830,7 +830,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="propriedades-do-subordinado-1">Propriedades do subordinado</h4>
+<h4 id="propriedades-do-seller-1">Propriedades do seller</h4>
 
 <table>
   <thead>
@@ -918,7 +918,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
       <td><code class="language-plaintext highlighter-rouge">Blocked</code></td>
       <td>Booleano</td>
       <td>-</td>
-      <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
+      <td>Flag para indicar se o seller está bloqueado para participar da transação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Analysis.Status</code></td>
@@ -1095,31 +1095,31 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].PaymentArrangement.Product</code></td>
       <td>Texto</td>
       <td>-</td>
-      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado</td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
       <td>Texto</td>
       <td>-</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado</td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].InitialInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
-      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado</td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].FinalInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
-      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado</td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreements[].MerchantDiscountRates[].Percent</code></td>
       <td>Decimal</td>
       <td>-</td>
-      <td>Porcentagem da taxa de desconto do subordinado</td>
+      <td>Porcentagem da taxa de desconto do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Links</code></td>
@@ -1136,7 +1136,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 
 <p>Quando não haverá cobrança de MDR, siga a requisição padrão excluindo o nó <code class="language-plaintext highlighter-rouge">Agreements</code>.</p>
 
-<p>Veja a seguir o exemplo de uma requisição completa para cadastro de um subordinado do tipo CNPJ e ausência de cobrança de MDR:</p>
+<p>Veja a seguir o exemplo de uma requisição completa para cadastro de um seller do tipo CNPJ e ausência de cobrança de MDR:</p>
 
 <p><strong>Requisição</strong></p>
 
@@ -1253,12 +1253,12 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 <p>Nesse caso, você deverá informar os campos referentes à taxa fixa, produto, bandeira, intervalo de parcelas e porcentagem do MDR.</p>
 
 <blockquote>
-  <p>Os arranjos informados no cadastro do subordinado precisam ser iguais aos acordos entre master e Split.</p>
+  <p>Os arranjos informados no cadastro do seller precisam ser iguais aos acordos entre master e Split.</p>
 </blockquote>
 
 <p><strong>Exemplo</strong></p>
 
-<p>MDR do master com subordinado igual a 4%.</p>
+<p>MDR do master com seller igual a 4%.</p>
 
 <table>
   <thead>
@@ -1300,7 +1300,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 <table>
   <thead>
     <tr>
-      <th>ACORDO MASTER E SUBORDINADO</th>
+      <th>ACORDO MASTER E SELLER</th>
       <th>VISA</th>
       <th>MASTERCARD</th>
       <th>ELO</th>
@@ -1336,7 +1336,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 
 <p><strong>Requisição</strong></p>
 
-<p>Veja a seguir o exemplo de requisição de cadastro de subordinado com CPF com acordo de taxas por arranjo de pagamento e intervalo de parcelas.</p>
+<p>Veja a seguir o exemplo de requisição de cadastro de seller com CPF com acordo de taxas por arranjo de pagamento e intervalo de parcelas.</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{split-onboarding-api}/api/merchants</span></aside>
 
@@ -1431,27 +1431,27 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 
 <p>Veja as propriedades na <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10">requisição padrão</a>.</p>
 
-<h2 id="deprecated---cadastro-de-subordinados-10">DEPRECATED - Cadastro de subordinados 1.0</h2>
+<h2 id="deprecated---cadastro-de-sellers-10">DEPRECATED - Cadastro de sellers 1.0</h2>
 
 <p>Esta seção detalha a integração da API de Onboarding Split 1.0, que será descontinuada em breve.</p>
 
 <blockquote>
-  <p>Para novas integrações, veja a seção <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-2.0" target="_blank">Cadastro de Subordinados 2.0</a>.<br />
+  <p>Para novas integrações, veja a seção <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-2.0" target="_blank">Cadastro de Sellers 2.0</a>.<br />
 Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instruções <a href="https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387" target="_blank">neste artigo</a>.</p>
 </blockquote>
 
-<p>A solicitação de cadastro deve ser realizada através de uma requisição pelo <strong>master</strong> informando os dados do subordinado.</p>
+<p>A solicitação de cadastro deve ser realizada através de uma requisição pelo <strong>master</strong> informando os dados do seller.</p>
 
-<p>Para a definição de acordos entre o master e seus subordinados, o <strong>Split de Pagamentos</strong> dispõe de duas possibilidades:</p>
+<p>Para a definição de acordos entre o master e seus sellers, o <strong>Split de Pagamentos</strong> dispõe de duas possibilidades:</p>
 
 <ol>
   <li>É possível definir a porcentagem do MDR (Merchant Discount Rate) cobrado por transação por Arranjos de Pagamento e intervalo de parcelas.</li>
-  <li>Caso o master não queira definir a porcentagem do MDR para cada Arranjo de Pagamento e intervalo de parcelas, o <strong>Split de Pagamentos</strong> irá replicar os mesmos acordos do master com a Subadquirente (Split), para o master com o Subordinado. Dessa forma, o master deverá informar apenas um MDR único, que será aplicado para todos os acordos.</li>
+  <li>Caso o master não queira definir a porcentagem do MDR para cada Arranjo de Pagamento e intervalo de parcelas, o <strong>Split de Pagamentos</strong> irá replicar os mesmos acordos do master com a Subadquirente (Split), para o master com o seller. Dessa forma, o master deverá informar apenas um MDR único, que será aplicado para todos os acordos.</li>
 </ol>
 
 <p><strong>Exemplo:</strong></p>
 
-<p><strong>MDR do master com subordinado igual a 4%</strong></p>
+<p><strong>MDR do master com seller igual a 4%</strong></p>
 
 <table>
   <thead>
@@ -1508,7 +1508,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 <table>
   <thead>
     <tr>
-      <th>ACORDO MASTER e SUBORDINADO</th>
+      <th>ACORDO MASTER e SELLER</th>
       <th>Visa</th>
       <th>Master</th>
       <th>Elo</th>
@@ -1860,35 +1860,35 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="language-plaintext highlighter-rouge">CreditCard</code> e <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são <code class="language-plaintext highlighter-rouge">CreditCard</code> e <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].Percent</code></td>
       <td>Decimal</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais</td>
+      <td>Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Url</code></td>
@@ -1916,21 +1916,21 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
+      <td>Tipo do documento em anexo do seller. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Name</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Não</td>
-      <td>Nome do arquivo do documento em anexo do subordinado</td>
+      <td>Nome do arquivo do documento em anexo do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.FileType</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
+      <td>Tipo do arquivo do documento em anexo do seller. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Data</code></td>
@@ -2061,14 +2061,14 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificação do master do subordinado</td>
+      <td>Identificação do master do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificação do subordinado</td>
+      <td>Identificação do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CorporateName</code></td>
@@ -2145,7 +2145,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Booleano</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
+      <td>Flag para indicar se o seller está bloqueado para participar da transação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Analysis.Status</code></td>
@@ -2278,42 +2278,42 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificação da taxa de desconto do subordinado</td>
+      <td>Identificação da taxa de desconto do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="language-plaintext highlighter-rouge">CreditCard</code> e <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são <code class="language-plaintext highlighter-rouge">CreditCard</code> e <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].Percent</code></td>
       <td>Decimal</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais</td>
+      <td>Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Url</code></td>
@@ -2341,21 +2341,21 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
+      <td>Tipo do documento em anexo do seller. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Name</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Não</td>
-      <td>Nome do arquivo do documento em anexo do subordinado</td>
+      <td>Nome do arquivo do documento em anexo do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.FileType</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
+      <td>Tipo do arquivo do documento em anexo do seller. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
     </tr>
   </tbody>
 </table>
@@ -2628,7 +2628,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Decimal</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Porcentagem da taxa de desconto única que será aplicada para todos os acordos entre Master e Subordinado. Valor com até duas casas decimais</td>
+      <td>Porcentagem da taxa de desconto única que será aplicada para todos os acordos entre Master e Seller. Valor com até duas casas decimais</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Url</code></td>
@@ -2656,21 +2656,21 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
+      <td>Tipo do documento em anexo do seller. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Name</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Não</td>
-      <td>Nome do arquivo do documento em anexo do subordinado</td>
+      <td>Nome do arquivo do documento em anexo do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.FileType</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
+      <td>Tipo do arquivo do documento em anexo do seller. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Data</code></td>
@@ -2801,14 +2801,14 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificação do master do subordinado</td>
+      <td>Identificação do master do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificação do subordinado</td>
+      <td>Identificação do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CorporateName</code></td>
@@ -2885,7 +2885,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Booleano</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
+      <td>Flag para indicar se o seller está bloqueado para participar da transação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Analysis.Status</code></td>
@@ -3018,42 +3018,42 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificação da taxa de desconto do subordinado</td>
+      <td>Identificação da taxa de desconto do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="language-plaintext highlighter-rouge">CreditCard</code> e <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são <code class="language-plaintext highlighter-rouge">CreditCard</code> e <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].Percent</code></td>
       <td>Decimal</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais</td>
+      <td>Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Url</code></td>
@@ -3081,28 +3081,28 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
+      <td>Tipo do documento em anexo do seller. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Name</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Não</td>
-      <td>Nome do arquivo do documento em anexo do subordinado</td>
+      <td>Nome do arquivo do documento em anexo do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.FileType</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
+      <td>Tipo do arquivo do documento em anexo do seller. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="consulta-de-subordinados">Consulta de Subordinados</h1>
+<h1 id="consulta-de-sellers">Consulta de Sellers</h1>
 
-<p>Você pode consultar um subordinado específico através do <code class="language-plaintext highlighter-rouge">MerchantId</code> do subordinado. Essa consulta é feita pela <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#ambientes">API de Onboarding Split 1.0</a>.</p>
+<p>Você pode consultar um seller específico através do <code class="language-plaintext highlighter-rouge">MerchantId</code> do seller. Essa consulta é feita pela <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#ambientes">API de Onboarding Split 1.0</a>.</p>
 
 <h2 id="requisição-4">Requisição</h2>
 
@@ -3229,14 +3229,14 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificação do master do subordinado</td>
+      <td>Identificação do master do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificação do subordinado</td>
+      <td>Identificação do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CorporateName</code></td>
@@ -3306,7 +3306,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Booleano</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Flag para indicar se o subordinado está bloqueado para participar da transação</td>
+      <td>Flag para indicar se o seller está bloqueado para participar da transação</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Analysis.Status</code></td>
@@ -3327,7 +3327,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Motivo de reprovação do subordinado</td>
+      <td>Motivo de reprovação do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Bank</code></td>
@@ -3453,42 +3453,42 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificação da taxa de desconto do subordinado</td>
+      <td>Identificação da taxa de desconto do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Product</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <code class="language-plaintext highlighter-rouge">CreditCard</code> e <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são <code class="language-plaintext highlighter-rouge">CreditCard</code> e <code class="language-plaintext highlighter-rouge">DebitCard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são <code class="language-plaintext highlighter-rouge">Visa</code>, <code class="language-plaintext highlighter-rouge">Master</code>, <code class="language-plaintext highlighter-rouge">Amex</code>, <code class="language-plaintext highlighter-rouge">Elo</code>, <code class="language-plaintext highlighter-rouge">Diners</code> e <code class="language-plaintext highlighter-rouge">Hipercard</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
       <td>Número</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Agreement.MerchantDiscountRates[].Percent</code></td>
       <td>Decimal</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais</td>
+      <td>Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Notification.Url</code></td>
@@ -3516,28 +3516,28 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Tipo do documento em anexo do subordinado. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
+      <td>Tipo do documento em anexo do seller. Os tipos válidos são <code class="language-plaintext highlighter-rouge">ProofOfBankDomicile</code> (Comprovante de domicílio bancário) e <code class="language-plaintext highlighter-rouge">ModelOfAdhesionTerm</code> (Modelo de termo de adesão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.Name</code></td>
       <td>Texto</td>
       <td>50</td>
       <td>Não</td>
-      <td>Nome do arquivo do documento em anexo do subordinado</td>
+      <td>Nome do arquivo do documento em anexo do seller</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Attachments[].File.FileType</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Tipo do arquivo do documento em anexo do subordinado. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
+      <td>Tipo do arquivo do documento em anexo do seller. Os tipos de arquivos válidos são <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">png</code>, <code class="language-plaintext highlighter-rouge">jpg</code> e <code class="language-plaintext highlighter-rouge">jpeg</code></td>
     </tr>
   </tbody>
 </table>
 
 <h1 id="alteração-de-taxas-em-lote">Alteração de Taxas em Lote</h1>
 
-<p>A API de Alteração de Taxas em Lote permite que o master realize a alteração das taxas entre ele e os seus subordinados através de uma requisição. Atualmente, somente será possível informar o mesmo conjunto de taxas para todos os subordinados.</p>
+<p>A API de Alteração de Taxas em Lote permite que o master realize a alteração das taxas entre ele e os seus sellers através de uma requisição. Atualmente, somente será possível informar o mesmo conjunto de taxas para todos os sellers.</p>
 
 <blockquote>
   <p>A alteração de taxas é feita pela <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#ambientes" target="_blank">API de Onboarding Split 2.0</a>.</p>
@@ -3635,7 +3635,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Guid[]</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Identificação dos subordinados que terão o acordo alterado.</td>
+      <td>Identificação dos sellers que terão o acordo alterado.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Aggrement.InitialValidityDate</code></td>
@@ -3656,35 +3656,35 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Produto do arranjo de pagamento da taxa de desconto do subordinado. Os produtos válidos são <em>“CreditCard”</em> e <em>“DebitCard”</em></td>
+      <td>Produto do arranjo de pagamento da taxa de desconto do seller. Os produtos válidos são <em>“CreditCard”</em> e <em>“DebitCard”</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Aggrement.MerchantDiscountRates[].PaymentArrangement.Brand</code></td>
       <td>String</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Bandeira do arranjo de pagamento da taxa de desconto do subordinado. As bandeiras válidas são <em>Visa</em>, <em>Master</em>, <em>Amex</em>, <em>Elo</em>, <em>Diners</em> e <em>Hipercard</em></td>
+      <td>Bandeira do arranjo de pagamento da taxa de desconto do seller. As bandeiras válidas são <em>Visa</em>, <em>Master</em>, <em>Amex</em>, <em>Elo</em>, <em>Diners</em> e <em>Hipercard</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Aggrement.MerchantDiscountRates[].InitialInstallmentNumber</code></td>
       <td>Int</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Número inicial do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+      <td>Número inicial do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Aggrement.MerchantDiscountRates[].FinalInstallmentNumber</code></td>
       <td>Int</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Número final do intervalo de parcelas da taxa de desconto do subordinado. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
+      <td>Número final do intervalo de parcelas da taxa de desconto do seller. O número de parcelas deverá ser <strong>maior do que 0 e menor ou igual a 12</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Aggrement.MerchantDiscountRates[].Percent</code></td>
       <td>Decimal</td>
       <td>-</td>
       <td>Sim</td>
-      <td>Porcentagem da taxa de desconto do subordinado. Valor com até duas casas decimais</td>
+      <td>Porcentagem da taxa de desconto do seller. Valor com até duas casas decimais</td>
     </tr>
   </tbody>
 </table>
@@ -3751,7 +3751,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 
 <p>Para receber a notificação de alteração de status da análise de KYC, é necessário configurar o campo “URL de Notificação” durante o cadastro do master na Braspag para receber uma requisição do tipo “POST”. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
 
-<p>Quando houver alteração no status da análise de KYC, a Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do master e do subordinado e status da análise de KYC.</p>
+<p>Quando houver alteração no status da análise de KYC, a Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do master e do seller e status da análise de KYC.</p>
 
 <p><strong>Exemplo de notificação enviada pela Braspag:</strong></p>
 
@@ -3791,7 +3791,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td><code class="language-plaintext highlighter-rouge">Data.SubordinateMerchantId</code></td>
       <td>GUID</td>
       <td>36</td>
-      <td>Identificação do subordinado.</td>
+      <td>Identificação do seller.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Data.Status</code></td>
@@ -3808,14 +3808,14 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
   <p>É esperado que a loja retorne a seguinte resposta: <code class="language-plaintext highlighter-rouge">HTTP Status Code 200 OK</code>. Caso essa resposta não seja retornada, haverá mais duas tentativas de envio do Post de Notificação.</p>
 </blockquote>
 
-<h1 id="criação-de-usuário-para-o-subordinado">Criação de usuário para o subordinado</h1>
+<h1 id="criação-de-usuário-para-o-seller">Criação de usuário para o seller</h1>
 
-<p>Caso ache necessário, o master pode permitir o acesso do subordinado ao backoffice do Split. Para isso, o master precisa enviar para o <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">suporte</a>:</p>
+<p>Caso ache necessário, o master pode permitir o acesso do seller ao backoffice do Split. Para isso, o master precisa enviar para o <a href="https://suporte.braspag.com.br/hc/pt-br" target="_blank">suporte</a>:</p>
 
 <ul>
-  <li>O <code class="language-plaintext highlighter-rouge">MerchantId</code> do subordinado;</li>
-  <li>O e-mail do subordinado e</li>
-  <li>O nome de usuário do subordinado.</li>
+  <li>O <code class="language-plaintext highlighter-rouge">MerchantId</code> do seller;</li>
+  <li>O e-mail do seller e</li>
+  <li>O nome de usuário do seller.</li>
 </ul>
 
 <h1 id="anexos">ANEXOS</h1>
@@ -3839,17 +3839,17 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
     <tr>
       <td>2</td>
       <td>Approved</td>
-      <td>Subordinado aprovado na análise de KYC.</td>
+      <td>Seller aprovado na análise de KYC.</td>
     </tr>
     <tr>
       <td>3</td>
       <td>ApprovedWithRestriction</td>
-      <td>Subordinado aprovado com restrições na análise de KYC.</td>
+      <td>Seller aprovado com restrições na análise de KYC.</td>
     </tr>
     <tr>
       <td>4</td>
       <td>Rejected</td>
-      <td>Subordinado não aprovado na análise de KYC.</td>
+      <td>Seller não aprovado na análise de KYC.</td>
     </tr>
   </tbody>
 </table>
