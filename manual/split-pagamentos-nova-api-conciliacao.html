@@ -169,7 +169,7 @@
 
 <h1 id="fluxo-da-transação-até-o-pagamento">Fluxo da transação até o pagamento</h1>
 
-<p>A captura de uma transação é a confirmação de que aquela venda foi realizada com sucesso. Assim, após a captura, uma agenda é gerada para cada evento transacional e para cada um de seus participantes (master e subordinados).</p>
+<p>A captura de uma transação é a confirmação de que aquela venda foi realizada com sucesso. Assim, após a captura, uma agenda é gerada para cada evento transacional e para cada um de seus participantes (master e sellers).</p>
 
 <p>A agenda apresenta a previsão de pagamento de eventos de crédito e débito. A agenda é atualizada de acordo com os eventos transacionais.</p>
 
@@ -203,7 +203,7 @@
 
 <h2 id="agenda">Agenda</h2>
 
-<p>A Agenda apresenta a previsão diária de créditos e débitos para cada participante da transação (master e subordinados), levando em conta o regime de pagamento para cada tipo de meio de pagamento:</p>
+<p>A Agenda apresenta a previsão diária de créditos e débitos para cada participante da transação (master e sellers), levando em conta o regime de pagamento para cada tipo de meio de pagamento:</p>
 
 <ul>
   <li><strong>Crédito:</strong> em até 31 dias.</li>
@@ -605,7 +605,7 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].MerchantDetails.MasterMerchantId</code></td>
       <td>GUID</td>
-      <td>Id do Master. Retornado quando o Merchant for um subordinado.</td>
+      <td>Id do Master. Retornado quando o Merchant for um sellers.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Items[].ItemSchedules[].MerchantDetails.MerchantId</code></td>
@@ -702,7 +702,7 @@
 
 <h1 id="consulta-de-unidade-de-recebíveis">Consulta de Unidade de Recebíveis</h1>
 
-<p>A API Split permite consultar as <strong>unidades de recebíveis</strong> de acordo com alguns parâmetros, como intervalo de data prevista de pagamento, intervalo de data de pagamento efetivo, bandeira, produto, MerchantId, antecipação, todos os subordinados e número da página.</p>
+<p>A API Split permite consultar as <strong>unidades de recebíveis</strong> de acordo com alguns parâmetros, como intervalo de data prevista de pagamento, intervalo de data de pagamento efetivo, bandeira, produto, MerchantId, antecipação, todos os sellers e número da página.</p>
 
 <h2 id="requisição-2">Requisição</h2>
 
@@ -768,7 +768,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">IncludeAllSubordinates</code></td>
-      <td>Determina se serão incluídas informações dos subordinados que realizaram o <em>optin</em> para o master consultar as informações.</td>
+      <td>Determina se serão incluídas informações dos sellers que realizaram o <em>optin</em> para o master consultar as informações.</td>
       <td>Boolean</td>
       <td>Não</td>
     </tr>
