@@ -13,7 +13,7 @@ tags:
 
 # Sobre essa documentação
 
-Essa documentação apresenta a integração com a **API de Onboarding Split 2.0** para o cadastro de sellers pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico [Cadastro de Sellers 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#deprecated-cadastro-de-sellers-1.0){:target="_blank"}.
+Essa documentação apresenta a integração com a **API de Onboarding Split 2.0** para o cadastro de sellers pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico [Cadastro de Sellers 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#deprecated-cadastro-de-sellers-1.0){:target="_blank"}.
 
 > Se você já possui integração com a API de Onboarding Split 1.0, **a migração para a API de Onboarding Split 2.0 será obrigatória para novos cadastros** de sellers a partir de agosto de 2023. Consulte as instruções para migração no [artigo da nossa página de suporte](https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387){:target="_blank"}.
 
@@ -116,13 +116,13 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um seller 
 {
     "Type": "Subordinate",
     "MasterMerchantId": "f88cc14d-c796-4939-957e-de4dddcb2257",
-    "ContactName": "Nome do Contato do Subordinado",
+    "ContactName": "Nome do Contato do Seller",
     "ContactPhone": "11987654321",
-    "CorporateName": "Subordinado Corporativo Ltda",
+    "CorporateName": "Seller Corporativo Ltda",
     "DocumentNumber": "96462142000140",
     "DocumentType": "CNPJ",
-    "FancyName": "Subordinado Nome Fantasia",
-    "MailAddress": "addres@email.mail.com",
+    "FancyName": "Seller Nome Fantasia",
+    "MailAddress": "address@email.mail.com",
     "Website": "https://www.website.com.br",
     "BankAccount": {
         "Bank": "001",
@@ -178,7 +178,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um seller 
 | `MailAddress` | Texto | 50 | Sim | Endereço de e-mail. |
 | `Website` | Texto | 200 | Não | Endereço do website .|
 | `BirthdayDate`* | Data | 10 | Sim*, quando `DocumentType` for "CPF". | Data de nascimento (apenas para cadastro de pessoa física - CPF). Formato: yyyy-MM-dd |
-| `BusinessActivityId`* | Número | - | Sim*, quando `DocumentType` for "CPF". | Ramo de atividade que o seller atua. (apenas para cadastro de pessoa física - CPF). Veja a [**Lista de Ramos de Atividades**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-ramos-de-atividades). |
+| `BusinessActivityId`* | Número | - | Sim*, quando `DocumentType` for "CPF". | Ramo de atividade que o seller atua. (apenas para cadastro de pessoa física - CPF). Veja a [**Lista de Ramos de Atividades**](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-ramos-de-atividades). |
 
 *Não é obrigatório quando `DocumentType` for "CNPJ".
 
@@ -186,7 +186,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um seller 
 
 | PROPRIEDADE | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO |
 |---|---|---|---|---|
-| `BankAccount.Bank` | Texto | 3 | Sim | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
+| `BankAccount.Bank` | Texto | 3 | Sim | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
 | `BankAccount.BankAccountType` | Texto | - | Sim | Tipo de conta bancária. Os tipos válidos são "CheckingAccount" (conta corrente) e "SavingsAccount" (conta poupança). |
 | `BankAccount.Number` | Texto | 10 | Sim | Número da conta do seller. |
 | `BankAccount.Operation` | Texto | 10 | Não | Operação da conta do seller. |
@@ -216,7 +216,7 @@ No **Split de Pagamentos** há possibilidades de acordos de taxas entre o master
 2. **Taxa global**: configure uma única taxa para todos os acordos (MDR único);
 3. **Taxa por meio de pagamento**: você deverá definir as taxas cobradas por transação por arranjos de pagamento e intervalo de parcelas.
 
-Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: [**Não cadastrar taxa**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#acordo-de-taxas-n%C3%A3o-informado-no-cadastro), [**Taxa global**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-%C3%BAnico-para-todos-os-acordos) e [**Taxa por meio de pagamento**](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-por-arranjo-de-pagamento-e-intervalo-de-parcelas). 
+Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: [**Não cadastrar taxa**](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#n%C3%A3o-informar-taxas), [**Taxa global**](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#taxa-global) e [**Taxa por meio de pagamento**](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#taxa-por-meio-de-pagamento). 
 
 > **ATENÇÃO**: Se não houver cobrança de MDR, basta não enviar o nó `Agreements`.<br>
 > O campo `Agreements[].Percent` só deve ser enviado em caso de cadastro de seller com Taxa global.
@@ -240,8 +240,8 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
     "Id": "5dcee8e4-f432-42e4-a2a6-5a30c8ce2ca5",
     "Type": "Subordinate",
     "MasterMerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
-    "CorporateName": "Corporate Name Subordinate",
-    "FancyName": "Fancy Name Subordinate",
+    "CorporateName": "Corporate Name Seller",
+    "FancyName": "Fancy Name Seller",
     "DocumentType": 1,
     "DocumentNumber": "64829167000142",
     "BirthdayDate": "2019-04-25",
@@ -257,9 +257,9 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
         "ZipCode": "20020081",
         "Street": "My street updated",
         "Number": "20",
-        "Complement": "My Complement Subordinate",
+        "Complement": "My Complement Seller",
         "City": "My City Master",
-        "Neighborhood": "My Neighborhood Subordinate",
+        "Neighborhood": "My Neighborhood Seller",
         "State": "RJ"
     },
     "BankAccount": {
@@ -462,7 +462,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
 |---|---|---|---|
 | `BankAccount.BankId` | Número | - | Identificação do banco. |
-| `BankAccount.Bank` | Texto | 3 | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
+| `BankAccount.Bank` | Texto | 3 | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
 | `BankAccount.BankAccountType` | Texto | - | Tipo de conta bancária. Os tipos válidos são _CheckingAccount_ (Conta corrente) e _SavingsAccount_ (Conta poupança) |
 | `BankAccount.Number` | Texto | 10 | Número da conta |
 | `BankAccount.AgencyNumber` | Texto | 15 | Número da agência |
@@ -502,12 +502,12 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um seller 
 {
     "Type": "Subordinate",
     "MasterMerchantId": "f88cc14d-c796-4939-957e-de4dddcb2257",
-    "ContactName": "Nome do Contato do Subordinado",
+    "ContactName": "Nome do Contato do Seller",
     "ContactPhone": "11987654321",
-    "CorporateName": "Subordinado Corporativo Ltda",
+    "CorporateName": "Seller Corporativo Ltda",
     "DocumentNumber": "96462142000140",
     "DocumentType": "CNPJ",
-    "FancyName": "Subordinado Nome Fantasia",
+    "FancyName": "Seller Nome Fantasia",
     "MailAddress": "address@email.mail.com",
     "Website": "https://www.website.com.br",
     "BankAccount": {
@@ -543,7 +543,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um seller 
 }
 ```
 
-Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10).
+Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#requisi%C3%A7%C3%A3o10).
 
 #### Taxa global
 
@@ -557,12 +557,12 @@ Quando o MDR é único para todos os acordos, envie apenas os campos `Agreements
 {
     "Type": "Subordinate",
     "MasterMerchantId": "f88cc14d-c796-4939-957e-de4dddcb2257",
-    "ContactName": "Nome do Contato do Subordinado",
+    "ContactName": "Nome do Contato do Seller",
     "ContactPhone": "11987654321",
-    "CorporateName": "Subordinado Corporativo Ltda",
+    "CorporateName": "Seller Corporativo Ltda",
     "DocumentNumber": "96462142000140",
     "DocumentType": "CNPJ",
-    "FancyName": "Subordinado Nome Fantasia",
+    "FancyName": "Seller Nome Fantasia",
     "MailAddress": "addres@email.mail.com",
     "Website": "https://www.website.com.br",
     "BankAccount": {
@@ -604,7 +604,7 @@ Quando o MDR é único para todos os acordos, envie apenas os campos `Agreements
 }
 ```
 
-Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10).
+Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#requisi%C3%A7%C3%A3o10).
 
 #### Taxa por meio de pagamento
 
@@ -641,12 +641,12 @@ Veja a seguir o exemplo de requisição de cadastro de seller com CPF com acordo
     "Type": "Subordinate",
     "MasterMerchantId": "f88cc14d-c796-4939-957e-de4dddcb2257",
     "BusinessActivityId" : 10,
-    "ContactName": "Nome do Contato do Subordinado",
+    "ContactName": "Nome do Contato do Seller",
     "ContactPhone": "11987654321",
-    "CorporateName": "Nome do Subordinado",
+    "CorporateName": "Nome do Seller",
     "DocumentNumber": "91205046089",
     "DocumentType": "CPF",
-    "FancyName": "Nome do Subordinado",
+    "FancyName": "Nome do Seller",
     "BirthdayDate": "1984-04-25",
     "MailAddress": "address@email.mail.com",
     "Website": "https://www.website.com.br",
@@ -726,13 +726,13 @@ Veja a seguir o exemplo de requisição de cadastro de seller com CPF com acordo
 }
 ```
 
-Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10).
+Veja as propriedades na [requisição padrão](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#requisi%C3%A7%C3%A3o10).
 
 ## DEPRECATED - Cadastro de sellers 1.0
 
 Esta seção detalha a integração da API de Onboarding Split 1.0, que será descontinuada em breve.
 
-> Para novas integrações, veja a seção [Cadastro de Sellers 2.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-2.0){:target="_blank"}.<br>
+> Para novas integrações, veja a seção [Cadastro de Sellers 2.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#cadastro-de-sellers-2.0){:target="_blank"}.<br>
 > Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instruções [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387){:target="_blank"}.
 
 A solicitação de cadastro deve ser realizada através de uma requisição pelo **master** informando os dados do seller.
@@ -769,12 +769,12 @@ Para a definição de acordos entre o master e seus sellers, o **Split de Pagame
 ```json
 --header "Authorization: Bearer {access_token}"
 {
-    "CorporateName":"Subordinado Corporativo Ltda",
-    "FancyName":"Subordinado Nome Fantasia",
+    "CorporateName":"Seller Corporativo Ltda",
+    "FancyName":"Seller Nome Fantasia",
     "DocumentNumber":"96462142000140",
     "DocumentType":"CNPJ",
     "MerchantCategoryCode":"5719",
-    "ContactName":"Nome do Contato do Subordinado",
+    "ContactName":"Nome do Contato do Seller",
     "ContactPhone":"11987654321",
     "MailAddress":"addres@email.mail.com",
     "Website":"https://www.website.com.br",
@@ -871,7 +871,7 @@ Para a definição de acordos entre o master e seus sellers, o **Split de Pagame
 | `ContactPhone`                                                  | Texto  | 11      | Sim         | Número do telefone do contato responsável (Apenas números)                                                                                                                                                                           |
 | `MailAddress`                                                   | Texto  | 50      | Sim         | Endereço de e-mail                                                                                                                                                                                                                   |
 | `Website`                                                       | Texto  | 200     | Não         | Endereço do website                                                                                                                                                                                                                  |
-| `BankAccount.Bank`                                              | Texto  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
+| `BankAccount.Bank`                                              | Texto  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
 | `BankAccount.BankAccountType`                                   | Texto  | -       | Sim         | Tipo de conta bancária. Os tipos válidos são `CheckingAccount` (Conta corrente) e `SavingsAccount` (Conta poupança)                                                                                                                  |
 | `BankAccount.Number`                                            | Texto  | 10      | Sim         | Número da conta                                                                                                                                                                                                                      |
 | `BankAccount.Operation`                                         | Texto  | 10      | Não         | Operação da conta                                                                                                                                                                                                                    |
@@ -908,12 +908,12 @@ Para a definição de acordos entre o master e seus sellers, o **Split de Pagame
 {
     "MasterMerchantId": "665a33c5-0022-4a40-a0bd-daad04eb3236",
     "MerchantId": "b8ccc729-a874-4b51-a5a9-ffeb5bd98878",
-    "CorporateName":"Subordinado Corporativo Ltda",
-    "FancyName":"Subordinado Nome Fantasia",
+    "CorporateName":"Seller Corporativo Ltda",
+    "FancyName":"Seller Nome Fantasia",
     "DocumentNumber":"96462142000140",
     "DocumentType":"CNPJ",
     "MerchantCategoryCode":"5719",
-    "ContactName":"Nome do Contato do Subordinado",
+    "ContactName":"Nome do Contato do Seller",
     "ContactPhone":"11987654321",
     "MailAddress":"addres@email.mail.com",
     "Website":"https://www.website.com.br",
@@ -1021,7 +1021,7 @@ Para a definição de acordos entre o master e seus sellers, o **Split de Pagame
 | `Website`                                                       | Texto  | 200     | Não         | Endereço do website                                                                                                                                                                                                                  |
 | `Blocked`                                                       | Booleano | -       | Sim         | Flag para indicar se o seller está bloqueado para participar da transação                                                                                                                                                       |
 | `Analysis.Status`                                               | Texto  | -       | Sim         | Status da análise do processo de KYC. Os Status válidos são `Approved`, `ApprovedWithRestriction` e `Rejected`                                                                                                                       |
-| `BankAccount.Bank`                                              | Texto  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
+| `BankAccount.Bank`                                              | Texto  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
 | `BankAccount.BankAccountType`                                   | Texto  | -       | Sim         | Tipo de conta bancária. Os tipos válidos são `CheckingAccount` (Conta corrente) e `SavingsAccount` (Conta poupança)                                                                                                                  |
 | `BankAccount.Number`                                            | Texto  | 10      | Sim         | Número da conta                                                                                                                                                                                                                      |
 | `BankAccount.Operation`                                         | Texto  | 10      | Não         | Operação da conta                                                                                                                                                                                                                    |
@@ -1060,12 +1060,12 @@ Para a definição de acordos entre o master e seus sellers, o **Split de Pagame
 ```json
 --header "Authorization: Bearer {access_token}"
 {
-    "CorporateName":"Subordinado Corporativo Ltda",
-    "FancyName":"Subordinado Nome Fantasia",
+    "CorporateName":"Seller Corporativo Ltda",
+    "FancyName":"Seller Nome Fantasia",
     "DocumentNumber":"96462142000140",
     "DocumentType":"CNPJ",
     "MerchantCategoryCode":"5719",
-    "ContactName":"Nome do Contato do Subordinado",
+    "ContactName":"Nome do Contato do Seller",
     "ContactPhone":"11987654321",
     "MailAddress":"addres@email.mail.com",
     "Website":"https://www.website.com.br",
@@ -1127,7 +1127,7 @@ Para a definição de acordos entre o master e seus sellers, o **Split de Pagame
 | `ContactPhone`                                                  | Texto  | 11      | Sim         | Número do telefone do contato responsável (Apenas números)                                                                                                                                                                           |
 | `MailAddress`                                                   | Texto  | 50      | Sim         | Endereço de e-mail                                                                                                                                                                                                                   |
 | `Website`                                                       | Texto  | 200     | Não         | Endereço do website                                                                                                                                                                                                                  |
-| `BankAccount.Bank`                                              | Texto  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o)   |
+| `BankAccount.Bank`                                              | Texto  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o)   |
 | `BankAccount.BankAccountType`                                   | Texto  | -       | Sim         | Tipo de conta bancária. Os tipos válidos são `CheckingAccount` (Conta corrente) e `SavingsAccount` (Conta poupança)                                                                                                                  |
 | `BankAccount.Number`                                            | Texto  | 10      | Sim         | Número da conta                                                                                                                                                                                                                      |
 | `BankAccount.Operation`                                         | Texto  | 10      | Não         | Operação da conta                                                                                                                                                                                                                    |
@@ -1160,12 +1160,12 @@ Para a definição de acordos entre o master e seus sellers, o **Split de Pagame
 {
     "MasterMerchantId": "665a33c5-0022-4a40-a0bd-daad04eb3236",
     "MerchantId": "b8ccc729-a874-4b51-a5a9-ffeb5bd98878",
-    "CorporateName":"Subordinado Corporativo Ltda",
-    "FancyName":"Subordinado Nome Fantasia",
+    "CorporateName":"Seller Corporativo Ltda",
+    "FancyName":"Seller Nome Fantasia",
     "DocumentNumber":"96462142000140",
     "DocumentType":"CNPJ",
     "MerchantCategoryCode":"5719",
-    "ContactName":"Nome do Contato do Subordinado",
+    "ContactName":"Nome do Contato do Seller",
     "ContactPhone":"11987654321",
     "MailAddress":"addres@email.mail.com",
     "Website":"https://www.website.com.br",
@@ -1273,7 +1273,7 @@ Para a definição de acordos entre o master e seus sellers, o **Split de Pagame
 | `Website`                                                       | Texto  | 200     | Não         | Endereço do website                                                                                                                                                                                                                  |
 | `Blocked`                                                       | Booleano | -       | Sim         | Flag para indicar se o seller está bloqueado para participar da transação                                                                                                                                                       |
 | `Analysis.Status`                                               | Texto  | -       | Sim         | Status da análise do processo de KYC. Os Status válidos são `Approved`, `ApprovedWithRestriction` e `Rejected`                                                                                                                       |
-| `BankAccount.Bank`                                              | Texto  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o)|
+| `BankAccount.Bank`                                              | Texto  | 3       | Sim         | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o)|
 | `BankAccount.BankAccountType`                                   | Texto  | -       | Sim         | Tipo de conta bancária. Os tipos válidos são `CheckingAccount` (Conta corrente) e `SavingsAccount` (Conta poupança)                                                                                                                  |
 | `BankAccount.Number`                                            | Texto  | 10      | Sim         | Número da conta                                                                                                                                                                                                                      |
 | `BankAccount.Operation`                                         | Texto  | 10      | Não         | Operação da conta                                                                                                                                                                                                                    |
@@ -1305,7 +1305,7 @@ Para a definição de acordos entre o master e seus sellers, o **Split de Pagame
 
 # Consulta de Sellers
 
-Você pode consultar um seller específico através do `MerchantId` do seller. Essa consulta é feita pela [API de Onboarding Split 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#ambientes).
+Você pode consultar um seller específico através do `MerchantId` do seller. Essa consulta é feita pela [API de Onboarding Split 1.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#ambientes).
 
 ## Requisição
 
@@ -1318,12 +1318,12 @@ Você pode consultar um seller específico através do `MerchantId` do seller. E
 {
     "MasterMerchantId": "665a33c5-0022-4a40-a0bd-daad04eb3236",
     "MerchantId": "b8ccc729-a874-4b51-a5a9-ffeb5bd98878",
-    "CorporateName":"Subordinado Corporativo Ltda",
-    "FancyName":"Subordinado Nome Fantasia",
+    "CorporateName":"Seller Corporativo Ltda",
+    "FancyName":"Seller Nome Fantasia",
     "DocumentNumber":"96462142000140",
     "DocumentType":"CNPJ",
     "MerchantCategoryCode":"5719",
-    "ContactName":"Nome do Contato do Subordinado",
+    "ContactName":"Nome do Contato do Seller",
     "ContactPhone":"11987654321",
     "MailAddress":"addres@email.mail.com",
     "Website":"https://www.website.com.br",
@@ -1468,7 +1468,7 @@ Você pode consultar um seller específico através do `MerchantId` do seller. E
 
 A API de Alteração de Taxas em Lote permite que o master realize a alteração das taxas entre ele e os seus sellers através de uma requisição. Atualmente, somente será possível informar o mesmo conjunto de taxas para todos os sellers.
 
-> A alteração de taxas é feita pela [API de Onboarding Split 2.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#ambientes){:target="_blank"}.
+> A alteração de taxas é feita pela [API de Onboarding Split 2.0](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#ambientes){:target="_blank"}.
 
 ## Requisição
 
