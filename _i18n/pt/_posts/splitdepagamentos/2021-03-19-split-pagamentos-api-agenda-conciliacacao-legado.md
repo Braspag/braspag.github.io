@@ -13,7 +13,7 @@ tags:
 
 # Introdução
 
-A conciliação permite acessar informações de agenda financeira, para que você tenha controle de todos os eventos relacionados às suas vendas e de seus subordinados.
+A conciliação permite acessar informações de agenda financeira, para que você tenha controle de todos os eventos relacionados às suas vendas e de seus sellers.
 
 ## Ambientes
 
