@@ -107,7 +107,7 @@
             <div class="post">
   <h1 id="sobre-essa-documentação">Sobre essa documentação</h1>
 
-<p>Essa documentação apresenta a integração com a <strong>API de Onboarding Split 2.0</strong> para o cadastro de sellers pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#deprecated-cadastro-de-sellers-1.0" target="_blank">Cadastro de Sellers 1.0</a>.</p>
+<p>Essa documentação apresenta a integração com a <strong>API de Onboarding Split 2.0</strong> para o cadastro de sellers pelo master no Split de Pagamentos. A versão anterior da API (1.0) pode ser consultada no tópico <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#deprecated-cadastro-de-sellers-1.0" target="_blank">Cadastro de Sellers 1.0</a>.</p>
 
 <blockquote>
   <p>Se você já possui integração com a API de Onboarding Split 1.0, <strong>a migração para a API de Onboarding Split 2.0 será obrigatória para novos cadastros</strong> de sellers a partir de agosto de 2023. Consulte as instruções para migração no <a href="https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387" target="_blank">artigo da nossa página de suporte</a>.</p>
@@ -261,13 +261,13 @@
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinate"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f88cc14d-c796-4939-957e-de4dddcb2257"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Contato do Seller"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seller Corporativo Ltda"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seller Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address@email.mail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Bank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
@@ -403,7 +403,7 @@
       <td>Número</td>
       <td>-</td>
       <td>Sim*, quando <code class="language-plaintext highlighter-rouge">DocumentType</code> for “CPF”.</td>
-      <td>Ramo de atividade que o seller atua. (apenas para cadastro de pessoa física - CPF). Veja a <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-ramos-de-atividades"><strong>Lista de Ramos de Atividades</strong></a>.</td>
+      <td>Ramo de atividade que o seller atua. (apenas para cadastro de pessoa física - CPF). Veja a <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-ramos-de-atividades"><strong>Lista de Ramos de Atividades</strong></a>.</td>
     </tr>
   </tbody>
 </table>
@@ -428,7 +428,7 @@
       <td>Texto</td>
       <td>3</td>
       <td>Sim</td>
-      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
+      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
@@ -564,7 +564,7 @@
   <li><strong>Taxa por meio de pagamento</strong>: você deverá definir as taxas cobradas por transação por arranjos de pagamento e intervalo de parcelas.</li>
 </ol>
 
-<p>Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#acordo-de-taxas-n%C3%A3o-informado-no-cadastro"><strong>Não cadastrar taxa</strong></a>, <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-%C3%BAnico-para-todos-os-acordos"><strong>Taxa global</strong></a> e <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#mdr-por-arranjo-de-pagamento-e-intervalo-de-parcelas"><strong>Taxa por meio de pagamento</strong></a>.</p>
+<p>Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de requisições para os três cenários: <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#n%C3%A3o-informar-taxas"><strong>Não cadastrar taxa</strong></a>, <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#taxa-global"><strong>Taxa global</strong></a> e <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#taxa-por-meio-de-pagamento"><strong>Taxa por meio de pagamento</strong></a>.</p>
 
 <blockquote>
   <p><strong>ATENÇÃO</strong>: Se não houver cobrança de MDR, basta não enviar o nó <code class="language-plaintext highlighter-rouge">Agreements</code>.<br />
@@ -644,8 +644,8 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
     </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5dcee8e4-f432-42e4-a2a6-5a30c8ce2ca5"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinate"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Corporate Name Subordinate"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fancy Name Subordinate"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Corporate Name Seller"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fancy Name Seller"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"64829167000142"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"BirthdayDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-25"</span><span class="p">,</span><span class="w">
@@ -661,9 +661,9 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20020081"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My street updated"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Complement Subordinate"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Complement Seller"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My City Master"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Neighborhood Subordinate"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Neighborhood Seller"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1008,7 +1008,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
       <td><code class="language-plaintext highlighter-rouge">BankAccount.Bank</code></td>
       <td>Texto</td>
       <td>3</td>
-      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
+      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
@@ -1145,12 +1145,12 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinate"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f88cc14d-c796-4939-957e-de4dddcb2257"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Contato do Seller"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seller Corporativo Ltda"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seller Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address@email.mail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1186,7 +1186,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Veja as propriedades na <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10">requisição padrão</a>.</p>
+<p>Veja as propriedades na <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#requisi%C3%A7%C3%A3o10">requisição padrão</a>.</p>
 
 <h4 id="taxa-global">Taxa global</h4>
 
@@ -1199,12 +1199,12 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinate"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f88cc14d-c796-4939-957e-de4dddcb2257"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Contato do Seller"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seller Corporativo Ltda"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seller Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"BankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1246,7 +1246,7 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Veja as propriedades na <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10">requisição padrão</a>.</p>
+<p>Veja as propriedades na <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#requisi%C3%A7%C3%A3o10">requisição padrão</a>.</p>
 
 <h4 id="taxa-por-meio-de-pagamento">Taxa por meio de pagamento</h4>
 
@@ -1344,12 +1344,12 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
     </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinate"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f88cc14d-c796-4939-957e-de4dddcb2257"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"BusinessActivityId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Contato do Seller"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Seller"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91205046089"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Seller"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"BirthdayDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1984-04-25"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address@email.mail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
@@ -1429,14 +1429,14 @@ O campo <code class="language-plaintext highlighter-rouge">Agreements[].Percent<
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Veja as propriedades na <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#requisi%C3%A7%C3%A3o10">requisição padrão</a>.</p>
+<p>Veja as propriedades na <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#requisi%C3%A7%C3%A3o10">requisição padrão</a>.</p>
 
 <h2 id="deprecated---cadastro-de-sellers-10">DEPRECATED - Cadastro de sellers 1.0</h2>
 
 <p>Esta seção detalha a integração da API de Onboarding Split 1.0, que será descontinuada em breve.</p>
 
 <blockquote>
-  <p>Para novas integrações, veja a seção <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#cadastro-de-subordinados-2.0" target="_blank">Cadastro de Sellers 2.0</a>.<br />
+  <p>Para novas integrações, veja a seção <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#cadastro-de-sellers-2.0" target="_blank">Cadastro de Sellers 2.0</a>.<br />
 Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instruções <a href="https://suporte.braspag.com.br/hc/pt-br/articles/5786920191387" target="_blank">neste artigo</a>.</p>
 </blockquote>
 
@@ -1565,12 +1565,12 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Seller Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Seller Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Seller"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
@@ -1741,7 +1741,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>3</td>
       <td>Sim</td>
-      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
+      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
@@ -1948,12 +1948,12 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 </span><span class="p">{</span><span class="w">
     </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"665a33c5-0022-4a40-a0bd-daad04eb3236"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ccc729-a874-4b51-a5a9-ffeb5bd98878"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Seller Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Seller Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Seller"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
@@ -2159,7 +2159,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>3</td>
       <td>Sim</td>
-      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
+      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
@@ -2368,12 +2368,12 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Seller Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Seller Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Seller"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
@@ -2509,7 +2509,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>3</td>
       <td>Sim</td>
-      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
+      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
@@ -2688,12 +2688,12 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 </span><span class="p">{</span><span class="w">
     </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"665a33c5-0022-4a40-a0bd-daad04eb3236"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ccc729-a874-4b51-a5a9-ffeb5bd98878"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Seller Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Seller Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Seller"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
@@ -2899,7 +2899,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td>Texto</td>
       <td>3</td>
       <td>Sim</td>
-      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
+      <td>Código de compensação do banco. <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BankAccount.BankAccountType</code></td>
@@ -3102,7 +3102,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 
 <h1 id="consulta-de-sellers">Consulta de Sellers</h1>
 
-<p>Você pode consultar um seller específico através do <code class="language-plaintext highlighter-rouge">MerchantId</code> do seller. Essa consulta é feita pela <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#ambientes">API de Onboarding Split 1.0</a>.</p>
+<p>Você pode consultar um seller específico através do <code class="language-plaintext highlighter-rouge">MerchantId</code> do seller. Essa consulta é feita pela <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#ambientes">API de Onboarding Split 1.0</a>.</p>
 
 <h2 id="requisição-4">Requisição</h2>
 
@@ -3114,12 +3114,12 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 </span><span class="p">{</span><span class="w">
     </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"665a33c5-0022-4a40-a0bd-daad04eb3236"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ccc729-a874-4b51-a5a9-ffeb5bd98878"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Subordinado Corporativo Ltda"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Subordinado Nome Fantasia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CorporateName"</span><span class="p">:</span><span class="s2">"Seller Corporativo Ltda"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FancyName"</span><span class="p">:</span><span class="s2">"Seller Nome Fantasia"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"96462142000140"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"CNPJ"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MerchantCategoryCode"</span><span class="p">:</span><span class="s2">"5719"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Subordinado"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ContactName"</span><span class="p">:</span><span class="s2">"Nome do Contato do Seller"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ContactPhone"</span><span class="p">:</span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"MailAddress"</span><span class="p">:</span><span class="s2">"addres@email.mail.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Website"</span><span class="p">:</span><span class="s2">"https://www.website.com.br"</span><span class="p">,</span><span class="w">
@@ -3540,7 +3540,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 <p>A API de Alteração de Taxas em Lote permite que o master realize a alteração das taxas entre ele e os seus sellers através de uma requisição. Atualmente, somente será possível informar o mesmo conjunto de taxas para todos os sellers.</p>
 
 <blockquote>
-  <p>A alteração de taxas é feita pela <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados#ambientes" target="_blank">API de Onboarding Split 2.0</a>.</p>
+  <p>A alteração de taxas é feita pela <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#ambientes" target="_blank">API de Onboarding Split 2.0</a>.</p>
 </blockquote>
 
 <h2 id="requisição-5">Requisição</h2>
