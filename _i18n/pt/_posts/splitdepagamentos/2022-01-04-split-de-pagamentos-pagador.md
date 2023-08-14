@@ -64,7 +64,7 @@ Ao contratar o Split de Pagamentos, você (usuário master) receberá as credenc
 
 > Nesta documentação, mostramos o passo a passo da integração via API. Para saber como usar o Backoffice Split, consulte os [artigos na nossa página de Suporte](https://suporte.braspag.com.br/hc/pt-br){:target="_blank"}.
 
-Antes de começar a transacionar, você precisa cadastrar os seus sellers. Para isso, leia a documentação [Onboarding de Sellers](https://braspag.github.io//manual/manual-api-de-cadastro-de-subordinados){:target="_blank"}.
+Antes de começar a transacionar, você precisa cadastrar os seus sellers. Para isso, leia a documentação [Onboarding de Sellers](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers){:target="_blank"}.
 
 Como master, o primeiro passo é fazer a sua integração com a API Cielo E-commerce 3.0.
 
