@@ -449,9 +449,9 @@ Para efetuar o envio do split pós transacional manualmente, é necessário aces
 
 A seguir, algumas funcionalidades do split de pagamentos disponibilizadas de forma customizada na Unirgy:
 
-### Vínculo do Seller ao Subordinado
+### Vínculo do Seller ao Master
 
-Existem duas formas de um seller ser vinculado a um subordinado:
+Existem duas formas de um seller ser vinculado a um master:
 
 * **Configuração Default do Seller**
    1. Para acessar esta configuração, vá até o menu `Vendas` > `Dropship` > `Vendors` e selecione o seller pretendido na grid, clicando em **Editar**.
@@ -488,9 +488,9 @@ Existem três formas de se cadastrar as taxas e descontos de comissões para um 
 
 A seguir, algumas funcionalidades do Split de Pagamentos disponibilizadas de forma customizada na Webkul:
 
-### Vínculo do Seller ao Subordinado
+### Vínculo do Seller ao Master
 
-Existem duas formas de um seller ser vinculado a um subordinado:
+Existem duas formas de um seller ser vinculado a um master:
 
 * **Configuração Default do Seller**
 1. Para acessar esta configuração, é necessário ir até o Menu `Marketplace
