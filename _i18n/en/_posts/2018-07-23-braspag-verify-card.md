@@ -20,6 +20,8 @@ language_tabs:
 
 **Zero Auth** is a service that identifies whether a card is valid or not, through an operation similar to an authorization, but with a value of $ 0.00.<br/>**Consulta BIN** is a service that uses a card's BIN (first 6 digits of a card) to return features such as brand and card type. It is available to Cielo 3.0 customers.
 
+<aside class="warning">Contact our support team to activate this service.</aside>
+
 Both services can be consumed simultaneously through VerifyCard. It is also possible to condition the authorization process to automatically follow a successful return of ZeroAuth. To enable this flow, please contact our support team.
 
 To query data from a card, send a request through the POST HTTP verb to the VerifyCard service, as in the example:
