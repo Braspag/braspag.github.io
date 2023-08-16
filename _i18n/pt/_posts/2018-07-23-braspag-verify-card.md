@@ -37,6 +37,8 @@ Já o Consulta BIN é um serviço disponível exclusivamente para clientes Cielo
 * **Banco emissor**: código e nome do emissor;
 * **Cartão pré-pago**: se o cartão é pré-pago ou não.
 
+<aside class="warning">Para habilitar a Consulta Bin, entre em contato com a equipe de suporte da Cielo.</aside>
+
 ## Benefícios do VerifyCard
 
 Os retornos do VerifyCard sobre a validade e informações do cartão permitem que a sua loja crie personalizações na sua aplicação e/ou checkout. Veja exemplos de uso:
