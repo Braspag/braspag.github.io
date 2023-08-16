@@ -26,6 +26,8 @@ O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar 
 
 ![Fluxo ZeroAuth]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/zeroauth.png)
 
+<aside class="warning">Para habilitar ZeroAuth, entre em contato com a equipe de suporte da Cielo.</aside>
+
 Já o Consulta BIN é um serviço disponível exclusivamente para clientes Cielo que retorna informações do cartão a partir do BIN (seis primeiros dígitos do cartão):
 
 ![Consulta BIN]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/consultabin.png)
