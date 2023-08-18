@@ -47,13 +47,13 @@ Veja as diferenças entre conectores:
 
 |Meios de Pagamento|Provedor Braspag|Provedor Braspag V2|Provedor Cielo V3|Provedor Cielo V4|Provedor CieloEcommerce|
 |-|-|-|-|-|-|
-|Boleto|Banco Brasil<br>Bradesco|Não oferece|Banco Brasil<br>Bradesco|Não oferece|Não oferece|
-|Boleto Registrado|Banco Brasil2<br>Bradesco2|Não oferece|Banco Brasil2<br>Bradesco2|Não oferece|**Adquirência**:<br>- Bradesco2<br>- BancoDoBrasil2<br>**Gateway**: - ItauShopline<br>- Caixa2 <br>- CitiBank2<br>- Santander2|
+|Boleto|Banco Brasil<br>Bradesco|Não se aplica|Banco Brasil<br>Bradesco|Não se aplica|Não se aplica|
+|Boleto Registrado|Banco Brasil2<br>Bradesco2|Não se aplica|Banco Brasil2<br>Bradesco2|Não se aplica|**Adquirência**:<br>- Bradesco2<br>- BancoDoBrasil2<br>**Gateway**: - ItauShopline<br>- Caixa2 <br>- CitiBank2<br>- Santander2|
 |Crédito|Cielo30<br>Banorte<br>Redecard<br>Ditef<br>Amex 2P <br>PagosOnLine<br>PayVision<br>Sitef<br>GetNet<br>Sub1 <br>Credibanco<br>E-rede2<br>E-rede<br>SafraPay|Cielo30<br>Rede2|Cielo|Cielo|Cielo - Adquirência<br>Cielo30<br>Getnet<br>Rede2 <br>Safra2<br>Sub1<br>Banorte<br>Credibanco2<br>Carrefour* <br>CredSystem*<br>Credz*<br>Dmcard*|
 |Débito|Cielo3.0<br>GetNet<br>Rede2|Cielo3.0<br>Rede2|Cielo|Cielo|Cielo - Adquirência<br>Cielo30<br>Getnet<br>Rede2<br>Safra2|
-|Pix|Não oferece|Não oferece|Não oferece|Não oferece|Bradesco2<br>Cielo - Adquirência<br>Cielo30 - Gateway|
-|Transferência Bancária|Não oferece|Não oferece| ? |Não oferece|Não oferece|
-|Voucher|Ticket|Não oferece|Alelo|Não oferece|Ticket - Gateway<br>Alelo|
+|Pix|Não se aplica|Não se aplica|Não se aplica|Não se aplica|Bradesco2<br>Cielo - Adquirência<br>Cielo30 - Gateway|
+|Transferência Bancária|Não se aplica|Não se aplica| ? |Não se aplica|Não se aplica|
+|Voucher|Ticket|Não se aplica|Alelo|Não se aplica|Ticket - Gateway<br>Alelo|
 
 *Bandeira própria
 
