@@ -148,10 +148,10 @@
 
 <ul>
   <li>
-    <p><strong>Atualiza Fácil</strong>: qualquer atualização no número do cartão que tenha sofrido bloqueio ou cancelamento por parte do emissor é automaticamente informado à Braspag, que por sua vez associa o novo cartão ao token já existente. Através da tecnologia das bandeiras, tudo isso é realizado de forma totalmente transparente para os estabelecimentos e portadores. Esta feature, interessante principalmente para quem trabalha no modelo de recorrência, está disponível para cartões Elo, Mastercard e Visa, e deve ser solicitada através do <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672" target="_blank">canal de suporte</a> da Braspag.</p>
+    <p><strong>Renova Fácil</strong>: qualquer atualização no número do cartão que tenha sofrido bloqueio ou cancelamento por parte do emissor é automaticamente informada à Braspag, que por sua vez associa o novo cartão ao token já existente. Através da tecnologia das bandeiras, tudo isso é realizado de forma totalmente transparente para os estabelecimentos e portadores. Esta feature, interessante principalmente para quem trabalha no modelo de recorrência, está disponível para cartões Elo, Mastercard e Visa, e deve ser solicitada através do <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672" target="_blank">canal de suporte</a> da Braspag.</p>
   </li>
   <li>
-    <p><strong>Maior taxa de conversão</strong>: as transações tokenizadas e processadas na Braspag via Pagador podem resultar em uma taxa de conversão maior que a média do mercado. Isso porque os cartões tokenizados nas bandeiras são autorizados junto com o criptograma, que provê maior segurança no processo. Com isso, os emissores tendem a aprovar mais facilmente.O Cartão Protegido está preparado para a tokenização de cartões Visa, Mastercard e Elo processando via Cielo 3.0; consulte a disponibilidade da bandeira e solicite esta feature no <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672" target="_blank">canal de suporte</a> da Braspag.</p>
+    <p><strong>Maior taxa de conversão</strong>: as transações tokenizadas e processadas na Braspag via Pagador podem resultar em uma taxa de conversão maior que a média do mercado. Isso porque os cartões tokenizados nas bandeiras, aumentando a segurança no processo. Com isso, os emissores tendem a aprovar mais facilmente. O Cartão Protegido está preparado para a tokenização de cartões Visa e Mastercard processando via Cielo 3.0; consulte a disponibilidade da bandeira e solicite esta feature no <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672" target="_blank">canal de suporte</a> da Braspag.</p>
   </li>
   <li>
     <p><strong>Ambiente seguro PCI DSS</strong>: a Braspag conta com ambiente certificado PCI DSS, que assegura a integridade e segurança de dados sensíveis como os de cartões de crédito.</p>
@@ -167,13 +167,13 @@
 
 <ul>
   <li>
-    <p><strong>Cobrança Recorrente Agendada (Scheduled Recurring Payments)</strong>: permite que estabelecimentos que já possuem uma solução interna de gerenciamento de recorrências possam utilizar a plataforma para armazenar os dados de cartão de crédito e processar através de tokens de pagamento. Exemplo: assinatura de serviços.</p>
+    <p><strong>Cobrança Recorrente Agendada</strong>: permite que estabelecimentos que já possuem uma solução interna de gerenciamento de recorrências possam o Cartão Protegido para armazenar os dados de cartão de crédito e processar através de tokens de pagamento. Exemplo: assinatura de serviços.</p>
   </li>
   <li>
-    <p><strong>Cobrança Recorrente não Agendada (Unscheduled Recurring Payments)</strong>: permite que estabelecimentos que cobram seus clientes já cadastrados, mas sem uma periodicidade definida, possam utilizar a plataforma. Exemplo: aplicativos de transporte.</p>
+    <p><strong>Cobrança Recorrente não Agendada</strong>: permite que estabelecimentos que cobram seus clientes já cadastrados, mas sem uma periodicidade definida, possam usar o Cartão Protegido. Exemplo: aplicativos de transporte.</p>
   </li>
   <li>
-    <p><strong>Compra com 1 Clique (Just Click Payments)</strong>: permite que um pagamento online, via cartão de crédito, seja feito pulando-se a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras. Os dados do cartão já foram previamente informados em compras anteriores e serão replicados em futuras compras mediante a autorização do comprador.</p>
+    <p><strong>Compra com 1 Clique</strong>: permite que um pagamento online, via cartão de crédito, seja feito pulando-se a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras. Os dados do cartão já foram previamente informados em compras anteriores e serão replicados em futuras compras mediante a autorização do comprador.</p>
   </li>
   <li>
     <p><strong>Recuperação de Vendas</strong>: permite que estabelecimentos possam entrar novamente em contato com clientes que eventualmente tenham tido problemas na compra, oferecendo uma nova tentativa de cobrança.</p>
@@ -276,12 +276,14 @@
 <p>O valor <em>“{base64}”</em> para a autorização do tipo “Basic” deve ser obtido da seguinte forma:</p>
 
 <ol>
-  <li>Concatene o “ClientId” e o “ClientSecret” (<code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>).</li>
+  <li>Concatene o <code class="language-plaintext highlighter-rouge">ClientId</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code> (<code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>).</li>
   <li>Codifique o resultado da concatenação em base64.</li>
   <li>Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.</li>
 </ol>
 
-<p>Solicite à equipe de suporte a criação do “ClientID” e do “ClientSecret” de sua loja para utilização nos ambientes SANDBOX e de PRODUÇÃO.</p>
+<blockquote>
+  <p>Solicite à equipe de suporte a criação do <code class="language-plaintext highlighter-rouge">ClientID</code> e do <code class="language-plaintext highlighter-rouge">ClientSecret</code> de sua loja para utilização nos ambientes SANDBOX e de PRODUÇÃO.</p>
+</blockquote>
 
 <h3 id="requisição">Requisição</h3>
 
@@ -359,9 +361,13 @@
   </tbody>
 </table>
 
-<h2 id="criação-do-tokenreference">Criação do TokenReference</h2>
+<h2 id="criando-o-tokenreference">Criando o TokenReference</h2>
 
-<p>O objetivo deste método é salvar um cartão e obter como resposta o <code class="language-plaintext highlighter-rouge">TokenReference</code> (referência do token).</p>
+<p>O objetivo deste método é salvar um cartão e obter como resposta o <code class="language-plaintext highlighter-rouge">TokenReference</code> (referência do token). A resposta da requisição irá retornar também os dados do cartão de forma mascarada.</p>
+
+<blockquote>
+  <p>O valor do <code class="language-plaintext highlighter-rouge">TokenReference</code> deve ser submetido à autorização no parâmetro <code class="language-plaintext highlighter-rouge">CardToken</code>.</p>
+</blockquote>
 
 <h3 id="requisição-1">Requisição</h3>
 
@@ -592,7 +598,7 @@
   </tbody>
 </table>
 
-<h2 id="obtenção-de-informações-do-token">Obtenção de Informações do Token</h2>
+<h2 id="consultando-informações-do-token">Consultando informações do token</h2>
 
 <p>O objetivo deste método é obter informações relacionadas a uma referência de token, tais como <em>Status</em>, <em>Cartão Mascarado</em>, <em>Data de Validade</em> e <em>Nome do Portador</em>.</p>
 
@@ -708,7 +714,7 @@
       <td>Indica o provedor que armazenou o cartão.</td>
       <td>Texto</td>
       <td>-</td>
-      <td>Valores possíveis: “Braspag” / “Master”</td>
+      <td>Valores possíveis: “Braspag” / “Master” / “Visa”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Account.Number</code></td>
@@ -734,9 +740,13 @@
   </tbody>
 </table>
 
-<h2 id="obtenção-do-token">Obtenção do Token</h2>
+<h2 id="obtendo-o-token-pelo-alias">Obtendo o token pelo alias</h2>
 
-<p>O objetivo deste método é obter a referência de token a partir de um alias previamente informado.</p>
+<p>O objetivo deste método é obter a referência de token a partir de um alias (apelido do cartão) previamente informado.</p>
+
+<blockquote>
+  <p>Para obter informações do token, veja Consultando Informações do Token.</p>
+</blockquote>
 
 <h3 id="requisição-3">Requisição</h3>
 
@@ -827,7 +837,7 @@
   </tbody>
 </table>
 
-<h2 id="remoção-do-token">Remoção do Token</h2>
+<h2 id="excluindo-o-token">Excluindo o token</h2>
 
 <p>O objetivo deste método é remover a referência do token da base definitivamente. O <code class="language-plaintext highlighter-rouge">TokenReference</code> removido através deste método não pode ser recuperado.</p>
 
@@ -893,7 +903,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
-      <td>Motivo da remoção do token. Valores possíveis: “FraudSuspicion” / “Other”.</td>
+      <td>Motivo da remoção do token. Valores possíveis: “FraudSuspicion” para suspeita de fraude / “Other” para outros.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
@@ -952,7 +962,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status atual do token no Cartão Protegido.</td>
+      <td>Status atual do token no Cartão Protegido. Neste exemplo, “Removed”.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
@@ -960,7 +970,7 @@
   </tbody>
 </table>
 
-<h2 id="suspensão-do-token">Suspensão do Token</h2>
+<h2 id="suspendendo-um-token">Suspendendo um token</h2>
 
 <p>O objetivo deste método é suspender uma referência do token temporariamente. O <code class="language-plaintext highlighter-rouge">TokenReference</code> suspenso através deste método pode ser reativado via método <strong>Reativação do Token</strong>.</p>
 
@@ -1026,7 +1036,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
-      <td>Motivo da remoção do token. Valores possíveis: “FraudSuspicion” / “Other”.</td>
+      <td>Motivo da remoção do token. Valores possíveis: “FraudSuspicion” para suspeita de fraude / “Other” para outros.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
@@ -1095,7 +1105,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status atual do token no Cartão Protegido.</td>
+      <td>Status atual do token no Cartão Protegido. Neste exemplo, “Suspended”.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
@@ -1103,7 +1113,7 @@
   </tbody>
 </table>
 
-<h2 id="reativação-do-token">Reativação do Token</h2>
+<h2 id="reativando-um-token">Reativando um token</h2>
 
 <p>O objetivo deste método é reativar uma referência do token.</p>
 
@@ -1283,26 +1293,26 @@
   </tbody>
 </table>
 
-<h1 id="dicas-de-implementação">Dicas de Implementação</h1>
+<h1 id="dicas-de-implementação">Dicas de implementação</h1>
 
-<h2 id="código-de-segurança-do-cartão">Código de Segurança do Cartão</h2>
+<h2 id="código-de-segurança-do-cartão">Código de segurança do cartão</h2>
 
 <p>O código de segurança é obrigatório para que uma autorização seja aceita pelo emissor do cartão. Ele é mais um mecanismo de segurança no processo antifraude, em que busca-se validar que a pessoa utilizando o cartão é de fato a dona dele.</p>
 
-<p>Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo tendo-se a certificação PCI, como no caso da Braspag. A recomendação é que o CVV seja sempre solicitado no ato da compra.</p>
+<p>Por esta razão, as regras do PCI permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança, nem mesmo sendo certificado pelo PCI, como no caso da Braspag. A recomendação é que o CVV seja sempre solicitado no ato da compra.</p>
 
 <aside class="warning">Estabelecimentos que possuam o modelo de negócio baseado em recorrência (ex.: assinaturas de serviços) devem solicitar junto à adquirência contratada a liberação de transações sem CVV.</aside>
 
-<h2 id="compra-com-1-clique">Compra com 1 Clique</h2>
+<h2 id="compra-com-um-clique">Compra com um clique</h2>
 
 <p>Algumas dicas para impulsionar sua conversão:</p>
 
 <ul>
-  <li>Salve o número do cartão mascarado. Assim, você poderá apresentar ao cliente os cartões habilitados para “compra com 1 clique”;</li>
-  <li>Salve a data de validade do cartão mascarado. Assim, você poderá comunicar ao cliente quando o cartão armazenado expirar, sugerindo sua troca;</li>
-  <li>Pergunte se o comprador deseja armazenar os dados do cartão para uma próxima compra;</li>
-  <li>Garanta a segurança de login e senha dos usuarios do site. Senhas fracas são facilmente descobertas e o fraudador consegue realizar uma compra mesmo sem ter o cartão (em caso de não solicitação do CVV pelo site);</li>
-  <li>Controle variáveis de sessão para evitar que o usuário permaneça logado no site e que outra pessoa acesse depois, fazendo “compras via 1 clique” com este login (ex.: usuários conectados em LAN houses).</li>
+  <li><strong>Salve o número do cartão mascarado</strong>. Assim, você poderá apresentar ao cliente os cartões habilitados para <strong>compra com um clique</strong>;</li>
+  <li><strong>Salve a data de validade do cartão mascarado</strong>. Assim, você poderá comunicar ao cliente quando o cartão armazenado expirar, sugerindo sua troca;</li>
+  <li><strong>Pergunte se o comprador deseja armazenar</strong> os dados do cartão para uma próxima compra;</li>
+  <li><strong>Garanta a segurança de login e senha dos usuarios do site</strong>. Senhas fracas são facilmente descobertas e o fraudador consegue realizar uma compra mesmo sem ter o cartão (em caso de não solicitação do CVV pelo site);</li>
+  <li><strong>Controle variáveis de sessão</strong> para evitar que o usuário permaneça logado no site e que outra pessoa acesse depois, fazendo “compras via um clique” com este login (ex.: usuários conectados em LAN houses).</li>
 </ul>
 
 </div>
