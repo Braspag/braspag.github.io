@@ -327,7 +327,7 @@ O objetivo deste método é obter informações relacionadas a uma referência d
 
 O objetivo deste método é obter a referência de token a partir de um alias (apelido do cartão) previamente informado. 
 
-> Para obter informações do token, veja Consultando Informações do Token.
+> Para obter informações do token, veja [Consultando Informações do Token](https://braspag.github.io//manual/cartao-protegido-api-rest#consultando-informa%C3%A7%C3%B5es-do-token).
 
 ### Requisição
 
