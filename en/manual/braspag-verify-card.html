@@ -140,272 +140,72 @@
             <div class="post">
   <h1 id="verifycard">VerifyCard</h1>
 
-<p><strong>VerifyCard</strong> is composed of two services: <em>Zero Auth</em> and <em>Consulta BIN</em>.</p>
+<p><strong>VerifyCard</strong> comprises two services: <strong>Zero Auth</strong> and <strong>BIN Query</strong>.</p>
 
-<p><strong>Zero Auth</strong> is a service that identifies whether a card is valid or not, through an operation similar to an authorization, but with a value of $ 0.00.<br /><strong>Consulta BIN</strong> is a service that uses a card’s BIN (first 6 digits of a card) to return features such as brand and card type. It is available to Cielo 3.0 customers.</p>
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/verifycard.png" alt="VerifyCard" /></p>
 
-<aside class="warning">Contact our support team to activate this service.</aside>
+<p><strong>Zero Auth</strong> is a service that identifies whether a card is valid or not, through an operation similar to an authorization, but with a value of R$0.00.</p>
 
-<p>Both services can be consumed simultaneously through VerifyCard. It is also possible to condition the authorization process to automatically follow a successful return of ZeroAuth. To enable this flow, please contact our support team.</p>
+<p>Zero Auth simulates an authorization without affecting the credit limit or alerting the cardholder to the test.</p>
 
-<p>To query data from a card, send a request through the POST HTTP verb to the VerifyCard service, as in the example:</p>
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/zeroauth.png" alt="Fluxo ZeroAuth" /></p>
 
-<h2 id="request">Request</h2>
+<aside class="warning">To enable ZeroAuth, contact Cielo's support team.</aside>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
+<p>BIN Query is a service available exclusively to Cielo customers that returns card information based on the BIN (first six digits of the card):</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"Card"</span><span class="w"> </span><span class="p">:</span><span class="w">
-   </span><span class="p">{</span><span class="w">
-       </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999999 ****** 9999"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao da Silva"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03/2026"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"***"</span><span class="w">
-       </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/consultabin.png" alt="Consulta BIN" /></p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/verifycard"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="nt">--verbose</span>
-<span class="o">{</span>
-   <span class="s2">"Provider"</span>: <span class="s2">"Cielo30"</span>,
-   <span class="s2">"Card"</span>:
-   <span class="o">{</span>
-       <span class="s2">"CardNumber"</span>: <span class="s2">"999999 ****** 9999"</span>,
-       <span class="s2">"Holder"</span>: <span class="s2">"Joao da Silva"</span>,
-       <span class="s2">"ExpirationDate"</span>: <span class="s2">"03/2026"</span>,
-       <span class="s2">"SecurityCode"</span>: <span class="s2">"***"</span>,
-       <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
-       <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>
-   <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<ul>
+  <li><strong>Card brand</strong>: name of the brand;</li>
+  <li><strong>Type of card</strong>: credit, debit or multiple (credit and debit);</li>
+  <li><strong>Card nationality</strong>: international or national;</li>
+  <li><strong>Corporate card</strong>: if the card is corporate or not;</li>
+  <li><strong>Issuing bank</strong>: code and name of the issuer;</li>
+  <li><strong>Prepaid card</strong>: whether the card is prepaid or not.</li>
+</ul>
 
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier at Braspag.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public key for dual authentication at Braspag.</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Name of payment method’s provider.</td>
-      <td>Text</td>
-      <td>15</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.CardNumber</code></td>
-      <td>Buyer’s card number for Zero Auth and Consulta BIN. If it is a Consulta BIN request only, send only BIN (6 or 9 digits).</td>
-      <td>Text</td>
-      <td>16</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
-      <td>Buyer’s name printed on the card.</td>
-      <td>Text</td>
-      <td>25</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
-      <td>Expiration date printed on the card in the MM/YYYY format.</td>
-      <td>Text</td>
-      <td>7</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
-      <td>Security code printed on the back of the card.</td>
-      <td>Number</td>
-      <td>4</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.Brand</code></td>
-      <td>Card brand.</td>
-      <td>Text</td>
-      <td>10</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.Type</code></td>
-      <td>Type of card to be consulted (“CreditCard” / “DebitCard”). This field is particularly important due to multi-function cards.</td>
-      <td>Text</td>
-      <td>10</td>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
+<aside class="warning">To enable Bin Query, contact Cielo's support team.</aside>
 
-<h2 id="response">Response</h2>
+<h2 id="benefits-of-verifycard">Benefits of VerifyCard</h2>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Authorized Transaction"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"BinData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crédito"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ForeignCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Analise autorizada"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CorporateCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank Name"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IssuerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<p>VerifyCard’s responses on expiration and card information allows your store to create customizations in your application and/or checkout. See usage examples:</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-    <span class="s2">"Status"</span>: 1,
-    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"00"</span>,
-    <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Transacao autorizada"</span>,
-    <span class="s2">"BinData"</span>: <span class="o">{</span>
-        <span class="s2">"Provider"</span>: <span class="s2">"Master"</span>,
-        <span class="s2">"CardType"</span>: <span class="s2">"Crédito"</span>,
-        <span class="s2">"ForeignCard"</span>: <span class="nb">false</span>,
-        <span class="s2">"Code"</span>: <span class="s2">"00"</span>,
-        <span class="s2">"Message"</span>: <span class="s2">"Analise autorizada"</span>,
-        <span class="s2">"CorporateCard"</span>: <span class="nb">false</span>,
-        <span class="s2">"Issuer"</span>: <span class="s2">"Bank Name"</span>,
-        <span class="s2">"IssuerCode"</span>: <span class="s2">"000"</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<ul>
+  <li><strong>Request authorization only if the card is valid</strong>: you can create a condition in your application to only send the authorization request if you get a successful response from ZeroAuth;</li>
+</ul>
 
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Zero Auth status.</td>
-      <td>Number</td>
-      <td>1</td>
-      <td>“0” - Failed Zero Auth query<br />“1” - Successful Zero Auth query<br />“99” - Successful consultation, but card status is inconclusive</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Zero Auth query code returned by the provider. This is the same code returned by the provider during a standard authorization. E.g.: “82” - invalid card (for the Cielo30 provider)</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Zero Auth query message returned by the provider.</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>E.g.: “Authorized Transaction”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BinData.Provider</code></td>
-      <td>Service provider.</td>
-      <td>Text</td>
-      <td>15</td>
-      <td>E.g.: “Cielo30”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BinData.CardType</code></td>
-      <td>Card type returned from Consulta BIN.</td>
-      <td>Text</td>
-      <td>15</td>
-      <td>E.g.: “Credit” / “Debit” / “Multiple”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BinData.ForeignCard</code></td>
-      <td>Indicates if it is a card issued outside Brazil.</td>
-      <td>boolean</td>
-      <td>-</td>
-      <td>E.g.: “true” / “false”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BinData.Code</code></td>
-      <td>BIN query return code.</td>
-      <td>Number</td>
-      <td>2</td>
-      <td>E.g.: “00” - successful consultation (for the Cielo30 provider)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BinData.Message</code></td>
-      <td>BIN Query Return Message</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>E.g.: “Analise autorizada” means successful consultation (for the Cielo30 provider)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BinData.CorporateCard</code></td>
-      <td>Indicates whether it is a corporate card.</td>
-      <td>boolean</td>
-      <td>-</td>
-      <td>E.g.: “true” / “false”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BinData.Issuer</code></td>
-      <td>Name of the card issuer.</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>E.g.: “Bank Name” (subject to mapping by the acquirer)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BinData.IssuerCode</code></td>
-      <td>Card issuer code.</td>
-      <td>Number</td>
-      <td>3</td>
-      <td>E.g.: “000” (subject to mapping by the acquirer)</td>
-    </tr>
-  </tbody>
-</table>
+<aside class="notice"> To enable this flow, contact our support team.</aside>
 
-<h1 id="programmed-responses">Programmed Responses</h1>
+<ul>
+  <li><strong>Request tokenization only if the card is valid</strong>: you can create a condition in your application to only request the tokenization of a card if it is valid. Learn more in the topic Using VerifyCard with Cartão Protegido;</li>
+  <li><strong>Avoid errors related to the type of card or brand</strong>: if your checkout requires manual selection of the brand or card type, you develop an alert message for when, for example, the person is using a debit card when they really should be using a credit;</li>
+  <li><strong>Offer cart recovery</strong>: you can develop a flow at your checkout so that, if the card entered is multiple (credit and debit), your store can retain the card data and, if the credit transaction fails, automatically offer the consumer a debit transaction with the same card;</li>
+  <li><strong>Alert about international or prepaid cards</strong>: if your store does not want to receive international payments or prepaid cards, for example, you can configure your checkout to inform the consumer that the store does not accept the card informed.</li>
+</ul>
 
-<p>You are able test VerifyCard (Zero Auth) returns in sandbox environment using the provider “Simulado”. Use the test cards in the table below to simulate scenarios for autorized and not authorized consultation and operation failure.</p>
+<h2 id="using-verifycard-with-cartão-protegido">Using VerifyCard with Cartão Protegido</h2>
+
+<p>VerifyCard can be used in conjunction with the card tokenization service (Cartão Protegido).</p>
+
+<p>In this case, the VerifyCard API first receives the Zero Auth service request and validates it with the acquirer, which responds whether the card is valid or not. The VerifyCard API then sends this return to the store, which can choose whether or not to request tokenization of the card to the Protected Card API.</p>
+
+<p>See below the representation of this <strong>transactional flow</strong>, using <strong>VerifyCard</strong> in conjunction with <strong>Cartão Protegido</strong>:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/fluxo-trans3b-pt.png" alt="VerifyCard com Cartão Protegido" /></p>
+
+<h2 id="verifycard-in-sandbox">VerifyCard in sandbox</h2>
+
+<h3 id="zero-auth-programmed-responses">Zero Auth programmed responses</h3>
+
+<p>It is possible to test the VerifyCard (Zero Auth) returns in a sandbox environment using the “Simulado” provider. For this, you can use the test cards in the table below to simulate the scenarios of authorized, unauthorized and operation failure.</p>
 
 <table>
   <thead>
     <tr>
       <th>Card number</th>
       <th>Status</th>
-      <th>Return</th>
+      <th>Returns</th>
       <th>Message</th>
     </tr>
   </thead>
@@ -431,7 +231,607 @@
   </tbody>
 </table>
 
-<p>If you want to test Consulta BIN return scenarios in sandbox, see <a href="https://developercielo.github.io/manual/'?json#consulta-bin-sandbox" target="_blank">Cielo documentation</a>.</p>
+<h3 id="programmed-responses-bin-query">Programmed Responses BIN Query</h3>
+
+<p>In the simulation of the BIN Query in a sandbox environment, each of the first six digits will return a simulated result. It is possible to set up a test card numbering and observe the expected return according to different scenarios.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Digit</th>
+      <th>Meaning</th>
+      <th>Returns</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1st digit</td>
+      <td>Brand.</td>
+      <td>If it’s ‘<strong>3</strong>’, it returns “<strong>AMEX</strong>“<br />If it’s ‘<strong>5</strong>’, it returns “<strong>MASTERCARD</strong>“<br />If it’s ‘<strong>6</strong>’, it returns “<strong>DISCOVER</strong>“<br />Any other number returns “<strong>VISA</strong>”.</td>
+    </tr>
+    <tr>
+      <td>2nd digit</td>
+      <td>Card type.</td>
+      <td>If it’s ‘<strong>3</strong>’, it returns “<strong>Debit</strong>“<br />If it’s ‘<strong>5</strong>’, it returns “<strong>Credit</strong>“<br />If it’s ‘<strong>7</strong>’, it returns “<strong>Credit</strong>” and returns the <code class="language-plaintext highlighter-rouge">Prepaid</code> field as “<strong>true</strong>“<br />Any other number returns “<strong>Multiple</strong>”.</td>
+    </tr>
+    <tr>
+      <td>3rd digit</td>
+      <td>Card nationality.</td>
+      <td>If ‘<strong>1</strong>’ returns “<strong>true</strong>” (domestic card)<br />Any number other than ‘<strong>1</strong>’ returns “<strong>false</strong>” (international card).</td>
+    </tr>
+    <tr>
+      <td>4th digit</td>
+      <td>Whether the card is corporate or not.</td>
+      <td>If it’s ‘<strong>1</strong>’, it returns “<strong>true</strong>” (it’s a corporate card)<br />Any number other than ‘<strong>1</strong>’ returns “<strong>false</strong>” (it’s not a corporate card).</td>
+    </tr>
+    <tr>
+      <td>5th digit</td>
+      <td>Analysis return.</td>
+      <td>If it is ‘<strong>2</strong>’ it returns “<strong>01 - Flag not supported</strong>“<br />If it is ‘<strong>3</strong>’ it returns “<strong>02 - Voucher - Not supported in the bin query</strong>” <br />Any other number returns “<strong>00 - Analysis authorized</strong>”</td>
+    </tr>
+    <tr>
+      <td>6th digit</td>
+      <td>Issuer bank.</td>
+      <td>If it’s ‘<strong>1</strong>’, it returns “<strong>104</strong>” and “<strong>Cashier</strong>“<br />If it’s ‘<strong>2</strong>’, it returns “<strong>001</strong>” and “<strong>Bank do Brasil</strong>“<br />Any other number returns “<strong>237</strong>” and “<strong>Bradesco</strong>”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="environments">Environments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Transactional URL Basis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sandbox</td>
+      <td>https://apisandbox.braspag.com.br/</td>
+    </tr>
+    <tr>
+      <td>Production</td>
+      <td>https://api.braspag.com.br/</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="integrating">Integrating</h1>
+
+<p>To query a card, send a request using the HTTP POST verb to the VerifyCard service, following the examples in this manual. The VerifyCard query can be done by card number or token.</p>
+
+<p>In the request to VerifyCard, you will send the <code class="language-plaintext highlighter-rouge">Provider</code> together with the card data (number or tokenized card).</p>
+
+<p>In the response, the ZeroAuth check will be displayed on the <code class="language-plaintext highlighter-rouge">Status</code>, <code class="language-plaintext highlighter-rouge">ProviderReturnCode</code> and <code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code> properties. O retorno da Consulta BIN estará nas propriedades do nó <code class="language-plaintext highlighter-rouge">BinData</code>.</p>
+
+<h1 id="verifycard-by-card-number">VerifyCard by card number</h1>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Card"</span><span class="p">:</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999999******9999"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao da Silva"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03/2026"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/verifycard"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+<span class="o">{</span>
+   <span class="s2">"Provider"</span>: <span class="s2">"Cielo30"</span>,
+   <span class="s2">"Card"</span> :
+   <span class="o">{</span>
+       <span class="s2">"CardNumber"</span>: <span class="s2">"999999******9999"</span>,
+       <span class="s2">"Holder"</span>: <span class="s2">"Joao da Silva"</span>,
+       <span class="s2">"ExpirationDate"</span>: <span class="s2">"03/2026"</span>,
+       <span class="s2">"SecurityCode"</span>: <span class="s2">"***"</span>,
+       <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
+       <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Braspag store identifier.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public key for double authentication on Braspag.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Name of the payment method provider.</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.CardNumber</code></td>
+      <td>Shopper’s card number for Zero Auth and BIN Query. If it is just a BIN Query request, send only the BIN (6 or 9 digits).</td>
+      <td>Text</td>
+      <td>16</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
+      <td>Shopper’s name printed on card.</td>
+      <td>Text</td>
+      <td>25</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
+      <td>Expiration date printed on the card, in MM/YYYY format.</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
+      <td>Security code printed on the back of the card.</td>
+      <td>Text</td>
+      <td>4</td>
+      <td>Yes (No, if authorized by the purchaser)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.Brand</code></td>
+      <td>Card brand.</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.Type</code></td>
+      <td>Type of card to be consulted (“CreditCard” / “DebitCard”). This field is particularly important due to cards with multiple functions.</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="response">Response</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transacao autorizada"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BinData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crédito"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ForeignCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Analise autorizada"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CorporateCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banco da Praça"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IssuerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CardBin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999999"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CardLast4Digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Prepaid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"Status"</span>: 1,
+    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"00"</span>,
+    <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Transacao autorizada"</span>,
+    <span class="s2">"BinData"</span>: <span class="o">{</span>
+        <span class="s2">"Provider"</span>: <span class="s2">"Master"</span>,
+        <span class="s2">"CardType"</span>: <span class="s2">"Crédito"</span>,
+        <span class="s2">"ForeignCard"</span>: <span class="nb">false</span>,
+        <span class="s2">"Code"</span>: <span class="s2">"00"</span>,
+        <span class="s2">"Message"</span>: <span class="s2">"Analise autorizada"</span>,
+        <span class="s2">"CorporateCard"</span>: <span class="nb">false</span>,
+        <span class="s2">"Issuer"</span>: <span class="s2">"Banco da Praça"</span>,
+        <span class="s2">"IssuerCode"</span>: <span class="s2">"001"</span>,
+        <span class="s2">"CardBin"</span>: <span class="s2">"999999"</span>,
+        <span class="s2">"CardLast4Digits"</span>: <span class="s2">"9999"</span>,
+        <span class="s2">"Prepaid"</span>: <span class="nb">false</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Zero Auth Status.</td>
+      <td>Number</td>
+      <td>1</td>
+      <td>“0” - Zero Auth query failed<br />“1” - Zero Auth query was successful<br />“99” - Query was successful, but the card status is inconclusive</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
+      <td>Zero Auth query code returned by the provider.</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>This is the same code returned by the provider during a standard authorization. Ex.: “82” - invalid card (for Cielo30 provider)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
+      <td>Zero Auth query message returned by provider.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Eg.: “Transacao Autorizada” (Authorized Transaction)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Provider</code></td>
+      <td>Service provider.</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Eg.: “Cielo30”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CardType</code></td>
+      <td>Card type returned from the BIN Query.</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Eg.: “Crédito” / “Débito” / “Múltiplo” (Credit / Debit / Multiple)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.ForeignCard</code></td>
+      <td>Indicates whether it is a card issued outside Brazil.</td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>Eg.: true/false</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Code</code></td>
+      <td>BIN Query return code.</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>Ex.: “00” - successful query (for Cielo30 provider)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Message</code></td>
+      <td>BIN Query return message.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Ex.: “Analise autorizada” (Analysis authorized) - query performed successfully (for Cielo30 provider)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CorporateCard</code></td>
+      <td>Indicates whether the card is corporate.</td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>Eg.: true/false</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Issuer</code></td>
+      <td>Card issuer name.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Eg.: “Banco da Praça” (subject to mapping by the acquirer)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.IssuerCode</code></td>
+      <td>Card issuer code.</td>
+      <td>Number</td>
+      <td>3</td>
+      <td>Eg.: “000” (subject to acquirer mapping)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CardBin</code></td>
+      <td>The first six digits of the card.</td>
+      <td>Number</td>
+      <td>6</td>
+      <td>Eg.: “999999”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CardLast4Digits</code></td>
+      <td>Last 4 digits of the card number.</td>
+      <td>Number</td>
+      <td>4</td>
+      <td>Eg.: “9999”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Prepaid</code></td>
+      <td>Indicates whether the card is prepaid or not</td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>Eg.: “000” (subject to acquirer mapping)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="verifycard-by-card-token">VerifyCard by card token</h1>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/verifycard</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af1ffa95-e4a6-4ed9-9270-a9cb4c586c4a"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"939"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/verifycard"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+<span class="o">{</span>
+   <span class="s2">"Provider"</span>: <span class="s2">"Cielo30"</span>,
+   <span class="s2">"Card"</span> :
+   <span class="o">{</span>
+       <span class="s2">"CardToken"</span>: <span class="s2">"af1ffa95-e4a6-4ed9-9270-a9cb4c586c4a"</span>,
+        <span class="s2">"SecurityCode"</span>: <span class="s2">"939"</span>,
+        <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Braspag store identifier.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public key for double authentication on Braspag.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Name of the payment method provider.</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.CardToken</code></td>
+      <td>Token on the <em>Cartão Protegido</em> that represents card data.</td>
+      <td>Text</td>
+      <td>16</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
+      <td>Security code printed on the back of the card.</td>
+      <td>Text</td>
+      <td>4</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.Brand</code></td>
+      <td>Card brand.</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.Type</code></td>
+      <td>Type of card to be queried (“CreditCard”/”DebitCard”). This field is particularly important due to cards with multiple functions.</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="response-1">Response</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transacao autorizada"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BinData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crédito"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ForeignCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Analise autorizada"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CorporateCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banco da Praça"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IssuerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CardBin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999999"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CardLast4Digits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Prepaid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"Status"</span>: 1,
+    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"00"</span>,
+    <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Transacao autorizada"</span>,
+    <span class="s2">"BinData"</span>: <span class="o">{</span>
+        <span class="s2">"Provider"</span>: <span class="s2">"Master"</span>,
+        <span class="s2">"CardType"</span>: <span class="s2">"Crédito"</span>,
+        <span class="s2">"ForeignCard"</span>: <span class="nb">false</span>,
+        <span class="s2">"Code"</span>: <span class="s2">"00"</span>,
+        <span class="s2">"Message"</span>: <span class="s2">"Analise autorizada"</span>,
+        <span class="s2">"CorporateCard"</span>: <span class="nb">false</span>,
+        <span class="s2">"Issuer"</span>: <span class="s2">"Banco da Praça"</span>,
+        <span class="s2">"IssuerCode"</span>: <span class="s2">"001"</span>,
+        <span class="s2">"CardBin"</span>: <span class="s2">"999999"</span>,
+        <span class="s2">"CardLast4Digits"</span>: <span class="s2">"9999"</span>,
+        <span class="s2">"Prepaid"</span>: <span class="nb">false</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Zero Auth Status.</td>
+      <td>Number</td>
+      <td>1</td>
+      <td>“0” - Zero Auth query failed<br />“1” - Zero Auth query was successful<br />“99” - Query was successful, but the card status is inconclusive</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
+      <td>Zero Auth query code returned by the provider.</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>This is the same code returned by the provider during a standard authorization. Ex.: “82” - invalid card (for Cielo30 provider)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
+      <td>Zero Auth query message returned by provider.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Eg.: “Transacao Autorizada” (Authorized Transaction)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Provider</code></td>
+      <td>Service provider.</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Eg.: “Cielo30”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CardType</code></td>
+      <td>Card type returned from the BIN Query.</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Eg.: “Crédito” / “Débito” / “Múltiplo” (Credit / Debit / Multiple)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.ForeignCard</code></td>
+      <td>Indicates whether it is a card issued outside Brazil.</td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>Eg.: true/false</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Code</code></td>
+      <td>BIN Query return code.</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>Ex.: “00” - successful query (for Cielo30 provider)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Message</code></td>
+      <td>BIN Query return message.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Ex.: “Analise autorizada” (Analysis authorized) - query performed successfully (for Cielo30 provider)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CorporateCard</code></td>
+      <td>Indicates whether the card is corporate.</td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>Eg.: true/false</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Issuer</code></td>
+      <td>Card issuer name.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Eg.: “Banco da Praça” (subject to mapping by the acquirer)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.IssuerCode</code></td>
+      <td>Card issuer code.</td>
+      <td>Number</td>
+      <td>3</td>
+      <td>Eg.: “000” (subject to acquirer mapping)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CardBin</code></td>
+      <td>The first six digits of the card.</td>
+      <td>Number</td>
+      <td>6</td>
+      <td>Eg.: “999999”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.CardLast4Digits</code></td>
+      <td>Last 4 digits of the card number.</td>
+      <td>Number</td>
+      <td>4</td>
+      <td>Eg.: “9999”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BinData.Prepaid</code></td>
+      <td>Indicates whether the card is prepaid or not</td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>Eg.: “000” (subject to acquirer mapping)</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
