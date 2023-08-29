@@ -217,8 +217,8 @@ Na resposta, a verificação do ZeroAuth será exibida nas propriedades `Status`
 |`BinData.CorporateCard`|Indica se o cartão é corporativo.|Booleano|--- |Ex.: true/false|
 |`BinData.Issuer`|Nome do emissor do cartão.|Texto|512 |Ex.: "Banco da Praça" (sujeito a mapeamento do adquirente)|
 |`BinData.IssuerCode`|Código do emissor do cartão.|Número|3 |Ex.: "000" (sujeito a mapeamento do adquirente)|
-|`BinData.CardBin`|Código do emissor do cartão.|Número|6 |Ex.: "999999"|
-|`BinData.CardLast4Digits`|Código do emissor do cartão.|Número|4 |Ex.: "9999"|
+|`BinData.CardBin`|São os seis primeiros dígitos do cartão.|Número|6 |Ex.: "999999"|
+|`BinData.CardLast4Digits`|Quatro últimos dígitos do cartão.|Número|4 |Ex.: "9999"|
 |`BinData.Prepaid`|Indica se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
 
 # VerifyCard pelo token do cartão
@@ -327,6 +327,6 @@ Na resposta, a verificação do ZeroAuth será exibida nas propriedades `Status`
 |`BinData.CorporateCard`|Indica se o cartão é corporativo.|booleano|--- |Ex.: "true" / "false"|
 |`BinData.Issuer`|Nome do emissor do cartão.|Texto|512 |Ex.: "Banco da Praça" (sujeito a mapeamento do adquirente)|
 |`BinData.IssuerCode`|Código do emissor do cartão.|Número|3 |Ex.: "000" (sujeito a mapeamento do adquirente)|
-|`BinData.CardBin`|Código do emissor do cartão.|Número|6 |Ex.: "999999"|
-|`BinData.CardLast4Digits`|Código do emissor do cartão.|Número|4 |Ex.: "9999"|
+|`BinData.CardBin`|São os seis primeiros dígitos do cartão.|Número|6 |Ex.: "999999"|
+|`BinData.CardLast4Digits`|Quatro últimos dígitos do cartão.|Número|4 |Ex.: "9999"|
 |`BinData.Prepaid`|Indica se o cartão é pré-pago ou não|Booleano|---|Ex.: "000" (sujeito a mapeamento do adquirente)|
