@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-08-30T17:27:03+00:00</updated>
+    <updated>2023-08-30T18:15:21+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -2355,33 +2355,12 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
     </entry>
     
     <entry>
-        <title>Ewallets</title>
-        <category term="" />
-        <link href="https://braspag.github.io//en/ewallets"/>
+        <title>E-Wallets</title>
+        <category term="manual" />
+        <link href="https://braspag.github.io//en/manual/ewallets"/>
         <updated>2021-02-11T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/ewallets</id>
-        <content type="html">&lt;p&gt;layout: manual
-title: E-Wallets
-description: Integração Técnica Gateway Braspag
-search: true
-translated: true
-categories: manual
-sort_order: 4
-tags:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;ol&gt;
-      &lt;li&gt;Pagador
-language_tabs:
-  json: JSON
-  shell: cURL&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;e-wallet-digital-wallet&quot;&gt;E-Wallet (Digital Wallet)&lt;/h1&gt;
+        <id>https://braspag.github.io//en/manual/ewallets</id>
+        <content type="html">&lt;h1 id=&quot;e-wallet-digital-wallet&quot;&gt;E-Wallet (Digital Wallet)&lt;/h1&gt;
 
 &lt;p&gt;E-wallets are electronic safes (repositories) of cards and payment data for the physical and e-commerce customers. Digital wallets allow a customer to register their payment details, making the purchase process more convenient and secure.&lt;/p&gt;
 
