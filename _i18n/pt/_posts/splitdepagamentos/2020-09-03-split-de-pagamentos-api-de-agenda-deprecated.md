@@ -11,6 +11,8 @@ tags:
 
 ---
 
+> **Atenção**: O conteúdo deste manual foi descontinuado. Para informações sobre agenda e conciliação, consulte o [Manual de Conciliação no Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao).
+
 # Split de Pagamentos - API de Agenda
 
 ## Introdução
