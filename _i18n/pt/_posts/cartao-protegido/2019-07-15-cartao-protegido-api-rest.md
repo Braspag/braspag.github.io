@@ -23,13 +23,13 @@ A plataforma é compatível com o gateway [Pagador](https://braspag.github.io//m
 
 ![Cartão Protegido]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/cp-cp.png)
 
-* **Renova Fácil**: qualquer atualização no número do cartão que tenha sofrido bloqueio ou cancelamento por parte do emissor é automaticamente informada à Braspag, que por sua vez associa o novo cartão ao token já existente. Através da tecnologia das bandeiras, tudo isso é realizado de forma totalmente transparente para os estabelecimentos e portadores. Esta feature, interessante principalmente para quem trabalha no modelo de recorrência, está disponível para cartões Elo, Mastercard e Visa.
+* **Renova Fácil***: qualquer atualização no número do cartão que tenha sofrido bloqueio ou cancelamento por parte do emissor é automaticamente informada à Braspag, que por sua vez associa o novo cartão ao token já existente. Através da tecnologia das bandeiras, tudo isso é realizado de forma totalmente transparente para os estabelecimentos e portadores. Esta feature, interessante principalmente para quem trabalha no modelo de recorrência, está disponível para cartões Elo, Mastercard e Visa.
 
 * **Maior taxa de conversão**: as transações tokenizadas e processadas na Braspag via Pagador podem resultar em uma taxa de conversão maior que a média do mercado. Isso porque os cartões tokenizados nas bandeiras, aumentando a segurança no processo. Com isso, os emissores tendem a aprovar mais facilmente. O Cartão Protegido está preparado para a tokenização de cartões Visa e Mastercard processando via Cielo 3.0.
 
 * **Ambiente seguro PCI DSS**: a Braspag conta com ambiente certificado PCI DSS, que assegura a integridade e segurança de dados sensíveis como os de cartões de crédito.
 
-* **Garantia da utilização de cartões válidos**: o Cartão Protegido só aceitará salvar cartões que passem pela checagem do Algorítimo de Luhn, também conhecido como "mod10". Isso dará maior segurança e certeza de que os cartões salvos tenham o mínimo de validação de sua veracidade. Para saber mais sobre esse processo, consulte o nosso artigo "[Como Validar um Cartão?](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051){:target="_blank"}".
+* **Garantia de uso de cartões válidos***: o Cartão Protegido só aceitará salvar cartões que passem pela checagem do Algorítimo de Luhn, também conhecido como "mod10". Isso dará maior segurança e certeza de que os cartões salvos tenham o mínimo de validação de sua veracidade. Para saber mais sobre esse processo, consulte o nosso artigo "[Como Validar um Cartão?](https://suporte.braspag.com.br/hc/pt-br/articles/360050638051){:target="_blank"}".
 
 *Consulte disponibilidade e solicite esta feature com o [Suporte Braspag](https://suporte.braspag.com.br/hc/pt-br/articles/360006721672){:target="_blank"}.
 
