@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-08-30T13:42:56+00:00</updated>
+    <updated>2023-08-30T17:27:03+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -2355,12 +2355,33 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
     </entry>
     
     <entry>
-        <title>E-Wallets</title>
-        <category term="manual" />
-        <link href="https://braspag.github.io//en/manual/ewallets"/>
+        <title>Ewallets</title>
+        <category term="" />
+        <link href="https://braspag.github.io//en/ewallets"/>
         <updated>2021-02-11T00:00:00+00:00</updated>
-        <id>https://braspag.github.io//en/manual/ewallets</id>
-        <content type="html">&lt;h1 id=&quot;e-wallet-digital-wallet&quot;&gt;E-Wallet (Digital Wallet)&lt;/h1&gt;
+        <id>https://braspag.github.io//en/ewallets</id>
+        <content type="html">&lt;p&gt;layout: manual
+title: E-Wallets
+description: Integração Técnica Gateway Braspag
+search: true
+translated: true
+categories: manual
+sort_order: 4
+tags:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Pagador
+language_tabs:
+  json: JSON
+  shell: cURL&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;e-wallet-digital-wallet&quot;&gt;E-Wallet (Digital Wallet)&lt;/h1&gt;
 
 &lt;p&gt;E-wallets are electronic safes (repositories) of cards and payment data for the physical and e-commerce customers. Digital wallets allow a customer to register their payment details, making the purchase process more convenient and secure.&lt;/p&gt;
 
@@ -2383,12 +2404,11 @@ For more information about the Cielo E-Commerce API, see the &lt;a href=&quot;ht
 &lt;aside class=&quot;warning&quot;&gt;When the “Wallet” node is sent in the request, the “DebitCard” node containing the “ReturnUrl” will be required for debit cards.&lt;/aside&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Card brands supported by the wallets&lt;/strong&gt;
-Vist the wallet website to know more about supported card brands:
-&lt;a href=&quot;https://support.google.com/wallet/answer/12059326?visit_id=638217380303676306-1822163035&amp;amp;rd=1&quot; target=&quot;\_blank&quot;&gt;GooglePay&lt;/a&gt;
-&lt;a href=&quot;https://www.apple.com/br/apple-pay/&quot; target=&quot;\_blank&quot;&gt;ApplePay&lt;/a&gt;
-&lt;a href=&quot;https://www.samsung.com.br/services/pay/&quot; target=&quot;\_blank&quot;&gt;SamsungPay&lt;/a&gt;
-&lt;a href=&quot;PayPal: https://www.paypal.com/br/cshelp/article/help468&quot; target=&quot;\_blank&quot;&gt;PayPal&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Card brands supported by the wallets&lt;/strong&gt;&lt;br /&gt;
+Vist the wallet website to know more about supported card brands:&lt;br /&gt;
+&lt;a href=&quot;https://support.google.com/wallet/answer/12059326?visit_id=638217380303676306-1822163035&amp;amp;rd=1&quot; target=&quot;\_blank&quot;&gt;GooglePay&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.apple.com/br/apple-pay/&quot; target=&quot;\_blank&quot;&gt;ApplePay&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.samsung.com.br/services/pay/&quot; target=&quot;\_blank&quot;&gt;SamsungPay&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;e-wallet-integration&quot;&gt;E-Wallet Integration&lt;/h2&gt;
@@ -2863,6 +2883,8 @@ Vist the wallet website to know more about supported card brands:
 
 &lt;p&gt;At the end of the process performed in the Apple API, you will receive a JSON containing two important fields that will be used in “PART 3”: the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;paymentData.data&lt;/code&gt; and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ephemeralPublicKey.header.EphemeralPublicKey&lt;/code&gt; fields.&lt;/p&gt;
 
+&lt;p&gt;Check below an &lt;strong&gt;example&lt;/strong&gt; of how Apple API may send the JSON:&lt;/p&gt;
+
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;applePayData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;paymentData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -2887,11 +2909,15 @@ Vist the wallet website to know more about supported card brands:
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;The parameter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Wallet.WalletKey&lt;/code&gt; sent in Gateway authorization request should be filled with the value received from Apple in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;paymentData.data&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;h3 id=&quot;important-note&quot;&gt;Important Note&lt;/h3&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;During the Apple Pay implementation, there will be a reference to the &quot;. CER&quot; certificate, generated in PART 1, to encrypt the data while communicating with Apple. The decryption process of the data returned by Apple MUST NOT be implemented at this point as, for Braspag customers, this task will be carried out by our gateway solution, Pagador.&lt;/aside&gt;
 
-&lt;h2 id=&quot;part-3-integrating-with-pagador-decryption-and-authorization&quot;&gt;PART 3. Integrating with Pagador (decryption and authorization)&lt;/h2&gt;
+&lt;h2 id=&quot;part-3-integrating-with-pagador&quot;&gt;PART 3. Integrating with Pagador&lt;/h2&gt;
 
 &lt;p&gt;Authorization with the Apple Pay token happens in the same way as standard credit card authorization. However, instead of transmitting the card data openly, you must provide the token received from Apple Pay, as shown in the example below:&lt;/p&gt;
 
@@ -3261,9 +3287,11 @@ In this step, you must &lt;strong&gt;add dependencies&lt;/strong&gt; either by i
 
 &lt;h1 id=&quot;samsung-pay-&quot;&gt;Samsung Pay ™&lt;/h1&gt;
 
-&lt;p&gt;Below is one prerequisite for using Samsung Pay, followed by an example of a request to make it available in your store.&lt;/p&gt;
+&lt;p&gt;Below is a prerequisite for using Samsung Pay, followed by an example of a request to make it available in your store.&lt;/p&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;The store must already have Samsung registration and integration before integrating with the Pagador API.&lt;/aside&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The store must already have Samsung registration and integration before integrating with the Pagador API. For more information, refer to &lt;a href=&quot;https://pay.samsung.com/developers&quot; target=&quot;_blank&quot;&gt;Samsung Pay&lt;/a&gt; documentation.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;request-3&quot;&gt;Request&lt;/h2&gt;
 
