@@ -10,6 +10,8 @@ hub_visible: false
 tags:
 ---
 
+> **Atenção**: Este manual foi descontinuado e seu conteúdo não é mais válido.
+
 # Boleto Braspag
 
 ## Boleto Registrado
