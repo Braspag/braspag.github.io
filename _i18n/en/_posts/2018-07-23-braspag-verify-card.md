@@ -18,13 +18,13 @@ language_tabs:
 
 **VerifyCard** comprises two services: **Zero Auth** and **BIN Query**.
 
-![VerifyCard]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/verifycard.png)
+![VerifyCard]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/verifycard-en.png)
  
 **Zero Auth** is a service that identifies whether a card is valid or not, through an operation similar to an authorization, but with a value of R$0.00.
 
 Zero Auth simulates an authorization without affecting the credit limit or alerting the cardholder to the test.
 
-![Fluxo ZeroAuth]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/zeroauth.png)
+![Fluxo ZeroAuth]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/zeroauth-en.png)
 
 <aside class="warning">To enable ZeroAuth, contact Cielo's support team.</aside>
 
