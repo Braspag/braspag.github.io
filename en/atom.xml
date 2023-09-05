@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-09-05T11:57:05+00:00</updated>
+    <updated>2023-09-05T12:01:39+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -7960,7 +7960,7 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
 
 &lt;p&gt;See below the representation of this &lt;strong&gt;transactional flow&lt;/strong&gt;, using &lt;strong&gt;VerifyCard&lt;/strong&gt; in conjunction with &lt;strong&gt;Cartão Protegido&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/fluxos/fluxo-trans3b-pt.png&quot; alt=&quot;VerifyCard com Cartão Protegido&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/fluxos/fluxo-trans3b-en.png&quot; alt=&quot;VerifyCard com Cartão Protegido&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;verifycard-in-sandbox&quot;&gt;VerifyCard in sandbox&lt;/h2&gt;
 
