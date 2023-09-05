@@ -62,7 +62,7 @@ In this case, the VerifyCard API first receives the Zero Auth service request an
 
 See below the representation of this **transactional flow**, using **VerifyCard** in conjunction with **Cartão Protegido**:
 
-![VerifyCard com Cartão Protegido]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/fluxo-trans3b-pt.png)
+![VerifyCard com Cartão Protegido]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/fluxo-trans3b-en.png)
 
 ## VerifyCard in sandbox
 
