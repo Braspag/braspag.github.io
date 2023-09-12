@@ -8239,7 +8239,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">88</td>
       <td style="text-align: left">Sim</td>
-      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="language-plaintext highlighter-rouge">session_id</code> do script que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas <br /> <a href="https://braspag.github.io/manual/antifraude#fingerprint-com-a-cybersource" target="_blank">Saiba como configurar o Fingerprint</a>no manual do Antifraude</td>
+      <td style="text-align: left">É o valor do <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>. Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.<br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.<br /> <a href="https://braspag.github.io/manual/antifraude#fingerprint-com-a-cybersource" target="_blank">Saiba como configurar o Fingerprint no manual do Antifraude</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.HostName</code></td>
@@ -9307,7 +9307,11 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <p>É necessário integrar o Fingerprint no seu checkout para permitir a <strong>identificação digital do dispositivo do comprador</strong>. O Fingerprint consiste na implementação de um script na sua página de checkout (front-end), na parte onde o comprador preenche os dados cadastrais.</p>
 
-<p>Confira no manual do Antifraude <a href="https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource" target="_blank">como configurar o Fingerprint</a> para web e mobile e qual valor será enviado no campo <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code>.</p>
+<blockquote>
+  <p><strong>Atenção</strong>: na integração do Split via Pagador com o Antifraude, o valor do <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code> deve ser enviado no campo <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.FingerPrintId</code>.</p>
+</blockquote>
+
+<p>Confira no manual do Antifraude <a href="https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource" target="_blank">como configurar o Fingerprint</a> para web e mobile.</p>
 
 <h2 id="tabelas">Tabelas</h2>
 
