@@ -10,6 +10,8 @@ hub_visible: false
 tags:
 ---
 
+> **Atenção**: O conteúdo deste manual foi descontinuado. Para informações sobre agenda e conciliação, consulte o manual [Split API E-commerce](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#antifraude) ou [Split Pagador](https://braspag.github.io//manual/split-de-pagamentos-pagador#antifraude).
+
 # Split de Pagamentos -  Plataforma Antifraude
 
 O Split de Pagamentos é composto por uma plataforma antifraude cujo objetivo é minimizar as fraudes e as ocorrências de chargebacks nos estabelecimentos que o utilizam.
