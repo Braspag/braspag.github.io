@@ -11,6 +11,8 @@ tags:
 
 ---
 
+> **Atenção**: O conteúdo deste manual foi descontinuado. Para informações sobre agenda e conciliação, consulte o manual [Split API E-commerce](https://braspag.github.io//manual/split-de-pagamentos-cielo-e-commerce#cancelamento) ou [Split Pagador](https://braspag.github.io//manual/split-de-pagamentos-pagador#cancelamento).
+
 # Split de Pagamentos - API de Cancelamento
 
 ## Introdução
