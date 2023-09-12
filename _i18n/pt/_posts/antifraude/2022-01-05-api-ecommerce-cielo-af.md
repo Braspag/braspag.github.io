@@ -89,7 +89,10 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
             "City":"São Paulo",
             "State":"SP",
             "Country":"BR",
-            "District":"Alphaville"
+            "District":"Alphaville",
+            "FirstName": "João",
+            "LastName": "Silva",
+            "Phone": "552121114700"
         }
     },
     "Payment":{  
@@ -234,6 +237,9 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço de entrega|
 |`Customer.DeliveryAddress.Country`|Texto|2|Não|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|
 |`Customer.DeliveryAddress.District`|Texto|45|Não|Bairro do endereço de entrega|
+|`Customer.DeliveryAddress.FirstName`| String | 60 | Não|	Primeiro nome do responsável a receber o produto no endereço de entrega.	|
+|`Customer.DeliveryAddress.LastName`| String | 60 | Não|Último do nome do responsável a receber o produto no endereço de entrega.	|
+|`Customer.DeliveryAddress.Phone`	|String | 15 | Não| Número do telefone do responsável a receber o produto no endereço de entrega. Ex.: 552121114700	|
 |`Payment.Provider`|Texto|15|Não|Define comportamento do meio de pagamento (ver Anexo) <br/> Obs.: Não obrigatório para `Payment.Type` igual a _CreditCard_|
 |`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento. <br/> Obs.: Somente o tipo _CreditCard_ funciona com análise de fraude|
 |`Payment.Amount`|Número|15|Sim|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|
