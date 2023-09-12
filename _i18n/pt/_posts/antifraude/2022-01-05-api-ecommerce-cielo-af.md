@@ -330,7 +330,10 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
             "City":"São Paulo",
             "State":"SP",
             "Country":"BR",
-            "District":"Alphaville"
+            "District":"Alphaville",
+            "FirstName": "João",
+            "LastName": "Silva",
+            "Phone": "552121114700"
         }
     },
     "Payment": {
