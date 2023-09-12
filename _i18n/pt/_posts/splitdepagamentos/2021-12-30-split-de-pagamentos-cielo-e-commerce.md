@@ -4492,7 +4492,9 @@ Caso a análise de fraude recomende rejeitar a transação, o fluxo é interromp
 
 ![FluxoSplitAF]({{ site.baseurl_root }}/images/braspag/split/split11-fluxo-transacional-af.png)
 
-Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.FraudAnalysis`. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos `Customer.DeliveryAddress` e/ou `Customer.BillingAddress`.
+Para utilizar o Antifraude, é necessário incluir o bloco `Payment.FraudAnalysis`. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos `Customer.DeliveryAddress` e/ou `Customer.BillingAddress`.
+
+> Uma das etapas da integração do Antifraude é a configuração do Fingerprint, identificação digital do dispositivo, representado pelo parâmetro `Payment.FraudAnalysis.Browser.BrowserFingerPrint`. No campo `Payment[...]BrowserFingerPrint` envie o valor do `ProviderIdentifier`. Saiba mais na documentação do [Antifraude Gateway](https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource){:target="_blank"}.
 
 |Campos|Tipo|Tamanho|Obrigatório|Descrição|
 |--|--|--|--|--|
@@ -4542,7 +4544,7 @@ Para utilizar o sistema de antifraude, é necessário incluir o bloco `Payment.F
 |`Payment.FraudAnalysis.TotalOrderAmount`|Inteiro|15|Não|Valor total do pedido em centavos, podendo ser diferente do valor da transação  |Ex.: Valor do pedido sem a taxa de entrega|
 |`Payment.FraudAnalisys.Browser`|-|-|Sim|-|
 |`Payment.FraudAnalysis.Browser.IpAddress`|Texto|255|Sim|Ip do comprador|
-|`Payment.FraudAnalysis.Browser.BrowserFingerPrint`|Texto|88|Sim|Impressão digital de dispositivos e geolocalização real do IP do comprador [Configuração do Fingerprint](https://braspag.github.io//manual/antifraude#cybersource){:target="_blank"}|
+|`Payment.FraudAnalysis.Browser.BrowserFingerPrint`|Texto|88|Sim|Impressão digital de dispositivos e geolocalização real do IP do comprador. É o valor do `ProviderIdentifier`. Saiba mais em [Configuração do Fingerprint](https://braspag.github.io//manual/antifraude#cybersource){:target="_blank"}|
 |`Payment.FraudAnalysis.Cart`|Lista|-|Não|Nó contendo as informações do carrinho de compras para análise de fraude|
 |`Payment.FraudAnalysis.Cart.Items[].Name`|Texto|50|Não|Nome do produto|
 |`Payment.FraudAnalysis.Cart.Items[].Sku`|Texto|12|Não|Sku do produto|
