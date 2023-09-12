@@ -5053,7 +5053,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |`Payment.FraudAnalysis.Provider`|Texto|10|Sim|Provedor de AntiFraude <br/> Possíveis valores: Cybersource|
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será capturada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após o Split receber a notificação da alteração de status e esta for baixo risco (Accept) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Número|15|Sim|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|
-|`Payment.FraudAnalysis.FingerPrintId`|Texto|88|Sim|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas <br/> [Saiba como configurar o Fingerprint](https://braspag.github.io/manual/antifraude#fingerprint-com-a-cybersource){:target="_blank"}no manual do Antifraude|
+|`Payment.FraudAnalysis.FingerPrintId`|Texto|88|Sim|É o valor do `ProviderIdentifier`. Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.<br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.<br/> [Saiba como configurar o Fingerprint no manual do Antifraude](https://braspag.github.io/manual/antifraude#fingerprint-com-a-cybersource){:target="_blank"}|
 |`Payment.FraudAnalysis.Browser.HostName`|Texto|60|Não|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|
 |`Payment.FraudAnalysis.Browser.CookiesAccepted`|Booleano|---|Sim|Identifica se o browser do comprador aceita cookies <br/> Possíveis valores: true / false (default)|
 |`Payment.FraudAnalysis.Browser.Email`|Texto|100|Não|E-mail registrado no browser do comprador. Pode diferenciar do e-mail de cadastro na loja(`Customer.Email`)|
@@ -5414,7 +5414,9 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 
 É necessário integrar o Fingerprint no seu checkout para permitir a **identificação digital do dispositivo do comprador**. O Fingerprint consiste na implementação de um script na sua página de checkout (front-end), na parte onde o comprador preenche os dados cadastrais.
 
-Confira no manual do Antifraude [como configurar o Fingerprint](https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource){:target="_blank"} para web e mobile e qual valor será enviado no campo `Payment.FraudAnalysis.FingerPrintId`.
+> **Atenção**: na integração do Split via Pagador com o Antifraude, o valor do `ProviderIdentifier` deve ser enviado no campo `Payment.FraudAnalysis.FingerPrintId`.
+
+Confira no manual do Antifraude [como configurar o Fingerprint](https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource){:target="_blank"} para web e mobile.
 
 ## Tabelas
 
