@@ -10,6 +10,8 @@ hub_visible: false
 tags:
 ---
 
+> **Atenção**: O conteúdo deste manual foi descontinuado. Para informações sobre liquidação, consulte o [Manual de Conciliação no Split de Pagamentos](https://braspag.github.io//manual/split-pagamentos-nova-api-conciliacao).
+
 # Split de Pagamentos - Liquidação em Ciclo
 
 ## Introdução
