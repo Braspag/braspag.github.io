@@ -6762,7 +6762,11 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
 
 <p><img src="https://braspag.github.io//images/braspag/split/split11-fluxo-transacional-af.png" alt="FluxoSplitAF" /></p>
 
-<p>Para utilizar o sistema de antifraude, é necessário incluir o bloco <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code>. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos <code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress</code> e/ou <code class="language-plaintext highlighter-rouge">Customer.BillingAddress</code>.</p>
+<p>Para utilizar o Antifraude, é necessário incluir o bloco <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis</code>. Em casos de uma compra remota ou com entrega, também deverão ser incluidos os blocos <code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress</code> e/ou <code class="language-plaintext highlighter-rouge">Customer.BillingAddress</code>.</p>
+
+<blockquote>
+  <p>Uma das etapas da integração do Antifraude é a configuração do Fingerprint, identificação digital do dispositivo, representado pelo parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.BrowserFingerPrint</code>. No campo <code class="language-plaintext highlighter-rouge">Payment[...]BrowserFingerPrint</code> envie o valor do <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>. Saiba mais na documentação do <a href="https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource" target="_blank">Antifraude Gateway</a>.</p>
+</blockquote>
 
 <table>
   <thead>
@@ -7149,7 +7153,7 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
       <td>Texto</td>
       <td>88</td>
       <td>Sim</td>
-      <td>Impressão digital de dispositivos e geolocalização real do IP do comprador <a href="https://braspag.github.io//manual/antifraude#cybersource" target="_blank">Configuração do Fingerprint</a></td>
+      <td>Impressão digital de dispositivos e geolocalização real do IP do comprador. É o valor do <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>. Saiba mais em <a href="https://braspag.github.io//manual/antifraude#cybersource" target="_blank">Configuração do Fingerprint</a></td>
       <td> </td>
     </tr>
     <tr>
