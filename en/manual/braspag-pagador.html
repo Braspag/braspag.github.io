@@ -4477,380 +4477,6 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h2 id="electronic-transfer">Electronic Transfer</h2>
-
-<p>Similar to a debit card payment, an electronic transfer connects the customer to their issuer in order to authenticate a debit sale. The difference between them is that transfers are neither submitted to the acquirer nor depend on card data.</p>
-
-<h3 id="creating-a-transaction">Creating a Transaction</h3>
-
-<p>To create a sale, you must send an HTTP message through the POST method to the <em>Payment</em> resource, according to the example:</p>
-
-<h4 id="request-11">Request</h4>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051109"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shopper Name"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shopper@braspag.com.br"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-             </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27th floor"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"ElectronicTransfer"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.braspag.com.br"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Beneficiary"</span><span class="p">:</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Bank"</span><span class="p">:</span><span class="s2">"Bradesco"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"Shopper"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"Branch"</span><span class="p">:</span><span class="s2">"1669"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Account"</span><span class="p">:</span><span class="s2">"19887-5"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2017051109"</span>,
-    <span class="s2">"Customer"</span>:
-    <span class="o">{</span>
-        <span class="s2">"Name"</span>: <span class="s2">"shopper Name"</span>,
-        <span class="s2">"Identity"</span>:<span class="s2">"12345678909"</span>,
-        <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>,
-        <span class="s2">"Email"</span>: <span class="s2">"shopper@braspag.com.br"</span>,
-        <span class="s2">"Address"</span>:
-        <span class="o">{</span>
-             <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
-             <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
-             <span class="s2">"Complement"</span>:<span class="s2">"27th floor"</span>,
-             <span class="s2">"ZipCode"</span>:<span class="s2">"12345987"</span>,
-             <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
-             <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
-             <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
-             <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
-        <span class="o">}</span>
-    <span class="o">}</span>,
-    <span class="s2">"Payment"</span>:
-    <span class="o">{</span>
-        <span class="s2">"Provider"</span>:<span class="s2">"Simulado"</span>,
-        <span class="s2">"Type"</span>:<span class="s2">"ElectronicTransfer"</span>,
-        <span class="s2">"Amount"</span>:10000,
-        <span class="s2">"ReturnUrl"</span>:<span class="s2">"http://www.braspag.com.br"</span>,
-        <span class="s2">"Beneficiary"</span>:
-            <span class="o">{</span>
-            <span class="s2">"Bank"</span>:<span class="s2">"Bradesco"</span>
-        <span class="o">}</span>,
-        <span class="s2">"Shopper"</span>:<span class="o">{</span>
-            <span class="s2">"Branch"</span>:<span class="s2">"1669"</span>,
-            <span class="s2">"Account"</span>:<span class="s2">"19887-5"</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in the API.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Yes (through header)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public key for dual authentication in the API.</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Sim (through header)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>No (through header)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Order ID number.</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Customer’s name.</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Customer’s ID, CPF or CNPJ number.</td>
-      <td>Text</td>
-      <td>14</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Customer’s ID document type (CPF or CNPJ).</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Customer’s email address.</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Customer’s contact address.</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Customer’s contact address number.</td>
-      <td>Text</td>
-      <td>15</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Customer’s contact address additional information.</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Customer’s contact address zip code.</td>
-      <td>Text</td>
-      <td>8</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Customer’s contact address city.</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Customer’s contact address state.</td>
-      <td>Text</td>
-      <td>2</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Customer’s contact address country.</td>
-      <td>Text</td>
-      <td>35</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Customer’s contact address neighborhood.</td>
-      <td>Text</td>
-      <td>35</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Payment method type. In this case, “EletronicTransfer”.</td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Order amount in cents.</td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Name of payment method provider.</td>
-      <td>Text</td>
-      <td>15</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Beneficiary.Bank</code></td>
-      <td>Payer’s bank (required only for electronic transfers with PayMeeSemiTransparent).</td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Conditional</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Shopper.Branch</code></td>
-      <td>Payer’s agency (required only for electronic transfers with PayMeeSemiTransparent). Note: Suppress this node for <em>Depósito Identificado</em>.</td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Conditional</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Shopper.Account</code></td>
-      <td>Payer’s account (required only for electronic transfers with PayMeeSemiTransparent). Note: Suppress this node for <em>Depósito Identificado</em>.</td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Conditional</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="response-12">Response</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051109"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shopper Name"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shopper@braspag.com.br"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w">
-        </span><span class="p">{</span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27th floor"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/{PaymentId}"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"765548b6-c4b8-4e2c-b9b9-6458dbd5da0a"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EletronicTransfer"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-25 09:37:55"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.braspag.com.br"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2017051109"</span>,
-    <span class="s2">"Customer"</span>:<span class="o">{</span>
-        <span class="s2">"Name"</span>: <span class="s2">"Shopper name"</span>,
-    <span class="o">}</span>,
-    <span class="s2">"Payment"</span>:<span class="o">{</span>
-        <span class="s2">"Url"</span>: <span class="s2">"https://xxx.xxxxxxx.xxx.xx/post/ElectronicTransfer/Redirect/{PaymentId}"</span>,
-        <span class="s2">"PaymentId"</span>: <span class="s2">"765548b6-c4b8-4e2c-b9b9-6458dbd5da0a"</span>,
-        <span class="s2">"Type"</span>: <span class="s2">"EletronicTransfer"</span>,
-        <span class="s2">"Amount"</span>:10000,
-        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2015-06-25 09:37:55"</span>,
-        <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
-        <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
-        <span class="s2">"Provider"</span>: <span class="s2">"Bradesco"</span>,
-        <span class="s2">"ReturnUrl"</span>: <span class="s2">"http://www.braspag.com.br"</span>,
-        <span class="s2">"ReasonCode"</span>: 0,
-        <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
-        <span class="s2">"Status"</span>: 0,
-        <span class="s2">"Links"</span>: <span class="o">[</span>
-            <span class="o">{</span>
-                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
-                <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/{PaymentId}"</span>
-            <span class="o">}</span>
-        <span class="o">]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order identifier field.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Url</code></td>
-      <td>URL to which the shopper will be redirected for electronic transfer authentication.</td>
-      <td>Text</td>
-      <td>256</td>
-      <td>Authentication URL</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction status.</td>
-      <td>Byte</td>
-      <td>2</td>
-      <td>E.g.: 1</td>
-    </tr>
-  </tbody>
-</table>
-
 <h2 id="e-wallet-digital-wallet">E-Wallet (Digital Wallet)</h2>
 
 <p>E-wallets are electronic safes (repositories) of cards and payment data for the physical and e-commerce customers. Digital wallets allow a customer to register their payment details, making the purchase process more convenient and secure.</p>
@@ -4883,7 +4509,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>A transaction with a voucher card is similar to a debit card transaction; only without the authentication process. Currently, only the <em>Alelo</em> and <em>Ticket</em> providers are supported in this modality.</p>
 
-<h4 id="request-12">Request</h4>
+<h4 id="request-11">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5071,7 +4697,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-13">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -5255,7 +4881,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>The <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> and <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code> parameters, marked with an “*” in the “REQUIRED” column, must not be used together.</p>
 
-<h4 id="request-13">Request</h4>
+<h4 id="request-12">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5473,7 +5099,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-14">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -5623,7 +5249,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>To schedule the first transaction in the recurrence series, pass the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> parameter as “false” and add the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code> parameter.</p>
 
-<h4 id="request-14">Request</h4>
+<h4 id="request-13">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5817,7 +5443,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-15">Response</h4>
+<h4 id="response-14">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -5959,7 +5585,7 @@ The example below covers the minimum required fields to be submitted for authori
 <p>To change customer data in an existing recurrence, simply make a PUT call to the specified endpoint.
 In <strong>response</strong> to your request, the API will return an <a href="https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code" target="_blank">HTTP Status</a> code, informing whether the operation was successful or not.</p>
 
-<h4 id="request-15">Request</h4>
+<h4 id="request-14">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -6218,7 +5844,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-15">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6229,7 +5855,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <p>To change the end date of the existing recurrence, just make a PUT call as in the example.</p>
 
-<h4 id="request-16">Request</h4>
+<h4 id="request-15">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -6295,7 +5921,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-17">Response</h4>
+<h4 id="response-16">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6306,7 +5932,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <p>To change the range of an existing recurrence, just make a PUT call as shown in the example.</p>
 
-<h4 id="request-17">Request</h4>
+<h4 id="request-16">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -6372,7 +5998,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-18">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6389,7 +6015,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <p>3- If the newly entered day comes before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the coming recurrence.<br />E.g.: Today is May 5, and the next recurrence is September 25. When I upgrade to day 3, the next recurrence date will be September 3.</p>
 
-<h4 id="request-18">Request</h4>
+<h4 id="request-17">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -6455,7 +6081,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-18">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6466,7 +6092,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <p>To modify the transaction value of an existing recurrence, simply make a PUT call as shown in the example.</p>
 
-<h4 id="request-19">Request</h4>
+<h4 id="request-18">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -6533,7 +6159,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-19">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6546,7 +6172,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <aside class="warning">This change only affects the payment date of the exact next recurrence. All the following dates will remain unchanged.</aside>
 
-<h4 id="request-20">Request</h4>
+<h4 id="request-19">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -6612,7 +6238,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-20">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6633,7 +6259,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <aside class="warning">CAUTION: This change affects all Payment node data. In order to keep the previous data, you must enter the fields that will remain unchanged with their currently saved values.</aside>
 
-<h4 id="request-21">Request</h4>
+<h4 id="request-20">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -6839,7 +6465,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h4 id="response-22">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6852,11 +6478,79 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>To deactivate a recurring request, simply make a PUT call as shown in the example.</p>
 
-<h4 id="request-22">Request</h4>
+<h4 id="request-21">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>API store identifier.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Yes (through header)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public key for dual authentication in API.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes (through header)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>No (through header)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Recurrence ID number.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes (through endpoint)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-22">Response</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code">HTTP Status Code</a> annex for a list of all HTTP status codes possibly returned by the API.</p>
+
+<h2 id="order-reactivation">Order Reactivation</h2>
+
+<h3 id="reactivating-a-recurring-order">Reactivating a Recurring Order</h3>
+
+<p>To reactivate a recurring request, simply make a PUT call as shown in the example.</p>
+
+<h4 id="request-22">Request</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -6914,74 +6608,6 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>Refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code">HTTP Status Code</a> annex for a list of all HTTP status codes possibly returned by the API.</p>
 
-<h2 id="order-reactivation">Order Reactivation</h2>
-
-<h3 id="reactivating-a-recurring-order">Reactivating a Recurring Order</h3>
-
-<p>To reactivate a recurring request, simply make a PUT call as shown in the example.</p>
-
-<h4 id="request-23">Request</h4>
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>API store identifier.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Yes (through header)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public key for dual authentication in API.</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes (through header)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>No (through header)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Recurrence ID number.</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes (through endpoint)</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="response-24">Response</h4>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
-</code></pre></div></div>
-
-<p>Refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code">HTTP Status Code</a> annex for a list of all HTTP status codes possibly returned by the API.</p>
-
 <h2 id="transaction-with-renova-fácil">Transaction with Renova Fácil</h2>
 
 <p><em>Renova Fácil</em> was developed by CIELO together with issuers. It’s a service which aims in increasing the conversion rate of recurring credit card sales.</p>
@@ -6992,7 +6618,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>&lt;aside class=”notice&gt;Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.&lt;/aside&gt;</p>
 
-<h3 id="response-25">Response</h3>
+<h3 id="response-24">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -7129,7 +6755,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <h2 id="saving-a-card-during-an-authorization">Saving a Card During an Authorization</h2>
 
-<h4 id="request-24">Request</h4>
+<h4 id="request-23">Request</h4>
 
 <p>To save a credit card used in a transaction, simply send the <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> parameter as <em>true</em> in the standard authorization request. The card number to be used can be validated through the technique exaplained in <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051" target="_blank">this article</a>, in Portuguese.</p>
 
@@ -7369,7 +6995,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h5 id="response-26">Response</h5>
+<h5 id="response-25">Response</h5>
 
 <p>The <code class="language-plaintext highlighter-rouge">CreditCard.CardToken</code> parameter will return the token to be saved for future transactions with the same card.</p>
 
@@ -7555,7 +7181,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>The <code class="language-plaintext highlighter-rouge">CreditCard</code> node within the <code class="language-plaintext highlighter-rouge">Payment</code> node will change as shown in the example.</p>
 
-<h4 id="request-25">Request</h4>
+<h4 id="request-24">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7757,7 +7383,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h5 id="response-27">Response</h5>
+<h5 id="response-26">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -7930,7 +7556,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>This is an example of how to use the previously saved <em>alias</em> to create a transaction. For security reasons, an alias does not include the Security Code. Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to <em>recurring</em>, you can submit transactions without CVV.</p>
 
-<h4 id="request-26">Request</h4>
+<h4 id="request-25">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -8139,7 +7765,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h5 id="response-28">Response</h5>
+<h5 id="response-27">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -8374,7 +8000,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>During the Cybersource deployment, additional information can be stored through MDDs (Merchand Defined Data). MDDs are fields numbered 0 through N used to store unique merchant information. <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral" target="_blank">This article</a> (in Portuguese) has details on how to fill these fields.</p>
 
-<h3 id="request-27">Request</h3>
+<h3 id="request-26">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -9384,7 +9010,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <aside class="warning">The fields of the "FraudAnalysis.Travel" node become required if your business segment is the airline segment.</aside>
 
-<h3 id="response-29">Response</h3>
+<h3 id="response-28">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -10465,7 +10091,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   <p>In the fraud analysis request with ACI Worldwide, submit the <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code> field as “RedShield”.</p>
 </blockquote>
 
-<h3 id="request-28">Request</h3>
+<h3 id="request-27">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -11250,7 +10876,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <aside class="warning">*The fields of the "FraudAnalysis.Travel" node become mandatory if your business segment is air travel.</aside>
 
-<h3 id="response-30">Response</h3>
+<h3 id="response-29">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
@@ -12121,7 +11747,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>In order to query a credit card transaction via PaymentID, you must send an HTTP message through the GET method to the <em>Payment</em> resource, as in the example:</p>
 
-<h4 id="request-29">Request</h4>
+<h4 id="request-28">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -12176,7 +11802,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h4 id="response-31">Response</h4>
+<h4 id="response-30">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -12868,7 +12494,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>In order to query a registered boleto transaction via PaymentID, you must send an HTTP message through the GET method to the <em>Payment</em> resource, as in the example:</p>
 
-<h4 id="request-30">Request</h4>
+<h4 id="request-29">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -12923,7 +12549,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h4 id="response-32">Response</h4>
+<h4 id="response-31">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -13399,7 +13025,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>In order to query a sale by the store identifier, you must send an HTTP message through the GET method to the <em>/sales</em> resource, as in the example:</p>
 
-<h3 id="request-31">Request</h3>
+<h3 id="request-30">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId = {merchantOrderId}</span></aside>
 
@@ -13454,7 +13080,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h3 id="response-33">Response</h3>
+<h3 id="response-32">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -13514,7 +13140,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>In order to query a recurring order, you must send an HTTP message through the GET method as in the example:</p>
 
-<h3 id="request-32">Request</h3>
+<h3 id="request-31">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -13569,7 +13195,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h3 id="response-34">Response</h3>
+<h3 id="response-33">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
