@@ -138,45 +138,49 @@
             </div>
 
             <div class="post">
-  <h1 id="what-is-cartão-protegido">What is Cartão Protegido?</h1>
+  <h1 id="cartão-protegido">Cartão Protegido</h1>
 
-<p>The <strong>Cartão Protegido</strong> is a platform that enables secure storage of credit and debit cards. We have a fully certified environment by the respected PCI Security Standards Council, which ensures that Braspag fully follows the strict requirements and standards determined by it.</p>
+<p><strong>Cartão Protegido</strong> is a platform that enables secure storage of credit and debit cards. We have a fully certified environment by the respected PCI Security Standards Council, which ensures that Braspag fully follows the strict requirements and standards determined by it.</p>
 
 <p>The platform is compatible with Braspag’s Pagador gateway, facilitating the processing of credit and debit card transactions via token.</p>
 
 <h2 id="main-benefits">Main benefits</h2>
 
+<p><img src="https://braspag.github.io//images/braspag/cartaoprotegido/cp-en.png" alt="Cartão Protegido Benefícios" /></p>
+
 <ul>
   <li>
-    <p><strong>Atualiza Fácil</strong>: The platform has <em>Atualiza Fácil</em>, which is a very interesting feature especially for those working on the recurrence model. Through the brand’s technology, any update to the card number that has been blocked or canceled by the issuer is automatically informed to Braspag, which in turn associates the new card with the existing token, all of which is fully transparent to merchants and shoppers. This feature is available for Elo, Mastercard and Visa cards and you should request to enable it through Braspag’s support channel.</p>
+    <p><strong>Renova Fácil</strong>*: interesting feature especially for merchants working on the recurrence model. Through the card brand’s technology, any update to the card number that has been blocked or canceled by the issuer is automatically informed to Braspag, which in turn associates the new card with the existing token, all of which is fully transparent to merchants and shoppers. This feature is available for Elo, Mastercard, and Visa cards.</p>
   </li>
   <li>
-    <p><strong>Higher conversion rate</strong>: Tokenized transactions processed at Braspag via Pagador may result in a higher than average market conversion rate. This is because tokenized cards in the flags are allowed along with the cryptogram, which provides greater security in the process, so issuers tend to approve more easily. This feature is available for Mastercard cards processing via Cielo 3.0. Request the activation through Braspsag’s support channel.</p>
+    <p><strong>Higher conversion rate</strong>*: tokenized transactions processed at Braspag via Pagador may result in a higher than average market conversion rate. This is because card brand tokenized cards improve security in the process, so issuers tend to approve the transaction more easily. Cartão Protegido is available for Visa and Mastercard cards processing via Cielo 3.0.</p>
   </li>
   <li>
     <p><strong>PCI DSS Secure Environment</strong>: Braspag has a PCI DSS certified environment, which ensures the integrity and security of sensitive data such as credit card data.</p>
   </li>
   <li>
-    <p><strong>Guaranteed use of valid cards</strong>: Cartão Protegido will only accept saving cards that pass the Luhn Algorithm check, also known as “mod10”. This will give you greater security and certainty that saved cards have the least validation of their veracity.</p>
+    <p><strong>Valid card use guaranteed</strong>*: Cartão Protegido will only accept saving cards that pass the Luhn Algorithm check, also known as “mod10”. This will give you greater security and certainty that saved cards have the least validation of their veracity.</p>
   </li>
 </ul>
 
+<p>*Check availability and enable the feature with <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360006721672" target="_blank">Braspag Support</a>.</p>
+
 <h2 id="use-cases">Use Cases</h2>
 
-<p>The purpose of the platform is to help establishments that have several use cases, including:</p>
+<p>The purpose of the platform is to help merchants in several use cases, including:</p>
 
 <ul>
   <li>
-    <p><strong>Scheduled Recurring Payments</strong>: Merchants that already have an internal recurrence management solution can use the platform to store credit card data and process through payment tokens. Example: Subscription Services.</p>
+    <p><strong>Scheduled Recurring Payments</strong>: merchants that already have an internal recurrence management solution can use the platform to store credit card data and process through payment tokens. Example: Subscription Services.</p>
   </li>
   <li>
-    <p><strong>Unscheduled Recurring Payments</strong>: Establishments that charge their registered customers, but without a defined periodicity. Example: Car ride Applications.</p>
+    <p><strong>Unscheduled Recurring Payments</strong>: merchants that charge their registered customers, but without a defined periodicity. Example: car ride services apps.</p>
   </li>
   <li>
-    <p><strong>One Click Payment</strong>: <em>One Click Payment</em> allows an online credit card payment to be made by skipping the step of filling in payment details or even the entire payment process. shopping cart process, as the card details have been previously informed by the shopper on past purchases and will be replicated on future purchases upon their authorization.</p>
+    <p><strong>One Click Payment</strong>: allows an online credit card payment to be completed by skipping the step of filling in payment details or even the entire payment process. Card details previously informed by the shopper on past purchases will be replicated on future purchases upon their authorization.</p>
   </li>
   <li>
-    <p><strong>Sales Recovery</strong>: Merchants can contact customers again who may have had problems purchasing, offering a new billing attempt.</p>
+    <p><strong>Sales Recovery</strong>: merchants can contact customers who may have had problems during the purchase, offering a new billing attempt.</p>
   </li>
 </ul>
 
@@ -209,9 +213,26 @@
   <li><strong>GET</strong> - The HTTP GET method is used for querying existing resources. For example, query for tokens already created.</li>
 </ul>
 
-<h1 id="how-does-it-integrate">How does it integrate?</h1>
+<h1 id="integration">Integration</h1>
 
-<h2 id="postman-collection">Postman Collection</h2>
+<h2 id="transaction-flow">Transaction flow</h2>
+
+<p>You can integrate with Cartão Protegido with one of the options:</p>
+
+<ol>
+  <li>Simouteneously to the authorization process, through Pagador API. Check [Pagador documentation] for more information.</li>
+  <li>Before the authorization (sale), sending a tokenization request direct to Cartão Protegido API.</li>
+</ol>
+
+<p>Check the transactional flow representation for when the tokenization is requested directly to Cartão Protegido API:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/cartaoprotegido/fluxo-cp-en.png" alt="Cartão Protegido fluxo" /></p>
+
+<blockquote>
+  <p>Please, also refer to using <a href="">VerifyCard</a> with Cartão Protegido.</p>
+</blockquote>
+
+<h2 id="postman-collection---ver-se-a-coleção-está-igual-ao-pt">Postman Collection - <strong>ver se a coleção está igual ao PT</strong></h2>
 
 <p>For those who want to try out the APIs directly via Postman, follow the link to download the collection:</p>
 
@@ -220,15 +241,15 @@
   <li>Sandbox Variables: [https://bit.ly/2YX3YwE[(https://bit.ly/2YX3YwE){:target=”_blank”}</li>
 </ul>
 
-<h2 id="authentication-step">Authentication Step</h2>
+<h2 id="authentication">Authentication</h2>
 
-<p>To consume API methods, you must get AccessToken in the OAuth 2.0 standard.</p>
+<p>In order to consume API methods, you must get <code class="language-plaintext highlighter-rouge">AccessToken</code> in the OAuth 2.0 standard.</p>
 
 <table>
   <thead>
     <tr>
       <th>Environment</th>
-      <th>Endpoint</th>
+      <th>URL + Endpoint</th>
       <th>Authorization</th>
     </tr>
   </thead>
@@ -236,15 +257,26 @@
     <tr>
       <td><strong>SANDBOX</strong></td>
       <td>https://authsandbox.braspag.com.br/oauth2/token</td>
-      <td><strong>Basic <em>(Authorization)</em></strong><br />The Authorization value must be obtained by concatenating the value of the “ClientID”, colon (“:”), and “ClientSecret”<br />E.g.: b4c14ad4-5184-4ca0-8d1a-d3a7276cead9:qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=<br />and then encode the result in base 64. <br />This will generate an alphanumeric access code that will be used in the access token. For testing purposes, use the following data: ClientID<br />: ** b4c14ad4-5184-4ca0-8d1a-d3a7276cead9<strong><br />ClientSecret:</strong>qYmZNOSo/5Tcjq7Nl2wTfw8wuC6Z8gqFAzc/utxYjfs=**</td>
+      <td>“Basic {base64}”</td>
     </tr>
     <tr>
       <td><strong>PRODUCTION</strong></td>
       <td>https://auth.braspag.com.br/oauth2/token</td>
-      <td>Request the “ClientID” and “ClientSecret” data from the support team after completing sandbox development.</td>
+      <td>“Basic {base64}”</td>
     </tr>
   </tbody>
 </table>
+
+<p><strong>How to get the “{base64}” value for “Basic” authorization:</strong></p>
+
+<p>During onboarding, you will receive the <code class="language-plaintext highlighter-rouge">ClientId</code> and <code class="language-plaintext highlighter-rouge">ClientSecret</code> credentials. If you have not received the credentials, contact <a href="">Braspag Support</a>.</p>
+
+<ol>
+  <li>Concatenate <code class="language-plaintext highlighter-rouge">ClientId</code> and <code class="language-plaintext highlighter-rouge">ClientSecret</code> (<code class="language-plaintext highlighter-rouge">ClientId</code>:<code class="language-plaintext highlighter-rouge">ClientSecret</code>).</li>
+  <li>Encode the concatenation result in base64, creating a string.</li>
+  <li>Send a request to the authorization server using the alphanumeric code created (string) - see example below.</li>
+  <li>The authentication API will validate the string and return the <code class="language-plaintext highlighter-rouge">access_token</code>.</li>
+</ol>
 
 <h3 id="request">Request</h3>
 
@@ -307,25 +339,25 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
-      <td>The requested access token. The application can use this token to authenticate with the protected resource</td>
+      <td>The requested access token. The application can use this token to authenticate with the protected resource.</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">token_type</code></td>
-      <td>Indicates the value of the token type</td>
+      <td>Indicates the value of the token type.</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">expires_in</code></td>
-      <td>Expiration of the access token, in seconds <br /> The token when expiring, it is necessary to get a new</td>
+      <td>Access token expiration, in seconds <br /> After the token expires, you need to generate a new token.</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="create-token-reference">Create Token Reference</h2>
+<h2 id="create-card-token">Create card token</h2>
 
-<p>The purpose of this method is to save a card and get the token reference (Token Reference) as a response.</p>
+<p>Save a card and get the <code class="language-plaintext highlighter-rouge">TokenReference</code> as a response. The response will also return the card data as a token.</p>
 
 <h3 id="request-1">Request</h3>
 
@@ -336,7 +368,7 @@
     </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4551870000000183"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao da Silva"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -353,7 +385,7 @@
     <span class="s2">"Card"</span>: <span class="o">{</span>
         <span class="s2">"Number"</span>: <span class="s2">"4551870000000183"</span>,
         <span class="s2">"Holder"</span>: <span class="s2">"Joao da Silva"</span>,
-        <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
+        <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
         <span class="s2">"SecurityCode"</span>: <span class="s2">"123"</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -371,25 +403,25 @@
   </thead>
   <tbody>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>Yes (header)</td>
+      <td>“application/json”</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>GUID</td>
       <td>-</td>
       <td>Yes</td>
-      <td>Cartão Protegido’s Merchant ID in their environment (Sandbox / Production)</td>
+      <td>Cartão Protegido’s Merchant ID for the environment (Sandbox/Production)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Text</td>
       <td>-</td>
       <td>Yes</td>
-      <td>** Bearer ** _ (Authorization) _<br />(is the access token generated in the previous step)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td>Text</td>
-      <td>-</td>
-      <td>Yes</td>
-      <td>application / json</td>
+      <td>** Bearer ** _ (access-token) _<br />(the access token generated in the previous step).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Alias</code></td>
@@ -403,28 +435,28 @@
       <td>Number</td>
       <td>16</td>
       <td>Yes</td>
-      <td>Shopper Card Number</td>
+      <td>Shopper card number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Holder</code></td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
-      <td>Shopper’s Name Printed on Card</td>
+      <td>Shopper’s name printed on the card.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate</code></td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
-      <td>Expiration date printed on card in MM / YYYY format</td>
+      <td>Expiration date printed on the card in MM/YYYY format.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.SecurityCode</code></td>
       <td>Number</td>
       <td>4</td>
       <td>Yes</td>
-      <td>Security code printed on back of card</td>
+      <td>Security code printed on the back of the card.</td>
     </tr>
   </tbody>
 </table>
@@ -434,10 +466,10 @@
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5R2O4042YP"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"TokenReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2e0d46e-6a78-409b-9ad4-75bcb3985762"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-31"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-31"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************0183"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joao da Silva"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"***"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -468,7 +500,7 @@
 <span class="o">{</span>
     <span class="s2">"Alias"</span>: <span class="s2">"5R2O4042YP"</span>,
     <span class="s2">"TokenReference"</span>: <span class="s2">"c2e0d46e-6a78-409b-9ad4-75bcb3985762"</span>,
-    <span class="s2">"ExpirationDate"</span>: <span class="s2">"2021-12-31"</span>,
+    <span class="s2">"ExpirationDate"</span>: <span class="s2">"2025-12-31"</span>,
     <span class="s2">"Card"</span>: <span class="o">{</span>
         <span class="s2">"Number"</span>: <span class="s2">"************0183"</span>,
         <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2021"</span>,
@@ -508,31 +540,31 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Alias</code></td>
-      <td>Credit Card Alias</td>
+      <td>Credit card alias</td>
       <td>Text</td>
       <td>64</td>
-      <td>Any text that is unique to the establishment’s token base</td>
+      <td>Any text that is unique to the merchant’s token base.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
-      <td>Token on Cartão Protegido representing card data</td>
+      <td>Token on Cartão Protegido representing card data.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ExpirationDate</code></td>
-      <td>Token Expiration Date, format MM/YYYY</td>
+      <td>Token expiration date, in format MM/YYYY.</td>
       <td>Text</td>
       <td>7</td>
       <td>MM/YYYY</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.Number</code></td>
-      <td>Número</td>
+      <td>Number</td>
       <td>16</td>
-      <td>Sim</td>
-      <td>Masked card number</td>
+      <td>Yes</td>
+      <td>Masked card number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
@@ -558,9 +590,9 @@
   </tbody>
 </table>
 
-<h2 id="get-token-reference-information">Get Token Reference Information</h2>
+<h2 id="get-token-information">Get token information</h2>
 
-<p>The purpose of this method is to obtain information related to a token reference, such as Status, Masked Card, Expiration Date, and Card Holder Name.</p>
+<p>Obtain information related to a token reference, such as status, masked crd, expiration date, and cardholder name.</p>
 
 <h3 id="request-2">Request</h3>
 
@@ -589,29 +621,29 @@
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>GUID</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td>Cartão Protegido’s Merchant ID in their environment (Sandbox / Production)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Text</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td><strong>Bearer</strong> _ (Authorization) _<br />(is the access token generated in the previous step)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>Text</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td>application/json</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
       <td>GUID</td>
       <td>36</td>
-      <td>Yes</td>
-      <td>Token on Protected Card representing card data</td>
+      <td>Yes (path)</td>
+      <td>Cartão Protegido token representing card data.</td>
     </tr>
   </tbody>
 </table>
@@ -663,7 +695,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
-      <td>Token on Cartão Protegido representing card data</td>
+      <td>Cartão Protegido token representing card data.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -677,17 +709,17 @@
       <td>Text</td>
       <td>10</td>
       <td>No</td>
-      <td>Current Cartão Protegido token status</td>
+      <td>Current Cartão Protegido token status.</td>
       <td> </td>
       <td>-</td>
-      <td>Possible values: Active, Removed, Suspended</td>
+      <td>Possible values: Active, Removed, Suspended.</td>
       <td>Text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Provider</code></td>
       <td>Indicates the provider that stored the card.</td>
       <td>-</td>
-      <td>Possible values: Braspag or Master</td>
+      <td>Possible values: “Braspag” / “Master” / “Visa”</td>
       <td>Text</td>
       <td> </td>
       <td> </td>
@@ -696,7 +728,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Account.Number</code></td>
-      <td>Masked Buyer Card Number</td>
+      <td>Masked card number</td>
       <td>Text</td>
       <td>16</td>
       <td>-</td>
@@ -707,7 +739,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Account.Holder</code></td>
-      <td>Shopper’s Name printed on card, without accented characters</td>
+      <td>Shopper’s name printed on card, without accented characters.</td>
       <td>Text</td>
       <td>25</td>
       <td>Example: Jose da Silva</td>
@@ -718,7 +750,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Account.ExpirationDate</code></td>
-      <td>Expiration date printed on card in MM / YYYY format</td>
+      <td>Expiration date printed on card in MM/YYYY format</td>
       <td>Text</td>
       <td>7</td>
       <td>Example: 12/2021</td>
@@ -730,9 +762,9 @@
   </tbody>
 </table>
 
-<h2 id="get-token-reference">Get Token Reference</h2>
+<h2 id="get-token-using-alias">Get token using alias</h2>
 
-<p>The purpose of this method is to get the token reference from a previously entered alias.</p>
+<p>Get the token reference from a previously informed alias.</p>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v1/Alias/_{Alias}_/TokenReference</span></aside>
 
@@ -761,28 +793,28 @@
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>GUID</td>
       <td>-</td>
-      <td>Yes</td>
-      <td>Cartão Protegido’s Merchant ID in their environment (Sandbox/Production)</td>
+      <td>Yes (header)</td>
+      <td>Cartão Protegido’s Merchant ID for the environment (Sandbox/Production)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Text</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td><strong>Bearer</strong> <em>(Authorization)</em><br />(is the access token generated in the previous step)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>Text</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td>application/json</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Alias</code></td>
       <td>Text</td>
       <td>64</td>
-      <td>No</td>
+      <td>Yes (path)</td>
       <td>Alias of credit card previously used in Create Token method</td>
     </tr>
   </tbody>
@@ -817,7 +849,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
-      <td>Token on Cartão Protegido representing card data</td>
+      <td>Cartão Protegido token representing card data.</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -825,9 +857,13 @@
   </tbody>
 </table>
 
-<h2 id="delete-token-reference">Delete Token Reference</h2>
+<h2 id="delete-token">Delete token</h2>
 
-<p>The purpose of this method is to remove the base token reference permanently. The Token Reference removed by this method does not allow it to be recovered in the future.</p>
+<p>Delete token reference permanently from data base.</p>
+
+<blockquote>
+  <p>The <code class="language-plaintext highlighter-rouge">TokenReference</code> deleted by this method cannot be recovered in the future.</p>
+</blockquote>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/v1/Token/{TokenReference}</span></aside>
 
@@ -866,35 +902,35 @@
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>GUID</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td>Cartão Protegido’s Merchant ID in their environment (Sandbox/Production)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Text</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td>** Bearer ** <em>(Authorization)</em><br />(is the access token generated in the previous step)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>Text</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td>application/json</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RemovedBy</code></td>
       <td>Text</td>
       <td>10</td>
-      <td>Yes</td>
+      <td>Yes (body)</td>
       <td>Who requested the removal. Possible values: ‘Merchant’ or ‘CardHolder’</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
       <td>Text</td>
       <td>10</td>
-      <td>Yes</td>
+      <td>Yes (body)</td>
       <td>Reason for token removal. Possible values: ‘FraudSuspicion’ or ‘Other’</td>
     </tr>
   </tbody>
@@ -960,9 +996,13 @@
   </tbody>
 </table>
 
-<h2 id="suspend-token-reference">Suspend Token Reference</h2>
+<h2 id="suspend-token">Suspend token</h2>
 
-<p>The purpose of this method is to suspend a token reference temporarily. Token Reference suspended by this method can be reactivated via the Unsuspend Token Reference method.</p>
+<p>Suspend a token reference temporarily.</p>
+
+<blockquote>
+  <p>The <code class="language-plaintext highlighter-rouge">TokenReference</code> suspended by this method can be reactivated via the [Unsuspend Token Reference] method.</p>
+</blockquote>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/suspend</span></aside>
 
@@ -1001,36 +1041,36 @@
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>GUID</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td>Cartão Protegido’s Merchant ID in their environment (Sandbox/Production)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Text</td>
       <td>-</td>
-      <td>Yes</td>
-      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(is the access token generated in the previous step)</td>
+      <td>Yes (header)</td>
+      <td><strong>Bearer</strong> <em>(Authorization)</em><br />(<code class="language-plaintext highlighter-rouge">access_token</code> generated in the previous step)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>Text</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td>application/json</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RemovedBy</code></td>
       <td>Text</td>
       <td>10</td>
-      <td>Yes</td>
-      <td>Who requested the removal. Possible values: ‘Merchant’ or ‘CardHolder’</td>
+      <td>Yes (body)</td>
+      <td>Who requested the removal. Possible values: “Merchant” or “CardHolder”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
       <td>Text</td>
       <td>10</td>
-      <td>Yes</td>
-      <td>Reason for token removal. Possible values: ‘FraudSuspicion’ or ‘Other’</td>
+      <td>Yes (body)</td>
+      <td>Reason for token removal. Possible values: “FraudSuspicion” or “Other”.</td>
     </tr>
   </tbody>
 </table>
@@ -1105,9 +1145,9 @@
   </tbody>
 </table>
 
-<h2 id="unsuspend-token-reference">Unsuspend Token Reference</h2>
+<h2 id="unsuspend-token">Unsuspend token</h2>
 
-<p>The purpose of this method is to reactivate a token reference.</p>
+<p>Reactivate a token reference that was temporarily suspended.</p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v1/Token/{TokenReference}/unsuspend</span></aside>
 
@@ -1136,21 +1176,21 @@
       <td><code class="language-plaintext highlighter-rouge">MerchantID</code></td>
       <td>GUID</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td>Cartão Protegido’s Merchant ID in their environment (Sandbox/Production)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
       <td>Text</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td><strong>Bearer</strong> <em>(Authorization)</em><br />(is the access token generated in the previous step)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
       <td>Text</td>
       <td>-</td>
-      <td>Yes</td>
+      <td>Yes (header)</td>
       <td>application/json</td>
     </tr>
   </tbody>
@@ -1216,32 +1256,29 @@
       <th>Type</th>
       <th>Size</th>
       <th>Format</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TokenReference</code></td>
-      <td>Token on Cartão Protegido representing card data</td>
+      <td>Cartão Protegido token representing card data</td>
       <td>GUID</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Text</td>
       <td>10</td>
       <td>No</td>
-      <td>Current Cartão Protegido token status</td>
-      <td> </td>
+      <td>Current Cartão Protegido token status.</td>
     </tr>
   </tbody>
 </table>
 
 <h1 id="error-codes">Error codes</h1>
 
-<p>In case of error in the request, the error codes and their description will be informed, as the example.</p>
+<p>In case of error in the request, the error codes and their description will be returned as shown below.</p>
 
 <h3 id="response-7">Response</h3>
 
@@ -1281,35 +1318,38 @@
     <tr>
       <td>CP903</td>
       <td>Token alias already exists</td>
-      <td>Happens when Alias has been previously used.</td>
+      <td>Alias has been previously used.</td>
     </tr>
     <tr>
       <td>CP990</td>
       <td>‘XXXXX’ must not be empty.</td>
-      <td>Happens when any field is invalid.</td>
+      <td>Any field is invalid.</td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="implementation-tips">Implementation Tips</h1>
+<h1 id="implementation-tips">Implementation tips</h1>
 
-<h2 id="card-security-code">Card Security Code</h2>
+<h2 id="card-security-code">Card security code</h2>
 
-<p>The security code is required for an authorization to be accepted by the card issuing bank. It is another security mechanism in the anti-fraud process, where it seeks to validate that the person who is using the card is in fact its owner.
-For this reason, PCI rules allow you to store the card number and validity, but never the security code, not even the PCI certified Braspag.
-The recommendation is that the CVV is always requested at the time of purchase.</p>
+<p>The card security code is required for an authorization to be accepted by the card issuing bank. The security code is one of the security mechanisms in fraud analysis, seeking to validate that the person who is using the card is in fact its owner.</p>
 
-<aside class="notice">Establishments that have the recurrence-based business model, such as service subscriptions, must request from the contracted acquirer the release of transactions without CVV.</aside>
+<p>For this reason, PCI rules allow you to store the card number and expiration date but never the security code, not even if PCI certified like Braspag.</p>
+
+<p>The recommendation is that the security is always requested in the moment of the purchase.</p>
+
+<aside class="notice">Merchants that operate the recurrence-based business model, such as service subscriptions, must request the acquirer for permission of transactions without the security code.</aside>
 
 <h2 id="one-click-payment">One click payment</h2>
 
-<p>A tip to improve your conversion is to save the masked card number to show the customer which card they have enabled for the “1 click payment” on the site;</p>
+<p>Here we present a few tips to improve your conversion rate:</p>
 
 <ul>
-  <li>Optionally also save the expiration date, to actively communicate to the customer that the card they have stored has expired and suggest the exchange;</li>
-  <li>Always ask if the buyer wants to store the card details for next purchase;</li>
-  <li>Security of login and password of users of the site - very weak passwords are easily discovered and the fraudster can make a purchase even without the card (in case of not requesting CVV by the site);</li>
-  <li>Control session variables to prevent the user (customer login) from being logged in to the site and someone else accessing it later by making “one click payments” with this login (E.g.: users logged into lan houses).</li>
+  <li><strong>Save the masked card number</strong> to show the shopper which card they have enabled for the “one click payment” on your website.</li>
+  <li><strong>Save the expiration date</strong>, to actively communicate to the customer that the card they have stored has expired and suggest the exchange.</li>
+  <li><strong>Always ask the shopper</strong> if they want to store the card details for next purchase.</li>
+  <li><strong>Secure login and password of website users</strong> - very weak passwords are easily discovered and the fraudster can make a purchase even without the card (if security card is not required).</li>
+  <li><strong>Control session variables</strong> to prevent the user (customer login) from being logged in to the website and someone else accessing it later and making “one click payments” with this login (e.g.: users logged into lan houses).</li>
 </ul>
 
 </div>
