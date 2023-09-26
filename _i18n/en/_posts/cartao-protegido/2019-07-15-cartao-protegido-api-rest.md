@@ -14,9 +14,9 @@ language_tabs:
 
 # Cartão Protegido
 
-**Cartão Protegido** is a platform that enables secure storage of credit and debit cards. We have a fully certified environment by the respected PCI Security Standards Council, which ensures that Braspag fully follows the strict requirements and standards determined by it.
+**Cartão Protegido** is a platform that enables secure storage of credit and debit cards. Braspag is PCI Security Standards Council compliant, which ensures that Braspag enironment fully follows the strict requirements and standards determined by PCI.
 
-The platform is compatible with Braspag's Pagador gateway, facilitating the processing of credit and debit card transactions via token.
+Cartão Protegido is compatible with Braspag's Pagador Gateway, facilitating the processing of credit and debit card transactions via token.
 
 ## Main benefits
 
