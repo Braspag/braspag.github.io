@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-09-26T12:05:11+00:00</updated>
+    <updated>2023-09-27T13:43:31+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -5735,7 +5735,7 @@ See example below, describing the submission of authentication data from the Pag
         <id>https://braspag.github.io//en/manual/cartao-protegido-api-rest</id>
         <content type="html">&lt;h1 id=&quot;cartão-protegido&quot;&gt;Cartão Protegido&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;Cartão Protegido&lt;/strong&gt; is a platform that enables secure storage of credit and debit cards. Braspag is PCI Security Standards Council compliant, which ensures that Braspag enironment fully follows the strict requirements and standards determined by PCI.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cartão Protegido&lt;/strong&gt; is a platform that enables &lt;strong&gt;secure storage&lt;/strong&gt; of &lt;strong&gt;credit and debit cards&lt;/strong&gt;. Braspag is PCI Security Standards Council compliant, which ensures that Braspag enironment fully follows the strict requirements and standards determined by PCI.&lt;/p&gt;
 
 &lt;p&gt;Cartão Protegido is compatible with Braspag’s Pagador Gateway, facilitating the processing of credit and debit card transactions via token.&lt;/p&gt;
 
