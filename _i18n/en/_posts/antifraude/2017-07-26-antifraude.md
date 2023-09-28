@@ -1113,12 +1113,6 @@ The JavaScript model is represented in the following image.
 &lt;`script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"&gt;&lt;/script`&gt;<br>
 &lt;`/head`&gt;
 
-```Html
-<head>
-    <script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=ProviderOrgId&session_id=ProviderMerchantIdProviderIdentifier"></script>
-</head>
-```
-
 * Insert the `noscript` tag inside the `body` tag, so that the device data collection is carried out even if the browser's JavaScript is disabled. The `noscript` tag is a redundancy to collaborate with data collection.
 
 &lt;`body`&gt;<br>
