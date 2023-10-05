@@ -13,7 +13,7 @@ tags:
 
 # Integração VTEX
 
-A Cielo desenvolveu um conector na plataforma de e-commerce VTEX para realização do pagamento através das APIs de pagamento online da Cielo.  A usabilidade da plataforma deve ser consultada no [tutorial da VTEX](https://help.vtex.com/tutorial/){:target="_blank"}. Abaixo reforçaremos as informações necessárias para utilização do conector.
+A Cielo desenvolveu um conector na plataforma de e-commerce VTEX para realização do pagamento através das APIs de pagamento online da Cielo.  A usabilidade da plataforma deve ser consultada no [tutorial da VTEX](https://help.vtex.com/tutorial/){:target="_blank"}.
 
 # Configuração
 
@@ -35,15 +35,7 @@ Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece 
 
 <aside class="notice">O número do pedido que é exibido na tela do comprador é registrado na VTEX como informação "orderId" para o conector CieloEcommerce e como "reference" para o conector Braspag. Portanto, preste atenção ao migrar de um conector para o outro.</aside>
 
-Selecione o conector desejado e insira as informações conforme recebidas após a contratação da solução. Os conectores disponíveis são:
-
-* **Braspag** (descontinuado);
-* **BraspagV2** (descontinuado);
-* **CieloV3** (descontinuado);
-* **CieloV4** (descontinuado);
-* **CieloEcommerce**.
-
-> Apesar de todos os conectores estarem disponíveis para configuração, é recomendada apenas a configuração com **CieloEcommerce**, já que será o único a receber manutenção e atualização 
+Selecione o conector **CieloEcommerce** e insira as informações conforme recebidas após a contratação da solução.
  
 ![CieloEcommerce]({{ site.baseurl_root }}/images/braspag/pagador/vtex/01-cieloecommerce.jpeg)
 
