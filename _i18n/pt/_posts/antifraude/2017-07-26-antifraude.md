@@ -745,7 +745,7 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
-|`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
+|`TransactionId`|Id da transação no Antifraude Gateway Braspag|GUID|
 |`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 19 - Status](https://braspag.github.io//manual/antifraude#tabela-19-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
 |`ProviderAnalysisResult.ProviderStatus`|Status da transação na Cybersource <br/> [Tabela 20 - ProviderStatus](https://braspag.github.io//manual/antifraude#tabela-20-providerstatus)|enum|
@@ -809,8 +809,8 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`Card.Holder`|Nome do cartão de crédito|string|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|
 |`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand](https://braspag.github.io//manual/antifraude#tabela-3-card.brand)|enum|
-|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|
-|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|
+|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|booleano|
+|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|GUID|
 |`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|
 |`Billing.Street`|Logradouro do endereço de cobrança|string|
 |`Billing.Number`|Número do endereço de cobrança|string|
@@ -835,12 +835,12 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|
 |`Customer.FirstName`|Primeiro nome do comprador|string|
 |`Customer.LastName`|Último nome do comprador|string|
-|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|
+|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|data|
 |`Customer.Email`|E-mail do comprador|string|
 |`Customer.Ip`|Endereço de IP do comprador|string|
 |`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|
 |`Customer.BrowserHostName`|Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP|string|
-|`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies ou não|bool|
+|`Customer.BrowserCookiesAccepted`|Identifica se o browser do comprador aceita cookies ou não|booleano|
 |`Customer.BrowserEmail`|E-mail registrado no browser do comprador. Pode diferenciar do e-mail cadastrado (`Customer.Email`)|string|
 |`Customer.BrowserType`|Nome do browser utilizado pelo comprador e identificado através do cabeçalho HTTP|string|
 |`CartItem[n].ProductName`|Nome do produto|string|
@@ -867,8 +867,8 @@ Para saber o status de uma transação na Cybersource, recomendamos que você co
 |`FundTransfer.AccountNumber`|Número da conta bancária do comprador|string|
 |`FundTransfer.BankCheckDigit`|Código utilizado para validar a conta bancária do comprador|string|
 |`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|
-|`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|
-|`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|bool|
+|`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|booleano|
+|`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|booleano|
 |`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Tabela 18 - Invoice.Tender](https://braspag.github.io//manual/antifraude#tabela-18-invoice.tender)|enum|
 |`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 7 - Airline.JourneyType](https://braspag.github.io//manual/antifraude#tabela-7-airline.journeytype)|enun|
 |`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|
