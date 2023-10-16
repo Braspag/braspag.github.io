@@ -359,7 +359,7 @@ A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cy
 |`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|Sim|-|
 |`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|string|Sim|3|
 |`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider](https://braspag.github.io/manual/antifraude#tabela-1-provider)|enum|-|-|
-|`BraspagTransactionId`|Id da transação no Pagador da Braspag. Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você pode enviar os campos `Tdi`,`Nsu`, `AuthorizationCode` e `SaleDate` em vez do campo `BraspagTransactionId`|guid|Não|-|
+|`BraspagTransactionId`|Id da transação no Pagador da Braspag. Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você pode enviar os campos `Tdi`,`Nsu`, `AuthorizationCode` e `SaleDate` em vez do campo `BraspagTransactionId`|GUID|Não|-|
 |`Tid`|Id da transação na adquirente <br/> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o `Tid` acompanhado dos campos `Nsu`, `AuthorizationCode` e `SaleDate` em vez do campo `BraspagTransactionId`|string|Não|20|
 |`Nsu`|Número sequencial único da transação na adquirente <br/> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o `Nsu` acompanhado dos campos `Tid`, `AuthorizationCode` e `SaleDate` em vez do campo `BraspagTransactionId`|string|Não|10|
 |`AuthorizationCode`|Código de autorização da transação na adquirente <br/> Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você tem a opção de enviar o `AuthorizationCode`, acompanhado dos campos `Tid`, `Nsu` e `SaleDate` em vez do campo `BraspagTransactionId`|string|Não|10|
@@ -368,8 +368,8 @@ A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cy
 |`Card.Holder`|Nome do portador impresso no cartão de crédito|string|Sim|50|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|Sim|7|
 |`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand](https://braspag.github.io/manual/antifraude#tabela-3-card.brand)|enum|Sim|-|
-|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|Não|-|
-|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|Não|-|
+|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|booleano|Não|-|
+|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|GUID|Não|-|
 |`Card.Alias`|*Alias* (apelido) do cartão de crédito salvo no Cartão Protegido|string|Não|64|
 |`Billing.Street`|Logradouro do endereço de cobrança|string|Sim|54|
 |`Billing.Number`|Número do endereço de cobrança|string|Sim|5|
@@ -427,8 +427,8 @@ A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cy
 |`FundTransfer.AccountNumber`|Número da conta bancária do comprador|string|Não|30|
 |`FundTransfer.BankCheckDigit`|Código utilizado para validar a conta bancária do comprador|string|Não|2|
 |`FundTransfer.Iban`|Número internacional da conta bancária do comprador (IBAN)|string|Não|30|
-|`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|bool|Não|-|
-|`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|bool|Não|-|
+|`Invoice.IsGift`|Indica se o pedido realizado pelo comprador é para presente|booleano|Não|-|
+|`Invoice.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido a loja|booleano|Não|-|
 |`Invoice.Tender`|Forma de pagamento utilizada pelo comprador <br/> [Tabela 18 - Invoice.Tender](https://braspag.github.io/manual/antifraude#tabela-18-invoice.tender)|enum|Não|-|
 |`Airline.JourneyType`|Tipo de viagem <br/> [Tabela 7 - Airline.JourneyType](https://braspag.github.io/manual/antifraude#tabela-7-airline.journeytype)|enun|Não|-|
 |`Airline.DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38|datetime|Não|-|
@@ -497,7 +497,7 @@ A seguir, apresentamos um exemplo de requisição de análise de fraude com a Cy
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
-|`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
+|`TransactionId`|Id da transação no Antifraude Gateway Braspag|GUID|
 |`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 19 - Status](https://braspag.github.io/manual/antifraude#tabela-19-status)|enum|
 |`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na Cybersource|string|
 |`ProviderAnalysisResult.ProviderStatus`|Status da transação na Cybersource <br/> [Tabela 20 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-20-providerstatus)|enum|
