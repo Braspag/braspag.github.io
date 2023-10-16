@@ -661,7 +661,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
       <td style="text-align: left">Id da transação no Pagador da Braspag. Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você pode enviar os campos <code class="language-plaintext highlighter-rouge">Tdi</code>,<code class="language-plaintext highlighter-rouge">Nsu</code>, <code class="language-plaintext highlighter-rouge">AuthorizationCode</code> e <code class="language-plaintext highlighter-rouge">SaleDate</code> em vez do campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code></td>
-      <td style="text-align: center">guid</td>
+      <td style="text-align: center">GUID</td>
       <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
@@ -724,14 +724,14 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Save</code></td>
       <td style="text-align: left">Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido</td>
-      <td style="text-align: center">bool</td>
+      <td style="text-align: center">booleano</td>
       <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Card.Token</code></td>
       <td style="text-align: left">Identificador do cartão de crédito salvo no Cartão Protegido</td>
-      <td style="text-align: center">guid</td>
+      <td style="text-align: center">GUID</td>
       <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
@@ -1137,14 +1137,14 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Invoice.IsGift</code></td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador é para presente</td>
-      <td style="text-align: center">bool</td>
+      <td style="text-align: center">booleano</td>
       <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Invoice.ReturnsAccepted</code></td>
       <td style="text-align: left">Indica se o pedido realizado pelo comprador pode ser devolvido a loja</td>
-      <td style="text-align: center">bool</td>
+      <td style="text-align: center">booleano</td>
       <td style="text-align: center">Não</td>
       <td style="text-align: right">-</td>
     </tr>
@@ -1337,7 +1337,7 @@ Existem dois fluxos possíveis para a análise de fraude:</p>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">TransactionId</code></td>
       <td style="text-align: left">Id da transação no Antifraude Gateway Braspag</td>
-      <td style="text-align: center">guid</td>
+      <td style="text-align: center">GUID</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Status</code></td>
