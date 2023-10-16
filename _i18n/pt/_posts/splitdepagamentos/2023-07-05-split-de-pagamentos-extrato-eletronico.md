@@ -529,6 +529,7 @@ Identifica os lançamentos na agenda financeira com base no eventro transacional
 ## Tabela X - Status da Liquidação
 
 |Código|Status|Descrição|
+|---|---|---|
 |1|Agendado|Indica que o recebível está agendado para liquidação de acordo com sua data prevista.|
 |2|Pendente|Indica que a Braspag enviou os recebíveis para liquidação e está aguardando a resposta.|
 |3|Liquidado|Indica que a liquidação ocorreu com sucesso.|
