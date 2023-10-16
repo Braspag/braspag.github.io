@@ -921,8 +921,8 @@ Para solicitar o update de status você deve gerar o token de acesso (access_tok
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
-|`Status`|Novo status da transação. Accept ou Reject|string|sim|-|
-|`Comments`|Comentário associado a mudança de status|string|não|255|
+|`Status`|Novo status da transação. Accept ou Reject|string|Sim|-|
+|`Comments`|Comentário associado a mudança de status|string|Não|255|
 
 ### Resposta
 
@@ -1469,99 +1469,99 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 
 |Parâmetro|Descrição|Tipo|Obrigatório|Tamanho|
 |:-|:-|:-:|:-:|-:|
-|`MerchantOrderId`|Número do pedido da loja|string|sim|100|
-|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|sim|-|
-|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|sim|-|
+|`MerchantOrderId`|Número do pedido da loja|string|Sim|100|
+|`TotalOrderAmount`|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|long|Sim|-|
+|`TransactionAmount`|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|long|Sim|-|
 |`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|enum|-|-|
 |`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}manual/antifraude#tabela-1-provider)|enum|-|-|
-|`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|não|-|
-|`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|não|-|
-|`Tid`|Id da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Nsu`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|20|
-|`Nsu`|Número sequencial único da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|não|10|
-|`AuthorizationCode`|Código de autorização da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `SaleDate`, além deste em questão|string|não|10|
-|`SaleDate`|Data da autorização da transação da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `AuthorizationCode`, além deste em questão|datetime|não|-|
+|`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155 <br/> Obs.: Caso não seja informada, uma data será gerada pela Braspag|datetime|Não|-|
+|`BraspagTransactionId`|Id da transação no Pagador da Braspag|GUID|Não|-|
+|`Tid`|Id da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Nsu`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|Não|20|
+|`Nsu`|Número sequencial único da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|Não|10|
+|`AuthorizationCode`|Código de autorização da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `SaleDate`, além deste em questão|string|Não|10|
+|`SaleDate`|Data da autorização da transação da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `AuthorizationCode`, além deste em questão|datetime|Não|-|
 |`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento <br/> [Tabela 2 - SplitingPaymentMethod]({{ site.baseurl_root }}manual/antifraude#tabela-2-splitingpaymentmethod)|enum|-|-|
-|`IsRetryTransaction`|Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900|bool|não|-|
-|`Card.Number`|Número do cartão de crédito|string|sim|19|
-|`Card.Holder`|Nome do cartão de crédito|string|sim|50|
-|`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|sim|7|
-|`Card.Cvv`|Código de segurança do cartão de crédito|string|sim|4|
+|`IsRetryTransaction`|Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900|booleano|Não|-|
+|`Card.Number`|Número do cartão de crédito|string|Sim|19|
+|`Card.Holder`|Nome do cartão de crédito|string|Sim|50|
+|`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|Sim|7|
+|`Card.Cvv`|Código de segurança do cartão de crédito|string|Sim|4|
 |`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}manual/antifraude#tabela-3-card.brand)|enum|-|-|
-|`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|não|1|
-|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|não|-|
-|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|não|-|
-|`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|não|64|
-|`Billing.Street`|Logradouro do endereço de cobrança|string|não|24|
-|`Billing.Number`|Número do endereço de cobrança|string|não|5|
-|`Billing.Complement`|Complemento do endereço de cobrança|string|não|14|
-|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|não|15|
-|`Billing.City`|Cidade do endereço de cobrança|string|não|20|
-|`Billing.State`|Estado do endereço de cobrança|string|não|2|
-|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|não|2|
-|`Billing.ZipCode`|Código postal do endereço de cobrança|string|não|9|
-|`Shipping.Street`|Logradouro do endereço de entrega|string|não|24|
-|`Shipping.Number`|Número do endereço de entrega|string|não|5|
-|`Shipping.Complement`|Complemento do endereço de entrega|string|não|14|
-|`Shipping.Neighborhood`|Bairro do endereço de entrega|string|não|15|
-|`Shipping.City`|Cidade do endereço de entrega|string|não|20|
-|`Shipping.State`|Estado do endereço de entrega|string|não|2|
-|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|não|2|
-|`Shipping.ZipCode`|Código postal do endereço de entrega|string|não|9|
-|`Shipping.Email`|E-mail do responsável a receber o produto no endereço de entrega|string|não|60|
-|`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|não|30|
-|`Shipping.MiddleName`|Primeira letra do nome do meio do responsável a receber o produto no endereço de entrega|string|não|1|
-|`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|não|30|
-|`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|não|19|
-|`Shipping.WorkPhone`|Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114701|string|não|19|
-|`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega <br/> Ex.: 5521987654321|string|não|19|
+|`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|Não|1|
+|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|booleano|Não|-|
+|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|GUID|Não|-|
+|`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|Não|64|
+|`Billing.Street`|Logradouro do endereço de cobrança|string|Não|24|
+|`Billing.Number`|Número do endereço de cobrança|string|Não|5|
+|`Billing.Complement`|Complemento do endereço de cobrança|string|Não|14|
+|`Billing.Neighborhood`|Bairro do endereço de cobrança|string|Não|15|
+|`Billing.City`|Cidade do endereço de cobrança|string|Não|20|
+|`Billing.State`|Estado do endereço de cobrança|string|Não|2|
+|`Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|Não|2|
+|`Billing.ZipCode`|Código postal do endereço de cobrança|string|Não|9|
+|`Shipping.Street`|Logradouro do endereço de entrega|string|Não|24|
+|`Shipping.Number`|Número do endereço de entrega|string|Não|5|
+|`Shipping.Complement`|Complemento do endereço de entrega|string|Não|14|
+|`Shipping.Neighborhood`|Bairro do endereço de entrega|string|Não|15|
+|`Shipping.City`|Cidade do endereço de entrega|string|Não|20|
+|`Shipping.State`|Estado do endereço de entrega|string|Não|2|
+|`Shipping.Country`|País do endereço de entrega. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|Não|2|
+|`Shipping.ZipCode`|Código postal do endereço de entrega|string|Não|9|
+|`Shipping.Email`|E-mail do responsável a receber o produto no endereço de entrega|string|Não|60|
+|`Shipping.FirstName`|Primeiro nome do responsável a receber o produto no endereço de entrega|string|Não|30|
+|`Shipping.MiddleName`|Primeira letra do nome do meio do responsável a receber o produto no endereço de entrega|string|Não|1|
+|`Shipping.LastName`|Último do nome do responsável a receber o produto no endereço de entrega|string|Não|30|
+|`Shipping.Phone`|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|string|Não|19|
+|`Shipping.WorkPhone`|Número do telefone de trabalho do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114701|string|Não|19|
+|`Shipping.Mobile`|Número do celular do responsável a receber o produto no endereço de entrega <br/> Ex.: 5521987654321|string|Não|19|
 |`Shipping.ShippingMethod`|Meio de entrega do pedido <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
-|`Shipping.Comment`|Referências do endereço de entrega|string|não|160|
-|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|sim|16|
-|`Customer.FirstName`|Primeiro nome do comprador|string|sim|30|
-|`Customer.MiddleName`|Primeira letra do nome do comprador|string|não|1|
-|`Customer.LastName`|Último nome do comprador|string|sim|30|
-|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|sim|-|
-|`Customer.Gender`|Sexo do comprador <br/> [Tabela 5 - Customer.Gender](https://braspag.github.io/manual/antifraude#tabela-5-customer.gender)|string|não|6|
-|`Customer.Email`|E-mail do comprador|string|não|60|
-|`Customer.Ip`|Endereço de IP do comprador|string|não|15|
-|`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|não|19|
-|`Customer.WorkPhone`|Número do telefone do comprador <br/> Ex.: 552121114701|string|não|19|
-|`Customer.Mobile`|Número do celular do comprador <br/> Ex.: 5521987654321|string|não|19|
-|`Customer.Status`|Status do comprador na loja <br/> [Tabela 6 - Customer.Status](https://braspag.github.io/manual/antifraude#tabela-6-customer.status)|string|não|8|
-|`Customer.BrowserFingerPrint`|Impressão digital de dispositivos e geolocalização real do IP do comprador - [Configuração do Fingerprint](https://braspag.github.io/manual/antifraude#fingerprint-com-a-aci-worldwide)|string|sim|6005|
-|`CartItem[n].ProductName`|Nome do produto|string|não|50|
-|`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|não|-|
-|`CartItem[n].OriginalPrice`|Preço original do produto <br/> Ex: 11490 = r$ 114,90|long|não|-|
-|`CartItem[n].MerchantItemId`|ID do produto na loja|string|não|30|
-|`CartItem[n].Sku`|Sku do produto|string|não|12|
-|`CartItem[n].Quantity`|Quantidade do produto|int|não|-|
-|`CartItem[n].GiftMessage`|Mensagem de presente|string|não|160|
-|`CartItem[n].Description`|Descrição do produto|string|não|76|
-|`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|não|160|
+|`Shipping.Comment`|Referências do endereço de entrega|string|Não|160|
+|`Customer.MerchantCustomerId`|Número do documento de identificação do comprador, CPF ou CNPJ|string|Sim|16|
+|`Customer.FirstName`|Primeiro nome do comprador|string|Sim|30|
+|`Customer.MiddleName`|Primeira letra do nome do comprador|string|Não|1|
+|`Customer.LastName`|Último nome do comprador|string|Sim|30|
+|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|data|Sim|-|
+|`Customer.Gender`|Sexo do comprador <br/> [Tabela 5 - Customer.Gender](https://braspag.github.io/manual/antifraude#tabela-5-customer.gender)|string|Não|6|
+|`Customer.Email`|E-mail do comprador|string|Não|60|
+|`Customer.Ip`|Endereço de IP do comprador|string|Não|15|
+|`Customer.Phone`|Número do telefone do comprador <br/> Ex.: 552121114700|string|Não|19|
+|`Customer.WorkPhone`|Número do telefone do comprador <br/> Ex.: 552121114701|string|Não|19|
+|`Customer.Mobile`|Número do celular do comprador <br/> Ex.: 5521987654321|string|Não|19|
+|`Customer.Status`|Status do comprador na loja <br/> [Tabela 6 - Customer.Status](https://braspag.github.io/manual/antifraude#tabela-6-customer.status)|string|Não|8|
+|`Customer.BrowserFingerPrint`|Impressão digital de dispositivos e geolocalização real do IP do comprador - [Configuração do Fingerprint](https://braspag.github.io/manual/antifraude#fingerprint-com-a-aci-worldwide)|string|Sim|6005|
+|`CartItem[n].ProductName`|Nome do produto|string|Não|50|
+|`CartItem[n].UnitPrice`|Preço unitário do produto <br/> Ex: 10950 = r$ 109,50|long|Não|-|
+|`CartItem[n].OriginalPrice`|Preço original do produto <br/> Ex: 11490 = r$ 114,90|long|Não|-|
+|`CartItem[n].MerchantItemId`|ID do produto na loja|string|Não|30|
+|`CartItem[n].Sku`|Sku do produto|string|Não|12|
+|`CartItem[n].Quantity`|Quantidade do produto|int|Não|-|
+|`CartItem[n].GiftMessage`|Mensagem de presente|string|Não|160|
+|`CartItem[n].Description`|Descrição do produto|string|Não|76|
+|`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|Não|160|
 |`CartItem[n].ShippingMethod`|Meio de entrega do produto <br/> [Tabela 4 - ShippingMethod](https://braspag.github.io/manual/antifraude#tabela-4-shippingmethod)|enum|-|-|
-|`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|não|19|
-|`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo|bool|não|-|
-|`Airline.BookingType`|Tipo de agendamento da reserva|string|não|255|
-|`Airline.TicketDeliveryMethod`|Tipo de entrega da passagem|string|não|127|
-|`Airline.BookingReferenceNumber`|Número de referêcia da reserva|string|não|9|
-|`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|não|29|
-|`Airline.Passengers[n].MiddleName`|Nome do meio do passageiro|string|não|1|
-|`Airline.Passengers[n].LastName`|Último nome do passageiro|string|não|28|
+|`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|Não|19|
+|`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo|booleano|Não|-|
+|`Airline.BookingType`|Tipo de agendamento da reserva|string|Não|255|
+|`Airline.TicketDeliveryMethod`|Tipo de entrega da passagem|string|Não|127|
+|`Airline.BookingReferenceNumber`|Número de referêcia da reserva|string|Não|9|
+|`Airline.Passengers[n].FirstName`|Primeiro nome do passageiro|string|Não|29|
+|`Airline.Passengers[n].MiddleName`|Nome do meio do passageiro|string|Não|1|
+|`Airline.Passengers[n].LastName`|Último nome do passageiro|string|Não|28|
 |`Airline.Passengers[n].PassengerType`|Tipo do passageiro <br/> [Tabela 8 - Airline.Passengers{n}.PassengerType](https://braspag.github.io/manual/antifraude#tabela-8-airline.passengers[n].passengertype)|enum|não|-|
-|`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|não|19|
-|`Airline.Passengers[n].Email`|E-mail do passageiro|string|não|60|
-|`Airline.Passengers[n].LoyaltyMemberNumber`|Número de fidelidade do passageiro|string|não|255|
-|`Airline.Passengers[n].TicketNumber`|Número da passagem|string|não|20|
-|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|não|3|
-|`Airline.Passengers[n].Legs[n].DepartureCountry`|Código do país do aeroporto de saída. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|não|3|
-|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|não|3|
-|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Código do país do aeroporto de chegada. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|não|3|
-|`Airline.Passengers[n].Legs[n].AirlineCode`|Código da companhia aérea|string|não|3|
-|`Airline.Passengers[n].Legs[n].DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38 |datetime|não|-|
-|`Airline.Passengers[n].Legs[n].ClassOfService`|Classe de serviço|string|não|30|
-|`CustomConfiguration.MerchantWebsite`|Website da loja|string|não|60|
-|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData (ACI Worldwide)](https://braspag.github.io/manual/antifraude#tabela-35-merchantdefineddata-(aci-worldwide))|int|não|-|
-|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData (ACI Worldwide)](https://braspag.github.io/manual/antifraude#tabela-35-merchantdefineddata-(aci-worldwide))|var|não|-|
+|`Airline.Passengers[n].Phone`|Telefone do passageiro <br/> Ex.: 552121114700|string|Não|19|
+|`Airline.Passengers[n].Email`|E-mail do passageiro|string|Não|60|
+|`Airline.Passengers[n].LoyaltyMemberNumber`|Número de fidelidade do passageiro|string|Não|255|
+|`Airline.Passengers[n].TicketNumber`|Número da passagem|string|Não|20|
+|`Airline.Passengers[n].Legs[n].DepartureAirport`|Código do aeroporto de partida. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|Não|3|
+|`Airline.Passengers[n].Legs[n].DepartureCountry`|Código do país do aeroporto de saída. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|Não|3|
+|`Airline.Passengers[n].Legs[n].ArrivalAirport`|Código do aeroporto de chegada. Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}|string|Não|3|
+|`Airline.Passengers[n].Legs[n].ArrivalCountry`|Código do país do aeroporto de chegada. Mais informações em [ISO 3-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|Não|3|
+|`Airline.Passengers[n].Legs[n].AirlineCode`|Código da companhia aérea|string|Não|3|
+|`Airline.Passengers[n].Legs[n].DepartureDateTime`|Data e hora de partida <br/> Ex.: 2018-03-31 19:16:38 |datetime|Não|-|
+|`Airline.Passengers[n].Legs[n].ClassOfService`|Classe de serviço|string|Não|30|
+|`CustomConfiguration.MerchantWebsite`|Website da loja|string|Não|60|
+|`MerchantDefinedData[n].Key`|Chave do campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData (ACI Worldwide)](https://braspag.github.io/manual/antifraude#tabela-35-merchantdefineddata-(aci-worldwide))|int|Não|-|
+|`MerchantDefinedData[n].Value`|Valor do campo definido junto ao provedor de antifraude <br/> [Tabela 35 - MerchantDefinedData (ACI Worldwide)](https://braspag.github.io/manual/antifraude#tabela-35-merchantdefineddata-(aci-worldwide))|var|Não|-|
 
 ### Resposta
 
@@ -1606,7 +1606,7 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
-|`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
+|`TransactionId`|Id da transação no Antifraude Gateway Braspag|GUID|
 |`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 19 - Status](https://braspag.github.io/manual/antifraude#tabela-19-status)|enum|
 |`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
@@ -1807,7 +1807,7 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
-|`TransactionId`|Id da transação no Antifraude Gateway Braspag|guid|
+|`TransactionId`|Id da transação no Antifraude Gateway Braspag|GUID|
 |`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 20 - Status]({{ site.baseurl_root }}manual/antifraude#tabela-20-status)|enum|
 |`ProviderAnalysisResult.ProviderRequestId`|Id do request da transação na ReDShield|string|
 |`ProviderAnalysisResult.Result.ProviderCode`|Código de retorno da ReDShield|string|
@@ -1823,21 +1823,21 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 |`Currency`|Moeda. Maiores informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|enum|
 |`Provider`|Provedor da solução de antifraude <br/> [Tabela 1 - Provider]({{ site.baseurl_root }}//manual/antifraude#tabela-1-provider)|enum|
 |`OrderDate`|Data do pedido <br/> Ex.: 2016-12-09 19:16:38.155|datetime|
-|`BraspagTransactionId`|Id da transação no Pagador da Braspag|guid|
+|`BraspagTransactionId`|Id da transação no Pagador da Braspag|GUID|
 |`Tid`|Id da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Nsu`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|
 |`Nsu`|Número sequencial único da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `AuthorizationCode` e `SaleDate`, além deste em questão|string|
 |`AuthorizationCode`|Código de autorização da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `SaleDate`, além deste em questão|string|
 |`SaleDate`|Data da autorização da transação da transação na adquirente <br/> Obs.: Caso você não possua integração com o Pagador Braspag, não terá como enviar o campo `BraspagTransactionId`, com isso é necessário o envio dos campos `Tid`, `Nsu` e `AuthorizationCode`, além deste em questão|datetime|
 |`SplitingPaymentMethod`|Identifica se a autorização da transação é com um ou mais cartões ou com mais de um meio de pagamento <br/> [Tabela 2 - SplitingPaymentMethod]({{ site.baseurl_root }}manual/antifraude#tabela-2-splitingpaymentmethod)|enum|
-|`IsRetryTransaction`|Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900|bool|
+|`IsRetryTransaction`|Retentativa de uma análise, e deverá ser enviado com valor igual a TRUE quando o código de retorno na primeira tentativa for igual a BP900|booleano|
 |`Card.Number`|Número do cartão de crédito|string|
 |`Card.Holder`|Nome do cartão de crédito|string|
 |`Card.ExpirationDate`|Data de expiração do cartão de crédito <br/> Ex.: 01/2023|string|
 |`Card.Cvv`|Código de segurança do cartão de crédito|string|
 |`Card.Brand`|Bandeira do cartão de crédito <br/> [Tabela 3 - Card.Brand]({{ site.baseurl_root }}manual/antifraude#tabela-3-card.brand)|enum|
 |`Card.EciThreeDSecure`|Código do ECI (Eletronic Commerce Indicator) de autenticação|string|
-|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|bool|
-|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|guid|
+|`Card.Save`|Indica se os dados do cartão de crédito serão armazenados no Cartão Protegido|booleano|
+|`Card.Token`|Identificador do cartão de crédito salvo no Cartão Protegido|GUID|
 |`Card.Alias`|Alias (apelido) do cartão de crédito salvo no Cartão Protegido|string|
 |`Billing.Street`|Logradouro do endereço de cobrança|string|
 |`Billing.Number`|Número do endereço de cobrança|string|
@@ -1868,7 +1868,7 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 |`Customer.FirstName`|Primeiro nome do comprador|string|
 |`Customer.MiddleName`|Primeira letra do nome do comprador|string|
 |`Customer.LastName`|Último nome do comprador|string|
-|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|date|
+|`Customer.BirthDate`|Data de nascimento do comprador <br/> Ex.: 1983-10-01|data|
 |`Customer.Gender`|Sexo do comprador <br/> [Tabela 6 - Customer.Gender]({{ site.baseurl_root }}//manual/antifraude#tabela-6-customer.gender)|string|
 |`Customer.Email`|E-mail do comprador|string|
 |`Customer.Ip`|Endereço de IP do comprador|string|
@@ -1888,7 +1888,7 @@ Quando o seu provedor de antifraude é a ACI Worldwide, envie o valor "RedShield
 |`CartItem[n].ShippingInstructions`|Instruções de entrega do produto|string|
 |`CartItem[n].ShippingMethod`|Meio de entrega do produto <br/> [Tabela 4 - ShippingMethod]({{ site.baseurl_root }}manual/antifraude#tabela-4-shippingmethod)|enum|
 |`CartItem[n].ShippingTranckingNumber`|Número de rastreamento do produto|string|
-|`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo|bool|
+|`Airline.ThirdPartyBooking`|Indica se a reserva foi agendada por terceiros, como por exemplo agências de turismo|booleano|
 |`Airline.BookingType`|Tipo de agendamento da reserva|string|
 |`Airline.TicketDeliveryMethod`|Tipo de entrega da passagem|string|
 |`Airline.BookingReferenceNumber`|Número de referêcia da reserva|string|
