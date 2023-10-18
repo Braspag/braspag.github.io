@@ -42,9 +42,9 @@ Os provedores de antifraude oferecem ferramentas baseadas em rede neural, bancos
 Na contratação do Antifraude Gateway, você escolhe com qual(is) provedor(es) deseja analisar suas transações e o plano. 
 
 * **Cybersource**: é uma empresa do grupo Visa, que atua desde 1994 com gerenciamento de fraude. Os planos da Cybersource são:
-    * Hierarquia: modelos de risco padronizados pelo segmento de mercado do e-commerce;
-    * Advanced: permite proposição de melhorias nas regras de risco e consultoria mensal com a Cybersource e Braspag;
-    * Enterprise: conta com um analista de risco dedicado da CyberSource, que irá propor proativamente ajustes no conjunto de regras do negócio a fim de melhorar a conversão e reduzir índices de chargeback.
+   * Hierarquia: modelos de risco padronizados pelo segmento de mercado do e-commerce;
+   * Advanced: permite proposição de melhorias nas regras de risco e consultoria mensal com a Cybersource e Braspag;
+   * Enterprise: conta com um analista de risco dedicado da CyberSource, que irá propor proativamente ajustes no conjunto de regras do negócio a fim de melhorar a conversão e reduzir índices de chargeback.
 * **ACI Worldwide**: é uma empresa global de software de missão crítica que fornece soluções de controle e prevenção à fraude bem como gestão e processamento de pagamentos em tempo real para corporações.
 * **Clearsale**: é autoridade em soluções antifraude, equilibrando tecnologia avançada e inteligência humana especializada para entregar excelentes indicadores e gerar confiança.
 
@@ -2159,7 +2159,7 @@ Há três formas de incluir o script na sua página de checkout. A diferença es
 * `session_id` criado pela ClearSale (recomendado).
 
 > Saiba mais detalhes na documentação [Behavior Analytics](https://api.clearsale.com.br/docs/behavior-analytics/sdk/browser#inclusion-page){:target="_blank"}.
-
+<br>
 > Na requisição de análise de fraude, envie no campo `Customer.BrowserFingerprint` apenas o valor do `session_id`.
 
 ### Configurando o Fingerprint na Clearsale – Mobile
@@ -2281,7 +2281,6 @@ Consulte as instruções para cada sistema operacional:
 |`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
 
 **Parâmetros no corpo (body)**
-
 
 | Parâmetro | Descrição  | Tipo     | Tamanho | Obrigatório |
 |-----------|------------|----------|---------|-------------|
