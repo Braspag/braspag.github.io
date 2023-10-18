@@ -2111,16 +2111,16 @@ Veja a representação do fluxo de criação do Fingerprint e requisição de an
  
 **Etapa de criação do Fingerprint**
 
-1. O comprador preenche os dados solicitados na página de checkout da loja (website ou aplicativo);
-2. A página de checkout da loja, já configurada com o código do Fingerprint, coleta os dados do comprador e executa o script de identificação do dispositivo (criação do Fingerprint).
+**1.** O comprador preenche os dados solicitados na página de checkout da loja (website ou aplicativo);
+**2.** A página de checkout da loja, já configurada com o código do Fingerprint, coleta os dados do comprador e executa o script de identificação do dispositivo (criação do Fingerprint).
 
 **Etapa de análise de fraude**
 
-3. A loja envia a requisição de análise de fraude com o campo `Customer.BrowserFingerprint` (com o valor do `session_id`) para o Antifraude Gateway;
-4. O Antifraude Gateway valida a requisição e solicita a análise de fraude para a ClearSale;
-5. A ClearSale realiza a análise de fraude levando em conta o Fingerprint do dispositivo e envia a recomendação de aceitar, rejeitar ou revisar* a transação para o Antifraude Gateway;
-6. O Antifraude Gateway retorna o resultado da análise de fraude para a loja;
-7. A loja retorna o status da transação (aprovada ou não aprovada) ao comprador.
+**3.** A loja envia a requisição de análise de fraude com o campo `Customer.BrowserFingerprint` (com o valor do `session_id`) para o Antifraude Gateway;
+**4.** O Antifraude Gateway valida a requisição e solicita a análise de fraude para a ClearSale;
+**5.** A ClearSale realiza a análise de fraude levando em conta o Fingerprint do dispositivo e envia a recomendação de aceitar, rejeitar ou revisar* a transação para o Antifraude Gateway;
+**6.** O Antifraude Gateway retorna o resultado da análise de fraude para a loja;
+**7.** A loja retorna o status da transação (aprovada ou não aprovada) ao comprador.
 
 > *Variável conforme o pacote contratado.
 
