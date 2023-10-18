@@ -41,23 +41,14 @@ Os provedores de antifraude oferecem ferramentas baseadas em rede neural, bancos
 
 Na contratação do Antifraude Gateway, você escolhe com qual(is) provedor(es) deseja analisar suas transações e o plano. 
 
-### Cybersource
+* **Cybersource**: é uma empresa do grupo Visa, que atua desde 1994 com gerenciamento de fraude. Os planos da Cybersource são:
+    * Hierarquia: modelos de risco padronizados pelo segmento de mercado do e-commerce;
+    * Advanced: permite proposição de melhorias nas regras de risco e consultoria mensal com a Cybersource e Braspag;
+    * Enterprise: conta com um analista de risco dedicado da CyberSource, que irá propor proativamente ajustes no conjunto de regras do negócio a fim de melhorar a conversão e reduzir índices de chargeback.
+* **ACI Worldwide**: é uma empresa global de software de missão crítica que fornece soluções de controle e prevenção à fraude bem como gestão e processamento de pagamentos em tempo real para corporações.
+* **Clearsale**: é autoridade em soluções antifraude, equilibrando tecnologia avançada e inteligência humana especializada para entregar excelentes indicadores e gerar confiança.
 
-A Cybersource é uma empresa do grupo Visa, que atua desde 1994 com gerenciamento de fraude.
-
-Saiba mais sobre os planos da Cybersource na tabela a seguir.
-
-| PLANOS | DESCRIÇÃO |
-|---|---|
-| Hierarquia | Modelos de risco padronizados pelo segmento de mercado do e-commerce.|
-| Advanced | Permite proposição de melhorias nas regras de risco e consultoria mensal com a Cybersource e Braspag. |
-| Enterprise | Conta com um analista de risco dedicado da CyberSource, que irá propor proativamente ajustes no conjunto de regras do negócio a fim de melhorar a conversão e reduzir índices de chargeback.|
-
-### ACI Worldwide
-
-A ACI WORLDWIDE, fundada em 1975, é uma empresa global de software de missão crítica que fornece soluções de controle e prevenção à fraude bem como gestão e processamento de pagamentos em tempo real para corporações.
-
-Neste manual, consulte as requisições e [tabelas anexas correspondentes ao seu provedor de antifraude](https://braspag.github.io//manual/antifraude#tabelas).
+> Neste manual, consulte as requisições e [tabelas anexas correspondentes ao seu provedor de antifraude](https://braspag.github.io//manual/antifraude#tabelas).
 
 # Fluxos da Análise de Fraude
 
@@ -2089,6 +2080,412 @@ Se a opção para executar o módulo não aparecer, selecione *File -> Project S
 
 O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida com a *caixa preta*. Para obter um exemplo mais rico, consulte o aplicativo de exemplo do Android Studio incluído no SDK.
 
+# Integração com a ClearSale
+
+A integração com a ClearSale é composta de duas etapas, a configuração do Fingerprint e a requisição de análise de fraude.
+
+> **Atenção**: Você só deve enviar o campo `BraspagTransactionId` se o seu fluxo for `AuthorizeFirst` e estiver usando o Pagador Braspag. O campo `BraspagTransactionId` é o identificador da transação no Pagador. Saiba mais na [documentação do Pagador](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude){:target="_blank"}.
+
+## Fingerprint com a ClearSale
+
+### O que é o Fingerprint?
+
+O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo como:
+
+* Localização precisa (quando habilitada permissão pelo usuário);
+* Identificadores de publicidade do dispositivo (quando habilitada permissão pelo usuário);
+* Características físicas do dispositivo (tela, bateria, teclado, espaço livre em disco, modelo, nome do dispositivo);
+* Características de software (versão, idioma, build, controle parental);
+* Informações de rede (conexões, IP);
+* Operadora do SimCard.<br/>
+<br/>
+
+<aside class="notice">IMPORTANTE: Para atender aos requisitos da Lei Geral de Proteção de Dados (LGPD), inclua a informação sobre coleta de dados do dispositivo do comprador na política de cookies do seu e-commerce.</aside>
+
+### Fluxo do Fingerprint com a ClearSale
+
+Para análises via ClearSale, o Fingerprint é criado antes da requisição de análise de fraude por meio de um script em JavaScript.
+
+A criação do Fingerprint acontece separada da requisição de análise de fraude.
+
+Veja a representação do fluxo de criação do Fingerprint e requisição de análise de fraude:
+
+![Fluxo Fingerprint Clearsale]({{ site.baseurl_root }}/images/braspag/af/fingerprint-clearsale.png)
+ 
+**Etapa de criação do Fingerprint**
+
+1. O comprador preenche os dados solicitados na página de checkout da loja (website ou aplicativo);
+2. A página de checkout da loja, já configurada com o código do Fingerprint, coleta os dados do comprador e executa o script de identificação do dispositivo (criação do Fingerprint).
+
+**Etapa de análise de fraude**
+
+3. A loja envia a requisição de análise de fraude com o campo `Customer.BrowserFingerprint` (com o valor do `session_id`) para o Antifraude Gateway;
+4. O Antifraude Gateway valida a requisição e solicita a análise de fraude para a ClearSale;
+5. A ClearSale realiza a análise de fraude levando em conta o Fingerprint do dispositivo e envia a recomendação de aceitar, rejeitar ou revisar* a transação para o Antifraude Gateway;
+6. O Antifraude Gateway retorna o resultado da análise de fraude para a loja;
+7. A loja retorna o status da transação (aprovada ou não aprovada) ao comprador.
+
+> *Variável conforme o pacote contratado.
+
+### Onde enviar o Fingerprint?
+
+Na requisição de análise de fraude com a ClearSale, envie o valor do `session_id` no parâmetro `Customer.BrowserFingerprint`.
+
+### Como configurar o Fingerprint na ClearSale?
+
+O Fingerprint consiste na implementação de um script na sua página de checkout (front-end), na parte onde o comprador preenche os dados cadastrais.
+
+#### Variáveis do Fingerprint
+
+A tabela a seguir apresenta as variáveis para configuração do Fingerprint com a ClearSale.
+
+|VARIÁVEL|DESCRIÇÃO|TIPO|TAMANHO|OBRIGATÓRIO|
+|---|---|---|---|---|
+|`session_id`|Identifica a sessão do usuário no website e aplicativo. Pode ser criado pela loja ou pela ClearSale.<br>O valor do `session_id` deve ser submetido no campo `Customer.BrowserFingerprint`.|GUID (recomendado) |6 a 128 caracteres|Sim|
+|`seu_appkey`|Identifica a loja para criação do fingerprint dos dispositivos dos compradores. Fornecido pela Cielo.|string|-|Sim|
+
+> O `session_id` pode aparecer na documentação da ClearSale como `SessionID` ou `SessionId`.
+
+### Configurando o Fingerprint na ClearSale – Web
+
+Você deverá inserir um script (JavaScript) no código front-end da sua página de checkout. Esse script tem o parâmetro `session_id`, que é o identificador da sessão do usuário no website ou aplicativo.
+
+> Para monitorar caso o usuário faça o bloqueio do script, insira a tag <noscript>. Saiba mais em: [Monitoramento Bloqueio de Script](https://api.clearsale.com.br/docs/behavior-analytics/sdk/browser#implementation-script){:target="_blank"}
+
+Há três formas de incluir o script na sua página de checkout. A diferença está na criação do `session_id`:
+
+* `session_id` criado pela loja;
+* `session_id` criado pelo Google Tag Manager;
+* `session_id` criado pela ClearSale (recomendado).
+
+> Saiba mais detalhes na documentação [Behavior Analytics](https://api.clearsale.com.br/docs/behavior-analytics/sdk/browser#inclusion-page){:target="_blank"}.
+
+> Na requisição de análise de fraude, envie no campo `Customer.BrowserFingerprint` apenas o valor do `session_id`.
+
+### Configurando o Fingerprint na Clearsale – Mobile
+
+O `session_id` pode ser criado pela loja ou é possível solicitar a criação pela ClearSale pelo método `generateSessionID()`.
+
+Consulte as instruções para cada sistema operacional:
+
+* [Android](https://api.clearsale.com.br/docs/behavior-analytics/sdk/android/latest#introduction-section){:target="_blank"};
+* [iOS](https://api.clearsale.com.br/docs/behavior-analytics/sdk/ios/latest#introduction-section){:target="_blank"}.
+
+## Analisando uma transação na ClearSale
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">analysis/v2/</span></aside>
+
+``` json
+{
+    "TotalOrderAmount": 46000,
+    "TransactionAmount": 45500,
+    "Provider": "ClearSale",
+    "Currency": "BRL",
+    "OrderDate": "2023-09-26T08:44:30.1945689",
+    "BraspagTransactionId": "1cbdd27f-80e4-47a6-9921-59a24989536f",
+    "Card": {
+        "Number": "4000021231111111",
+        "Holder": "Guilherme Silva",
+        "ExpirationDate": "08/2033",
+        "Brand": "Visa"
+    },
+    "Billing": {
+        "Street": "Alameda Xingu",
+        "Number": "512",
+        "Complement": "21 andar",
+        "Neighborhood": "Alphaville",
+        "City": "Barueri",
+        "State": "SP",
+        "Country": "BR",
+        "ZipCode": "06455030"
+    },
+    "Shipping": {
+        "DocumentType": "Cpf",
+        "DocumentNumber": "99988877711",
+        "Street": "Alameda Xingu",
+        "Number": "512",
+        "Complement": "21 andar",
+        "Neighborhood": "Alphaville",
+        "City": "Barueri",
+        "State": "SP",
+        "Country": "BR",
+        "ZipCode": "06455030",
+        "Email": "nome@email.com.br",
+        "FirstName": "Nome",
+        "LastName": "Comprador",
+        "Phone": "+55 11 5555-1001",
+        "WorkPhone": "+55 11 5555-1002",
+        "Mobile": "+55 11 5555-1003",
+        "ShippingMethod": 0
+    },
+    "Customer": {
+        "MerchantCustomerId": "11111111111",
+        "DocumentType": "Cpf",
+        "FirstName": "Bruno",
+        "LastName": "Silva",
+        "BirthDate": "1996-11-14",
+        "Email": "homolog@cielo.com.br",
+        "Ip": "127.0.0.1",
+        "Phone": "+55 21 5555-1004",
+        "Mobile": "+55 21 5555-1005",
+        "WorkPhone": "+55 21 5555-1006",
+        "BrowserFingerprint": "MzE5MjAzODg0NA=="
+    },
+    "Airline": {
+        "DepartureDateTime": "2021-11-21T04:52:12.0415545",
+        "Passengers": [
+            {
+                "FirstName": "Bruno",
+                "LastName": "Silva",
+                "PassengerId": "99988877714",
+                "Legs": [
+                    {
+                        "ArrivalAirport": "CGH",
+                        "DepartureAirport": "SDU",
+                        "DepartureDateTime": "2023-10-09T18:30:00",
+                        "Boarding": "2023-10-09T18:45:00",
+                        "Arriving": "2023-10-09T20:00:00"
+                    }
+                ]
+            },
+            {
+                "FirstName": "Guilherme",
+                "LastName": "Silva",
+                "PassengerId": "99988877714",
+                "Legs": [
+                    {
+                        "ArrivalAirport": "CGH",
+                        "DepartureAirport": "SDU",
+                        "DepartureDateTime": "2023-10-09T18:30:00",
+                        "Boarding": "2023-10-09T18:45:00",
+                        "Arriving": "2023-10-09T20:00:00"
+                    }
+                ]
+            }
+        ]
+    },
+    "PaymentType": "CreditCard",
+    "NumberOfInstallments": 1
+}
+```
+
+**Parâmetros no cabeçalho (Header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Authorization`|Bearer {access_token}|
+|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
+
+**Parâmetros no corpo (body)**
+
+
+| Parâmetro | Descrição  | Tipo     | Tamanho | Obrigatório |
+|-----------|------------|----------|---------|-------------|
+| `TotalOrderAmount`                                | Valor total dos itens.                                                                                               | long     | -       | Sim           |
+| `TransactionAmount`                               | Valor cobrado neste pagamento.                                                                                        | long     | -       | Não           |
+|`Provider`| Provedor da solução Antifraude Gateway. Neste caso, usar "ClearSale". [Tabela 1 - Provider](https://braspag.github.io/manual/antifraude#tabela-1-provider)|enum|-|Sim|
+|`Currency`|Moeda. Mais informações em [ISO 4217 Currency Codes](https://www.iso.org/iso-4217-currency-codes.html){:target="_blank"}|string|3|Sim|
+|`BraspagTransactionId`|Id da transação no Pagador da Braspag. Obs.: Você pode enviar esse campo se o seu fluxo de análise de fraude é AuthorizeFirst, no qual a autorização acontece primeiro. Se você não tem integração com o Pagador Braspag, você pode enviar os campos `Tdi`,`Nsu`, `AuthorizationCode` e `SaleDate` em vez do campo `BraspagTransactionId`|GUID|Não|-|
+| `Customer.BrowserFingerprint`                     | Identificador único da sessão do usuário.                                                                             | string   | 128     | Sim           |
+| `OrderDate`                                       | Data do pedido (se não enviado retornaremos a data da requisição).                                       | datetime | 0       | Não           |
+| `NumberOfInstallments`                            | Quantidade de parcelas.                                                                                               | int  | -       | Não           |
+| `Customer.Ip`                                     | IP do pedido.                                                                                                         | string   | 50      | Não           |
+| `Customer.DocumentType`                           | 1 = Pessoa física<br>2 = Pessoa jurídica.                                                                                | int  | -       | Sim           |
+| `Customer.MerchantCustomerId`                     | CPF ou CNPJ.                                                                                                          | string   | 100     | Sim           |
+| `Customer.FirstName`                              | Primeiro nome do cliente.                                                                                             | string   | 60      | Sim           |
+| `Customer.LastName`                               | Sobrenome do cliente.                                                                                                 | string   | 60      | Sim           |
+| `Customer.BirthDate`                              | Data de nascimento.                                                                                                   | datetime | 0       | Não           |
+| `Customer.Email`                                  | E-mail do pedido.                                                                                                      | string   | 150     | Sim           |
+| `Billing.Street`                                  | Nome do logradouro.                                                                                                   | string   | 200     | Sim           |
+| `Billing.Number`                                  | Número do endereço.                                                                                                   | string   | 15      | Sim           |
+| `Billing.Complement`                              | Complemento do endereço.                                                                                              | string   | 250     | Não           |
+| `Billing.Neighborhood`                            | Bairro do endereço.                                                                                                   | string   | 150     | Sim           |
+| `Billing.City`                                    | Cidade do endereço.                                                                                                   | string   | 150     | Sim           |
+| `Billing.State`                                   | Sigla do estado do endereço - UF.                                                                                     | string   | 2       | Sim           |
+| `Billing.Country`                                 | País do endereço.                                                                                                     | string   | 150     | Não           |
+| `Billing.ZipCode`                                 | CEP do endereço.                                                                                                      | string   | 10      | Sim           |
+| `Customer.Phone`                                  | Telefone residencial - Fomato +DDI DDD NNNNNNNN Exemplo: +55 11 33333333. **É obrigatório enviar pelo menos um telefone**. | string   | 20      | Não           |
+| `Customer.WorkPhone`                              | Telefone comercial  - Fomato +DDI DDD NNNNNNNN Exemplo: +55 11 33333333. **É obrigatório enviar pelo menos um telefone**.  | string   | 20      | Não           |
+| `Customer.Mobile`                                 | Celular - Fomato +DDI DDD NNNNNNNNN Exemplo: +55 11 999999999. **É obrigatório enviar pelo menos um telefone**. | string   | 20      | Não           |
+| `Shipping.DocumentType`                           | 1 = Pessoa Física<br> 2 = Pessoa Jurídica.                                                                                | int  | -       | Sim           |
+| `Shipping.DocumentNumber`                         | CPF ou CNPJ.                                                                                                          | string   | 100     | Sim           |
+| `Shipping.FirstName`                              | Primeiro nome do destinatário.                                                                                        | string   | 60      | S           |
+| `Shipping.LastName`                               | Sobrenome do destinatário.                                                                                            | string   | 60      | Sim           |
+| `Shipping.Email`                                  | E-mail.                                                                                                                | string   | 150     | Não           |
+| `Shipping.Street`                                 | Nome do logradouro.                                                                                                   | string   | 200     | Sim           |
+| `Shipping.Number`                                 | Número do endereço.                                                                                                   | string   | 15      | Sim           |
+| `Shipping.Complement`                             | Complemento do endereço.                                                                                              | string   | 250     | Não           |
+| `Shipping.Neighborhood`                           | Bairro do endereço.                                                                                                   | string   | 150     | Sim           |
+| `Shipping.City`                                   | Cidade do endereço.                                                                                                   | string   | 150     | Sim           |
+| `Shipping.State`                                  | Sigla do estado do endereço - UF.  | string   | 2       | Sim           |
+| `Shipping.Country`                                | País do endereço.                                                                                                     | string   | 150     | Não           |
+| `Shipping.ZipCode`                                | CEP do endereço.                                                                                                      | string   | 10      | Sim           |
+| `Shipping.Phone`                                  | Telefone residencial - Fomato +DDI DDD NNNNNNNN Exemplo: +55 11 33333333. **É obrigatório enviar pelo menos um telefone**. | string   | 20      | Não           |
+| `Shipping.workPhone`                              | Telefone comercial  - Fomato +DDI DDD NNNNNNNN Exemplo: +55 11 33333333. **É obrigatório enviar pelo menos um telefone**.  | string   | 20      | Não           |
+| `Shipping.Mobile`                                 | Celular - Fomato +DDI DDD NNNNNNNNN Exemplo: +55 11 999999999. **É obrigatório enviar pelo menos um telefone**.            | string   | 20      | Não           |
+| `PaymentType`                                     | Tipo de Pagamento:<br>CreditCard = 1<br>DebitCard = 2   | int  | -       | Sim           |
+| `Card.Number`                                     | Número do cartão.   | string   | 19      | Sim           |
+| `Card.Brand`  | Bandeira do cartão de crédito. Veja mais em [Tabela 3 - Card.Brand](https://braspag.github.io/manual/antifraude#tabela-3-card.brand) |  enum    | -        | Não       |
+| `Card.ExpirationDate`                             | Data da expiração.                                                                                                    | string   | 50      | Não           |
+| `Card.Holder`                                     | Nome de cobrança.                                                                                                     | string   | 150     | Sim           |
+| `CartItem[].Sku`                                  | Código do produto.                                                                                                    | string   | 50      | Não           |
+| `CartItem[].ProductName`                          | Nome do produto.                                                                                                      | string   | 150     | Sim           |
+| `CartItem[].UnitPrice`                            | Preço unitário do produto, em centavos.                                      | long     | -       | Não           |
+| `CartItem[].Quantity`                             | Quantidade.                                                                                                           | int  | 0       | Não           |
+| `CartItem[].Category`  | Categoria do produto  . Tabela 36 - CartItem{n}.Category"               | enum    | 0        | Não       |             |
+| `Airline[].DepartureDateTime`                     | Data do primeiro voo do pedido (em caso de passagens aéreas).  | datetime | 0       | Condicional*           |
+| `Airline[].Passengers[].FirstName`                | Primeiro nome do passageiro. **É obrigatório enviar o bloco `Airline` quando o segmento for companhia aérea**. | string   | 60      | Condicional*           |
+| `Airline[].Passengers[].LastName`                 | Sobrenome do passageiro **É obrigatório enviar o bloco `Airline` quando o segmento for companhia aérea**.| string   | 60      | Condicional*           |
+| `Airline[].Passengers[].PassengerId`|Identificador do passageiro para quem a passagem foi emitida.|string|32|Condicional*|
+| `Airline[].Passengers[].Legs[].DepartureDateTime` | Data do voo.   | datetime | 0       | Condicional*           |
+| `Airline[].Passengers[].Legs[].DepartureAirport`  | Origem.  | string   | 5       | Condicional*           |
+| `Airline[].Passengers[].Legs[].ArrivalAirport`    | Destino.   | string   | 5       | Condicional*           |
+| `Airline[].Passengers[].Legs[].Boarding`          | Data de embarque.  | datetime | 0       | Condicional*           |
+| `Airline[].Passengers[].Legs[].Arriving`          | Data de desembarque.  | datetime | 0       | Condicional*           |
+
+***É obrigatório enviar o bloco `Airline` quando o segmento for companhia aérea**.
+
+### Resposta
+
+``` json
+{
+    "TransactionId": "79c92335-cbd7-4313-1842-08dbbaaa0d60",
+    "Status": "Accept",
+    "ProviderAnalysisResult": {
+        "ProviderTransactionId": "79C92335-CBD7-4313-1842-08DBBAAA0D60",
+        "ProviderStatus": "Accept",
+        "ProviderCode": 1,
+        "Score": "99.99"
+    },
+    "TotalOrderAmount": 46000,
+    "TransactionAmount": 45500,
+    "Currency": "BRL",
+    "Provider": "ClearSale",
+    "OrderDate": "2023-09-26T08:44:30.1945689",
+    "BraspagTransactionId": "1cbdd27f-80e4-47a6-9921-59a24989536f",
+    "Card": {
+        "Number": "400002******1111",
+        "Holder": "Guilherme Silva",
+        "ExpirationDate": "08/2033",
+        "Cvv": "***",
+        "Brand": "Visa"
+    },
+    "Billing": {
+        "Street": "Alameda Xingu",
+        "Number": "512",
+        "Complement": "21 andar",
+        "Neighborhood": "Alphaville",
+        "City": "Barueri",
+        "State": "SP",
+        "Country": "BR",
+        "ZipCode": "06455030"
+    },
+    "Shipping": {
+        "DocumentType": "Cpf",
+        "DocumentNumber": "99988877714",
+        "Street": "Alameda Xingu",
+        "Number": "512",
+        "Complement": "21 andar",
+        "Neighborhood": "Alphaville",
+        "City": "Barueri",
+        "State": "SP",
+        "Country": "BR",
+        "ZipCode": "06455030",
+        "Email": "nome@email.com",
+        "FirstName": "Nome",
+        "LastName": "Comprador",
+        "Phone": "+55 21 5555-1001",
+        "WorkPhone": "+55 21 5555-1002",
+        "Mobile": "+55 21 5555-1003",
+        "ShippingMethod": "Undefined"
+    },
+    "Customer": {
+        "MerchantCustomerId": "11111111111",
+        "DocumentType": "Cpf",
+        "FirstName": "Bruno",
+        "LastName": "Silva",
+        "FullName": "Bruno Silva",
+        "BirthDate": "1996-11-14T00:00:00",
+        "Email": "nome@email.com.br",
+        "Ip": "127.0.0.1",
+        "Phone": "+55 21 5555-1004",
+        "Mobile": "+55 21 5555-1005",
+        "WorkPhone": "+55 21 5555-1006",
+        "BrowserFingerprint": "MzE5MjAzODg0NA=="
+    },
+    "Airline": {
+        "DepartureDateTime": "2021-11-21T04:52:12.0415545",
+        "JourneyType": 0,
+        "Passengers": [
+            {
+                "FirstName": "Bruno",
+                "LastName": "Silva",
+                "PassengerId": "99988877714",
+                "Status": "Undefined",
+                "PassengerType": "Undefined",
+                "Legs": [
+                    {
+                        "ArrivalAirport": "CGH",
+                        "DepartureAirport": "SDU",
+                        "DepartureDateTime": "2023-10-09T18:30:00",
+                        "Boarding": "2023-10-09T18:45:00",
+                        "Arriving": "2023-10-09T20:00:00"
+                    }
+                ]
+            },
+            {
+                "FirstName": "Guilherme",
+                "LastName": "Silva",
+                "PassengerId": "99988877714",
+                "Status": "Undefined",
+                "PassengerType": "Undefined",
+                "Legs": [
+                    {
+                        "ArrivalAirport": "CGH",
+                        "DepartureAirport": "SDU",
+                        "DepartureDateTime": "2023-10-09T18:30:00",
+                        "Boarding": "2023-10-09T18:45:00",
+                        "Arriving": "2023-10-09T20:00:00"
+                    }
+                ]
+            }
+        ]
+    },
+    "PaymentType": "CreditCard",
+    "NumberOfInstallments": 1
+}
+    "Links": [
+        {
+            "Method": "GET",
+            "Href": "http://risksandbox.braspag.com.br/Analysis/v2/79c92335-cbd7-4313-1842-08dbbaaa0d60",
+            "Rel": "Self"
+        }
+    ],
+}
+```
+
+**Parâmetros no cabeçalho (header)**
+
+|Key|Value|
+|:-|:-|
+|`Content-Type`|application/json|
+|`Status`|201 Created|
+
+**Parâmetros no corpo (body)**
+
+|Parâmetro|Descrição|Tipo|
+|:-|:-|:-:|
+|`TransactionId`|Id da transação no Antifraude Gateway Braspag|GUID|
+|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 19 - Status](https://braspag.github.io/manual/antifraude#tabela-19-status)|enum|
+|`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na ClearSale|string|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ClearSale <br/> [Tabela 20 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-20-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderCode`|Código de retorno da ClearSale <br/> [Tabela 21 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io/manual/antifraude#tabela-21-provideranalysisresult.providercode)|int|
+|`ProviderAnalysisResult.Score`| Score total calculado para o pedido. |number|
+
 # Indicando erros de integração
 
 ## Resposta
@@ -2304,6 +2701,7 @@ A resposta sempre irá apresentar no header o `Content-Type` com o valor "applic
 |---|---|
 |Cybersource|Cybersource|
 |ACI Wordwide|ReDShield|
+|ClearSale|ClearSale|
 
 ## Tabela 2 - SplitingPaymentMethod
 
