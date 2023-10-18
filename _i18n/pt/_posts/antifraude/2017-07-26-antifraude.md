@@ -2083,13 +2083,9 @@ O exemplo é simples, há um botão e ao clicar uma caixa de texto é preenchida
 
 # Integração com a ClearSale
 
-A integração com a ClearSale é composta de duas etapas, a configuração do Fingerprint e a requisição de análise de fraude.
-
-> **Atenção**: Você só deve enviar o campo `BraspagTransactionId` se o seu fluxo for `AuthorizeFirst` e estiver usando o Pagador Braspag. O campo `BraspagTransactionId` é o identificador da transação no Pagador. Saiba mais na [documentação do Pagador](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude){:target="_blank"}.
+A integração com a ClearSale é composta de duas etapas, a [configuração do fingerprint](https://braspag.github.io/manual/antifraude#fingerprint-com-a-clearsale) e a [requisição de análise de fraude](https://braspag.github.io/manual/antifraude#analisando-uma-transa%C3%A7%C3%A3o-na-clearsale).
 
 ## Fingerprint com a ClearSale
-
-### O que é o Fingerprint?
 
 O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo como:
 
@@ -2103,7 +2099,7 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 
 <aside class="notice">IMPORTANTE: Para atender aos requisitos da Lei Geral de Proteção de Dados (LGPD), inclua a informação sobre coleta de dados do dispositivo do comprador na política de cookies do seu e-commerce.</aside>
 
-### Fluxo do Fingerprint com a ClearSale
+**Fluxo do Fingerprint com a ClearSale**
 
 Para análises via ClearSale, o Fingerprint é criado antes da requisição de análise de fraude por meio de um script em JavaScript.
 
@@ -2147,7 +2143,7 @@ A tabela a seguir apresenta as variáveis para configuração do Fingerprint com
 
 > O `session_id` pode aparecer na documentação da ClearSale como `SessionID` ou `SessionId`.
 
-### Configurando o Fingerprint na ClearSale – Web
+#### Configurando o Fingerprint na ClearSale – Web
 
 Você deverá inserir um script (JavaScript) no código front-end da sua página de checkout. Esse script tem o parâmetro `session_id`, que é o identificador da sessão do usuário no website ou aplicativo.
 
@@ -2163,7 +2159,7 @@ Há três formas de incluir o script na sua página de checkout. A diferença es
 <br>
 > Na requisição de análise de fraude, envie no campo `Customer.BrowserFingerprint` apenas o valor do `session_id`.
 
-### Configurando o Fingerprint na Clearsale – Mobile
+#### Configurando o Fingerprint na Clearsale – Mobile
 
 O `session_id` pode ser criado pela loja ou é possível solicitar a criação pela ClearSale pelo método `generateSessionID()`.
 
@@ -2271,6 +2267,8 @@ Consulte as instruções para cada sistema operacional:
     "NumberOfInstallments": 1
 }
 ```
+
+> **Atenção**: Você só deve enviar o campo `BraspagTransactionId` se o seu fluxo for `AuthorizeFirst` e estiver usando o Pagador Braspag. O campo `BraspagTransactionId` é o identificador da transação no Pagador. Saiba mais na [documentação do Pagador](https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude){:target="_blank"}.
 
 **Parâmetros no cabeçalho (Header)**
 
