@@ -5610,15 +5610,9 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
 
 <h1 id="integração-com-a-clearsale">Integração com a ClearSale</h1>
 
-<p>A integração com a ClearSale é composta de duas etapas, a configuração do Fingerprint e a requisição de análise de fraude.</p>
-
-<blockquote>
-  <p><strong>Atenção</strong>: Você só deve enviar o campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> se o seu fluxo for <code class="language-plaintext highlighter-rouge">AuthorizeFirst</code> e estiver usando o Pagador Braspag. O campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> é o identificador da transação no Pagador. Saiba mais na <a href="https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude" target="_blank">documentação do Pagador</a>.</p>
-</blockquote>
+<p>A integração com a ClearSale é composta de duas etapas, a <a href="https://braspag.github.io/manual/antifraude#fingerprint-com-a-clearsale">configuração do fingerprint</a> e a <a href="https://braspag.github.io/manual/antifraude#analisando-uma-transa%C3%A7%C3%A3o-na-clearsale">requisição de análise de fraude</a>.</p>
 
 <h2 id="fingerprint-com-a-clearsale">Fingerprint com a ClearSale</h2>
-
-<h3 id="o-que-é-o-fingerprint-1">O que é o Fingerprint?</h3>
 
 <p>O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo como:</p>
 
@@ -5634,7 +5628,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
 
 <aside class="notice">IMPORTANTE: Para atender aos requisitos da Lei Geral de Proteção de Dados (LGPD), inclua a informação sobre coleta de dados do dispositivo do comprador na política de cookies do seu e-commerce.</aside>
 
-<h3 id="fluxo-do-fingerprint-com-a-clearsale">Fluxo do Fingerprint com a ClearSale</h3>
+<p><strong>Fluxo do Fingerprint com a ClearSale</strong></p>
 
 <p>Para análises via ClearSale, o Fingerprint é criado antes da requisição de análise de fraude por meio de um script em JavaScript.</p>
 
@@ -5709,7 +5703,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
   <p>O <code class="language-plaintext highlighter-rouge">session_id</code> pode aparecer na documentação da ClearSale como <code class="language-plaintext highlighter-rouge">SessionID</code> ou <code class="language-plaintext highlighter-rouge">SessionId</code>.</p>
 </blockquote>
 
-<h3 id="configurando-o-fingerprint-na-clearsale--web">Configurando o Fingerprint na ClearSale – Web</h3>
+<h4 id="configurando-o-fingerprint-na-clearsale--web">Configurando o Fingerprint na ClearSale – Web</h4>
 
 <p>Você deverá inserir um script (JavaScript) no código front-end da sua página de checkout. Esse script tem o parâmetro <code class="language-plaintext highlighter-rouge">session_id</code>, que é o identificador da sessão do usuário no website ou aplicativo.</p>
 
@@ -5730,7 +5724,7 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
 Na requisição de análise de fraude, envie no campo <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> apenas o valor do <code class="language-plaintext highlighter-rouge">session_id</code>.</p>
 </blockquote>
 
-<h3 id="configurando-o-fingerprint-na-clearsale--mobile">Configurando o Fingerprint na Clearsale – Mobile</h3>
+<h4 id="configurando-o-fingerprint-na-clearsale--mobile">Configurando o Fingerprint na Clearsale – Mobile</h4>
 
 <p>O <code class="language-plaintext highlighter-rouge">session_id</code> pode ser criado pela loja ou é possível solicitar a criação pela ClearSale pelo método <code class="language-plaintext highlighter-rouge">generateSessionID()</code>.</p>
 
@@ -5839,6 +5833,10 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
     </span><span class="nl">"NumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<blockquote>
+  <p><strong>Atenção</strong>: Você só deve enviar o campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> se o seu fluxo for <code class="language-plaintext highlighter-rouge">AuthorizeFirst</code> e estiver usando o Pagador Braspag. O campo <code class="language-plaintext highlighter-rouge">BraspagTransactionId</code> é o identificador da transação no Pagador. Saiba mais na <a href="https://braspag.github.io//manual/braspag-pagador#pagamentos-com-an%C3%A1lise-de-fraude" target="_blank">documentação do Pagador</a>.</p>
+</blockquote>
 
 <p><strong>Parâmetros no cabeçalho (Header)</strong></p>
 
