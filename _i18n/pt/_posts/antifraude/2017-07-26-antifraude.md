@@ -2152,7 +2152,7 @@ A tabela a seguir apresenta as variáveis para configuração do Fingerprint com
 
 Você deverá inserir um script (JavaScript) no código front-end da sua página de checkout. Esse script tem o parâmetro `session_id`, que é o identificador da sessão do usuário no website ou aplicativo.
 
-> Para monitorar caso o usuário faça o bloqueio do script, insira a tag <noscript>. Saiba mais em: [Monitoramento Bloqueio de Script](https://api.clearsale.com.br/docs/behavior-analytics/sdk/browser#implementation-script){:target="_blank"}
+> Para monitorar caso o usuário faça o bloqueio do script, insira a tag `noscript`. Saiba mais em: [Monitoramento Bloqueio de Script](https://api.clearsale.com.br/docs/behavior-analytics/sdk/browser#implementation-script){:target="_blank"}.
 
 Há três formas de incluir o script na sua página de checkout. A diferença está na criação do `session_id`:
 
@@ -2296,21 +2296,21 @@ Consulte as instruções para cada sistema operacional:
 | `Customer.BrowserFingerprint`                     | Identificador único da sessão do usuário.                                                                             | string   | 128     | Sim           |
 | `OrderDate`                                       | Data do pedido (se não enviado retornaremos a data da requisição).                                       | datetime | 0       | Não           |
 | `NumberOfInstallments`                            | Quantidade de parcelas.                                                                                               | int  | -       | Não           |
-| `Customer.Ip`                                     | IP do pedido.                                                                                                         | string   | 50      | Não           |
+| `Customer.Ip`                                     | IP do comprador do pedido.                                                                                                         | string   | 50      | Não           |
 | `Customer.DocumentType`                           | 1 = Pessoa física<br>2 = Pessoa jurídica.                                                                                | int  | -       | Sim           |
 | `Customer.MerchantCustomerId`                     | CPF ou CNPJ.                                                                                                          | string   | 100     | Sim           |
-| `Customer.FirstName`                              | Primeiro nome do cliente.                                                                                             | string   | 60      | Sim           |
-| `Customer.LastName`                               | Sobrenome do cliente.                                                                                                 | string   | 60      | Sim           |
-| `Customer.BirthDate`                              | Data de nascimento.                                                                                                   | datetime | 0       | Não           |
-| `Customer.Email`                                  | E-mail do pedido.                                                                                                      | string   | 150     | Sim           |
-| `Billing.Street`                                  | Nome do logradouro.                                                                                                   | string   | 200     | Sim           |
-| `Billing.Number`                                  | Número do endereço.                                                                                                   | string   | 15      | Sim           |
-| `Billing.Complement`                              | Complemento do endereço.                                                                                              | string   | 250     | Não           |
-| `Billing.Neighborhood`                            | Bairro do endereço.                                                                                                   | string   | 150     | Sim           |
-| `Billing.City`                                    | Cidade do endereço.                                                                                                   | string   | 150     | Sim           |
-| `Billing.State`                                   | Sigla do estado do endereço - UF.                                                                                     | string   | 2       | Sim           |
-| `Billing.Country`                                 | País do endereço.                                                                                                     | string   | 150     | Não           |
-| `Billing.ZipCode`                                 | CEP do endereço.                                                                                                      | string   | 10      | Sim           |
+| `Customer.FirstName`                              | Primeiro nome do comprador.                                                                                             | string   | 60      | Sim           |
+| `Customer.LastName`                               | Sobrenome do comprador.                                                                                                 | string   | 60      | Sim           |
+| `Customer.BirthDate`                              | Data de nascimento do comprador.                                                                                                   | datetime | 0       | Não           |
+| `Customer.Email`                                  | E-mail do comprador.                                                                                                      | string   | 150     | Sim           |
+| `Billing.Street`                                  | Nome do logradouro do endereço de cobrança.                                                                                                   | string   | 200     | Sim           |
+| `Billing.Number`                                  | Número do endereço de cobrança.                                                                                                   | string   | 15      | Sim           |
+| `Billing.Complement`                              | Complemento do endereço de cobrança.                                                                                              | string   | 250     | Não           |
+| `Billing.Neighborhood`                            | Bairro do endereço de cobrança.                                                                                                   | string   | 150     | Sim           |
+| `Billing.City`                                    | Cidade do endereço de cobrança.                                                                                                   | string   | 150     | Sim           |
+| `Billing.State`                                   | Sigla do estado do endereço de cobrança - UF.                                                                                     | string   | 2       | Sim           |
+| `Billing.Country`                                 | País do endereço de cobrança.                                                                                                     | string   | 150     | Não           |
+| `Billing.ZipCode`                                 | CEP do endereço de cobrança.                                                                                                      | string   | 10      | Sim           |
 | `Customer.Phone`                                  | Telefone residencial - Fomato +DDI DDD NNNNNNNN Exemplo: +55 11 33333333. **É obrigatório enviar pelo menos um telefone**. | string   | 20      | Não           |
 | `Customer.WorkPhone`                              | Telefone comercial  - Fomato +DDI DDD NNNNNNNN Exemplo: +55 11 33333333. **É obrigatório enviar pelo menos um telefone**.  | string   | 20      | Não           |
 | `Customer.Mobile`                                 | Celular - Fomato +DDI DDD NNNNNNNNN Exemplo: +55 11 999999999. **É obrigatório enviar pelo menos um telefone**. | string   | 20      | Não           |
@@ -2338,8 +2338,8 @@ Consulte as instruções para cada sistema operacional:
 | `CartItem[].Sku`                                  | Código do produto.                                                                                                    | string   | 50      | Não           |
 | `CartItem[].ProductName`                          | Nome do produto.                                                                                                      | string   | 150     | Sim           |
 | `CartItem[].UnitPrice`                            | Preço unitário do produto, em centavos.                                      | long     | -       | Não           |
-| `CartItem[].Quantity`                             | Quantidade.                                                                                                           | int  | 0       | Não           |
-| `CartItem[].Category`  | Categoria do produto  . Tabela 36 - CartItem{n}.Category"               | enum    | 0        | Não       |             |
+| `CartItem[].Quantity`                             | Quantidade de produtos.                                                                                                           | int  | 0       | Não           |
+| `CartItem[].Category`  | Categoria do produto. VEja mais em [Tabela 36 - CartItem{n}.Category](https://braspag.github.io/manual/antifraude#tabela-36-cartitem[n].category)               | enum    | 0        | Não       |             |
 | `Airline[].DepartureDateTime`                     | Data do primeiro voo do pedido (em caso de passagens aéreas).  | datetime | 0       | Condicional*           |
 | `Airline[].Passengers[].FirstName`                | Primeiro nome do passageiro. **É obrigatório enviar o bloco `Airline` quando o segmento for companhia aérea**. | string   | 60      | Condicional*           |
 | `Airline[].Passengers[].LastName`                 | Sobrenome do passageiro **É obrigatório enviar o bloco `Airline` quando o segmento for companhia aérea**.| string   | 60      | Condicional*           |
@@ -2482,11 +2482,11 @@ Consulte as instruções para cada sistema operacional:
 
 |Parâmetro|Descrição|Tipo|
 |:-|:-|:-:|
-|`TransactionId`|Id da transação no Antifraude Gateway Braspag|GUID|
-|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 19 - Status](https://braspag.github.io/manual/antifraude#tabela-19-status)|enum|
-|`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na ClearSale|string|
-|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ClearSale <br/> [Tabela 20 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-20-providerstatus)|enum|
-|`ProviderAnalysisResult.ProviderCode`|Código de retorno da ClearSale <br/> [Tabela 21 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io/manual/antifraude#tabela-21-provideranalysisresult.providercode)|int|
+|`TransactionId`|Id da transação no Antifraude Gateway Braspag.|GUID|
+|`Status`|Status da transação no Antifraude Gateway Braspag <br/> [Tabela 19 - Status](https://braspag.github.io/manual/antifraude#tabela-19-status).|enum|
+|`ProviderAnalysisResult.ProviderTransactionId`|Id da transação na ClearSale.|string|
+|`ProviderAnalysisResult.ProviderStatus`|Status da transação na ClearSale. <br/> [Tabela 20 - ProviderStatus](https://braspag.github.io/manual/antifraude#tabela-20-providerstatus)|enum|
+|`ProviderAnalysisResult.ProviderCode`|Código de retorno da ClearSale. <br/> [Tabela 21 - ProviderAnalysisResult.ProviderCode](https://braspag.github.io/manual/antifraude#tabela-21-provideranalysisresult.providercode)|int|
 |`ProviderAnalysisResult.Score`| Score total calculado para o pedido. |number|
 
 # Indicando erros de integração
