@@ -5640,16 +5640,21 @@ Se a opção para executar o módulo não aparecer, selecione <em>File -&gt; Pro
 
 <p><strong>Etapa de criação do Fingerprint</strong></p>
 
-<p><strong>1.</strong> O comprador preenche os dados solicitados na página de checkout da loja (website ou aplicativo);
-<strong>2.</strong> A página de checkout da loja, já configurada com o código do Fingerprint, coleta os dados do comprador e executa o script de identificação do dispositivo (criação do Fingerprint).</p>
+<p><strong>1.</strong> O comprador preenche os dados solicitados na página de checkout da loja (website ou aplicativo);</p>
+
+<p><strong>2.</strong> A página de checkout da loja, já configurada com o código do Fingerprint, coleta os dados do comprador e executa o script de identificação do dispositivo (criação do Fingerprint).</p>
 
 <p><strong>Etapa de análise de fraude</strong></p>
 
-<p><strong>3.</strong> A loja envia a requisição de análise de fraude com o campo <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> (com o valor do <code class="language-plaintext highlighter-rouge">session_id</code>) para o Antifraude Gateway;
-<strong>4.</strong> O Antifraude Gateway valida a requisição e solicita a análise de fraude para a ClearSale;
-<strong>5.</strong> A ClearSale realiza a análise de fraude levando em conta o Fingerprint do dispositivo e envia a recomendação de aceitar, rejeitar ou revisar* a transação para o Antifraude Gateway;
-<strong>6.</strong> O Antifraude Gateway retorna o resultado da análise de fraude para a loja;
-<strong>7.</strong> A loja retorna o status da transação (aprovada ou não aprovada) ao comprador.</p>
+<p><strong>3.</strong> A loja envia a requisição de análise de fraude com o campo <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> (com o valor do <code class="language-plaintext highlighter-rouge">session_id</code>) para o Antifraude Gateway;</p>
+
+<p><strong>4.</strong> O Antifraude Gateway valida a requisição e solicita a análise de fraude para a ClearSale;</p>
+
+<p><strong>5.</strong> A ClearSale realiza a análise de fraude levando em conta o Fingerprint do dispositivo e envia a recomendação de aceitar, rejeitar ou revisar* a transação para o Antifraude Gateway;</p>
+
+<p><strong>6.</strong> O Antifraude Gateway retorna o resultado da análise de fraude para a loja;</p>
+
+<p><strong>7.</strong> A loja retorna o status da transação (aprovada ou não aprovada) ao comprador.</p>
 
 <blockquote>
   <p>*Variável conforme o pacote contratado.</p>
