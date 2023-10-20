@@ -29,23 +29,25 @@ Para executar uma operação, combine a URL base do ambiente com a URL da opera�
 
 # Análise de Fraude
 
-A API e-commerce Cielo oferece um serviço de análise de risco de fraudes em transações online. A Cielo se integra a empresas de analise de risco, como CyberSource, que realizam uma validação dos dados transacionais e do histórico de compras do portador do cartão. Essa análise retorna fatores de risco e permite que o lojista tome a decisão se dará continuidade a venda
+A API E-commerce Cielo oferece um serviço de análise de risco de fraudes em transações online. A Cielo se integra a empresas de analise de risco, como CyberSource, que realizam uma validação dos dados transacionais e do histórico de compras do portador do cartão. Essa análise retorna fatores de risco e permite que a loja decida se irá prosseguir com a venda.
 
-<aside class="warning">A análise de fraude oferecida pela Cielo avalia o risco de uma transação, mas não vincula o resultado da análise com a cobertura de ChargeBacks. A Cielo não realiza transações "garantidas"</aside>
+<aside class="warning">A análise de fraude oferecida pela Cielo avalia o risco de uma transação, mas não vincula o resultado da análise com a cobertura de chargebacks. A Cielo não realiza transações garantidas.</aside>
 
-> A análise de fraude está disponível apenas para transações de cartão de crédito!
+> A análise de fraude está disponível apenas para transações de cartão de crédito.
 
-# Integração
+# Fluxos da análise de fraude
 
 |Tipo de Integração|Descrição|Parâmetros necessários|
 |-|-|-|
 |Análise antes da autorização|Antes da transação ser enviada para a autorização, o Antifraude avalia se ela tem alto risco ou não. Dessa forma, evita-se o envio de transações arriscadas para autorização|`FraudAnalysis.Sequence` igual a _AnalyseFirst_|
-|Análise após a autorização|Antes da transação ser enviada para o AntiFraude, a mesma será enviada para a autorização|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_|
-|Análise de risco somente se a transação for autorizada|O AntiFraude será acionado apenas para analisar transações com o staus _autorizada_. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas|`FraudAnalysis.SequenceCriteria` igual a _OnSuccess_|
+|Análise após a autorização|Antes da transação ser enviada para o Antifraude, a mesma será enviada para a autorização|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_|
+|Análise de risco somente se a transação for autorizada|O Antifraude será acionado apenas para analisar transações com o staus _autorizada_. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas|`FraudAnalysis.SequenceCriteria` igual a _OnSuccess_|
 |Análise de risco em qualquer hipótese|Independente do status da transação após a autorização, o AntiFraude analisará o risco|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
 |Autorização em qualquer hipótese|Independente do score de fraude da transação, ela sempre será enviada para a autorização|`FraudAnalysis.Sequence` como _AnalyseFirst_ e `FraudAnalysis.SequenceCriteria` como _Always_|
 |Capturar apenas se uma transação for segura|Após a análise de fraude, captura automaticamente uma transação já autorizada se definido baixo risco. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Cielo receber a notificação do novo status e for igual a aceita, a transação será capturada automaticamente|`FraudAnalysis.Sequence` igual a _AuthorizeFirst_, `FraudAnalysis.CaptureOnLowRisk` igual a _true_ e `Payment.Capture` igual a _false_|
 |Cancelar uma transação comprometida|Caso a análise de fraude retorne um alto risco para uma transação já autorizada ou capturada, ela será imediamente cancelada ou estornada. Este mesmo parâmetro serve para você que irá trabalhar com revisão manual, que após a Cielo receber a notificação do novo status e for igual a rejeitada, a transação será cancelada automaticamente|`FraudAnalysis.Sequence` como _AuthorizeFirst_ , `FraudAnalysis.VoidOnHighRisk` igual a _true_ e `Payment.Capture` igual a _false_|
+
+# Analisando uma transação na Cybersource
 
 Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós "FraudAnalysis", "Cart", "MerchantDefinedFields" e "Travel (somente para venda de passagens aéreas)".
 
@@ -718,7 +720,7 @@ O Fingerprint é a identificação digital do dispositivo do comprador. Essa ide
 |SuperPOP|O comprador está discando em um ISP multi-estatal ou multinacional que provavelmente não é provável a localização do endereço de IP. O comprador pode estar discando através de limites geográficos|
 |No value returned|O tipo de roteamento é desconhecido|
 
-## Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields
+## Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields (Cybersource)
 
 > Nível de Relevância <br/> 1 - Relevante <br/> 2 - Muito Relevante <br/> 3 - Extremamente Relevante <br/><br/>
 > Conforme nível de relevância dos campos e possibilidade de desenho da estratégia de risco de acordo com a necessidade do seu negócio, na validação das transações de testes os mesmos serão cobrados caso não sejam enviaos. Com isso, solicitamos uma análise prévia da documentação e sinalização dos campos que não serão possíveis de serem enviados.<br/><br/>
