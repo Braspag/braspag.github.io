@@ -33,14 +33,6 @@ A API e-commerce Cielo oferece um serviço de análise de risco de fraudes em tr
 
 <aside class="warning">A análise de fraude oferecida pela Cielo avalia o risco de uma transação, mas não vincula o resultado da análise com a cobertura de ChargeBacks. A Cielo não realiza transações "garantidas"</aside>
 
-Para utilizar a análise de risco, é necessario que o serviço seja ativado junto a Cielo. Existem 3 tipos de configurações de análise de fraude disponíveis:
-
-|Tipo|Descrição|Fornecedor|
-|-|-|-|
-|**SuperMID Sem BPO**|Estratégia de risco definida pela Cielo <br/> Não é possivel costumizar as regras no fornecedor e não há analista de risco dedicado|CyberSource|
-|**SuperMID Com BPO**|Estratégia de risco definida pela Cielo <br/> Não é possivel costumizar as regras no fornecedor e poderá ter analista de risco dedicado, desde contratado pelo lojista junto ao fornecedor|CyberSource|
-|**Advanced ou Enterprise**|O Lojista tem um contrato fechado diretamente com o fornecedor de Antifraude, com estratégia de risco e analista dedicados. Cielo deve configurar as credenciais fornecidas pelo fornecedor de Antifraude no seu estabelecimento|CyberSource|
-
 > A análise de fraude está disponível apenas para transações de cartão de crédito!
 
 # Integração
