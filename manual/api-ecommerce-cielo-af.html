@@ -172,15 +172,15 @@
 
 <h1 id="análise-de-fraude">Análise de Fraude</h1>
 
-<p>A API e-commerce Cielo oferece um serviço de análise de risco de fraudes em transações online. A Cielo se integra a empresas de analise de risco, como CyberSource, que realizam uma validação dos dados transacionais e do histórico de compras do portador do cartão. Essa análise retorna fatores de risco e permite que o lojista tome a decisão se dará continuidade a venda</p>
+<p>A API E-commerce Cielo oferece um serviço de análise de risco de fraudes em transações online. A Cielo se integra a empresas de analise de risco, como CyberSource, que realizam uma validação dos dados transacionais e do histórico de compras do portador do cartão. Essa análise retorna fatores de risco e permite que a loja decida se irá prosseguir com a venda.</p>
 
-<aside class="warning">A análise de fraude oferecida pela Cielo avalia o risco de uma transação, mas não vincula o resultado da análise com a cobertura de ChargeBacks. A Cielo não realiza transações "garantidas"</aside>
+<aside class="warning">A análise de fraude oferecida pela Cielo avalia o risco de uma transação, mas não vincula o resultado da análise com a cobertura de chargebacks. A Cielo não realiza transações garantidas.</aside>
 
 <blockquote>
-  <p>A análise de fraude está disponível apenas para transações de cartão de crédito!</p>
+  <p>A análise de fraude está disponível apenas para transações de cartão de crédito.</p>
 </blockquote>
 
-<h1 id="integração">Integração</h1>
+<h1 id="fluxos-da-análise-de-fraude">Fluxos da análise de fraude</h1>
 
 <table>
   <thead>
@@ -198,12 +198,12 @@
     </tr>
     <tr>
       <td>Análise após a autorização</td>
-      <td>Antes da transação ser enviada para o AntiFraude, a mesma será enviada para a autorização</td>
+      <td>Antes da transação ser enviada para o Antifraude, a mesma será enviada para a autorização</td>
       <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code> igual a <em>AuthorizeFirst</em></td>
     </tr>
     <tr>
       <td>Análise de risco somente se a transação for autorizada</td>
-      <td>O AntiFraude será acionado apenas para analisar transações com o staus <em>autorizada</em>. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas</td>
+      <td>O Antifraude será acionado apenas para analisar transações com o staus <em>autorizada</em>. Dessa forma evita-se o custo com análises de transações que não seriam autorizadas</td>
       <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.SequenceCriteria</code> igual a <em>OnSuccess</em></td>
     </tr>
     <tr>
@@ -228,6 +228,8 @@
     </tr>
   </tbody>
 </table>
+
+<h1 id="analisando-uma-transação-na-cybersource">Analisando uma transação na Cybersource</h1>
 
 <p>Para que a análise de fraude via Cybersource seja efetuada durante uma transação de cartão de crédito, é necessário complementar o contrato de autorização com os nós “FraudAnalysis”, “Cart”, “MerchantDefinedFields” e “Travel (somente para venda de passagens aéreas)”.</p>
 
@@ -2045,7 +2047,7 @@
   </tbody>
 </table>
 
-<h2 id="tabela-20---paymentfraudanalysismerchantdefinedfields">Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields</h2>
+<h2 id="tabela-20---paymentfraudanalysismerchantdefinedfields-cybersource">Tabela 20 - Payment.FraudAnalysis.MerchantDefinedFields (Cybersource)</h2>
 
 <blockquote>
   <p>Nível de Relevância <br /> 1 - Relevante <br /> 2 - Muito Relevante <br /> 3 - Extremamente Relevante <br /><br />
