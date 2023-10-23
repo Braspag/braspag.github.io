@@ -1307,6 +1307,989 @@
 
 <p>O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo. Para configurar o Fingerprint com a Cybersource, consulte o manual do <a href="https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource" target="_blank">Antifraude Gateway</a>.</p>
 
+<h2 id="analisando-uma-transação-na-clearsale">Analisando uma transação na ClearSale</h2>
+
+<p>Na requisição de análise de fraude com a ClearSale, envie o campo <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code> como “ClearSale”.</p>
+
+<h3 id="requisição-1">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9094008</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bruno Silva"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111111111"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"homolog@cielo.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1996-11-14"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">45500</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome fantasia da loja"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4000021231111111"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guilherme Silva"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08/2033"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"FraudAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ClearSale"</span><span class="p">,</span><span class="w">            
+            </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AuthorizeFirst"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SequenceCriteria"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CaptureOnLowRisk"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"VoidOnHighRisk"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">46000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Addressee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome Comprador"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LowCost"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-1001"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"WorkPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-1002"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-1003"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99988877711"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nome@email.com.br"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"IsGift"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ReturnsAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mouse"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100010"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">532400</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EletronicGood"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Windows 11 Professional"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100011"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">85515</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EletronicSoftware"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"Travel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Passengers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bruno Silva"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"TravelLegs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="nl">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDU"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CGH"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"DepartureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-09T18:30:00"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"Boarding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-09T18:45:00"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"Arriving"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-09T20:00:00"</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guilherme Silva"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"TravelLegs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="nl">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDU"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CGH"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"DepartureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-09T18:30:00"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"Boarding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-09T18:45:00"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"Arriving"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-09T20:00:00"</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Parâmetros no cabeçalho (header)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Propriedade</th>
+      <th style="text-align: left">Tipo</th>
+      <th style="text-align: left">Tamanho</th>
+      <th style="text-align: left">Obrigatório</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td style="text-align: left">Guid</td>
+      <td style="text-align: left">36</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Identificador da loja na Cielo</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">40</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Chave pública para autenticação dupla na Cielo</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td style="text-align: left">Guid</td>
+      <td style="text-align: left">36</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Identificador do request definido pela loja</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Parâmetros no corpo (body)</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Propriedade</th>
+      <th style="text-align: left">Tipo</th>
+      <th style="text-align: left">Tamanho</th>
+      <th style="text-align: left">Obrigatório</th>
+      <th style="text-align: left">Descrição</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">50</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Número do pedido da loja</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">120</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Nome completo do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">16</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Número do documento de identificação do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">255</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Tipo de documento de identificação do comprador <br /> Possíveis valores: CPF ou CNPJ</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">100</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">E-mail do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
+      <td style="text-align: left">Date</td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Data de nascimento do comprador <br /> Ex.: 1991-01-10</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">54</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Logradouro do endereço de cobrança</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Número do endereço de cobrança</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Complemento do endereço de cobrança</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Código postal do endereço de cobrança</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">50</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Cidade do endereço de cobrança</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Estado do endereço de cobrança</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">País do endereço de cobrança. Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">45</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Bairro do endereço de cobrança</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">54</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Logradouro do endereço de entrega</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Número do endereço de entrega</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Complemento do endereço de entrega</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Código postal do endereço de entrega</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">50</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Cidade do endereço de entrega</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Estado do endereço de entrega</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">País do endereço de entrega. Mais informações em <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">45</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Bairro do endereço de entrega</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">100</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Tipo do meio de pagamento. <br /> Obs.: Somente o tipo <em>CreditCard</em> funciona com análise de fraude</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Define comportamento do meio de pagamento (ver Anexo) <br /> Obs.: Não obrigatório para <code class="language-plaintext highlighter-rouge">Payment.Type</code> igual a <em>CreditCard</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td style="text-align: left">Número</td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Valor da transação financeira em centavos <br /> Ex: 150000 = r$ 1.500,00</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td style="text-align: left">Número</td>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Número de parcelas</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Indica se a autorização deverá ser com captura automática <br /> Possíveis valores: true / false (default)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Texto que será impresso na fatura do portador <br /> Obs.: O valor deste campo tem que ser claro e fácil de identificar pelo portador o estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">16</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Número do cartão de crédito</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Nome do portador impresso no cartão de crédito</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Data de validade do cartão de crédito</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Código de segurança no verso do cartão de crédito</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
+      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Booleano que identifica se o cartão será salvo para gerar o token (CardToken) <br /> Possíveis valores: true / false (default)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Bandeira do cartão de crédito</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Provedor de AntiFraude <br /> Neste caso, use “ClearSale”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Sequence</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Tipo de fluxo da análise de fraude <br /> Possíveis valores: AnalyseFirst / AuthorizeFirst</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Critério do fluxo da análise de fraude <br /> Possíveis valores: OnSuccess / Always</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
+      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Indica se a transação após a análise de fraude será capturada <br /> Possíveis valores: true / false (default) <br /> Obs.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br /> Obs2.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Cielo receber o novo status da análise manual e este for de baixo risco (Accept) <br /> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente <em>AuthorizeFirst</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.VoidOnHighRisk</code></td>
+      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Indica se a transação após a análise de fraude será cancelada <br /> Possíveis valores: true / false (default) <br /> Obs.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for de alto risco (Reject) a transação anteriormente autorizada será cancelada <br /> Obs2.: Quando enviado igual a <em>true</em> e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será cancelada após a Cielo receber o novo status da análise manual e este for alto risco (Reject) <br /> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente <em>AuthorizeFirst</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.TotalOrderAmount</code></td>
+      <td style="text-align: left">Número</td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Valor total do pedido em centavos <br /> Ex: 123456 = r$ 1.234,56</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Browser.BrowserFingerprint</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">100</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo <code class="language-plaintext highlighter-rouge">session_id</code> do script ou utilizando os SDKs (iOS ou Android) que será incluído na página de checkout. <br /> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Addressee</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">120</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Nome completo do responsável a receber o produto no endereço de entrega</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Method</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Meio de entrega do pedido <br /> <a href="https://braspag.github.io//manual/cielo-ecommerce#tabela-10-payment.fraudanalysis.shipping.method">Tabela 10 - Payment.Fraudanalysis.Shipping.Method</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114700</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Workphone</code></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">Não*</td>
+      <td style="text-align: left">Telefone de trabalho do destinatário.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Mobile</code></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">Não*</td>
+      <td style="text-align: left">Celular do destinatário.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Identity</code></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">Documento do destinatário.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.IdentityType</code></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">1 = Pessoa Física<br />2 = Pessoa Jurídica.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Street</code></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">200</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Nome do logradouro do destinatário.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Number</code></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Número do endereço do destinatário.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Complement</code></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">250 ou 14?</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left"> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Neighborhood</code></td>
+      <td style="text-align: left">Bairro do endereço do destinatário.</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">150</td>
+      <td style="text-align: left">Sim</td>
+      <td>Complemento do endereço do destinatário.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.City</code></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">150</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Cidade do destinatário.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.State</code></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Estado do destinatário - UF.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Country</code></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">150</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">País do destinatário.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.ZipCode</code></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">CEP do destinatário.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Email</code></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">150</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">E-mail do destinatário.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.IsGift</code></td>
+      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Indica se o pedido realizado pelo comprador é para presente.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.ReturnsAccepted</code></td>
+      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Indica se o pedido realizado pelo comprador pode ser devolvido a loja <br /> Possíveis valores: true / false (default).</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Name</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">255</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Nome do Produto.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Quantity</code></td>
+      <td style="text-align: left">Número</td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Quantidade do produto.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Sku</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">255</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">SKU (Stock Keeping Unit - Unidade de Controle de Estoque) do produto.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.UnitPrice</code></td>
+      <td style="text-align: left">Número</td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">Sim</td>
+      <td style="text-align: left">Preço unitário do produto <br /> Ex: 10950 = R$109,50</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.Items.Type</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">19</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Categoria do produto <br /> <a href="https://braspag.github.io//manual/cielo-ecommerce#tabela-8-payment.fraudanalysis.cart.items[n].type">Tabela 8 - Payment.Fraudanalysis.Cart.Items{n}.Type</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Name</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">120</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Nome completo do passageiro</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Código do aeroporto de partida. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
+      <td style="text-align: left">Texto</td>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Código do aeroporto de chegada. Mais informações em <a href="http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm" target="_blank">IATA 3-Letter Codes</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.DepartureDate</code></td>
+      <td style="text-align: left">datetime</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Data e hora de partida. <br /> Formato: “2023-10-09T18:30:00”.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Boarding</code></td>
+      <td style="text-align: left">datetime</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Data e hora de embarque. Formato: “2023-10-09T18:30:00”.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Arriving</code></td>
+      <td style="text-align: left">datetime</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Data e hora de chegada. Formato: “2023-10-09T18:30:00”.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-1">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9094008"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bruno Silva"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111111111"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"homolog@cielo.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1996-11-14"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Blablacar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"400002******1111"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guilherme Silva"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08/2033"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentAccountReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2UKZQRDOXLRMGW3B41E8IB5KZOH8V"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1020115320892"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"039771"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"616672"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome fantasia da loja"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FraudAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7bc9a7ea-25a9-483c-1f61-08dbbaaa0d60"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"StatusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReplyData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"ProviderTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7BC9A7EA-25A9-483C-1F61-08DBBAAA0D60"</span><span class="w">
+            </span><span class="p">},</span><span class="w">            
+            </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AuthorizeFirst"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SequenceCriteria"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">46000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TransactionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"IsGift"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ReturnsAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Notebook Dell Inspiron"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100010"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">532400</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"GiftCategory"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"CartType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Windows 11 Professional"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100011"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">85515</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"GiftCategory"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"CartType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"Travel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Passengers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bruno Silva"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"PassengerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undefined"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"TravelLegs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CGH"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDU"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"DepartureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-09T18:30:00"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"Boarding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-09T18:45:00"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"Arriving"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-09T20:00:00"</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guilherme Silva"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"PassengerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undefined"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"TravelLegs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CGH"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SDU"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"DepartureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-09T18:30:00"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"Boarding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-09T18:45:00"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"Arriving"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-09T20:00:00"</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Addressee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome Comprador"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-1001"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nome@email.com.br"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"WorkPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-1002"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-1003"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99988877711"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"CaptureOnLowRisk"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"VoidOnHighRisk"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"FraudAnalysisReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ClearSale"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"IsRetryTransaction"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"IsQrCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">45500</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-20 11:53:18"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d0109922-2cd3-4a3f-89fc-4c69230d3438"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/d0109922-2cd3-4a3f-89fc-4c69230d3438"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/d0109922-2cd3-4a3f-89fc-4c69230d3438/capture"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/d0109922-2cd3-4a3f-89fc-4c69230d3438/void"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.IsRetryTransaction</code></td>
+      <td>Retentativa de uma análise, e deverá ser enviado com valor igual a “true” quando o código de retorno na primeira tentativa for igual a BP900</td>
+      <td>booleano</td>
+      <td>-</td>
+      <td>“true” ou “false”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Id</code></td>
+      <td>Identificação transação no Antifraude</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Status</code></td>
+      <td>Status da transação no AntiFraude.<br /><a href="https://braspag.github.io//manual/cielo-ecommerce#tabela-14-payment.fraudanalysis.status">Tabela 14 - Payment.FraudAnalysis.Status</a></td>
+      <td>Número</td>
+      <td>-</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.StatusDescription</code></td>
+      <td>Descrição do status do Antifraude.<br /><a href="https://braspag.github.io//manual/cielo-ecommerce#tabela-14-payment.fraudanalysis.status">Tabela 14 - Payment.FraudAnalysis.Status</a></td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.ReplyData.ProviderTransactionId</code></td>
+      <td>Id da transação na ClearSale</td>
+      <td>string -</td>
+      <td>-</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fingerprint-com-a-clearsale">Fingerprint com a ClearSale</h3>
+
+<p>O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo.</p>
+
+<p>Na integração da API do Pagador com análise de fraude ClearSale, o valor do <code class="language-plaintext highlighter-rouge">session_id</code> deve ser enviado no parâmetro <code class="language-plaintext highlighter-rouge">Payment.FraudAnalisys.FingerPrintId</code>.</p>
+
+<p>Para configurar o Fingerprint com a ClearSale, consulte o manual do <a href="https://braspag.github.io/manual/antifraude#integra%C3%A7%C3%A3o-com-a-clearsale" target="_blank">Antifraude Gateway</a>.</p>
+
 <h1 id="tabelas">Tabelas</h1>
 
 <h2 id="tabela-1---paymentfraudanalysiscartitemsngiftcategory">Tabela 1 - Payment.FraudAnalysis.Cart.Items[n].GiftCategory</h2>
