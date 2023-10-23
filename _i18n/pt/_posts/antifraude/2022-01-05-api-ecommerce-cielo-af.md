@@ -29,7 +29,7 @@ Para executar uma operação, combine a URL base do ambiente com a URL da opera�
 
 # Análise de Fraude
 
-A API E-commerce Cielo oferece um serviço de análise de risco de fraudes em transações online. A Cielo se integra a empresas de analise de risco, como CyberSource, que realizam uma validação dos dados transacionais e do histórico de compras do portador do cartão. Essa análise retorna fatores de risco e permite que a loja decida se irá prosseguir com a venda.
+A API E-commerce Cielo oferece um serviço de análise de risco de fraudes em transações online. A Cielo se integra a empresas de analise de risco, como CyberSource e ClearSale, que realizam uma validação dos dados transacionais e do histórico de compras do portador do cartão. Essa análise retorna fatores de risco e permite que a loja decida se irá prosseguir com a venda.
 
 <aside class="warning">A análise de fraude oferecida pela Cielo avalia o risco de uma transação, mas não vincula o resultado da análise com a cobertura de chargebacks. A Cielo não realiza transações garantidas.</aside>
 
