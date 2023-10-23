@@ -501,11 +501,11 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 
 O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo. Para configurar o Fingerprint com a Cybersource, consulte o manual do [Antifraude Gateway](https://braspag.github.io//manual/antifraude#fingerprint-com-a-cybersource){:target="_blank"}.
 
-## Analisando uma transação na ClearSale
+# Analisando uma transação na ClearSale
 
 Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.FraudAnalysis.Provider` como "ClearSale".
 
-### Requisição
+## Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -716,7 +716,7 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Boarding`|datetime|---|Não|Data e hora de embarque. Formato: "2023-10-09T18:30:00".|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Arriving`|datetime|---|Não|Data e hora de chegada. Formato: "2023-10-09T18:30:00".|
 
-### Resposta
+## Resposta
 
 ```json
 {
@@ -899,7 +899,7 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Payment.FraudAnalysis.StatusDescription`|Descrição do status do Antifraude.<br/>[Tabela 14 - Payment.FraudAnalysis.Status]({{ site.baseurl_root }}/manual/cielo-ecommerce#tabela-14-payment.fraudanalysis.status)|Texto|-|-|
 |`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`| Id da transação na ClearSale|string - | - |
 
-### Fingerprint com a ClearSale
+## Fingerprint com a ClearSale
 
 O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo.
 
