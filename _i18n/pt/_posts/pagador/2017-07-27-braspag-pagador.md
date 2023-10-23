@@ -7381,7 +7381,7 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Payment.AuthorizationCode`|Código de autorização na adquirente.  | texto  |  300 | texto alfanumérico |
 |`Payment.FraudAnalysis.IsRetryTransaction`|  Retentativa de uma análise, e deverá ser enviado com valor igual a "true" quando o código de retorno na primeira tentativa for igual a BP900 | booleano  | -  | "true" ou "false" |
 
-## Fingerprint com a ClearSale
+### Fingerprint com a ClearSale
 
 O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo.
 
