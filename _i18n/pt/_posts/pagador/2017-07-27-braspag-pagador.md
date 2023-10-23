@@ -7375,7 +7375,6 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 
 |Propriedade|Descrição|Tipo|Tamanho| Formato |
 |---|---|---|---|---|
-|`Payment.CreditCard.PaymentAccountReference`|   |   |   |
 |`Payment.ProofOfSale`| Número do comprovante de venda.  | texto  | 20  | texto alfanumérico|
 |`Payment.AcquirerTransactionId`| Identificador da transação na adquirente.  | texto  | 40  |  texto alfanumérico |
 |`Payment.AuthorizationCode`|Código de autorização na adquirente.  | texto  |  300 | texto alfanumérico |
