@@ -6846,6 +6846,549 @@ Para configurar o Fingerprint com a Cybersource, consulte o manual do [Antifraud
 
 O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo. Para configurar o Fingerprint com a ACI, consulte o manual do [Antifraude Gateway](https://braspag.github.io//manual/antifraude#fingerprint-com-a-aci-worldwide){:target="_blank"}.
 
+## Implementando a Análise ClearSale
+
+Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.FraudAnalysis.Provider` como "ClearSale".
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{
+    "MerchantOrderId": 9094008,
+    "Customer": {
+        "Name": "Bruno Silva",
+        "Identity": "11111111111",
+        "IdentityType": "CPF",
+        "Email": "nome@email.com.br",
+        "Birthdate": "1996-11-14",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "21 andar",
+            "ZipCode": "06455030",
+            "City": "Barueri",
+            "State": "SP",
+            "Country": "BR",
+            "District": "Alphaville"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "06455030",
+            "City": "Barueri",
+            "State": "SP",
+            "Country": "BR",
+            "District": "Alphaville"
+        }
+    },
+    "Payment": {
+        "Type": "CreditCard",
+        "Provider": "Simulado",
+        "Amount": 45500,
+        "Installments": 1,
+        "Capture": false,
+        "Recurrent": false,
+        "SoftDescriptor": "Nome fantasia",
+        "CreditCard": {
+            "CardNumber": "4000021231111111",
+            "Holder": "Bruno Silva",
+            "ExpirationDate": "08/2033",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "FraudAnalysis": {
+            "Provider": "ClearSale",
+            "Sequence": "AuthorizeFirst",
+            "SequenceCriteria": "OnSuccess",
+            "CaptureOnLowRisk": false,
+            "VoidOnHighRisk": false,
+            "TotalOrderAmount": 100000,
+            "FingerPrintId":"MzE5MjAzODg0NA==",
+            "Shipping": {
+                "Addressee": "Nome do destinatário",
+                "Method": "LowCost",
+                "Phone": "+55 11 5555-1001",
+                "WorkPhone": "+55 11 5555-1002",
+                "Mobile": "+55 11 5555-1003",
+                "Identity": "99988877711",
+                "IdentityType": "CPF",
+                "Street": "Alameda Xingu",
+                "Number": "512",
+                "Complement": "21 andar",
+                "Neighborhood": "Alphaville",
+                "City": "Barueri",
+                "State": "SP",
+                "Country": "BR",
+                "ZipCode": "06455030",
+                "Email": "nome@email.com.br"
+            },
+            "Cart": {
+                "IsGift": false,
+                "ReturnsAccepted": true,
+                "Items": [
+                    {
+                        "Name": "Mouse",
+                        "Quantity": 1,
+                        "Sku": "100010",
+                        "UnitPrice": 50000,
+                        "Type": "EletronicGood"
+                    },
+                    {
+                        "Name": "Windows 11 Professional",
+                        "Quantity": 2,
+                        "Sku": "50000",
+                        "UnitPrice": 85515,
+                        "Type": "EletronicSoftware"
+                    }
+                ]
+            },
+            "Travel": {
+                "Passengers": [
+                    {
+                        "Name": "Bruno Silva",
+                        "TravelLegs": [
+                            {
+                                "Origin": "SDU",
+                                "Destination": "CGH",
+                                "DepartureDate": "2023-10-10T18:30:00",
+                                "Boarding": "2023-10-10T18:45:00",
+                                "Arriving": "2023-10-10T20:00:00"
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Guilherme Silva",
+                        "TravelLegs": [
+                            {
+                                "Origin": "SDU",
+                                "Destination": "CGH",
+                                "DepartureDate": "2023-10-010T18:30:00",
+                                "Boarding": "2023-10-10T18:45:00",
+                                "Arriving": "2023-10-10T20:00:00"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+```shell
+--request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": 9094008,
+    "Customer": {
+        "Name": "Bruno Silva",
+        "Identity": "11111111111",
+        "IdentityType": "CPF",
+        "Email": "nome@email.com.br",
+        "Birthdate": "1996-11-14",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "21 andar",
+            "ZipCode": "06455030",
+            "City": "Barueri",
+            "State": "SP",
+            "Country": "BR",
+            "District": "Alphaville"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "06455030",
+            "City": "Barueri",
+            "State": "SP",
+            "Country": "BR",
+            "District": "Alphaville"
+        }
+    },
+    "Payment": {
+        "Type": "CreditCard",
+        "Provider": "Simulado",
+        "Amount": 45500,
+        "Installments": 1,
+        "Capture": false,
+        "Recurrent": false,
+        "SoftDescriptor": "Nome fantasia",
+        "CreditCard": {
+            "CardNumber": "4000021231111111",
+            "Holder": "Bruno Silva",
+            "ExpirationDate": "08/2033",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "FraudAnalysis": {
+            "Provider": "ClearSale",
+            "Sequence": "AuthorizeFirst",
+            "SequenceCriteria": "OnSuccess",
+            "CaptureOnLowRisk": false,
+            "VoidOnHighRisk": false,
+            "TotalOrderAmount": 100000,
+            "FingerPrintId":"MzE5MjAzODg0NA==",
+            "Shipping": {
+                "Addressee": "Nome do destinatário",
+                "Method": "LowCost",
+                "Phone": "+55 11 5555-1001",
+                "WorkPhone": "+55 11 5555-1002",
+                "Mobile": "+55 11 5555-1003",
+                "Identity": "99988877711",
+                "IdentityType": "CPF",
+                "Street": "Alameda Xingu",
+                "Number": "512",
+                "Complement": "21 andar",
+                "Neighborhood": "Alphaville",
+                "City": "Barueri",
+                "State": "SP",
+                "Country": "BR",
+                "ZipCode": "06455030",
+                "Email": "nome@email.com.br"
+            },
+            "Cart": {
+                "IsGift": false,
+                "ReturnsAccepted": true,
+                "Items": [
+                    {
+                        "Name": "Mouse",
+                        "Quantity": 1,
+                        "Sku": "100010",
+                        "UnitPrice": 50000,
+                        "Type": "EletronicGood"
+                    },
+                    {
+                        "Name": "Windows 11 Professional",
+                        "Quantity": 2,
+                        "Sku": "50000",
+                        "UnitPrice": 85515,
+                        "Type": "EletronicSoftware"
+                    }
+                ]
+            },
+            "Travel": {
+                "Passengers": [
+                    {
+                        "Name": "Bruno Silva",
+                        "TravelLegs": [
+                            {
+                                "Origin": "SDU",
+                                "Destination": "CGH",
+                                "DepartureDate": "2023-10-10T18:30:00",
+                                "Boarding": "2023-10-10T18:45:00",
+                                "Arriving": "2023-10-10T20:00:00"
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Guilherme Silva",
+                        "TravelLegs": [
+                            {
+                                "Origin": "SDU",
+                                "Destination": "CGH",
+                                "DepartureDate": "2023-10-010T18:30:00",
+                                "Boarding": "2023-10-10T18:45:00",
+                                "Arriving": "2023-10-10T20:00:00"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+**Parâmetros no cabeçalho (header)**
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|----|-------|-----------|---------|
+|`MerchantId`|Identificador da loja na Braspag.|GUID|36|Sim |
+|`MerchantKey`|Chave pública para autenticação dupla na Braspag.|texto|40|Sim |
+|`RequestId`|Identificador do request definido pela loja.|GUID|36|Não |
+
+**Parâmetros no corpo (body)**
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|----|-------|-----------|---------|
+|`MerchantOrderId`|Número do pedido da loja.|texto|50|Sim|
+|`Customer.Name`|Nome completo do comprador.|texto|120|Sim|
+|`Customer.Identity`|Número do documento de identificação do comprador.|texto|14|Sim|
+|`Customer.IdentityType`|Tipo de documento de identificação do comprador. <br/> Possíveis valores: "CPF" ou "CNPJ".|texto|255|Não|
+|`Customer.Email`|E-mail do comprador.|texto|100|Sim|
+|`Customer.Birthdate`|Data de nascimento do comprador. <br/> Ex.: 1991-01-10.|data|10|Sim|
+|`Customer.Address.Street`|Logradouro do endereço de cobrança.|texto|54|Sim|
+|`Customer.Address.Number`|Número do endereço de cobrança.|texto|5|Sim|
+|`Customer.Address.Complement`|Complemento do endereço de cobrança.|texto|14|Não|
+|`Customer.Address.ZipCode`|CEP do endereço de cobrança.|texto|9|Sim|
+|`Customer.Address.City`|Cidade do endereço de cobrança.|texto|50|Sim|
+|`Customer.Address.State`|Estado do endereço de cobrança.|texto|2|Sim|
+|`Customer.Address.Country`|País do endereço de cobrança.<br/>Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}.|texto|2|Sim|
+|`Customer.Address.District`|Bairro do endereço de cobrança.|texto|45|Sim|
+|`Customer.DeliveryAddress.Street`|Logradouro do endereço de entrega.|texto|54|Não|
+|`Customer.DeliveryAddress.Number`|Número do endereço de entrega.|texto|5|Não|
+|`Customer.DeliveryAddress.Complement`|Complemento do endereço de entrega.|texto|14|Não|
+|`Customer.DeliveryAddress.ZipCode`|CEP do endereço de entrega.|texto|9|Não|
+|`Customer.DeliveryAddress.City`|Cidade do endereço de entrega.|texto|50|Não|
+|`Customer.DeliveryAddress.State`|Estado do endereço de entrega.|texto|2|Não|
+|`Customer.DeliveryAddress.Country`|País do endereço de entrega.<br/>Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}.|texto|2|Não|
+|`Customer.DeliveryAddress.District`|Bairro do endereço de entrega.|texto|45|Não|
+|`Payment.Type`|Tipo do meio de pagamento.<br/>Obs.: Somente o tipo "CreditCard" funciona com análise de fraude.|texto|100|Sim|
+|`Payment.Provider`|Nome do provedor da autorização.|texto|15|Sim|
+|`Payment.Amount`|Valor da transação financeira, em centavos. <br/> Ex.: 150000 = R$ 1.500,00.|número|15|Sim|
+|`Payment.Installments`|Número de parcelas.|número|2|Sim|
+|`Payment.Capture`|Indica se a autorização deverá ser com captura automática. <br/> Possíveis valores: "true" / "false" (default). <br/> Obs1.: Deverá verificar junto à adquirente a disponibilidade desta funcionalidade. <br/> Obs2.: Este campo deverá ser preenchido de acordo com o fluxo da análise de fraude.|booleano|---|Não|
+|`Payment.Recurrent`|Indica se a transação é do tipo recorrente. <br/> Possíveis valores: "true" / "false" (default). <br/> Obs1.: Este campo igual a "true" não irá criar uma recorrência; apenas permitirá a realização de uma transação sem a necessidade de envio do CVV, indicando para a adquirente que é a cobrança de uma transação de uma recorrência. <br/> Obs2.: Somente para transações **Cielo**. <br/> Obs3.: O campo `Payment.Authenticate` deve ser igual a "false" quando `Payment.Recurrent` for igual a "true".|booleano|---|Não|
+|`Payment.SoftDescriptor`|Texto que será impresso na fatura do portador. <br/> Obs.: O valor deste campo deve tornar fácil para o portador a identificação do estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback.|texto|13|Não|
+|`Payment.CreditCard.CardNumber`|Número do cartão de crédito.|texto|19|Sim|
+|`Payment.CreditCard.Holder`|Nome do portador impresso no cartão de crédito. Obs.: Regras de tamanho do campo podem variar de acordo com a adquirente.|texto|25|Sim|
+|`Payment.CreditCard.ExpirationDate`|Data de validade do cartão de crédito.|texto|7|Sim|
+|`Payment.CreditCard.SecurityCode`|Código de segurança no verso do cartão de crédito.|texto|4|Sim|
+|`Payment.CreditCard.Brand`|Bandeira do cartão de crédito.|texto|10|Sim |
+|`Payment.FraudAnalysis.Provider`|Provedor de Antifraude. <br/> Nesse caso, use "ClearSale".|texto|10|Sim|
+|`Payment.FraudAnalysis.Sequence`|Tipo de fluxo da análise de fraude. <br/> Possíveis valores: "AnalyseFirst" / "AuthorizeFirst".|texto|14|Sim|
+|`Payment.FraudAnalysis.SequenceCriteria`|Critério do fluxo da análise de fraude. <br/> Possíveis valores: "OnSuccess" / "Always".|texto|9|Sim|
+|`Payment.FraudAnalysis.CaptureOnLowRisk`|Indica se a transação após a análise de fraude será capturada. <br/> Possíveis valores: "true" / "false" (default) <br/> Obs1.: Quando enviado igual a "true" e o retorno da análise de fraude for de baixo risco ("*Accept*"), a transação anteriormente autorizada será capturada. <br/> Obs2.: Quando enviado igual a "true" e o retorno da análise de fraude for revisão ("*Review*"), a transação ficará autorizada, sendo capturada após a Braspag receber notificação de alteração do status para baixo risco ("*Accept*"). <br/> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (`FraudAnalysis.Sequence`) deve ser obrigatoriamente "AuthorizeFirst".|booleano|---|Não|
+|`Payment.FraudAnalysis.VoidOnHighRisk`|Indica se a transação após a análise de fraude será cancelada. <br/> Possíveis valores: "true" / "false" (default). <br/> Obs1.: Quando enviado igual a "true" e o retorno da análise de fraude for de alto risco ("*Reject*"), a transação anteriormente autorizada será cancelada. <br/> Obs2.: Quando enviado igual a "true" e o retorno da análise de fraude for revisão ("*Review*"), a transação ficará autorizada, sendo cancelada após a Braspag receber notificação de alteração do status para alto risco ("*Reject*"). <br/> Obs3.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco (`FraudAnalysis.Sequence`) deve ser obrigatoriamente "AuthorizeFirst".|booleano|---|Não|
+|`Payment.FraudAnalysis.TotalOrderAmount`|Valor total do pedido, em centavos. <br/> Ex.: 123456 = R$ 1.234,56.|número|15|Sim|
+|`Payment.FraudAnalysis.FingerPrintId`|Identificador único da sessão do usuário. <br> Saiba mais em [Fingerprint com a ClearSale](https://braspag.github.io//manual/antifraude#fingerprint-com-a-clearsale){:target="_blank"}.|string|?|Sim|
+|`Payment.FraudAnalysis.Shipping.Addressee`| Nome do destinatário.|string|60|Sim|
+|`Payment.FraudAnalysis.Shipping.Method`|Meio de entrega.|string|
+|`Payment.FraudAnalysis.Shipping.Phone`|Telefone residencial do destinatário.|string|20|Não*|
+|`Payment.FraudAnalysis.Shipping.Workphone`|Telefone de trabalho do destinatário.|string|20|Não*|
+|`Payment.FraudAnalysis.Shipping.Mobile`| Celular do destinatário.|string|20|Não*|
+|`Payment.FraudAnalysis.Shipping.Identity`|Documento do destinatário.|string|14|?|
+|`Payment.FraudAnalysis.Shipping.IdentityType`|1 = Pessoa Física<br>2 = Pessoa Jurídica.|string|?|?|
+|`Payment.FraudAnalysis.Shipping.Street`|Nome do logradouro do destinatário.|string|200|Sim|
+|`Payment.FraudAnalysis.Shipping.Number`|Número do endereço do destinatário.|string|15|Sim|
+|`Payment.FraudAnalysis.Shipping.Complement`|Complemento do endereço do destinatário.|string | 250 ou 14?|Não|
+|`Payment.FraudAnalysis.Shipping.Neighborhood`|Bairro do endereço do destinatário.|string|150|Sim|
+|`Payment.FraudAnalysis.Shipping.City`|Cidade do destinatário.|string|150|Sim|
+|`Payment.FraudAnalysis.Shipping.State`|Estado do destinatário - UF.|string|2|Sim|
+|`Payment.FraudAnalysis.Shipping.Country`|País do destinatário.|string|150|Sim|
+|`Payment.FraudAnalysis.Shipping.ZipCode`|CEP do destinatário.|string|10|Sim|
+|`Payment.FraudAnalysis.Shipping.Email`|E-mail do destinatário.|string | 150 |Não|
+|`Payment.FraudAnalysis.Cart.IsGift`|Indica se o pedido realizado pelo comprador é para presente.|booleano|---|Não|
+|`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Indica se o pedido realizado pelo comprador pode ser devolvido à loja. <br/> Possíveis valores: "true" / "false" (default).|booleano|---|Não|
+|`Payment.FraudAnalysis.Cart.Items.Name`|Nome do produto.|texto|255|Sim|
+|`Payment.FraudAnalysis.Cart.Items.Quantity`|Quantidade do produto.|número|15|Sim|
+|`Payment.FraudAnalysis.Cart.Items.Sku`|SKU (*Stock Keeping Unit* - Unidade de Controle de Estoque) do produto.|texto|255|Sim|
+|`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Preço unitário do produto, em centavos. <br/> Ex.: 10950 = R$ 109,50.|número|15|Sim|
+|`Payment.FraudAnalysis.Cart.Items.Type`|Categoria do produto. <br/> [Lista de Valores - Type](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type).|texto|19|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.Name`|Nome completo do passageiro.|texto|120|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}.|texto|3|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Código do aeroporto de chegada.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}.|texto|3|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.DepartureDate`|Data e hora de partida. <br/> Formato: "2023-10-09T18:30:00".|datetime|---|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Boarding`|Data e hora de embarque. Formato: "2023-10-09T18:30:00".|datetime|---|Não|
+|`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Arriving`|Data e hora de chegada. Formato: "2023-10-09T18:30:00".|datetime|---|Não|
+
+*É obrigatório enviar pelo menos um telefone.
+
+<aside class="warning">Os campos do nó `FraudAnalysis.Travel` são obrigatórios caso o segmento do seu negócio seja o aéreo.</aside>
+
+### Resposta
+
+```json
+{
+    "MerchantOrderId": "9094008",
+    "Customer": {
+        "Name": "Bruno Silva",
+        "Identity": "11111111111",
+        "IdentityType": "CPF",
+        "Email": "nome@email.com.br",
+        "Birthdate": "1996-11-14",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "21 andar",
+            "ZipCode": "06455030",
+            "City": "Barueri",
+            "State": "SP",
+            "Country": "BR",
+            "District": "Alphaville",
+            "AddressType": "NotInformed"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "06455030",
+            "City": "Barueri",
+            "State": "SP",
+            "Country": "BR",
+            "District": "Alphaville",
+            "AddressType": "NotInformed"
+        }
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "400002******1111",
+            "Holder": "Guilherme Silva",
+            "ExpirationDate": "08/2033",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "PaymentAccountReference": "Z0HFQMDXNM98R2HYZEZR7Q5ZR9ZEM"
+        },
+        "ProofOfSale": "432165",
+        "AcquirerTransactionId": "1020115504663",
+        "AuthorizationCode": "772858",
+        "SoftDescriptor": "Teste Cielo",
+        "SentOrderId": "9094008",
+        "FraudAnalysis": {           
+            "Sequence": "AuthorizeFirst",
+            "SequenceCriteria": "OnSuccess",
+            "Provider": "ClearSale",
+            "CaptureOnLowRisk": false,
+            "VoidOnHighRisk": false,
+            "TotalOrderAmount": 46000,
+            "IsRetryTransaction": false,
+            "Cart": {
+                "IsGift": false,
+                "ReturnsAccepted": true,
+                "Items": [
+                    {
+                        "Type": "EletronicGood",
+                        "Name": "Notebook Dell Inspiron",
+                        "Risk": "Undefined",
+                        "Sku": "100010",
+                        "UnitPrice": 532400,
+                        "Quantity": 1,
+                        "HostHedge": "Undefined",
+                        "NonSensicalHedge": "Undefined",
+                        "ObscenitiesHedge": "Undefined",
+                        "PhoneHedge": "Undefined",
+                        "TimeHedge": "Undefined",
+                        "VelocityHedge": "Undefined",
+                        "GiftCategory": "Undefined",
+                        "OriginalPrice": 0,
+                        "Weight": 0,
+                        "CartType": 0
+                    },
+                    {
+                        "Type": "EletronicSoftware",
+                        "Name": "Windows 11 Professional",
+                        "Risk": "Undefined",
+                        "Sku": "100011",
+                        "UnitPrice": 85515,
+                        "Quantity": 2,
+                        "HostHedge": "Undefined",
+                        "NonSensicalHedge": "Undefined",
+                        "ObscenitiesHedge": "Undefined",
+                        "PhoneHedge": "Undefined",
+                        "TimeHedge": "Undefined",
+                        "VelocityHedge": "Undefined",
+                        "GiftCategory": "Undefined",
+                        "OriginalPrice": 0,
+                        "Weight": 0,
+                        "CartType": 0
+                    }
+                ]
+            },
+            "Travel": {
+                "Passengers": [
+                    {
+                        "Name": "Bruno Silva",
+                        "Rating": "Undefined",
+                        "TravelLegs": [
+                            {
+                                "Destination": "CGH",
+                                "Origin": "SDU",
+                                "DepartureDate": "2023-10-09T18:30:00",
+                                "Boarding": "2023-10-09T18:45:00",
+                                "Arriving": "2023-10-09T20:00:00"
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Guilherme Silva",
+                        "Rating": "Undefined",
+                        "TravelLegs": [
+                            {
+                                "Destination": "CGH",
+                                "Origin": "SDU",
+                                "DepartureDate": "2023-10-09T18:30:00",
+                                "Boarding": "2023-10-09T18:45:00",
+                                "Arriving": "2023-10-09T20:00:00"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Shipping": {
+                "Addressee": "Nome Comprador",
+                "Phone": "+55 11 5555-1001",
+                "Method": "LowCost",
+                "Email": "nome@email.com.br",
+                "Identity": "99988877711",
+                "IdentityType": "CPF"
+            },
+            "Status": 4,
+            "StatusDescription": "Aborted"
+        },
+        "PaymentId": "db8f8d82-5c3f-4f09-8af2-3e33b3aec302",
+        "Type": "CreditCard",
+        "Amount": 45500,
+        "ReceivedDate": "2023-10-20 11:55:03",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 1,
+        "ProviderReturnCode": "4",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/db8f8d82-5c3f-4f09-8af2-3e33b3aec302"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/db8f8d82-5c3f-4f09-8af2-3e33b3aec302/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/db8f8d82-5c3f-4f09-8af2-3e33b3aec302/void"
+            }
+        ]
+    }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho| Formato |
+|---|---|---|---|---|
+|`Payment.CreditCard.PaymentAccountReference`|   |   |   |
+|`Payment.ProofOfSale`| Número do comprovante de venda.  | texto  | 20  | texto alfanumérico|
+|`Payment.AcquirerTransactionId`| Identificador da transação na adquirente.  | texto  | 40  |  texto alfanumérico |
+|`Payment.AuthorizationCode`|Código de autorização na adquirente.  | texto  |  300 | texto alfanumérico |
+|`Payment.FraudAnalysis.IsRetryTransaction`|  Retentativa de uma análise, e deverá ser enviado com valor igual a "true" quando o código de retorno na primeira tentativa for igual a BP900 | booleano  | -  | "true" ou "false" |
+
+## Fingerprint com a ClearSale
+
+O Fingerprint é a identificação digital do dispositivo do comprador. Essa identificação é composta por uma série de dados coletados na página de checkout do site ou aplicativo.
+
+Na integração da API do Pagador com análise de fraude ClearSale, o valor do `session_id` deve ser enviado no parâmetro `Payment.FraudAnalisys.FingerPrintId`.
+
+Para configurar o Fingerprint com a ClearSale, consulte o manual do [Antifraude Gateway](https://braspag.github.io/manual/antifraude#integra%C3%A7%C3%A3o-com-a-clearsale){:target="_blank"}.
+
 # Consultas
 
 As formas de consultar uma transação ou venda dependem de quanto tempo ela tem de vida, como especificado na tabela abaixo:
