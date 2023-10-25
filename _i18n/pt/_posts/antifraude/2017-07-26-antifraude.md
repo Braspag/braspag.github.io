@@ -2530,7 +2530,7 @@ Em caso de erro na requisição de análise de fraude, a resposta irá retornar 
 
 ## Erro na consulta de uma transação
 
-Ao consultar uma transação usando `Id` inexistente, a resposta será a seguir:
+Ao consultar uma transação usando `Id` inexistente, a resposta será como o exemplo a seguir:
 
 **Parâmetros no cabeçalho (header)**
 
