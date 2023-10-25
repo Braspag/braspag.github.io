@@ -6560,7 +6560,9 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
 
 <h1 id="indicando-erros-de-integração">Indicando erros de integração</h1>
 
-<h2 id="resposta-7">Resposta</h2>
+<h2 id="erro-da-análise-de-fraude">Erro da análise de fraude</h2>
+
+<p>Em caso de erro na requisição de análise de fraude, a resposta irá retornar a mensagem informando que a requisição é inválida, a relação de campos inválidos e a qual limite de tamanho não foi respeitado. Veja a seguir um exemplo de resposta de erro:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
@@ -6625,42 +6627,9 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
   </tbody>
 </table>
 
-<h1 id="consultando-uma-transação-inexistente">Consultando uma transação inexistente</h1>
+<h2 id="erro-na-consulta-de-uma-transação">Erro na consulta de uma transação</h2>
 
-<h2 id="requisição-7">Requisição</h2>
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
-
-<p><strong>Parâmetros no cabeçalho (header)</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Key</th>
-      <th style="text-align: left">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td style="text-align: left">application/json</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Authorization</code></td>
-      <td style="text-align: left">Bearer {access_token}</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td style="text-align: left">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td style="text-align: left">nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="resposta-8">Resposta</h2>
+<p>Ao consultar uma transação usando <code class="language-plaintext highlighter-rouge">Id</code> inexistente, a resposta será a seguir:</p>
 
 <p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
@@ -6711,7 +6680,7 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
   </li>
 </ul>
 
-<h2 id="requisição-8">Requisição</h2>
+<h2 id="requisição-7">Requisição</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{url loja}</span></aside>
 
@@ -6756,7 +6725,7 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
   </tbody>
 </table>
 
-<h2 id="resposta-9">Resposta</h2>
+<h2 id="resposta-7">Resposta</h2>
 
 <p><strong>Parâmetros no cabeçalho (header)</strong></p>
 
@@ -6795,7 +6764,7 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
 
 <h2 id="antifraude-e-pagador">Antifraude e Pagador</h2>
 
-<h3 id="requisição-9">Requisição</h3>
+<h3 id="requisição-8">Requisição</h3>
 
 <aside class="request"><span class="method patch">PATCH</span> <span class="endpoint">transaction/{id}</span></aside>
 
@@ -6856,7 +6825,7 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
   </tbody>
 </table>
 
-<h3 id="resposta-10">Resposta</h3>
+<h3 id="resposta-8">Resposta</h3>
 
 <p>A resposta sempre irá apresentar no header o <code class="language-plaintext highlighter-rouge">Content-Type</code> com o valor “application/json” e o <code class="language-plaintext highlighter-rouge">Status</code>. Veja a seguir o status possível para cada cenário:</p>
 
@@ -6889,7 +6858,7 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
 
 <h2 id="antifraude-e-outra-solução-de-autorização">Antifraude e outra solução de autorização</h2>
 
-<h3 id="requisição-10">Requisição</h3>
+<h3 id="requisição-9">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">transaction/{id}</span></aside>
 
@@ -6974,7 +6943,7 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
   </tbody>
 </table>
 
-<h3 id="resposta-11">Resposta</h3>
+<h3 id="resposta-9">Resposta</h3>
 
 <p>A resposta sempre irá apresentar no header o <code class="language-plaintext highlighter-rouge">Content-Type</code> com o valor “application/json” e o <code class="language-plaintext highlighter-rouge">Status</code>. Veja a seguir o status possível para cada cenário:</p>
 
