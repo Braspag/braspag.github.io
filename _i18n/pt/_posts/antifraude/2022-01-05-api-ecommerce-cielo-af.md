@@ -516,7 +516,7 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
         "Name": "Bruno Silva",
         "Identity": "11111111111",
         "IdentityType": "CPF",
-        "Email": "homolog@cielo.com.br",
+        "Email": "nome@email.com.br",
         "Birthdate": "1996-11-14",
         "Address": {
             "Street": "Alameda Xingu",
@@ -695,8 +695,8 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Payment.FraudAnalysis.Shipping.IdentityType`|string|-|-|1 = Pessoa Física<br>2 = Pessoa Jurídica.|
 |`Payment.FraudAnalysis.Shipping.Street`|string|200|Sim|Nome do logradouro do destinatário.|
 |`Payment.FraudAnalysis.Shipping.Number`|string|15|Sim|Número do endereço do destinatário.|
-|`Payment.FraudAnalysis.Shipping.Complement`|string | 250 ou 14?|Não|
-|`Payment.FraudAnalysis.Shipping.Neighborhood`|Bairro do endereço do destinatário.|string|150|Sim|Complemento do endereço do destinatário.|
+|`Payment.FraudAnalysis.Shipping.Complement`|string | 250 ou 14?|Não|Complemento do endereço do destinatário.
+|`Payment.FraudAnalysis.Shipping.Neighborhood`|string|150|Sim|Bairro do endereço do destinatário.|
 |`Payment.FraudAnalysis.Shipping.City`|string|150|Sim|Cidade do destinatário.|
 |`Payment.FraudAnalysis.Shipping.State`|string|2|Sim|Estado do destinatário - UF.|
 |`Payment.FraudAnalysis.Shipping.Country`|string|150|Sim|País do destinatário.|
