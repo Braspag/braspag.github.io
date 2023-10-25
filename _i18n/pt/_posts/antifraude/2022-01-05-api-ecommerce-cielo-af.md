@@ -891,13 +891,13 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho| Formato |
-|---|---|---|---|---|
-|`Payment.FraudAnalysis.IsRetryTransaction`|  Retentativa de uma análise, e deverá ser enviado com valor igual a "true" quando o código de retorno na primeira tentativa for igual a BP900 | booleano  | -  | "true" ou "false" |
-|`Payment.FraudAnalysis.Id`| Identificação transação no Antifraude|GUID|36|-|
-|`Payment.FraudAnalysis.Status`|Status da transação no AntiFraude.<br/>[Tabela 14 - Payment.FraudAnalysis.Status]({{ site.baseurl_root }}/manual/cielo-ecommerce#tabela-14-payment.fraudanalysis.status)|Número|-|
-|`Payment.FraudAnalysis.StatusDescription`|Descrição do status do Antifraude.<br/>[Tabela 14 - Payment.FraudAnalysis.Status]({{ site.baseurl_root }}/manual/cielo-ecommerce#tabela-14-payment.fraudanalysis.status)|Texto|-|-|
-|`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`| Id da transação na ClearSale|string - | - |
+|Propriedade|Descrição|Tipo|
+|---|---|---
+|`Payment.FraudAnalysis.IsRetryTransaction`|  Retentativa de uma análise, e deverá ser enviado com valor igual a "true" quando o código de retorno na primeira tentativa for igual a BP900 | booleano  |
+|`Payment.FraudAnalysis.Id`| Identificação transação no Antifraude|GUID|
+|`Payment.FraudAnalysis.Status`|Status da transação no AntiFraude.<br/>[Tabela 14 - Payment.FraudAnalysis.Status]({{ site.baseurl_root }}/manual/cielo-ecommerce#tabela-14-payment.fraudanalysis.status)|número|
+|`Payment.FraudAnalysis.StatusDescription`|Descrição do status do Antifraude.<br/>[Tabela 14 - Payment.FraudAnalysis.Status]({{ site.baseurl_root }}/manual/cielo-ecommerce#tabela-14-payment.fraudanalysis.status)|texto|
+|`Payment.FraudAnalysis.ReplyData.ProviderTransactionId`| Id da transação na ClearSale|string |
 
 ## Fingerprint com a ClearSale
 
