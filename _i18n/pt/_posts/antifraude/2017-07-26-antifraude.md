@@ -2491,7 +2491,9 @@ Consulte as instruções para cada sistema operacional:
 
 # Indicando erros de integração
 
-## Resposta
+## Erro da análise de fraude
+
+Em caso de erro na requisição de análise de fraude, a resposta irá retornar a mensagem informando que a requisição é inválida, a relação de campos inválidos e a qual limite de tamanho não foi respeitado. Veja a seguir um exemplo de resposta de erro:
 
 ``` json
 {
@@ -2526,22 +2528,9 @@ Consulte as instruções para cada sistema operacional:
 |`ModelState`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tipo ou domínio conforme especificado no manual.|
 |`FraudAnalysisRequestError`|Coleção que conterá mensagens com os campos que não estejam de acordo com o tamanho especificado no manual.|
 
-# Consultando uma transação inexistente 
+## Erro na consulta de uma transação
 
-## Requisição
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">analysis/v2/{Id}</span></aside>
-
-**Parâmetros no cabeçalho (header)**
-
-|Key|Value|
-|:-|:-|
-|`Content-Type`|application/json|
-|`Authorization`|Bearer {access_token}|
-|`MerchantId`|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RequestId`|nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn|
-
-## Resposta
+Ao consultar uma transação usando `Id` inexistente, a resposta será a seguir:
 
 **Parâmetros no cabeçalho (header)**
 
