@@ -47,7 +47,7 @@ Na contratação do Antifraude Gateway, você escolhe com qual(is) provedor(es) 
 > * Enterprise: conta com um analista de risco dedicado da CyberSource, que irá propor proativamente ajustes no conjunto de regras do negócio a fim de melhorar a conversão e reduzir índices de chargeback.
 
 * **ACI Worldwide**: é uma empresa global de software de missão crítica que fornece soluções de controle e prevenção à fraude bem como gestão e processamento de pagamentos em tempo real para corporações.
-* **Clearsale**: é autoridade em soluções antifraude, equilibrando tecnologia avançada e inteligência humana especializada para entregar excelentes indicadores e gerar confiança.
+* **ClearSale**: é autoridade em soluções antifraude, equilibrando tecnologia avançada e inteligência humana especializada para entregar excelentes indicadores e gerar confiança.
 
 > Neste manual, consulte as requisições e [tabelas anexas correspondentes ao seu provedor de antifraude](https://braspag.github.io//manual/antifraude#tabelas).
 
