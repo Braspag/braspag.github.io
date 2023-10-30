@@ -8277,6 +8277,14 @@ Lista de status retornados pela API:
 |13|Aborted|Todos|**Pagamento cancelado por falha no processamento**.<br>Significa que a transação foi cancelada por falha de processamento. Também pode ser abortada, caso o Antifraude negue a transação antes da autorização. |
 |20|Scheduled|Cartão de crédito e e-wallets.|**Recorrência agendada**.<br>Significa que a transação terá uma recorrência agendada, ou seja, o valor da compra será recolhido no dia em que foi agendado pela loja. |
 
+## Lista de status Pix Banco do Brasil
+
+|Código |Status | Descrição |
+|---|---|---|
+|06 | Liquidado | Comprador pagou pelo código de barras, o valor já transitou pela compensação e já foi creditado ao beneficiário - liquidação efetiva.|
+|14 | Título em liquidação | Comprador pagou pelo QR Code Pix - pode ser considerado como liquidação efetiva.|
+|15 | Título agendado |Cliente pagou/agendou pelo código de barras, porém o pagamento ainda pode ser cancelado já que o valor ainda não passou pela compensação.|
+
 ## Tabelas do Indicador de Início da Transação Mastercard
 
 As tabelas a seguir se aplicam para transações de crédito e débito Mastercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo **titular do cartão** (Cardholder Initiated Transaction - CIT) ou pela **loja** (Merchant Initiated Transaction - MIT).
