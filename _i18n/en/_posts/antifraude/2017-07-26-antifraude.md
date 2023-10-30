@@ -2088,13 +2088,15 @@ The integration with ClearSale consists of two steps, [fingerprint configuration
 
 Fingerprint is the digital identification of the shopper's device. This identification is made up of a series of data collected on the checkout page of the website or application, such as:
 
-* Precise location (when permission is given by the user);
-* Device advertising identifiers (when permission is given by the user);
-* Physical characteristics of the device (screen, battery, keyboard, free disk space, model, device name);
+* Precise location*;
+* Device advertising identifiers*;
+* Device characteristics (screen, battery, keyboard, free disk space, model, device name);
 * Software characteristics (version, language, build, parental control);
 * Network information (connections, IP);
-* SimCard carrier.<br/>
+* SimCard network carrier.<br/>
 <br/>
+
+*If device user granted permission.
 
 <aside class="notice">IMPORTANT: To meet the requirements of the General Data Protection Law (LGPD), include information about data collection from the shopper's device in your e-commerce's cookies policy.</aside>
 
@@ -2126,7 +2128,7 @@ See the representation of the Fingerprint creation flow and fraud analysis reque
 
 **7.** The store returns the transaction status (approved or not approved) to the shopper.
 
-> *Variable depending on the package contracted.
+> *Variable depending on the contracted plan.
 
 ### Where to send the Fingerprint?
 
