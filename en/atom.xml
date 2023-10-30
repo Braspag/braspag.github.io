@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-10-30T13:30:27+00:00</updated>
+    <updated>2023-10-30T14:03:01+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -27682,42 +27682,27 @@ All the orders just authorized must be captured here. When the capture process i
 
 &lt;p&gt;Anti-fraud providers offer neural network-based tools, non-relational databases, recommendations based on transaction history, behavior and repetitions by time interval, among other functions that make up the fraud analysis model.&lt;/p&gt;
 
-&lt;p&gt;When contracting the Antifraude Gateway, you choose which provider(s) you want to analyze your transactions with and which plan.&lt;/p&gt;
+&lt;p&gt;When integrating with Antifraude Gateway, you choose which provider(s) you want to analyze your transactions with and which plan.&lt;/p&gt;
 
-&lt;h3 id=&quot;cybersource&quot;&gt;Cybersource&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Cybersource&lt;/strong&gt;: a Visa group company, that has been operating fraud management since 1994. CYbersource’s plan options are:
+    &lt;blockquote&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Hierarchy: risk models standardized by the e-commerce industry;&lt;/li&gt;
+        &lt;li&gt;Advanced: allows proposals for improvements in risk rules and monthly consulting with Cybersource and Braspag;&lt;/li&gt;
+        &lt;li&gt;Enterprise: has a dedicated CyberSource risk analyst, who will proactively propose adjustments to the business ruleset in order to improve conversion and reduce chargeback rates.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;ACI Worldwide&lt;/strong&gt;: a global mission-critical software company providing fraud control and prevention as well as real-time payment processing and management for corporations.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ClearSale&lt;/strong&gt;: authority in antifraud solutions, balancing advanced technology and specialized human inteligence to deliver excellent indicators and generate trust.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Cybersource is a Visa group company, that has been operating fraud management since 1994.&lt;/p&gt;
-
-&lt;p&gt;Learn more about Cybersource’s plans in the table below.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;PLANS&lt;/th&gt;
-      &lt;th&gt;DESCRIPTION&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Hierarchy&lt;/td&gt;
-      &lt;td&gt;Risk models standardized by the e-commerce industry.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Advanced&lt;/td&gt;
-      &lt;td&gt;Allows proposals for improvements in risk rules and monthly consulting with Cybersource and Braspag.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Enterprise&lt;/td&gt;
-      &lt;td&gt;It has a dedicated CyberSource risk analyst, who will proactively propose adjustments to the business ruleset in order to improve conversion and reduce chargeback rates.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;aci-worldwide&quot;&gt;ACI Worldwide&lt;/h3&gt;
-
-&lt;p&gt;ACI Worlwide, founded in 1975, is a global mission-critical software company providing fraud control and prevention solutions as well as real-time payment processing and management for corporations.&lt;/p&gt;
-
-&lt;p&gt;In this manual, refer to the requirements and &lt;a href=&quot;https://braspag.github.io//en/manual/antifraude#tables&quot;&gt;attached tables corresponding to your anti-fraud provider&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;In this manual, check the requests and &lt;a href=&quot;https://braspag.github.io//en/manual/antifraude#tables&quot;&gt;attached tables corresponding to your anti-fraud provider&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;fraud-analysis-flows&quot;&gt;Fraud Analysis Flows&lt;/h1&gt;
 
