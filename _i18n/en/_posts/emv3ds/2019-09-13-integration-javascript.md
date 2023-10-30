@@ -238,7 +238,7 @@ Once the class is mapped in a given field, the script is able to retrieve the va
 
 |**Data of device used for purchase**|**Description**|**Type/Size**|**Required**|
 |---|---|---|---|
-|bpmpi_device_ipaddress|Shopper's Machine IP Address|Alphanumeric [up to 45]|No|
+|bpmpi_device_ipaddress|Shopper's Machine IP Address|Alphanumeric [up to 45]|Conditional - required only for Visa|
 |bpmpi_device_#_fingerprint|Id returned by Device Finger Print|Alphanumeric [without limitation]|No|
 |bpmpi_device_#_provider|Device Finger Print Provider Name|Alphanumeric [up to 32 positions] cardinal<br>inauth<br>threatmetrix|No|
 
