@@ -41,25 +41,18 @@ The Braspag Antifraude Gateway facilitates the fraud analysis process in your e-
 
 Anti-fraud providers offer neural network-based tools, non-relational databases, recommendations based on transaction history, behavior and repetitions by time interval, among other functions that make up the fraud analysis model.
 
-When contracting the Antifraude Gateway, you choose which provider(s) you want to analyze your transactions with and which plan.
+When integrating with Antifraude Gateway, you choose which provider(s) you want to analyze your transactions with and which plan.
 
-### Cybersource
+* **Cybersource**: a Visa group company, that has been operating fraud management since 1994. CYbersource's plan options are:
+> * Hierarchy: risk models standardized by the e-commerce industry;
+> * Advanced: allows proposals for improvements in risk rules and monthly consulting with Cybersource and Braspag;
+> * Enterprise: has a dedicated CyberSource risk analyst, who will proactively propose adjustments to the business ruleset in order to improve conversion and reduce chargeback rates.
 
-Cybersource is a Visa group company, that has been operating fraud management since 1994.
+* **ACI Worldwide**: a global mission-critical software company providing fraud control and prevention as well as real-time payment processing and management for corporations.
 
-Learn more about Cybersource's plans in the table below.
+* **ClearSale**: authority in antifraud solutions, balancing advanced technology and specialized human inteligence to deliver excellent indicators and generate trust.
 
-| PLANS | DESCRIPTION |
-|---|---|
-| Hierarchy | Risk models standardized by the e-commerce industry.|
-| Advanced | Allows proposals for improvements in risk rules and monthly consulting with Cybersource and Braspag. |
-| Enterprise | It has a dedicated CyberSource risk analyst, who will proactively propose adjustments to the business ruleset in order to improve conversion and reduce chargeback rates.|
-
-### ACI Worldwide
-
-ACI Worlwide, founded in 1975, is a global mission-critical software company providing fraud control and prevention solutions as well as real-time payment processing and management for corporations.
-
-In this manual, refer to the requirements and [attached tables corresponding to your anti-fraud provider](https://braspag.github.io//en/manual/antifraude#tables).
+> In this manual, check the requests and [attached tables corresponding to your anti-fraud provider](https://braspag.github.io//en/manual/antifraude#tables).
 
 # Fraud Analysis Flows
 
