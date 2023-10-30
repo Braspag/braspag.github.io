@@ -7373,6 +7373,8 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Payment.AcquirerTransactionId`| Identificador da transação na adquirente.  | texto  | 40  |  texto alfanumérico |
 |`Payment.AuthorizationCode`|Código de autorização na adquirente.  | texto  |  300 | texto alfanumérico |
 |`Payment.FraudAnalysis.IsRetryTransaction`|  Retentativa de uma análise, e deverá ser enviado com valor igual a "true" quando o código de retorno na primeira tentativa for igual a BP900 | booleano  | -  | "true" ou "false" |
+|`Payment.FraudAnalysis.Status`|Status da transação no AntiFraude.<br>Veja mais na [tabela](https://braspag.github.io//manual/braspag-pagador#lista-de-status-do-antifraude).|Número|-|
+|`Payment.FraudAnalysis.StatusDescription`|Descrição do status do Antifraude.<br/>Veja mais na [tabela](https://braspag.github.io//manual/braspag-pagador#lista-de-status-do-antifraude).|Texto|-|
 
 ### Fingerprint com a ClearSale
 
