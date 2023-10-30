@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-10-30T12:43:13+00:00</updated>
+    <updated>2023-10-30T13:30:27+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -32785,14 +32785,16 @@ If the option to run the module does not appear, select &lt;em&gt;File -&amp;gt;
 &lt;p&gt;Fingerprint is the digital identification of the shopper’s device. This identification is made up of a series of data collected on the checkout page of the website or application, such as:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Precise location (when permission is given by the user);&lt;/li&gt;
-  &lt;li&gt;Device advertising identifiers (when permission is given by the user);&lt;/li&gt;
-  &lt;li&gt;Physical characteristics of the device (screen, battery, keyboard, free disk space, model, device name);&lt;/li&gt;
+  &lt;li&gt;Precise location*;&lt;/li&gt;
+  &lt;li&gt;Device advertising identifiers*;&lt;/li&gt;
+  &lt;li&gt;Device characteristics (screen, battery, keyboard, free disk space, model, device name);&lt;/li&gt;
   &lt;li&gt;Software characteristics (version, language, build, parental control);&lt;/li&gt;
   &lt;li&gt;Network information (connections, IP);&lt;/li&gt;
-  &lt;li&gt;SimCard carrier.&lt;br /&gt;
+  &lt;li&gt;SimCard network carrier.&lt;br /&gt;
 &lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;*If device user granted permission.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;IMPORTANT: To meet the requirements of the General Data Protection Law (LGPD), include information about data collection from the shopper's device in your e-commerce's cookies policy.&lt;/aside&gt;
 
@@ -32825,7 +32827,7 @@ If the option to run the module does not appear, select &lt;em&gt;File -&amp;gt;
 &lt;p&gt;&lt;strong&gt;7.&lt;/strong&gt; The store returns the transaction status (approved or not approved) to the shopper.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;*Variable depending on the package contracted.&lt;/p&gt;
+  &lt;p&gt;*Variable depending on the contracted plan.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;where-to-send-the-fingerprint-1&quot;&gt;Where to send the Fingerprint?&lt;/h3&gt;
