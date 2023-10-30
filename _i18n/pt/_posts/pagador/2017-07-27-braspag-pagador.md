@@ -8259,7 +8259,7 @@ As listas a seguir se referem a provedores na integração REST:
 
 |Provider|
 |--------|
-|Cielo30, Bradesco2|
+|Cielo30, Bradesco2, BancoDoBrasil3|
 
 ## Lista de Status da Transação
 
