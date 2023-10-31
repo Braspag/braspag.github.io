@@ -7063,6 +7063,12 @@ The following lists refer to providers for the REST integration:
 |--------|
 |SafetyPay, PayMeeRedirectCheckout, PayMeeSemiTransparent|
 
+### Providers for Pix
+
+|Provider|
+|--------|
+|Cielo30, Bradesco2, BancoDoBrasil3|
+
 ## Transaction Status List
 
 List of statuses returned by the API:
