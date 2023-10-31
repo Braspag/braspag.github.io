@@ -7085,6 +7085,14 @@ List of statuses returned by the API:
 | 13     | Aborted             | All                                                                    | **Payment canceled due to processing failure**.<br>Means that the transaction was canceled due to processing failure. It can also be aborted if Anti-Fraud denies the transaction before authorization.                                                                                                                                                                         |
 | 20     | Scheduled           |Credit card and e-wallets.                                           | **Scheduled recurrence**.<br>Means that the transaction will have a scheduled recurrence, that is, the purchase amount will be collected on the day it was scheduled by the store.                                                                                                                                                                                                                  |
 
+## Pix Banco do Brasil transaction status list
+
+|Code |Status | Description |
+|---|---|---|
+|06 | Settled |Shopper paid via barcode, the amount has already been cleared and credited to the beneficiary - effective settlement.|
+|14 | Title in settlement | Shopper paid via QR Code Pix - can be considered effective settlement.|
+|15 | Scheduled title |The shopper paid/scheduled the payment using the barcode, but the payment can still be canceled as the amount has not yet been cleared.|
+
 ## Anti-Fraud Status List
 
 |Code|Description|
