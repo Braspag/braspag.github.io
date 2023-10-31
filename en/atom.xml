@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-10-31T13:18:49+00:00</updated>
+    <updated>2023-10-31T13:26:30+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -24549,6 +24549,35 @@ The following lists refer to providers for the REST integration:&lt;/p&gt;
       &lt;td&gt;Scheduled&lt;/td&gt;
       &lt;td&gt;Credit card and e-wallets.&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;Scheduled recurrence&lt;/strong&gt;.&lt;br /&gt;Means that the transaction will have a scheduled recurrence, that is, the purchase amount will be collected on the day it was scheduled by the store.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;pix-banco-do-brasil-transaction-status-list&quot;&gt;Pix Banco do Brasil transaction status list&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Code&lt;/th&gt;
+      &lt;th&gt;Status&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;06&lt;/td&gt;
+      &lt;td&gt;Settled&lt;/td&gt;
+      &lt;td&gt;Shopper paid via barcode, the amount has already been cleared and credited to the beneficiary - effective settlement.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;14&lt;/td&gt;
+      &lt;td&gt;Title in settlement&lt;/td&gt;
+      &lt;td&gt;Shopper paid via QR Code Pix - can be considered effective settlement.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Scheduled title&lt;/td&gt;
+      &lt;td&gt;The shopper paid/scheduled the payment using the barcode, but the payment can still be canceled as the amount has not yet been cleared.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
