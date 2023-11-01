@@ -1365,24 +1365,7 @@
             </span><span class="nl">"SequenceCriteria"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"CaptureOnLowRisk"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VoidOnHighRisk"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">46000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Addressee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome Comprador"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LowCost"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-1001"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"WorkPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-1002"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-1003"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99988877711"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nome@email.com.br"</span><span class="w">
+            </span><span class="nl">"TotalOrderAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">46000</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"IsGift"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -1674,14 +1657,14 @@
       <td style="text-align: left">Booleano</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">Não</td>
-      <td style="text-align: left">Indica se a autorização deverá ser com captura automática <br /> Possíveis valores: true / false (default)</td>
+      <td style="text-align: left">Indica se a autorização deverá ser com captura automática.<br />Possíveis valores: “true” / “false” (default).<br /><strong>Obs. 1</strong>: Verifique junto à adquirente a disponibilidade desta funcionalidade.<br /><strong>Obs. 2</strong>: Este campo deverá ser preenchido de acordo com o fluxo da análise de fraude.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">Booleano</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">Não</td>
+      <td style="text-align: left">Indica se a transação é do tipo recorrente.<br />Possíveis valores: “true” / “false” (default).<br /><strong>Obs. 1: Este campo igual a “true” não irá criar uma recorrência; apenas permitirá a realização de uma transação sem a necessidade de envio do CVV, indicando para a adquirente que é a cobrança de uma transação de uma recorrência.<br /></strong>Obs. 2<strong>: Somente para transações Cielo.<br /></strong>Obs. 3**: O campo <code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> deve ser igual a “false” quando  <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code>  for igual a “true”.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
@@ -1744,14 +1727,14 @@
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">14</td>
       <td style="text-align: left">Sim</td>
-      <td style="text-align: left">Tipo de fluxo da análise de fraude <br /> Possíveis valores: AnalyseFirst / AuthorizeFirst</td>
+      <td style="text-align: left">Tipo de fluxo da análise de fraude. Possíveis valores: AnalyseFirst / AuthorizeFirst. <br /> Saiba mais em <a href="https://braspag.github.io//manual/api-ecommerce-cielo-af#fluxos-da-an%C3%A1lise-de-fraude">Fluxos da análise de fraude</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.SequenceCriteria</code></td>
       <td style="text-align: left">Texto</td>
       <td style="text-align: left">9</td>
       <td style="text-align: left">Sim</td>
-      <td style="text-align: left">Critério do fluxo da análise de fraude <br /> Possíveis valores: OnSuccess / Always</td>
+      <td style="text-align: left">Critério do fluxo da análise de fraude <br /> Possíveis valores: OnSuccess / Always. <br /> Saiba mais em <a href="https://braspag.github.io//manual/api-ecommerce-cielo-af#fluxos-da-an%C3%A1lise-de-fraude">Fluxos da análise de fraude</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.CaptureOnLowRisk</code></td>
@@ -1794,104 +1777,6 @@
       <td style="text-align: left">8</td>
       <td style="text-align: left">Não</td>
       <td style="text-align: left">Meio de entrega do pedido <br /> <a href="https://braspag.github.io//manual/cielo-ecommerce#tabela-10-payment.fraudanalysis.shipping.method">Tabela 10 - Payment.Fraudanalysis.Shipping.Method</a></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
-      <td style="text-align: left">Texto</td>
-      <td style="text-align: left">15</td>
-      <td style="text-align: left">Não</td>
-      <td style="text-align: left">Número do telefone do responsável a receber o produto no endereço de entrega <br /> Ex.: 552121114700</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Workphone</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">20</td>
-      <td style="text-align: left">Não*</td>
-      <td style="text-align: left">Telefone de trabalho do destinatário.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Mobile</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">20</td>
-      <td style="text-align: left">Não*</td>
-      <td style="text-align: left">Celular do destinatário.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Identity</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">14</td>
-      <td style="text-align: left">-</td>
-      <td style="text-align: left">Documento do destinatário.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.IdentityType</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">-</td>
-      <td style="text-align: left">-</td>
-      <td style="text-align: left">1 = Pessoa Física<br />2 = Pessoa Jurídica.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Street</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">200</td>
-      <td style="text-align: left">Sim</td>
-      <td style="text-align: left">Nome do logradouro do destinatário.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Number</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">15</td>
-      <td style="text-align: left">Sim</td>
-      <td style="text-align: left">Número do endereço do destinatário.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Complement</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">250 ou 14?</td>
-      <td style="text-align: left">Não</td>
-      <td style="text-align: left">Complemento do endereço do destinatário.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Neighborhood</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">150</td>
-      <td style="text-align: left">Sim</td>
-      <td style="text-align: left">Bairro do endereço do destinatário.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.City</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">150</td>
-      <td style="text-align: left">Sim</td>
-      <td style="text-align: left">Cidade do destinatário.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.State</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">2</td>
-      <td style="text-align: left">Sim</td>
-      <td style="text-align: left">Estado do destinatário - UF.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Country</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">150</td>
-      <td style="text-align: left">Sim</td>
-      <td style="text-align: left">País do destinatário.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.ZipCode</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">10</td>
-      <td style="text-align: left">Sim</td>
-      <td style="text-align: left">CEP do destinatário.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Email</code></td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">150</td>
-      <td style="text-align: left">Não</td>
-      <td style="text-align: left">E-mail do destinatário.</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Cart.IsGift</code></td>
