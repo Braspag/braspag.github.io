@@ -560,24 +560,7 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
             "SequenceCriteria": "OnSuccess",
             "CaptureOnLowRisk": false,
             "VoidOnHighRisk": false,
-            "TotalOrderAmount": 46000,
-            "Shipping": {
-                "Addressee": "Nome Comprador",
-                "Method": "LowCost",
-                "Phone": "+55 11 5555-1001",
-                "WorkPhone": "+55 11 5555-1002",
-                "Mobile": "+55 11 5555-1003",
-                "Identity": "99988877711",
-                "IdentityType": "CPF",
-                "Street": "Alameda Xingu",
-                "Number": "512",
-                "Complement": "27 andar",
-                "Neighborhood": "Alphaville",
-                "City": "Barueri",
-                "State": "SP",
-                "Country": "BR",
-                "ZipCode": "06455030",
-                "Email": "nome@email.com.br"
+            "TotalOrderAmount": 46000
             },
             "Cart": {
                 "IsGift": false,
@@ -670,8 +653,8 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Payment.Provider`|Texto|15|Não|Define comportamento do meio de pagamento (ver Anexo) <br/> Obs.: Não obrigatório para `Payment.Type` igual a _CreditCard_|
 |`Payment.Amount`|Número|15|Sim|Valor da transação financeira em centavos <br/> Ex: 150000 = r$ 1.500,00|
 |`Payment.Installments`|Número|2|Sim|Número de parcelas|
-|`Payment.Capture`|Booleano|---|Não|Indica se a autorização deverá ser com captura automática <br/> Possíveis valores: true / false (default)|
-|`Payment.Recurrent`|
+|`Payment.Capture`|Booleano|---|Não|Indica se a autorização deverá ser com captura automática.<br>Possíveis valores: “true” / “false” (default).<br>**Obs. 1**: Verifique junto à adquirente a disponibilidade desta funcionalidade.<br>**Obs. 2**: Este campo deverá ser preenchido de acordo com o fluxo da análise de fraude.|
+|`Payment.Recurrent`|Booleano|---|Não|Indica se a transação é do tipo recorrente.<br>Possíveis valores: “true” / “false” (default).<br>**Obs. 1: Este campo igual a “true” não irá criar uma recorrência; apenas permitirá a realização de uma transação sem a necessidade de envio do CVV, indicando para a adquirente que é a cobrança de uma transação de uma recorrência.<br>**Obs. 2**: Somente para transações Cielo.<br>**Obs. 3**: O campo `Payment.Authenticate` deve ser igual a “false” quando  `Payment.Recurrent`  for igual a “true”.|
 |`Payment.SoftDescriptor`|Texto|13|Não|Texto que será impresso na fatura do portador <br/> Obs.: O valor deste campo tem que ser claro e fácil de identificar pelo portador o estabelecimento onde foi realizada a compra, pois é um dos principais ofensores para chargeback|
 |`Payment.CreditCard.CardNumber`|Texto|16|Sim|Número do cartão de crédito|
 |`Payment.CreditCard.Holder`|Texto|25|Sim|Nome do portador impresso no cartão de crédito|
@@ -680,28 +663,14 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Payment.CreditCard.SaveCard`|Booleano|---|Não|Booleano que identifica se o cartão será salvo para gerar o token (CardToken) <br/> Possíveis valores: true / false (default)|
 |`Payment.CreditCard.Brand`|Texto|10|Sim |Bandeira do cartão de crédito|
 |`Payment.FraudAnalysis.Provider`|Texto|10|Sim|Provedor de AntiFraude <br/> Neste caso, use "ClearSale"|
-|`Payment.FraudAnalysis.Sequence`|Texto|14|Sim|Tipo de fluxo da análise de fraude <br/> Possíveis valores: AnalyseFirst / AuthorizeFirst|
-|`Payment.FraudAnalysis.SequenceCriteria`|Texto|9|Sim|Critério do fluxo da análise de fraude <br/> Possíveis valores: OnSuccess / Always|
+|`Payment.FraudAnalysis.Sequence`|Texto|14|Sim|Tipo de fluxo da análise de fraude. Possíveis valores: AnalyseFirst / AuthorizeFirst. <br> Saiba mais em [Fluxos da análise de fraude](https://braspag.github.io//manual/api-ecommerce-cielo-af#fluxos-da-an%C3%A1lise-de-fraude)|
+|`Payment.FraudAnalysis.SequenceCriteria`|Texto|9|Sim|Critério do fluxo da análise de fraude <br/> Possíveis valores: OnSuccess / Always. <br> Saiba mais em [Fluxos da análise de fraude](https://braspag.github.io//manual/api-ecommerce-cielo-af#fluxos-da-an%C3%A1lise-de-fraude)|
 |`Payment.FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Indica se a transação após a análise de fraude será capturada <br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a _true_ e o retorno da análise de fraude for de baixo risco (Accept) a transação anteriormente autorizada será capturada <br/> Obs2.: Quando enviado igual a _true_ e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A mesma será capturada após a Cielo receber o novo status da análise manual e este for de baixo risco (Accept) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente _AuthorizeFirst_|
 |`Payment.FraudAnalysis.VoidOnHighRisk`|Booleano|---|Não|Indica se a transação será cancelada após a análise de fraude se o retorno for alto risco.<br/> Possíveis valores: true / false (default) <br/> Obs.: Quando enviado igual a *true* e o retorno da análise de fraude for de alto risco (Reject) a transação anteriormente autorizada será cancelada <br/> Obs2.: Quando enviado igual a *true* e o retorno da análise de fraude for revisão (Review) a transação ficará autorizada. A transação será cancelada após a Cielo receber o novo status da análise manual e este for alto risco (Reject) <br/> Obs.: Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente *AuthorizeFirst*|
 |`Payment.FraudAnalysis.TotalOrderAmount`|Número|15|Sim|Valor total do pedido em centavos <br/> Ex: 123456 = r$ 1.234,56|
 |`Payment.FraudAnalysis.Browser.BrowserFingerprint`|Texto|100|Sim|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. Este mesmo identificador deve ser utilizado para gerar o valor que será atribuído ao campo `session_id` do script ou utilizando os SDKs (iOS ou Android) que será incluído na página de checkout. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas|
 |`Payment.FraudAnalysis.Shipping.Addressee`|Texto|120|Não|Nome completo do responsável a receber o produto no endereço de entrega|
 |`Payment.FraudAnalysis.Shipping.Method`|Texto|8|Não|Meio de entrega do pedido <br/> [Tabela 10 - Payment.Fraudanalysis.Shipping.Method]({{ site.baseurl_root }}/manual/cielo-ecommerce#tabela-10-payment.fraudanalysis.shipping.method)|
-|`Payment.FraudAnalysis.Shipping.Phone`|Texto|15|Não|Número do telefone do responsável a receber o produto no endereço de entrega <br/> Ex.: 552121114700|
-|`Payment.FraudAnalysis.Shipping.Workphone`|string|20|Não*|Telefone de trabalho do destinatário.|
-|`Payment.FraudAnalysis.Shipping.Mobile`| string|20|Não*|Celular do destinatário.|
-|`Payment.FraudAnalysis.Shipping.Identity`|string|14|-|Documento do destinatário.|
-|`Payment.FraudAnalysis.Shipping.IdentityType`|string|-|-|1 = Pessoa Física<br>2 = Pessoa Jurídica.|
-|`Payment.FraudAnalysis.Shipping.Street`|string|200|Sim|Nome do logradouro do destinatário.|
-|`Payment.FraudAnalysis.Shipping.Number`|string|15|Sim|Número do endereço do destinatário.|
-|`Payment.FraudAnalysis.Shipping.Complement`|string | 250 ou 14?|Não|Complemento do endereço do destinatário.
-|`Payment.FraudAnalysis.Shipping.Neighborhood`|string|150|Sim|Bairro do endereço do destinatário.|
-|`Payment.FraudAnalysis.Shipping.City`|string|150|Sim|Cidade do destinatário.|
-|`Payment.FraudAnalysis.Shipping.State`|string|2|Sim|Estado do destinatário - UF.|
-|`Payment.FraudAnalysis.Shipping.Country`|string|150|Sim|País do destinatário.|
-|`Payment.FraudAnalysis.Shipping.ZipCode`|string|10|Sim|CEP do destinatário.|
-|`Payment.FraudAnalysis.Shipping.Email`|string |150|Não|E-mail do destinatário.|
 |`Payment.FraudAnalysis.Cart.IsGift`|Booleano|---|Não|Indica se o pedido realizado pelo comprador é para presente.|
 |`Payment.FraudAnalysis.Cart.ReturnsAccepted`|Booleano|---|Não|Indica se o pedido realizado pelo comprador pode ser devolvido a loja <br/> Possíveis valores: true / false (default).|
 |`Payment.FraudAnalysis.Cart.Items.Name`|Texto|255|Sim|Nome do Produto.|
