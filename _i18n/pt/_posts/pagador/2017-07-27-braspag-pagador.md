@@ -1284,8 +1284,6 @@ O padrão mais atual do autenticador é o [3DS 2.0](https://braspag.github.io//m
 
 <aside class="notice">O padrão 3DS 2.0 é indicado também para o ambiente mobile.</aside>
 
-#### 3DS 2.0
-
 Além de ser compatível com os diferentes tipos de dispositivos (desktop, tablet ou smartphone), a versão [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"} possui recursos que proporcionam uma melhor experiência de compra online para o seu cliente.
 
 Durante o fluxo da transação, a etapa de autorização pode ser realizada separada ou juntamente com a autenticação. Para conhecer sobre o segundo fluxo, confira a documentação da [Autorização com Autenticação](https://braspag.github.io/manual/autorizacao-com-autenticacao#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o){:target="_blank"} do 3DS 2.0.
