@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-11-03T12:37:12+00:00</updated>
+    <updated>2023-11-03T12:46:13+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13112,15 +13112,13 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;authenticating-a-transaction&quot;&gt;Authenticating a Transaction&lt;/h3&gt;
+&lt;h3 id=&quot;3d-secure-authentication&quot;&gt;3D Secure Authentication&lt;/h3&gt;
 
 &lt;p&gt;With the authentication process, it is possible to carry out a risk analysis considering a greater amount of user and seller data, thus helping in the online purchase validation process. When validated correctly, the risk of &lt;em&gt;chargeback&lt;/em&gt; (disputing a purchase made by credit or debit card) of the transaction is passed on to the issuer; that is, the merchant will not receive disputes.&lt;/p&gt;
 
 &lt;p&gt;The most current authenticator standard is &lt;a href=&quot;https://braspag.github.io//manualp/emv3ds&quot; target=&quot;_blank&quot;&gt;3DS 2.0&lt;/a&gt;, and the 3DS 1.0 version has been discontinued.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;The 3DS 2.0 standard is also suitable for the mobile environment.&lt;/aside&gt;
-
-&lt;h4 id=&quot;3ds-20&quot;&gt;3DS 2.0&lt;/h4&gt;
 
 &lt;p&gt;In addition to being compatible with different types of devices (desktop, tablet or smartphone), the &lt;a href=&quot;https://braspag.github.io//manualp/emv3ds&quot; target=&quot;_blank&quot;&gt;3DS 2.0&lt;/a&gt; version has features that provide a better online shopping experience for your customer.&lt;/p&gt;
 
