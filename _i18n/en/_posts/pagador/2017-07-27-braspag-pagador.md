@@ -1230,15 +1230,13 @@ An authorization that is not captured by the deadline is automatically released 
 |`ReasonCode`|Acquirer return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Acquirer return message.|Text|512|Alphanumeric|
 
-### Authenticating a Transaction
+### 3D Secure Authentication
 
 With the authentication process, it is possible to carry out a risk analysis considering a greater amount of user and seller data, thus helping in the online purchase validation process. When validated correctly, the risk of *chargeback* (disputing a purchase made by credit or debit card) of the transaction is passed on to the issuer; that is, the merchant will not receive disputes.
 
 The most current authenticator standard is [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}, and the 3DS 1.0 version has been discontinued.
 
 <aside class="notice">The 3DS 2.0 standard is also suitable for the mobile environment.</aside>
-
-#### 3DS 2.0
 
 In addition to being compatible with different types of devices (desktop, tablet or smartphone), the [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"} version has features that provide a better online shopping experience for your customer.
 
