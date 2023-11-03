@@ -1276,7 +1276,7 @@ Transações que não são capturadas até a [data limite](https://suporte.brasp
 |`ReasonCode`|Código de retorno da adquirente. | texto | 32 | texto alfanumérico |
 |`ReasonMessage`|Mensagem de retorno da adquirente. | texto | 512 |texto alfanumérico|
 
-### Autenticando uma Transação
+### Autenticação 3DS
 
 Com o processo de autenticação, é possível fazer uma análise de risco considerando uma quantidade maior de dados do usuário e do vendedor, auxiliando assim no processo de validação da compra online. Quando validado corretamente, o risco de *chargeback* (contestação de compra efetuada por cartão de crédito ou débito) da transação passa a ser do emissor; ou seja, a loja não receberá contestações.
 
