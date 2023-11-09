@@ -6994,8 +6994,7 @@ If the above response is not returned, there will be two more attempts to send t
 
 ## List of Providers
 
-For SOAP integration, refer to the list of providers listed in [this article](https://suporte.braspag.com.br/hc/pt-br/articles/360026794092){:target="_blank"}, in Portuguese, and also refer to their reference numbers for the `PaymentMethod` field.<br/>
-The following lists refer to providers for the REST integration:
+The following lists refer to providers for the REST API integration:
 
 ### Providers for Credit Card
 
