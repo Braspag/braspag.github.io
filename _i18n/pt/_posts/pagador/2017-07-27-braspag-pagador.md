@@ -8184,8 +8184,7 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 
 ## Lista de Providers
 
-No caso da integração SOAP, consulte a lista de provedores (*providers*) e seus correspondentes meios de pagamento listados [neste artigo](https://suporte.braspag.com.br/hc/pt-br/articles/360026794092-Lista-de-Payment-Method){:target="_blank"}.<br/>
-As listas a seguir se referem a provedores na integração REST:  
+As listas a seguir se referem a provedores na integração com a API REST:  
 
 ### Providers para Crédito
 
