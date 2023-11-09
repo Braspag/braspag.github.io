@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-11-09T13:14:13+00:00</updated>
+    <updated>2023-11-09T13:29:15+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -24339,8 +24339,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 &lt;h2 id=&quot;list-of-providers&quot;&gt;List of Providers&lt;/h2&gt;
 
-&lt;p&gt;For SOAP integration, refer to the list of providers listed in &lt;a href=&quot;https://suporte.braspag.com.br/hc/pt-br/articles/360026794092&quot; target=&quot;_blank&quot;&gt;this article&lt;/a&gt;, in Portuguese, and also refer to their reference numbers for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PaymentMethod&lt;/code&gt; field.&lt;br /&gt;
-The following lists refer to providers for the REST integration:&lt;/p&gt;
+&lt;p&gt;The following lists refer to providers for the REST API integration:&lt;/p&gt;
 
 &lt;h3 id=&quot;providers-for-credit-card&quot;&gt;Providers for Credit Card&lt;/h3&gt;
 
