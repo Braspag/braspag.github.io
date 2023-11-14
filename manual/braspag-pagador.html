@@ -2247,13 +2247,199 @@
   </tbody>
 </table>
 
+<h3 id="indicador-de-início-da-transação-mastercard">Indicador de início da transação Mastercard</h3>
+
+<p>As tabelas a seguir se aplicam para transações de crédito e débito Mastercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo <strong>titular do cartão</strong> ou pela <strong>loja</strong>:</p>
+
+<ul>
+  <li><strong>Cardholder-Initiated Transaction (CIT)</strong>: a transação é iniciada pela pessoa titular do cartão, que fornece suas credenciais de pagamento e permite que sejam armazenadas;</li>
+  <li><strong>Merchant-Initiated Transaction (MIT)</strong>: a transação é iniciada pela loja, após um acordo no qual a pessoa titular do cartão autoriza a loja a armazenar e usar os dados de sua conta para iniciar uma ou mais transações futuras (como pagamentos recorrentes e parcelados e cobranças posteriores praticadas pelo setor de hospitalidade e turismo, por exemplo).
+<br />
+<br />
+Para indicar o iniciador de transação, é obrigatório enviar o nó <code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>. Este nó tem dois parâmetros, categoria (<code class="language-plaintext highlighter-rouge">Category</code>) e subcategoria (<code class="language-plaintext highlighter-rouge">Subcategory</code>); confira a seguir o exemplo do nó na requisição e as tabelas com os valores correspondentes:</li>
+</ul>
+
+<h4 id="requisição-3">Requisição</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+     </span><span class="err">(...)</span><span class="w">
+    </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">(...)</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="s2">"Payment"</span>:<span class="o">{</span>
+     <span class="o">(</span>...<span class="o">)</span>
+    <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
+        <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
+        <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
+    <span class="o">}</span>,
+    <span class="o">(</span>...<span class="o">)</span>
+   <span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Confira o exemplo de requisição completa em <a href="https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito">Criando uma transação de crédito</a> ou em <a href="https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-d%C3%A9bito">Criando uma transação de débito</a></p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
+      <td>string</td>
+      <td>2</td>
+      <td>Condicional. Obrigatório apenas para bandeira Mastercard.</td>
+      <td>Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
+      <td>string</td>
+      <td>-</td>
+      <td>Condicional. Obrigatório apenas para bandeira Mastercard.</td>
+      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” ou “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /><em>Installment</em><br />Se <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Consulte a tabela com a descrição das subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Indicador de início da transação</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-3">Resposta</h4>
+
+<p>A resposta será o padrão da transação de crédito ou débito com o retorno do nó inserido na requisição.</p>
+
+<p><strong>Categoria C1 - transação iniciada pelo portador do cartão</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “C1”</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subcategoria do indicador</th>
+      <th>Significado</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CredentialsOnFile</code></td>
+      <td>Salvar dados do cartão para compras futuras.</td>
+      <td>O consumidor inicia uma compra e a loja solicita ao consumidor que salve os dados do cartão para futuras compras iniciadas pelo titular do cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
+      <td>Salvar dados do cartão para compras recorrentes de valor variável e frequência fixa.</td>
+      <td>Transação inicial para armazenar os dados do cartão para um pagamento mensal de serviços públicos.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
+      <td>Salvar dados do cartão para compras recorrentes de valor e frequência fixos.</td>
+      <td>Transação inicial para armazenar os dados do cartão para uma assinatura mensal (exemplo: jornais e revistas).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
+      <td>Salvar dados do cartão para compra parcelada</td>
+      <td>Transação inicial para armazenar os dados do cartão para uma compra a ser paga por meio de pagamentos parcelados.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Categoria M1 - transação recorrente ou parcelada iniciada pela loja</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M1”</p>
+
+<p>Nessa categoria, a transação é feita após um acordo com um acordo entre um titular de cartão e a loja, pelo qual o titular do cartão autoriza a loja a armazenar e usar os dados da conta do titular do cartão para iniciar uma ou mais transações futuras, conforme a subcategoria:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subcategoria do indicador</th>
+      <th>Significado</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CredentialsOnFile</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor fixou ou variável e sem intervalo fixo ou data programada.</td>
+      <td>Exemplo: o consumidor concorda em permitir que uma concessionária inicie transações de cobrança de pedágio quando o saldo na conta do consumidor estiver abaixo de uma quantia estabelecida (auto recarga).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor variável e intervalo fixo.</td>
+      <td>Exemplo: pagamentos mensais de serviços públicos.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor e intervalo fixos.</td>
+      <td>Exemplo: assinatura mensal ou pagamento de serviço mensal fixo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor conhecido e período definido.</td>
+      <td>Exemplo: o consumidor compra uma televisão por R$2000,00 e faz o pagamento em quatro parcelas iguais de R$500,00; nesse cenário, a primeira transação é iniciada pelo titular do cartão e as três transações restantes são iniciadas pela loja.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Categoria M2 - transação iniciada pela loja por prática do setor</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M2”</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subcategoria do indicador</th>
+      <th>Significado</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PartialShipment</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, quando a compra será dividida em mais de uma remessa de entrega.</td>
+      <td>Ocorre quando uma quantidade acordada de mercadorias encomendadas por e-commerce não está disponível para envio no momento da compra. Cada remessa é uma transação separada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RelatedOrDelayedCharge</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja para despesas adicionais.</td>
+      <td>Uma cobrança adicional da conta após a prestação dos serviços iniciais e o processamento do pagamento. Exemplo: cobrança do frigobar do hotel após o titular do cartão fazer check-out do hotel.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NoShow</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja para cobrança de multas.</td>
+      <td>Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: o cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Resubmission</code></td>
+      <td>Salvar dados do cartão para retentativa de transações negadas anteriormente.</td>
+      <td>A tentativa anterior de obter autorização para uma transação foi recusada, mas a resposta do emissor não proíbe a loja de tentar novamente mais tarde. Exemplo: fundos insuficientes/resposta acima do limite de crédito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Atenção</strong>: Os dados do cartão são armazenados de forma criptografada.</p>
+</blockquote>
+
 <h3 id="capturando-uma-transação">Capturando uma Transação</h3>
 
 <p>Quando uma transação é submetida com o parâmetro <code class="language-plaintext highlighter-rouge">Payment.Capture</code> igual a “false”, é necessário que seja feita, posteriormente, uma solicitação de captura para confirmar a transação.</p>
 
 <p>Transações que não são capturadas até a <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812-Prazos-de-captura-e-estorno" target="_blank">data limite</a> são automaticamente desfeitas pelas adquirentes. Clientes podem ter negociações específicas com as adquirentes para que alterem esse prazo limite de captura.</p>
 
-<h4 id="requisição-3">Requisição</h4>
+<h4 id="requisição-4">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture?amount=xxxx</span></aside>
 
@@ -2325,7 +2511,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-3">Resposta</h4>
+<h4 id="resposta-4">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -2425,7 +2611,7 @@
 
 <p>Para cancelar uma transação de cartão de crédito, é necessário o envio de mensagem HTTP através do método PUT para o recurso <em>Payment</em>, conforme o exemplo:</p>
 
-<h4 id="requisição-4">Requisição</h4>
+<h4 id="requisição-5">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
@@ -2486,7 +2672,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-4">Resposta</h4>
+<h4 id="resposta-5">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -2563,7 +2749,7 @@
 
 <p>No caso da rejeição pela regra de Velocity, o <em>ProviderReasonCode</em> será “BP 171 - Rejected by fraud risk” (Velocity, com “ReasonCode 16 - AbortedByFraud”).</p>
 
-<h4 id="resposta-5">Resposta</h4>
+<h4 id="resposta-6">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -2655,11 +2841,11 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p>Na primeira etapa, quando é solicitada uma autorização com um cartão internacional, a Global Payments identifica o país do cartão e aplica a conversão de moeda seguindo os cálculos específicos de cada bandeira, retornando as informações de conversão em seguida.</p>
 
-<h5 id="requisição-5">Requisição</h5>
+<h5 id="requisição-6">Requisição</h5>
 
 <p>Não há diferença entre uma requisição de autorização padrão e uma de DCC.</p>
 
-<h5 id="resposta-6">Resposta</h5>
+<h5 id="resposta-7">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -2905,7 +3091,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p>Segue um exemplo de confirmação da transação com a moeda escolhida pelo comprador:</p>
 
-<h5 id="requisição-6">Requisição</h5>
+<h5 id="requisição-7">Requisição</h5>
 
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
 
@@ -2965,7 +3151,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
   </tbody>
 </table>
 
-<h5 id="resposta-7">Resposta</h5>
+<h5 id="resposta-8">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -3142,7 +3328,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
   <p><strong>Atenção:</strong> As bandeiras, ao identificarem inconformidade devido ao não envio dos dados obrigatórios na mensageria transacional, aplicarão multas ao Facilitador responsável pelo envio dos dados transacionais.</p>
 </blockquote>
 
-<h4 id="requisição-7">Requisição</h4>
+<h4 id="requisição-8">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3387,7 +3573,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p><em>*Evite usar acentos pois eles são considerados como dois caracteres.</em></p>
 
-<h4 id="resposta-8">Resposta</h4>
+<h4 id="resposta-9">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -3669,7 +3855,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p>Seguem exemplos de envio de requisição e resposta para a geração do QR code Pix:</p>
 
-<h4 id="requisição-8">Requisição</h4>
+<h4 id="requisição-9">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3782,7 +3968,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
   </tbody>
 </table>
 
-<h4 id="resposta-9">Resposta</h4>
+<h4 id="resposta-10">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2020102601"</span><span class="p">,</span><span class="w">
@@ -3927,7 +4113,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/pix3.png" alt="Fluxo Cancelamento Pix" /></p>
 
-<h4 id="requisição-9">Requisição</h4>
+<h4 id="requisição-10">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
@@ -3988,7 +4174,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
   </tbody>
 </table>
 
-<h4 id="resposta-10">Resposta</h4>
+<h4 id="resposta-11">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -4068,7 +4254,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p>O exemplo abaixo contempla o mínimo de campos necessários a serem enviados para a autorização:</p>
 
-<h4 id="requisição-10">Requisição</h4>
+<h4 id="requisição-11">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4168,7 +4354,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
   </tbody>
 </table>
 
-<h4 id="resposta-11">Resposta</h4>
+<h4 id="resposta-12">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"20191023"</span><span class="p">,</span><span class="w">
@@ -4317,7 +4503,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 
 <p>Os parâmetros <code class="language-plaintext highlighter-rouge">Payment.FineRate</code> e <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code> não devem ser utilizados em conjunto. A mesma regra se aplica aos parâmetros <code class="language-plaintext highlighter-rouge">Payment.InterestRate</code> e <code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code>. Esses parâmetros, apresentados na tabela mais abaixo, estão marcados com um * na coluna de obrigatoriedade.</p>
 
-<h4 id="requisição-11">Requisição</h4>
+<h4 id="requisição-12">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4660,7 +4846,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
   </tbody>
 </table>
 
-<h4 id="resposta-12">Resposta</h4>
+<h4 id="resposta-13">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
@@ -5028,7 +5214,7 @@ A solução é indicada para estabelecimentos que recebem pagamentos com cartõe
 <p>Uma transação com cartão voucher se efetua de forma semelhante à com cartão de débito; porém, sem o processo de autenticação.
 Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modalidade.</p>
 
-<h4 id="requisição-12">Requisição</h4>
+<h4 id="requisição-13">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5220,7 +5406,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
-<h4 id="resposta-13">Resposta</h4>
+<h4 id="resposta-14">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -5410,7 +5596,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>Os parâmetros <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> e <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code>, marcados com um “*” na coluna “OBRIGATÓRIO”, não devem ser utilizados em conjunto.</p>
 
-<h4 id="requisição-13">Requisição</h4>
+<h4 id="requisição-14">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5630,7 +5816,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>*Não use os parâmetros <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> e <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code> em conjunto.</p>
 
-<h4 id="resposta-14">Resposta</h4>
+<h4 id="resposta-15">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -5780,7 +5966,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>Para programar a primeira transação da série de recorrências, passe o parâmetro <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> como “false” e adicione o parâmetro <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code>.</p>
 
-<h4 id="requisição-14">Requisição</h4>
+<h4 id="requisição-15">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5981,7 +6167,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
-<h4 id="resposta-15">Resposta</h4>
+<h4 id="resposta-16">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -6126,7 +6312,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>Para alterar os dados do comprador de uma recorrência existente, basta fazer uma chamada PUT para o endpoint especificado.<br />Em <strong>resposta</strong>, a API irá retornar o código do <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">Status HTTP</a>, informando se a operação foi realizada com sucesso ou não.</p>
 
-<h4 id="requisição-15">Requisição</h4>
+<h4 id="requisição-16">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -6385,7 +6571,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
-<h4 id="resposta-16">Resposta</h4>
+<h4 id="resposta-17">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 
@@ -6400,7 +6586,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>Para alterar a data final da recorrência já existente, basta fazer um PUT conforme o exemplo.</p>
 
-<h4 id="requisição-16">Requisição</h4>
+<h4 id="requisição-17">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -6466,7 +6652,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
-<h4 id="resposta-17">Resposta</h4>
+<h4 id="resposta-18">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 
@@ -6481,7 +6667,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>Para alterar o intervalo de uma recorrência já existente, basta fazer um PUT conforme o exemplo:</p>
 
-<h4 id="requisição-17">Requisição</h4>
+<h4 id="requisição-18">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -6549,7 +6735,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
-<h4 id="resposta-18">Resposta</h4>
+<h4 id="resposta-19">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 
@@ -6570,7 +6756,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p><br />Para modificar o dia de vencimento de uma recorrência já existente, basta fazer um PUT conforme o exemplo:</p>
 
-<h4 id="requisição-18">Requisição</h4>
+<h4 id="requisição-19">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -6636,7 +6822,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
-<h4 id="resposta-19">Resposta</h4>
+<h4 id="resposta-20">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 
@@ -6653,7 +6839,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <aside class="warning">Essa alteração só afeta a data de pagamento da recorrência seguinte.</aside>
 
-<h4 id="requisição-19">Requisição</h4>
+<h4 id="requisição-20">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -6719,7 +6905,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
-<h4 id="resposta-20">Resposta</h4>
+<h4 id="resposta-21">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 
@@ -6736,7 +6922,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <aside class="warning">Esta operação modifica somente a data do pagamento seguinte, ou seja, as recorrências futuras permanecerão com as características originais.</aside>
 
-<h4 id="requisição-20">Requisição</h4>
+<h4 id="requisição-21">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -6802,7 +6988,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
-<h4 id="resposta-21">Resposta</h4>
+<h4 id="resposta-22">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 
@@ -6826,7 +7012,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <aside class="warning">ATENÇÃO: Essa alteração afeta a todos os dados do nó "Payment". Para manter os dados anteriores, você deve informar esses campos utilizando os valores já salvos a serem mantidos.</aside>
 
-<h4 id="requisição-21">Requisição</h4>
+<h4 id="requisição-22">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -7032,7 +7218,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
-<h4 id="resposta-22">Resposta</h4>
+<h4 id="resposta-23">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7045,79 +7231,11 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>Para desabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:</p>
 
-<h4 id="requisição-22">Requisição</h4>
+<h4 id="requisição-23">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja na API.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Sim (envio no <em>header</em>)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Chave pública para autenticação dupla na API.</td>
-      <td>texto</td>
-      <td>40</td>
-      <td>Sim (envio no <em>header</em>)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Não (envio no <em>header</em>)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Número de identificação da recorrência.</td>
-      <td>texto</td>
-      <td>50</td>
-      <td>Sim (envio no <em>endpoint</em>)</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="resposta-23">Resposta</h4>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
-</code></pre></div></div>
-
-<p>Consulte o anexo <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">HTTP Status Code</a> para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
-
-<h2 id="reabilitação-de-pedido">Reabilitação de Pedido</h2>
-
-<h3 id="reabilitando-um-pedido-recorrente">Reabilitando um Pedido Recorrente</h3>
-
-<p>Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:</p>
-
-<h4 id="requisição-23">Requisição</h4>
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -7175,6 +7293,74 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>Consulte o anexo <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">HTTP Status Code</a> para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
 
+<h2 id="reabilitação-de-pedido">Reabilitação de Pedido</h2>
+
+<h3 id="reabilitando-um-pedido-recorrente">Reabilitando um Pedido Recorrente</h3>
+
+<p>Para reabilitar um pedido recorrente, basta fazer um PUT conforme o exemplo:</p>
+
+<h4 id="requisição-24">Requisição</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na API.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na API.</td>
+      <td>texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Número de identificação da recorrência.</td>
+      <td>texto</td>
+      <td>50</td>
+      <td>Sim (envio no <em>endpoint</em>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-25">Resposta</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Consulte o anexo <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">HTTP Status Code</a> para ver a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
+
 <h2 id="transação-com-renova-fácil">Transação com Renova Fácil</h2>
 
 <p>O <em>Renova Fácil</em> é um serviço desenvolvido pela Cielo em conjunto com os emissores cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com <strong>cartão de crédito</strong>.</p>
@@ -7187,7 +7373,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>Veja a seguir o exemplo de resposta de uma transação de crédito com o nó <code class="language-plaintext highlighter-rouge">NewCard</code>.</p>
 
-<h3 id="resposta-25">Resposta</h3>
+<h3 id="resposta-26">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -7484,7 +7670,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>Consulte também os fluxos de tokenização direta com a <a href="https://braspag.github.io//manual/cartao-protegido-api-rest" target="_blank">API do Cartão Protegido</a>, com a opção dos serviços da <a href="https://braspag.github.io//manual/braspag-verify-card" target="_blank">API do VerifyCard</a>.</p>
 
-<h3 id="requisição-24">Requisição</h3>
+<h3 id="requisição-25">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7722,7 +7908,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
-<h3 id="resposta-26">Resposta</h3>
+<h3 id="resposta-27">Resposta</h3>
 
 <p>O parâmetro <code class="language-plaintext highlighter-rouge">CreditCard.CardToken</code> retornará o token a ser salvo para transações futuras com o mesmo cartão.</p>
 
@@ -7916,7 +8102,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> enviará o <code class="language-plaintext highlighter-rouge">CardToken</code> conforme exemplo a seguir:</p>
 
-<h3 id="requisição-25">Requisição</h3>
+<h3 id="requisição-26">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -8118,7 +8304,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
-<h3 id="resposta-27">Resposta</h3>
+<h3 id="resposta-28">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -8301,7 +8487,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
 
 <p>O nó <code class="language-plaintext highlighter-rouge">CreditCard</code> dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code> enviará o <code class="language-plaintext highlighter-rouge">Alias</code> conforme exemplo a seguir:</p>
 
-<h3 id="requisição-26">Requisição</h3>
+<h3 id="requisição-27">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -8510,7 +8696,7 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
   </tbody>
 </table>
 
-<h3 id="resposta-28">Resposta</h3>
+<h3 id="resposta-29">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -8770,7 +8956,7 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
 
 <p>Durante implantação do Cybersource, informações adicionais podem ser armazenadas através de MDDs (Merchand Defined Data), que são campos numerados de 0 a N utilizados para armazenar informações exclusivas do merchant. Confira <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral" target="_blank">este artigo</a> com detalhes sobre o preenchimento desses campos.</p>
 
-<h3 id="requisição-27">Requisição</h3>
+<h3 id="requisição-28">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -9780,7 +9966,7 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
 
 <aside class="warning">Os campos do nó "FraudAnalysis.Travel" se tornam obrigatórios caso o segmento do seu negócio seja o aéreo.</aside>
 
-<h3 id="resposta-29">Resposta</h3>
+<h3 id="resposta-30">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -10814,7 +11000,7 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
   <p>Na requisição de análise de fraude com a ACI Worldwide, envie o campo <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code> como “RedShield”.</p>
 </blockquote>
 
-<h3 id="requisição-28">Requisição</h3>
+<h3 id="requisição-29">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -11599,7 +11785,7 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
 
 <aside class="warning">*Os campos do nó "FraudAnalysis.Travel" se tornam obrigatórios caso o segmento do seu negócio seja o aéreo.</aside>
 
-<h3 id="resposta-30">Resposta</h3>
+<h3 id="resposta-31">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
@@ -12437,7 +12623,7 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
 
 <p>Na requisição de análise de fraude com a ClearSale, envie o campo <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code> como “ClearSale”.</p>
 
-<h3 id="requisição-29">Requisição</h3>
+<h3 id="requisição-30">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -13240,7 +13426,7 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
 
 <aside class="warning">Os campos do nó `FraudAnalysis.Travel` são obrigatórios caso o segmento do seu negócio seja o aéreo.</aside>
 
-<h3 id="resposta-31">Resposta</h3>
+<h3 id="resposta-32">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9094008"</span><span class="p">,</span><span class="w">
@@ -13517,7 +13703,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <p>Para consultar uma transação de cartão de crédito, cartão de débito ou Pix via <code class="language-plaintext highlighter-rouge">PaymentID</code>, é necessário o envio de mensagem HTTP através do método GET para o recurso <em>Payment</em>, conforme o exemplo:</p>
 
-<h4 id="requisição-30">Requisição</h4>
+<h4 id="requisição-31">Requisição</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -13573,7 +13759,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
   </tbody>
 </table>
 
-<h4 id="resposta-32">Resposta</h4>
+<h4 id="resposta-33">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -14296,7 +14482,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <p>Para consultar uma transação de boleto registrado via PaymentID, é necessário o envio de mensagem HTTP do método GET para o recurso <em>Payment</em>, conforme o exemplo:</p>
 
-<h4 id="requisição-31">Requisição</h4>
+<h4 id="requisição-32">Requisição</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -14351,7 +14537,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
   </tbody>
 </table>
 
-<h4 id="resposta-33">Resposta</h4>
+<h4 id="resposta-34">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -14837,7 +15023,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <p>Para consultar uma venda pelo identificador da loja, é necessário o envio de mensagem HTTP do método GET para o recurso <em>/sales</em>, conforme o exemplo:</p>
 
-<h3 id="requisição-32">Requisição</h3>
+<h3 id="requisição-33">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -14892,7 +15078,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
   </tbody>
 </table>
 
-<h3 id="resposta-34">Resposta</h3>
+<h3 id="resposta-35">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -14952,7 +15138,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
 
 <p>Para consultar um pedido de recorrência, é necessário o envio de mensagem HTTP do método GET conforme o exemplo:</p>
 
-<h3 id="requisição-33">Requisição</h3>
+<h3 id="requisição-34">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -15007,7 +15193,7 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
   </tbody>
 </table>
 
-<h3 id="resposta-35">Resposta</h3>
+<h3 id="resposta-36">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -15681,126 +15867,6 @@ As operações contidas no Painel Admin Braspag também estão disponíveis na <
     </tr>
   </tbody>
 </table>
-
-<h2 id="tabelas-do-indicador-de-início-da-transação-mastercard">Tabelas do Indicador de Início da Transação Mastercard</h2>
-
-<p>As tabelas a seguir se aplicam para transações de crédito e débito Mastercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo <strong>titular do cartão</strong> (Cardholder Initiated Transaction - CIT) ou pela <strong>loja</strong> (Merchant Initiated Transaction - MIT).</p>
-
-<p>Para indicar o iniciador de transação, é obrigatório enviar o nó <code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>. Este nó tem dois parâmetros, categoria (<code class="language-plaintext highlighter-rouge">Category</code>) e subcategoria (<code class="language-plaintext highlighter-rouge">Subcategory</code>); confira a seguir os valores correspondentes:</p>
-
-<p><strong>Categoria C1 - transação iniciada pelo portador do cartão</strong></p>
-
-<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “C1”</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Subcategoria do indicador</th>
-      <th>Significado</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CredentialsOnFile</code></td>
-      <td>Salvar dados do cartão para compras futuras.</td>
-      <td>O consumidor inicia uma compra e a loja solicita ao consumidor que salve os dados do cartão para futuras compras iniciadas pelo titular do cartão.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
-      <td>Salvar dados do cartão para compras recorrentes de valor variável e frequência fixa.</td>
-      <td>Transação inicial para armazenar os dados do cartão para um pagamento mensal de serviços públicos.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
-      <td>Salvar dados do cartão para compras recorrentes de valor e frequência fixos.</td>
-      <td>Transação inicial para armazenar os dados do cartão para uma assinatura mensal (exemplo: jornais e revistas).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
-      <td>Salvar dados do cartão para compra parcelada</td>
-      <td>Transação inicial para armazenar os dados do cartão para uma compra a ser paga por meio de pagamentos parcelados.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Categoria M1 - transação recorrente ou parcelada iniciada pela loja</strong></p>
-
-<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M1”</p>
-
-<p>Nessa categoria, a transação é feita após um acordo com um acordo entre um titular de cartão e a loja, pelo qual o titular do cartão autoriza a loja a armazenar e usar os dados da conta do titular do cartão para iniciar uma ou mais transações futuras, conforme a subcategoria:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Subcategoria do indicador</th>
-      <th>Significado</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CredentialsOnFile</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor fixou ou variável e sem intervalo fixo ou data programada.</td>
-      <td>Exemplo: o consumidor concorda em permitir que uma concessionária inicie transações de cobrança de pedágio quando o saldo na conta do consumidor estiver abaixo de uma quantia estabelecida (auto recarga).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor variável e intervalo fixo.</td>
-      <td>Exemplo: pagamentos mensais de serviços públicos.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor e intervalo fixos.</td>
-      <td>Exemplo: assinatura mensal ou pagamento de serviço mensal fixo.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor conhecido e período definido.</td>
-      <td>Exemplo: o consumidor compra uma televisão por R$2000,00 e faz o pagamento em quatro parcelas iguais de R$500,00; nesse cenário, a primeira transação é iniciada pelo titular do cartão e as três transações restantes são iniciadas pela loja.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Categoria M2 - transação iniciada pela loja</strong></p>
-
-<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M2”</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Subcategoria do indicador</th>
-      <th>Significado</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PartialShipment</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, quando a compra será dividida em mais de uma remessa de entrega.</td>
-      <td>Ocorre quando uma quantidade acordada de mercadorias encomendadas por e-commerce não está disponível para envio no momento da compra. Cada remessa é uma transação separada.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RelatedOrDelayedCharge</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja para despesas adicionais.</td>
-      <td>Uma cobrança adicional da conta após a prestação dos serviços iniciais e o processamento do pagamento. Exemplo: cobrança do frigobar do hotel após o titular do cartão fazer check-out do hotel.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NoShow</code></td>
-      <td>Salvar dados do cartão para compras futuras iniciadas pela loja para cobrança de multas.</td>
-      <td>Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: O cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Resubmission</code></td>
-      <td>Salvar dados do cartão para retentativa de transações negadas anteriormente.</td>
-      <td>A tentativa anterior de obter autorização para uma transação foi recusada, mas a resposta do emissor não proíbe a loja de tentar novamente mais tarde. Exemplo: fundos insuficientes/resposta acima do limite de crédito.</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p><strong>Atenção</strong>: Os dados do cartão são armazenados de forma criptografada.</p>
-</blockquote>
 
 <h2 id="lista-de-status-do-antifraude">Lista de Status do Antifraude</h2>
 
