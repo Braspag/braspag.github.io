@@ -1188,6 +1188,90 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Ex.: Transação Aprovada|
 |`Payment.MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido para bandeira Mastercard*.|texto| 2 | numérico|
 
+### Indicador de início da transação Mastercard
+
+As tabelas a seguir se aplicam para transações de crédito e débito Mastercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo **titular do cartão** ou pela **loja**:
+
+* **Cardholder-Initiated Transaction (CIT)**: a transação é iniciada pela pessoa titular do cartão, que fornece suas credenciais de pagamento e permite que sejam armazenadas;
+* **Merchant-Initiated Transaction (MIT)**: a transação é iniciada pela loja, após um acordo no qual a pessoa titular do cartão autoriza a loja a armazenar e usar os dados de sua conta para iniciar uma ou mais transações futuras (como pagamentos recorrentes e parcelados e cobranças posteriores praticadas pelo setor de hospitalidade e turismo, por exemplo).
+<br/>
+<br/>
+Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.InitiatedTransactionIndicator`. Este nó tem dois parâmetros, categoria (`Category`) e subcategoria (`Subcategory`); confira a seguir o exemplo do nó na requisição e as tabelas com os valores correspondentes:
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+   "Payment":{
+     (...)
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },
+    (...)
+   }
+```
+
+```shell
+   "Payment":{
+     (...)
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },
+    (...)
+   }
+```
+
+> Confira o exemplo de requisição completa em [Criando uma transação de crédito](https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito) ou em [Criando uma transação de débito](https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-d%C3%A9bito)
+
+| Parâmetro | Tipo | Tamanho | Obrigatório? | Descrição |
+|---|---|---|---|---|
+|`Payment.InitiatedTransactionIndicator.Category`| string | 2 |Condicional. Obrigatório apenas para bandeira Mastercard. | Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>- “C1”: transação inciada pelo portador do cartão;<br>- “M1”: transação recorrente ou parcelada iniciada pela loja;<br>- “M2”: transação iniciada pela loja.|
+|`Payment.InitiatedTransactionIndicator.Subcategory`| string | - | Condicional. Obrigatório apenas para bandeira Mastercard. | Subcategoria do indicador. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>Se `InitiatedTransactionIndicator.Category` = "C1" ou "M1"<br>*CredentialsOnFile*<br>*StandingOrder*<br>*Subscription*<br>*Installment*<br>Se `InitiatedTransactionIndicator.Category` = "M2"<br>*PartialShipment*<br>*RelatedOrDelayedCharge*<br>*NoShow*<br>*Resubmission*<br>Consulte a tabela com a descrição das subcategorias em [Indicador de início da transação](https://developercielo.github.io/manual/cielo-ecommerce#indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard).|
+
+#### Resposta
+
+A resposta será o padrão da transação de crédito ou débito com o retorno do nó inserido na requisição.
+
+**Categoria C1 - transação iniciada pelo portador do cartão**
+
+`Payment.InitiatedTransactionIndicator.Category` = "C1"
+
+|Subcategoria do indicador|Significado|Descrição|
+|---|---|---|
+|`CredentialsOnFile`| Salvar dados do cartão para compras futuras.| O consumidor inicia uma compra e a loja solicita ao consumidor que salve os dados do cartão para futuras compras iniciadas pelo titular do cartão. |
+|`StandingOrder`| Salvar dados do cartão para compras recorrentes de valor variável e frequência fixa.  | Transação inicial para armazenar os dados do cartão para um pagamento mensal de serviços públicos.  |
+|`Subscription` |  Salvar dados do cartão para compras recorrentes de valor e frequência fixos. |  Transação inicial para armazenar os dados do cartão para uma assinatura mensal (exemplo: jornais e revistas). |
+|`Installment` | Salvar dados do cartão para compra parcelada | Transação inicial para armazenar os dados do cartão para uma compra a ser paga por meio de pagamentos parcelados. |
+
+**Categoria M1 - transação recorrente ou parcelada iniciada pela loja**
+
+`Payment.InitiatedTransactionIndicator.Category` = "M1"
+
+Nessa categoria, a transação é feita após um acordo com um acordo entre um titular de cartão e a loja, pelo qual o titular do cartão autoriza a loja a armazenar e usar os dados da conta do titular do cartão para iniciar uma ou mais transações futuras, conforme a subcategoria:
+
+|Subcategoria do indicador|Significado|Descrição|
+|---|---|---|
+|`CredentialsOnFile`| Salvar dados do cartão para compras futuras iniciadas pela loja, com valor fixou ou variável e sem intervalo fixo ou data programada.  | Exemplo: o consumidor concorda em permitir que uma concessionária inicie transações de cobrança de pedágio quando o saldo na conta do consumidor estiver abaixo de uma quantia estabelecida (auto recarga). |
+|`StandingOrder` | Salvar dados do cartão para compras futuras iniciadas pela loja, com valor variável e intervalo fixo.  | Exemplo: pagamentos mensais de serviços públicos.  |
+|`Subscription`| Salvar dados do cartão para compras futuras iniciadas pela loja, com valor e intervalo fixos.  | Exemplo: assinatura mensal ou pagamento de serviço mensal fixo. |
+|`Installment` | Salvar dados do cartão para compras futuras iniciadas pela loja, com valor conhecido e período definido.  | Exemplo: o consumidor compra uma televisão por R$2000,00 e faz o pagamento em quatro parcelas iguais de R$500,00; nesse cenário, a primeira transação é iniciada pelo titular do cartão e as três transações restantes são iniciadas pela loja. |
+
+**Categoria M2 - transação iniciada pela loja por prática do setor**
+
+`Payment.InitiatedTransactionIndicator.Category` = "M2"
+
+|Subcategoria do indicador|Significado|Descrição|
+|---|---|---|
+| `PartialShipment` | Salvar dados do cartão para compras futuras iniciadas pela loja, quando a compra será dividida em mais de uma remessa de entrega.  | Ocorre quando uma quantidade acordada de mercadorias encomendadas por e-commerce não está disponível para envio no momento da compra. Cada remessa é uma transação separada.  |
+|`RelatedOrDelayedCharge` | Salvar dados do cartão para compras futuras iniciadas pela loja para despesas adicionais.  |  Uma cobrança adicional da conta após a prestação dos serviços iniciais e o processamento do pagamento. Exemplo: cobrança do frigobar do hotel após o titular do cartão fazer check-out do hotel.  |
+|`NoShow`| Salvar dados do cartão para compras futuras iniciadas pela loja para cobrança de multas.  | Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: o cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.  | 
+| `Resubmission` | Salvar dados do cartão para retentativa de transações negadas anteriormente.  | A tentativa anterior de obter autorização para uma transação foi recusada, mas a resposta do emissor não proíbe a loja de tentar novamente mais tarde. Exemplo: fundos insuficientes/resposta acima do limite de crédito. |
+
+> **Atenção**: Os dados do cartão são armazenados de forma criptografada.
+
 ### Capturando uma Transação
 
 Quando uma transação é submetida com o parâmetro `Payment.Capture` igual a "false", é necessário que seja feita, posteriormente, uma solicitação de captura para confirmar a transação.
@@ -8281,49 +8365,6 @@ Lista de status retornados pela API:
 |06 | Liquidado | Comprador pagou pelo código de barras, o valor já transitou pela compensação e já foi creditado ao beneficiário - liquidação efetiva.|
 |14 | Título em liquidação | Comprador pagou pelo QR Code Pix - pode ser considerado como liquidação efetiva.|
 |15 | Título agendado |Cliente pagou/agendou pelo código de barras, porém o pagamento ainda pode ser cancelado já que o valor ainda não passou pela compensação.|
-
-## Tabelas do Indicador de Início da Transação Mastercard
-
-As tabelas a seguir se aplicam para transações de crédito e débito Mastercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo **titular do cartão** (Cardholder Initiated Transaction - CIT) ou pela **loja** (Merchant Initiated Transaction - MIT).
-
-Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.InitiatedTransactionIndicator`. Este nó tem dois parâmetros, categoria (`Category`) e subcategoria (`Subcategory`); confira a seguir os valores correspondentes:
-
-**Categoria C1 - transação iniciada pelo portador do cartão**
-
-`Payment.InitiatedTransactionIndicator.Category` = "C1"
-
-|Subcategoria do indicador|Significado|Descrição|
-|---|---|---|
-|`CredentialsOnFile`| Salvar dados do cartão para compras futuras.| O consumidor inicia uma compra e a loja solicita ao consumidor que salve os dados do cartão para futuras compras iniciadas pelo titular do cartão. |
-|`StandingOrder`| Salvar dados do cartão para compras recorrentes de valor variável e frequência fixa.  | Transação inicial para armazenar os dados do cartão para um pagamento mensal de serviços públicos.  |
-|`Subscription` |  Salvar dados do cartão para compras recorrentes de valor e frequência fixos. |  Transação inicial para armazenar os dados do cartão para uma assinatura mensal (exemplo: jornais e revistas). |
-|`Installment` | Salvar dados do cartão para compra parcelada | Transação inicial para armazenar os dados do cartão para uma compra a ser paga por meio de pagamentos parcelados. |
-
-**Categoria M1 - transação recorrente ou parcelada iniciada pela loja**
-
-`Payment.InitiatedTransactionIndicator.Category` = "M1"
-
-Nessa categoria, a transação é feita após um acordo com um acordo entre um titular de cartão e a loja, pelo qual o titular do cartão autoriza a loja a armazenar e usar os dados da conta do titular do cartão para iniciar uma ou mais transações futuras, conforme a subcategoria:
-
-|Subcategoria do indicador|Significado|Descrição|
-|---|---|---|
-|`CredentialsOnFile`| Salvar dados do cartão para compras futuras iniciadas pela loja, com valor fixou ou variável e sem intervalo fixo ou data programada.  | Exemplo: o consumidor concorda em permitir que uma concessionária inicie transações de cobrança de pedágio quando o saldo na conta do consumidor estiver abaixo de uma quantia estabelecida (auto recarga). |
-|`StandingOrder` | Salvar dados do cartão para compras futuras iniciadas pela loja, com valor variável e intervalo fixo.  | Exemplo: pagamentos mensais de serviços públicos.  |
-|`Subscription`| Salvar dados do cartão para compras futuras iniciadas pela loja, com valor e intervalo fixos.  | Exemplo: assinatura mensal ou pagamento de serviço mensal fixo. |
-|`Installment` | Salvar dados do cartão para compras futuras iniciadas pela loja, com valor conhecido e período definido.  | Exemplo: o consumidor compra uma televisão por R$2000,00 e faz o pagamento em quatro parcelas iguais de R$500,00; nesse cenário, a primeira transação é iniciada pelo titular do cartão e as três transações restantes são iniciadas pela loja. |
-
-**Categoria M2 - transação iniciada pela loja**
-
-`Payment.InitiatedTransactionIndicator.Category` = "M2"
-
-|Subcategoria do indicador|Significado|Descrição|
-|---|---|---|
-| `PartialShipment` | Salvar dados do cartão para compras futuras iniciadas pela loja, quando a compra será dividida em mais de uma remessa de entrega.  | Ocorre quando uma quantidade acordada de mercadorias encomendadas por e-commerce não está disponível para envio no momento da compra. Cada remessa é uma transação separada.  |
-|`RelatedOrDelayedCharge` | Salvar dados do cartão para compras futuras iniciadas pela loja para despesas adicionais.  |  Uma cobrança adicional da conta após a prestação dos serviços iniciais e o processamento do pagamento. Exemplo: cobrança do frigobar do hotel após o titular do cartão fazer check-out do hotel.  |
-|`NoShow`| Salvar dados do cartão para compras futuras iniciadas pela loja para cobrança de multas.  | Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: O cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.  | 
-| `Resubmission` | Salvar dados do cartão para retentativa de transações negadas anteriormente.  | A tentativa anterior de obter autorização para uma transação foi recusada, mas a resposta do emissor não proíbe a loja de tentar novamente mais tarde. Exemplo: fundos insuficientes/resposta acima do limite de crédito. |
-
-> **Atenção**: Os dados do cartão são armazenados de forma criptografada.
 
 ## Lista de Status do Antifraude
 
