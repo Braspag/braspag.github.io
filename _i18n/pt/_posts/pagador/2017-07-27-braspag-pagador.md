@@ -2186,7 +2186,7 @@ Conheça o ciclo de vida de uma transação Pix:
 
 Para gerar um QR code Pix através da API Pagador, basta realizar a integração conforme a especificação abaixo.
 
-Entre os campos de envio obrigatório, destacam-se dois: `Type`, que deve ser enviado como "Pix"; e `Provider`, que deve ser "Cielo30", "Bradesco2" e "BancoDoBrasil3". Na resposta da requisição será retornado o *código base64* da imagem do QR code Pix, que deve ser disponibilizado ao comprador.
+Entre os campos de envio obrigatório, destacam-se dois: `Type`, que deve ser enviado como "Pix"; e `Provider`, que deve ser "Cielo30", "Bradesco2" ou "BancoDoBrasil3". Na resposta da requisição será retornado o *código base64* da imagem do QR code Pix, que deve ser disponibilizado ao comprador.
 
 Veja abaixo a representação do **fluxo transacional** na geração do QR code Pix:
 ![Fluxo Geração QR Code Pix]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/pix.png)
