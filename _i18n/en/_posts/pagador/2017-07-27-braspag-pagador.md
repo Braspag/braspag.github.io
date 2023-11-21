@@ -1147,6 +1147,102 @@ It is possible to process a debit card without having to submit your customer to
 |`ProviderReturnCode`|Code returned by the payment provider (acquirer or issuer).|Text|32|57|
 |`ProviderReturnMessage`|Message returned by the payment provider (acquirer or issuer).|Text|512|Transaction Approved|
 
+### 3D Secure Authentication
+
+With the authentication process, it is possible to carry out a risk analysis considering a greater amount of user and seller data, thus helping in the online purchase validation process. When validated correctly, the risk of *chargeback* (disputing a purchase made by credit or debit card) of the transaction is passed on to the issuer; that is, the merchant will not receive disputes.
+
+The most current authenticator standard is [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}, and the 3DS 1.0 version has been discontinued.
+
+<aside class="notice">The 3DS 2.0 standard is also suitable for the mobile environment.</aside>
+
+In addition to being compatible with different types of devices (desktop, tablet or smartphone), the [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"} version has features that provide a better online shopping experience for your customer.
+
+During the transaction flow, the authorization step can be performed separately or together with authentication. To learn more about the second flow, check out the documentation for [Authorization with Authentication](https://braspag.github.io/manual/autorizacao-com-autenticacao#autoriza%C3%A7%C3%A3o-com-autentica%C3 %A7%C3%A3o){:target="_blank"} from 3DS 2.0.
+
+### Mastercard Transaction Initiator
+
+The following tables apply to Mastercard credit and debit transactions with stored credentials. The objective is to identify whether the transaction was initiated by the **cardholder** or by the **e-commerce**:
+
+* **Cardholder-Initiated Transaction (CIT)**: the transaction is initiated by the cardholder, who provides their payment credentials and allows them to be stored.
+* **Merchant-Initiated Transaction (MIT)**: the transaction is initiated by the merchant, after an agreement in which the cardholder authorizes the merchant to save and use the account data to initiate one or more transactions in the future (such as recurrent payments or installments, and charges commonly applied by the tourism and hospitality sector).
+<br/>
+
+The transaction initiator indicator must be sent in the node `Payment.InitiatedTransactionIndicator`, within parameters `Category` and `Subcategory`. Please refer to the following request example and tables for more information:
+
+#### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+   "Payment":{
+     (...)
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },
+    (...)
+   }
+```
+
+```shell
+   "Payment":{
+     (...)
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },
+    (...)
+   }
+```
+
+> For the full request example see [Creating a credit card transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction) or [Creating a debit transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction).
+
+| Property   | Type   | Size | Required | Description  |
+|---|---|---|---|---|
+|`Payment.InitiatedTransactionIndicator.Category`|string|2|Conditional. Required only for Mastercard.|Transaction Initiator Indicator category. *Valid only for Mastercard*.<br>Possible values:<br>- “C1”: transaction initiated by the cardholder;<br>- “M1”: recurring payment or installment initiated by the merchant<br>- “M2”: transaction initiated by the merchant.|
+|`Payment.InitiatedTransactionIndicator.Subcategory`|string|-|Conditional. Required only for Mastercard.|Transaction Initiator Indicator subcategory. *Valid only for Mastercard*. Please refer to the [Transaction Initiator Indicator](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables) tables for the full list.|
+
+#### Response
+
+The response will be the default response for the credit or debit transaction, returning the node `Payment.InitiatedTransactionIndicator` as sent in the request.
+
+**Category C1 - transaction initiated by the cardholder**
+
+`Payment.InitiatedTransactionIndicator.Category` = "C1"
+
+|Indicator subcategory|Meaning|Description/Example|
+|---|---|---|
+|`CredentialsOnFile`| Saves card credentials for future purchases. | The shopper initiates the purchase and the merchant asks for the shopper to save card data for future purchases initiated by the cardholder.|
+|`StandingOrder`| Saves card credentials for recurrent purchases of variable amount and fixed frequency. | Initial transaction to store card data for utility bills monthly payments.|
+|`Subscription` | Saves card credentials for recurrent purchases of fixed amount and fixed frequency.|Initial transaction to store card data for a monthly subscription (e.g .newspapers and magazines).|
+|`Installment` | Saves card data for installment buying. | Initial transaction to store card data for installment buying |
+
+**Category M1 - recurring payment or installment initiated by the merchant**
+
+`Payment.InitiatedTransactionIndicator.Category` = "M1"
+
+In this category, the transaction is completed after an agreement between merchant and cardholder, in which the cardholder authorizes the merchant to store and use cardholder account credentials to initiate one or more transactions in the future, according to the subcategory:
+
+|Indicator subcategory|Meaning|Description/Example|
+|---|---|---|
+|`CredentialsOnFile`| Saves card data for future purchases initiated by the merchant, with fixed or variable amount and no fixed interval or scheduled date|E.g.: the shopper agrees with transactions for toll charges when the balance in their account is below a certain amount (auto-recharge)|
+|`StandingOrder` | Saves card data for future purchases initiated by the merchant, with variable amount and fixed frequency. | E.g., utility bills monthy payments.|
+|`Subscription`| Saves card data for future purchases initiated by the merchant, with fixed amount and fixed frequency. | E.g., monthly subscription or fixed monthly service payment.|
+|`Installment` | Saves card data for future purchases initiated by the merchant, with known amount and defined period. | E.g.: the shopper buys a TV for $600 and chooses to pay in three $200 installments; in this situation, the first transaction is initiated by the cardholder and the following two transactions are initiated by the merchant.|
+
+**Category M2 - merchant-initiated transaction per industry practice**
+
+`Payment.InitiatedTransactionIndicator.Category` = "M2"
+
+|Indicator subcategory|Meaning|Description|
+|---|---|---|
+| `PartialShipment` | Saves card data for future purchases initiated by the merchant, when the order will be delivered in more than one shipping. | Partial shipment may occur when the amount of purchased goods in the e-commerce is not available for shipping in the time of purchase. Each shipping is a separate transaction.|
+|`RelatedOrDelayedCharge` | Saves card data for future purchases initiated by the merchant for additional expenses. | Additional charge after providing initial services and processing the payment. E.g., hotel minibar fridge charges after cardholder check-out.|
+|`NoShow`| Saves card data for future purchases initiated by the merchant for fine charges. | A fine charged according to the merchant cancellation policy. E.g.: the cancellation of a reservation by the cardholder without adequate prior notice to the establishment.|
+| `Resubmission` | Saves card data for retrying previously denied transactions.| The previous attempt to submit a transaction was denied, but the issuer response does not prohibit the merchant to retry. E.g.: insufficient funds/response above credit limit.|
+
+> **Important**: Card data is stored in encrypted form.
+
 ### Capturing a Transaction
 
 When a transaction is submitted with the `Payment.Capture` parameter as "false", there is the need of a later request for capturing the transaction, in order for it to be confirmed.
@@ -1229,18 +1325,6 @@ An authorization that is not captured by the deadline is automatically released 
 |`Status`|Transaction status.|Byte|2|E.g.: 1|
 |`ReasonCode`|Acquirer return code.|Text|32|Alphanumeric|
 |`ReasonMessage`|Acquirer return message.|Text|512|Alphanumeric|
-
-### 3D Secure Authentication
-
-With the authentication process, it is possible to carry out a risk analysis considering a greater amount of user and seller data, thus helping in the online purchase validation process. When validated correctly, the risk of *chargeback* (disputing a purchase made by credit or debit card) of the transaction is passed on to the issuer; that is, the merchant will not receive disputes.
-
-The most current authenticator standard is [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"}, and the 3DS 1.0 version has been discontinued.
-
-<aside class="notice">The 3DS 2.0 standard is also suitable for the mobile environment.</aside>
-
-In addition to being compatible with different types of devices (desktop, tablet or smartphone), the [3DS 2.0](https://braspag.github.io//manualp/emv3ds){:target="_blank"} version has features that provide a better online shopping experience for your customer.
-
-During the transaction flow, the authorization step can be performed separately or together with authentication. To learn more about the second flow, check out the documentation for [Authorization with Authentication](https://braspag.github.io/manual/autorizacao-com-autenticacao#autoriza%C3%A7%C3%A3o-com-autentica%C3 %A7%C3%A3o){:target="_blank"} from 3DS 2.0.
 
 ### Canceling/Refunding a Transaction
 
