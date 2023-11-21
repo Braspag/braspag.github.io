@@ -733,7 +733,7 @@ See below the representation of a standard **transactional flow** in the creatio
          {  
             "Name":"NomeDoCampo",
             "Value":"ValorDoCampo"
-      ]}
+      ]},
       "InitiatedTransactionIndicator": {
           "Category": "C1",
           "Subcategory": "Standingorder"
@@ -830,6 +830,10 @@ See below the representation of a standard **transactional flow** in the creatio
             "Name":"NomeDoCampo",
             "Value":"ValorDoCampo"         }
       ],
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+},
       "ReasonCode":0,
       "ReasonMessage":"Successful",
       "Status":2,
@@ -916,6 +920,10 @@ See below the representation of a standard **transactional flow** in the creatio
             "Name":"NomeDoCampo",
             "Value":"ValorDoCampo"         }
       ],
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+},
       "ReasonCode":0,
       "ReasonMessage":"Successful",
       "Status":2,
