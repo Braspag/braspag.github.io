@@ -1316,6 +1316,10 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 <p>See below the representation of a standard <strong>transactional flow</strong> in the creation of a debit transaction, with the authentication and authorization steps:
 <img src="https://braspag.github.io//images/fluxo3ds-en.png" alt="3DS 2.0 Flow" /></p>
 
+<blockquote>
+  <p><strong>Mastercard debit card transactions with stored credentials</strong>: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate whether the transaction was initiated by the cardholder or by the merchant. In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard transactions, within the <code class="language-plaintext highlighter-rouge">Payment</code> node. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in <a href="https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator">Mastercard Transaction Initiator</a>.</p>
+</blockquote>
+
 <h4 id="request-1">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
@@ -1373,7 +1377,10 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
          </span><span class="p">{</span><span class="w">  
             </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"NomeDoCampo"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Value"</span><span class="p">:</span><span class="s2">"ValorDoCampo"</span><span class="w">
-      </span><span class="err">]</span><span class="w">
+</span><span class="err">]</span><span class="p">}</span><span class="w">
+      </span><span class="s2">"InitiatedTransactionIndicator"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="err">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1437,7 +1444,10 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
          <span class="o">{</span>  
             <span class="s2">"Name"</span>:<span class="s2">"NomeDoCampo"</span>,
             <span class="s2">"Value"</span>:<span class="s2">"ValorDoCampo"</span>
-      <span class="o">]</span>
+      <span class="o">]}</span>
+      <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
+          <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
+          <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
    <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -1585,6 +1595,20 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
       <td>GUID</td>
       <td>36</td>
       <td>Yes, when the 3DS version is “2”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
+      <td>Transaction Initiator Indicator category. <em>Valid only for Mastercard</em>.<br />Possible values:<br />- “C1”: transaction initiated by the cardholder;<br />- “M1”: recurring payment or installment initiated by the merchant<br />- “M2”: transaction initiated by the merchant.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Conditional. Required only for Mastercard.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
+      <td>Indicator subcategory. Valid only for Mastercard brand.<br />Possible values:<br />If <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” or “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /> <em>Installment</em><br />If <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Please refer to <a href="https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator">Mastercard Transaction Initiator</a> tables for the full list.</td>
+      <td>string</td>
+      <td>-</td>
+      <td>Conditional. Required only for Mastercard.</td>
     </tr>
   </tbody>
 </table>
@@ -2297,7 +2321,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 </code></pre></div></div>
 
 <blockquote>
-  <p>For the full request example see <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction">Creating a credit card transaction</a> or <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction">Creating a debit transaction</a>.</p>
+  <p>For the full request example see <a href="https://braspag.github.io//en/manual/braspag-pagador#creating-a-credit-transaction">Creating a credit card transaction</a> or <a href="https://braspag.github.io//en/manual/braspag-pagador#creating-a-debit-transaction">Creating a debit transaction</a>.</p>
 </blockquote>
 
 <table>

@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-11-21T13:51:58+00:00</updated>
+    <updated>2023-11-21T19:56:21+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -12148,6 +12148,10 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
 &lt;p&gt;See below the representation of a standard &lt;strong&gt;transactional flow&lt;/strong&gt; in the creation of a debit transaction, with the authentication and authorization steps:
 &lt;img src=&quot;https://braspag.github.io//images/fluxo3ds-en.png&quot; alt=&quot;3DS 2.0 Flow&quot; /&gt;&lt;/p&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Mastercard debit card transactions with stored credentials&lt;/strong&gt;: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate whether the transaction was initiated by the cardholder or by the merchant. In this scenario, the node &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InitiatedTransactionIndicator&lt;/code&gt; must be sent with the parameters &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Category&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SubCategory&lt;/code&gt; for Mastercard transactions, within the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment&lt;/code&gt; node. Please check the complete list of categories in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Category&lt;/code&gt; parameter description and the subcategories tables in &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator&quot;&gt;Mastercard Transaction Initiator&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;h4 id=&quot;request-1&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
@@ -12205,7 +12209,10 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
             &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;NomeDoCampo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Value&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ValorDoCampo&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;InitiatedTransactionIndicator&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Category&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;C1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Subcategory&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Standingorder&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -12269,7 +12276,10 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
          &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
             &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;NomeDoCampo&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Value&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;ValorDoCampo&quot;&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;]}&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;InitiatedTransactionIndicator&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;s2&quot;&gt;&quot;Category&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;C1&quot;&lt;/span&gt;,
+          &lt;span class=&quot;s2&quot;&gt;&quot;Subcategory&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Standingorder&quot;&lt;/span&gt;
    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -12417,6 +12427,20 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;Yes, when the 3DS version is “2”.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Category&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Transaction Initiator Indicator category. &lt;em&gt;Valid only for Mastercard&lt;/em&gt;.&lt;br /&gt;Possible values:&lt;br /&gt;- “C1”: transaction initiated by the cardholder;&lt;br /&gt;- “M1”: recurring payment or installment initiated by the merchant&lt;br /&gt;- “M2”: transaction initiated by the merchant.&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Conditional. Required only for Mastercard.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Subcategory&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Indicator subcategory. Valid only for Mastercard brand.&lt;br /&gt;Possible values:&lt;br /&gt;If &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InitiatedTransactionIndicator.Category&lt;/code&gt; = “C1” or “M1”&lt;br /&gt;&lt;em&gt;CredentialsOnFile&lt;/em&gt;&lt;br /&gt;&lt;em&gt;StandingOrder&lt;/em&gt;&lt;br /&gt;&lt;em&gt;Subscription&lt;/em&gt;&lt;br /&gt; &lt;em&gt;Installment&lt;/em&gt;&lt;br /&gt;If &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InitiatedTransactionIndicator.Category&lt;/code&gt; = “M2”&lt;br /&gt;&lt;em&gt;PartialShipment&lt;/em&gt;&lt;br /&gt;&lt;em&gt;RelatedOrDelayedCharge&lt;/em&gt;&lt;br /&gt;&lt;em&gt;NoShow&lt;/em&gt;&lt;br /&gt;&lt;em&gt;Resubmission&lt;/em&gt;&lt;br /&gt;Please refer to &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator&quot;&gt;Mastercard Transaction Initiator&lt;/a&gt; tables for the full list.&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Conditional. Required only for Mastercard.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13129,7 +13153,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;For the full request example see &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction&quot;&gt;Creating a credit card transaction&lt;/a&gt; or &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction&quot;&gt;Creating a debit transaction&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;For the full request example see &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#creating-a-credit-transaction&quot;&gt;Creating a credit card transaction&lt;/a&gt; or &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#creating-a-debit-transaction&quot;&gt;Creating a debit transaction&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;table&gt;
