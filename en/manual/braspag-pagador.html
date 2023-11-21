@@ -357,7 +357,11 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 
 <p>The parameters contained within the <code class="language-plaintext highlighter-rouge">Address</code> and <code class="language-plaintext highlighter-rouge">DeliveryAddress</code> nodes are <strong>required</strong> when the transaction is submitted to the <a href="https://braspag.github.io//en/manual/antifraude" target="_blank">Antifraude</a> or <strong>Velocity</strong> analysis. These parameters are marked with an * in the required column of the table below.</p>
 
-<p>Here are request and answer examples of how to create a credit transaction:</p>
+<blockquote>
+  <p><strong>Mastercard credit card transactions with stored credentials</strong>: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> must be sent with the parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">SubCategory</code> for Mastercard transactions, within the <code class="language-plaintext highlighter-rouge">Payment</code> node. Please check the complete list of categories in the <code class="language-plaintext highlighter-rouge">Category</code> parameter description and the subcategories tables in <a href="https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator">Mastercard Transaction Initiator</a>.</p>
+</blockquote>
+
+<p>Here are request and response examples on how to create a credit transaction:</p>
 
 <h4 id="request">Request</h4>
 
@@ -418,6 +422,10 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
             </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
+</span><span class="p">},</span><span class="w">
       </span><span class="nl">"Credentials"</span><span class="p">:{</span><span class="w">
          </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"D8888888"</span><span class="p">,</span><span class="w">
@@ -496,6 +504,10 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
             <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
       <span class="o">}</span>,
+      <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
+          <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
+          <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
+<span class="o">}</span>,
       <span class="s2">"Credentials"</span>:<span class="o">{</span>
          <span class="s2">"Code"</span>:<span class="s2">"9999999"</span>,
          <span class="s2">"Key"</span>:<span class="s2">"D8888888"</span>,
@@ -1033,6 +1045,10 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
             </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
+</span><span class="p">},</span><span class="w">
         </span><span class="nl">"Credentials"</span><span class="p">:{</span><span class="w">
             </span><span class="nl">"Code"</span><span class="p">:</span><span class="s2">"9999999"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Key"</span><span class="p">:</span><span class="s2">"D8888888"</span><span class="p">,</span><span class="w">
@@ -1132,6 +1148,10 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
             <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
         <span class="o">}</span>,
+      <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
+          <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
+          <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
+<span class="o">}</span>,
         <span class="s2">"Credentials"</span>:<span class="o">{</span>
             <span class="s2">"code"</span>:<span class="s2">"9999999"</span>,
             <span class="s2">"key"</span>:<span class="s2">"D8888888"</span>,
@@ -2284,26 +2304,26 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
   <thead>
     <tr>
       <th>Property</th>
+      <th>Description</th>
       <th>Type</th>
       <th>Size</th>
       <th>Required</th>
-      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
+      <td>Transaction Initiator Indicator category. <em>Valid only for Mastercard</em>.<br />Possible values:<br />- “C1”: transaction initiated by the cardholder;<br />- “M1”: recurring payment or installment initiated by the merchant<br />- “M2”: transaction initiated by the merchant.</td>
       <td>string</td>
       <td>2</td>
       <td>Conditional. Required only for Mastercard.</td>
-      <td>Transaction Initiator Indicator category. <em>Valid only for Mastercard</em>.<br />Possible values:<br />- “C1”: transaction initiated by the cardholder;<br />- “M1”: recurring payment or installment initiated by the merchant<br />- “M2”: transaction initiated by the merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
+      <td>Indicator subcategory. Valid only for Mastercard brand.<br />Possible values:<br />If <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “C1” or “M1”<br /><em>CredentialsOnFile</em><br /><em>StandingOrder</em><br /><em>Subscription</em><br /> <em>Installment</em><br />If <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator.Category</code> = “M2”<br /><em>PartialShipment</em><br /><em>RelatedOrDelayedCharge</em><br /><em>NoShow</em><br /><em>Resubmission</em><br />Please refer to the tables below for the full list.</td>
       <td>string</td>
       <td>-</td>
       <td>Conditional. Required only for Mastercard.</td>
-      <td>Transaction Initiator Indicator subcategory. <em>Valid only for Mastercard</em>. Please refer to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Transaction Initiator Indicator</a> tables for the full list.</td>
     </tr>
   </tbody>
 </table>
