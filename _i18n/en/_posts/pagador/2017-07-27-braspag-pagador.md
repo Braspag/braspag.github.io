@@ -1651,7 +1651,7 @@ In the third step, the store system sends the transaction confirmation with the 
 In Pix, the transmission of the payment order and the availability of funds to the receiving user takes place in real time, 24 hours a day and without the need for intermediates. Thus, it is a type of payment method that enables fast payments with lower transaction costs.
 
 <aside class="notice">Pix specifications may undergo changes and adaptations until the official release date of the feature by Braspag.</aside>
-<aside class="warning">Pix is currently available for Cielo 3.0 and Bradesco acquirers. First, you need to contact these suppliers in order to authorize this type of payment method.</aside>
+<aside class="warning">Pix is currently available for providers Cielo 3.0, Bradesco and Banco do Brasil. First, you need to contact the provider in order to authorize this type of payment method.</aside>
 
 The life cycle of a Pix transaction:
 
