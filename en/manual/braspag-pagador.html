@@ -2228,13 +2228,211 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
   </tbody>
 </table>
 
+<h3 id="3d-secure-authentication">3D Secure Authentication</h3>
+
+<p>With the authentication process, it is possible to carry out a risk analysis considering a greater amount of user and seller data, thus helping in the online purchase validation process. When validated correctly, the risk of <em>chargeback</em> (disputing a purchase made by credit or debit card) of the transaction is passed on to the issuer; that is, the merchant will not receive disputes.</p>
+
+<p>The most current authenticator standard is <a href="https://braspag.github.io//manualp/emv3ds" target="_blank">3DS 2.0</a>, and the 3DS 1.0 version has been discontinued.</p>
+
+<aside class="notice">The 3DS 2.0 standard is also suitable for the mobile environment.</aside>
+
+<p>In addition to being compatible with different types of devices (desktop, tablet or smartphone), the <a href="https://braspag.github.io//manualp/emv3ds" target="_blank">3DS 2.0</a> version has features that provide a better online shopping experience for your customer.</p>
+
+<p>During the transaction flow, the authorization step can be performed separately or together with authentication. To learn more about the second flow, check out the documentation for <a href="https://braspag.github.io/manual/autorizacao-com-autenticacao#autoriza%C3%A7%C3%A3o-com-autentica%C3 %A7%C3%A3o" target="_blank">Authorization with Authentication</a> from 3DS 2.0.</p>
+
+<h3 id="mastercard-transaction-initiator">Mastercard Transaction Initiator</h3>
+
+<p>The following tables apply to Mastercard credit and debit transactions with stored credentials. The objective is to identify whether the transaction was initiated by the <strong>cardholder</strong> or by the <strong>e-commerce</strong>:</p>
+
+<ul>
+  <li><strong>Cardholder-Initiated Transaction (CIT)</strong>: the transaction is initiated by the cardholder, who provides their payment credentials and allows them to be stored.</li>
+  <li><strong>Merchant-Initiated Transaction (MIT)</strong>: the transaction is initiated by the merchant, after an agreement in which the cardholder authorizes the merchant to save and use the account data to initiate one or more transactions in the future (such as recurrent payments or installments, and charges commonly applied by the tourism and hospitality sector).
+<br /></li>
+</ul>
+
+<p>The transaction initiator indicator must be sent in the node <code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>, within parameters <code class="language-plaintext highlighter-rouge">Category</code> and <code class="language-plaintext highlighter-rouge">Subcategory</code>. Please refer to the following request example and tables for more information:</p>
+
+<h4 id="request-3">Request</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+     </span><span class="err">(...)</span><span class="w">
+    </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">(...)</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="s2">"Payment"</span>:<span class="o">{</span>
+     <span class="o">(</span>...<span class="o">)</span>
+    <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
+        <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
+        <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
+    <span class="o">}</span>,
+    <span class="o">(</span>...<span class="o">)</span>
+   <span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>For the full request example see <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction">Creating a credit card transaction</a> or <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction">Creating a debit transaction</a>.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
+      <td>string</td>
+      <td>2</td>
+      <td>Conditional. Required only for Mastercard.</td>
+      <td>Transaction Initiator Indicator category. <em>Valid only for Mastercard</em>.<br />Possible values:<br />- “C1”: transaction initiated by the cardholder;<br />- “M1”: recurring payment or installment initiated by the merchant<br />- “M2”: transaction initiated by the merchant.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
+      <td>string</td>
+      <td>-</td>
+      <td>Conditional. Required only for Mastercard.</td>
+      <td>Transaction Initiator Indicator subcategory. <em>Valid only for Mastercard</em>. Please refer to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables">Transaction Initiator Indicator</a> tables for the full list.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-3">Response</h4>
+
+<p>The response will be the default response for the credit or debit transaction, returning the node <code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code> as sent in the request.</p>
+
+<p><strong>Category C1 - transaction initiated by the cardholder</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “C1”</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Indicator subcategory</th>
+      <th>Meaning</th>
+      <th>Description/Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CredentialsOnFile</code></td>
+      <td>Saves card credentials for future purchases.</td>
+      <td>The shopper initiates the purchase and the merchant asks for the shopper to save card data for future purchases initiated by the cardholder.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
+      <td>Saves card credentials for recurrent purchases of variable amount and fixed frequency.</td>
+      <td>Initial transaction to store card data for utility bills monthly payments.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
+      <td>Saves card credentials for recurrent purchases of fixed amount and fixed frequency.</td>
+      <td>Initial transaction to store card data for a monthly subscription (e.g .newspapers and magazines).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
+      <td>Saves card data for installment buying.</td>
+      <td>Initial transaction to store card data for installment buying</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Category M1 - recurring payment or installment initiated by the merchant</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M1”</p>
+
+<p>In this category, the transaction is completed after an agreement between merchant and cardholder, in which the cardholder authorizes the merchant to store and use cardholder account credentials to initiate one or more transactions in the future, according to the subcategory:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Indicator subcategory</th>
+      <th>Meaning</th>
+      <th>Description/Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CredentialsOnFile</code></td>
+      <td>Saves card data for future purchases initiated by the merchant, with fixed or variable amount and no fixed interval or scheduled date</td>
+      <td>E.g.: the shopper agrees with transactions for toll charges when the balance in their account is below a certain amount (auto-recharge)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
+      <td>Saves card data for future purchases initiated by the merchant, with variable amount and fixed frequency.</td>
+      <td>E.g., utility bills monthy payments.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
+      <td>Saves card data for future purchases initiated by the merchant, with fixed amount and fixed frequency.</td>
+      <td>E.g., monthly subscription or fixed monthly service payment.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
+      <td>Saves card data for future purchases initiated by the merchant, with known amount and defined period.</td>
+      <td>E.g.: the shopper buys a TV for $600 and chooses to pay in three $200 installments; in this situation, the first transaction is initiated by the cardholder and the following two transactions are initiated by the merchant.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Category M2 - merchant-initiated transaction per industry practice</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M2”</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Indicator subcategory</th>
+      <th>Meaning</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PartialShipment</code></td>
+      <td>Saves card data for future purchases initiated by the merchant, when the order will be delivered in more than one shipping.</td>
+      <td>Partial shipment may occur when the amount of purchased goods in the e-commerce is not available for shipping in the time of purchase. Each shipping is a separate transaction.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RelatedOrDelayedCharge</code></td>
+      <td>Saves card data for future purchases initiated by the merchant for additional expenses.</td>
+      <td>Additional charge after providing initial services and processing the payment. E.g., hotel minibar fridge charges after cardholder check-out.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NoShow</code></td>
+      <td>Saves card data for future purchases initiated by the merchant for fine charges.</td>
+      <td>A fine charged according to the merchant cancellation policy. E.g.: the cancellation of a reservation by the cardholder without adequate prior notice to the establishment.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Resubmission</code></td>
+      <td>Saves card data for retrying previously denied transactions.</td>
+      <td>The previous attempt to submit a transaction was denied, but the issuer response does not prohibit the merchant to retry. E.g.: insufficient funds/response above credit limit.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Important</strong>: Card data is stored in encrypted form.</p>
+</blockquote>
+
 <h3 id="capturing-a-transaction">Capturing a Transaction</h3>
 
 <p>When a transaction is submitted with the <code class="language-plaintext highlighter-rouge">Payment.Capture</code> parameter as “false”, there is the need of a later request for capturing the transaction, in order for it to be confirmed.</p>
 
 <p>An authorization that is not captured by the deadline is automatically released by the acquirer. Merchants may have specific negotiations with the acquirers to change their capturing deadline. For further information about capture deadlines and refund, you can refer to <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812" target="_blank">this article</a>, in Portuguese.</p>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-4">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/capture</span></aside>
 
@@ -2302,7 +2500,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
   </tbody>
 </table>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -2384,25 +2582,13 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
   </tbody>
 </table>
 
-<h3 id="3d-secure-authentication">3D Secure Authentication</h3>
-
-<p>With the authentication process, it is possible to carry out a risk analysis considering a greater amount of user and seller data, thus helping in the online purchase validation process. When validated correctly, the risk of <em>chargeback</em> (disputing a purchase made by credit or debit card) of the transaction is passed on to the issuer; that is, the merchant will not receive disputes.</p>
-
-<p>The most current authenticator standard is <a href="https://braspag.github.io//manualp/emv3ds" target="_blank">3DS 2.0</a>, and the 3DS 1.0 version has been discontinued.</p>
-
-<aside class="notice">The 3DS 2.0 standard is also suitable for the mobile environment.</aside>
-
-<p>In addition to being compatible with different types of devices (desktop, tablet or smartphone), the <a href="https://braspag.github.io//manualp/emv3ds" target="_blank">3DS 2.0</a> version has features that provide a better online shopping experience for your customer.</p>
-
-<p>During the transaction flow, the authorization step can be performed separately or together with authentication. To learn more about the second flow, check out the documentation for <a href="https://braspag.github.io/manual/autorizacao-com-autenticacao#autoriza%C3%A7%C3%A3o-com-autentica%C3 %A7%C3%A3o" target="_blank">Authorization with Authentication</a> from 3DS 2.0.</p>
-
 <h3 id="cancelingrefunding-a-transaction">Canceling/Refunding a Transaction</h3>
 
 <p>The availability of the refunding service varies depending on the acquirer. Each acquirer has its own deadlines to allow the refund of a transaction. In <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360028661812" target="_blank">this article</a>, written in Portuguese, you can check each of them.</p>
 
 <p>To cancel a credit card transaction, you must send an HTTP message through the PUT method to the <em>Payment</em> resource, as in the example:</p>
 
-<h4 id="request-4">Request</h4>
+<h4 id="request-5">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
@@ -2463,7 +2649,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
   </tbody>
 </table>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -2540,7 +2726,7 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
 
 <p>In case of a Velocity rule rejection, <em>ProviderReasonCode</em> will be “BP 171 - Rejected by fraud risk” (Velocity, with “ReasonCode 16 - AbortedByFraud”).</p>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -2638,11 +2824,11 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 
 <p>In the first step, when applying for an authorization with an international card, Global Payments identifies the card’s country and applies the currency conversion following the brand-specific calculations, and then returns the conversion information.</p>
 
-<h5 id="request-5">Request</h5>
+<h5 id="request-6">Request</h5>
 
 <p>There is no difference between a standard authorization request and a DCC authorization request.</p>
 
-<h5 id="response-6">Response</h5>
+<h5 id="response-7">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -2886,7 +3072,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 
 <p>In the third step, the store system sends the transaction confirmation with the information of the currency chosen by the customer. At this point, the authorization response is returned.</p>
 
-<h5 id="request-6">Request</h5>
+<h5 id="request-7">Request</h5>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/{PaymentId}/confirm</span></aside>
 
@@ -2946,7 +3132,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
   </tbody>
 </table>
 
-<h5 id="response-7">Response</h5>
+<h5 id="response-8">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -3197,7 +3383,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 
 <p>Here are examples of a request and response for generating the QR code Pix:</p>
 
-<h4 id="request-7">Request</h4>
+<h4 id="request-8">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3310,7 +3496,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
   </tbody>
 </table>
 
-<h4 id="response-8">Response</h4>
+<h4 id="response-9">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2020102601"</span><span class="p">,</span><span class="w">
@@ -3453,7 +3639,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 
 <p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/pix-3-devolucaopix.png" alt="Fluxo Cancelamento Pix" /></p>
 
-<h4 id="request-8">Request</h4>
+<h4 id="request-9">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
 
@@ -3514,7 +3700,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
   </tbody>
 </table>
 
-<h4 id="response-9">Response</h4>
+<h4 id="response-10">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -3588,7 +3774,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 <p>To create a QR code transaction you must submit a request using the POST method as shown below. This request will create the transaction, which will receive the <em>Pending</em> status in Braspag, and generate the QR code for the payment. The customer makes the payment through one of the supported applications and the transaction changes status (e.g.: to <em>Pago</em> when paid, <em>Não pago</em> when not paid, or <em>Não autorizado</em> for unauthorized transactions).
 The example below covers the minimum required fields to be submitted for authorization:</p>
 
-<h3 id="request-9">Request</h3>
+<h3 id="request-10">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -3688,7 +3874,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h3 id="response-10">Response</h3>
+<h3 id="response-11">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20191023"</span><span class="p">,</span><span class="w">
@@ -3832,7 +4018,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>The <code class="language-plaintext highlighter-rouge">Payment.FineRate</code> and <code class="language-plaintext highlighter-rouge">Payment.FineAmount</code> parameters must not be used together. The same rule applies to the <code class="language-plaintext highlighter-rouge">Payment.InterestRate</code> and <code class="language-plaintext highlighter-rouge">Payment.InterestAmount</code> parameters. They are all marked with an “*” in the “REQUIRED” column,</p>
 
-<h4 id="request-10">Request</h4>
+<h4 id="request-11">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4152,7 +4338,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017091101"</span><span class="p">,</span><span class="w">
@@ -4507,7 +4693,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>A transaction with a voucher card is similar to a debit card transaction; only without the authentication process. Currently, only the <em>Alelo</em> and <em>Ticket</em> providers are supported in this modality.</p>
 
-<h4 id="request-11">Request</h4>
+<h4 id="request-12">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -4695,7 +4881,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -4879,7 +5065,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>The <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code> and <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.DailyInterval</code> parameters, marked with an “*” in the “REQUIRED” column, must not be used together.</p>
 
-<h4 id="request-12">Request</h4>
+<h4 id="request-13">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5097,7 +5283,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-13">Response</h4>
+<h4 id="response-14">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -5247,7 +5433,7 @@ The example below covers the minimum required fields to be submitted for authori
 
 <p>To schedule the first transaction in the recurrence series, pass the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code> parameter as “false” and add the <code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.StartDate</code> parameter.</p>
 
-<h4 id="request-13">Request</h4>
+<h4 id="request-14">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -5441,7 +5627,7 @@ The example below covers the minimum required fields to be submitted for authori
   </tbody>
 </table>
 
-<h4 id="response-14">Response</h4>
+<h4 id="response-15">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -5583,7 +5769,7 @@ The example below covers the minimum required fields to be submitted for authori
 <p>To change customer data in an existing recurrence, simply make a PUT call to the specified endpoint.
 In <strong>response</strong> to your request, the API will return an <a href="https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code" target="_blank">HTTP Status</a> code, informing whether the operation was successful or not.</p>
 
-<h4 id="request-14">Request</h4>
+<h4 id="request-15">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -5842,7 +6028,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-15">Response</h4>
+<h4 id="response-16">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -5853,7 +6039,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <p>To change the end date of the existing recurrence, just make a PUT call as in the example.</p>
 
-<h4 id="request-15">Request</h4>
+<h4 id="request-16">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -5919,7 +6105,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -5930,7 +6116,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <p>To change the range of an existing recurrence, just make a PUT call as shown in the example.</p>
 
-<h4 id="request-16">Request</h4>
+<h4 id="request-17">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -5996,7 +6182,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-17">Response</h4>
+<h4 id="response-18">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6013,7 +6199,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <p>3- If the newly entered day comes before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the coming recurrence.<br />E.g.: Today is May 5, and the next recurrence is September 25. When I upgrade to day 3, the next recurrence date will be September 3.</p>
 
-<h4 id="request-17">Request</h4>
+<h4 id="request-18">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -6079,7 +6265,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-18">Response</h4>
+<h4 id="response-19">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6090,7 +6276,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <p>To modify the transaction value of an existing recurrence, simply make a PUT call as shown in the example.</p>
 
-<h4 id="request-18">Request</h4>
+<h4 id="request-19">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -6157,7 +6343,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-20">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6170,7 +6356,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
 
 <aside class="warning">This change only affects the payment date of the exact next recurrence. All the following dates will remain unchanged.</aside>
 
-<h4 id="request-19">Request</h4>
+<h4 id="request-20">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -6236,7 +6422,7 @@ In <strong>response</strong> to your request, the API will return an <a href="ht
   </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6257,7 +6443,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <aside class="warning">CAUTION: This change affects all Payment node data. In order to keep the previous data, you must enter the fields that will remain unchanged with their currently saved values.</aside>
 
-<h4 id="request-20">Request</h4>
+<h4 id="request-21">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -6463,7 +6649,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-22">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -6476,79 +6662,11 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>To deactivate a recurring request, simply make a PUT call as shown in the example.</p>
 
-<h4 id="request-21">Request</h4>
+<h4 id="request-22">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Deactivate"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>API store identifier.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Yes (through header)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public key for dual authentication in API.</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes (through header)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>No (through header)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Recurrence ID number.</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes (through endpoint)</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="response-22">Response</h4>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
-</code></pre></div></div>
-
-<p>Refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code">HTTP Status Code</a> annex for a list of all HTTP status codes possibly returned by the API.</p>
-
-<h2 id="order-reactivation">Order Reactivation</h2>
-
-<h3 id="reactivating-a-recurring-order">Reactivating a Recurring Order</h3>
-
-<p>To reactivate a recurring request, simply make a PUT call as shown in the example.</p>
-
-<h4 id="request-22">Request</h4>
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -6606,6 +6724,74 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>Refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code">HTTP Status Code</a> annex for a list of all HTTP status codes possibly returned by the API.</p>
 
+<h2 id="order-reactivation">Order Reactivation</h2>
+
+<h3 id="reactivating-a-recurring-order">Reactivating a Recurring Order</h3>
+
+<p>To reactivate a recurring request, simply make a PUT call as shown in the example.</p>
+
+<h4 id="request-23">Request</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.braspag.com.br/v2/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>API store identifier.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Yes (through header)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public key for dual authentication in API.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes (through header)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Store-defined request identifier used when the merchant uses different servers for each GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>No (through header)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Recurrence ID number.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes (through endpoint)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-24">Response</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>Refer to the <a href="https://braspag.github.io//en/manual/braspag-pagador?json#list-of-http-status-code">HTTP Status Code</a> annex for a list of all HTTP status codes possibly returned by the API.</p>
+
 <h2 id="transaction-with-renova-fácil">Transaction with Renova Fácil</h2>
 
 <p><em>Renova Fácil</em> was developed by CIELO together with issuers. It’s a service which aims in increasing the conversion rate of recurring credit card sales.</p>
@@ -6616,7 +6802,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>&lt;aside class=”notice&gt;Participating Banks: Bradesco, Banco do Brasil, Santander, Panamericano, Citibank.&lt;/aside&gt;</p>
 
-<h3 id="response-24">Response</h3>
+<h3 id="response-25">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -6753,7 +6939,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <h2 id="saving-a-card-during-an-authorization">Saving a Card During an Authorization</h2>
 
-<h4 id="request-23">Request</h4>
+<h4 id="request-24">Request</h4>
 
 <p>To save a credit card used in a transaction, simply send the <code class="language-plaintext highlighter-rouge">Payment.SaveCard</code> parameter as <em>true</em> in the standard authorization request. The card number to be used can be validated through the technique exaplained in <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360050638051" target="_blank">this article</a>, in Portuguese.</p>
 
@@ -6993,7 +7179,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h5 id="response-25">Response</h5>
+<h5 id="response-26">Response</h5>
 
 <p>The <code class="language-plaintext highlighter-rouge">CreditCard.CardToken</code> parameter will return the token to be saved for future transactions with the same card.</p>
 
@@ -7179,7 +7365,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>The <code class="language-plaintext highlighter-rouge">CreditCard</code> node within the <code class="language-plaintext highlighter-rouge">Payment</code> node will change as shown in the example.</p>
 
-<h4 id="request-24">Request</h4>
+<h4 id="request-25">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7381,7 +7567,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h5 id="response-26">Response</h5>
+<h5 id="response-27">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -7554,7 +7740,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>This is an example of how to use the previously saved <em>alias</em> to create a transaction. For security reasons, an alias does not include the Security Code. Therefore, you must request this information from the holder for each new transaction. If your merchant location is set to <em>recurring</em>, you can submit transactions without CVV.</p>
 
-<h4 id="request-25">Request</h4>
+<h4 id="request-26">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -7763,7 +7949,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
   </tbody>
 </table>
 
-<h5 id="response-27">Response</h5>
+<h5 id="response-28">Response</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
@@ -7998,7 +8184,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <p>During the Cybersource deployment, additional information can be stored through MDDs (Merchand Defined Data). MDDs are fields numbered 0 through N used to store unique merchant information. <a href="https://suporte.braspag.com.br/hc/pt-br/articles/360004822532-Implanta%C3%A7%C3%A3o-Cybersource-MDD-s-Geral" target="_blank">This article</a> (in Portuguese) has details on how to fill these fields.</p>
 
-<h3 id="request-26">Request</h3>
+<h3 id="request-27">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -9008,7 +9194,7 @@ To change the payment details, simply make a PUT call as shown in the example.</
 
 <aside class="warning">The fields of the "FraudAnalysis.Travel" node become required if your business segment is the airline segment.</aside>
 
-<h3 id="response-28">Response</h3>
+<h3 id="response-29">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -10089,7 +10275,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   <p>In the fraud analysis request with ACI Worldwide, submit the <code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Provider</code> field as “RedShield”.</p>
 </blockquote>
 
-<h3 id="request-27">Request</h3>
+<h3 id="request-28">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -10874,7 +11060,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <aside class="warning">*The fields of the "FraudAnalysis.Travel" node become mandatory if your business segment is air travel.</aside>
 
-<h3 id="response-29">Response</h3>
+<h3 id="response-30">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
@@ -11745,7 +11931,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>In order to query a credit card transaction via PaymentID, you must send an HTTP message through the GET method to the <em>Payment</em> resource, as in the example:</p>
 
-<h4 id="request-28">Request</h4>
+<h4 id="request-29">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -11800,7 +11986,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h4 id="response-30">Response</h4>
+<h4 id="response-31">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -12492,7 +12678,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>In order to query a registered boleto transaction via PaymentID, you must send an HTTP message through the GET method to the <em>Payment</em> resource, as in the example:</p>
 
-<h4 id="request-29">Request</h4>
+<h4 id="request-30">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales/{PaymentId}</span></aside>
 
@@ -12547,7 +12733,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h4 id="response-31">Response</h4>
+<h4 id="response-32">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051001"</span><span class="p">,</span><span class="w">
@@ -13023,7 +13209,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>In order to query a sale by the store identifier, you must send an HTTP message through the GET method to the <em>/sales</em> resource, as in the example:</p>
 
-<h3 id="request-30">Request</h3>
+<h3 id="request-31">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/sales?merchantOrderId = {merchantOrderId}</span></aside>
 
@@ -13078,7 +13264,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h3 id="response-32">Response</h3>
+<h3 id="response-33">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -13138,7 +13324,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 <p>In order to query a recurring order, you must send an HTTP message through the GET method as in the example:</p>
 
-<h3 id="request-31">Request</h3>
+<h3 id="request-32">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/v2/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -13193,7 +13379,7 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
   </tbody>
 </table>
 
-<h3 id="response-33">Response</h3>
+<h3 id="response-34">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
