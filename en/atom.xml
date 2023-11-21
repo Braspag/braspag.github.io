@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-11-21T12:51:45+00:00</updated>
+    <updated>2023-11-21T12:55:28+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13950,7 +13950,7 @@ The solution is suitable for establishments such as hotels, inns, shopping cente
 &lt;p&gt;In Pix, the transmission of the payment order and the availability of funds to the receiving user takes place in real time, 24 hours a day and without the need for intermediates. Thus, it is a type of payment method that enables fast payments with lower transaction costs.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Pix specifications may undergo changes and adaptations until the official release date of the feature by Braspag.&lt;/aside&gt;
-&lt;aside class=&quot;warning&quot;&gt;Pix is currently available for Cielo 3.0 and Bradesco acquirers. First, you need to contact these suppliers in order to authorize this type of payment method.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;Pix is currently available for providers Cielo 3.0, Bradesco and Banco do Brasil. First, you need to contact the provider in order to authorize this type of payment method.&lt;/aside&gt;
 
 &lt;p&gt;The life cycle of a Pix transaction:&lt;/p&gt;
 
