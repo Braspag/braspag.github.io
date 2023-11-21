@@ -605,6 +605,8 @@ To integrate the authentication method, check the [3DS 2.0](https://braspag.gith
 See below the representation of a standard **transactional flow** in the creation of a debit transaction, with the authentication and authorization steps:
 ![3DS 2.0 Flow]({{ site.baseurl_root }}/images/fluxo3ds-en.png)
 
+> **Mastercard debit card transactions with stored credentials**: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate whether the transaction was initiated by the cardholder or by the merchant. In this scenario, the node `InitiatedTransactionIndicator` must be sent with the parameters `Category` and `SubCategory` for Mastercard transactions, within the `Payment` node. Please check the complete list of categories in the `Category` parameter description and the subcategories tables in [Mastercard Transaction Initiator](https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator).
+
 #### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
@@ -663,7 +665,10 @@ See below the representation of a standard **transactional flow** in the creatio
          {  
             "Name":"NomeDoCampo",
             "Value":"ValorDoCampo"
-      ]
+]}
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
    }
 }
 ```
@@ -728,7 +733,10 @@ See below the representation of a standard **transactional flow** in the creatio
          {  
             "Name":"NomeDoCampo",
             "Value":"ValorDoCampo"
-      ]
+      ]}
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
    }
 }
 ```
@@ -754,6 +762,8 @@ See below the representation of a standard **transactional flow** in the creatio
 |`Payment.ExternalAuthentication.Eci` | *Electronic Commerce Indicator* returned in the authentication process. | Number | 1 | Yes. |
 |`Payment.ExternalAuthentication.Version` | 3DS version used in the authentication process. | Alphanumeric | 1 position | Yes, when the 3DS version is "2".|
 |`Payment.ExternalAuthentication.ReferenceId` | RequestID returned in the authentication process. | GUID | 36 | Yes, when the 3DS version is "2". |
+|`Payment.InitiatedTransactionIndicator.Category`|Transaction Initiator Indicator category. *Valid only for Mastercard*.<br>Possible values:<br>- “C1”: transaction initiated by the cardholder;<br>- “M1”: recurring payment or installment initiated by the merchant<br>- “M2”: transaction initiated by the merchant.|string|2|Conditional. Required only for Mastercard.|
+|`Payment.InitiatedTransactionIndicator.Subcategory`|Indicator subcategory. Valid only for Mastercard brand.<br>Possible values:<br>If `InitiatedTransactionIndicator.Category` = "C1" or "M1"<br>*CredentialsOnFile*<br>*StandingOrder*<br>*Subscription*<br> *Installment*<br>If `InitiatedTransactionIndicator.Category` = "M2"<br>*PartialShipment*<br>*RelatedOrDelayedCharge*<br>*NoShow*<br>*Resubmission*<br>Please refer to [Mastercard Transaction Initiator](https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator) tables for the full list.|string|-|Conditional. Required only for Mastercard.|
 
 #### Response
 
@@ -1213,7 +1223,7 @@ The transaction initiator indicator must be sent in the node `Payment.InitiatedT
    }
 ```
 
-> For the full request example see [Creating a credit card transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction) or [Creating a debit transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction).
+> For the full request example see [Creating a credit card transaction](https://braspag.github.io//en/manual/braspag-pagador#creating-a-credit-transaction) or [Creating a debit transaction](https://braspag.github.io//en/manual/braspag-pagador#creating-a-debit-transaction).
 
 | Property   | Description | Type   | Size | Required |
 |---|---|---|---|---|
