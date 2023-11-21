@@ -134,7 +134,9 @@ If your store uses *Retry* or *Loadbalance* services, affiliations must be regis
 
 The parameters contained within the `Address` and `DeliveryAddress` nodes are **required** when the transaction is submitted to the [Antifraude](https://braspag.github.io//en/manual/antifraude){:target="_blank"} or **Velocity** analysis. These parameters are marked with an * in the required column of the table below.
 
-Here are request and answer examples of how to create a credit transaction:
+> **Mastercard credit card transactions with stored credentials**: Mastercard brand requires the Transaction Initiator Indicator for credit and debit card transactions using stored card data. The goal is to indicate if the transaction was initiated by the cardholder or by the merchant. In this scenario, the node `InitiatedTransactionIndicator` must be sent with the parameters `Category` and `SubCategory` for Mastercard transactions, within the `Payment` node. Please check the complete list of categories in the `Category` parameter description and the subcategories tables in [Mastercard Transaction Initiator](https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator).
+
+Here are request and response examples on how to create a credit transaction:
 
 #### Request
 
@@ -196,6 +198,10 @@ Here are request and answer examples of how to create a credit transaction:
             "Reason":"Unscheduled"
          }
       },
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+},
       "Credentials":{
          "code":"9999999",
          "key":"D8888888",
@@ -275,6 +281,10 @@ Here are request and answer examples of how to create a credit transaction:
             "Reason":"Unscheduled"
          }
       },
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+},
       "Credentials":{
          "Code":"9999999",
          "Key":"D8888888",
@@ -412,6 +422,10 @@ Here are request and answer examples of how to create a credit transaction:
             "Reason":"Unscheduled"
          }
         },
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+},
         "Credentials":{
             "Code":"9999999",
             "Key":"D8888888",
@@ -512,6 +526,10 @@ Here are request and answer examples of how to create a credit transaction:
             "Reason":"Unscheduled"
          }
         },
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+},
         "Credentials":{
             "code":"9999999",
             "key":"D8888888",
@@ -1197,10 +1215,10 @@ The transaction initiator indicator must be sent in the node `Payment.InitiatedT
 
 > For the full request example see [Creating a credit card transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-card-transaction) or [Creating a debit transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction).
 
-| Property   | Type   | Size | Required | Description  |
+| Property   | Description | Type   | Size | Required |
 |---|---|---|---|---|
-|`Payment.InitiatedTransactionIndicator.Category`|string|2|Conditional. Required only for Mastercard.|Transaction Initiator Indicator category. *Valid only for Mastercard*.<br>Possible values:<br>- “C1”: transaction initiated by the cardholder;<br>- “M1”: recurring payment or installment initiated by the merchant<br>- “M2”: transaction initiated by the merchant.|
-|`Payment.InitiatedTransactionIndicator.Subcategory`|string|-|Conditional. Required only for Mastercard.|Transaction Initiator Indicator subcategory. *Valid only for Mastercard*. Please refer to the [Transaction Initiator Indicator](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard-transaction-initiator-indicator-tables) tables for the full list.|
+|`Payment.InitiatedTransactionIndicator.Category`|Transaction Initiator Indicator category. *Valid only for Mastercard*.<br>Possible values:<br>- “C1”: transaction initiated by the cardholder;<br>- “M1”: recurring payment or installment initiated by the merchant<br>- “M2”: transaction initiated by the merchant.|string|2|Conditional. Required only for Mastercard.|
+|`Payment.InitiatedTransactionIndicator.Subcategory`|Indicator subcategory. Valid only for Mastercard brand.<br>Possible values:<br>If `InitiatedTransactionIndicator.Category` = "C1" or "M1"<br>*CredentialsOnFile*<br>*StandingOrder*<br>*Subscription*<br> *Installment*<br>If `InitiatedTransactionIndicator.Category` = "M2"<br>*PartialShipment*<br>*RelatedOrDelayedCharge*<br>*NoShow*<br>*Resubmission*<br>Please refer to the tables below for the full list.|string|-|Conditional. Required only for Mastercard.|
 
 #### Response
 
