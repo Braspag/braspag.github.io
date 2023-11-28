@@ -2248,7 +2248,7 @@ Seguem exemplos de envio de requisição e resposta para a geração do QR code 
 | `Customer.Identity` | Número do CPF ou CNPJ do cliente. | texto | 14 | Sim |
 | `Customer.IdentityType` | Tipo de documento de identificação do comprador (CPF ou CNPJ). | texto | 255 | Sim |
 | `Payment.Type` | Tipo do meio de pagamento. Neste caso, "Pix". | texto | - | Sim |
-| `Payment.Provider` |Nome do provedor do meio de pagamento. Neste caso, "Cielo30" ou "Bradesco2". | texto | - | Sim |
+| `Payment.Provider` |Nome do provedor do meio de pagamento. Neste caso, "Cielo30", "Bradesco2" ou "BancoDoBrasil3". | texto | - | Sim |
 | `Payment.Amount` | Valor do pedido, em centavos.| número | 15 | Sim |
 | `Payment.QrCodeExpiration` | Tempo de expiração do QR Code, em segundos. Ex: 24 horas = 86400.<br> **Para provider Cielo30**: o tempo de expiração é de 24 horas e não é parametrizavel.<br>**Para provider Bradesco2**: o tempo de expiração do QR Code pode ser configurado no painel Shopfácil ou no momento da autorização pelo parâmetro `Payment.QrCodeExpiration`.<br>**Para provider BancoDoBrasil3**: o tempo de expiração do QR Code pode ser enviado no momento da autorização pelo parâmetro `Payment.QrCodeExpiration`.| número | 3600 | Não |
 
