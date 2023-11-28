@@ -1852,7 +1852,7 @@ Here are examples of a request and response for generating the QR code Pix:
 | `Customer.Identity` | Customer's CPF or CNPJ number. | Text | 14 | Yes |
 | `Customer.IdentityType` | Customer’s ID document type (CPF or CNPJ). | Text | 255 | Yes |
 | `Payment.Type` | Payment method type. In this case, "Pix". | Text | - | Yes |
-| `Payment.Provider` | Name of payment method provider. In this case, "Cielo30" or "Bradesco2". | Text | - | Yes |
+| `Payment.Provider` | Name of payment method provider. In this case, "Cielo30", "Bradesco2" or "BancoDoBrasil3". | Text | - | Yes |
 | `Payment.Amount`| Order amount, in cents. | Number | 15 | Yes |
 | `Payment.QrCodeExpiration` | QR Code expiration time, in seconds. E.g.: 24 hours = 86400.<br>**Provider Cielo30**: QR Code expiration time is 24 hours and cannot be configured.<br>**Provider Bradesco2**: QR Code expiration time can be configured at Bradesco Shopfácil or in the authorization request through parameter `Payment.QrCodeExpiration`.<br>**Provider BancoDoBrasil3**: QR Code expiration time can be sent at the time of authorization via the `Payment.QrCodeExpiration` parameter.| Number | 3600 | No |
 
