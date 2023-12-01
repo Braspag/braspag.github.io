@@ -7468,15 +7468,14 @@ Para configurar o Fingerprint com a ClearSale, consulte o manual do [Antifraude 
 
 # Consultas
 
-As formas de consultar uma transação ou venda dependem de quanto tempo ela tem de vida, como especificado na tabela abaixo:
+É possível consultar transações até um ano após sua criação. As formas de consultar uma transação (venda) dependem de quanto tempo ela tem de vida, como especificado na tabela abaixo:
 
 |TEMPO DE VIDA|FORMA DE CONSULTA|
 |---|---|
 |Até 3 meses|Pela API ou pelo painel Admin Braspag.|
-|De 3 a 12 meses|Pelo painel Admin Braspag com a opção “Histórico” selecionada.|
-|Acima de 12 meses|Por contato direto com seu Executivo Comercial Braspag.|
+|De 3 a 12 meses|Pelo painel Admin Braspag com a opção **Histórico** selecionada.|
 
-A consulta deve ser feita através de requisição diretamente à API de Consulta, como mostrado na figura:
+A consulta feita através de requisição diretamente à API de Consulta funciona conforme a figura:
 
 ![Consulta]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/fluxo-trans6-pt.png)
 
