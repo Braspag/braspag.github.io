@@ -5798,7 +5798,6 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
         </span><span class="nl">"BrowserFingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MzE5MjAzODg0NA=="</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"Airline"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"DepartureDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-21T04:52:12.0415545"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Passengers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bruno"</span><span class="p">,</span><span class="w">
@@ -6299,14 +6298,6 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
       <td> </td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Airline[].DepartureDateTime</code></td>
-      <td>Data do primeiro voo do pedido (em caso de passagens aéreas).</td>
-      <td>datetime</td>
-      <td>0</td>
-      <td>Condicional*</td>
-      <td> </td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Airline[].Passengers[].FirstName</code></td>
       <td>Primeiro nome do passageiro. <strong>É obrigatório enviar o bloco <code class="language-plaintext highlighter-rouge">Airline</code> quando o segmento for companhia aérea</strong>.</td>
       <td>string</td>
@@ -6340,7 +6331,7 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Airline[].Passengers[].Legs[].DepartureAirport</code></td>
-      <td>Origem.</td>
+      <td>Aeroporto de origem.</td>
       <td>string</td>
       <td>5</td>
       <td>Condicional*</td>
@@ -6348,7 +6339,7 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Airline[].Passengers[].Legs[].ArrivalAirport</code></td>
-      <td>Destino.</td>
+      <td>Aeroporto de destino.</td>
       <td>string</td>
       <td>5</td>
       <td>Condicional*</td>
@@ -6443,7 +6434,6 @@ Na requisição de análise de fraude, envie no campo <code class="language-plai
         </span><span class="nl">"BrowserFingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MzE5MjAzODg0NA=="</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"Airline"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"DepartureDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-21T04:52:12.0415545"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"JourneyType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Passengers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
