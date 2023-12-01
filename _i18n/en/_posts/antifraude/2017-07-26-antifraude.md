@@ -2230,7 +2230,6 @@ See instructions for each operating system:
         "BrowserFingerprint": "MzE5MjAzODg0NA=="
     },
     "Airline": {
-        "DepartureDateTime": "2021-11-21T04:52:12.0415545",
         "Passengers": [
             {
                 "FirstName": "Bruno",
@@ -2415,7 +2414,6 @@ See instructions for each operating system:
         "BrowserFingerprint": "MzE5MjAzODg0NA=="
     },
     "Airline": {
-        "DepartureDateTime": "2021-11-21T04:52:12.0415545",
         "JourneyType": 0,
         "Passengers": [
             {
