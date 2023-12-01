@@ -2236,7 +2236,6 @@ Consulte as instruções para cada sistema operacional:
         "BrowserFingerprint": "MzE5MjAzODg0NA=="
     },
     "Airline": {
-        "DepartureDateTime": "2021-11-21T04:52:12.0415545",
         "Passengers": [
             {
                 "FirstName": "Bruno",
@@ -2340,13 +2339,12 @@ Consulte as instruções para cada sistema operacional:
 | `CartItem[].UnitPrice`                            | Preço unitário do produto, em centavos.                                      | long     | -       | Não           |
 | `CartItem[].Quantity`                             | Quantidade de produtos.                                                                                                           | int  | 0       | Não           |
 | `CartItem[].Category`  | Categoria do produto. VEja mais em [Tabela 36 - CartItem{n}.Category](https://braspag.github.io/manual/antifraude#tabela-36-cartitem[n].category)               | enum    | 0        | Não       |             |
-| `Airline[].DepartureDateTime`                     | Data do primeiro voo do pedido (em caso de passagens aéreas).  | datetime | 0       | Condicional*           |
 | `Airline[].Passengers[].FirstName`                | Primeiro nome do passageiro. **É obrigatório enviar o bloco `Airline` quando o segmento for companhia aérea**. | string   | 60      | Condicional*           |
 | `Airline[].Passengers[].LastName`                 | Sobrenome do passageiro **É obrigatório enviar o bloco `Airline` quando o segmento for companhia aérea**.| string   | 60      | Condicional*           |
 | `Airline[].Passengers[].PassengerId`|Identificador do passageiro para quem a passagem foi emitida.|string|32|Condicional*|
 | `Airline[].Passengers[].Legs[].DepartureDateTime` | Data do voo.   | datetime | 0       | Condicional*           |
-| `Airline[].Passengers[].Legs[].DepartureAirport`  | Origem.  | string   | 5       | Condicional*           |
-| `Airline[].Passengers[].Legs[].ArrivalAirport`    | Destino.   | string   | 5       | Condicional*           |
+| `Airline[].Passengers[].Legs[].DepartureAirport`  | Aeroporto de origem.  | string   | 5       | Condicional*           |
+| `Airline[].Passengers[].Legs[].ArrivalAirport`    | Aeroporto de destino.   | string   | 5       | Condicional*           |
 | `Airline[].Passengers[].Legs[].Boarding`          | Data de embarque.  | datetime | 0       | Condicional*           |
 | `Airline[].Passengers[].Legs[].Arriving`          | Data de desembarque.  | datetime | 0       | Condicional*           |
 
@@ -2421,7 +2419,6 @@ Consulte as instruções para cada sistema operacional:
         "BrowserFingerprint": "MzE5MjAzODg0NA=="
     },
     "Airline": {
-        "DepartureDateTime": "2021-11-21T04:52:12.0415545",
         "JourneyType": 0,
         "Passengers": [
             {
