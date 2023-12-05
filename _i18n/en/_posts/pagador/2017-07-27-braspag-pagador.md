@@ -7082,13 +7082,13 @@ To receive notifications of status changes, you must have configured the URL Sta
 {
    "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
    "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "ChangeType": 1
+   "ChangeType": 2
 }
 ```
 
 |Property|Description|Type|Size|Required?|
 |-----------|---------|----|-------|-----------|
-|`RecurrentPaymentId`|Identifier representing the recurring order (only applicable for `ChangeType` "2" or "4").|GUID|36|No|
+|`RecurrentPaymentId`|Identifier representing the recurring order (only applicable for `ChangeType` 2 or 4).|GUID|36|No|
 |`PaymentId`|Identifier representing the transaction.|GUID|36|Yes|
 |`ChangeType`|Specifies the notification type. Note: See table below.|Number|1|Yes|
 
