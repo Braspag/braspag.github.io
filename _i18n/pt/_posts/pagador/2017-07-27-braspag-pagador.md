@@ -8235,7 +8235,7 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 {
    "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
    "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "ChangeType": "2"
+   "ChangeType": 1
 }
 ```
 
@@ -8247,14 +8247,14 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 
 |ChangeType|Descrição|
 |----------|---------|
-|"1"|Mudança de status do pagamento.|
-|"2"|Recorrência criada.|
-|"3"|Mudança de status do *Antifraude*.|
-|"4"|Mudança de status do pagamento recorrente (Ex.: desativação automática).|
-|"5"|Estorno negado (aplicável para **Rede**).|
-|"6"|Boleto registrado pago a menor.|
-|"7"|Notificação de chargeback. Exclusivo para clientes integrados à [Risk Notification API](https://braspag.github.io//manual/risknotification){:target="_blank"}.|
-|"8"|Alerta de fraude.|
+|1|Mudança de status do pagamento.|
+|2|Recorrência criada.|
+|3|Mudança de status do *Antifraude*.|
+|4|Mudança de status do pagamento recorrente (Ex.: desativação automática).|
+|5|Estorno negado (aplicável para **Rede**).|
+|6|Boleto registrado pago a menor.|
+|7|Notificação de chargeback. Exclusivo para clientes integrados à [Risk Notification API](https://braspag.github.io//manual/risknotification){:target="_blank"}.|
+|8|Alerta de fraude.|
 
 ## Resposta Esperada
 
