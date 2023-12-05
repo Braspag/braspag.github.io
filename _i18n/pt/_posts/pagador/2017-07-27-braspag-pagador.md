@@ -8235,13 +8235,13 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 {
    "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
    "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "ChangeType": 1
+   "ChangeType": 2
 }
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
-|`RecurrentPaymentId`|Identificador que representa o pedido recorrente (aplicável somente para `ChangeType` "2" ou "4").|GUID|36|Não|
+|`RecurrentPaymentId`|Identificador que representa o pedido recorrente (aplicável somente para `ChangeType` 2 ou 4).|GUID|36|Não|
 |`PaymentId`|Identificador que representa a transação.|GUID|36|Sim|
 |`ChangeType`|Especifica o tipo de notificação. Obs.: Consulte a tabela abaixo. | Número | 1 |Sim|
 
