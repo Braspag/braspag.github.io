@@ -7082,7 +7082,7 @@ To receive notifications of status changes, you must have configured the URL Sta
 {
    "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
    "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "ChangeType": "2"
+   "ChangeType": 1
 }
 ```
 
@@ -7094,14 +7094,14 @@ To receive notifications of status changes, you must have configured the URL Sta
 
 |ChangeType|Description|
 |----------|---------|
-|"1"|Payment status change.|
-|"2"|Recurrence created.|
-|"3"|Anti-fraud status change.|
-|"4"|Recurring payment status change (e.g.: automatic deactivation).|
-|"5"|Refund denied (applicable to **Rede**).|
-|"6"|Underpaid registered boleto.|
-|"7"|Chargeback notification.<br/>For more details, refer to the [Risk Notification](https://braspag.github.io//manual/risknotification) guide.|
-|"8"|Fraud alert.|
+|1|Payment status change.|
+|2|Recurrence created.|
+|3|Anti-fraud status change.|
+|4|Recurring payment status change (e.g.: automatic deactivation).|
+|5|Refund denied (applicable to **Rede**).|
+|6|Underpaid registered boleto.|
+|7|Chargeback notification.<br/>For more details, refer to the [Risk Notification](https://braspag.github.io//manual/risknotification) guide.|
+|8|Fraud alert.|
 
 ## Expected Response
 
