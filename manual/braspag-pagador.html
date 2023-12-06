@@ -13232,21 +13232,21 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Phone</code></td>
-      <td>Telefone residencial do destinatário.</td>
+      <td>Telefone residencial - Fomato +DDI DDD NNNNNNNN Exemplo: +55 11 33333333. <strong>É obrigatório enviar pelo menos um telefone</strong>.</td>
       <td>string</td>
       <td>20</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Workphone</code></td>
-      <td>Telefone de trabalho do destinatário.</td>
+      <td>Telefone comercial  - Fomato +DDI DDD NNNNNNNN Exemplo: +55 11 33333333. <strong>É obrigatório enviar pelo menos um telefone</strong>.</td>
       <td>string</td>
       <td>20</td>
       <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Shipping.Mobile</code></td>
-      <td>Celular do destinatário.</td>
+      <td>Celular - Fomato +DDI DDD NNNNNNNNN Exemplo: +55 11 999999999. <strong>É obrigatório enviar pelo menos um telefone</strong>.</td>
       <td>string</td>
       <td>20</td>
       <td>Não*</td>
@@ -13375,7 +13375,7 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
       <td>Categoria do produto. <br /> <a href="https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type">Lista de Valores - Type</a>.</td>
       <td>texto</td>
       <td>19</td>
-      <td>Não</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FraudAnalysis.Travel.Passengers.Name</code></td>
