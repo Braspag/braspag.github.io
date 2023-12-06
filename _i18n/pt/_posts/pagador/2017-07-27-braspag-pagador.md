@@ -7248,8 +7248,8 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Payment.FraudAnalysis.Shipping.Phone`| Telefone residencial - Fomato +DDI DDD NNNNNNNN Exemplo: +55 11 33333333. **É obrigatório enviar pelo menos um telefone**.|string|20|Não*|
 |`Payment.FraudAnalysis.Shipping.Workphone`|Telefone comercial  - Fomato +DDI DDD NNNNNNNN Exemplo: +55 11 33333333. **É obrigatório enviar pelo menos um telefone**. |string|20|Não*|
 |`Payment.FraudAnalysis.Shipping.Mobile`| Celular - Fomato +DDI DDD NNNNNNNNN Exemplo: +55 11 999999999. **É obrigatório enviar pelo menos um telefone**.|string|20|Não*|
-|`Payment.FraudAnalysis.Shipping.Identity`|Documento do destinatário.|string|14|?|
-|`Payment.FraudAnalysis.Shipping.IdentityType`|1 = Pessoa Física<br>2 = Pessoa Jurídica.|string|?|?|
+|`Payment.FraudAnalysis.Shipping.Identity`|Documento do destinatário.|string|14|Sim|
+|`Payment.FraudAnalysis.Shipping.IdentityType`|1 = Pessoa Física<br>2 = Pessoa Jurídica.|string|255|Não|
 |`Payment.FraudAnalysis.Shipping.Street`|Nome do logradouro do destinatário.|string|200|Sim|
 |`Payment.FraudAnalysis.Shipping.Number`|Número do endereço do destinatário.|string|15|Sim|
 |`Payment.FraudAnalysis.Shipping.Complement`|Complemento do endereço do destinatário.|string | 250 ou 14?|Não|
