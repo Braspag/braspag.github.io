@@ -7245,9 +7245,9 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Payment.FraudAnalysis.FingerPrintId`|Identificador único da sessão do usuário. <br> Saiba mais em [Fingerprint com a ClearSale](https://braspag.github.io//manual/antifraude#fingerprint-com-a-clearsale){:target="_blank"}.|string|?|Sim|
 |`Payment.FraudAnalysis.Shipping.Addressee`| Nome do destinatário.|string|60|Sim|
 |`Payment.FraudAnalysis.Shipping.Method`|Meio de entrega.|string|
-|`Payment.FraudAnalysis.Shipping.Phone`|Telefone residencial do destinatário.|string|20|Não*|
-|`Payment.FraudAnalysis.Shipping.Workphone`|Telefone de trabalho do destinatário.|string|20|Não*|
-|`Payment.FraudAnalysis.Shipping.Mobile`| Celular do destinatário.|string|20|Não*|
+|`Payment.FraudAnalysis.Shipping.Phone`| Telefone residencial - Fomato +DDI DDD NNNNNNNN Exemplo: +55 11 33333333. **É obrigatório enviar pelo menos um telefone**.|string|20|Não*|
+|`Payment.FraudAnalysis.Shipping.Workphone`|Telefone comercial  - Fomato +DDI DDD NNNNNNNN Exemplo: +55 11 33333333. **É obrigatório enviar pelo menos um telefone**. |string|20|Não*|
+|`Payment.FraudAnalysis.Shipping.Mobile`| Celular - Fomato +DDI DDD NNNNNNNNN Exemplo: +55 11 999999999. **É obrigatório enviar pelo menos um telefone**.|string|20|Não*|
 |`Payment.FraudAnalysis.Shipping.Identity`|Documento do destinatário.|string|14|?|
 |`Payment.FraudAnalysis.Shipping.IdentityType`|1 = Pessoa Física<br>2 = Pessoa Jurídica.|string|?|?|
 |`Payment.FraudAnalysis.Shipping.Street`|Nome do logradouro do destinatário.|string|200|Sim|
@@ -7265,7 +7265,7 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Payment.FraudAnalysis.Cart.Items.Quantity`|Quantidade do produto.|número|15|Sim|
 |`Payment.FraudAnalysis.Cart.Items.Sku`|SKU (*Stock Keeping Unit* - Unidade de Controle de Estoque) do produto.|texto|255|Sim|
 |`Payment.FraudAnalysis.Cart.Items.UnitPrice`|Preço unitário do produto, em centavos. <br/> Ex.: 10950 = R$ 109,50.|número|15|Sim|
-|`Payment.FraudAnalysis.Cart.Items.Type`|Categoria do produto. <br/> [Lista de Valores - Type](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type).|texto|19|Não|
+|`Payment.FraudAnalysis.Cart.Items.Type`|Categoria do produto. <br/> [Lista de Valores - Type](https://braspag.github.io//manual/braspag-pagador#lista-de-valores-payment.fraudanalysis.cart.items[n].type).|texto|19|Sim|
 |`Payment.FraudAnalysis.Travel.Passengers.Name`|Nome completo do passageiro.|texto|120|Não|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Código do aeroporto de partida.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}.|texto|3|Não|
 |`Payment.FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Código do aeroporto de chegada.<br/> Mais informações em [IATA 3-Letter Codes](http://www.nationsonline.org/oneworld/IATA_Codes/airport_code_list.htm){:target="_blank"}.|texto|3|Não|
