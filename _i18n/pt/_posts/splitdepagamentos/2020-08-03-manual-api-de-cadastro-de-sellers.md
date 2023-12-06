@@ -191,7 +191,7 @@ Veja a seguir o exemplo de uma requisição completa para cadastro de um seller 
 | `BankAccount.Number` | Texto | 10 | Sim | Número da conta do seller. |
 | `BankAccount.Operation` | Texto | 10 | Não | Operação da conta do seller. |
 | `BankAccount.VerifierDigit` | Texto | 1 | Sim | Dígito verificador da conta do seller. |
-| `BankAccount.AgencyNumber` | Texto | 15 | Sim | Número da agência do seller. |
+| `BankAccount.AgencyNumber` | Texto | 15 | Sim | Número da agência do seller. *Atenção: Valores zerados como "0", "00", "000" são inválidos*. |
 | `BankAccount.AgencyDigit` | Texto | 1 | Sim | Dígito da agência do seller. Caso a agência não tenha dígito, informar o valor "x". |
 | `BankAccount.DocumentNumber` | Texto | 14 | Não | Número do documento da conta (apenas números) do seller. |
 | `BankAccount.DocumentType` | Texto | - | Não | Tipo do documento. Os tipos válidos são "CPF" ou "CNPJ". |
@@ -465,7 +465,7 @@ Na seção Exemplos dos Acordos de Taxas, você pode visualizar os exemplos de r
 | `BankAccount.Bank` | Texto | 3 | Código de compensação do banco. [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o) |
 | `BankAccount.BankAccountType` | Texto | - | Tipo de conta bancária. Os tipos válidos são _CheckingAccount_ (Conta corrente) e _SavingsAccount_ (Conta poupança) |
 | `BankAccount.Number` | Texto | 10 | Número da conta |
-| `BankAccount.AgencyNumber` | Texto | 15 | Número da agência |
+| `BankAccount.AgencyNumber` | Texto | 15 | Número da agência do seller. *Atenção: Valores zerados como "0", "00", "000" são inválidos*. |
 | `BankAccount.AgencyDigit` | Texto | 1 | Dígito da agência |
 | `BankAccount.DocumentNumber` | Texto | 14 | Número do documento da conta |
 | `BankAccount.DocumentType` | Texto | - | Tipo do documento. Os tipos válidos são Cpf, Cnpj |
