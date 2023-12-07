@@ -1236,7 +1236,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <h1 id="autorização-com-autenticação">Autorização com Autenticação</h1>
 
-<p>Após a conclusão da autenticação do portador do cartão, a loja deve submeter a transação ao processo de autorização, enviando os dados de autenticação no modelo de “autenticação externa” (nó <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>), tanto para MPI Braspag quanto para MPI externo.</p>
+<p>Após a conclusão da autenticação do portador do cartão, a loja deve submeter a transação ao processo de autorização, enviando os dados de autenticação no modelo de “autenticação externa” (nó <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>), tanto para 3DS Server Braspag quanto para 3DS Server externo.</p>
 
 <p>Veja a seguir um exemplo de requisição de autorização à API do Pagador:</p>
 
@@ -1388,7 +1388,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <h1 id="autorização-para-transações-data-only">Autorização para transações Data Only</h1>
 
-<p>Após a conclusão da autenticação do portador do cartão no modelo Data Only (com o campo <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> como “true”), a loja deve submeter a transação ao processo de autorização, enviando os dados de autenticação no modelo de “autenticação externa” (nó <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>), tanto para MPI Braspag quanto para MPI externo.</p>
+<p>Após a conclusão da autenticação do portador do cartão no modelo Data Only (com o campo <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> como “true”), a loja deve submeter a transação ao processo de autorização, enviando os dados de autenticação no modelo de “autenticação externa” (nó <code class="language-plaintext highlighter-rouge">ExternalAuthentication</code>), tanto para 3DS Server Braspag quanto para 3DS Server externo.</p>
 
 <p>Veja a seguir um exemplo de requisição de autorização à API do Pagador:</p>
 
