@@ -5806,7 +5806,7 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 ```json
 {
    "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "ChangeType": "1"
+   "ChangeType": 1
 }
 ```
 
@@ -5817,11 +5817,11 @@ Os parâmetros serão enviados à URL cadastrada, conforme demonstrado no exempl
 
 |ChangeType|Descrição|
 |----------|---------|
-|"1"|Mudança de status do pagamento.|
-|"3"|Mudança de status do *Antifraude*.|
-|"6"|Boleto registrado pago a menor.|
-|"7"|Notificação de chargeback. Para mais detalhes, consulte o manual de [Risk Notification](https://braspag.github.io//manual/risknotification){:target="_blank"}.|
-|"8"|Alerta de fraude.|
+|1|Mudança de status do pagamento.|
+|3|Mudança de status do *Antifraude*.|
+|6|Boleto registrado pago a menor.|
+|7|Notificação de chargeback. Para mais detalhes, consulte o manual de [Risk Notification](https://braspag.github.io//manual/risknotification){:target="_blank"}.|
+|8|Alerta de fraude.|
 
 ## Resposta Esperada
 
