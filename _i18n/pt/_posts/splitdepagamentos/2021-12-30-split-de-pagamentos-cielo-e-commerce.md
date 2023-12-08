@@ -4571,7 +4571,7 @@ Os parâmetros serão enviados à URL cadastrada, conforme o próximo exemplo.
 ```json
 {
    "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "ChangeType": "1"
+   "ChangeType": 1
 }
 ```
 
