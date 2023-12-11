@@ -12635,6 +12635,9 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
         </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nome@email.com.br"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1996-11-14"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-1001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 99999-9999"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Workphone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-2002"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
@@ -12762,6 +12765,9 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
         <span class="s2">"IdentityType"</span>: <span class="s2">"CPF"</span>,
         <span class="s2">"Email"</span>: <span class="s2">"nome@email.com.br"</span>,
         <span class="s2">"Birthdate"</span>: <span class="s2">"1996-11-14"</span>,
+        <span class="s2">"Phone"</span>: <span class="s2">"+55 11 5555-1001"</span>,
+        <span class="s2">"Mobile"</span>: <span class="s2">"+55 11 99999-9999"</span>,
+        <span class="s2">"Workphone"</span>: <span class="s2">"+55 11 5555-2002"</span>,
         <span class="s2">"Address"</span>: <span class="o">{</span>
             <span class="s2">"Street"</span>: <span class="s2">"Alameda Xingu"</span>,
             <span class="s2">"Number"</span>: <span class="s2">"512"</span>,
@@ -12966,6 +12972,27 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
       <td>data</td>
       <td>10</td>
       <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
+      <td>Telefone residencial. Fomato +DDI DDD NNNN-NNNN Exemplo: +55 11 5555-1001. <strong>É obrigatório enviar pelo menos um telefone</strong>.</td>
+      <td>string</td>
+      <td>20</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Mobile</code></td>
+      <td>Celular. Fomato +DDI DDD NNNNN-NNNN Exemplo: +55 11 99999-9999. <strong>É obrigatório enviar pelo menos um telefone</strong>.</td>
+      <td>string</td>
+      <td>20</td>
+      <td>Não*</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Workphone</code></td>
+      <td>Telefone comercial. Fomato +DDI DDD NNNN-NNNN Exemplo: +55 11 5555-2002. <strong>É obrigatório enviar pelo menos um telefone</strong>.</td>
+      <td>string</td>
+      <td>20</td>
+      <td>Não*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
@@ -13418,6 +13445,9 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
         </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nome@email.com.br"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1996-11-14"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-1001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 99999-9999"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Workphone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+55 11 5555-2002"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
@@ -13578,6 +13608,181 @@ Caso seja aceita pelo Antifraude, a transação é então capturada e a cobranç
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"9094008"</span>,
+    <span class="s2">"Customer"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"Bruno Silva"</span>,
+        <span class="s2">"Identity"</span>: <span class="s2">"11111111111"</span>,
+        <span class="s2">"IdentityType"</span>: <span class="s2">"CPF"</span>,
+        <span class="s2">"Email"</span>: <span class="s2">"nome@email.com.br"</span>,
+        <span class="s2">"Birthdate"</span>: <span class="s2">"1996-11-14"</span>,
+        <span class="s2">"Phone"</span>: <span class="s2">"+55 11 5555-1001"</span>,
+        <span class="s2">"Mobile"</span>: <span class="s2">"+55 11 99999-9999"</span>,
+        <span class="s2">"Workphone"</span>: <span class="s2">"+55 11 5555-2002"</span>,
+        <span class="s2">"Address"</span>: <span class="o">{</span>
+            <span class="s2">"Street"</span>: <span class="s2">"Alameda Xingu"</span>,
+            <span class="s2">"Number"</span>: <span class="s2">"512"</span>,
+            <span class="s2">"Complement"</span>: <span class="s2">"21 andar"</span>,
+            <span class="s2">"ZipCode"</span>: <span class="s2">"06455030"</span>,
+            <span class="s2">"City"</span>: <span class="s2">"Barueri"</span>,
+            <span class="s2">"State"</span>: <span class="s2">"SP"</span>,
+            <span class="s2">"Country"</span>: <span class="s2">"BR"</span>,
+            <span class="s2">"District"</span>: <span class="s2">"Alphaville"</span>,
+            <span class="s2">"AddressType"</span>: <span class="s2">"NotInformed"</span>
+        <span class="o">}</span>,
+        <span class="s2">"DeliveryAddress"</span>: <span class="o">{</span>
+            <span class="s2">"Street"</span>: <span class="s2">"Alameda Xingu"</span>,
+            <span class="s2">"Number"</span>: <span class="s2">"512"</span>,
+            <span class="s2">"Complement"</span>: <span class="s2">"27 andar"</span>,
+            <span class="s2">"ZipCode"</span>: <span class="s2">"06455030"</span>,
+            <span class="s2">"City"</span>: <span class="s2">"Barueri"</span>,
+            <span class="s2">"State"</span>: <span class="s2">"SP"</span>,
+            <span class="s2">"Country"</span>: <span class="s2">"BR"</span>,
+            <span class="s2">"District"</span>: <span class="s2">"Alphaville"</span>,
+            <span class="s2">"AddressType"</span>: <span class="s2">"NotInformed"</span>
+        <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="s2">"Payment"</span>: <span class="o">{</span>
+        <span class="s2">"ServiceTaxAmount"</span>: 0,
+        <span class="s2">"Installments"</span>: 1,
+        <span class="s2">"Interest"</span>: <span class="s2">"ByMerchant"</span>,
+        <span class="s2">"Capture"</span>: <span class="nb">false</span>,
+        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+        <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+        <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+            <span class="s2">"CardNumber"</span>: <span class="s2">"400002******1111"</span>,
+            <span class="s2">"Holder"</span>: <span class="s2">"Guilherme Silva"</span>,
+            <span class="s2">"ExpirationDate"</span>: <span class="s2">"08/2033"</span>,
+            <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
+            <span class="s2">"PaymentAccountReference"</span>: <span class="s2">"Z0HFQMDXNM98R2HYZEZR7Q5ZR9ZEM"</span>
+        <span class="o">}</span>,
+        <span class="s2">"ProofOfSale"</span>: <span class="s2">"432165"</span>,
+        <span class="s2">"AcquirerTransactionId"</span>: <span class="s2">"1020115504663"</span>,
+        <span class="s2">"AuthorizationCode"</span>: <span class="s2">"772858"</span>,
+        <span class="s2">"SoftDescriptor"</span>: <span class="s2">"Teste Cielo"</span>,
+        <span class="s2">"SentOrderId"</span>: <span class="s2">"9094008"</span>,
+        <span class="s2">"FraudAnalysis"</span>: <span class="o">{</span>           
+            <span class="s2">"Sequence"</span>: <span class="s2">"AuthorizeFirst"</span>,
+            <span class="s2">"SequenceCriteria"</span>: <span class="s2">"OnSuccess"</span>,
+            <span class="s2">"Provider"</span>: <span class="s2">"ClearSale"</span>,
+            <span class="s2">"CaptureOnLowRisk"</span>: <span class="nb">false</span>,
+            <span class="s2">"VoidOnHighRisk"</span>: <span class="nb">false</span>,
+            <span class="s2">"TotalOrderAmount"</span>: 46000,
+            <span class="s2">"IsRetryTransaction"</span>: <span class="nb">false</span>,
+            <span class="s2">"Cart"</span>: <span class="o">{</span>
+                <span class="s2">"IsGift"</span>: <span class="nb">false</span>,
+                <span class="s2">"ReturnsAccepted"</span>: <span class="nb">true</span>,
+                <span class="s2">"Items"</span>: <span class="o">[</span>
+                    <span class="o">{</span>
+                        <span class="s2">"Type"</span>: <span class="s2">"EletronicGood"</span>,
+                        <span class="s2">"Name"</span>: <span class="s2">"Notebook Dell Inspiron"</span>,
+                        <span class="s2">"Risk"</span>: <span class="s2">"Undefined"</span>,
+                        <span class="s2">"Sku"</span>: <span class="s2">"100010"</span>,
+                        <span class="s2">"UnitPrice"</span>: 532400,
+                        <span class="s2">"Quantity"</span>: 1,
+                        <span class="s2">"GiftCategory"</span>: <span class="s2">"Undefined"</span>,
+                        <span class="s2">"OriginalPrice"</span>: 0,
+                        <span class="s2">"Weight"</span>: 0,
+                        <span class="s2">"CartType"</span>: 0
+                    <span class="o">}</span>,
+                    <span class="o">{</span>
+                        <span class="s2">"Type"</span>: <span class="s2">"EletronicSoftware"</span>,
+                        <span class="s2">"Name"</span>: <span class="s2">"Windows 11 Professional"</span>,
+                        <span class="s2">"Risk"</span>: <span class="s2">"Undefined"</span>,
+                        <span class="s2">"Sku"</span>: <span class="s2">"100011"</span>,
+                        <span class="s2">"UnitPrice"</span>: 85515,
+                        <span class="s2">"Quantity"</span>: 2,
+                        <span class="s2">"HostHedge"</span>: <span class="s2">"Undefined"</span>,
+                        <span class="s2">"NonSensicalHedge"</span>: <span class="s2">"Undefined"</span>,
+                        <span class="s2">"ObscenitiesHedge"</span>: <span class="s2">"Undefined"</span>,
+                        <span class="s2">"PhoneHedge"</span>: <span class="s2">"Undefined"</span>,
+                        <span class="s2">"TimeHedge"</span>: <span class="s2">"Undefined"</span>,
+                        <span class="s2">"VelocityHedge"</span>: <span class="s2">"Undefined"</span>,
+                        <span class="s2">"GiftCategory"</span>: <span class="s2">"Undefined"</span>,
+                        <span class="s2">"OriginalPrice"</span>: 0,
+                        <span class="s2">"Weight"</span>: 0,
+                        <span class="s2">"CartType"</span>: 0
+                    <span class="o">}</span>
+                <span class="o">]</span>
+            <span class="o">}</span>,
+            <span class="s2">"Travel"</span>: <span class="o">{</span>
+                <span class="s2">"Passengers"</span>: <span class="o">[</span>
+                    <span class="o">{</span>
+                        <span class="s2">"Name"</span>: <span class="s2">"Bruno Silva"</span>,
+                        <span class="s2">"Rating"</span>: <span class="s2">"Undefined"</span>,
+                        <span class="s2">"TravelLegs"</span>: <span class="o">[</span>
+                            <span class="o">{</span>
+                                <span class="s2">"Destination"</span>: <span class="s2">"CGH"</span>,
+                                <span class="s2">"Origin"</span>: <span class="s2">"SDU"</span>,
+                                <span class="s2">"DepartureDate"</span>: <span class="s2">"2023-10-09T18:30:00"</span>,
+                                <span class="s2">"Boarding"</span>: <span class="s2">"2023-10-09T18:45:00"</span>,
+                                <span class="s2">"Arriving"</span>: <span class="s2">"2023-10-09T20:00:00"</span>
+                            <span class="o">}</span>
+                        <span class="o">]</span>
+                    <span class="o">}</span>,
+                    <span class="o">{</span>
+                        <span class="s2">"Name"</span>: <span class="s2">"Guilherme Silva"</span>,
+                        <span class="s2">"Rating"</span>: <span class="s2">"Undefined"</span>,
+                        <span class="s2">"TravelLegs"</span>: <span class="o">[</span>
+                            <span class="o">{</span>
+                                <span class="s2">"Destination"</span>: <span class="s2">"CGH"</span>,
+                                <span class="s2">"Origin"</span>: <span class="s2">"SDU"</span>,
+                                <span class="s2">"DepartureDate"</span>: <span class="s2">"2023-10-09T18:30:00"</span>,
+                                <span class="s2">"Boarding"</span>: <span class="s2">"2023-10-09T18:45:00"</span>,
+                                <span class="s2">"Arriving"</span>: <span class="s2">"2023-10-09T20:00:00"</span>
+                            <span class="o">}</span>
+                        <span class="o">]</span>
+                    <span class="o">}</span>
+                <span class="o">]</span>
+            <span class="o">}</span>,
+            <span class="s2">"Shipping"</span>: <span class="o">{</span>
+                <span class="s2">"Addressee"</span>: <span class="s2">"Nome Comprador"</span>,
+                <span class="s2">"Phone"</span>: <span class="s2">"+55 11 5555-1001"</span>,
+                <span class="s2">"Method"</span>: <span class="s2">"LowCost"</span>,
+                <span class="s2">"Email"</span>: <span class="s2">"nome@email.com.br"</span>,
+                <span class="s2">"Identity"</span>: <span class="s2">"99988877711"</span>,
+                <span class="s2">"IdentityType"</span>: <span class="s2">"CPF"</span>
+            <span class="o">}</span>,
+            <span class="s2">"Status"</span>: 4,
+            <span class="s2">"StatusDescription"</span>: <span class="s2">"Aborted"</span>
+        <span class="o">}</span>,
+        <span class="s2">"PaymentId"</span>: <span class="s2">"db8f8d82-5c3f-4f09-8af2-3e33b3aec302"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+        <span class="s2">"Amount"</span>: 45500,
+        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2023-10-20 11:55:03"</span>,
+        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+        <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+        <span class="s2">"ReasonCode"</span>: 0,
+        <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
+        <span class="s2">"Status"</span>: 1,
+        <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"4"</span>,
+        <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
+        <span class="s2">"Links"</span>: <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/db8f8d82-5c3f-4f09-8af2-3e33b3aec302"</span>
+            <span class="o">}</span>,
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"capture"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/db8f8d82-5c3f-4f09-8af2-3e33b3aec302/capture"</span>
+            <span class="o">}</span>,
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"void"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/db8f8d82-5c3f-4f09-8af2-3e33b3aec302/void"</span>
+            <span class="o">}</span>
+        <span class="o">]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
 <table>
   <thead>
