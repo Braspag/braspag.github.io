@@ -6945,6 +6945,9 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
         "IdentityType": "CPF",
         "Email": "nome@email.com.br",
         "Birthdate": "1996-11-14",
+        "Phone": "+55 11 5555-1001",
+        "Mobile": "+55 11 99999-9999",
+        "Workphone": "+55 11 5555-2002",
         "Address": {
             "Street": "Alameda Xingu",
             "Number": "512",
@@ -7073,6 +7076,9 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
         "IdentityType": "CPF",
         "Email": "nome@email.com.br",
         "Birthdate": "1996-11-14",
+        "Phone": "+55 11 5555-1001",
+        "Mobile": "+55 11 99999-9999",
+        "Workphone": "+55 11 5555-2002",
         "Address": {
             "Street": "Alameda Xingu",
             "Number": "512",
@@ -7204,6 +7210,9 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Customer.IdentityType`|Tipo de documento de identificação do comprador. <br/> Possíveis valores: "CPF" ou "CNPJ".|texto|255|Não|
 |`Customer.Email`|E-mail do comprador.|texto|100|Sim|
 |`Customer.Birthdate`|Data de nascimento do comprador. <br/> Ex.: 1991-01-10.|data|10|Sim|
+|`Customer.Phone`|Telefone residencial. Fomato +DDI DDD NNNN-NNNN Exemplo: +55 11 5555-1001. **É obrigatório enviar pelo menos um telefone**. |string|20|Não*|
+|`Customer.Mobile`| Celular. Fomato +DDI DDD NNNNN-NNNN Exemplo: +55 11 99999-9999. **É obrigatório enviar pelo menos um telefone**.|string|20|Não*|
+|`Customer.Workphone`|Telefone comercial. Fomato +DDI DDD NNNN-NNNN Exemplo: +55 11 5555-2002. **É obrigatório enviar pelo menos um telefone**. |string|20|Não*|
 |`Customer.Address.Street`|Logradouro do endereço de cobrança.|texto|54|Sim|
 |`Customer.Address.Number`|Número do endereço de cobrança.|texto|5|Sim|
 |`Customer.Address.Complement`|Complemento do endereço de cobrança.|texto|14|Não|
@@ -7282,6 +7291,185 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
         "IdentityType": "CPF",
         "Email": "nome@email.com.br",
         "Birthdate": "1996-11-14",
+        "Phone": "+55 11 5555-1001",
+        "Mobile": "+55 11 99999-9999",
+        "Workphone": "+55 11 5555-2002",
+        "Address": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "21 andar",
+            "ZipCode": "06455030",
+            "City": "Barueri",
+            "State": "SP",
+            "Country": "BR",
+            "District": "Alphaville",
+            "AddressType": "NotInformed"
+        },
+        "DeliveryAddress": {
+            "Street": "Alameda Xingu",
+            "Number": "512",
+            "Complement": "27 andar",
+            "ZipCode": "06455030",
+            "City": "Barueri",
+            "State": "SP",
+            "Country": "BR",
+            "District": "Alphaville",
+            "AddressType": "NotInformed"
+        }
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "400002******1111",
+            "Holder": "Guilherme Silva",
+            "ExpirationDate": "08/2033",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "PaymentAccountReference": "Z0HFQMDXNM98R2HYZEZR7Q5ZR9ZEM"
+        },
+        "ProofOfSale": "432165",
+        "AcquirerTransactionId": "1020115504663",
+        "AuthorizationCode": "772858",
+        "SoftDescriptor": "Teste Cielo",
+        "SentOrderId": "9094008",
+        "FraudAnalysis": {           
+            "Sequence": "AuthorizeFirst",
+            "SequenceCriteria": "OnSuccess",
+            "Provider": "ClearSale",
+            "CaptureOnLowRisk": false,
+            "VoidOnHighRisk": false,
+            "TotalOrderAmount": 46000,
+            "IsRetryTransaction": false,
+            "Cart": {
+                "IsGift": false,
+                "ReturnsAccepted": true,
+                "Items": [
+                    {
+                        "Type": "EletronicGood",
+                        "Name": "Notebook Dell Inspiron",
+                        "Risk": "Undefined",
+                        "Sku": "100010",
+                        "UnitPrice": 532400,
+                        "Quantity": 1,
+                        "GiftCategory": "Undefined",
+                        "OriginalPrice": 0,
+                        "Weight": 0,
+                        "CartType": 0
+                    },
+                    {
+                        "Type": "EletronicSoftware",
+                        "Name": "Windows 11 Professional",
+                        "Risk": "Undefined",
+                        "Sku": "100011",
+                        "UnitPrice": 85515,
+                        "Quantity": 2,
+                        "HostHedge": "Undefined",
+                        "NonSensicalHedge": "Undefined",
+                        "ObscenitiesHedge": "Undefined",
+                        "PhoneHedge": "Undefined",
+                        "TimeHedge": "Undefined",
+                        "VelocityHedge": "Undefined",
+                        "GiftCategory": "Undefined",
+                        "OriginalPrice": 0,
+                        "Weight": 0,
+                        "CartType": 0
+                    }
+                ]
+            },
+            "Travel": {
+                "Passengers": [
+                    {
+                        "Name": "Bruno Silva",
+                        "Rating": "Undefined",
+                        "TravelLegs": [
+                            {
+                                "Destination": "CGH",
+                                "Origin": "SDU",
+                                "DepartureDate": "2023-10-09T18:30:00",
+                                "Boarding": "2023-10-09T18:45:00",
+                                "Arriving": "2023-10-09T20:00:00"
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Guilherme Silva",
+                        "Rating": "Undefined",
+                        "TravelLegs": [
+                            {
+                                "Destination": "CGH",
+                                "Origin": "SDU",
+                                "DepartureDate": "2023-10-09T18:30:00",
+                                "Boarding": "2023-10-09T18:45:00",
+                                "Arriving": "2023-10-09T20:00:00"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Shipping": {
+                "Addressee": "Nome Comprador",
+                "Phone": "+55 11 5555-1001",
+                "Method": "LowCost",
+                "Email": "nome@email.com.br",
+                "Identity": "99988877711",
+                "IdentityType": "CPF"
+            },
+            "Status": 4,
+            "StatusDescription": "Aborted"
+        },
+        "PaymentId": "db8f8d82-5c3f-4f09-8af2-3e33b3aec302",
+        "Type": "CreditCard",
+        "Amount": 45500,
+        "ReceivedDate": "2023-10-20 11:55:03",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ReasonCode": 0,
+        "ReasonMessage": "Successful",
+        "Status": 1,
+        "ProviderReturnCode": "4",
+        "ProviderReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.braspag.com.br/v2/sales/db8f8d82-5c3f-4f09-8af2-3e33b3aec302"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/db8f8d82-5c3f-4f09-8af2-3e33b3aec302/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.braspag.com.br/v2/sales/db8f8d82-5c3f-4f09-8af2-3e33b3aec302/void"
+            }
+        ]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "9094008",
+    "Customer": {
+        "Name": "Bruno Silva",
+        "Identity": "11111111111",
+        "IdentityType": "CPF",
+        "Email": "nome@email.com.br",
+        "Birthdate": "1996-11-14",
+        "Phone": "+55 11 5555-1001",
+        "Mobile": "+55 11 99999-9999",
+        "Workphone": "+55 11 5555-2002",
         "Address": {
             "Street": "Alameda Xingu",
             "Number": "512",
