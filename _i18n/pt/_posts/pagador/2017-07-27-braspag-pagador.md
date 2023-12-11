@@ -6992,8 +6992,6 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
             "Shipping": {
                 "Addressee": "Nome do destinatário",
                 "Method": "LowCost",
-                "Phone": "+55 11 5555-1001",
-                "WorkPhone": "+55 11 5555-1002",
                 "Mobile": "+55 11 5555-1003",
                 "Identity": "99988877711",
                 "IdentityType": "CPF",
@@ -7123,8 +7121,6 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
                 "Addressee": "Nome do destinatário",
                 "Method": "LowCost",
                 "Phone": "+55 11 5555-1001",
-                "WorkPhone": "+55 11 5555-1002",
-                "Mobile": "+55 11 5555-1003",
                 "Identity": "99988877711",
                 "IdentityType": "CPF",
                 "Street": "Alameda Xingu",
@@ -7246,8 +7242,6 @@ Na requisição de análise de fraude com a ClearSale, envie o campo `Payment.Fr
 |`Payment.FraudAnalysis.Shipping.Addressee`| Nome do destinatário.|string|60|Sim|
 |`Payment.FraudAnalysis.Shipping.Method`|Meio de entrega.|string|
 |`Payment.FraudAnalysis.Shipping.Phone`| Telefone residencial - Fomato +DDI DDD NNNN-NNNN Exemplo: +55 11 3333-3333. **É obrigatório enviar pelo menos um telefone**.|string|20|Não*|
-|`Payment.FraudAnalysis.Shipping.Workphone`|Telefone comercial  - Fomato +DDI DDD NNNN-NNNN Exemplo: +55 11 3333-3333. **É obrigatório enviar pelo menos um telefone**. |string|20|Não*|
-|`Payment.FraudAnalysis.Shipping.Mobile`| Celular - Fomato +DDI DDD NNNNN-NNNN Exemplo: +55 11 99999-9999. **É obrigatório enviar pelo menos um telefone**.|string|20|Não*|
 |`Payment.FraudAnalysis.Shipping.Identity`|Documento do destinatário.|string|14|Sim|
 |`Payment.FraudAnalysis.Shipping.IdentityType`|1 = Pessoa Física<br>2 = Pessoa Jurídica.|string|255|Não|
 |`Payment.FraudAnalysis.Shipping.Street`|Nome do logradouro do destinatário.|string|200|Sim|
