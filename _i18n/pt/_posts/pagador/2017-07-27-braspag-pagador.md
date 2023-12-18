@@ -1238,7 +1238,6 @@ Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.I
 
 > Confira o exemplo de requisição completa em [Criando uma transação de crédito](https://braspag.github.io//manual/braspag-pagador#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito) ou em [Criando uma transação de débito](https://braspag.github.io//manual/braspag-pagador#criando-uma-transa%C3%A7%C3%A3o-de-d%C3%A9bito).
 
-
 | Parâmetro | Tipo | Tamanho | Obrigatório? | Descrição |
 |---|---|---|---|---|
 |`Payment.InitiatedTransactionIndicator.Category`| string | 2 |Condicional. Obrigatório apenas para bandeira Mastercard. | Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>- “C1”: transação inciada pelo portador do cartão;<br>- “M1”: transação recorrente ou parcelada iniciada pela loja;<br>- “M2”: transação iniciada pela loja.|
