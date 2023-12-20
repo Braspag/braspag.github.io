@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-12-18T20:03:51+00:00</updated>
+    <updated>2023-12-20T13:36:11+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -13126,11 +13126,12 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
 
 &lt;h3 id=&quot;mastercard-transaction-initiator&quot;&gt;Mastercard Transaction Initiator&lt;/h3&gt;
 
-&lt;p&gt;The following tables apply to Mastercard credit and debit transactions with stored credentials. The objective is to identify whether the transaction was initiated by the &lt;strong&gt;cardholder&lt;/strong&gt; or by the &lt;strong&gt;e-commerce&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;The following tables apply to &lt;strong&gt;Mastercard credit and debit&lt;/strong&gt; transactions with &lt;strong&gt;stored credentials&lt;/strong&gt;. The objective is to identify whether the transaction was initiated by the &lt;strong&gt;cardholder&lt;/strong&gt; or by the &lt;strong&gt;merchant&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Cardholder-Initiated Transaction (CIT)&lt;/strong&gt;: the transaction is initiated by the cardholder, who provides their payment credentials and allows them to be stored.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Merchant-Initiated Transaction (MIT)&lt;/strong&gt;: the transaction is initiated by the merchant, after an agreement in which the cardholder authorizes the merchant to save and use the account data to initiate one or more transactions in the future (such as recurrent payments or installments, and charges commonly applied by the tourism and hospitality sector).
+&lt;br /&gt;
 &lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -13138,7 +13139,7 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
 
 &lt;h4 id=&quot;request-3&quot;&gt;Request&lt;/h4&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/sales/&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -13168,26 +13169,26 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;Property&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
       &lt;th&gt;Required&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Category&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Transaction Initiator Indicator category. &lt;em&gt;Valid only for Mastercard&lt;/em&gt;.&lt;br /&gt;Possible values:&lt;br /&gt;- “C1”: transaction initiated by the cardholder;&lt;br /&gt;- “M1”: recurring payment or installment initiated by the merchant&lt;br /&gt;- “M2”: transaction initiated by the merchant.&lt;/td&gt;
       &lt;td&gt;string&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Conditional. Required only for Mastercard.&lt;/td&gt;
+      &lt;td&gt;Transaction Initiator Indicator category. &lt;em&gt;Valid only for Mastercard&lt;/em&gt;.&lt;br /&gt;Possible values:&lt;br /&gt;- “C1”: transaction initiated by the cardholder;&lt;br /&gt;- “M1”: recurring payment or installment initiated by the merchant&lt;br /&gt;- “M2”: transaction initiated by the merchant.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Subcategory&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Indicator subcategory. Valid only for Mastercard brand.&lt;br /&gt;Possible values:&lt;br /&gt;If &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InitiatedTransactionIndicator.Category&lt;/code&gt; = “C1” or “M1”&lt;br /&gt;&lt;em&gt;CredentialsOnFile&lt;/em&gt;&lt;br /&gt;&lt;em&gt;StandingOrder&lt;/em&gt;&lt;br /&gt;&lt;em&gt;Subscription&lt;/em&gt;&lt;br /&gt; &lt;em&gt;Installment&lt;/em&gt;&lt;br /&gt;If &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InitiatedTransactionIndicator.Category&lt;/code&gt; = “M2”&lt;br /&gt;&lt;em&gt;PartialShipment&lt;/em&gt;&lt;br /&gt;&lt;em&gt;RelatedOrDelayedCharge&lt;/em&gt;&lt;br /&gt;&lt;em&gt;NoShow&lt;/em&gt;&lt;br /&gt;&lt;em&gt;Resubmission&lt;/em&gt;&lt;br /&gt;Please refer to the tables below for the full list.&lt;/td&gt;
       &lt;td&gt;string&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Conditional. Required only for Mastercard.&lt;/td&gt;
+      &lt;td&gt;Transaction Initiator Indicator subcategory. &lt;em&gt;Valid only for Mastercard&lt;/em&gt;. Please refer to the &lt;a href=&quot;https://braspag.github.io//en/manual/braspag-pagador#mastercard-transaction-initiator&quot;&gt;Mastercard Transaction Initiator&lt;/a&gt; tables for the full list.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13196,118 +13197,130 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
 
 &lt;p&gt;The response will be the default response for the credit or debit transaction, returning the node &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator&lt;/code&gt; as sent in the request.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Category C1 - transaction initiated by the cardholder&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&quot;mastercard-transaction-initiator-tables&quot;&gt;Mastercard transaction initiator tables&lt;/h4&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Category&lt;/code&gt; = “C1”&lt;/p&gt;
+&lt;h4 id=&quot;cit-and-mit-categories&quot;&gt;CIT and MIT categories&lt;/h4&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Indicator subcategory&lt;/th&gt;
-      &lt;th&gt;Meaning&lt;/th&gt;
-      &lt;th&gt;Description/Example&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CredentialsOnFile&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card credentials for future purchases.&lt;/td&gt;
-      &lt;td&gt;The shopper initiates the purchase and the merchant asks for the shopper to save card data for future purchases initiated by the cardholder.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StandingOrder&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card credentials for recurrent purchases of variable amount and fixed frequency.&lt;/td&gt;
-      &lt;td&gt;Initial transaction to store card data for utility bills monthly payments.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Subscription&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card credentials for recurrent purchases of fixed amount and fixed frequency.&lt;/td&gt;
-      &lt;td&gt;Initial transaction to store card data for a monthly subscription (e.g .newspapers and magazines).&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Installment&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for installment buying.&lt;/td&gt;
-      &lt;td&gt;Initial transaction to store card data for installment buying&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;Category M1 - recurring payment or installment initiated by the merchant&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Category&lt;/code&gt; = “M1”&lt;/p&gt;
-
-&lt;p&gt;In this category, the transaction is completed after an agreement between merchant and cardholder, in which the cardholder authorizes the merchant to store and use cardholder account credentials to initiate one or more transactions in the future, according to the subcategory:&lt;/p&gt;
+&lt;p&gt;The categories (C1, M1 or M2) must be sent in parameter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Category&lt;/code&gt;.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Indicator subcategory&lt;/th&gt;
-      &lt;th&gt;Meaning&lt;/th&gt;
-      &lt;th&gt;Description/Example&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CredentialsOnFile&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for future purchases initiated by the merchant, with fixed or variable amount and no fixed interval or scheduled date&lt;/td&gt;
-      &lt;td&gt;E.g.: the shopper agrees with transactions for toll charges when the balance in their account is below a certain amount (auto-recharge)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StandingOrder&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for future purchases initiated by the merchant, with variable amount and fixed frequency.&lt;/td&gt;
-      &lt;td&gt;E.g., utility bills monthy payments.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Subscription&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for future purchases initiated by the merchant, with fixed amount and fixed frequency.&lt;/td&gt;
-      &lt;td&gt;E.g., monthly subscription or fixed monthly service payment.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Installment&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for future purchases initiated by the merchant, with known amount and defined period.&lt;/td&gt;
-      &lt;td&gt;E.g.: the shopper buys a TV for $600 and chooses to pay in three $200 installments; in this situation, the first transaction is initiated by the cardholder and the following two transactions are initiated by the merchant.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;Category M2 - merchant-initiated transaction per industry practice&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Category&lt;/code&gt; = “M2”&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Indicator subcategory&lt;/th&gt;
-      &lt;th&gt;Meaning&lt;/th&gt;
+      &lt;th&gt;Category&lt;/th&gt;
+      &lt;th&gt;Transaction initiator&lt;/th&gt;
       &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C1&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Cardholder-initiated transaction (CIT).&lt;/td&gt;
+      &lt;td&gt;The transaction is initiated by the cardholder. The cardholder provides card data and agrees with the merchant storing payment credentials or makes a purchase using previously stored payment credentials. The subcategory will indicate the reason for the purchase or for storing card data.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M1&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Merchant-initiated transaction (MIT).&lt;/td&gt;
+      &lt;td&gt;The merchant has stored the payment credentials in the past (tokenized and with cardholder consent) and is authorized to initiate one or more transactions in the future for recurrent payments or installments.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M2&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Merchant-initiated transaction (MIT).&lt;/td&gt;
+      &lt;td&gt;The merchant has stored the payment credentials in the past (tokenized and with cardholder consent) and is authorized to initiate one or more transactions in the future in order to charge for partial deliveries, related/delayed expenses, &lt;em&gt;no-show&lt;/em&gt; fees and retry/resubmission.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h5 id=&quot;cit-and-mit-subcategories&quot;&gt;CIT and MIT subcategories&lt;/h5&gt;
+
+&lt;p&gt;The subcategories must be sent in parameter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.InitiatedTransactionIndicator.Subcategory&lt;/code&gt;.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Initiator category&lt;/th&gt;
+      &lt;th&gt;Initiator subcategory&lt;/th&gt;
+      &lt;th&gt;Meaning&lt;/th&gt;
+      &lt;th&gt;Example&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C1&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CredentialsOnFile&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Cardholder-initiated transaction in which the cardholder provides card data and agrees with the merchant storing payment credentials or makes a purchase using previously stored payment credentials.&lt;/td&gt;
+      &lt;td&gt;The cardholder initiates the purchase and the merchant is authorized to save card data for future purchases initiated by the cardholder, such as &lt;em&gt;one-click-buy&lt;/em&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C1&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StandingOrder&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Cardholder-initiated transaction in which the cardholder provides card data and agrees with the merchant storing payment credentials for future payments of fixed amount and variable frequency.&lt;/td&gt;
+      &lt;td&gt;Initial transaction to store card data for utility bills monthly payments.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C1&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Subscription&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Cardholder-initiated transaction in which the cardholder provides card data and agrees with the merchant storing payment credentials for recurrent payments of fixed amount and frequency.&lt;/td&gt;
+      &lt;td&gt;Initial transaction to store card data for a monthly subscription (e.g .newspapers and magazines).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C1&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Installment&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Cardholder-initiated transaction in which the cardholder initiates the first installment and authorizes the merchant to save card data for the next installments.&lt;/td&gt;
+      &lt;td&gt;Initial transaction to store card data for installment buying&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M1&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CredentialsOnFile&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Merchant-initiated unscheduled transaction of fixed or variable amount.&lt;/td&gt;
+      &lt;td&gt;When the cardholder agrees with transactions for toll charges when the balance in their account is below a certain amount (auto-recharge).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M1&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StandingOrder&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Merchant-initiated transaction of variable amount and fixed frequency.&lt;/td&gt;
+      &lt;td&gt;Utility bills monthy payments.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M1&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Subscription&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Merchant-initiated transaction of fixed amount and fixed frequency.&lt;/td&gt;
+      &lt;td&gt;Monthly subscription or fixed monthly service payment.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M1&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Installment&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Merchant-initiated transaction of known amount and defined period.&lt;/td&gt;
+      &lt;td&gt;If a shopper buys a TV for $600 and chooses to pay in three $200 installments; in this situation, the first transaction is initiated by the cardholder and the following two transactions are initiated by the merchant.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M2&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PartialShipment&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for future purchases initiated by the merchant, when the order will be delivered in more than one shipping.&lt;/td&gt;
+      &lt;td&gt;Merchant-initiated transaction when the order will be delivered in more than one shipping.&lt;/td&gt;
       &lt;td&gt;Partial shipment may occur when the amount of purchased goods in the e-commerce is not available for shipping in the time of purchase. Each shipping is a separate transaction.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M2&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RelatedOrDelayedCharge&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for future purchases initiated by the merchant for additional expenses.&lt;/td&gt;
-      &lt;td&gt;Additional charge after providing initial services and processing the payment. E.g., hotel minibar fridge charges after cardholder check-out.&lt;/td&gt;
+      &lt;td&gt;Merchant-initiated transaction for additional expenses, i.e., additional charges after providing initial services and processing the payment.&lt;/td&gt;
+      &lt;td&gt;A hotel minibar fridge charges after cardholder check-out.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M2&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NoShow&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for future purchases initiated by the merchant for fine charges.&lt;/td&gt;
-      &lt;td&gt;A fine charged according to the merchant cancellation policy. E.g.: the cancellation of a reservation by the cardholder without adequate prior notice to the establishment.&lt;/td&gt;
+      &lt;td&gt;Merchant-initiated transaction for &lt;em&gt;no-show&lt;/em&gt; charges according to the merchant cancellation policy.&lt;/td&gt;
+      &lt;td&gt;The cancellation of a reservation by the cardholder without adequate prior notice to the merchant.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M2&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Resubmission&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Saves card data for retrying previously denied transactions.&lt;/td&gt;
-      &lt;td&gt;The previous attempt to submit a transaction was denied, but the issuer response does not prohibit the merchant to retry. E.g.: insufficient funds/response above credit limit.&lt;/td&gt;
+      &lt;td&gt;Merchant-initiated transaction for retrying previously denied transactions.&lt;/td&gt;
+      &lt;td&gt;The previous attempt to submit a transaction was denied, but the issuer response does not prohibit the merchant to retry, such as insufficient funds/response above credit limit.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;: Card data is stored in encrypted form.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;: Card data is stored in encrypted format.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;capturing-a-transaction&quot;&gt;Capturing a Transaction&lt;/h3&gt;
