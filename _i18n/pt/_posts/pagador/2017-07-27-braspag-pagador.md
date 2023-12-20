@@ -8737,9 +8737,9 @@ Para cada status teremos diferentes cenários, veja alguns exemplos de situaçõ
 
 ## Códigos de Erros da API
 
-Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.
+Códigos retornados pela adquirente em caso de erro, identificando o motivo do erro e suas respectivas mensagens. É o `ProviderReturnCode` e `ProviderReturnMessage`.
 
-|`ProviderReturnCode`|`ProviderReturnMessage`|Descrição|
+| Provider Return Code|Provider Return Message|Descrição|
 |------|--------|---------|
 |0|Internal error|Dado enviado excede o tamanho do campo.|
 |100|RequestId is required|Campo enviado está vazio ou inválido.|
