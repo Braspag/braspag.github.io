@@ -589,8 +589,8 @@ Seguem exemplos de envio de requisição e resposta para criar uma transação d
 |`CapturedDate`|Data em que a transação foi capturada.|texto|19|AAAA-MM-DD HH:mm:SS|
 |`CapturedAmount`|Valor capturado, sem pontuação.|número|15|100 equivale a R$ 1,00|
 |`ECI`|*Electronic Commerce Indicator*. Representa o resultado da autenticação.|texto|2|Ex.: 5|
-|`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
+|`ReasonCode`|Código de retorno da API para indicar sucesso ou erro na operação.|texto|32|texto alfanumérico|
+|`ReasonMessage`|Mensagem correspondente ao `ReasonCode`.|texto|512|texto alfanumérico|
 |`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
@@ -955,8 +955,8 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`AuthorizationCode`|Código de autorização.|texto|300|texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da operação.|texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
+|`ReasonCode`|Código de retorno da API para indicar sucesso ou erro na operação.|texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem correspondente ao `ReasonCode`.|texto|512|texto alfanumérico|
 |`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|Ex.: 57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Ex.: Transação Aprovada|
@@ -1181,8 +1181,8 @@ Veja abaixo a representação de um **fluxo transacional** padrão na criação 
 |`AuthorizationCode`|Código de autorização.|Texto|300|texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da operação.|Texto|32|texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da operação.|Texto|512|texto alfanumérico|
+|`ReasonCode`|Código de retorno da API para indicar sucesso ou erro na operação.|Texto|32|texto alfanumérico|
+|`ReasonMessage`|Mensagem correspondente ao `ReasonCode`.|Texto|512|texto alfanumérico|
 |`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|Ex.: 57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Ex.: Transação Aprovada|
@@ -1365,8 +1365,8 @@ Transações que não são capturadas até a [data limite](https://suporte.brasp
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.| byte | 2 | Ex.: 1 |
-|`ReasonCode`|Código de retorno da adquirente. | texto | 32 | texto alfanumérico |
-|`ReasonMessage`|Mensagem de retorno da adquirente. | texto | 512 |texto alfanumérico|
+|`ReasonCode`|Código de retorno da API para indicar sucesso ou erro na operação. | texto | 32 | texto alfanumérico |
+|`ReasonMessage`|Mensagem correspondente ao `ReasonCode`. | texto | 512 |texto alfanumérico|
 
 ### Cancelando/Estornando uma Transação
 
@@ -1434,8 +1434,8 @@ Para cancelar uma transação de cartão de crédito, é necessário o envio de 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`Status`|Status da transação. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transação) para ver lista de status.|byte | 2 | Ex.: 1 |
-|`ReasonCode`|Código de retorno da adquirência. |texto |32 |Texto alfanumérico
-|`ReasonMessage`|Mensagem de retorno da adquirência. |texto |512 |Texto alfanumérico
+|`ReasonCode`|Código de retorno da API para indicar sucesso ou erro na operação. |texto |32 |Texto alfanumérico
+|`ReasonMessage`|Mensagem correspondente ao `ReasonCode`.|texto |512 |Texto alfanumérico
 
 ### Analisando com Velocity Check
 
@@ -1768,8 +1768,8 @@ Segue um exemplo de confirmação da transação com a moeda escolhida pelo comp
 | `AuthorizationCode`     | Código de autorização.                                                       | texto | 300     | Texto alfanumérico                   |
 | `PaymentId`             | Campo identificador do pedido.                                               | GUID  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `ReceivedDate`          | Data em que a transação foi recebida pela Braspag.                            | texto | 19      | AAAA-MM-DD HH:mm:SS                  |
-| `ReasonCode`            | Código de retorno da operação.                                               | texto | 32      | Texto alfanumérico                   |
-| `ReasonMessage`         | Mensagem de retorno da operação.                                             | texto | 512     | Texto alfanumérico                   |
+| `ReasonCode`            | Código de retorno da API para indicar sucesso ou erro na operação.                                             | texto | 32      | Texto alfanumérico                   |
+| `ReasonMessage`         | Mensagem correspondente ao `ReasonCode`.                                            | texto | 512     | Texto alfanumérico                   |
 | `Status`                | Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o). | byte  | 2       | Ex.: 2                                  |
 | `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).   | texto | 32      | 57                                   |
 | `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor). | texto | 512     | Transação Aprovada                   |
@@ -2390,8 +2390,8 @@ Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
 |`Status`|Status da transação. |byte | 2 | Ex.: "1" |
-|`ReasonCode`|Código de retorno da adquirência. |texto |32 |texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da adquirência. |texto |512 |texto alfanumérico|
+|`ReasonCode`|Código de retorno da API para indicar sucesso ou erro na operação. |texto |32 |texto alfanumérico|
+|`ReasonMessage`| Mensagem correspondente ao `ReasonCode`.|texto |512 |texto alfanumérico|
 
 ## QR Code
 
@@ -3095,8 +3095,8 @@ Atualmente, suportamos os providers *Alelo* e *Ticket* nessa modalidade.
 |`AuthorizationCode`|Código de autorização.|texto|300|texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
+|`ReasonCode`|Código de retorno da API para indicar sucesso ou erro na operação.|texto|32|texto alfanumérico|
+|`ReasonMessage`|Mensagem correspondente ao `ReasonCode`.|texto|512|texto alfanumérico|
 |`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
@@ -4581,8 +4581,8 @@ O parâmetro `CreditCard.CardToken` retornará o token a ser salvo para transaç
 |`AuthorizationCode`|Código de autorização.|Texto|300|texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
+|`ReasonCode`|Código de retorno da API para indicar sucesso ou erro na operação.|texto|32|texto alfanumérico|
+|`ReasonMessage`|Mensagem correspondente ao `ReasonCode`.|texto|512|texto alfanumérico|
 |`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
@@ -4845,8 +4845,8 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `CardToken` conforme exemp
 |`AuthorizationCode`|Código de autorização.|texto|300|texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
+|`ReasonCode`|Código de retorno da API para indicar sucesso ou erro na operação.|texto|32|texto alfanumérico|
+|`ReasonMessage`|Mensagem correspondente ao `ReasonCode`.|texto|512|texto alfanumérico|
 |`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o). |byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
@@ -5109,8 +5109,8 @@ O nó `CreditCard` dentro do nó `Payment` enviará o `Alias` conforme exemplo a
 |`AuthorizationCode`|Código de autorização.|texto|300|texto alfanumérico|
 |`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReceivedDate`|Data em que a transação foi recebida pela Braspag.|texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da operação.|texto|32|texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da operação.|texto|512|texto alfanumérico|
+|`ReasonCode`|Código de retorno da API para indicar sucesso ou erro na operação.|texto|32|texto alfanumérico|
+|`ReasonMessage`|Mensagem correspondente ao `ReasonCode`.|texto|512|texto alfanumérico|
 |`Status`|Status da transação. Veja a lista completa de [Status da Transação](https://braspag.github.io//manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o).|byte|2|Ex.: 1|
 |`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente ou emissor).|texto|32|57|
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente ou emissor).|texto|512|Transação Aprovada|
