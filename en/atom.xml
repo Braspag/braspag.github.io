@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-12-20T14:59:20+00:00</updated>
+    <updated>2023-12-20T15:27:47+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -25924,13 +25924,13 @@ Sometimes only the cart information is not enough to guarantee an assertive anal
 
 &lt;h2 id=&quot;api-error-codes&quot;&gt;API Error Codes&lt;/h2&gt;
 
-&lt;p&gt;Error codes returned by the provider, identifying the reason for the error and their respective messages.&lt;/p&gt;
+&lt;p&gt;Error codes returned by the provider, identifying the reason for the error and their respective messages, in the parameters &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProviderReturnMessage&lt;/code&gt;.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;ProviderReturnCode&lt;/th&gt;
-      &lt;th&gt;ProviderReturnMessage&lt;/th&gt;
+      &lt;th&gt;Provider Return Code&lt;/th&gt;
+      &lt;th&gt;Provider Return Message&lt;/th&gt;
       &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
