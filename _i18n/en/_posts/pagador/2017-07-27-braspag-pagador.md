@@ -7399,9 +7399,9 @@ See some example scenarios for when each HTTP code may return:
 
 ## API Error Codes
 
-Error codes returned, identifying the reason for the error and their respective messages.
+Error codes returned by the provider, identifying the reason for the error and their respective messages.
 
-|Code|Message|Description|
+|ProviderReturnCode|ProviderReturnMessage|Description|
 |------|--------|---------|
 |0|Internal error|Data sent exceeds field size.|
 |100|RequestId is required|Submitted field is empty or invalid.|
