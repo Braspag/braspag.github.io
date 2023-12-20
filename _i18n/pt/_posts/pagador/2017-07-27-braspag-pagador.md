@@ -8739,7 +8739,7 @@ Para cada status teremos diferentes cenários, veja alguns exemplos de situaçõ
 
 Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.
 
-|ReturnCode|ReturnMessage|Descrição|
+|ProviderReturnCode|ProviderReturnMessage|Descrição|
 |------|--------|---------|
 |0|Internal error|Dado enviado excede o tamanho do campo.|
 |100|RequestId is required|Campo enviado está vazio ou inválido.|
