@@ -140,7 +140,7 @@
 <p>Para realizar a autenticação, a loja precisa enviar os dados do comprador para a bandeira por meio de um serviço intermediário, o 3DS Server, que faz a comunicação com a bandeira. É possível usar um 3DS Server externo ou o 3DS Server Braspag</p>
 
 <blockquote>
-  <p>Se sua loja usa um 3DS Server externo à Braspag para autenticação de cartões, você deve infomar o <code class="language-plaintext highlighter-rouge">Cavv</code> retornado pelo seu 3DS Server na requisição de autorização do Gateway. Para mais informações, pule para a etapa de [#Autorização com Autenticação].</p>
+  <p>Se sua loja usa um 3DS Server externo à Braspag para autenticação de cartões, você deve infomar o <code class="language-plaintext highlighter-rouge">Cavv</code> retornado pelo seu 3DS Server na requisição de autorização do Gateway. Para mais informações, pule para a etapa de <a href="https://braspag.github.io//manual/emv3ds#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o">Autorização com Autenticação</a>.</p>
 </blockquote>
 
 <p><strong>Principais benefícios:</strong></p>
@@ -198,26 +198,24 @@
 <p>O processo de autorização de cartão autenticada via 3D Secure 2 ocorre em duas etapas:</p>
 
 <ol>
-  <li><strong>Etapa de autenticação</strong>: por meio do protocolo 3DS, a bandeira ou o emissor autentica que o comprador é de fato o titular do cartão. O protocolo é integrado ao e-commerce por meio de um script em JavaScript, que retorna o resultado da autenticação e <strong>alguns parâmetros</strong> que devem ser enviados na autorização. Saiba mais em [Integração do script];</li>
-  <li><strong>Etapa de autorização</strong>: a loja submete a transação para autorização, informando os parâmetros retornados pelo script na etapa de autenticação. Saiba mais em [Autorização com Autenticação].</li>
+  <li><strong>Etapa de autenticação</strong>: por meio do protocolo 3DS, a bandeira ou o emissor autentica que o comprador é de fato o titular do cartão. O protocolo é integrado ao e-commerce por meio de um script em JavaScript, que retorna o resultado da autenticação e <strong>alguns parâmetros</strong> que devem ser enviados na autorização. Saiba mais em <a href="https://braspag.github.io//manual/emv3ds#integra%C3%A7%C3%A3o-do-script-via-javascript">Integração do script</a>;</li>
+  <li><strong>Etapa de autorização</strong>: a loja submete a transação para autorização, informando os parâmetros retornados pelo script na etapa de autenticação. Saiba mais em <a href="https://braspag.github.io//manual/emv3ds#autoriza%C3%A7%C3%A3o-com-autentica%C3%A7%C3%A3o">Autorização com Autenticação</a>.</li>
 </ol>
 
 <p>O fluxo a seguir descreve as etapas de autenticação em alto nível:</p>
 
 <p><img src="https://braspag.github.io//images/3ds-bp.jpg" alt="Fluxo 3DS 2.0" /></p>
 
-<ol>
-  <li>O comprador escolhe pagar com cartão de crédito ou débito;</li>
-  <li>A loja executa um script, solicitando à Braspag autenticação através da solução 3DS 2.0;</li>
-  <li>A loja envia requisição com dados do comprador para a bandeira;</li>
-  <li>A bandeira envia a requisição para avaliação de risco do emissor;</li>
-  <li>O emissor avalia as informações e determina se fluxo será com ou sem desafio ao portador;
-5.1. Se o emissor solicitar desafio, cria e envia a URL para a loja;
-5.2. A loja apresenta lightbox do desafio na página de checkout para obter resposta do comprador;
-5.3. O comprador responde o desafio, completando a autenticação;</li>
-  <li>O emissor envia o resultado da autenticação para o 3DS Server;</li>
-  <li>O 3DS Server envia resultado da autenticação. A loja decide seguir ou não para autorização.</li>
-</ol>
+<p><strong>1.</strong> O comprador escolhe pagar com cartão de crédito ou débito;<br />
+<strong>2.</strong> A loja executa um script, solicitando à Braspag autenticação através da solução 3DS 2.0;<br />
+<strong>3.</strong> A loja envia requisição com dados do comprador para a bandeira;<br />
+<strong>4.</strong> A bandeira envia a requisição para avaliação de risco do emissor;<br />
+<strong>5.</strong> O emissor avalia as informações e determina se fluxo será com ou sem desafio ao portador;<br />
+<strong>5.1.</strong> Se o emissor solicitar desafio, cria e envia a URL para a loja;<br />
+<strong>5.2.</strong> A loja apresenta lightbox do desafio na página de checkout para obter resposta do comprador;<br />
+<strong>5.3.</strong> O comprador responde o desafio, completando a autenticação;<br />
+<strong>6.</strong> O emissor envia o resultado da autenticação para o 3DS Server;<br />
+<strong>7.</strong> O 3DS Server envia resultado da autenticação. A loja decide seguir ou não para autorização.</p>
 
 <blockquote>
   <p>A loja pode optar por submeter uma transação não autenticada para autorização; no entanto, nesse caso, a loja será responsável em caso de chargeback.</p>
@@ -231,12 +229,11 @@
   <li>Cielo;</li>
   <li>Rede;</li>
   <li>Getnet;</li>
-  <li>Banorte.</li>
-</ul>
-
-<p>As <strong>bandeiras</strong> disponíveis para autenticação via 3DS 2.0 são:</p>
-
-<ul>
+  <li>
+    <p>Banorte.
+&lt;/br&gt;
+As <strong>bandeiras</strong> disponíveis para autenticação via 3DS 2.0 são:</p>
+  </li>
   <li>Visa;</li>
   <li>Mastercard;</li>
   <li>Elo.</li>
@@ -253,7 +250,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <p>O Data Only é um campo opcional que poderá ser utilizado exclusivamente para cartões Mastercard. Para esses casos, <strong>o ECI será sempre 4</strong>.</p>
 
-<p>Para usar o Data Only, na [Integração do script] parametrize o campo <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> descrito no item <strong>Etapa de Autenticação – passo 3 – Mapeamento de classes</strong>. No modelo Data Only, os campos adicionais do 3DS 2.0 são mapeados da mesma forma, e enviados para a Mastercard, porém, sem solicitar a autenticação.</p>
+<p>Para usar o Data Only, na <a href="https://braspag.github.io//manual/emv3ds#integra%C3%A7%C3%A3o-do-script-via-javascript">Integração do script</a> parametrize o campo <code class="language-plaintext highlighter-rouge">bpmpi_auth_notifyonly</code> descrito no item <strong>Etapa de Autenticação – passo 3 – Mapeamento de classes</strong>. No modelo Data Only, os campos adicionais do 3DS 2.0 são mapeados da mesma forma, e enviados para a Mastercard, porém, sem solicitar a autenticação.</p>
 
 <p>O benefício do uso do Data Only é enriquecer o banco de dados da bandeira, que passará a receber mais informações sobre os portadores de cada lojista. Esse campo busca aprimorar a autenticação silenciosa e o índice de aprovação da transação.</p>
 
@@ -276,9 +273,9 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <h2 id="1-criando-o-token-de-acesso">1. Criando o token de acesso</h2>
 
-<p>Obtenha o valor do <em>Authorization</em> concatenando o valor do “ClientID”, sinal de dois-pontos (“:”) e “ClientSecret”. Exemplo:</p>
+<p>Obtenha o valor do <em>Authorization</em> concatenando o valor do “ClientID”, sinal de dois-pontos (“:”) e “ClientSecret”.</p>
 
-<p>Ex. dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e:D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag</p>
+<p>Ex: <strong>dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e:D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag</strong></p>
 
 <p>Em seguida, codifique o resultado na base 64. Esse código alfanumérico será utilizado na requisição do access token:</p>
 
@@ -414,7 +411,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 
 <aside class="warning">Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco.</aside>
 
-<aside class="notice">O caracter **#** indicado no campo deve ser substituído pelo número que representa o índice do item. Exemplo: `bpmpi_item_1_productName` representa o nome do item **1** do carrinho</aside>
+<p>O caracter <strong>#</strong> indicado no campo deve ser substituído pelo número que representa o índice do item. Exemplo: <code class="language-plaintext highlighter-rouge">bpmpi_item_1_productName</code> representa o nome do item <strong>1</strong> do carrinho</p>
 
 <table>
   <thead>
@@ -1172,7 +1169,7 @@ Além das bandeiras, o emissor do cartão também precisa processar o protocolo 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Confira os valores possíveis de <code class="language-plaintext highlighter-rouge">ReturnCodes</code> na tabela [## Lista de Return Codes].</p>
+<p>Confira os valores possíveis de <code class="language-plaintext highlighter-rouge">ReturnCodes</code> na tabela <a href="https://braspag.github.io//manual/emv3ds#lista-de-return-codes">Lista de Return Codes</a>.</p>
 
 <h3 id="tabela-de-eci">Tabela de ECI</h3>
 
