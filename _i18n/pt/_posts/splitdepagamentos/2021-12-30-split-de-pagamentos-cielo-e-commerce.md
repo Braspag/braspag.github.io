@@ -2585,7 +2585,7 @@ Após a divisão, cada participante terá sua agenda sensibilizada com os seguin
 
 As divisões e o valor total a receber de cada participante estão na figura a seguir.
 
-![SplitEx4]({{ site.baseurl_root }}/images/braspag/split/split10-split9-momentotransacional.png)
+![SplitEx4]({{ site.baseurl_root }}/images/braspag/split/split9-momentotransacional.png)
 
 #### Desconto sendo aplicado sobre a comissão
 
