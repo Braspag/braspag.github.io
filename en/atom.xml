@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2023-12-26T13:47:34+00:00</updated>
+    <updated>2023-12-26T14:05:26+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -8062,7 +8062,9 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
 
 &lt;p&gt;&lt;img src=&quot;https://braspag.github.io//images/braspag/pagador/fluxos/zeroauth-en.png&quot; alt=&quot;Fluxo ZeroAuth&quot; /&gt;&lt;/p&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;To enable ZeroAuth, contact Cielo's support team.&lt;/aside&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Notice&lt;/strong&gt;: Zero Auth transactions are subject to the rules established in Card Brands Retry Program. Fees may be charged due to excessive attempts. Please refer to &lt;a href=&quot;https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras&quot; target=&quot;_blank&quot;&gt;Card Brands Retry Program&lt;/a&gt; for details.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;BIN Query is a service available exclusively to Cielo customers that returns card information based on the BIN (first six digits of the card):&lt;/p&gt;
 
@@ -8077,7 +8079,7 @@ See more details at: &lt;a href=&quot;https://braspag.github.io//en/manualp/auth
   &lt;li&gt;&lt;strong&gt;Prepaid card&lt;/strong&gt;: whether the card is prepaid or not.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;To enable Bin Query, contact Cielo's support team.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;To enable Zero Auth and Bin Query, contact Cielo's support team.&lt;/aside&gt;
 
 &lt;h2 id=&quot;benefits-of-verifycard&quot;&gt;Benefits of VerifyCard&lt;/h2&gt;
 
