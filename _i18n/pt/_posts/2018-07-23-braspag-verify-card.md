@@ -26,7 +26,7 @@ O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar 
 
 ![Fluxo ZeroAuth]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/zeroauth.png)
 
-<aside class="warning">Para habilitar ZeroAuth, entre em contato com a equipe de suporte da Cielo.</aside>
+> **Atenção**: As transações Zero Auth também estão sujeitas às regras definidas nos programas de retentativas das bandeiras. O excesso de tentativas pode implicar em tarifas. Leia mais em [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="_blank"}.
 
 Já o Consulta BIN é um serviço disponível exclusivamente para clientes Cielo que retorna informações do cartão a partir do BIN (seis primeiros dígitos do cartão):
 
@@ -39,7 +39,7 @@ Já o Consulta BIN é um serviço disponível exclusivamente para clientes Cielo
 * **Banco emissor**: código e nome do emissor;
 * **Cartão pré-pago**: se o cartão é pré-pago ou não.
 
-<aside class="warning">Para habilitar a Consulta Bin, entre em contato com a equipe de suporte da Cielo.</aside>
+<aside class="warning">Para habilitar o Zero Auth e/ou Consulta Bin, entre em contato com a equipe de suporte da Cielo.</aside>
 
 ## Benefícios do VerifyCard
 
