@@ -26,7 +26,7 @@ Zero Auth simulates an authorization without affecting the credit limit or alert
 
 ![Fluxo ZeroAuth]({{ site.baseurl_root }}/images/braspag/pagador/fluxos/zeroauth-en.png)
 
-<aside class="warning">To enable ZeroAuth, contact Cielo's support team.</aside>
+> **Notice**: Zero Auth transactions are subject to the rules established in Card Brands Retry Program. Fees may be charged due to excessive attempts. Please refer to [Card Brands Retry Program](https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras){:target="_blank"} for details.
 
 BIN Query is a service available exclusively to Cielo customers that returns card information based on the BIN (first six digits of the card):
 
@@ -39,7 +39,7 @@ BIN Query is a service available exclusively to Cielo customers that returns car
 * **Issuing bank**: code and name of the issuer;
 * **Prepaid card**: whether the card is prepaid or not.
 
-<aside class="warning">To enable Bin Query, contact Cielo's support team.</aside>
+<aside class="warning">To enable Zero Auth and Bin Query, contact Cielo's support team.</aside>
 
 ## Benefits of VerifyCard
 
