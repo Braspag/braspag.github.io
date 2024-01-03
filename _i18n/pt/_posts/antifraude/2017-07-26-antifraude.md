@@ -18,7 +18,7 @@ Este manual apresenta a integração com a **API do Antifraude Gateway Braspag**
 
 # Visão Geral
 
-O **Antifraude Gateway** da Braspag é uma API REST que permite a gestão de risco do seu e-commerce pela análise dos melhores provedores de antifraude do mundo.
+O Antifraude Gateway da Braspag é uma API REST que permite a gestão de risco do seu e-commerce pela análise dos melhores provedores de antifraude do mundo.
 
 ## Por que ter uma análise de fraude?
 
