@@ -223,9 +223,9 @@ grant_type=client_credentials
 }
 ```
 
-> O `MerchantId` é o mesmo utilizado na integração com a API do Pagador. O ClientSecret deve ser obtido junto ao Split.
+> O `MerchantId` é o mesmo utilizado na integração com a API do Pagador. O `ClientSecret` deve ser obtido junto ao Split.
 
-O token retornado (access_token) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.
+O token retornado (`access_token`) deverá ser utilizado em toda requisição à API Split como uma chave de autorização. O token de acesso possui uma validade de 20 minutos e é necessário gerar um novo token toda vez que a validade expirar.
 
 # Integração
 
