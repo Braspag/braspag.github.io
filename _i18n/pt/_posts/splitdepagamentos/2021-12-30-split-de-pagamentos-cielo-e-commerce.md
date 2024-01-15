@@ -1473,7 +1473,7 @@ Para salvar um cartão de crédito utilizado em uma transação, basta enviar o 
 ```
 
 ```shell
---request POST "https://apisandbox.braspag.com.br/v2/sales/"
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
 --header "Authorization: Bearer {access_token}"
 --data-binary
