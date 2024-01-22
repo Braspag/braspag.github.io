@@ -1,144 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt">
-    <head>
-    <link href="http://gmpg.org/xfn/11" rel="profile">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="theme-color" content="#00aeef">
-    <meta http-equiv="Content-Language" content="pt">
+<hr />
+<p>layout: manual
+title: E-Wallets (Carteiras Digitais)
+description: Integração Técnica Gateway Braspag
+search: true
+translated: true
+categories: manual
+sort_order: 4
+tags:</p>
+<ul>
+  <li>
+    <ol>
+      <li>Pagador
+language_tabs:
+  json: JSON
+  shell: cURL</li>
+    </ol>
+  </li>
+</ul>
 
-    <!-- Enable responsiveness on mobile devices-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<p>-</p>
 
-    <title>
-        
-        E-Wallets (Carteiras Digitais) &middot; Braspag Developers - Manuais
-        
-    </title>
-
-    <link rel="shortcut icon" href="https://braspag.github.io//assets/favicon.png">
-
-    <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/poole.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/syntax.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/hyde.css">
-
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/bootstrap.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery.tocify.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/prettify.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/custom.css">
-    <link rel="stylesheet" href="https://braspag.github.io//assets/css/braspag.css">
-
-    
-        
-            <link rel="alternate" hreflang="pt" href="https://braspag.github.io//manual/ewallets" />
-        
-    
-        
-            <link rel="alternate" hreflang="en" href="https://braspag.github.io//en/manual/ewallets" />
-        
-    
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://braspag.github.io//atom.xml">
-</head>
-
-    <body>
-        
-            <div class="content-container">
-            <div class="language-tabs">
-                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                <ul class="language-buttons">
-                    
-                    <li><a data-language-name='json'>JSON</a></li>
-                    
-                    <li><a data-language-name='shell'>cURL</a></li>
-                    
-                </ul>
-            </div>
-            <div class="dark-box"></div>
-            <div class="overlay"></div>
-        });
-        
-            <div id="submenu">
-                <div class="submenu-container">
-                    <div class="submenu-row sub-items">
-                        <div class="submenu-itens">
-                            <a href="https://suporte.braspag.com.br/hc/pt-br" class="help">Ajuda</a>
-
-                            
-                            <div class="lang">
-                                <span>Idiomas</span>
-
-                                
-                                    
-                                    <a href="https://braspag.github.io//manual/ewallets">
-                                    
-
-                                        <img alt="Português" src="https://braspag.github.io//assets/images/pt.png"/>
-                                    </a>
-                                
-                                    
-                                    <a href="https://braspag.github.io//en/manual/ewallets">
-                                    
-
-                                        <img alt="English" src="https://braspag.github.io//assets/images/en.png"/>
-                                    </a>
-                                
-                            </div>
-                            
-                        </div>
-
-                        
-                        <div class="search">
-                            <input type="text" class="search" id="input-search">
-                        </div>
-                    </div>
-                    <div class="submenu-row results">
-                        <div class="search-results-container">
-                            <ul class="search-results"></ul>
-                        </div>
-                    </div>
-                        
-
-                    <div class="submenu-row breads">
-                        <ol class="breadcrumb">
-                            
-                            <li><a href="/">Início</a></li>
-                            
-                            
-                            
-                            
-                                
-                                    
-                                    
-                                    
-                                    
-                                    
-                                        
-                                    
-                                        
-                                    
-                                        
-                                    
-                                
-                            
-                                
-                                    
-                                    <li class="active">&gt; <a href="https://braspag.github.io//manual/ewallets">E-Wallets (Carteiras Digitais)</a></li>
-                                    
-                                
-                            
-                        </ol>
-                    </div>
-                </div>
-            </div>
-
-            <div class="post">
-  <h1 id="e-wallet-carteira-digital">E-Wallet (Carteira Digital)</h1>
+<h1 id="e-wallet-carteira-digital">E-Wallet (Carteira Digital)</h1>
 
 <p><strong>E-wallets</strong> são cofres (repositórios) de cartões e dados de pagamento destinados a consumidores do e-commerce e do mundo físico. As carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento, tornando o processo de compra mais conveniente e seguro.</p>
 
@@ -171,12 +53,22 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
 
 <h2 id="integração-da-e-wallet">Integração da E-Wallet</h2>
 
-<p>Veja abaixo a representação de um fluxo transacional padrão na integração de uma e-wallet:
-<img src="https://braspag.github.io//images/braspag/pagador/fluxos/e-wallet1.png" alt="Fluxo E-Wallet" /></p>
+<p>A requisição de autorização com o meio de pagamento e-wallet pode acontecer de duas formas:</p>
 
-<p>Abaixo, um exemplo de requisição padrão para integração da e-wallet:</p>
+<ol>
+  <li><strong>Autorização com cartão criptografado</strong>: a requisição contém o nó <code class="language-plaintext highlighter-rouge">Wallet</code>, o campo <code class="language-plaintext highlighter-rouge">WalletKey</code> (usado pela Cielo para descriptografar os dados das e-wallets) e tokens adicionais de acordo com cada e-wallet. Esse tipo de integração é indicado para estabelecimentos que não possuem certificação PCI DSS;</li>
+  <li><strong>Autorização com cartão descriptografado</strong>: a requisição contém o nó <code class="language-plaintext highlighter-rouge">Wallet</code> e a própria loja descriptografa os dados do cartão e submete os dados de forma aberta na autorização. Esse tipo de integração é indicado para estabelecimentos com certificação PCI DSS.</li>
+</ol>
 
-<h3 id="requisição">Requisição</h3>
+<h3 id="cartão-criptografado">Cartão criptografado</h3>
+
+<p>Veja abaixo a representação de um <strong>fluxo transacional</strong> padrão na integração de uma e-wallet com cartão criptografado:</p>
+
+<p><img src="https://braspag.github.io//images/braspag/pagador/fluxos/e-wallet1.png" alt="Fluxo E-Wallet" /></p>
+
+<p>A seguir, um exemplo de requisição padrão para integração da e-wallet com cartão criptografado:</p>
+
+<h4 id="requisição">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -355,7 +247,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   </tbody>
 </table>
 
-<h4 id="walletkey">WalletKey</h4>
+<h5 id="walletkey">WalletKey</h5>
 
 <p>WalletKey é o identificador utilizado pela Braspag para descriptografar payloads retornados pela wallet.
 <br /><br />Seguem os formatos de <code class="language-plaintext highlighter-rouge">WalletKey</code> a serem repassados ao Pagador API:</p>
@@ -387,7 +279,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   </tbody>
 </table>
 
-<h4 id="ephemeralpublickey">EphemeralPublicKey</h4>
+<h5 id="ephemeralpublickey">EphemeralPublicKey</h5>
 
 <p>Formato de <code class="language-plaintext highlighter-rouge">EphemeralPublicKey</code> que deve ser repassado ao Pagador API:</p>
 
@@ -406,7 +298,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   </tbody>
 </table>
 
-<h4 id="signature">Signature</h4>
+<h5 id="signature">Signature</h5>
 
 <p>Formato de <code class="language-plaintext highlighter-rouge">Signature</code> que deve ser repassado ao Pagador API:</p>
 
@@ -425,7 +317,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   </tbody>
 </table>
 
-<h3 id="respostas">Respostas</h3>
+<h4 id="resposta">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -658,6 +550,361 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
     </tr>
   </tbody>
 </table>
+
+<h3 id="cartão-descriptografado">Cartão descriptografado</h3>
+
+<p>A autorização com cartão descriptografado acontece quando a própria loja descriptografa o payload recebido da wallet e envia por conta própria para a API do Pagador para processamento e autorização. Nesse cenário, envie para autorização o modelo de requisição a seguir:</p>
+
+<h4 id="requisição-1">Requisição</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="err">Envio</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">cartão</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guilherme Gama"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11225468954"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"4532********6521"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Guilherme Gama"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tipo de wallet"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Eci"</span><span class="p">:</span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Cavv"</span><span class="p">:</span><span class="s2">"AM1mbqehL24XAAa0J04CAoABFA=="</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/v2/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--</span> Envio de cartão
+<span class="o">{</span>
+  <span class="s2">"MerchantOrderId"</span>: <span class="s2">"6242-642-723"</span>,
+  <span class="s2">"Customer"</span>: <span class="o">{</span>
+    <span class="s2">"Name"</span>: <span class="s2">"Guilherme Gama"</span>,
+    <span class="s2">"Identity"</span>: <span class="s2">"11225468954"</span>,
+    <span class="s2">"IdentityType"</span>: <span class="s2">"CPF"</span>
+  <span class="o">}</span>,
+  <span class="s2">"Payment"</span>: <span class="o">{</span>
+    <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+    <span class="s2">"Amount"</span>: 1100,
+    <span class="s2">"Provider"</span>: <span class="s2">"Cielo"</span>,
+    <span class="s2">"Installments"</span>: 1,
+    <span class="s2">"CreditCard"</span>: <span class="o">{</span>      
+        <span class="s2">"CardNumber"</span>:<span class="s2">"4532********6521"</span>,
+        <span class="s2">"Holder"</span>:<span class="s2">"Guilherme Gama"</span>,
+        <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
+        <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
+        <span class="s2">"Brand"</span>:<span class="s2">"Master"</span>
+        <span class="o">}</span>,
+    <span class="s2">"Wallet"</span>: <span class="o">{</span>
+      <span class="s2">"Type"</span>: <span class="s2">"Tipo de wallet"</span>,
+      <span class="s2">"Eci"</span>:<span class="s2">"7"</span>,
+      <span class="s2">"Cavv"</span>:<span class="s2">"AM1mbqehL24XAAa0J04CAoABFA=="</span>
+    <span class="o">}</span>,
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificador da loja na Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+      <td>Chave Pública para Autenticação Dupla na Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Não</td>
+      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Número de identificação do pedido.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Nome do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Tipo do Meio de Pagamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor do Pedido (ser enviado em centavos).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Número de Parcelas.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber.</code></td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>Sim</td>
+      <td>Número do Cartão do Comprador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Não</td>
+      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Indica qual o tipo de carteira: <code class="language-plaintext highlighter-rouge">AndroidPay</code> / <code class="language-plaintext highlighter-rouge">ApplePay</code> / <code class="language-plaintext highlighter-rouge">SamsungPay</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Walletkey</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Eci</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Sim</td>
+      <td>O ECI (Eletronic Commerce Indicator) representa o quão segura é uma transação. Esse valor deve ser levado em consideração pelo lojista para decidir sobre a captura da transação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Cavv</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Campo de validação retornado pela Wallet e utilizado como base de autorização</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-1">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Guest]"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453211******1521"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gama Gama"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08/2020"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0319040817883"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"817883"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"027795"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TIPO DE WALLET"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-19 16:08:16"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e57b09eb-475b-44b6-ac71-01b9b82f2491"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.braspag.com.br/v2/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
+      <td>Número da autorização, idêntico ao NSU.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Id da transação na adquirente.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
+      <td>Texto que será impresso na fatura bancária do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais</td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Campo Identificador do Pedido.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
+      <td>Eletronic Commerce Indicator. Representa o quão segura é uma transação.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Exemplos: 7</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status da Transação.</td>
+      <td>Byte</td>
+      <td>—</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>Código de retorno da Adquirência.</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>Mensagem de retorno da Adquirência.</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Type</code></td>
+      <td>Indica qual o tipo de carteira: <code class="language-plaintext highlighter-rouge">VisaCheckout</code>/ <code class="language-plaintext highlighter-rouge">Masterpass</code> / <code class="language-plaintext highlighter-rouge">ApplePay</code> / <code class="language-plaintext highlighter-rouge">SamsungPay</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Walletkey</code></td>
+      <td>Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Ver tabela <code class="language-plaintext highlighter-rouge">WalletKey</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AdditionalData.capturecode</code></td>
+      <td>Código informado pela <code class="language-plaintext highlighter-rouge">MasterPass</code> ao lojista</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="exemplos-de-integração">Exemplos de Integração</h1>
 
 <p>A seguir, veja alguns exemplos de integração com as principais e-wallets disponíveis no mercado.</p>
@@ -778,7 +1025,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
 
 <p>A autorização com o token do Apple Pay acontece da mesma forma que a autorização padrão de um cartão de crédito. Porém, ao invés de se fornecer os dados do cartão abertamente, deverá ser fornecido o token recebido pelo Apple Pay, conforme o exemplo abaixo:</p>
 
-<h3 id="requisição-1">Requisição</h3>
+<h3 id="requisição-2">Requisição</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -881,7 +1128,7 @@ Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:<br /
   </tbody>
 </table>
 
-<h3 id="resposta">Resposta</h3>
+<h3 id="resposta-2">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
@@ -1122,7 +1369,7 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
 
 <p>Para mais informações, consulte o <a href="https://braspag.github.io/manual/braspag-pagador" target="_blank">Manual do Pagador</a>.</p>
 
-<h3 id="resposta-1">Resposta</h3>
+<h3 id="resposta-3">Resposta</h3>
 
 <p>A resposta de autorização da wallet terá os mesmos campos apresentados em nossa documentação do <a href="https://braspag.github.io/manual/braspag-pagador?json#resposta" target="_blank">Pagador</a>, porém com a adição do nó <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> repetindo os mesmos campos utilizados na autorização, como descrito acima.</p>
 
@@ -1146,7 +1393,7 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
   <p><strong>Atenção</strong>: É necessário que a loja já possua cadastro e integração Samsung Pay, caso contrário não será possível a integração com a API. Para mais informações, consulte a documentação da <a href="https://pay.samsung.com/developers" target="_blank">Samsung Pay</a>.</p>
 </blockquote>
 
-<h2 id="requisição-2">Requisição</h2>
+<h2 id="requisição-3">Requisição</h2>
 
 <p>Exemplo de requisição padrão Samsung Pay:</p>
 
@@ -1299,7 +1546,7 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
   </tbody>
 </table>
 
-<h2 id="resposta-2">Resposta</h2>
+<h2 id="resposta-4">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -1527,7 +1774,7 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
 
 <p>Na requisição da transação, envie o campo <code class="language-plaintext highlighter-rouge">Provider</code> com o valor “PayPal” e o campo <code class="language-plaintext highlighter-rouge">Type</code> com o valor “Wallet”.</p>
 
-<h3 id="requisição-3">Requisição</h3>
+<h3 id="requisição-4">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
 
@@ -1707,7 +1954,7 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
 
 <p>*Não são campos obrigatórios, mas recomendamos enviar.</p>
 
-<h3 id="resposta-3">Resposta</h3>
+<h3 id="resposta-5">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
 </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mwrzdV42BrvDshqJoIClljPWJ"</span><span class="p">,</span><span class="w">
@@ -1944,167 +2191,3 @@ Para a correta integração do Google Pay via Braspag, é necessário se atentar
     </tr>
   </tbody>
 </table>
-
-</div>
-
-
-            <div class="footer-conteudo">
-    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
-            <img src="https://braspag.github.io//assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
-    </div>
-
-    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-        <h2>Precisa de ajuda?</h2>
-        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://suporte.braspag.com.br/hc/pt-br">entre em contato conosco</a>.</p>
-    </div>
-</div>
-
-        </div>
-
-        <div class="sidebar">
-  <div class="sidebar-sticky">
-    <div class="sidebar-about">
-      <a title="Comutar a coluna da esquerda" class="hamburger">
-        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
-      </a>
-      <a href="https://braspag.github.io/">
-        <img src="https://braspag.github.io//assets/images/logo.png" alt="Braspag Developers - Manuais">
-      </a>
-      <div></div>
-    </div>
-
-    <div id="toc"></div>
-
-    <div class="fixed-footer">
-        
-
-    <div class="toc-contact">
-      <div class="contact">
-        <a title="Contato" href="http://www.braspag.com.br/fale-conosco/">
-          <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>Contato</span>
-        </a>
-      </div>
-      <div class="github">
-        <a title="GitHub" href="https://github.com/Braspag">
-          <i class="fa fa-github" aria-hidden="true"></i>
-          <span>GitHub</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
-
-
-        <script src="https://braspag.github.io//assets/js/jquery.min.js"></script>
-        <script src="https://braspag.github.io//assets/js/jquery-ui-1.9.1.custom.min.js"></script>
-        <script src="https://braspag.github.io//assets/js/bootstrap.js"></script>
-        <script src="https://braspag.github.io//assets/js/jquery.tocify.js"></script>
-        <script src="https://braspag.github.io//assets/js/prettify.js"></script>
-        <script>
-        $(function() {
-            var openedHeader = null;
-
-            $("#toc").tocify({
-                
-                selectors: "h1,h2,h3,h4,h5,h6",
-                
-                hashGenerator: "pretty",
-                ignoreSelector: ".no-toc",
-                scrollTo: 100,
-                smoothScroll: false,
-                showEffect: "none"
-            }).data("toc-tocify");
-
-            $('ul').prev('li').addClass('has-subitens');
-            $(window).scroll(function () {
-                if ($('li.active').closest('.tocify-header') !== openedHeader) {
-                    $('li.is-open').removeClass('is-open');
-
-                    openedHeader = $('li.active').closest('.tocify-header');
-                }
-
-                openedHeader.find('ul:visible').prev('li').addClass('is-open');
-            });
-
-            $('.hamburger').click(function() {
-                $('body').toggleClass('sidebar-closed');
-            });
-
-            $('.code-menu').click(function() {
-                $('body').toggleClass('code-menu-closed');
-            });
-
-            prettyPrint();
-        });
-        </script>
-
-        
-        <script src="https://braspag.github.io//assets/js/jquery.highlight.js"></script>
-        <script src="https://braspag.github.io//assets/js/lunr.js"></script>
-        <script src="https://braspag.github.io//assets/js/search.js"></script>
-        
-
-        
-        <script>
-        let langs = '';
-
-        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
-        $('div.highlighter-rouge').each(function (index) {
-            if(!$(this).parent().hasClass('language-group')) {
-                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
-            }
-        });
-
-        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
-            let height = $(this).outerHeight();
-
-            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
-        });
-
-        $('.hide-btn').click(function() {
-            $('.content-container').toggleClass('no-dark-box');
-            $('.dark-box').toggle();
-
-            $('.overlay').removeClass('opened');
-            $('.code-fullscreen').removeClass('opened');
-        });
-
-        $('.expand-btn').click(function() {
-            $('.overlay').toggleClass('opened');
-            $(this).parent().parent().parent().toggleClass('opened');
-            $(this).children('i.fa').toggleClass('fa-compress');
-        });
-
-        
-        langs += "<a data-language-name='json'>JSON</a>";
-        
-        langs += "<a data-language-name='shell'>cURL</a>";
-        
-
-        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
-        </script>
-
-        <script src="https://braspag.github.io//assets/js/lang.js"></script>
-        <script>
-            $(function() {
-                setupLanguages([  "json",  "shell", ]);
-            });
-        </script>
-        
-
-        <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:2191438,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
-    </body>
-</html>
