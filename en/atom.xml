@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-01-22T20:28:45+00:00</updated>
+    <updated>2024-01-22T20:33:51+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -3046,7 +3046,11 @@ Vist the wallet website to know more about supported card brands:&lt;br /&gt;
 
 &lt;h1 id=&quot;integration-examples&quot;&gt;Integration examples&lt;/h1&gt;
 
-&lt;p&gt;Here are a few examples of integration with the main e-wallets available in the market:&lt;/p&gt;
+&lt;p&gt;In this topic, we present integration examples with the main e-wallets available on the market. The examples comprehend the scenario for encrypted cards, in which &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt; and other token identifiers are required in the authorization.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If the merchant will send the authorization request with decrypted card data, please refer to &lt;a href=&quot;https://braspag.github.io//en/manual/ewallets#decrypted-card&quot;&gt;Decrypted card&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;apple-pay-&quot;&gt;Apple Pay ™&lt;/h1&gt;
 
