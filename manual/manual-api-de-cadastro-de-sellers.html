@@ -3758,7 +3758,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 </ul>
 
 <blockquote>
-  <p><strong>IMPORTANTE</strong>: O seller estará apto a transacionar somente quando a notificação de onboarding retornar o status <em>Aprovado</em>.</p>
+  <p><strong>IMPORTANTE</strong>: O seller estará apto a transacionar somente <strong>quando a notificação de onboarding retornar o status <em>Aprovado</em></strong>.</p>
 </blockquote>
 
 <p>Para receber as notificações de alteração de status, é necessário configurar o campo “URL de Notificação” durante o cadastro do master na Braspag para receber uma requisição do tipo “POST”. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
@@ -3772,7 +3772,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 <ul>
   <li><strong>Notificação de KYC</strong>: alguns minutos a 15 dias;</li>
   <li><strong>Notificação de validação de domicílio bancário</strong>: dois dias úteis;</li>
-  <li><strong>Notificação de onboarding</strong>: será enviada assim que as duas notificações anteriores forem concluídas.</li>
+  <li><strong>Notificação de onboarding</strong>: será enviada duas vezes, uma após a notificação de KYC e outra após a notificação de validação de domicílio bancário (na ordem que ocorrerem primeiro).</li>
 </ul>
 
 <h2 id="notificação-de-kyc">Notificação de KYC</h2>
@@ -3948,9 +3948,11 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
   </tbody>
 </table>
 
-<h2 id="notificação-de-onboarding">Notificação de Onboarding</h2>
+<h2 id="notificação-de-onboarding">Notificação de onboarding</h2>
 
-<p>A notificação do status do Onboarding sinaliza o status global do cadastro do seller. Atualmente, esse status é composto pela junção de duas validações (KYC e domicílio bancário). A Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do seller (SubordinateMerchantId) e as informações de todos os status.</p>
+<p>A notificação do status do onboarding sinaliza o status global do cadastro do seller e é enviada após cada uma das notificações anteriores. Atualmente, esse status é composto pela junção de duas validações (KYC e domicílio bancário). Assim, após a primeira notificação, o status de onboarding irá informar que o processo ainda está em análise; após a segunda notificação é que irá retornar o status “2” (considerando o cenário de aprovação em todas as análises).</p>
+
+<p>A Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do seller (<code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code>) e as informações de todos os status.</p>
 
 <p>Quando o status de onboarding (<code class="language-plaintext highlighter-rouge">Data.OnboardingStatus</code>) apresentar o valor “2” significa que o seller já passou em todas as validações e está apto a transacionar. Já quando o status de onboarding apresentar o valor “3”, significa que o cadastro não foi bem sucedido em pelo menos uma validação e que o master precisa tomar alguma ação em relação a esse cadastro. Confira todos os valores possíveis para o status de onboarding na tabela abaixo.</p>
 
