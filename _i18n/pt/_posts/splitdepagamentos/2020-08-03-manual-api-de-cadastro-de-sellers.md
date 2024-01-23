@@ -1611,9 +1611,21 @@ A API de Alteração de Taxas em Lote permite que o master realize a alteração
 } 
 ```
 
-# Notificação de KYC
+# Notificações do cadastro de sellers
 
-Para receber a notificação de alteração de status da análise de KYC, é necessário configurar o campo "URL de Notificação" durante o cadastro do master na Braspag para receber uma requisição do tipo "POST". O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).
+Após o envio da requisição de cadastro de seller, a Braspag irá conduzir a análise de KYC e validação de domicílio bancário do seller. Ao final de cada análise, a Braspag enviará as seguintes notificações com o status de cada processo:
+
+* Notificação de KYC;
+* Notificação de validação de domicílio bancário;
+* Notificação de onboarding.
+
+> **IMPORTANTE**: O seller estará apto a transacionar somente quando a notificação de onboarding retornar o status *Aprovado*.
+
+Para receber as notificações de alteração de status, é necessário configurar o campo "URL de Notificação" durante o cadastro do master na Braspag para receber uma requisição do tipo "POST". O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).
+
+> É esperado que a loja retorne a seguinte resposta: `HTTP Status Code 200 OK`. Caso essa resposta não seja retornada, haverá mais duas tentativas de envio da notificação.
+
+## Notificação de KYC
 
 Quando houver alteração no status da análise de KYC, a Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do master e do seller e status da análise de KYC.
 
@@ -1632,14 +1644,90 @@ Quando houver alteração no status da análise de KYC, a Braspag enviará uma n
 
 | PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
 |---|---|---|---|
-| `ChangeType` | Número | - | Identificador do tipo de notificação. Para a notificação de KYC, o `ChangeType` é igual a "20".|
+| `ChangeType` | Número | - | Identificador do tipo de notificação. **Para a notificação de KYC, o `ChangeType` é igual a "20"**.|
 | `MasterMerchantId` | GUID | 36 | Identificação do master. |
 | `Data.SubordinateMerchantId` | GUID | 36 | Identificação do seller. |
-| `Data.Status` | Número | - | Status da análise do processo de KYC. Os status válidos são:<br>UnderAnalysis = 1;<br>_Approved = 2_;<br>_ApprovedWithRestriction = 3_ e<br>_Rejected = 4_ |
+| `Data.Status` | Número | - | Status da análise do processo de KYC. Os status válidos são:<br>UnderAnalysis = 1;<br>Approved = 2;<br>ApprovedWithRestriction = 3 e<br>Rejected = 4|
 
 <aside class="notice">Caso você tenha configurado headers personalizados durante o cadastro da sua URL de notificação na Braspag, a notificação também retornará os headers personalizados.</aside>
 
-> É esperado que a loja retorne a seguinte resposta: `HTTP Status Code 200 OK`. Caso essa resposta não seja retornada, haverá mais duas tentativas de envio do Post de Notificação.
+<aside class="warning">Se a análise de KYC retornar o status "Rejected", entre em contato com o Suporte para verificar se é possível realizar uma nova análise.</aside>
+
+## Notificação de validação de domicílio bancário
+
+Quando houver alteração no status da validação de domicílio bancário, a Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do seller(MerchantId) e os dados do domicílio bancário.
+
+**Exemplo de notificação de domicílio bancário enviada pela Braspag**:
+
+```
+{
+ "ChangeType": 21,
+ "MasterMerchantId": "96ffb8be-6693-4f9b-bf8e-925b555b3207",
+ "Data": {
+ "MerchantId": "4d76b525-e66d-402e-a318-5fd3ce1af7aa",
+ "MerchantType": "Subordinate",
+ "Status": 3,
+ "AccountNumber": "123",
+ "AccountDigit": "1",
+ "AgencyNumber": "3581",
+ "AgencyDigit": "x",
+ "CompeCode": "260",
+ "BankAccountType": 1,
+ "DocumentNumber": "45224563215",
+ "DocumentType": 2
+ }
+}
+```
+
+| PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
+|---|---|---|---|
+| `ChangeType` | Número | - | Número identificador do tipo de notificação. **Para a notificação de validação de domicílio bancário, o ChangeType é igual a “21”**. |
+| `MasterMerchantId` | GUID| 36| Identificação do master. |
+| `Data.MerchantId` | GUID| 36| Identificação do seller. |
+| `Data.MerchantType` | Texto | 14 | Tipo do Merchant. Os tipos válidos são “Subordinate” ou “Master”.  |
+| `Data.BankAccountValidationStatus` | Número| 1 | Status da análise do processo de domicílio bancário. Os status válidos são:<br>InternalError = 0;<br>Created = 1;<br>Processing =2;<br>Success= 3;<br>Error= 4;|
+| `Data.CompeCode` | Texto| 3 | Código de compensação do banco. Ver [Lista de Códigos de compensação](https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o).|
+| `Data.BankAccountType` | Texto| 1 | Tipo de conta bancária. Os tipos válidos são:<br> 1 - “CheckingAccount” (conta corrente);<br>2 - “SavingsAccount” (conta poupança). |
+| `Data.AccountNumber` | Texto| 10|Número da conta do seller. |
+| `Data.AccountDigit` | Texto|1| Dígito verificador da conta do seller.|
+| `Data.AgencyNumber` | Texto| 15 | Número da agência do seller. Atenção: Valores zerados como “0”, “00”, “000” são inválidos.|
+| `Data.AgencyDigit` | Texto| 1| Dígito da agência do seller. Caso a agência não tenha dígito, informar o valor “x”.|
+| `Data.DocumentNumber` | Texto| 14| Número do documento da conta (apenas números) do seller.|
+| `Data.DocumentType` | Texto| -| Tipo do documento. Os tipos válidos são “CPF” ou “CNPJ”.|
+
+## Notificação de Onboarding
+
+A notificação do status do Onboarding sinaliza o status global do cadastro do seller. Atualmente, esse status é composto pela junção de duas validações (KYC e domicílio bancário). A Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do seller (SubordinateMerchantId) e as informações de todos os status.
+
+Quando o status de onboarding (`Data.OnboardingStatus`) apresentar o valor "2" significa que o seller já passou em todas as validações e está apto a transacionar. Já quando o status de onboarding apresentar o valor "3", significa que o cadastro não foi bem sucedido em pelo menos uma validação e que o master precisa tomar alguma ação em relação a esse cadastro. Confira todos os valores possíveis para o status de onboarding na tabela abaixo.
+
+**Exemplo de notificação de onboarding enviada pela Braspag:**
+
+```json
+{
+    "ChangeType": 23,
+    "MasterMerchantId": "96ffb8be-6693-4f9b-bf8e-925b555b3207",
+    "Data": {
+        "SubordinateMerchantId":"4d76b525-e66d-402e-a318-5fd3ce1af7aa",
+        "OnboardingStatus": 2,
+        "KycAnalysisInfo": {
+            "Status": 2
+        },
+        "BankAccountValidation": {
+            "Status": 3
+	}
+    }
+}
+```
+
+| PROPRIEDADE | TIPO | TAMANHO | DESCRIÇÃO |
+|---|---|---|---|
+| `ChangeType` | Número | - | Identificador do tipo de notificação. **Para a notificação do status do Onboarding, o ChangeType é igual a “23”**. |
+| `MasterMerchantId` | GUID| 36| Identificação do master. |
+| `Data.SubordinateMerchantId` | GUID| 36| Identificação do seller. |
+| `Data.OnboardingStatus` | Número| 1| Status do processo de Onboarding. Os status válidos são:<br>UnderAnalysis = 1;<br>Approved = 2;<br>AwaitingMerchantAction = 3;<br>Unknown = 4;<br>Banned = 5|
+| `Data.KycAnalysisInfo.Status` | Número| 1| Status da análise de KYC. Os status válidos são:<br>UnderAnalysis = 1;<br>Approved = 2;<br>ApprovedWithRestriction = 3;<br>Rejected = 4|
+| `Data.BankAccountValidation.Status` | Número| 1| Status da análise do domicílio bancário. Os status válidos são:<br>InternalError = 0;<br>Created = 1;<br>Processing = 2;<br>Success = 3;<br>Error = 4|
 
 # Criação de usuário para o seller
 
