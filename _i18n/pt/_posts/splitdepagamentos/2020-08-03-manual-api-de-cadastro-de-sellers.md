@@ -9,6 +9,9 @@ sort_order: 4
 hub_visible: false
 tags:
   - 6. Soluções para Marketplace
+language_tabs:
+  json: JSON
+  shell: cURL
 ---
 
 # Sobre essa documentação
@@ -1619,7 +1622,7 @@ Após o envio da requisição de cadastro de seller, a Braspag irá conduzir a a
 * Notificação de validação de domicílio bancário;
 * Notificação de onboarding.
 
-> **IMPORTANTE**: O seller estará apto a transacionar somente **quando a notificação de onboarding retornar o status *Aprovado***.
+> **IMPORTANTE**: **O seller estará apto a transacionar somente quando a notificação de onboarding retornar o status *Aprovado***.
 
 Para receber as notificações de alteração de status, é necessário configurar o campo "URL de Notificação" durante o cadastro do master na Braspag para receber uma requisição do tipo "POST". O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).
 
@@ -1665,22 +1668,22 @@ Quando houver alteração no status da validação de domicílio bancário, a Br
 
 **Exemplo de notificação de domicílio bancário enviada pela Braspag**:
 
-```
+```json
 {
  "ChangeType": 21,
  "MasterMerchantId": "96ffb8be-6693-4f9b-bf8e-925b555b3207",
  "Data": {
- "MerchantId": "4d76b525-e66d-402e-a318-5fd3ce1af7aa",
- "MerchantType": "Subordinate",
- "Status": 3,
- "AccountNumber": "123",
- "AccountDigit": "1",
- "AgencyNumber": "3581",
- "AgencyDigit": "x",
- "CompeCode": "260",
- "BankAccountType": 1,
- "DocumentNumber": "45224563215",
- "DocumentType": 2
+    "MerchantId": "4d76b525-e66d-402e-a318-5fd3ce1af7aa",
+    "MerchantType": "Subordinate",
+    "Status": 3,
+    "AccountNumber": "123",
+    "AccountDigit": "1",
+    "AgencyNumber": "3581",
+    "AgencyDigit": "x",
+    "CompeCode": "260",
+    "BankAccountType": 1,
+    "DocumentNumber": "45224563215",
+    "DocumentType": 2
  }
 }
 ```
@@ -1707,7 +1710,10 @@ A notificação do status do onboarding sinaliza o status global do cadastro do 
 
 A Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do seller (`SubordinateMerchantId`) e as informações de todos os status. 
 
-Quando o status de onboarding (`Data.OnboardingStatus`) apresentar o valor "2" significa que o seller já passou em todas as validações e está apto a transacionar. Já quando o status de onboarding apresentar o valor "3", significa que o cadastro não foi bem sucedido em pelo menos uma validação e que o master precisa tomar alguma ação em relação a esse cadastro. Confira todos os valores possíveis para o status de onboarding na tabela abaixo.
+> Quando o status de onboarding (`Data.OnboardingStatus`) apresentar o valor "2" significa que o seller já passou em todas as validações e está apto a transacionar;<br>
+> Quando o status de onboarding apresentar o valor "3", significa que o cadastro não foi bem sucedido em pelo menos uma validação e que o master precisa tomar alguma ação em relação a esse cadastro.
+
+Confira todos os valores possíveis para o status de onboarding na tabela abaixo.
 
 **Exemplo de notificação de onboarding enviada pela Braspag:**
 
