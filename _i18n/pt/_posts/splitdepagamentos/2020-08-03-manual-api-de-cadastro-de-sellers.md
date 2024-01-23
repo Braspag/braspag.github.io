@@ -1709,8 +1709,8 @@ A notificação do status do onboarding sinaliza o status global do cadastro do 
 
 A Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do seller (`SubordinateMerchantId`) e as informações de todos os status. 
 
-> Quando o status de onboarding (`Data.OnboardingStatus`) apresentar o valor "2" significa que o seller já passou em todas as validações e está apto a transacionar;<br>
-> Quando o status de onboarding apresentar o valor "3", significa que o cadastro não foi bem sucedido em pelo menos uma validação e que o master precisa tomar alguma ação em relação a esse cadastro.
+> * Quando o status de onboarding (`Data.OnboardingStatus`) apresentar o valor "2" significa que o seller já passou em todas as validações e está apto a transacionar;<br>
+> * Quando o status de onboarding apresentar o valor "3", significa que o cadastro não foi bem sucedido em pelo menos uma validação e que o master precisa tomar alguma ação em relação a esse cadastro.
 
 Confira todos os valores possíveis para o status de onboarding na tabela abaixo.
 
