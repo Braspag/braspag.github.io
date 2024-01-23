@@ -3767,6 +3767,14 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
   <p>É esperado que a loja retorne a seguinte resposta: <code class="language-plaintext highlighter-rouge">HTTP Status Code 200 OK</code>. Caso essa resposta não seja retornada, haverá mais duas tentativas de envio da notificação.</p>
 </blockquote>
 
+<p><strong>Os prazos estimados para cada notificação são</strong>:</p>
+
+<ul>
+  <li><strong>Notificação de KYC</strong>: alguns minutos a 15 dias;</li>
+  <li><strong>Notificação de validação de domicílio bancário</strong>: dois dias úteis;</li>
+  <li><strong>Notificação de onboarding</strong>: será enviada assim que as duas notificações anteriores forem concluídas.</li>
+</ul>
+
 <h2 id="notificação-de-kyc">Notificação de KYC</h2>
 
 <p>Quando houver alteração no status da análise de KYC, a Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do master e do seller e status da análise de KYC.</p>
