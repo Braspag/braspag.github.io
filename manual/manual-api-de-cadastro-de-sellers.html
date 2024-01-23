@@ -48,7 +48,20 @@
 
     <body>
         
-            <div class="content-container no-dark-box">
+            <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        });
         
             <div id="submenu">
                 <div class="submenu-container">
@@ -3758,7 +3771,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 </ul>
 
 <blockquote>
-  <p><strong>IMPORTANTE</strong>: O seller estará apto a transacionar somente <strong>quando a notificação de onboarding retornar o status <em>Aprovado</em></strong>.</p>
+  <p><strong>IMPORTANTE</strong>: <strong>O seller estará apto a transacionar somente quando a notificação de onboarding retornar o status <em>Aprovado</em></strong>.</p>
 </blockquote>
 
 <p>Para receber as notificações de alteração de status, é necessário configurar o campo “URL de Notificação” durante o cadastro do master na Braspag para receber uma requisição do tipo “POST”. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
@@ -3838,24 +3851,24 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 
 <p><strong>Exemplo de notificação de domicílio bancário enviada pela Braspag</strong>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
- "ChangeType": 21,
- "MasterMerchantId": "96ffb8be-6693-4f9b-bf8e-925b555b3207",
- "Data": {
- "MerchantId": "4d76b525-e66d-402e-a318-5fd3ce1af7aa",
- "MerchantType": "Subordinate",
- "Status": 3,
- "AccountNumber": "123",
- "AccountDigit": "1",
- "AgencyNumber": "3581",
- "AgencyDigit": "x",
- "CompeCode": "260",
- "BankAccountType": 1,
- "DocumentNumber": "45224563215",
- "DocumentType": 2
- }
-}
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+ </span><span class="nl">"ChangeType"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96ffb8be-6693-4f9b-bf8e-925b555b3207"</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4d76b525-e66d-402e-a318-5fd3ce1af7aa"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MerchantType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subordinate"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AccountDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AgencyNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3581"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AgencyDigit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CompeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"260"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BankAccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45224563215"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -3954,7 +3967,12 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 
 <p>A Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do seller (<code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code>) e as informações de todos os status.</p>
 
-<p>Quando o status de onboarding (<code class="language-plaintext highlighter-rouge">Data.OnboardingStatus</code>) apresentar o valor “2” significa que o seller já passou em todas as validações e está apto a transacionar. Já quando o status de onboarding apresentar o valor “3”, significa que o cadastro não foi bem sucedido em pelo menos uma validação e que o master precisa tomar alguma ação em relação a esse cadastro. Confira todos os valores possíveis para o status de onboarding na tabela abaixo.</p>
+<blockquote>
+  <p>Quando o status de onboarding (<code class="language-plaintext highlighter-rouge">Data.OnboardingStatus</code>) apresentar o valor “2” significa que o seller já passou em todas as validações e está apto a transacionar;<br />
+Quando o status de onboarding apresentar o valor “3”, significa que o cadastro não foi bem sucedido em pelo menos uma validação e que o master precisa tomar alguma ação em relação a esse cadastro.</p>
+</blockquote>
+
+<p>Confira todos os valores possíveis para o status de onboarding na tabela abaixo.</p>
 
 <p><strong>Exemplo de notificação de onboarding enviada pela Braspag:</strong></p>
 
@@ -4780,6 +4798,52 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
         <script src="https://braspag.github.io//assets/js/search.js"></script>
         
 
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+        langs += "<a data-language-name='shell'>cURL</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://braspag.github.io//assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json",  "shell", ]);
+            });
+        </script>
         
 
         <!-- Hotjar Tracking Code for https://braspag.github.io/ -->
