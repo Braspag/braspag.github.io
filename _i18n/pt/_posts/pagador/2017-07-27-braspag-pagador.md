@@ -2670,7 +2670,7 @@ Os parâmetros `Payment.FineRate` e `Payment.FineAmount` não devem ser utilizad
 |`Customer.Address.District`|Bairro do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|texto|Veja a [tabela](#conciliação-de-boletos)|Sim
 |`Customer.Address.City`|Cidade do endereço de contato do comprador. A regra varia de acordo com o provedor utilizado (consulte a [tabela](#conciliação-de-boletos)).|texto|Veja a [tabela](#conciliação-de-boletos)|Sim|
 |`Customer.Address.State`|Estado do endereço de contato do comprador.|texto|2|Sim|
-|`Customer.Address.Country`|País do endereço de contato do comprador.|texto|35|Sim|
+|`Customer.Address.Country`|País do endereço de contato do comprador.|texto|35|Não|
 |`Payment.Provider`|Nome do provedor do meio de pagamento do boleto. [Clique aqui](https://braspag.github.io/manual/braspag-pagador#providers-para-consulta-bin-via-verifycard) para acessar a lista de provedores.|texto|15|Sim|
 |`Payment.Type`|Tipo do meio de pagamento. Neste caso, "Boleto".|texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|número|15|Sim|
