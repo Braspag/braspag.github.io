@@ -601,6 +601,84 @@
   </tbody>
 </table>
 
+<h1 id="anexos">Anexos</h1>
+
+<h2 id="migração-para-novo-conector">Migração para novo conector</h2>
+
+<p>O novo conector CieloEcommerce será o único conector disponível a partir de <strong>31 de janeiro de 2024</strong>. O prazo para migração é <strong>31 de março de 2024</strong>. Todos os outros conectores serão descontinuados.</p>
+
+<p>As seguintes mudanças acontecerão:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPO</th>
+      <th>CIELOECOMMERCE (NOVO)</th>
+      <th>CIELO (LEGADO)</th>
+      <th>CIELO V3 (LEGADO)</th>
+      <th>BRASPAG (LEGADO)</th>
+      <th>BRASPAG V2 / CIELO V4 / CIELO ECOMMERCE (ATUAL)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.<br /><strong>Cielo:</strong> MerchantOrderId</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>Neste campo era utilizada a informação <code class="language-plaintext highlighter-rouge">reference</code> da VTEX e agora será utilizada a <code class="language-plaintext highlighter-rouge">orderId</code> da VTEX.</td>
+      <td>Campo permanece o mesmo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Id da transação no provedor de meio de pagamento.<br /><strong>Cielo:</strong> AcquirerTransactionID / Tid</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>O <code class="language-plaintext highlighter-rouge">PaymentId</code> que era informado neste campo agora será informado no metadados <code class="language-plaintext highlighter-rouge">PaymentID_Cielo</code>.</td>
+      <td>Campo permanece o mesmo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Returncode</code></td>
+      <td>Código de retorno da operação.<br /><strong>Cielo:</strong> ReasonCode / ProviderReturnCode / ReturnCode</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>Campo permanece o mesmo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td>Código de autorização.<br /><strong>Cielo:</strong> AuthorizationCode</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>Campo permanece o mesmo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authId</code></td>
+      <td>Código de autorização.<br /><strong>Cielo:</strong> AuthorizationCode</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>O <code class="language-plaintext highlighter-rouge">AcquirerTransactionID</code> que era informado aqui agora será informado no campo <code class="language-plaintext highlighter-rouge">Tid</code>. <br />Este campo refere-se ao que era informado no campo <code class="language-plaintext highlighter-rouge">AuthorizationCode</code>.</td>
+      <td>O <code class="language-plaintext highlighter-rouge">PaymentId</code> que era informado aqui agora será informado no metadados <code class="language-plaintext highlighter-rouge">PaymentID_Cielo</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
+      <td>Número do comprovante de venda. <br /><strong>Cielo:</strong> ProofOfSale</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>Campo permanece o mesmo.</td>
+      <td>O <code class="language-plaintext highlighter-rouge">AcquirerTransactionID</code> que era informado aqui agora será informado no campo <code class="language-plaintext highlighter-rouge">Tid</code>. Este campo refere-se ao que era informado no campo <code class="language-plaintext highlighter-rouge">proofOfSale</code>.</td>
+      <td>Os campos concatenados AuthorizationCode - Proofsale que eram informados aqui agora estão nos campos de referência <code class="language-plaintext highlighter-rouge">authId</code> e <code class="language-plaintext highlighter-rouge">proofOfSale</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">metadados</code></td>
+      <td>Campo adicional com <code class="language-plaintext highlighter-rouge">Name</code> e <code class="language-plaintext highlighter-rouge">Value</code>. <br />Aqui será informado:<br /><strong>Name:</strong> PaymentID_Cielo;<br /><strong>Name:</strong> NSU_rede2captura;<br /><strong>Name:</strong> NSU_rede2cancelamento.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>O <code class="language-plaintext highlighter-rouge">PaymentID_Cielo</code> refere-se ao que era informado no <code class="language-plaintext highlighter-rouge">braspagTransactionID</code>.</td>
+      <td>O <code class="language-plaintext highlighter-rouge">PaymentID_Cielo</code> refere-se ao que era informado no <code class="language-plaintext highlighter-rouge">authId</code>.</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
