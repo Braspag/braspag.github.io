@@ -11,7 +11,6 @@ tags:
   - 6. Soluções para Marketplace
 language_tabs:
   json: JSON
-  shell: cURL
 ---
 
 # Sobre essa documentação
