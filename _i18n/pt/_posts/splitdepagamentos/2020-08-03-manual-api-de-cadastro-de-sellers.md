@@ -1715,7 +1715,7 @@ Quando o status de onboarding (`Data.OnboardingStatus`) apresentar o valor "2" s
         },
         "BankAccountValidation": {
             "Status": 3
-	}
+        }
     }
 }
 ```
