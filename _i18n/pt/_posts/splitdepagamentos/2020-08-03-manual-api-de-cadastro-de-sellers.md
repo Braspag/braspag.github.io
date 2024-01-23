@@ -1625,10 +1625,11 @@ Para receber as notificações de alteração de status, é necessário configur
 
 > É esperado que a loja retorne a seguinte resposta: `HTTP Status Code 200 OK`. Caso essa resposta não seja retornada, haverá mais duas tentativas de envio da notificação.
 
-> **Os prazos estimados para cada notificação são**:<br>
-> * **Notificação de KYC**: alguns minutos a 15 dias;<br>
-> * **Notificação de validação de domicílio bancário**: dois dias úteis;<br>
-> * **Notificação de onboarding**: será enviada assim que as duas notificações anteriores forem concluídas.
+**Os prazos estimados para cada notificação são**:
+
+* **Notificação de KYC**: alguns minutos a 15 dias;
+* **Notificação de validação de domicílio bancário**: dois dias úteis;
+* **Notificação de onboarding**: será enviada assim que as duas notificações anteriores forem concluídas.
 
 ## Notificação de KYC
 
