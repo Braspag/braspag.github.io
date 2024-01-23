@@ -2259,7 +2259,7 @@ The `Payment.FineRate` and `Payment.FineAmount` parameters must not be used toge
 |`Customer.Address.ZipCode`|Customer's contact address zip code.|Text|8|No|
 |`Customer.Address.District`|Customer's contact address district. The rule varies according to the provider used (see table annexed).|Text|see table annexed|Yes|
 |`Customer.Address.City`|Customer's contact address city. The rule varies according to the provider used (see table annexed).|Text|see table annexed|Yes|
-|`Customer.Address.State`|Customer's contact address state.|Text|2|No|
+|`Customer.Address.State`|Customer's contact address state.|Text|2|Yes|
 |`Customer.Address.Country`|Customer's contact address country.|Text|35|No|
 |`Payment.Provider`|Name of payment method provider. See table annexed to access the list of providers.|Text|15|Yes|
 |`Payment.Type`|Payment method type. In this case, "Boleto".|Text|100|Yes|
