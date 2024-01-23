@@ -3747,9 +3747,27 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 </span><span class="p">}</span><span class="w"> 
 </span></code></pre></div></div>
 
-<h1 id="notificação-de-kyc">Notificação de KYC</h1>
+<h1 id="notificações-do-cadastro-de-sellers">Notificações do cadastro de sellers</h1>
 
-<p>Para receber a notificação de alteração de status da análise de KYC, é necessário configurar o campo “URL de Notificação” durante o cadastro do master na Braspag para receber uma requisição do tipo “POST”. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
+<p>Após o envio da requisição de cadastro de seller, a Braspag irá conduzir a análise de KYC e validação de domicílio bancário do seller. Ao final de cada análise, a Braspag enviará as seguintes notificações com o status de cada processo:</p>
+
+<ul>
+  <li>Notificação de KYC;</li>
+  <li>Notificação de validação de domicílio bancário;</li>
+  <li>Notificação de onboarding.</li>
+</ul>
+
+<blockquote>
+  <p><strong>IMPORTANTE</strong>: O seller estará apto a transacionar somente quando a notificação de onboarding retornar o status <em>Aprovado</em>.</p>
+</blockquote>
+
+<p>Para receber as notificações de alteração de status, é necessário configurar o campo “URL de Notificação” durante o cadastro do master na Braspag para receber uma requisição do tipo “POST”. O endereço deve ser HTTPS e não se deve utilizar uma porta fora do padrão HTTPS (443).</p>
+
+<blockquote>
+  <p>É esperado que a loja retorne a seguinte resposta: <code class="language-plaintext highlighter-rouge">HTTP Status Code 200 OK</code>. Caso essa resposta não seja retornada, haverá mais duas tentativas de envio da notificação.</p>
+</blockquote>
+
+<h2 id="notificação-de-kyc">Notificação de KYC</h2>
 
 <p>Quando houver alteração no status da análise de KYC, a Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do master e do seller e status da análise de KYC.</p>
 
@@ -3779,7 +3797,7 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td><code class="language-plaintext highlighter-rouge">ChangeType</code></td>
       <td>Número</td>
       <td>-</td>
-      <td>Identificador do tipo de notificação. Para a notificação de KYC, o <code class="language-plaintext highlighter-rouge">ChangeType</code> é igual a “20”.</td>
+      <td>Identificador do tipo de notificação. <strong>Para a notificação de KYC, o <code class="language-plaintext highlighter-rouge">ChangeType</code> é igual a “20”</strong>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MasterMerchantId</code></td>
@@ -3797,16 +3815,203 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
       <td><code class="language-plaintext highlighter-rouge">Data.Status</code></td>
       <td>Número</td>
       <td>-</td>
-      <td>Status da análise do processo de KYC. Os status válidos são:<br />UnderAnalysis = 1;<br /><em>Approved = 2</em>;<br /><em>ApprovedWithRestriction = 3</em> e<br /><em>Rejected = 4</em></td>
+      <td>Status da análise do processo de KYC. Os status válidos são:<br />UnderAnalysis = 1;<br />Approved = 2;<br />ApprovedWithRestriction = 3 e<br />Rejected = 4</td>
     </tr>
   </tbody>
 </table>
 
 <aside class="notice">Caso você tenha configurado headers personalizados durante o cadastro da sua URL de notificação na Braspag, a notificação também retornará os headers personalizados.</aside>
 
-<blockquote>
-  <p>É esperado que a loja retorne a seguinte resposta: <code class="language-plaintext highlighter-rouge">HTTP Status Code 200 OK</code>. Caso essa resposta não seja retornada, haverá mais duas tentativas de envio do Post de Notificação.</p>
-</blockquote>
+<aside class="warning">Se a análise de KYC retornar o status "Rejected", entre em contato com o Suporte para verificar se é possível realizar uma nova análise.</aside>
+
+<h2 id="notificação-de-validação-de-domicílio-bancário">Notificação de validação de domicílio bancário</h2>
+
+<p>Quando houver alteração no status da validação de domicílio bancário, a Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do seller(MerchantId) e os dados do domicílio bancário.</p>
+
+<p><strong>Exemplo de notificação de domicílio bancário enviada pela Braspag</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+ "ChangeType": 21,
+ "MasterMerchantId": "96ffb8be-6693-4f9b-bf8e-925b555b3207",
+ "Data": {
+ "MerchantId": "4d76b525-e66d-402e-a318-5fd3ce1af7aa",
+ "MerchantType": "Subordinate",
+ "Status": 3,
+ "AccountNumber": "123",
+ "AccountDigit": "1",
+ "AgencyNumber": "3581",
+ "AgencyDigit": "x",
+ "CompeCode": "260",
+ "BankAccountType": 1,
+ "DocumentNumber": "45224563215",
+ "DocumentType": 2
+ }
+}
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ChangeType</code></td>
+      <td>Número</td>
+      <td>-</td>
+      <td>Número identificador do tipo de notificação. <strong>Para a notificação de validação de domicílio bancário, o ChangeType é igual a “21”</strong>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MasterMerchantId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Identificação do master.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.MerchantId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Identificação do seller.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.MerchantType</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Tipo do Merchant. Os tipos válidos são “Subordinate” ou “Master”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.BankAccountValidationStatus</code></td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Status da análise do processo de domicílio bancário. Os status válidos são:<br />InternalError = 0;<br />Created = 1;<br />Processing =2;<br />Success= 3;<br />Error= 4;</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.CompeCode</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Código de compensação do banco. Ver <a href="https://braspag.github.io//manual/manual-api-de-cadastro-de-sellers#lista-de-c%C3%B3digos-de-compensa%C3%A7%C3%A3o">Lista de Códigos de compensação</a>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.BankAccountType</code></td>
+      <td>Texto</td>
+      <td>1</td>
+      <td>Tipo de conta bancária. Os tipos válidos são:<br /> 1 - “CheckingAccount” (conta corrente);<br />2 - “SavingsAccount” (conta poupança).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.AccountNumber</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Número da conta do seller.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.AccountDigit</code></td>
+      <td>Texto</td>
+      <td>1</td>
+      <td>Dígito verificador da conta do seller.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.AgencyNumber</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Número da agência do seller. Atenção: Valores zerados como “0”, “00”, “000” são inválidos.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.AgencyDigit</code></td>
+      <td>Texto</td>
+      <td>1</td>
+      <td>Dígito da agência do seller. Caso a agência não tenha dígito, informar o valor “x”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.DocumentNumber</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Número do documento da conta (apenas números) do seller.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.DocumentType</code></td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Tipo do documento. Os tipos válidos são “CPF” ou “CNPJ”.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="notificação-de-onboarding">Notificação de Onboarding</h2>
+
+<p>A notificação do status do Onboarding sinaliza o status global do cadastro do seller. Atualmente, esse status é composto pela junção de duas validações (KYC e domicílio bancário). A Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do seller (SubordinateMerchantId) e as informações de todos os status.</p>
+
+<p>Quando o status de onboarding (<code class="language-plaintext highlighter-rouge">Data.OnboardingStatus</code>) apresentar o valor “2” significa que o seller já passou em todas as validações e está apto a transacionar. Já quando o status de onboarding apresentar o valor “3”, significa que o cadastro não foi bem sucedido em pelo menos uma validação e que o master precisa tomar alguma ação em relação a esse cadastro. Confira todos os valores possíveis para o status de onboarding na tabela abaixo.</p>
+
+<p><strong>Exemplo de notificação de onboarding enviada pela Braspag:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"ChangeType"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MasterMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"96ffb8be-6693-4f9b-bf8e-925b555b3207"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="s2">"4d76b525-e66d-402e-a318-5fd3ce1af7aa"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"OnboardingStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"KycAnalysisInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"BankAccountValidation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ChangeType</code></td>
+      <td>Número</td>
+      <td>-</td>
+      <td>Identificador do tipo de notificação. <strong>Para a notificação do status do Onboarding, o ChangeType é igual a “23”</strong>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MasterMerchantId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Identificação do master.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.SubordinateMerchantId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Identificação do seller.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.OnboardingStatus</code></td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Status do processo de Onboarding. Os status válidos são:<br />UnderAnalysis = 1;<br />Approved = 2;<br />AwaitingMerchantAction = 3;<br />Unknown = 4;<br />Banned = 5</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.KycAnalysisInfo.Status</code></td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Status da análise de KYC. Os status válidos são:<br />UnderAnalysis = 1;<br />Approved = 2;<br />ApprovedWithRestriction = 3;<br />Rejected = 4</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Data.BankAccountValidation.Status</code></td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Status da análise do domicílio bancário. Os status válidos são:<br />InternalError = 0;<br />Created = 1;<br />Processing = 2;<br />Success = 3;<br />Error = 4</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="criação-de-usuário-para-o-seller">Criação de usuário para o seller</h1>
 
