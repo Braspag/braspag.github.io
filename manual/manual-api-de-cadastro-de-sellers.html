@@ -3966,8 +3966,10 @@ Para migração da versão 1.0 para a API de Onboarding Split 2.0, veja as instr
 <p>A Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do seller (<code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code>) e as informações de todos os status.</p>
 
 <blockquote>
-  <p>Quando o status de onboarding (<code class="language-plaintext highlighter-rouge">Data.OnboardingStatus</code>) apresentar o valor “2” significa que o seller já passou em todas as validações e está apto a transacionar;<br />
-Quando o status de onboarding apresentar o valor “3”, significa que o cadastro não foi bem sucedido em pelo menos uma validação e que o master precisa tomar alguma ação em relação a esse cadastro.</p>
+  <ul>
+    <li>Quando o status de onboarding (<code class="language-plaintext highlighter-rouge">Data.OnboardingStatus</code>) apresentar o valor “2” significa que o seller já passou em todas as validações e está apto a transacionar;<br /></li>
+    <li>Quando o status de onboarding apresentar o valor “3”, significa que o cadastro não foi bem sucedido em pelo menos uma validação e que o master precisa tomar alguma ação em relação a esse cadastro.</li>
+  </ul>
 </blockquote>
 
 <p>Confira todos os valores possíveis para o status de onboarding na tabela abaixo.</p>
