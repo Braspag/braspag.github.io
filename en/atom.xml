@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-01-24T13:17:49+00:00</updated>
+    <updated>2024-01-24T13:23:41+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -8221,7 +8221,7 @@ The Master must provide Subordinate information in order to use it during the On
 
 &lt;h2 id=&quot;what-is-3ds-20&quot;&gt;What is 3DS 2.0?&lt;/h2&gt;
 
-&lt;p&gt;In order to minimize the fraud rate without spoiling the conversion rate, the payment industry has developed a new authentication standard called &lt;strong&gt;EMV 3DS&lt;/strong&gt;, or also called &lt;strong&gt;3DS 2.0&lt;/strong&gt;. The new version is able to analyze dozens of variables that are used as criteria to determine if a shopper is in fact the cardholder, allowing in some cases the silent authentication of the cardholder (authentication without challenge), without harming the establishments’ &lt;em&gt;Liability Shift&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;In order to minimize the fraud rate without spoiling the conversion rate, the payment industry has developed an authentication standard called &lt;strong&gt;EMV 3DS&lt;/strong&gt;, or also called &lt;strong&gt;3DS 2.0&lt;/strong&gt;. The new version is able to analyze dozens of variables that are used as criteria to determine if a shopper is in fact the cardholder, allowing in some cases the silent authentication of the cardholder (authentication without challenge), without harming the establishments’ &lt;em&gt;Liability Shift&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Main Benefits:&lt;/p&gt;
 
