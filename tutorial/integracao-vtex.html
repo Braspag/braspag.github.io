@@ -119,7 +119,7 @@
             <div class="post">
     <h1 id="integração-vtex">Integração VTEX</h1>
 
-<p>A Cielo desenvolveu um conector na plataforma de e-commerce VTEX para realização do pagamento através das APIs de pagamento online da Cielo.  A usabilidade da plataforma deve ser consultada no <a href="https://help.vtex.com/tutorial/" target="_blank">tutorial da VTEX</a>.</p>
+<p>A Cielo desenvolveu um novo conector na plataforma de e-commerce VTEX para utilização dos meios de pagamento e recursos disponíveis através das APIs de pagamento online da Cielo.  A usabilidade da plataforma deve ser consultada no <a href="https://help.vtex.com/tutorial/" target="_blank">tutorial da VTEX</a>.</p>
 
 <h1 id="configuração">Configuração</h1>
 
@@ -131,95 +131,23 @@
 
 <h3 id="1-acessando-o-painel-vtex">1. Acessando o Painel VTEX</h3>
 
-<p>Acesse o painel <strong>ADMIN VTEX</strong> (https://<em>nomedaloja</em>.myvtex.com/admin) e comece a navegação por <strong>Transações</strong> &gt; <strong>Pagamentos</strong> &gt; <strong>Configurações</strong> &gt; <strong>Afiliações de gateways</strong> &gt; <strong>+</strong></p>
+<p>Acesse o painel <strong>ADMIN VTEX</strong> (https://<em>nomedaloja</em>.myvtex.com/admin) e comece a navegação por <strong>Configurações da loja</strong> &gt; <strong>Pagamentos</strong> &gt; <strong>Configurações</strong> &gt; <strong>Afiliações de gateways</strong> &gt; <strong>+</strong></p>
 
-<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/00-afiliacao.png" alt="Afiliação" /></p>
+<p><img src="https://braspag.github.io//images/modulos/vtex/00-afiliacao.png" alt="Afiliação" /></p>
 
 <h3 id="2-selecionando-o-conector">2. Selecionando o Conector</h3>
 
 <blockquote>
-  <p>Apenas o conector CieloEcommerce receberá manutenção e atualização. Não é recomendada a configuração com outros conectores. <a href="https://suporte.braspag.com.br/hc/pt-br/articles/18072079824155-Como-fazer-a-migra%C3%A7%C3%A3o-entre-conectores-VTEX-" target="_blank">Veja como migrar entre conectores</a>.</p>
+  <p>Apenas o conector CieloEcommerce receberá manutenção e atualização. Não será possível a configuração com outros conectores. <a href="https://suporte.braspag.com.br/hc/pt-br/articles/18072079824155-Como-fazer-a-migra%C3%A7%C3%A3o-entre-conectores-VTEX-" target="_blank">Veja como migrar entre conectores</a></p>
 </blockquote>
 
 <aside class="notice">O número do pedido que é exibido na tela do comprador é registrado na VTEX como informação "orderId" para o conector CieloEcommerce e como "reference" para o conector Braspag. Portanto, preste atenção ao migrar de um conector para o outro.</aside>
 
 <p>Selecione o conector <strong>CieloEcommerce</strong> e insira as informações conforme recebidas após a contratação da solução.</p>
 
-<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/01-cieloecommerce.jpeg" alt="CieloEcommerce" /></p>
+<p><img src="https://braspag.github.io//images/modulos/vtex/01-cieloecommerce.jpeg" alt="CieloEcommerce" /></p>
 
-<p>Veja as diferenças entre conectores legados e o novo conector <strong>CieloEcommerce</strong>:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Meios de Pagamento</th>
-      <th>Braspag</th>
-      <th>Braspag V2</th>
-      <th>Cielo V3</th>
-      <th>Cielo V4</th>
-      <th>CieloEcommerce</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Boleto</td>
-      <td><strong>Gateway</strong>:<br />- BancoDoBrasil2<br />- Bradesco2</td>
-      <td>Não se aplica</td>
-      <td><strong>Adquirência</strong>:<br />- BancoDoBrasil2<br />- Bradesco2</td>
-      <td>Não se aplica</td>
-      <td>Não se aplica</td>
-    </tr>
-    <tr>
-      <td>Boleto Registrado</td>
-      <td><strong>Gateway</strong>:<br />- BancoDoBrasil2<br />- Bradesco2</td>
-      <td>Não se aplica</td>
-      <td><strong>Adquirência</strong>:<br />- BancoDoBrasil2<br />- Bradesco2</td>
-      <td>Não se aplica</td>
-      <td><strong>Adquirência</strong>:<br />- Bradesco2<br />- BancoDoBrasil2<br />- BancoDoBrasil3<br /><strong>Gateway</strong>:<br />- Bradesco2<br />- BancoDoBrasil2<br />- BancoDoBrasil3<br />- Braspag<br /> - ItauShopline<br />- Caixa2 <br />- CitiBank2<br />- Santander2</td>
-    </tr>
-    <tr>
-      <td>Crédito</td>
-      <td><strong>Gateway</strong>:<br />- Banorte<br />- Redecard<br />- Ditef<br />- Amex 2P <br />- PagosOnLine<br />- PayVision<br />- Sitef<br />- GetNet<br />- Sub1 <br />- Credibanco<br />- E-rede2<br />- E-rede<br />- SafraPay</td>
-      <td><strong>Gateway</strong>:<br />- Cielo30<br />- Rede2</td>
-      <td><strong>Adquirência</strong>:<br /> - Cielo</td>
-      <td><strong>Adquirência</strong>:<br />- Cielo</td>
-      <td><strong>Adquirência</strong>:<br />- Cielo<br /> <strong>Gateway</strong>:<br />- Cielo30<br />- Getnet<br />- Rede2 <br />- Safra2<br />- Sub1<br />- Banorte<br />- Credibanco2<br />- FirstData<br />- GlobalPayment<br />- Stone<br />- Transbank2<br />- Banese* <br /> - BrasilCard* <br />- Carrefour* <br />- CredSystem* <br />- Credz* <br />- Dmcard*</td>
-    </tr>
-    <tr>
-      <td>Débito</td>
-      <td><strong>Gateway</strong>:<br />- Cielo3.0<br />- GetNet<br />- Rede2</td>
-      <td><strong>Gateway</strong>:<br />- Cielo3.0<br />- Rede2</td>
-      <td><strong>Gateway</strong>:<br />- Cielo</td>
-      <td><strong>Gateway</strong>:<br />- Cielo</td>
-      <td><strong>Adquirência</strong>:<br />- Cielo<br /><strong>Gateway</strong>:<br />- Cielo30<br />- FirstData<br />- Getnet<br />- GlobalPayment<br />- Rede2<br />- Safra2</td>
-    </tr>
-    <tr>
-      <td>Pix</td>
-      <td>Não se aplica</td>
-      <td>Não se aplica</td>
-      <td>Não se aplica</td>
-      <td>Não se aplica</td>
-      <td><strong>Adquirência</strong>:<br />- Bradesco2<br />- Cielo <br /><strong>Gateway</strong>:<br /> - Cielo30<br />- Bradesco2</td>
-    </tr>
-    <tr>
-      <td>Voucher</td>
-      <td>Não se aplica</td>
-      <td><strong>Gateway</strong>:<br />- Ticket</td>
-      <td><strong>Adquirência</strong>:<br />- Alelo</td>
-      <td>Não se aplica</td>
-      <td><strong>Adquirência</strong>:<br /> - Alelo<br /><strong>Gateway</strong>:<br />- Ticket<br />- Alelo</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>*Bandeira própria</p>
-
-<blockquote>
-  <ul>
-    <li>A solução <strong>Antifraude Braspag</strong> é oferecida por todos os conectores.<br /></li>
-    <li>As soluções <strong>3DS 2.0</strong> e <strong>Split de Pagamentos</strong> são oferecidas apenas pelo conector CieloEcommerce.</li>
-  </ul>
-</blockquote>
+<p><a href="https://developercielo.github.io/manual/integracao-vtex#diferen%C3%A7as-entre-os-conectores-descontinuados-e-o-atual">Veja as diferenças entre conectores legados e o novo conector <strong>CieloEcommerce</strong></a>.</p>
 
 <h3 id="3-escolhendo-o-nome-da-afiliação">3. Escolhendo o Nome da Afiliação</h3>
 
@@ -229,7 +157,7 @@
   <p>É preciso configurar o mesmo conector com cada tipo de pagamento desejado, por isso preste atenção ao Nome da Afiliação utilizado. Sugerimos incluir no nome o provedor e meio de pagamento configurado, para facilitar o reconhecimento. Veja o exemplo:</p>
 </blockquote>
 
-<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/02-nome-afiliacao-ticket.jpeg" alt="Nome da Afiliação" /></p>
+<p><img src="https://braspag.github.io//images/modulos/vtex/02-nome-afiliacao-alelo.png" alt="Nome da Afiliação" /></p>
 
 <h4 id="exemplos-de-nome-da-afiliação">Exemplos de Nome da Afiliação</h4>
 
@@ -242,8 +170,8 @@
   </thead>
   <tbody>
     <tr>
-      <td>CieloEcommerce - Ticket</td>
-      <td>Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Ticket como o provider.</td>
+      <td>CieloEcommerce - Alelo</td>
+      <td>Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Alelo como o provider.</td>
     </tr>
     <tr>
       <td>CieloEcommerce - Cielo30 c/ 3DS c/ SPLIT</td>
@@ -254,10 +182,14 @@
 
 <h3 id="4-preenchendo-dados-necessários">4. Preenchendo Dados Necessários</h3>
 
-<p>Preencha os campos com os dados requisitados. A imagem a seguir é um <strong>exemplo</strong> do preenchimento para o conector <strong>CieloEcommerce</strong>; consulte a tabela <a href="https://braspag.github.io//tutorial/integracao-vtex#dados-da-afilia%C3%A7%C3%A3o">Dados da Afiliação</a> para verificar quais são os campos correspondentes ao conector desejado.</p>
+<p>Preencha os campos com os dados requisitados. A imagem a seguir é um <strong>exemplo</strong> do preenchimento para o conector <strong>CieloEcommerce</strong>; consulte a tabela <a href="https://developercielo.github.io/manual/integracao-vtex#dados-da-afilia%C3%A7%C3%A3o">Dados da Afiliação</a> para verificar quais são os campos correspondentes ao conector desejado.</p>
 
-<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/03a-dados.jpg" alt="1Dados Afiliação" />
-<img src="https://braspag.github.io//images/braspag/pagador/vtex/03b-dados.jpg" alt="2Dados Afiliação" /></p>
+<blockquote>
+  <p>Se o seu contrato é para vários provedores, sua integração será <strong>Gateway</strong>. Caso o seu contrato seja somente com a Cielo, sua integração é <strong>Cielo</strong>.</p>
+</blockquote>
+
+<p><img src="https://braspag.github.io//images/modulos/vtex/03a-dados.png" alt="1Dados Afiliação" />
+<img src="https://braspag.github.io//images/modulos/vtex/03b-dados.png" alt="2Dados Afiliação" /></p>
 
 <h4 id="dados-da-afiliação">Dados da Afiliação</h4>
 
@@ -266,108 +198,115 @@
     <tr>
       <th>Campo</th>
       <th>Descrição</th>
-      <th>Conector</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>Nome da Afiliação</strong></td>
       <td>Insira nome identificador da afiliação.</td>
-      <td>Todos.</td>
     </tr>
     <tr>
       <td><strong>Application Key</strong></td>
       <td>Insira o MerchantID.</td>
-      <td>Todos.</td>
     </tr>
     <tr>
       <td><strong>Application Token</strong></td>
       <td>Insira o MerchantKey.</td>
-      <td>Todos.</td>
     </tr>
     <tr>
       <td><strong>Integration</strong></td>
-      <td>Selecione <strong>Adquirência</strong> se o seu contrato é somente com a adquirência Cielo. <br />Selecione <strong>Gateway</strong> se o seu contrato é para utilização de outros provedores.</td>
-      <td>CieloEcommerce</td>
+      <td>Selecione <strong>Adquirência</strong> se o seu contrato é <strong>somente</strong> com a adquirência Cielo. <br />Selecione <strong>Gateway</strong> se o seu contrato é para utilização de <strong>outros provedores</strong>.</td>
     </tr>
     <tr>
       <td><strong>Provider</strong></td>
       <td>Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br />Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br />O provedor <strong>Simulado</strong> deve ser utilizado para transaçãoes de teste.<br />O provedor <strong>Cielo</strong> deve ser configurado para Integração <strong>Adquirência</strong>. <br />O provedor <strong>Cielo30</strong> deve ser configurado para Integração <strong>Gateway</strong>.</td>
-      <td>Todos.<br />Obs. 1: Braspag e CieloV3 possuem o provedor listado em cada tipo de pagamento.<br />Obs. 2: Cada conector possui uma lista de provedores aptos para seleção.</td>
     </tr>
     <tr>
       <td><strong>UseSPLIT</strong></td>
       <td>Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento crédito, débito e boleto.</td>
-      <td>BraspagV2, CieloEcommerce e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>UseMPI</strong></td>
       <td>Insira “Sim” ou “Não” se deseja utilizar a <strong>Autenticação 3DS 2.0</strong>. Este campo é <strong>obrigatório para o tipo de pagamento débito</strong>.</td>
-      <td>BraspagV2, CieloEcommerce e CieloV4.</td>
     </tr>
     <tr>
       <td><strong>MpiClientId</strong></td>
-      <td>ID do MPI, disponibilizado para o cliente pela Cielo. <em>Campo relacionado à autenticação 3DS</em>**.</td>
-      <td>BraspagV2, CieloEcommerce e CieloV4.</td>
+      <td>ID do MPI, disponibilizado para o cliente pela Cielo. *Campo relacionado à autenticação 3DS**.</td>
     </tr>
     <tr>
       <td><strong>MpiClientSecret</strong></td>
-      <td>Chave secreta do MPI, disponibilizada para o cliente pela Cielo. <em>Campo relacionado à autenticação 3DS</em>**.</td>
-      <td>BraspagV2, CieloEcommerce e CieloV4.</td>
+      <td>Chave secreta do MPI, disponibilizada para o cliente pela Cielo. *Campo relacionado à autenticação 3DS**.</td>
     </tr>
     <tr>
       <td><strong>MpiMerchantName</strong></td>
-      <td>Nome da loja, disponibilizado pela Cielo. <em>Campo relacionado à autenticação 3DS</em>**.</td>
-      <td>BraspagV2, CieloEcommerce e CieloV4.</td>
+      <td>Nome da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS**.</td>
     </tr>
     <tr>
       <td><strong>MpiMCC</strong></td>
-      <td>Merchant Category Code da loja, disponibilizado pela Cielo. <em>Campo relacionado à autenticação 3DS</em>**.</td>
-      <td>BraspagV2, CieloEcommerce e CieloV4.</td>
+      <td>Merchant Category Code da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS**.</td>
     </tr>
     <tr>
       <td><strong>MpiEstablishmentCode</strong></td>
-      <td>Código de estabelecimento da loja, disponibilizado pela Cielo. <em>Campo relacionado à autenticação 3DS</em>**.</td>
-      <td>BraspagV2, CieloEcommerce e CieloV4.</td>
+      <td>Código de estabelecimento da loja, disponibilizado pela Cielo. *Campo relacionado à autenticação 3DS**.</td>
     </tr>
     <tr>
       <td><strong>SoftDescriptor</strong></td>
       <td>Valor que será concatenado com o valor de cadastro na adquirente para identificação na fatura. Permite no máximo 13 caracteres.</td>
-      <td>CieloEcommerce.</td>
+    </tr>
+    <tr>
+      <td><strong>AntifraudProvider</strong></td>
+      <td>Selecionar o provedor de Antifraude escolhido, caso tenha contratado o serviço.</td>
+    </tr>
+    <tr>
+      <td><strong>Antifraud</strong></td>
+      <td>Selecionar o fluxo utilizado pelo serviço de antifraude, podendo optar pelo fluxo de análise antes da transação ser autorizada, <strong>AnalyseFirst</strong>, ou após a autorização, <strong>AuthorizeFirst</strong>.</td>
+    </tr>
+    <tr>
+      <td><strong>AntifraudSequenceCriteria</strong></td>
+      <td>Selecionar a sequência do fluxo de antifraude de acordo com a escolha da análise:<br />- Caso o fluxo escolhido tenha sido <strong>AuthorizeFirst</strong>, o lojista pode optar por sequenciar sempre, <strong>Always</strong> ou somente em casos de sucesso, <strong>On Success</strong>.<br />- Caso o fluxo escolhido tenha sido <strong>AnalyseFirst</strong>, a sequência sempre será <strong>Always</strong>.</td>
     </tr>
     <tr>
       <td><strong>Captura</strong></td>
       <td>Tempo em horas em que será enviada a solicitação de captura. Em <strong>Padrão</strong> ou <strong>Desativado</strong>, a captura será será realizada 4 dias após a autorização. Em <strong>Imediatamente</strong> a captura será realizada imeadiatamente após a autorização. Não configura Capture = ‘True’.</td>
-      <td>Braspag, CieloV3 e CieloEcommerce.</td>
     </tr>
     <tr>
-      <td><strong>Alterar tempo máximo para captura automática</strong></td>
-      <td>Tempo (em dias) em que a capatura deve ser solicitada.</td>
-      <td>Braspag e CieloV3.</td>
+      <td><strong>UseVerifyCard</strong></td>
+      <td>Selecionar caso haja interesse em utilizar o serviço de [VerifyCard].</td>
+    </tr>
+    <tr>
+      <td><strong>AcceptInternationalCard</strong></td>
+      <td>Selecionar se a loja aceitará cartões internacionais.</td>
+    </tr>
+    <tr>
+      <td><strong>AcceptPrepaidCard</strong></td>
+      <td>Seleciona se a loja aceitará cartões pré-pagos.</td>
+    </tr>
+    <tr>
+      <td><strong>SaveCard</strong></td>
+      <td>Selecionar caso a loja queira disponibilizar a opção de salvar cartão para futuras compras. É necessária adesão ao [Cartão Protegido]</td>
+    </tr>
+    <tr>
+      <td><strong>CancelRefundType</strong></td>
+      <td>Permite que o lojista escolha o fluxo de cancelamento/estorno de pedidos:<br />- <strong>Automático sempre que possível</strong>: autoriza o cancelamento e estorno de forma automática (fluxo padrão);<br />- <strong>Manual de acordo com a loja (notificação por e-mail)</strong>: todos os pedidos de cancelamento e estorno não são autorizados de forma automática e o lojista é notificado via e-mail.</td>
     </tr>
     <tr>
       <td><strong>Ativar Divisão e tempos de captura</strong></td>
       <td>Selecione <strong>Sim</strong> se for ativar divisão entre Marketplace e Seller. Selecione <strong>Não</strong> se não possuir divisão entre Marketplace e Seller.</td>
-      <td>BraspagV2, CieloEcommerce e CieloV4</td>
     </tr>
     <tr>
       <td><strong>Responsabilidade pelas tarifas de pagamento. Essa configuração será enviada para o seu processador de pagamentos</strong></td>
       <td>Selecione <strong>Marketplace</strong>, <strong>Marketplace + Sellers</strong> ou <strong>Sellers</strong>. Só será exibido se <strong>Ativar Divisão</strong> estiver preenchido com “Sim”.</td>
-      <td>BraspagV2, CieloEcommerce e CieloV4</td>
     </tr>
     <tr>
       <td><strong>Responsabilidade pelos estornos. Essa configuração será enviada para o seu processador de pagamentos</strong></td>
       <td>Selecione <strong>Marketplace</strong> ou <strong>Marketplace + Sellers</strong> ou <strong>Sellers</strong>. Só será exibido se <strong>Ativar Divisão</strong> estiver preenchido com “Sim”.</td>
-      <td>BraspagV2, CieloEcommerce e CieloV4</td>
     </tr>
   </tbody>
 </table>
 
-<ul>
-  <li>O preenchimento dos campos relacionados ao MPI é opcional; você pode escolher preencher os dados de MPI e deixar a opção <strong>UseMpi</strong> desativada (“No”) e, mais tarde, caso deseje ativar o 3DS para esta afiliação, apenas altere a opção <strong>UseMpi</strong> para “Yes”.</li>
-</ul>
+<p>*O preenchimento dos campos relacionados ao MPI é opcional; você pode escolher preencher os dados de MPI e deixar a opção <strong>UseMpi</strong> desativada (“No”) e, mais tarde, caso deseje ativar o 3DS para esta afiliação, apenas altere a opção <strong>UseMpi</strong> para “Yes”.</p>
 
-<p>Após salvar o conector, ele irá aparecer na lista <strong>Processar com afiliação</strong> da tela de configuração da <strong>Condição de Pagamento</strong>. </p>
+<p>Após salvar o conector, ele irá aparecer na lista <strong>Processar com afiliação</strong> da tela de configuração da <strong>Condição de Pagamento</strong>.</p>
 
 <h2 id="condição-de-pagamento">Condição de Pagamento</h2>
 
@@ -375,13 +314,13 @@
 
 <p>Acesse <strong>Transações</strong> &gt; <strong>Configurações</strong> &gt; <strong>Condições de Pagamento</strong> &gt; <strong>+</strong></p>
 
-<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/04-condicao.jpeg" alt="Condições de pagamento" /></p>
+<p><img src="https://braspag.github.io//images/modulos/vtex/04-condicao.jpeg" alt="Condições de pagamento" /></p>
 
 <h3 id="2-configurando-o-tipo-de-pagamento">2. Configurando o Tipo de Pagamento</h3>
 
 <p>Selecione o tipo de pagamento que deseja configurar e insira as informações necessárias:</p>
 
-<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/05-nome-condicao.jpeg" alt="Nome Condição" /></p>
+<p><img src="https://braspag.github.io//images/modulos/vtex/05-nome-condicao.jpeg" alt="Nome Condição" /></p>
 
 <table>
   <thead>
@@ -431,6 +370,10 @@
 
 <p>Após essas duas etapas concluídas com todas as condições de pagamento criadas, as opções de pagamento serão exibidas na tela de checkout da loja.</p>
 
+<aside class="notice">A VTEX  agenda a solicitação de captura para 4 dias após a autorização para o tipo de pagamento ‘Crédito’, quando não há configuração do tempo de captura.</aside>
+
+<aside class="notice">A VTEX possui apenas cadastramento de seller do tipo pessoa ‘Jurídica’.</aside>
+
 <h2 id="meios-de-pagamento">Meios de Pagamento</h2>
 
 <h3 id="boleto">Boleto</h3>
@@ -455,7 +398,7 @@
 
 <h3 id="voucher">Voucher</h3>
 
-<p>Este meio de pagamento deve seguir a seção de <a href="https://braspag.github.io//tutorial/integracao-vtex#pagamentos-customizados">Pagamentos Customizados</a> para que a opção seja exibida na Condição de Pagamento. Posteriormente, selecione a Condição de Pagamento desejada e configure conforme o passo a passo em <a href="https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento">Condição de Pagamento</a>.</p>
+<p>Este meio de pagamento deve seguir a seção de <a href="https://braspag.github.io//tutorial/integracao-vtex#pagamentos-customizados">Pagamentos Customizados</a> para que a opção seja exibida na Condição de Pagamento. Posteriormente, selecione a Condição de Pagamento com o nome escolhido anteriormente e configure conforme o passo a passo em <a href="https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento">Condição de Pagamento</a>.</p>
 
 <h2 id="pagamentos-customizados">Pagamentos Customizados</h2>
 
@@ -463,8 +406,8 @@
 
 <p>Nesta seção configure os dados para Private Label, Ticket e Alelo:</p>
 
-<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/06a-pagamento-customizado.jpg" alt="1Pagamento Customizado" />
-<img src="https://braspag.github.io//images/braspag/pagador/vtex/06b-pagamento-customizado.jpg" alt="2Pagamento Customizado" /></p>
+<p><img src="https://braspag.github.io//images/modulos/vtex/06a-pagamento-customizado.jpg" alt="1Pagamento Customizado" />
+<img src="https://braspag.github.io//images/modulos/vtex/06b-pagamento-customizado.jpg" alt="2Pagamento Customizado" /></p>
 
 <table>
   <thead>
@@ -476,11 +419,11 @@
   <tbody>
     <tr>
       <td><strong>Name</strong></td>
-      <td><strong>Valores Possíveis:</strong> <br />Banese<br />BrasilCard<br />Carrefour<br />Credz<br />CredSystem<br />DMCard<br />Ticket</td>
+      <td><strong>Valores Possíveis:</strong> <br />Carrefour<br />Credz<br />CredSystem<br />DMCard<br />Ticket</td>
     </tr>
     <tr>
       <td><strong>Descrição</strong></td>
-      <td><strong>Valores Possíveis:</strong> <br />banese<br />BrasilCard<br />Carrefour<br />Credz<br />CredSystem<br />DMCard<br />Ticket</td>
+      <td><strong>Valores Possíveis:</strong> <br />Carrefour<br />Credz<br />CredSystem<br />DMCard<br />Ticket</td>
     </tr>
     <tr>
       <td><strong>Intervalos de BIN</strong></td>
@@ -488,7 +431,7 @@
     </tr>
     <tr>
       <td><strong>Código de pagamento do adquirente</strong></td>
-      <td><strong>Valores Possíveis:</strong> <br />577<br />621<br />580<br />565<br />550<br />564<br />634</td>
+      <td><strong>Valores Possíveis:</strong> <br />580<br />565<br />550<br />564<br />634</td>
     </tr>
     <tr>
       <td><strong>Usar nome do titular do cartão</strong></td>
@@ -535,10 +478,10 @@
 
 <p>Ao concluir a instalação, verifique se o aplicativo aparece em <strong>Aplicativos</strong> &gt; <strong>Meus Aplicativos</strong>:</p>
 
-<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/09-3ds.png" alt="3DS" /></p>
+<p><img src="https://braspag.github.io//images/modulos/vtex/09-3ds.png" alt="3DS" /></p>
 
 <blockquote>
-  <p>Caso não use a solução 3DS, selecione o campo <strong>UseMpi</strong> como “No” em <a href="https://braspag.github.io//tutorial/integracao-vtex#4.-preenchendo-dados-necess%C3%A1rios">Preenchendo os Dados Necessário</a>.</p>
+  <p>Caso não use a solução 3DS, selecione o campo <strong>UseMpi</strong> como “No” em <a href="https://braspag.github.io//tutorial/integracao-vtex#4.-preenchendo-dados-necess%C3%A1rios">Preenchendo os Dados Necessários</a>.</p>
 </blockquote>
 
 <h2 id="split-de-pagamentos">Split de Pagamentos</h2>
@@ -553,8 +496,8 @@
 
 <p>Para fazer o cadastro de um seller, acesse <strong>Marketplace</strong> &gt; <strong>Sellers</strong> &gt; <strong>Gerenciamento</strong>:</p>
 
-<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/07a-split.jpg" alt="Split1" />
-<img src="https://braspag.github.io//images/braspag/pagador/vtex/07b-split.jpg" alt="Split2" /></p>
+<p><img src="https://braspag.github.io//images/modulos/vtex/07a-split.jpg" alt="Split1" />
+<img src="https://braspag.github.io//images/modulos/vtex/07b-split.jpg" alt="Split2" /></p>
 
 <h2 id="antifraude">Antifraude</h2>
 
@@ -564,7 +507,7 @@
 
 <p>Selecione o conector <strong>Braspag</strong> (Soluções Antifraude) e insira as informações conforme recebidas após a contratação das soluções desejadas.</p>
 
-<p><img src="https://braspag.github.io//images/braspag/pagador/vtex/08-antifraude.jpg" alt="Antifraude" /></p>
+<p><img src="https://braspag.github.io//images/modulos/vtex/08-antifraude.jpg" alt="Antifraude" /></p>
 
 <table>
   <thead>
@@ -600,6 +543,26 @@
     </tr>
   </tbody>
 </table>
+
+<h2 id="verifycard">VerifyCard</h2>
+
+<aside class="warning">Essa funcionalidade está em homologação e não deve ser preenchida no momento.</aside>
+
+<p>O <strong>VerifyCard</strong> é composto por dois serviços: <strong>Zero Auth</strong> e <strong>Consulta BIN</strong>.</p>
+
+<h3 id="zero-auth">Zero Auth</h3>
+
+<p>Antes de enviar um pagamento para autorização junto ao banco emissor, o serviço verifica se o cartão é válido ou não, sem comprometer nenhum valor na futura do seu cliente.</p>
+
+<h3 id="consulta-bin">Consulta BIN</h3>
+
+<p>Com a Consulta BIN, você consegue validar os cartões preenchidos pelo cliente no momento da compra, como: bandeira, banco, tipo do cartão, se é cartão estrangeiro, se é pessoa jurídica com física. Assim, você pode decidir seguir com a venda ou não.</p>
+
+<h2 id="cartão-protegido">Cartão Protegido</h2>
+
+<aside class="warning">Essa funcionalidade está em homologação e não deve ser preenchida no momento.</aside>
+
+<p>O <strong>Cartão Protegido</strong> é uma plataforma que permite o armazenamento seguro de cartões de crédito e débito. Contamos com ambiente totalmente certificado pelo respeitado conselho de padrão de segurança <em>PCI Security Standards Council</em>.</p>
 
 <h1 id="anexos">Anexos</h1>
 
@@ -679,6 +642,80 @@
     </tr>
   </tbody>
 </table>
+
+<h2 id="diferenças-entre-os-conectores-descontinuados-e-o-atual">Diferenças entre os conectores descontinuados e o atual</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Meios de Pagamento</th>
+      <th>Braspag</th>
+      <th>Braspag V2</th>
+      <th>Cielo V3</th>
+      <th>Cielo V4</th>
+      <th>CieloEcommerce</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Boleto</td>
+      <td><strong>Gateway</strong>:<br />- BancoDoBrasil2<br />- Bradesco2</td>
+      <td>Não se aplica</td>
+      <td><strong>Adquirência</strong>:<br />- BancoDoBrasil2<br />- Bradesco2</td>
+      <td>Não se aplica</td>
+      <td>Não se aplica</td>
+    </tr>
+    <tr>
+      <td>Boleto Registrado</td>
+      <td><strong>Gateway</strong>:<br />- BancoDoBrasil2<br />- Bradesco2</td>
+      <td>Não se aplica</td>
+      <td><strong>Adquirência</strong>:<br />- BancoDoBrasil2<br />- Bradesco2</td>
+      <td>Não se aplica</td>
+      <td><strong>Adquirência</strong>:<br />- Bradesco2<br />- BancoDoBrasil2<br />- BancoDoBrasil3<br /><strong>Gateway</strong>:<br />- Bradesco2<br />- BancoDoBrasil2<br />- BancoDoBrasil3<br />- Braspag<br /> - ItauShopline<br />- Caixa2 <br />- CitiBank2<br />- Santander2</td>
+    </tr>
+    <tr>
+      <td>Crédito</td>
+      <td><strong>Gateway</strong>:<br />- Banorte<br />- Redecard<br />- Ditef<br />- Amex 2P <br />- PagosOnLine<br />- PayVision<br />- Sitef<br />- GetNet <br />- Credibanco<br />- E-rede2<br />- E-rede<br />- SafraPay</td>
+      <td><strong>Gateway</strong>:<br />- Cielo30<br />- Rede2</td>
+      <td><strong>Adquirência</strong>:<br /> - Cielo</td>
+      <td><strong>Adquirência</strong>:<br />- Cielo</td>
+      <td><strong>Adquirência</strong>:<br />- Cielo<br /> <strong>Gateway</strong>:<br />- Cielo30<br />- Getnet<br />- Rede2 <br />- Safra2<br />- Banorte<br />- Credibanco2<br />- FirstData<br />- GlobalPayment<br />- Stone<br />- Transbank2<br />- Banese* <br /> - BrasilCard* <br />- Carrefour* <br />- CredSystem* <br />- Credz* <br />- Dmcard*</td>
+    </tr>
+    <tr>
+      <td>Débito</td>
+      <td><strong>Gateway</strong>:<br />- Cielo3.0<br />- GetNet<br />- Rede2</td>
+      <td><strong>Gateway</strong>:<br />- Cielo3.0<br />- Rede2</td>
+      <td><strong>Gateway</strong>:<br />- Cielo</td>
+      <td><strong>Gateway</strong>:<br />- Cielo</td>
+      <td><strong>Adquirência</strong>:<br />- Cielo<br /><strong>Gateway</strong>:<br />- Cielo30<br />- FirstData<br />- Getnet<br />- GlobalPayment<br />- Rede2<br />- Safra2</td>
+    </tr>
+    <tr>
+      <td>Pix</td>
+      <td>Não se aplica</td>
+      <td>Não se aplica</td>
+      <td>Não se aplica</td>
+      <td>Não se aplica</td>
+      <td><strong>Adquirência</strong>:<br />- Bradesco2<br />- Cielo <br /><strong>Gateway</strong>:<br /> - Cielo30<br />- Bradesco2</td>
+    </tr>
+    <tr>
+      <td>Voucher</td>
+      <td>Não se aplica</td>
+      <td><strong>Gateway</strong>:<br />- Ticket</td>
+      <td><strong>Adquirência</strong>:<br />- Alelo</td>
+      <td>Não se aplica</td>
+      <td><strong>Adquirência</strong>:<br /> - Alelo<br /><strong>Gateway</strong>:<br />- Ticket<br />- Alelo</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Bandeira própria</p>
+
+<blockquote>
+  <ul>
+    <li>A solução <strong>Antifraude Braspag</strong> é oferecida por todos os conectores.<br /></li>
+    <li>As soluções <strong>3DS 2.0</strong> e <strong>Split de Pagamentos</strong> são oferecidas apenas pelo conector CieloEcommerce.</li>
+  </ul>
+</blockquote>
 
 </div>
 
