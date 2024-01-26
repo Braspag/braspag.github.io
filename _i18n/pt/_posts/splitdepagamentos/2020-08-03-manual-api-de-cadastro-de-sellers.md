@@ -1663,7 +1663,7 @@ Quando houver alteração no status da análise de KYC, a Braspag enviará uma n
 
 ## Notificação de validação de domicílio bancário
 
-Quando houver alteração no status da validação de domicílio bancário, a Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do seller(MerchantId) e os dados do domicílio bancário.
+Quando houver alteração no status da validação de domicílio bancário, a Braspag enviará uma notificação com os parâmetros do tipo de notificação, identificação do seller (MerchantId) e os dados do domicílio bancário.
 
 **Exemplo de notificação de domicílio bancário enviada pela Braspag**:
 
