@@ -27,7 +27,7 @@ Para mais informações, visite os artigos de suporte da VTEX: [Cadastrar afilia
 
 Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece a navegação por **Configurações da loja** > **Pagamentos** > **Configurações** > **Afiliações de gateways** > **+**
 
-![Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/00-afiliacao.png)
+![Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/00-afiliacao.png)
 
 ### 2. Selecionando o Conector
 
@@ -47,7 +47,7 @@ Insira o Nome da Afiliação:
 
 > É preciso configurar o mesmo conector com cada tipo de pagamento desejado, por isso preste atenção ao Nome da Afiliação utilizado. Sugerimos incluir no nome o provedor e meio de pagamento configurado, para facilitar o reconhecimento. Veja o exemplo:
 
-![Nome da Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/02-nome-afiliacao-alelo.png)
+![Nome da Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/02-nome-afiliacao-alelo.png)
 
 #### Exemplos de Nome da Afiliação
 
@@ -62,8 +62,8 @@ Preencha os campos com os dados requisitados. A imagem a seguir é um **exemplo*
 
 > Se o seu contrato é para vários provedores, sua integração será **Gateway**. Caso o seu contrato seja somente com a Cielo, sua integração é **Cielo**.
 
-![1Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03a-dados.png)
-![2Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03b-dados.png)
+![1Dados Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/03a-dados.png)
+![2Dados Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/03b-dados.png)
 
 #### Dados da Afiliação
 
