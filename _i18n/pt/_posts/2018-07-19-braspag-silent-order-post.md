@@ -251,8 +251,9 @@ Os parâmetros do script devem ser inseridos no HTML da página de checkout para
 
 <aside class="notice">Para habilitar a Consulta BIN, VerifyCard ou o Cartão Protegido, entre em contato com o Suporte.</aside>
 
-> **Usando o Silent Order Post com o Cartão Protegido**
-> O Cartão Protegido é o serviço de armazenamento de cartões criptografados da Braspag. Você pode usar o **Silent Order Post** para trafegar os dados de cartão pela Braspag e o **Cartão protegido** para armazenar o cartão de forma segura e criptografada na Braspag, que conta com a certificação PCI DSS.
+> **Usando o Silent Order Post com o Cartão Protegido**<br>
+> O Cartão Protegido é o serviço de armazenamento de cartões criptografados da Braspag. Você pode usar o **Silent Order Post** para trafegar os dados de cartão pela Braspag e o **Cartão protegido** para armazenar o cartão de forma segura e criptografada na Braspag, que conta com a certificação PCI DSS.<br>
+> <br>
 > Saiba mais no manual do [Cartão Protegido](https://braspag.github.io//manual/cartao-protegido-api-rest){:target="_blank"}.
 
 #### Retornos do script
