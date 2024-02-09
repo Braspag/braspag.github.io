@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-02-09T17:03:37+00:00</updated>
+    <updated>2024-02-09T17:09:35+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -5485,6 +5485,15 @@ For more details on implementation, please visit: &lt;a href=&quot;https://brasp
       &lt;td&gt;Device Finger Print Provider Name&lt;/td&gt;
       &lt;td&gt;Alphanumeric [up to 32 positions] cardinal&lt;br /&gt;inauth&lt;br /&gt;threatmetrix&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Device&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bpmpi_device_#_channel&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Channel from which the transaction came from. Possible values:&lt;br /&gt;-Browser&lt;br /&gt;-SDK&lt;br /&gt;-3RI&lt;/td&gt;
+      &lt;td&gt;Alphanumeric [up to 7 positions]&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
