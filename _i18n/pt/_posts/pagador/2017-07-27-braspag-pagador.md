@@ -75,7 +75,7 @@ Realizados os testes, disponibilize sua solução em ambiente de produção.
 
 |Informação|Descrição|
 |---|---|
-|Credenciais de acesso|`MerchantId` e `MerchantKey` fornecidos pela Braspag. Envie um email para *comercial@braspag.com.br* para mais informações.|
+|Credenciais de acesso|`MerchantId` e `MerchantKey` fornecidos pela Braspag. Para mais informações, entre em contato com o Suporte Braspag.|
 |Base da URL transacional|https://api.braspag.com.br/|
 |Base da URL para consultas|https://apiquery.braspag.com.br/|
 
