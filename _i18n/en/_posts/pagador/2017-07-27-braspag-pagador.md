@@ -84,7 +84,7 @@ Once you are done running your tests and ready for *go-live*, you can implement 
 
 |Information|Description|
 |---|---|
-|Access credentials|`MerchantId` and `MerchantKey` provided by Braspag. Send us an email (*comercial@braspag.com.br*) for more information.|
+|Access credentials|`MerchantId` and `MerchantKey` provided by Braspag. If you need more information, please contact [Braspag Suppport Service](https://braspag.github.io//en/manual/braspag-pagador#braspag-support-service).|
 |Base URL for transactions|https://api.braspag.com.br/|
 |Base URL for query services|https://apiquery.braspag.com.br/|
 
