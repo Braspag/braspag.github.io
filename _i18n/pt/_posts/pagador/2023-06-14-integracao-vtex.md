@@ -104,13 +104,13 @@ Após salvar o conector, ele irá aparecer na lista **Processar com afiliação*
 
 Acesse **Transações** > **Configurações** > **Condições de Pagamento** > **+**
 
-![Condições de pagamento]({{ site.baseurl_root }}/images/modulos/vtex/04-condicao.jpeg)
+![Condições de pagamento]({{ site.baseurl_root }}/images/braspag/pagador/vtex/04-condicao.jpeg)
 
 ### 2. Configurando o Tipo de Pagamento
 
 Selecione o tipo de pagamento que deseja configurar e insira as informações necessárias:
 
-![Nome Condição]({{ site.baseurl_root }}/images/modulos/vtex/05-nome-condicao.jpeg)
+![Nome Condição]({{ site.baseurl_root }}/images/braspag/pagador/vtex/05-nome-condicao.jpeg)
  
 |Campo|Descrição|
 |-|-|
@@ -163,8 +163,8 @@ Para configurar pagamentos customizados, acesse **Transações** > **Configuraç
 
 Nesta seção configure os dados para Private Label, Ticket e Alelo:
 
-![1Pagamento Customizado]({{ site.baseurl_root }}/images/modulos/vtex/06a-pagamento-customizado.jpg)
-![2Pagamento Customizado]({{ site.baseurl_root }}/images/modulos/vtex/06b-pagamento-customizado.jpg)
+![1Pagamento Customizado]({{ site.baseurl_root }}/images/braspag/pagador/vtex/06a-pagamento-customizado.jpg)
+![2Pagamento Customizado]({{ site.baseurl_root }}/images/braspag/pagador/vtex/06b-pagamento-customizado.jpg)
 
 |Campo|Descrição|
 |-|-|
@@ -191,7 +191,7 @@ Para utilizar esta solução, é necessário instalar o aplicativo 3DS. Com o us
 
 Ao concluir a instalação, verifique se o aplicativo aparece em **Aplicativos** > **Meus Aplicativos**:
 
-![3DS]({{ site.baseurl_root }}/images/modulos/vtex/09-3ds.png)
+![3DS]({{ site.baseurl_root }}/images/braspag/pagador/vtex/09-3ds.png)
 
 > Caso não use a solução 3DS, selecione o campo **UseMpi** como "No" em [Preenchendo os Dados Necessários](https://braspag.github.io//tutorial/integracao-vtex#4.-preenchendo-dados-necess%C3%A1rios).
 
@@ -205,8 +205,8 @@ Para que o Split seja utilizado corretamente, os sellers de um marketplace devem
 
 Para fazer o cadastro de um seller, acesse **Marketplace** > **Sellers** > **Gerenciamento**:
 
-![Split1]({{ site.baseurl_root }}/images/modulos/vtex/07a-split.jpg)
-![Split2]({{ site.baseurl_root }}/images/modulos/vtex/07b-split.jpg)
+![Split1]({{ site.baseurl_root }}/images/braspag/pagador/vtex/07a-split.jpg)
+![Split2]({{ site.baseurl_root }}/images/braspag/pagador/vtex/07b-split.jpg)
 
 ## Antifraude
 
@@ -216,7 +216,7 @@ Para configurar, acesse **Transações** > **Configurações** > **Afiliações 
 
 Selecione o conector **Braspag** (Soluções Antifraude) e insira as informações conforme recebidas após a contratação das soluções desejadas.
 
-![Antifraude]({{ site.baseurl_root }}/images/modulos/vtex/08-antifraude.jpg)
+![Antifraude]({{ site.baseurl_root }}/images/braspag/pagador/vtex/08-antifraude.jpg)
 
 |Campo|Descrição|
 |-|-|
