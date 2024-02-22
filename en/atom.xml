@@ -5,7 +5,7 @@
     <link href="https://braspag.github.io//en/"/>
     <logo>https://braspag.github.io//en/assets/images/logo.png</logo>
     <icon>https://braspag.github.io//en/assets/favicon.ico</icon>
-    <updated>2024-02-22T14:05:10+00:00</updated>
+    <updated>2024-02-22T15:29:59+00:00</updated>
     <id>https://braspag.github.io//en/</id>
     <author>
         <name>Aasita Muralikrishna</name>
@@ -11984,59 +11984,80 @@ Each request operation will return an &lt;a href=&quot;https://braspag.github.io
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.Mcc&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s MCC.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s MCC.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30, Rede2 or PagSeguro.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.Address&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s address.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s address.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30, Rede2 or PagSeguro.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.City&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s city.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s city.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30, Rede2 or PagSeguro.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.State&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s state.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s state.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30, Rede2 or PagSeguro.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.PostalCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s postal code.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s postal code.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30, Rede2 or PagSeguro.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.PhoneNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s telephone number.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s telephone number.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30, Rede2 or PagSeguro.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.Identity&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s CNPJ or CPF.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s CNPJ or CPF.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30, Rede2 or PagSeguro.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.CountryCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Sub-merchant’s country code based on ISO 3166.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30 or Rede2.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s country code based on ISO 3166.&lt;br /&gt;&lt;strong&gt;Applicable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt; Cielo30, Rede2 or PagSeguro.&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes for facilitators&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.CompanyName&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s Company Name.&lt;/td&gt;
+      &lt;td&gt;text*&lt;/td&gt;
+      &lt;td&gt;60&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Only for PagSeguro&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.AddressNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s address number.&lt;/td&gt;
+      &lt;td&gt;text*&lt;/td&gt;
+      &lt;td&gt;60&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Only for PagSeguro&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.District&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Sub-merchant’s neighborhood.&lt;/td&gt;
+      &lt;td&gt;text*&lt;/td&gt;
+      &lt;td&gt;60&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Only for PagSeguro&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;

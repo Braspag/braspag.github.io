@@ -875,59 +875,80 @@ Each request operation will return an <a href="https://braspag.github.io//en/man
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Mcc</code></td>
-      <td>Sub-merchant’s MCC.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s MCC.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30, Rede2 or PagSeguro.</strong></td>
       <td>Number</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Address</code></td>
-      <td>Sub-merchant’s address.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s address.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30, Rede2 or PagSeguro.</strong></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.City</code></td>
-      <td>Sub-merchant’s city.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s city.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30, Rede2 or PagSeguro.</strong></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.State</code></td>
-      <td>Sub-merchant’s state.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s state.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30, Rede2 or PagSeguro.</strong></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PostalCode</code></td>
-      <td>Sub-merchant’s postal code.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s postal code.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30, Rede2 or PagSeguro.</strong></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.PhoneNumber</code></td>
-      <td>Sub-merchant’s telephone number.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s telephone number.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30, Rede2 or PagSeguro.</strong></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.Identity</code></td>
-      <td>Sub-merchant’s CNPJ or CPF.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s CNPJ or CPF.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30, Rede2 or PagSeguro.</strong></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes for facilitators</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.CountryCode</code></td>
-      <td>Sub-merchant’s country code based on ISO 3166.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30 or Rede2.</strong></td>
+      <td>Sub-merchant’s country code based on ISO 3166.<br /><strong>Applicable to <code class="language-plaintext highlighter-rouge">Provider</code> Cielo30, Rede2 or PagSeguro.</strong></td>
       <td>Text</td>
       <td>15</td>
       <td>Yes for facilitators</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.CompanyName</code></td>
+      <td>Sub-merchant’s Company Name.</td>
+      <td>text*</td>
+      <td>60</td>
+      <td><strong>Only for PagSeguro</strong></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.AddressNumber</code></td>
+      <td>Sub-merchant’s address number.</td>
+      <td>text*</td>
+      <td>60</td>
+      <td><strong>Only for PagSeguro</strong></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.District</code></td>
+      <td>Sub-merchant’s neighborhood.</td>
+      <td>text*</td>
+      <td>60</td>
+      <td><strong>Only for PagSeguro</strong></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
