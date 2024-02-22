@@ -1778,9 +1778,11 @@ Segue um exemplo de confirmação da transação com a moeda escolhida pelo comp
 
 Todos os clientes de E-Commerce que são **Facilitadores de Pagamento**, por **obrigatoriedade das bandeiras e do Banco Central** devem enviar campos específicos na **mensageria transacional**. A Braspag transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.
 
-Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além dos campos deste nó, os facilitadores também precisam enviar obrigatoriamente o campo `SoftDescriptor` do nó `Payment`. Veja a seguir o exemplo do envio e da resposta.
+Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além dos campos deste nó, os facilitadores também precisam enviar obrigatoriamente o campo `SoftDescriptor` do nó `Payment`. Veja a seguir o exemplo de requisição e resposta.
 
 > **Atenção:** As bandeiras, ao identificarem inconformidade devido ao não envio dos dados obrigatórios na mensageria transacional, aplicarão multas ao Facilitador responsável pelo envio dos dados transacionais.
+
+> Não use acentos pois eles são considerados como dois caracteres.
 
 #### Requisição
 
@@ -1945,16 +1947,19 @@ Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|----|-------|-----------|---------|
-`Payment.PaymentFacilitator.EstablishmentCode`|Código do estabelecimento do facilitador. “Facilitator ID” (cadastro do facilitador com as bandeiras).<br><br>**Aplicável para Cielo30 e Rede2.**|texto*|11|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (cadastro do subcredenciado com o facilitador).<br><br>**Aplicável para Cielo30 e Rede2.**|texto*|15|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|MCC do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|texto*|4|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.Address`|Endereço do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|texto*|22|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.City`|Cidade do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|texto*|13|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.State`|Estado do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|texto*|2|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Código postal do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|texto*|9|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Número de telefone do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|texto*|13|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.Identity`|CNPJ ou CPF do sub-merchant.<br><br>**Aplicável para Cielo30 e Rede2.**|texto*|14|Sim para facilitadores|
-|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Código do país do sub-merchant com base no ISO 3166.<br><br>**Aplicável para Cielo30 e Rede2.**|texto*|3|Sim para facilitadores|
+`Payment.PaymentFacilitator.EstablishmentCode`|Código do estabelecimento do facilitador. “Facilitator ID” (cadastro do facilitador com as bandeiras).<br><br>**Aplicável para Cielo30, Rede2 e PagSeguro.**|texto*|11|Sim para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Código do estabelecimento do sub-merchant. “Sub-Merchant ID” (cadastro do subcredenciado com o facilitador).<br><br>**Aplicável para Cielo30, Rede2 e PagSeguro.**|texto*|15|Sim, para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|MCC do sub-merchant.<br><br>**Aplicável para Cielo30, Rede2 e PagSeguro.**|texto*|4|Sim, para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.Address`|Endereço do sub-merchant.<br><br>**Aplicável para Cielo30, Rede2 e PagSeguro.**|texto*|22|Sim, para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.City`|Cidade do sub-merchant.<br><br>**Aplicável para Cielo30, Rede2 e PagSeguro.**|texto*|13|Sim, para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.State`|Estado do sub-merchant.<br><br>**Aplicável para Cielo30, Rede2 e PagSeguro.**|texto*|2|Sim, para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Código postal do sub-merchant.<br><br>**Aplicável para Cielo30, Rede2 e PagSeguro.**|texto*|9|Sim, para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Número de telefone do sub-merchant.<br><br>**Aplicável para Cielo30, Rede2 e PagSeguro.**|texto*|13|Sim, para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.Identity`|CNPJ ou CPF do sub-merchant.<br><br>**Aplicável para Cielo30, Rede2 e PagSeguro.**|texto*|14|Sim, para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Código do país do sub-merchant com base no ISO 3166.<br><br>**Aplicável para Cielo30, Rede2 e PagSeguro.**|texto*|3|Sim, para facilitadores|
+|`Payment.PaymentFacilitator.SubEstablishment.CompanyName` |Razão Social do sub-merchant.|texto*|60| **Somente para PagSeguro**|
+|`Payment.PaymentFacilitator.SubEstablishment.AddressNumber`| Número do endereço do sub-merchant.|texto*|60| **Somente para PagSeguro**|
+|`Payment.PaymentFacilitator.SubEstablishment.District` |Bairro do sub-merchant.|texto*|60| **Somente para PagSeguro**|
 
 **Evite usar acentos pois eles são considerados como dois caracteres.*
 
