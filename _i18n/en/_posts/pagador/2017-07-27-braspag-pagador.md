@@ -353,14 +353,17 @@ Here are request and response examples on how to create a credit transaction:
 |`Payment.Credentials.Signature`|Submission of the *TerminalID* for Global Payments (applicable to merchants affiliated with this acquirer). E.g.: "001". For **Safra**, send establishment name, city and state concatenated with a semicolon (;), e.g.: “EstablishmentName;SaoPaulo;SP”.|Text|3|No|
 |`Payment.PaymentFacilitator.EstablishmentCode`|Facilitator establishment code. “Facilitator ID” (Facilitator register with card network).<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|11|Yes for facilitators|
 |`Payment.PaymentFacilitator.SubEstablishment.EstablishmentCode`|Sub-merchant's establishment code. “Sub-Merchant ID” (Sub-accredited register with facilitator).<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|Sub-merchant's MCC.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Number|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.Address`|Sub-merchant's address.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.City`|Sub-merchant's city.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.State`|Sub-merchant's state.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Sub-merchant's postal code.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Sub-merchant's telephone number.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.Identity`|Sub-merchant's CNPJ or CPF.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
-|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Sub-merchant's country code based on ISO 3166.<br><br>**Applicable to `Provider` Cielo30 or Rede2.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.Mcc`|Sub-merchant's MCC.<br><br>**Applicable to `Provider` Cielo30, Rede2 or PagSeguro.**|Number|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.Address`|Sub-merchant's address.<br><br>**Applicable to `Provider` Cielo30, Rede2 or PagSeguro.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.City`|Sub-merchant's city.<br><br>**Applicable to `Provider` Cielo30, Rede2 or PagSeguro.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.State`|Sub-merchant's state.<br><br>**Applicable to `Provider` Cielo30, Rede2 or PagSeguro.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.PostalCode`|Sub-merchant's postal code.<br><br>**Applicable to `Provider` Cielo30, Rede2 or PagSeguro.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.PhoneNumber`|Sub-merchant's telephone number.<br><br>**Applicable to `Provider` Cielo30, Rede2 or PagSeguro.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.Identity`|Sub-merchant's CNPJ or CPF.<br><br>**Applicable to `Provider` Cielo30, Rede2 or PagSeguro.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.CountryCode`|Sub-merchant's country code based on ISO 3166.<br><br>**Applicable to `Provider` Cielo30, Rede2 or PagSeguro.**|Text|15|Yes for facilitators|
+|`Payment.PaymentFacilitator.SubEstablishment.CompanyName` |Sub-merchant's Company Name.|text*|60| **Only for PagSeguro**|
+|`Payment.PaymentFacilitator.SubEstablishment.AddressNumber`| Sub-merchant's address number.|text*|60| **Only for PagSeguro**|
+|`Payment.PaymentFacilitator.SubEstablishment.District` | Sub-merchant's neighborhood.|text*|60| **Only for PagSeguro**|
 |`Payment.CreditCard.CardNumber`|Customer's card number.|Text|19|Yes|
 |`Payment.CreditCard.Holder`|Name of cardholder printed on the card.|Text|25|Yes|
 |`Payment.CreditCard.ExpirationDate`|Expiration date printed on the card.|Text|7|Yes|
