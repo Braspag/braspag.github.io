@@ -1781,7 +1781,7 @@ Todos os clientes de E-Commerce que são **Facilitadores de Pagamento**, por **o
 Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além dos campos deste nó, os facilitadores também precisam enviar obrigatoriamente o campo `SoftDescriptor` do nó `Payment`. Veja a seguir o exemplo de requisição e resposta.
 
 > **Atenção:** As bandeiras, ao identificarem inconformidade devido ao não envio dos dados obrigatórios na mensageria transacional, aplicarão multas ao Facilitador responsável pelo envio dos dados transacionais.
-
+<br>
 > Não use acentos pois eles são considerados como dois caracteres.
 
 #### Requisição
