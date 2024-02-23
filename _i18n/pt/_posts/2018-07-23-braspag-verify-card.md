@@ -102,6 +102,8 @@ Para consultar um cartão, envie uma requisição utilizando o verbo HTTP POST p
 
 Na requisição ao VerifyCard, você enviará o `Provider` junto com os dados do cartão (número ou cartão tokenizado).
 
+> Nas transações em ambiente sandbox, use o provider Simulado.
+
 Na resposta, a verificação do ZeroAuth será exibida nas propriedades `Status`, `ProviderReturnCode` e `ProviderReturnMessage`. O retorno da Consulta BIN estará nas propriedades do nó `BinData`.
 
 # VerifyCard pelo número do cartão
