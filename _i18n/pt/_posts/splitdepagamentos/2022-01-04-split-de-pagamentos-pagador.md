@@ -4565,11 +4565,13 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 |`CreditCard.ExpirationDate`|Data de validade impressa no cartão.|Texto |7 |Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto |4 |Sim|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-|`Credentials.Code`|Afiliação gerada pela adquirente.|Texto|100|Sim|
-|`Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|Texto|100|Sim|
-|`Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
-|`Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Não|
-|`Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP.|Texto|--|Não|
+|`Credentials.Code`|Afiliação gerada pela adquirente.|Texto|100|Condicional*|
+|`Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|Texto|100|Condicional*|
+|`Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Condicional*|
+|`Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|Texto|50|Condicional*|
+|`Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP.|Texto|--|Condicional*|
+
+**Obrigatório caso a afiliação não esteja pré configurada nos meios de pagamento do `MerchantID` utilizado. Em ambiente sandbox usando o provider Simulado, não é necessário enviar o nó `Credentials`.
 
 #### Resposta
 
