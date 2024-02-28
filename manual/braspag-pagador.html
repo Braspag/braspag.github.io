@@ -7220,38 +7220,40 @@ Atualmente, suportamos os providers <em>Alelo</em> e <em>Ticket</em> nessa modal
       <td>Afiliação gerada pela adquirente.</td>
       <td>texto</td>
       <td>100</td>
-      <td>Sim</td>
+      <td>Condicional*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Credentials.Key</code></td>
       <td>Chave de afiliação/token gerado pela adquirente.</td>
       <td>texto</td>
       <td>100</td>
-      <td>Sim</td>
+      <td>Condicional*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Credentials.Username</code></td>
       <td>Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).</td>
       <td>texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Condicional*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Credentials.Password</code></td>
       <td>Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).</td>
       <td>texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Condicional*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Credentials.Signature</code></td>
       <td>Enviar o <em>TerminalID</em> da adquirente <strong>Global Payments</strong> Ex.: 001. Para <strong>Safra</strong>, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula “;”. Ex.: NomedaLoja;São Paulo;SP.</td>
       <td>texto</td>
       <td>–</td>
-      <td>Não</td>
+      <td>Condicional*</td>
     </tr>
   </tbody>
 </table>
+
+<p>**Obrigatório caso não estejam pré configurados nos meios de pagamento do MerchantID utilizado.</p>
 
 <h4 id="resposta-23">Resposta</h4>
 
