@@ -7228,38 +7228,40 @@ pré-configuração. A pré-configuração só será utilizada caso nenhum valor
       <td>Afiliação gerada pela adquirente.</td>
       <td>Texto</td>
       <td>100</td>
-      <td>Sim</td>
+      <td>Condicional*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Credentials.Key</code></td>
       <td>Chave de afiliação/token gerado pela adquirente.</td>
       <td>Texto</td>
       <td>100</td>
-      <td>Sim</td>
+      <td>Condicional*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Credentials.Username</code></td>
       <td>Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Condicional*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Credentials.Password</code></td>
       <td>Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Condicional*</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Credentials.Signature</code></td>
       <td>Enviar o <em>TerminalID</em> da adquirente <strong>Global Payments</strong> Ex.: 001. Para <strong>Safra</strong>, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula “;”. Ex.: NomedaLoja;São Paulo;SP.</td>
       <td>Texto</td>
       <td>–</td>
-      <td>Não</td>
+      <td>Condicional*</td>
     </tr>
   </tbody>
 </table>
+
+<p>**Obrigatório caso a afiliação não esteja pré configurada nos meios de pagamento do <code class="language-plaintext highlighter-rouge">MerchantID</code> utilizado. Em ambiente sandbox usando o provider Simulado, não é necessário enviar o nó <code class="language-plaintext highlighter-rouge">Credentials</code>.</p>
 
 <h4 id="resposta-29">Resposta</h4>
 
