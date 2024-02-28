@@ -4014,11 +4014,13 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 |`CreditCard.ExpirationDate`|Data de validade impressa no cartão.|texto |7 |Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|texto |4 |Sim|
 |`CreditCard.Brand`|Bandeira do cartão.|texto|10|Sim|
-|`Credentials.Code`|Afiliação gerada pela adquirente.|texto|100|Sim|
-|`Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|texto|100|Sim|
-|`Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|texto|50|Não|
-|`Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|texto|50|Não|
-|`Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP.|texto|--|Não|
+|`Credentials.Code`|Afiliação gerada pela adquirente.|texto|100|Condicional*|
+|`Credentials.Key`|Chave de afiliação/token gerado pela adquirente.|texto|100|Condicional*|
+|`Credentials.Username`|Usuário gerado no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|texto|50|Condicional*|
+|`Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|texto|50|Condicional*|
+|`Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP.|texto|--|Condicional*|
+
+**Obrigatório caso não estejam pré configurados nos meios de pagamento do MerchantID utilizado.
 
 #### Resposta
 
