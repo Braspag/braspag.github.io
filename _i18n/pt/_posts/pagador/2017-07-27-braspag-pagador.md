@@ -4020,7 +4020,7 @@ Durante o ciclo de vida de uma recorrência, é possível alterar:
 |`Credentials.Password`|Senha gerada no credenciamento com a adquirente (provedores como Rede e Getnet utilizam usuário e senha nas comunicações, logo o campo deve obrigatoriamente ser enviado).|texto|50|Condicional*|
 |`Credentials.Signature`|Enviar o *TerminalID* da adquirente **Global Payments** Ex.: 001. Para **Safra**, colocar nome do estabelecimento, cidade e estado concatenados com ponto-e-vírgula ";". Ex.: NomedaLoja;São Paulo;SP.|texto|--|Condicional*|
 
-**Obrigatório caso não estejam pré configurados nos meios de pagamento do MerchantID utilizado.
+**Obrigatório caso não estejam pré configurados nos meios de pagamento do `MerchantID` utilizado. Em ambiente sandbox usando o provider Simulado, não é necessário enviar o nó `Credentials`.
 
 #### Resposta
 
